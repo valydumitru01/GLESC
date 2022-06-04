@@ -1,0 +1,4 @@
+make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --question
+"make.exe" no se reconoce como un comando interno o externo,
+programa o archivo por lotes ejecutable.
+
