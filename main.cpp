@@ -1,8 +1,9 @@
 #include "common.h"
+#define SDL_MAIN_NEEDED
 
 bool isRunning = true;
 
-int main(int argc, char* argv[])
+int SDL_main(int argc, char *argv[])
 {
     //Error Checking/Initialisation
     if (SDL_Init(SDL_INIT_NOPARACHUTE & SDL_INIT_EVERYTHING) != 0) {
