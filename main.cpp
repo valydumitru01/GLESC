@@ -1,4 +1,5 @@
 #include "common.h"
+#define SDL_MAIN_NEEDED
 
 bool isRunning = true;
 
