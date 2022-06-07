@@ -1,6 +1,3 @@
-# create the game executable
-
-#g++ -I ./src/include -L ./src/lib -o ./Builds/Win_Build/engine main.cpp -lmingw32 -lSDL2main -lSDL2  -lmingw32 -lopengl32 -lglew32 -lglu32 -lSDL2main -lSDL2 -lSDL2_image --verbose
 
 # the compiler: gcc for C program, define as g++ for C++
 CC	:= g++
@@ -10,23 +7,29 @@ CC	:= g++
   #  -Wall turns on most, but not all, compiler warnings
 CFLAGS:= -g -Wall
 
-BIN     := ./bin
-SRC     := ./src
-INCLUDE := ./include
-LIB     := ./lib
+BIN     := bin
+SRC     := src
+INCLUDE := include
+LIB     := lib
+# libraries to link to the project
 LIBRARIES   := -lmingw32 -lSDL2main -lSDL2  -lmingw32 -lopengl32 -lglew32 -lglu32 -lSDL2main -lSDL2 -lSDL2_image
 # the build target executable
-EXECUTABLE  := ./bin/engine
+EXECUTABLE  := game
 
 
-all: executable
+all: build
 
-executable:
-	$(CXX) $(CXX_FLAGS) -I $(INCLUDE) -L $(LIB) -o $(EXECUTABLE) $(SRC)/*.cpp $(LIBRARIES)
+# Builds the executable game
+build:
+	@echo "Building..."
+	$(CC) $(CFLAGS) -I $(INCLUDE) -L $(LIB) -o $(BIN)/$(EXECUTABLE) $(SRC)/*.cpp $(LIBRARIES)
 
+# Run the game
+run: clean all
+	@echo "Executing..."
+	$(BIN)/$(EXECUTABLE)
 
-run: 
-	./$(EXECUTABLE)
-
+# Remove the executable
 clean:
-	$(RM) $(EXECUTABLE)
+	@echo "Clearing..."
+	del bin\$(EXECUTABLE).exe
