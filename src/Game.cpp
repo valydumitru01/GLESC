@@ -19,7 +19,7 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
         std::cout << "Subsystem initialized..." << std::endl;
 
         window = SDL_CreateWindow(title, xpos, ypos, width, height, flags);
-
+        
         if(window){//window=0, means is being created
             std::cout << "Window created" << std::endl;
         }
