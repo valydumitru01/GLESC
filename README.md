@@ -26,7 +26,7 @@ Pets are little friends (primarily monsters) you find around the world. These pe
 ### Battle
 Battles are turn based with tactical positioning. It includes mechanics such as AOE abilities, ground advantage, use of environment (push boulder) between others.  
 
-![](/images/Prototype_Battle_1.png)
+![](/doc/images/Prototype_Battle_1.png)
 
 ## 32 Bits project
 This game uses 32 bits, which means we can only use 4 GB of ram (even less due to some operating system space). This is not a big restriction for us hence the game will be simple and 2D. This will be a first touch with game development for most of the integrants of our team, and it should be ok. We must learn how to avoid memory leaks and to occupy too much memory. This will be a learning experience for all of us. 
