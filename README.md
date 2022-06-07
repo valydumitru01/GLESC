@@ -12,20 +12,43 @@
     7. [Bullet](#bullet)
 3. [Documentation](#documentation)
 # Introduction <a name="introduction"></a>
+## What is this game about?
+This game will be a 2D turn based game with a lot of familiar/minion/companion functionalities. Such as being able to gather a team to fight on your side and owning pets. 
+
+### Main character
+The basic idea is that a main character goes around finding team members and convincing them to join him/her. The main character should be strong compared to the other team members, but not necessarily the strongest, that could change depending on the build you try. 
+
+### Team members
+The team members are monsters (or people) you find around the world. You have to gather them to make your team stronger, althogh you can only use a limited amount of them at once in a battle. 
+
+### Pets
+Pets are little friends (primarily monsters) you find around the world. These pets can be obtained fighting enemies, dropping them as if they were their "children". They can also be found around the world, like fairies or monkeys. They dont (usually) attack but only give buffs and bonuses to the character they follow. Each team member can have their own pet.
+### Battle
+Battles are turn based with tactical positioning. It includes mechanics such as AOE abilities, ground advantage, use of environment (push boulder) between others.  
+
+![](/images/Prototype_Battle_1.png)
+
 ## 32 Bits project
 This game uses 32 bits, which means we can only use 4 GB of ram (even less due to some operating system space). This is not a big restriction for us hence the game will be simple and 2D. This will be a first touch with game development for most of the integrants of our team, and it should be ok. We must learn how to avoid memory leaks and to occupy too much memory. This will be a learning experience for all of us. 
 ## Relationship between SDL2 and OpenGL
 Explaination why are SDL and OpenGL related, so we can understand better what we are doing.
+
 [Why is SDL and OpenGL related?](https://stackoverflow.com/questions/5769031/why-are-sdl-and-opengl-related)
+
+## Examples of other games on Github
+[Games in Github](https://github.com/leereilly/gameshttps://github.com/leereilly/games)
+
+## Original structure from where the project started (Github)
+[Original Project](https://github.com/kbrawley95/VSCode-OpenGL-Game-Engine)
 
 
 # Required Tools <a name="tools"></a>
 
-1. [Git/Github](https://desktop.github.com/)
+1. [Git](https://git-scm.com/) / [Github](https://desktop.github.com/)
 2.  (Optional) [Visual Studio Code](https://code.visualstudio.com/)
 3. (Optional) [Vmware Player Virtual Machine](https://www.vmware.com/products/player/playerpro-evaluation.html) for testing your code on different operating systems.
 
-https://github.com/kbrawley95/VSCode-OpenGL-Game-Engine
+
 # Application Dependencies <a name="dependencies"></a>
 
 ## 1. MinGW/GNU Compiler Collection (GCC) <a name="gcc"></a>
@@ -52,7 +75,7 @@ ___
 SDL manages video, audio, input devices, CD-ROM, threads, shared object loading, networking and timers.[5] For 3D graphics
 
 [Download here](http://libsdl.org/download-2.0.php)
->_**IMPORTANT:** MUST SELECT x86_64 (which is 32 bits) **NOT** i686 (which is 64 bits)_
+>_**IMPORTANT:** MUST SELECT 32 Bits VERSION **NOT** 64 Bits_
 ___
 ## 3. OPENGL <a name ="opengl"></a>
 
