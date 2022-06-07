@@ -1,11 +1,26 @@
 #include "common.h"
+#include "Game.h"
 
-bool isRunning = true;
+Game *game = nullptr;
 
 int SDL_main(int argc, char *argv[])
 {
+    game = new Game();
+
+    game->init("Game", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 600, false);
+
+    while(game->running()){
+
+        game->handleEvents();
+        game->update();
+        game->render();
+    }
+
+    game->clean();
+    return 0;
+
     //Error Checking/Initialisation
-    if (SDL_Init(SDL_INIT_NOPARACHUTE & SDL_INIT_EVERYTHING) != 0) {
+    /*if (SDL_Init(SDL_INIT_NOPARACHUTE & SDL_INIT_EVERYTHING) != 0) {
         SDL_Log("Unable to initialize SDL: %s\n", SDL_GetError());
         return -1;
     }
@@ -52,5 +67,5 @@ int SDL_main(int argc, char *argv[])
     SDL_Quit();
 
 
-    return 0;
+    return 0;*/
 }

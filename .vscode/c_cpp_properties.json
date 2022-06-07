@@ -50,7 +50,7 @@
             "name": "Win32",
             "includePath": [
                 "${workspaceRoot}",
-                "${workspaceRoot}/src/include"
+                "${workspaceRoot}/include"
             ],
             "defines": [
                 "_DEBUG",
