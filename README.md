@@ -31,7 +31,7 @@ Battles are turn based with tactical positioning. It includes mechanics such as 
 ## 32 Bits project
 This game uses 32 bits, which means we can only use 4 GB of ram (even less due to some operating system space). This is not a big restriction for us hence the game will be simple and 2D. This will be a first touch with game development for most of the integrants of our team, and it should be ok. We must learn how to avoid memory leaks and to occupy too much memory. This will be a learning experience for all of us. 
 ## Relationship between SDL2 and OpenGL
-Explaination why are SDL and OpenGL related, so we can understand better what we are doing.
+Explanation why are SDL and OpenGL related, so we can understand better what we are doing.
 
 [Why is SDL and OpenGL related?](https://stackoverflow.com/questions/5769031/why-are-sdl-and-opengl-related)
 
