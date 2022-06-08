@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Jun  9 01:06:21 2022
+# Make data base, printed on Thu Jun  9 01:35:59 2022
 
 # Variables
 
@@ -15,6 +15,7 @@ GDK_BACKEND = x11
 # environment
 LC_ALL = C
 # makefile (from 'Makefile', line 29)
+ 
 SRC := src
 # environment
 GNOME_SHELL_SESSION_MODE = ubuntu
@@ -25,7 +26,7 @@ SNAP_INSTANCE_KEY =
 # environment
 GJS_DEBUG_OUTPUT = stderr
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-a0563f67-ff63-4ec6-9995-2702e50d0689.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-65fb63b5-c8bb-4420-ae40-bdd50b218b91.sock
 # environment
 LC_NAME = es_ES.UTF-8
 # environment
@@ -111,7 +112,7 @@ SNAP_REEXEC =
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 84713
+VSCODE_PID = 88493
 # environment
 XDG_SESSION_TYPE = wayland
 # automatic
@@ -235,7 +236,7 @@ EXECUTABLE := game
 # environment
 LC_MEASUREMENT = es_ES.UTF-8
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 84667
+GIO_LAUNCHED_DESKTOP_FILE_PID = 88444
 # environment
 _ = /snap/code/97/usr/share/code/code
 # environment
@@ -281,7 +282,6 @@ SUFFIXES :=
 # environment
 VSCODE_CLI = 1
 # environment
- 
 ELECTRON_NO_ATTACH_CONSOLE = 1
 # environment
 SNAP_COMMON = /var/snap/code/common
@@ -323,7 +323,7 @@ SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-09 01:05:44.521530312
+#  Last modified 2022-06-09 01:26:47.283363872
 #  File has been updated.
 #  Successfully updated.
 
@@ -383,6 +383,7 @@ build:
 # variable set hash-table stats:
 # Load=8/32=25%, Rehash=0, Collisions=6/19=32%
 #  recipe to execute (from 'Makefile', line 42):
+ 
 	@echo "Building..."
 	$(CC) $(CFLAGS) -I $(INCLUDE) -L $(LIB) -o $(BIN)/$(EXECUTABLE) $(SRC)/*.cpp $(LIBRARIES) 
 
@@ -406,6 +407,6 @@ build:
 # strcache performance: lookups = 33 / hit rate = 39%
 # hash-table stats:
 # Load=20/8192=0%, Rehash=0, Collisions=0/33=0%
-# Finished Make data base on Thu Jun  9 01:06:21 2022
+# Finished Make data base on Thu Jun  9 01:35:59 2022
 
  
