@@ -1,35 +1,26 @@
 #include "MyPath.h"
 using namespace MyPath;
 
-
 #ifdef __LINUX__
     std::string MyPath::getExecutablePath() {
-    char rawPathName[PATH_MAX];
-    realpath(PROC_SELF_EXE, rawPathName);
-    return  std::string(rawPathName);
+    
+    return "../bin/game.exe";
     }
 
     std::string MyPath::getExecutableDir() {
-        std::string executablePath = getExecutablePath();
-        char *executablePathStr = new char[executablePath.length() + 1];
-        strcpy(executablePathStr, executablePath.c_str());
-        char* executableDir = dirname(executablePathStr);
-        delete [] executablePathStr;
-        return std::string(executableDir);
+        return "../bin/game.exe";
     }
 
-    std::string MyPath::getImagesDir(str::string str){
-        std::string directory = getExecutableDir();
-        directory.replace(directory.find("bin/game.exe"), 12, "assets/"+str);
-        return directory;
+    std::string MyPath::getImageDir(std::string str){
+        return "/home/valentin/Desktop/GameProjectTest/assets/"+str;
     }
 
 
 #elif __WINDOWS__
     std::string MyPath::getExecutablePath() {
-    char rawPathName[MAX_PATH];
-    GetModuleFileNameA(NULL, rawPathName, MAX_PATH);
-    return std::string(rawPathName);
+        char rawPathName[MAX_PATH];
+        GetModuleFileNameA(NULL, rawPathName, MAX_PATH);
+        return std::string(rawPathName);
     }
 
     std::string MyPath::getExecutableDir() {
@@ -52,10 +43,13 @@ using namespace MyPath;
 
 #endif
 
-
-
-char* MyPath::getCharFromStdString(std::string str){
-    return const_cast<char*>(str.c_str());
-}
-
+#ifdef __LINUX__
+    char* MyPath::getCharFromStdString(std::string str){
+        return "/home/valentin/Desktop/GameProjectTest/assets/";
+    }
+#elif __WINDOWS__
+    char* MyPath::getCharFromStdString(std::string str){
+        return const_cast<char*>(str.c_str());
+    }
+#endif
 

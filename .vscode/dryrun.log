@@ -1,4 +1,6 @@
-make.exe --dry-run --always-make --keep-going --print-directory
-"make.exe" no se reconoce como un comando interno o externo,
-programa o archivo por lotes ejecutable.
-
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/valentin/Desktop/GameProjectTest'
+echo "Building..."
+x86_64-w64-mingw32-g++ -g -Wall -I include -L lib -D __LINUX__ -o bin/game src/*.cpp -lmingw32 -lSDL2main -lSDL2  -lmingw32 -lopengl32 -lglew32 -lglu32 -lSDL2main -lSDL2 -lSDL2_image 
+make: Leaving directory '/home/valentin/Desktop/GameProjectTest'
+ 
