@@ -12,8 +12,9 @@
     7. [Bullet](#bullet)
 3. [Documentation](#documentation)
 # Introduction <a name="introduction"></a>
+![](/doc/images/Game_Prototype_1.png)
 ## What is this game about?
-This game will be a 2D turn based game with a lot of familiar/minion/companion functionalities. Such as being able to gather a team to fight on your side and owning pets. 
+This game will be an isometric 2D turn based game with a lot of familiar/minion/companion functionalities. Such as being able to gather a team to fight on your side and owning pets. 
 
 ### Main character
 The basic idea is that a main character goes around finding team members and convincing them to join him/her. The main character should be strong compared to the other team members, but not necessarily the strongest, that could change depending on the build you try. 
