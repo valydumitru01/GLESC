@@ -1,5 +1,4 @@
-
-./.vscode/c_cpp_properties.json
-./.vscode/configurationCache.log
-./.vscode/targets.log
-./.vscode/dryrun.log
+.c_cpp_properties.json
+.configurationCache.log
+.dryrun.log
+.targets.json
