@@ -5,7 +5,7 @@ ifeq ($(OS),Windows_NT)
 	# The windows command for delete
 	DEL := del
 	# The windows slash for directory
-	SLASH := '\'
+	SLASH := "\"
 	# Indicating that we dont need wine, unlike in linux
 	WINE := 
 else
