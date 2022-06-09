@@ -40,9 +40,7 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
     }
 
     std::string str = "example.png";
-    std::string img_dir=MyPath::getImageDir(str);
-    std::cout << img_dir << std::endl;
-    char* path = MyPath::getCharFromStdString(img_dir);
+    char* path = MyPath::getImageDir(str);
     
     SDL_Surface* tmpSurface = IMG_Load(path);
     std::cout << path << std::endl;
