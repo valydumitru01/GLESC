@@ -43,11 +43,13 @@ build:
 	$(CC) $(CFLAGS) -I $(INCLUDE) -L $(LIB) -o $(BIN)/$(EXECUTABLE) $(SRC)/*.cpp $(LIBRARIES) 
 
 # Run the game
-run: clean all
+run:
 	@echo "Executing..."
 	$(WINE) $(BIN)/$(EXECUTABLE)
-
-
+# Build then run the game
+build-and-run: lean all
+	@echo "Executing..."
+	$(WINE) $(BIN)/$(EXECUTABLE)
 # Remove the executable
 clean:
 	@echo "Clearing..."
