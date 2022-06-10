@@ -51,7 +51,7 @@ int SDL_main(int argc, char *argv[])
             SDL_Delay(FPS_MS - elapsed); //Cap the FPS, wait until we get to minimum frame time
         end = SDL_GetPerformanceCounter(); //Time of the end of the loop
         
-        elapsed = (end - start) / (double)SDL_GetPerformanceFrequency(); //Calculate elapsed: time of the start of the iteration - time of the end of the iteration
+        elapsed = (end - start) / (double)SDL_GetPerformanceFrequency(); //Calculate elapsed:  time of the end of the iteration - time of the start of the iteration
         
         cout << "Current FPS: " << to_string(1.0f / elapsed) << endl;
 
