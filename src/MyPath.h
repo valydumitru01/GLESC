@@ -4,7 +4,9 @@
     #define access _access_s
 #endif
 
-
+#ifdef __LINUX__
+  #include <cstring>
+#endif
 #include <string>
 
 namespace MyPath {

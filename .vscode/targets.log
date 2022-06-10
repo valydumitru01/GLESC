@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Fri Jun 10 00:28:45 2022
+# Make data base, printed on Fri Jun 10 15:13:17 2022
 
 # Variables
 
@@ -25,7 +25,7 @@ SNAP_INSTANCE_KEY =
 # environment
 GJS_DEBUG_OUTPUT = stderr
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-197adbec-34d7-4b1e-96fc-941b6ab03ee1.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-1e57d5b9-c2ea-4532-a3c8-78bc729d69b4.sock
 # environment
 LC_NAME = es_ES.UTF-8
 # environment
@@ -45,7 +45,7 @@ SLASH := '/'
 # environment
 SNAP_INSTANCE_NAME = code
 # environment
-GDK_PIXBUF_MODULEDIR = /snap/code/97/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
+GDK_PIXBUF_MODULEDIR = /snap/code/98/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # default
@@ -65,11 +65,11 @@ VSCODE_LOG_STACK = false
 # automatic
 %F = $(notdir $%)
 # environment
-VSCODE_CODE_CACHE_PATH = /home/valentin/.config/Code/CachedData/c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5
+VSCODE_CODE_CACHE_PATH = /home/valentin/.config/Code/CachedData/4af164ea3a06f701fe3e89a2bcbb421d2026b68f
 # environment
 LANG = C
 # environment
-XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.3PEQN1
+XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.295FN1
 # default
 .LOADED := 
 # default
@@ -113,7 +113,7 @@ SNAP_REEXEC =
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 35154
+VSCODE_PID = 24705
 # environment
 XDG_SESSION_TYPE = wayland
 # automatic
@@ -121,7 +121,7 @@ XDG_SESSION_TYPE = wayland
 # environment
 BAMF_DESKTOP_FILE_HINT = /var/lib/snapd/desktop/applications/code_code.desktop
 # environment
-SESSION_MANAGER = local/Valentin-LAPTOP:@/tmp/.ICE-unix/1918,unix/Valentin-LAPTOP:/tmp/.ICE-unix/1918
+SESSION_MANAGER = local/Valentin-LAPTOP:@/tmp/.ICE-unix/1909,unix/Valentin-LAPTOP:/tmp/.ICE-unix/1909
 # automatic
 *F = $(notdir $*)
 # environment
@@ -173,11 +173,11 @@ SNAP_USER_COMMON = /home/valentin/snap/code/common
 # environment
 LC_TIME = es_ES.UTF-8
 # environment
-SNAP = /snap/code/97
+SNAP = /snap/code/98
 # environment
-INVOCATION_ID = a9f44e11664d4f4c9f93cd2478826061
+INVOCATION_ID = 0f13df1616c44ca1886105e2c24a115a
 # environment
-SNAP_REVISION = 97
+SNAP_REVISION = 98
 # environment
 SNAP_REAL_HOME = /home/valentin
 # environment
@@ -213,7 +213,7 @@ SNAP_ARCH = amd64
 # makefile
 .DEFAULT_GOAL := all
 # environment
-SYSTEMD_EXEC_PID = 1936
+SYSTEMD_EXEC_PID = 1927
 # environment
 DISPLAY = :0
 # environment
@@ -225,11 +225,11 @@ MAKE_VERSION := 4.3
 # environment
 DISABLE_WAYLAND = 1
 # environment
-SNAP_DATA = /var/snap/code/97
+SNAP_DATA = /var/snap/code/98
 # environment
 SNAP_CONTEXT = FMP8aZaxJObaXwf9R70LA0zQTxbw4RiHcAsVjqChgKm_66RVUOQx
 # environment
-MANAGERPID = 1337
+MANAGERPID = 1334
 # makefile (from 'Makefile', line 16)
 DEL := 
 # makefile (from 'Makefile', line 37)
@@ -237,9 +237,9 @@ EXECUTABLE := game
 # environment
 LC_MEASUREMENT = es_ES.UTF-8
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 35108
+GIO_LAUNCHED_DESKTOP_FILE_PID = 24658
 # environment
-_ = /snap/code/97/usr/share/code/code
+_ = /snap/code/98/usr/share/code/code
 # environment
 LC_PAPER = es_ES.UTF-8
 # makefile (from 'Makefile', line 30)
@@ -251,7 +251,7 @@ CFLAGS := -g -Wall
 # environment
 GDK_PIXBUF_MODULE_FILE = /home/valentin/snap/code/common/.cache/gdk-pixbuf-loaders.cache
 # environment
-JOURNAL_STREAM = 8:39224
+JOURNAL_STREAM = 8:32473
 # environment
 XDG_SESSION_CLASS = user
 # makefile (from 'Makefile', line 35)
@@ -265,11 +265,11 @@ QT_IM_MODULE = ibus
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-VSCODE_IPC_HOOK = /run/user/1000/vscode-60f83243-1.67.2-main.sock
+VSCODE_IPC_HOOK = /run/user/1000/vscode-60f83243-1.68.0-main.sock
 # environment
 SNAP_NAME = code
 # environment
-GSETTINGS_SCHEMA_DIR = /snap/code/97/usr/share/glib-2.0/schemas
+GSETTINGS_SCHEMA_DIR = /snap/code/98/usr/share/glib-2.0/schemas
 # environment
 IM_CONFIG_PHASE = 1
 # default
@@ -277,15 +277,15 @@ IM_CONFIG_PHASE = 1
 # automatic
 <F = $(notdir $<)
 # environment
-SNAP_VERSION = c3511e6c
+SNAP_VERSION = 4af164ea
 # default
 SUFFIXES := 
 # environment
+ 
 VSCODE_CLI = 1
 # environment
 ELECTRON_NO_ATTACH_CONSOLE = 1
 # environment
- 
 SNAP_COMMON = /var/snap/code/common
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink load
@@ -294,7 +294,7 @@ PHANTOMJS_ARCH = x64
 # makefile (from 'Makefile', line 14)
 CC := x86_64-w64-mingw32-g++
 # environment
-SNAP_USER_DATA = /home/valentin/snap/code/97
+SNAP_USER_DATA = /home/valentin/snap/code/98
 # environment
 XDG_MENU_PREFIX = gnome-
 # environment
@@ -325,7 +325,7 @@ SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-09 23:37:55.856758813
+#  Last modified 2022-06-10 14:21:53.847998154
 #  File has been updated.
 #  Successfully updated.
 
@@ -408,6 +408,6 @@ build:
 # strcache performance: lookups = 34 / hit rate = 38%
 # hash-table stats:
 # Load=21/8192=0%, Rehash=0, Collisions=0/34=0%
-# Finished Make data base on Fri Jun 10 00:28:46 2022
+# Finished Make data base on Fri Jun 10 15:13:17 2022
 
  

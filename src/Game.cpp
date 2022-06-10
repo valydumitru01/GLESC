@@ -71,7 +71,7 @@ void Game::update(){
     cnt++;
     destRectangle.h = 64;
     destRectangle.w = 64;
-    destRectangle.x = cnt/2;
+    destRectangle.x = cnt/20;
 }
 
 void Game::render(){
