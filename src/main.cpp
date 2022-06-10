@@ -5,21 +5,30 @@ Game *game = nullptr;
 
 int SDL_main(int argc, char *argv[])
 {
+    Uint64 start;
+    Uint64 end;
+    double elapsed=0;
     game = new Game();
-
     game->init("Game", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 600, false);
-
-    while(game->running()){
-
+    while (game->running())
+    {
+        start = SDL_GetPerformanceCounter();
+        //deltaTime = ((NOW - LAST)*1000 / (double)SDL_GetPerformanceFrequency() );
+        SDL_Delay(5);
         game->handleEvents();
-        game->update();
-        game->render();
+        game->update(elapsed);
+        game->render();   
+        end = SDL_GetPerformanceCounter();
+
+        elapsed = (end - start) / (double)SDL_GetPerformanceFrequency();
+        cout << "Current FPS: " << to_string(1.0f / elapsed) << endl;
+
     }
 
     game->clean();
     return 0;
 
-    //Error Checking/Initialisation
+    // Error Checking/Initialisation
     /*if (SDL_Init(SDL_INIT_NOPARACHUTE & SDL_INIT_EVERYTHING) != 0) {
         SDL_Log("Unable to initialize SDL: %s\n", SDL_GetError());
         return -1;

@@ -5,7 +5,7 @@
 #include "SDL2/SDL_image.h"
 #include <iostream>
 #include <windows.h>
-
+#include "common.h"
 
 class Game {
 
@@ -43,9 +43,9 @@ public:
 
     /**
      * @brief Update the screen updating the content
-     * 
+     * @param deltaTime Time between fps, so the movement speed remains constant
      */
-    void update();
+    void update(double deltaTime);
 
     /**
      * @brief Render the game content
