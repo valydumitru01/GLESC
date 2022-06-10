@@ -44,7 +44,8 @@
             },
             "compilerPath": "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.30.30705/bin/Hostx64/x64/cl.exe",
             "cStandard": "c17",
-            "cppStandard": "c++17"
+            "cppStandard": "c++17",
+            "configurationProvider": "ms-vscode.makefile-tools"
         },
         {
             "name": "Win32",
@@ -58,8 +59,7 @@
             ],
             "intelliSenseMode": "msvc-x64",
             "browse": {
-                "path": [
-                ],
+                "path": [],
                 "limitSymbolsToIncludedHeaders": true,
                 "databaseFilename": ""
             },

@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Fri Jun 10 15:13:17 2022
+# Make data base, printed on Fri Jun 10 16:48:45 2022
 
 # Variables
 
@@ -25,7 +25,7 @@ SNAP_INSTANCE_KEY =
 # environment
 GJS_DEBUG_OUTPUT = stderr
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-1e57d5b9-c2ea-4532-a3c8-78bc729d69b4.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-ebf3f7ba-bedc-45be-b73a-3e6473b91e58.sock
 # environment
 LC_NAME = es_ES.UTF-8
 # environment
@@ -113,7 +113,7 @@ SNAP_REEXEC =
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 24705
+VSCODE_PID = 40643
 # environment
 XDG_SESSION_TYPE = wayland
 # automatic
@@ -237,7 +237,7 @@ EXECUTABLE := game
 # environment
 LC_MEASUREMENT = es_ES.UTF-8
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 24658
+GIO_LAUNCHED_DESKTOP_FILE_PID = 40598
 # environment
 _ = /snap/code/98/usr/share/code/code
 # environment
@@ -281,11 +281,11 @@ SNAP_VERSION = 4af164ea
 # default
 SUFFIXES := 
 # environment
- 
 VSCODE_CLI = 1
 # environment
 ELECTRON_NO_ATTACH_CONSOLE = 1
 # environment
+ 
 SNAP_COMMON = /var/snap/code/common
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink load
@@ -325,7 +325,7 @@ SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-10 14:21:53.847998154
+#  Last modified 2022-06-10 16:22:11.077010219
 #  File has been updated.
 #  Successfully updated.
 
@@ -333,7 +333,7 @@ clean:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 55):
+#  recipe to execute (from 'Makefile', line 57):
 	@echo "Clearing..."
 	$(DEL) bin$(SLASH)$(EXECUTABLE).exe
 
@@ -352,7 +352,7 @@ all: build
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/12=0%
 
-run: clean all
+run:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -394,20 +394,28 @@ build:
 #  Modification time never checked.
 #  File has not been updated.
 
+build-and-run: clean all
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 53):
+	@echo "Executing..."
+	$(WINE) $(BIN)/$(EXECUTABLE)
+
 # files hash-table stats:
-# Load=7/1024=1%, Rehash=0, Collisions=0/24=0%
+# Load=8/1024=1%, Rehash=0, Collisions=0/25=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 21 / storage = 150 B / avg = 7 B
-# current buf: size = 8162 B / used = 150 B / count = 21 / avg = 7 B
+# strcache buffers: 1 (0) / strings = 22 / storage = 164 B / avg = 7 B
+# current buf: size = 8162 B / used = 164 B / count = 22 / avg = 7 B
 
-# strcache performance: lookups = 34 / hit rate = 38%
+# strcache performance: lookups = 36 / hit rate = 38%
 # hash-table stats:
-# Load=21/8192=0%, Rehash=0, Collisions=0/34=0%
-# Finished Make data base on Fri Jun 10 15:13:17 2022
+# Load=22/8192=0%, Rehash=0, Collisions=0/36=0%
+# Finished Make data base on Fri Jun 10 16:48:45 2022
 
  
