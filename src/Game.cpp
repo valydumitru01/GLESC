@@ -1,4 +1,8 @@
 #include "Game.h"
+#include "MyPath.h"
+
+SDL_Texture* playerText;
+SDL_Rect srcRectangle, destRectangle;
 
 Game::Game(){
 
@@ -35,6 +39,19 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
         isRunning = false;
     }
 
+    std::string str = "example.png";
+    char* path = MyPath::getImageDir(str);
+    
+    SDL_Surface* tmpSurface = IMG_Load(path);
+    std::cout << path << std::endl;
+    if (tmpSurface == nullptr){
+        std::cout << path << std::endl;
+        //std::cout << "Image null" << std::endl;
+        printf(SDL_GetError());
+    }
+    playerText = SDL_CreateTextureFromSurface(renderer, tmpSurface);
+    SDL_FreeSurface(tmpSurface);
+
 }
 
 void Game::handleEvents(){
@@ -51,11 +68,17 @@ void Game::handleEvents(){
 }
 
 void Game::update(){
-
+    cnt++;
+    destRectangle.h = 64;
+    destRectangle.w = 64;
+    destRectangle.x = cnt/20;
 }
 
 void Game::render(){
     SDL_RenderClear(renderer);
+    //null, for the source rectangle will use the entire image
+    //null, will draw the whole render frame
+    SDL_RenderCopy(renderer, playerText, NULL, &destRectangle);
     //this is where we would add stuff to render
     SDL_RenderPresent(renderer);
 }
