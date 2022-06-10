@@ -3,78 +3,61 @@
 
 Game *game = nullptr;
 
+
+
 int SDL_main(int argc, char *argv[])
 {
+    /**
+     * @brief My max FPS
+     * 
+     */
+    short FPS;
+    /**
+     * @brief The max time can elapse between frames
+     * 
+     */
+    double FPS_MS;
+    /**
+     * @brief Time recorded at the beginning of the loop iteration
+     * 
+     */
     Uint64 start;
+    /**
+     * @brief Time recorded at the end of the loop iteration
+     * 
+     */
     Uint64 end;
-    double elapsed=0;
+    /**
+     * @brief The actual time it elapses
+     * 
+     */
+    double elapsed;
+
+
+    elapsed=0;      //Initialised at 0, first frame is immobilized
+    FPS=60;         //Initialize max fps at 60
+    FPS_MS=1000.0/(double)FPS; //The max milliseconds of the frame is the division between 1000 (ms in a second) and the max fps
+
     game = new Game();
     game->init("Game", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 600, false);
     while (game->running())
     {
-        start = SDL_GetPerformanceCounter();
-        //deltaTime = ((NOW - LAST)*1000 / (double)SDL_GetPerformanceFrequency() );
-        SDL_Delay(5);
+        start = SDL_GetPerformanceCounter(); //Time of the beginning of the loop
+
         game->handleEvents();
         game->update(elapsed);
         game->render();   
-        end = SDL_GetPerformanceCounter();
-
-        elapsed = (end - start) / (double)SDL_GetPerformanceFrequency();
+        if(FPS_MS - elapsed > 0)
+            SDL_Delay(FPS_MS - elapsed); //Cap the FPS, wait until we get to minumum frame time
+        end = SDL_GetPerformanceCounter(); //Time of the end of the loop
+        
+        elapsed = (end - start) / (double)SDL_GetPerformanceFrequency(); //Calculate elapsed: time of the start of the iteration - time of the end of the iteration
+        
         cout << "Current FPS: " << to_string(1.0f / elapsed) << endl;
 
+	    
     }
 
     game->clean();
     return 0;
-
-    // Error Checking/Initialisation
-    /*if (SDL_Init(SDL_INIT_NOPARACHUTE & SDL_INIT_EVERYTHING) != 0) {
-        SDL_Log("Unable to initialize SDL: %s\n", SDL_GetError());
-        return -1;
-    }
-    else
-    {
-        //Specify OpenGL Version (4.2)
-        SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 4);
-        SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 2);
-        SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
-        SDL_Log("SDL Initialised");
-    }
-
-    //Create Window Instance
-    SDL_Window* window = SDL_CreateWindow(
-        "Game Engine",
-        SDL_WINDOWPOS_CENTERED,
-        SDL_WINDOWPOS_CENTERED,
-        640,
-        480,
-        SDL_WINDOW_OPENGL
-    );
-
-    //Check that the window was succesfully created
-    if(window == NULL)
-    {
-        //Print error, if null
-        printf("Could not create window: %s\n", SDL_GetError());
-        return 1;
-    }
-    else
-        SDL_Log("Window Successful Generated");
-
-
-    //Map OpenGL Context to Window
-    SDL_GLContext glContext = SDL_GL_CreateContext(window);
-
-    //Render
-
-    //Swap Render Buffers
-    SDL_GL_SwapWindow(window);
-
-    //Free up resources
-    SDL_GL_DeleteContext(glContext);
-    SDL_Quit();
-
-
-    return 0;*/
 }
