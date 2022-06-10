@@ -3,7 +3,7 @@
 
 SDL_Texture* playerText;
 SDL_Rect srcRectangle, destRectangle;
-
+double positionX=0;
 Game::Game(){
 
 }
@@ -13,22 +13,22 @@ Game::~Game(){
 }
 
 void Game::init(const char* title, int xpos, int ypos, int width, int height, bool fullscreen){
-    
+
     int flags = 0;
     if (fullscreen){
         flags = SDL_WINDOW_FULLSCREEN;
     }
-    
+
     if (SDL_Init(SDL_INIT_EVERYTHING) == 0) {
         std::cout << "Subsystem initialized..." << std::endl;
 
         window = SDL_CreateWindow(title, xpos, ypos, width, height, flags);
-        
+
         if(window){//window=0, means is being created
             std::cout << "Window created" << std::endl;
         }
 
-        renderer = SDL_CreateRenderer(window, -1, 0);//window,index,flags
+        renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);//window,index,flags
         if(renderer){//if renderer is successfully created
             SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
             std::cout << "Renderer created" << std::endl;
@@ -41,7 +41,7 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 
     std::string str = "example.png";
     char* path = MyPath::getImageDir(str);
-    
+
     SDL_Surface* tmpSurface = IMG_Load(path);
     std::cout << path << std::endl;
     if (tmpSurface == nullptr){
@@ -67,11 +67,14 @@ void Game::handleEvents(){
     }
 }
 
-void Game::update(){
+void Game::update(double deltaTime){
     cnt++;
     destRectangle.h = 64;
     destRectangle.w = 64;
-    destRectangle.x = cnt/20;
+    positionX+=deltaTime*100;
+    destRectangle.x =std::trunc(positionX);
+
+    std::cout<<destRectangle.x<<std::endl;
 }
 
 void Game::render(){
