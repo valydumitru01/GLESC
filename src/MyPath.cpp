@@ -15,8 +15,6 @@ using namespace MyPath;
         std::string directory = "/home/valentin/Desktop/GameProjectTest/assets/"+str;
         char *cstr = new char[directory.length() + 1];
         strcpy(cstr, directory.c_str());
-        // do stuff
-        //delete [] cstr;
         return cstr;
     }
 
