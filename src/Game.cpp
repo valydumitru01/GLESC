@@ -1,6 +1,6 @@
 #include "Game.h"
 #include "MyPath.h"
-
+#include "TextureManager.h"
 SDL_Texture* playerText;
 SDL_Rect srcRectangle, destRectangle;
 
@@ -42,15 +42,8 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
     std::string str = "example.png";
     char* path = MyPath::getImageDir(str);
     
-    SDL_Surface* tmpSurface = IMG_Load(path);
-    std::cout << path << std::endl;
-    if (tmpSurface == nullptr){
-        std::cout << path << std::endl;
-        //std::cout << "Image null" << std::endl;
-        printf(SDL_GetError());
-    }
-    playerText = SDL_CreateTextureFromSurface(renderer, tmpSurface);
-    SDL_FreeSurface(tmpSurface);
+    
+    playerText = TextureManager::LoadTexture(path,renderer);
 
 }
 
