@@ -40,23 +40,8 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
     }
 
     std::string str = "example.png";
-    char* path = MyPath::getImageDir(str);
-<<<<<<< HEAD
-    
-    
+    char* path = MyPath::getImageDir(str);  
     playerText = TextureManager::LoadTexture(path,renderer);
-=======
-
-    SDL_Surface* tmpSurface = IMG_Load(path);
-    std::cout << path << std::endl;
-    if (tmpSurface == nullptr){
-        std::cout << path << std::endl;
-        //std::cout << "Image null" << std::endl;
-        printf(SDL_GetError());
-    }
-    playerText = SDL_CreateTextureFromSurface(renderer, tmpSurface);
-    SDL_FreeSurface(tmpSurface);
->>>>>>> develop
 
 }
 
