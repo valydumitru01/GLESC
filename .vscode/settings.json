@@ -68,7 +68,10 @@
         "numeric": "cpp",
         "random": "cpp",
         "string_view": "cpp",
-        "numbers": "cpp"
+        "numbers": "cpp",
+        "optional": "cpp",
+        "ranges": "cpp",
+        "cinttypes": "cpp"
     },
     "C_Cpp.errorSquiggles": "EnabledIfIncludesResolve",
     "C_Cpp.intelliSenseEngineFallback": "Enabled"
