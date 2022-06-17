@@ -28,12 +28,15 @@
         {
             "name": "Linux",
             "includePath": [
-                "${workspaceRoot}",
+                "${workspaceRoot}/**",
+                "${workspaceRoot}/include",
+                "${workspaceRoot}/src",
+                "/usr/x86_64-w64-mingw32/include",
                 "/usr/include",
                 "/usr/local/include"
             ],
             "defines": [],
-            "intelliSenseMode": "clang-x64",
+            "intelliSenseMode": "${default}",
             "browse": {
                 "path": [
                     "/usr/include",
@@ -42,7 +45,7 @@
                 "limitSymbolsToIncludedHeaders": true,
                 "databaseFilename": ""
             },
-            "compilerPath": "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.30.30705/bin/Hostx64/x64/cl.exe",
+            "compilerPath": "/usr/bin/x86_64-w64-mingw32-g++",
             "cStandard": "c17",
             "cppStandard": "c++17",
             "configurationProvider": "ms-vscode.makefile-tools"
