@@ -119,15 +119,13 @@ SDL manages video, audio, input devices, CD-ROM, threads, shared object loading,
 [Download here](http://libsdl.org/download-2.0.php)
 
 ### 2.1 SDL_ttf
-
 [Download here](https://www.libsdl.org/projects/SDL_ttf/release/)
-
 ### 2.2 SDL_image
 [Download here](https://www.libsdl.org/projects/SDL_image/)
 ### 2.3 SDL_mixer
 [Download here](https://www.libsdl.org/projects/SDL_mixer/)
 ### 2.4 SDL_net
-
+[Download here](https://www.libsdl.org/projects/SDL_net/)
 > _**IMPORTANT:** MUST SELECT x86_64 (which is 64 bits) **NOT** i686 (which is 32 bits)_
 
 ---
