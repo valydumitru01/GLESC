@@ -1,0 +1,12 @@
+Fortran
+Binutils
+MinGW
+distributable
+facilite
+Khronos
+manufactors
+functuality
+GLEW
+DirectMedia
+pixeled
+ttf

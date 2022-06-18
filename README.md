@@ -8,12 +8,9 @@
    2. [SDL2](#sdl)
    3. [OpenGL](#opengl)
    4. [GLEW](#glew)
-   5. [GLM](#glm)
-   6. [OpenAL](#openal)
-   7. [Bullet](#bullet)
 5. [Documentation](#documentation)
 
-# Game design `<a name="gamedesign"></a>`
+# Game design <a name="gamedesign"></a>
 
 ![](/doc/images/Game_Prototype_1.png)
 
@@ -27,11 +24,11 @@ The basic idea is that a main character goes around finding team members and con
 
 ### Team members
 
-The team members are monsters (or people) you find around the world. You have to gather them to make your team stronger, althogh you can only use a limited amount of them at once in a battle.
+The team members are monsters (or people) you find around the world. You have to gather them to make your team stronger, although you can only use a limited amount of them at once in a battle.
 
 ### Pets
 
-Pets are little friends (primarily monsters) you find around the world. These pets can be obtained fighting enemies, dropping them as if they were their "children". They can also be found around the world, like fairies or monkeys. They dont (usually) attack but only give buffs and bonuses to the character they follow. Each team member can have their own pet.
+Pets are little friends (primarily monsters) you find around the world. These pets can be obtained fighting enemies, dropping them as if they were their "children". They can also be found around the world, like fairies or monkeys. They don't (usually) attack but only give buffs and bonuses to the character they follow. Each team member can have their own pet.
 
 ### Battle
 
@@ -39,11 +36,26 @@ Battles are turn based with tactical positioning. It includes mechanics such as 
 
 ![](/doc/images/Prototype_Battle_1.png)
 
+### Similar games
+Here are a list of games that are similar to this (by accident or inspiration)
 
-# Important information and tutorials `<a name="importantinformation"></a>`
+#### Into The Breach
+This game has similar combat style, with several companions. It's also turn based, similar to how ours will be. 
+
+The graphics also look fairly similar, isometric and pixeled. 
+
+![](/doc/images/Similar_Game_IntoTheBreach.jpg)
+
+#### Bit Heroes
+This game has some important similarities, such as taming mechanics with companions and turn based fighting with skills. It also has equipment system and stats. 
+
+![](/doc/images/Similar_Game_BitHeroes.webp)
+
+# Important information and tutorials <a name="importantinformation"></a>
 ## 32 Bits project
 
-This game uses 32 bits, which means we can only use 4 GB of ram (even less due to some operating system space). This is not a big restriction for us hence the game will be simple and 2D. This will be a first touch with game development for most of the integrants of our team, and it should be ok. We must learn how to avoid memory leaks and to occupy too much memory. This will be a learning experience for all of us.
+This game uses 32 bits, which means we can only use 4 GB of ram (even less due to some operating system space). This is not a big restriction for us hence the game will be simple and 2D. 
+This will be a first touch with game development for most of the members of our team, and it should be ok. We must learn how to avoid memory leaks and to occupy too much memory. This will be a learning experience for all of us.
 
 ## SDL Wiki
 
@@ -58,23 +70,23 @@ Explanation why are SDL and OpenGL related, so we can understand better what we 
 
 [Why is SDL and OpenGL related?](https://stackoverflow.com/questions/5769031/why-are-sdl-and-opengl-related)
 
-## Examples of other games on Github
+## Examples of other games on GitHub
 
-[Games in Github](https://github.com/leereilly/gameshttps://github.com/leereilly/games)
+[Games in GitHub](https://github.com/leereilly/gameshttps://github.com/leereilly/games)
 
-## Original structure from where the project started (Github)
+## Original structure from where the project started (GitHub)
 
 [Original Project](https://github.com/kbrawley95/VSCode-OpenGL-Game-Engine)
 
-# Required Tools `<a name="tools"></a>`
+# Required Tools <a name="tools"></a>
 
-1. [Git](https://git-scm.com/) / [Github](https://desktop.github.com/)
+1. [Git](https://git-scm.com/) / [GitHub](https://desktop.github.com/)
 2. (Optional) [Visual Studio Code](https://code.visualstudio.com/)
-3. (Optional) [Vmware Player Virtual Machine](https://www.vmware.com/products/player/playerpro-evaluation.html) for testing your code on different operating systems.
+3. (Optional) [VMWare Player Virtual Machine](https://www.vmware.com/products/player/playerpro-evaluation.html) for testing your code on different operating systems.
 
-# Application Dependencies `<a name="dependencies"></a>`
-**Important:** The only dependecy you need to actually install is Mingw32 64 bits, the rest are portable. Which means they are inside the repository (`<span style="color:red">`_include_`</span>` and `<span style="color:red">`_lib_ `</span>`folder)
-## 1. MinGW/GNU Compiler Collection (GCC) `<a name="gcc"></a>`
+# Application Dependencies <a name="dependencies"></a>
+**Important:** The only dependency you need to actually install is Mingw32 64 bits, the rest are portable. Which means they are inside the repository (`include` and `lib`folder)
+## 1. MinGW/GNU Compiler Collection (GCC) <a name="gcc"></a>
 
 
 In order to execute our code, we will require GNU utilities. This contains numerous compilers for various languages (e.g. Fortran, C++ etc.) classified as the **GNU Compiler Collection (GCC)**, and their respective debuggers.
@@ -93,12 +105,12 @@ In case the installer doesn't work (which is likely):
 
 > _**HOW TO INSTALL:**_
 >
-> - Unzip the folder, copy it somewhere logical (for example C:/MinGW or C:/Program Files/MinGW).
+> - Unzip the folder, copy it somewhere logical (for example `C:/MinGW` or `C:/Program Files/MinGW`).
 > - Add to the path of the Environment Variables the bin folder.
 
 ---
 
-## 2. SDL `<a name ="sdl"></a>`
+## 2. SDL <a name ="sdl"></a>
 
 **Simple DirectMedia Layer (SDL)** is a cross-platform software development library designed to provide a hardware abstraction layer for computer multimedia hardware components.
 SDL manages video, audio, input devices, CD-ROM, threads, shared object loading, networking and timers.[5] For 3D graphics
@@ -109,15 +121,15 @@ SDL manages video, audio, input devices, CD-ROM, threads, shared object loading,
 
 ---
 
-## 3. OPENGL `<a name ="opengl"></a>`
+## 3. OpenGL <a name ="opengl"></a>
 
-The **Open Graphics Library (OpenGL)** is a specification of various operations (functions) that facilite the rendering and manipulation of images, and other graphical niceties on our displays. The functions and the specification as a whole is maintain by the Khronos Group; a body of various industry experts, GPU manufactors, and related companies that collaborate to continually improve upon the capabilties of OpenGL -and the core requirements that supporting hardware should implement. The key word there is 'should'.
+The **Open Graphics Library (OpenGL)** is a specification of various operations (functions) that facilite the rendering and manipulation of images, and other graphical niceties on our displays. The functions and the specification as a whole is maintained by the Khronos Group; a body of various industry experts, GPU manufactors, and related companies that collaborate to continually improve upon the capabilities of OpenGL -and the core requirements that supporting hardware should implement. The key word there is 'should'.
 
-As OpenGL is **NOT** actually a set of classes/libaries or Application Programming Interfaces (APIs), it falls upon the Graphics Card Manufactors to implement the defined requirements i.e. they create the libraries, and classes that help you to run your favourite games via software called drivers. Installing these drivers will allow you to access core OpenGL functuality, and any further extensions to the specification which were supported by your Graphics card at the time of release.
+As OpenGL is **NOT** actually a set of classes/libraries or Application Programming Interfaces (APIs), it falls upon the Graphics Card Manufactors to implement the defined requirements i.e. they create the libraries, and classes that help you to run your favorite games via software called drivers. Installing these drivers will allow you to access core OpenGL functuality, and any further extensions to the specification which were supported by your Graphics card at the time of release.
 
 ---
 
-## 4. GLEW `<a name ="glm"></a>`
+## 4. GLEW <a name ="glm"></a>
 
 The OpenGL Extension Wrangler Library. 
 GLEW provides efficient run-time mechanisms for determining which OpenGL extensions are supported on the target platform. 
@@ -126,7 +138,7 @@ It allows us to check at runtime which extensions are present and which function
 [Download](http://glew.sourceforge.net/install.html)
 
 
-# Documentation `<a name="documentation"></a>`
+# Documentation <a name="documentation"></a>
 
 For more information on the materials provided, refer to the sources below:
 
