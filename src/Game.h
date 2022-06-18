@@ -74,7 +74,9 @@ private:
     int cnt = 0;
     SDL_Window *window;
     SDL_Renderer *renderer;
-
+    SDL_Texture* playerText;
+    SDL_Rect srcRectangle, destRectangle;
+    double positionX=0;
 };
 
 #endif
