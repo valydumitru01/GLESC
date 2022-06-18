@@ -113,11 +113,19 @@ In case the installer doesn't work (which is likely):
 ## 2. SDL <a name ="sdl"></a>
 
 **Simple DirectMedia Layer (SDL)** is a cross-platform software development library designed to provide a hardware abstraction layer for computer multimedia hardware components.
-SDL manages video, audio, input devices, CD-ROM, threads, shared object loading, networking and timers.[5] For 3D graphics
+SDL manages video, audio, input devices, CD-ROM, threads, shared object loading, networking and timers.
 
 [Download here](http://libsdl.org/download-2.0.php)
 
-> _**IMPORTANT:** MUST SELECT 32 Bits VERSION **NOT** 64 Bits_
+### 2.1 SDL_ttf
+
+### 2.2 SDL_image
+[Download here](https://www.libsdl.org/projects/SDL_image/)
+### 2.3 SDL_mixer
+[Download here](https://www.libsdl.org/projects/SDL_mixer/)
+### 2.4 SDL_net
+
+> _**IMPORTANT:** MUST SELECT x86_64 (which is 64 bits) **NOT** i686 (which is 32 bits)_
 
 ---
 
