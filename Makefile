@@ -32,7 +32,7 @@ SRC     := src
 INCLUDE := include
 LIB     := lib
 # libraries to link to the project
-LIBRARIES   := -lmingw32 -lSDL2main -lSDL2 -lSDL2_mixer -lmingw32 -lopengl32 -lglew32 -lglu32 -lSDL2main -lSDL2 -lSDL2_image
+LIBRARIES   := -lmingw32 -lSDL2main -lSDL2 -lSDL2_net -lSDL2_mixer -lmingw32 -lopengl32 -lglew32 -lglu32 -lSDL2main -lSDL2 -lSDL2_image
 # the build target executable
 EXECUTABLE  := game
 
