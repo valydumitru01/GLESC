@@ -115,9 +115,12 @@ In case the installer doesn't work (which is likely):
 **Simple DirectMedia Layer (SDL)** is a cross-platform software development library designed to provide a hardware abstraction layer for computer multimedia hardware components.
 SDL manages video, audio, input devices, CD-ROM, threads, shared object loading, networking and timers.
 
+
 [Download here](http://libsdl.org/download-2.0.php)
 
 ### 2.1 SDL_ttf
+
+[Download here](https://www.libsdl.org/projects/SDL_ttf/release/)
 
 ### 2.2 SDL_image
 [Download here](https://www.libsdl.org/projects/SDL_image/)
