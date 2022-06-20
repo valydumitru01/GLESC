@@ -57,6 +57,9 @@ This game has some important similarities, such as taming mechanics with compani
 This game uses 32 bits, which means we can only use 4 GB of ram (even less due to some operating system space). This is not a big restriction for us hence the game will be simple and 2D. 
 This will be a first touch with game development for most of the members of our team, and it should be ok. We must learn how to avoid memory leaks and to occupy too much memory. This will be a learning experience for all of us.
 
+## OpenGL youtube tutorial 
+[Tutorial here](https://www.youtube.com/watch?v=W3gAzLwfIP0&list=PLlrATfBNZ98foTJPJ_Ev03o2oq3-GGOS2)
+
 ## SDL Wiki
 
 A good source of information on how to use SDL, the difference between SDL2 and SDL 1.2, what does it do, etc.
