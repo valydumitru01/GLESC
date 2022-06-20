@@ -85,7 +85,7 @@ Explanation why are SDL and OpenGL related, so we can understand better what we 
 3. (Optional) [VMWare Player Virtual Machine](https://www.vmware.com/products/player/playerpro-evaluation.html) for testing your code on different operating systems.
 
 # Application Dependencies <a name="dependencies"></a>
-**Important:** The only dependency you need to actually install is Mingw32 64 bits, the rest are portable. Which means they are inside the repository (`include` and `lib`folder)
+**Important:** The only dependency you need to actually install is Mingw32 64 bits and OpenGL dynamic libraries, the rest are static (portable). Which means they are inside the repository (`lib` folder)
 ## 1. MinGW/GNU Compiler Collection (GCC) <a name="gcc"></a>
 
 
@@ -142,10 +142,11 @@ As OpenGL is **NOT** actually a set of classes/libraries or Application Programm
 
 The OpenGL Extension Wrangler Library. 
 GLEW provides efficient run-time mechanisms for determining which OpenGL extensions are supported on the target platform. 
-It allows us to check at runtime which extensions are present and which functions may be used.
+It allows us to check at runtime which extensions are present and which functions may be used. Basically allows you to use OpenGL under the same interface no matter the SO you're in, simplifying it's interface.
 
 [Download](http://glew.sourceforge.net/install.html)
 
+[Video explaining how it works and how to install](https://www.youtube.com/watch?v=rQvWQDq3rLc)
 
 # Documentation <a name="documentation"></a>
 

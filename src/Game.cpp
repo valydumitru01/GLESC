@@ -18,7 +18,12 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
     if (fullscreen){
         flags = SDL_WINDOW_FULLSCREEN;
     }
-
+    GLenum err = glewInit();
+    if (GLEW_OK != err)
+    {
+        /* Problem: glewInit failed, something is seriously wrong. */
+        fprintf(stderr, "Error: %s\n", glewGetErrorString(err));
+    }
     if (SDL_Init(SDL_INIT_EVERYTHING) == 0) {
         std::cout << "Subsystem initialized..." << std::endl;
 
@@ -34,7 +39,7 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
             std::cout << "Renderer created" << std::endl;
         }
         isRunning = true;
-
+        
     } else {
         isRunning = false;
     }
