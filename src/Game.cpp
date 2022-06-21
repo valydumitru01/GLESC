@@ -16,14 +16,9 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 
     int flags = 0;
     if (fullscreen){
-        flags = SDL_WINDOW_FULLSCREEN;
+        flags = SDL_WINDOW_FULLSCREEN | SDL_WINDOW_OPENGL;
     }
-    GLenum err = glewInit();
-    if (GLEW_OK != err)
-    {
-        /* Problem: glewInit failed, something is seriously wrong. */
-        fprintf(stderr, "Error: %s\n", glewGetErrorString(err));
-    }
+
     if (SDL_Init(SDL_INIT_EVERYTHING) == 0) {
         std::cout << "Subsystem initialized..." << std::endl;
 
@@ -33,17 +28,28 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
             std::cout << "Window created" << std::endl;
         }
 
-        renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);//window,index,flags
+        renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC );//window,index,flags
         if(renderer){//if renderer is successfully created
             SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
             std::cout << "Renderer created" << std::endl;
+        }
+        auto context = SDL_GL_CreateContext(window);
+        if(context==NULL){
+            std::cout << "Error creating context" << std::endl;
+            std::cout << SDL_GetError() << std::endl;
+        }
+        GLenum err = glewInit();
+        if (GLEW_OK != err)
+        {
+            /* Problem: glewInit failed, something is seriously wrong. */
+            fprintf(stderr, "Error: %s\n", glewGetErrorString(err));
         }
         isRunning = true;
         
     } else {
         isRunning = false;
     }
-
+    
     std::string str = "example.png";
     char* path = MyPath::getImageDir(str);  
     playerText = TextureManager::LoadTexture(path,renderer);
