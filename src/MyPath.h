@@ -12,5 +12,5 @@
 namespace MyPath {
   std::string getExecutablePath();
   std::string getExecutableDir();
-  char* getImageDir(std::string str);
+  const char* getImageDir(std::string str);
 }

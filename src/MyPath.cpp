@@ -11,9 +11,9 @@ using namespace MyPath;
         return "../bin/game.exe";
     }
 
-    char* MyPath::getImageDir(std::string str){
+    const char* MyPath::getImageDir(std::string str){
         std::string directory = "/home/valentin/Desktop/GameProjectTest/assets/"+str;
-        char *cstr = new char[directory.length() + 1];
+        const char *cstr = new char[directory.length() + 1];
         strcpy(cstr, directory.c_str());
         return cstr;
     }
@@ -34,13 +34,15 @@ using namespace MyPath;
         std::string directory = std::string(exePath);
         delete[] exePath;
 
-        return directory;
+        return directory.c_str();
     }
 
-    char* MyPath::getImageDir(std::string str){
+    const char* MyPath::getImageDir(std::string str){
         std::string directory = getExecutableDir();
         directory.replace(directory.find("bin\\game.exe"), 12, "assets\\"+str);
-        return const_cast<char*>(directory.c_str());;
+        
+        const char* mypath = directory.c_str();
+        return mypath;
     }
 #else
 
