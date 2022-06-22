@@ -39,7 +39,7 @@ int SDL_main(int argc, char *argv[])
     FPS_MS=1000.0/(double)FPS; //The max milliseconds of the frame is the division between 1000 (ms in a second) and the max fps
 
     game = new Game();
-    game->init("Game", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 600, false);
+    game->init("Game", 800, 600, false);
     while (game->running())
     {
         start = SDL_GetPerformanceCounter(); //Time of the beginning of the loop

@@ -57,14 +57,10 @@ This game has some important similarities, such as taming mechanics with compani
 This game uses 32 bits, which means we can only use 4 GB of ram (even less due to some operating system space). This is not a big restriction for us hence the game will be simple and 2D. 
 This will be a first touch with game development for most of the members of our team, and it should be ok. We must learn how to avoid memory leaks and to occupy too much memory. This will be a learning experience for all of us.
 
-## OpenGL youtube tutorial 
-[Tutorial here](https://www.youtube.com/watch?v=W3gAzLwfIP0&list=PLlrATfBNZ98foTJPJ_Ev03o2oq3-GGOS2)
+## OpenGL youtube tutorials
+ * [Toutube complete tutorial](https://www.youtube.com/watch?v=W3gAzLwfIP0&list=PLlrATfBNZ98foTJPJ_Ev03o2oq3-GGOS2)
 
-## SDL Wiki
-
-A good source of information on how to use SDL, the difference between SDL2 and SDL 1.2, what does it do, etc.
-
-[SDL Official Wiki](https://wiki.libsdl.org)
+* [Modern OpenGL introduction](https://duriansoftware.com/joe/an-intro-to-modern-opengl.-chapter-1:-the-graphics-pipeline)
 
 
 ## Relationship between SDL2 and OpenGL
@@ -111,6 +107,7 @@ In case the installer doesn't work (which is likely):
 > - Unzip the folder, copy it somewhere logical (for example `C:/MinGW` or `C:/Program Files/MinGW`).
 > - Add to the path of the Environment Variables the bin folder.
 
+* [MinGW wiki](http://mingw.org/)
 ---
 
 ## 2. SDL <a name ="sdl"></a>
@@ -119,18 +116,19 @@ In case the installer doesn't work (which is likely):
 SDL manages video, audio, input devices, CD-ROM, threads, shared object loading, networking and timers.
 
 
-[Download here](http://libsdl.org/download-2.0.php)
+* [Download here](http://libsdl.org/download-2.0.php)
 
+* [SDL2 wiki](http://wiki.libsdl.org/FrontPage)
 ### 2.1 SDL_ttf
-[Download here](https://www.libsdl.org/projects/SDL_ttf/release/)
+* [Download here](https://www.libsdl.org/projects/SDL_ttf/release/)
 ### 2.2 SDL_image
-[Download here](https://www.libsdl.org/projects/SDL_image/)
+* [Download here](https://www.libsdl.org/projects/SDL_image/)
 ### 2.3 SDL_mixer
-[Download here](https://www.libsdl.org/projects/SDL_mixer/)
+* [Download here](https://www.libsdl.org/projects/SDL_mixer/)
 ### 2.4 SDL_net
-[Download here](https://www.libsdl.org/projects/SDL_net/)
+* [Download here](https://www.libsdl.org/projects/SDL_net/)
 > _**IMPORTANT:** MUST SELECT x86_64 (which is 64 bits) **NOT** i686 (which is 32 bits)_
-
+* [Wiki of SDL_net, SDL_mixer, SDL_ttf and SDL_image](https://wiki.libsdl.org/Libraries)
 ---
 
 ## 3. OpenGL <a name ="opengl"></a>
@@ -138,6 +136,8 @@ SDL manages video, audio, input devices, CD-ROM, threads, shared object loading,
 The **Open Graphics Library (OpenGL)** is a specification of various operations (functions) that facilite the rendering and manipulation of images, and other graphical niceties on our displays. The functions and the specification as a whole is maintained by the Khronos Group; a body of various industry experts, GPU manufactors, and related companies that collaborate to continually improve upon the capabilities of OpenGL -and the core requirements that supporting hardware should implement. The key word there is 'should'.
 
 As OpenGL is **NOT** actually a set of classes/libraries or Application Programming Interfaces (APIs), it falls upon the Graphics Card Manufactors to implement the defined requirements i.e. they create the libraries, and classes that help you to run your favorite games via software called drivers. Installing these drivers will allow you to access core OpenGL functuality, and any further extensions to the specification which were supported by your Graphics card at the time of release.
+
+* [OpenGL Wiki](https://www.opengl.org/)
 
 ---
 
@@ -147,24 +147,8 @@ The OpenGL Extension Wrangler Library.
 GLEW provides efficient run-time mechanisms for determining which OpenGL extensions are supported on the target platform. 
 It allows us to check at runtime which extensions are present and which functions may be used. Basically allows you to use OpenGL under the same interface no matter the SO you're in, simplifying it's interface.
 
-[Download](http://glew.sourceforge.net/install.html)
+* [Download](http://glew.sourceforge.net/install.html)
 
-[Video explaining how it works and how to install](https://www.youtube.com/watch?v=rQvWQDq3rLc)
+* [Video explaining how it works and how to install](https://www.youtube.com/watch?v=rQvWQDq3rLc)
 
-# Documentation <a name="documentation"></a>
-
-For more information on the materials provided, refer to the sources below:
-
-### Minimalist GNU for Windows
-
-* [MinGW](http://mingw.org/)
-
-### OpenGL & Related Libraries
-
-* [GLEW](https://github.com/nigels-com/glew#authors)
-* [OpenGL](https://www.opengl.org/)
-
-### SDL 
-
-* [SDL2](http://wiki.libsdl.org/FrontPage)
-* [SDL_net, SDL_mixer, SDL_ttf and SDL_image](https://wiki.libsdl.org/Libraries)
+* [GLEW wiki](https://en.wikipedia.org/wiki/OpenGL#Extension_loading_libraries)

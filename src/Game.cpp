@@ -1,96 +1,132 @@
 #include "Game.h"
 #include "MyPath.h"
 #include "TextureManager.h"
-SDL_Texture* playerText;
+SDL_Texture *playerText;
 SDL_Rect srcRectangle, destRectangle;
-double positionX=0;
-Game::Game(){
-
+double positionX = 0;
+Game::Game()
+{
 }
 
-Game::~Game(){
-
+Game::~Game()
+{
 }
 
-void Game::init(const char* title, int xpos, int ypos, int width, int height, bool fullscreen){
+void Game::init(const char *title, int width, int height, bool fullscreen)
+{
 
+    /*Flags that are needed to be passed to the window to configure it.
+    To add more flags we need to use the binary OR ( | )
+    More info: https://wiki.libsdl.org/SDL_WindowFlags*/
     int flags = 0;
-    if (fullscreen){
-        flags = SDL_WINDOW_FULLSCREEN | SDL_WINDOW_OPENGL;
+    /* Flag for allowing SDL window work with OpenGL */
+    flags |= SDL_WINDOW_OPENGL;
+
+    /**
+     * @brief Attributes that configure SDL with OpenGL
+     * More info: https://wiki.libsdl.org/SDL_GLattr
+     */
+
+    /*Core functions of OpenGL, we get to use all non-deprecated functions
+    https://wiki.libsdl.org/SDL_GLprofile*/
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
+    /*We're using OpenGL Version 4.3 (released in 2012):
+    Changing this numbers will change some functions available of OpenGL
+    (probably wouldn't affect us that much, but it's better if we stay on just one)
+    We are choosing this version as most computers will support it. */
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 4);
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
+
+    /* TODO: Learn about other attributes, including what this one does */
+    SDL_GL_SetAttribute(SDL_GL_STENCIL_SIZE, 8);
+
+    /* Initialize SDL, needs a paramterer to indicate what to initialize
+    SDL has several subsystems like SDL_INIT_AUDIO or SDL_INIT_VIDEO.
+    SDL_INIT_EVERYTHING is just a call to each one of them.
+    More info: https://wiki.libsdl.org/SDL_Init */
+    if (SDL_Init(SDL_INIT_EVERYTHING) != 0)
+    {
+        SDL_Log("Unable to initialize SDL: %s", SDL_GetError());
+        return;
     }
 
-    if (SDL_Init(SDL_INIT_EVERYTHING) == 0) {
-        std::cout << "Subsystem initialized..." << std::endl;
-
-        window = SDL_CreateWindow(title, xpos, ypos, width, height, flags);
-
-        if(window){//window=0, means is being created
-            std::cout << "Window created" << std::endl;
-        }
-
-        renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC );//window,index,flags
-        if(renderer){//if renderer is successfully created
-            SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-            std::cout << "Renderer created" << std::endl;
-        }
-        auto context = SDL_GL_CreateContext(window);
-        if(context==NULL){
-            std::cout << "Error creating context" << std::endl;
-            std::cout << SDL_GetError() << std::endl;
-        }
-        GLenum err = glewInit();
-        if (GLEW_OK != err)
-        {
-            /* Problem: glewInit failed, something is seriously wrong. */
-            fprintf(stderr, "Error: %s\n", glewGetErrorString(err));
-        }
-        isRunning = true;
-        
-    } else {
-        isRunning = false;
+    std::cout << "Subsystem initialized..." << std::endl;
+    /* Create windows with SDL */
+    window = SDL_CreateWindow(title, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, flags);
+    /* Returns null on error*/
+    if (window == NULL)
+    {
+        SDL_Log("Unable to create window: %s", SDL_GetError());
+        return;
     }
-    
+    /* OpenGL context initialization over the SDL window, needed for
+    using OpenGL functions*/
+    context = SDL_GL_CreateContext(window);
+
+    /* Returns null on error */
+    if (context == NULL)
+    {
+        SDL_Log("Unable to create context: %s", SDL_GetError());
+        return;
+    }
+    /* Needed before glewInit() to enable glew functionality,
+    the word experimental is meaningless */
+    glewExperimental = GL_TRUE;
+    /* Init glew */
+    GLenum err = glewInit();
+    if (GLEW_OK != err)
+    {
+        fprintf(stderr, "Error: %s\n", glewGetErrorString(err));
+        return;
+    }
+
     std::string str = "example.png";
-    char* path = MyPath::getImageDir(str);  
-    playerText = TextureManager::LoadTexture(path,renderer);
+    char *path = MyPath::getImageDir(str);
+    playerText = TextureManager::LoadTexture(path, renderer);
 
+    isRunning = true;
 }
 
-void Game::handleEvents(){
+void Game::handleEvents()
+{
     SDL_Event event;
     SDL_PollEvent(&event);
-    switch(event.type){
-        case SDL_QUIT:
-            isRunning = false;
-            break;
-        default:
-            break;
-
+    switch (event.type)
+    {
+    case SDL_QUIT:
+        isRunning = false;
+        break;
+    default:
+        break;
     }
 }
 
-void Game::update(double deltaTime){
+void Game::update(double deltaTime)
+{
     cnt++;
     destRectangle.h = 64;
     destRectangle.w = 64;
-    positionX+=deltaTime*100;
-    destRectangle.x =std::trunc(positionX);
+    positionX += deltaTime * 100;
+    destRectangle.x = std::trunc(positionX);
 
-    std::cout<<destRectangle.x<<std::endl;
+    std::cout << destRectangle.x << std::endl;
 }
 
-void Game::render(){
+void Game::render()
+{
     SDL_RenderClear(renderer);
-    //null, for the source rectangle will use the entire image
-    //null, will draw the whole render frame
+    // null, for the source rectangle will use the entire image
+    // null, will draw the whole render frame
     SDL_RenderCopy(renderer, playerText, NULL, &destRectangle);
-    //this is where we would add stuff to render
+    // this is where we would add stuff to render
     SDL_RenderPresent(renderer);
 }
 
-void Game::clean(){
-    SDL_DestroyWindow(window);
+void Game::clean()
+{
+    SDL_GL_DeleteContext(context);
     SDL_DestroyRenderer(renderer);
+    SDL_DestroyWindow(window);
     SDL_Quit();
     std::cout << "Game cleaned" << std::endl;
 }
