@@ -33,7 +33,7 @@ public:
      * @param height    Height of the window
      * @param fullscreen Indicates if fullscreen is active or not
      */
-    void init(const char* title, int xpos, int ypos, int width, int height, bool fullscreen);
+    void init(const char* title, int width, int height, bool fullscreen);
     
     /**
      * @brief Handle the events
@@ -70,11 +70,31 @@ public:
 
 
 private:
+    /**
+     * @brief The main loop is running only if this boolean is true
+     * 
+     */
     bool isRunning = false;
+    /**
+     * @brief Counter of how many times the main loop runs
+     * 
+     */
     int cnt = 0;
+    /**
+     * @brief Pointer to the window of the game
+     * 
+     */
     SDL_Window *window;
+    /**
+     * @brief Pointer to the renderer of the game
+     * 
+     */
     SDL_Renderer *renderer;
-
+    /**
+     * @brief OpenGL context
+     * 
+     */
+    SDL_GLContext context;
 };
 
 #endif
