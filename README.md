@@ -52,30 +52,17 @@ This game has some important similarities, such as taming mechanics with compani
 ![](/doc/images/Similar_Game_BitHeroes.webp)
 
 # Important information and tutorials <a name="importantinformation"></a>
-## 32 Bits project
 
-This game uses 32 bits, which means we can only use 4 GB of ram (even less due to some operating system space). This is not a big restriction for us hence the game will be simple and 2D. 
-This will be a first touch with game development for most of the members of our team, and it should be ok. We must learn how to avoid memory leaks and to occupy too much memory. This will be a learning experience for all of us.
+## OpenGL
+ * [YouTube complete tutorial (The Cherno)](https://www.youtube.com/watch?v=W3gAzLwfIP0&list=PLlrATfBNZ98foTJPJ_Ev03o2oq3-GGOS2)
 
-## OpenGL youtube tutorials
- * [Toutube complete tutorial](https://www.youtube.com/watch?v=W3gAzLwfIP0&list=PLlrATfBNZ98foTJPJ_Ev03o2oq3-GGOS2)
+* [Web Complete tutorial (learnopengl.com)](https://learnopengl.com/Introduction)
+* [Why is SDL and OpenGL related?](https://stackoverflow.com/questions/5769031/why-are-sdl-and-opengl-related)
 
-* [Modern OpenGL introduction](https://duriansoftware.com/joe/an-intro-to-modern-opengl.-chapter-1:-the-graphics-pipeline)
+## GitHub
 
-
-## Relationship between SDL2 and OpenGL
-
-Explanation why are SDL and OpenGL related, so we can understand better what we are doing.
-
-[Why is SDL and OpenGL related?](https://stackoverflow.com/questions/5769031/why-are-sdl-and-opengl-related)
-
-## Examples of other games on GitHub
-
-[Games in GitHub](https://github.com/leereilly/gameshttps://github.com/leereilly/games)
-
-## Original structure from where the project started (GitHub)
-
-[Original Project](https://github.com/kbrawley95/VSCode-OpenGL-Game-Engine)
+* [Examples of other games in GitHub](https://github.com/leereilly/gameshttps://github.com/leereilly/games)
+* [Original structure from where the project started](https://github.com/kbrawley95/VSCode-OpenGL-Game-Engine)
 
 # Required Tools <a name="tools"></a>
 
@@ -84,7 +71,7 @@ Explanation why are SDL and OpenGL related, so we can understand better what we 
 3. (Optional) [VMWare Player Virtual Machine](https://www.vmware.com/products/player/playerpro-evaluation.html) for testing your code on different operating systems.
 
 # Application Dependencies <a name="dependencies"></a>
-**Important:** The only dependency you need to actually install is Mingw32 64 bits and OpenGL dynamic libraries, the rest are static (portable). Which means they are inside the repository (`lib` folder)
+**Important:** The only dependency you need to actually install is Mingw32 64 bits, the rest are static (portable). Which means they are inside the repository (`lib` folder)
 ## 1. MinGW/GNU Compiler Collection (GCC) <a name="gcc"></a>
 
 
