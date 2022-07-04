@@ -15,13 +15,9 @@ Game::~Game()
 void Game::init(const char *title, int width, int height, bool fullscreen)
 {
 
-    /*Flags that are needed to be passed to the window to configure it.
-    To add more flags we need to use the binary OR ( | )
-    More info: https://wiki.libsdl.org/SDL_WindowFlags*/
-    int flags = 0;
-    /* Flag for allowing SDL window work with OpenGL */
-    flags |= SDL_WINDOW_OPENGL;
-
+    window = new Window((char*)"My Game");
+    window->init();
+    
     /**
      * @brief Attributes that configure SDL with OpenGL
      * More info: https://wiki.libsdl.org/SDL_GLattr
@@ -36,7 +32,7 @@ void Game::init(const char *title, int width, int height, bool fullscreen)
     We are choosing this version as most computers will support it. */
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 4);
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
-
+    
     /* TODO: Learn about other attributes, including what this one does */
     SDL_GL_SetAttribute(SDL_GL_STENCIL_SIZE, 8);
 
@@ -51,17 +47,10 @@ void Game::init(const char *title, int width, int height, bool fullscreen)
     }
 
     std::cout << "Subsystem initialized..." << std::endl;
-    /* Create windows with SDL */
-    window = SDL_CreateWindow(title, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, flags);
-    /* Returns null on error*/
-    if (window == NULL)
-    {
-        SDL_Log("Unable to create window: %s", SDL_GetError());
-        return;
-    }
+    
     /* OpenGL context initialization over the SDL window, needed for
     using OpenGL functions*/
-    context = SDL_GL_CreateContext(window);
+    context = SDL_GL_CreateContext(this->window->getWindow());
 
     /* Returns null on error */
     if (context == NULL)
@@ -79,6 +68,7 @@ void Game::init(const char *title, int width, int height, bool fullscreen)
         fprintf(stderr, "Error: %s\n", glewGetErrorString(err));
         return;
     }
+    
 
     std::string str = "example.png";
     char *path = MyPath::getImageDir(str);
@@ -95,6 +85,9 @@ void Game::handleEvents()
     {
     case SDL_QUIT:
         isRunning = false;
+        break;
+    case SDL_WINDOWEVENT_SIZE_CHANGED:
+        window->setSize(event.window.data1,event.window.data2);
         break;
     default:
         break;
@@ -114,19 +107,13 @@ void Game::update(double deltaTime)
 
 void Game::render()
 {
-    SDL_RenderClear(renderer);
-    // null, for the source rectangle will use the entire image
-    // null, will draw the whole render frame
-    SDL_RenderCopy(renderer, playerText, NULL, &destRectangle);
-    // this is where we would add stuff to render
-    SDL_RenderPresent(renderer);
+    
 }
 
 void Game::clean()
 {
     SDL_GL_DeleteContext(context);
     SDL_DestroyRenderer(renderer);
-    SDL_DestroyWindow(window);
     SDL_Quit();
     std::cout << "Game cleaned" << std::endl;
 }

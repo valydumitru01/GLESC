@@ -1,12 +1,8 @@
 #ifndef Game_h
 #define Game_h
 
-#include "SDL2/SDL.h"
-#include "SDL2/SDL_image.h"
-#include <iostream>
-#include <windows.h>
 #include "common.h"
-
+#include "Window.h"
 class Game {
 
 public:
@@ -84,7 +80,7 @@ private:
      * @brief Pointer to the window of the game
      * 
      */
-    SDL_Window *window;
+    Window *window;
     /**
      * @brief Pointer to the renderer of the game
      * 
