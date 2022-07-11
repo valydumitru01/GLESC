@@ -3,6 +3,7 @@
 
 #include "common.h"
 #include "Window.h"
+#include "ShaderLoader.h"
 class Game {
 
 public:
@@ -91,6 +92,9 @@ private:
      * 
      */
     SDL_GLContext context;
+
+    ShaderLoader* shaderLoader;
+
 };
 
 #endif
