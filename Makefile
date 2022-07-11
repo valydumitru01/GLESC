@@ -49,9 +49,7 @@ run:
 	@echo "Executing..."
 	$(WINE) $(BIN)/$(EXECUTABLE)
 # Build then run the game
-build-and-run: clean all
-	@echo "Executing..."
-	$(WINE) $(BIN)/$(EXECUTABLE)
+build-and-run: clean build run
 # Remove the executable
 clean:
 	@echo "Clearing..."
