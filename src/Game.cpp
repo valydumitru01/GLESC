@@ -17,6 +17,7 @@ void Game::init(const char *title, int width, int height, bool fullscreen)
 
     window = new Window((char*)"My Game");
     window->init();
+    shaderLoader=new ShaderLoader();
     
     /**
      * @brief Attributes that configure SDL with OpenGL
@@ -69,10 +70,21 @@ void Game::init(const char *title, int width, int height, bool fullscreen)
         return;
     }
     
+    float vertices[] = {
+    -0.5f, -0.5f, 0.0f,
+     0.5f, -0.5f, 0.0f,
+     0.0f,  0.5f, 0.0f
+    };  
+    unsigned int VBO;
+    glGenBuffers(1, &VBO);
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);  
+    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+    
+    shaderLoader->LoadAndLinkAll();
 
-    std::string str = "example.png";
-    char *path = MyPath::getImageDir(str);
-    playerText = TextureManager::LoadTexture(path, renderer);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+    glEnableVertexAttribArray(0);  
+
 
     isRunning = true;
 }
