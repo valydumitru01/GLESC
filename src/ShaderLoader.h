@@ -1,12 +1,12 @@
-class ShaderLoader{
-    public:
-        unsigned int LoadAndLinkAll();
-        void LoadVertexShader();
-        void LoadFragmentShader();
-        unsigned int getShaderProgramID(){ return shaderProgram; }
-    private:
-        unsigned int vertexShader;
-        const char* vertexShaderSource=
+#include "common.h"
+class ShaderLoader
+{
+public:
+    void LoadAndLinkAll();
+    unsigned int getShaderProgramID() { return shaderProgram; }
+
+private:
+    const char *vertexShaderSource =
         R"glsl(
 
             #version 430 core
@@ -18,8 +18,7 @@ class ShaderLoader{
 
         )glsl";
 
-        unsigned int fragmentShader;
-        const char* fragmentShaderSource=
+    const char *fragmentShaderSource =
         R"glsl(
 
             #version 430 core
@@ -31,12 +30,24 @@ class ShaderLoader{
 
         )glsl";
 
-        void HandleErrors_VertexShader();
-        void HandleErrors_FragmentShader();
-        void HandleErrors_Linking();
-        void Clean();
-        int  success;
-        char infoLog[512];
-        unsigned int shaderProgram;
+    unsigned int vertexShader;
+    unsigned int fragmentShader;
 
+
+    void LoadVertexShader();
+    void LoadFragmentShader();
+    void LinkShaders();
+    unsigned int shaderProgram;
+
+
+    void HandleErrors_VertexShader();
+    void HandleErrors_FragmentShader();
+    void HandleErrors_Linking();
+    int success;
+    char infoLog[512];
+
+
+    void Clean();
+
+    
 };

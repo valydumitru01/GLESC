@@ -1,4 +1,4 @@
-#import "ShaderLoader.h"
+#include "ShaderLoader.h"
 
 void ShaderLoader::LoadAndLinkAll(){
     LoadVertexShader();
@@ -7,13 +7,12 @@ void ShaderLoader::LoadAndLinkAll(){
     Clean();
 }
 
-
 void ShaderLoader::LoadVertexShader(){
     vertexShader = glCreateShader(GL_VERTEX_SHADER);
     glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
     glCompileShader(vertexShader);
 
-    HandleErrors_VertexShader()
+    HandleErrors_VertexShader();
 }
 void ShaderLoader::HandleErrors_VertexShader(){
     /* Check for errors in vertex shader compilation */ 
@@ -26,13 +25,12 @@ void ShaderLoader::HandleErrors_VertexShader(){
 }
 
 
-
 void ShaderLoader::LoadFragmentShader(){
     fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
     glShaderSource(fragmentShader, 1, &fragmentShaderSource, NULL);
     glCompileShader(fragmentShader);
 
-    HandleErrors_FragmentShader()
+    HandleErrors_FragmentShader();
 }
 void ShaderLoader::HandleErrors_FragmentShader(){
     /* Check for errors in fragment shader compilation */ 
