@@ -69,17 +69,29 @@ void Game::init(const char *title, int width, int height, bool fullscreen)
         fprintf(stderr, "Error: %s\n", glewGetErrorString(err));
         return;
     }
-    
+    /* Vertices of the triangle */
     float vertices[] = {
     -0.5f, -0.5f, 0.0f,
      0.5f, -0.5f, 0.0f,
      0.0f,  0.5f, 0.0f
     };  
+    /* Vertex Buffer Object ID */
     unsigned int VBO;
+    /* We generate the buffer
+    The first parameter is the ammount of buffer objects we want to generate 
+    The second is the reference to the object ID as uint, if we generate more tan one, we need to pass an array of uint */ 
     glGenBuffers(1, &VBO);
-    glBindBuffer(GL_ARRAY_BUFFER, VBO);  
+    /* We bind the created buffer to a specific type.
+    There can only be one buffer of each type.
+    Therefore any buffer calls we make to GL_ARRAY_BUFFER will configure the 
+    current bound buffer */ 
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    /* Copies the previously defined vertices into the buffer's memory 
+    We pass the buffer, the size of the vertices array, the vertices and 
+    how we want the GPU to manage the vertices 
+    More info here: https://www.khronos.org/registry/OpenGL-Refpages/gl4/html/glBufferData.xhtml */
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-    
+    /* We do the shader stuff */
     shaderLoader->LoadAndLinkAll();
 
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
@@ -119,7 +131,7 @@ void Game::update(double deltaTime)
 
 void Game::render()
 {
-    
+    glUseProgram(shaderLoader->getShaderProgramID());
 }
 
 void Game::clean()
