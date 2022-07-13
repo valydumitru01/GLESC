@@ -14,16 +14,6 @@ void ShaderLoader::LoadVertexShader(){
     IDNames.emplace(vertexShader, "VERTEX");
     HandleErrors_CompileShader(vertexShader);
 }
-void ShaderLoader::HandleErrors_CompileShader(unsigned int shaderType){
-    /* Check for errors in vertex shader compilation */ 
-    glGetShaderiv(shaderType, GL_COMPILE_STATUS, &success);
-    if(!success)
-    {
-        glGetShaderInfoLog(shaderType, 512, NULL, infoLog);
-        std::cout << "ERROR::SHADER::"<<IDNames.at(shaderType) <<"::COMPILATION_FAILED\n" << infoLog << std::endl;
-    }
-}
-
 
 void ShaderLoader::LoadFragmentShader(){
     fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
@@ -33,14 +23,6 @@ void ShaderLoader::LoadFragmentShader(){
     HandleErrors_CompileShader(vertexShader);
 }
 
-void ShaderLoader::HandleErrors_Linking(){
-    /* Check for shader linking errors */
-    glGetProgramiv(shaderProgram, GL_LINK_STATUS, &success);
-    if(!success) {
-        glGetProgramInfoLog(shaderProgram, 512, NULL, infoLog);
-        std::cout << "ERROR::SHADER::LINKING_FAILED\n" << infoLog << std::endl;
-    }
-}
 void ShaderLoader::LinkShaders(){
     shaderProgram = glCreateProgram();
     glAttachShader(shaderProgram, vertexShader);
@@ -52,4 +34,24 @@ void ShaderLoader::LinkShaders(){
 void ShaderLoader::Clean(){
     glDeleteShader(vertexShader);
     glDeleteShader(fragmentShader);
+}
+
+
+
+void ShaderLoader::HandleErrors_Linking(){
+    /* Check for shader linking errors */
+    glGetProgramiv(shaderProgram, GL_LINK_STATUS, &success);
+    if(!success) {
+        glGetProgramInfoLog(shaderProgram, 512, NULL, infoLog);
+        std::cout << "ERROR::SHADER::LINKING_FAILED\n" << infoLog << std::endl;
+    }
+}
+void ShaderLoader::HandleErrors_CompileShader(unsigned int shaderType){
+    /* Check for errors in vertex shader compilation */ 
+    glGetShaderiv(shaderType, GL_COMPILE_STATUS, &success);
+    if(!success)
+    {
+        glGetShaderInfoLog(shaderType, 512, NULL, infoLog);
+        std::cout << "ERROR::SHADER::"<<IDNames.at(shaderType) <<"::COMPILATION_FAILED\n" << infoLog << std::endl;
+    }
 }
