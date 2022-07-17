@@ -87,13 +87,15 @@ private:
      * 
      */
     SDL_Renderer *renderer;
-    /**
-     * @brief OpenGL context
-     * 
-     */
-    SDL_GLContext context;
+    
 
     ShaderLoader* shaderLoader;
+    /**
+     *  @brief Vertex Buffer Object ID 
+     * 
+     */
+    unsigned int VBO;
+    unsigned int VAO;
 
 };
 

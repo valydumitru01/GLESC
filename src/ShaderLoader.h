@@ -70,7 +70,7 @@ private:
     void LoadVertexShader();
     /**
      * @brief Loads the fragment shader
-     * Calculates colors and pixels (a fragment is a pixel in OpenGL)
+     * Calculates colors of pixels (a fragment is a pixel in OpenGL)
      */
     void LoadFragmentShader();
     /**
@@ -102,7 +102,7 @@ private:
      * This is used to identify the shader in case of handling an error
      * 
      */
-    std::unordered_map<unsigned int, char*> IDNames = {};
+    std::unordered_map<unsigned int, const char*> IDNames;
 
     /**
      * @brief If there is no errors, success != 0

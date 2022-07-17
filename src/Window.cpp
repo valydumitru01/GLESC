@@ -1,5 +1,5 @@
 #include "Window.h"
-Window::Window(char* title){
+Window::Window(const char* title){
     int flags = initFlags();
     this->window_name=title;
     /* Create windows with SDL */
@@ -19,6 +19,15 @@ void Window::init(){
     /* Tells OpenGL which size is the viewport where things are displayed 
     Paramenters: Two points (x,y) of the left bottom corner and of the right upper corner*/
     glViewport(0, 0, this->width, this->height);
+    /* OpenGL context initialization over the SDL window, needed for
+    using OpenGL functions*/
+    context = SDL_GL_CreateContext(this->window);
+    /* Returns null on error */
+    if (context == NULL)
+    {
+        SDL_Log("Unable to create context: %s", SDL_GetError());
+        return;
+    }
 }
 void Window::setSize(GLsizei _width, GLsizei _height){
     this->height=_height;
@@ -45,4 +54,8 @@ SDL_Window* Window::getWindow(){
 }
 Window::~Window(){
     SDL_DestroyWindow(this->window);
+    SDL_GL_DeleteContext(context);
+}
+void Window::SwapBuffers(){
+    SDL_GL_SwapWindow( window );
 }

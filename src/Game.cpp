@@ -1,9 +1,7 @@
 #include "Game.h"
 #include "MyPath.h"
 #include "TextureManager.h"
-SDL_Texture *playerText;
-SDL_Rect srcRectangle, destRectangle;
-double positionX = 0;
+
 Game::Game()
 {
 }
@@ -15,8 +13,8 @@ Game::~Game()
 void Game::init(const char *title, int width, int height, bool fullscreen)
 {
 
-    window = new Window((char*)"My Game");
-    window->init();
+    
+    
     shaderLoader=new ShaderLoader();
     
     /**
@@ -37,6 +35,8 @@ void Game::init(const char *title, int width, int height, bool fullscreen)
     /* TODO: Learn about other attributes, including what this one does */
     SDL_GL_SetAttribute(SDL_GL_STENCIL_SIZE, 8);
 
+    SDL_GL_SetSwapInterval(1);
+
     /* Initialize SDL, needs a paramterer to indicate what to initialize
     SDL has several subsystems like SDL_INIT_AUDIO or SDL_INIT_VIDEO.
     SDL_INIT_EVERYTHING is just a call to each one of them.
@@ -48,17 +48,13 @@ void Game::init(const char *title, int width, int height, bool fullscreen)
     }
 
     std::cout << "Subsystem initialized..." << std::endl;
+    /** Must create the window after initing SDL **/
+    window = new Window("My Game");
     
-    /* OpenGL context initialization over the SDL window, needed for
-    using OpenGL functions*/
-    context = SDL_GL_CreateContext(this->window->getWindow());
-
-    /* Returns null on error */
-    if (context == NULL)
-    {
-        SDL_Log("Unable to create context: %s", SDL_GetError());
-        return;
-    }
+    
+    /** Must init **/
+    window->init();
+    
     /* Needed before glewInit() to enable glew functionality,
     the word experimental is meaningless */
     glewExperimental = GL_TRUE;
@@ -69,33 +65,47 @@ void Game::init(const char *title, int width, int height, bool fullscreen)
         fprintf(stderr, "Error: %s\n", glewGetErrorString(err));
         return;
     }
+    
+    
+    
+ 
+    /* We bind the created buffer to a specific type.
+    There can only be one buffer of each type.
+    Therefore any buffer calls we make to GL_ARRAY_BUFFER will configure the 
+    current bound buffer */
+    
+    shaderLoader->LoadAndLinkAll();
     /* Vertices of the triangle */
     float vertices[] = {
     -0.5f, -0.5f, 0.0f,
      0.5f, -0.5f, 0.0f,
      0.0f,  0.5f, 0.0f
-    };  
-    /* Vertex Buffer Object ID */
-    unsigned int VBO;
+    }; 
     /* We generate the buffer
     The first parameter is the ammount of buffer objects we want to generate 
     The second is the reference to the object ID as uint, if we generate more tan one, we need to pass an array of uint */ 
     glGenBuffers(1, &VBO);
-    /* We bind the created buffer to a specific type.
-    There can only be one buffer of each type.
-    Therefore any buffer calls we make to GL_ARRAY_BUFFER will configure the 
-    current bound buffer */ 
+
+
+    glGenVertexArrays(1, &VAO);  
+
+
+    glBindVertexArray(VAO);
+
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
     /* Copies the previously defined vertices into the buffer's memory 
     We pass the buffer, the size of the vertices array, the vertices and 
     how we want the GPU to manage the vertices 
     More info here: https://www.khronos.org/registry/OpenGL-Refpages/gl4/html/glBufferData.xhtml */
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-    /* We do the shader stuff */
-    shaderLoader->LoadAndLinkAll();
-
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
-    glEnableVertexAttribArray(0);  
+    glEnableVertexAttribArray(0); 
+
+    // note that this is allowed, the call to glVertexAttribPointer registered VBO as the vertex attribute's bound vertex buffer object so afterwards we can safely unbind
+    glBindBuffer(GL_ARRAY_BUFFER, 0); 
+    // You can unbind the VAO afterwards so other VAO calls won't accidentally modify this VAO, but this rarely happens. Modifying other
+    // VAOs requires a call to glBindVertexArray anyways so we generally don't unbind VAOs (nor VBOs) when it's not directly necessary.
+    glBindVertexArray(0);
 
 
     isRunning = true;
@@ -121,23 +131,28 @@ void Game::handleEvents()
 void Game::update(double deltaTime)
 {
     cnt++;
-    destRectangle.h = 64;
-    destRectangle.w = 64;
-    positionX += deltaTime * 100;
-    destRectangle.x = std::trunc(positionX);
 
-    std::cout << destRectangle.x << std::endl;
 }
 
 void Game::render()
 {
+
+    glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+    glClear(GL_COLOR_BUFFER_BIT);
+
     glUseProgram(shaderLoader->getShaderProgramID());
+    glBindVertexArray(VAO);
+    glDrawArrays(GL_TRIANGLES, 0, 3);
+    window->SwapBuffers();
 }
 
 void Game::clean()
 {
-    SDL_GL_DeleteContext(context);
+    
     SDL_DestroyRenderer(renderer);
+    glDeleteVertexArrays(1, &VAO);
+    glDeleteBuffers(1, &VBO);
+    glDeleteProgram(shaderLoader->getShaderProgramID());
     SDL_Quit();
     std::cout << "Game cleaned" << std::endl;
 }

@@ -9,7 +9,7 @@
 class Window{
     public:
         ~Window();
-        Window(char* title);
+        Window(const char* title);
         /**
          * @brief Function to initialize our window with its corresponding flags
          * 
@@ -27,6 +27,17 @@ class Window{
          * 
          */
         void setFullscreen(SDL_bool isFullScreen);
+        /**
+         * @brief Swap our buffer to display the current 
+         * contents of buffer on screen
+         * 
+         */
+        void SwapBuffers();
+        /**
+         * @brief Get the Window object
+         * 
+         * @return SDL_Window* 
+         */
         SDL_Window* getWindow();
     private:
         /**
@@ -45,10 +56,14 @@ class Window{
          * 
          */
         SDL_bool fullscreen = SDL_FALSE;
-        
+        /**
+         * @brief OpenGL context
+         * 
+         */
+        SDL_GLContext context;
         int height = 600;
         int width = 800;
         int winpos_x = SDL_WINDOWPOS_CENTERED;
         int winpos_y = SDL_WINDOWPOS_CENTERED;
-        char* window_name = (char*)"Game";
+        const char* window_name = (char*)"Game";
 };
