@@ -1,12 +1,7 @@
-#ifndef Game_h
-#define Game_h
-
-#include "SDL2/SDL.h"
-#include "SDL2/SDL_image.h"
-#include <iostream>
-#include <windows.h>
+#pragma once
 #include "common.h"
-
+#include "Window.h"
+#include "ShaderLoader.h"
 class Game {
 
 public:
@@ -84,17 +79,22 @@ private:
      * @brief Pointer to the window of the game
      * 
      */
-    SDL_Window *window;
+    Window *window;
     /**
      * @brief Pointer to the renderer of the game
      * 
      */
     SDL_Renderer *renderer;
+    
+
+    ShaderLoader* shaderLoader;
     /**
-     * @brief OpenGL context
+     *  @brief Vertex Buffer Object ID 
      * 
      */
-    SDL_GLContext context;
+    unsigned int VBO;
+    unsigned int VAO;
+
+
 };
 
-#endif

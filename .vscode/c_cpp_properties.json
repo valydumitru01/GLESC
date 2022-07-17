@@ -29,11 +29,9 @@
             "name": "Linux",
             "includePath": [
                 "${workspaceRoot}/**",
-                "${workspaceRoot}/include",
-                "${workspaceRoot}/src",
-                "/usr/x86_64-w64-mingw32/include",
-                "/usr/include",
-                "/usr/local/include"
+                "/usr/x86_64-w64-mingw32/include/**",
+                "/usr/include/**",
+                "/usr/local/include/**"
             ],
             "defines": [],
             "intelliSenseMode": "${default}",
@@ -45,7 +43,7 @@
                 "limitSymbolsToIncludedHeaders": true,
                 "databaseFilename": ""
             },
-            "compilerPath": "/usr/bin/x86_64-w64-mingw32-g++",
+            "compilerPath": "/usr/bin/g++",
             "cStandard": "c17",
             "cppStandard": "c++17",
             "configurationProvider": "ms-vscode.makefile-tools"

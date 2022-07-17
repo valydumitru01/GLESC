@@ -1,6 +1,4 @@
-#ifndef _COMMON_H
-#define _COMMON_H
-
+#pragma once
 /*=======STANDARD TEMPLATE LIBRARY=======*/
 #include <iostream>
 #include <string>
@@ -26,6 +24,3 @@ using namespace std;
 #include <SDL2/SDL_net.h>
 
 /*=======CLASS DEFINITIONS=======*/
-
-
-#endif

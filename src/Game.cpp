@@ -1,9 +1,7 @@
 #include "Game.h"
 #include "MyPath.h"
 #include "TextureManager.h"
-SDL_Texture *playerText;
-SDL_Rect srcRectangle, destRectangle;
-double positionX = 0;
+
 Game::Game()
 {
 }
@@ -15,13 +13,10 @@ Game::~Game()
 void Game::init(const char *title, int width, int height, bool fullscreen)
 {
 
-    /*Flags that are needed to be passed to the window to configure it.
-    To add more flags we need to use the binary OR ( | )
-    More info: https://wiki.libsdl.org/SDL_WindowFlags*/
-    int flags = 0;
-    /* Flag for allowing SDL window work with OpenGL */
-    flags |= SDL_WINDOW_OPENGL;
-
+    
+    
+    shaderLoader=new ShaderLoader();
+    
     /**
      * @brief Attributes that configure SDL with OpenGL
      * More info: https://wiki.libsdl.org/SDL_GLattr
@@ -36,9 +31,11 @@ void Game::init(const char *title, int width, int height, bool fullscreen)
     We are choosing this version as most computers will support it. */
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 4);
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
-
+    
     /* TODO: Learn about other attributes, including what this one does */
     SDL_GL_SetAttribute(SDL_GL_STENCIL_SIZE, 8);
+
+    SDL_GL_SetSwapInterval(1);
 
     /* Initialize SDL, needs a paramterer to indicate what to initialize
     SDL has several subsystems like SDL_INIT_AUDIO or SDL_INIT_VIDEO.
@@ -51,24 +48,13 @@ void Game::init(const char *title, int width, int height, bool fullscreen)
     }
 
     std::cout << "Subsystem initialized..." << std::endl;
-    /* Create windows with SDL */
-    window = SDL_CreateWindow(title, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, flags);
-    /* Returns null on error*/
-    if (window == NULL)
-    {
-        SDL_Log("Unable to create window: %s", SDL_GetError());
-        return;
-    }
-    /* OpenGL context initialization over the SDL window, needed for
-    using OpenGL functions*/
-    context = SDL_GL_CreateContext(window);
-
-    /* Returns null on error */
-    if (context == NULL)
-    {
-        SDL_Log("Unable to create context: %s", SDL_GetError());
-        return;
-    }
+    /** Must create the window after initing SDL **/
+    window = new Window("My Game");
+    
+    
+    /** Must init **/
+    window->init();
+    
     /* Needed before glewInit() to enable glew functionality,
     the word experimental is meaningless */
     glewExperimental = GL_TRUE;
@@ -79,10 +65,49 @@ void Game::init(const char *title, int width, int height, bool fullscreen)
         fprintf(stderr, "Error: %s\n", glewGetErrorString(err));
         return;
     }
+    
+    
+    
+ 
+    /* We bind the created buffer to a specific type.
+    There can only be one buffer of each type.
+    Therefore any buffer calls we make to GL_ARRAY_BUFFER will configure the 
+    current bound buffer */
+    
+    shaderLoader->LoadAndLinkAll();
 
-    std::string str = "example.png";
-    char *path = MyPath::getImageDir(str);
-    playerText = TextureManager::LoadTexture(path, renderer);
+    /* Vertices of the triangle */
+    float vertices[] = {
+    -0.5f, -0.5f, 0.0f,
+     0.5f, -0.5f, 0.0f,
+     0.0f,  0.5f, 0.0f
+    }; 
+    /* We generate the buffer
+    The first parameter is the ammount of buffer objects we want to generate 
+    The second is the reference to the object ID as uint, if we generate more tan one, we need to pass an array of uint */ 
+    glGenBuffers(1, &VBO);
+
+
+    glGenVertexArrays(1, &VAO);  
+
+
+    glBindVertexArray(VAO);
+
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    /* Copies the previously defined vertices into the buffer's memory 
+    We pass the buffer, the size of the vertices array, the vertices and 
+    how we want the GPU to manage the vertices 
+    More info here: https://www.khronos.org/registry/OpenGL-Refpages/gl4/html/glBufferData.xhtml */
+    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+    glEnableVertexAttribArray(0); 
+
+    // note that this is allowed, the call to glVertexAttribPointer registered VBO as the vertex attribute's bound vertex buffer object so afterwards we can safely unbind
+    glBindBuffer(GL_ARRAY_BUFFER, 0); 
+    // You can unbind the VAO afterwards so other VAO calls won't accidentally modify this VAO, but this rarely happens. Modifying other
+    // VAOs requires a call to glBindVertexArray anyways so we generally don't unbind VAOs (nor VBOs) when it's not directly necessary.
+    glBindVertexArray(0);
+
 
     isRunning = true;
 }
@@ -96,6 +121,9 @@ void Game::handleEvents()
     case SDL_QUIT:
         isRunning = false;
         break;
+    case SDL_WINDOWEVENT_SIZE_CHANGED:
+        window->setSize(event.window.data1,event.window.data2);
+        break;
     default:
         break;
     }
@@ -104,29 +132,28 @@ void Game::handleEvents()
 void Game::update(double deltaTime)
 {
     cnt++;
-    destRectangle.h = 64;
-    destRectangle.w = 64;
-    positionX += deltaTime * 100;
-    destRectangle.x = std::trunc(positionX);
 
-    std::cout << destRectangle.x << std::endl;
 }
 
 void Game::render()
 {
-    SDL_RenderClear(renderer);
-    // null, for the source rectangle will use the entire image
-    // null, will draw the whole render frame
-    SDL_RenderCopy(renderer, playerText, NULL, &destRectangle);
-    // this is where we would add stuff to render
-    SDL_RenderPresent(renderer);
+
+    glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+    glClear(GL_COLOR_BUFFER_BIT);
+
+    glUseProgram(shaderLoader->getShaderProgramID());
+    glBindVertexArray(VAO);
+    glDrawArrays(GL_TRIANGLES, 0, 3);
+    window->SwapBuffers();
 }
 
 void Game::clean()
 {
-    SDL_GL_DeleteContext(context);
+    
     SDL_DestroyRenderer(renderer);
-    SDL_DestroyWindow(window);
+    glDeleteVertexArrays(1, &VAO);
+    glDeleteBuffers(1, &VBO);
+    glDeleteProgram(shaderLoader->getShaderProgramID());
     SDL_Quit();
     std::cout << "Game cleaned" << std::endl;
 }
