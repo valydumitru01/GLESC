@@ -1,24 +1,24 @@
 #Check the OS
 ifeq ($(OS),Windows_NT)
-    # the compiler: gcc for C program, define as g++ for C++
-	CC	:= g++
-	# The windows command for delete
-	DEL := del
-	# The windows slash for directory
-	SLASH := "\"
-	# Indicating that we dont need wine, unlike in linux
-	WINE := 
-	OS_MACRO :=__WINDOWS__
+# the compiler: gcc for C program, define as g++ for C++
+CC	:= g++
+# The windows command for delete
+DEL := del
+# The windows slash for directory
+SLASH := "\"
+# Indicating that we dont need wine, unlike in linux
+WINE := 
+OS_MACRO :=__WINDOWS__
 else
-	# Linux compiler for windows executables (64 bits)
-    CC	:= x86_64-w64-mingw32-g++
-	# Linux command for delete (rm -f)
-	DEL := $(RM)
-	# Linux slash for directory
-	SLASH := '/'
-	# Wine, program for executing windows apps .exe
-	WINE := wine
-	OS_MACRO :=__LINUX__
+# Linux compiler for windows executables (64 bits)
+CC	:= x86_64-w64-mingw32-g++
+# Linux command for delete (rm -f)
+DEL := $(RM)
+# Linux slash for directory
+SLASH := '/'
+# Wine, program for executing windows apps .exe
+WINE := wine
+OS_MACRO :=__LINUX__
 endif
 
 
@@ -49,9 +49,7 @@ run:
 	@echo "Executing..."
 	$(WINE) $(BIN)/$(EXECUTABLE)
 # Build then run the game
-build-and-run: clean all
-	@echo "Executing..."
-	$(WINE) $(BIN)/$(EXECUTABLE)
+build-and-run: clean build run
 # Remove the executable
 clean:
 	@echo "Clearing..."

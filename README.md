@@ -51,6 +51,11 @@ This game has some important similarities, such as taming mechanics with compani
 
 ![](/doc/images/Similar_Game_BitHeroes.webp)
 
+#### Metal Slug Tactics
+Metal Slug Tactics is a turn based tactical fighting game. It has a great looking pixel art style which is similar to ours. 
+
+![](/doc/images/Similar_Game_MetalSlugTactics.jpeg)
+
 # Important information and tutorials <a name="importantinformation"></a>
 
 ## OpenGL
