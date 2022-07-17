@@ -36,4 +36,4 @@ EXECUTABLE  := game
 
 
 script:
-  - $(CC) $(CFLAGS) -I $(INCLUDE) -L $(LIB) -D $(OS_MACRO) -o $(BIN)/$(EXECUTABLE) $(SRC)/*.cpp $(LIBRARIES)
+  - g++ -g -Wall -I include -L lib -D -o bin/game src/*.cpp -lmingw32 -lSDL2main -lSDL2 -lSDL2_net -lSDL2_mixer -lmingw32 -lopengl32 -lglew32 -lglu32 -lSDL2main -lSDL2 -lSDL2_image
