@@ -1,6 +1,4 @@
-#ifndef Game_h
-#define Game_h
-
+#pragma once
 #include "common.h"
 #include "Window.h"
 #include "ShaderLoader.h"
@@ -97,6 +95,6 @@ private:
     unsigned int VBO;
     unsigned int VAO;
 
+
 };
 
-#endif

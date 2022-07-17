@@ -75,6 +75,7 @@ void Game::init(const char *title, int width, int height, bool fullscreen)
     current bound buffer */
     
     shaderLoader->LoadAndLinkAll();
+
     /* Vertices of the triangle */
     float vertices[] = {
     -0.5f, -0.5f, 0.0f,
