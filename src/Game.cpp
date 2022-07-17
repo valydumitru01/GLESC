@@ -109,7 +109,7 @@ void Game::update(double deltaTime)
     positionX += deltaTime * 100;
     destRectangle.x = std::trunc(positionX);
 
-    std::cout << destRectangle.x << std::endl;
+    //std::cout << destRectangle.x << std::endl;
 }
 
 void Game::render()

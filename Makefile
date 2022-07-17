@@ -44,12 +44,22 @@ build:
 	@echo "Building..."
 	$(CC) $(CFLAGS) -I $(INCLUDE) -L $(LIB) -D $(OS_MACRO) -o $(BIN)/$(EXECUTABLE) $(SRC)/*.cpp $(LIBRARIES) 
 
+# Builds the executable game in release mode
+build-release:
+	@echo "Building..."
+	$(CC) $(CFLAGS) -DNDEBUG -I $(INCLUDE) -L $(LIB) -D $(OS_MACRO) -o $(BIN)/$(EXECUTABLE) $(SRC)/*.cpp $(LIBRARIES) 
+
 # Run the game
 run:
 	@echo "Executing..."
 	$(WINE) $(BIN)/$(EXECUTABLE)
+
 # Build then run the game
 build-and-run: clean build run
+
+# Build in release mode then run the game
+build-and-run: clean build-release run
+
 # Remove the executable
 clean:
 	@echo "Clearing..."

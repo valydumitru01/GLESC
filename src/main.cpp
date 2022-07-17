@@ -1,9 +1,14 @@
 #include "common.h"
 #include "Game.h"
+#include <cassert>
+#include <iostream>
 
 Game *game = nullptr;
 
-
+void test() 
+{
+    assert(1+1==2);
+}
 
 int SDL_main(int argc, char *argv[])
 {
@@ -33,7 +38,12 @@ int SDL_main(int argc, char *argv[])
      */
     double elapsed;
 
-
+    #ifndef NDEBUG
+    std::cout << "Debug mode\n";
+    test();
+    #else
+    std::cout << "Release mode\n";
+    #endif
     elapsed=0;      //Initialised at 0, first frame is immobilized
     FPS=60;         //Initialize max fps at 60
     FPS_MS=1000.0/(double)FPS; //The max milliseconds of the frame is the division between 1000 (ms in a second) and the max fps
@@ -53,7 +63,7 @@ int SDL_main(int argc, char *argv[])
         
         elapsed = (end - start) / (double)SDL_GetPerformanceFrequency(); //Calculate elapsed:  time of the end of the iteration - time of the start of the iteration
         
-        cout << "Current FPS: " << to_string(1.0f / elapsed) << endl;
+        //cout << "Current FPS: " << to_string(1.0f / elapsed) << endl;
 
 	    
     }
