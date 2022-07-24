@@ -14,7 +14,8 @@ void Game::init(const char *title, int width, int height, bool fullscreen)
 {
 
     
-    
+    /*Instantiate the shader loader object.
+    This object is in charge of doing all the shader work*/
     shaderLoader=new ShaderLoader();
     
     /**
@@ -34,13 +35,18 @@ void Game::init(const char *title, int width, int height, bool fullscreen)
     
     /* TODO: Learn about other attributes, including what this one does */
     SDL_GL_SetAttribute(SDL_GL_STENCIL_SIZE, 8);
-
-    SDL_GL_SetSwapInterval(1);
-
-    /* Initialize SDL, needs a paramterer to indicate what to initialize
-    SDL has several subsystems like SDL_INIT_AUDIO or SDL_INIT_VIDEO.
-    SDL_INIT_EVERYTHING is just a call to each one of them.
-    More info: https://wiki.libsdl.org/SDL_Init */
+    /*This makes our buffer swap syncronized with the monitor's vertical refresh
+    0 for immediate updates, 1 for updates synchronized with the vertical retrace, -1 for adaptive vsync */
+    int status=SDL_GL_SetSwapInterval(1);
+    if(status == -1){
+        cout<< SDL_GetError() <<endl;
+        SDL_GL_SetSwapInterval(0);
+    }
+    /**
+     * SDL has several subsystems like SDL_INIT_AUDIO or SDL_INIT_VIDEO.
+     * SDL_INIT_EVERYTHING is just a call to each one of them.
+     * More info: https://wiki.libsdl.org/SDL_Init 
+     */
     if (SDL_Init(SDL_INIT_EVERYTHING) != 0)
     {
         SDL_Log("Unable to initialize SDL: %s", SDL_GetError());
@@ -68,12 +74,12 @@ void Game::init(const char *title, int width, int height, bool fullscreen)
     
     
     
- 
-    /* We bind the created buffer to a specific type.
-    There can only be one buffer of each type.
-    Therefore any buffer calls we make to GL_ARRAY_BUFFER will configure the 
-    current bound buffer */
-    
+    /**
+     * We bind the created buffer to a specific type.
+     * There can only be one buffer of each type.
+     * Therefore any buffer calls we make to GL_ARRAY_BUFFER will configure the 
+     * current bound buffer
+     */
     shaderLoader->LoadAndLinkAll();
 
     /* Vertices of the triangle */
@@ -82,23 +88,33 @@ void Game::init(const char *title, int width, int height, bool fullscreen)
      0.5f, -0.5f, 0.0f,
      0.0f,  0.5f, 0.0f
     }; 
-    /* We generate the buffer
-    The first parameter is the ammount of buffer objects we want to generate 
-    The second is the reference to the object ID as uint, if we generate more tan one, we need to pass an array of uint */ 
+    /**
+     * We generate the vertex buffer objects
+     * It's used to store a large number of vertices in the GPU's memory without having to send data one vertex at a time
+     * The first parameter is the ammount of buffer objects we want to generate 
+     * The second is the reference to the object ID as uint, if we generate more tan one, we need to pass an array of uint 
+     */
     glGenBuffers(1, &VBO);
 
-
+    
     glGenVertexArrays(1, &VAO);  
 
 
     glBindVertexArray(VAO);
-
+    /**
+     * OpenGL has many types of buffer objects and the buffer type of a vertex buffer object is GL_ARRAY_BUFFER
+     * From that point on any buffer calls we make (on the GL_ARRAY_BUFFER target) will be used to configure the currently bound buffer, which is VBO.
+     */
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
-    /* Copies the previously defined vertices into the buffer's memory 
-    We pass the buffer, the size of the vertices array, the vertices and 
-    how we want the GPU to manage the vertices 
-    More info here: https://www.khronos.org/registry/OpenGL-Refpages/gl4/html/glBufferData.xhtml */
+    /**
+     * Copies the previously defined vertices into the buffer's memory 
+     * We pass the buffer, the size of the vertices array, the vertices and 
+     * how we want the GPU to manage the vertices 
+     * More info here: https://www.khronos.org/registry/OpenGL-Refpages/gl4/html/glBufferData.xhtml
+     */
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+
+
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(0); 
 

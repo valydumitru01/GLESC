@@ -1,7 +1,6 @@
 #pragma once
 #include "common.h"
 #include "Window.h"
-#include "3DPoint.h"
 #include "ShaderLoader.h"
 class Triangle {
 
@@ -13,4 +12,5 @@ public:
 private:
 
     std::array< float, 9 > vertices;
+
 };
