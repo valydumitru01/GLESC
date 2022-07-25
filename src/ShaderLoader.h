@@ -45,10 +45,13 @@ private:
         R"glsl(
             /* Version of OpenGL */
             #version 430 core
+            /* Global variable to enable changing the color from outside GLSL*/
+            uniform vec4 ourColor; 
+            /* Output of the shader, should always be vec4 because the fragment shader always returns an array of colors*/
             out vec4 FragColor;
             void main()
             {
-                FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);
+                FragColor = ourColor;
             }
 
         )glsl";
