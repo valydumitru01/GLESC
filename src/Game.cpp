@@ -76,17 +76,24 @@ void Game::init(const char *title, int width, int height, bool fullscreen)
     
     shaderLoader->LoadAndLinkAll();
 
-    /* Vertices of the triangle */
+    /* Vertices of the Rectangle */
     float vertices[] = {
-    -0.5f, -0.5f, 0.0f,
-     0.5f, -0.5f, 0.0f,
-     0.0f,  0.5f, 0.0f
+     0.5f,  0.5f, 0.0f,  // top right
+     0.5f, -0.5f, 0.0f,  // bottom right
+    -0.5f, -0.5f, 0.0f,  // bottom left
+    -0.5f,  0.5f, 0.0f   // top left
     }; 
+
+    unsigned int indices[] = {  // note that we start from 0!
+    0, 1, 3,   // first triangle
+    1, 2, 3    // second triangle
+    };
+    
     /* We generate the buffer
     The first parameter is the ammount of buffer objects we want to generate 
     The second is the reference to the object ID as uint, if we generate more tan one, we need to pass an array of uint */ 
     glGenBuffers(1, &VBO);
-
+    glGenBuffers(1, &EBO);
 
     glGenVertexArrays(1, &VAO);  
 
@@ -94,11 +101,17 @@ void Game::init(const char *title, int width, int height, bool fullscreen)
     glBindVertexArray(VAO);
 
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
+
+
     /* Copies the previously defined vertices into the buffer's memory 
     We pass the buffer, the size of the vertices array, the vertices and 
     how we want the GPU to manage the vertices 
     More info here: https://www.khronos.org/registry/OpenGL-Refpages/gl4/html/glBufferData.xhtml */
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(0); 
 
@@ -107,6 +120,9 @@ void Game::init(const char *title, int width, int height, bool fullscreen)
     // You can unbind the VAO afterwards so other VAO calls won't accidentally modify this VAO, but this rarely happens. Modifying other
     // VAOs requires a call to glBindVertexArray anyways so we generally don't unbind VAOs (nor VBOs) when it's not directly necessary.
     glBindVertexArray(0);
+
+    // uncomment this call to draw in wireframe polygons.
+    //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
 
     isRunning = true;
@@ -143,7 +159,8 @@ void Game::render()
 
     glUseProgram(shaderLoader->getShaderProgramID());
     glBindVertexArray(VAO);
-    glDrawArrays(GL_TRIANGLES, 0, 3);
+    //glDrawArrays(GL_TRIANGLES, 0, 3);
+    glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
     window->SwapBuffers();
 }
 
