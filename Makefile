@@ -1,3 +1,4 @@
+
 #Check the OS
 ifeq ($(OS),Windows_NT)
 # the compiler: gcc for C program, define as g++ for C++
@@ -64,3 +65,4 @@ build-and-run: clean build-release run
 clean:
 	@echo "Clearing..."
 	$(DEL) bin$(SLASH)$(EXECUTABLE).exe
+
