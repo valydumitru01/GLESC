@@ -19,7 +19,7 @@ void Game::init(const char *title, int width, int height, bool fullscreen)
     shaderLoader=new ShaderLoader();
     
     /**
-     * @brief Attributes that configure SDL with OpenGL
+     * Attributes that configure SDL with OpenGL
      * More info: https://wiki.libsdl.org/SDL_GLattr
      */
 
@@ -82,12 +82,13 @@ void Game::init(const char *title, int width, int height, bool fullscreen)
      */
     shaderLoader->LoadAndLinkAll();
 
-    /* Vertices of the triangle */
+    /* Vertice data of the triangle */
     float vertices[] = {
-    -0.5f, -0.5f, 0.0f,
-     0.5f, -0.5f, 0.0f,
-     0.0f,  0.5f, 0.0f
-    }; 
+    // positions         // colors
+     0.5f, -0.5f, 0.0f,  1.0f, 0.0f, 0.0f,   // bottom right
+    -0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f,   // bottom left
+     0.0f,  0.5f, 0.0f,  0.0f, 0.0f, 1.0f    // top 
+    };
     /**
      * We generate the vertex buffer objects
      * It's used to store a large number of vertices in the GPU's memory without having to send data one vertex at a time
@@ -96,10 +97,19 @@ void Game::init(const char *title, int width, int height, bool fullscreen)
      */
     glGenBuffers(1, &VBO);
 
-    
+    /**
+     * We generate the Vertex Array Buffer
+     * This buffer is basically an object that contains a state with the different calls to the previously created VBO.
+     * For example when you call glVertexAttribPointer and friends to describe your vertex format
+     * that format information gets stored into the currently bound VAO
+     * 
+     */
     glGenVertexArrays(1, &VAO);  
 
-
+    /**
+     * We bind the array, which means we move to this state
+     * 
+     */
     glBindVertexArray(VAO);
     /**
      * OpenGL has many types of buffer objects and the buffer type of a vertex buffer object is GL_ARRAY_BUFFER
@@ -115,13 +125,46 @@ void Game::init(const char *title, int width, int height, bool fullscreen)
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
 
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+    // position attribute
+    /**
+     * Tells OpenGL how it should interpret the vertex data (per vertex attribute) 
+     * Parameters: 
+     *      1) Index of the attribute
+     *      2) Size of the attribute (in dimensions, 3 in this case vec3)
+     *      3) Type of the data
+     *      4) To normalize the data, not relevant
+     *      5) Stride, space between each attribute in the array
+     *      6) Offset of the data from the beginning, in this case 0 (the cast is needed)
+     * 
+     */
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
+    /**
+     * Finally, we enable the vertex attribute we just configured
+     * 
+     */
     glEnableVertexAttribArray(0); 
+    
+    // color attribute
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3* sizeof(float)));
+    glEnableVertexAttribArray(1);
 
-    // note that this is allowed, the call to glVertexAttribPointer registered VBO as the vertex attribute's bound vertex buffer object so afterwards we can safely unbind
+
+    /**
+     * note that this is allowed, the call to glVertexAttribPointer registered 
+     * VBO as the vertex attribute's bound vertex buffer object so afterwards we 
+     * can safely unbind
+     * This call unbinds the VBO
+     * 
+     */
     glBindBuffer(GL_ARRAY_BUFFER, 0); 
-    // You can unbind the VAO afterwards so other VAO calls won't accidentally modify this VAO, but this rarely happens. Modifying other
-    // VAOs requires a call to glBindVertexArray anyways so we generally don't unbind VAOs (nor VBOs) when it's not directly necessary.
+    /**
+     * You can unbind the VAO afterwards so other VAO calls won't accidentally
+     * modify this VAO, but this rarely happens. 
+     * Modifying other VAOs requires a call to glBindVertexArray anyways so we generally 
+     * don't unbind VAOs (nor VBOs) when it's not directly necessary.
+     * This call unbinds the VAO
+     * 
+     */ 
     glBindVertexArray(0);
 
 
@@ -158,15 +201,20 @@ void Game::render()
     glClear(GL_COLOR_BUFFER_BIT);
     glUseProgram(shaderLoader->getShaderProgramID());
 
-
-    float timeValue = SDL_GetTicks()/1000.0f;
-    float greenValue = (sin(timeValue) / 2.0f) + 0.5f;
-    int vertexColorLocation = glGetUniformLocation(shaderLoader->getShaderProgramID(), "ourColor");
-
     
-    /* Change the value of the variable of the variable to another value */
-    glUniform4f(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
-
+    float timeValue = SDL_GetTicks()/1000.0f;
+    float offsetSin = (sin(timeValue) / 2.0f) ;
+    float offsetCos = (cos(timeValue) / 2.0f) ;
+    int vertexOffsetLocation = glGetUniformLocation(shaderLoader->getShaderProgramID(), "offset");
+    int fragmentColorOffset = glGetUniformLocation(shaderLoader->getShaderProgramID(), "colorOffset");
+    
+    //Change the value of the variable of the variable to another value 
+    glUniform3f(vertexOffsetLocation, offsetCos, offsetSin, offsetCos);
+    glUniform3f(fragmentColorOffset, offsetSin+0.5, offsetCos+0.5, offsetCos+0.5);
+    /**
+     * Stay in this state
+     * 
+     */
     glBindVertexArray(VAO);
     glDrawArrays(GL_TRIANGLES, 0, 3);
     window->SwapBuffers();

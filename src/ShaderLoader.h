@@ -28,12 +28,18 @@ private:
             We must indicate the information that a vertix stores, in our case it will only be position (aPos) 
             For each attribute, we must specify the index of the attribute, in this case 0
             */
-            layout (location = 0) in vec3 aPos;
+            layout (location = 0) in vec3 aPos;     // the position variable has attribute position 0
+            layout (location = 1) in vec3 aColor;   // the color variable has attribute position 1
+            uniform vec3 offset;
+            out vec3 ourColor; // output a color to the fragment shader
+
             void main()
             {
                 /* Actual position of the vertix inside the GPU.
                 There is no processing. */ 
-                gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);
+                gl_Position = vec4(aPos.x + offset.x,aPos.y + offset.y,aPos.z + offset.z, 1.0);
+                ourColor = aPos; // set ourColor to the input color we got from the vertex data
+
             }
 
         )glsl";
@@ -45,13 +51,14 @@ private:
         R"glsl(
             /* Version of OpenGL */
             #version 430 core
-            /* Global variable to enable changing the color from outside GLSL*/
-            uniform vec4 ourColor; 
+
+            in vec3 ourColor;
+            uniform vec3 colorOffset;
             /* Output of the shader, should always be vec4 because the fragment shader always returns an array of colors*/
             out vec4 FragColor;
             void main()
             {
-                FragColor = ourColor;
+                FragColor = vec4(ourColor.x +colorOffset.x,ourColor.y +colorOffset.y,ourColor.z +colorOffset.z, 1.0f);
             }
 
         )glsl";

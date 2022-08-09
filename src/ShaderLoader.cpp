@@ -8,7 +8,7 @@ void ShaderLoader::LoadAndLinkAll(){
 }
 
 void ShaderLoader::LoadVertexShader(){
-    /* TODO: The code to load the shader can be factorized*/
+    /* TODO: The code to load the shader can be factorized */
     vertexShader = glCreateShader(GL_VERTEX_SHADER);
     glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
     glCompileShader(vertexShader);
