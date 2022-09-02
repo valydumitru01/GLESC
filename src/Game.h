@@ -1,7 +1,7 @@
 #pragma once
 #include "common.h"
 #include "Window.h"
-#include "ShaderLoader.h"
+#include "ShaderManager.h"
 class Game {
 
 public:
@@ -87,14 +87,13 @@ private:
     SDL_Renderer *renderer;
     
 
-    ShaderLoader* shaderLoader;
+    ShaderManager* shaderManager;
     /**
      *  @brief Vertex Buffer Object ID 
      * 
      */
-    unsigned int VBO;
-    unsigned int VAO;
-
-
+    unsigned int VBO, VAO, EBO;
+    unsigned int texture;
+    unsigned int texture1;
 };
 

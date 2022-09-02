@@ -16,7 +16,7 @@ void Game::init(const char *title, int width, int height, bool fullscreen)
     
     /*Instantiate the shader loader object.
     This object is in charge of doing all the shader work*/
-    shaderLoader=new ShaderLoader();
+    shaderManager=new ShaderManager();
     
     /**
      * Attributes that configure SDL with OpenGL
@@ -80,92 +80,85 @@ void Game::init(const char *title, int width, int height, bool fullscreen)
      * Therefore any buffer calls we make to GL_ARRAY_BUFFER will configure the 
      * current bound buffer
      */
-    shaderLoader->LoadAndLinkAll();
+    shaderManager->LoadAndLinkAll();
 
     /* Vertice data of the triangle */
     float vertices[] = {
-    // positions         // colors
-     0.5f, -0.5f, 0.0f,  1.0f, 0.0f, 0.0f,   // bottom right
-    -0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f,   // bottom left
-     0.0f,  0.5f, 0.0f,  0.0f, 0.0f, 1.0f    // top 
+    // positions          // colors           // texture coords
+     0.5f,  0.5f, 0.0f,   1.0f, 0.0f, 0.0f,   1.0f, 1.0f,   // top right
+     0.5f, -0.5f, 0.0f,   0.0f, 1.0f, 0.0f,   1.0f, 0.0f,   // bottom right
+    -0.5f, -0.5f, 0.0f,   0.0f, 0.0f, 1.0f,   0.0f, 0.0f,   // bottom left
+    -0.5f,  0.5f, 0.0f,   1.0f, 1.0f, 0.0f,   0.0f, 1.0f    // top left 
     };
-    /**
-     * We generate the vertex buffer objects
-     * It's used to store a large number of vertices in the GPU's memory without having to send data one vertex at a time
-     * The first parameter is the ammount of buffer objects we want to generate 
-     * The second is the reference to the object ID as uint, if we generate more tan one, we need to pass an array of uint 
-     */
+    unsigned int indices[] = {  
+        0, 1, 3, // first triangle
+        1, 2, 3  // second triangle
+    };
+
     glGenBuffers(1, &VBO);
-
-    /**
-     * We generate the Vertex Array Buffer
-     * This buffer is basically an object that contains a state with the different calls to the previously created VBO.
-     * For example when you call glVertexAttribPointer and friends to describe your vertex format
-     * that format information gets stored into the currently bound VAO
-     * 
-     */
     glGenVertexArrays(1, &VAO);  
+    glGenBuffers(1, &EBO);
 
-    /**
-     * We bind the array, which means we move to this state
-     * 
-     */
     glBindVertexArray(VAO);
-    /**
-     * OpenGL has many types of buffer objects and the buffer type of a vertex buffer object is GL_ARRAY_BUFFER
-     * From that point on any buffer calls we make (on the GL_ARRAY_BUFFER target) will be used to configure the currently bound buffer, which is VBO.
-     */
+
+
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
-    /**
-     * Copies the previously defined vertices into the buffer's memory 
-     * We pass the buffer, the size of the vertices array, the vertices and 
-     * how we want the GPU to manage the vertices 
-     * More info here: https://www.khronos.org/registry/OpenGL-Refpages/gl4/html/glBufferData.xhtml
-     */
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+
+    /* EBO for squares, not to repeat vertices */
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+
 
 
     // position attribute
-    /**
-     * Tells OpenGL how it should interpret the vertex data (per vertex attribute) 
-     * Parameters: 
-     *      1) Index of the attribute
-     *      2) Size of the attribute (in dimensions, 3 in this case vec3)
-     *      3) Type of the data
-     *      4) To normalize the data, not relevant
-     *      5) Stride, space between each attribute in the array
-     *      6) Offset of the data from the beginning, in this case 0 (the cast is needed)
-     * 
-     */
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
-    /**
-     * Finally, we enable the vertex attribute we just configured
-     * 
-     */
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(0); 
-    
+
     // color attribute
-    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3* sizeof(float)));
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3 * sizeof(float)));
     glEnableVertexAttribArray(1);
+    
+    // texture coord attribute
+    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
+    glEnableVertexAttribArray(2);
 
 
-    /**
-     * note that this is allowed, the call to glVertexAttribPointer registered 
-     * VBO as the vertex attribute's bound vertex buffer object so afterwards we 
-     * can safely unbind
-     * This call unbinds the VBO
-     * 
-     */
+
     glBindBuffer(GL_ARRAY_BUFFER, 0); 
-    /**
-     * You can unbind the VAO afterwards so other VAO calls won't accidentally
-     * modify this VAO, but this rarely happens. 
-     * Modifying other VAOs requires a call to glBindVertexArray anyways so we generally 
-     * don't unbind VAOs (nor VBOs) when it's not directly necessary.
-     * This call unbinds the VAO
-     * 
-     */ 
     glBindVertexArray(0);
+
+    
+
+    glGenTextures(1, &texture);
+    glBindTexture(GL_TEXTURE_2D, texture);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    /* Set the filter to the mipmaps in case of minifying or magnifying the textures */
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+    
+    SDL_Surface* surf=TextureManager::LoadTexture("assets/sprites/wall.jpg");
+    /**
+     * @brief Generates the texture on the object bound
+     * Params:
+     * 1) The bound object
+     * 2) The level of mipmap for which we want to generate the texture
+     * 3) Which way we want to store the image, we only have rgb
+     * 4 & 5) Width and height of the image
+     * 6) Always 0, legacy
+     * 7) The format of the source image, just RGB in this case
+     * 8) How is the image pixels are stored as, bytes in this case
+     * 9) The actual image data
+     */
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, surf->w, surf->h, 0, GL_RGB, GL_UNSIGNED_BYTE, surf->pixels);
+    /* We generate the mipmap to the bound texture */
+    glGenerateMipmap(GL_TEXTURE_2D);
+    /* Clean the surfice */
+    SDL_FreeSurface(surf);
+
+
 
 
     isRunning = true;
@@ -199,24 +192,17 @@ void Game::render()
 
     glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
-    glUseProgram(shaderLoader->getShaderProgramID());
 
     
-    float timeValue = SDL_GetTicks()/1000.0f;
-    float offsetSin = (sin(timeValue) / 2.0f) ;
-    float offsetCos = (cos(timeValue) / 2.0f) ;
-    int vertexOffsetLocation = glGetUniformLocation(shaderLoader->getShaderProgramID(), "offset");
-    int fragmentColorOffset = glGetUniformLocation(shaderLoader->getShaderProgramID(), "colorOffset");
-    
-    //Change the value of the variable of the variable to another value 
-    glUniform3f(vertexOffsetLocation, offsetCos, offsetSin, offsetCos);
-    glUniform3f(fragmentColorOffset, offsetSin+0.5, offsetCos+0.5, offsetCos+0.5);
-    /**
-     * Stay in this state
-     * 
-     */
+
+    glBindTexture(GL_TEXTURE_2D, texture);
+
+
+
+    shaderManager->use();
     glBindVertexArray(VAO);
-    glDrawArrays(GL_TRIANGLES, 0, 3);
+    glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+    
     window->SwapBuffers();
 }
 
@@ -226,7 +212,8 @@ void Game::clean()
     SDL_DestroyRenderer(renderer);
     glDeleteVertexArrays(1, &VAO);
     glDeleteBuffers(1, &VBO);
-    glDeleteProgram(shaderLoader->getShaderProgramID());
+    glDeleteBuffers(1, &EBO);
+    glDeleteProgram(shaderManager->getShaderProgramID());
     SDL_Quit();
     std::cout << "Game cleaned" << std::endl;
 }

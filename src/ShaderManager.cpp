@@ -1,14 +1,13 @@
-#include "ShaderLoader.h"
+#include "ShaderManager.h"
 
-void ShaderLoader::LoadAndLinkAll(){
+void ShaderManager::LoadAndLinkAll(){
     LoadVertexShader();
     LoadFragmentShader();
     LinkShaders();
     Clean();
 }
 
-void ShaderLoader::LoadVertexShader(){
-    /* TODO: The code to load the shader can be factorized */
+void ShaderManager::LoadVertexShader(){
     vertexShader = glCreateShader(GL_VERTEX_SHADER);
     glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
     glCompileShader(vertexShader);
@@ -16,7 +15,7 @@ void ShaderLoader::LoadVertexShader(){
     HandleErrors_CompileShader(vertexShader);
 }
 
-void ShaderLoader::LoadFragmentShader(){
+void ShaderManager::LoadFragmentShader(){
     fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
     glShaderSource(fragmentShader, 1, &fragmentShaderSource, NULL);
     glCompileShader(fragmentShader);
@@ -24,7 +23,7 @@ void ShaderLoader::LoadFragmentShader(){
     HandleErrors_CompileShader(vertexShader);
 }
 
-void ShaderLoader::LinkShaders(){
+void ShaderManager::LinkShaders(){
     shaderProgram = glCreateProgram();
     glAttachShader(shaderProgram, vertexShader);
     glAttachShader(shaderProgram, fragmentShader);
@@ -32,14 +31,14 @@ void ShaderLoader::LinkShaders(){
 
     HandleErrors_Linking();
 }
-void ShaderLoader::Clean(){
+void ShaderManager::Clean(){
     glDeleteShader(vertexShader);
     glDeleteShader(fragmentShader);
 }
 
 
 
-void ShaderLoader::HandleErrors_Linking(){
+void ShaderManager::HandleErrors_Linking(){
     /* Check for shader linking errors */
     glGetProgramiv(shaderProgram, GL_LINK_STATUS, &success);
     if(!success) {
@@ -47,7 +46,7 @@ void ShaderLoader::HandleErrors_Linking(){
         std::cout << "ERROR::SHADER::LINKING_FAILED\n" << infoLog << std::endl;
     }
 }
-void ShaderLoader::HandleErrors_CompileShader(unsigned int shaderType){
+void ShaderManager::HandleErrors_CompileShader(unsigned int shaderType){
     /* Check for errors in vertex shader compilation */ 
     glGetShaderiv(shaderType, GL_COMPILE_STATUS, &success);
     if(!success)
@@ -56,3 +55,32 @@ void ShaderLoader::HandleErrors_CompileShader(unsigned int shaderType){
         std::cout << "ERROR::SHADER::"<< IDNames.at(shaderType) <<"::COMPILATION_FAILED\n" << infoLog << std::endl;
     }
 }
+void ShaderManager::setBool(const std::string &name, bool value) const
+{
+    /**
+     * @brief We get the Uniform by name with glGetUniformLocation and then we change the value with glUniform1i
+     * Only for 1 value (not vectors)
+     */
+    glUniform1i(glGetUniformLocation(shaderProgram, name.c_str()), (int)value); 
+}
+void ShaderManager::setInt(const std::string &name, int value) const
+{
+    /**
+     * @brief We get the Uniform by name with glGetUniformLocation and then we change the value with glUniform1i (casting the bool value)
+     * Only for 1 value (not vectors)
+     */
+    glUniform1i(glGetUniformLocation(shaderProgram, name.c_str()), value); 
+}
+void ShaderManager::setFloat(const std::string &name, float value) const
+{
+    /**
+     * @brief We get the Uniform by name with glGetUniformLocation and then we change the value with glUniform1f
+     * Only for 1 value (not vectors)
+     */
+    glUniform1f(glGetUniformLocation(shaderProgram, name.c_str()), value); 
+}
+
+void ShaderManager::use() 
+{ 
+    glUseProgram(shaderProgram);
+}  

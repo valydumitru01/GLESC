@@ -74,5 +74,8 @@
         "cinttypes": "cpp"
     },
     "C_Cpp.errorSquiggles": "EnabledIfIncludesResolve",
-    "C_Cpp.intelliSenseEngineFallback": "Enabled"
+    "C_Cpp.intelliSenseEngineFallback": "Enabled",
+    "cSpell.words": [
+        "Parameteri"
+    ]
 }
