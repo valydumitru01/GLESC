@@ -10,5 +10,8 @@ class TextureManager {
          * @return SDL_Texture* 
          */
         static SDL_Surface* LoadTexture(const char* fileName);
+        
+    private:
+        static SDL_Surface* flipSurface(SDL_Surface * surface);
 
 };

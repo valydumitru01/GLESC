@@ -80,11 +80,12 @@ private:
             in vec2 TexCoord;
 
             // texture sampler
-            uniform sampler2D texture;
+            uniform sampler2D texture1;
+            uniform sampler2D texture2;
 
             void main()
             {
-                FragColor = texture(texture, TexCoord);
+                FragColor = mix(texture(texture1, TexCoord), texture(texture2,TexCoord),0.2);
             }
 
         )glsl";
@@ -149,7 +150,7 @@ private:
      * @brief Error message is stored here
      *
      */
-    char infoLog[512];
+    GLchar infoLog[512];
     /**
      * @brief Clean the shader loader
      * Once the shaders are linked, they can be cleared as they are

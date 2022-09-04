@@ -6,7 +6,6 @@ void ShaderManager::LoadAndLinkAll(){
     LinkShaders();
     Clean();
 }
-
 void ShaderManager::LoadVertexShader(){
     vertexShader = glCreateShader(GL_VERTEX_SHADER);
     glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
@@ -15,13 +14,15 @@ void ShaderManager::LoadVertexShader(){
     HandleErrors_CompileShader(vertexShader);
 }
 
+
 void ShaderManager::LoadFragmentShader(){
     fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
     glShaderSource(fragmentShader, 1, &fragmentShaderSource, NULL);
     glCompileShader(fragmentShader);
-    IDNames.emplace(std::make_pair(vertexShader, "FRAGMENT"));
-    HandleErrors_CompileShader(vertexShader);
+    IDNames.emplace(std::make_pair(fragmentShader, "FRAGMENT"));
+    HandleErrors_CompileShader(fragmentShader);
 }
+
 
 void ShaderManager::LinkShaders(){
     shaderProgram = glCreateProgram();
@@ -31,10 +32,20 @@ void ShaderManager::LinkShaders(){
 
     HandleErrors_Linking();
 }
+
+
 void ShaderManager::Clean(){
+    glDetachShader(shaderProgram, vertexShader);
+    glDetachShader(shaderProgram, fragmentShader);
     glDeleteShader(vertexShader);
     glDeleteShader(fragmentShader);
 }
+
+
+
+
+
+
 
 
 
@@ -52,9 +63,17 @@ void ShaderManager::HandleErrors_CompileShader(unsigned int shaderType){
     if(!success)
     {
         glGetShaderInfoLog(shaderType, 512, NULL, infoLog);
-        std::cout << "ERROR::SHADER::"<< IDNames.at(shaderType) <<"::COMPILATION_FAILED\n" << infoLog << std::endl;
+        std::cout << "\nERROR::SHADER::"<< IDNames.at(shaderType) <<"::COMPILATION_FAILED\n" << infoLog << std::endl;
     }
 }
+
+
+
+
+
+
+
+
 void ShaderManager::setBool(const std::string &name, bool value) const
 {
     /**
@@ -79,6 +98,10 @@ void ShaderManager::setFloat(const std::string &name, float value) const
      */
     glUniform1f(glGetUniformLocation(shaderProgram, name.c_str()), value); 
 }
+
+
+
+
 
 void ShaderManager::use() 
 { 

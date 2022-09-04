@@ -2,6 +2,9 @@
 #include "common.h"
 #include "Window.h"
 #include "ShaderManager.h"
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
 class Game {
 
 public:
@@ -93,7 +96,7 @@ private:
      * 
      */
     unsigned int VBO, VAO, EBO;
-    unsigned int texture;
     unsigned int texture1;
+    unsigned int texture2;
 };
 

@@ -1,3 +1,4 @@
+
 #Check the OS
 ifeq ($(OS),Windows_NT)
 # the compiler: gcc for C program, define as g++ for C++
