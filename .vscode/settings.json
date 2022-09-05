@@ -76,6 +76,8 @@
     "C_Cpp.errorSquiggles": "EnabledIfIncludesResolve",
     "C_Cpp.intelliSenseEngineFallback": "Enabled",
     "cSpell.words": [
-        "Parameteri"
+        "glew",
+        "Parameteri",
+        "syncronized"
     ]
 }

@@ -40,7 +40,6 @@ void Game::init(const char *title, int width, int height, bool fullscreen)
     if (status == -1)
     {
         cout << SDL_GetError() << endl;
-        SDL_GL_SetSwapInterval(0);
     }
     /**
      * SDL has several subsystems like SDL_INIT_AUDIO or SDL_INIT_VIDEO.
@@ -112,7 +111,7 @@ void Game::init(const char *title, int width, int height, bool fullscreen)
     glEnableVertexAttribArray(2);
 
     glBindBuffer(GL_ARRAY_BUFFER, 0);
-    glBindVertexArray(0); 
+    glBindVertexArray(0);
 
 
 
@@ -186,6 +185,9 @@ void Game::init(const char *title, int width, int height, bool fullscreen)
     // or set it via the texture class
     shaderManager->setInt("texture2", 1);
 
+
+
+    trans = glm::mat4(1.0f); 
     isRunning = true;
 }
 
@@ -209,9 +211,11 @@ void Game::handleEvents()
 void Game::update(double deltaTime)
 {
     cnt++;
+
+    
 }
 
-void Game::render()
+void Game::render(double deltaTime)
 {
 
     glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
@@ -222,11 +226,31 @@ void Game::render()
     glBindTexture(GL_TEXTURE_2D, texture1);
     glActiveTexture(GL_TEXTURE1);
     glBindTexture(GL_TEXTURE_2D, texture2);
+    glBindVertexArray(VAO);
 
-    shaderManager->use();
+    glm::mat4 transform = glm::mat4(1.0f); // make sure to initialize matrix to identity matrix first
+    // first container
+    // ---------------
+    transform = glm::translate(transform, glm::vec3(0.5f, -0.5f, 0.0f));
+    transform = glm::rotate(transform, (float)(SDL_GetTicks()*0.001), glm::vec3(0.0f, 0.0f, 1.0f));
+    // get their uniform location and set matrix (using glm::value_ptr)
+    unsigned int transformLoc = glGetUniformLocation(shaderManager->getShaderProgramID(), "transform");
+    glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(transform));
+
+    // with the uniform matrix set, draw the first container
     glBindVertexArray(VAO);
     glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
+    // second transformation
+    // ---------------------
+    transform = glm::mat4(1.0f); // reset it to identity matrix
+    transform = glm::translate(transform, glm::vec3(-0.5f, 0.5f, 0.0f));
+    float scaleAmount = static_cast<float>(sin(SDL_GetTicks()*0.001));
+    transform = glm::scale(transform, glm::vec3(scaleAmount, scaleAmount, scaleAmount));
+    glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(transform)); // this time take the matrix value array's first element as its memory pointer value
+
+    // now with the uniform matrix being replaced with new transformations, draw it again.
+    glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
     window->SwapBuffers();
 }
 

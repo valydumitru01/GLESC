@@ -49,7 +49,7 @@ public:
      * @brief Render the game content
      * 
      */
-    void render();
+    void render(double deltaTime);
 
     /**
      * @brief Clean window and quit the game
@@ -98,5 +98,8 @@ private:
     unsigned int VBO, VAO, EBO;
     unsigned int texture1;
     unsigned int texture2;
+    glm::mat4 trans;
+    glm::mat4 trans2;
+    unsigned int transformLoc;
 };
 
