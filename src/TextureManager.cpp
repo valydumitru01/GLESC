@@ -1,21 +1,14 @@
 #include "TextureManager.h"
 
-SDL_Texture* TextureManager::LoadTexture(const char* texturePath, SDL_Renderer* ren){
+SDL_Surface* TextureManager::LoadTexture(const char* texturePath){
     /**
      * @brief SDL_Surface is a set of pixels which are loaded inside the RAM.
-     * Used for CPU rendering, useful for procedural generated textures (not our case).
+     * Used for CPU rendering, useful for procedural generated textures.
+     * This will be used for generating the OpenGL textures.
      * 
      */
     SDL_Surface* tempSurface;
-    /**
-     * @brief SDL_Texture is also a set of pixels that are loaded inside the VRAM (GPU). More efficient.
-     * It's more efficient because it's hardware rendering. It's using internally OpenGL or DirectX (OpenGL in our case). 
-     * It's orders of magnitude faster.
-     * 
-     */
-    SDL_Texture* tex;
 
-    
     tempSurface = IMG_Load(texturePath);        //Load image from texture path
 
     if (tempSurface == nullptr){                //Check if the texture is null
@@ -23,9 +16,40 @@ SDL_Texture* TextureManager::LoadTexture(const char* texturePath, SDL_Renderer* 
         std::cout << "Image null" << std::endl;
         printf(SDL_GetError());
     }
-    tex = SDL_CreateTextureFromSurface(ren, tempSurface); //Create a surfice from the texture we loaded
+    
+    return flipSurface(tempSurface);
+}
+SDL_Surface * TextureManager::flipSurface(SDL_Surface * surface)
+{
+    int current_line,pitch;
+    SDL_Surface * flipped_surface = SDL_CreateRGBSurface(0,
+                                   surface->w,surface->h,
+                                   surface->format->BitsPerPixel,
+                                   surface->format->Rmask,
+                                   surface->format->Gmask,
+                                   surface->format->Bmask,
+                                   surface->format->Amask);
 
-    SDL_FreeSurface(tempSurface);               //Free the surface (flush, delete), as it's only being used to create the texture.
 
-    return tex;
+    int locked1,locked2;
+    locked1=SDL_LockSurface(surface);
+    
+    locked2=SDL_LockSurface(flipped_surface);
+
+    if(locked1==-1 || locked2==-1){
+        cout<< "SDL_Surface couldn't be locked"<<endl;
+        printf(SDL_GetError());
+    }
+
+    pitch = surface->pitch;
+    for (current_line = 0; current_line < surface->h; current_line ++)
+    {
+        memcpy(&((unsigned char* )flipped_surface->pixels)[current_line*pitch],
+               &((unsigned char* )surface->pixels)       [(surface->h - 1  - current_line)*pitch],
+               pitch);
+    }
+
+    SDL_UnlockSurface(flipped_surface);
+    SDL_UnlockSurface(surface);
+    return flipped_surface;
 }

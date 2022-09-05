@@ -46,7 +46,7 @@ int SDL_main(int argc, char *argv[])
 
         game->handleEvents();
         game->update(elapsed);
-        game->render();   
+        game->render(elapsed);   
         if(FPS_MS - elapsed > 0)
             SDL_Delay(FPS_MS - elapsed); //Cap the FPS, wait until we get to minimum frame time
         end = SDL_GetPerformanceCounter(); //Time of the end of the loop

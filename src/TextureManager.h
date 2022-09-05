@@ -1,7 +1,5 @@
 #pragma once
 #include "Game.h"
-
-
 class TextureManager {
     public:
         /**
@@ -11,6 +9,9 @@ class TextureManager {
          * @param ren 
          * @return SDL_Texture* 
          */
-        static SDL_Texture* LoadTexture(const char* fileName, SDL_Renderer* ren);
+        static SDL_Surface* LoadTexture(const char* fileName);
+        
+    private:
+        static SDL_Surface* flipSurface(SDL_Surface * surface);
 
 };

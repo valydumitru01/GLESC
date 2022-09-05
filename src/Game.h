@@ -1,7 +1,10 @@
 #pragma once
 #include "common.h"
 #include "Window.h"
-#include "ShaderLoader.h"
+#include "ShaderManager.h"
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
 class Game {
 
 public:
@@ -46,7 +49,7 @@ public:
      * @brief Render the game content
      * 
      */
-    void render();
+    void render(double deltaTime);
 
     /**
      * @brief Clean window and quit the game
@@ -87,14 +90,16 @@ private:
     SDL_Renderer *renderer;
     
 
-    ShaderLoader* shaderLoader;
+    ShaderManager* shaderManager;
     /**
      *  @brief Vertex Buffer Object ID 
      * 
      */
-    unsigned int VBO;
-    unsigned int VAO;
-
-
+    unsigned int VBO, VAO, EBO;
+    unsigned int texture1;
+    unsigned int texture2;
+    glm::mat4 trans;
+    glm::mat4 trans2;
+    unsigned int transformLoc;
 };
 
