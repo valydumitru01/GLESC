@@ -1,4 +1,9 @@
-#include "common.h"
+#include <SDL2/SDL.h>
+#include <iostream>
+#include <GL/glew.h>
+#include <GL/glu.h>
+#include <GL/gl.h>
+
 /**
  * @brief 1.77 is the standard ratio (16:9)
  * 
@@ -39,13 +44,16 @@ class Window{
          * @return SDL_Window* 
          */
         SDL_Window* getWindow();
+
+        int height;
+        int width;
     private:
         /**
          * @brief Initialize SDL_Window flags
          * 
          * @return int 
          */
-        int initFlags();
+        int setFlags();
         /**
          * @brief The window object
          * 
@@ -61,9 +69,6 @@ class Window{
          * 
          */
         SDL_GLContext context;
-        int height = 600;
-        int width = 800;
-        int winpos_x = SDL_WINDOWPOS_CENTERED;
-        int winpos_y = SDL_WINDOWPOS_CENTERED;
-        const char* window_name = (char*)"Game";
+
+        const char* windowName;
 };

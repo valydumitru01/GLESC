@@ -1,8 +1,14 @@
-#include "common.h"
+#include <iostream>
 #include <unordered_map>
+#include <GL/glew.h>
+#include <GL/glu.h>
+#include <GL/gl.h>
+#include <glm/glm.hpp>
+
 class ShaderManager
 {
 public:
+    ~ShaderManager();
     /**
      * @brief Load and link all the shaders to the shader program
      *
@@ -37,10 +43,85 @@ public:
     void setFloat(const std::string &name, float value) const;
 
     /**
+     * @brief Change vec2 value of Uniform by name
+     *
+     * @param name Name of the Uniform
+     * @param value The new glm::vec2 value
+     */
+    void setVec2(const std::string &name, const glm::vec2 &value) const;
+
+    /**
+     * @brief Change vec2 value of Uniform by name
+     *
+     * @param name Name of the Uniform
+     * @param x The new x value of vec2
+     * @param y The new y value of vec2
+     */
+    void setVec2(const std::string &name, float x, float y) const;
+
+    /**
+     * @brief Change vec3 value of Uniform by name
+     *
+     * @param name Name of the Uniform
+     * @param value The new glm::vec3 value
+     */
+    void setVec3(const std::string &name, const glm::vec3 &value) const;
+
+    /**
+     * @brief Change vec3 value of Uniform by name
+     *
+     * @param name Name of the Uniform
+     * @param x The new x value of vec3
+     * @param y The new y value of vec3
+     * @param z The new z value of vec3
+     */
+    void setVec3(const std::string &name, float x, float y, float z) const;
+
+    /**
+     * @brief Change vec4 value of Uniform by name
+     *
+     * @param name Name of the Uniform
+     * @param value The new glm::vec4 value
+     */
+    void setVec4(const std::string &name, const glm::vec4 &value) const;
+
+    /**
+     * @brief Change vec4 value of Uniform by name
+     *
+     * @param name Name of the Uniform
+     * @param x The new x value of vec4
+     * @param y The new y value of vec4
+     * @param z The new z value of vec4
+     * @param w The new w value of vec4
+     */
+    void setVec4(const std::string &name, float x, float y, float z, float w) const;
+
+    /**
+     * @brief Change mat2 value of Uniform by name
+     * 
+     * @param name Name of the Uniform
+     * @param mat The new glm::mat2 value
+     */
+    void setMat2(const std::string &name, const glm::mat2 &mat) const;
+    /**
+     * @brief Change mat3 value of Uniform by name
+     * 
+     * @param name Name of the Uniform
+     * @param mat The new glm::mat3 value
+     */
+    void setMat3(const std::string &name, const glm::mat3 &mat) const;
+    /**
+     * @brief Change mat4 value of Uniform by name
+     * 
+     * @param name Name of the Uniform
+     * @param mat The new glm::mat4 value
+     */
+    void setMat4(const std::string &name, const glm::mat4 &mat) const;
+    /**
      * @brief Calls to useProgram with the shader program ID
      *
      */
-    void use();
+    void useShaderProgram();
 
 private:
     /**
@@ -58,11 +139,15 @@ private:
             out vec3 ourColor;
             out vec2 TexCoord;
             
+            uniform mat4 model;
+            uniform mat4 view;
+            uniform mat4 projection;
+
             uniform mat4 transform;
 
             void main()
             {
-                gl_Position = transform * vec4(aPos, 1.0f);
+                gl_Position = projection * view * model * transform * vec4(aPos, 1.0f);
 
                 ourColor = aColor;
                 TexCoord = vec2(aTexCoord.x, aTexCoord.y);
@@ -159,5 +244,5 @@ private:
      * Once the shaders are linked, they can be cleared as they are
      * no longer needed.
      */
-    void Clean();
+    void clean();
 };

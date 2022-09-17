@@ -1,7 +1,9 @@
 #pragma once
-#include "common.h"
 #include "Window.h"
 #include "ShaderManager.h"
+#include "CoordinateSystem.h"
+#include "Renderer.h"
+
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
@@ -87,19 +89,8 @@ private:
      * @brief Pointer to the renderer of the game
      * 
      */
-    SDL_Renderer *renderer;
+    Renderer *renderer;
     
 
-    ShaderManager* shaderManager;
-    /**
-     *  @brief Vertex Buffer Object ID 
-     * 
-     */
-    unsigned int VBO, VAO, EBO;
-    unsigned int texture1;
-    unsigned int texture2;
-    glm::mat4 trans;
-    glm::mat4 trans2;
-    unsigned int transformLoc;
 };
 

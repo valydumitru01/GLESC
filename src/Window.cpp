@@ -1,11 +1,15 @@
 #include "Window.h"
 Window::Window(const char* title){
-    int flags = initFlags();
-    this->window_name=title;
+    //Init the window dimensions
+    height=800;
+    width=1200;
+    windowName= (char*)"Game";
+    int flags = setFlags();
+    windowName=title;
     /* Create windows with SDL */
-    this->window = SDL_CreateWindow(window_name, winpos_x, winpos_y, width, height, flags);
+    window = SDL_CreateWindow(windowName, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, flags);
     /* Returns null on error*/
-    if (this->window == NULL)
+    if (window == NULL)
     {
         SDL_Log("Unable to create window: %s", SDL_GetError());
         return;
@@ -14,14 +18,15 @@ Window::Window(const char* title){
 }
 
 void Window::init(){
+
     /* Set the minimum window size */
-    SDL_SetWindowMinimumSize(this->window,WINDOW_MIN_WIDTH,WINDOW_MIN_HEIGHT);
+    SDL_SetWindowMinimumSize(window,WINDOW_MIN_WIDTH,WINDOW_MIN_HEIGHT);
     /* Tells OpenGL which size is the viewport where things are displayed 
     Paramenters: Two points (x,y) of the left bottom corner and of the right upper corner*/
-    glViewport(0, 0, this->width, this->height);
+    glViewport(0, 0, width, height);
     /* OpenGL context initialization over the SDL window, needed for
     using OpenGL functions*/
-    context = SDL_GL_CreateContext(this->window);
+    context = SDL_GL_CreateContext(window);
     /* Returns null on error */
     if (context == NULL)
     {
@@ -30,11 +35,11 @@ void Window::init(){
     }
 }
 void Window::setSize(GLsizei _width, GLsizei _height){
-    this->height=_height;
-    this->width=_width;
-    glViewport(0,0,this->width,this->height);
+    height=_height;
+    width=_width;
+    glViewport(0,0,width,height);
 }
-int Window::initFlags(){
+int Window::setFlags(){
     /*Flags that are needed to be passed to the window to configure it.
     To add more flags we need to use the binary OR ( | )
     More info: https://wiki.libsdl.org/SDL_WindowFlags*/
@@ -50,10 +55,10 @@ void Window::setFullscreen(SDL_bool isFullScreen){
 
 }
 SDL_Window* Window::getWindow(){
-    return this->window;
+    return window;
 }
 Window::~Window(){
-    SDL_DestroyWindow(this->window);
+    SDL_DestroyWindow(window);
     SDL_GL_DeleteContext(context);
 }
 void Window::SwapBuffers(){
