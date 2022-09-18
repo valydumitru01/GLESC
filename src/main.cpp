@@ -15,9 +15,11 @@ int SDL_main(int argc, char *argv[])
     while (game->running())
     {
         fps.timeBeginningOfFrame();
+
         game->handleEvents();
         game->update(fps.getElapsed());
         game->render(fps.getElapsed());
+        
         fps.timeEndOfFrame();
         fps.printFPS();
     }

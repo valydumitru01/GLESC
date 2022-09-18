@@ -1,8 +1,8 @@
 #pragma once
 #include "Window.h"
-#include "ShaderManager.h"
-#include "CoordinateSystem.h"
 #include "Renderer.h"
+#include "MyPath.h"
+#include "TextureManager.h"
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
@@ -89,7 +89,7 @@ private:
      * @brief Pointer to the renderer of the game
      * 
      */
-    Renderer *renderer;
+    Renderer* renderer;
     
 
 };

@@ -3,7 +3,7 @@
 FPS::FPS(short _maxFPS)
 {
     elapsed = 0;                      // Initialised at 0, first frame is immobilized
-    maxFPS = _maxFPS;                      // Initialize max fps at 60
+    maxFPS = _maxFPS;                 // Initialize max fps at 60
     FPS_MS = 1000.0 / (double)maxFPS; // The max milliseconds of the frame is the division between 1000 (ms in a second) and the max fps
 }
 void FPS::timeBeginningOfFrame()
@@ -19,7 +19,7 @@ void FPS::timeEndOfFrame()
     elapsed = (end - start) / (double)SDL_GetPerformanceFrequency(); // Calculate elapsed: time of the end of the iteration - time of the start of the iteration
 }
 void FPS::printFPS(){
-    printf("Current FPS: %s" , std::to_string(1.0f / elapsed).c_str());
+    printf("Current FPS: %s\n" , std::to_string(1.0f / elapsed).c_str());
 }
 double FPS::getElapsed(){
     return elapsed;

@@ -37,7 +37,7 @@ SDL_Surface * TextureManager::flipSurface(SDL_Surface * surface)
     locked2=SDL_LockSurface(flipped_surface);
 
     if(locked1==-1 || locked2==-1){
-        cout<< "SDL_Surface couldn't be locked"<<endl;
+        std::cout<< "SDL_Surface couldn't be locked"<<std::endl;
         printf(SDL_GetError());
     }
 

@@ -1,7 +1,43 @@
 #include "Renderer.h"
 
-Renderer::Renderer()
+Renderer::Renderer(short height, short width)
 {
+    /*Instantiate the shader loader object.
+    This object is in charge of doing all the shader work*/
+    shaderManager = new ShaderManager();
+    /*Instantiate the coordinate system that handles our space matrix*/
+    coordSystem = new CoordinateSystem(height, width);
+    GLuint err;
+
+    /*Set all the GL attribures*/
+    setGlAttributes();
+
+    /*This makes our buffer swap syncronized with the monitor's vertical refresh
+    0 for immediate updates, 1 for updates synchronized with the vertical retrace, -1 for adaptive v-sync */
+    if (SDL_GL_SetSwapInterval(1) == -1)
+    {
+        SDL_Log("Unable activate v-sync (swap interval): %s", SDL_GetError());
+    }
+    //Init GLEW
+    glewExperimental = GL_TRUE;
+    if ((err =glewInit())!=GLEW_OK)
+    {
+        fprintf(stderr, "Error: %s\n", glewGetErrorString(err));
+        return;
+    }
+    std::cout << "Subsystem initialized..." << std::endl;
+
+    /**
+     * SDL has several subsystems like SDL_INIT_AUDIO or SDL_INIT_VIDEO.
+     * SDL_INIT_EVERYTHING is just a call to each one of them.
+     * More info: https://wiki.libsdl.org/SDL_Init
+     */
+    if (SDL_Init(SDL_INIT_EVERYTHING) != 0)
+    {
+        SDL_Log("Unable to initialize SDL: %s", SDL_GetError());
+        return;
+    }
+
 }
 Renderer::~Renderer(){
     glDeleteVertexArrays(1, &VAO);
@@ -53,8 +89,8 @@ void Renderer::createBuffers()
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
 
     // Send data to buffers
-    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices.data(), GL_STATIC_DRAW);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices.data(), GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices.data()), vertices.data(), GL_STATIC_DRAW);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices.data()), indices.data(), GL_STATIC_DRAW);
 
     // Unbind
     glBindBuffer(GL_ARRAY_BUFFER, 0);
@@ -63,13 +99,13 @@ void Renderer::createBuffers()
 }
 void Renderer::generateTexture(GLuint texture, const char* path)
 {
-    glBindTexture(GL_TEXTURE_2D, texture1); // all upcoming GL_TEXTURE_2D operations now have effect on this texture object
+    glBindTexture(GL_TEXTURE_2D, texture); // all upcoming GL_TEXTURE_2D operations now have effect on this texture object
     // set the texture wrapping parameters
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT); // set texture wrapping to GL_REPEAT (default wrapping method)
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
     // set texture filtering parameters
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
     SDL_Surface *surf = TextureManager::LoadTexture(path);
     /**
@@ -90,6 +126,7 @@ void Renderer::generateTexture(GLuint texture, const char* path)
     /* Clean the surfice */
     SDL_FreeSurface(surf);
 }
+
 void Renderer::generateTextures()
 {
     glGenTextures(1, &texture1);
@@ -98,22 +135,9 @@ void Renderer::generateTextures()
     glGenTextures(1, &texture2);
     generateTexture(texture2,"assets/sprites/awesomeface.png");
 }
-void Renderer::init(short height, short width)
+
+void Renderer::init()
 {
-    /*Instantiate the shader loader object.
-    This object is in charge of doing all the shader work*/
-    shaderManager = new ShaderManager();
-
-    setGlAttributes();
-    /*This makes our buffer swap syncronized with the monitor's vertical refresh
-    0 for immediate updates, 1 for updates synchronized with the vertical retrace, -1 for adaptive v-sync */
-    if (SDL_GL_SetSwapInterval(1) == -1)
-    {
-        SDL_Log("Unable activate v-sync (swap interval): %s", SDL_GetError());
-    }
-    std::cout << "Subsystem initialized..." << std::endl;
-
-    coordSystem = new CoordinateSystem(height, width);
 
     glEnable(GL_DEPTH_TEST);
     /**
@@ -167,11 +191,11 @@ void Renderer::init(short height, short width)
         -0.5f, 0.5f, 0.5f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f,
         -0.5f, 0.5f, -0.5f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f};
 
-    unsigned int indices[] = {
+    indices = {
         0, 1, 3, // first triangle
         1, 2, 3  // second triangle
     };
-
+    /*Create VAO VBO and EBO*/ 
     createBuffers();
 
     createShaderAttributes();

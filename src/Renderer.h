@@ -20,16 +20,49 @@
 
 class Renderer {
 public:
-    Renderer();
+    Renderer(short height, short width);
     ~Renderer();
-    void init(short height, short width);
+    /**
+     * @brief Initialize our renderer
+     * 
+     * @param height 
+     * @param width 
+     */
+    void init();
+    /**
+     * @brief Render the content of the screen.
+     * Must be called every frame
+     * 
+     */
     void render();
 
 private:
+    /**
+     * @brief COnfigure all the GL attributes
+     * 
+     */
     void setGlAttributes();
+    /**
+     * @brief Create a Shader Attributes object
+     * 
+     */
     void createShaderAttributes();
+    /**
+     * @brief Create VBO, VAO and EBO buffers
+     * 
+     */
     void createBuffers();
+    /**
+     * @brief Generate a texture
+     * 
+     * @param texture ID to the texture object
+     * @param path 
+     */
     void generateTexture(GLuint texture, const char* path);
+    /**
+     * @brief Iterate over the textures and generate them calling generateTexture()
+     * 
+     */
     void generateTextures();
     CoordinateSystem* coordSystem;
     ShaderManager* shaderManager;
