@@ -132,12 +132,21 @@ void Renderer::generateTexture(GLuint texture, const char* path)
 
     //--------------set texture filtering parameters------------
     /**
-     * @brief Construct a new gl Tex Parameteri object
+     * @brief Magnification filtering
+     * This can be GL_LINEAR or GL_NEAREST
      * 
      */
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glCheckError();
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    /**
+     * @brief Minification filtering
+     * This can be GL_LINEAR or GL_NEAREST
+     * or if we filter with mipmapping
+     * GL_NEAREST_MIPMAP_NEAREST, GL_LINEAR_MIPMAP_NEAREST
+     * GL_NEAREST_MIPMAP_LINEAR, GL_LINEAR_MIPMAP_LINEAR
+     * 
+     */
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR_MIPMAP_NEAREST);
     glCheckError();    
 
     //----------------------------------------------------------
