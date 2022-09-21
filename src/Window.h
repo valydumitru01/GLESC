@@ -3,6 +3,7 @@
 #include <GL/glew.h>
 #include <GL/glu.h>
 #include <GL/gl.h>
+#include "Console.h"
 
 /**
  * @brief 1.77 is the standard ratio (16:9)
@@ -44,14 +45,26 @@ class Window{
          * @return SDL_Window* 
          */
         SDL_Window* getWindow();
-
+        /**height
+         * @brief Variable where the window height is stored
+         * 
+         */
         int height;
+        /**
+         * @brief Variable where the window width is stored
+         * 
+         */
         int width;
     private:
         /**
+         * @brief Sets GL_SDL attributes, such as the stencil size or GL version
+         * 
+         */
+        void setGlAttributes();
+        /**
          * @brief Initialize SDL_Window flags
          * 
-         * @return int 
+         * @return int the flags
          */
         int setFlags();
         /**
@@ -69,6 +82,9 @@ class Window{
          * 
          */
         SDL_GLContext context;
-
+        /**
+         * @brief Variable where the window name is stored
+         * 
+         */
         const char* windowName;
 };

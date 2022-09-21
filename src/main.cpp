@@ -6,9 +6,8 @@ Game *game = nullptr;
 
 int SDL_main(int argc, char *argv[])
 {
-    
 
-    
+    Console::init();
     FPS fps(60);
     game = new Game();
     game->init("Game", 800, 600, false);

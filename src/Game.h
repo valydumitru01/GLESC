@@ -3,6 +3,7 @@
 #include "Renderer.h"
 #include "MyPath.h"
 #include "TextureManager.h"
+#include "Console.h"
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>

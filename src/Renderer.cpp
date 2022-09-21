@@ -2,41 +2,15 @@
 
 Renderer::Renderer(short height, short width)
 {
+
     /*Instantiate the shader loader object.
     This object is in charge of doing all the shader work*/
     shaderManager = new ShaderManager();
     /*Instantiate the coordinate system that handles our space matrix*/
     coordSystem = new CoordinateSystem(height, width);
-    GLuint err;
 
-    /*Set all the GL attribures*/
-    setGlAttributes();
 
-    /*This makes our buffer swap syncronized with the monitor's vertical refresh
-    0 for immediate updates, 1 for updates synchronized with the vertical retrace, -1 for adaptive v-sync */
-    if (SDL_GL_SetSwapInterval(1) == -1)
-    {
-        SDL_Log("Unable activate v-sync (swap interval): %s", SDL_GetError());
-    }
-    //Init GLEW
-    glewExperimental = GL_TRUE;
-    if ((err =glewInit())!=GLEW_OK)
-    {
-        fprintf(stderr, "Error: %s\n", glewGetErrorString(err));
-        return;
-    }
-    std::cout << "Subsystem initialized..." << std::endl;
-
-    /**
-     * SDL has several subsystems like SDL_INIT_AUDIO or SDL_INIT_VIDEO.
-     * SDL_INIT_EVERYTHING is just a call to each one of them.
-     * More info: https://wiki.libsdl.org/SDL_Init
-     */
-    if (SDL_Init(SDL_INIT_EVERYTHING) != 0)
-    {
-        SDL_Log("Unable to initialize SDL: %s", SDL_GetError());
-        return;
-    }
+    trans = glm::mat4(1.0f);
 
 }
 Renderer::~Renderer(){
@@ -44,111 +18,12 @@ Renderer::~Renderer(){
     glDeleteBuffers(1, &VBO);
     glDeleteBuffers(1, &EBO);
 }
-void Renderer::setGlAttributes()
-{
-    /**
-     * Attributes that configure SDL with OpenGL
-     * More info: https://wiki.libsdl.org/SDL_GLattr
-     */
 
-    /*Core functions of OpenGL, we get to use all non-deprecated functions
-    https://wiki.libsdl.org/SDL_GLprofile*/
-    SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
-    /*We're using OpenGL Version 4.3 (released in 2012):
-    Changing this numbers will change some functions available of OpenGL
-    (probably wouldn't affect us that much, but it's better if we stay on just one)
-    We are choosing this version as most computers will support it. */
-    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 4);
-    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
 
-    /* TODO: Learn about other attributes, including what this one does */
-    SDL_GL_SetAttribute(SDL_GL_STENCIL_SIZE, 8);
-}
-void Renderer::createShaderAttributes()
-{
-    // position attribute
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void *)0);
-    glEnableVertexAttribArray(0);
-    // color attribute
-    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void *)(3 * sizeof(float)));
-    glEnableVertexAttribArray(1);
-    // texture coord attribute
-    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void *)(6 * sizeof(float)));
-    glEnableVertexAttribArray(2);
-}
 void Renderer::createBuffers()
 {
-    // Generate buffers
-    glGenVertexArrays(1, &VAO);
-    glGenBuffers(1, &VBO);
-    glGenBuffers(1, &EBO);
 
-    // Bind buffers
-    glBindVertexArray(VAO);
-    glBindBuffer(GL_ARRAY_BUFFER, VBO);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
-
-    // Send data to buffers
-    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices.data()), vertices.data(), GL_STATIC_DRAW);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices.data()), indices.data(), GL_STATIC_DRAW);
-
-    // Unbind
-    glBindBuffer(GL_ARRAY_BUFFER, 0);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
-    glBindVertexArray(0);
-}
-void Renderer::generateTexture(GLuint texture, const char* path)
-{
-    glBindTexture(GL_TEXTURE_2D, texture); // all upcoming GL_TEXTURE_2D operations now have effect on this texture object
-    // set the texture wrapping parameters
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT); // set texture wrapping to GL_REPEAT (default wrapping method)
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-    // set texture filtering parameters
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-
-    SDL_Surface *surf = TextureManager::LoadTexture(path);
-    /**
-     * @brief Generates the texture on the object bound
-     * Params:
-     * 1) The bound object
-     * 2) The level of mipmap for which we want to generate the texture
-     * 3) Which way we want to store the image, we only have rgb
-     * 4 & 5) Width and height of the image
-     * 6) Always 0, legacy
-     * 7) The format of the source image, just RGB in this case
-     * 8) How is the image pixels are stored as, bytes in this case
-     * 9) The actual image data
-     */
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, surf->w, surf->h, 0, GL_RGB, GL_UNSIGNED_BYTE, surf->pixels);
-    /* We generate the mipmap to the bound texture */
-    glGenerateMipmap(GL_TEXTURE_2D);
-    /* Clean the surfice */
-    SDL_FreeSurface(surf);
-}
-
-void Renderer::generateTextures()
-{
-    glGenTextures(1, &texture1);
-    generateTexture(texture1,"assets/sprites/wall.jpg");
-
-    glGenTextures(1, &texture2);
-    generateTexture(texture2,"assets/sprites/awesomeface.png");
-}
-
-void Renderer::init()
-{
-
-    glEnable(GL_DEPTH_TEST);
-    /**
-     * We bind the created buffer to a specific type.
-     * There can only be one buffer of each type.
-     * Therefore any buffer calls we make to GL_ARRAY_BUFFER will configure the
-     * current bound buffer
-     */
-    shaderManager->LoadAndLinkAll();
-
-    vertices = {
+    float vertices[] = {
         -0.5f, -0.5f, -0.5f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f,
         0.5f, -0.5f, -0.5f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f,
         0.5f, 0.5f, -0.5f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f,
@@ -191,16 +66,103 @@ void Renderer::init()
         -0.5f, 0.5f, 0.5f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f,
         -0.5f, 0.5f, -0.5f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f};
 
-    indices = {
+    int indices[] = {
         0, 1, 3, // first triangle
         1, 2, 3  // second triangle
     };
-    /*Create VAO VBO and EBO*/ 
-    createBuffers();
 
-    createShaderAttributes();
+    // Generate buffers
+    glGenVertexArrays(1, &VAO);
+    glCheckError();
+    glGenBuffers(1, &VBO);
+    glCheckError();
+    glGenBuffers(1, &EBO);
+    glCheckError();
 
-    generateTextures();
+    // Bind buffers
+    glBindVertexArray(VAO);
+    glCheckError();
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    glCheckError();
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+    glCheckError();
+
+    // Send data to buffers
+    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+    glCheckError();
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+    glCheckError();
+
+}
+void Renderer::createShaderAttributes()
+{
+    
+    // position attribute
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void *)0);
+    glCheckError();
+    glEnableVertexAttribArray(0);
+    glCheckError();
+
+    // color attribute
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void *)(3 * sizeof(float)));
+    glCheckError();
+    glEnableVertexAttribArray(1);
+    glCheckError();
+
+    // texture coord attribute
+    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void *)(6 * sizeof(float)));
+    glCheckError();
+    glEnableVertexAttribArray(2);
+    glCheckError();
+}
+void Renderer::generateTexture(GLuint texture, const char* path)
+{
+    //all upcoming GL_TEXTURE_2D operations now have effect on this texture object
+    glBindTexture(GL_TEXTURE_2D, texture);
+    glCheckError();
+    //-----------set the texture wrapping parameters------------
+
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT); 
+    glCheckError();
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    glCheckError();
+
+    //----------------------------------------------------------
+
+
+    //--------------set texture filtering parameters------------
+    /**
+     * @brief Construct a new gl Tex Parameteri object
+     * 
+     */
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glCheckError();
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glCheckError();    
+
+    //----------------------------------------------------------
+
+
+    SDL_Surface *surf = TextureManager::LoadTexture(path);
+
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, surf->w, surf->h, 0, GL_RGB, GL_UNSIGNED_BYTE, surf->pixels);
+    glCheckError();
+    /* We generate the mipmap to the bound texture */
+    glGenerateMipmap(GL_TEXTURE_2D);
+    glCheckError();
+    /* Clean the surfice */
+    SDL_FreeSurface(surf);
+}
+
+void Renderer::generateTextures()
+{
+    glGenTextures(1, &texture1);
+    glCheckError();
+    generateTexture(texture1,"assets/sprites/wall.jpg");
+
+    glGenTextures(1, &texture2);
+    glCheckError();
+    generateTexture(texture2,"assets/sprites/awesomeface.png");
 
     //We need to select the program we use so we can activate the textures inside the shaders
     shaderManager->useShaderProgram();
@@ -208,21 +170,49 @@ void Renderer::init()
     shaderManager->setInt("texture1", 0);
     shaderManager->setInt("texture2", 1);
 
-    trans = glm::mat4(1.0f);
+}
+
+void Renderer::init()
+{
+    /**
+     * @brief Enable depth test
+     * Fragments (pixels) will display in front
+     * of each other according to their actual
+     * position.
+     * 
+     */
+    glEnable(GL_DEPTH_TEST);
+
+    shaderManager->LoadAndLinkAll();
+
+    
+    /*Create VAO VBO and EBO*/ 
+    createBuffers();
+
+    createShaderAttributes();
+
+    generateTextures();
+
 }
 
 void Renderer::render()
 {
     glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
     // bind textures on corresponding texture units
     glActiveTexture(GL_TEXTURE0);
+    glCheckError();
     glBindTexture(GL_TEXTURE_2D, texture1);
+    glCheckError();
     glActiveTexture(GL_TEXTURE1);
+    glCheckError();
     glBindTexture(GL_TEXTURE_2D, texture2);
+    glCheckError();
     glBindVertexArray(VAO);
+    glCheckError();
 
+    shaderManager->useShaderProgram();
+    
     coordSystem->apply();
 
     shaderManager->setMat4("model", coordSystem->model);

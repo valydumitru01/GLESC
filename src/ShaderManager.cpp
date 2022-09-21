@@ -71,6 +71,12 @@ void ShaderManager::HandleErrors_CompileShader(unsigned int shaderType)
     }
 }
 
+
+
+
+
+
+//------------------------------Uniform Setters-----------------------------
 void ShaderManager::setBool(const std::string &name, bool value) const
 {
     /**

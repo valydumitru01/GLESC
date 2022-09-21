@@ -1,6 +1,6 @@
 #pragma once
 #include <SDL2/SDL.h>
-#include <iostream>
+#include "Console.h"
 #include <cstdlib>
 #include <bits/basic_string.h>
 class FPS {

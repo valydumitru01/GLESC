@@ -10,16 +10,13 @@ Game::~Game()
 
 void Game::init(const char *title, int width, int height, bool fullscreen)
 {
-    
 
 
-    
     window = new Window("My Game");
+    window->init();
     /*Need to instantiate renderer before initializing window.
     Window depends on the initialization of SDL*/
     renderer=new Renderer(window->height,window->width);
-
-    window->init();
     renderer->init();
 
     isRunning = true;
@@ -60,5 +57,5 @@ void Game::render(double deltaTime)
 void Game::clean()
 {
     SDL_Quit();
-    std::cout << "Game cleaned" << std::endl;
+    Console::importantInfo("Game cleaned");
 }

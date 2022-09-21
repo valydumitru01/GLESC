@@ -17,6 +17,7 @@
 #include "CoordinateSystem.h"
 #include "ShaderManager.h"
 #include "TextureManager.h"
+#include "Debugger.h"
 
 class Renderer {
 public:
@@ -37,11 +38,6 @@ public:
     void render();
 
 private:
-    /**
-     * @brief COnfigure all the GL attributes
-     * 
-     */
-    void setGlAttributes();
     /**
      * @brief Create a Shader Attributes object
      * 

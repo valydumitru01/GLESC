@@ -1,4 +1,7 @@
 
+RELEASE_MACRO:=-D RELEASE
+DEBUG_MACRO:=-D DEBUG
+OS_MACRO:=-D
 #Check the OS
 ifeq ($(OS),Windows_NT)
 # the compiler: gcc for C program, define as g++ for C++
@@ -9,7 +12,7 @@ DEL := del
 SLASH := "\"
 # Indicating that we dont need wine, unlike in linux
 WINE := 
-OS_MACRO :=__WINDOWS__
+OS_MACRO +=__WINDOWS__
 else
 # Linux compiler for windows executables (64 bits)
 CC	:= x86_64-w64-mingw32-g++
@@ -19,7 +22,7 @@ DEL := $(RM)
 SLASH := '/'
 # Wine, program for executing windows apps .exe
 WINE := wine
-OS_MACRO :=__LINUX__
+OS_MACRO +=__LINUX__
 endif
 
 
@@ -43,7 +46,7 @@ all: build
 # Builds the executable game
 build:
 	@echo "Building..."
-	$(CC) $(CFLAGS) -I $(INCLUDE) -L $(LIB) -D $(OS_MACRO) -o $(BIN)/$(EXECUTABLE) $(SRC)/*.cpp $(LIBRARIES) 
+	$(CC) $(CFLAGS) -I $(INCLUDE) -L $(LIB)  $(OS_MACRO) $(DEBUG_MACRO) -o $(BIN)/$(EXECUTABLE) $(SRC)/*.cpp $(LIBRARIES) 
 
 # Run the game
 run:

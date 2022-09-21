@@ -19,7 +19,8 @@ void FPS::timeEndOfFrame()
     elapsed = (end - start) / (double)SDL_GetPerformanceFrequency(); // Calculate elapsed: time of the end of the iteration - time of the start of the iteration
 }
 void FPS::printFPS(){
-    printf("Current FPS: %s\n" , std::to_string(1.0f / elapsed).c_str());
+    std::string fps_str("Current FPS: ");
+    Console::info(fps_str + std::to_string(1.0f / elapsed));
 }
 double FPS::getElapsed(){
     return elapsed;
