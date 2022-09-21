@@ -31,7 +31,8 @@
                 "${workspaceRoot}/**",
                 "/usr/x86_64-w64-mingw32/include/**",
                 "/usr/include/**",
-                "/usr/local/include/**"
+                "/usr/local/include/**",
+                "${workspaceFolder}/include"
             ],
             "defines": [],
             "intelliSenseMode": "${default}",
