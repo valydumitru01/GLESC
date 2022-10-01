@@ -21,7 +21,7 @@
 
 class Renderer {
 public:
-    Renderer(short height, short width);
+    Renderer(short height, short width,ShaderManager* shaderManager);
     ~Renderer();
     /**
      * @brief Initialize our renderer

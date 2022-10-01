@@ -71,7 +71,8 @@
         "numbers": "cpp",
         "optional": "cpp",
         "ranges": "cpp",
-        "cinttypes": "cpp"
+        "cinttypes": "cpp",
+        "chrono": "cpp"
     },
     "C_Cpp.errorSquiggles": "EnabledIfIncludesResolve",
     "C_Cpp.intelliSenseEngineFallback": "Enabled",

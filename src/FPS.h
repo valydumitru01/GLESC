@@ -8,8 +8,10 @@ public:
     FPS(short _maxFPS);
     void timeBeginningOfFrame();
     void timeEndOfFrame();
+    int getElapsedMS();
     double getElapsed();
     void printFPS();
+    void delay();
     /**
      * @brief My max FPS
      * 

@@ -69,11 +69,19 @@ void Window::init()
         return;
     }
     Console::success(string("Window created!"));
-    /* Set the minimum window size */
+    // Set the minimum window size
     SDL_SetWindowMinimumSize(window, WINDOW_MIN_WIDTH, WINDOW_MIN_HEIGHT);
-    /* Tells OpenGL which size is the viewport where things are displayed
-    Paramenters: Two points (x,y) of the left bottom corner and of the right upper corner*/
+
+    /**
+     * @brief Tells OpenGL which size is the viewport where things are displayed
+     * @param Point Left bottom corner
+     * @param Point Right up corner
+     */
     glViewport(0, 0, width, height);
+    /**
+     * @brief 
+     * 
+     */
     /* OpenGL context initialization over the SDL window, needed for using OpenGL functions*/
     if ((context = SDL_GL_CreateContext(window)) == NULL)
     {
@@ -82,6 +90,20 @@ void Window::init()
         return;
     }
     Console::success("GL context created!");
+    /**
+     * @brief Tells SDL that we don't want our mouse to escape our window and it hides it.
+     * The mouse coordinates do not change.
+     */
+    if(SDL_SetRelativeMouseMode(SDL_TRUE)==-1){
+        Console::error(string("Unable to enable mouse relative mode: ") + string(SDL_GetError()));
+    }
+    /**
+     * @brief Grabs the mouse and doesn't allow to escape the window.
+     * The mouse coordinates do change.
+     */
+    //SDL_SetWindowGrab(window, SDL_TRUE);
+    SDL_ShowCursor(SDL_DISABLE);
+    
     //----------------------------------------------------------
 
     //--------------------------Init GLEW-----------------------

@@ -1,14 +1,13 @@
 #include "Renderer.h"
 
-Renderer::Renderer(short height, short width)
+Renderer::Renderer(short height, short width, ShaderManager* ShaderManager)
 {
 
     /*Instantiate the shader loader object.
     This object is in charge of doing all the shader work*/
-    shaderManager = new ShaderManager();
+    this->shaderManager = ShaderManager;
     /*Instantiate the coordinate system that handles our space matrix*/
     coordSystem = new CoordinateSystem(height, width);
-
 
     trans = glm::mat4(1.0f);
 
@@ -132,21 +131,16 @@ void Renderer::generateTexture(GLuint texture, const char* path)
 
     //--------------set texture filtering parameters------------
     /**
-     * @brief Magnification filtering
-     * This can be GL_LINEAR or GL_NEAREST
-     * 
-     */
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    glCheckError();
-    /**
-     * @brief Minification filtering
+     * @brief Magnification and minification filtering
      * This can be GL_LINEAR or GL_NEAREST
      * or if we filter with mipmapping
      * GL_NEAREST_MIPMAP_NEAREST, GL_LINEAR_MIPMAP_NEAREST
      * GL_NEAREST_MIPMAP_LINEAR, GL_LINEAR_MIPMAP_LINEAR
-     * 
      */
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR_MIPMAP_NEAREST);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_NEAREST);
+    glCheckError();
+
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glCheckError();    
 
     //----------------------------------------------------------
@@ -225,7 +219,7 @@ void Renderer::render()
     coordSystem->apply();
 
     shaderManager->setMat4("model", coordSystem->model);
-    shaderManager->setMat4("view", coordSystem->view);
+
     shaderManager->setMat4("projection", coordSystem->projection);
 
     glm::mat4 transform = glm::mat4(1.0f); // make sure to initialize matrix to identity matrix first
@@ -233,7 +227,7 @@ void Renderer::render()
     // ---------------
     transform = glm::translate(transform, glm::vec3(0.5f, -0.5f, 0.0f));
     transform = glm::rotate(transform, (float)(SDL_GetTicks() * 0.001), glm::vec3(0.0f, 0.0f, 1.0f));
-    float scaleAmount = static_cast<float>(sin(SDL_GetTicks() * 0.001));
+    float scaleAmount = 1.0f+0.5f*static_cast<float>(sin(SDL_GetTicks() * 0.001));
 
     transform = glm::scale(transform, glm::vec3(scaleAmount, scaleAmount, scaleAmount));
     // get their uniform location and set matrix (using glm::value_ptr)
