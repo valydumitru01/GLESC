@@ -1,13 +1,10 @@
 #include "Renderer.h"
 
-Renderer::Renderer(short height, short width, ShaderManager* ShaderManager)
+Renderer::Renderer(short height, short width, ShaderManager* ShaderManager,CoordinateSystem* coordSystem)
 {
 
-    /*Instantiate the shader loader object.
-    This object is in charge of doing all the shader work*/
     this->shaderManager = ShaderManager;
-    /*Instantiate the coordinate system that handles our space matrix*/
-    coordSystem = new CoordinateSystem(height, width);
+    this->coordSystem=coordSystem;
 
     trans = glm::mat4(1.0f);
 
@@ -216,11 +213,11 @@ void Renderer::render()
 
     shaderManager->useShaderProgram();
     
-    coordSystem->apply();
+    
+    
+    glm::mat4 mvp = coordSystem->projection * coordSystem->view * coordSystem->model;
+    shaderManager->setMat4("mvp",mvp);
 
-    shaderManager->setMat4("model", coordSystem->model);
-
-    shaderManager->setMat4("projection", coordSystem->projection);
 
     glm::mat4 transform = glm::mat4(1.0f); // make sure to initialize matrix to identity matrix first
     // first container

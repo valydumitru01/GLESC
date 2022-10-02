@@ -13,7 +13,7 @@ Camera::Camera(ShaderManager* shaderManager) {
 	
 }
 
-void Camera::setDirection(float yaw, float pitch){
+void Camera::updateDirection(){
 	
 
 	
@@ -28,18 +28,18 @@ void Camera::setDirection(float yaw, float pitch){
 
 	
 }
-void Camera::updateView(){
-	shaderManager->setMat4("view", glm::lookAt(cameraPos, cameraPos + cameraFront, cameraUp));
+glm::mat4 Camera::getLookAtMatrix(){
+	return glm::lookAt(cameraPos, cameraPos + cameraFront, cameraUp);
 }
 void Camera::setElapsedTime(double deltaTime){
 	this->deltaTime=deltaTime;
 }
 void Camera::moveUp() {
-	
+	cameraPos += (float)(cameraSpeed*deltaTime) * cameraUp;
 }
 
 void Camera::moveDown() {
-	
+	cameraPos -= (float)(cameraSpeed*deltaTime) * cameraUp;
 }
 
 void Camera::moveRight() {

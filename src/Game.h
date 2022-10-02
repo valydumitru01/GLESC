@@ -95,6 +95,7 @@ private:
     Renderer* renderer;
     Camera* camera;
     ShaderManager* shaderManager;
+    CoordinateSystem* coordSystem;
 
 };
 

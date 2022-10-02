@@ -21,7 +21,7 @@
 
 class Renderer {
 public:
-    Renderer(short height, short width,ShaderManager* shaderManager);
+    Renderer(short height, short width,ShaderManager* shaderManager,CoordinateSystem* coordSystem);
     ~Renderer();
     /**
      * @brief Initialize our renderer
@@ -60,8 +60,9 @@ private:
      * 
      */
     void generateTextures();
-    CoordinateSystem* coordSystem;
+    
     ShaderManager* shaderManager;
+    CoordinateSystem* coordSystem;
     std::unordered_map<GLuint, const char *> textures;
     GLuint VBO, VAO, EBO;
 

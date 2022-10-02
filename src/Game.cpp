@@ -10,7 +10,7 @@ Game::~Game()
 
 void Game::init(const char *title, int width, int height, bool fullscreen)
 {
-
+    
     window = new Window("My Game");
 
     window->init();
@@ -18,18 +18,22 @@ void Game::init(const char *title, int width, int height, bool fullscreen)
     shaderManager = new ShaderManager();
 
     camera = new Camera(shaderManager);
+    
+    coordSystem = new CoordinateSystem(height, width,camera->cameraPos);
     /*Need to instantiate renderer before initializing window.
     Window depends on the initialization of SDL*/
-    renderer = new Renderer(window->height, window->width, shaderManager);
+    renderer = new Renderer(window->height, window->width, shaderManager,coordSystem);
 
     renderer->init();
+
+    
 
     isRunning = true;
 }
 bool firstMouse=false;
 int lastX;
 int lastY;
-float pitch=90;
+float pitch=0;
 float yaw=0;
 void Game::handleEvents()
 {
@@ -51,59 +55,64 @@ void Game::handleEvents()
     {
         camera->moveForward();
     }
+    if(state[SDL_SCANCODE_SPACE]){
+        camera->moveUp();
+    }
+    if(state[SDL_SCANCODE_LSHIFT]){
+        camera->moveDown();
+    }
     if (state[SDL_SCANCODE_ESCAPE])
     {
         isRunning = false;
     }
+    
     // else if(state[SDL_SCANCODE_])
 
     SDL_Event event;
-    SDL_PollEvent(&event);
-    switch (event.type)
-    {
-    case SDL_QUIT:
-        isRunning = false;
-        break;
-    case SDL_WINDOWEVENT_SIZE_CHANGED:
-        window->setSize(event.window.data1, event.window.data2);
-        break;
-    case SDL_MOUSEMOTION:
-    {
-        int xMouse;
-        int yMouse;
-        
-        SDL_GetGlobalMouseState(&xMouse, &yMouse);
-
-        if (firstMouse)
+    while(SDL_PollEvent(&event))
+        switch (event.type)
         {
-            lastX = window->width/2;
-            lastY = window->height/2;
-            firstMouse = false;
+        case SDL_QUIT:
+            isRunning = false;
+            break;
+        case SDL_WINDOWEVENT_SIZE_CHANGED:
+            window->setSize(event.window.data1, event.window.data2);
+            break;
+        case SDL_MOUSEMOTION:
+        {
+            int xMouse=event.motion.xrel;
+            int yMouse=event.motion.yrel;
+
+            if (firstMouse)
+            {
+                lastX = window->width/2;
+                lastY = window->height/2;
+                firstMouse = false;
+            }
+            else{
+            float xOffset = xMouse - lastX;
+            float yOffset = lastY - yMouse; // reversed since y-coordinates range from bottom to top
+            const float sensitivity = 0.005f;
+            xOffset *= sensitivity;
+            yOffset *= sensitivity;
+            camera->yaw += xOffset;
+            camera->pitch += yOffset;
+
+            if (camera->pitch > 89.0f)
+                camera->pitch = 89.0f;
+            if (camera->pitch < -89.0f)
+                camera->pitch = -89.0f;
+
+            camera->updateDirection();
+
+            Console::info(string("xMouse: ") + to_string(xMouse) + string("xMouse: ") + to_string(yMouse));
+            }
         }
-        else{
-        float xOffset = xMouse - lastX;
-        float yOffset = lastY - yMouse; // reversed since y-coordinates range from bottom to top
-        const float sensitivity = 0.005f;
-        xOffset *= sensitivity;
-        yOffset *= sensitivity;
-        yaw += xOffset;
-        pitch += yOffset;
 
-        if (pitch > 89.0f)
-            pitch = 89.0f;
-        if (pitch < -89.0f)
-            pitch = -89.0f;
-
-        camera->setDirection(yaw, pitch);
-
-        Console::info(string("xMouse: ") + to_string(xMouse) + string("xMouse: ") + to_string(yMouse));
-        }
-    }
-
-    break;
-    default:
         break;
-    }
+        default:
+            break;
+        }
 }
 
 void Game::update(double deltaTime)
@@ -114,9 +123,11 @@ void Game::update(double deltaTime)
 
 void Game::render(double deltaTime)
 {
+    coordSystem->setView(camera->getLookAtMatrix());
 
+    camera->updateDirection();
     renderer->render();
-    camera->updateView();
+    
     window->SwapBuffers();
 }
 

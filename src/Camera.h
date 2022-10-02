@@ -14,17 +14,17 @@ public:
     void moveForward();
     void moveBackwards();
     
-    void updateView();
-    void setDirection(float yaw, float pitch);
+    glm::mat4 getLookAtMatrix();
+    void updateDirection();
     void setElapsedTime(double deltaTime);
     float cameraSpeed=2.5f;
     float pitch;
     float yaw;
-
-private:
     glm::vec3 cameraPos;
     glm::vec3 cameraFront;
     glm::vec3 cameraUp;
+private:
+
     double deltaTime;
     ShaderManager* shaderManager;
 };
