@@ -1,5 +1,11 @@
 #include "Cube.h"
 
+Cube::Cube(ShaderManager* shaderManager):Entity(shaderManager){
+
+}
+void Cube::update(){
+    
+}
 void Cube::render()
 {
     vertices = {

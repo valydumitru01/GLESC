@@ -1,11 +1,12 @@
 #pragma once
-#include "Window.h"
+#include "MyWindow.h"
 #include "Renderer.h"
 #include "MyPath.h"
 #include "TextureManager.h"
 #include "ShaderManager.h"
 #include "Console.h"
 #include "Camera.h"
+#include "GUI.h"
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
@@ -87,7 +88,7 @@ private:
      * @brief Pointer to the window of the game
      * 
      */
-    Window *window;
+    MyWindow *window;
     /**
      * @brief Pointer to the renderer of the game
      * 
@@ -96,6 +97,7 @@ private:
     Camera* camera;
     ShaderManager* shaderManager;
     CoordinateSystem* coordSystem;
+    GUI* gui;
 
 };
 

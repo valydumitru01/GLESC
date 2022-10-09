@@ -2,6 +2,10 @@
 RELEASE_MACRO:=-D RELEASE
 DEBUG_MACRO:=-D DEBUG
 OS_MACRO:=-D
+BIN     := bin
+SRC     := src
+INCLUDE := include
+LIB     := lib
 #Check the OS
 ifeq ($(OS),Windows_NT)
 # the compiler: gcc for C program, define as g++ for C++
@@ -13,6 +17,7 @@ SLASH := "\"
 # Indicating that we dont need wine, unlike in linux
 WINE := 
 OS_MACRO +=__WINDOWS__
+SOURCES := $(wildcard $(SRC)/**/*.cpp) $(wildcard $(SRC)/*.cpp) $(wildcard $(INCLUDE)/**/*.cpp) $(wildcard $(INCLUDE)/*.cpp)
 else
 # Linux compiler for windows executables (64 bits)
 CC	:= x86_64-w64-mingw32-g++
@@ -23,6 +28,8 @@ SLASH := '/'
 # Wine, program for executing windows apps .exe
 WINE := wine
 OS_MACRO +=__LINUX__
+SOURCES := $(wildcard $(SRC)/**/*.cpp) $(wildcard $(INCLUDE)/**/*.cpp)
+
 endif
 
 
@@ -31,22 +38,22 @@ endif
   #  -Wall turns on most, but not all, compiler warnings
 CFLAGS:= -g -Wall
 
-BIN     := bin
-SRC     := src
-INCLUDE := include
-LIB     := lib
+
 # libraries to link to the project
-LIBRARIES   := -lmingw32 -lSDL2main -lSDL2 -lSDL2_net -lSDL2_mixer -lmingw32 -lopengl32 -lglew32 -lglu32 -lSDL2main -lSDL2 -lSDL2_image
+LIBRARIES   := -lmingw32 -lSDL2main -lSDL2 -lSDL2_net -lSDL2_mixer -lmingw32 -lopengl32 -lglew32 -lglu32 -lSDL2main -lSDL2 -lSDL2_image 
 # the build target executable
 EXECUTABLE  := game
 
 
 all: build
-
+# 
+showfiles:
+	@echo $(SOURCES)
+	
 # Builds the executable game
 build:
-	@echo "Building..."
-	$(CC) $(CFLAGS) -I $(INCLUDE) -L $(LIB)  $(OS_MACRO) $(DEBUG_MACRO) -o $(BIN)/$(EXECUTABLE) $(SRC)/*.cpp $(LIBRARIES) 
+	echo "Building..."
+	$(CC) $(CFLAGS) -I $(INCLUDE) -L $(LIB)  $(OS_MACRO) $(DEBUG_MACRO) -o $(BIN)/$(EXECUTABLE) $(SOURCES) $(LIBRARIES) 
 
 # Run the game
 run:

@@ -11,7 +11,8 @@ Game::~Game()
 void Game::init(const char *title, int width, int height, bool fullscreen)
 {
     
-    window = new Window("My Game");
+
+    window = new MyWindow("My Game");
 
     window->init();
 
@@ -20,6 +21,8 @@ void Game::init(const char *title, int width, int height, bool fullscreen)
     camera = new Camera(shaderManager);
     
     coordSystem = new CoordinateSystem(height, width,camera->cameraPos);
+
+    gui = new GUI(window);
     /*Need to instantiate renderer before initializing window.
     Window depends on the initialization of SDL*/
     renderer = new Renderer(window->height, window->width, shaderManager,coordSystem);
@@ -64,6 +67,7 @@ void Game::handleEvents()
     if (state[SDL_SCANCODE_ESCAPE])
     {
         isRunning = false;
+        return;
     }
     
     // else if(state[SDL_SCANCODE_])
@@ -92,7 +96,7 @@ void Game::handleEvents()
             else{
             float xOffset = xMouse - lastX;
             float yOffset = lastY - yMouse; // reversed since y-coordinates range from bottom to top
-            const float sensitivity = 0.005f;
+            const float sensitivity = 0.04f;
             xOffset *= sensitivity;
             yOffset *= sensitivity;
             camera->yaw += xOffset;
@@ -119,15 +123,16 @@ void Game::update(double deltaTime)
 {
     cnt++;
     camera->setElapsedTime(deltaTime);
+    //gui->update();
 }
 
 void Game::render(double deltaTime)
 {
     coordSystem->setView(camera->getLookAtMatrix());
-
+    gui->render();
     camera->updateDirection();
     renderer->render();
-    
+    gui->render();
     window->SwapBuffers();
 }
 

@@ -1,7 +1,6 @@
 #include "Game.h"
 #include "FPS.h"
-#include <chrono>
-#include <thread>
+
 
 
 

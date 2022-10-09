@@ -1,6 +1,7 @@
 #include "ShaderManager.h"
 
 
+
 ShaderManager::~ShaderManager(){
     glDeleteProgram(shaderProgram);
 }

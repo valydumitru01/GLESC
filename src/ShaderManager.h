@@ -1,12 +1,14 @@
 #pragma once
 #include <iostream>
 #include <unordered_map>
+#include <string>
+#include "PreprocessorUtil.h"
 
 #include <GL/glew.h>
 #include <GL/glu.h>
 #include <GL/gl.h>
 #include <glm/glm.hpp>
-
+#define GLSL_VERSION = #version 430
 class ShaderManager
 {
 public:
@@ -124,15 +126,13 @@ public:
      *
      */
     void useShaderProgram();
-
 private:
     /**
      * @brief Soruce of the vertex shader
      *
      */
-    const char *vertexShaderSource =
-        R"glsl(
-            /* Version of OpenGL */
+    const char *vertexShaderSource=R"glsl(
+            /* Version for OpenGL */
             #version 430 core
             layout (location = 0) in vec3 aPos;
             layout (location = 1) in vec3 aColor;
@@ -158,8 +158,7 @@ private:
      * @brief Soruce of the fragment shader
      *
      */
-    const char *fragmentShaderSource =
-        R"glsl(
+    const char *fragmentShaderSource =R"glsl( 
             /* Version of OpenGL */
             #version 430 core
             out vec4 FragColor;
