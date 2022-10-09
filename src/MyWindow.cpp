@@ -21,7 +21,7 @@ void MyWindow::setGlAttributes()
      * More info: https://wiki.libsdl.org/SDL_GLprofile
      *
      */
-    SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
+    setGlAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
     /**
      * @brief We're using OpenGL Version 4.3 (released in 2012).
      * Changing this numbers will change some functions available of OpenGL.
@@ -29,8 +29,8 @@ void MyWindow::setGlAttributes()
      * Choosing a relatively old version of OpenGl allow most computers to use it.
      *
      */
-    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 4);
-    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
+    setGlAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 4);
+    setGlAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
 #ifdef DEBUG
     Console::warning("ENTERING DEBUG MODE");
     /**
@@ -44,6 +44,14 @@ void MyWindow::setGlAttributes()
 
     // TODO: Learn what this attribute does
     SDL_GL_SetAttribute(SDL_GL_STENCIL_SIZE, 8);
+}
+
+void MyWindow::setGlAttribute(SDL_GLattr attrib, int val)
+{
+    if (SDL_GL_SetAttribute(attrib, val) == -1)
+    {
+        Console::error(string("Unable to set gl attribute: ") + string(SDL_GetError()));
+    }
 }
 void MyWindow::init()
 {
@@ -87,24 +95,10 @@ void MyWindow::init()
     if ((context = SDL_GL_CreateContext(window)) == NULL)
     {
         Console::error(string("Unable to create context: ") + string(SDL_GetError()));
-
         return;
     }
-    Console::success("GL context created!");
-    /**
-     * @brief Tells SDL that we don't want our mouse to escape our window and it hides it.
-     * The mouse coordinates do not change.
-     */
-    if (SDL_SetRelativeMouseMode(SDL_TRUE) == -1)
-    {
-        Console::error(string("Unable to enable mouse relative mode: ") + string(SDL_GetError()));
-    }
-    /**
-     * @brief Grabs the mouse and doesn't allow to escape the window.
-     * The mouse coordinates do change.
-     */
-    // SDL_SetWindowGrab(window, SDL_TRUE);
-    SDL_ShowCursor(SDL_DISABLE);
+    else
+        Console::success("GL context created!");
 
     //----------------------------------------------------------
 
@@ -127,12 +121,37 @@ void MyWindow::init()
     {
         Console::error(string("Unable activate v-sync (swap interval): ") + string(SDL_GetError()));
     }
+
+    /* Set mouse relative */
+    setMouseRelative(true);
+    
 }
 void MyWindow::setSize(GLsizei _width, GLsizei _height)
 {
     height = _height;
     width = _width;
     glViewport(0, 0, width, height);
+}
+void MyWindow::setMouseRelative(bool enabled)
+{
+    SDL_bool isRelative;
+    string failOutput;
+    if (enabled)
+    {
+        isRelative=SDL_TRUE;
+        failOutput="disable";
+    }else{
+        isRelative=SDL_FALSE;
+        failOutput="enable";
+        
+    }
+    /**
+     * @brief Tells SDL whether we want to set relative mode to our mouse.
+     */
+    if (SDL_SetRelativeMouseMode(isRelative) == -1)
+    {
+        Console::error(string("Unable to") +failOutput+ string("mouse relative mode: ") + string(SDL_GetError()));
+    }
 }
 int MyWindow::setFlags()
 {
@@ -148,6 +167,12 @@ int MyWindow::setFlags()
 
     /* Flag to allow window resize */
     flags |= SDL_WINDOW_RESIZABLE;
+    /* WIndow has no borders */
+    flags |= SDL_WINDOW_BORDERLESS;
+    /* Window grabs input focus */
+    flags |= SDL_WINDOW_INPUT_GRABBED;
+    /* Window enables High pixel density if supported by monitor */
+    flags |= SDL_WINDOW_ALLOW_HIGHDPI;
 
     return flags;
 }

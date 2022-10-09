@@ -38,6 +38,14 @@ public:
      */
     void setFullscreen(SDL_bool isFullScreen);
     /**
+     * @brief Enables mouse
+     * If enabled mouse is visible and position is absolute (allows moving it across the window)
+     * If disabled mouse is hidden and position is relative (stays in center)
+     * 
+     * @param enabled 
+     */
+    void setMouseRelative(bool enabled);
+    /**
      * @brief Swap our buffer to display the current
      * contents of buffer on screen
      *
@@ -66,12 +74,19 @@ public:
      */
     int width;
 
+    bool mouseRelative=false;
+
 private:
     /**
      * @brief Sets GL_SDL attributes, such as the stencil size or GL version
      *
      */
     void setGlAttributes();
+    /**
+     * @brief Sets one GL_SDL attribute, checks if there was any error while enabling it
+     *
+     */
+    void setGlAttribute(SDL_GLattr attrib, int val);
     /**
      * @brief Initialize SDL_Window flags
      *
