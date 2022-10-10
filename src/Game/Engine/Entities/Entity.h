@@ -1,6 +1,6 @@
 #pragma once
-#include "../Components/Transform.h"
-#include "../ShaderManager.h"
+#include "Transform.h"
+#include "ShaderManager.h"
 #include <glm/gtc/type_ptr.hpp>
 class Entity
 {

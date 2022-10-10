@@ -53,7 +53,9 @@
             "name": "Win32",
             "includePath": [
                 "${workspaceRoot}",
-                "${workspaceRoot}/include"
+                "${workspaceRoot}/include",
+                "${workspaceRoot}/src",
+                "${workspaceRoot}/**"
             ],
             "defines": [
                 "_DEBUG",

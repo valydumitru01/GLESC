@@ -17,7 +17,13 @@ SLASH := "\"
 # Indicating that we dont need wine, unlike in linux
 WINE := 
 OS_MACRO +=__WINDOWS__
-SOURCES := $(wildcard $(SRC)/**/*.cpp) $(wildcard $(SRC)/*.cpp) $(wildcard $(INCLUDE)/**/*.cpp) $(wildcard $(INCLUDE)/*.cpp)
+# SOURCES := $(wildcard $(SRC)/**/*.cpp) $(wildcard $(SRC)/*.cpp) $(wildcard $(INCLUDE)/**/*.cpp) $(wildcard $(INCLUDE)/*.cpp)
+SOURCES := $(dir $(shell dir /A-D /B /S $(YOUR_DIRECTORY)*.cpp ))
+uniq = $(if $1,$(firstword $1) $(call uniq,$(filter-out $(firstword $1),$1)))
+
+SOURCES:=$(sort $(SOURCES))
+SOURCES:=$(call uniq,$(SOURCES))
+SOURCES:=$(subst \,/, $(SOURCES))
 else
 # Linux compiler for windows executables (64 bits)
 CC	:= x86_64-w64-mingw32-g++
@@ -28,7 +34,7 @@ SLASH := '/'
 # Wine, program for executing windows apps .exe
 WINE := wine
 OS_MACRO +=__LINUX__
-SOURCES := $(wildcard $(SRC)/**/*.cpp) $(wildcard $(INCLUDE)/**/*.cpp)
+SOURCES := $(shell dir . -r *.cpp)
 
 endif
 
