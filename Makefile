@@ -1,30 +1,61 @@
 
-RELEASE_MACRO:=-D RELEASE
-DEBUG_MACRO:=-D DEBUG
-OS_MACRO:=-D
-BIN     := bin
-SRC     := src
-INCLUDE := include
-LIB     := lib
+RELEASE_MACRO	:=-D RELEASE
+DEBUG_MACRO		:=-D DEBUG
+OS_MACRO		:=-D
+
+#bin folder: there will be our binaries with our executable
+BIN_DIR     	:=bin
+
+#src folder: there will be only our headers
+SRC_DIR     	:=src
+
+#lib folder: there will be static libraries here
+LIB_DIR			:=lib
+
+#include folder: there will be only external headers for external libraries
+INCLUDE_DIR 	:=include
+
+#Include folders, where to search for headers
+INCLUDE 		:=-I$(SRC_DIR) -I$(INCLUDE_DIR)
+
+#Lib folders, where to search for the static libraries
+LIB     		:=-L$(LIB_DIR)
+
 #Check the OS
 ifeq ($(OS),Windows_NT)
+
 # the compiler: gcc for C program, define as g++ for C++
 CC	:= g++
+
 # The windows command for delete
 DEL := del
+
 # The windows slash for directory
 SLASH := "\"
+
 # Indicating that we dont need wine, unlike in linux
 WINE := 
-OS_MACRO +=__WINDOWS__
-# SOURCES := $(wildcard $(SRC)/**/*.cpp) $(wildcard $(SRC)/*.cpp) $(wildcard $(INCLUDE)/**/*.cpp) $(wildcard $(INCLUDE)/*.cpp)
-SOURCES := $(dir $(shell dir /A-D /B /S $(YOUR_DIRECTORY)*.cpp ))
-uniq = $(if $1,$(firstword $1) $(call uniq,$(filter-out $(firstword $1),$1)))
 
-SOURCES:=$(sort $(SOURCES))
-SOURCES:=$(call uniq,$(SOURCES))
-SOURCES:=$(subst \,/, $(SOURCES))
+# Creating own macro for windows
+OS_MACRO +=__WINDOWS__
+
+# Source files for cpp files in tbe project, we only search for them up to 4 depth. Every /* is a new depth.
+# To add a depth add another item to the list with another /*
+SOURCES := $(wildcard *.cpp */*.cpp */*/*.cpp */*/*/*.cpp)
+
+# compiler flags:
+  #  -g    adds debugging information to the executable file
+  #  -Wall turns on most, but not all, compiler warnings
+CFLAGS:= -g -Wall
+
+# libraries to link to the project
+LIBRARIES   :=-lmingw32 -lSDL2main -lSDL2 -lSDL2_net -lSDL2_mixer -lmingw32 -lopengl32 -lglew32 -lglu32 -lSDL2main -lSDL2 -lSDL2_image 
+
+# the build target executable
+EXECUTABLE  := game
+
 else
+# CURRENTLY NOT WORKING
 # Linux compiler for windows executables (64 bits)
 CC	:= x86_64-w64-mingw32-g++
 # Linux command for delete (rm -f)
@@ -35,39 +66,41 @@ SLASH := '/'
 WINE := wine
 OS_MACRO +=__LINUX__
 SOURCES := $(shell dir . -r *.cpp)
-
 endif
 
 
-# compiler flags:
-  #  -g    adds debugging information to the executable file
-  #  -Wall turns on most, but not all, compiler warnings
-CFLAGS:= -g -Wall
 
+#---------------------------------------------
+# All builds and runs
+all: build-and-run
 
-# libraries to link to the project
-LIBRARIES   := -lmingw32 -lSDL2main -lSDL2 -lSDL2_net -lSDL2_mixer -lmingw32 -lopengl32 -lglew32 -lglu32 -lSDL2main -lSDL2 -lSDL2_image 
-# the build target executable
-EXECUTABLE  := game
-
-
-all: build
-# 
+#---------------------------------------------
+# Show source files for debugging purposes
 showfiles:
 	@echo $(SOURCES)
-	
+
+
+#---------------------------------------------
 # Builds the executable game
 build:
 	echo "Building..."
-	$(CC) $(CFLAGS) -I $(INCLUDE) -L $(LIB)  $(OS_MACRO) $(DEBUG_MACRO) -o $(BIN)/$(EXECUTABLE) $(SOURCES) $(LIBRARIES) 
+	$(CC) $(CFLAGS)  $(INCLUDE) $(LIB) $(OS_MACRO) $(DEBUG_MACRO) -o $(BIN_DIR)/$(EXECUTABLE) $(SOURCES) $(LIBRARIES) 
 
-# Run the game
+
+#---------------------------------------------
+# Run the game 
 run:
-	@echo "Executing..."
-	$(WINE) $(BIN)/$(EXECUTABLE)
+	echo "Executing..."
+	$(WINE) $(BIN_DIR)/$(EXECUTABLE)
+
+
+#---------------------------------------------
 # Build then run the game
 build-and-run: clean build run
+
+
+#---------------------------------------------
 # Remove the executable
 clean:
-	@echo "Clearing..."
+	echo "Clearing..."
 	$(DEL) bin$(SLASH)$(EXECUTABLE).exe

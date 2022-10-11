@@ -1,10 +1,10 @@
 #pragma once
-#include "MyWindow.h"
-#include "Renderer.h"
-#include "MyPath.h"
+#include "Engine/MyWindow.h"
+#include "Engine/Renderer/Renderer.h"
+#include "Util/MyPath.h"
 #include "Engine/Renderer/ShaderManager.h"
-#include "Engine/Console.h"
-#include "Camera.h"
+#include "Util/Console.h"
+#include "Engine/Camera.h"
 #include "GUI.h"
 
 #include <glm/glm.hpp>

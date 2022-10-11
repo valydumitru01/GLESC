@@ -1,8 +1,8 @@
 #include <imgui/imgui.h>
 #include <imgui/imgui_impl_sdl.h>
 #include <imgui/imgui_impl_opengl3.h>
-#include "MyWindow.h"
-#include "ShaderManager.h"
+#include "Engine/MyWindow.h"
+#include "Engine/Renderer/ShaderManager.h"
 class GUI
 {
 public:
