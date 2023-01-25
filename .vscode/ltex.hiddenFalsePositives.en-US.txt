@@ -1,0 +1,3 @@
+{"rule":"ENGLISH_WORD_REPEAT_BEGINNING_RULE","sentence":"^\\QThis will be a first touch with game development for most of the integrants of our team, and it should be ok.\\E$"}
+{"rule":"ENGLISH_WORD_REPEAT_BEGINNING_RULE","sentence":"^\\QThis will be a first touch with game development for most of the memebers of our team, and it should be ok.\\E$"}
+{"rule":"ENGLISH_WORD_REPEAT_BEGINNING_RULE","sentence":"^\\QThis will be a first touch with game development for most of the members of our team, and it should be ok.\\E$"}
