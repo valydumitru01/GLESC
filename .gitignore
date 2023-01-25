@@ -1,3 +1,4 @@
-
-./.vscode
-./bin/game.exe
+# Ignore all files in the .vscode directory
+.vscode/
+# Ingore executable
+bin/game.exe
