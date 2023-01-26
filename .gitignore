@@ -1,5 +1,4 @@
-.vscode/configurationCache.log
-.vscode/dryrun.log
-.vscode/targets.log
-.bin/game.exe
-.vscode/c_cpp_properties.json
+# Ignore all files in the .vscode directory
+.vscode/
+# Ingore executable
+bin/game.exe
