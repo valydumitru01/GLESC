@@ -1,84 +1,15 @@
 # Table of Contents
 
-1. [Game design](#gamedesign)
-2. [Required Tools](#tools)
-3. [Important Information and tutorials](#importantinformation)
-4. [Application Dependencies](#dependencies)
+1. [Application Dependencies](#dependencies)
    1. [MinGW/GCC](#gcc)
    2. [SDL2](#sdl)
    3. [OpenGL](#opengl)
    4. [GLEW](#glew)
 5. [Documentation](#documentation)
 
-# Game design <a name="gamedesign"></a>
-
-![](/doc/images/Game_Prototype_1.png)
-
-## What is this game about?
-
-This game will be an isometric 2D turn based game with a lot of familiar/minion/companion functionalities. Such as being able to gather a team to fight on your side and owning pets.
-
-### Main character
-
-The basic idea is that a main character goes around finding team members and convincing them to join him/her. The main character should be strong compared to the other team members, but not necessarily the strongest, that could change depending on the build you try.
-
-### Team members
-
-The team members are monsters (or people) you find around the world. You have to gather them to make your team stronger, although you can only use a limited amount of them at once in a battle.
-
-### Pets
-
-Pets are little friends (primarily monsters) you find around the world. These pets can be obtained fighting enemies, dropping them as if they were their "children". They can also be found around the world, like fairies or monkeys. They don't (usually) attack but only give buffs and bonuses to the character they follow. Each team member can have their own pet.
-
-### Battle
-
-Battles are turn based with tactical positioning. It includes mechanics such as AOE abilities, ground advantage, use of environment (push boulder) between others.
-
-![](/doc/images/Prototype_Battle_1.png)
-
-### Similar games
-Here are a list of games that are similar to this (by accident or inspiration)
-
-#### Into The Breach
-This game has similar combat style, with several companions. It's also turn based, similar to how ours will be. 
-
-The graphics also look fairly similar, isometric and pixeled. 
-
-![](/doc/images/Similar_Game_IntoTheBreach.jpg)
-
-#### Bit Heroes
-This game has some important similarities, such as taming mechanics with companions and turn based fighting with skills. It also has equipment system and stats. 
-
-![](/doc/images/Similar_Game_BitHeroes.webp)
-
-#### Metal Slug Tactics
-Metal Slug Tactics is a turn based tactical fighting game. It has a great looking pixel art style which is similar to ours. 
-
-![](/doc/images/Similar_Game_MetalSlugTactics.jpeg)
-
-# Important information and tutorials <a name="importantinformation"></a>
-
-## OpenGL
- * [YouTube complete tutorial (The Cherno)](https://www.youtube.com/watch?v=W3gAzLwfIP0&list=PLlrATfBNZ98foTJPJ_Ev03o2oq3-GGOS2)
-
-* [Web Complete tutorial (learnopengl.com)](https://learnopengl.com/Introduction)
-* [Why is SDL and OpenGL related?](https://stackoverflow.com/questions/5769031/why-are-sdl-and-opengl-related)
-
-## GitHub
-
-* [Examples of other games in GitHub](https://github.com/leereilly/gameshttps://github.com/leereilly/games)
-* [Original structure from where the project started](https://github.com/kbrawley95/VSCode-OpenGL-Game-Engine)
-
-# Required Tools <a name="tools"></a>
-
-1. [Git](https://git-scm.com/) / [GitHub](https://desktop.github.com/)
-2. (Optional) [Visual Studio Code](https://code.visualstudio.com/)
-3. (Optional) [VMWare Player Virtual Machine](https://www.vmware.com/products/player/playerpro-evaluation.html) for testing your code on different operating systems.
-
 # Application Dependencies <a name="dependencies"></a>
 **Important:** The only dependency you need to actually install is Mingw32 64 bits, the rest are static (portable). Which means they are inside the repository (`lib` folder)
 ## 1. MinGW/GNU Compiler Collection (GCC) <a name="gcc"></a>
-
 
 In order to execute our code, we will require GNU utilities. This contains numerous compilers for various languages (e.g. Fortran, C++ etc.) classified as the **GNU Compiler Collection (GCC)**, and their respective debuggers.
 
