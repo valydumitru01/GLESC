@@ -1,4 +1,4 @@
-#include "CoordinateSystem.h"
+#include "core/renderer/CoordinateSystem.h"
 
 CoordinateSystem::CoordinateSystem(int width, int height, glm::vec3 initialCameraPos)
 {

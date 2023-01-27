@@ -1,4 +1,4 @@
-#include "Cube.h"
+#include "core/entities/Cube.h"
 
 Cube::Cube(ShaderManager* shaderManager):Entity(shaderManager){
 

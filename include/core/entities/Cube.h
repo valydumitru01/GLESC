@@ -1,6 +1,7 @@
 #pragma once
 #include "Entity.h"
-#include "Engine/Renderer/ShaderManager.h"
+#include "core/renderer/ShaderManager.h"
+
 #include <GL/glew.h>
 #include <GL/glu.h>
 #include <GL/gl.h>

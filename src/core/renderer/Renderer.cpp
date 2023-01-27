@@ -1,4 +1,4 @@
-#include "Renderer.h"
+#include "core/renderer/Renderer.h"
 
 Renderer::Renderer(short height, short width, ShaderManager* ShaderManager,CoordinateSystem* coordSystem)
 {

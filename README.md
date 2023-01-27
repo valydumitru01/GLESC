@@ -7,6 +7,8 @@
    4. [GLEW](#glew)
 5. [Documentation](#documentation)
 
+# Code restrictions
+Version of c++: 
 # Application Dependencies <a name="dependencies"></a>
 **Important:** The only dependency you need to actually install is Mingw32 64 bits, the rest are static (portable). Which means they are inside the repository (`lib` folder)
 ## 1. MinGW/GNU Compiler Collection (GCC) <a name="gcc"></a>

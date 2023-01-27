@@ -3,23 +3,23 @@ RELEASE_MACRO	:=-D RELEASE
 DEBUG_MACRO		:=-D DEBUG
 OS_MACRO		:=-D
 
-#bin folder: there will be our binaries with our executable
+#bin folder: binaries and executables
 BIN_DIR     	:=bin
 
-#src folder: there will be only our headers
-SRC_DIR     	:=src
+#src folder: include folder of internal headers
+INCLUDE_DIR     	:=include
 
-#lib folder: there will be static libraries here
-LIB_DIR			:=lib
+#lib folder: static libraries to link
+LIB_STATIC_DIR	:=lib/lib
 
-#include folder: there will be only external headers for external libraries
-INCLUDE_DIR 	:=include
+#include folder: headers of external libraries
+LIB_INCLUDE_DIR :=lib/include
 
 #Include folders, where to search for headers
-INCLUDE 		:=-I$(SRC_DIR) -I$(INCLUDE_DIR)
+INCLUDE 		:=-I$(INCLUDE_DIR) -I$(LIB_INCLUDE_DIR)
 
 #Lib folders, where to search for the static libraries
-LIB     		:=-L$(LIB_DIR)
+LIB     		:=-L$(LIB_STATIC_DIR)
 
 #Check the OS
 ifeq ($(OS),Windows_NT)
@@ -33,7 +33,7 @@ DEL := del
 # The windows slash for directory
 SLASH := "\"
 
-# Indicating that we dont need wine, unlike in linux
+# Overriding to empty, indicating that we dont need wine, unlike in linux
 WINE := 
 
 # Creating own macro for windows
@@ -42,6 +42,9 @@ OS_MACRO +=__WINDOWS__
 # Source files for cpp files in tbe project, we only search for them up to 4 depth. Every /* is a new depth.
 # To add a depth add another item to the list with another /*
 SOURCES := $(wildcard *.cpp */*.cpp */*/*.cpp */*/*/*.cpp)
+
+# better?
+# SOURCES := $(shell find . -name '*.cpp' -type f)
 
 # compiler flags:
   #  -g    adds debugging information to the executable file

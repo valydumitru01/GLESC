@@ -1,5 +1,5 @@
-#include "Game/Game.h"
-#include "Game/FPS.h"
+#include "game/Game.h"
+#include "game/FPS.h"
 
 
 

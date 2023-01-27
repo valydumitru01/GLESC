@@ -1,5 +1,6 @@
 #pragma once
-#include "Renderer/ShaderManager.h"
+#include "core/renderer/ShaderManager.h"
+
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 class Camera

@@ -1,4 +1,4 @@
-#include "FPS.h"
+#include "game/FPS.h"
 
 FPS::FPS(short _maxFPS)
 {

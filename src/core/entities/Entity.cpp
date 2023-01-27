@@ -1,5 +1,5 @@
 
-#include "Entity.h"
+#include "core/entities/Entity.h"
 Entity::Entity(ShaderManager* shaderManager){
     this->shaderManager=shaderManager;
 }

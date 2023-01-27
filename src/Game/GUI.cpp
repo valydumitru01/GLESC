@@ -1,4 +1,4 @@
-#include "GUI.h"
+#include "game/GUI.h"
 
 GUI::GUI(MyWindow *window, ShaderManager* shaderManager)
 {

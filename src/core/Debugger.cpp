@@ -1,4 +1,4 @@
-#include "Debugger.h"
+#include "core/Debugger.h"
 #include "Util/Console.h"
 GLenum Debugger::glCheckError_(const char *file, int line)
 {

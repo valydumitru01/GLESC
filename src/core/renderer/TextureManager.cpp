@@ -1,4 +1,4 @@
-#include "TextureManager.h"
+#include "core/renderer/TextureManager.h"
 
 SDL_Surface* TextureManager::LoadTexture(const char* texturePath){
     /**

@@ -1,4 +1,4 @@
-#include "MyWindow.h"
+#include "core/MyWindow.h"
 
 MyWindow::MyWindow(const char *title)
 {

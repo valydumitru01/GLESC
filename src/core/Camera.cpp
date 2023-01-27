@@ -1,4 +1,4 @@
-#include "Camera.h"
+#include "core/Camera.h"
 
 Camera::Camera(ShaderManager* shaderManager) {
     cameraPos = glm::vec3(0.0f, 0.0f, 3.0f);
