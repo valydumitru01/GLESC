@@ -1,12 +1,13 @@
 #include "core/MyWindow.h"
 
 MyWindow::MyWindow(const char *title)
-{
-    // Init the window dimensions
-    height = 800;
-    width = 1200;
     // Init window name
-    windowName = title;
+    :windowName(title),
+    // Init the window dimensions
+    height(800),
+    width(1200)
+{
+    
 }
 void MyWindow::setGlAttributes()
 {
@@ -124,7 +125,6 @@ void MyWindow::init()
 
     /* Set mouse relative */
     setMouseRelative(true);
-    
 }
 void MyWindow::setSize(GLsizei _width, GLsizei _height)
 {
@@ -138,19 +138,20 @@ void MyWindow::setMouseRelative(bool enabled)
     string failOutput;
     if (enabled)
     {
-        isRelative=SDL_TRUE;
-        failOutput="disable";
-    }else{
-        isRelative=SDL_FALSE;
-        failOutput="enable";
-        
+        isRelative = SDL_TRUE;
+        failOutput = "disable";
+    }
+    else
+    {
+        isRelative = SDL_FALSE;
+        failOutput = "enable";
     }
     /**
      * @brief Tells SDL whether we want to set relative mode to our mouse.
      */
     if (SDL_SetRelativeMouseMode(isRelative) == -1)
     {
-        Console::error(string("Unable to") +failOutput+ string("mouse relative mode: ") + string(SDL_GetError()));
+        Console::error(string("Unable to") + failOutput + string("mouse relative mode: ") + string(SDL_GetError()));
     }
 }
 int MyWindow::setFlags()

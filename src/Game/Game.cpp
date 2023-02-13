@@ -155,6 +155,7 @@ void Game::update(double deltaTime)
 void Game::render(double deltaTime)
 {
     coordSystem->setView(camera->getLookAtMatrix());
+    
     gui->render();
     camera->updateDirection();
     renderer->render();

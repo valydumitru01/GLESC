@@ -1,14 +1,15 @@
 #pragma once
+#include "Component.h"
 #include <vector>
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-class Transform
+class TransformComponent
 {
 public:
-    Transform();
+    TransformComponent();
 
     void move(glm::vec3 _towards, float speed);
 

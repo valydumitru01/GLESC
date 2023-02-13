@@ -14,6 +14,7 @@ public:
     double getElapsed();
     void printFPS();
     void delay();
+    double getLag();
     /**
      * @brief My max FPS
      *
@@ -21,6 +22,11 @@ public:
     short maxFPS;
 
 private:
+    /**
+     * @brief speed in which 
+     * 
+     */
+    static double MS_PER_UPDATE;
     /**
      * @brief The max time can elapse between frames
      *
@@ -41,4 +47,9 @@ private:
      *
      */
     double elapsed;
+    /**
+     * @brief Amount of time game time is behind real time
+     * 
+     */
+    double lag;
 };
