@@ -1,30 +1,39 @@
 #include "core/FPS.h"
 
-FPS::FPS(short _maxFPS)
+
+FPS::FPS(FPS_rates maxFPS) : elapsed(0),
+                             maxFPS(maxFPS),
+                             fps_ms(MILIS_IN_A_SECOND / (double)maxFPS),
+                             lag(0),
+                             previous(0),
+                             current(0),
+                             ms_per_update(50)
 {
-    elapsed = 0;                      // Initialised at 0, first frame is immobilized
-    maxFPS = _maxFPS;                 // Initialize max fps at 60
-    FPS_MS = 1000.0 / (double)maxFPS; // The max milliseconds of the frame is the division between 1000 (ms in a second) and the max fps
 }
 
-void FPS::timeBeginningOfFrame()
+void FPS::timeFrame()
 {
-    start = SDL_GetPerformanceCounter(); // Time of the beginning of the loop
+    current = SDL_GetPerformanceCounter(); // Update the current frametime
+    elapsed = current - previous;
+    previous = current; // Update the prevous frametime
+    lag += elapsed;     // Accumulate the elapsed time inside lag
+
+    delay();
 }
 
+bool FPS::isLagged()
+{
+    return lag >= ms_per_update;
+}
+void FPS::updateLag()
+{
+    lag -= ms_per_update;
+}
 void FPS::delay()
 {
-    double dif = FPS_MS - elapsed;
+    double dif = fps_ms - elapsed;
     if (dif > 0)
         SDL_Delay(dif); // Cap the FPS, wait until we get to minimum frame time
-}
-
-void FPS::timeEndOfFrame()
-{
-
-    end = SDL_GetPerformanceCounter(); // Time of the end of the loop
-
-    elapsed = (end - start) / (double)SDL_GetPerformanceFrequency(); // Calculate elapsed: time of the end of the iteration - time of the start of the iteration
 }
 
 void FPS::printFPS()
@@ -33,7 +42,12 @@ void FPS::printFPS()
     Console::info(fps_str + std::to_string(1.0f / elapsed));
 }
 
-double FPS::getElapsed()
+double FPS::getElapsed() const
 {
     return elapsed;
+}
+
+double FPS::getTimeOfFrameAfterUpdate()
+{
+    return lag / ms_per_update;
 }

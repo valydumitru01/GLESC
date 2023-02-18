@@ -1,6 +1,11 @@
-#include "TFGL.h"
-TFGL::TFGL()
+#include "core/TFGL.h"
+TFGL::TFGL() : fps(FPS_rates::fps_60), running(true)
 {
+    // Initialize the queue with all possible entity IDs
+    for (Entity entity = 0; entity < MAX_ENTITIES; ++entity)
+    {
+        mAvailableEntities.push(entity);
+    }
 }
 
 TFGL::~TFGL()
@@ -10,52 +15,40 @@ TFGL::~TFGL()
 void TFGL::loop()
 {
     Console::init();
-    FPS fps(120);
-    // Game is a big object, should be stored on the heap
-    Game *game = new Game();
-    game->init("Game", 800, 600, false);
-    while (game->running())
+
+    while (running)
     {
-        fps.timeBeginningOfFrame();
-        fps.delay();
+        fps.timeFrame();
 
-        game->handleEvents();
-        game->update(fps.getElapsed());
-        game->render(fps.getElapsed());
-
-        fps.timeEndOfFrame();
-        // fps.printFPS();
+        processInput();
+        while (fps.isLagged()) // Update executes in constant intervals
+        {
+            update();
+            fps.updateLag();
+        }
+        render(fps.getTimeOfFrameAfterUpdate()); //Render execute arbitrarily, depending on how much time update() takes
     }
+}
 
-    game->clean();
-    delete game;
+void TFGL::processInput()
+{
+    
+}
+void TFGL::render(double const timeOfFrame)
+{
+    
+
 }
 void TFGL::update()
 {
-    for (uint16_t i = 0; i < numPhysicsComponents; i++)
-    {
-        /* code */
-    }
-    for (uint16_t i = 0; i < numInputComponents; i++)
-    {
-        /* code */
-    }
-    for (uint16_t i = 0; i < numTransformComponents; i++)
-    {
-        /* code */
-    }
-
-    for (uint16_t i = 0; i < numRenderComponents; i++)
-    {
-        /* code */
-    }
+    
 }
 
 ID &TFGL::createEntity() const
 {
 }
 
-std::vector<Component> *TFGL::getEntityComponents(ID &entityID) const
+std::unique_ptr<std::vector<Component>> TFGL::getEntityComponents(ID &entityID) const
 {
 }
 

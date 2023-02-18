@@ -15,11 +15,11 @@
 #define WINDOW_RATIO 1.77
 #define WINDOW_MIN_WIDTH 100
 #define WINDOW_MIN_HEIGHT (WINDOW_MIN_WIDTH * WINDOW_RATIO)
-class MyWindow
+class Window
 {
 public:
-    ~MyWindow();
-    MyWindow(const char *title);
+    ~Window();
+    Window(const char *title);
     /**
      * @brief Function to initialize our window with its corresponding flags
      *
@@ -49,7 +49,7 @@ public:
      * @brief Swap our buffer to display the current
      * contents of buffer on screen
      *
-     */
+     */_
     void SwapBuffers();
     /**
      * @brief Get the Window object

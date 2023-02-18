@@ -1,6 +1,6 @@
-#include "core/MyWindow.h"
+#include "core/Window.h"
 
-MyWindow::MyWindow(const char *title)
+Window::Window(const char *title)
     // Init window name
     :windowName(title),
     // Init the window dimensions
@@ -9,7 +9,7 @@ MyWindow::MyWindow(const char *title)
 {
     
 }
-void MyWindow::setGlAttributes()
+void Window::setGlAttributes()
 {
     /**
      * Attributes that configure SDL with OpenGL
@@ -47,14 +47,14 @@ void MyWindow::setGlAttributes()
     SDL_GL_SetAttribute(SDL_GL_STENCIL_SIZE, 8);
 }
 
-void MyWindow::setGlAttribute(SDL_GLattr attrib, int val)
+void Window::setGlAttribute(SDL_GLattr attrib, int val)
 {
     if (SDL_GL_SetAttribute(attrib, val) == -1)
     {
         Console::error(string("Unable to set gl attribute: ") + string(SDL_GetError()));
     }
 }
-void MyWindow::init()
+void Window::init()
 {
 
     //---------------------------Init SDL-----------------------
@@ -126,13 +126,13 @@ void MyWindow::init()
     /* Set mouse relative */
     setMouseRelative(true);
 }
-void MyWindow::setSize(GLsizei _width, GLsizei _height)
+void Window::setSize(GLsizei _width, GLsizei _height)
 {
     height = _height;
     width = _width;
     glViewport(0, 0, width, height);
 }
-void MyWindow::setMouseRelative(bool enabled)
+void Window::setMouseRelative(bool enabled)
 {
     SDL_bool isRelative;
     string failOutput;
@@ -154,7 +154,7 @@ void MyWindow::setMouseRelative(bool enabled)
         Console::error(string("Unable to") + failOutput + string("mouse relative mode: ") + string(SDL_GetError()));
     }
 }
-int MyWindow::setFlags()
+int Window::setFlags()
 {
     /**
      * @brief Flags that are needed to be passed to the window * to configure it.
@@ -177,23 +177,23 @@ int MyWindow::setFlags()
 
     return flags;
 }
-void MyWindow::setFullscreen(SDL_bool isFullScreen)
+void Window::setFullscreen(SDL_bool isFullScreen)
 {
 }
-SDL_Window *MyWindow::getWindow()
+SDL_Window *Window::getWindow()
 {
     return window;
 }
-SDL_GLContext *MyWindow::getContext()
+SDL_GLContext *Window::getContext()
 {
     return &context;
 }
-MyWindow::~MyWindow()
+Window::~Window()
 {
     SDL_DestroyWindow(window);
     SDL_GL_DeleteContext(context);
 }
-void MyWindow::SwapBuffers()
+void Window::SwapBuffers()
 {
     SDL_GL_SwapWindow(window);
 }

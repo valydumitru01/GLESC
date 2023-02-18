@@ -2,17 +2,8 @@
 #include "Component.h"
 class InputComponent : Component
 {
-private:
-    /* data */
 public:
-    InputComponent(/* args */);
-    ~InputComponent();
+    glm::vec2 mousePosition{ 0.f, 0.f };
+    std::unordered_map<int, bool> keyMap;
 };
 
-InputComponent::InputComponent(/* args */)
-{
-}
-
-InputComponent::~InputComponent()
-{
-}

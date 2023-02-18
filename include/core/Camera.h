@@ -19,11 +19,8 @@ public:
     void updateDirection();
     void setElapsedTime(double deltaTime);
     float cameraSpeed=2.5f;
-    float pitch;
-    float yaw;
+
     glm::vec3 cameraPos;
-    glm::vec3 cameraFront;
-    glm::vec3 cameraUp;
 private:
 
     double deltaTime;

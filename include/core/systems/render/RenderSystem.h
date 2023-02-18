@@ -19,10 +19,10 @@
 #include "TextureManager.h"
 #include "../Debugger.h"
 
-class Renderer {
+class RenderSystem {
 public:
-    Renderer(short height, short width,ShaderManager* shaderManager,CoordinateSystem* coordSystem);
-    ~Renderer();
+    RenderSystem(short height, short width,ShaderManager* shaderManager,CoordinateSystem* coordSystem);
+    ~RenderSystem();
     /**
      * @brief Initialize our renderer
      * 

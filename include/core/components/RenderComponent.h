@@ -7,6 +7,7 @@ private:
 public:
     RenderComponent(/* args */);
     ~RenderComponent();
+    void render();
 };
 
 RenderComponent::RenderComponent(/* args */)

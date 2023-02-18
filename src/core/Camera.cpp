@@ -34,20 +34,21 @@ glm::mat4 Camera::getLookAtMatrix(){
 void Camera::setElapsedTime(double deltaTime){
 	this->deltaTime=deltaTime;
 }
+
 void Camera::moveUp() {
-	cameraPos += (float)(cameraSpeed*deltaTime) * cameraUp;
+	cameraPos += (float)(cameraSpeed) * cameraUp;
 }
 
 void Camera::moveDown() {
-	cameraPos -= (float)(cameraSpeed*deltaTime) * cameraUp;
+	cameraPos -= (float)(cameraSpeed) * cameraUp;
 }
 
 void Camera::moveRight() {
-	cameraPos += glm::normalize(glm::cross(cameraFront, cameraUp)) * (float)(cameraSpeed*deltaTime);
+	cameraPos += glm::normalize(glm::cross(cameraFront, cameraUp)) * (float)(cameraSpeed);
 }
 
 void Camera::moveLeft() {
-	cameraPos -= glm::normalize(glm::cross(cameraFront, cameraUp)) * (float)(cameraSpeed*deltaTime);
+	cameraPos -= glm::normalize(glm::cross(cameraFront, cameraUp)) * (float)(cameraSpeed);
 }
 
 void Camera::moveForward() {
