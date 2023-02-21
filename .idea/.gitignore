@@ -1,12 +1,3 @@
-# Ignore all files in the .vscode directory
-.vscode/
-
-# Except c_cpp_properties.json
-!.vscode/c_cpp_properties.json
-
-# Ingore executable
-bin/game.exe
-
 # Default ignored files
 /shelf/
 /workspace.xml
