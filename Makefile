@@ -7,7 +7,7 @@ OS_MACRO		:=-D
 BIN_DIR     	:=bin
 
 #src folder: include folder of internal headers
-INCLUDE_DIR     	:=include
+INCLUDE_DIR     :=include
 
 #lib folder: static libraries to link
 LIB_STATIC_DIR	:=lib/lib

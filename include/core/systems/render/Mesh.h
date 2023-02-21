@@ -2,6 +2,7 @@
 #include "core/renderer/Vertex.h"
 #include "core/components/Component.h"
 #include <vector>
+#include <memory>
 class Mesh : Component
 {
 private:
@@ -13,5 +14,5 @@ public:
     void addVertex(const Vertex& vertex);
     void addVertices(std::vector<Vertex> vertices);
     void setVertices(const std::vector<Vertex>& newVertices);
-    std::vector<Vertex> Mesh::getVertices() const;
+    std::unique_ptr<std::vector<Vertex>> getVertices() const;
 };

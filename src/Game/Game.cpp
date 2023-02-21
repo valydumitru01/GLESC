@@ -22,8 +22,6 @@ void Game::init(const char *title, int width, int height, bool fullscreen)
     coordSystem = new CoordinateSystem(height, width, camera->cameraPos);
 
     gui = new GUI(window, shaderManager);
-    /*Need to instantiate renderer before initializing window.
-    Window depends on the initialization of SDL*/
     renderer = new Renderer(window->height, window->width, shaderManager, coordSystem);
 
     renderer->init();
@@ -121,7 +119,6 @@ void Game::handleEvents()
         break;
         case SDL_KEYDOWN:
         {
-            /* Check the SDLKey values and move change the coords */
             switch (event.key.keysym.sym)
             {
             case SDLK_LCTRL:
@@ -144,15 +141,15 @@ void Game::handleEvents()
     }
 }
 
-void Game::update(double deltaTime)
+void Game::update()
 {
     cnt++;
     gui->update();
-    camera->setElapsedTime(deltaTime);
+    camera->setElapsedTime();
     // gui->update();
 }
 
-void Game::render(double deltaTime)
+void Game::render()
 {
     coordSystem->setView(camera->getLookAtMatrix());
     
@@ -169,6 +166,6 @@ void Game::clean()
     delete renderer;
     delete shaderManager;
     delete window;
-    SDL_Quit();
+    
     Console::importantInfo("Game cleaned");
 }

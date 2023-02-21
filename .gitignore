@@ -6,6 +6,7 @@
 
 # Ingore executable
 bin/game.exe
+/build/
 
 # Default ignored files
 /shelf/

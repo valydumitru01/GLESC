@@ -6,8 +6,9 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-class TransformComponent
+class TransformComponent 
 {
+    friend class TFGL;
 public:
     TransformComponent();
 
@@ -19,15 +20,14 @@ public:
     void scale(glm::vec3 _scale);
     void scale(float x, float y, float z);
 
-    glm::mat4 getTransform(){return _transform;}
-    glm::vec3 getPosition(){return _position;}
-    glm::vec3 getRotation(){return _rotation;}
-    glm::vec3 getScale(){return _scale;}
-    
+    glm::vec3 position;
+    glm::vec3 rotation;
+    glm::vec3 scale;
+
+    glm::vec3 front;
+    glm::vec3 up;
 
 private:
-    glm::mat4 _transform;
-    glm::vec3 _position;
-    glm::vec3 _rotation;
-    glm::vec3 _scale;
+    glm::mat4 getTansformMat();
+
 };

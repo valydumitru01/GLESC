@@ -1,8 +1,7 @@
+#pragma once
 class Component
 {
-public:
-    void setEntityID(int entityID);
-    int getEntityID();
+private:
     int entityID;
 };
 
