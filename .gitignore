@@ -6,3 +6,4 @@
 
 # Ingore executable
 bin/game.exe
+/build/

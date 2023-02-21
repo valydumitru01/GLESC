@@ -1,9 +1,9 @@
-class PhysicsSystem
-{
+#include "core/systems/system.h"
+class PhysicsSystem : System{
 private:
-    /* data */
+	/* data */
 public:
-    PhysicsSystem(/* args */);
-    ~PhysicsSystem();
+	PhysicsSystem(/* args */);
+	~PhysicsSystem();
 };
 

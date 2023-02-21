@@ -1,12 +1,9 @@
-#include <bitset>
+#include <set>
+#include "core/types.h"
 class System
 {
 private:
-    /**
-     * @brief Mask to enable an entity use this system given 
-     * their components. 
-     */
-    std::bitset<8> bitset;
+    std::set<EntityID> entities;
 public:
 };
 
