@@ -19,7 +19,29 @@ public:
         // Set the signature for this system
         systemManager->signatures.insert({typeName, signature});
     }
+    void addComponentSignature();
 
+    void entityIDSignatureChanged(EntityID EntityID, Signature EntityIDSignature)
+    {
+        // Notify each system that an EntityID's signature changed
+        for (auto const& pair : systemManager->systems)
+        {
+            auto const& type = pair.first;
+            auto const& system = pair.second;
+            auto const& systemSignature = systemManager->signatures[type];
+
+            // EntityID signature matches system signature - insert into set
+            if ((EntityIDSignature & systemSignature) == systemSignature)
+            {
+                system->entities.insert(EntityID);
+            }
+                // EntityID signature does not match system signature - erase from set
+            else
+            {
+                system->entities.erase(EntityID);
+            }
+        }
+    }
 protected:
     void registerSystem() {
         const char *typeName = typeid(*this).name();

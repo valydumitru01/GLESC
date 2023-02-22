@@ -10,12 +10,13 @@
 #include <queue>
 #include <array>
 #include <unordered_map>
+
+
 class Entity {
 public:
 	Entity(const std::shared_ptr<EntityManager>& entityManager,
 			const std::shared_ptr<ComponentManager>& componentManager);
     ~Entity();
-    void destroy();
 	template<typename T>
 	void addComponent(T component);
 	template<typename T>
@@ -35,6 +36,14 @@ Entity::Entity(std::shared_ptr<EntityManager> const& entityManager,
 		entityManager(entityManager), componentManager(componentManager), ID(
 				entityManager->CreateEntity()) {
 
+    assert(
+            entityManager->livingEntityCount < max_entities
+            && "Too many entities in existence.");
+
+    // Take an ID from the front of the queue
+    EntityID id = entityManager->availableEntities.front();
+    entityManager->availableEntities.pop();
+    ++entityManager->livingEntityCount;
 }
 
 template<typename T>
@@ -64,10 +73,32 @@ Entity::~Entity() {
         system->entities.erase(ID);
     }
 
+
+    // Invalidate the destroyed entity's signature
+    entityManager->signatures[ID].reset();
+
+    // Put the destroyed ID at the back of the queue
+    entityManager->availableEntities.push(ID);
+    --entityManager->livingEntityCount;
+
 }
 
 
 template<typename T>
 inline T& Entity::getComponent() {
 	return componentManager->getComponentArray<T>()->GetData(ID);
+}
+
+
+void SetSignature(EntityID entityID, Signature &signatureBits) {
+    assert(entityID < max_entities && "Entity out of range.");
+
+    // Put this entity's signature into the array
+    signatures[entityID] = signatureBits;
+}
+Signature GetSignature(EntityID entityID) {
+    assert(entityID < max_entities && "Entity out of range.");
+
+    // Get this entity's signature from the array
+    return signatures[entityID];
 }
