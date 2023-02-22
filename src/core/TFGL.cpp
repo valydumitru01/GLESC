@@ -41,17 +41,12 @@ void TFGL::render(double const timeOfFrame)
 }
 void TFGL::update()
 {
-    
+    System
 }
 
 ID &TFGL::createEntity() const
 {
 }
 
-std::unique_ptr<std::vector<Component>> TFGL::getEntityComponents(ID &entityID) const
-{
-}
 
-void TFGL::setComponentToEntity(Component &component, ID &entityID)
-{
-}
+

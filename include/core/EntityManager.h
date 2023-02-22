@@ -10,19 +10,17 @@
 #include "core/systems/physics/PhysicsSystem.h"
 #include "core/systems/transform/TransformSystem.h"
 #include "core/types.h"
-#include "core/entities/entity.h"
+#include "core/entities/Entity.h"
 
 #include <vector>
 #include <memory>
 #include <bitset>
 #include <queue>
-#include <assert.h>
+#include <cassert>
 
 class EntityManager {
 	friend class Entity;
 private:
-
-
 	// Queue of unused entity IDs
 	std::queue<EntityID> availableEntities;
 
@@ -41,44 +39,14 @@ public:
 		}
 	}
 
-	EntityID CreateEntity() {
-		assert(
-				livingEntityCount < max_entities
-						&& "Too many entities in existence.");
-
-		// Take an ID from the front of the queue
-		EntityID id = availableEntities.front();
-		availableEntities.pop();
-		++livingEntityCount;
-
-		return id;
-	}
 	std::unique_ptr<std::vector<Component>> getEntityComponents(
 			EntityID &entityID) const;
 
-	void SetSignature(EntityID entityID, Signature &signatureBits) {
-		assert(entityID < max_entities && "Entity out of range.");
 
-		// Put this entity's signature into the array
-		signatures[entityID] = signatureBits;
-	}
 
-	Signature GetSignature(EntityID entityID) {
-		assert(entityID < max_entities && "Entity out of range.");
-
-		// Get this entity's signature from the array
-		return signatures[entityID];
-	}
 
 	void destroyEntity(EntityID entityID) {
-		assert(entityID < max_entities && "Entity out of range.");
 
-		// Invalidate the destroyed entity's signature
-		signatures[entityID].reset();
-
-		// Put the destroyed ID at the back of the queue
-		availableEntities.push(entityID);
-		--livingEntityCount;
 	}
 };
 
