@@ -14,13 +14,10 @@ public:
 		// Create pointers to each manager
 		componentManager = std::make_unique<ComponentManager>();
 		entityManager = std::make_unique<EntityManager>();
-		systemManager = std::make_unique<EntityManager>();
+		systemManager = std::make_unique<SystemManager>();
 	}
 
-	// EntityID methods
-	EntityID CreateEntity() {
-		return entityManager->CreateEntity();
-	}
+
 
 	void DestroyEntity(EntityID entity) {
 		entityManager->DestroyEntity(entity);
