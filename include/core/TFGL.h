@@ -1,38 +1,36 @@
 #include "Types.h"
 
-#include "core/Window.h"
-#include "game/Game.h"
-#include "core/FPS.h"
 
 #include <vector>
 #include <memory>
 
 
-class TFGL
-{
+#include "core/Window.h"
+#include "game/Game.h"
+#include "core/FPS.h"
+
+#include "Entity.h"
+#include "EntityContainer.h"
+#include "System.h"
+#include "SystemContainer.h"
+
+class TFGL {
 private:
-
-
-
+	void update();
+	
+	void processInput();
+	
+	void render(double timeOfFrame);
+	
+	void loop();
+	// Declare the game loop function
+	extern "C" __declspec(dllexport) void TFGL_loop();
+	
+	bool running;
+	FPS fps;
 public:
-    TFGL();
-    ~TFGL();
-    
-    void update();
-    void processInput();
-    void render(double const timeOfFrame);
-
-    void loop();
-
-    
-    std::unique_ptr<Window> window;
-
-    FPS fps;
-    Renderer renderer;
-    InputHandler inputHandler;
-    
-
-    bool running;
-
+	TFGL();
+	
+	~TFGL();
 };
 

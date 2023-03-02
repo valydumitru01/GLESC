@@ -1,4 +1,6 @@
+#pragma once
 #include "Component.h"
+
 class CameraComponent : Component
 {
 private:

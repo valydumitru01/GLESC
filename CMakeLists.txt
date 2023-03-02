@@ -27,7 +27,6 @@ include_directories(lib/include/SDL2)
 
 add_executable(TFG___OpenGL_Engine
         include/core/components/CameraComponent.h
-        include/core/components/Component.h
         include/core/components/ComponentArray.h
         include/core/components/InputComponent.h
         include/core/components/PhysicsComponent.h
@@ -45,12 +44,12 @@ add_executable(TFG___OpenGL_Engine
         include/core/systems/transform/TransformSystem.h
         include/core/systems/System.h
         include/core/Camera.h
-        include/core/ComponentManager.h
-        include/core/Coordinator.h
+        include/core/ComponentContainer.h
+        include/core/ECSFactory.h
         include/core/Debugger.h
-        include/core/EntityManager.h
+        include/core/EntityContainer.h
         include/core/FPS.h
-        include/core/SystemManager.h
+        include/core/SystemContainer.h
         include/core/TFGL.h
         include/core/Types.h
         include/core/Window.h
@@ -594,16 +593,16 @@ add_executable(TFG___OpenGL_Engine
         lib/include/color.hpp
         src/core/components/Mesh.cpp
         src/core/components/TransformComponent.cpp
-        src/core/renderer/CoordinateSystem.cpp
-        src/core/renderer/Renderer.cpp
-        src/core/renderer/ShaderManager.cpp
-        src/core/renderer/TextureManager.cpp
+        src/core/systems/render/CoordinateSystem.cpp
+        src/core/systems/render/Renderer.cpp
+        src/core/systems/render/ShaderManager.cpp
+        src/core/systems/render/TextureManager.cpp
         src/core/systems/input/InputSystem.cpp
-        src/core/Camera.cpp
-        src/core/ComponentManager.cpp
-        src/core/Coordinator.cpp
+        src/core/components/CameraComponent.cpp
+        src/core/ComponentContainer.cpp
+        src/core/ECSFactory.cpp
         src/core/Debugger.cpp
-        src/core/EntityManager.cpp
+        src/core/EntityContainer.cpp
         src/core/FPS.cpp
         src/core/TFGL.cpp
         src/core/Window.cpp
@@ -611,4 +610,4 @@ add_executable(TFG___OpenGL_Engine
         src/game/GUI.cpp
         src/util/Console.cpp
         src/util/MyPath.cpp
-        src/main.cpp)
+        src/core/main.cpp include/core/components/Component.h src/game/main.cpp src/core/systems/physics/PhysicsSystem.cpp src/core/systems/render/RenderSystem.cpp src/core/systems/transform/TransformSystem.cpp)

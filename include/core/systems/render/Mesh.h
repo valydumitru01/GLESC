@@ -1,6 +1,5 @@
 #pragma once
 #include "core/renderer/Vertex.h"
-#include "core/components/Component.h"
 #include <vector>
 #include <memory>
 class Mesh : Component

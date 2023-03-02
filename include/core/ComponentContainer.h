@@ -10,7 +10,7 @@
 #include <array>
 #include <unordered_map>
 
-class ComponentManager {
+class ComponentContainer {
     friend class Entity;
 
 public:

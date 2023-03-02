@@ -1,12 +1,13 @@
 #pragma once
 #include "Component.h"
+
 #include <vector>
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-class TransformComponent 
+class TransformComponent : Component
 {
     friend class TFGL;
 public:

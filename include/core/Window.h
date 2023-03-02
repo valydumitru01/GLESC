@@ -49,7 +49,7 @@ public:
      * @brief Swap our buffer to display the current
      * contents of buffer on screen
      *
-     */_
+     */
     void SwapBuffers();
     /**
      * @brief Get the Window object

@@ -1,23 +1,17 @@
 #include "core/TFGL.h"
-TFGL::TFGL() : fps(FPS_rates::fps_60), running(true)
-{
-    // Initialize the queue with all possible entity IDs
-    for (Entity entity = 0; entity < MAX_ENTITIES; ++entity)
-    {
-        mAvailableEntities.push(entity);
-    }
+
+TFGL::TFGL() : fps(FPS_rates::fps_60), running(true) {
+
+
 }
 
-TFGL::~TFGL()
-{
+TFGL::~TFGL() {
 }
 
-void TFGL::loop()
-{
+void TFGL::loop() {
     Console::init();
 
-    while (running)
-    {
+    while (running) {
         fps.timeFrame();
 
         processInput();
@@ -30,23 +24,18 @@ void TFGL::loop()
     }
 }
 
-void TFGL::processInput()
-{
-    
-}
-void TFGL::render(double const timeOfFrame)
-{
-    
+void TFGL::processInput() {
 
 }
-void TFGL::update()
-{
-    System
+
+void TFGL::render(double const timeOfFrame) {
+
+
 }
 
-ID &TFGL::createEntity() const
-{
-}
+void TFGL::update() {
+    Entity entity;
 
+}
 
 

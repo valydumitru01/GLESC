@@ -1,6 +1,6 @@
 #pragma once
 
-#include <assert.h>>
+#include <assert.h>
 #include <unordered_map>
 
 class IComponentArray {

@@ -1,6 +1,6 @@
 #pragma once
 #include "Component.h"
-class PhysicsComponent
+class PhysicsComponent:Component
 {
 private:
     /* data */

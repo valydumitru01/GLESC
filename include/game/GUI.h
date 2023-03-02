@@ -1,18 +1,19 @@
 #include <imgui/imgui.h>
 #include <imgui/imgui_impl_sdl.h>
 #include <imgui/imgui_impl_opengl3.h>
-#include "core/MyWindow.h"
-#include "core/renderer/ShaderManager.h"
+#include "core/Window.h"
+#include "ShaderManager.h"
+
 class GUI
 {
 public:
-    GUI(MyWindow* window, ShaderManager* shaderManager);
+    GUI(Window* window, ShaderManager* shaderManager);
     ~GUI();
     void render();
     void update();
 private:
     ImGuiIO* io;
-    MyWindow* window;
+    Window* window;
     ShaderManager* shaderManager;
     ImFont* font;
 

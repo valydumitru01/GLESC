@@ -1,12 +1,10 @@
 #pragma once
-#include "core/renderer/ShaderManager.h"
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
-class Camera
+class CameraComponent
 {
 public:
-    Camera(ShaderManager* shaderManager);
     void moveUp();
     void moveDown();
 
@@ -24,5 +22,4 @@ public:
 private:
 
     double deltaTime;
-    ShaderManager* shaderManager;
 };

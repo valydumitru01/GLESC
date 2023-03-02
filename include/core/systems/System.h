@@ -2,56 +2,36 @@
 
 #include <set>
 #include <memory>
-#include "core/types.h"
-#include "core/SystemManager.h"
+#include "core/ECSFactory.h"
 
-class System {
+class System : public std::enable_shared_from_this<System> {
+    friend class Entity;
 private:
     std::set<EntityID> entities;
-    std::shared_ptr<SystemManager> systemManager;
+
 public:
-    void setSignature(Signature signature) {
-        const char *typeName = typeid(*this).name();
+    virtual void update() = 0;
 
-        assert(systemManager->systems.find(typeName) != systemManager->systems.end() &&
-               "System used before registered.");
-
-        // Set the signature for this system
-        systemManager->signatures.insert({typeName, signature});
-    }
-    void addComponentSignature();
-
-    void entityIDSignatureChanged(EntityID EntityID, Signature EntityIDSignature)
-    {
-        // Notify each system that an EntityID's signature changed
-        for (auto const& pair : systemManager->systems)
-        {
-            auto const& type = pair.first;
-            auto const& system = pair.second;
-            auto const& systemSignature = systemManager->signatures[type];
-
-            // EntityID signature matches system signature - insert into set
-            if ((EntityIDSignature & systemSignature) == systemSignature)
-            {
-                system->entities.insert(EntityID);
-            }
-                // EntityID signature does not match system signature - erase from set
-            else
-            {
-                system->entities.erase(EntityID);
-            }
-        }
-    }
 protected:
-    void registerSystem() {
+    System() {
         const char *typeName = typeid(*this).name();
 
-        assert(systemManager->systems.find(typeName) == systemManager->systems.end() &&
-               "Registering system more than once.");
+        assert(ECSFactory::getSystemContainer()->systems.find(typeName) ==
+               ECSFactory::getSystemContainer()->systems.end() && "Registering system more than once.");
 
-        // Create a pointer to the system and return it, so it can be used externally
-        auto system = std::make_shared<System>();
-        systemManager->systems.insert({typeName, *this});
+
+        ECSFactory::getSystemContainer()->systems.insert({typeName, shared_from_this()});
+    }
+
+    template<class T>
+    void addComponentRequirement() {
+        const char *typeName = typeid(T).name();
+
+        Signature newSignature;
+        newSignature.set(ECSFactory::getComponentContainer()->getComponentID<T>());
+
+        // Modify the old signature
+        ECSFactory::getSystemContainer()->signatures[typeName] |= newSignature;
     }
 };
 

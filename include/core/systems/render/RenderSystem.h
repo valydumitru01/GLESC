@@ -19,12 +19,12 @@
 #include "TextureManager.h"
 #include "../Debugger.h"
 
-class RenderSystem {
+class RenderSystem : System{
 public:
     RenderSystem(short height, short width,ShaderManager* shaderManager,CoordinateSystem* coordSystem);
     ~RenderSystem();
     /**
-     * @brief Initialize our renderer
+     * @brief Initialize the renderer
      * 
      * @param height 
      * @param width 
@@ -35,7 +35,7 @@ public:
      * Must be called every frame
      * 
      */
-    void render();
+    void update();
 
 private:
     /**

@@ -1,5 +1,6 @@
-#include "core/Camera.h"
+#include "core/components/CameraComponent.h"
 
+/*
 Camera::Camera(ShaderManager* shaderManager) {
     cameraPos = glm::vec3(0.0f, 0.0f, 3.0f);
     cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
@@ -59,3 +60,4 @@ void Camera::moveBackwards() {
 	cameraPos -= (float)(cameraSpeed*deltaTime) * cameraFront;
 }
 
+*/

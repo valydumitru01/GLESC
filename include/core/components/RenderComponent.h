@@ -1,19 +1,12 @@
 #pragma once
 #include "Component.h"
-class RenderComponent
+class RenderComponent:Component
 {
 private:
     /* data */
 public:
     RenderComponent(/* args */);
     ~RenderComponent();
-    void render();
 };
 
-RenderComponent::RenderComponent(/* args */)
-{
-}
 
-RenderComponent::~RenderComponent()
-{
-}
