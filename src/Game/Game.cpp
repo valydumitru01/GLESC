@@ -1,24 +1,15 @@
-#include "game/Game.h"
-
-Game::Game():engine(new TFGL())
-{
-
+#include "Game.h"
+void TFGL::init(){
+	Entity player;
+	player.addComponent(RenderComponent());
+	player.addComponent(TransformSystem());
+	player.addComponent(InputComponent());
+	Entity camera;
+	camera.addComponent( CameraComponent());
+	camera.addComponent( TransformComponent());
 }
 
-Game::~Game()
-{
+
+void TFGL::loop(){
 
 }
-
-
-void Game::handleInput()
-{
-
-
-}
-
-void Game::update()
-{
-    engine->
-}
-

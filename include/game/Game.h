@@ -1,7 +1,7 @@
 #pragma once
 #include "core/TFGL.h"
 
-class Game
+class Game : TFGL
 {
 
 public:

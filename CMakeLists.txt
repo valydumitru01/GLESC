@@ -45,7 +45,7 @@ add_executable(TFG___OpenGL_Engine
         include/core/systems/System.h
         include/core/Camera.h
         include/core/ComponentContainer.h
-        include/core/ECSFactory.h
+        include/core/ECSContainer.h
         include/core/Debugger.h
         include/core/EntityContainer.h
         include/core/FPS.h
@@ -610,4 +610,4 @@ add_executable(TFG___OpenGL_Engine
         src/game/GUI.cpp
         src/util/Console.cpp
         src/util/MyPath.cpp
-        src/core/main.cpp include/core/components/Component.h src/game/main.cpp src/core/systems/physics/PhysicsSystem.cpp src/core/systems/render/RenderSystem.cpp src/core/systems/transform/TransformSystem.cpp)
+        src/core/main.cpp include/core/components/Component.h src/core/systems/physics/PhysicsSystem.cpp src/core/systems/render/RenderSystem.cpp src/core/systems/transform/TransformSystem.cpp)

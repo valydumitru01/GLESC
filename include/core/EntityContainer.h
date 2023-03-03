@@ -1,16 +1,9 @@
 #pragma once
 
-#include "core/components/TransformComponent.h"
-#include "core/components/RenderComponent.h"
-#include "core/components/InputComponent.h"
-#include "core/components/PhysicsComponent.h"
-
-#include "core/systems/input/InputSystem.h"
-#include "core/systems/render/RenderSystem.h"
-#include "core/systems/physics/PhysicsSystem.h"
-#include "core/systems/transform/TransformSystem.h"
-#include "core/types.h"
+#include "core/Types.h"
 #include "core/entities/Entity.h"
+#include "core/ECSContainer.h"
+
 
 #include <vector>
 #include <memory>
@@ -20,21 +13,23 @@
 
 class EntityContainer {
     friend class Entity;
+	
 
 private:
     // Queue of unused entity IDs
     std::queue<EntityID> availableEntities;
-
+	
     // Array of signatures where the index corresponds to the entity ID
-    std::array<Signature, max_entities> signatures;
+    std::array<Signature, Max_Entities> signatures;
 
     // Total living entities - used to keep limits on how many exist
-    uint32_t livingEntityCount;
-
+	EntityID livingEntityCount;
+	
 public:
-    EntityContainer() : livingEntityCount(0) {
-        // Initialize the queue with all possible entity IDs
-        for (EntityID entity = 0; entity < max_entities; ++entity) {
+    EntityContainer() : livingEntityCount(EntityID()) {
+		
+		// Initialize the queue with all possible entity IDs
+        for (EntityID entity = EntityID(); static_cast<unsigned int>(entity) < Max_Entities; ++entity) {
             availableEntities.push(entity);
         }
     }

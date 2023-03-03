@@ -2,7 +2,7 @@
 
 #include <set>
 #include <memory>
-#include "core/ECSFactory.h"
+#include "core/ECSContainer.h"
 
 class System : public std::enable_shared_from_this<System> {
     friend class Entity;

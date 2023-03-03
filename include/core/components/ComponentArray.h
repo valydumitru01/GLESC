@@ -1,7 +1,8 @@
 #pragma once
 
-#include <assert.h>
+#include <cassert>
 #include <unordered_map>
+#include "core/Types.h"
 
 class IComponentArray {
 public:
@@ -13,7 +14,7 @@ public:
 template<typename T>
 class ComponentArray : public IComponentArray {
 public:
-    void InsertData(EntityID entity, T component) {
+    void insertData(EntityID entity, T component) {
         assert(
                 indexToEntityMap.find(entity) == indexToEntityMap.end()
                 && "Component added to same entity more than once.");
@@ -26,7 +27,7 @@ public:
         ++size;
     }
 
-    void RemoveData(EntityID entity) {
+    void removeData(EntityID entity) {
         assert(
                 indexToEntityMap.find(entity) != indexToEntityMap.end()
                 && "Removing non-existent component.");
@@ -48,7 +49,7 @@ public:
         --size;
     }
 
-    T &GetData(EntityID entity) {
+    T &getData(EntityID entity) {
         assert(
                 indexToEntityMap.find(entity) != indexToEntityMap.end()
                 && "Retrieving non-existent component.");
@@ -56,10 +57,11 @@ public:
         // Return a reference to the entity's component
         return componentArray[indexToEntityMap[entity]];
     }
-    void entityDestroyed(EntityID entity) override {
+	// NOLINTNEXTLINE(modernize-use-override)
+    virtual void entityDestroyed(EntityID entity) override {
         if (indexToEntityMap.find(entity) != indexToEntityMap.end()) {
             // Remove the entity's component if it existed
-            RemoveData(entity);
+			removeData(entity);
         }
     }
 
@@ -70,7 +72,7 @@ private:
      * of entities allowed to exist simultaneously, so that each entity
      * has a unique spot.
      */
-    std::array<T, max_entities> componentArray;
+    std::array<T, Max_Entities> componentArray;
 
     /**
      * @brief Map from an entity ID to an array index.
@@ -88,5 +90,5 @@ private:
      * @brief Total size of valid entries in the array.
      *
      */
-    size_t size;
+    size_t size{};
 };
