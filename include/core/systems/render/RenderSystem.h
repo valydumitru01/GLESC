@@ -21,7 +21,7 @@
 
 class RenderSystem : System{
 public:
-    RenderSystem(short height, short width,ShaderManager* shaderManager,CoordinateSystem* coordSystem);
+	RenderSystem();
     ~RenderSystem();
     /**
      * @brief Initialize the renderer
@@ -35,7 +35,7 @@ public:
      * Must be called every frame
      * 
      */
-    void update();
+    void update(const double timeOfFrame);
 
 private:
     /**

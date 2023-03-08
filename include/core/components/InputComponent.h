@@ -1,6 +1,8 @@
 #pragma once
 #include "Component.h"
-class InputComponent: Component
+#include "glm/glm.hpp"
+
+class InputComponent: public Component
 {
 public:
     glm::vec2 mousePosition{ 0.f, 0.f };

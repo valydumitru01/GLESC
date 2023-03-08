@@ -1,8 +1,9 @@
 class TransformSystem
 {
-private:
-    /* data */
 public:
-    TransformSystem(/* args */);
-    ~TransformSystem();
+	void update();
 };
+
+void TransformSystem::update() {
+
+}

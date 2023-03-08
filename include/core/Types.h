@@ -2,6 +2,7 @@
 #include <memory>
 #include <bitset>
 
+using SystemID = std::uint8_t;
 /**
  * @brief Type of each ID of each entity
  *

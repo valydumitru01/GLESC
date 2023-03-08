@@ -1,15 +1,21 @@
 #include "Game.h"
+Entity camera;
+Entity player;
+
 void TFGL::init(){
-	Entity player;
-	player.addComponent(RenderComponent());
-	player.addComponent(TransformSystem());
-	player.addComponent(InputComponent());
-	Entity camera;
-	camera.addComponent( CameraComponent());
-	camera.addComponent( TransformComponent());
+	player.addComponent<RenderComponent>();
+	player.addComponent<TransformComponent>();
+	player.addComponent<InputComponent>();
+	
+	camera.addComponent<CameraComponent>();
+	camera.addComponent<TransformComponent>();
+	player.removeComponent<TransformComponent>();
+	
 }
 
 
 void TFGL::loop(){
-
+	player.getComponent<TransformComponent>().position.x+=1;
+	
+	player.getComponent<RenderComponent>();
 }
