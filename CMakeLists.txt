@@ -44,12 +44,9 @@ add_executable(TFG___OpenGL_Engine
         include/core/systems/transform/TransformSystem.h
         include/core/systems/System.h
         include/core/Camera.h
-        include/core/components/ComponentContainer.h
         include/core/ECSContainer.h
         include/core/Debugger.h
-        include/core/entities/EntityContainer.h
         include/core/FPS.h
-        include/core/systems/SystemContainer.h
         include/core/TFGL.h
         include/core/Types.h
         include/core/Window.h
@@ -596,7 +593,6 @@ add_executable(TFG___OpenGL_Engine
         src/core/systems/render/ShaderManager.cpp
         src/core/systems/render/TextureManager.cpp
         src/core/systems/input/InputSystem.cpp
-        src/core/ComponentContainer.cpp
         src/core/ECSFactory.cpp
         src/core/Debugger.cpp
         src/core/EntityContainer.cpp

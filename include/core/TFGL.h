@@ -32,6 +32,7 @@ private:
 	}
 	~TFGL();
 	void update(){
+        loop();
 		transformSystem.update();
 		physicsSystem.update();
 	}

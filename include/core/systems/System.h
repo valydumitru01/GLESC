@@ -43,7 +43,7 @@ protected:
 	SystemID id{};
 	
 	template<class T>
-	inline std::set<T> &getAssociatedComponents(){
-		return ECSComponentContainer::getComponents()->getComponentArray<T>();
+	inline std::set<T> &getComponent(EntityID entityId){
+
 	}
 };

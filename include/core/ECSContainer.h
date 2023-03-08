@@ -2,6 +2,7 @@
 
 #include "core/Types.h"
 #include "core/components/ComponentArray.h"
+
 #include <memory>
 #include <cassert>
 #include <unordered_map>
