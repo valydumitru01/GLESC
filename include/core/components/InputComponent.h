@@ -1,11 +1,13 @@
 #pragma once
 #include "Component.h"
 #include "glm/glm.hpp"
-
+#include "core/systems/input/KeyAction.h"
+#include <SDL.h>
 class InputComponent: public Component
 {
 public:
-    glm::vec2 mousePosition{ 0.f, 0.f };
-    std::unordered_map<int, bool> keyMap;
+    glm::vec<2, Sint32,glm::packed> mousePosition{ 0, 0 };
+    std::unordered_map<SDL_Keycode, KeyAction*> keyMap;
+
 };
 

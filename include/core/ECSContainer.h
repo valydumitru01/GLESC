@@ -120,6 +120,13 @@ private:
 		
 		return std::static_pointer_cast<ComponentArray<T>>(componentArrays[typeName]);
 	}
+
+
+    template<typename T>
+    T& getComponent(EntityID entity)
+    {
+        return getComponentArray<T>()->getData(entity);
+    }
 };
 
 class ECSComponentContainer {

@@ -3,14 +3,47 @@
 #include <vector>
 #include <glm.hpp>
 #include <SDL.h>
-#include <functional>
-#include <unordered_map>
+#include <map>
 
-class InputSystem : System {
+class InputSystem : public System{
 public:
-  void update();
-
-private:
-  std::unordered_map<int, std::function<void(InputComponent&)>> keyActionMap;
-
+    InputSystem(){
+        addComponentRequirement<InputComponent>();
+    }
+    void update() {
+        SDL_Event event;
+        while (SDL_PollEvent(&event)) {
+            auto entities = getAssociatedEntities();
+            switch (event.type) {
+                case SDL_QUIT: {
+                    // Handle quit event
+                    break;
+                }
+                case SDL_MOUSEMOTION: {
+                    for (auto &entity: entities) {
+                        auto &inputComponent = getComponent<InputComponent>(entity);
+                        inputComponent.mousePosition.x = event.motion.x;
+                        inputComponent.mousePosition.y = event.motion.y;
+                    }
+                    break;
+                }
+                case SDL_MOUSEBUTTONDOWN: {
+                    for (auto &entity: entities) {
+                        auto &inputComponent = getComponent<InputComponent>(entity);
+                        inputComponent.keyMap[event.button.button]->execute();
+                    }
+                    break;
+                }
+                case SDL_KEYDOWN: {
+                    for (auto &entity: entities) {
+                        auto &inputComponent = getComponent<InputComponent>(entity);
+                        inputComponent.keyMap[event.key.keysym.sym]->execute();
+                    }
+                    break;
+                }
+            }
+        }
+    }
 };
+
+

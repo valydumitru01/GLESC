@@ -1,26 +1,31 @@
-#include "core/systems/system.h"
+#include "core/systems/System.h"
 #include "core/ECSContainer.h"
-class PhysicsSystem : System {
+#include "core/components/TransformComponent.h"
+#include "core/components/RigidBodyComponent.h"
+class PhysicsSystem : public System {
 private:
-	/* data */
+    PhysicsSystem();
+	double gravity{9.81F};
 public:
-	PhysicsSystem();
-	~PhysicsSystem();
     void update();
 };
 
+PhysicsSystem::PhysicsSystem() {
+    addComponentRequirement<RigidBodyComponent>();
+    addComponentRequirement<TransformComponent>();
+}
+
 void PhysicsSystem::update()
 {
-	for (auto const& entity : ecsContainer.getEntities())
+	for (auto const& entity : getAssociatedEntities())
 	{
-		auto& rigidBody = gCoordinator.GetComponent<RigidBody>(entity);
-		auto& transform = gCoordinator.GetComponent<Transform>(entity);
-		
-		// Forces
-		auto const& gravity = gCoordinator.GetComponent<Gravity>(entity);
-		
+		auto& rigidBody = getComponent<RigidBodyComponent>(entity);
+		auto& transform = getComponent<TransformComponent>(entity);
+
 		transform.position += rigidBody.velocity;
-		
-		rigidBody.velocity += gravity.force;
+
+		rigidBody.velocity += gravity;
 	}
 }
+
+

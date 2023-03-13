@@ -1,6 +1,6 @@
 #include "core/systems/input/InputSystem.h"
 void InputSystem::update() {
-  
+
   SDL_Event event;
   while (SDL_PollEvent(&event)) {
     switch (event.type) {
@@ -9,15 +9,15 @@ void InputSystem::update() {
         break;
       }
       case SDL_MOUSEMOTION: {
-        for (auto& inputComponent : ) {
+        for (auto& inputComponent : getComponent) {
           inputComponent.mousePosition.x = event.motion.x;
           inputComponent.mousePosition.y = event.motion.y;
         }
         break;
       }
       case SDL_MOUSEBUTTONDOWN: {
-        for (auto& entity : getAssociatedComponents<InputComponent>()) {
-			
+        for (auto& entity : getAssociatedEntities()) {
+
           if (event.button.button == SDL_BUTTON_LEFT) {
             inputComponent.keyMap[SDL_BUTTON_LEFT] = true;
           }
@@ -49,6 +49,7 @@ void InputSystem::update() {
     }
   }
 }
+
 
 void InputSystem::addKeyAction(int key, std::function<void(InputComponent&)> action) {
   keyActionMap[key] = action;
