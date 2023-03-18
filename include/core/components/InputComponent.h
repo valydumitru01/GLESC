@@ -7,7 +7,7 @@ class InputComponent: public Component
 {
 public:
     glm::vec<2, Sint32,glm::packed> mousePosition{ 0, 0 };
-    std::unordered_map<SDL_Keycode, KeyAction*> keyMap;
+    std::unordered_map<SDL_Keycode, bool> keyMap;
 
 };
 
