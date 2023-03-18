@@ -21,7 +21,7 @@
 
 class RenderSystem : public System{
 public:
-	RenderSystem(){
+	explicit RenderSystem(Window& window):window(window){
         addComponentRequirement<TransformComponent>();
         addComponentRequirement<RenderComponent>();
     }
@@ -30,17 +30,19 @@ public:
      * Must be called every frame
      * 
      */
-    void update(const double timeOfFrame){
+    void update(const double timeOfFrame) {
 
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-        for(auto &entity : getAssociatedEntities()){
+        for (auto &entity: getAssociatedEntities()) {
             {
-                auto& render = getComponent<RenderComponent>(entity);
+                auto &render = getComponent<RenderComponent>(entity);
 
                 // Bind the vertex array and buffer objects
                 glBindVertexArray(render.VAO);
+                glCheckError();
                 glBindBuffer(GL_ARRAY_BUFFER, render.VBO);
+                glCheckError();
 
                 // Set the model matrix uniform
                 GLuint modelLoc = glGetUniformLocation(shaderProgram, "model");
@@ -50,17 +52,18 @@ public:
                 glDrawArrays(GL_TRIANGLES, 0, 3);
             }
 
-            glfwSwapBuffers(window);
-            glfwPollEvents();
+            window.swapBuffers();
         }
-
+    }
 
 private:
     /**
      * @brief Create a Shader Attributes object
      * 
      */
-    void createShaderAttributes();
+    void createShaderAttributes(){
+
+    }
     /**
      * @brief Create VBO, VAO and EBO buffers
      * 
@@ -79,13 +82,11 @@ private:
      */
     void generateTextures();
     
-    ShaderManager* shaderManager;
-    CoordinateSystem* coordSystem;
+    ShaderManager shaderManager;
+    Window& window;
     std::unordered_map<GLuint, const char *> textures;
-    GLuint VBO, VAO, EBO;
 
-    unsigned int texture1;
-    unsigned int texture2;
+
     std::vector<float> vertices;
     std::vector<int> indices;
     glm::mat4 trans;

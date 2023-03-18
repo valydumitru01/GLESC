@@ -27,9 +27,7 @@
 class TFGL {
 	friend int main();
 private:
-	TFGL(){
-	
-	}
+
 	~TFGL();
 	void update(){
         loop();
@@ -40,20 +38,29 @@ private:
 		inputSystem.update();
 	}
 	void render(double timeOfFrame){
-		cameraSystem.update(timeOfFrame);
+
+		cameraSystem.update();
+
+        renderSystem.setMvp(cameraSystem.getMvp());
 		renderSystem.update(timeOfFrame);
 	}
 	
-	bool running;
+	bool running=true;
 	unique_ptr<EntityContainer> entityContainer;
-	
+
+
+
 	InputSystem inputSystem;
 	TransformSystem transformSystem;
 	PhysicsSystem physicsSystem;
-	RenderSystem renderSystem;
+	RenderSystem renderSystem{RenderSystem(window)};
 	CameraSystem cameraSystem;
+
+    const char* windowTitle="GLESC";
+    Window window{windowTitle};
 public:
-	inline void init();
-	inline void loop();
+    TFGL()= default;
+	void init();
+	void loop();
 };
 

@@ -4,10 +4,11 @@
 #include "core/components/RigidBodyComponent.h"
 class PhysicsSystem : public System {
 private:
-    PhysicsSystem();
-	double gravity{9.81F};
+    double gravity{9.81F};
 public:
     void update();
+
+    PhysicsSystem();
 };
 
 PhysicsSystem::PhysicsSystem() {

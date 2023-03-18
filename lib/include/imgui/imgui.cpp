@@ -275,7 +275,7 @@ CODE
         ImGui::Render();
         ImDrawData* draw_data = ImGui::GetDrawData();
         MyImGuiRenderFunction(draw_data);
-        SwapBuffers();
+        swapBuffers();
      }
 
      // Shutdown

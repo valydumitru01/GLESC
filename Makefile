@@ -84,7 +84,7 @@ endif
 # -----------------------------------------#
 
 # C++ flags
-CXXFLAGS := -std=c++11 -Wall -Wextra -pedantic -O3 -g
+CXXFLAGS := -std=c++17 -Wall -Wextra -pedantic -O3 -g
 # Include flags
 INCFLAGS:= -I$(INCLUDE_DIR) -I$(LIB_INCLUDE_DIR)
 # Linker flags

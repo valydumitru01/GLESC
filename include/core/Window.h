@@ -50,7 +50,7 @@ public:
      * contents of buffer on screen
      *
      */
-    void SwapBuffers();
+    void swapBuffers();
     /**
      * @brief Get the Window object
      *

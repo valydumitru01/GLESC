@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.24)
 project(TFG___OpenGL_Engine)
 
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
 
 include_directories(include)
 include_directories(include/core)
@@ -43,7 +43,6 @@ add_executable(TFG___OpenGL_Engine
         include/core/systems/render/Vertex.h
         include/core/systems/transform/TransformSystem.h
         include/core/systems/System.h
-        include/core/Camera.h
         include/core/ECSContainer.h
         include/core/Debugger.h
         include/core/FPS.h
@@ -603,4 +602,4 @@ add_executable(TFG___OpenGL_Engine
         src/game/GUI.cpp
         src/util/Console.cpp
         src/util/MyPath.cpp
-        src/core/main.cpp include/core/components/Component.h src/core/systems/physics/PhysicsSystem.cpp src/core/systems/render/RenderSystem.cpp src/core/systems/transform/TransformSystem.cpp include/core/systems/camera/CameraSystem.h include/core/components/RigidBodyComponent.h)
+        src/core/main.cpp include/core/components/Component.h src/core/systems/physics/PhysicsSystem.cpp src/core/systems/render/RenderSystem.cpp src/core/systems/transform/TransformSystem.cpp include/core/systems/camera/CameraSystem.h include/core/components/RigidBodyComponent.h include/core/components/MaterialComponent.h include/core/Renderer.h)

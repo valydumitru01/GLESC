@@ -8,8 +8,11 @@
 class TransformComponent :public Component
 {
 public:
-    glm::vec3 position;
-    glm::vec3 rotation;
-    glm::vec3 scale;
+    glm::mat4 tranformMatrix{1.f};
+    static void translate(TransformComponent* transform,glm::vec3 speed){
+        glm::translate(transform->tranformMatrix, glm::vec3(0.5f, -0.5f, 0.0f));
+    }
+    static void lookAt(){
 
+    }
 };
