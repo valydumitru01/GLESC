@@ -2,7 +2,7 @@
 #include <imgui/imgui_impl_sdl.h>
 #include <imgui/imgui_impl_opengl3.h>
 #include "core/Window.h"
-#include "ShaderManager.h"
+#include "core/systems/render/shaders/ShaderManager.h"
 
 class GUI
 {

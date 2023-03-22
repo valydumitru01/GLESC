@@ -38,7 +38,7 @@ add_executable(TFG___OpenGL_Engine
         include/core/systems/render/CoordinateSystem.h
         include/core/systems/render/Mesh.h
         include/core/systems/render/RenderSystem.h
-        include/core/systems/render/ShaderManager.h
+        include/core/systems/render/shaders/ShaderManager.h
         include/core/systems/render/TextureManager.h
         include/core/systems/render/Vertex.h
         include/core/systems/transform/TransformSystem.h
@@ -46,7 +46,7 @@ add_executable(TFG___OpenGL_Engine
         include/core/ECSContainer.h
         include/core/Debugger.h
         include/core/FPS.h
-        include/core/TFGL.h
+        include/core/GLESC.h
         include/core/Types.h
         include/core/Window.h
         include/game/Game.h
@@ -596,7 +596,7 @@ add_executable(TFG___OpenGL_Engine
         src/core/Debugger.cpp
         src/core/EntityContainer.cpp
         src/core/FPS.cpp
-        src/core/TFGL.cpp
+        src/core/GLESC.cpp
         src/core/Window.cpp
         src/game/Game.cpp
         src/game/GUI.cpp

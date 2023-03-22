@@ -25,7 +25,7 @@ public:
 	 *
 	 * @return double between 0.0 - 1.0
 	 */
-	double getTimeOfFrameAfterUpdate() const;
+	[[nodiscard]] double getTimeOfFrameAfterUpdate() const;
 	
 	/**
 	 * @brief Is the game time behind real time?
@@ -33,7 +33,7 @@ public:
 	 * @return true - if accumulated lag is greater than a constant
 	 * @return false - if accumulated lag is not greater than a constant
 	 */
-	bool isLagged() const;
+	[[nodiscard]] bool isLagged() const;
 	
 	/**
 	 * @brief Reduce the accumulated lag by a constant.

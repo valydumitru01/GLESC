@@ -1,8 +1,8 @@
 #pragma once
-#include "core/TFGL.h"
 
-class Game : TFGL
-{
+#include "core/GLESC.h"
+
+class Game : GLESC {
 
 public:
 

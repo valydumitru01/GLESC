@@ -12,10 +12,9 @@ public:
 
 	System() {
 
-		assert(ECSSystemContainer::getSystems()->systems.find(id) ==
-			   ECSSystemContainer::getSystems()->systems.end() &&
-			   "Registering system more than once.");
-		ECSSystemContainer::getSystems()->systems.insert({id, make_pair(Signature{},std::set<EntityID>{})});
+		assert(ECSSystemContainer::getSystems()->systems.find(id) == ECSSystemContainer::getSystems()->systems.end() &&
+		       "Registering system more than once.");
+		ECSSystemContainer::getSystems()->systems.insert({id, make_pair(Signature{}, std::set < EntityID > {})});
 	}
 
 	template<class T>
@@ -24,28 +23,27 @@ public:
 		Signature newSignature;
 		newSignature.set(ECSComponentContainer::getComponents()->getComponentID<T>());
 
-		assert(ECSSystemContainer::getSystems()->systems.find(id) ==
-			   ECSSystemContainer::getSystems()->systems.end() &&
-			   "Registering system more than once.");
+		assert(ECSSystemContainer::getSystems()->systems.find(id) == ECSSystemContainer::getSystems()->systems.end() &&
+		       "Registering system more than once.");
 
 		// Modify the old signature
 		getSignature() |= newSignature;
 	}
 
-	inline std::set<EntityID> &getAssociatedEntities() const{
+	inline std::set <EntityID> &getAssociatedEntities() const {
 		return ECSSystemContainer::getSystems()->systems[id].second;
 	}
 
 
-	inline Signature &getSignature() const{
+	inline Signature &getSignature() const {
 		return ECSSystemContainer::getSystems()->systems[id].first;
 	}
 
 protected:
 	SystemID id{};
 
-    template<class T>
-    inline T& getComponent(EntityID entityId){
-        return ECSComponentContainer::getComponents()->getComponent<T>(entityId);
-    }
+	template<class T>
+	inline T &getComponent(EntityID entityId) {
+		return ECSComponentContainer::getComponents()->getComponent<T>(entityId);
+	}
 };

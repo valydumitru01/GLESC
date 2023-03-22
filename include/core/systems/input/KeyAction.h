@@ -1,5 +1,5 @@
 
-class KeyAction{
+class KeyAction {
 public:
-    virtual void execute() = 0;
+	virtual void execute() = 0;
 };

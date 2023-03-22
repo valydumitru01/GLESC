@@ -2,15 +2,15 @@
 
 
 FPS::FPS(FPS_rates maxFPS) : msPerUpdate(50), fpsMs(MILLIS_IN_A_SECOND / (double) maxFPS),
-							 current(0), previous(0), elapsed(0), lag(0) {
+                             current(0), previous(0), elapsed(0), lag(0) {
 }
 
 void FPS::timeFrame() {
 	current = SDL_GetPerformanceCounter(); // Update the current frametime
 	elapsed = current - previous;
-	previous = current; // Update the prevous frametime
+	previous = current; // Updates the previous frame-time
 	lag += elapsed;     // Accumulate the elapsed time inside lag
-	
+
 	delay();
 }
 

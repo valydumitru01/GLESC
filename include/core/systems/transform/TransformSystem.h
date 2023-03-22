@@ -1,18 +1,21 @@
 #pragma once
+
 #include "core/systems/System.h"
 #include "core/components/TransformComponent.h"
-class TransformSystem : System
-{
+
+class TransformSystem : System {
 public:
-    TransformSystem();
+	TransformSystem();
+
 	void update();
 };
 
 TransformSystem::TransformSystem() {
-    addComponentRequirement<TransformSystem>();
+	addComponentRequirement<TransformSystem>();
 }
+
 void TransformSystem::update() {
-    for (EntityID entityId: getAssociatedEntities()) {
-        
-    }
+	for (EntityID entityId: getAssociatedEntities()) {
+
+	}
 }

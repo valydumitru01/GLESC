@@ -1,19 +1,19 @@
 #pragma once
+
 #include "Component.h"
-class PhysicsComponent:Component
-{
+
+class PhysicsComponent : Component {
 private:
-    /* data */
+	/* data */
 public:
-    PhysicsComponent(/* args */);
-    ~PhysicsComponent();
+	PhysicsComponent(/* args */);
+
+	~PhysicsComponent();
 };
 
-PhysicsComponent::PhysicsComponent(/* args */)
-{
+PhysicsComponent::PhysicsComponent(/* args */) {
 }
 
-PhysicsComponent::~PhysicsComponent()
-{
+PhysicsComponent::~PhysicsComponent() {
 }
 

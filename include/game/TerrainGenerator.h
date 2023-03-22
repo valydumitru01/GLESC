@@ -1,26 +1,28 @@
 #pragma once
-#include <vector> 
-#include <array> 
-class TerrainGenerator
-{
+
+#include <vector>
+#include <array>
+
+class TerrainGenerator {
 public:
-    TerrainGenerator(/* args */);
-    ~TerrainGenerator();
+	TerrainGenerator(/* args */);
+
+	~TerrainGenerator();
+
 private:
-    std::vector<float> vertices;
-    std::vector<int> terrain;
+	std::vector<float> vertices;
+	std::vector<int> terrain;
 };
-enum TerrainBlocks
-{
-    GRASS,
-    WATER,
-    DIRT,
-    STONE
+
+enum TerrainBlocks {
+	GRASS,
+	WATER,
+	DIRT,
+	STONE
 };
-TerrainGenerator::TerrainGenerator()
-{
+
+TerrainGenerator::TerrainGenerator() {
 }
 
-TerrainGenerator::~TerrainGenerator()
-{
+TerrainGenerator::~TerrainGenerator() {
 }
