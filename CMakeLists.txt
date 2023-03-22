@@ -602,4 +602,4 @@ add_executable(TFG___OpenGL_Engine
         src/game/GUI.cpp
         src/util/Console.cpp
         src/util/MyPath.cpp
-        src/core/main.cpp include/core/components/Component.h src/core/systems/physics/PhysicsSystem.cpp src/core/systems/render/RenderSystem.cpp src/core/systems/transform/TransformSystem.cpp include/core/systems/camera/CameraSystem.h include/core/components/RigidBodyComponent.h include/core/components/MaterialComponent.h include/core/Renderer.h)
+        src/core/main.cpp include/core/components/Component.h src/core/systems/physics/PhysicsSystem.cpp src/core/systems/render/RenderSystem.cpp src/core/systems/transform/TransformSystem.cpp include/core/systems/camera/CameraSystem.h include/core/components/RigidBodyComponent.h include/core/components/MaterialComponent.h)
