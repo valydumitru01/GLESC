@@ -5,27 +5,27 @@
 
 class PhysicsSystem : public System {
 private:
-	double gravity{9.81F};
+    double gravity{9.81F};
 public:
-	void update();
+    void update();
 
-	PhysicsSystem();
+    PhysicsSystem();
 };
 
 PhysicsSystem::PhysicsSystem() {
-	addComponentRequirement<RigidBodyComponent>();
-	addComponentRequirement<TransformComponent>();
+    addComponentRequirement<RigidBodyComponent>();
+    addComponentRequirement<TransformComponent>();
 }
 
 void PhysicsSystem::update() {
-	for (auto const &entity: getAssociatedEntities()) {
-		auto &rigidBody = getComponent<RigidBodyComponent>(entity);
-		auto &transform = getComponent<TransformComponent>(entity);
+    for (auto const &entity: getAssociatedEntities()) {
+        auto &rigidBody = getComponent<RigidBodyComponent>(entity);
+        auto &transform = getComponent<TransformComponent>(entity);
 
-		transform.position += rigidBody.velocity;
+        transform.position += rigidBody.velocity;
 
-		rigidBody.velocity += gravity;
-	}
+        rigidBody.velocity += gravity;
+    }
 }
 
 

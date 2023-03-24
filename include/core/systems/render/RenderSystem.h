@@ -26,6 +26,10 @@ public:
         addComponentRequirement<TransformComponent>();
         addComponentRequirement<RenderComponent>();
 
+
+    }
+    ~RenderSystem(){
+
     }
 
     /**
@@ -34,6 +38,7 @@ public:
      *
      */
     void update(const double timeOfFrame) {
+
 
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -92,7 +97,23 @@ private:
      * @brief Iterate over the textures and generate them calling generateTexture()
      *
      */
-    void generateTextures();
+    void generateTextures(){
+        for (auto &texture : textures) {
+            generateTexture(texture.first, texture.second);
+        }
+    }
+    /*
+     * @brief generate a texture
+     */
+    void generateTexture(GLuint tecture, const char * path){
+        // Load and create a texture
+        TextureManager textureManager;
+        textureManager.loadTexture(path);
+        textureManager.createTexture();
+        textureManager.bindTexture();
+        textureManager.setTextureParameters();
+        textureManager.unbindTexture();
+    }
 
     ShaderManager shaderManager;
     Window &window;

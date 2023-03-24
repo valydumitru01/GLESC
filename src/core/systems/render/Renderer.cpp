@@ -1,8 +1,8 @@
 #include "core/renderer/Renderer.h"
 
-Renderer::Renderer(short height, short width, ShaderManager *ShaderManager, CoordinateSystem *coordSystem) {
+Renderer::Renderer(short height, short width, ShaderManager *shaderManager, CoordinateSystem *coordSystem) {
 
-    this->shaderManager = ShaderManager;
+    this->shaderManager = shaderManager;
     this->coordSystem = coordSystem;
 
     trans = glm::mat4(1.0f);

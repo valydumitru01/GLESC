@@ -1,10 +1,9 @@
 #include "game/GUI.h"
 
-GUI::GUI(MyWindow *window, ShaderManager* shaderManager)
-{
+GUI::GUI(MyWindow *window, ShaderManager *shaderManager) {
 
     this->window = window;
-    this->shaderManager=shaderManager;
+    this->shaderManager = shaderManager;
     // Setup Dear ImGui context
     IMGUI_CHECKVERSION();
     ImGui::CreateContext();
@@ -19,8 +18,7 @@ GUI::GUI(MyWindow *window, ShaderManager* shaderManager)
     ImGui::StyleColorsLight();
 }
 
-void GUI::update()
-{
+void GUI::update() {
 
     ImGui_ImplOpenGL3_NewFrame();
     ImGui_ImplSDL2_NewFrame();
@@ -41,35 +39,37 @@ void GUI::update()
         ImGui::Checkbox("Another Window", &show_another_window);
 
         ImGui::SliderFloat("float", &f, 0.0f, 1.0f);             // Edit 1 float using a slider from 0.0f to 1.0f
-        ImGui::ColorEdit3("clear color", (float *)&clear_color); // Edit 3 floats representing a color
+        ImGui::ColorEdit3("clear color", (float *) &clear_color); // Edit 3 floats representing a color
 
-        if (ImGui::Button("Button")) // Buttons return true when clicked (most widgets return true when edited/activated)
+        if (ImGui::Button(
+                "Button")) // Buttons return true when clicked (most widgets return true when edited/activated)
             counter++;
         ImGui::SameLine();
         ImGui::Text("counter = %d", counter);
 
-        ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
+        ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate,
+                    ImGui::GetIO().Framerate);
         ImGui::End();
     }
 
     // 3. Show another simple window.
-    if (show_another_window)
-    {
-        ImGui::Begin("Another Window", &show_another_window); // Pass a pointer to our bool variable (the window will have a closing button that will clear the bool when clicked)
+    if (show_another_window) {
+        ImGui::Begin("Another Window",
+                     &show_another_window); // Pass a pointer to our bool variable (the window will have a closing button that will clear the bool when clicked)
         ImGui::Text("Hello from another window!");
         if (ImGui::Button("Close Me"))
             show_another_window = false;
         ImGui::End();
     }
 }
-void GUI::render()
-{
+
+void GUI::render() {
     // ImGui::ShowDemoWindow();
     ImGui::Render();
     ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 }
-GUI::~GUI()
-{
+
+GUI::~GUI() {
     ImGui_ImplOpenGL3_Shutdown();
     ImGui_ImplSDL2_Shutdown();
     ImGui::DestroyContext();
