@@ -5,13 +5,13 @@ set(CMAKE_CXX_STANDARD 17)
 
 include_directories(include)
 include_directories(include/core)
-include_directories(include/core/components)
-include_directories(include/core/entities)
-include_directories(include/core/systems)
-include_directories(include/core/systems/input)
-include_directories(include/core/systems/physics)
-include_directories(include/core/systems/render)
-include_directories(include/core/systems/transform)
+include_directories(include/ecs/components)
+include_directories(include/ecs/entities)
+include_directories(include/ecs/systems)
+include_directories(include/ecs/systems/input)
+include_directories(include/ecs/systems/physics)
+include_directories(include/ecs/systems/render)
+include_directories(include/ecs/systems/transform)
 include_directories(include/game)
 include_directories(include/util)
 include_directories(lib/include)
@@ -26,29 +26,29 @@ include_directories(lib/include/imgui)
 include_directories(lib/include/SDL2)
 
 add_executable(TFG___OpenGL_Engine
-        include/core/components/CameraComponent.h
-        include/core/components/ComponentArray.h
-        include/core/components/InputComponent.h
-        include/core/components/PhysicsComponent.h
-        include/core/components/RenderComponent.h
-        include/core/components/TransformComponent.h
-        include/core/entities/Entity.h
-        include/core/systems/input/InputSystem.h
-        include/core/systems/physics/PhysicsSystem.h
-        include/core/systems/render/CoordinateSystem.h
-        include/core/systems/render/Mesh.h
-        include/core/systems/render/RenderSystem.h
-        include/core/systems/render/shaders/ShaderManager.h
-        include/core/systems/render/TextureManager.h
-        include/core/systems/render/Vertex.h
-        include/core/systems/transform/TransformSystem.h
-        include/core/systems/System.h
+        include/ecs/components/CameraComponent.h
+        include/ecs/components/ComponentArray.h
+        include/ecs/components/InputComponent.h
+        include/ecs/components/PhysicsComponent.h
+        include/ecs/components/RenderComponent.h
+        include/ecs/components/TransformComponent.h
+        include/ecs/entities/Entity.h
+        include/ecs/systems/InputSystem.h
+        include/ecs/systems/PhysicsSystem.h
+        include/renderer/CoordinateSystem.h
+        include/renderer/Mesh.h
+        include/ecs/systems/RenderSystem.h
+        include/renderer/shaders/ShaderManager.h
+        include/renderer/TextureManager.h
+        include/renderer/Vertex.h
+        include/ecs/systems/TransformSystem.h
+        include/ecs/systems/System.h
         include/core/ECSContainer.h
-        include/core/Debugger.h
+        include/renderer/RenderDebugger.h
         include/core/FPS.h
         include/core/GLESC.h
         include/core/Types.h
-        include/core/Window.h
+        include/renderer/WindowManager.h
         include/game/Game.h
         include/game/GUI.h
         include/game/TerrainGenerator.h
@@ -587,19 +587,19 @@ add_executable(TFG___OpenGL_Engine
         lib/include/SDL2/SDL_video.h
         lib/include/SDL2/SDL_vulkan.h
         lib/include/color.hpp
-        src/core/systems/render/CoordinateSystem.cpp
-        src/core/systems/render/Renderer.cpp
-        src/core/systems/render/ShaderManager.cpp
-        src/core/systems/render/TextureManager.cpp
-        src/core/systems/input/InputSystem.cpp
+        src/renderer/CoordinateSystem.cpp
+        src/renderer/Renderer.cpp
+        src/renderer/ShaderManager.cpp
+        src/renderer/TextureManager.cpp
+        src/ecs/systems/InputSystem.cpp
         src/core/ECSFactory.cpp
         src/core/Debugger.cpp
         src/core/EntityContainer.cpp
         src/core/FPS.cpp
         src/core/GLESC.cpp
-        src/core/Window.cpp
+        src/renderer/Window.cpp
         src/game/Game.cpp
         src/game/GUI.cpp
         src/util/Console.cpp
         src/util/MyPath.cpp
-        src/core/main.cpp include/core/components/Component.h src/core/systems/physics/PhysicsSystem.cpp src/core/systems/render/RenderSystem.cpp src/core/systems/transform/TransformSystem.cpp include/core/systems/camera/CameraSystem.h include/core/components/RigidBodyComponent.h include/core/components/MaterialComponent.h)
+        src/core/main.cpp include/ecs/components/Component.h src/ecs/systems/PhysicsSystem.cpp src/ecs/systems/RenderSystem.cpp src/ecs/systems/TransformSystem.cpp include/ecs/systems/CameraSystem.h include/ecs/components/RigidBodyComponent.h include/ecs/components/MaterialComponent.h include/input-manager/KeyAction.h src/ecs/entities/Entity.cpp include/renderer/Renderer.h src/ecs/systems/CameraSystem.cpp)

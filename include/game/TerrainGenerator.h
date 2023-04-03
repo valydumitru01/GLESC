@@ -5,20 +5,20 @@
 
 class TerrainGenerator {
 public:
-	TerrainGenerator(/* args */);
+    TerrainGenerator(/* args */);
 
-	~TerrainGenerator();
+    ~TerrainGenerator();
 
 private:
-	std::vector<float> vertices;
-	std::vector<int> terrain;
+    std::vector<float> vertices;
+    std::vector<int> terrain;
 };
 
 enum TerrainBlocks {
-	GRASS,
-	WATER,
-	DIRT,
-	STONE
+    GRASS,
+    WATER,
+    DIRT,
+    STONE
 };
 
 TerrainGenerator::TerrainGenerator() {

@@ -2,75 +2,72 @@
 #include <memory>
 
 
-#include "core/Window.h"
+#include "renderer/WindowManager.h"
 #include "core/FPS.h"
 #include "core/Types.h"
 
-#include "core/entities/Entity.h"
+#include "ecs/entities/Entity.h"
 
-#include "core/systems/System.h"
-#include "core/systems/input/InputSystem.h"
-#include "core/systems/transform/TransformSystem.h"
-#include "core/systems/physics/PhysicsSystem.h"
-#include "core/systems/render/RenderSystem.h"
-#include "core/systems/camera/CameraSystem.h"
+#include "ecs/systems/System.h"
+#include "ecs/systems/InputSystem.h"
+#include "ecs/systems/TransformSystem.h"
+#include "ecs/systems/PhysicsSystem.h"
+#include "ecs/systems/RenderSystem.h"
+#include "ecs/systems/CameraSystem.h"
 
-#include "core/components/InputComponent.h"
-#include "core/components/RenderComponent.h"
-#include "core/components/CameraComponent.h"
-#include "core/components/PhysicsComponent.h"
-#include "core/components/TransformComponent.h"
+#include "ecs/components/InputComponent.h"
+#include "ecs/components/RenderComponent.h"
+#include "ecs/components/CameraComponent.h"
+#include "ecs/components/PhysicsComponent.h"
+#include "ecs/components/TransformComponent.h"
 
 
 class GLESC {
-	friend int main();
+    friend int main();
 
 private:
-	GLESC();
+    GLESC();
+    
+    ~GLESC();
+    
+    /**
+     * @brief Is called every frame, must be called at constant intervals of time as it does not use elapsed, more
+     * information https://www.gameprogrammingpatterns.com/game-loop.html
+     */
+    void update();
+    
+    /**
+     * @brief The
+     */
+    void processInput();
+    
+    void render(double timeOfFrame);
+    
+    /**
+     * @brief If true, the game is running. If false, the game is stopped.
+     */
+    bool running = true;
+    
+    /**
+     * @brief The systems of the game
+     * @note The order of the systems is important, as the systems are updated in the order they are declared
+     */
+    InputSystem inputSystem;
+    TransformSystem transformSystem;
+    PhysicsSystem physicsSystem;
+    RenderSystem renderSystem;
+    CameraSystem cameraSystem;
+    
+    /**
+     * @brief Handles the window of the game
+     */
+    shared_ptr <WindowManager> windowManager;
+    
+    Renderer renderer;
 
-	~GLESC();
-
-	/**
-	 * @brief Is called every frame, must be called at constant intervals of time as it does not use elapsed, more
-	 * information https://www.gameprogrammingpatterns.com/game-loop.html
-	 */
-	void update();
-
-	/**
-	 * @brief The
-	 */
-	void processInput();
-
-	void render(double timeOfFrame);
-
-	/**
-	 * @brief If true, the game is running. If false, the game is stopped.
-	 */
-	bool running = true;
-
-	//---------Systems---------
-	InputSystem inputSystem;
-	TransformSystem transformSystem;
-	PhysicsSystem physicsSystem;
-	RenderSystem renderSystem;
-	CameraSystem cameraSystem;
-	//-------------------------
-
-	/**
-	 * @brief Handles the window of the game
-	 */
-	Window window;
-	/**
-	 * @brief Stores the window name, shown in the upper bar
-	 * ________________________________________________
-	 * |"windowTitle"·····················|·_·|·D·|·X·|
-	 * |______________________________________________|
-	 * |··············································|
-	 */
-	const char *windowTitle;
 public:
-	void init();
-
-	void loop();
+    void init();
+    
+    void loop();
 };
 

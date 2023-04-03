@@ -11,9 +11,9 @@
 #include <string>
 
 namespace MyPath {
-	std::string getExecutablePath();
+    std::string getExecutablePath();
 
-	std::string getExecutableDir();
+    std::string getExecutableDir();
 
-	char *getImageDir(std::string str);
+    char *getImageDir(std::string str);
 }

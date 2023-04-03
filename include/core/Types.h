@@ -19,12 +19,12 @@ using ComponentID = std::uint8_t;
  * @brief Maximum amount of entities can there be at once
  *
  */
-const static EntityID Max_Entities = static_cast<EntityID>(5000);
+const static EntityID maxEntities = static_cast<EntityID>(5000);
 /**
  * @brief Maximum amount of components each entity can have
  *
  */
-const static ComponentID Max_Components = static_cast<ComponentID>(16);
+const static ComponentID maxComponents = static_cast<ComponentID>(16);
 
 /**
  * @brief type of the signature of each entity.
@@ -33,5 +33,5 @@ const static ComponentID Max_Components = static_cast<ComponentID>(16);
  * (bits 0, 1, and 2 are set).
  *
  */
-using Signature = std::bitset<Max_Components>;
+using Signature = std::bitset<maxComponents>;
 

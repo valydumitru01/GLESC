@@ -2,6 +2,10 @@
   <code_scheme name="Project" version="173">
     <option name="ENABLE_SECOND_REFORMAT" value="true" />
     <Objective-C>
+      <option name="INDENT_DIRECTIVE_AS_CODE" value="true" />
+      <option name="KEEP_DIRECTIVE_AT_FIRST_COLUMN" value="false" />
+      <option name="SPACE_BEFORE_TEMPLATE_DECLARATION_LT" value="true" />
+      <option name="SPACE_BEFORE_TEMPLATE_CALL_LT" value="true" />
       <option name="ADD_BRIEF_TAG" value="true" />
     </Objective-C>
     <Objective-C-extensions>
@@ -54,10 +58,17 @@
     <codeStyleSettings language="Glsl">
       <option name="SPACE_BEFORE_COLON" value="false" />
     </codeStyleSettings>
+    <codeStyleSettings language="Makefile">
+      <indentOptions>
+        <option name="USE_TAB_CHARACTER" value="false" />
+      </indentOptions>
+    </codeStyleSettings>
     <codeStyleSettings language="ObjectiveC">
+      <option name="KEEP_CONTROL_STATEMENT_IN_ONE_LINE" value="false" />
       <option name="SOFT_MARGINS" value="120" />
       <indentOptions>
         <option name="SMART_TABS" value="true" />
+        <option name="KEEP_INDENTS_ON_EMPTY_LINES" value="true" />
       </indentOptions>
     </codeStyleSettings>
   </code_scheme>
