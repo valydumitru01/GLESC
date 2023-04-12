@@ -1,24 +1,25 @@
 #include "core/GLESC.h"
-#include "SDL2/SDL.h"
 #include "core/FPS.h"
 
 int SDL_main() {
-    GLESC tfgl;
+    GLESC glesc;
+    Console::success("GLESC initialized");
+    glesc.init();
+    Console::success("Game initialized");
     FPS fps(FpsRates::Fps60);
     Console::init();
-    
-    while (tfgl.running) {
+    while (glesc.running) {
         fps.timeFrame();
         
-        tfgl.processInput();
+        glesc.processInput();
         while (fps.isLagged()) // Update executes in constant intervals
         {
-            tfgl.update();
+            glesc.update();
             fps.updateLag();
         }
         
         //Render execute arbitrarily, depending on how much time update() takes
-        tfgl.render(fps.getTimeOfFrameAfterUpdate());
+        glesc.render(fps.getTimeOfFrameAfterUpdate());
     }
     return 0;
 }

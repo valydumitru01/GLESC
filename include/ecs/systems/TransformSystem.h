@@ -8,19 +8,18 @@
 
 class TransformSystem : System {
 public:
-    TransformSystem();
-
+    TransformSystem() : System("Transform System") {};
     void update();
-
+    /**
+     * @brief Calculate the model matrix for a given position, rotation, and scale
+     * @details Given the position, rotation, and scale, this method calculates the model matrix
+     * @param position The position vector
+     * @param rotation The rotation vector
+     * @param scale The scale vector
+     * @return The model matrix
+     */
+    static glm::mat4 calculateModelMatrix(const glm::vec3 &position, const glm::vec3 &rotation, const glm::vec3 &scale);
+    
+    void init() override;
 };
 
-TransformSystem::TransformSystem() {
-    addComponentRequirement<TransformComponent>();
-}
-
-void TransformSystem::update() {
-    for (EntityID entityId: getAssociatedEntities()) {
-        auto &transformComponent = getComponent<TransformComponent>(entityId);
-
-    }
-}

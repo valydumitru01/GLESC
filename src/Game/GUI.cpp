@@ -1,9 +1,6 @@
 #include "game/GUI.h"
 
-GUI::GUI(MyWindow *window, ShaderManager *shaderManager) {
-
-    this->window = window;
-    this->shaderManager = shaderManager;
+GUI::GUI(shared_ptr<WindowManager> &window, shared_ptr<Renderer> &renderer): window(window), renderer(renderer) {
     // Setup Dear ImGui context
     IMGUI_CHECKVERSION();
     ImGui::CreateContext();
@@ -12,8 +9,8 @@ GUI::GUI(MyWindow *window, ShaderManager *shaderManager) {
     io->ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
 
     // Setup Platform/Renderer bindings
-    ImGui_ImplSDL2_InitForOpenGL(window->getWindow(), window->getContext());
-    ImGui_ImplOpenGL3_Init(shaderManager->getGlslVersion());
+    ImGui_ImplSDL2_InitForOpenGL(window->getWindow(), renderer->getContext());
+    ImGui_ImplOpenGL3_Init(renderer->getShaderManager().getGlslVersion());
     // Setup Dear ImGui style
     ImGui::StyleColorsLight();
 }

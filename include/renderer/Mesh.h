@@ -1,24 +1,51 @@
-#pragma once
-
-#include "core/renderer/Vertex.h"
 #include <vector>
-#include <memory>
+#include <GL/glew.h>
 
-class Mesh : Component {
-private:
-    std::vector<Vertex> vertices;
+#include "renderer/Renderer.h"
+
+class Mesh {
+    friend class RenderSystem;
+
 public:
-    Mesh(std::vector<Vertex> vertices);
-
     Mesh();
-
+    
+    Mesh(const std::vector <float> &vertices, const std::vector <unsigned int> &indices);
+    
     ~Mesh();
-
-    void addVertex(const Vertex &vertex);
-
-    void addVertices(std::vector<Vertex> vertices);
-
-    void setVertices(const std::vector<Vertex> &newVertices);
-
-    std::unique_ptr<std::vector<Vertex>> getVertices() const;
+    
+    void addVertexData(const std::vector <float> &vertexDataParam);
+    
+    [[nodiscard]] GLsizei getIndexCount() const { return indexCount; }
+private:
+    /**
+     * @brief The vertex array object
+     * Contains the information a vertex stores
+     */
+    GLuint VAO;
+    /**
+     * @brief The vertex buffer object
+     * Contains the vertices of the object
+     */
+    GLuint VBO;
+    /**
+     * @brief The element buffer object
+     * Contains the indices of the vertices
+     */
+    GLuint EBO;
+    /**
+     * @brief The number of indices
+     * @details The number of indices is equal to the number of vertices if the vertices are not shared
+     * (if the vertices are shared, the number of indices is smaller than the number of vertices)
+     * The indices are used to draw the vertices in the correct order
+     * The indices are stored in the EBO
+     */
+    GLsizei indexCount;
+    /**
+     * @brief The vertex data
+     * Contains different information about the vertices (position, normal, texture coordinates, ...)
+     * depending on the components attached to the entity
+     */
+    std::vector <float> vertexData;
+    
+    
 };

@@ -2,9 +2,10 @@
 
 #include "core/GLESC.h"
 
-class Game : GLESC {
+class Game : public GLESC {
 
 public:
 
 private:
+    Game();
 };

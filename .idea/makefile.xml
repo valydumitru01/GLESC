@@ -4,7 +4,7 @@
     <user-build-targets>
       <build-target name="all">
         <build-configurations>
-          <build-configuration toolchainName="MinGW">
+          <build-configuration>
             <make-targets>
               <make-target>all</make-target>
             </make-targets>
@@ -13,7 +13,7 @@
       </build-target>
       <build-target name="clean">
         <build-configurations>
-          <build-configuration toolchainName="MinGW">
+          <build-configuration>
             <make-targets>
               <make-target>clean</make-target>
             </make-targets>

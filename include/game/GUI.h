@@ -3,18 +3,19 @@
 #include <imgui/imgui_impl_opengl3.h>
 #include "renderer/WindowManager.h"
 #include "renderer/shaders/ShaderManager.h"
+#include "renderer/Renderer.h"
 
 class GUI
 {
 public:
-    GUI(WindowManager* window, ShaderManager* shaderManager);
+    GUI(shared_ptr<WindowManager> &window, shared_ptr<Renderer> &renderer);
     ~GUI();
     void render();
     void update();
 private:
     ImGuiIO* io;
-    WindowManager* window;
-    ShaderManager* shaderManager;
+    shared_ptr<WindowManager> window;
+    shared_ptr<Renderer> renderer;
     ImFont* font;
 
     bool show_demo_window = false;

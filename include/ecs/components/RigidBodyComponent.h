@@ -1,10 +1,11 @@
+#include "ecs/components/Component.h"
 #include <glm/glm.hpp>
 
-class RigidBodyComponent {
+class RigidBodyComponent : public Component {
 public:
-	float mass;
-	glm::vec3 velocity;
-	glm::vec3 force;
-
-	explicit RigidBodyComponent(float m = 1.0F) : mass(m), velocity(0.0F), force(0.0F) {}
+    float mass;
+    glm::vec3 velocity;
+    glm::vec3 force;
+    
+    explicit RigidBodyComponent(float m = 1.0F) : mass(m), velocity(0.0F), force(0.0F) {}
 };

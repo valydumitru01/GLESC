@@ -1,7 +1,19 @@
 #include "core/GLESC.h"
 
 GLESC::GLESC() : running(true), windowManager(make_shared <WindowManager>("GLESC")),
-                 renderSystem(RenderSystem(windowManager)) {
+                                          renderer(make_shared <Renderer>(windowManager)) {
+    // Register all the components
+    // Must be done before the systems are created
+    // Because the systems need to know what components they are working with
+    // TODO: Make this automatic
+    cameraSystem.setRenderer(renderer);
+    renderSystem.setRenderer(renderer);
+    
+    inputSystem.init();
+    transformSystem.init();
+    physicsSystem.init();
+    renderSystem.init();
+    cameraSystem.init();
     
 }
 
@@ -15,9 +27,6 @@ void GLESC::processInput() {
 void GLESC::render(double const timeOfFrame) {
     
     cameraSystem.update();
-    
-    renderSystem.setView(cameraSystem.getView());
-    renderSystem.setProjection(cameraSystem.getProjection());
     
     renderSystem.update(timeOfFrame);
 }

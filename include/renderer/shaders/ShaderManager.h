@@ -1,5 +1,5 @@
 #pragma once
-#define SHADER_PATH "core/systems/render/shaders/"
+#define SHADER_PATH "/src/renderer/shaders/"
 #define VERT_SHADER "VertexShader.vert"
 #define FRAG_SHADER "FragmentShader.frag"
 
@@ -7,9 +7,11 @@
 #include <unordered_map>
 #include <string>
 #include "GL/glew.h"
-#include "GL/gl.h"
 #include "glm/glm.hpp"
+#include <fstream>
+#include <sstream>
 
+#include "renderer/RenderDebugger.h"
 
 class ShaderManager {
 public:
@@ -130,7 +132,7 @@ public:
      * @brief Calls to useProgram with the shader program ID
      *
      */
-    void useShaderProgram() const;
+    void use() const;
     
     const GLchar *getGlslVersion() { return glslVersion; };
 private:
@@ -140,18 +142,18 @@ private:
      * @brief Reads the content of file and returns it as a GLchar*
      * @param pathToFile
      */
-    static GLchar *readContentFromFile(const std::string &pathToFile);
+    static std::string readContentFromFile(const std::string &filePath);
     
     /**
      * @brief Source of the vertex shader
      *
      */
-    const GLchar *vertexShaderSource;
+    std::string vertexShaderSource;
     /**
      * @brief Source of the fragment shader
      *
      */
-    const GLchar *fragmentShaderSource;
+    std::string fragmentShaderSource;
     /**
      * @brief ID reference to the vertex shader
      *

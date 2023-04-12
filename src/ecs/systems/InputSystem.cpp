@@ -1,8 +1,9 @@
-#include "core/systems/input/InputSystem.h"
+#include "ecs/systems/InputSystem.h"
+
 
 void InputSystem::update() {
-
     SDL_Event event;
+    auto entities = getAssociatedEntities();
     while (SDL_PollEvent(&event)) {
         switch (event.type) {
             case SDL_QUIT: {
@@ -10,38 +11,24 @@ void InputSystem::update() {
                 break;
             }
             case SDL_MOUSEMOTION: {
-                for (auto &inputComponent: getComponent) {
+                for (auto &entity: entities) {
+                    auto &inputComponent = getComponent <InputComponent>(entity);
                     inputComponent.mousePosition.x = event.motion.x;
                     inputComponent.mousePosition.y = event.motion.y;
                 }
                 break;
             }
             case SDL_MOUSEBUTTONDOWN: {
-                for (auto &entity: getAssociatedEntities()) {
-
-                    if (event.button.button == SDL_BUTTON_LEFT) {
-                        inputComponent.keyMap[SDL_BUTTON_LEFT] = true;
-                    } else if (event.button.button == SDL_BUTTON_RIGHT) {
-                        inputComponent.keyMap[SDL_BUTTON_RIGHT] = true;
-                    }
-                }
-                break;
-            }
-            case SDL_MOUSEBUTTONUP: {
-                for (auto &inputComponent: inputComponents) {
-                    if (event.button.button == SDL_BUTTON_LEFT) {
-                        inputComponent.keyMap[SDL_BUTTON_LEFT] = false;
-                    } else if (event.button.button == SDL_BUTTON_RIGHT) {
-                        inputComponent.keyMap[SDL_BUTTON_RIGHT] = false;
-                    }
+                for (auto &entity: entities) {
+                    auto &inputComponent = getComponent <InputComponent>(entity);
+                    inputComponent.keyMap[event.button.button] = true;
                 }
                 break;
             }
             case SDL_KEYDOWN: {
-                for (auto &inputComponent: inputComponents) {
-                    if (keyActionMap.count(event.key.keysym.sym)) {
-                        keyActionMap[event.key.keysym.sym](inputComponent);
-                    }
+                for (auto &entity: entities) {
+                    auto &inputComponent = getComponent <InputComponent>(entity);
+                    inputComponent.keyMap[event.key.keysym.sym] = true;
                 }
                 break;
             }
@@ -49,7 +36,7 @@ void InputSystem::update() {
     }
 }
 
-
-void InputSystem::addKeyAction(int key, std::function<void(InputComponent & )> action) {
-    keyActionMap[key] = action;
+void InputSystem::init() {
+    addComponentRequirement <InputComponent>();
 }
+

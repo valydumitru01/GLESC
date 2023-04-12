@@ -1,56 +1,53 @@
+#include <utility>
+
 #include "ecs/systems/RenderSystem.h"
 
-RenderSystem::RenderSystem(shared_ptr <WindowManager> windowManager) : windowManager(windowManager) {
+
+void RenderSystem::init() {
     addComponentRequirement <TransformComponent>();
     addComponentRequirement <RenderComponent>();
-    
-    
 }
 
-void RenderSystem:update(const double timeOfFrame) {
+void RenderSystem::update(const double timeOfFrame) {
     
     
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
+    renderer->getShaderManager().use();
+    
     for (auto &entity: getAssociatedEntities()) {
-        {
-            auto &render = getComponent <RenderComponent>(entity);
-            auto &transform = getComponent <TransformComponent>(entity);
-            
-            // Bind the vertex array and buffer objects
-            
-            
-            auto &model = render.model;
-            model = glm::translate(model, transform.position);
-            model = glm::rotate(model, glm::radians(transform.rotation.x), glm::vec3(1.0f, 0.0f, 0.0f));
-            model = glm::rotate(model, glm::radians(transform.rotation.y), glm::vec3(0.0f, 1.0f, 0.0f));
-            model = glm::rotate(model, glm::radians(transform.rotation.z), glm::vec3(0.0f, 0.0f, 1.0f));
-            model = glm::scale(model, transform.scale);
-            
-            
-            // Set the view matrix uniform
-            GLuint viewLoc = glGetUniformLocation(shaderManager.getShaderProgram(), "view");
-            glUniformMatrix4fv(int(viewLoc), 1, GL_FALSE, &render.view[0][0]);
-            glCheckError();
-            
-            
-            // Set the projection matrix uniform
-            renderer->getShaderManager()->getShaderProgram()->
-            GLuint projectionLoc = glGetUniformLocation(, "projection");
-            glUniformMatrix4fv(int(projectionLoc), 1, GL_FALSE, &render.projection[0][0]);
-            glCheckError();
-            
-            // Set the texture uniform
-            glActiveTexture(GL_TEXTURE0);
-            glBindTexture(GL_TEXTURE_2D, render.texture);
-            glCheckError();
-            GLuint textureLoc = glGetUniformLocation(shaderManager.getShaderProgram(), "texture1");
-            glUniform1i(textureLoc, 0);
-            glCheckError();
-            // Draw the vertices
-            glDrawArrays(GL_TRIANGLES, 0, 3);
-        }
+        
+        auto &render = getComponent <RenderComponent>(entity);
+        auto &transform = getComponent <TransformComponent>(entity);
+        
+        // Bind the vertex array and buffer objects
+        
+        
+        renderer->getShaderManager().setMat4("model", transform.model);
+        
+        bindMeshBuffers(render.mesh);
+        
+        render.textureID = renderer->getTextureManager().loadTexture(render.texturePath);
+        
+        // Set the texture uniform
+        renderer->getShaderManager().setInt("texture1", static_cast<int>(render.textureID));
+        
+        // Draw the vertices
+        GlWrapper::drawElements(render.mesh.getIndexCount());
+        
         // TODO: Batch rendering
-        windowManager.get()->swapBuffers();
     }
+    renderer->getWindowManager()->swapBuffers();
 }
+
+
+void RenderSystem::bindMeshBuffers(Mesh &mesh) {
+    GlWrapper::bindVertexArray(mesh.VAO);
+    GlWrapper::bindVertexBuffer(mesh.VBO);
+    GlWrapper::bindElementBuffer(mesh.EBO);
+}
+
+void RenderSystem::setRenderer(std::shared_ptr <Renderer> &rendererParam) {
+    renderer = std::move(rendererParam);
+}
+

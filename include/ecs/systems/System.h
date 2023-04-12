@@ -1,49 +1,45 @@
 #pragma once
 
-#include "core/entities/Entity.h"
+#include "ecs/entities/Entity.h"
 #include "core/ECSContainer.h"
 #include <set>
 #include <memory>
 
-class System : public std::enable_shared_from_this<System> {
+class System {
     friend class Entity;
 
 public:
-
-    System() {
-
-        assert(ECSSystemContainer::getSystems()->systems.find(id) == ECSSystemContainer::getSystems()->systems.end() &&
-               "Registering system more than once.");
-        ECSSystemContainer::getSystems()->systems.insert({id, make_pair(Signature{}, std::set<EntityID>{})});
+    
+    explicit System(const std::string &name) {
+        this->name = name;
+        // Create a signature for this system
+        ECS::getECS()->registerSystem(name);
+        assert(!ECS::getECS()->systemIsRegistered(name) && "Registering system more than once.");
+        Console::success("Registered system: " + name);
+        
     }
-
-    template<class T>
+    
+    template <class T>
     void addComponentRequirement() {
-
-        Signature newSignature;
-        newSignature.set(ECSComponentContainer::getComponents()->getComponentID<T>());
-
-        assert(ECSSystemContainer::getSystems()->systems.find(id) == ECSSystemContainer::getSystems()->systems.end() &&
-               "Registering system more than once.");
-
-        // Modify the old signature
-        getSignature() |= newSignature;
+        ECS::getECS()->addComponentRequirementToSystem <T>(name, ECS::getECS()->getComponentID <T>());
     }
-
-    inline std::set<EntityID> &getAssociatedEntities() const {
-        return ECSSystemContainer::getSystems()->systems[id].second;
+    
+    [[nodiscard]] Signature &getSignature() const {
+        return ECS::getECS()->getSignature(name);
     }
-
-
-    inline Signature &getSignature() const {
-        return ECSSystemContainer::getSystems()->systems[id].first;
+    
+    [[nodiscard]] std::set <EntityID> &getAssociatedEntities() const {
+        return ECS::getECS()->getAssociatedEntities(name);
     }
+    
+    virtual void init() = 0;
+
 
 protected:
-    SystemID id{};
-
-    template<class T>
+    std::string name{};
+    
+    template <class T>
     inline T &getComponent(EntityID entityId) {
-        return ECSComponentContainer::getComponents()->getComponent<T>(entityId);
+        return ECS::getECS()->getComponent <T>(entityId);
     }
 };

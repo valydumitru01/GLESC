@@ -7,14 +7,16 @@
 
 class CameraSystem : public System {
 public:
-    CameraSystem();
+    CameraSystem() : System("Camera System"), projection(), view() {};
     
     void update();
     
-    glm::mat4 &getProjection() { return projection; };
+    void init() override;
     
-    glm::mat4 &getView() { return view; };
+    void setRenderer(shared_ptr <Renderer> &rendererParam);
+
 private:
+    
     /**
      * @brief Creates a projection matrix from a camera component
      * @details uses the perspective function from glm
@@ -30,6 +32,8 @@ private:
      * @return view matrix
      */
     static glm::mat4 makeViewMatrix(TransformComponent &transform);
+    
+    shared_ptr <Renderer> renderer;
     
     /**
      * @brief projection matrix

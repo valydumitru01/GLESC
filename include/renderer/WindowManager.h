@@ -1,10 +1,11 @@
 #pragma once
 
 #include <memory>
-#include "SDL2/SDL.h"
-#include "GL/glew.h"
+#include <SDL2/SDL.h>
+#include <GL/glew.h>
 
 #include "util/Console.h"
+#include "exceptions/EngineException.h"
 
 /**
  * @brief 1.77 is the standard ratio (16:9)
@@ -18,14 +19,12 @@ class WindowManager {
 public:
     explicit WindowManager(const char *title);
     
-    ~WindowManager();
-    
     /**
      * @brief Callback function when window size is modified
      * This will call glViewport with the new resolution
      *
      */
-    void setSize(GLint width, GLint height);
+    void setSize(GLint windowWidth, GLint windowHeight);
     
     /**
      * @brief Turn fullscreen on or off
@@ -53,17 +52,23 @@ public:
     /**
      * @brief Get the Window object
      *
-     * @return SDL_Window*
+     * @return SDL_Window* the window object
      */
     SDL_Window *getWindow();
     
     /**
-     * @brief Get the Context object
-     *
-     * @return SDL_GLContext
+     * @brief Get the width of the window
+     * The renderer will use this to set the viewport
+     * @return int the width
      */
-    SDL_GLContext getContext();
-
+    [[nodiscard]] int getWidth() const;
+    
+    /**
+     * @brief Get the height of the window
+     * The renderer will use this to set the viewport
+     * @return int the height
+     */
+    [[nodiscard]] int getHeight() const;
 
 private:
     /**
@@ -71,7 +76,7 @@ private:
      * Must be called before creating the windows
      *
      */
-    void setGlAttributes();
+    static void setGlAttributes();
     
     /**
      * @brief Sets one GL_SDL attribute, checks if there was any error while enabling it
@@ -90,14 +95,13 @@ private:
      * @brief Initialize SDL, checks if there is any error while doing it
      * Must be called before creating window
      */
-    void initSDL();
+    static void initSDL();
     
     /**
-     * @brief Initialize the window, setting its flags
+     * @brief Initialize the window with its title, setting its flags
      * Checks if there is any error while doing it.
      */
-    void createWindow();
-    
+    void createWindow(const char *title);
     
     /**
      * @brief The SDL window object
@@ -109,19 +113,7 @@ private:
      *
      */
     SDL_bool fullscreen;
-    /**
-     * @brief OpenGL context
-     *
-     */
-    SDL_GLContext context;
-    /**
-     * @brief Stores the window name, shown in the upper bar
-     * ________________________________________________
-     * |"windowTitle"·····················|·_·|·D·|·X·|
-     * |______________________________________________|
-     * |··············································|
-     */
-    const char *windowTitle;
+    
     /**
      * @brief Variable where the window height is stored
      *

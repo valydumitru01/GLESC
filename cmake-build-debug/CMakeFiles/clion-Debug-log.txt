@@ -1,4 +1,0 @@
-"C:\Program Files\JetBrains\CLion 2022.3.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Program Files/JetBrains/CLion 2022.3.2/bin/ninja/win/x64/ninja.exe" -DCMAKE_CXX_COMPILER=C:/MinGW/bin/g++.exe -G Ninja -S C:\Users\valyd\Desktop\Github_Repos\TFG---OpenGL-Engine -B C:\Users\valyd\Desktop\Github_Repos\TFG---OpenGL-Engine\cmake-build-debug
--- Configuring done
--- Generating done
--- Build files have been written to: C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/cmake-build-debug

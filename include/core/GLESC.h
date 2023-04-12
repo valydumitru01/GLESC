@@ -7,6 +7,7 @@
 #include "core/Types.h"
 
 #include "ecs/entities/Entity.h"
+#include "core/ECSContainer.h"
 
 #include "ecs/systems/System.h"
 #include "ecs/systems/InputSystem.h"
@@ -24,12 +25,13 @@
 
 class GLESC {
     friend int main();
+    
+    
+protected:
+    GLESC();
+    ~GLESC();
 
 private:
-    GLESC();
-    
-    ~GLESC();
-    
     /**
      * @brief Is called every frame, must be called at constant intervals of time as it does not use elapsed, more
      * information https://www.gameprogrammingpatterns.com/game-loop.html
@@ -47,6 +49,14 @@ private:
      * @brief If true, the game is running. If false, the game is stopped.
      */
     bool running = true;
+    /**
+     * @brief Handles the window of the game
+     */
+    std::shared_ptr <WindowManager> windowManager;
+    /**
+     * @brief Handles the renderer of the game
+     */
+    std::shared_ptr <Renderer> renderer;
     
     /**
      * @brief The systems of the game
@@ -57,13 +67,7 @@ private:
     PhysicsSystem physicsSystem;
     RenderSystem renderSystem;
     CameraSystem cameraSystem;
-    
-    /**
-     * @brief Handles the window of the game
-     */
-    shared_ptr <WindowManager> windowManager;
-    
-    Renderer renderer;
+
 
 public:
     void init();

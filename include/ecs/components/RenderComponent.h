@@ -2,39 +2,28 @@
 
 #include <GL/glew.h>
 
+#include <utility>
+
 #include "Component.h"
+#include "renderer/Mesh.h"
 
 class RenderComponent : public Component {
-    RenderComponent() {
-        glGenVertexArrays(1, &VAO);
-        glGenBuffers(1, &VBO);
-        model = glm::mat4(1.0f);
-    }
 
 public:
+    explicit RenderComponent() : textureID(0), color(glm::vec4(1.0f)) {
+    }
+    
+    GLuint textureID;
+    std::string texturePath;
+    
     /**
-     * @brief The vertex array object
-     * Contains the information a vertex stores
+     * @brief The mesh of the object
+     * Contains the vertices and indices of the object
+     * The data stored in a vertex is position, color, texture coordinates and normal
      */
-    GLuint VAO{};
-    /**
-     * @brief The vertex buffer object
-     * Contains the vertices of the object
-     *
-     *
-     */
-    GLuint VBO{};
-    /**
-     * @brief The element buffer object
-     * Contains the indices of the vertices
-     */
-    GLuint EBO{};
-    /**
-     * @brief The model matrix
-     * Contains the position, rotation and scale of the object in the world
-     * It is used to transform the vertices of the object
-     */
-    glm::mat4 model{};
+    Mesh mesh;
+    
+    glm::vec4 color;
 };
 
 

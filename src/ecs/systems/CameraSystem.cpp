@@ -1,16 +1,30 @@
+#include <utility>
+
 #include "ecs/systems/CameraSystem.h"
 
-CameraSystem::CameraSystem() : view{}, projection{} {
+
+void CameraSystem::init() {
     addComponentRequirement <CameraComponent>();
     addComponentRequirement <TransformComponent>();
+    
+    // Set up the projection matrix
+    // Only needs to be done once
+    // Only one camera is supported at the moment
+    // TODO: Support multiple cameras
+    for (auto &entity: getAssociatedEntities()) {
+        auto &camera = getComponent <CameraComponent>(entity);
+        projection = makeProjectionMatrix(camera);
+    }
 }
 
 void CameraSystem::update() {
     for (auto &entity: getAssociatedEntities()) {
         auto &transform = getComponent <TransformComponent>(entity);
         auto &camera = getComponent <CameraComponent>(entity);
-        projection = makeProjectionMatrix(camera);
         view = makeViewMatrix(transform);
+        
+        renderer->setProjectionMatrix(projection);
+        renderer->setViewMatrix(view);
         
     }
 }
@@ -21,9 +35,10 @@ glm::mat4 CameraSystem::makeProjectionMatrix(CameraComponent &camera) {
 }
 
 glm::mat4 CameraSystem::makeViewMatrix(TransformComponent &transform) {
-    glm::vec3 eye = transform.position;
-    glm::vec3 center = transform.position + transform.rotation;
-    glm::vec3 up = glm::vec3(0.0F, 1.0F, 0.0F);
-    return glm::lookAt(eye, center, up);
-    
+    return glm::inverse(transform.model);
 }
+
+void CameraSystem::setRenderer(shared_ptr <Renderer> &rendererParam) {
+    renderer = std::move(rendererParam);
+}
+
