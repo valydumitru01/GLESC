@@ -1,5 +1,2 @@
-change console::error and exit for throw EngineError
-fix renderer
-fix texture manager
-check for templates in cpp
-fix for linux
+TODO: fix for linux
+TODO: refactor static libraries for bin/debug and bin/release
