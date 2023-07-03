@@ -2,7 +2,7 @@
 #include <memory>
 
 
-#include "renderer/WindowManager.h"
+#include "plat-independence/window/WindowManager.h"
 #include "engine/foundation/FPS.h"
 #include "ecs/ECSTypes.h"
 
@@ -58,10 +58,7 @@ private:
      * @brief Handles the window of the game
      */
     std::shared_ptr <WindowManager> windowManager;
-    /**
-     * @brief Handles the renderer of the game
-     */
-    std::shared_ptr <Renderer> renderer;
+
     
     /**
      * @brief The systems of the game

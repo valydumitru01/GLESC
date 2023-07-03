@@ -57,16 +57,16 @@ private:
     
     void entitySignatureChanged() {
 #ifdef DEBUG
-        Console::importantInfoBlue("Entity signature changed. Updated systems: ");
+        Logger::get().importantInfoBlue("Entity signature changed. Updated systems: ");
         for (auto &pair: systems) {
             auto const &system = pair.first;
             auto const &signature = pair.second.first;
             auto &entities = pair.second.second;
             for (auto const &entity: entities) {
                 if ((signatures[entity] & signature) == signature) {
-                    Console::infoBlue("Entity" + std::to_string(entity) + " is added to " + system);
+                    Logger::get().infoBlue("Entity" + std::to_string(entity) + " is added to " + system);
                 } else {
-                    Console::infoBlue("Entity" + std::to_string(entity) + " is removed from " + system);
+                    Logger::get().infoBlue("Entity" + std::to_string(entity) + " is removed from " + system);
                 }
             }
         }

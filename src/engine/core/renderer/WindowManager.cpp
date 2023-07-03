@@ -1,5 +1,6 @@
 #include "engine/plat-independence/window/WindowManager.h"
-
+#include "engine/foundation/logger/Logger.h"
+#include <string>
 WindowManager::WindowManager(const char *title) : window(nullptr), fullscreen(SDL_FALSE),
                                                   height(800),
                                                   width(1200) {
@@ -11,7 +12,7 @@ WindowManager::WindowManager(const char *title) : window(nullptr), fullscreen(SD
     
 }
 
-void WindowManager::setGlAttributes() {
+void WindowManager::setAttributes() {
     
     // Attributes that configure SDL with OpenGL
     // More info: https://wiki.libsdl.org/SDL_GLattr
@@ -28,10 +29,10 @@ void WindowManager::setGlAttributes() {
     setGlAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, major);
     setGlAttribute(SDL_GL_CONTEXT_MINOR_VERSION, minor);
     
-    Console::importantInfo("OpenGL Version: " + std::to_string(major) + "." +
-                     std::to_string(minor));
+    Logger::get().importantInfo("OpenGL Version: " + std::to_string(major) + "." +
+                                std::to_string(minor));
     #ifdef DEBUG
-    Console::warning("ENTERING DEBUG MODE");
+    Logger::get().warning("ENTERING DEBUG MODE");
     // Enables debug mode
     // Improves debugging outputs
     // Possible performance loss
@@ -46,19 +47,19 @@ void WindowManager::setGlAttributes() {
 
 void WindowManager::setGlAttribute(SDL_GLattr attrib, int val) {
     if (SDL_GL_SetAttribute(attrib, val) == -1)
-        throw EngineException("Unable to set gl attribute: " + string(SDL_GetError()));
+        throw EngineException("Unable to set gl attribute: " + std::string(SDL_GetError()));
     
 }
 
 void WindowManager::initSDL() {
     
     if (SDL_Init(SDL_INIT_EVERYTHING) != 0)
-        throw EngineException("Unable to initialize SDL: " + string(SDL_GetError()));
+        throw EngineException("Unable to initialize SDL: " + std::string(SDL_GetError()));
     
-    Console::success("SDL Initialized!");
+    Logger::get().success("SDL Initialized!");
     
     // Applying SDL_GL attributes
-    setGlAttributes();
+    setAttributes();
 }
 
 void WindowManager::createWindow(const char *title) {
@@ -72,7 +73,7 @@ void WindowManager::createWindow(const char *title) {
     // Create a shared_ptr to an SDL_Window and assign it to 'window'
     window = std::shared_ptr <SDL_Window>(rawWindow, SDL_DestroyWindow);
     
-    Console::success("Window created!");
+    Logger::get().success("Window created!");
     SDL_SetWindowMinimumSize(window.get(), WINDOW_MIN_WIDTH, WINDOW_MIN_HEIGHT);
     
 }
@@ -86,7 +87,7 @@ void WindowManager::setSize(GLsizei windowWidth, GLsizei windowHeight) {
 
 void WindowManager::setMouseRelative(bool enabled) {
     SDL_bool isRelative;
-    string failOutput;
+    std::string failOutput;
     if (enabled) {
         isRelative = SDL_TRUE;
         failOutput = "disable";
@@ -97,7 +98,7 @@ void WindowManager::setMouseRelative(bool enabled) {
     
     // Tells SDL whether we want to set relative mode to our mouse.
     if (SDL_SetRelativeMouseMode(isRelative) == -1)
-        throw EngineException("Unable to " + failOutput + " mouse relative mode: " + string(SDL_GetError()));
+        throw EngineException("Unable to " + failOutput + " mouse relative mode: " + std::string(SDL_GetError()));
 }
 
 int WindowManager::getRaisedFlags() {

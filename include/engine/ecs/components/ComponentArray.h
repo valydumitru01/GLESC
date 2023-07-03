@@ -19,7 +19,7 @@ public:
     void insertData(EntityID entity, T component) {
 #ifdef DEBUG
         const char *name = typeid(T).name();
-        Console::importantInfo("Adding component \"" + std::string(name) + "\" to entity" + std::to_string(entity));
+        Logger::get().importantInfo("Adding component \"" + std::string(name) + "\" to entity" + std::to_string(entity));
         printEntityToIndexMap("Map before inserting:",entityToIndexMap);
         if (entityToIndexMap.left.find(entity) != entityToIndexMap.left.end()) {
             throw EngineException("Component added to same entity more than once.");
@@ -36,12 +36,12 @@ public:
     }
     
     void printEntityToIndexMap(const std::string& message,const boost::bimap <EntityID, size_t> &map) {
-        Console::importantInfoBlue(message);
+        Logger::get().importantInfoBlue(message);
         const char *name = typeid(T).name();
-        Console::infoBlue("Array of " + std::string(name));
-        Console::infoBlue("\tEntityToIndexMap size: " + std::to_string(map.size()));
+        Logger::get().infoBlue("Array of " + std::string(name));
+        Logger::get().infoBlue("\tEntityToIndexMap size: " + std::to_string(map.size()));
         for (const auto &entry: map) {
-            Console::infoBlue(
+            Logger::get().infoBlue(
                     "\tEntity ID: " + std::to_string(entry.left) + ", Array Index: " + std::to_string(entry.right));
         }
     }
@@ -55,7 +55,7 @@ public:
     void entityDestroyed(EntityID entity) override {
 #ifdef DEBUG
         const char *name = typeid(T).name();
-        Console::importantInfoPurple("Removing component \"" + std::string(name) + "\" from entity" + std::to_string(entity));
+        Logger::get().importantInfoPurple("Removing component \"" + std::string(name) + "\" from entity" + std::to_string(entity));
         
         printEntityToIndexMap("Removing from map:",entityToIndexMap);
         if (entityToIndexMap.left.find(entity) == entityToIndexMap.left.end()) {
@@ -85,7 +85,7 @@ public:
     T &getData(EntityID entity) {
 #ifdef DEBUG
         //const char *name = typeid(T).name();
-        //Console::importantInfo(
+        //Logger::get().importantInfo(
         //        "Accessing component \"" + std::string(name) + "\" from entity" + std::to_string(entity));
         
         //printEntityToIndexMap("Accessed map:",entityToIndexMap);

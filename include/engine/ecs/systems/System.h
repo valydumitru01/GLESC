@@ -12,11 +12,11 @@ public:
     
     explicit System(const std::string &name) {
         this->name = name;
-        Console::importantInfo("Registering system: " + name);
+        Logger::get().importantInfo("Registering system: " + name);
         // Create a signature for this system
         assert(!ECS::getECS()->systemIsRegistered(name) && "Registering system more than once.");
         ECS::getECS()->registerSystem(name);
-        Console::success("Registered system: " + name);
+        Logger::get().success("Registered system: " + name);
         
     }
     

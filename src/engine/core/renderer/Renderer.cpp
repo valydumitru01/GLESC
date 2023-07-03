@@ -66,7 +66,7 @@ void Renderer::initGLEW() {
         throw EngineException(
                 "Unable to initialize GLEW: " + std::string(reinterpret_cast<const char *>(glewGetErrorString(err))));
     
-    Console::success("Glew Initialized!");
+    Logger::get().success("Glew Initialized!");
     
     // This makes our buffer swap synchronized with the monitor's vertical refresh
     // Parameters: 0 for immediate updates, 1 for updates synchronized with the vertical retrace, -1 for adaptive v-sync
@@ -82,7 +82,7 @@ void Renderer::initGlContext() {
     if ((context = SDL_GL_CreateContext(windowManager->getWindow())) == nullptr)
         throw EngineException("Unable to create context: " + string(SDL_GetError()));
     else
-        Console::success("GL context created!");
+        Logger::get().success("GL context created!");
     
     // Tells OpenGL which size is the viewport where things are displayed
     // Must be called after creating the context

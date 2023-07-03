@@ -29,7 +29,7 @@ std::string ShaderManager::readContentFromFile(const std::string &filePath) {
     contentStream << fileStream.rdbuf();
     fileStream.close();
     
-    Console::success("Shader file read successfully: " + filePath);
+    Logger::get().success("Shader file read successfully: " + filePath);
     return contentStream.str();
 }
 

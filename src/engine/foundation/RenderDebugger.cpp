@@ -106,7 +106,7 @@ void RenderDebugger::initDebugCallback() {
     glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS);
     glDebugMessageCallback(glDebugCallback, nullptr);
     glDebugMessageControl(GL_DONT_CARE, GL_DONT_CARE, GL_DONT_CARE, 0, nullptr, GL_TRUE);
-    Console::warning("Debug callback initialized");
+    Logger::get().warning("Debug callback initialized");
 }
 
 void RenderDebugger::glDebugCallback(GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length,

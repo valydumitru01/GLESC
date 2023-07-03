@@ -3,8 +3,6 @@
 #include <memory>
 #include "SDL2/SDL.h"
 #include "GL/glew.h"
-
-#include "engine/core/debug-profile/Console.h"
 #include "engine/foundation/exceptions/EngineException.h"
 
 /**
@@ -76,7 +74,7 @@ private:
      * Must be called before creating the windows
      *
      */
-    static void setGlAttributes();
+    static void setAttributes();
     
     /**
      * @brief Sets one GL_SDL attribute, checks if there was any error while enabling it
@@ -107,7 +105,7 @@ private:
      * @brief The SDL window object
      *
      */
-    shared_ptr <SDL_Window> window;
+    std::shared_ptr <SDL_Window> window;
     /**
      * @brief True if is fullscreen and false if it is not
      *

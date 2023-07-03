@@ -25,11 +25,11 @@ public:
         
         // Take an ID from the front of the queue
         ID = ECS::getECS()->getNextEntityID();
-        Console::info("Entity created with ID: " + std::to_string(ID));
+        Logger::get().info("Entity created with ID: " + std::to_string(ID));
     }
     
     ~Entity() {
-        Console::info("Entity destroyed with ID: " + std::to_string(ID));
+        Logger::get().info("Entity destroyed with ID: " + std::to_string(ID));
         ECS::getECS()->entityDestroyed(ID);
     }
     

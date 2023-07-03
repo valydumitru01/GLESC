@@ -3,25 +3,25 @@
 
 int SDL_main() {
     GLESC glesc;
-    //Console::success("GLESC initialized");
+    //Logger::get().success("GLESC initialized");
     FPS fps(FpsRates::Fps60);
-    Console::init();
+    Logger::get().init();
     
     glesc.initGame();
-    //Console::success("Game initialized");
+    //Logger::get().success("Game initialized");
     int iterations = 0;
     int updates = 0;
     while (glesc.running) {
         fps.timeFrame();
-        //Console::info("-----Processing Input " + std::to_string(iterations++) + "-----");
+        //Logger::get().info("-----Processing Input " + std::to_string(iterations++) + "-----");
         glesc.processInput();
         while (fps.isLagged()) // Update executes in constant intervals
         {
-        //    Console::info("-----Updating " + std::to_string(updates++) + "-----");
+        //    Logger::get().info("-----Updating " + std::to_string(updates++) + "-----");
             glesc.update();
             fps.updateLag();
         }
-        //Console::info("-----Rendering " + std::to_string(iterations) + "-----");
+        //Logger::get().info("-----Rendering " + std::to_string(iterations) + "-----");
         //Render execute arbitrarily, depending on how much time update() takes
         glesc.render(fps.getTimeOfFrameAfterUpdate());
     }

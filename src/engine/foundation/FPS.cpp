@@ -15,19 +15,19 @@ void FPS::timeFrame() {
 }
 
 bool FPS::isLagged() const {
-    //Console::info("Lag:" + std::to_string(lag));
+    //Logger::get().info("Lag:" + std::to_string(lag));
     return lag >= msPerUpdate;
 }
 
 void FPS::updateLag() {
-    //Console::info("Updating lag: " + std::to_string(lag) + " - " + std::to_string(msPerUpdate) + " = " +
+    //Logger::get().info("Updating lag: " + std::to_string(lag) + " - " + std::to_string(msPerUpdate) + " = " +
     //              std::to_string(lag - msPerUpdate) + " ms");
     lag -= msPerUpdate;
 }
 
 void FPS::delay() const {
     auto dif = static_cast<int32_t>(fpsMs - elapsed);
-    //Console::info("Delaying by:" + std::to_string(dif));
+    //Logger::get().info("Delaying by:" + std::to_string(dif));
     if (dif > 0)
         SDL_Delay(dif); // Cap the FPS, wait until we get to minimum frame time
 }
