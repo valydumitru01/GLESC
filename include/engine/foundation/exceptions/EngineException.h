@@ -1,8 +1,8 @@
 #pragma once
+
 #include "BaseException.h"
 
-
-class EngineException  :public BaseException{
+class EngineException : public BaseException {
 public:
-    explicit EngineException(const std::string &message);
+    explicit EngineException(const std::string &message) : BaseException(message) {}
 };

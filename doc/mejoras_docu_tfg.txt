@@ -1,0 +1,19 @@
+Introducir portada mas formal con Uniovi, mas parecida a la de benjamin -- DONE
+Índice
+Índice de contenidos
+Índice de tablas
+
+Memoria del proyecto:
+	Que informacion el lector se va a encontrar, desarrollar
+	
+Objetivos: Sin consideracion tecnica, mas generales
+Requisitos: Mas especificos con tecnicismos
+Aspectos teoricos: Algoritmos, matematicas, etc
+No hace falta repetir cosas demasiados tecnicas, solo relevante de forma exhaustiva, las demas solo referenciar. 
+
+Planificación: mejor separar el proyecto en modulos, luego hacer analisis diseño implementación y pruebas. 
+Para el tfg, habria que identificar los entregables y luego las tareas también.
+WBS, PBS
+
+Presupuesto: quedamos por aqui
+Presupuesto de costes: 

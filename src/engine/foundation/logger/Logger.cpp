@@ -6,6 +6,7 @@ Logger::Logger() {
 }
 
 Logger& Logger::get() {
+    static Logger logger = Logger(); // Guaranteed to be destroyed.
     return logger;
 }
 

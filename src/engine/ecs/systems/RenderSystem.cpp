@@ -1,6 +1,6 @@
 #include <utility>
 
-#include "ecs/systems/RenderSystem.h"
+#include "engine/ecs/systems/RenderSystem.h"
 
 
 void RenderSystem::init() {
@@ -23,6 +23,7 @@ void RenderSystem::update(const double timeOfFrame) {
         auto &render = getComponent <RenderComponent>(entity);
         auto &transform = getComponent <TransformComponent>(entity);
         
+        renderer->renderMesh(render.mesh, transform.position, transform.rotation, transform.scale);
         glm::mat4 model = renderer->calculateModelMatrix(transform.position, transform.rotation, transform.scale);
         
         // Set the model matrix uniform in the shader

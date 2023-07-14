@@ -1,33 +1,34 @@
 #pragma once
 
-#include "SDL2/SDL.h"
-#include "GL/glew.h"
 #include <memory>
+#include "GL/glew.h"
 
+#include "SDL2/SDL.h"
 #include "glm/glm.hpp"
 #include "glm/gtc/matrix_transform.hpp"
 #include "glm/gtc/type_ptr.hpp"
 
-#include "engine/core/renderer/shaders/ShaderManager.h"
 #include "TextureManager.h"
-#include "engine/plat-independence/window/WindowManager.h"
 #include "RenderDebugger.h"
-#include "engine/foundation/exceptions/EngineException.h"
+
+#include "engine/core/renderer/shaders/ShaderManager.h"
+#include "engine/plat-independence/window/WindowManager.h"
+#include "engine/exceptions/EngineException.h"
+#include "engine/plat-independence/graphics-device-interface/GraphicsInterface.h"
+
 #include "GlApi.h"
+#include "Mesh.h"
 
 
 class Renderer {
 public:
-    explicit Renderer(shared_ptr <WindowManager> &windowManager);
+    explicit Renderer(const std::shared_ptr <WindowManager> &windowManager,
+                      const std::shared_ptr <GraphicsInterface> &graphicsInterface);
     
     ~Renderer();
     
-    /**
-     * @brief Initialize GLEW
-     * Must be called after the window is created and the OpenGL context is initialized
-     */
-    static void initGLEW();
     
+    void renderMesh(Mesh &mesh, const glm::vec3 &position, const glm::vec3 &rotation, const glm::vec3 &scale);
     
     /**
      * @brief Get the shader manager object
@@ -47,12 +48,6 @@ public:
      */
     [[nodiscard]] TextureManager &getTextureManager();
     
-    
-    /**
-     * @brief Initialize OpenGL context
-     * Must be called after the window is created
-     */
-    void initGlContext();
     
     [[nodiscard]] SDL_GLContext &getContext();
     
@@ -96,6 +91,7 @@ public:
      * @return view matrix
      */
     static glm::mat4 makeViewMatrix(const glm::vec3 &position, const glm::vec3 &rotation, const glm::vec3 &scale);
+    
     /**
      * @brief Calculate the model matrix for a given position, rotation, and scale
      * @details Given the position, rotation, and scale, this method calculates the model matrix
@@ -147,6 +143,4 @@ private:
      * @see https://learnopengl.com/Getting-started/Coordinate-Systems
      */
     glm::mat4 view;
-    
-    
 };

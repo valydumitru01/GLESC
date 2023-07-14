@@ -4,7 +4,7 @@
 #include "engine/ecs/ECSContainer.h"
 #include "engine/ecs/components/ComponentArray.h"
 #include "engine/ecs/components/RenderComponent.h"
-#include "engine/foundation/exceptions/EngineException.h"
+#include "engine/exceptions/EngineException.h"
 
 #include <memory>
 #include <cassert>

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "core/GLESC.h"
+#include "engine/GLESC.h"
 
 class Game : public GLESC {
 

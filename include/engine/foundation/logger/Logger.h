@@ -9,10 +9,29 @@
 
 class Logger : public ILogger{
 public:
-    Logger();
-
+    /**
+     * @brief Copy constructor is deleted
+     * @details Copy constructor is deleted because we don't want to have multiple instances of Logger
+     * @param Logger&
+     */
+    Logger(const Logger&) = delete;
+    /**
+     * @brief Assignment operator is deleted
+     * @details Assignment operator is deleted because we don't want to have multiple instances of Logger
+     * @return Logger&
+     */
+    Logger& operator=(const Logger&) = delete;
+    /**
+     * @brief Executes given function on all loggers
+     * @param func
+     * @param text
+     */
     void executeOnAllInputs(void (ILogger::*func)(const std::string&), const std::string &text);
-
+    /**
+     * @brief Get the Logger object
+     * @details Get the Logger object. This is a singleton.
+     * @return Logger&
+     */
     static Logger& get();
 
     void addLogger(std::unique_ptr<ILogger> loggerParam);
@@ -37,7 +56,8 @@ public:
 
     void success(const std::string &text) override;
 private:
+    Logger();
+    
     std::vector<std::unique_ptr<ILogger>> loggers;
-    static Logger logger;
 };
 

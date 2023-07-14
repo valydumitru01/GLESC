@@ -5,7 +5,7 @@
 #include <utility>
 
 #include "Component.h"
-#include "engine/renderer/Mesh.h"
+#include "engine/core/renderer/Mesh.h"
 
 class RenderComponent : public Component {
 

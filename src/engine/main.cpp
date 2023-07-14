@@ -1,11 +1,10 @@
-#include "core/GLESC.h"
-#include "core/FPS.h"
+#include "engine/GLESC.h"
+#include "engine/foundation/FPS.h"
 
 int SDL_main() {
     GLESC glesc;
     //Logger::get().success("GLESC initialized");
     FPS fps(FpsRates::Fps60);
-    Logger::get().init();
     
     glesc.initGame();
     //Logger::get().success("Game initialized");

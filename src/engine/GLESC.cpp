@@ -1,7 +1,9 @@
 #include "engine/GLESC.h"
 
-GLESC::GLESC() : running(true), windowManager(make_shared <WindowManager>("GLESC")),
+GLESC::GLESC() : running(true), windowManager(std::make_shared <WindowManager>("GLESC")),
                  renderer(make_shared <Renderer>(windowManager)), inputSystem(running) {
+    
+    
     
     cameraSystem.setRenderer(renderer);
     renderSystem.setRenderer(renderer);
@@ -9,7 +11,6 @@ GLESC::GLESC() : running(true), windowManager(make_shared <WindowManager>("GLESC
     // Must be done before the systems are created
     // Because the systems need to know what components they are working with
     // TODO: Make this automatic
-    inputSystem.init();
     physicsSystem.init();
     renderSystem.init();
     cameraSystem.init();

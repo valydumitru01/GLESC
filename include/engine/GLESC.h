@@ -3,7 +3,7 @@
 
 
 #include "plat-independence/window/WindowManager.h"
-#include "engine/foundation/FPS.h"
+#include "engine/plat-independence/fps/FPS.h"
 #include "ecs/ECSTypes.h"
 
 #include "ecs/entities/Entity.h"
@@ -64,7 +64,6 @@ private:
      * @brief The systems of the game
      * @note The order of the systems is important, as the systems are updated in the order they are declared
      */
-    InputSystem inputSystem;
     PhysicsSystem physicsSystem;
     RenderSystem renderSystem;
     CameraSystem cameraSystem;
@@ -72,7 +71,7 @@ private:
     /**
      * @brief The entities of the game
      */
-    unordered_map <std::string, Entity> entities;
+    std::unordered_map <std::string, Entity> entities;
 public:
     void initGame();
     

@@ -4,7 +4,7 @@
 #include <unordered_map>
 #include <boost/bimap.hpp>
 #include "engine/ecs/ECSTypes.h"
-#include "engine/foundation/exceptions/EngineException.h"
+#include "engine/exceptions/EngineException.h"
 
 class IComponentArray {
 public:

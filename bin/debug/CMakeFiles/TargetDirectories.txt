@@ -1,0 +1,3 @@
+C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug/CMakeFiles/game.dir
+C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug/CMakeFiles/edit_cache.dir
+C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug/CMakeFiles/rebuild_cache.dir

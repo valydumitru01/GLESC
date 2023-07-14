@@ -1,7 +1,7 @@
 
 #include <memory>
-#include "engine/plat-independence/graphics-device-interface/concrete-gdi/OpenGLGDI.h"
-#include "engine/plat-independence/graphics-device-interface/concrete-gdi/VulkanGDI.h"
+#include "engine/plat-independence/graphics-device-interface/concrete-gdi/opengl/OpenGLGDI.h"
+#include "engine/plat-independence/graphics-device-interface/concrete-gdi/vulkan/VulkanGDI.h"
 #include "GraphicsInterface.h"
 
 class GDIFactory {

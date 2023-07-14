@@ -1,3 +1,5 @@
+#pragma once
+#include <fstream>
 #include "engine/foundation/logger/ILogger.h"
 
 class FileLogger : public ILogger
@@ -24,4 +26,6 @@ public:
     void importantInfoPurple(const std::string &text) override;
     
     void success(const std::string &text) override;
+private:
+    std::ofstream logFile;
 };

@@ -1,3 +1,4 @@
+#pragma once
 #include "engine/foundation/logger/ILogger.h"
 
 class TerminalLogger : public ILogger
@@ -24,4 +25,5 @@ public:
     void importantInfoPurple(const std::string &text) override;
     
     void success(const std::string &text) override;
+
 };

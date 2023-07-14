@@ -1,0 +1,5 @@
+# ninja log v5
+40	2204	7095812718711496	CMakeFiles/game.dir/src/game/GUI.cpp.obj	89016a5102e285a0
+6056	11790	7095812814487752	game.exe	374d9050b55e3e47
+49	5615	7095812752812343	CMakeFiles/game.dir/src/game/Game.cpp.obj	6bbf5d37481c8608
+25	1756	7108674523454964	CMakeFiles/game.dir/src/engine/core/input/InputManager.cpp.obj	adfb30a084df0f35

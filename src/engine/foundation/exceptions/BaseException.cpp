@@ -1,6 +1,8 @@
-#include "exceptions/BaseException.h"
-
-BaseException::BaseException(const string &message) : runtime_error(message){
+#include "engine/foundation/exceptions/BaseException.h"
+#include <iostream>
+#include <boost/stacktrace.hpp>
+#include <sstream>
+BaseException::BaseException(const std::string &message) : runtime_error(message){
     const auto exePath = PROJECT_BINARY_DIR + std::string("/") + std::string(PROJECT_NAME)
             + std::string(".exe");
     const auto st = boost::stacktrace::stacktrace();
@@ -21,7 +23,7 @@ BaseException::BaseException(const string &message) : runtime_error(message){
 }
 
 
-std::string BaseException::addr2Line(const string &addr, const string &exePath) {
+std::string BaseException::addr2Line(const std::string &addr, const std::string &exePath) {
     std::ostringstream command;
     command << "addr2line -f -C -e " << exePath << " " << addr;
     

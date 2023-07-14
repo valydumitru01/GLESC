@@ -9,7 +9,7 @@
 #include "engine/foundation/data-structures/BidirectionalMap.h"
 #include "engine/core/debug-profile/Console.h"
 #include "RenderDebugger.h"
-#include "engine/foundation/exceptions/EngineException.h"
+#include "engine/exceptions/EngineException.h"
 
 class TextureManager {
 public:

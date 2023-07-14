@@ -3,7 +3,8 @@
 #include <memory>
 #include "SDL2/SDL.h"
 #include "GL/glew.h"
-#include "engine/foundation/exceptions/EngineException.h"
+#include "engine/exceptions/EngineException.h"
+#include "engine/plat-independence/graphics-device-interface/GraphicsInterface.h"
 
 /**
  * @brief 1.77 is the standard ratio (16:9)
@@ -15,14 +16,14 @@
 
 class WindowManager {
 public:
-    explicit WindowManager(const char *title);
+    explicit WindowManager(const char *title, GraphicsInterface &graphicApi);
     
     /**
      * @brief Callback function when window size is modified
      * This will call glViewport with the new resolution
      *
      */
-    void setSize(GLint windowWidth, GLint windowHeight);
+    void setSize(int windowWidth, int windowHeight);
     
     /**
      * @brief Turn fullscreen on or off
@@ -69,25 +70,13 @@ public:
     [[nodiscard]] int getHeight() const;
 
 private:
-    /**
-     * @brief Sets GL_SDL attributes, such as the stencil size or GL version
-     * Must be called before creating the windows
-     *
-     */
-    static void setAttributes();
-    
-    /**
-     * @brief Sets one GL_SDL attribute, checks if there was any error while enabling it
-     *
-     */
-    static void setGlAttribute(SDL_GLattr attrib, int val);
     
     /**
      * @brief Initialize SDL_Window flags
      *
      * @return int the flags
      */
-    static int getRaisedFlags();
+    [[nodiscard]] static int getRaisedFlags();
     
     /**
      * @brief Initialize SDL, checks if there is any error while doing it
@@ -100,6 +89,12 @@ private:
      * Checks if there is any error while doing it.
      */
     void createWindow(const char *title);
+    
+    /**
+     * @brief The graphics API used by the window
+     *
+     */
+    GraphicsInterface &graphicApi;
     
     /**
      * @brief The SDL window object

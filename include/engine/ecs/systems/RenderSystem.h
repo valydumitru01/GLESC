@@ -15,7 +15,7 @@
 #include "engine/ecs/components/TransformComponent.h"
 #include "System.h"
 
-#include "engine/renderer/Renderer.h"
+#include "engine/core/renderer/Renderer.h"
 
 
 class RenderSystem : public System {
