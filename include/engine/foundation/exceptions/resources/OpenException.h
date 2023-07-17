@@ -2,8 +2,8 @@
 
 #include "engine/foundation/exceptions/EngineException.h"
 
-class OpenException : public EngineException{
+class OpenException : public EngineException {
 public:
-    explicit OpenException(const std::string &message) : EngineException("Open error:"+message) {}
+    explicit OpenException(const std::string &message) : EngineException(message) {}
 private:
 };

@@ -1,7 +1,7 @@
 #include "engine/plat-independence/graphics-device-interface/concrete-gdi/opengl/OpenGLGDI.h"
 #include "engine/foundation/logger/Logger.h"
 #include "engine/foundation/exceptions/plat-indep/GDIInitException.h"
-#include "OpenGLDebugger.h"
+#include "engine/plat-independence/graphics-device-interface/concrete-gdi/opengl/OpenGLDebugger.h"
 #include <string>
 void OpenGLGDI::init(std::shared_ptr<WindowManager> window) {
     this->window = window;
@@ -126,4 +126,88 @@ void OpenGLGDI::bindTexture(int textureID) {
 void OpenGLGDI::setGlAttribute(SDL_GLattr attrib, int val) {
     if (SDL_GL_SetAttribute(attrib, val) == -1)
         throw GDIException("Unable to set gl attribute: " + std::string(SDL_GetError()));
+}
+
+GLint OpenGLGDI::getUniformLocation(GLint program, const std::string &name) {
+    return glGetUniformLocation(program, name.c_str());
+}
+
+void OpenGLGDI::setUniform1Float(GLint location, GLfloat v0) {
+    glUniform1f(location, v0);
+}
+
+void OpenGLGDI::setUniform1FloatVector(GLint location, GLsizei count, const GLfloat *value) {
+    glUniform1fv(location, count, value);
+}
+
+void OpenGLGDI::setUniform1Int(GLint location, GLint v0) {
+    glUniform1i(location, v0);
+}
+
+void OpenGLGDI::setUniform1IntVector(GLint location, GLsizei count, const GLint *value) {
+    glUniform1iv(location, count, value);
+}
+
+void OpenGLGDI::setUniform2Float(GLint location, GLfloat v0, GLfloat v1) {
+    glUniform2f(location, v0, v1);
+}
+
+void OpenGLGDI::setUniform2FloatVector(GLint location, GLsizei count, const GLfloat *value) {
+    glUniform2fv(location, count, value);
+}
+
+void OpenGLGDI::setUniform2Int(GLint location, GLint v0, GLint v1) {
+    glUniform2i(location, v0, v1);
+}
+
+void OpenGLGDI::setUniform2IntVector(GLint location, GLsizei count, const GLint *value) {
+    glUniform2iv(location, count, value);
+}
+
+void OpenGLGDI::setUniform3Float(GLint location, GLfloat v0, GLfloat v1, GLfloat v2) {
+    glUniform3f(location, v0, v1, v2);
+}
+
+void OpenGLGDI::setUniform3FloatVector(GLint location, GLsizei count, const GLfloat *value) {
+    glUniform3fv(location, count, value);
+}
+
+void OpenGLGDI::setUniform3Int(GLint location, GLint v0, GLint v1, GLint v2) {
+    glUniform3i(location, v0, v1, v2);
+}
+
+void OpenGLGDI::setUniform3IntVector(GLint location, GLsizei count, const GLint *value) {
+    glUniform3iv(location, count, value);
+}
+
+void OpenGLGDI::setUniform4Float(GLint location, GLfloat v0, GLfloat v1, GLfloat v2, GLfloat v3) {
+    glUniform4f(location, v0, v1, v2, v3);
+}
+
+void OpenGLGDI::setUniform4FloatVector(GLint location, GLsizei count, const GLfloat *value) {
+    glUniform4fv(location, count, value);
+}
+
+void OpenGLGDI::setUniform4Int(GLint location, GLint v0, GLint v1, GLint v2, GLint v3) {
+    glUniform4i(location, v0, v1, v2, v3);
+}
+
+void OpenGLGDI::setUniform4IntVector(GLint location, GLsizei count, const GLint *value) {
+    glUniform4iv(location, count, value);
+}
+
+void OpenGLGDI::setUniformMatrix2FloatVector(GLint location, GLsizei count, GLboolean transpose, const GLfloat *value) {
+    glUniformMatrix2fv(location, count, transpose, value);
+}
+
+void OpenGLGDI::setUniformMatrix3FloatVector(GLint location, GLsizei count, GLboolean transpose, const GLfloat *value) {
+    glUniformMatrix3fv(location, count, transpose, value);
+}
+
+void OpenGLGDI::setUniformMatrix4FloatVector(GLint location, GLsizei count, GLboolean transpose, const GLfloat *value) {
+    glUniformMatrix4fv(location, count, transpose, value);
+}
+
+void OpenGLGDI::useShaderProgram(int shaderProgram) {
+    glUseProgram(shaderProgram);
 }

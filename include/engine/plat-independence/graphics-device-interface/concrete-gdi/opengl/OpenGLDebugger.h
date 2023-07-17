@@ -33,14 +33,14 @@ class OpenGLDebugger {
      * @details This callback is used to throw exceptions when an OpenGL error occurs
      * @param source
      * @param type
-     * @param id
+     * @param errorCode
      * @param severity
      * @param length
      * @param message
      * @param userParam
      */
     static void
-    glDebugCallback(GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar *message,
+    glDebugCallback(GLenum source, GLenum type, GLuint errorCode, GLenum severity, GLsizei length, const GLchar *message,
                     const void *userParam);
 
 public:

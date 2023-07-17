@@ -1,17 +1,19 @@
-
 #include "engine/plat-independence/graphics-device-interface/concrete-gdi/opengl/OpenGLDebugger.h"
 #include "engine/foundation/exceptions/plat-indep/GDIException.h"
 #include "SDL2/SDL.h"
 #include "engine/foundation/logger/Logger.h"
+#include <set>
 
-void OpenGLDebugger::glDebugCallback(GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length,
-                                const GLchar *message, const void *userParam) {
+void OpenGLDebugger::glDebugCallback(GLenum source, GLenum type, GLuint errorCode, GLenum severity, GLsizei length,
+                                     const GLchar *message, const void *userParam) {
     // ignore non-significant error/warning codes
-    if (id == 131169 || id == 131185 || id == 131218 || id == 131204)
+    const std::set<GLuint> nonSignificantErrorCodes = {131169, 131185, 131218, 131204};
+    if (nonSignificantErrorCodes.find(errorCode) != nonSignificantErrorCodes.end()) {
         return;
+    }
     
     throw GDIException(
-            "Debug message (" + std::to_string(id) + "): " + message + " | " + errorStringFromSource(source) + " | " +
+            "Debug message (" + std::to_string(errorCode) + "): " + message + " | " + errorStringFromSource(source) + " | " +
             errorStringFromType(type) + " | " + errorStringFromSeverity(severity));
     
 }

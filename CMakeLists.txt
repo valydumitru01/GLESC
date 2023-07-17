@@ -4,8 +4,8 @@ project(game)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Add find_package for Boost
 find_package(Boost REQUIRED)
+find_package(GTest REQUIRED)
 # ------------ FOLDER LOCATIONS ------------
 set(SRC_DIR src)
 set(LIB_SRC_DIR lib/src)
@@ -21,6 +21,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE ${CMAKE_SOURCE_DIR}/bin/release)
 # ------------ SOURCE FILES ------------
 file(GLOB_RECURSE SOURCE_FILES "${SRC_DIR}/**/*.cpp")
 file(GLOB_RECURSE LIB_SOURCE_FILES "${LIB_SRC_DIR}/*.cpp")
+file(GLOB_RECURSE TEST_FILES "tests/**/*.cpp")
 
 # ------------ MACRO DEFINITIONS ------------
 add_definitions(-DPROJECT_SOURCE_DIR=\"${CMAKE_SOURCE_DIR}\")
@@ -46,6 +47,7 @@ endif ()
 
 # ------------ EXECUTABLE ------------
 add_executable(game ${SOURCE_FILES} ${LIB_SOURCE_FILES})
+
 
 # ------------ INCLUDE DIRECTORIES ------------
 # Must be added before linking libraries
@@ -80,3 +82,13 @@ endif ()
 
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG")
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O3 -DRELEASE -DNDEBUG -s -fno-rtti -fno-exceptions")
+
+###################################
+# ------------ TESTING -----------#
+# --------------------------------#
+
+add_executable(game_test ${TEST_FILES} ${LIB_SOURCE_FILES})
+target_include_directories(game_test PRIVATE ${INCLUDE_DIR} ${LIB_INCLUDE_DIR} ${Boost_INCLUDE_DIRS})
+target_link_libraries(game_test GTest::GTest GTest::Main)
+enable_testing()
+add_test(NAME MyGameTest COMMAND game_test)
