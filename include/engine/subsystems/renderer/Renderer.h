@@ -8,13 +8,13 @@
 #include "glm/gtc/matrix_transform.hpp"
 #include "glm/gtc/type_ptr.hpp"
 
-#include "TextureManager.h"
+#include "engine/res-mng/textures/TextureManager.h"
 #include "RenderDebugger.h"
 
-#include "engine/core/renderer/shaders/ShaderManager.h"
-#include "engine/plat-independence/window/WindowManager.h"
-#include "engine/exceptions/EngineException.h"
-#include "engine/plat-independence/graphics-device-interface/GraphicsInterface.h"
+#include "engine/subsystems/renderer/shaders/ShaderManager.h"
+#include "engine/core/window/WindowManager.h"
+#include "engine/core/exceptions/EngineException.h"
+#include "engine/core/graphics-device-interface/GraphicsInterface.h"
 
 #include "GlApi.h"
 #include "Mesh.h"

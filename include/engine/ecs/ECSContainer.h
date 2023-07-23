@@ -2,92 +2,59 @@
 
 #include "ECSTypes.h"
 #include "engine/ecs/components/ComponentArray.h"
+#include "engine/core/logger/Logger.h"
+#include "engine/core/asserts/Asserts.h"
 
 #include <memory>
-#include <cassert>
 #include <unordered_map>
 #include <array>
 #include <vector>
-#include <bitset>
 #include <queue>
 #include <set>
 
 class Component;
+
 class ECSContainers {
     friend class ECS;
-    friend class Entity;
-    friend class System;
-private:
-    ECSContainers() : livingEntityCount(EntityID()) {
-        // Initialize the queue with all possible entity IDs
-        for (EntityID entity = EntityID(); static_cast<unsigned int>(entity) < maxEntities; ++entity) {
-            availableEntities.push(entity);
-        }
-        
-    }
-    
+
+public:
     // --------------------------------------------------------------
-    // ------------------------- System -----------------------------
+    // ------------------------ Systems -----------------------------
     
-    void registerSystem(const std::string &name) {
-        systems.insert({name, {Signature{}, std::set <EntityID>{}}});
-    }
-    
-    [[nodiscard]] std::set <EntityID> &getAssociatedEntities(const std::string &name) {
-        return systems[name].second;
-    }
-    
-    
-    bool systemIsRegistered(const std::string &name) {
-        return systems.find(name) != systems.end();
-    }
-    
-    
-    [[nodiscard]] Signature &getSignature(const std::string &name) {
-        return systems[name].first;
-    }
-    
-    
+    /**
+     * @brief Registers the system into the ECS
+     * @tparam T The system class
+     * @param name The name of the system
+     * @return Copy of the entities associated with the system
+     */
+    [[nodiscard]] std::set <EntityID> getAssociatedEntities(const std::string &name) const;
+    /**
+     * @brief Registers the system into the ECS
+     * @param name The name of the system
+     */
+    void registerSystem(const std::string &name);
+    /**
+     * @brief Checks if the system is registered
+     * @param name The name of the system
+     * @return True if the system is registered, false otherwise
+     */
+    [[nodiscard]] bool systemIsRegistered(const std::string &name) const;
+    /**
+     * @brief Gets the signature of the system
+     * @param name The name of the system
+     * @return The signature of the system as a bitset
+     */
+    [[nodiscard]] Signature getSignature(const std::string &name) const;
+    /**
+     * @brief Add a component requirement to the system
+     * @details This will add a component requirement to the system, therefore the system will only
+     * run on entities that have the required components. This will also update the signature of the system.
+     * @tparam T The type of the component
+     * @param name The name of the system
+     * @param componentID The ID of the component
+     */
     template <class T>
-    void addComponentRequirementToSystem(const std::string &name, ComponentID componentID) {
-        Signature newSignature;
-        newSignature.set(getComponentID <T>());
-        systems[name].first |= newSignature;
-    }
-    
-    void entitySignatureChanged() {
-#ifdef DEBUG
-        Logger::get().importantInfoBlue("Entity signature changed. Updated systems: ");
-        for (auto &pair: systems) {
-            auto const &system = pair.first;
-            auto const &signature = pair.second.first;
-            auto &entities = pair.second.second;
-            for (auto const &entity: entities) {
-                if ((signatures[entity] & signature) == signature) {
-                    Logger::get().infoBlue("Entity" + std::to_string(entity) + " is added to " + system);
-                } else {
-                    Logger::get().infoBlue("Entity" + std::to_string(entity) + " is removed from " + system);
-                }
-            }
-        }
-#endif
-        for (auto &pair: systems) {
-            auto const &signature = pair.second.first;
-            auto &entities = pair.second.second;
-            
-            for (auto const &entity: entities) {
-                if ((signatures[entity] & signature) == signature) {
-                    entities.insert(entity);
-                } else {
-                    entities.erase(entity);
-                }
-            }
-        }
-    }
-    // Map from system type string pointer to a signature
-    std::unordered_map <std::string, std::pair <Signature, std::set <EntityID>>> systems{};
-    
-    
+    void addComponentRequirementToSystem(const std::string &name, ComponentID componentID);
     //--------------------------------------------------------------
     //------------------------- Components --------------------------
     
@@ -98,19 +65,7 @@ private:
      * @tparam T The type of the component
      */
     template <typename T>
-    void registerComponent() {
-        assertIsComponent <T>();
-        assertComponentIsNotRegistered <T>();
-        
-        const char *typeName = typeid(T).name();
-        std::pair registeredComponent = std::make_pair(std::make_shared <ComponentArray <T >>(), nextComponentID);
-        componentArrays.insert({typeName, registeredComponent});
-        
-        // Increase the value so that the next component registered will get a different ID
-        ++nextComponentID;
-    }
-    
-    
+    void registerComponent();
     
     /**
      * @brief get the component ID of type T
@@ -119,13 +74,7 @@ private:
      * @return The ID of the component
      */
     template <typename T>
-    ComponentID getComponentID() {
-        const char *typeName = typeid(T).name();
-        assertIsComponent <T>();
-        assertComponentIsRegistered <T>();
-        
-        return componentArrays[typeName].second;
-    }
+    ComponentID getComponentID();
     
     /**
      * @brief Adds a component of type T to the entity
@@ -135,61 +84,7 @@ private:
      * @param component The component to add
      */
     template <typename T>
-    void addComponent(EntityID entity, T& component) {
-        assertIsComponent <T>();
-        assertComponentIsRegistered <T>();
-        
-        // Add a component to the array for an entity
-        getComponentArray <T>()->insertData(entity, component);
-    }
-    
-    /**
-     * @brief Asserts that the component inherits from Component
-     * @tparam T
-     */
-    template <typename T>
-    void assertIsComponent() {
-#ifdef DEBUG
-        static_assert(std::is_base_of <Component, T>::value, "T must inherit from Component");
-#endif
-    }
-    
-    /**
-     * @brief Asserts that the component is registered before use
-     * @details This is used to make sure that the component is registered before it is used
-     * Only used in debug mode
-     * @tparam T
-     */
-    template <class T>
-    void assertComponentIsRegistered() {
-#ifdef DEBUG
-        const char *typeName = typeid(T).name();
-        assert(componentIsRegistered(typeName) && "Component not registered before use.");
-#endif
-    }
-    
-    /**
-     * @brief Asserts that the component is not registered before use
-     * @details This is used to make sure that the same component is not registered twice
-     * Only used in debug mode
-     * @tparam T
-     */
-    template <class T>
-    void assertComponentIsNotRegistered() {
-#ifdef DEBUG
-        assert(!componentIsRegistered(typeid(T).name()) && "Component is already registered.");
-#endif
-    }
-    bool componentIsRegistered(const char *typeName) {
-        return componentArrays.find(typeName) != componentArrays.end();
-    }
-    
-    template <class T>
-    void registerComponentIfNotRegistered() {
-        if (!componentIsRegistered(typeid(T).name())) {
-            registerComponent <T>();
-        }
-    }
+    void addComponent(EntityID entity, T &component);
     
     /**
      * @brief Get all the components of a type.
@@ -198,14 +93,8 @@ private:
      * @return All the components existing with the type T
      */
     template <typename T>
-    std::shared_ptr <ComponentArray <T>> getComponentArray() {
-        const char *typeName = typeid(T).name();
-        assertIsComponent <T>();
-        assertComponentIsRegistered<T>();
-        return std::static_pointer_cast <ComponentArray <T >>(componentArrays[typeName].first);
-    }
+    std::shared_ptr <ComponentArray <T>> getComponentArray();
     
-
     /**
      * @brief Get the component of type T for the entity
      * @tparam T The type of the component
@@ -213,16 +102,123 @@ private:
      * @return The component of type T for the entity
      */
     template <typename T>
-    T &getComponent(EntityID entity) {
-        return getComponentArray <T>()->getData(entity);
-    }
+    T &getComponent(EntityID entity);
+    /**
+     * @brief Registers the component if it is not registered already
+     * @tparam T The type of the component
+     */
+    template <class T>
+    void registerComponentIfNotRegistered();
+    // --------------------------------------------------------------
+    // ------------------------- Entities ----------------------------
+    /**
+     * @brief Destroys the entity from all the systems and components
+     * @details This will remove the entity from all the arrays that contain it,
+     * and sets it as available to be created again
+     * @param entity The entity to destroy
+     */
+    void destroyEntity(EntityID entity);
+    /**
+     * @brief Create an entity
+     * @details This will create and set the entity as alive, therefore it will be available to be used
+     * @return
+     */
+    [[nodiscard]] EntityID getNextEntity();
+    
+    /**
+     * @brief Checks if the entity can be created
+     * @details This will check if there are available entities to be created and
+     * if the living entities are less than the maximum allowed
+     * @return True if the entity can be created, false otherwise
+     */
+    [[nodiscard]] bool canEntityBeCreated() const;
+    /**
+     * @brief Checks if the entity is alive
+     * @details This will check if the entity is alive by checking if there is a component array for it
+     * @param entity The entity to check
+     * @return True if the entity is alive, false otherwise
+     */
+    [[nodiscard]] bool isEntityAlive(EntityID entity) const;
+    /**
+     * @brief Checks if the entity has the component
+     * @details This will check if the entity has the component by checking if the component array exists
+     * @param entity
+     * @param component
+     * @return True if the entity has the component, false otherwise
+     */
+    [[nodiscard]] bool doesEntityHaveComponent(EntityID entity, ComponentID component) const;
+    
+    /**
+     * @brief Gets the signature of the entity
+     * @param entity
+     * @return The signature of the entity as a bitset
+     */
+    [[nodiscard]] Signature getEntitySignature(EntityID entity) const;
+
+private:
+    /**
+     * @brief Constructor is private to prevent instantiation, must use singleton ECS::get()
+     */
+    ECSContainers();
+    
+    // --------------------------------------------------------------
+    // ------------------------- System -----------------------------
+    
+    /**
+     * @brief Updates the entity array for each system, removing or adding the entity if needed
+     * @details This will remove the entity from the system array when the entity no longer has the required components.
+     * It will also add the entity to the system array when the entity has the required components.
+     */
+    void entitySignatureChanged();
+    
+    /**
+     * @brief Map from system type string to system type (signature, set<entities>)
+     */
+    std::unordered_map <std::string, SystemData> systems{};
+    
+    
+    //--------------------------------------------------------------
+    //------------------------- Components --------------------------
+    
+    /**
+     * @brief Asserts that the component inherits from Component
+     * @tparam T The type of the component
+     */
+    template <typename T>
+    void assertIsComponent();
+    
+    /**
+     * @brief Asserts that the component is registered before use
+     * @details This is used to make sure that the component is registered before it is used
+     * Only used in debug mode
+     * @tparam T The type of the component
+     */
+    template <class T>
+    void assertComponentIsRegistered();
+    
+    /**
+     * @brief Asserts that the component is not registered before use
+     * @details This is used to make sure that the same component is not registered twice
+     * Only used in debug mode
+     * @tparam T The type of the component
+     */
+    template <class T>
+    void assertComponentIsNotRegistered();
+    /**
+     * @brief Checks if the component is registered
+     * @param typeName The name of the component
+     * @return True if the component is registered, false otherwise
+     */
+    bool componentIsRegistered(const char *typeName);
+
+    
     /**
      * @brief Map which contains component arrays
      * @details This is used to store the component arrays for each component type
      * Key -> Name of the component i.e. "PhysicsComponent"
-     * Value -> Pair <ComponentArray, ComponentID>
+     * Value -> Pair <ComponentArray (containing all the components of the same type), ComponentID>
      */
-    std::unordered_map <const char *, std::pair<std::shared_ptr<IComponentArray>, ComponentID>> componentArrays{};
+    std::unordered_map <const char *, std::pair <std::shared_ptr <IComponentArray>, ComponentID>> componentArrays{};
     /**
      * @brief Stores the ID of the next component.
      * I.e. if there are 4 components existing, physics, transform, camera and render
@@ -232,63 +228,12 @@ private:
     
     // --------------------------------------------------------------
     // ------------------------- Entity -----------------------------
-    
-    
-    [[nodiscard]] EntityID getNextEntityID() {
-        EntityID id = availableEntities.front();
-        availableEntities.pop();
-        ++livingEntityCount;
-        return id;
-    }
-    
-    [[nodiscard]] bool areThereAvailableEntities() const {
-        return !availableEntities.empty();
-    }
-    
-    [[nodiscard]] bool canEntityBeCreated() const {
-        return livingEntityCount < maxEntities;
-    }
-    
-    [[nodiscard]] bool isEntityAlive(EntityID entity) const {
-        return signatures[entity].any();
-    }
-    
-    [[nodiscard]] bool doesEntityHaveComponent(EntityID entity, ComponentID component) const {
-        return signatures[entity][component];
-    }
-    
-    [[nodiscard]] Signature getEntitySignature(EntityID entity) const {
-        return signatures[entity];
-    }
-    
-    void entityDestroyed(EntityID entity) {
-        // Put the destroyed ID at the back of the queue
-        availableEntities.push(entity);
-        
-        // Invalidate the destroyed entity's signature
-        signatures[entity].reset();
-        
-        // Decrease living entity count
-        --livingEntityCount;
-    
-        // Iterate over all the component arrays and notify them that an entity has been destroyed
-        for (auto const &pair: componentArrays) {
-            auto const &componentArray = pair.second.first;
-            if(componentArray->hasComponent(entity))
-                componentArray->entityDestroyed(entity);
-        }
-    
-        // Erase a destroyed entity from all system lists
-        for (auto &pair: systems) {
-            auto &entities = pair.second.second;
-            entities.erase(entity);
-        }
-    }
-    
-    void changeEntitySignature(EntityID entity, ComponentID component) {
-        // Set the bit that represents the component to 1
-        signatures[entity].set(component);
-    }
+    /**
+     * @brief Adds a component to the entity signature
+     * @param entity
+     * @param component
+     */
+    void addComponentToEntitySignature(EntityID entity, ComponentID component);
     
     /**
      * @brief Queue of unused entity IDs
@@ -313,19 +258,95 @@ private:
     EntityID livingEntityCount;
 };
 
+template <typename T>
+void ECSContainers::registerComponent() {
+    assertIsComponent <T>();
+    assertComponentIsNotRegistered <T>();
+    
+    const char *typeName = typeid(T).name();
+    std::pair registeredComponent = std::make_pair(std::make_shared <ComponentArray <T >>(), nextComponentID);
+    componentArrays.insert({typeName, registeredComponent});
+    
+    // Increase the value so that the next component registered will get a different ID
+    ++nextComponentID;
+}
 
 
+template <typename T>
+ComponentID ECSContainers::getComponentID() {
+    const char *typeName = typeid(T).name();
+    assertIsComponent <T>();
+    assertComponentIsRegistered <T>();
+    
+    return componentArrays[typeName].second;
+}
+
+
+template <typename T>
+void ECSContainers::addComponent(EntityID entity, T &component) {
+    assertIsComponent <T>();
+    assertComponentIsRegistered <T>();
+    
+    // Add a component to the array for an entity
+    getComponentArray <T>()->insertData(entity, component);
+}
+
+
+template <typename T>
+std::shared_ptr <ComponentArray <T>> ECSContainers::getComponentArray() {
+    const char *typeName = typeid(T).name();
+    assertIsComponent <T>();
+    assertComponentIsRegistered <T>();
+    return std::static_pointer_cast <ComponentArray <T >>(componentArrays[typeName].first);
+}
+
+
+template <typename T>
+T &ECSContainers::getComponent(EntityID entity) {
+    return getComponentArray <T>()->getData(entity);
+}
+
+template <class T>
+void ECSContainers::addComponentRequirementToSystem(const std::string &name, ComponentID componentID) {
+    Signature newSignature;
+    newSignature.set(getComponentID <T>());
+    systems[name].first |= newSignature;
+}
+
+template <typename T>
+void ECSContainers::assertIsComponent() {
+    static_assert(std::is_base_of <Component, T>::value, "T must inherit from Component");
+}
+
+template <class T>
+void ECSContainers::assertComponentIsRegistered() {
+    ASSERT(componentIsRegistered(typeid(T).name()), "Component not registered before use.");
+}
+
+template <class T>
+void ECSContainers::assertComponentIsNotRegistered() {
+    ASSERT(!componentIsRegistered(typeid(T).name()), "Component is already registered.");
+}
+
+bool ECSContainers::componentIsRegistered(const char *typeName) {
+    return componentArrays.find(typeName) != componentArrays.end();
+}
+
+template <class T>
+void ECSContainers::registerComponentIfNotRegistered() {
+    if (!componentIsRegistered(typeid(T).name())) {
+        registerComponent <T>();
+    }
+}
 
 /**
  * @brief Singleton class which contains all the ECS containers
  * @details This is used to access all the ECS containers from anywhere in the program
  */
-class ECS{
+class ECS {
 public:
-    static std::shared_ptr<ECSContainers> getECS() {
-        static std::shared_ptr<ECSContainers> ecs = std::make_shared<ECSContainers>(ECSContainers());
+    static std::shared_ptr <ECSContainers> getECS() {
+        static std::shared_ptr <ECSContainers> ecs = std::make_shared <ECSContainers>(ECSContainers());
         return ecs;
     }
-private:
-    static std::shared_ptr<ECSContainers> ecs;
 };

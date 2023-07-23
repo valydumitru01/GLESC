@@ -1,20 +1,16 @@
 #pragma once
-
-#include "glm/glm.hpp"
-#include "SDL2/SDL.h"
+#include <SDL2/SDL.h>
 #include "InputTypes.h"
-#include <unordered_map>
-
+// TODO: Create key enum class
 class InputManager {
 public:
     InputManager();
     ~InputManager();
     void init();
     void update();
-    bool isKeyDown(SDL_Keycode keycode);
+    bool isKeyPressed(SDL_Keycode keycode);
     
-    MousePosition getMousePosition() { return mousePosition; }
-    KeyMap getKeyMap() { return keyMap; }
+    MousePosition getMousePosition(){return mousePosition;};
 private:
     MousePosition mousePosition;
     KeyMap keyMap;

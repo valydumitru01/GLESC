@@ -1,4 +1,4 @@
-#include "engine/core/input/InputManager.h"
+#include "engine/subsystems/input/InputManager.h"
 
 
 
@@ -46,7 +46,7 @@ void InputManager::update() {
     }
 }
 
-bool InputManager::isKeyDown(SDL_Keycode keycode) {
+bool InputManager::isKeyPressed(SDL_Keycode keycode) {
     auto it = keyMap.find(keycode);
     if (it != keyMap.end()) {
         return it->second;

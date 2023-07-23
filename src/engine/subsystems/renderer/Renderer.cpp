@@ -1,6 +1,6 @@
 #include <utility>
 #include "engine/core/renderer/Renderer.h"
-#include "engine/foundation/logger/Logger.h"
+#include "engine/core/logger/Logger.h"
 Renderer::Renderer(const std::shared_ptr <WindowManager>& windowManager)
         : textureManager(), context(nullptr), projection(), view() {
     

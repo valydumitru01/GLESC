@@ -1,8 +1,7 @@
 #include "Component.h"
 #include "glm/glm.hpp"
 
-class RigidBodyComponent : public Component {
-public:
+struct RigidBodyComponent : public Component {
     float mass;
     glm::vec3 velocity;
     glm::vec3 force;

@@ -9,7 +9,7 @@
 #bin folder: binaries and executables
 BIN_DIR     	:= bin
 
-#resources folders
+#res-mng folders
 #paths need to use backslashes as they are going to be used for windows commands
 #src folder: Source code, implementations
 SRC_DIR 		:= src

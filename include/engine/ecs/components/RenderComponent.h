@@ -5,11 +5,9 @@
 #include <utility>
 
 #include "Component.h"
-#include "engine/core/renderer/Mesh.h"
+#include "engine/subsystems/renderer/Mesh.h"
 
-class RenderComponent : public Component {
-
-public:
+struct RenderComponent : public Component {
     explicit RenderComponent() : textureID(0), mesh(){
     }
     ~RenderComponent(){

@@ -2,9 +2,7 @@
 
 #include "Component.h"
 
-class PhysicsComponent : Component {
-private:
-public:
+struct PhysicsComponent : public Component {
 
 };
 

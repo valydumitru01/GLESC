@@ -24,13 +24,13 @@ public:
 #endif
         
         // Take an ID from the front of the queue
-        ID = ECS::getECS()->getNextEntityID();
+        ID = ECS::getECS()->getNextEntity();
         Logger::get().info("Entity created with ID: " + std::to_string(ID));
     }
     
     ~Entity() {
         Logger::get().info("Entity destroyed with ID: " + std::to_string(ID));
-        ECS::getECS()->entityDestroyed(ID);
+        ECS::getECS()->destroyEntity(ID);
     }
     
     /**
@@ -42,7 +42,7 @@ public:
     template <typename T>
     Entity& addComponent(T &&component) {
         // Add the component to the entity
-        ECS::getECS()->changeEntitySignature(ID, ECS::getECS()->getComponentID <T>());
+        ECS::getECS()->addComponentToEntitySignature(ID, ECS::getECS()->getComponentID <T>());
         // Register the component to the array for the component type
         ECS::getECS()->addComponent(ID, component);
         ECS::getECS()->entitySignatureChanged();

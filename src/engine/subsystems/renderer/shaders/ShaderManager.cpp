@@ -1,6 +1,6 @@
 #include "engine/core/renderer/shaders/ShaderManager.h"
-#include "engine/resources/files/FileReader.h"
-#include "engine/foundation/logger/Logger.h"
+#include "engine/res-mng/files/FileManager.h"
+#include "engine/core/logger/Logger.h"
 
 void ShaderManager::setBool(const std::string &name, bool value) {
     graphicsInterface.setUniform1Int(graphicsInterface.getUniformLocation(shaderProgram, name), (int) value);

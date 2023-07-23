@@ -4,7 +4,8 @@
 #include <unordered_map>
 #include <boost/bimap.hpp>
 #include "engine/ecs/ECSTypes.h"
-#include "engine/exceptions/EngineException.h"
+#include "engine/core/exceptions/ecs/ECSException.h"
+#include "engine/core/logger/Logger.h"
 
 class IComponentArray {
 public:
@@ -22,7 +23,7 @@ public:
         Logger::get().importantInfo("Adding component \"" + std::string(name) + "\" to entity" + std::to_string(entity));
         printEntityToIndexMap("Map before inserting:",entityToIndexMap);
         if (entityToIndexMap.left.find(entity) != entityToIndexMap.left.end()) {
-            throw EngineException("Component added to same entity more than once.");
+            throw ECSException("Component added to same entity more than once.");
         }
 #endif
         // Put new entry at end and update the maps
@@ -59,7 +60,7 @@ public:
         
         printEntityToIndexMap("Removing from map:",entityToIndexMap);
         if (entityToIndexMap.left.find(entity) == entityToIndexMap.left.end()) {
-            throw EngineException(
+            throw ECSException(
                     "Removing non-existent component " + std::string(name) + " from entity " + std::to_string(entity));
         }
 #endif
@@ -90,7 +91,7 @@ public:
         
         //printEntityToIndexMap("Accessed map:",entityToIndexMap);
         if (entityToIndexMap.left.find(entity) == entityToIndexMap.left.end()) {
-            throw EngineException("Retrieving non-existent component.");
+            throw ECSException("Retrieving non-existent component.");
         }
 #endif
         // Return a reference to the entity's component

@@ -56,6 +56,118 @@ build CMakeFiles/game.dir/src/engine/GLESC.cpp.obj: CXX_COMPILER__game_Debug C$:
   INCLUDES = -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -IC:/boost
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine
+  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
+  TARGET_PDB = game.pdb
+
+build CMakeFiles/game.dir/src/engine/core/counter/Counter.cpp.obj: CXX_COMPILER__game_Debug C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/counter/Counter.cpp || cmake_object_order_depends_target_game
+  DEFINES = -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine\" -D__WINDOWS__
+  DEP_FILE = CMakeFiles\game.dir\src\engine\core\counter\Counter.cpp.obj.d
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
+  INCLUDES = -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -IC:/boost
+  OBJECT_DIR = CMakeFiles\game.dir
+  OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\core\counter
+  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
+  TARGET_PDB = game.pdb
+
+build CMakeFiles/game.dir/src/engine/core/exceptions/BaseException.cpp.obj: CXX_COMPILER__game_Debug C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/exceptions/BaseException.cpp || cmake_object_order_depends_target_game
+  DEFINES = -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine\" -D__WINDOWS__
+  DEP_FILE = CMakeFiles\game.dir\src\engine\core\exceptions\BaseException.cpp.obj.d
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
+  INCLUDES = -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -IC:/boost
+  OBJECT_DIR = CMakeFiles\game.dir
+  OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\core\exceptions
+  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
+  TARGET_PDB = game.pdb
+
+build CMakeFiles/game.dir/src/engine/core/file-system/FileSystemPath.cpp.obj: CXX_COMPILER__game_Debug C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/file-system/FileSystemPath.cpp || cmake_object_order_depends_target_game
+  DEFINES = -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine\" -D__WINDOWS__
+  DEP_FILE = CMakeFiles\game.dir\src\engine\core\file-system\FileSystemPath.cpp.obj.d
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
+  INCLUDES = -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -IC:/boost
+  OBJECT_DIR = CMakeFiles\game.dir
+  OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\core\file-system
+  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
+  TARGET_PDB = game.pdb
+
+build CMakeFiles/game.dir/src/engine/core/graphics-device-iterface/concrete-gdi/opengl/OpenGLDebugger.cpp.obj: CXX_COMPILER__game_Debug C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/graphics-device-iterface/concrete-gdi/opengl/OpenGLDebugger.cpp || cmake_object_order_depends_target_game
+  DEFINES = -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine\" -D__WINDOWS__
+  DEP_FILE = CMakeFiles\game.dir\src\engine\core\graphics-device-iterface\concrete-gdi\opengl\OpenGLDebugger.cpp.obj.d
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
+  INCLUDES = -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -IC:/boost
+  OBJECT_DIR = CMakeFiles\game.dir
+  OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\core\graphics-device-iterface\concrete-gdi\opengl
+  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
+  TARGET_PDB = game.pdb
+
+build CMakeFiles/game.dir/src/engine/core/graphics-device-iterface/concrete-gdi/opengl/OpenGLGDI.cpp.obj: CXX_COMPILER__game_Debug C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/graphics-device-iterface/concrete-gdi/opengl/OpenGLGDI.cpp || cmake_object_order_depends_target_game
+  DEFINES = -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine\" -D__WINDOWS__
+  DEP_FILE = CMakeFiles\game.dir\src\engine\core\graphics-device-iterface\concrete-gdi\opengl\OpenGLGDI.cpp.obj.d
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
+  INCLUDES = -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -IC:/boost
+  OBJECT_DIR = CMakeFiles\game.dir
+  OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\core\graphics-device-iterface\concrete-gdi\opengl
+  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
+  TARGET_PDB = game.pdb
+
+build CMakeFiles/game.dir/src/engine/core/graphics-device-iterface/concrete-gdi/vulkan/VulkanGDI.cpp.obj: CXX_COMPILER__game_Debug C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/graphics-device-iterface/concrete-gdi/vulkan/VulkanGDI.cpp || cmake_object_order_depends_target_game
+  DEFINES = -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine\" -D__WINDOWS__
+  DEP_FILE = CMakeFiles\game.dir\src\engine\core\graphics-device-iterface\concrete-gdi\vulkan\VulkanGDI.cpp.obj.d
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
+  INCLUDES = -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -IC:/boost
+  OBJECT_DIR = CMakeFiles\game.dir
+  OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\core\graphics-device-iterface\concrete-gdi\vulkan
+  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
+  TARGET_PDB = game.pdb
+
+build CMakeFiles/game.dir/src/engine/core/logger/Logger.cpp.obj: CXX_COMPILER__game_Debug C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/logger/Logger.cpp || cmake_object_order_depends_target_game
+  DEFINES = -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine\" -D__WINDOWS__
+  DEP_FILE = CMakeFiles\game.dir\src\engine\core\logger\Logger.cpp.obj.d
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
+  INCLUDES = -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -IC:/boost
+  OBJECT_DIR = CMakeFiles\game.dir
+  OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\core\logger
+  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
+  TARGET_PDB = game.pdb
+
+build CMakeFiles/game.dir/src/engine/core/logger/outputs/FileLogger.cpp.obj: CXX_COMPILER__game_Debug C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/logger/outputs/FileLogger.cpp || cmake_object_order_depends_target_game
+  DEFINES = -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine\" -D__WINDOWS__
+  DEP_FILE = CMakeFiles\game.dir\src\engine\core\logger\outputs\FileLogger.cpp.obj.d
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
+  INCLUDES = -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -IC:/boost
+  OBJECT_DIR = CMakeFiles\game.dir
+  OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\core\logger\outputs
+  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
+  TARGET_PDB = game.pdb
+
+build CMakeFiles/game.dir/src/engine/core/logger/outputs/TerminalLogger.cpp.obj: CXX_COMPILER__game_Debug C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/logger/outputs/TerminalLogger.cpp || cmake_object_order_depends_target_game
+  DEFINES = -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine\" -D__WINDOWS__
+  DEP_FILE = CMakeFiles\game.dir\src\engine\core\logger\outputs\TerminalLogger.cpp.obj.d
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
+  INCLUDES = -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -IC:/boost
+  OBJECT_DIR = CMakeFiles\game.dir
+  OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\core\logger\outputs
+  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
+  TARGET_PDB = game.pdb
+
+build CMakeFiles/game.dir/src/engine/core/window/WindowManager.cpp.obj: CXX_COMPILER__game_Debug C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/window/WindowManager.cpp || cmake_object_order_depends_target_game
+  DEFINES = -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine\" -D__WINDOWS__
+  DEP_FILE = CMakeFiles\game.dir\src\engine\core\window\WindowManager.cpp.obj.d
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
+  INCLUDES = -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -IC:/boost
+  OBJECT_DIR = CMakeFiles\game.dir
+  OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\core\window
+  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
+  TARGET_PDB = game.pdb
+
+build CMakeFiles/game.dir/src/engine/ecs/ECSContainer.cpp.obj: CXX_COMPILER__game_Debug C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/ecs/ECSContainer.cpp || cmake_object_order_depends_target_game
+  DEFINES = -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine\" -D__WINDOWS__
+  DEP_FILE = CMakeFiles\game.dir\src\engine\ecs\ECSContainer.cpp.obj.d
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
+  INCLUDES = -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -IC:/boost
+  OBJECT_DIR = CMakeFiles\game.dir
+  OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\ecs
+  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
+  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/ecs/systems/CameraSystem.cpp.obj: CXX_COMPILER__game_Debug C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/ecs/systems/CameraSystem.cpp || cmake_object_order_depends_target_game
   DEFINES = -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine\" -D__WINDOWS__
@@ -64,6 +176,8 @@ build CMakeFiles/game.dir/src/engine/ecs/systems/CameraSystem.cpp.obj: CXX_COMPI
   INCLUDES = -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -IC:/boost
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\ecs\systems
+  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
+  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/ecs/systems/PhysicsSystem.cpp.obj: CXX_COMPILER__game_Debug C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/ecs/systems/PhysicsSystem.cpp || cmake_object_order_depends_target_game
   DEFINES = -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine\" -D__WINDOWS__
@@ -72,6 +186,8 @@ build CMakeFiles/game.dir/src/engine/ecs/systems/PhysicsSystem.cpp.obj: CXX_COMP
   INCLUDES = -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -IC:/boost
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\ecs\systems
+  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
+  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/ecs/systems/RenderSystem.cpp.obj: CXX_COMPILER__game_Debug C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/ecs/systems/RenderSystem.cpp || cmake_object_order_depends_target_game
   DEFINES = -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine\" -D__WINDOWS__
@@ -80,46 +196,8 @@ build CMakeFiles/game.dir/src/engine/ecs/systems/RenderSystem.cpp.obj: CXX_COMPI
   INCLUDES = -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -IC:/boost
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\ecs\systems
-
-build CMakeFiles/game.dir/src/engine/foundation/FPS.cpp.obj: CXX_COMPILER__game_Debug C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/foundation/FPS.cpp || cmake_object_order_depends_target_game
-  DEFINES = -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine\" -D__WINDOWS__
-  DEP_FILE = CMakeFiles\game.dir\src\engine\foundation\FPS.cpp.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
-  INCLUDES = -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -IC:/boost
-  OBJECT_DIR = CMakeFiles\game.dir
-  OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\foundation
-
-build CMakeFiles/game.dir/src/engine/foundation/exceptions/BaseException.cpp.obj: CXX_COMPILER__game_Debug C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/foundation/exceptions/BaseException.cpp || cmake_object_order_depends_target_game
-  DEFINES = -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine\" -D__WINDOWS__
-  DEP_FILE = CMakeFiles\game.dir\src\engine\foundation\exceptions\BaseException.cpp.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
-  INCLUDES = -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -IC:/boost
-  OBJECT_DIR = CMakeFiles\game.dir
-  OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\foundation\exceptions
-
-build CMakeFiles/game.dir/src/engine/foundation/logger/Logger.cpp.obj: CXX_COMPILER__game_Debug C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/foundation/logger/Logger.cpp || cmake_object_order_depends_target_game
-  DEFINES = -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine\" -D__WINDOWS__
-  DEP_FILE = CMakeFiles\game.dir\src\engine\foundation\logger\Logger.cpp.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
-  INCLUDES = -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -IC:/boost
-  OBJECT_DIR = CMakeFiles\game.dir
-  OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\foundation\logger
-
-build CMakeFiles/game.dir/src/engine/foundation/logger/outputs/FileLogger.cpp.obj: CXX_COMPILER__game_Debug C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/foundation/logger/outputs/FileLogger.cpp || cmake_object_order_depends_target_game
-  DEFINES = -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine\" -D__WINDOWS__
-  DEP_FILE = CMakeFiles\game.dir\src\engine\foundation\logger\outputs\FileLogger.cpp.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
-  INCLUDES = -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -IC:/boost
-  OBJECT_DIR = CMakeFiles\game.dir
-  OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\foundation\logger\outputs
-
-build CMakeFiles/game.dir/src/engine/foundation/logger/outputs/TerminalLogger.cpp.obj: CXX_COMPILER__game_Debug C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/foundation/logger/outputs/TerminalLogger.cpp || cmake_object_order_depends_target_game
-  DEFINES = -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine\" -D__WINDOWS__
-  DEP_FILE = CMakeFiles\game.dir\src\engine\foundation\logger\outputs\TerminalLogger.cpp.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
-  INCLUDES = -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -IC:/boost
-  OBJECT_DIR = CMakeFiles\game.dir
-  OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\foundation\logger\outputs
+  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
+  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/main.cpp.obj: CXX_COMPILER__game_Debug C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/main.cpp || cmake_object_order_depends_target_game
   DEFINES = -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine\" -D__WINDOWS__
@@ -128,62 +206,28 @@ build CMakeFiles/game.dir/src/engine/main.cpp.obj: CXX_COMPILER__game_Debug C$:/
   INCLUDES = -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -IC:/boost
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine
+  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
+  TARGET_PDB = game.pdb
 
-build CMakeFiles/game.dir/src/engine/plat-independence/fs-path.cpp.obj: CXX_COMPILER__game_Debug C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/plat-independence/fs-path.cpp || cmake_object_order_depends_target_game
+build CMakeFiles/game.dir/src/engine/res-mng/files/FileManager.cpp.obj: CXX_COMPILER__game_Debug C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/res-mng/files/FileManager.cpp || cmake_object_order_depends_target_game
   DEFINES = -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine\" -D__WINDOWS__
-  DEP_FILE = CMakeFiles\game.dir\src\engine\plat-independence\fs-path.cpp.obj.d
+  DEP_FILE = CMakeFiles\game.dir\src\engine\res-mng\files\FileManager.cpp.obj.d
   FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
   INCLUDES = -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -IC:/boost
   OBJECT_DIR = CMakeFiles\game.dir
-  OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\plat-independence
+  OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\res-mng\files
+  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
+  TARGET_PDB = game.pdb
 
-build CMakeFiles/game.dir/src/engine/plat-independence/graphics-device-iterface/concrete-gdi/opengl/OpenGLDebugger.cpp.obj: CXX_COMPILER__game_Debug C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/plat-independence/graphics-device-iterface/concrete-gdi/opengl/OpenGLDebugger.cpp || cmake_object_order_depends_target_game
+build CMakeFiles/game.dir/src/engine/res-mng/textures/TextureManager.cpp.obj: CXX_COMPILER__game_Debug C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/res-mng/textures/TextureManager.cpp || cmake_object_order_depends_target_game
   DEFINES = -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine\" -D__WINDOWS__
-  DEP_FILE = CMakeFiles\game.dir\src\engine\plat-independence\graphics-device-iterface\concrete-gdi\opengl\OpenGLDebugger.cpp.obj.d
+  DEP_FILE = CMakeFiles\game.dir\src\engine\res-mng\textures\TextureManager.cpp.obj.d
   FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
   INCLUDES = -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -IC:/boost
   OBJECT_DIR = CMakeFiles\game.dir
-  OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\plat-independence\graphics-device-iterface\concrete-gdi\opengl
-
-build CMakeFiles/game.dir/src/engine/plat-independence/graphics-device-iterface/concrete-gdi/opengl/OpenGLGDI.cpp.obj: CXX_COMPILER__game_Debug C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/plat-independence/graphics-device-iterface/concrete-gdi/opengl/OpenGLGDI.cpp || cmake_object_order_depends_target_game
-  DEFINES = -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine\" -D__WINDOWS__
-  DEP_FILE = CMakeFiles\game.dir\src\engine\plat-independence\graphics-device-iterface\concrete-gdi\opengl\OpenGLGDI.cpp.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
-  INCLUDES = -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -IC:/boost
-  OBJECT_DIR = CMakeFiles\game.dir
-  OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\plat-independence\graphics-device-iterface\concrete-gdi\opengl
-
-build CMakeFiles/game.dir/src/engine/plat-independence/graphics-device-iterface/concrete-gdi/vulkan/VulkanGDI.cpp.obj: CXX_COMPILER__game_Debug C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/plat-independence/graphics-device-iterface/concrete-gdi/vulkan/VulkanGDI.cpp || cmake_object_order_depends_target_game
-  DEFINES = -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine\" -D__WINDOWS__
-  DEP_FILE = CMakeFiles\game.dir\src\engine\plat-independence\graphics-device-iterface\concrete-gdi\vulkan\VulkanGDI.cpp.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
-  INCLUDES = -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -IC:/boost
-  OBJECT_DIR = CMakeFiles\game.dir
-  OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\plat-independence\graphics-device-iterface\concrete-gdi\vulkan
-
-build CMakeFiles/game.dir/src/engine/plat-independence/window/WindowManager.cpp.obj: CXX_COMPILER__game_Debug C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/plat-independence/window/WindowManager.cpp || cmake_object_order_depends_target_game
-  DEFINES = -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine\" -D__WINDOWS__
-  DEP_FILE = CMakeFiles\game.dir\src\engine\plat-independence\window\WindowManager.cpp.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
-  INCLUDES = -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -IC:/boost
-  OBJECT_DIR = CMakeFiles\game.dir
-  OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\plat-independence\window
-
-build CMakeFiles/game.dir/src/engine/resources/files/FileManager.cpp.obj: CXX_COMPILER__game_Debug C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/resources/files/FileManager.cpp || cmake_object_order_depends_target_game
-  DEFINES = -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine\" -D__WINDOWS__
-  DEP_FILE = CMakeFiles\game.dir\src\engine\resources\files\FileManager.cpp.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
-  INCLUDES = -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -IC:/boost
-  OBJECT_DIR = CMakeFiles\game.dir
-  OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\resources\files
-
-build CMakeFiles/game.dir/src/engine/resources/textures/TextureManager.cpp.obj: CXX_COMPILER__game_Debug C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/resources/textures/TextureManager.cpp || cmake_object_order_depends_target_game
-  DEFINES = -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine\" -D__WINDOWS__
-  DEP_FILE = CMakeFiles\game.dir\src\engine\resources\textures\TextureManager.cpp.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
-  INCLUDES = -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -IC:/boost
-  OBJECT_DIR = CMakeFiles\game.dir
-  OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\resources\textures
+  OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\res-mng\textures
+  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
+  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/subsystems/input/InputManager.cpp.obj: CXX_COMPILER__game_Debug C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/input/InputManager.cpp || cmake_object_order_depends_target_game
   DEFINES = -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine\" -D__WINDOWS__
@@ -192,6 +236,8 @@ build CMakeFiles/game.dir/src/engine/subsystems/input/InputManager.cpp.obj: CXX_
   INCLUDES = -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -IC:/boost
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\subsystems\input
+  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
+  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/subsystems/renderer/GlApi.cpp.obj: CXX_COMPILER__game_Debug C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/GlApi.cpp || cmake_object_order_depends_target_game
   DEFINES = -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine\" -D__WINDOWS__
@@ -200,6 +246,8 @@ build CMakeFiles/game.dir/src/engine/subsystems/renderer/GlApi.cpp.obj: CXX_COMP
   INCLUDES = -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -IC:/boost
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\subsystems\renderer
+  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
+  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/subsystems/renderer/Mesh.cpp.obj: CXX_COMPILER__game_Debug C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/Mesh.cpp || cmake_object_order_depends_target_game
   DEFINES = -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine\" -D__WINDOWS__
@@ -208,6 +256,8 @@ build CMakeFiles/game.dir/src/engine/subsystems/renderer/Mesh.cpp.obj: CXX_COMPI
   INCLUDES = -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -IC:/boost
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\subsystems\renderer
+  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
+  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/subsystems/renderer/Renderer.cpp.obj: CXX_COMPILER__game_Debug C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/Renderer.cpp || cmake_object_order_depends_target_game
   DEFINES = -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine\" -D__WINDOWS__
@@ -216,6 +266,8 @@ build CMakeFiles/game.dir/src/engine/subsystems/renderer/Renderer.cpp.obj: CXX_C
   INCLUDES = -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -IC:/boost
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\subsystems\renderer
+  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
+  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/subsystems/renderer/shaders/ShaderLoader.cpp.obj: CXX_COMPILER__game_Debug C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/ShaderLoader.cpp || cmake_object_order_depends_target_game
   DEFINES = -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine\" -D__WINDOWS__
@@ -224,6 +276,8 @@ build CMakeFiles/game.dir/src/engine/subsystems/renderer/shaders/ShaderLoader.cp
   INCLUDES = -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -IC:/boost
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\subsystems\renderer\shaders
+  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
+  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/subsystems/renderer/shaders/ShaderManager.cpp.obj: CXX_COMPILER__game_Debug C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/ShaderManager.cpp || cmake_object_order_depends_target_game
   DEFINES = -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine\" -D__WINDOWS__
@@ -232,6 +286,8 @@ build CMakeFiles/game.dir/src/engine/subsystems/renderer/shaders/ShaderManager.c
   INCLUDES = -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -IC:/boost
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\subsystems\renderer\shaders
+  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
+  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/game/GUI.cpp.obj: CXX_COMPILER__game_Debug C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/game/GUI.cpp || cmake_object_order_depends_target_game
   DEFINES = -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine\" -D__WINDOWS__
@@ -240,6 +296,8 @@ build CMakeFiles/game.dir/src/game/GUI.cpp.obj: CXX_COMPILER__game_Debug C$:/Use
   INCLUDES = -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -IC:/boost
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\game
+  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
+  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/game/Game.cpp.obj: CXX_COMPILER__game_Debug C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/game/Game.cpp || cmake_object_order_depends_target_game
   DEFINES = -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine\" -D__WINDOWS__
@@ -248,14 +306,8 @@ build CMakeFiles/game.dir/src/game/Game.cpp.obj: CXX_COMPILER__game_Debug C$:/Us
   INCLUDES = -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -IC:/boost
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\game
-
-build CMakeFiles/game.dir/tests/unit/engine/ecs/ECSContainerTest.cpp.obj: CXX_COMPILER__game_Debug C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests/unit/engine/ecs/ECSContainerTest.cpp || cmake_object_order_depends_target_game
-  DEFINES = -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine\" -D__WINDOWS__
-  DEP_FILE = CMakeFiles\game.dir\tests\unit\engine\ecs\ECSContainerTest.cpp.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
-  INCLUDES = -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -IC:/boost
-  OBJECT_DIR = CMakeFiles\game.dir
-  OBJECT_FILE_DIR = CMakeFiles\game.dir\tests\unit\engine\ecs
+  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
+  TARGET_PDB = game.pdb
 
 
 # =============================================================================
@@ -265,7 +317,7 @@ build CMakeFiles/game.dir/tests/unit/engine/ecs/ECSContainerTest.cpp.obj: CXX_CO
 #############################################
 # Link the executable game.exe
 
-build game.exe: CXX_EXECUTABLE_LINKER__game_Debug CMakeFiles/game.dir/src/engine/GLESC.cpp.obj CMakeFiles/game.dir/src/engine/ecs/systems/CameraSystem.cpp.obj CMakeFiles/game.dir/src/engine/ecs/systems/PhysicsSystem.cpp.obj CMakeFiles/game.dir/src/engine/ecs/systems/RenderSystem.cpp.obj CMakeFiles/game.dir/src/engine/foundation/FPS.cpp.obj CMakeFiles/game.dir/src/engine/foundation/exceptions/BaseException.cpp.obj CMakeFiles/game.dir/src/engine/foundation/logger/Logger.cpp.obj CMakeFiles/game.dir/src/engine/foundation/logger/outputs/FileLogger.cpp.obj CMakeFiles/game.dir/src/engine/foundation/logger/outputs/TerminalLogger.cpp.obj CMakeFiles/game.dir/src/engine/main.cpp.obj CMakeFiles/game.dir/src/engine/plat-independence/fs-path.cpp.obj CMakeFiles/game.dir/src/engine/plat-independence/graphics-device-iterface/concrete-gdi/opengl/OpenGLDebugger.cpp.obj CMakeFiles/game.dir/src/engine/plat-independence/graphics-device-iterface/concrete-gdi/opengl/OpenGLGDI.cpp.obj CMakeFiles/game.dir/src/engine/plat-independence/graphics-device-iterface/concrete-gdi/vulkan/VulkanGDI.cpp.obj CMakeFiles/game.dir/src/engine/plat-independence/window/WindowManager.cpp.obj CMakeFiles/game.dir/src/engine/resources/files/FileManager.cpp.obj CMakeFiles/game.dir/src/engine/resources/textures/TextureManager.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/input/InputManager.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/renderer/GlApi.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/renderer/Mesh.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/renderer/Renderer.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/renderer/shaders/ShaderLoader.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/renderer/shaders/ShaderManager.cpp.obj CMakeFiles/game.dir/src/game/GUI.cpp.obj CMakeFiles/game.dir/src/game/Game.cpp.obj CMakeFiles/game.dir/tests/unit/engine/ecs/ECSContainerTest.cpp.obj
+build game.exe: CXX_EXECUTABLE_LINKER__game_Debug CMakeFiles/game.dir/src/engine/GLESC.cpp.obj CMakeFiles/game.dir/src/engine/core/counter/Counter.cpp.obj CMakeFiles/game.dir/src/engine/core/exceptions/BaseException.cpp.obj CMakeFiles/game.dir/src/engine/core/file-system/FileSystemPath.cpp.obj CMakeFiles/game.dir/src/engine/core/graphics-device-iterface/concrete-gdi/opengl/OpenGLDebugger.cpp.obj CMakeFiles/game.dir/src/engine/core/graphics-device-iterface/concrete-gdi/opengl/OpenGLGDI.cpp.obj CMakeFiles/game.dir/src/engine/core/graphics-device-iterface/concrete-gdi/vulkan/VulkanGDI.cpp.obj CMakeFiles/game.dir/src/engine/core/logger/Logger.cpp.obj CMakeFiles/game.dir/src/engine/core/logger/outputs/FileLogger.cpp.obj CMakeFiles/game.dir/src/engine/core/logger/outputs/TerminalLogger.cpp.obj CMakeFiles/game.dir/src/engine/core/window/WindowManager.cpp.obj CMakeFiles/game.dir/src/engine/ecs/ECSContainer.cpp.obj CMakeFiles/game.dir/src/engine/ecs/systems/CameraSystem.cpp.obj CMakeFiles/game.dir/src/engine/ecs/systems/PhysicsSystem.cpp.obj CMakeFiles/game.dir/src/engine/ecs/systems/RenderSystem.cpp.obj CMakeFiles/game.dir/src/engine/main.cpp.obj CMakeFiles/game.dir/src/engine/res-mng/files/FileManager.cpp.obj CMakeFiles/game.dir/src/engine/res-mng/textures/TextureManager.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/input/InputManager.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/renderer/GlApi.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/renderer/Mesh.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/renderer/Renderer.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/renderer/shaders/ShaderLoader.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/renderer/shaders/ShaderManager.cpp.obj CMakeFiles/game.dir/src/game/GUI.cpp.obj CMakeFiles/game.dir/src/game/Game.cpp.obj
   FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG
   LINK_FLAGS = -static
   LINK_LIBRARIES = -lDbgHelp  -lmingw32  -lSDL2main  -lSDL2  -lSDL2_net  -lSDL2_mixer  -lSDL2_image  -lglew32s  -lopengl32  -lglu32  -limm32  -lversion  -lsetupapi  -lwinmm  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
@@ -273,9 +325,71 @@ build game.exe: CXX_EXECUTABLE_LINKER__game_Debug CMakeFiles/game.dir/src/engine
   OBJECT_DIR = CMakeFiles\game.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
+  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
   TARGET_FILE = game.exe
   TARGET_IMPLIB = libgame.dll.a
-  TARGET_PDB = game.exe.dbg
+  TARGET_PDB = game.pdb
+
+# =============================================================================
+# Object build statements for EXECUTABLE target game_test
+
+
+#############################################
+# Order-only phony target for game_test
+
+build cmake_object_order_depends_target_game_test: phony || cmake_object_order_depends_target_gtest cmake_object_order_depends_target_gtest_main
+
+build CMakeFiles/game_test.dir/tests/main.cpp.obj: CXX_COMPILER__game_test_Debug C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests/main.cpp || cmake_object_order_depends_target_game_test
+  DEFINES = -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine\" -D__WINDOWS__
+  DEP_FILE = CMakeFiles\game_test.dir\tests\main.cpp.obj.d
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -std=gnu++17
+  INCLUDES = -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -IC:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug/_deps/googletest-src/googletest/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug/_deps/googletest-src/googletest
+  OBJECT_DIR = CMakeFiles\game_test.dir
+  OBJECT_FILE_DIR = CMakeFiles\game_test.dir\tests
+  TARGET_COMPILE_PDB = CMakeFiles\game_test.dir\
+  TARGET_PDB = game_test.pdb
+
+build CMakeFiles/game_test.dir/tests/unit/engine/ecs/ECSContainerTest.cpp.obj: CXX_COMPILER__game_test_Debug C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests/unit/engine/ecs/ECSContainerTest.cpp || cmake_object_order_depends_target_game_test
+  DEFINES = -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine\" -D__WINDOWS__
+  DEP_FILE = CMakeFiles\game_test.dir\tests\unit\engine\ecs\ECSContainerTest.cpp.obj.d
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -std=gnu++17
+  INCLUDES = -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -IC:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug/_deps/googletest-src/googletest/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug/_deps/googletest-src/googletest
+  OBJECT_DIR = CMakeFiles\game_test.dir
+  OBJECT_FILE_DIR = CMakeFiles\game_test.dir\tests\unit\engine\ecs
+  TARGET_COMPILE_PDB = CMakeFiles\game_test.dir\
+  TARGET_PDB = game_test.pdb
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target game_test
+
+
+#############################################
+# Link the executable game_test.exe
+
+build game_test.exe: CXX_EXECUTABLE_LINKER__game_test_Debug CMakeFiles/game_test.dir/tests/main.cpp.obj CMakeFiles/game_test.dir/tests/unit/engine/ecs/ECSContainerTest.cpp.obj | lib/libgtest_main.a lib/libgtest.a || lib/libgtest.a lib/libgtest_main.a
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG
+  LINK_FLAGS = -static
+  LINK_LIBRARIES = lib/libgtest_main.a  lib/libgtest.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\game_test.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_COMPILE_PDB = CMakeFiles\game_test.dir\
+  TARGET_FILE = game_test.exe
+  TARGET_IMPLIB = libgame_test.dll.a
+  TARGET_PDB = game_test.pdb
+
+
+#############################################
+# Utility command for test
+
+build CMakeFiles/test.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D C:\Users\valyd\Desktop\Github_Repos\TFG---OpenGL-Engine\bin\debug && "C:\Program Files\JetBrains\CLion 2022.3.2\bin\cmake\win\x64\bin\ctest.exe" --force-new-ctest-process "
+  DESC = Running tests...
+  pool = console
+  restat = 1
+
+build test: phony CMakeFiles/test.util
 
 
 #############################################
@@ -300,10 +414,460 @@ build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
 
 build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 
+
+#############################################
+# Utility command for list_install_components
+
+build list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build CMakeFiles/install.util: CUSTOM_COMMAND all
+  COMMAND = cmd.exe /C "cd /D C:\Users\valyd\Desktop\Github_Repos\TFG---OpenGL-Engine\bin\debug && "C:\Program Files\JetBrains\CLion 2022.3.2\bin\cmake\win\x64\bin\cmake.exe" -P cmake_install.cmake"
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build install: phony CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build CMakeFiles/install/local.util: CUSTOM_COMMAND all
+  COMMAND = cmd.exe /C "cd /D C:\Users\valyd\Desktop\Github_Repos\TFG---OpenGL-Engine\bin\debug && "C:\Program Files\JetBrains\CLion 2022.3.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build install/local: phony CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build CMakeFiles/install/strip.util: CUSTOM_COMMAND all
+  COMMAND = cmd.exe /C "cd /D C:\Users\valyd\Desktop\Github_Repos\TFG---OpenGL-Engine\bin\debug && "C:\Program Files\JetBrains\CLion 2022.3.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build install/strip: phony CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/CMakeLists.txt
+# =============================================================================
+
+
+#############################################
+# Utility command for test
+
+build _deps/googletest-build/CMakeFiles/test.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D C:\Users\valyd\Desktop\Github_Repos\TFG---OpenGL-Engine\bin\debug\_deps\googletest-build && "C:\Program Files\JetBrains\CLion 2022.3.2\bin\cmake\win\x64\bin\ctest.exe" --force-new-ctest-process "
+  DESC = Running tests...
+  pool = console
+  restat = 1
+
+build _deps/googletest-build/test: phony _deps/googletest-build/CMakeFiles/test.util
+
+
+#############################################
+# Utility command for edit_cache
+
+build _deps/googletest-build/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D C:\Users\valyd\Desktop\Github_Repos\TFG---OpenGL-Engine\bin\debug\_deps\googletest-build && "C:\Program Files\JetBrains\CLion 2022.3.2\bin\cmake\win\x64\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build _deps/googletest-build/edit_cache: phony _deps/googletest-build/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build _deps/googletest-build/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D C:\Users\valyd\Desktop\Github_Repos\TFG---OpenGL-Engine\bin\debug\_deps\googletest-build && "C:\Program Files\JetBrains\CLion 2022.3.2\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SC:\Users\valyd\Desktop\Github_Repos\TFG---OpenGL-Engine -BC:\Users\valyd\Desktop\Github_Repos\TFG---OpenGL-Engine\bin\debug"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build _deps/googletest-build/rebuild_cache: phony _deps/googletest-build/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build _deps/googletest-build/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build _deps/googletest-build/CMakeFiles/install.util: CUSTOM_COMMAND _deps/googletest-build/all
+  COMMAND = cmd.exe /C "cd /D C:\Users\valyd\Desktop\Github_Repos\TFG---OpenGL-Engine\bin\debug\_deps\googletest-build && "C:\Program Files\JetBrains\CLion 2022.3.2\bin\cmake\win\x64\bin\cmake.exe" -P cmake_install.cmake"
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build _deps/googletest-build/install: phony _deps/googletest-build/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build _deps/googletest-build/CMakeFiles/install/local.util: CUSTOM_COMMAND _deps/googletest-build/all
+  COMMAND = cmd.exe /C "cd /D C:\Users\valyd\Desktop\Github_Repos\TFG---OpenGL-Engine\bin\debug\_deps\googletest-build && "C:\Program Files\JetBrains\CLion 2022.3.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build _deps/googletest-build/install/local: phony _deps/googletest-build/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build _deps/googletest-build/CMakeFiles/install/strip.util: CUSTOM_COMMAND _deps/googletest-build/all
+  COMMAND = cmd.exe /C "cd /D C:\Users\valyd\Desktop\Github_Repos\TFG---OpenGL-Engine\bin\debug\_deps\googletest-build && "C:\Program Files\JetBrains\CLion 2022.3.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build _deps/googletest-build/install/strip: phony _deps/googletest-build/CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug/_deps/googletest-src/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target gmock
+
+
+#############################################
+# Order-only phony target for gmock
+
+build cmake_object_order_depends_target_gmock: phony || cmake_object_order_depends_target_gtest
+
+build _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.obj: CXX_COMPILER__gmock_Debug C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug/_deps/googletest-src/googlemock/src/gmock-all.cc || cmake_object_order_depends_target_gmock
+  DEFINES = -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine\" -D__WINDOWS__
+  DEP_FILE = _deps\googletest-build\googlemock\CMakeFiles\gmock.dir\src\gmock-all.cc.obj.d
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wshadow -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=0 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=c++17
+  INCLUDES = -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug/_deps/googletest-src/googlemock/include -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug/_deps/googletest-src/googlemock -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug/_deps/googletest-src/googletest/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug/_deps/googletest-src/googletest
+  OBJECT_DIR = _deps\googletest-build\googlemock\CMakeFiles\gmock.dir
+  OBJECT_FILE_DIR = _deps\googletest-build\googlemock\CMakeFiles\gmock.dir\src
+  TARGET_COMPILE_PDB = bin\libgmockpdb_debug_postfix-NOTFOUND.pdb
+  TARGET_PDB = bin\libgmockpdb_debug_postfix-NOTFOUND.pdb
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target gmock
+
+
+#############################################
+# Link the static library lib\libgmock.a
+
+build lib/libgmock.a: CXX_STATIC_LIBRARY_LINKER__gmock_Debug _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.obj || lib/libgtest.a
+  LANGUAGE_COMPILE_FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG
+  OBJECT_DIR = _deps\googletest-build\googlemock\CMakeFiles\gmock.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_COMPILE_PDB = bin\libgmockpdb_debug_postfix-NOTFOUND.pdb
+  TARGET_FILE = lib\libgmock.a
+  TARGET_PDB = bin\libgmockpdb_debug_postfix-NOTFOUND.pdb
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target gmock_main
+
+
+#############################################
+# Order-only phony target for gmock_main
+
+build cmake_object_order_depends_target_gmock_main: phony || cmake_object_order_depends_target_gmock cmake_object_order_depends_target_gtest
+
+build _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.obj: CXX_COMPILER__gmock_main_Debug C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug/_deps/googletest-src/googlemock/src/gmock_main.cc || cmake_object_order_depends_target_gmock_main
+  DEFINES = -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine\" -D__WINDOWS__
+  DEP_FILE = _deps\googletest-build\googlemock\CMakeFiles\gmock_main.dir\src\gmock_main.cc.obj.d
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wshadow -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=0 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=c++17
+  INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug/_deps/googletest-src/googlemock/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug/_deps/googletest-src/googlemock -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug/_deps/googletest-src/googletest/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug/_deps/googletest-src/googletest
+  OBJECT_DIR = _deps\googletest-build\googlemock\CMakeFiles\gmock_main.dir
+  OBJECT_FILE_DIR = _deps\googletest-build\googlemock\CMakeFiles\gmock_main.dir\src
+  TARGET_COMPILE_PDB = bin\libgmock_mainpdb_debug_postfix-NOTFOUND.pdb
+  TARGET_PDB = bin\libgmock_mainpdb_debug_postfix-NOTFOUND.pdb
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target gmock_main
+
+
+#############################################
+# Link the static library lib\libgmock_main.a
+
+build lib/libgmock_main.a: CXX_STATIC_LIBRARY_LINKER__gmock_main_Debug _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.obj || lib/libgmock.a lib/libgtest.a
+  LANGUAGE_COMPILE_FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG
+  OBJECT_DIR = _deps\googletest-build\googlemock\CMakeFiles\gmock_main.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_COMPILE_PDB = bin\libgmock_mainpdb_debug_postfix-NOTFOUND.pdb
+  TARGET_FILE = lib\libgmock_main.a
+  TARGET_PDB = bin\libgmock_mainpdb_debug_postfix-NOTFOUND.pdb
+
+
+#############################################
+# Utility command for test
+
+build _deps/googletest-build/googlemock/CMakeFiles/test.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D C:\Users\valyd\Desktop\Github_Repos\TFG---OpenGL-Engine\bin\debug\_deps\googletest-build\googlemock && "C:\Program Files\JetBrains\CLion 2022.3.2\bin\cmake\win\x64\bin\ctest.exe" --force-new-ctest-process "
+  DESC = Running tests...
+  pool = console
+  restat = 1
+
+build _deps/googletest-build/googlemock/test: phony _deps/googletest-build/googlemock/CMakeFiles/test.util
+
+
+#############################################
+# Utility command for edit_cache
+
+build _deps/googletest-build/googlemock/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D C:\Users\valyd\Desktop\Github_Repos\TFG---OpenGL-Engine\bin\debug\_deps\googletest-build\googlemock && "C:\Program Files\JetBrains\CLion 2022.3.2\bin\cmake\win\x64\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build _deps/googletest-build/googlemock/edit_cache: phony _deps/googletest-build/googlemock/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build _deps/googletest-build/googlemock/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D C:\Users\valyd\Desktop\Github_Repos\TFG---OpenGL-Engine\bin\debug\_deps\googletest-build\googlemock && "C:\Program Files\JetBrains\CLion 2022.3.2\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SC:\Users\valyd\Desktop\Github_Repos\TFG---OpenGL-Engine -BC:\Users\valyd\Desktop\Github_Repos\TFG---OpenGL-Engine\bin\debug"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build _deps/googletest-build/googlemock/rebuild_cache: phony _deps/googletest-build/googlemock/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build _deps/googletest-build/googlemock/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build _deps/googletest-build/googlemock/CMakeFiles/install.util: CUSTOM_COMMAND _deps/googletest-build/googlemock/all
+  COMMAND = cmd.exe /C "cd /D C:\Users\valyd\Desktop\Github_Repos\TFG---OpenGL-Engine\bin\debug\_deps\googletest-build\googlemock && "C:\Program Files\JetBrains\CLion 2022.3.2\bin\cmake\win\x64\bin\cmake.exe" -P cmake_install.cmake"
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build _deps/googletest-build/googlemock/install: phony _deps/googletest-build/googlemock/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build _deps/googletest-build/googlemock/CMakeFiles/install/local.util: CUSTOM_COMMAND _deps/googletest-build/googlemock/all
+  COMMAND = cmd.exe /C "cd /D C:\Users\valyd\Desktop\Github_Repos\TFG---OpenGL-Engine\bin\debug\_deps\googletest-build\googlemock && "C:\Program Files\JetBrains\CLion 2022.3.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build _deps/googletest-build/googlemock/install/local: phony _deps/googletest-build/googlemock/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build _deps/googletest-build/googlemock/CMakeFiles/install/strip.util: CUSTOM_COMMAND _deps/googletest-build/googlemock/all
+  COMMAND = cmd.exe /C "cd /D C:\Users\valyd\Desktop\Github_Repos\TFG---OpenGL-Engine\bin\debug\_deps\googletest-build\googlemock && "C:\Program Files\JetBrains\CLion 2022.3.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build _deps/googletest-build/googlemock/install/strip: phony _deps/googletest-build/googlemock/CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug/_deps/googletest-src/googlemock/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target gtest
+
+
+#############################################
+# Order-only phony target for gtest
+
+build cmake_object_order_depends_target_gtest: phony || _deps/googletest-build/googletest/CMakeFiles/gtest.dir
+
+build _deps/googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.obj: CXX_COMPILER__gtest_Debug C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug/_deps/googletest-src/googletest/src/gtest-all.cc || cmake_object_order_depends_target_gtest
+  DEFINES = -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine\" -D__WINDOWS__
+  DEP_FILE = _deps\googletest-build\googletest\CMakeFiles\gtest.dir\src\gtest-all.cc.obj.d
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wshadow -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=0 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=c++17
+  INCLUDES = -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug/_deps/googletest-src/googletest/include -IC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug/_deps/googletest-src/googletest
+  OBJECT_DIR = _deps\googletest-build\googletest\CMakeFiles\gtest.dir
+  OBJECT_FILE_DIR = _deps\googletest-build\googletest\CMakeFiles\gtest.dir\src
+  TARGET_COMPILE_PDB = bin\libgtestpdb_debug_postfix-NOTFOUND.pdb
+  TARGET_PDB = bin\libgtestpdb_debug_postfix-NOTFOUND.pdb
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target gtest
+
+
+#############################################
+# Link the static library lib\libgtest.a
+
+build lib/libgtest.a: CXX_STATIC_LIBRARY_LINKER__gtest_Debug _deps/googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.obj
+  LANGUAGE_COMPILE_FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG
+  OBJECT_DIR = _deps\googletest-build\googletest\CMakeFiles\gtest.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_COMPILE_PDB = bin\libgtestpdb_debug_postfix-NOTFOUND.pdb
+  TARGET_FILE = lib\libgtest.a
+  TARGET_PDB = bin\libgtestpdb_debug_postfix-NOTFOUND.pdb
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target gtest_main
+
+
+#############################################
+# Order-only phony target for gtest_main
+
+build cmake_object_order_depends_target_gtest_main: phony || cmake_object_order_depends_target_gtest
+
+build _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.obj: CXX_COMPILER__gtest_main_Debug C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug/_deps/googletest-src/googletest/src/gtest_main.cc || cmake_object_order_depends_target_gtest_main
+  DEFINES = -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine\" -D__WINDOWS__
+  DEP_FILE = _deps\googletest-build\googletest\CMakeFiles\gtest_main.dir\src\gtest_main.cc.obj.d
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wshadow -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=0 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=c++17
+  INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug/_deps/googletest-src/googletest/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug/_deps/googletest-src/googletest
+  OBJECT_DIR = _deps\googletest-build\googletest\CMakeFiles\gtest_main.dir
+  OBJECT_FILE_DIR = _deps\googletest-build\googletest\CMakeFiles\gtest_main.dir\src
+  TARGET_COMPILE_PDB = bin\libgtest_mainpdb_debug_postfix-NOTFOUND.pdb
+  TARGET_PDB = bin\libgtest_mainpdb_debug_postfix-NOTFOUND.pdb
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target gtest_main
+
+
+#############################################
+# Link the static library lib\libgtest_main.a
+
+build lib/libgtest_main.a: CXX_STATIC_LIBRARY_LINKER__gtest_main_Debug _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.obj || lib/libgtest.a
+  LANGUAGE_COMPILE_FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG
+  OBJECT_DIR = _deps\googletest-build\googletest\CMakeFiles\gtest_main.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_COMPILE_PDB = bin\libgtest_mainpdb_debug_postfix-NOTFOUND.pdb
+  TARGET_FILE = lib\libgtest_main.a
+  TARGET_PDB = bin\libgtest_mainpdb_debug_postfix-NOTFOUND.pdb
+
+
+#############################################
+# Utility command for test
+
+build _deps/googletest-build/googletest/CMakeFiles/test.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D C:\Users\valyd\Desktop\Github_Repos\TFG---OpenGL-Engine\bin\debug\_deps\googletest-build\googletest && "C:\Program Files\JetBrains\CLion 2022.3.2\bin\cmake\win\x64\bin\ctest.exe" --force-new-ctest-process "
+  DESC = Running tests...
+  pool = console
+  restat = 1
+
+build _deps/googletest-build/googletest/test: phony _deps/googletest-build/googletest/CMakeFiles/test.util
+
+
+#############################################
+# Utility command for edit_cache
+
+build _deps/googletest-build/googletest/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D C:\Users\valyd\Desktop\Github_Repos\TFG---OpenGL-Engine\bin\debug\_deps\googletest-build\googletest && "C:\Program Files\JetBrains\CLion 2022.3.2\bin\cmake\win\x64\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build _deps/googletest-build/googletest/edit_cache: phony _deps/googletest-build/googletest/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build _deps/googletest-build/googletest/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D C:\Users\valyd\Desktop\Github_Repos\TFG---OpenGL-Engine\bin\debug\_deps\googletest-build\googletest && "C:\Program Files\JetBrains\CLion 2022.3.2\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SC:\Users\valyd\Desktop\Github_Repos\TFG---OpenGL-Engine -BC:\Users\valyd\Desktop\Github_Repos\TFG---OpenGL-Engine\bin\debug"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build _deps/googletest-build/googletest/rebuild_cache: phony _deps/googletest-build/googletest/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build _deps/googletest-build/googletest/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build _deps/googletest-build/googletest/CMakeFiles/install.util: CUSTOM_COMMAND _deps/googletest-build/googletest/all
+  COMMAND = cmd.exe /C "cd /D C:\Users\valyd\Desktop\Github_Repos\TFG---OpenGL-Engine\bin\debug\_deps\googletest-build\googletest && "C:\Program Files\JetBrains\CLion 2022.3.2\bin\cmake\win\x64\bin\cmake.exe" -P cmake_install.cmake"
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build _deps/googletest-build/googletest/install: phony _deps/googletest-build/googletest/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build _deps/googletest-build/googletest/CMakeFiles/install/local.util: CUSTOM_COMMAND _deps/googletest-build/googletest/all
+  COMMAND = cmd.exe /C "cd /D C:\Users\valyd\Desktop\Github_Repos\TFG---OpenGL-Engine\bin\debug\_deps\googletest-build\googletest && "C:\Program Files\JetBrains\CLion 2022.3.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build _deps/googletest-build/googletest/install/local: phony _deps/googletest-build/googletest/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build _deps/googletest-build/googletest/CMakeFiles/install/strip.util: CUSTOM_COMMAND _deps/googletest-build/googletest/all
+  COMMAND = cmd.exe /C "cd /D C:\Users\valyd\Desktop\Github_Repos\TFG---OpenGL-Engine\bin\debug\_deps\googletest-build\googletest && "C:\Program Files\JetBrains\CLion 2022.3.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build _deps/googletest-build/googletest/install/strip: phony _deps/googletest-build/googletest/CMakeFiles/install/strip.util
+
 # =============================================================================
 # Target aliases.
 
 build game: phony game.exe
+
+build game_test: phony game_test.exe
+
+build gmock: phony lib/libgmock.a
+
+build gmock_main: phony lib/libgmock_main.a
+
+build gtest: phony lib/libgtest.a
+
+build gtest_main: phony lib/libgtest_main.a
+
+build libgmock.a: phony lib/libgmock.a
+
+build libgmock_main.a: phony lib/libgmock_main.a
+
+build libgtest.a: phony lib/libgtest.a
+
+build libgtest_main.a: phony lib/libgtest_main.a
 
 # =============================================================================
 # Folder targets.
@@ -313,7 +877,28 @@ build game: phony game.exe
 #############################################
 # Folder: C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug
 
-build all: phony game.exe
+build all: phony game.exe game_test.exe _deps/googletest-build/all
+
+# =============================================================================
+
+#############################################
+# Folder: C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug/_deps/googletest-build
+
+build _deps/googletest-build/all: phony _deps/googletest-build/googlemock/all
+
+# =============================================================================
+
+#############################################
+# Folder: C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug/_deps/googletest-build/googlemock
+
+build _deps/googletest-build/googlemock/all: phony lib/libgmock.a lib/libgmock_main.a _deps/googletest-build/googletest/all
+
+# =============================================================================
+
+#############################################
+# Folder: C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug/_deps/googletest-build/googletest
+
+build _deps/googletest-build/googletest/all: phony lib/libgtest.a lib/libgtest_main.a
 
 # =============================================================================
 # Built-in targets
@@ -322,14 +907,14 @@ build all: phony game.exe
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeRCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/FindBoost.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/FindPackageHandleStandardArgs.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/FindPackageMessage.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/Windows.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/WindowsPaths.cmake C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/CMakeLists.txt CMakeCache.txt CMakeFiles/3.24.2/CMakeCCompiler.cmake CMakeFiles/3.24.2/CMakeCXXCompiler.cmake CMakeFiles/3.24.2/CMakeRCCompiler.cmake CMakeFiles/3.24.2/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeCCompiler.cmake.in C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeCCompilerABI.c C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeCXXCompiler.cmake.in C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeCXXCompilerABI.cpp C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeCompilerIdDetection.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeDependentOption.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeDetermineCCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeDetermineCXXCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeDetermineCompileFeatures.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeDetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeDetermineCompilerABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeDetermineCompilerId.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeDetermineRCCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeDetermineSystem.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeFindBinUtils.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakePackageConfigHelpers.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeParseImplicitIncludeInfo.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeParseImplicitLinkInfo.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeParseLibraryArchitecture.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeRCCompiler.cmake.in C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeRCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeSystem.cmake.in C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeTestCCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeTestCXXCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeTestCompilerCommon.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeTestRCCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/ADSP-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/ARMCC-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/ARMClang-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/AppleClang-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/Borland-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/Bruce-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/Clang-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/Clang-DetermineCompilerInternal.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/Comeau-CXX-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/Compaq-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/Cray-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/Embarcadero-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/Fujitsu-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/GHS-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/GNU-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/GNU-FindBinUtils.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/HP-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/HP-CXX-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/IAR-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/IBMClang-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/Intel-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/LCC-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/MSVC-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/NVHPC-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/NVIDIA-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/PGI-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/PathScale-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/SCO-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/SDCC-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/SunPro-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/TI-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/Watcom-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/XL-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/XL-CXX-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/XLClang-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/zOS-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/FetchContent.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/FetchContent/CMakeLists.cmake.in C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/FindBoost.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/FindPackageHandleStandardArgs.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/FindPackageMessage.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/FindPython.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/FindPython/Support.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/GNUInstallDirs.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Internal/FeatureTesting.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/Windows-Determine-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/Windows.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/WindowsPaths.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/WriteBasicConfigVersionFile.cmake C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/CMakeLists.txt CMakeCache.txt CMakeFiles/3.24.2/CMakeCCompiler.cmake CMakeFiles/3.24.2/CMakeCXXCompiler.cmake CMakeFiles/3.24.2/CMakeRCCompiler.cmake CMakeFiles/3.24.2/CMakeSystem.cmake _deps/googletest-src/CMakeLists.txt _deps/googletest-src/googlemock/CMakeLists.txt _deps/googletest-src/googlemock/cmake/gmock.pc.in _deps/googletest-src/googlemock/cmake/gmock_main.pc.in _deps/googletest-src/googletest/CMakeLists.txt _deps/googletest-src/googletest/cmake/Config.cmake.in _deps/googletest-src/googletest/cmake/gtest.pc.in _deps/googletest-src/googletest/cmake/gtest_main.pc.in _deps/googletest-src/googletest/cmake/internal_utils.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeRCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/FindBoost.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/FindPackageHandleStandardArgs.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/FindPackageMessage.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/Windows.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/WindowsPaths.cmake C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/CMakeLists.txt CMakeCache.txt CMakeFiles/3.24.2/CMakeCCompiler.cmake CMakeFiles/3.24.2/CMakeCXXCompiler.cmake CMakeFiles/3.24.2/CMakeRCCompiler.cmake CMakeFiles/3.24.2/CMakeSystem.cmake: phony
+build C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeCCompiler.cmake.in C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeCCompilerABI.c C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeCXXCompiler.cmake.in C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeCXXCompilerABI.cpp C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeCompilerIdDetection.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeDependentOption.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeDetermineCCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeDetermineCXXCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeDetermineCompileFeatures.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeDetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeDetermineCompilerABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeDetermineCompilerId.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeDetermineRCCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeDetermineSystem.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeFindBinUtils.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakePackageConfigHelpers.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeParseImplicitIncludeInfo.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeParseImplicitLinkInfo.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeParseLibraryArchitecture.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeRCCompiler.cmake.in C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeRCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeSystem.cmake.in C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeTestCCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeTestCXXCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeTestCompilerCommon.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeTestRCCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/ADSP-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/ARMCC-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/ARMClang-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/AppleClang-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/Borland-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/Bruce-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/Clang-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/Clang-DetermineCompilerInternal.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/Comeau-CXX-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/Compaq-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/Cray-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/Embarcadero-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/Fujitsu-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/GHS-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/GNU-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/GNU-FindBinUtils.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/HP-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/HP-CXX-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/IAR-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/IBMClang-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/Intel-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/LCC-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/MSVC-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/NVHPC-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/NVIDIA-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/PGI-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/PathScale-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/SCO-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/SDCC-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/SunPro-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/TI-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/Watcom-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/XL-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/XL-CXX-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/XLClang-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/zOS-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/FetchContent.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/FetchContent/CMakeLists.cmake.in C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/FindBoost.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/FindPackageHandleStandardArgs.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/FindPackageMessage.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/FindPython.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/FindPython/Support.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/GNUInstallDirs.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Internal/FeatureTesting.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/Windows-Determine-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/Windows.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/WindowsPaths.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/WriteBasicConfigVersionFile.cmake C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/CMakeLists.txt CMakeCache.txt CMakeFiles/3.24.2/CMakeCCompiler.cmake CMakeFiles/3.24.2/CMakeCXXCompiler.cmake CMakeFiles/3.24.2/CMakeRCCompiler.cmake CMakeFiles/3.24.2/CMakeSystem.cmake _deps/googletest-src/CMakeLists.txt _deps/googletest-src/googlemock/CMakeLists.txt _deps/googletest-src/googlemock/cmake/gmock.pc.in _deps/googletest-src/googlemock/cmake/gmock_main.pc.in _deps/googletest-src/googletest/CMakeLists.txt _deps/googletest-src/googletest/cmake/Config.cmake.in _deps/googletest-src/googletest/cmake/gtest.pc.in _deps/googletest-src/googletest/cmake/gtest_main.pc.in _deps/googletest-src/googletest/cmake/internal_utils.cmake: phony
 
 
 #############################################

@@ -1,5 +1,21 @@
 # ninja log v5
+18	1760	7114159652333707	CMakeFiles/game.dir/src/engine/core/graphics-device-iterface/concrete-gdi/opengl/OpenGLDebugger.cpp.obj	218490022f31e1d2
 40	2204	7095812718711496	CMakeFiles/game.dir/src/game/GUI.cpp.obj	89016a5102e285a0
+30	624	7114075059259002	CMakeFiles/game.dir/src/engine/ecs/ECSContainer.cpp.obj	62d906c3afbb37d
+25	769	7114089651969135	CMakeFiles/game.dir/src/engine/core/exceptions/BaseException.cpp.obj	193a03c7954ab9cf
 6056	11790	7095812814487752	game.exe	374d9050b55e3e47
 49	5615	7095812752812343	CMakeFiles/game.dir/src/game/Game.cpp.obj	6bbf5d37481c8608
-25	1756	7108674523454964	CMakeFiles/game.dir/src/engine/core/input/InputManager.cpp.obj	adfb30a084df0f35
+14	474	7114089649018470	CMakeFiles/game.dir/src/engine/core/counter/Counter.cpp.obj	2c0666b8fbc42c61
+9	1094	7116527038674780	build.ninja	36bfbd64184f56a8
+14	1168	7114092380464189	CMakeFiles/game.dir/src/engine/core/file-system/FileSystemPath.cpp.obj	75c3a79a0160f2ee
+21	1632	7114159650993402	CMakeFiles/game.dir/src/engine/core/logger/Logger.cpp.obj	bc53018e3b096e5d
+26	1260	7117280674302004	CMakeFiles/game.dir/src/engine/core/counter/Counter.cpp.obj	2c0666b8fbc42c61
+43	1293	7117280674602065	CMakeFiles/game.dir/src/engine/core/logger/Logger.cpp.obj	bc53018e3b096e5d
+38	1398	7117280675672314	CMakeFiles/game.dir/src/engine/core/graphics-device-iterface/concrete-gdi/opengl/OpenGLDebugger.cpp.obj	218490022f31e1d2
+23	1408	7117280675782329	CMakeFiles/game.dir/src/engine/core/exceptions/BaseException.cpp.obj	193a03c7954ab9cf
+29	2047	7117280682173768	CMakeFiles/game.dir/src/engine/core/file-system/FileSystemPath.cpp.obj	75c3a79a0160f2ee
+27	1254	7117282933028418	CMakeFiles/game.dir/src/engine/core/window/WindowManager.cpp.obj	5cd0fc8d53ba8279
+35	561	7117283188281507	CMakeFiles/game.dir/src/engine/core/logger/outputs/FileLogger.cpp.obj	e42048ec06fdfe34
+30	898	7117283191470556	CMakeFiles/game.dir/src/engine/core/logger/Logger.cpp.obj	bc53018e3b096e5d
+18	1449	7117283197142899	CMakeFiles/game.dir/src/engine/core/graphics-device-iterface/concrete-gdi/opengl/OpenGLDebugger.cpp.obj	218490022f31e1d2
+39	1499	7117283197643008	CMakeFiles/game.dir/src/engine/core/window/WindowManager.cpp.obj	5cd0fc8d53ba8279

@@ -38,7 +38,7 @@ public:
      * 6. Bind the element array buffer with glBindBuffer()
      * 7. Set the vertex attribute pointers with glVertexAttribPointer() and glEnableVertexAttribArray()
      * 8. Draw the elements with glDrawElements()
-     * 9. Unbind resources (optional, but recommended for clarity)
+     * 9. Unbind res-mng (optional, but recommended for clarity)
      * 10. Swap the buffers to display the rendered frame
      * @param timeOfFrame The time of the frame
      */
@@ -54,7 +54,7 @@ private:
     static void bindMeshBuffers(Mesh &mesh);
     /**
      * @brief The renderer
-     * @details The renderer is used to access the shader manager, the texture manager, and the window manager
+     * @details The renderer is used to access the shader manager, the texture manager, and the windowManager manager
      */
     std::shared_ptr <Renderer> renderer;
 };

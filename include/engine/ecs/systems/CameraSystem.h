@@ -11,11 +11,9 @@ public:
     
     void init() override;
     
-    void setRenderer(shared_ptr <Renderer> &rendererParam);
-    
 
 
 private:
-    shared_ptr <Renderer> renderer;
+    Renderer& renderer;
 };
 

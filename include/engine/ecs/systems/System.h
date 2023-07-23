@@ -2,7 +2,7 @@
 
 #include "engine/ecs/entities/Entity.h"
 #include "engine/ecs/ECSContainer.h"
-#include "engine/foundation/logger/Logger.h"
+#include "engine/core/logger/Logger.h"
 #include <set>
 #include <memory>
 
@@ -26,11 +26,8 @@ public:
         ECS::getECS()->addComponentRequirementToSystem <T>(this->name(), ECS::getECS()->getComponentID <T>());
     }
     
-    [[nodiscard]] Signature &getSignature() const {
-        return ECS::getECS()->getSignature(this->name());
-    }
     
-    [[nodiscard]] std::set <EntityID> &getAssociatedEntities() const {
+    [[nodiscard]] std::set <EntityID> getAssociatedEntities() const {
         return ECS::getECS()->getAssociatedEntities(this->name());
     }
     

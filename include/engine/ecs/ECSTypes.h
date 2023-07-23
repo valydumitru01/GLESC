@@ -2,6 +2,7 @@
 
 #include <memory>
 #include <bitset>
+#include <set>
 
 using SystemID = std::uint8_t;
 /**
@@ -35,3 +36,8 @@ const static ComponentID maxComponents = static_cast<ComponentID>(16);
  */
 using Signature = std::bitset<maxComponents>;
 
+/**
+ * @brief Type of each system
+ * @details A system is a pair of a signature and a set of entities.
+ */
+typedef std::pair <Signature, std::set <EntityID>> SystemData;

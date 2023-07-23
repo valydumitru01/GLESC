@@ -5,7 +5,7 @@
 
 #include "GL/glew.h"
 #include "glm/glm.hpp"
-#include "engine/plat-independence/graphics-device-interface/GraphicsInterface.h"
+#include "engine/core/graphics-device-interface/GraphicsInterface.h"
 
 class ShaderManager {
 public:

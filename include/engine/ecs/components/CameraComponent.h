@@ -4,7 +4,7 @@
 
 #include "Component.h"
 
-class CameraComponent : Component {
+struct CameraComponent : Component {
 public:
     glm::mat4 view;
     float fov;

@@ -5,7 +5,6 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(Boost REQUIRED)
-find_package(GTest REQUIRED)
 # ------------ FOLDER LOCATIONS ------------
 set(SRC_DIR src)
 set(LIB_SRC_DIR lib/src)
@@ -19,9 +18,9 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE ${CMAKE_SOURCE_DIR}/bin/release)
 
 
 # ------------ SOURCE FILES ------------
-file(GLOB_RECURSE SOURCE_FILES "${SRC_DIR}/**/*.cpp")
+file(GLOB_RECURSE SOURCE_FILES "${SRC_DIR}/*.cpp")
 file(GLOB_RECURSE LIB_SOURCE_FILES "${LIB_SRC_DIR}/*.cpp")
-file(GLOB_RECURSE TEST_FILES "tests/**/*.cpp")
+file(GLOB_RECURSE TEST_FILES "tests/*.cpp")
 
 # ------------ MACRO DEFINITIONS ------------
 add_definitions(-DPROJECT_SOURCE_DIR=\"${CMAKE_SOURCE_DIR}\")
@@ -87,8 +86,19 @@ set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O3 -DRELEASE -DNDEBUG -
 # ------------ TESTING -----------#
 # --------------------------------#
 
+# Download and unpack googletest at configure time
+include(FetchContent)
+FetchContent_Declare(
+        googletest
+        # Specify the commit you depend on and update it regularly.
+        URL https://github.com/google/googletest/archive/5376968f6948923e2411081fd9372e71a59d8e77.zip
+)
+# For Windows: Prevent overriding the parent project's compiler/linker settings
+set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+FetchContent_MakeAvailable(googletest)
+
 add_executable(game_test ${TEST_FILES} ${LIB_SOURCE_FILES})
 target_include_directories(game_test PRIVATE ${INCLUDE_DIR} ${LIB_INCLUDE_DIR} ${Boost_INCLUDE_DIRS})
-target_link_libraries(game_test GTest::GTest GTest::Main)
+target_link_libraries(game_test gtest_main)
 enable_testing()
 add_test(NAME MyGameTest COMMAND game_test)

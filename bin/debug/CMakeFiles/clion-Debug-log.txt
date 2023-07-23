@@ -1,12 +1,32 @@
 "C:\Program Files\JetBrains\CLion 2022.3.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Program Files/JetBrains/CLion 2022.3.2/bin/ninja/win/x64/ninja.exe" -DCMAKE_CXX_COMPILER=C:/MinGW/bin/g++.exe -G Ninja -S C:\Users\valyd\Desktop\Github_Repos\TFG---OpenGL-Engine -B C:\Users\valyd\Desktop\Github_Repos\TFG---OpenGL-Engine\bin\debug
-CMake Error at C:/Program Files/JetBrains/CLion 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/FindPackageHandleStandardArgs.cmake:230 (message):
-  Could NOT find GTest (missing: GTEST_LIBRARY GTEST_INCLUDE_DIR
-  GTEST_MAIN_LIBRARY)
+-- The C compiler identification is GNU 8.1.0
+-- The CXX compiler identification is GNU 8.1.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: C:/MinGW/bin/gcc.exe - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: C:/MinGW/bin/g++.exe - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found Boost: C:/boost (found version "1.82.0")  
+CMake Warning (dev) at C:/Program Files/JetBrains/CLion 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/FetchContent.cmake:1267 (message):
+  The DOWNLOAD_EXTRACT_TIMESTAMP option was not given and policy CMP0135 is
+  not set.  The policy's OLD behavior will be used.  When using a URL
+  download, the timestamps of extracted files should preferably be that of
+  the time of extraction, otherwise code that depends on the extracted
+  contents might not be rebuilt if the URL changes.  The OLD behavior
+  preserves the timestamps from the archive instead, but this is usually not
+  what you want.  Update your project to the NEW behavior or specify the
+  DOWNLOAD_EXTRACT_TIMESTAMP option with a value of true to avoid this
+  robustness issue.
 Call Stack (most recent call first):
-  C:/Program Files/JetBrains/CLion 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/FindPackageHandleStandardArgs.cmake:594 (_FPHSA_FAILURE_MESSAGE)
-  C:/Program Files/JetBrains/CLion 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/FindGTest.cmake:270 (FIND_PACKAGE_HANDLE_STANDARD_ARGS)
-  CMakeLists.txt:9 (find_package)
+  CMakeLists.txt:91 (FetchContent_Declare)
+This warning is for project developers.  Use -Wno-dev to suppress it.
 
-
--- Configuring incomplete, errors occurred!
-See also "C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug/CMakeFiles/CMakeOutput.log".
+-- Found Python: C:/Users/valyd/AppData/Local/Programs/Python/Python310/python.exe (found version "3.10.0") found components: Interpreter 
+-- Configuring done
+-- Generating done
+-- Build files have been written to: C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug
