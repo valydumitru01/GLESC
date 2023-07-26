@@ -1,4 +1,4 @@
-#include "engine/core/renderer/Mesh.h"
+#include "engine/subsystems/renderer/Mesh.h"
 
 Mesh::Mesh(const std::vector <float> &vertices, const std::vector <unsigned int> &indices,
            const std::vector <VertexAttribute> &attributes) {

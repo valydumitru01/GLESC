@@ -22,13 +22,15 @@
 #include "ecs/components/TransformComponent.h"
 
 #include "engine/subsystems/input/InputManager.h"
+#include "engine/core/graphics-device-interface/concrete-gdi/opengl/OpenGLGDI.h"
+#include "engine/subsystems/physics/PhysicsManager.h"
 
-class GLESC {
+class Engine {
     friend int main();
 
 
 protected:
-    GLESC();
+    Engine();
 
 private:
     /**
@@ -60,24 +62,29 @@ private:
     /**
      * @brief This is the graphic interface, it is used as low level interface to the graphics API
      */
-    GraphicsInterface &graphicsInterface;
+    OpenGLGDI graphicsInterface;
     /**
      * @brief Handles the window of the game
      */
-    WindowManager &windowManager;
+    WindowManager windowManager;
     /**
      * @brief Handles the input of the game
      * @details Handles all the inputs of the game, and stores the state of the inputs.
      */
-    InputManager &inputManager;
+    InputManager inputManager;
     /**
-     * @brief The systems of the game
-     * @note The order of the systems is important, as the systems are updated in the order they are declared
+     * @brief Handles the rendering of the game
+     * @details Handles all the rendering of the game, provides a high level interface to the graphics API.
+     * Can be used to render 2D and 3D graphics, including generating meshes and textures.
      */
-    InputSystem& inputSystem;
-    PhysicsSystem& physicsSystem;
-    RenderSystem& renderSystem;
-    CameraSystem& cameraSystem;
+    Renderer renderer;
+    
+    PhysicsManager physicsManager;
+    
+    InputSystem inputSystem;
+    PhysicsSystem physicsSystem;
+    RenderSystem renderSystem;
+    CameraSystem cameraSystem;
     
     /**
      * @brief The entities of the game
@@ -88,4 +95,4 @@ public:
     
     void loop();
 };
-
+    

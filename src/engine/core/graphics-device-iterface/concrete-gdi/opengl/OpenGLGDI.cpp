@@ -3,13 +3,10 @@
 #include "engine/core/exceptions/plat-indep/GDIInitException.h"
 #include "engine/core/graphics-device-interface/concrete-gdi/opengl/OpenGLDebugger.h"
 #include <string>
+#include <GL/glew.h>
 
 
-OpenGLGDI::OpenGLGDI(WindowManager &windowManager) {
-    // Tells OpenGL which size is the viewport where things are displayed
-    // Must be called after creating the context
-    this->setViewport(windowManager.getWidth(), windowManager.getHeight());
-    
+OpenGLGDI::OpenGLGDI() {
     GLuint err;
     glewExperimental = GL_TRUE;
     if ((err = glewInit()) != GLEW_OK)
@@ -55,20 +52,14 @@ OpenGLGDI::OpenGLGDI(WindowManager &windowManager) {
     OpenGLDebugger::enableGlDebugCallback();
 }
 
-std::function<void(SDL_Window&, GDIint, GDIint, GDIint, GDIint )> OpenGLGDI::getCreateContextFunc() {
-    return [this](SDL_Window& window, GDIint w, GDIint h, GDIint x, GDIint y) {
-        return this->createContext(window, w, h, x, y);
-    };
-}
-
-void OpenGLGDI::createContext(SDL_Window& window, GDIint w, GDIint h, GDIint x, GDIint y) {
+void OpenGLGDI::createContext(SDL_Window &window, GDIint w, GDIint h, GDIint x, GDIint y) {
     // OpenGL context initialization over the SDL windowManager, needed for using OpenGL functions
     if ((this->context = SDL_GL_CreateContext(&window)) == nullptr)
         throw EngineException("Unable to create context: " + std::string(SDL_GetError()));
     else
         Logger::get().success("GL context created!");
     // Must be called after creating the context
-    this->setViewport(w, h, x, y);
+    this->setViewport(x, y, w, h);
 }
 
 void OpenGLGDI::setAttributes() {
@@ -92,12 +83,14 @@ void OpenGLGDI::setAttributes() {
 }
 
 
-std::function<void(SDL_Window*)> OpenGLGDI::getSwapBuffersFunc() {
-    return {SDL_GL_SwapWindow};
+std::function <void(SDL_Window &)> OpenGLGDI::getSwapBuffersFunc() {
+    return [](SDL_Window &window) {
+        SDL_GL_SwapWindow(&window);
+    };
 }
 
 void OpenGLGDI::setViewport(int x, int y, int width, int height) {
-    glViewport(0, 0, width, height);
+    glViewport(x, y, width, height);
 }
 
 void OpenGLGDI::setViewport(int width, int height) {
@@ -128,7 +121,8 @@ OpenGLGDI::createTexture(SDL_Surface &surface, TextureFilter::MinFilter minFilte
     
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, textureFilterToGl <TextureFilter::WrapMode>(wrapT));
     
-    
+    // TODO: Check this, it assumes that any 4-byte-per-pixel texture is RGBA, and any other texture is RGB.
+    //  This might not always be correct depending on the specifics of the SDL_Surface format.
     GLenum format = (surface.format->BytesPerPixel == 4) ? GL_RGBA : GL_RGB;
     // Generate the texture
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, surface.w, surface.h, 0, format, GL_UNSIGNED_BYTE, surface.pixels);
@@ -139,6 +133,12 @@ OpenGLGDI::createTexture(SDL_Surface &surface, TextureFilter::MinFilter minFilte
     return textureID;
 }
 
+GDIuint OpenGLGDI::createTexture(SDL_Surface &surface) {
+    return this->createTexture(surface, TextureFilter::MinFilter::Linear, TextureFilter::MagFilter::Linear,
+                               TextureFilter::WrapMode::Repeat, TextureFilter::WrapMode::Repeat);
+}
+
+
 void OpenGLGDI::bindTexture(GDIuint textureID) {
     glBindTexture(GL_TEXTURE_2D, textureID);
 }
@@ -147,6 +147,15 @@ void OpenGLGDI::setGlAttribute(SDL_GLattr attrib, int val) {
     if (SDL_GL_SetAttribute(attrib, val) == -1)
         throw GDIException("Unable to set gl attribute: " + std::string(SDL_GetError()));
 }
+
+void OpenGLGDI::deleteTexture(GDIuint textureID) {
+    glDeleteTextures(1, &textureID);
+}
+
+void OpenGLGDI::deleteContext() {
+    SDL_GL_DeleteContext(this->context);
+}
+
 
 
 
@@ -168,86 +177,87 @@ void OpenGLGDI::setGlAttribute(SDL_GLattr attrib, int val) {
 // -------------------------------------------------------------------------
 // --------------------------- Shader functions ----------------------------
 
-GLint OpenGLGDI::getUniformLocation(GLint program, const std::string &name) {
+GDIint OpenGLGDI::getUniformLocation(GDIint program, const std::string &name) {
     return glGetUniformLocation(program, name.c_str());
 }
 
-void OpenGLGDI::setUniform1Float(GLint location, GLfloat v0) {
+void OpenGLGDI::setUniform1Float(GDIint location, GDIfloat v0) {
     glUniform1f(location, v0);
 }
 
-void OpenGLGDI::setUniform1FloatVector(GLint location, GLsizei count, const GLfloat *value) {
+void OpenGLGDI::setUniform1FloatVector(GDIint location, GDIsize count, const GDIfloat *value) {
     glUniform1fv(location, count, value);
 }
 
-void OpenGLGDI::setUniform1Int(GLint location, GLint v0) {
+void OpenGLGDI::setUniform1Int(GDIint location, GDIint v0) {
     glUniform1i(location, v0);
 }
 
-void OpenGLGDI::setUniform1IntVector(GLint location, GLsizei count, const GLint *value) {
+void OpenGLGDI::setUniform1IntVector(GDIint location, GDIsize count, const GDIint *value) {
     glUniform1iv(location, count, value);
 }
 
-void OpenGLGDI::setUniform2Float(GLint location, GLfloat v0, GLfloat v1) {
+void OpenGLGDI::setUniform2Float(GDIint location, GDIfloat v0, GDIfloat v1) {
     glUniform2f(location, v0, v1);
 }
 
-void OpenGLGDI::setUniform2FloatVector(GLint location, GLsizei count, const GLfloat *value) {
+void OpenGLGDI::setUniform2FloatVector(GDIint location, GDIsize count, const GDIfloat *value) {
     glUniform2fv(location, count, value);
 }
 
-void OpenGLGDI::setUniform2Int(GLint location, GLint v0, GLint v1) {
+void OpenGLGDI::setUniform2Int(GDIint location, GDIint v0, GDIint v1) {
     glUniform2i(location, v0, v1);
 }
 
-void OpenGLGDI::setUniform2IntVector(GLint location, GLsizei count, const GLint *value) {
+void OpenGLGDI::setUniform2IntVector(GDIint location, GDIsize count, const GDIint *value) {
     glUniform2iv(location, count, value);
 }
 
-void OpenGLGDI::setUniform3Float(GLint location, GLfloat v0, GLfloat v1, GLfloat v2) {
+void OpenGLGDI::setUniform3Float(GDIint location, GDIfloat v0, GDIfloat v1, GDIfloat v2) {
     glUniform3f(location, v0, v1, v2);
 }
 
-void OpenGLGDI::setUniform3FloatVector(GLint location, GLsizei count, const GLfloat *value) {
+void OpenGLGDI::setUniform3FloatVector(GDIint location, GDIsize count, const GDIfloat *value) {
     glUniform3fv(location, count, value);
 }
 
-void OpenGLGDI::setUniform3Int(GLint location, GLint v0, GLint v1, GLint v2) {
+void OpenGLGDI::setUniform3Int(GDIint location, GDIint v0, GDIint v1, GDIint v2) {
     glUniform3i(location, v0, v1, v2);
 }
 
-void OpenGLGDI::setUniform3IntVector(GLint location, GLsizei count, const GLint *value) {
+void OpenGLGDI::setUniform3IntVector(GDIint location, GDIsize count, const GDIint *value) {
     glUniform3iv(location, count, value);
 }
 
-void OpenGLGDI::setUniform4Float(GLint location, GLfloat v0, GLfloat v1, GLfloat v2, GLfloat v3) {
+void OpenGLGDI::setUniform4Float(GDIint location, GDIfloat v0, GDIfloat v1, GDIfloat v2, GDIfloat v3) {
     glUniform4f(location, v0, v1, v2, v3);
 }
 
-void OpenGLGDI::setUniform4FloatVector(GLint location, GLsizei count, const GLfloat *value) {
+void OpenGLGDI::setUniform4FloatVector(GDIint location, GDIsize count, const GDIfloat *value) {
     glUniform4fv(location, count, value);
 }
 
-void OpenGLGDI::setUniform4Int(GLint location, GLint v0, GLint v1, GLint v2, GLint v3) {
+void OpenGLGDI::setUniform4Int(GDIint location, GDIint v0, GDIint v1, GDIint v2, GDIint v3) {
     glUniform4i(location, v0, v1, v2, v3);
 }
 
-void OpenGLGDI::setUniform4IntVector(GLint location, GLsizei count, const GLint *value) {
+void OpenGLGDI::setUniform4IntVector(GDIint location, GDIsize count, const GDIint *value) {
     glUniform4iv(location, count, value);
 }
 
-void OpenGLGDI::setUniformMatrix2FloatVector(GLint location, GLsizei count, GLboolean transpose, const GLfloat *value) {
+void OpenGLGDI::setUniformMatrix2FloatVector(GDIint location, GDIsize count, GDIbool transpose, const GDIfloat *value) {
     glUniformMatrix2fv(location, count, transpose, value);
 }
 
-void OpenGLGDI::setUniformMatrix3FloatVector(GLint location, GLsizei count, GLboolean transpose, const GLfloat *value) {
+void OpenGLGDI::setUniformMatrix3FloatVector(GDIint location, GDIsize count, GDIbool transpose, const GDIfloat *value) {
     glUniformMatrix3fv(location, count, transpose, value);
 }
 
-void OpenGLGDI::setUniformMatrix4FloatVector(GLint location, GLsizei count, GLboolean transpose, const GLfloat *value) {
+void OpenGLGDI::setUniformMatrix4FloatVector(GDIint location, GDIsize count, GDIbool transpose, const GDIfloat *value) {
     glUniformMatrix4fv(location, count, transpose, value);
 }
 
 void OpenGLGDI::useShaderProgram(int shaderProgram) {
     glUseProgram(shaderProgram);
 }
+

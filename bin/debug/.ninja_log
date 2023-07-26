@@ -19,3 +19,12 @@
 30	898	7117283191470556	CMakeFiles/game.dir/src/engine/core/logger/Logger.cpp.obj	bc53018e3b096e5d
 18	1449	7117283197142899	CMakeFiles/game.dir/src/engine/core/graphics-device-iterface/concrete-gdi/opengl/OpenGLDebugger.cpp.obj	218490022f31e1d2
 39	1499	7117283197643008	CMakeFiles/game.dir/src/engine/core/window/WindowManager.cpp.obj	5cd0fc8d53ba8279
+40	1245	7118338414861538	CMakeFiles/game.dir/src/engine/res-mng/files/FileManager.cpp.obj	bd7ece078b001c5b
+24	2122	7118917342024714	CMakeFiles/game.dir/src/engine/core/graphics-device-iterface/concrete-gdi/vulkan/VulkanGDI.cpp.obj	9c97a5ababc4ab10
+35	2145	7118917342664854	CMakeFiles/game.dir/src/engine/core/window/WindowManager.cpp.obj	5cd0fc8d53ba8279
+17	942	7118920646797151	CMakeFiles/game.dir/src/engine/core/graphics-device-iterface/concrete-gdi/vulkan/VulkanGDI.cpp.obj	9c97a5ababc4ab10
+20	1373	7118920651128120	CMakeFiles/game.dir/src/engine/core/graphics-device-iterface/concrete-gdi/opengl/OpenGLGDI.cpp.obj	d85aef83ee60311a
+27	1375	7118920651148129	CMakeFiles/game.dir/src/engine/core/window/WindowManager.cpp.obj	5cd0fc8d53ba8279
+36	1189	7118927190664550	CMakeFiles/game.dir/src/engine/subsystems/input/InputManager.cpp.obj	3da34eabd485932d
+29	2324	7118927202003449	CMakeFiles/game.dir/src/engine/res-mng/textures/TextureManager.cpp.obj	14360c2dd1d6f9d6
+24	2358	7119770115276518	CMakeFiles/game.dir/src/engine/core/graphics-device-iterface/concrete-gdi/opengl/OpenGLDebugger.cpp.obj	218490022f31e1d2

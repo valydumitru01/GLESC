@@ -1,10 +1,10 @@
 #pragma once
 
-#include <utility>
-#include <vector>
+#include <unordered_map>
+
 #include "Component.h"
 #include "engine/subsystems/input/InputTypes.h"
-#include "SDL2/SDL_keycode.h"
+#include "engine/subsystems/input/InputKeys.h"
 
 struct InputComponent : public Component {
     /**
@@ -12,7 +12,7 @@ struct InputComponent : public Component {
      * @details This vector is used to store the keys that are subscribed to the input system,
      * this it saves memory as each only stores the keys that are subscribed to it.
      */
-    std::vector<std::pair<SDL_Keycode, bool>> subscribedKeys;
+    std::unordered_map<GLESC::Key, bool> subscribedKeys;
     /**
      * @brief The mouse position is always stored and updated, no need for subscription
      * @details This is the mouse position, it is always updated and stored, no need for subscription.

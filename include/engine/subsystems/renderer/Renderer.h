@@ -9,21 +9,18 @@
 #include "glm/gtc/type_ptr.hpp"
 
 #include "engine/res-mng/textures/TextureManager.h"
-#include "RenderDebugger.h"
 
 #include "engine/subsystems/renderer/shaders/ShaderManager.h"
 #include "engine/core/window/WindowManager.h"
 #include "engine/core/exceptions/EngineException.h"
 #include "engine/core/graphics-device-interface/GraphicsInterface.h"
 
-#include "GlApi.h"
 #include "Mesh.h"
 
 
 class Renderer {
 public:
-    explicit Renderer(const std::shared_ptr <WindowManager> &windowManager,
-                      const std::shared_ptr <GraphicsInterface> &graphicsInterface);
+    explicit Renderer(const WindowManager &windowManager, const GraphicsInterface &graphicsInterface);
     
     ~Renderer();
     
@@ -37,19 +34,10 @@ public:
     [[nodiscard]] ShaderManager &getShaderManager();
     
     /**
-     * @brief Get the Window Manager object
-     * @return WindowManager& The Window Manager object
-     */
-    [[nodiscard]] shared_ptr <WindowManager> &getWindowManager();
-    
-    /**
      * @brief Get the Texture Manager object
      * @return TextureManager& The Texture Manager object
      */
     [[nodiscard]] TextureManager &getTextureManager();
-    
-    
-    [[nodiscard]] SDL_GLContext &getContext();
     
     /**
      * @brief Gets the projection matrix
@@ -82,16 +70,19 @@ public:
      * @return projection matrix
      */
     static glm::mat4
-    makeProjectionMatrix(float fov, float nearPlane, float farPlane, float viewWidth, float viewHeight);
+    calculateProjectionMatrix(float fov, float nearPlane, float farPlane, float viewWidth, float viewHeight);
     
+    void swapBuffers();
+    
+
+private:
     /**
      * @brief Creates a view matrix from a transform component of the camera
      * @details uses the lookAt function from glm
      * @param transform component of the camera
      * @return view matrix
      */
-    static glm::mat4 makeViewMatrix(const glm::vec3 &position, const glm::vec3 &rotation, const glm::vec3 &scale);
-    
+    static glm::mat4 calculateViewMatrix(const glm::vec3 &position, const glm::vec3 &rotation, const glm::vec3 &scale);
     /**
      * @brief Calculate the model matrix for a given position, rotation, and scale
      * @details Given the position, rotation, and scale, this method calculates the model matrix
@@ -101,33 +92,22 @@ public:
      * @return The model matrix
      */
     static glm::mat4 calculateModelMatrix(const glm::vec3 &position, const glm::vec3 &rotation, const glm::vec3 &scale);
-
-private:
-    /**
-     * @brief Shader manager
-     *
-     */
-    unique_ptr <ShaderManager> shaderManager;
+    GraphicsInterface &graphicsInterface;
     /**
      * @brief Window manager
      *
      */
-    shared_ptr <WindowManager> windowManager;
+    WindowManager &windowManager;
+    /**
+     * @brief Shader manager
+     *
+     */
+    ShaderManager shaderManager;
     /**
      * @brief Texture manager
      *
      */
     TextureManager textureManager;
-    /**
-     * @brief Render debugger
-     *
-     */
-    RenderDebugger debugger;
-    /**
-     * @brief OpenGL context
-     *
-     */
-    SDL_GLContext context;
     
     /**
      * @brief Projection matrix

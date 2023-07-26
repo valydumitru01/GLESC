@@ -5,15 +5,12 @@
 
 class CameraSystem : public System {
 public:
-    CameraSystem() : System("Camera System") {};
+    explicit CameraSystem(Renderer &renderer);
     
     void update();
-    
-    void init() override;
-    
 
 
 private:
-    Renderer& renderer;
+    Renderer &renderer;
 };
 

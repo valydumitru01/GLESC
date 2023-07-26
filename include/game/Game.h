@@ -1,8 +1,8 @@
 #pragma once
 
-#include "engine/GLESC.h"
+#include "engine/Engine.h"
 
-class Game : public GLESC {
+class Game : public Engine {
 
 public:
 

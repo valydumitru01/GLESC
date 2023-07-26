@@ -1,6 +1,7 @@
 #pragma once
 
 #include <boost/bimap.hpp>
+#include <SDL2/SDL_image.h>
 #include "engine/core/graphics-device-interface/GraphicsInterface.h"
 
 
@@ -14,10 +15,10 @@ public:
      * @return SDL_Texture*
      */
     GDIuint
-    loadTexture(const std::string &filePath, TextureFilter::MinFilter minFilter = TextureFilter::MinFilter::LINEAR,
-                TextureFilter::MagFilter magFilter = TextureFilter::MagFilter::LINEAR,
-                TextureFilter::WrapMode wrapS = TextureFilter::WrapMode::REPEAT,
-                TextureFilter::WrapMode wrapT = TextureFilter::WrapMode::REPEAT);
+    loadTexture(const std::string &filePath, TextureFilter::MinFilter minFilter = TextureFilter::MinFilter::Linear,
+                TextureFilter::MagFilter magFilter = TextureFilter::MagFilter::Linear,
+                TextureFilter::WrapMode wrapS = TextureFilter::WrapMode::Repeat,
+                TextureFilter::WrapMode wrapT = TextureFilter::WrapMode::Repeat);
     /**
      * @brief
      * @param textureID

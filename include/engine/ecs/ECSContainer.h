@@ -57,7 +57,12 @@ public:
     void addComponentRequirementToSystem(const std::string &name, ComponentID componentID);
     //--------------------------------------------------------------
     //------------------------- Components --------------------------
-    
+    /**
+     * @brief Adds a component to the entity signature
+     * @param entity
+     * @param component
+     */
+    void addComponentToEntitySignature(EntityID entity, ComponentID component);
     /**
      * @brief Registers the T component into the array of components
      * @details This is used to register the component into the array of components
@@ -155,6 +160,15 @@ public:
      */
     [[nodiscard]] Signature getEntitySignature(EntityID entity) const;
 
+
+
+    /**
+     * @brief Updates the entity array for each system, removing or adding the entity if needed
+     * @details This will remove the entity from the system array when the entity no longer has the required components.
+     * It will also add the entity to the system array when the entity has the required components.
+     */
+    void entitySignatureChanged();
+
 private:
     /**
      * @brief Constructor is private to prevent instantiation, must use singleton ECS::get()
@@ -163,13 +177,6 @@ private:
     
     // --------------------------------------------------------------
     // ------------------------- System -----------------------------
-    
-    /**
-     * @brief Updates the entity array for each system, removing or adding the entity if needed
-     * @details This will remove the entity from the system array when the entity no longer has the required components.
-     * It will also add the entity to the system array when the entity has the required components.
-     */
-    void entitySignatureChanged();
     
     /**
      * @brief Map from system type string to system type (signature, set<entities>)
@@ -228,12 +235,6 @@ private:
     
     // --------------------------------------------------------------
     // ------------------------- Entity -----------------------------
-    /**
-     * @brief Adds a component to the entity signature
-     * @param entity
-     * @param component
-     */
-    void addComponentToEntitySignature(EntityID entity, ComponentID component);
     
     /**
      * @brief Queue of unused entity IDs

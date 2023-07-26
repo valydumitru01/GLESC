@@ -1,6 +1,5 @@
 #include "engine/res-mng/textures/TextureManager.h"
 #include <memory>
-#include <SDL2/SDL_image.h>
 #include "engine/core/logger/Logger.h"
 #include "engine/core/exceptions/resources/ResourceException.h"
 
@@ -32,11 +31,11 @@ SDL_Surface &TextureManager::createSurface(const std::string &filePath) {
     }
 }
 
-void TextureManager::deleteTexture(GLuint textureID) {
+void TextureManager::deleteTexture(GDIuint textureID) {
     graphicsInterface->deleteTexture(textureID);
 }
 
-void TextureManager::bindTexture(GLuint textureID) {
+void TextureManager::bindTexture(GDIuint textureID) {
     graphicsInterface->bindTexture(textureID);
 }
 

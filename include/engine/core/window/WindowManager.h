@@ -46,7 +46,7 @@ public:
      *
      * @return SDL_Window* the windowManager object
      */
-    SDL_Window *getWindow();
+    SDL_Window & getWindow();
     
     /**
      * @brief Get the width of the windowManager
@@ -81,7 +81,7 @@ private:
      * @brief Initialize the windowManager with its title, setting its flags
      * Checks if there is any error while doing it.
      */
-    void createWindow(const char *title);
+    SDL_Window &createWindow(const char *title);
     
     /**
      * @brief The graphics API used by the windowManager
@@ -93,7 +93,7 @@ private:
      * @brief The SDL windowManager object
      *
      */
-    std::shared_ptr <SDL_Window> window;
+    SDL_Window& window;
     /**
      * @brief True if is fullscreen and false if it is not
      *

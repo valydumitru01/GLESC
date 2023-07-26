@@ -1,46 +1,34 @@
 #include "engine/GLESC.h"
 
-GLESC::GLESC() : running(true), windowManager(std::make_shared <WindowManager>("GLESC")),
-                 renderer(make_shared <Renderer>(windowManager)), inputSystem(running) {
-    
-    
-    
-    cameraSystem.setRenderer(renderer);
-    renderSystem.setRenderer(renderer);
-    // Register all the components
-    // Must be done before the systems are created
-    // Because the systems need to know what components they are working with
-    // TODO: Make this automatic
-    physicsSystem.init();
-    renderSystem.init();
-    cameraSystem.init();
+using namespace GLESC;
 
+Engine::Engine() : running(true), graphicsInterface(), windowManager({graphicsInterface}), inputManager(),
+                   renderer({graphicsInterface}), physicsManager(), inputSystem(inputManager) {
     
 }
 
 
-void GLESC::processInput() {
+void Engine::processInput() {
     inputSystem.update();
 }
 
-void GLESC::render(double const timeOfFrame) {
+void Engine::render(double const timeOfFrame) {
     
     cameraSystem.update();
     
     renderSystem.update(timeOfFrame);
 }
 
-void GLESC::update() {
+void Engine::update() {
     loop();
     physicsSystem.update();
 }
 
-void GLESC::createEntity(const string &name) {
+void Engine::createEntity(const std::string &name) {
     entities.emplace(std::piecewise_construct, std::forward_as_tuple(name), std::tuple <>());
 }
 
 
-Entity &GLESC::getEntity(const string &name) {
+Entity &Engine::getEntity(const std::string &name) {
     return entities[name];
 }
-

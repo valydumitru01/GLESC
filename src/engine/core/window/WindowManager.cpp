@@ -3,11 +3,10 @@
 #include <string>
 
 WindowManager::WindowManager(const char *title, GraphicsInterface &graphicApi) : graphicApi(graphicApi),
-                                                                                 window(nullptr), fullscreen(SDL_FALSE),
+                                                                                 window(createWindow(title)), fullscreen(SDL_FALSE),
                                                                                  height(800), width(1200) {
     initSDL();
-    this->graphicApi.setAttributes();
-    createWindow(title);
+    
     // Enable mouse relative mode
     // This will make the mouse cursor invisible and locked in the middle of the screen
     setMouseRelative(true);
@@ -21,19 +20,17 @@ void WindowManager::initSDL() {
     Logger::get().success("SDL Initialized!");
 }
 
-void WindowManager::createWindow(const char *title) {
+SDL_Window & WindowManager::createWindow(const char *title) {
+    this->graphicApi.setAttributes();
     int flags = getRaisedFlags();
-    SDL_Window *rawWindow = SDL_CreateWindow(title, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 800, 600, flags);
-    if (rawWindow == nullptr)
+    SDL_Window *tempWindow = SDL_CreateWindow(title, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 800, 600, flags);
+    if (tempWindow == nullptr)
         throw EngineException("Unable to create windowManager: " + std::string(SDL_GetError()));
     
-    
-    // Create a shared_ptr to an SDL_Window and assign it to 'windowManager'
-    window = std::shared_ptr <SDL_Window>(rawWindow, SDL_DestroyWindow);
-    
     Logger::get().success("Window created!");
-    SDL_SetWindowMinimumSize(window.get(), WINDOW_MIN_WIDTH, WINDOW_MIN_HEIGHT);
+    SDL_SetWindowMinimumSize(tempWindow, WINDOW_MIN_WIDTH, WINDOW_MIN_HEIGHT);
     
+    return *tempWindow;
 }
 
 
@@ -86,8 +83,8 @@ void WindowManager::setFullscreen(SDL_bool isFullScreen) {
     // TODO: Implement full screen capability
 }
 
-SDL_Window *WindowManager::getWindow() {
-    return window.get();
+SDL_Window &WindowManager::getWindow() {
+    return window;
 }
 
 int WindowManager::getWidth() const {

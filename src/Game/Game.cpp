@@ -1,7 +1,7 @@
 #include "game/Game.h"
 
 
-void GLESC::initGame() {
+void Engine::initGame() {
     // TODO: Create a game class
     createEntity("player");
     createEntity("camera");
@@ -39,7 +39,7 @@ void GLESC::initGame() {
 }
 
 
-void GLESC::loop() {
+void Engine::loop() {
     getEntity("player").getComponent <RigidBodyComponent>().velocity.x = 1;
     
     getEntity("player").getComponent <RenderComponent>();

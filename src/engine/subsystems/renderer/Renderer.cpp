@@ -1,32 +1,18 @@
 #include <utility>
-#include "engine/core/renderer/Renderer.h"
+#include "engine/subsystems/renderer/Renderer.h"
 #include "engine/core/logger/Logger.h"
-Renderer::Renderer(const std::shared_ptr <WindowManager>& windowManager)
-        : textureManager(), context(nullptr), projection(), view() {
-    
-    int width = windowManager->getWidth();
-    int height = windowManager->getHeight();
-    
-    this->windowManager = std::move(windowManager);
-    
-    initGlContext();
-    
 
-    RenderDebugger::initDebugCallback();
+Renderer::Renderer(const WindowManager &windowManager, const GraphicsInterface &graphicsInterface) : graphicsInterface(
+        graphicsInterface), windowManager(windowManager), shaderManager(), textureManager(), projection(), view() {
     
     // Set the projection matrix
-    projection = makeProjectionMatrix(45.0f, 0.1f, 100.0f, (float)width, (float)height);
-    
-    shaderManager = make_unique <ShaderManager>();
+    projection = calculateProjectionMatrix(45.0f, 0.1f, 100.0f, (float) windowManager.getWidth(),
+                                           (float) windowManager.getHeight());
 }
 
 
 ShaderManager &Renderer::getShaderManager() {
-    return *shaderManager;
-}
-
-std::shared_ptr <WindowManager> &Renderer::getWindowManager() {
-    return windowManager;
+    return shaderManager;
 }
 
 TextureManager &Renderer::getTextureManager() {
@@ -34,14 +20,8 @@ TextureManager &Renderer::getTextureManager() {
 }
 
 
-
 Renderer::~Renderer() {
-    SDL_GL_DeleteContext(context);
-}
-
-
-SDL_GLContext &Renderer::getContext() {
-    return context;
+    graphicsInterface.deleteContext();
 }
 
 glm::mat4 Renderer::getProjection() const {
@@ -61,7 +41,7 @@ void Renderer::setProjection(const glm::mat4 &projectionParam) {
 }
 
 glm::mat4
-Renderer::makeProjectionMatrix(float fov, float nearPlane, float farPlane, float viewWidth, float viewHeight) {
+Renderer::calculateProjectionMatrix(float fov, float nearPlane, float farPlane, float viewWidth, float viewHeight) {
     if (viewHeight == 0)
         throw EngineException("Unable to make projection matrix: viewHeight is 0");
     if (viewWidth == 0)
@@ -71,7 +51,7 @@ Renderer::makeProjectionMatrix(float fov, float nearPlane, float farPlane, float
     return glm::perspective(glm::radians(fov), aspectRatio, nearPlane, farPlane);
 }
 
-glm::mat4 Renderer::makeViewMatrix(const glm::vec3 &position, const glm::vec3 &rotation, const glm::vec3 &scale) {
+glm::mat4 Renderer::calculateViewMatrix(const glm::vec3 &position, const glm::vec3 &rotation, const glm::vec3 &scale) {
     glm::mat4 model = glm::translate(glm::mat4(1.0f), position);
     model = glm::rotate(model, glm::radians(rotation.x), glm::vec3(1.0f, 0.0f, 0.0f));
     model = glm::rotate(model, glm::radians(rotation.y), glm::vec3(0.0f, 1.0f, 0.0f));
@@ -89,7 +69,17 @@ glm::mat4 Renderer::calculateModelMatrix(const glm::vec3 &position, const glm::v
     return model;
 }
 
-void
-Renderer::renderMesh(Mesh& mesh, const glm::vec3 &position, const glm::vec3 &rotation, const glm::vec3 &scale) {
+void Renderer::renderMesh(Mesh &mesh, const glm::vec3 &position, const glm::vec3 &rotation, const glm::vec3 &scale) {
+    glm::mat4 model = calculateModelMatrix(position, rotation, scale);
+    
+    // Set the model matrix uniform in the shader
+    // With OpenGL the multiplication must be done in reverse P x V x M
+    getShaderManager().setMat4("mvp", model * getView() * getProjection());
+    getShaderManager().setVec3("position", position);
+    
+    
+}
 
+void Renderer::swapBuffers() {
+    graphicsInterface.getSwapBuffersFunc()(windowManager.getWindow());
 }

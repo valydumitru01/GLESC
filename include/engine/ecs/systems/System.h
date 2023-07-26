@@ -31,7 +31,6 @@ public:
         return ECS::getECS()->getAssociatedEntities(this->name());
     }
     
-    virtual void init() = 0;
 
 
 protected:

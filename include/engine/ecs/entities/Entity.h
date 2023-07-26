@@ -4,7 +4,7 @@
 #include "engine/ecs/ECSContainer.h"
 #include "engine/ecs/components/ComponentArray.h"
 #include "engine/ecs/components/RenderComponent.h"
-#include "engine/exceptions/EngineException.h"
+#include "engine/core/asserts/Asserts.h"
 
 #include <memory>
 #include <cassert>
@@ -18,11 +18,8 @@ class Entity {
 
 public:
     Entity() {
-#ifdef DEBUG
-        assert(ECS::getECS()->canEntityBeCreated() && "Too many entities in existence.");
-        assert(ECS::getECS()->areThereAvailableEntities() && "No available entities left");
-#endif
-        
+        ASSERT(ECS::getECS()->canEntityBeCreated(), "Too many entities in existence.");
+        // TODO: Create a method in ECSContainer called create entity
         // Take an ID from the front of the queue
         ID = ECS::getECS()->getNextEntity();
         Logger::get().info("Entity created with ID: " + std::to_string(ID));
@@ -41,6 +38,7 @@ public:
      */
     template <typename T>
     Entity& addComponent(T &&component) {
+        // TODO: Create a method in ECSContainer called add component to entity
         // Add the component to the entity
         ECS::getECS()->addComponentToEntitySignature(ID, ECS::getECS()->getComponentID <T>());
         // Register the component to the array for the component type
@@ -58,6 +56,7 @@ public:
      */
     template <typename T>
     void removeComponent() {
+        // TODO: Create a method in ECSContainer called remove component from entity
         ECS::getECS()->getComponentArray <T>()->entityDestroyed(ID);
         ECS::getECS()->entitySignatureChanged();
     }
@@ -69,6 +68,7 @@ public:
      */
     template <typename T>
     inline T &getComponent() const {
+        // TODO: Create a method in ECSContainer called get component from entity
         return ECS::getECS()->getComponentArray <T>()->getData(ID);
     }
     

@@ -79,7 +79,7 @@ std::string OpenGLDebugger::errorStringFromType(GLenum type) {
         case GL_DEBUG_TYPE_MARKER:
             return typeString + "Marker";
         case GL_DEBUG_TYPE_PUSH_GROUP:
-            return typeString + "Push Group";
+            return typeString + "push Group";
         case GL_DEBUG_TYPE_POP_GROUP:
             return typeString + "Pop Group";
         case GL_DEBUG_TYPE_OTHER:

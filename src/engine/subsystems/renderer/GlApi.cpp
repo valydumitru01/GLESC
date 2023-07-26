@@ -1,5 +1,4 @@
-#include "renderer/GlApi.h"
-#include <vector>
+
 
 void GlApi::generateVertexArray(GLuint &VAO) {
     glGenVertexArrays(1, &VAO);

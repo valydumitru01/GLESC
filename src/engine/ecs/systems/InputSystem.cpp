@@ -16,3 +16,4 @@ void InputSystem::update() {
         input.mousePositionSubscribed = inputManager.getMousePosition();
     }
 }
+

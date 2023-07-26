@@ -19,20 +19,12 @@ void RenderSystem::update(const double timeOfFrame) {
     renderer->getShaderManager().use();
     
     for (auto &entity: getAssociatedEntities()) {
-        
-        auto &render = getComponent <RenderComponent>(entity);
+        auto &render = getComponent <RenderComponent>(s entity);
         auto &transform = getComponent <TransformComponent>(entity);
         
         renderer->renderMesh(render.mesh, transform.position, transform.rotation, transform.scale);
-        glm::mat4 model = renderer->calculateModelMatrix(transform.position, transform.rotation, transform.scale);
         
-        // Set the model matrix uniform in the shader
-        // With OpenGL the multiplication must be done in reverse P x V x M
-        renderer->getShaderManager().setMat4("mvp", model * renderer->getView() * renderer->getProjection());
-        renderer->getShaderManager().setVec3("position", transform.position);
-        
-        // Bind the mesh buffers
-        bindMeshBuffers(render.mesh);
+        renderer->renderTexture(render.textureID, transform.position, transform.rotation, transform.scale);
         
         render.textureID = renderer->getTextureManager().loadTexture(render.texturePath);
         
@@ -46,7 +38,7 @@ void RenderSystem::update(const double timeOfFrame) {
         
         // TODO: Batch rendering
     }
-    renderer->getWindowManager()->swapBuffers();
+    renderer->swapBuffers();
 }
 
 

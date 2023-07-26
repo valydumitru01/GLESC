@@ -1,29 +1,15 @@
 #pragma once
 
-#include <iostream>
-#include <unordered_map>
-#include <vector>
-
-#include "GL/glew.h"
-#include "GL/glu.h"
-#include "SDL2/SDL.h"
-#include "glm/glm.hpp"
-#include "glm/gtc/matrix_transform.hpp"
-#include "glm/gtc/type_ptr.hpp"
-
 #include "engine/ecs/components/RenderComponent.h"
 #include "engine/ecs/components/TransformComponent.h"
 #include "System.h"
 
-#include "engine/core/renderer/Renderer.h"
+#include "engine/subsystems/renderer/Renderer.h"
 
 
 class RenderSystem : public System {
 public:
     RenderSystem() : System("Render System") {};
-    void setRenderer(std::shared_ptr <Renderer> &rendererParam);
-    
-    void init() override;
     
     /**
      * @brief Render the content of the screen.
