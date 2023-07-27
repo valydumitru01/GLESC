@@ -2,7 +2,7 @@
 #include "engine/subsystems/renderer/Renderer.h"
 #include "engine/core/logger/Logger.h"
 
-Renderer::Renderer(const WindowManager &windowManager, const GraphicsInterface &graphicsInterface) : graphicsInterface(
+Renderer::Renderer(WindowManager &windowManager, GraphicsInterface &graphicsInterface) : graphicsInterface(
         graphicsInterface), windowManager(windowManager), shaderManager(), textureManager(), projection(), view() {
     
     // Set the projection matrix
@@ -79,7 +79,13 @@ void Renderer::renderMesh(Mesh &mesh, const glm::vec3 &position, const glm::vec3
     
     
 }
-
+void Renderer::start(){
+    graphicsInterface.clear(ClearBits::Color, ClearBits::Depth, ClearBits::Stencil);
+    graphicsInterface.clearColor(0.2f, 0.3f, 0.3f, 1.0f);
+}
+void Renderer::end(){
+    swapBuffers();
+}
 void Renderer::swapBuffers() {
     graphicsInterface.getSwapBuffersFunc()(windowManager.getWindow());
 }

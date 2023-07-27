@@ -49,10 +49,16 @@ public:
         Static [[maybe_unused]] = 0, Dynamic [[maybe_unused]], Stream [[maybe_unused]]
     };
 };
-
+enum class ClearBits{
+    Color [[maybe_unused]] = 0, Depth [[maybe_unused]], Stencil [[maybe_unused]]
+};
 class GraphicsInterface {
 public:
     GraphicsInterface() = default;
+    
+    virtual void clear(ClearBits clearBits...) = 0;
+    
+    virtual void clearColor(GDIfloat r, GDIfloat g, GDIfloat b, GDIfloat a) = 0;
     
     [[nodiscard]] virtual GraphicsAPI getGraphicsAPI() const = 0;
     
@@ -73,8 +79,6 @@ public:
      * the profile, the context flags, etc.
      */
     virtual void setAttributes() = 0;
-    
-    virtual void swapBuffers() = 0;
     
     virtual void setViewport(int x, int y, int width, int height) = 0;
     

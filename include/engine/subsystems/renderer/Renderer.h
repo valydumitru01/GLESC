@@ -20,11 +20,13 @@
 
 class Renderer {
 public:
-    explicit Renderer(const WindowManager &windowManager, const GraphicsInterface &graphicsInterface);
+    explicit Renderer(WindowManager &windowManager, GraphicsInterface &graphicsInterface);
     
     ~Renderer();
     
+    void start();
     
+    void end();
     void renderMesh(Mesh &mesh, const glm::vec3 &position, const glm::vec3 &rotation, const glm::vec3 &scale);
     
     /**

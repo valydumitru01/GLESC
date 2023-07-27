@@ -13,10 +13,11 @@ void Engine::processInput() {
 }
 
 void Engine::render(double const timeOfFrame) {
-    
+    renderer.start();
     cameraSystem.update();
     
     renderSystem.update(timeOfFrame);
+    renderer.end();
 }
 
 void Engine::update() {

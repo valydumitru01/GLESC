@@ -9,7 +9,7 @@
 
 class RenderSystem : public System {
 public:
-    RenderSystem() : System("Render System") {};
+    RenderSystem(Renderer& renderer);
     
     /**
      * @brief Render the content of the screen.
@@ -42,5 +42,5 @@ private:
      * @brief The renderer
      * @details The renderer is used to access the shader manager, the texture manager, and the windowManager manager
      */
-    std::shared_ptr <Renderer> renderer;
+    Renderer& renderer;
 };
