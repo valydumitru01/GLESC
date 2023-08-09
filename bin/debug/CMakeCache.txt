@@ -14,6 +14,9 @@
 # EXTERNAL cache entries
 ########################
 
+//The directory containing a CMake configuration file for $.
+$_DIR:PATH=$_DIR-NOTFOUND
+
 //Builds the googlemock subproject
 BUILD_GMOCK:BOOL=ON
 
@@ -36,8 +39,8 @@ CMAKE_BUILD_TYPE:STRING=Debug
 //Enable colored diagnostics throughout.
 CMAKE_COLOR_DIAGNOSTICS:BOOL=ON
 
-//CXX compiler
-CMAKE_CXX_COMPILER:STRING=C:/MinGW/bin/g++.exe
+//No help, variable specified on the command line.
+CMAKE_CXX_COMPILER:UNINITIALIZED=C:/MinGW/bin/g++.exe
 
 //A wrapper around 'ar' adding the appropriate '--plugin' option
 // for the GCC compiler
@@ -334,6 +337,9 @@ FETCHCONTENT_UPDATES_DISCONNECTED_GOOGLETEST:BOOL=OFF
 //Enable installation of googletest. (Projects embedding googletest
 // may want to turn this OFF.)
 INSTALL_GTEST:BOOL=ON
+
+//The directory containing a CMake configuration file for ImGui.
+ImGui_DIR:PATH=ImGui_DIR-NOTFOUND
 
 //Value Computed by CMake
 game_BINARY_DIR:STATIC=C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug

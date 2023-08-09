@@ -1,12 +1,24 @@
+/*******************************************************************************
+ *
+ * Copyright (c) 2023.
+ * Licensed under the MIT License. See LICENSE.txt in the project root for license information.
+ ******************************************************************************/
+
 #pragma once
-#define SHADER_PATH "/src/renderer/shaders/"
-#define VERT_SHADER "VertexShader.vert"
-#define FRAG_SHADER "FragmentShader.frag"
+
+#include <string>
+#include "engine/core/low-level-renderer/graphic-device-interface/GraphicInterface.h"
 
 class ShaderLoader {
+    friend class ShaderManager;
+
 public:
+    GDIint loadShaders();
+
 private:
-    const char *glslVersion = "#version 430";
+    
+    explicit ShaderLoader(GraphicInterface &graphicInterface);
+    
     /**
      * @brief Source of the vertex shader
      *
@@ -21,12 +33,12 @@ private:
      * @brief ID reference to the vertex shader
      *
      */
-    GLuint vertexShader;
+    GDIuint vertexShader;
     /**
      * @brief ID reference to the fragment shader
      *
      */
-    GLuint fragmentShader;
+    GDIuint fragmentShader;
     
     /**
      * @brief Loads the vertex shader
@@ -50,7 +62,7 @@ private:
      * @brief ID reference to the shader program
      *
      */
-    static GLuint shaderProgram;
+    GDIint shaderProgram;
     
     /**
      * @brief Handle shader compilation errors
@@ -71,23 +83,16 @@ private:
      * This is used to identify the shader in case of handling an error
      *
      */
-    std::unordered_map <unsigned int, const char *> IDNames;
-    
-    /**
-     * @brief If there is no errors, success != 0
-     *
-     */
-    GLint success;
-    /**
-     * @brief Error message is stored here
-     *
-     */
-    GLchar infoLog[512];
-    
     /**
      * @brief Clean the shader loader
      * Once the shaders are linked, they can be cleared as they are
      * no longer needed.
      */
     void clean() const;
+    
+    std::unordered_map<unsigned int, const char *> shaderNamesMap;
+    
+    GraphicInterface &graphicInterface;
+    
+    
 };

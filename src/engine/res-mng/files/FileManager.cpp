@@ -1,3 +1,9 @@
+/*******************************************************************************
+ *
+ * Copyright (c) 2023 Valentin Dumitru.
+ * Licensed under the MIT License. See LICENSE.txt in the project root for license information.
+ ******************************************************************************/
+
 #include "engine/res-mng/files/FileManager.h"
 #include "engine/core/exceptions/resources/OpenException.h"
 

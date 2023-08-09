@@ -1,8 +1,19 @@
+/*******************************************************************************
+ *
+ * Copyright (c) 2023.
+ * Licensed under the MIT License. See LICENSE.txt in the project root for license information.
+ ******************************************************************************/
+
 #pragma once
 
 #include <memory>
 #include <bitset>
 #include <set>
+
+#include "engine/Config.h"
+
+class IComponentArray;
+
 
 using SystemID = std::uint8_t;
 /**
@@ -15,17 +26,32 @@ using EntityID = std::uint16_t;
  *
  */
 using ComponentID = std::uint8_t;
-
+/**
+ * @brief Component name
+ */
+using ComponentName = const char *;
+/**
+ * @brief System name
+ */
+using SystemName = const char *;
+/**
+ * @brief
+ */
+using EntityName = const char *;
+/**
+ * @brief
+ */
+using IComponentArrayPtr = std::shared_ptr <IComponentArray>;
 /**
  * @brief Maximum amount of entities can there be at once
  *
  */
-const static EntityID maxEntities = static_cast<EntityID>(5000);
+const static EntityID maxEntities = static_cast<EntityID>(GLESC_ECS_MAX_ENTITIES);
 /**
  * @brief Maximum amount of components each entity can have
  *
  */
-const static ComponentID maxComponents = static_cast<ComponentID>(16);
+const static ComponentID maxComponents = static_cast<ComponentID>(GLESC_ECS_MAX_COMPONENTS);
 
 /**
  * @brief type of the signature of each entity.

@@ -1,11 +1,24 @@
+/*******************************************************************************
+ *
+ * Copyright (c) 2023 Valentin Dumitru.
+ * Licensed under the MIT License. See LICENSE.txt in the project root for license information.
+ ******************************************************************************/
 #include "engine/GLESC.h"
+#include "engine/ecs/backend/Coordinator.h"
 
 using namespace GLESC;
 
-Engine::Engine() : running(true), graphicsInterface(), windowManager({graphicsInterface}), inputManager(),
-                   renderer({graphicsInterface}), physicsManager(), inputSystem(inputManager) {
-    
-}
+Engine::Engine() :
+        running(true),
+        graphicInterface(),
+        windowManager(graphicInterface),
+        inputManager(),
+        renderer(windowManager, graphicInterface),
+        physicsManager(),
+        inputSystem(inputManager),
+        physicsSystem(physicsManager),
+        renderSystem(renderer),
+        cameraSystem(renderer) {}
 
 
 void Engine::processInput() {
@@ -25,11 +38,3 @@ void Engine::update() {
     physicsSystem.update();
 }
 
-void Engine::createEntity(const std::string &name) {
-    entities.emplace(std::piecewise_construct, std::forward_as_tuple(name), std::tuple <>());
-}
-
-
-Entity &Engine::getEntity(const std::string &name) {
-    return entities[name];
-}

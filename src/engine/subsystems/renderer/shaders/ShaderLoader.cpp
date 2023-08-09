@@ -1,77 +1,86 @@
-ShaderManager::ShaderManager() : success(), infoLog() {
-    std::string vertexPath = PROJECT_SOURCE_DIR + std::string(SHADER_PATH) + VERT_SHADER;
+/*******************************************************************************
+ *
+ * Copyright (c) 2023 Valentin Dumitru.
+ * Licensed under the MIT License. See LICENSE.txt in the project root for license information.
+ ******************************************************************************/
+
+#include "engine/subsystems/renderer/shaders/ShaderLoader.h"
+#include "engine/core/logger/Logger.h"
+#include "engine/res-mng/files/FileManager.h"
+#include "engine/core/exceptions/subsystems/ShaderException.h"
+
+ShaderLoader::ShaderLoader(GraphicInterface &graphicInterface) :
+        vertexShader(0), fragmentShader(0), shaderProgram(0), graphicInterface(graphicInterface) {
+}
+
+GDIint ShaderLoader::loadShaders() {
+    std::string vertexPath = VERT_SHADER;
     vertexShaderSource = FileManager::readFile(vertexPath);
     Logger::get().success("Shader file read successfully: " + vertexPath);
     
-    std::string fragmentPath = PROJECT_SOURCE_DIR + std::string(SHADER_PATH) + FRAG_SHADER;
+    std::string fragmentPath = FRAG_SHADER;
     fragmentShaderSource = FileManager::readFile(fragmentPath);
     Logger::get().success("Shader file read successfully: " + fragmentPath);
     
+    std::string glslCoreStr = graphicInterface.getIsGlslCore() ? "core" : "";
+    
+    std::string glslVersionStr = "#version " + std::to_string(graphicInterface.getGlslMajorVersion()) + "" +
+                                 std::to_string(graphicInterface.getGlslMinorVersion()) + " " + glslCoreStr + "\n";
+    
+    // Setting the glsl version to the shader source
+    vertexShaderSource = glslVersionStr + vertexShaderSource;
+    fragmentShaderSource = glslVersionStr + fragmentShaderSource;
+    
+    Logger::get().info("Shader file content: \n" + vertexShaderSource);
+    Logger::get().info("Shader file content: \n" + fragmentShaderSource);
+    
     loadVertexShader();
+    Logger::get().success("Vertex shader loaded successfully");
     loadFragmentShader();
+    Logger::get().success("Fragment shader loaded successfully");
     createShaderProgram();
+    Logger::get().success("Shader program created successfully");
     
     clean();
+    return shaderProgram;
 }
 
-ShaderManager::~ShaderManager() {
-    glDeleteProgram(shaderProgram);
-}
-
-void ShaderManager::loadVertexShader() {
-    vertexShader = glCreateShader(GL_VERTEX_SHADER);
-    const GLchar *source = vertexShaderSource.c_str();
-    
-    glShaderSource(vertexShader, 1, &source, nullptr);
-    glCompileShader(vertexShader);
-    IDNames.emplace(vertexShader, "VERTEX");
+void ShaderLoader::loadVertexShader() {
+    vertexShader = graphicInterface.loadAndCompileShader(GDIValues::ShaderTypeVertex, vertexShaderSource);
+    shaderNamesMap.emplace(vertexShader, "VERTEX");
     handleErrorsCompilation(vertexShader);
 }
 
-void ShaderManager::loadFragmentShader() {
-    fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-    
-    const GLchar *source = fragmentShaderSource.c_str();
-    
-    glShaderSource(fragmentShader, 1, &source, nullptr);
-    glCompileShader(fragmentShader);
-    IDNames.emplace(fragmentShader, "FRAGMENT");
+void ShaderLoader::loadFragmentShader() {
+    fragmentShader = graphicInterface.loadAndCompileShader(GDIValues::ShaderTypeFragment, fragmentShaderSource);
+    shaderNamesMap.emplace(fragmentShader, "FRAGMENT");
     handleErrorsCompilation(fragmentShader);
-    
 }
 
-void ShaderManager::createShaderProgram() {
-    shaderProgram = glCreateProgram();
-    glAttachShader(shaderProgram, vertexShader);
-    glAttachShader(shaderProgram, fragmentShader);
-    glLinkProgram(shaderProgram);
-    
+void ShaderLoader::createShaderProgram() {
+    shaderProgram = graphicInterface.createShaderProgram(vertexShader, fragmentShader);
     handleErrorsLinking();
 }
 
-void ShaderManager::clean() {
-    
-    glDeleteShader(vertexShader);
-    glDeleteShader(fragmentShader);
+void ShaderLoader::clean() const {
+    std::destroy(shaderNamesMap.begin(), shaderNamesMap.end()); //Delete pointers from map
+    graphicInterface.deleteShader(vertexShader);
+    graphicInterface.deleteShader(fragmentShader);
 }
 
-void ShaderManager::handleErrorsLinking() {
-    /* Check for shader linking errors */
-    glGetProgramiv(shaderProgram, GL_LINK_STATUS, &success);
-    
-    if (!success) {
-        glGetProgramInfoLog(shaderProgram, 512, nullptr, infoLog);
-        throw RenderException("ERROR::SHADER::LINKING_FAILED\n" + std::string(infoLog));
+void ShaderLoader::handleErrorsLinking() {
+    char *infoLog = new char[512];
+    if (!graphicInterface.linkOK(shaderProgram, infoLog)) {
+        throw ShaderLinkingException(std::string(infoLog));
     }
+    delete[] infoLog;
 }
 
-void ShaderManager::handleErrorsCompilation(unsigned int shaderType) {
-    /* Check for errors in vertex shader compilation */
-    glGetShaderiv(shaderType, GL_COMPILE_STATUS, &success);
-    if (!success) {
-        glGetShaderInfoLog(shaderType, 512, nullptr, infoLog);
-        throw RenderException(
-                "ERROR::SHADER::" + std::string(IDNames.at(shaderType)) + "::COMPILATION_FAILED\n" + infoLog);
+void ShaderLoader::handleErrorsCompilation(unsigned int shaderType) {
+    char *infoLog = new char[512];
+    if (!graphicInterface.compilationOK(shaderType, infoLog)) {
+        throw ShaderCompilationException(std::string(shaderNamesMap.at(shaderType)), infoLog);
     }
+    delete[] infoLog;
 }
 

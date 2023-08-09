@@ -1,3 +1,9 @@
+/*******************************************************************************
+ *
+ * Copyright (c) 2023 Valentin Dumitru.
+ * Licensed under the MIT License. See LICENSE.txt in the project root for license information.
+ ******************************************************************************/
+
 #include "engine/ecs/ECSContainer.h"
 
 ECSContainers::ECSContainers() : livingEntityCount(EntityID()) {
@@ -46,12 +52,17 @@ void ECSContainers::entitySignatureChanged() {
         }
     }
 #endif
+    // Notify each system that an entity's signature changed
     for (auto &pair: systems) {
         auto const &signature = pair.second.first;
         auto &entities = pair.second.second;
         
+        // Go through all entities that belong to the system and check if their
+        // signature still matches the system's signature
         for (auto const &entity: entities) {
-            if ((signatures[entity] & signature) == signature) {
+            auto entitySignature = signatures[entity];
+            if ((entitySignature & signature) == signature) {
+                // If the signature of the entity matches the signature of the system, insert it into the set
                 entities.insert(entity);
             } else {
                 entities.erase(entity);
@@ -59,6 +70,14 @@ void ECSContainers::entitySignatureChanged() {
         }
     }
 }
+//----------------------------------------------------------------
+// ------------------------ Components ---------------------------
+
+
+bool ECSContainers::componentIsRegistered(const char *typeName) {
+    return componentArrays.find(typeName) != componentArrays.end();
+}
+
 
 // --------------------------------------------------------------
 // ------------------------- Entities ----------------------------
@@ -79,7 +98,7 @@ void ECSContainers::destroyEntity(EntityID entity) {
     for (auto const &pair: componentArrays) {
         auto const &componentArray = pair.second.first;
         if (componentArray->hasComponent(entity))
-            componentArray->entityDestroyed(entity);
+            componentArray->removeData(entity);
     }
     
     // Erase a destroyed entity from all system lists
@@ -120,6 +139,8 @@ void ECSContainers::destroyEntity(EntityID entity) {
 }
 
 void ECSContainers::addComponentToEntitySignature(EntityID entity, ComponentID component) {
+    ASSERT(entity < maxEntities, "Entity out of range.");
+    ASSERT(isEntityAlive(entity), "Entity is not alive.");
     // Set the bit that represents the component to 1
     signatures[entity].set(component);
 }

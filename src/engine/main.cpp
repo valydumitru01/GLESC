@@ -1,14 +1,18 @@
+/*******************************************************************************
+ *
+ * Copyright (c) 2023 Valentin Dumitru.
+ * Licensed under the MIT License. See LICENSE.txt in the project root for license information.
+ ******************************************************************************/
+
 #include "engine/core/counter/Counter.h"
 #include "engine/GLESC.h"
 #include <SDL2/SDL_main.h>
 
 int main() {
-    Engine glesc;
+    GLESC::Engine glesc;
     Counter counter(FpsRates::Fps60);
     
     glesc.initGame();
-    int iterations = 0;
-    int updates = 0;
     while (glesc.running) {
         counter.timeFrame();
         glesc.processInput();

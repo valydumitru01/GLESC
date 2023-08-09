@@ -1,98 +1,108 @@
+/*******************************************************************************
+ *
+ * Copyright (c) 2023.
+ * Licensed under the MIT License. See LICENSE.txt in the project root for license information.
+ ******************************************************************************/
+
+#pragma once
 #include <vector>
 #include <memory>
-
-
-#include "core/window/WindowManager.h"
+// Configurations for the engine, directives and macros
+#include "Config.h"
+// Core
+#include "engine/core/window/WindowManager.h"
 #include "engine/core/counter/Counter.h"
+#include "engine/core/low-level-renderer/graphic-device-interface/concrete-gdi/opengl/OpenGLGDI.h"
 // ECS
 #include "ecs/ECSTypes.h"
 #include "ecs/ECSContainer.h"
 // Entity
-#include "ecs/entities/Entity.h"
+#include "engine/ecs/frontend/entity/Entity.h"
 // Systems
-#include "ecs/systems/System.h"
-#include "ecs/systems/PhysicsSystem.h"
-#include "ecs/systems/RenderSystem.h"
-#include "ecs/systems/CameraSystem.h"
-#include "engine/ecs/systems/InputSystem.h"
-// Components
-#include "ecs/components/RenderComponent.h"
-#include "ecs/components/CameraComponent.h"
-#include "ecs/components/PhysicsComponent.h"
-#include "ecs/components/TransformComponent.h"
+#include "engine/ecs/frontend/system/System.h"
+#include "engine/ecs/frontend/system/systems/PhysicsSystem.h"
+#include "engine/ecs/frontend/system/systems/RenderSystem.h"
+#include "engine/ecs/frontend/system/systems/CameraSystem.h"
+#include "engine/ecs/frontend/system/systems/InputSystem.h"
 
+// Subsystems
+#include "engine/subsystems/renderer/Renderer.h"
 #include "engine/subsystems/input/InputManager.h"
-#include "engine/core/graphics-device-interface/concrete-gdi/opengl/OpenGLGDI.h"
 #include "engine/subsystems/physics/PhysicsManager.h"
 
-class Engine {
-    friend int main();
-
-
-protected:
-    Engine();
-
-private:
-    /**
-     * @brief Is called every frame, must be called at constant intervals of time as it does not use elapsed, more
-     * information https://www.gameprogrammingpatterns.com/game-loop.html
-     */
-    void update();
+namespace GLESC {
+    class Engine {
+        friend int ::main();
     
-    /**
-     * @brief The input of the game
-     */
-    void processInput();
     
-    /**
-     * @brief The rendering of the game
-     * @param timeOfFrame The time of the frame
-     */
-    void render(double timeOfFrame);
+    protected:
+        Engine();
     
-    void createEntity(std::string const &name);
+    private:
+        /**
+         * @brief Is called every frame, must be called at constant intervals of time as it does not use elapsed, more
+         * information https://www.gameprogrammingpatterns.com/game-loop.html
+         */
+        void update();
+        
+        /**
+         * @brief The input of the game
+         */
+        void processInput();
+        
+        /**
+         * @brief The rendering of the game
+         * @param timeOfFrame The time of the frame
+         */
+        void render(double timeOfFrame);
     
-    Entity &getEntity(std::string const &name);
+        inline Entity getEntity(EntityName name) {
+            return Entity(GLESC::ECS::getECS()->getEntityID(name));
+        }
     
-    /**
-     * @brief If true, the game is running. If false, the game is stopped.
-     */
-    bool running = true;
+        inline Entity createEntity(EntityName name) {
+            return Entity(name);
+        }
+        
+        /**
+         * @brief If true, the game is running. If false, the game is stopped.
+         */
+        bool running = true;
+        
+        /**
+         * @brief This is the graphic interface, it is used as low level interface to the graphics API
+         */
+        #ifdef GLESC_RENDER_OPENGL
+        OpenGLGDI graphicInterface;
+        #elif defined(RENDER_VULKAN)
+        VulkanGDI graphicInterface;
+        #endif
+        
+        /**
+         * @brief Handles the window of the game
+         */
+        GLESC::WindowManager windowManager;
+        /**
+         * @brief Handles the input of the game
+         * @details Handles all the inputs of the game, and stores the state of the inputs.
+         */
+        InputManager inputManager;
+        /**
+         * @brief Handles the rendering of the game
+         * @details Handles all the rendering of the game, provides a high level interface to the graphics API.
+         * Can be used to render 2D and 3D graphics, including generating meshes and textures.
+         */
+        GLESC::Renderer renderer;
+        
+        PhysicsManager physicsManager;
+        
+        InputSystem inputSystem;
+        PhysicsSystem physicsSystem;
+        RenderSystem renderSystem;
+        CameraSystem cameraSystem;
     
-    /**
-     * @brief This is the graphic interface, it is used as low level interface to the graphics API
-     */
-    OpenGLGDI graphicsInterface;
-    /**
-     * @brief Handles the window of the game
-     */
-    WindowManager windowManager;
-    /**
-     * @brief Handles the input of the game
-     * @details Handles all the inputs of the game, and stores the state of the inputs.
-     */
-    InputManager inputManager;
-    /**
-     * @brief Handles the rendering of the game
-     * @details Handles all the rendering of the game, provides a high level interface to the graphics API.
-     * Can be used to render 2D and 3D graphics, including generating meshes and textures.
-     */
-    Renderer renderer;
-    
-    PhysicsManager physicsManager;
-    
-    InputSystem inputSystem;
-    PhysicsSystem physicsSystem;
-    RenderSystem renderSystem;
-    CameraSystem cameraSystem;
-    
-    /**
-     * @brief The entities of the game
-     */
-    std::unordered_map <std::string, Entity> entities;
-public:
-    void initGame();
-    
-    void loop();
-};
-    
+    public:
+        void initGame();
+        void loop();
+    }; // class Engine
+} // namespace GLESC

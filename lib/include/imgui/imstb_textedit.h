@@ -2,6 +2,7 @@
 // This is a slightly modified version of stb_textedit.h 1.14.
 // Those changes would need to be pushed into nothings/stb:
 // - Fix in stb_textedit_discard_redo (see https://github.com/nothings/stb/issues/321)
+// - Fix in stb_textedit_find_charpos to handle last line (see https://github.com/ocornut/imgui/issues/6000)
 // Grep for [DEAR IMGUI] to find the changes.
 
 // stb_textedit.h - v1.14  - public domain - Sean Barrett
@@ -300,58 +301,58 @@
 
 typedef struct
 {
-   // private data
-   STB_TEXTEDIT_POSITIONTYPE  where;
-   STB_TEXTEDIT_POSITIONTYPE  insert_length;
-   STB_TEXTEDIT_POSITIONTYPE  delete_length;
-   int                        char_storage;
+    // private data
+    STB_TEXTEDIT_POSITIONTYPE  where;
+    STB_TEXTEDIT_POSITIONTYPE  insert_length;
+    STB_TEXTEDIT_POSITIONTYPE  delete_length;
+    int                        char_storage;
 } StbUndoRecord;
 
 typedef struct
 {
-   // private data
-   StbUndoRecord          undo_rec [STB_TEXTEDIT_UNDOSTATECOUNT];
-   STB_TEXTEDIT_CHARTYPE  undo_char[STB_TEXTEDIT_UNDOCHARCOUNT];
-   short undo_point, redo_point;
-   int undo_char_point, redo_char_point;
+    // private data
+    StbUndoRecord          undo_rec [STB_TEXTEDIT_UNDOSTATECOUNT];
+    STB_TEXTEDIT_CHARTYPE  undo_char[STB_TEXTEDIT_UNDOCHARCOUNT];
+    short undo_point, redo_point;
+    int undo_char_point, redo_char_point;
 } StbUndoState;
 
 typedef struct
 {
-   /////////////////////
-   //
-   // public data
-   //
-
-   int cursor;
-   // position of the text cursor within the string
-
-   int select_start;          // selection start point
-   int select_end;
-   // selection start and end point in characters; if equal, no selection.
-   // note that start may be less than or greater than end (e.g. when
-   // dragging the mouse, start is where the initial click was, and you
-   // can drag in either direction)
-
-   unsigned char insert_mode;
-   // each textfield keeps its own insert mode state. to keep an app-wide
-   // insert mode, copy this value in/out of the app state
-
-   int row_count_per_page;
-   // page size in number of row.
-   // this value MUST be set to >0 for pageup or pagedown in multilines documents.
-
-   /////////////////////
-   //
-   // private data
-   //
-   unsigned char cursor_at_end_of_line; // not implemented yet
-   unsigned char initialized;
-   unsigned char has_preferred_x;
-   unsigned char single_line;
-   unsigned char padding1, padding2, padding3;
-   float preferred_x; // this determines where the cursor up/down tries to seek to along x
-   StbUndoState undostate;
+    /////////////////////
+    //
+    // public data
+    //
+    
+    int cursor;
+    // position of the text cursor within the string
+    
+    int select_start;          // selection start point
+    int select_end;
+    // selection start and end point in characters; if equal, no selection.
+    // note that start may be less than or greater than end (e.g. when
+    // dragging the mouse, start is where the initial click was, and you
+    // can drag in either direction)
+    
+    unsigned char insert_mode;
+    // each textfield keeps its own insert mode state. to keep an app-wide
+    // insert mode, copy this value in/out of the app state
+    
+    int row_count_per_page;
+    // page size in number of row.
+    // this value MUST be set to >0 for pageup or pagedown in multilines documents.
+    
+    /////////////////////
+    //
+    // private data
+    //
+    unsigned char cursor_at_end_of_line; // not implemented yet
+    unsigned char initialized;
+    unsigned char has_preferred_x;
+    unsigned char single_line;
+    unsigned char padding1, padding2, padding3;
+    float preferred_x; // this determines where the cursor up/down tries to seek to along x
+    StbUndoState undostate;
 } STB_TexteditState;
 
 
@@ -365,10 +366,10 @@ typedef struct
 // result of layout query
 typedef struct
 {
-   float x0,x1;             // starting x location, end x location (allows for align=right, etc)
-   float baseline_y_delta;  // position of baseline relative to previous row's baseline
-   float ymin,ymax;         // height of row above and below baseline
-   int num_chars;
+    float x0,x1;             // starting x location, end x location (allows for align=right, etc)
+    float baseline_y_delta;  // position of baseline relative to previous row's baseline
+    float ymin,ymax;         // height of row above and below baseline
+    int num_chars;
 } StbTexteditRow;
 #endif //INCLUDE_STB_TEXTEDIT_H
 
@@ -524,29 +525,14 @@ static void stb_textedit_find_charpos(StbFindState *find, STB_TEXTEDIT_STRING *s
    int z = STB_TEXTEDIT_STRINGLEN(str);
    int i=0, first;
 
-   if (n == z) {
-      // if it's at the end, then find the last line -- simpler than trying to
-      // explicitly handle this case in the regular code
-      if (single_line) {
-         STB_TEXTEDIT_LAYOUTROW(&r, str, 0);
-         find->y = 0;
-         find->first_char = 0;
-         find->length = z;
-         find->height = r.ymax - r.ymin;
-         find->x = r.x1;
-      } else {
-         find->y = 0;
-         find->x = 0;
-         find->height = 1;
-         while (i < z) {
-            STB_TEXTEDIT_LAYOUTROW(&r, str, i);
-            prev_start = i;
-            i += r.num_chars;
-         }
-         find->first_char = i;
-         find->length = 0;
-         find->prev_first = prev_start;
-      }
+   if (n == z && single_line) {
+      // special case if it's at the end (may not be needed?)
+      STB_TEXTEDIT_LAYOUTROW(&r, str, 0);
+      find->y = 0;
+      find->first_char = 0;
+      find->length = z;
+      find->height = r.ymax - r.ymin;
+      find->x = r.x1;
       return;
    }
 
@@ -557,9 +543,13 @@ static void stb_textedit_find_charpos(StbFindState *find, STB_TEXTEDIT_STRING *s
       STB_TEXTEDIT_LAYOUTROW(&r, str, i);
       if (n < i + r.num_chars)
          break;
+      if (i + r.num_chars == z && z > 0 && STB_TEXTEDIT_GETCHAR(str, z - 1) != STB_TEXTEDIT_NEWLINE)  // [DEAR IMGUI] special handling for last line
+         break;   // [DEAR IMGUI]
       prev_start = i;
       i += r.num_chars;
       find->y += r.baseline_y_delta;
+      if (i == z) // [DEAR IMGUI]
+         break;   // [DEAR IMGUI]
    }
 
    find->first_char = first = i;

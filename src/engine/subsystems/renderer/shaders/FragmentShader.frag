@@ -1,6 +1,4 @@
-/* Version of OpenGL */
-#version 430 core
-
+/* The glsl version is automatically set */
 out vec4 FragColor;
 
 in vec3 color;

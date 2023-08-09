@@ -1,11 +1,23 @@
+/*******************************************************************************
+ *
+ * Copyright (c) 2023 Valentin Dumitru.
+ * Licensed under the MIT License. See LICENSE.txt in the project root for license information.
+ ******************************************************************************/
+
 #include "engine/core/window/WindowManager.h"
 #include "engine/core/logger/Logger.h"
+#include "engine/Config.h"
 #include <string>
 
-WindowManager::WindowManager(const char *title, GraphicsInterface &graphicApi) : graphicApi(graphicApi),
-                                                                                 window(createWindow(title)), fullscreen(SDL_FALSE),
-                                                                                 height(800), width(1200) {
+using namespace GLESC;
+
+WindowManager::WindowManager(GraphicInterface &graphicInterfaceParam) :
+        graphicInterface(graphicInterfaceParam), fullscreen(SDL_FALSE), height(800), width(1200), x(0), y(0) {
     initSDL();
+    window = createWindow(GLESC_WINDOW_TITLE);
+    graphicInterface.createContext(*window, width, height, x, y);
+    graphicInterface.postWindowCreationInit();
+    
     
     // Enable mouse relative mode
     // This will make the mouse cursor invisible and locked in the middle of the screen
@@ -20,17 +32,16 @@ void WindowManager::initSDL() {
     Logger::get().success("SDL Initialized!");
 }
 
-SDL_Window & WindowManager::createWindow(const char *title) {
-    this->graphicApi.setAttributes();
+SDL_Window *WindowManager::createWindow(const char *title) {
     int flags = getRaisedFlags();
-    SDL_Window *tempWindow = SDL_CreateWindow(title, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 800, 600, flags);
+    SDL_Window *tempWindow = SDL_CreateWindow(title, GLESC_WINDOW_X, GLESC_WINDOW_Y, GLESC_WINDOW_WIDTH, GLESC_WINDOW_HEIGHT, flags);
     if (tempWindow == nullptr)
         throw EngineException("Unable to create windowManager: " + std::string(SDL_GetError()));
     
     Logger::get().success("Window created!");
     SDL_SetWindowMinimumSize(tempWindow, WINDOW_MIN_WIDTH, WINDOW_MIN_HEIGHT);
     
-    return *tempWindow;
+    return tempWindow;
 }
 
 
@@ -38,7 +49,7 @@ void WindowManager::setSize(int windowWidth, int windowHeight) {
     width = windowWidth;
     height = windowHeight;
     
-    graphicApi.setViewport(0, 0, width, height);
+    graphicInterface.setViewport(0, 0, width, height);
 }
 
 void WindowManager::setMouseRelative(bool enabled) {
@@ -64,9 +75,12 @@ int WindowManager::getRaisedFlags() {
     // More info: https://wiki.libsdl.org/SDL_WindowFlags
     
     int flags = 0;
+    #ifdef GLESC_RENDER_OPENGL
     // Flag to allow SDL windowManager work with OpenGL
     flags |= SDL_WINDOW_OPENGL;
-    
+    #elif defined RENDER_VULKAN
+    flags |= SDL_WINDOW_VULKAN;
+    #endif
     // Flag to allow windowManager resize
     flags |= SDL_WINDOW_RESIZABLE;
     // Window has no borders
@@ -84,7 +98,7 @@ void WindowManager::setFullscreen(SDL_bool isFullScreen) {
 }
 
 SDL_Window &WindowManager::getWindow() {
-    return window;
+    return *window;
 }
 
 int WindowManager::getWidth() const {

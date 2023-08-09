@@ -1,18 +1,28 @@
+/*******************************************************************************
+ *
+ * Copyright (c) 2023 Valentin Dumitru.
+ * Licensed under the MIT License. See LICENSE.txt in the project root for license information.
+ ******************************************************************************/
+
 #include "engine/res-mng/textures/TextureManager.h"
 #include <memory>
 #include "engine/core/logger/Logger.h"
 #include "engine/core/exceptions/resources/ResourceException.h"
 
-GDIuint TextureManager::loadTexture(const std::string &filePath, TextureFilter::MinFilter minFilter,
-                                    TextureFilter::MagFilter magFilter, TextureFilter::WrapMode wrapS,
-                                    TextureFilter::WrapMode wrapT) {
+TextureManager::TextureManager(GraphicInterface &graphicInterfaceParam) : graphicInterface(graphicInterfaceParam) {
+    Logger::get().importantInfo("Texture manager created.");
+}
+
+GDIuint TextureManager::loadTexture(const std::string &filePath, GDIValues minFilter,
+                                    GDIValues magFilter, GDIValues wrapS,
+                                    GDIValues wrapT) {
     // Check if the texture is already in the cache
     size_t hashedPath = hasher(filePath);
     if (textureCache.left.find(hashedPath) != textureCache.left.end()) {
         return textureCache.left.at(hasher(filePath));
     }
     
-    GDIuint textureID = graphicsInterface->createTexture(createSurface(filePath), minFilter, magFilter, wrapS, wrapT);
+    GDIuint textureID = graphicInterface.createTexture(createSurface(filePath), minFilter, magFilter, wrapS, wrapT);
     textureCache.insert({hashedPath, textureID});
     return textureID;
 }
@@ -26,17 +36,17 @@ SDL_Surface &TextureManager::createSurface(const std::string &filePath) {
                               "Image path: " + std::string(filePath) + "SDL error:" + std::string(SDL_GetError()));
     SDL_Surface &surface = *surfacePtr;
     // If its opengl, flip
-    if (graphicsInterface->getGraphicsAPI() == GraphicsAPI::OPENGL) {
+    if (graphicInterface.getGraphicsAPI() == GraphicsAPI::OPENGL) {
         flipSurface(surface);
     }
 }
 
 void TextureManager::deleteTexture(GDIuint textureID) {
-    graphicsInterface->deleteTexture(textureID);
+    graphicInterface.deleteTexture(textureID);
 }
 
 void TextureManager::bindTexture(GDIuint textureID) {
-    graphicsInterface->bindTexture(textureID);
+    graphicInterface.bindTexture(textureID);
 }
 
 

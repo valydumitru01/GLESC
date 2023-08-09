@@ -1,7 +1,13 @@
-#include "engine/ecs/systems/CameraSystem.h"
+/*******************************************************************************
+ *
+ * Copyright (c) 2023 Valentin Dumitru.
+ * Licensed under the MIT License. See LICENSE.txt in the project root for license information.
+ ******************************************************************************/
+
+#include "engine/ecs/frontend/system/systems/CameraSystem.h"
 #include <utility>
 
-CameraSystem::CameraSystem(Renderer &renderer) : System("CameraSystem"), renderer(renderer) {
+CameraSystem::CameraSystem(GLESC::Renderer &renderer) : renderer(renderer) {
     addComponentRequirement <CameraComponent>();
     addComponentRequirement <TransformComponent>();
 }

@@ -1,11 +1,49 @@
 import os
+import re
 
-def check_for_pragma_once(filename):
+def check_for_pragma_once(file_content):
+    if '#pragma once' not in file_content:
+        return 'Error: #pragma once missing.'
+    else:
+        return ''
+
+def check_access_specifier_order(file_content):
+    access_specifiers = re.findall(r'private|protected|public', file_content)
+    correct_order = ['private', 'protected', 'public']
+    correct_order_optional_protected = ['private', 'public']
+
+    if access_specifiers != correct_order and access_specifiers != correct_order_optional_protected:
+        return 'Error: Incorrect access specifier order.'
+    else:
+        return ''
+def check_friend_declarations(file_content):
+    # This pattern will find all classes.
+    class_pattern = re.compile(
+        r'class\s+\w+\s*{[\s\S]*?};', re.MULTILINE | re.DOTALL
+    )
+
+    # This pattern will find classes with friends defined in wrong positions.
+    friend_pattern = re.compile(
+        r'(private|protected|public)[\s\S]*friend[\s\S]*?};', re.MULTILINE | re.DOTALL
+    )
+
+    class_matches = class_pattern.findall(file_content)
+    error_messages = []
+
+    for class_declaration in class_matches:
+        if friend_pattern.search(class_declaration):
+            error_messages.append('Error: Friend declarations are not following the class definition in one or more classes.')
+
+    return ' '.join(error_messages)
+
+def check_file(filename):
     with open(filename, 'r', encoding='utf-8') as file:
-        if '#pragma once' in file.read():
-            return 'Success'
-        else:
-            return 'Failure'
+        file_content = file.read()
+        pragma_error = check_for_pragma_once(file_content)
+        access_error = check_access_specifier_order(file_content)
+        friend_error = check_friend_declarations(file_content)
+    return pragma_error + access_error + friend_error
+
 
 def print_file_structure(dirpath, prefix=''):
     items = os.listdir(dirpath)
@@ -15,7 +53,8 @@ def print_file_structure(dirpath, prefix=''):
         path = os.path.join(dirpath, item)
         if os.path.isfile(path):
             if item.endswith('.h') or item.endswith('.hpp'):
-                print(prefix + ('└── ' if i == len(items) - 1 else '├── ') + item + ' - ' + check_for_pragma_once(path))
+                errors = check_file(path)
+                print(prefix + ('└── ' if i == len(items) - 1 else '├── ') + item + (' - ' + errors if errors else ''))
             else:
                 print(prefix + ('└── ' if i == len(items) - 1 else '├── ') + item)
         elif os.path.isdir(path):
@@ -34,7 +73,6 @@ def main():
     include = os.path.join(root, "include")
 
     print_file_structure(include)
-
 
 if __name__ == '__main__':
     main()

@@ -7,10 +7,11 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(Boost REQUIRED)
 # ------------ FOLDER LOCATIONS ------------
 set(SRC_DIR src)
-set(LIB_SRC_DIR lib/src)
+set(LIB_INCLUDE_DIR lib/include)
+set(LIB_SRC_DIR ${LIB_INCLUDE_DIR}) # Src and include are the same for the library
 set(INCLUDE_DIR include)
 set(LIB_STATIC_DIR lib/lib)
-set(LIB_INCLUDE_DIR lib/include)
+set(TEST_DIR tests)
 set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -static")
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG ${CMAKE_SOURCE_DIR}/bin/debug)
@@ -20,12 +21,17 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE ${CMAKE_SOURCE_DIR}/bin/release)
 # ------------ SOURCE FILES ------------
 file(GLOB_RECURSE SOURCE_FILES "${SRC_DIR}/*.cpp")
 file(GLOB_RECURSE LIB_SOURCE_FILES "${LIB_SRC_DIR}/*.cpp")
-file(GLOB_RECURSE TEST_FILES "tests/*.cpp")
+file(GLOB_RECURSE TEST_FILES "${TEST_DIR}/*.cpp")
+file(GLOB_RECURSE VERT_SHADER "${SRC_DIR}/*.vert")
+file(GLOB_RECURSE FRAG_SHADER "${SRC_DIR}/*.frag")
 
 # ------------ MACRO DEFINITIONS ------------
 add_definitions(-DPROJECT_SOURCE_DIR=\"${CMAKE_SOURCE_DIR}\")
 set(PROJECT_BINARY_DIR_DEBUG "${CMAKE_SOURCE_DIR}/bin/debug")
 add_definitions(-DPROJECT_NAME=\"${PROJECT_NAME}\")
+
+add_definitions(-DFRAG_SHADER=\"${FRAG_SHADER}\")
+add_definitions(-DVERT_SHADER=\"${VERT_SHADER}\")
 
 # Get the binary directory for the current build type
 set(PROJECT_BINARY_DIR_RELEASE "${CMAKE_SOURCE_DIR}/bin/release")
@@ -83,8 +89,8 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -O0 -DDEBUG -g -ggdb -D_DEBU
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O3 -DRELEASE -DNDEBUG -s -fno-rtti -fno-exceptions")
 
 ###################################
-# ------------ TESTING -----------#
-# --------------------------------#
+# ------------ TESTING -----------
+# --------------------------------
 
 # Download and unpack googletest at configure time
 include(FetchContent)

@@ -8,12 +8,19 @@
     <option name="ENABLE_SECOND_REFORMAT" value="true" />
     <Objective-C>
       <option name="INDENT_DIRECTIVE_AS_CODE" value="true" />
+      <option name="FUNCTION_PARAMETERS_WRAP" value="5" />
       <option name="STRUCTURED_BINDING_LIST_WRAP" value="1" />
       <option name="TEMPLATE_PARAMETERS_WRAP" value="1" />
       <option name="TEMPLATE_PARAMETERS_ALIGN_MULTILINE" value="true" />
       <option name="TEMPLATE_CALL_ARGUMENTS_WRAP" value="1" />
-      <option name="SPACE_BEFORE_TEMPLATE_DECLARATION_LT" value="true" />
-      <option name="SPACE_BEFORE_TEMPLATE_CALL_LT" value="true" />
+      <option name="CLASS_CONSTRUCTOR_INIT_LIST_WRAP" value="0" />
+      <option name="CLASS_CONSTRUCTOR_INIT_LIST_ALIGN_MULTILINE" value="false" />
+      <option name="CLASS_CONSTRUCTOR_INIT_LIST_NEW_LINE_BEFORE_COLON" value="0" />
+      <option name="CLASS_CONSTRUCTOR_INIT_LIST_NEW_LINE_AFTER_COLON" value="2" />
+      <option name="SUPERCLASS_LIST_ALIGN_MULTILINE" value="false" />
+      <option name="SUPERCLASS_LIST_BEFORE_COLON" value="0" />
+      <option name="SPACE_WITHIN_TEMPLATE_DOUBLE_GT" value="false" />
+      <option name="SPACE_BEFORE_COLON_IN_FOREACH" value="true" />
       <option name="ADD_BRIEF_TAG" value="true" />
     </Objective-C>
     <Objective-C-extensions>

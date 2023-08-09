@@ -1,3 +1,9 @@
+/*******************************************************************************
+ *
+ * Copyright (c) 2023 Valentin Dumitru.
+ * Licensed under the MIT License. See LICENSE.txt in the project root for license information.
+ ******************************************************************************/
+
 #include "color.hpp"
 #include "engine/core/logger/concrete-loggers/TerminalLogger.h"
 
@@ -41,8 +47,4 @@ void TerminalLogger::importantInfoPurple(const std::string &text) {
 
 void TerminalLogger::success(const std::string &text) {
     std::cout << dye::black_on_green(text) << std::endl;
-}
-
-void TerminalLogger::init() {
-
 }

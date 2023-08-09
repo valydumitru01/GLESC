@@ -1,9 +1,18 @@
+/*******************************************************************************
+ *
+ * Copyright (c) 2023 Valentin Dumitru.
+ * Licensed under the MIT License. See LICENSE.txt in the project root for license information.
+ ******************************************************************************/
+
 #include <utility>
 #include "engine/subsystems/renderer/Renderer.h"
 #include "engine/core/logger/Logger.h"
 
-Renderer::Renderer(WindowManager &windowManager, GraphicsInterface &graphicsInterface) : graphicsInterface(
-        graphicsInterface), windowManager(windowManager), shaderManager(), textureManager(), projection(), view() {
+using namespace GLESC;
+
+Renderer::Renderer(WindowManager &windowManager, GraphicInterface &graphicsInterface) :
+        graphicsInterface(graphicsInterface), windowManager(windowManager), shaderManager(
+        graphicsInterface), textureManager(graphicsInterface), projection(), view() {
     
     // Set the projection matrix
     projection = calculateProjectionMatrix(45.0f, 0.1f, 100.0f, (float) windowManager.getWidth(),
@@ -69,7 +78,8 @@ glm::mat4 Renderer::calculateModelMatrix(const glm::vec3 &position, const glm::v
     return model;
 }
 
-void Renderer::renderMesh(Mesh &mesh, const glm::vec3 &position, const glm::vec3 &rotation, const glm::vec3 &scale) {
+void
+Renderer::renderMesh(GLESC::Mesh &mesh, const glm::vec3 &position, const glm::vec3 &rotation, const glm::vec3 &scale) {
     glm::mat4 model = calculateModelMatrix(position, rotation, scale);
     
     // Set the model matrix uniform in the shader
@@ -79,13 +89,17 @@ void Renderer::renderMesh(Mesh &mesh, const glm::vec3 &position, const glm::vec3
     
     
 }
-void Renderer::start(){
-    graphicsInterface.clear(ClearBits::Color, ClearBits::Depth, ClearBits::Stencil);
+
+
+void Renderer::start() {
+    graphicsInterface.clear(GDIValues::ClearBitsColor, GDIValues::ClearBitsDepth, GDIValues::ClearBitsStencil);
     graphicsInterface.clearColor(0.2f, 0.3f, 0.3f, 1.0f);
 }
-void Renderer::end(){
+
+void Renderer::end() {
     swapBuffers();
 }
+
 void Renderer::swapBuffers() {
     graphicsInterface.getSwapBuffersFunc()(windowManager.getWindow());
 }
