@@ -15,10 +15,19 @@ namespace GLESC {
     class Coordinator {
     public:
         Coordinator() = default;
-        
+        /**
+         * @brief Create an entity with the given name. The name must be unique.
+         * @param name The name of the entity
+         * @return The ID of the entity or NULL_ENTITY if the entity name already exists.
+         */
         EntityID createEntity(EntityName name);
         
-        void destroyEntity(EntityID entity);
+        /**
+         * @brief Destroy an entity
+         * @param entity The ID of the entity
+         * @return True if the entity was destroyed, false if the entity does not exist
+         */
+        bool destroyEntity(EntityID entity);
         
         template<class Component>
         void registerComponent();
@@ -35,11 +44,21 @@ namespace GLESC {
         template<class Component>
         ComponentID getComponentID();
         
+        /**
+         * @brief Registers the system in the system manager so it can be used and updated.
+         * If the system is already registered, nothing happens.
+         * @param name The name of the system
+         */
         void registerSystem(SystemName name);
         
         template<typename System>
         bool doesEntityHaveComponent(EntityID entity);
         
+        /**
+         * @brief Get the entity ID from the entity name
+         * @param name
+         * @return The ID of the entity with the given name or NULL_ENTITY if the entity does not exist
+         */
         EntityID getEntityID(EntityName name);
         
         /**
@@ -53,6 +72,11 @@ namespace GLESC {
         template<typename T>
         void addComponentRequirementToSystem(SystemName name);
         
+        /**
+         * @brief Get the name of the entity given the ID
+         * @param entity The ID of the entity
+         * @return The name of the entity or nullptr if the entity does not exist
+         */
         EntityName getEntityName(EntityID entity);
         
         [[nodiscard]] std::set<EntityID> getAssociatedEntities(SystemName name);
@@ -70,11 +94,7 @@ namespace GLESC {
             return coordinator;
         }
     }; // class ECS
-    
-    template<typename Component>
-    void Coordinator::registerComponent() {
-        componentManager.registerComponent<Component>();
-    }
+
     
     template<typename Component>
     void Coordinator::addComponent(EntityID entity, Component component) {
@@ -107,6 +127,7 @@ namespace GLESC {
     
     template<typename System>
     bool Coordinator::doesEntityHaveComponent(EntityID entity) {
+        
         return entityManager.doesEntityHaveComponent(entity, componentManager.getComponentID<System>());
     }
     

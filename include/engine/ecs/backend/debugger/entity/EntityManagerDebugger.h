@@ -15,24 +15,24 @@
  * @param livingEntityCount EntityID
  */
 #define PRINT_ENTITIES_STATUS(availableEntities, signatures, entityIDs, livingEntityCount, contextMessage) \
-    { /* Scope for allowing calling the function in the same scope without redefinition error */\
+    do{ /* Scope for allowing calling the function in the same scope without redefinition error */\
     Logger::get().info(std::string("Entity print status - ") + contextMessage); \
     for (auto &entityID : entityIDs) { \
-        EntityName entityName = entityID.left; \
-        EntityID id = entityID.right; \
-        Signature signature = signatures[id]; \
+        EntityName entityNamePrint = entityID.left; \
+        EntityID entityIDPrint = entityID.right; \
+        Signature entitySignaturePrint = signatures[entityIDPrint]; \
         \
         std::string entityListMessage = \
-        "Entity: " + std::string(entityName) + \
-        " ID: " + std::to_string(id) + \
-        " Signature: " + signature.to_string(); \
+        "Entity: " + std::string(entityNamePrint) + \
+        " ID: " + std::to_string(entityIDPrint) + \
+        " Signature: " + entitySignaturePrint.to_string(); \
         Logger::get().info(entityListMessage); \
     }\
-    std::string availableEntitiesMessage = /* This causes the redefinition error */\
+    std::string availableEntitiesMessage = /* This can cause the redefinition error */\
     "Available entities: " + std::to_string(availableEntities.size()); \
     Logger::get().info(availableEntitiesMessage); \
-    std::string livingEntityCountMessage = /* This causes the redefinition error */\
+    std::string livingEntityCountMessage = /* This can cause the redefinition error */\
     "Living entity count: " + std::to_string(livingEntityCount); \
     Logger::get().info(livingEntityCountMessage); \
-    }
+    } while(false)
 

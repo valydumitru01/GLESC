@@ -13,24 +13,35 @@ std::set<EntityID> Coordinator::getAssociatedEntities(SystemName name) {
 }
 
 void Coordinator::registerSystem(SystemName name) {
+    if(systemManager.isSystemRegistered(name))
+        return;
     systemManager.registerSystem(name);
 }
 
 EntityID Coordinator::createEntity(EntityName name) {
+    if(entityManager.doesEntityExist(name))
+        return NULL_ENTITY;
     return entityManager.createNextEntity(name);
 }
 
-void Coordinator::destroyEntity(EntityID entity) {
+bool Coordinator::destroyEntity(EntityID entity) {
+    if(!entityManager.doesEntityExist(entity))
+        return false;
     entityManager.destroyEntity(entity);
     componentManager.entityDestroyed(entity);
     systemManager.entityDestroyed(entity);
+    return true;
 }
 
 EntityID Coordinator::getEntityID(EntityName name) {
+    if(entityManager.doesEntityExist(name))
+        return NULL_ENTITY;
     return entityManager.getEntity(name);
 }
 
 EntityName Coordinator::getEntityName(EntityID entity) {
+    if(entityManager.doesEntityExist(entity))
+        return nullptr;
     return entityManager.getEntityName(entity);
 }
 

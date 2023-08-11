@@ -13,6 +13,19 @@
 
 namespace GLESC {
     class ComponentManager {
+    private:
+        /**
+         * @brief Map which contains component arrays
+         * @details This is used to store the component arrays for each component type
+         * Key -> Name of the component i.e. "PhysicsComponent"
+         * Value -> Pair <ComponentArray (containing all the components of the same type), ComponentID>
+         */
+        std::unordered_map<ComponentName, std::pair<IComponentArrayPtr, ComponentID>> componentArrays{};
+        ComponentID nextComponentID{};
+        
+        template<typename Component>
+        std::shared_ptr<ComponentArray<Component>> getComponentArray();
+    
     public:
         ComponentManager() = default;
         
@@ -40,19 +53,7 @@ namespace GLESC {
         void entityDestroyed(EntityID entity);
         
         ~ComponentManager() = default;
-    
-    private:
-        /**
-         * @brief Map which contains component arrays
-         * @details This is used to store the component arrays for each component type
-         * Key -> Name of the component i.e. "PhysicsComponent"
-         * Value -> Pair <ComponentArray (containing all the components of the same type), ComponentID>
-         */
-        std::unordered_map<ComponentName, std::pair<IComponentArrayPtr, ComponentID>> componentArrays{};
-        ComponentID nextComponentID{};
         
-        template<typename Component>
-        std::shared_ptr<ComponentArray<Component>> getComponentArray();
     };
 }
 
@@ -65,14 +66,13 @@ template<typename Component>
 void GLESC::ComponentManager::registerComponent() {
     ASSERT_IS_COMPONENT(Component);
     ASSERT_IS_COMPONENT_NOT_REGISTERED(Component);
-    PRINT_COMPONENTS_STATUS( componentArrays, nextComponentID, "Before registering component" );
+    PRINT_COMPONENTS_STATUS(componentArrays, nextComponentID, "Before registering component");
     
     const char *typeName = typeid(Component).name();
-    
-    componentArrays.insert({typeName, std::make_pair(IComponentArrayPtr(), nextComponentID)});
-    
+    componentArrays.try_emplace(typeName, IComponentArrayPtr(), nextComponentID);
     ++nextComponentID;
-    PRINT_COMPONENTS_STATUS( componentArrays, nextComponentID, "After component registered" );
+    
+    PRINT_COMPONENTS_STATUS(componentArrays, nextComponentID, "After component registered");
 }
 
 template<typename Component>
@@ -94,9 +94,9 @@ template<typename Component>
 void GLESC::ComponentManager::removeComponent(EntityID entity) {
     ASSERT_IS_COMPONENT(Component);
     ASSERT_IS_COMPONENT_REGISTERED(Component);
-    PRINT_COMPONENTS_STATUS( componentArrays, nextComponentID, "Before removing component" );
+    PRINT_COMPONENTS_STATUS(componentArrays, nextComponentID, "Before removing component");
     getComponentArray<Component>()->removeData(entity);
-    PRINT_COMPONENTS_STATUS( componentArrays, nextComponentID, "After removing component" );
+    PRINT_COMPONENTS_STATUS(componentArrays, nextComponentID, "After removing component");
 }
 
 template<typename Component>

@@ -1,0 +1,12 @@
+# This is a generated file and its contents are an internal implementation detail.
+# The download step will be re-executed if anything in this file changes.
+# No other meaning or use of this file is supported.
+
+method=url
+command=C:/Program Files/JetBrains/CLion 2022.3.2/bin/cmake/win/x64/bin/cmake.exe;-P;C:/Github_Repos/TFG---OpenGL-Engine/cmake-build-debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/download-googletest-populate.cmake;COMMAND;C:/Program Files/JetBrains/CLion 2022.3.2/bin/cmake/win/x64/bin/cmake.exe;-P;C:/Github_Repos/TFG---OpenGL-Engine/cmake-build-debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/verify-googletest-populate.cmake;COMMAND;C:/Program Files/JetBrains/CLion 2022.3.2/bin/cmake/win/x64/bin/cmake.exe;-P;C:/Github_Repos/TFG---OpenGL-Engine/cmake-build-debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/extract-googletest-populate.cmake
+source_dir=C:/Github_Repos/TFG---OpenGL-Engine/cmake-build-debug/_deps/googletest-src
+work_dir=C:/Github_Repos/TFG---OpenGL-Engine/cmake-build-debug/_deps
+url(s)=https://github.com/google/googletest/archive/5376968f6948923e2411081fd9372e71a59d8e77.zip
+hash=
+no_extract=
+

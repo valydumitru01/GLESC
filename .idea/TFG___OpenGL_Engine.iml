@@ -5,4 +5,7 @@
       <configuration sdkName="Python 3.10 (TFG---OpenGL-Engine)" />
     </facet>
   </component>
+  <component name="SonarLintModuleSettings">
+    <option name="uniqueId" value="64d89529-6438-4598-9537-3793d6533211" />
+  </component>
 </module>

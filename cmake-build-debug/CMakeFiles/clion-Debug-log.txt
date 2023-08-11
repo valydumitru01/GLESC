@@ -1,0 +1,32 @@
+"C:\Program Files\JetBrains\CLion 2022.3.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Program Files/JetBrains/CLion 2022.3.2/bin/ninja/win/x64/ninja.exe" -G Ninja -S C:\Github_Repos\TFG---OpenGL-Engine -B C:\Github_Repos\TFG---OpenGL-Engine\cmake-build-debug
+CMake Warning (dev) at CMakeLists.txt:7 (find_package):
+  Policy CMP0074 is not set: find_package uses <PackageName>_ROOT variables.
+  Run "cmake --help-policy CMP0074" for policy details.  Use the cmake_policy
+  command to set the policy and suppress this warning.
+
+  Environment variable Boost_ROOT is set to:
+
+    C:\Program Files\boost\boost_1_81_0
+
+  For compatibility, CMake is ignoring the variable.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Found Boost: C:/Program Files/boost/boost_1_81_0 (found version "1.81.0")  
+CMake Warning (dev) at C:/Program Files/JetBrains/CLion 2022.3.2/bin/cmake/win/x64/share/cmake-3.24/Modules/FetchContent.cmake:1267 (message):
+  The DOWNLOAD_EXTRACT_TIMESTAMP option was not given and policy CMP0135 is
+  not set.  The policy's OLD behavior will be used.  When using a URL
+  download, the timestamps of extracted files should preferably be that of
+  the time of extraction, otherwise code that depends on the extracted
+  contents might not be rebuilt if the URL changes.  The OLD behavior
+  preserves the timestamps from the archive instead, but this is usually not
+  what you want.  Update your project to the NEW behavior or specify the
+  DOWNLOAD_EXTRACT_TIMESTAMP option with a value of true to avoid this
+  robustness issue.
+Call Stack (most recent call first):
+  CMakeLists.txt:97 (FetchContent_Declare)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Found Python: C:/Users/valyd/AppData/Local/Programs/Python/Python310/python.exe (found version "3.10.8") found components: Interpreter 
+-- Configuring done
+-- Generating done
+-- Build files have been written to: C:/Github_Repos/TFG---OpenGL-Engine/cmake-build-debug

@@ -32,6 +32,9 @@
 
 namespace GLESC {
     class Engine {
+        /**
+         * @brief The engine can only be created by the main function, where the game loop is defined
+         */
         friend int ::main();
     
     
@@ -40,29 +43,33 @@ namespace GLESC {
     
     private:
         /**
-         * @brief Is called every frame, must be called at constant intervals of time as it does not use elapsed, more
+         * @brief Processes the logic of the game
+         * Is called every frame, must be called at constant intervals of time as it does not use elapsed, more
          * information https://www.gameprogrammingpatterns.com/game-loop.html
          */
         void update();
         
         /**
-         * @brief The input of the game
+         * @brief Processes the input of the game
          */
         void processInput();
         
         /**
-         * @brief The rendering of the game
+         * @brief Processes the rendering of the game
+         * Can be called at variable intervals of time as it uses elapsed
          * @param timeOfFrame The time of the frame
          */
         void render(double timeOfFrame);
     
-        inline Entity getEntity(EntityName name) {
-            return Entity(GLESC::ECS::getECS()->getEntityID(name));
-        }
+        /**
+         * @brief Get the Entity object with the given name, the entity must exist
+         * @param name
+         * @return
+         */
+        inline Entity getEntity(EntityName name) const;
     
-        inline Entity createEntity(EntityName name) {
-            return Entity(name);
-        }
+        inline Entity createEntity(EntityName name);
+        
         
         /**
          * @brief If true, the game is running. If false, the game is stopped.
@@ -106,3 +113,12 @@ namespace GLESC {
         void loop();
     }; // class Engine
 } // namespace GLESC
+
+inline GLESC::Entity GLESC::Engine::createEntity(EntityName name) {
+    return Entity(name);
+}
+
+inline GLESC::Entity GLESC::Engine::getEntity(EntityName name) const {
+    if(GLESC::ECS::getECS()->entity)
+    return Entity(GLESC::ECS::getECS()->getEntityID(name));
+}

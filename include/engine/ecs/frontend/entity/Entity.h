@@ -10,15 +10,13 @@
 #include "engine/core/logger/Logger.h"
 #include "engine/ecs/ECSTypes.h"
 
-#include <memory>
-#include <cassert>
-#include <queue>
-#include <array>
-#include <unordered_map>
 
 namespace GLESC {
     class Engine;
     class Entity {
+        /**
+         * @brief The Engine class needs to access the Entity's constructor, it acts as a factory
+         */
         friend class GLESC::Engine;
     private:
         /**
@@ -41,7 +39,7 @@ namespace GLESC {
         
         /**
          * @brief The entity will not be destroyed if the destructor is called
-         * To destroy an entity, use the ECS class
+         * To destroy an entity, use the destroy() method
          */
         ~Entity() = default;
         
@@ -49,7 +47,7 @@ namespace GLESC {
          * @brief Adds a component to the entity and returns a reference to it
          * The components is registered to the ECSManager
          * The entity signature is updated to reflect the new component
-         * @tparam T
+         * @tparam Component The type of the component
          */
         template<typename Component>
         Entity &addComponent(Component &&component);
@@ -58,8 +56,7 @@ namespace GLESC {
         /**
          * @brief Removes a component from the entity
          * The entity signature is updated to reflect the removed component
-         *
-         * @tparam T
+         * @tparam Component
          */
         template<typename Component>
         Entity &removeComponent();
@@ -73,10 +70,17 @@ namespace GLESC {
         [[nodiscard]] Component &getComponent() const;
         
         void destroy();
-        
-        template<typename T>
+        /**
+         * @brief Checks if the entity has a component
+         * @tparam Component The type of the component
+         * @return True if the entity has the component, false otherwise
+         */
+        template<typename Component>
         [[nodiscard]] bool hasComponent() const;
-        
+        /**
+         * @brief Returns the entity's name
+         * @return The entity's name
+         */
         [[nodiscard]] EntityName getName() const;
     }; // class Entity
 } // namespace GLESC
@@ -85,7 +89,7 @@ namespace GLESC {
 
 template<typename Component>
 GLESC::Entity &GLESC::Entity::addComponent(Component &&component) {
-    GLESC::ECS::getECS()->addComponent<Component>(ID, component);
+    GLESC::ECS::getECS()->addComponent<Component>(ID, std::forward<Component>(component));
     return *this;
 }
 

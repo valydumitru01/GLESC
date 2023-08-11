@@ -10,13 +10,13 @@
 #include "engine/ecs/backend/component/Component.h"
 
 #define ASSERT_IS_COMPONENT(component) \
-    static_assert(std::is_base_of<Component, component>::value, "T must inherit from Component");
+    static_assert(std::is_base_of<Component, component>::value, "T must inherit from Component")
 
 #define ASSERT_IS_COMPONENT_REGISTERED(component) \
     ASSERT(isComponentRegistered<component>(), \
-    "Component is already registered, and must not be");
+    "Component is already registered, and must not be")
 
 #define ASSERT_IS_COMPONENT_NOT_REGISTERED(component) \
     ASSERT_FALSE(isComponentRegistered<component>(), \
-    "Component is not registered, and must be");
+    "Component is not registered, and must be")
 
