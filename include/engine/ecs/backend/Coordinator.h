@@ -15,6 +15,7 @@ namespace GLESC {
     class Coordinator {
     public:
         Coordinator() = default;
+        
         /**
          * @brief Create an entity with the given name. The name must be unique.
          * @param name The name of the entity
@@ -56,20 +57,20 @@ namespace GLESC {
         
         /**
          * @brief Get the entity ID from the entity name
-         * @param name
+         * @param name The name of the entity
          * @return The ID of the entity with the given name or NULL_ENTITY if the entity does not exist
          */
-        EntityID getEntityID(EntityName name);
+        EntityID getEntityID(EntityName name) const;
         
         /**
          * @brief Add a component requirement to the system
          * @details This will add a component requirement to the system, therefore the system will only
          * run on entities that have the required components. This will also update the signature of the system.
-         * @tparam T The type of the component
+         * @tparam Component The type of the component
          * @param name The name of the system
          * @param componentID The ID of the component
          */
-        template<typename T>
+        template<typename Component>
         void addComponentRequirementToSystem(SystemName name);
         
         /**
@@ -78,8 +79,12 @@ namespace GLESC {
          * @return The name of the entity or nullptr if the entity does not exist
          */
         EntityName getEntityName(EntityID entity);
-        
-        [[nodiscard]] std::set<EntityID> getAssociatedEntities(SystemName name);
+        /**
+         * @brief Get the entities associated with a system
+         * @param name The name of the system
+         * @return A set of entities associated with the system or an empty set if the system does not exist
+         */
+        [[nodiscard]] std::set<EntityID> getAssociatedEntities(SystemName name) const;
     
     private:
         ComponentManager componentManager;
@@ -94,7 +99,7 @@ namespace GLESC {
             return coordinator;
         }
     }; // class ECS
-
+    
     
     template<typename Component>
     void Coordinator::addComponent(EntityID entity, Component component) {
@@ -104,7 +109,6 @@ namespace GLESC {
     template<class Component>
     void Coordinator::removeComponent(EntityID entity) {
         componentManager.removeComponent<Component>(entity);
-        
         systemManager.entitySignatureChanged(entity, entityManager.getSignature(entity));
     }
     
@@ -120,14 +124,15 @@ namespace GLESC {
     
     template<typename Component>
     void Coordinator::addComponentRequirementToSystem(SystemName name) {
-        Signature newSignature;
-        newSignature.set(componentManager.getComponentID<Component>());
-        systemManager.setSignature(name, newSignature);
+        if(!systemManager.isSystemRegistered(name))
+            return;
+        
+        systemManager.addComponentRequirementToSystem(name,
+                                                      componentManager.getComponentID<Component>());
     }
     
     template<typename System>
     bool Coordinator::doesEntityHaveComponent(EntityID entity) {
-        
         return entityManager.doesEntityHaveComponent(entity, componentManager.getComponentID<System>());
     }
     

@@ -8,7 +8,9 @@
 
 using namespace GLESC;
 
-std::set<EntityID> Coordinator::getAssociatedEntities(SystemName name) {
+std::set<EntityID> Coordinator::getAssociatedEntities(SystemName name) const {
+    if(!systemManager.isSystemRegistered(name))
+        return {};
     return systemManager.getAssociatedEntities(name);
 }
 
@@ -33,7 +35,7 @@ bool Coordinator::destroyEntity(EntityID entity) {
     return true;
 }
 
-EntityID Coordinator::getEntityID(EntityName name) {
+EntityID Coordinator::getEntityID(EntityName name) const{
     if(entityManager.doesEntityExist(name))
         return NULL_ENTITY;
     return entityManager.getEntity(name);

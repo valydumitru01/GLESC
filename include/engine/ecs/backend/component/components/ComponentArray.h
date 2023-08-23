@@ -19,6 +19,8 @@ public:
     
     virtual bool hasComponent(EntityID entity) = 0;
     
+    virtual bool getComponent(int index) = 0;
+    
     virtual void removeData(EntityID entity) = 0;
     
     virtual size_t getSize() = 0;
@@ -51,6 +53,11 @@ private:
         return size;
     }
 public:
+    
+    bool getComponent(int index) override {
+        return componentArray[index];
+    }
+    
     void insertData(EntityID entity, T component) {
 #ifdef DEBUG
         const char *name = typeid(T).name();
@@ -123,7 +130,7 @@ public:
 #ifdef DEBUG
         //const char *name = typeid(T).name();
         //Logger::get().importantInfo(
-        //        "Accessing component \"" + std::string(name) + "\" from entity" + std::to_string(entity));
+        //        "Accessing component \"" + std::string(name) + "\" from entity" + std::toString(entity));
         
         //printEntityToIndexMap("Accessed map:",entityToIndexMap);
         if (entityToIndexMap.left.find(entity) == entityToIndexMap.left.end()) {

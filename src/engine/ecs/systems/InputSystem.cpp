@@ -19,7 +19,7 @@ void InputSystem::update() {
             keyPressedPair.second = inputManager.isKeyPressed(keyPressedPair.first);
         }
         
-        input.mousePositionSubscribed = inputManager.getMousePosition();
+        input.mousePosition = inputManager.getMousePosition();
     }
 }
 

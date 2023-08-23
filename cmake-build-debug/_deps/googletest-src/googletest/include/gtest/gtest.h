@@ -2239,8 +2239,8 @@ GTEST_API_ std::string TempDir();
 // void RegisterMyTests(const std::vector<int>& values) {
 //   for (int v : values) {
 //     ::testing::RegisterTest(
-//         "MyFixture", ("Test" + std::to_string(v)).c_str(), nullptr,
-//         std::to_string(v).c_str(),
+//         "MyFixture", ("Test" + std::toString(v)).c_str(), nullptr,
+//         std::toString(v).c_str(),
 //         __FILE__, __LINE__,
 //         // Important to use the fixture type as the return type here.
 //         [=]() -> MyFixture* { return new MyTest(v); });

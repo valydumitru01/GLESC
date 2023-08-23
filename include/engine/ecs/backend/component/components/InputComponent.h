@@ -11,6 +11,7 @@
 #include "engine/ecs/backend/component/Component.h"
 #include "engine/subsystems/input/InputTypes.h"
 #include "engine/subsystems/input/InputKeys.h"
+#include "engine/core/debugger/Debugger.h"
 
 struct InputComponent : public Component {
     /**
@@ -24,6 +25,23 @@ struct InputComponent : public Component {
      * @details This is the mouse position, it is always updated and stored, no need for subscription.
      * This is because the position is not a lot of data and it is almost always used.
      */
-     MousePosition mousePositionSubscribed;
+    MousePosition mousePosition;
+    
+    [[nodiscard]] std::string toString() const override {
+        std::string subscribedKeysString;
+        for (auto &[key, value] : subscribedKeys) {
+            subscribedKeysString += enumToString(key)
+                    + std::string(" - pressed:")
+                    + std::to_string(value)
+                    + std::string(", ");
+        }
+        return "InputComponent:"
+               + std::string("\n\tsubscribedKeys: ")
+               + subscribedKeysString
+               + std::string("\n\tMousePosition: ")
+               + std::to_string(mousePosition.x)
+               + std::string(", ")
+               + std::to_string(mousePosition.y);
+    }
 };
 

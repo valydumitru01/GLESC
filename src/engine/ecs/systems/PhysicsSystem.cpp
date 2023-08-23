@@ -5,21 +5,22 @@
  ******************************************************************************/
 
 #include "engine/ecs/frontend/system/systems/PhysicsSystem.h"
+#include "engine/ecs/backend/component/components/PhysicsComponent.h"
 
 PhysicsSystem::PhysicsSystem(PhysicsManager &physicsManager) :
         gravity({0, 8.91, 0}), physicsManager(physicsManager) {
-    addComponentRequirement<RigidBodyComponent>();
+    addComponentRequirement<PhysicsComponent>();
     addComponentRequirement<TransformComponent>();
     
     for (auto const &entity : getAssociatedEntities()) {
-        auto &rigidBody = getComponent<RigidBodyComponent>(entity);
+        auto &rigidBody = getComponent<PhysicsComponent>(entity);
         rigidBody.velocity = gravity;
     }
 }
 
 void PhysicsSystem::update() {
     for (auto const &entity : getAssociatedEntities()) {
-        auto &rigidBody = getComponent<RigidBodyComponent>(entity);
+        auto &rigidBody = getComponent<PhysicsComponent>(entity);
         auto &transform = getComponent<TransformComponent>(entity);
         
         transform.position += rigidBody.velocity;

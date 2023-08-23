@@ -5,9 +5,7 @@
  ******************************************************************************/
 
 #include "engine/ecs/frontend/system/System.h"
-#include "engine/ecs/ECSContainer.h"
 #include "engine/ecs/backend/component/components/TransformComponent.h"
-#include "engine/ecs/backend/component/components/RigidBodyComponent.h"
 #include "engine/subsystems/physics/PhysicsManager.h"
 
 class PhysicsSystem : public System {

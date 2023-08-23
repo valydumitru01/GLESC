@@ -8,8 +8,7 @@
 using namespace GLESC;
 
 void ComponentManager::entityDestroyed(EntityID entity) {
-    for (auto const &pair : componentArrays) {
-        auto const &component = pair.second;
-        component.first->removeData(entity);
+    for (auto const &[name, array] : componentArrays) {
+        array->removeData(entity);
     }
 }

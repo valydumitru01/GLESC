@@ -5,7 +5,6 @@
  ******************************************************************************/
 
 #pragma once
-
 #include "engine/ecs/ECSTypes.h"
 #include "engine/ecs/backend/component/components/ComponentArray.h"
 #include "engine/ecs/backend/asserts/component/ComponentAsserts.h"
@@ -14,15 +13,25 @@
 namespace GLESC {
     class ComponentManager {
     private:
+        //TODO: Change the use of strings to something more lightweight
         /**
-         * @brief Map which contains component arrays
-         * @details This is used to store the component arrays for each component type
-         * Key -> Name of the component i.e. "PhysicsComponent"
-         * Value -> Pair <ComponentArray (containing all the components of the same type), ComponentID>
+         * @brief Map from the name of a component to a component array that stores all the components of that type.
          */
-        std::unordered_map<ComponentName, std::pair<IComponentArrayPtr, ComponentID>> componentArrays{};
+        std::unordered_map<ComponentName, IComponentArrayPtr> componentArrays{};
+        /**
+         * @brief Map from the name of a component to the ID of that component.
+         */
+        std::unordered_map<ComponentName, ComponentID> componentIDs{};
+        /**
+         * @brief ID of the next component to be registered. It is incremented after each component is registered.
+         */
         ComponentID nextComponentID{};
         
+        /**
+         * @brief Gets the component array of a component. The component must be registered and must be a component.
+         * @tparam Component The type of the component
+         * @return A shared pointer to the component array of the component
+         */
         template<typename Component>
         std::shared_ptr<ComponentArray<Component>> getComponentArray();
     
@@ -80,7 +89,7 @@ ComponentID GLESC::ComponentManager::getComponentID() {
     ASSERT_IS_COMPONENT(Component);
     ASSERT_IS_COMPONENT_REGISTERED(Component);
     const char *typeName = typeid(Component).name();
-    return componentArrays[typeName].second;
+    return componentIDs[typeName];
 }
 
 template<typename Component>
@@ -120,6 +129,6 @@ std::shared_ptr<ComponentArray<Component>> GLESC::ComponentManager::getComponent
     ASSERT_IS_COMPONENT_REGISTERED(Component);
     
     const char *typeName = typeid(Component).name();
-    std::shared_ptr<IComponentArray> ptr = componentArrays[typeName].first;
+    std::shared_ptr<IComponentArray> ptr = componentArrays[typeName];
     return std::static_pointer_cast<ComponentArray<Component>>(ptr);
 }

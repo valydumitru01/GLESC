@@ -58,8 +58,3 @@ const static ComponentID maxComponents = static_cast<ComponentID>(GLESC_ECS_MAX_
  */
 using Signature = std::bitset<maxComponents>;
 
-/**
- * @brief Type of each system
- * @details A system is a pair of a signature and a set of entities.
- */
-using SystemData = std::pair <Signature, std::set <EntityID>>;

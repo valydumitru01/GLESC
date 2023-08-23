@@ -31,13 +31,13 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 106,
+				"line" : 107,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 108,
+				"line" : 109,
 				"parent" : 0
 			},
 			{
@@ -88,7 +88,7 @@
 			{
 				"command" : 3,
 				"file" : 0,
-				"line" : 107,
+				"line" : 108,
 				"parent" : 0
 			}
 		]
@@ -99,7 +99,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always"
+					"fragment" : "-g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING -fdiagnostics-color=always"
 				},
 				{
 					"fragment" : "-std=gnu++17"
@@ -203,7 +203,7 @@
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "-g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG",
+				"fragment" : "-g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING",
 				"role" : "flags"
 			},
 			{

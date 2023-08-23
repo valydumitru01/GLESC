@@ -3,7 +3,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "lib/libgtest.a"
+			"path" : "lib/libgtest_main.a"
 		}
 	],
 	"backtrace" : 3,
@@ -16,6 +16,7 @@
 			"cxx_library",
 			"install",
 			"install_project",
+			"target_link_libraries",
 			"add_definitions",
 			"include_directories",
 			"target_compile_features"
@@ -34,7 +35,7 @@
 			{
 				"command" : 2,
 				"file" : 1,
-				"line" : 126,
+				"line" : 128,
 				"parent" : 0
 			},
 			{
@@ -62,52 +63,58 @@
 				"parent" : 4
 			},
 			{
+				"command" : 5,
+				"file" : 1,
+				"line" : 145,
+				"parent" : 0
+			},
+			{
 				"file" : 2
 			},
 			{
-				"command" : 5,
+				"command" : 6,
 				"file" : 2,
 				"line" : 33,
-				"parent" : 6
-			},
-			{
-				"command" : 5,
-				"file" : 2,
-				"line" : 46,
-				"parent" : 6
-			},
-			{
-				"command" : 5,
-				"file" : 2,
-				"line" : 39,
-				"parent" : 6
-			},
-			{
-				"command" : 5,
-				"file" : 2,
-				"line" : 31,
-				"parent" : 6
-			},
-			{
-				"command" : 5,
-				"file" : 2,
-				"line" : 29,
-				"parent" : 6
-			},
-			{
-				"command" : 5,
-				"file" : 2,
-				"line" : 34,
-				"parent" : 6
+				"parent" : 7
 			},
 			{
 				"command" : 6,
+				"file" : 2,
+				"line" : 46,
+				"parent" : 7
+			},
+			{
+				"command" : 6,
+				"file" : 2,
+				"line" : 39,
+				"parent" : 7
+			},
+			{
+				"command" : 6,
+				"file" : 2,
+				"line" : 31,
+				"parent" : 7
+			},
+			{
+				"command" : 6,
+				"file" : 2,
+				"line" : 29,
+				"parent" : 7
+			},
+			{
+				"command" : 6,
+				"file" : 2,
+				"line" : 34,
+				"parent" : 7
+			},
+			{
+				"command" : 7,
 				"file" : 1,
 				"line" : 116,
 				"parent" : 0
 			},
 			{
-				"command" : 7,
+				"command" : 8,
 				"file" : 0,
 				"line" : 192,
 				"parent" : 2
@@ -120,7 +127,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always"
+					"fragment" : "-g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING -fdiagnostics-color=always"
 				},
 				{
 					"fragment" : "-Wall -Wshadow -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=0 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers"
@@ -132,42 +139,44 @@
 			"defines" : 
 			[
 				{
-					"backtrace" : 7,
+					"backtrace" : 8,
 					"define" : "FRAG_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\""
 				},
 				{
-					"backtrace" : 8,
+					"backtrace" : 9,
 					"define" : "GLEW_STATIC"
 				},
 				{
-					"backtrace" : 9,
+					"backtrace" : 10,
 					"define" : "PROJECT_BINARY_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine/bin/debug\""
 				},
 				{
-					"backtrace" : 10,
+					"backtrace" : 11,
 					"define" : "PROJECT_NAME=\"game\""
 				},
 				{
-					"backtrace" : 11,
+					"backtrace" : 12,
 					"define" : "PROJECT_SOURCE_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine\""
 				},
 				{
-					"backtrace" : 12,
+					"backtrace" : 13,
 					"define" : "VERT_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\""
 				},
 				{
-					"backtrace" : 8,
+					"backtrace" : 9,
 					"define" : "__WINDOWS__"
 				}
 			],
 			"includes" : 
 			[
 				{
-					"backtrace" : 13,
+					"backtrace" : 14,
+					"isSystem" : true,
 					"path" : "C:/Github_Repos/TFG---OpenGL-Engine/cmake-build-debug/_deps/googletest-src/googletest/include"
 				},
 				{
-					"backtrace" : 13,
+					"backtrace" : 14,
+					"isSystem" : true,
 					"path" : "C:/Github_Repos/TFG---OpenGL-Engine/cmake-build-debug/_deps/googletest-src/googletest"
 				}
 			],
@@ -176,7 +185,7 @@
 			{
 				"backtraces" : 
 				[
-					14
+					15
 				],
 				"standard" : "17"
 			},
@@ -186,7 +195,14 @@
 			]
 		}
 	],
-	"id" : "gtest::@1ea2dfc0605fe3ab2a3f",
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 6,
+			"id" : "gtest::@1ea2dfc0605fe3ab2a3f"
+		}
+	],
+	"id" : "gtest_main::@1ea2dfc0605fe3ab2a3f",
 	"install" : 
 	{
 		"destinations" : 
@@ -201,8 +217,8 @@
 			"path" : "C:/Program Files (x86)/game"
 		}
 	},
-	"name" : "gtest",
-	"nameOnDisk" : "libgtest.a",
+	"name" : "gtest_main",
+	"nameOnDisk" : "libgtest_main.a",
 	"paths" : 
 	{
 		"build" : "_deps/googletest-build/googletest",
@@ -223,7 +239,7 @@
 		{
 			"backtrace" : 3,
 			"compileGroupIndex" : 0,
-			"path" : "cmake-build-debug/_deps/googletest-src/googletest/src/gtest-all.cc",
+			"path" : "cmake-build-debug/_deps/googletest-src/googletest/src/gtest_main.cc",
 			"sourceGroupIndex" : 0
 		}
 	],

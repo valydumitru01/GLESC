@@ -5,11 +5,6 @@
  ******************************************************************************/
 
 #pragma once
-
-#include "GL/glew.h"
-
-#include <utility>
-
 #include "engine/ecs/backend/component/Component.h"
 #include "engine/subsystems/renderer/Mesh.h"
 
@@ -19,7 +14,6 @@ struct RenderComponent : public Component {
      * Contains the vertices and indices of the object.
      */
     GLESC::Mesh mesh;
-    
 };
 
 

@@ -15,7 +15,6 @@
 #include "engine/core/low-level-renderer/graphic-device-interface/concrete-gdi/opengl/OpenGLGDI.h"
 // ECS
 #include "ecs/ECSTypes.h"
-#include "ecs/ECSContainer.h"
 // Entity
 #include "engine/ecs/frontend/entity/Entity.h"
 // Systems

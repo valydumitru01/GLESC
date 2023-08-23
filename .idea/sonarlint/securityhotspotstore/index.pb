@@ -1,0 +1,21 @@
+
+i
+9include/engine/ecs/backend/asserts/entity/EntityAsserts.h,7\7\7795ff5e0270af6bba6253b5ded8f0b6e21b3cfd
+o
+?include/engine/ecs/backend/asserts/component/ComponentAsserts.h,1\d\1dfe71030d9cd27891cfd384da82e85bfbf0354f
+r
+Binclude/engine/ecs/backend/debugger/entity/EntityManagerDebugger.h,2\a\2a8a0512c054b54e894d2c629a50f2b245d4b88f
+U
+%include/engine/core/asserts/Asserts.h,1\5\150aed7ea0ac2ba8f1f3907e1f15313f89e49a5a
+9
+	imgui.ini,a\7\a7ac969dae63263ee89c6ba5a8baf90d656d9bc4
+_
+/src/engine/ecs/backend/entity/EntityManager.cpp,2\b\2bd1f1606331b1b72ba288e702f5ea3cf447a9d2
+Y
+)src/engine/ecs/frontend/entity/Entity.cpp,1\6\16471c40c0bc25a1fbe51b472f14bcd8e0e34f62
+[
++include/engine/ecs/frontend/entity/Entity.h,6\8\68de6552e64998e01a7b7d9d9e0069c32182baa7
+a
+1include/engine/ecs/backend/entity/EntityManager.h,d\e\deaa665a80215e4622d217c68fb436f7394d728b
+D
+src/engine/GLESC.cpp,c\c\cc8ef4c3b495738676daee0079ecafbf2324967e

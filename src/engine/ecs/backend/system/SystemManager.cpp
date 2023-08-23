@@ -13,26 +13,19 @@
 
 
 [[nodiscard]] std::set<EntityID> SystemManager::getAssociatedEntities(SystemName name) const {
-    ASSERT_SYSTEM_IS_REGISTERED(name, systems)
-    return systems.find(name)->second.second;
+    ASSERT_SYSTEM_IS_REGISTERED(name);
+    return associatedEntities.find(name)->second;
 }
 
 void SystemManager::registerSystem(SystemName name) {
-    ASSERT_SYSTEM_IS_NOT_REGISTERED(name, systems);
-    systems.insert({name, {Signature{}, std::set<EntityID>{}}});
-}
-
-void SystemManager::setSignature(SystemName name, Signature signature) {
-    ASSERT_SYSTEM_IS_REGISTERED(name, systems);
-    systems.find(name)->second.first = signature;
-}
-
-[[nodiscard]] Signature SystemManager::getSignature(const char *name) const {
-    ASSERT_SYSTEM_IS_REGISTERED(name, systems);
-    return systems.find(name)->second.first;
+    ASSERT_SYSTEM_IS_NOT_REGISTERED(name);
+    systemSignatures.try_emplace(name, Signature{});
+    associatedEntities.try_emplace(name);
+    ASSERT_SYSTEM_IS_REGISTERED(name);
 }
 
 void SystemManager::entitySignatureChanged(EntityID entity, Signature entitySignature) {
+    /*
 #ifdef DEBUG
     Logger::get().importantInfoBlue("Entity signature changed. Updated systems: ");
     for (auto &pair : systems) {
@@ -41,28 +34,44 @@ void SystemManager::entitySignatureChanged(EntityID entity, Signature entitySign
         if ((entitySignature & systemSignature) == systemSignature) {
             Logger::get().infoBlue("Entity" + std::to_string(entity) + " is added to " + system);
         } else {
-            Logger::get().infoBlue("Entity" + std::to_string(entity) + " is removed from " + system);
+            Logger::get().infoBlue("Entity" + std::toString(entity) + " is removed from " + system);
         }
     }
-#endif
+#endif*/
     // Notify each system that an entity's signature changed
-    for (auto &pair : systems) {
-        auto const &signature = pair.second.first;
-        auto &entities = pair.second.second;
-        auto const &systemSignature = pair.second.first;
-        if ((entitySignature & systemSignature) == signature) {
-            // If the signature of the entity matches the signature of the system, insert it into the set
-            entities.insert(entity);
+    for (auto &[name, entitySet] : associatedEntities) {
+        if ((entitySignature & systemSignatures[name]) == systemSignatures[name]) {
+            // If the systemSignature of the entity matches the systemSignature of the system, insert it into the set
+            entitySet.insert(entity);
         } else {
-            entities.erase(entity);
+            entitySet.erase(entity);
         }
     }
 }
 
 void SystemManager::entityDestroyed(EntityID entity) {
     // Erase a destroyed entity from all system lists
-    for (auto &pair : systems) {
-        auto &entities = pair.second.second;
-        entities.erase(entity);
+    for (auto &[name, entitySet] : associatedEntities) {
+        entitySet.erase(entity);
+        ASSERT_ENTITY_IS_NOT_ASSOCIATED_WITH_SYSTEM(name,entity);
     }
+}
+
+bool SystemManager::isSystemRegistered(SystemName name) const{
+    return systemSignatures.find(name) != systemSignatures.end();
+}
+
+void SystemManager::addComponentRequirementToSystem(SystemName name, ComponentID componentID) {
+    ASSERT_SYSTEM_IS_REGISTERED(name);
+    ASSERT_COMPONENT_IS_NOT_REQUIRED_BY_SYSTEM(name, componentID);
+    systemSignatures.find(name)->second.set(componentID);
+    ASSERT_COMPONENT_IS_REQUIRED_BY_SYSTEM(name, componentID);
+}
+
+[[maybe_unused]] bool SystemManager::isEntityAssociatedWithSystem(SystemName name, EntityID entity) const {
+    return associatedEntities.find(name)->second.find(entity) != associatedEntities.find(name)->second.end();
+}
+
+[[maybe_unused]] bool SystemManager::isComponentRequiredBySystem(SystemName system, ComponentID component) const {
+    return systemSignatures.find(system)->second.test(component);
 }

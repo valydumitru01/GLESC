@@ -7,8 +7,10 @@
 #pragma once
 
 #include "SDL2/SDL_keycode.h"
+#include "SDL2/SDL_mouse.h"
 
 namespace GLESC {
+    
     enum class KeyState {
         PRESSED, RELEASED
     };

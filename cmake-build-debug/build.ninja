@@ -52,7 +52,7 @@ build cmake_object_order_depends_target_game: phony || CMakeFiles/game.dir
 build CMakeFiles/game.dir/src/Game/Game.cpp.obj: CXX_COMPILER__game_Debug C$:/Github_Repos/TFG---OpenGL-Engine/src/Game/Game.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine\" -DVERT_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\src\Game\Game.cpp.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
   INCLUDES = -IC:/Github_Repos/TFG---OpenGL-Engine/include -IC:/Github_Repos/TFG---OpenGL-Engine/lib/include -I"C:/Program Files/boost/boost_1_81_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\Game
@@ -60,7 +60,7 @@ build CMakeFiles/game.dir/src/Game/Game.cpp.obj: CXX_COMPILER__game_Debug C$:/Gi
 build CMakeFiles/game.dir/src/engine/GLESC.cpp.obj: CXX_COMPILER__game_Debug C$:/Github_Repos/TFG---OpenGL-Engine/src/engine/GLESC.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine\" -DVERT_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\src\engine\GLESC.cpp.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
   INCLUDES = -IC:/Github_Repos/TFG---OpenGL-Engine/include -IC:/Github_Repos/TFG---OpenGL-Engine/lib/include -I"C:/Program Files/boost/boost_1_81_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine
@@ -68,7 +68,7 @@ build CMakeFiles/game.dir/src/engine/GLESC.cpp.obj: CXX_COMPILER__game_Debug C$:
 build CMakeFiles/game.dir/src/engine/core/counter/Counter.cpp.obj: CXX_COMPILER__game_Debug C$:/Github_Repos/TFG---OpenGL-Engine/src/engine/core/counter/Counter.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine\" -DVERT_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\src\engine\core\counter\Counter.cpp.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
   INCLUDES = -IC:/Github_Repos/TFG---OpenGL-Engine/include -IC:/Github_Repos/TFG---OpenGL-Engine/lib/include -I"C:/Program Files/boost/boost_1_81_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\core\counter
@@ -76,7 +76,7 @@ build CMakeFiles/game.dir/src/engine/core/counter/Counter.cpp.obj: CXX_COMPILER_
 build CMakeFiles/game.dir/src/engine/core/exceptions/BaseException.cpp.obj: CXX_COMPILER__game_Debug C$:/Github_Repos/TFG---OpenGL-Engine/src/engine/core/exceptions/BaseException.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine\" -DVERT_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\src\engine\core\exceptions\BaseException.cpp.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
   INCLUDES = -IC:/Github_Repos/TFG---OpenGL-Engine/include -IC:/Github_Repos/TFG---OpenGL-Engine/lib/include -I"C:/Program Files/boost/boost_1_81_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\core\exceptions
@@ -84,7 +84,7 @@ build CMakeFiles/game.dir/src/engine/core/exceptions/BaseException.cpp.obj: CXX_
 build CMakeFiles/game.dir/src/engine/core/file-system/FileSystemPath.cpp.obj: CXX_COMPILER__game_Debug C$:/Github_Repos/TFG---OpenGL-Engine/src/engine/core/file-system/FileSystemPath.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine\" -DVERT_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\src\engine\core\file-system\FileSystemPath.cpp.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
   INCLUDES = -IC:/Github_Repos/TFG---OpenGL-Engine/include -IC:/Github_Repos/TFG---OpenGL-Engine/lib/include -I"C:/Program Files/boost/boost_1_81_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\core\file-system
@@ -92,7 +92,7 @@ build CMakeFiles/game.dir/src/engine/core/file-system/FileSystemPath.cpp.obj: CX
 build CMakeFiles/game.dir/src/engine/core/logger/Logger.cpp.obj: CXX_COMPILER__game_Debug C$:/Github_Repos/TFG---OpenGL-Engine/src/engine/core/logger/Logger.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine\" -DVERT_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\src\engine\core\logger\Logger.cpp.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
   INCLUDES = -IC:/Github_Repos/TFG---OpenGL-Engine/include -IC:/Github_Repos/TFG---OpenGL-Engine/lib/include -I"C:/Program Files/boost/boost_1_81_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\core\logger
@@ -100,7 +100,7 @@ build CMakeFiles/game.dir/src/engine/core/logger/Logger.cpp.obj: CXX_COMPILER__g
 build CMakeFiles/game.dir/src/engine/core/logger/outputs/FileLogger.cpp.obj: CXX_COMPILER__game_Debug C$:/Github_Repos/TFG---OpenGL-Engine/src/engine/core/logger/outputs/FileLogger.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine\" -DVERT_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\src\engine\core\logger\outputs\FileLogger.cpp.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
   INCLUDES = -IC:/Github_Repos/TFG---OpenGL-Engine/include -IC:/Github_Repos/TFG---OpenGL-Engine/lib/include -I"C:/Program Files/boost/boost_1_81_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\core\logger\outputs
@@ -108,7 +108,7 @@ build CMakeFiles/game.dir/src/engine/core/logger/outputs/FileLogger.cpp.obj: CXX
 build CMakeFiles/game.dir/src/engine/core/logger/outputs/TerminalLogger.cpp.obj: CXX_COMPILER__game_Debug C$:/Github_Repos/TFG---OpenGL-Engine/src/engine/core/logger/outputs/TerminalLogger.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine\" -DVERT_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\src\engine\core\logger\outputs\TerminalLogger.cpp.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
   INCLUDES = -IC:/Github_Repos/TFG---OpenGL-Engine/include -IC:/Github_Repos/TFG---OpenGL-Engine/lib/include -I"C:/Program Files/boost/boost_1_81_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\core\logger\outputs
@@ -116,7 +116,7 @@ build CMakeFiles/game.dir/src/engine/core/logger/outputs/TerminalLogger.cpp.obj:
 build CMakeFiles/game.dir/src/engine/core/low-level-renderer/buffers/IndexBuffer.cpp.obj: CXX_COMPILER__game_Debug C$:/Github_Repos/TFG---OpenGL-Engine/src/engine/core/low-level-renderer/buffers/IndexBuffer.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine\" -DVERT_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\src\engine\core\low-level-renderer\buffers\IndexBuffer.cpp.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
   INCLUDES = -IC:/Github_Repos/TFG---OpenGL-Engine/include -IC:/Github_Repos/TFG---OpenGL-Engine/lib/include -I"C:/Program Files/boost/boost_1_81_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\core\low-level-renderer\buffers
@@ -124,7 +124,7 @@ build CMakeFiles/game.dir/src/engine/core/low-level-renderer/buffers/IndexBuffer
 build CMakeFiles/game.dir/src/engine/core/low-level-renderer/buffers/VertexBuffer.cpp.obj: CXX_COMPILER__game_Debug C$:/Github_Repos/TFG---OpenGL-Engine/src/engine/core/low-level-renderer/buffers/VertexBuffer.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine\" -DVERT_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\src\engine\core\low-level-renderer\buffers\VertexBuffer.cpp.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
   INCLUDES = -IC:/Github_Repos/TFG---OpenGL-Engine/include -IC:/Github_Repos/TFG---OpenGL-Engine/lib/include -I"C:/Program Files/boost/boost_1_81_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\core\low-level-renderer\buffers
@@ -132,7 +132,7 @@ build CMakeFiles/game.dir/src/engine/core/low-level-renderer/buffers/VertexBuffe
 build CMakeFiles/game.dir/src/engine/core/low-level-renderer/graphic-device-iterface/concrete-gdi/opengl/OpenGLDebugger.cpp.obj: CXX_COMPILER__game_Debug C$:/Github_Repos/TFG---OpenGL-Engine/src/engine/core/low-level-renderer/graphic-device-iterface/concrete-gdi/opengl/OpenGLDebugger.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine\" -DVERT_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\src\engine\core\low-level-renderer\graphic-device-iterface\concrete-gdi\opengl\OpenGLDebugger.cpp.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
   INCLUDES = -IC:/Github_Repos/TFG---OpenGL-Engine/include -IC:/Github_Repos/TFG---OpenGL-Engine/lib/include -I"C:/Program Files/boost/boost_1_81_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\core\low-level-renderer\graphic-device-iterface\concrete-gdi\opengl
@@ -140,7 +140,7 @@ build CMakeFiles/game.dir/src/engine/core/low-level-renderer/graphic-device-iter
 build CMakeFiles/game.dir/src/engine/core/low-level-renderer/graphic-device-iterface/concrete-gdi/opengl/OpenGLGDI.cpp.obj: CXX_COMPILER__game_Debug C$:/Github_Repos/TFG---OpenGL-Engine/src/engine/core/low-level-renderer/graphic-device-iterface/concrete-gdi/opengl/OpenGLGDI.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine\" -DVERT_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\src\engine\core\low-level-renderer\graphic-device-iterface\concrete-gdi\opengl\OpenGLGDI.cpp.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
   INCLUDES = -IC:/Github_Repos/TFG---OpenGL-Engine/include -IC:/Github_Repos/TFG---OpenGL-Engine/lib/include -I"C:/Program Files/boost/boost_1_81_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\core\low-level-renderer\graphic-device-iterface\concrete-gdi\opengl
@@ -148,7 +148,7 @@ build CMakeFiles/game.dir/src/engine/core/low-level-renderer/graphic-device-iter
 build CMakeFiles/game.dir/src/engine/core/low-level-renderer/graphic-device-iterface/concrete-gdi/vulkan/VulkanGDI.cpp.obj: CXX_COMPILER__game_Debug C$:/Github_Repos/TFG---OpenGL-Engine/src/engine/core/low-level-renderer/graphic-device-iterface/concrete-gdi/vulkan/VulkanGDI.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine\" -DVERT_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\src\engine\core\low-level-renderer\graphic-device-iterface\concrete-gdi\vulkan\VulkanGDI.cpp.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
   INCLUDES = -IC:/Github_Repos/TFG---OpenGL-Engine/include -IC:/Github_Repos/TFG---OpenGL-Engine/lib/include -I"C:/Program Files/boost/boost_1_81_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\core\low-level-renderer\graphic-device-iterface\concrete-gdi\vulkan
@@ -156,23 +156,15 @@ build CMakeFiles/game.dir/src/engine/core/low-level-renderer/graphic-device-iter
 build CMakeFiles/game.dir/src/engine/core/window/WindowManager.cpp.obj: CXX_COMPILER__game_Debug C$:/Github_Repos/TFG---OpenGL-Engine/src/engine/core/window/WindowManager.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine\" -DVERT_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\src\engine\core\window\WindowManager.cpp.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
   INCLUDES = -IC:/Github_Repos/TFG---OpenGL-Engine/include -IC:/Github_Repos/TFG---OpenGL-Engine/lib/include -I"C:/Program Files/boost/boost_1_81_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\core\window
 
-build CMakeFiles/game.dir/src/engine/ecs/ECSContainer.cpp.obj: CXX_COMPILER__game_Debug C$:/Github_Repos/TFG---OpenGL-Engine/src/engine/ecs/ECSContainer.cpp || cmake_object_order_depends_target_game
-  DEFINES = -DFRAG_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine\" -DVERT_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
-  DEP_FILE = CMakeFiles\game.dir\src\engine\ecs\ECSContainer.cpp.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
-  INCLUDES = -IC:/Github_Repos/TFG---OpenGL-Engine/include -IC:/Github_Repos/TFG---OpenGL-Engine/lib/include -I"C:/Program Files/boost/boost_1_81_0"
-  OBJECT_DIR = CMakeFiles\game.dir
-  OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\ecs
-
 build CMakeFiles/game.dir/src/engine/ecs/backend/Coordinator.cpp.obj: CXX_COMPILER__game_Debug C$:/Github_Repos/TFG---OpenGL-Engine/src/engine/ecs/backend/Coordinator.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine\" -DVERT_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\src\engine\ecs\backend\Coordinator.cpp.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
   INCLUDES = -IC:/Github_Repos/TFG---OpenGL-Engine/include -IC:/Github_Repos/TFG---OpenGL-Engine/lib/include -I"C:/Program Files/boost/boost_1_81_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\ecs\backend
@@ -180,7 +172,7 @@ build CMakeFiles/game.dir/src/engine/ecs/backend/Coordinator.cpp.obj: CXX_COMPIL
 build CMakeFiles/game.dir/src/engine/ecs/backend/component/ComponentManager.cpp.obj: CXX_COMPILER__game_Debug C$:/Github_Repos/TFG---OpenGL-Engine/src/engine/ecs/backend/component/ComponentManager.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine\" -DVERT_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\src\engine\ecs\backend\component\ComponentManager.cpp.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
   INCLUDES = -IC:/Github_Repos/TFG---OpenGL-Engine/include -IC:/Github_Repos/TFG---OpenGL-Engine/lib/include -I"C:/Program Files/boost/boost_1_81_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\ecs\backend\component
@@ -188,7 +180,7 @@ build CMakeFiles/game.dir/src/engine/ecs/backend/component/ComponentManager.cpp.
 build CMakeFiles/game.dir/src/engine/ecs/backend/entity/EntityManager.cpp.obj: CXX_COMPILER__game_Debug C$:/Github_Repos/TFG---OpenGL-Engine/src/engine/ecs/backend/entity/EntityManager.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine\" -DVERT_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\src\engine\ecs\backend\entity\EntityManager.cpp.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
   INCLUDES = -IC:/Github_Repos/TFG---OpenGL-Engine/include -IC:/Github_Repos/TFG---OpenGL-Engine/lib/include -I"C:/Program Files/boost/boost_1_81_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\ecs\backend\entity
@@ -196,7 +188,7 @@ build CMakeFiles/game.dir/src/engine/ecs/backend/entity/EntityManager.cpp.obj: C
 build CMakeFiles/game.dir/src/engine/ecs/backend/system/SystemManager.cpp.obj: CXX_COMPILER__game_Debug C$:/Github_Repos/TFG---OpenGL-Engine/src/engine/ecs/backend/system/SystemManager.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine\" -DVERT_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\src\engine\ecs\backend\system\SystemManager.cpp.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
   INCLUDES = -IC:/Github_Repos/TFG---OpenGL-Engine/include -IC:/Github_Repos/TFG---OpenGL-Engine/lib/include -I"C:/Program Files/boost/boost_1_81_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\ecs\backend\system
@@ -204,7 +196,7 @@ build CMakeFiles/game.dir/src/engine/ecs/backend/system/SystemManager.cpp.obj: C
 build CMakeFiles/game.dir/src/engine/ecs/frontend/entity/Entity.cpp.obj: CXX_COMPILER__game_Debug C$:/Github_Repos/TFG---OpenGL-Engine/src/engine/ecs/frontend/entity/Entity.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine\" -DVERT_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\src\engine\ecs\frontend\entity\Entity.cpp.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
   INCLUDES = -IC:/Github_Repos/TFG---OpenGL-Engine/include -IC:/Github_Repos/TFG---OpenGL-Engine/lib/include -I"C:/Program Files/boost/boost_1_81_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\ecs\frontend\entity
@@ -212,7 +204,7 @@ build CMakeFiles/game.dir/src/engine/ecs/frontend/entity/Entity.cpp.obj: CXX_COM
 build CMakeFiles/game.dir/src/engine/ecs/frontend/system/System.cpp.obj: CXX_COMPILER__game_Debug C$:/Github_Repos/TFG---OpenGL-Engine/src/engine/ecs/frontend/system/System.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine\" -DVERT_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\src\engine\ecs\frontend\system\System.cpp.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
   INCLUDES = -IC:/Github_Repos/TFG---OpenGL-Engine/include -IC:/Github_Repos/TFG---OpenGL-Engine/lib/include -I"C:/Program Files/boost/boost_1_81_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\ecs\frontend\system
@@ -220,7 +212,7 @@ build CMakeFiles/game.dir/src/engine/ecs/frontend/system/System.cpp.obj: CXX_COM
 build CMakeFiles/game.dir/src/engine/ecs/systems/CameraSystem.cpp.obj: CXX_COMPILER__game_Debug C$:/Github_Repos/TFG---OpenGL-Engine/src/engine/ecs/systems/CameraSystem.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine\" -DVERT_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\src\engine\ecs\systems\CameraSystem.cpp.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
   INCLUDES = -IC:/Github_Repos/TFG---OpenGL-Engine/include -IC:/Github_Repos/TFG---OpenGL-Engine/lib/include -I"C:/Program Files/boost/boost_1_81_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\ecs\systems
@@ -228,7 +220,7 @@ build CMakeFiles/game.dir/src/engine/ecs/systems/CameraSystem.cpp.obj: CXX_COMPI
 build CMakeFiles/game.dir/src/engine/ecs/systems/InputSystem.cpp.obj: CXX_COMPILER__game_Debug C$:/Github_Repos/TFG---OpenGL-Engine/src/engine/ecs/systems/InputSystem.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine\" -DVERT_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\src\engine\ecs\systems\InputSystem.cpp.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
   INCLUDES = -IC:/Github_Repos/TFG---OpenGL-Engine/include -IC:/Github_Repos/TFG---OpenGL-Engine/lib/include -I"C:/Program Files/boost/boost_1_81_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\ecs\systems
@@ -236,7 +228,7 @@ build CMakeFiles/game.dir/src/engine/ecs/systems/InputSystem.cpp.obj: CXX_COMPIL
 build CMakeFiles/game.dir/src/engine/ecs/systems/PhysicsSystem.cpp.obj: CXX_COMPILER__game_Debug C$:/Github_Repos/TFG---OpenGL-Engine/src/engine/ecs/systems/PhysicsSystem.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine\" -DVERT_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\src\engine\ecs\systems\PhysicsSystem.cpp.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
   INCLUDES = -IC:/Github_Repos/TFG---OpenGL-Engine/include -IC:/Github_Repos/TFG---OpenGL-Engine/lib/include -I"C:/Program Files/boost/boost_1_81_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\ecs\systems
@@ -244,7 +236,7 @@ build CMakeFiles/game.dir/src/engine/ecs/systems/PhysicsSystem.cpp.obj: CXX_COMP
 build CMakeFiles/game.dir/src/engine/ecs/systems/RenderSystem.cpp.obj: CXX_COMPILER__game_Debug C$:/Github_Repos/TFG---OpenGL-Engine/src/engine/ecs/systems/RenderSystem.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine\" -DVERT_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\src\engine\ecs\systems\RenderSystem.cpp.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
   INCLUDES = -IC:/Github_Repos/TFG---OpenGL-Engine/include -IC:/Github_Repos/TFG---OpenGL-Engine/lib/include -I"C:/Program Files/boost/boost_1_81_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\ecs\systems
@@ -252,7 +244,7 @@ build CMakeFiles/game.dir/src/engine/ecs/systems/RenderSystem.cpp.obj: CXX_COMPI
 build CMakeFiles/game.dir/src/engine/main.cpp.obj: CXX_COMPILER__game_Debug C$:/Github_Repos/TFG---OpenGL-Engine/src/engine/main.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine\" -DVERT_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\src\engine\main.cpp.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
   INCLUDES = -IC:/Github_Repos/TFG---OpenGL-Engine/include -IC:/Github_Repos/TFG---OpenGL-Engine/lib/include -I"C:/Program Files/boost/boost_1_81_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine
@@ -260,7 +252,7 @@ build CMakeFiles/game.dir/src/engine/main.cpp.obj: CXX_COMPILER__game_Debug C$:/
 build CMakeFiles/game.dir/src/engine/res-mng/files/FileManager.cpp.obj: CXX_COMPILER__game_Debug C$:/Github_Repos/TFG---OpenGL-Engine/src/engine/res-mng/files/FileManager.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine\" -DVERT_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\src\engine\res-mng\files\FileManager.cpp.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
   INCLUDES = -IC:/Github_Repos/TFG---OpenGL-Engine/include -IC:/Github_Repos/TFG---OpenGL-Engine/lib/include -I"C:/Program Files/boost/boost_1_81_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\res-mng\files
@@ -268,7 +260,7 @@ build CMakeFiles/game.dir/src/engine/res-mng/files/FileManager.cpp.obj: CXX_COMP
 build CMakeFiles/game.dir/src/engine/res-mng/textures/TextureManager.cpp.obj: CXX_COMPILER__game_Debug C$:/Github_Repos/TFG---OpenGL-Engine/src/engine/res-mng/textures/TextureManager.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine\" -DVERT_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\src\engine\res-mng\textures\TextureManager.cpp.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
   INCLUDES = -IC:/Github_Repos/TFG---OpenGL-Engine/include -IC:/Github_Repos/TFG---OpenGL-Engine/lib/include -I"C:/Program Files/boost/boost_1_81_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\res-mng\textures
@@ -276,7 +268,7 @@ build CMakeFiles/game.dir/src/engine/res-mng/textures/TextureManager.cpp.obj: CX
 build CMakeFiles/game.dir/src/engine/subsystems/hud/HUDManager.cpp.obj: CXX_COMPILER__game_Debug C$:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/hud/HUDManager.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine\" -DVERT_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\src\engine\subsystems\hud\HUDManager.cpp.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
   INCLUDES = -IC:/Github_Repos/TFG---OpenGL-Engine/include -IC:/Github_Repos/TFG---OpenGL-Engine/lib/include -I"C:/Program Files/boost/boost_1_81_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\subsystems\hud
@@ -284,7 +276,7 @@ build CMakeFiles/game.dir/src/engine/subsystems/hud/HUDManager.cpp.obj: CXX_COMP
 build CMakeFiles/game.dir/src/engine/subsystems/input/InputManager.cpp.obj: CXX_COMPILER__game_Debug C$:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/input/InputManager.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine\" -DVERT_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\src\engine\subsystems\input\InputManager.cpp.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
   INCLUDES = -IC:/Github_Repos/TFG---OpenGL-Engine/include -IC:/Github_Repos/TFG---OpenGL-Engine/lib/include -I"C:/Program Files/boost/boost_1_81_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\subsystems\input
@@ -292,7 +284,7 @@ build CMakeFiles/game.dir/src/engine/subsystems/input/InputManager.cpp.obj: CXX_
 build CMakeFiles/game.dir/src/engine/subsystems/physics/PhysicsManager.cpp.obj: CXX_COMPILER__game_Debug C$:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/physics/PhysicsManager.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine\" -DVERT_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\src\engine\subsystems\physics\PhysicsManager.cpp.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
   INCLUDES = -IC:/Github_Repos/TFG---OpenGL-Engine/include -IC:/Github_Repos/TFG---OpenGL-Engine/lib/include -I"C:/Program Files/boost/boost_1_81_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\subsystems\physics
@@ -300,7 +292,7 @@ build CMakeFiles/game.dir/src/engine/subsystems/physics/PhysicsManager.cpp.obj: 
 build CMakeFiles/game.dir/src/engine/subsystems/renderer/Mesh.cpp.obj: CXX_COMPILER__game_Debug C$:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/Mesh.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine\" -DVERT_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\src\engine\subsystems\renderer\Mesh.cpp.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
   INCLUDES = -IC:/Github_Repos/TFG---OpenGL-Engine/include -IC:/Github_Repos/TFG---OpenGL-Engine/lib/include -I"C:/Program Files/boost/boost_1_81_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\subsystems\renderer
@@ -308,7 +300,7 @@ build CMakeFiles/game.dir/src/engine/subsystems/renderer/Mesh.cpp.obj: CXX_COMPI
 build CMakeFiles/game.dir/src/engine/subsystems/renderer/Renderer.cpp.obj: CXX_COMPILER__game_Debug C$:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/Renderer.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine\" -DVERT_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\src\engine\subsystems\renderer\Renderer.cpp.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
   INCLUDES = -IC:/Github_Repos/TFG---OpenGL-Engine/include -IC:/Github_Repos/TFG---OpenGL-Engine/lib/include -I"C:/Program Files/boost/boost_1_81_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\subsystems\renderer
@@ -316,7 +308,7 @@ build CMakeFiles/game.dir/src/engine/subsystems/renderer/Renderer.cpp.obj: CXX_C
 build CMakeFiles/game.dir/src/engine/subsystems/renderer/shaders/ShaderLoader.cpp.obj: CXX_COMPILER__game_Debug C$:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/ShaderLoader.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine\" -DVERT_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\src\engine\subsystems\renderer\shaders\ShaderLoader.cpp.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
   INCLUDES = -IC:/Github_Repos/TFG---OpenGL-Engine/include -IC:/Github_Repos/TFG---OpenGL-Engine/lib/include -I"C:/Program Files/boost/boost_1_81_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\subsystems\renderer\shaders
@@ -324,7 +316,7 @@ build CMakeFiles/game.dir/src/engine/subsystems/renderer/shaders/ShaderLoader.cp
 build CMakeFiles/game.dir/src/engine/subsystems/renderer/shaders/ShaderManager.cpp.obj: CXX_COMPILER__game_Debug C$:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/ShaderManager.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine\" -DVERT_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\src\engine\subsystems\renderer\shaders\ShaderManager.cpp.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
   INCLUDES = -IC:/Github_Repos/TFG---OpenGL-Engine/include -IC:/Github_Repos/TFG---OpenGL-Engine/lib/include -I"C:/Program Files/boost/boost_1_81_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\subsystems\renderer\shaders
@@ -332,7 +324,7 @@ build CMakeFiles/game.dir/src/engine/subsystems/renderer/shaders/ShaderManager.c
 build CMakeFiles/game.dir/lib/include/glm/detail/glm.cpp.obj: CXX_COMPILER__game_Debug C$:/Github_Repos/TFG---OpenGL-Engine/lib/include/glm/detail/glm.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine\" -DVERT_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\lib\include\glm\detail\glm.cpp.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
   INCLUDES = -IC:/Github_Repos/TFG---OpenGL-Engine/include -IC:/Github_Repos/TFG---OpenGL-Engine/lib/include -I"C:/Program Files/boost/boost_1_81_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\lib\include\glm\detail
@@ -340,7 +332,7 @@ build CMakeFiles/game.dir/lib/include/glm/detail/glm.cpp.obj: CXX_COMPILER__game
 build CMakeFiles/game.dir/lib/include/imgui/example.cpp.obj: CXX_COMPILER__game_Debug C$:/Github_Repos/TFG---OpenGL-Engine/lib/include/imgui/example.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine\" -DVERT_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\lib\include\imgui\example.cpp.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
   INCLUDES = -IC:/Github_Repos/TFG---OpenGL-Engine/include -IC:/Github_Repos/TFG---OpenGL-Engine/lib/include -I"C:/Program Files/boost/boost_1_81_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\lib\include\imgui
@@ -348,7 +340,7 @@ build CMakeFiles/game.dir/lib/include/imgui/example.cpp.obj: CXX_COMPILER__game_
 build CMakeFiles/game.dir/lib/include/imgui/imgui.cpp.obj: CXX_COMPILER__game_Debug C$:/Github_Repos/TFG---OpenGL-Engine/lib/include/imgui/imgui.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine\" -DVERT_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\lib\include\imgui\imgui.cpp.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
   INCLUDES = -IC:/Github_Repos/TFG---OpenGL-Engine/include -IC:/Github_Repos/TFG---OpenGL-Engine/lib/include -I"C:/Program Files/boost/boost_1_81_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\lib\include\imgui
@@ -356,7 +348,7 @@ build CMakeFiles/game.dir/lib/include/imgui/imgui.cpp.obj: CXX_COMPILER__game_De
 build CMakeFiles/game.dir/lib/include/imgui/imgui_demo.cpp.obj: CXX_COMPILER__game_Debug C$:/Github_Repos/TFG---OpenGL-Engine/lib/include/imgui/imgui_demo.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine\" -DVERT_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\lib\include\imgui\imgui_demo.cpp.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
   INCLUDES = -IC:/Github_Repos/TFG---OpenGL-Engine/include -IC:/Github_Repos/TFG---OpenGL-Engine/lib/include -I"C:/Program Files/boost/boost_1_81_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\lib\include\imgui
@@ -364,7 +356,7 @@ build CMakeFiles/game.dir/lib/include/imgui/imgui_demo.cpp.obj: CXX_COMPILER__ga
 build CMakeFiles/game.dir/lib/include/imgui/imgui_draw.cpp.obj: CXX_COMPILER__game_Debug C$:/Github_Repos/TFG---OpenGL-Engine/lib/include/imgui/imgui_draw.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine\" -DVERT_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\lib\include\imgui\imgui_draw.cpp.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
   INCLUDES = -IC:/Github_Repos/TFG---OpenGL-Engine/include -IC:/Github_Repos/TFG---OpenGL-Engine/lib/include -I"C:/Program Files/boost/boost_1_81_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\lib\include\imgui
@@ -372,7 +364,7 @@ build CMakeFiles/game.dir/lib/include/imgui/imgui_draw.cpp.obj: CXX_COMPILER__ga
 build CMakeFiles/game.dir/lib/include/imgui/imgui_impl_opengl3.cpp.obj: CXX_COMPILER__game_Debug C$:/Github_Repos/TFG---OpenGL-Engine/lib/include/imgui/imgui_impl_opengl3.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine\" -DVERT_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\lib\include\imgui\imgui_impl_opengl3.cpp.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
   INCLUDES = -IC:/Github_Repos/TFG---OpenGL-Engine/include -IC:/Github_Repos/TFG---OpenGL-Engine/lib/include -I"C:/Program Files/boost/boost_1_81_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\lib\include\imgui
@@ -380,7 +372,7 @@ build CMakeFiles/game.dir/lib/include/imgui/imgui_impl_opengl3.cpp.obj: CXX_COMP
 build CMakeFiles/game.dir/lib/include/imgui/imgui_impl_sdl2.cpp.obj: CXX_COMPILER__game_Debug C$:/Github_Repos/TFG---OpenGL-Engine/lib/include/imgui/imgui_impl_sdl2.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine\" -DVERT_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\lib\include\imgui\imgui_impl_sdl2.cpp.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
   INCLUDES = -IC:/Github_Repos/TFG---OpenGL-Engine/include -IC:/Github_Repos/TFG---OpenGL-Engine/lib/include -I"C:/Program Files/boost/boost_1_81_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\lib\include\imgui
@@ -388,7 +380,7 @@ build CMakeFiles/game.dir/lib/include/imgui/imgui_impl_sdl2.cpp.obj: CXX_COMPILE
 build CMakeFiles/game.dir/lib/include/imgui/imgui_tables.cpp.obj: CXX_COMPILER__game_Debug C$:/Github_Repos/TFG---OpenGL-Engine/lib/include/imgui/imgui_tables.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine\" -DVERT_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\lib\include\imgui\imgui_tables.cpp.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
   INCLUDES = -IC:/Github_Repos/TFG---OpenGL-Engine/include -IC:/Github_Repos/TFG---OpenGL-Engine/lib/include -I"C:/Program Files/boost/boost_1_81_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\lib\include\imgui
@@ -396,7 +388,7 @@ build CMakeFiles/game.dir/lib/include/imgui/imgui_tables.cpp.obj: CXX_COMPILER__
 build CMakeFiles/game.dir/lib/include/imgui/imgui_widgets.cpp.obj: CXX_COMPILER__game_Debug C$:/Github_Repos/TFG---OpenGL-Engine/lib/include/imgui/imgui_widgets.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine\" -DVERT_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\lib\include\imgui\imgui_widgets.cpp.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING -fdiagnostics-color=always -Wall -Wextra -Wpedantic -std=gnu++17
   INCLUDES = -IC:/Github_Repos/TFG---OpenGL-Engine/include -IC:/Github_Repos/TFG---OpenGL-Engine/lib/include -I"C:/Program Files/boost/boost_1_81_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\lib\include\imgui
@@ -409,8 +401,8 @@ build CMakeFiles/game.dir/lib/include/imgui/imgui_widgets.cpp.obj: CXX_COMPILER_
 #############################################
 # Link the executable C:\Github_Repos\TFG---OpenGL-Engine\bin\debug\game.exe
 
-build C$:/Github_Repos/TFG---OpenGL-Engine/bin/debug/game.exe: CXX_EXECUTABLE_LINKER__game_Debug CMakeFiles/game.dir/src/Game/Game.cpp.obj CMakeFiles/game.dir/src/engine/GLESC.cpp.obj CMakeFiles/game.dir/src/engine/core/counter/Counter.cpp.obj CMakeFiles/game.dir/src/engine/core/exceptions/BaseException.cpp.obj CMakeFiles/game.dir/src/engine/core/file-system/FileSystemPath.cpp.obj CMakeFiles/game.dir/src/engine/core/logger/Logger.cpp.obj CMakeFiles/game.dir/src/engine/core/logger/outputs/FileLogger.cpp.obj CMakeFiles/game.dir/src/engine/core/logger/outputs/TerminalLogger.cpp.obj CMakeFiles/game.dir/src/engine/core/low-level-renderer/buffers/IndexBuffer.cpp.obj CMakeFiles/game.dir/src/engine/core/low-level-renderer/buffers/VertexBuffer.cpp.obj CMakeFiles/game.dir/src/engine/core/low-level-renderer/graphic-device-iterface/concrete-gdi/opengl/OpenGLDebugger.cpp.obj CMakeFiles/game.dir/src/engine/core/low-level-renderer/graphic-device-iterface/concrete-gdi/opengl/OpenGLGDI.cpp.obj CMakeFiles/game.dir/src/engine/core/low-level-renderer/graphic-device-iterface/concrete-gdi/vulkan/VulkanGDI.cpp.obj CMakeFiles/game.dir/src/engine/core/window/WindowManager.cpp.obj CMakeFiles/game.dir/src/engine/ecs/ECSContainer.cpp.obj CMakeFiles/game.dir/src/engine/ecs/backend/Coordinator.cpp.obj CMakeFiles/game.dir/src/engine/ecs/backend/component/ComponentManager.cpp.obj CMakeFiles/game.dir/src/engine/ecs/backend/entity/EntityManager.cpp.obj CMakeFiles/game.dir/src/engine/ecs/backend/system/SystemManager.cpp.obj CMakeFiles/game.dir/src/engine/ecs/frontend/entity/Entity.cpp.obj CMakeFiles/game.dir/src/engine/ecs/frontend/system/System.cpp.obj CMakeFiles/game.dir/src/engine/ecs/systems/CameraSystem.cpp.obj CMakeFiles/game.dir/src/engine/ecs/systems/InputSystem.cpp.obj CMakeFiles/game.dir/src/engine/ecs/systems/PhysicsSystem.cpp.obj CMakeFiles/game.dir/src/engine/ecs/systems/RenderSystem.cpp.obj CMakeFiles/game.dir/src/engine/main.cpp.obj CMakeFiles/game.dir/src/engine/res-mng/files/FileManager.cpp.obj CMakeFiles/game.dir/src/engine/res-mng/textures/TextureManager.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/hud/HUDManager.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/input/InputManager.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/physics/PhysicsManager.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/renderer/Mesh.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/renderer/Renderer.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/renderer/shaders/ShaderLoader.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/renderer/shaders/ShaderManager.cpp.obj CMakeFiles/game.dir/lib/include/glm/detail/glm.cpp.obj CMakeFiles/game.dir/lib/include/imgui/example.cpp.obj CMakeFiles/game.dir/lib/include/imgui/imgui.cpp.obj CMakeFiles/game.dir/lib/include/imgui/imgui_demo.cpp.obj CMakeFiles/game.dir/lib/include/imgui/imgui_draw.cpp.obj CMakeFiles/game.dir/lib/include/imgui/imgui_impl_opengl3.cpp.obj CMakeFiles/game.dir/lib/include/imgui/imgui_impl_sdl2.cpp.obj CMakeFiles/game.dir/lib/include/imgui/imgui_tables.cpp.obj CMakeFiles/game.dir/lib/include/imgui/imgui_widgets.cpp.obj
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG
+build C$:/Github_Repos/TFG---OpenGL-Engine/bin/debug/game.exe: CXX_EXECUTABLE_LINKER__game_Debug CMakeFiles/game.dir/src/Game/Game.cpp.obj CMakeFiles/game.dir/src/engine/GLESC.cpp.obj CMakeFiles/game.dir/src/engine/core/counter/Counter.cpp.obj CMakeFiles/game.dir/src/engine/core/exceptions/BaseException.cpp.obj CMakeFiles/game.dir/src/engine/core/file-system/FileSystemPath.cpp.obj CMakeFiles/game.dir/src/engine/core/logger/Logger.cpp.obj CMakeFiles/game.dir/src/engine/core/logger/outputs/FileLogger.cpp.obj CMakeFiles/game.dir/src/engine/core/logger/outputs/TerminalLogger.cpp.obj CMakeFiles/game.dir/src/engine/core/low-level-renderer/buffers/IndexBuffer.cpp.obj CMakeFiles/game.dir/src/engine/core/low-level-renderer/buffers/VertexBuffer.cpp.obj CMakeFiles/game.dir/src/engine/core/low-level-renderer/graphic-device-iterface/concrete-gdi/opengl/OpenGLDebugger.cpp.obj CMakeFiles/game.dir/src/engine/core/low-level-renderer/graphic-device-iterface/concrete-gdi/opengl/OpenGLGDI.cpp.obj CMakeFiles/game.dir/src/engine/core/low-level-renderer/graphic-device-iterface/concrete-gdi/vulkan/VulkanGDI.cpp.obj CMakeFiles/game.dir/src/engine/core/window/WindowManager.cpp.obj CMakeFiles/game.dir/src/engine/ecs/backend/Coordinator.cpp.obj CMakeFiles/game.dir/src/engine/ecs/backend/component/ComponentManager.cpp.obj CMakeFiles/game.dir/src/engine/ecs/backend/entity/EntityManager.cpp.obj CMakeFiles/game.dir/src/engine/ecs/backend/system/SystemManager.cpp.obj CMakeFiles/game.dir/src/engine/ecs/frontend/entity/Entity.cpp.obj CMakeFiles/game.dir/src/engine/ecs/frontend/system/System.cpp.obj CMakeFiles/game.dir/src/engine/ecs/systems/CameraSystem.cpp.obj CMakeFiles/game.dir/src/engine/ecs/systems/InputSystem.cpp.obj CMakeFiles/game.dir/src/engine/ecs/systems/PhysicsSystem.cpp.obj CMakeFiles/game.dir/src/engine/ecs/systems/RenderSystem.cpp.obj CMakeFiles/game.dir/src/engine/main.cpp.obj CMakeFiles/game.dir/src/engine/res-mng/files/FileManager.cpp.obj CMakeFiles/game.dir/src/engine/res-mng/textures/TextureManager.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/hud/HUDManager.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/input/InputManager.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/physics/PhysicsManager.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/renderer/Mesh.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/renderer/Renderer.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/renderer/shaders/ShaderLoader.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/renderer/shaders/ShaderManager.cpp.obj CMakeFiles/game.dir/lib/include/glm/detail/glm.cpp.obj CMakeFiles/game.dir/lib/include/imgui/example.cpp.obj CMakeFiles/game.dir/lib/include/imgui/imgui.cpp.obj CMakeFiles/game.dir/lib/include/imgui/imgui_demo.cpp.obj CMakeFiles/game.dir/lib/include/imgui/imgui_draw.cpp.obj CMakeFiles/game.dir/lib/include/imgui/imgui_impl_opengl3.cpp.obj CMakeFiles/game.dir/lib/include/imgui/imgui_impl_sdl2.cpp.obj CMakeFiles/game.dir/lib/include/imgui/imgui_tables.cpp.obj CMakeFiles/game.dir/lib/include/imgui/imgui_widgets.cpp.obj
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING
   LINK_FLAGS = -static
   LINK_LIBRARIES = -lDbgHelp  -lmingw32  -lSDL2main  -lSDL2  -lSDL2_net  -lSDL2_mixer  -lSDL2_image  -lglew32s  -lopengl32  -lglu32  -limm32  -lversion  -lsetupapi  -lwinmm  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   LINK_PATH = -LC:/Github_Repos/TFG---OpenGL-Engine/lib/lib
@@ -433,7 +425,7 @@ build cmake_object_order_depends_target_game_test: phony || cmake_object_order_d
 build CMakeFiles/game_test.dir/tests/main.cpp.obj: CXX_COMPILER__game_test_Debug C$:/Github_Repos/TFG---OpenGL-Engine/tests/main.cpp || cmake_object_order_depends_target_game_test
   DEFINES = -DFRAG_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine\" -DVERT_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game_test.dir\tests\main.cpp.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -std=gnu++17
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING -fdiagnostics-color=always -std=gnu++17
   INCLUDES = -IC:/Github_Repos/TFG---OpenGL-Engine/include -IC:/Github_Repos/TFG---OpenGL-Engine/lib/include -I"C:/Program Files/boost/boost_1_81_0" -isystem C:/Github_Repos/TFG---OpenGL-Engine/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/Github_Repos/TFG---OpenGL-Engine/cmake-build-debug/_deps/googletest-src/googletest
   OBJECT_DIR = CMakeFiles\game_test.dir
   OBJECT_FILE_DIR = CMakeFiles\game_test.dir\tests
@@ -441,7 +433,7 @@ build CMakeFiles/game_test.dir/tests/main.cpp.obj: CXX_COMPILER__game_test_Debug
 build CMakeFiles/game_test.dir/tests/unit/engine/ecs/ECSContainerTest.cpp.obj: CXX_COMPILER__game_test_Debug C$:/Github_Repos/TFG---OpenGL-Engine/tests/unit/engine/ecs/ECSContainerTest.cpp || cmake_object_order_depends_target_game_test
   DEFINES = -DFRAG_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine\" -DVERT_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game_test.dir\tests\unit\engine\ecs\ECSContainerTest.cpp.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -std=gnu++17
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING -fdiagnostics-color=always -std=gnu++17
   INCLUDES = -IC:/Github_Repos/TFG---OpenGL-Engine/include -IC:/Github_Repos/TFG---OpenGL-Engine/lib/include -I"C:/Program Files/boost/boost_1_81_0" -isystem C:/Github_Repos/TFG---OpenGL-Engine/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/Github_Repos/TFG---OpenGL-Engine/cmake-build-debug/_deps/googletest-src/googletest
   OBJECT_DIR = CMakeFiles\game_test.dir
   OBJECT_FILE_DIR = CMakeFiles\game_test.dir\tests\unit\engine\ecs
@@ -449,7 +441,7 @@ build CMakeFiles/game_test.dir/tests/unit/engine/ecs/ECSContainerTest.cpp.obj: C
 build CMakeFiles/game_test.dir/lib/include/glm/detail/glm.cpp.obj: CXX_COMPILER__game_test_Debug C$:/Github_Repos/TFG---OpenGL-Engine/lib/include/glm/detail/glm.cpp || cmake_object_order_depends_target_game_test
   DEFINES = -DFRAG_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine\" -DVERT_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game_test.dir\lib\include\glm\detail\glm.cpp.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -std=gnu++17
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING -fdiagnostics-color=always -std=gnu++17
   INCLUDES = -IC:/Github_Repos/TFG---OpenGL-Engine/include -IC:/Github_Repos/TFG---OpenGL-Engine/lib/include -I"C:/Program Files/boost/boost_1_81_0" -isystem C:/Github_Repos/TFG---OpenGL-Engine/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/Github_Repos/TFG---OpenGL-Engine/cmake-build-debug/_deps/googletest-src/googletest
   OBJECT_DIR = CMakeFiles\game_test.dir
   OBJECT_FILE_DIR = CMakeFiles\game_test.dir\lib\include\glm\detail
@@ -457,7 +449,7 @@ build CMakeFiles/game_test.dir/lib/include/glm/detail/glm.cpp.obj: CXX_COMPILER_
 build CMakeFiles/game_test.dir/lib/include/imgui/example.cpp.obj: CXX_COMPILER__game_test_Debug C$:/Github_Repos/TFG---OpenGL-Engine/lib/include/imgui/example.cpp || cmake_object_order_depends_target_game_test
   DEFINES = -DFRAG_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine\" -DVERT_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game_test.dir\lib\include\imgui\example.cpp.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -std=gnu++17
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING -fdiagnostics-color=always -std=gnu++17
   INCLUDES = -IC:/Github_Repos/TFG---OpenGL-Engine/include -IC:/Github_Repos/TFG---OpenGL-Engine/lib/include -I"C:/Program Files/boost/boost_1_81_0" -isystem C:/Github_Repos/TFG---OpenGL-Engine/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/Github_Repos/TFG---OpenGL-Engine/cmake-build-debug/_deps/googletest-src/googletest
   OBJECT_DIR = CMakeFiles\game_test.dir
   OBJECT_FILE_DIR = CMakeFiles\game_test.dir\lib\include\imgui
@@ -465,7 +457,7 @@ build CMakeFiles/game_test.dir/lib/include/imgui/example.cpp.obj: CXX_COMPILER__
 build CMakeFiles/game_test.dir/lib/include/imgui/imgui.cpp.obj: CXX_COMPILER__game_test_Debug C$:/Github_Repos/TFG---OpenGL-Engine/lib/include/imgui/imgui.cpp || cmake_object_order_depends_target_game_test
   DEFINES = -DFRAG_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine\" -DVERT_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game_test.dir\lib\include\imgui\imgui.cpp.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -std=gnu++17
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING -fdiagnostics-color=always -std=gnu++17
   INCLUDES = -IC:/Github_Repos/TFG---OpenGL-Engine/include -IC:/Github_Repos/TFG---OpenGL-Engine/lib/include -I"C:/Program Files/boost/boost_1_81_0" -isystem C:/Github_Repos/TFG---OpenGL-Engine/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/Github_Repos/TFG---OpenGL-Engine/cmake-build-debug/_deps/googletest-src/googletest
   OBJECT_DIR = CMakeFiles\game_test.dir
   OBJECT_FILE_DIR = CMakeFiles\game_test.dir\lib\include\imgui
@@ -473,7 +465,7 @@ build CMakeFiles/game_test.dir/lib/include/imgui/imgui.cpp.obj: CXX_COMPILER__ga
 build CMakeFiles/game_test.dir/lib/include/imgui/imgui_demo.cpp.obj: CXX_COMPILER__game_test_Debug C$:/Github_Repos/TFG---OpenGL-Engine/lib/include/imgui/imgui_demo.cpp || cmake_object_order_depends_target_game_test
   DEFINES = -DFRAG_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine\" -DVERT_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game_test.dir\lib\include\imgui\imgui_demo.cpp.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -std=gnu++17
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING -fdiagnostics-color=always -std=gnu++17
   INCLUDES = -IC:/Github_Repos/TFG---OpenGL-Engine/include -IC:/Github_Repos/TFG---OpenGL-Engine/lib/include -I"C:/Program Files/boost/boost_1_81_0" -isystem C:/Github_Repos/TFG---OpenGL-Engine/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/Github_Repos/TFG---OpenGL-Engine/cmake-build-debug/_deps/googletest-src/googletest
   OBJECT_DIR = CMakeFiles\game_test.dir
   OBJECT_FILE_DIR = CMakeFiles\game_test.dir\lib\include\imgui
@@ -481,7 +473,7 @@ build CMakeFiles/game_test.dir/lib/include/imgui/imgui_demo.cpp.obj: CXX_COMPILE
 build CMakeFiles/game_test.dir/lib/include/imgui/imgui_draw.cpp.obj: CXX_COMPILER__game_test_Debug C$:/Github_Repos/TFG---OpenGL-Engine/lib/include/imgui/imgui_draw.cpp || cmake_object_order_depends_target_game_test
   DEFINES = -DFRAG_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine\" -DVERT_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game_test.dir\lib\include\imgui\imgui_draw.cpp.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -std=gnu++17
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING -fdiagnostics-color=always -std=gnu++17
   INCLUDES = -IC:/Github_Repos/TFG---OpenGL-Engine/include -IC:/Github_Repos/TFG---OpenGL-Engine/lib/include -I"C:/Program Files/boost/boost_1_81_0" -isystem C:/Github_Repos/TFG---OpenGL-Engine/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/Github_Repos/TFG---OpenGL-Engine/cmake-build-debug/_deps/googletest-src/googletest
   OBJECT_DIR = CMakeFiles\game_test.dir
   OBJECT_FILE_DIR = CMakeFiles\game_test.dir\lib\include\imgui
@@ -489,7 +481,7 @@ build CMakeFiles/game_test.dir/lib/include/imgui/imgui_draw.cpp.obj: CXX_COMPILE
 build CMakeFiles/game_test.dir/lib/include/imgui/imgui_impl_opengl3.cpp.obj: CXX_COMPILER__game_test_Debug C$:/Github_Repos/TFG---OpenGL-Engine/lib/include/imgui/imgui_impl_opengl3.cpp || cmake_object_order_depends_target_game_test
   DEFINES = -DFRAG_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine\" -DVERT_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game_test.dir\lib\include\imgui\imgui_impl_opengl3.cpp.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -std=gnu++17
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING -fdiagnostics-color=always -std=gnu++17
   INCLUDES = -IC:/Github_Repos/TFG---OpenGL-Engine/include -IC:/Github_Repos/TFG---OpenGL-Engine/lib/include -I"C:/Program Files/boost/boost_1_81_0" -isystem C:/Github_Repos/TFG---OpenGL-Engine/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/Github_Repos/TFG---OpenGL-Engine/cmake-build-debug/_deps/googletest-src/googletest
   OBJECT_DIR = CMakeFiles\game_test.dir
   OBJECT_FILE_DIR = CMakeFiles\game_test.dir\lib\include\imgui
@@ -497,7 +489,7 @@ build CMakeFiles/game_test.dir/lib/include/imgui/imgui_impl_opengl3.cpp.obj: CXX
 build CMakeFiles/game_test.dir/lib/include/imgui/imgui_impl_sdl2.cpp.obj: CXX_COMPILER__game_test_Debug C$:/Github_Repos/TFG---OpenGL-Engine/lib/include/imgui/imgui_impl_sdl2.cpp || cmake_object_order_depends_target_game_test
   DEFINES = -DFRAG_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine\" -DVERT_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game_test.dir\lib\include\imgui\imgui_impl_sdl2.cpp.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -std=gnu++17
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING -fdiagnostics-color=always -std=gnu++17
   INCLUDES = -IC:/Github_Repos/TFG---OpenGL-Engine/include -IC:/Github_Repos/TFG---OpenGL-Engine/lib/include -I"C:/Program Files/boost/boost_1_81_0" -isystem C:/Github_Repos/TFG---OpenGL-Engine/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/Github_Repos/TFG---OpenGL-Engine/cmake-build-debug/_deps/googletest-src/googletest
   OBJECT_DIR = CMakeFiles\game_test.dir
   OBJECT_FILE_DIR = CMakeFiles\game_test.dir\lib\include\imgui
@@ -505,7 +497,7 @@ build CMakeFiles/game_test.dir/lib/include/imgui/imgui_impl_sdl2.cpp.obj: CXX_CO
 build CMakeFiles/game_test.dir/lib/include/imgui/imgui_tables.cpp.obj: CXX_COMPILER__game_test_Debug C$:/Github_Repos/TFG---OpenGL-Engine/lib/include/imgui/imgui_tables.cpp || cmake_object_order_depends_target_game_test
   DEFINES = -DFRAG_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine\" -DVERT_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game_test.dir\lib\include\imgui\imgui_tables.cpp.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -std=gnu++17
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING -fdiagnostics-color=always -std=gnu++17
   INCLUDES = -IC:/Github_Repos/TFG---OpenGL-Engine/include -IC:/Github_Repos/TFG---OpenGL-Engine/lib/include -I"C:/Program Files/boost/boost_1_81_0" -isystem C:/Github_Repos/TFG---OpenGL-Engine/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/Github_Repos/TFG---OpenGL-Engine/cmake-build-debug/_deps/googletest-src/googletest
   OBJECT_DIR = CMakeFiles\game_test.dir
   OBJECT_FILE_DIR = CMakeFiles\game_test.dir\lib\include\imgui
@@ -513,7 +505,7 @@ build CMakeFiles/game_test.dir/lib/include/imgui/imgui_tables.cpp.obj: CXX_COMPI
 build CMakeFiles/game_test.dir/lib/include/imgui/imgui_widgets.cpp.obj: CXX_COMPILER__game_test_Debug C$:/Github_Repos/TFG---OpenGL-Engine/lib/include/imgui/imgui_widgets.cpp || cmake_object_order_depends_target_game_test
   DEFINES = -DFRAG_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine\" -DVERT_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game_test.dir\lib\include\imgui\imgui_widgets.cpp.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -std=gnu++17
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING -fdiagnostics-color=always -std=gnu++17
   INCLUDES = -IC:/Github_Repos/TFG---OpenGL-Engine/include -IC:/Github_Repos/TFG---OpenGL-Engine/lib/include -I"C:/Program Files/boost/boost_1_81_0" -isystem C:/Github_Repos/TFG---OpenGL-Engine/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/Github_Repos/TFG---OpenGL-Engine/cmake-build-debug/_deps/googletest-src/googletest
   OBJECT_DIR = CMakeFiles\game_test.dir
   OBJECT_FILE_DIR = CMakeFiles\game_test.dir\lib\include\imgui
@@ -527,7 +519,7 @@ build CMakeFiles/game_test.dir/lib/include/imgui/imgui_widgets.cpp.obj: CXX_COMP
 # Link the executable C:\Github_Repos\TFG---OpenGL-Engine\bin\debug\game_test.exe
 
 build C$:/Github_Repos/TFG---OpenGL-Engine/bin/debug/game_test.exe: CXX_EXECUTABLE_LINKER__game_test_Debug CMakeFiles/game_test.dir/tests/main.cpp.obj CMakeFiles/game_test.dir/tests/unit/engine/ecs/ECSContainerTest.cpp.obj CMakeFiles/game_test.dir/lib/include/glm/detail/glm.cpp.obj CMakeFiles/game_test.dir/lib/include/imgui/example.cpp.obj CMakeFiles/game_test.dir/lib/include/imgui/imgui.cpp.obj CMakeFiles/game_test.dir/lib/include/imgui/imgui_demo.cpp.obj CMakeFiles/game_test.dir/lib/include/imgui/imgui_draw.cpp.obj CMakeFiles/game_test.dir/lib/include/imgui/imgui_impl_opengl3.cpp.obj CMakeFiles/game_test.dir/lib/include/imgui/imgui_impl_sdl2.cpp.obj CMakeFiles/game_test.dir/lib/include/imgui/imgui_tables.cpp.obj CMakeFiles/game_test.dir/lib/include/imgui/imgui_widgets.cpp.obj | lib/libgtest_main.a lib/libgtest.a || lib/libgtest.a lib/libgtest_main.a
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING
   LINK_FLAGS = -static
   LINK_LIBRARIES = lib/libgtest_main.a  lib/libgtest.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\game_test.dir
@@ -713,7 +705,7 @@ build cmake_object_order_depends_target_gmock: phony || cmake_object_order_depen
 build _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.obj: CXX_COMPILER__gmock_Debug C$:/Github_Repos/TFG---OpenGL-Engine/cmake-build-debug/_deps/googletest-src/googlemock/src/gmock-all.cc || cmake_object_order_depends_target_gmock
   DEFINES = -DFRAG_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine\" -DVERT_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = _deps\googletest-build\googlemock\CMakeFiles\gmock.dir\src\gmock-all.cc.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wshadow -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=0 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=c++17
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING -fdiagnostics-color=always -Wall -Wshadow -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=0 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=c++17
   INCLUDES = -IC:/Github_Repos/TFG---OpenGL-Engine/cmake-build-debug/_deps/googletest-src/googlemock/include -IC:/Github_Repos/TFG---OpenGL-Engine/cmake-build-debug/_deps/googletest-src/googlemock -isystem C:/Github_Repos/TFG---OpenGL-Engine/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/Github_Repos/TFG---OpenGL-Engine/cmake-build-debug/_deps/googletest-src/googletest
   OBJECT_DIR = _deps\googletest-build\googlemock\CMakeFiles\gmock.dir
   OBJECT_FILE_DIR = _deps\googletest-build\googlemock\CMakeFiles\gmock.dir\src
@@ -727,7 +719,7 @@ build _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.ob
 # Link the static library lib\libgmock.a
 
 build lib/libgmock.a: CXX_STATIC_LIBRARY_LINKER__gmock_Debug _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.obj || lib/libgtest.a
-  LANGUAGE_COMPILE_FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG
+  LANGUAGE_COMPILE_FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING
   OBJECT_DIR = _deps\googletest-build\googlemock\CMakeFiles\gmock.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
@@ -746,7 +738,7 @@ build cmake_object_order_depends_target_gmock_main: phony || cmake_object_order_
 build _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.obj: CXX_COMPILER__gmock_main_Debug C$:/Github_Repos/TFG---OpenGL-Engine/cmake-build-debug/_deps/googletest-src/googlemock/src/gmock_main.cc || cmake_object_order_depends_target_gmock_main
   DEFINES = -DFRAG_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine\" -DVERT_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = _deps\googletest-build\googlemock\CMakeFiles\gmock_main.dir\src\gmock_main.cc.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wshadow -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=0 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=c++17
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING -fdiagnostics-color=always -Wall -Wshadow -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=0 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=c++17
   INCLUDES = -isystem C:/Github_Repos/TFG---OpenGL-Engine/cmake-build-debug/_deps/googletest-src/googlemock/include -isystem C:/Github_Repos/TFG---OpenGL-Engine/cmake-build-debug/_deps/googletest-src/googlemock -isystem C:/Github_Repos/TFG---OpenGL-Engine/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/Github_Repos/TFG---OpenGL-Engine/cmake-build-debug/_deps/googletest-src/googletest
   OBJECT_DIR = _deps\googletest-build\googlemock\CMakeFiles\gmock_main.dir
   OBJECT_FILE_DIR = _deps\googletest-build\googlemock\CMakeFiles\gmock_main.dir\src
@@ -760,7 +752,7 @@ build _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main
 # Link the static library lib\libgmock_main.a
 
 build lib/libgmock_main.a: CXX_STATIC_LIBRARY_LINKER__gmock_main_Debug _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.obj || lib/libgmock.a lib/libgtest.a
-  LANGUAGE_COMPILE_FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG
+  LANGUAGE_COMPILE_FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING
   OBJECT_DIR = _deps\googletest-build\googlemock\CMakeFiles\gmock_main.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
@@ -861,7 +853,7 @@ build cmake_object_order_depends_target_gtest: phony || _deps/googletest-build/g
 build _deps/googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.obj: CXX_COMPILER__gtest_Debug C$:/Github_Repos/TFG---OpenGL-Engine/cmake-build-debug/_deps/googletest-src/googletest/src/gtest-all.cc || cmake_object_order_depends_target_gtest
   DEFINES = -DFRAG_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine\" -DVERT_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = _deps\googletest-build\googletest\CMakeFiles\gtest.dir\src\gtest-all.cc.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wshadow -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=0 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=c++17
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING -fdiagnostics-color=always -Wall -Wshadow -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=0 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=c++17
   INCLUDES = -IC:/Github_Repos/TFG---OpenGL-Engine/cmake-build-debug/_deps/googletest-src/googletest/include -IC:/Github_Repos/TFG---OpenGL-Engine/cmake-build-debug/_deps/googletest-src/googletest
   OBJECT_DIR = _deps\googletest-build\googletest\CMakeFiles\gtest.dir
   OBJECT_FILE_DIR = _deps\googletest-build\googletest\CMakeFiles\gtest.dir\src
@@ -875,7 +867,7 @@ build _deps/googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.ob
 # Link the static library lib\libgtest.a
 
 build lib/libgtest.a: CXX_STATIC_LIBRARY_LINKER__gtest_Debug _deps/googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.obj
-  LANGUAGE_COMPILE_FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG
+  LANGUAGE_COMPILE_FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING
   OBJECT_DIR = _deps\googletest-build\googletest\CMakeFiles\gtest.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
@@ -894,7 +886,7 @@ build cmake_object_order_depends_target_gtest_main: phony || cmake_object_order_
 build _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.obj: CXX_COMPILER__gtest_main_Debug C$:/Github_Repos/TFG---OpenGL-Engine/cmake-build-debug/_deps/googletest-src/googletest/src/gtest_main.cc || cmake_object_order_depends_target_gtest_main
   DEFINES = -DFRAG_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine/bin/debug\" -DPROJECT_NAME=\"game\" -DPROJECT_SOURCE_DIR=\"C:/Github_Repos/TFG---OpenGL-Engine\" -DVERT_SHADER=\"C:/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = _deps\googletest-build\googletest\CMakeFiles\gtest_main.dir\src\gtest_main.cc.obj.d
-  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always -Wall -Wshadow -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=0 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=c++17
+  FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING -fdiagnostics-color=always -Wall -Wshadow -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=0 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=c++17
   INCLUDES = -isystem C:/Github_Repos/TFG---OpenGL-Engine/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/Github_Repos/TFG---OpenGL-Engine/cmake-build-debug/_deps/googletest-src/googletest
   OBJECT_DIR = _deps\googletest-build\googletest\CMakeFiles\gtest_main.dir
   OBJECT_FILE_DIR = _deps\googletest-build\googletest\CMakeFiles\gtest_main.dir\src
@@ -908,7 +900,7 @@ build _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/src/gtest_main
 # Link the static library lib\libgtest_main.a
 
 build lib/libgtest_main.a: CXX_STATIC_LIBRARY_LINKER__gtest_main_Debug _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.obj || lib/libgtest.a
-  LANGUAGE_COMPILE_FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG
+  LANGUAGE_COMPILE_FLAGS = -g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING
   OBJECT_DIR = _deps\googletest-build\googletest\CMakeFiles\gtest_main.dir
   POST_BUILD = cd .
   PRE_LINK = cd .

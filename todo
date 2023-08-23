@@ -1,2 +1,6 @@
 TODO: fix for linux
 TODO: refactor static libraries for bin/debug and bin/release
+TODO: Create tests for the whole project
+TODO: Make continuous integration
+TODO: Choose a license inside github
+TODO: Change order of access modifiers in documentation, the standard is public, protected, private

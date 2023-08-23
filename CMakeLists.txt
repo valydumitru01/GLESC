@@ -51,7 +51,7 @@ elseif (APPLE)
 endif ()
 
 # ------------ EXECUTABLE ------------
-add_executable(game ${SOURCE_FILES} ${LIB_SOURCE_FILES})
+add_executable(game ${SOURCE_FILES} ${LIB_SOURCE_FILES} include/engine/core/debugger/Debugger.h include/engine/subsystems/input/debugger/InputDebugger.h include/engine/core/math/debugger/MathDebugger.h)
 
 
 # ------------ INCLUDE DIRECTORIES ------------
@@ -85,8 +85,9 @@ elseif (APPLE)
 endif ()
 # ------------ BUILD TYPES ------------
 
-set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG")
-set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O3 -DRELEASE -DNDEBUG -s -fno-rtti -fno-exceptions")
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING")
+set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O3 -DRELEASE -DNDEBUG -DDEBUG_LOGGING
+    -s -fno-rtti -fno-exceptions")
 
 ###################################
 # ------------ TESTING -----------

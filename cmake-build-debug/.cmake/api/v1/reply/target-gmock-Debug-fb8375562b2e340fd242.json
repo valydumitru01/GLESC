@@ -3,7 +3,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "lib/libgtest_main.a"
+			"path" : "lib/libgmock.a"
 		}
 	],
 	"backtrace" : 3,
@@ -24,7 +24,7 @@
 		"files" : 
 		[
 			"cmake-build-debug/_deps/googletest-src/googletest/cmake/internal_utils.cmake",
-			"cmake-build-debug/_deps/googletest-src/googletest/CMakeLists.txt",
+			"cmake-build-debug/_deps/googletest-src/googlemock/CMakeLists.txt",
 			"CMakeLists.txt"
 		],
 		"nodes" : 
@@ -35,7 +35,7 @@
 			{
 				"command" : 2,
 				"file" : 1,
-				"line" : 128,
+				"line" : 97,
 				"parent" : 0
 			},
 			{
@@ -53,7 +53,7 @@
 			{
 				"command" : 4,
 				"file" : 1,
-				"line" : 150,
+				"line" : 120,
 				"parent" : 0
 			},
 			{
@@ -65,7 +65,7 @@
 			{
 				"command" : 5,
 				"file" : 1,
-				"line" : 145,
+				"line" : 98,
 				"parent" : 0
 			},
 			{
@@ -110,7 +110,7 @@
 			{
 				"command" : 7,
 				"file" : 1,
-				"line" : 116,
+				"line" : 75,
 				"parent" : 0
 			},
 			{
@@ -127,7 +127,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -fdiagnostics-color=always"
+					"fragment" : "-g -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING -fdiagnostics-color=always"
 				},
 				{
 					"fragment" : "-Wall -Wshadow -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=0 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers"
@@ -171,6 +171,14 @@
 			[
 				{
 					"backtrace" : 14,
+					"path" : "C:/Github_Repos/TFG---OpenGL-Engine/cmake-build-debug/_deps/googletest-src/googlemock/include"
+				},
+				{
+					"backtrace" : 14,
+					"path" : "C:/Github_Repos/TFG---OpenGL-Engine/cmake-build-debug/_deps/googletest-src/googlemock"
+				},
+				{
+					"backtrace" : 14,
 					"isSystem" : true,
 					"path" : "C:/Github_Repos/TFG---OpenGL-Engine/cmake-build-debug/_deps/googletest-src/googletest/include"
 				},
@@ -202,7 +210,7 @@
 			"id" : "gtest::@1ea2dfc0605fe3ab2a3f"
 		}
 	],
-	"id" : "gtest_main::@1ea2dfc0605fe3ab2a3f",
+	"id" : "gmock::@0f7bb11d64f3678238c7",
 	"install" : 
 	{
 		"destinations" : 
@@ -217,12 +225,12 @@
 			"path" : "C:/Program Files (x86)/game"
 		}
 	},
-	"name" : "gtest_main",
-	"nameOnDisk" : "libgtest_main.a",
+	"name" : "gmock",
+	"nameOnDisk" : "libgmock.a",
 	"paths" : 
 	{
-		"build" : "_deps/googletest-build/googletest",
-		"source" : "cmake-build-debug/_deps/googletest-src/googletest"
+		"build" : "_deps/googletest-build/googlemock",
+		"source" : "cmake-build-debug/_deps/googletest-src/googlemock"
 	},
 	"sourceGroups" : 
 	[
@@ -239,7 +247,7 @@
 		{
 			"backtrace" : 3,
 			"compileGroupIndex" : 0,
-			"path" : "cmake-build-debug/_deps/googletest-src/googletest/src/gtest_main.cc",
+			"path" : "cmake-build-debug/_deps/googletest-src/googlemock/src/gmock-all.cc",
 			"sourceGroupIndex" : 0
 		}
 	],
