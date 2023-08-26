@@ -36,8 +36,6 @@ bool Coordinator::destroyEntity(EntityID entity) {
 }
 
 EntityID Coordinator::getEntityID(EntityName name) const{
-    if(entityManager.doesEntityExist(name))
-        return NULL_ENTITY;
     return entityManager.getEntity(name);
 }
 
@@ -47,3 +45,6 @@ EntityName Coordinator::getEntityName(EntityID entity) {
     return entityManager.getEntityName(entity);
 }
 
+EntityID Coordinator::tryGetEntityID(EntityName name) const {
+    return entityManager.tryGetEntity(name);
+}

@@ -69,7 +69,7 @@ CMAKE_CXX_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG
 CMAKE_CXX_STANDARD_LIBRARIES:STRING=-lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
 
 //C compiler
-CMAKE_C_COMPILER:FILEPATH=C:/MinGW/bin/gcc.exe
+CMAKE_C_COMPILER:STRING=C:/MinGW/bin/gcc.exe
 
 //A wrapper around 'ar' adding the appropriate '--plugin' option
 // for the GCC compiler
@@ -423,9 +423,9 @@ CMAKE_CACHEFILE_DIR:INTERNAL=c:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-En
 //Major version of cmake used to create the current loaded cache
 CMAKE_CACHE_MAJOR_VERSION:INTERNAL=3
 //Minor version of cmake used to create the current loaded cache
-CMAKE_CACHE_MINOR_VERSION:INTERNAL=24
+CMAKE_CACHE_MINOR_VERSION:INTERNAL=26
 //Patch version of cmake used to create the current loaded cache
-CMAKE_CACHE_PATCH_VERSION:INTERNAL=2
+CMAKE_CACHE_PATCH_VERSION:INTERNAL=4
 //Path to CMake executable.
 CMAKE_COMMAND:INTERNAL=C:/Program Files/JetBrains/CLion 2022.3.2/bin/cmake/win/x64/bin/cmake.exe
 //Path to cpack program executable.
@@ -569,7 +569,7 @@ CMAKE_RC_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_READELF
 CMAKE_READELF-ADVANCED:INTERNAL=1
 //Path to CMake installation.
-CMAKE_ROOT:INTERNAL=C:/Program Files/JetBrains/CLion 2022.3.2/bin/cmake/win/x64/share/cmake-3.24
+CMAKE_ROOT:INTERNAL=C:/Program Files/JetBrains/CLion 2022.3.2/bin/cmake/win/x64/share/cmake-3.26
 //ADVANCED property for variable: CMAKE_SHARED_LINKER_FLAGS
 CMAKE_SHARED_LINKER_FLAGS-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_SHARED_LINKER_FLAGS_DEBUG
@@ -614,11 +614,19 @@ _Boost_USE_MULTITHREADED_LAST:INTERNAL=TRUE
 _CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED:INTERNAL=TRUE
 //CMAKE_INSTALL_PREFIX during last run
 _GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=C:/Program Files (x86)/game
+//Compiler reason failure
+_Python_Compiler_REASON_FAILURE:INTERNAL=
+//Development reason failure
+_Python_Development_REASON_FAILURE:INTERNAL=
 //Path to a program.
 _Python_EXECUTABLE:INTERNAL=C:/Users/valyd/AppData/Local/Programs/Python/Python310/python.exe
 //Python Properties
-_Python_INTERPRETER_PROPERTIES:INTERNAL=Python;3;10;0;64;;cp310-win_amd64;C:\Users\valyd\AppData\Local\Programs\Python\Python310\Lib;C:\Users\valyd\AppData\Local\Programs\Python\Python310\Lib;C:\Users\valyd\AppData\Local\Programs\Python\Python310\Lib\site-packages;C:\Users\valyd\AppData\Local\Programs\Python\Python310\Lib\site-packages
+_Python_INTERPRETER_PROPERTIES:INTERNAL=Python;3;10;0;64;;cp310-win_amd64;;C:\Users\valyd\AppData\Local\Programs\Python\Python310\Lib;C:\Users\valyd\AppData\Local\Programs\Python\Python310\Lib;C:\Users\valyd\AppData\Local\Programs\Python\Python310\Lib\site-packages;C:\Users\valyd\AppData\Local\Programs\Python\Python310\Lib\site-packages
 _Python_INTERPRETER_SIGNATURE:INTERNAL=68ad807602d8506b2a4b3cd3cad32806
+//Interpreter reason failure
+_Python_Interpreter_REASON_FAILURE:INTERNAL=
+//NumPy reason failure
+_Python_NumPy_REASON_FAILURE:INTERNAL=
 cmake_package_name:INTERNAL=GTest
 generated_dir:INTERNAL=C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-build/googletest/generated
 //ADVANCED property for variable: gmock_build_tests

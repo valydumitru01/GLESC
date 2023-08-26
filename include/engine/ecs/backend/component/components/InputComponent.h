@@ -8,12 +8,13 @@
 
 #include <unordered_map>
 
-#include "engine/ecs/backend/component/Component.h"
+#include "engine/ecs/backend/component/IComponent.h"
 #include "engine/subsystems/input/InputTypes.h"
 #include "engine/subsystems/input/InputKeys.h"
-#include "engine/core/debugger/Debugger.h"
+#include "engine/subsystems/input/debugger/InputDebugger.h"
 
-struct InputComponent : public Component {
+
+struct InputComponent : public IComponent {
     /**
      * @brief Vector of pairs, subscribed keys and bool,true if they are pressed
      * @details This vector is used to store the keys that are subscribed to the input system,
@@ -26,14 +27,13 @@ struct InputComponent : public Component {
      * This is because the position is not a lot of data and it is almost always used.
      */
     MousePosition mousePosition;
-    
-    [[nodiscard]] std::string toString() const override {
+    std::string toString() override {
         std::string subscribedKeysString;
         for (auto &[key, value] : subscribedKeys) {
-            subscribedKeysString += enumToString(key)
-                    + std::string(" - pressed:")
-                    + std::to_string(value)
-                    + std::string(", ");
+            subscribedKeysString += GLESC::keyToString(key)
+                                    + std::string(" - pressed:")
+                                    + std::to_string(value)
+                                    + std::string(", ");
         }
         return "InputComponent:"
                + std::string("\n\tsubscribedKeys: ")
@@ -43,5 +43,6 @@ struct InputComponent : public Component {
                + std::string(", ")
                + std::to_string(mousePosition.y);
     }
+
 };
 

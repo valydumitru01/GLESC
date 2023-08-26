@@ -4,13 +4,17 @@
  * Licensed under the MIT License. See LICENSE.txt in the project root for license information.
  ******************************************************************************/
 #pragma once
-#include "engine/core/debugger/Debugger.h"
+#include "engine/core/asserts/Asserts.h"
 #include "engine/subsystems/input/InputKeys.h"
 
-
+namespace GLESC{
+template <typename keyEnum>
+std::string keyToString(const keyEnum& key) {
+    ASSERT(false, "Key not supported to be converted to string");
+}
 template<>
-std::string enumToString<GLESC::KeyState> (GLESC::KeyState enumToString) {
-    switch (enumToString) {
+std::string keyToString<GLESC::KeyState> (const GLESC::KeyState& keyState) {
+    switch (keyState) {
         case GLESC::KeyState::PRESSED:return "PRESSED";
         case GLESC::KeyState::RELEASED:return "RELEASED";
     }
@@ -22,8 +26,8 @@ std::string enumToString<GLESC::KeyState> (GLESC::KeyState enumToString) {
  * @return The string representation of the enum
  */
 template<>
-std::string enumToString<GLESC::Key>(GLESC::Key enumToString) {
-    switch (enumToString) {
+std::string keyToString<GLESC::Key>(const GLESC::Key& key) {
+    switch (key) {
         case GLESC::Key::ESCAPE:return "ESCAPE";
         case GLESC::Key::SPACE:return "SPACE";
         case GLESC::Key::LEFT:return "LEFT";
@@ -131,3 +135,4 @@ std::string enumToString<GLESC::Key>(GLESC::Key enumToString) {
         case GLESC::Key::MOUSE_BUTTON_RIGHT:return "MOUSE_BUTTON_RIGHT";
     }
 }
+} // namespace GLESC

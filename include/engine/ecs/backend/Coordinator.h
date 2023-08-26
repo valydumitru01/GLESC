@@ -61,6 +61,14 @@ namespace GLESC {
          * @return The ID of the entity with the given name or NULL_ENTITY if the entity does not exist
          */
         EntityID getEntityID(EntityName name) const;
+        /**
+         * @brief Tries to get the entity ID from the entity name.
+         * @details This will return the ID of the entity with the given name. If the entity does not exist,
+         * it will return NULL_ENTITY.
+         * @param name The name of the entity
+         * @return The ID of the entity, or NULL_ENTITY if the entity does not exist
+         */
+        EntityID tryGetEntityID(EntityName name) const;
         
         /**
          * @brief Add a component requirement to the system
@@ -79,6 +87,7 @@ namespace GLESC {
          * @return The name of the entity or nullptr if the entity does not exist
          */
         EntityName getEntityName(EntityID entity);
+        
         /**
          * @brief Get the entities associated with a system
          * @param name The name of the system

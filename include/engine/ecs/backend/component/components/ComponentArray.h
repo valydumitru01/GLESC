@@ -12,6 +12,7 @@
 #include "engine/ecs/ECSTypes.h"
 #include "engine/core/exceptions/ecs/ECSException.h"
 #include "engine/core/logger/Logger.h"
+#include "engine/ecs/backend/component/IComponent.h"
 
 class IComponentArray {
 public:
@@ -19,14 +20,14 @@ public:
     
     virtual bool hasComponent(EntityID entity) = 0;
     
-    virtual bool getComponent(int index) = 0;
+    virtual IComponent& getComponent(int index) = 0;
     
     virtual void removeData(EntityID entity) = 0;
     
     virtual size_t getSize() = 0;
 };
 
-template<typename T>
+template<typename Component>
 class ComponentArray : public IComponentArray {
 private:
     /**
@@ -35,7 +36,7 @@ private:
      * of entities allowed to exist simultaneously, so that each entity
      * has a unique spot.
      */
-    std::array<T, maxEntities> componentArray;
+    std::array<Component, maxEntities> componentArray;
     
     /**
      * @brief Map from an entity ID to an array index.
@@ -54,13 +55,13 @@ private:
     }
 public:
     
-    bool getComponent(int index) override {
+    IComponent& getComponent(int index) override {
         return componentArray[index];
     }
     
-    void insertData(EntityID entity, T component) {
+    void insertData(EntityID entity, Component component) {
 #ifdef DEBUG
-        const char *name = typeid(T).name();
+        const char *name = typeid(Component).name();
         Logger::get()
                 .importantInfo("Adding component \"" + std::string(name) + "\" to entity" + std::to_string(entity));
         printEntityToIndexMap("Map before inserting:", entityToIndexMap);
@@ -80,7 +81,7 @@ public:
     
     void printEntityToIndexMap(const std::string &message, const boost::bimap<EntityID, size_t> &map) {
         Logger::get().importantInfoBlue(message);
-        const char *name = typeid(T).name();
+        const char *name = typeid(Component).name();
         Logger::get().infoBlue("Array of " + std::string(name));
         Logger::get().infoBlue("\tEntityToIndexMap size: " + std::to_string(map.size()));
         for (const auto &entry : map) {
@@ -97,7 +98,7 @@ public:
      */
     void removeData(EntityID entity) override {
 #ifdef DEBUG
-        const char *name = typeid(T).name();
+        const char *name = typeid(Component).name();
         Logger::get().importantInfoPurple(
                 "Removing component \"" + std::string(name) + "\" from entity" + std::to_string(entity));
         
@@ -126,7 +127,7 @@ public:
 #endif
     }
     
-    T &getData(EntityID entity) {
+    Component &getData(EntityID entity) {
 #ifdef DEBUG
         //const char *name = typeid(T).name();
         //Logger::get().importantInfo(

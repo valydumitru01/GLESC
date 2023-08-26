@@ -22,7 +22,7 @@ void GLESC::Engine::initGame() {
     Entity camera = createEntity("camera");
     player.addComponent(RenderComponent())
           .addComponent(TransformComponent())
-          .addComponent(RigidBodyComponent())
+          .addComponent(PhysicsComponent())
           .addComponent(InputComponent());
     
     camera.addComponent(CameraComponent())
@@ -54,7 +54,7 @@ void GLESC::Engine::initGame() {
     
     
     
-    player.getComponent<RigidBodyComponent>().velocity.x = 1;
+    player.getComponent<PhysicsComponent>().velocity.x = 1;
     
     
 }

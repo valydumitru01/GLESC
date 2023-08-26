@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "engine/ecs/backend/component/Component.h"
+#include "engine/ecs/backend/component/IComponent.h"
 
 class ECSContainersTest : public ::testing::Test {
 

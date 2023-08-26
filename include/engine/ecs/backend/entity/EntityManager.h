@@ -15,9 +15,10 @@
 /**
  * @brief Null entity with ID -1. This is used to indicate that an entity does not exist.
  */
-#define NULL_ENTITY -1
+#define NULL_ENTITY 0
 namespace GLESC {
     class EntityManager {
+        friend void printStatusEntities(const EntityManager& entityManager) noexcept;
     private:
         /**
          * @brief Queue of the available entities, used to avoid iterating over all the entities
@@ -84,6 +85,14 @@ namespace GLESC {
          */
         [[nodiscard]] EntityID getEntity(EntityName name) const;
         /**
+         * @brief Tries to get the entity ID from the entity name
+         * @details This will return the ID of the entity with the given name. If the entity does not exist,
+         * it will return NULL_ENTITY.
+         * @param name The name of the entity
+         * @return The ID of the entity, or NULL_ENTITY if the entity does not exist
+         */
+        [[nodiscard]] EntityID tryGetEntity(EntityName name) const;
+        /**
          * @brief Check if the entity with the given name exists
          * @param name The name of the entity
          * @return True if the entity exists, false otherwise
@@ -96,6 +105,26 @@ namespace GLESC {
          * @return True if the entity exists, false otherwise
          */
         [[nodiscard]] bool doesEntityExist(EntityID entity) const;
+        /**
+         * @brief Check if the entity with the given ID is alive
+         * @param entity The ID of the entity
+         * @return True if the entity is alive, false otherwise
+         */
+        [[nodiscard]] bool isEntityAlive(EntityID entity) const;
+        /**
+         * @brief Check if the entity with the given name is alive
+         * @param name The name of the entity
+         * @return True if the entity is alive, false otherwise
+         */
+        [[maybe_unused]] [[nodiscard]] bool isEntityNameAlive(EntityName name) const;
+        
+        /**
+         * @brief Check if the component ID is in the range of the signature
+         * @return True if the component ID is in the range of the signature, false otherwise
+         */
+        [[maybe_unused]] [[nodiscard]] bool isComponentInRange(ComponentID componentID) const;
+        
+        [[maybe_unused]] [[nodiscard]] bool canEntityBeCreated(EntityName name) const;
     }; // class EntityManager
     
 } // namespace GLESC

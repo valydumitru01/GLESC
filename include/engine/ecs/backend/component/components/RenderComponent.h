@@ -5,15 +5,19 @@
  ******************************************************************************/
 
 #pragma once
-#include "engine/ecs/backend/component/Component.h"
+#include "engine/ecs/backend/component/IComponent.h"
 #include "engine/subsystems/renderer/Mesh.h"
 
-struct RenderComponent : public Component {
+struct RenderComponent : public IComponent {
     /**
      * @brief The mesh of the object
      * Contains the vertices and indices of the object.
      */
     GLESC::Mesh mesh;
+    
+    std::string toString() override {
+        return "RenderComponent" + mesh.toString();
+    }
 };
 
 

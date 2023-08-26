@@ -6,6 +6,7 @@
 
 #pragma once
 #include <vector>
+#include <string>
 
 namespace GLESC {
     typedef unsigned int VertexIndex;
@@ -37,7 +38,18 @@ namespace GLESC {
         void addFace(VertexIndex &point1, VertexIndex &point2, VertexIndex &point3);
         
         void addFace(VertexIndex &point1, VertexIndex &point2, VertexIndex &point3, VertexIndex &point4);
-    
+        
+        std::string toString(){
+            std::string result = "\n\tVertices: ";
+            for (auto &vertex : vertices) {
+                result += "\n\t\t" + std::to_string(vertex.x) + ", " + std::to_string(vertex.y) + ", " + std::to_string(vertex.z);
+            }
+            result += "\n\tFaces: ";
+            for (auto &face : faces) {
+                result += "\n\t\t" + std::to_string(face.vertices[0]) + ", " + std::to_string(face.vertices[1]) + ", " + std::to_string(face.vertices[2]);
+            }
+            return result;
+        }
     private:
         std::vector <GLESC::Mesh::Point> vertices;
         std::vector <GLESC::Mesh::Face> faces;

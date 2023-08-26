@@ -7,15 +7,26 @@ def check_for_pragma_once(file_content):
     else:
         return ''
 
+
 def check_access_specifier_order(file_content):
-    access_specifiers = re.findall(r'private|protected|public', file_content)
+    access_specifiers = re.findall(r'\b(private|protected|public)\b', file_content)
+
     correct_order = ['private', 'protected', 'public']
     correct_order_optional_protected = ['private', 'public']
 
-    if access_specifiers != correct_order and access_specifiers != correct_order_optional_protected:
-        return 'Error: Incorrect access specifier order.'
-    else:
+    # Handle case where there are no specifiers at all
+    if not access_specifiers:
         return ''
+
+    # Handle case where only a subset is present
+    is_valid = all(a == b for a, b in zip(access_specifiers, correct_order[:len(access_specifiers)])) or \
+               all(a == b for a, b in zip(access_specifiers, correct_order_optional_protected[:len(access_specifiers)]))
+
+    if is_valid:
+        return ''
+    else:
+        return 'Error: Incorrect access specifier order.'
+
 def check_friend_declarations(file_content):
     # This pattern will find all classes.
     class_pattern = re.compile(

@@ -8,13 +8,6 @@
 #include <string>
 #include "engine/core/logger/Logger.h"
 
-namespace GLESC{
-    template<typename T>
-    [[maybe_unused]] [[nodiscard]] std::string toString(const T& valueToString) {
-        ASSERT(false, "Value not supported to be converted to string");
-    }
-}
-
 #ifdef DEBUG_LOGGING
 #define DEBUG_CODE(initialMessage, CONTENT) \
         do{                                     \

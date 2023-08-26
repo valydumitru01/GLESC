@@ -5,6 +5,7 @@
  ******************************************************************************/
 
 #pragma once
+
 #include <vector>
 #include <memory>
 // Configurations for the engine, directives and macros
@@ -34,13 +35,19 @@ namespace GLESC {
         /**
          * @brief The engine can only be created by the main function, where the game loop is defined
          */
-        friend int ::main();
+        friend int::main();
     
-    
-    protected:
-        Engine();
+    public:
+        void initGame();
+        
+        void loop();
     
     private:
+        /**
+         * @brief The constructor is private, the engine can only be created by the main function
+         */
+        Engine();
+        
         /**
          * @brief Processes the logic of the game
          * Is called every frame, must be called at constant intervals of time as it does not use elapsed, more
@@ -59,15 +66,28 @@ namespace GLESC {
          * @param timeOfFrame The time of the frame
          */
         void render(double timeOfFrame);
-    
+        
         /**
-         * @brief Get the Entity object with the given name, the entity must exist
+         * @brief Get the Entity object with the given name, the entity must exist.
          * @param name
          * @return
          */
-        inline Entity getEntity(EntityName name) const;
-    
-        inline Entity createEntity(EntityName name);
+        static inline Entity getEntity(EntityName name);
+        
+        /**
+         * @brief Get the Entity object with the given name, the entity can not exist.
+         * @details If the entity does not exist, std::nullopt is returned.
+         * @param name The name of the entity
+         * @return The entity with the given name or std::nullopt if the entity does not exist
+         */
+        static inline std::optional<Entity> tryGetEntity(EntityName name);
+        
+        /**
+         * @brief Create an entity with the given name. The name must be unique.
+         * @param name The name of the entity
+         * @return The entity with the given name
+         */
+        static inline Entity createEntity(EntityName name);
         
         
         /**
@@ -106,10 +126,7 @@ namespace GLESC {
         PhysicsSystem physicsSystem;
         RenderSystem renderSystem;
         CameraSystem cameraSystem;
-    
-    public:
-        void initGame();
-        void loop();
+        
     }; // class Engine
 } // namespace GLESC
 
@@ -117,7 +134,12 @@ inline GLESC::Entity GLESC::Engine::createEntity(EntityName name) {
     return Entity(name);
 }
 
-inline GLESC::Entity GLESC::Engine::getEntity(EntityName name) const {
-    if(GLESC::ECS::getECS()->entity)
+inline std::optional<GLESC::Entity> GLESC::Engine::tryGetEntity(EntityName name) {
+    if (GLESC::ECS::getECS()->tryGetEntityID(name) == NULL_ENTITY)
+        return std::nullopt;
+    return Entity(GLESC::ECS::getECS()->tryGetEntityID(name));
+}
+
+inline GLESC::Entity GLESC::Engine::getEntity(EntityName name) {
     return Entity(GLESC::ECS::getECS()->getEntityID(name));
 }

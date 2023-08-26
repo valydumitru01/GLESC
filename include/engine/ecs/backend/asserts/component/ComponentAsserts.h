@@ -7,7 +7,7 @@
 #pragma once
 
 #include "engine/core/asserts/Asserts.h"
-#include "engine/ecs/backend/component/Component.h"
+#include "engine/ecs/backend/component/IComponent.h"
 
 #define ASSERT_IS_COMPONENT(component) \
     static_assert(std::is_base_of<Component, component>::value, "T must inherit from Component")

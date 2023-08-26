@@ -5,7 +5,6 @@
         <option name="USE_TAB_CHARACTER" value="true" />
       </value>
     </option>
-    <option name="ENABLE_SECOND_REFORMAT" value="true" />
     <Objective-C>
       <option name="INDENT_DIRECTIVE_AS_CODE" value="true" />
       <option name="FUNCTION_PARAMETERS_WRAP" value="5" />

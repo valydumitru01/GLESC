@@ -35,11 +35,11 @@ add_definitions(-DVERT_SHADER=\"${VERT_SHADER}\")
 
 # Get the binary directory for the current build type
 set(PROJECT_BINARY_DIR_RELEASE "${CMAKE_SOURCE_DIR}/bin/release")
-if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+if (CMAKE_BUILD_TYPE STREQUAL "Debug")
     add_definitions(-DPROJECT_BINARY_DIR=\"${PROJECT_BINARY_DIR_DEBUG}\")
-elseif(CMAKE_BUILD_TYPE STREQUAL "Release")
+elseif (CMAKE_BUILD_TYPE STREQUAL "Release")
     add_definitions(-DPROJECT_BINARY_DIR=\"${PROJECT_BINARY_DIR_RELEASE}\")
-endif()
+endif ()
 
 
 if (WIN32)
@@ -51,7 +51,10 @@ elseif (APPLE)
 endif ()
 
 # ------------ EXECUTABLE ------------
-add_executable(game ${SOURCE_FILES} ${LIB_SOURCE_FILES} include/engine/core/debugger/Debugger.h include/engine/subsystems/input/debugger/InputDebugger.h include/engine/core/math/debugger/MathDebugger.h)
+add_executable(game ${SOURCE_FILES} ${LIB_SOURCE_FILES}
+        include/engine/core/debugger/Debugger.h
+        include/engine/subsystems/input/debugger/InputDebugger.h
+        include/engine/core/math/debugger/MathDebugger.h)
 
 
 # ------------ INCLUDE DIRECTORIES ------------
@@ -85,9 +88,21 @@ elseif (APPLE)
 endif ()
 # ------------ BUILD TYPES ------------
 
-set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -O0 -DDEBUG -g -ggdb -D_DEBUG -DDEBUG -DDEBUG_LOGGING")
-set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O3 -DRELEASE -DNDEBUG -DDEBUG_LOGGING
-    -s -fno-rtti -fno-exceptions")
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -O0") # Optimization flag, no optimization
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG") #Define DEBUG macro
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g") #Produce debugging information
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -ggdb") #Produce debugging information for gdb
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -D_DEBUG") #Define _DEBUG macro
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG") #Define DEBUG macro
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_LOGGING") #Define DEBUG_LOGGING macro
+
+
+set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}" "-O3") # Optimization flag, -O3 is not always faster than -O2
+set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}" "-DRELEASE") #Define RELEASE macro
+set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}" "-DNDEBUG") #Define NDEBUG macro
+set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}" "-DDEBUG_LOGGING") #Define DEBUG_LOGGING macro
+set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}" "-flto") #Link time optimization
+set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}" "-s") #Strip symbols from binary
 
 ###################################
 # ------------ TESTING -----------
@@ -96,9 +111,9 @@ set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O3 -DRELEASE -DNDEBUG -
 # Download and unpack googletest at configure time
 include(FetchContent)
 FetchContent_Declare(
-        googletest
-        # Specify the commit you depend on and update it regularly.
-        URL https://github.com/google/googletest/archive/5376968f6948923e2411081fd9372e71a59d8e77.zip
+googletest
+# Specify the commit you depend on and update it regularly.
+URL https://github.com/google/googletest/archive/5376968f6948923e2411081fd9372e71a59d8e77.zip
 )
 # For Windows: Prevent overriding the parent project's compiler/linker settings
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)

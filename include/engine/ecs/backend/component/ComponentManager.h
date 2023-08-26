@@ -8,10 +8,10 @@
 #include "engine/ecs/ECSTypes.h"
 #include "engine/ecs/backend/component/components/ComponentArray.h"
 #include "engine/ecs/backend/asserts/component/ComponentAsserts.h"
-#include "engine/ecs/backend/debugger/component/ComponentManagerDebugger.h"
 
 namespace GLESC {
     class ComponentManager {
+        friend void printComponentStatus(const ComponentManager& componentManager) noexcept;
     private:
         //TODO: Change the use of strings to something more lightweight
         /**
@@ -65,6 +65,12 @@ namespace GLESC {
         
     };
 }
+/**
+ * @details The unusual position of the include is to avoid circular dependencies, since the ComponentManagerDebugger
+ * includes the ComponentManager and the component manager implementation needs the inclusion of the
+ * ComponentManagerDebugger.
+ */
+#include "engine/ecs/backend/debugger/component/ComponentManagerDebugger.h"
 
 template<typename Component>
 bool GLESC::ComponentManager::isComponentRegistered() {
@@ -75,13 +81,14 @@ template<typename Component>
 void GLESC::ComponentManager::registerComponent() {
     ASSERT_IS_COMPONENT(Component);
     ASSERT_IS_COMPONENT_NOT_REGISTERED(Component);
-    PRINT_COMPONENTS_STATUS(componentArrays, nextComponentID, "Before registering component");
+    PRINT_COMPONENTS_STATUS(*this, "Before registering component");
     
     const char *typeName = typeid(Component).name();
-    componentArrays.try_emplace(typeName, IComponentArrayPtr(), nextComponentID);
+    componentArrays.try_emplace(typeName, std::make_shared<ComponentArray<Component>>());
+    componentIDs.try_emplace(typeName, nextComponentID);
     ++nextComponentID;
     
-    PRINT_COMPONENTS_STATUS(componentArrays, nextComponentID, "After component registered");
+    PRINT_COMPONENTS_STATUS(*this, "After component registered");
 }
 
 template<typename Component>
@@ -103,9 +110,9 @@ template<typename Component>
 void GLESC::ComponentManager::removeComponent(EntityID entity) {
     ASSERT_IS_COMPONENT(Component);
     ASSERT_IS_COMPONENT_REGISTERED(Component);
-    PRINT_COMPONENTS_STATUS(componentArrays, nextComponentID, "Before removing component");
+    PRINT_COMPONENTS_STATUS(*this, "Before removing component");
     getComponentArray<Component>()->removeData(entity);
-    PRINT_COMPONENTS_STATUS(componentArrays, nextComponentID, "After removing component");
+    PRINT_COMPONENTS_STATUS(*this, "After removing component");
 }
 
 template<typename Component>
