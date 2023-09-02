@@ -15,7 +15,7 @@
  * @param entityName The entity name to be checked.
  */
 #define ASSERT_ENTITY_CAN_BE_CREATED(entityName) \
-    ASSERT(canEntityBeCreated(entityName), "No entities to be created");
+    ASSERT(canEntityBeCreated(entityName), "No entities to be created")
 
 /**
  * @brief Asserts the entity is alive.

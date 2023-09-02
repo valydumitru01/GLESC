@@ -8,12 +8,10 @@
 
 #include <vector>
 #include <memory>
-// Configurations for the engine, directives and macros
-#include "Config.h"
 // Core
 #include "engine/core/window/WindowManager.h"
 #include "engine/core/counter/Counter.h"
-#include "engine/core/low-level-renderer/graphic-device-interface/concrete-gdi/opengl/OpenGLGDI.h"
+#include "engine/core/low-level-renderer/graphic-api/concrete-apis/opengl/OpenGLAPI.h"
 // ECS
 #include "ecs/ECSTypes.h"
 // Entity
@@ -90,19 +88,11 @@ namespace GLESC {
         static inline Entity createEntity(EntityName name);
         
         
+        GLESC_RENDER_API graphicInterface{};
         /**
          * @brief If true, the game is running. If false, the game is stopped.
          */
-        bool running = true;
-        
-        /**
-         * @brief This is the graphic interface, it is used as low level interface to the graphics API
-         */
-        #ifdef GLESC_RENDER_OPENGL
-        OpenGLGDI graphicInterface;
-        #elif defined(RENDER_VULKAN)
-        VulkanGDI graphicInterface;
-        #endif
+        bool running{true};
         
         /**
          * @brief Handles the window of the game
@@ -112,7 +102,7 @@ namespace GLESC {
          * @brief Handles the input of the game
          * @details Handles all the inputs of the game, and stores the state of the inputs.
          */
-        InputManager inputManager;
+        InputManager inputManager{};
         /**
          * @brief Handles the rendering of the game
          * @details Handles all the rendering of the game, provides a high level interface to the graphics API.
@@ -120,7 +110,7 @@ namespace GLESC {
          */
         GLESC::Renderer renderer;
         
-        PhysicsManager physicsManager;
+        PhysicsManager physicsManager{};
         
         InputSystem inputSystem;
         PhysicsSystem physicsSystem;

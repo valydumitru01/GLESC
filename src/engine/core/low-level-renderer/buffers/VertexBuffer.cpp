@@ -11,16 +11,17 @@ BufferLayout::BufferLayout(const std::initializer_list<BufferElement> &elements)
     calculateOffsetsAndStride();
 }
 
-VertexBuffer::VertexBuffer(GraphicInterface &graphicsInterface,
+VertexBuffer::VertexBuffer(IGraphicInterface &graphicsInterface,
                            const std::initializer_list<BufferElement> &elements,
-                           const void *data,
-                           GDIsize size) : graphicInterface(graphicsInterface), vertexBufferID(0) {
+                           const std::any *data,
+                           GAPIsize size) : graphicInterface(graphicsInterface) {
     
     graphicInterface.genBuffers(1, vertexBufferID);
-    graphicInterface.bindBuffer(GDIValues::BufferTypeVertex, vertexBufferID);
+    graphicInterface.bindBuffer(GAPIValues::BufferTypeVertex, vertexBufferID);
     graphicInterface
-            .setBufferData(data, size, vertexBufferID, GDIValues::BufferTypeVertex, GDIValues::BufferUsageStatic);
-    graphicInterface.unbindBuffer(GDIValues::BufferTypeVertex);
+            .setBufferData(data, size, vertexBufferID, GAPIValues::BufferTypeVertex,
+                           GAPIValues::BufferUsageStatic);
+    graphicInterface.unbindBuffer(GAPIValues::BufferTypeVertex);
 }
 
 VertexBuffer::~VertexBuffer() {
@@ -28,9 +29,9 @@ VertexBuffer::~VertexBuffer() {
 }
 
 void VertexBuffer::bind() const {
-    graphicInterface.bindBuffer(GDIValues::BufferTypeVertex, vertexBufferID);
+    graphicInterface.bindBuffer(GAPIValues::BufferTypeVertex, vertexBufferID);
 }
 
 void VertexBuffer::unbind() const {
-    graphicInterface.unbindBuffer(GDIValues::BufferTypeVertex);
+    graphicInterface.unbindBuffer(GAPIValues::BufferTypeVertex);
 }

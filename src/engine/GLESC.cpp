@@ -9,12 +9,8 @@
 using namespace GLESC;
 
 Engine::Engine() :
-        running(true),
-        graphicInterface(),
         windowManager(graphicInterface),
-        inputManager(),
         renderer(windowManager, graphicInterface),
-        physicsManager(),
         inputSystem(inputManager),
         physicsSystem(physicsManager),
         renderSystem(renderer),

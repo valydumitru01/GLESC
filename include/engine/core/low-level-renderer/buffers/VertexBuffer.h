@@ -8,7 +8,7 @@
 
 #include <utility>
 
-#include "engine/core/low-level-renderer/graphic-device-interface/GraphicInterface.h"
+#include "engine/core/low-level-renderer/graphic-api/IGraphicInterface.h"
 #include "engine/core/asserts/Asserts.h"
 
 enum class ShaderDataType {
@@ -28,7 +28,6 @@ struct BufferElement {
     BufferElement(ShaderDataType type, ShaderDataDim dimension, std::string name, bool normalized = false) :
             name(std::move(name)), type(type), size(shaderDataTypeSize(type) * shaderDataDimSize(dimension)), offset(
             0), normalized(normalized) {
-        
     }
 
 private:
@@ -95,10 +94,10 @@ private:
 
 class VertexBuffer {
 public:
-    VertexBuffer(GraphicInterface &graphicInterface,
+    VertexBuffer(IGraphicInterface &graphicInterface,
                  const std::initializer_list<BufferElement> &elements,
-                 const void *data,
-                 GDIsize size);
+                 const std::any *data,
+                 GAPIsize size);
     
     ~VertexBuffer();
     
@@ -107,7 +106,7 @@ public:
     void unbind() const;
 
 private:
-    GraphicInterface &graphicInterface;
-    GDIint vertexBufferID;
+    IGraphicInterface &graphicInterface;
+    GAPIuint vertexBufferID{};
     
 };

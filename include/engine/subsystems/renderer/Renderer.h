@@ -7,71 +7,109 @@
 #pragma once
 
 #include <memory>
-#include "GL/glew.h"
+#include <GL/glew.h>
 
-#include "SDL2/SDL.h"
-#include "glm/glm.hpp"
-#include "glm/gtc/matrix_transform.hpp"
-#include "glm/gtc/type_ptr.hpp"
+#include <SDL2/SDL.h>
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
 
-#include "engine/res-mng/textures/TextureManager.h"
-
-#include "engine/subsystems/renderer/shaders/ShaderManager.h"
-#include "engine/core/window/WindowManager.h"
 #include "engine/core/exceptions/EngineException.h"
-#include "engine/core/low-level-renderer/graphic-device-interface/GraphicInterface.h"
-
-#include "Mesh.h"
+#include "engine/core/low-level-renderer/graphic-api/IGraphicInterface.h"
+#include "engine/core/low-level-renderer/texture/TextureManager.h"
+#include "engine/core/window/WindowManager.h"
+#include "engine/res-mng/textures/TextureLoader.h"
+#include "engine/subsystems/renderer/Mesh.h"
+#include "engine/subsystems/renderer/shaders/ShaderManager.h"
 
 namespace GLESC {
     class Renderer {
     public:
-        explicit Renderer(WindowManager &windowManager, GraphicInterface &graphicsInterface);
+        explicit Renderer(WindowManager &windowManager, GLESC_RENDER_API &graphicsInterface) :
+                windowManager(windowManager),
+                shaderManager(graphicsInterface),
+                textureManager(graphicsInterface),
+                graphicsInterface(graphicsInterface) {
+            
+            // Set the projection matrix
+            projection = calculateProjectionMatrix(45.0f, 0.1f, 100.0f, (float) windowManager.getWidth(),
+                                                   (float) windowManager.getHeight());
+        }
         
-        ~Renderer();
+        ~Renderer() {
+            graphicsInterface.deleteContext();
+        }
         
-        void start();
+        void start() {
+            graphicsInterface.clear(
+                    {GAPIValues::ClearBitsColor, GAPIValues::ClearBitsDepth, GAPIValues::ClearBitsStencil});
+            graphicsInterface.clearColor(0.2f, 0.3f, 0.3f, 1.0f);
+        }
         
-        void end();
+        void end() {
+            swapBuffers();
+        }
         
         void
-        renderMesh(GLESC::Mesh &mesh, const glm::vec3 &position, const glm::vec3 &rotation, const glm::vec3 &scale);
+        renderMesh(GLESC::Mesh const &mesh,
+                   const glm::vec3 &position,
+                   const glm::vec3 &rotation,
+                   const glm::vec3 &scale) {
+            glm::mat4 model = calculateModelMatrix(position, rotation, scale);
+            
+            // Set the model matrix uniform in the shader
+            // With OpenGL the multiplication must be done in reverse P x V x M
+            getShaderManager().setMat4("mvp", model * getView() * getProjection());
+            getShaderManager().setVec3("position", position);
+        }
         
         /**
          * @brief Get the shader manager object
          * @return ShaderManager& The shader manager object
          */
-        [[nodiscard]] ShaderManager &getShaderManager();
+        [[nodiscard]] ShaderManager &getShaderManager() {
+            return shaderManager;
+        }
         
         /**
          * @brief Get the Texture Manager object
          * @return TextureManager& The Texture Manager object
          */
-        [[nodiscard]] TextureManager &getTextureManager();
+        [[nodiscard]] TextureManager &getTextureManager() {
+            return textureManager;
+        }
         
         /**
          * @brief Gets the projection matrix
          * @return projection matrix
          */
-        [[nodiscard]] glm::mat4 getProjection() const;
+        [[nodiscard]] glm::mat4 getProjection() const {
+            return projection;
+        }
         
         /**
          * @brief Gets the view matrix
          * @return view matrix
          */
-        [[nodiscard]] glm::mat4 getView() const;
+        [[nodiscard]] glm::mat4 getView() const {
+            return view;
+        }
         
         /**
          * @brief Sets the projection matrix
          * @param projection projection matrix
          */
-        void setProjection(const glm::mat4 &projection);
+        void setProjection(const glm::mat4 &projectionParam) {
+            Renderer::projection = projectionParam;
+        }
         
         /**
          * @brief Sets the view matrix
          * @param view view matrix
          */
-        void setView(const glm::mat4 &view);
+        void setView(const glm::mat4 &viewParam) {
+            Renderer::view = viewParam;
+        }
         
         /**
          * @brief Creates a projection matrix from a camera component
@@ -80,10 +118,20 @@ namespace GLESC {
          * @return projection matrix
          */
         static glm::mat4
-        calculateProjectionMatrix(float fov, float nearPlane, float farPlane, float viewWidth, float viewHeight);
+        calculateProjectionMatrix(float fov, float nearPlane, float farPlane, float viewWidth, float viewHeight) {
+            if (viewHeight == 0)
+                throw EngineException("Unable to make projection matrix: viewHeight is 0");
+            if (viewWidth == 0)
+                throw EngineException("Unable to make projection matrix: viewWidth is 0");
+            
+            float aspectRatio = viewWidth / viewHeight;
+            return glm::perspective(glm::radians(fov), aspectRatio, nearPlane, farPlane);
+        }
         
-        void swapBuffers();
-    
+        void swapBuffers() {
+            graphicsInterface.getSwapBuffersFunc()(windowManager.getWindow());
+        }
+        
         /**
          * @brief Creates a view matrix from a transform component of the camera
          * @details uses the lookAt function from glm
@@ -91,7 +139,14 @@ namespace GLESC {
          * @return view matrix
          */
         static glm::mat4
-        calculateViewMatrix(const glm::vec3 &position, const glm::vec3 &rotation, const glm::vec3 &scale);
+        calculateViewMatrix(const glm::vec3 &position, const glm::vec3 &rotation, const glm::vec3 &scale) {
+            glm::mat4 model = glm::translate(glm::mat4(1.0f), position);
+            model = glm::rotate(model, glm::radians(rotation.x), glm::vec3(1.0f, 0.0f, 0.0f));
+            model = glm::rotate(model, glm::radians(rotation.y), glm::vec3(0.0f, 1.0f, 0.0f));
+            model = glm::rotate(model, glm::radians(rotation.z), glm::vec3(0.0f, 0.0f, 1.0f));
+            model = glm::scale(model, scale);
+            return glm::inverse(model);
+        }
     
     private:
         
@@ -104,9 +159,18 @@ namespace GLESC {
          * @return The model matrix
          */
         static glm::mat4
-        calculateModelMatrix(const glm::vec3 &position, const glm::vec3 &rotation, const glm::vec3 &scale);
+        calculateModelMatrix(const glm::vec3 &position, const glm::vec3 &rotation, const glm::vec3 &scale) {
+            glm::mat4 model = glm::translate(glm::mat4(1.0f), position);
+            model = glm::rotate(model, glm::radians(rotation.x), glm::vec3(1.0f, 0.0f, 0.0f));
+            model = glm::rotate(model, glm::radians(rotation.y), glm::vec3(0.0f, 1.0f, 0.0f));
+            model = glm::rotate(model, glm::radians(rotation.z), glm::vec3(0.0f, 0.0f, 1.0f));
+            model = glm::scale(model, scale);
+            return model;
+        }
         
-        GraphicInterface &graphicsInterface;
+        GLESC_RENDER_API &graphicsInterface;
+        // Uncomment the below line and comment the above to enable code completion and proper syntax highlighting
+        // IGraphicInterface &graphicsInterface;
         /**
          * @brief Window manager
          *
@@ -130,13 +194,13 @@ namespace GLESC {
          * coordinates to normalized device coordinates
          * @see https://learnopengl.com/Getting-started/Coordinate-Systems
          */
-        glm::mat4 projection;
+        glm::mat4 projection{};
         /**
          * @brief View matrix
          * @details This matrix converts
          * @see https://learnopengl.com/Getting-started/Coordinate-Systems
          */
-        glm::mat4 view;
+        glm::mat4 view{};
     }; // class Renderer
     
 } // namespace GLESC

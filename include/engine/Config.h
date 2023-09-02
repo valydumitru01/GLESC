@@ -27,30 +27,45 @@
 #define GLESC_WINDOW_WIDTH 800
 #define GLESC_WINDOW_HEIGHT 450
 
+// More info: https://wiki.libsdl.org/SDL_CreateWindow
 #define GLESC_WINDOW_X SDL_WINDOWPOS_CENTERED
 #define GLESC_WINDOW_Y SDL_WINDOWPOS_CENTERED
 
 #define GLESC_WINDOW_TITLE "Game Engine"
-#define GLESC_WINDOW_FULLSCREEN false
+#define GLESC_WINDOW_FULLSCREEN SDL_FALSE
 
 // ####################################################################################
 // #################################### RENDER API ####################################
 
-#define GLESC_RENDER_OPENGL
+#define GLESC_RENDER_API OpenGLAPI
+// The minimum version of OpenGL supported by the engine
+// Do not change this values unless you know what you are doing
+// and you rewrite the code to support the new version
+// This will change the assert in the GAPIAsserts.h file
+// It will allow the engine to run even if the OpenGL version is not supported
+#define GLESC_MINIMUM_MAJOR_VERSION 4
+#define GLESC_MINIMUM_MINOR_VERSION 3
+
 #define GLESC_GL_MAJOR_VERSION 4
 #define GLESC_GL_MINOR_VERSION 60
 #define GLESC_GL_CORE_PROFILE true
 
-// #define GLESC_RENDER_VULKAN
+// #define GLESC_RENDER_API VulkanAPI
 // #define GLESC_VULKAN_VERSION_MAJOR 1
 // #define GLESC_VULKAN_VERSION_MINOR 2
 
-// #define GLESC_RENDER_DIRECTX
+// #define GLESC_RENDER_API DirectXAPI
 // #define GLESC_DIRECTX_VERSION_MAJOR 12
 // #define GLESC_DIRECTX_VERSION_MINOR 0
 
+
+// Are the same as the OpenGL version
+#define GLESC_GLSL_MAJOR_VERSION GLESC_GL_MAJOR_VERSION
+#define GLESC_GLSL_MINOR_VERSION GLESC_GL_MINOR_VERSION
+#define GLESC_GLSL_CORE_PROFILE GLESC_GL_CORE_PROFILE
 // ####################################################################################
 // ################################ ENTITY COMPONENT SYSTEM ###########################
 
 #define GLESC_ECS_MAX_ENTITIES 5000
 #define GLESC_ECS_MAX_COMPONENTS 32
+

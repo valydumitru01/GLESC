@@ -7,22 +7,27 @@
 #pragma once
 
 #include <memory>
+#include <string>
 #include "SDL2/SDL.h"
 #include "GL/glew.h"
 #include "engine/core/exceptions/EngineException.h"
-#include "engine/core/low-level-renderer/graphic-device-interface/GraphicInterface.h"
+#include "engine/core/window/WindowManager.h"
+#include "engine/core/low-level-renderer/graphic-api/IGraphicInterface.h"
+#include "engine/core/logger/Logger.h"
+#include "engine/Config.h"
 
 /**
  * @brief 1.77 is the standard ratio (16:9)
  *
  */
-#define WINDOW_RATIO 1.77
-#define WINDOW_MIN_WIDTH 100
-#define WINDOW_MIN_HEIGHT 177
+constexpr float windowRatio = 1.77f;
+constexpr int windowMinWidth = 100;
+constexpr int windowMinHeight = 177;
 namespace GLESC {
     class WindowManager {
     public:
-        explicit WindowManager(GraphicInterface &graphicInterfaceParam);
+        explicit
+        WindowManager(GLESC_RENDER_API &graphicInterfaceParam);
         
         /**
          * @brief Callback function when windowManager size is modified
@@ -30,6 +35,7 @@ namespace GLESC {
          *
          */
         void setSize(int windowWidth, int windowHeight);
+        
         
         /**
          * @brief Turn fullscreen on or off
@@ -52,21 +58,21 @@ namespace GLESC {
          *
          * @return SDL_Window* the windowManager object
          */
-        SDL_Window &getWindow();
+        SDL_Window &getWindow() ;
         
         /**
          * @brief Get the width of the windowManager
          * The renderer will use this to set the viewport
          * @return int the width
          */
-        [[nodiscard]] int getWidth() const;
+        [[nodiscard]] int getWidth() const ;
         
         /**
          * @brief Get the height of the windowManager
          * The renderer will use this to set the viewport
          * @return int the height
          */
-        [[nodiscard]] int getHeight() const;
+        [[nodiscard]] int getHeight() const ;
     
     private:
         
@@ -89,11 +95,12 @@ namespace GLESC {
          */
         SDL_Window *createWindow(const char *title);
         
+        
         /**
          * @brief The graphics API used by the windowManager
          *
          */
-        GraphicInterface &graphicInterface;
+        GLESC_RENDER_API &graphicInterface;
         
         /**
          * @brief The SDL windowManager object
@@ -104,20 +111,27 @@ namespace GLESC {
          * @brief True if is fullscreen and false if it is not
          *
          */
-        SDL_bool fullscreen;
+        SDL_bool fullscreen{GLESC_WINDOW_FULLSCREEN};
         
         /**
          * @brief Variable where the windowManager height is stored
          *
          */
-        int height;
+        int height{GLESC_WINDOW_HEIGHT};
         /**
          * @brief Variable where the windowManager width is stored
          *
          */
-        int width;
-        int x;
-        int y;
+        int width{GLESC_WINDOW_WIDTH};
+        int x{GLESC_WINDOW_X};
+        int y{GLESC_WINDOW_Y};
     }; // class WindowManager
     
 } // namespace GLESC
+
+
+
+
+
+
+

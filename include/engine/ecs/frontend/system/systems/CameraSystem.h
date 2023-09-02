@@ -15,7 +15,6 @@ public:
     
     void update();
 
-
 private:
     GLESC::Renderer &renderer;
 };

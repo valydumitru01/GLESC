@@ -12,12 +12,10 @@
 
 #include "engine/subsystems/renderer/Renderer.h"
 
-
 class RenderSystem : public System {
 public:
-    explicit RenderSystem(GLESC::Renderer &renderer);
     void update(double timeOfFrame);
-
+    explicit RenderSystem(GLESC::Renderer &renderer);
 private:
     GLESC::Renderer &renderer;
 };

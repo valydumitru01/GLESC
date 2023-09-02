@@ -4,3 +4,6 @@ TODO: Create tests for the whole project
 TODO: Make continuous integration
 TODO: Choose a license inside github
 TODO: Change order of access modifiers in documentation, the standard is public, protected, private
+TODO: Change exceptions in initializations like SDL or OpenGL to ASSERTS, because they are not recoverable and
+      they are not expected to happen. If they happen, it's a bug. It also makes the code more performant because
+      asserts are not compiled in release mode.

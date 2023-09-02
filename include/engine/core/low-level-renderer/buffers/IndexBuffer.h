@@ -6,24 +6,43 @@
 
 #pragma once
 
-#include "engine/core/low-level-renderer/graphic-device-interface/GraphicInterface.h"
+#include "engine/core/low-level-renderer/graphic-api/IGraphicInterface.h"
 
 namespace GLESC {
+    template<typename GAPI>
     class IndexBuffer {
     public:
-        IndexBuffer(GraphicInterface &graphicInterface, const unsigned int *data, unsigned int count);
+        IndexBuffer(IGraphicInterface &graphicInterface, const GAPIuint *data, GAPIsize count) :
+                count(count), graphicInterface(graphicInterface) {
+            graphicInterface.genBuffers(1, indexBufferID);
+            graphicInterface.bindBuffer(GAPIValues::BufferTypeIndex, indexBufferID);
+            graphicInterface
+                    .setBufferData(reinterpret_cast<const std::any *>(data), count, indexBufferID,
+                                   GAPIValues::BufferTypeIndex,
+                                   GAPIValues::BufferUsageStatic);
+            graphicInterface.unbindBuffer(GAPIValues::BufferTypeIndex);
+        }
         
-        ~IndexBuffer();
+        ~IndexBuffer() {
+            graphicInterface.deleteBuffer(indexBufferID);
+        }
         
-        void bind() const;
         
-        void unbind() const;
+        void bind() const {
+            graphicInterface.bindBuffer(GAPIValues::BufferTypeIndex, indexBufferID);
+        }
         
-        [[nodiscard]] inline GDIsize getCount() const { return count; }
+        void unbind() const {
+            graphicInterface.unbindBuffer(GAPIValues::BufferTypeIndex);
+        }
+        
+        
+        [[nodiscard]] inline GAPIsize getCount() const { return count; }
     
     private:
-        GDIsize count;
-        GDIint indexBufferID;
-        GraphicInterface &graphicInterface;
+        GAPIsize count{};
+        GAPIuint indexBufferID{};
+        GAPI &graphicInterface;
+        // IGraphicInterface &graphicInterface;
     };
 }

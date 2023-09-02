@@ -21,7 +21,7 @@
 
 #ifdef DEBUG
 namespace GLESC {
-    [[maybe_unused]] void printComponentStatus(const ComponentManager &componentManager) noexcept {
+    [[maybe_unused]] inline void printComponentStatus(const ComponentManager &componentManager) noexcept {
         for (const auto &[name, array] : componentManager.componentArrays) {
             Logger::get().info(std::string("Component name: ") + name);
             for (int i = 0; i < static_cast<int>(array->getSize()); i++) {

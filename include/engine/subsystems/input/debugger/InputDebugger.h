@@ -13,7 +13,7 @@ std::string keyToString(const keyEnum& key) {
     ASSERT(false, "Key not supported to be converted to string");
 }
 template<>
-std::string keyToString<GLESC::KeyState> (const GLESC::KeyState& keyState) {
+inline std::string keyToString<GLESC::KeyState> (const GLESC::KeyState& keyState) {
     switch (keyState) {
         case GLESC::KeyState::PRESSED:return "PRESSED";
         case GLESC::KeyState::RELEASED:return "RELEASED";
@@ -26,7 +26,7 @@ std::string keyToString<GLESC::KeyState> (const GLESC::KeyState& keyState) {
  * @return The string representation of the enum
  */
 template<>
-std::string keyToString<GLESC::Key>(const GLESC::Key& key) {
+inline std::string keyToString<GLESC::Key>(const GLESC::Key& key) {
     switch (key) {
         case GLESC::Key::ESCAPE:return "ESCAPE";
         case GLESC::Key::SPACE:return "SPACE";

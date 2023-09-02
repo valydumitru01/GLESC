@@ -13,11 +13,11 @@
 
 namespace GLESC {
     template<typename T>
-    [[maybe_unused]] [[nodiscard]] std::string glmToString(const T &valueToString) {
+    [[maybe_unused]] [[nodiscard]] inline std::string glmToString(const T &valueToString) {
         ASSERT(false, "Value not supported to be converted to string");
     }
     template<>
-    std::string glmToString<glm::mat4>(const glm::mat4 &mat) {
+    inline std::string glmToString<glm::mat4>(const glm::mat4 &mat) {
         std::ostringstream out;
         for (int i = 0; i < 4; ++i) {
             for (int j = 0; j < 4; ++j) {
@@ -29,7 +29,7 @@ namespace GLESC {
     }
     
     template<>
-    std::string glmToString<glm::mat3>(const glm::mat3 &mat) {
+    inline std::string glmToString<glm::mat3>(const glm::mat3 &mat) {
         std::ostringstream out;
         for (int i = 0; i < 3; ++i) {
             for (int j = 0; j < 3; ++j) {
@@ -41,21 +41,21 @@ namespace GLESC {
     }
     
     template<>
-    std::string glmToString<glm::vec4>(const glm::vec4 &vec) {
+    inline std::string glmToString<glm::vec4>(const glm::vec4 &vec) {
         std::ostringstream out;
         out << vec.x << ", " << vec.y << ", " << vec.z << ", " << vec.w;
         return out.str();
     }
     
     template<>
-    std::string glmToString<glm::vec3>(const glm::vec3 &vec) {
+    inline std::string glmToString<glm::vec3>(const glm::vec3 &vec) {
         std::ostringstream out;
         out << vec.x << ", " << vec.y << ", " << vec.z;
         return out.str();
     }
     
     template<>
-    std::string glmToString<glm::vec2>(const glm::vec2 &vec) {
+    inline std::string glmToString<glm::vec2>(const glm::vec2 &vec) {
         std::ostringstream out;
         out << vec.x << ", " << vec.y;
         return out.str();

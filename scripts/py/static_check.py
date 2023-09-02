@@ -1,6 +1,7 @@
 import os
 import re
 
+
 def check_for_pragma_once(file_content):
     if '#pragma once' not in file_content:
         return 'Error: #pragma once missing.'
@@ -9,23 +10,18 @@ def check_for_pragma_once(file_content):
 
 
 def check_access_specifier_order(file_content):
-    access_specifiers = re.findall(r'\b(private|protected|public)\b', file_content)
+    access_specifiers = re.findall(r'public|protected|private', file_content)
+    correct_order = ['public', 'protected', 'private']
 
-    correct_order = ['private', 'protected', 'public']
-    correct_order_optional_protected = ['private', 'public']
+    last_index = -1
+    for specifier in access_specifiers:
+        index = correct_order.index(specifier)
+        if index < last_index:
+            return f'Error: Incorrect access specifier order.'
+        last_index = index
 
-    # Handle case where there are no specifiers at all
-    if not access_specifiers:
-        return ''
+    return ''
 
-    # Handle case where only a subset is present
-    is_valid = all(a == b for a, b in zip(access_specifiers, correct_order[:len(access_specifiers)])) or \
-               all(a == b for a, b in zip(access_specifiers, correct_order_optional_protected[:len(access_specifiers)]))
-
-    if is_valid:
-        return ''
-    else:
-        return 'Error: Incorrect access specifier order.'
 
 def check_friend_declarations(file_content):
     # This pattern will find all classes.
@@ -43,9 +39,11 @@ def check_friend_declarations(file_content):
 
     for class_declaration in class_matches:
         if friend_pattern.search(class_declaration):
-            error_messages.append('Error: Friend declarations are not following the class definition in one or more classes.')
+            error_messages.append(
+                'Error: Friend declarations are not following the class definition in one or more classes.')
 
     return ' '.join(error_messages)
+
 
 def check_file(filename):
     with open(filename, 'r', encoding='utf-8') as file:
@@ -72,6 +70,7 @@ def print_file_structure(dirpath, prefix=''):
             print(prefix + ('└── ' if i == len(items) - 1 else '├── ') + item + '/')
             print_file_structure(path, prefix + ('    ' if i == len(items) - 1 else '│   '))
 
+
 def main():
     path = os.path.dirname(os.path.abspath(__file__))
     print("Absolute path: " + path)
@@ -84,6 +83,7 @@ def main():
     include = os.path.join(root, "include")
 
     print_file_structure(include)
+
 
 if __name__ == '__main__':
     main()

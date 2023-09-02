@@ -14,7 +14,7 @@ RenderSystem::RenderSystem(GLESC::Renderer &renderer) : renderer(renderer) {
 };
 
 
-void RenderSystem::update(const double timeOfFrame) {
+void RenderSystem::update(double timeOfFrame) {
     renderer.getShaderManager().use();
     
     for (auto &entity : getAssociatedEntities()) {

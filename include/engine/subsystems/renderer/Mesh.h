@@ -9,14 +9,19 @@
 #include <string>
 
 namespace GLESC {
-    typedef unsigned int VertexIndex;
+    using VertexIndex = unsigned int;
     class Mesh {
     public:
         class Point {
         public:
             Point(float x, float y, float z, float u, float v) : x(x), y(y), z(z), u(u), v(v) {}
-            float x, y, z; // 3D coordinates.
-            float u, v; // Texture coordinates.
+            // 3D coordinates.
+            float x;
+            float y;
+            float z;
+            // Texture coordinates.
+            float u;
+            float v;
         };
         
         class Face {
@@ -41,8 +46,10 @@ namespace GLESC {
         
         std::string toString(){
             std::string result = "\n\tVertices: ";
-            for (auto &vertex : vertices) {
-                result += "\n\t\t" + std::to_string(vertex.x) + ", " + std::to_string(vertex.y) + ", " + std::to_string(vertex.z);
+            for (auto const &vertex : vertices) {
+                result += "\n\t\t" + std::to_string(vertex.x)
+                        + ", " + std::to_string(vertex.y)
+                        + ", " + std::to_string(vertex.z);
             }
             result += "\n\tFaces: ";
             for (auto &face : faces) {
