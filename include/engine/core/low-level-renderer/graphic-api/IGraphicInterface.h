@@ -55,7 +55,93 @@ enum class GAPIValues {
     ClearBitsStencil [[maybe_unused]],
     // Shader Type
     ShaderTypeVertex [[maybe_unused]],
-    ShaderTypeFragment [[maybe_unused]]
+    ShaderTypeFragment [[maybe_unused]],
+    
+    // Stencil
+    StencilTest [[maybe_unused]],
+    StencilTestAlways [[maybe_unused]],
+    StencilTestNever [[maybe_unused]],
+    StencilTestLess [[maybe_unused]],
+    StencilTestLessEqual [[maybe_unused]],
+    StencilTestGreater [[maybe_unused]],
+    StencilTestGreaterEqual [[maybe_unused]],
+    StencilTestEqual [[maybe_unused]],
+    StencilTestNotEqual [[maybe_unused]],
+    StencilFail [[maybe_unused]],
+    StencilFunc [[maybe_unused]],
+    StencilRef [[maybe_unused]],
+    
+    // Depth
+    DepthTest [[maybe_unused]],
+    DepthTestAlways [[maybe_unused]],
+    DepthTestNever [[maybe_unused]],
+    DepthTestLess [[maybe_unused]],
+    DepthTestLessEqual [[maybe_unused]],
+    DepthTestGreater [[maybe_unused]],
+    DepthTestGreaterEqual [[maybe_unused]],
+    DepthTestEqual [[maybe_unused]],
+    DepthTestNotEqual [[maybe_unused]],
+    StencilPassDepthFail [[maybe_unused]],
+    StencilPassDepthPass [[maybe_unused]],
+    StencilValueMask [[maybe_unused]],
+    StencilWriteMask [[maybe_unused]],
+    StencilBackFunc [[maybe_unused]],
+    StencilBackFail [[maybe_unused]],
+    StencilBackPassDepthFail [[maybe_unused]],
+    StencilBackPassDepthPass [[maybe_unused]],
+    StencilBackRef [[maybe_unused]],
+    StencilBackValueMask [[maybe_unused]],
+    StencilBackWriteMask [[maybe_unused]],
+    
+    // Blending
+    Blending [[maybe_unused]],
+    BlendingOneMinusSrcAlpha [[maybe_unused]],
+    BlendingSrcAlpha [[maybe_unused]],
+    BlendingDstAlpha [[maybe_unused]],
+    BlendingOne [[maybe_unused]],
+    BlendingZero [[maybe_unused]],
+    BlendingDstColor [[maybe_unused]],
+    BlendingSrcColor [[maybe_unused]],
+    BlendingOneMinusDstColor [[maybe_unused]],
+    BlendingOneMinusSrcColor [[maybe_unused]],
+    BlendingOneMinusConstantAlpha [[maybe_unused]],
+    BlendingConstantAlpha [[maybe_unused]],
+    BlendingConstantColor [[maybe_unused]],
+    
+    // Culling
+    Culling [[maybe_unused]],
+    CullingFront [[maybe_unused]],
+    CullingBack [[maybe_unused]],
+    CullingFrontBack [[maybe_unused]],
+    
+    // Polygon mode
+    PolygonModeLine [[maybe_unused]],
+    PolygonModeFill [[maybe_unused]],
+    
+    // Primitive type
+    PrimitiveTypeTriangles [[maybe_unused]],
+    PrimitiveTypeLines [[maybe_unused]],
+    PrimitiveTypePoints [[maybe_unused]],
+    
+    // Winding order
+    WindingOrderClockwise [[maybe_unused]],
+    WindingOrderCounterClockwise [[maybe_unused]],
+    
+    // Face
+    FaceFront [[maybe_unused]],
+    FaceBack [[maybe_unused]],
+    FaceFrontBack [[maybe_unused]],
+    
+    // Capabilities
+    CapabilitiesDepthTest [[maybe_unused]],
+    CapabilitiesStencilTest [[maybe_unused]],
+    CapabilitiesBlending [[maybe_unused]],
+    CapabilitiesCulling [[maybe_unused]],
+    CapabilitiesPolygonMode [[maybe_unused]],
+    
+    // Texture Unit
+    TextureUnit0 [[maybe_unused]],
+    TextureUnit1 [[maybe_unused]],
 };
 
 class IGraphicInterface {

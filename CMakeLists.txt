@@ -87,7 +87,7 @@ elseif (APPLE)
     target_compile_options(game PRIVATE -Wall -Wextra -Wpedantic)
 endif ()
 # ------------ BUILD TYPES ------------
-
+# ............ DEBUG ............
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -O0") # Optimization flag, no optimization
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG") #Define DEBUG macro
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g") #Produce debugging information
@@ -96,7 +96,9 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -D_DEBUG") #Define _DEBUG ma
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG") #Define DEBUG macro
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_LOGGING") #Define DEBUG_LOGGING macro
 
+add_custom_target(preprocess ALL)
 
+# ............ RELEASE ............
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}" "-O3") # Optimization flag, -O3 is not always faster than -O2
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}" "-DRELEASE") #Define RELEASE macro
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}" "-DNDEBUG") #Define NDEBUG macro

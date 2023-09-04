@@ -11,7 +11,7 @@
 
 class InputSystem : public System {
 public:
-    explicit InputSystem(InputManager &inputManager);
+    explicit InputSystem(InputManager &inputManager, GLESC::ECS& ecs);
     void update();
 private:
     InputManager& inputManager;

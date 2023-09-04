@@ -8,7 +8,7 @@
 #include "engine/GLESC.h"
 #include <SDL2/SDL_main.h>
 
-int main() {
+int main(int argc, char* argv[]) {
     GLESC::Engine glesc;
     Counter counter(FpsRates::Fps60);
     

@@ -13,14 +13,14 @@ WindowManager::WindowManager(GLESC_RENDER_API &graphicInterfaceParam) :
     graphicInterface.createContext(*window, width, height, x, y);
     graphicInterface.postWindowCreationInit();
     
-    
+    isInitialized = SDL_TRUE;
     // Enable mouse relative mode
     // This will make the mouse cursor invisible and locked in the middle of the screen
     setMouseRelative(true);
-    
 }
 
-void WindowManager::setSize(int windowWidth, int windowHeight) {
+void WindowManager::setSize(uint16_t windowWidth, uint16_t windowHeight) {
+    ASSERT(isInitialized, "WindowManager not initialized! Cannot set size!");
     width = windowWidth;
     height = windowHeight;
     
@@ -29,12 +29,14 @@ void WindowManager::setSize(int windowWidth, int windowHeight) {
 
 
 void WindowManager::setFullscreen(SDL_bool isFullScreen) {
+    ASSERT(isInitialized, "WindowManager not initialized! Cannot set fullscreen!");
     fullscreen = isFullScreen;
     SDL_SetWindowFullscreen(window, fullscreen);
 }
 
 
 void WindowManager::setMouseRelative(bool enabled) {
+    ASSERT(isInitialized, "WindowManager not initialized! Cannot set mouse relative!");
     SDL_bool isRelative;
     std::string failOutput;
     if (enabled) {
@@ -52,15 +54,18 @@ void WindowManager::setMouseRelative(bool enabled) {
 }
 
 SDL_Window &WindowManager::getWindow() {
+    ASSERT(isInitialized, "WindowManager not initialized! Cannot get window!");
     return *window;
 }
 
-int WindowManager::getWidth() const {
+uint32_t WindowManager::getWidth() const {
+    ASSERT(isInitialized, "WindowManager not initialized! Cannot get width!");
     return width;
 }
 
 
-int WindowManager::getHeight() const {
+uint32_t WindowManager::getHeight() const {
+    ASSERT(isInitialized, "WindowManager not initialized! Cannot get height!");
     return height;
 }
 
@@ -100,8 +105,7 @@ void WindowManager::initSDL() {
 SDL_Window *WindowManager::createWindow(const char *title) {
     int flags = getRaisedFlags();
     SDL_Window *tempWindow =
-            SDL_CreateWindow(title, GLESC_WINDOW_X, GLESC_WINDOW_Y, GLESC_WINDOW_WIDTH, GLESC_WINDOW_HEIGHT,
-                             flags);
+            SDL_CreateWindow(title, GLESC_WINDOW_X, GLESC_WINDOW_Y, GLESC_WINDOW_WIDTH, GLESC_WINDOW_HEIGHT, flags);
     ASSERT_NOT_EQUAL(tempWindow, nullptr, "Unable to create windowManager: " + std::string(SDL_GetError()));
     Logger::get().success("Window created!");
     SDL_SetWindowMinimumSize(tempWindow, windowMinWidth, windowMinHeight);

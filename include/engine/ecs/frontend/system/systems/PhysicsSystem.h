@@ -9,11 +9,11 @@
 #include "engine/subsystems/physics/PhysicsManager.h"
 
 class PhysicsSystem : public System {
+public:
+    explicit PhysicsSystem(PhysicsManager &physicsManager, GLESC::ECS &ecs);
+    void update();
 private:
     glm::vec3 gravity;
     PhysicsManager &physicsManager;
-public:
-    explicit PhysicsSystem(PhysicsManager &physicsManager);
-    void update();
 };
 

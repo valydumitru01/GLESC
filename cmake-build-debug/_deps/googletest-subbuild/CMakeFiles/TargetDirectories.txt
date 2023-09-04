@@ -1,3 +1,0 @@
-C:/Github_Repos/TFG---OpenGL-Engine/cmake-build-debug/_deps/googletest-subbuild/CMakeFiles/googletest-populate.dir
-C:/Github_Repos/TFG---OpenGL-Engine/cmake-build-debug/_deps/googletest-subbuild/CMakeFiles/edit_cache.dir
-C:/Github_Repos/TFG---OpenGL-Engine/cmake-build-debug/_deps/googletest-subbuild/CMakeFiles/rebuild_cache.dir

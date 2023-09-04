@@ -8,17 +8,17 @@
 #include "engine/ecs/frontend/entity/Entity.h"
 
 using namespace GLESC;
-GLESC::Entity::Entity(EntityName name) : ID(GLESC::ECS::getECS()->createEntity(name)) {
+GLESC::Entity::Entity(const EntityName& name, ECS& ecs) : ID(ecs.createEntity(name)), ecs(ecs) {
 }
 
-GLESC::Entity::Entity(EntityID id) : ID(id) {
+GLESC::Entity::Entity(EntityID id, ECS& ecs) : ID(id), ecs(ecs) {
 }
 
 void Entity::destroy() {
-    GLESC::ECS::getECS()->destroyEntity(ID);
+    ecs.destroyEntity(ID);
 }
 
 EntityName Entity::getName() const {
-    return GLESC::ECS::getECS()->getEntityName(ID);
+    return ecs.getEntityName(ID);
 }
 

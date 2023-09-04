@@ -8,10 +8,10 @@
 
 using namespace GLESC;
 
-System::System() {
-    ECS::getECS()->registerSystem(name());
+System::System(GLESC::ECS &ecs, const SystemName& name) : ecs(ecs), name(name) {
+    ecs.registerSystem(name);
 }
 
 std::set<EntityID> System::getAssociatedEntities() const {
-    return ECS::getECS()->getAssociatedEntities(this->name());
+    return ecs.getAssociatedEntities(name);
 }

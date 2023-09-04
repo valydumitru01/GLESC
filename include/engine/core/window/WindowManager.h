@@ -34,7 +34,7 @@ namespace GLESC {
          * This will call glViewport with the new resolution
          *
          */
-        void setSize(int windowWidth, int windowHeight);
+        void setSize(uint16_t windowWidth, uint16_t windowHeight);
         
         
         /**
@@ -51,28 +51,26 @@ namespace GLESC {
          *
          * @param enabled
          */
-        static void setMouseRelative(bool enabled);
+        void setMouseRelative(bool enabled);
         
         /**
          * @brief Get the Window object
          *
          * @return SDL_Window* the windowManager object
          */
-        SDL_Window &getWindow() ;
+        SDL_Window &getWindow();
         
         /**
          * @brief Get the width of the windowManager
-         * The renderer will use this to set the viewport
          * @return int the width
          */
-        [[nodiscard]] int getWidth() const ;
+        [[nodiscard]] uint32_t getWidth() const;
         
         /**
          * @brief Get the height of the windowManager
-         * The renderer will use this to set the viewport
          * @return int the height
          */
-        [[nodiscard]] int getHeight() const ;
+        [[nodiscard]] uint32_t getHeight() const;
     
     private:
         
@@ -95,7 +93,7 @@ namespace GLESC {
          */
         SDL_Window *createWindow(const char *title);
         
-        
+        SDL_bool isInitialized{SDL_FALSE};
         /**
          * @brief The graphics API used by the windowManager
          *
@@ -103,7 +101,7 @@ namespace GLESC {
         GLESC_RENDER_API &graphicInterface;
         
         /**
-         * @brief The SDL windowManager object
+         * @brief The SDL window struct pointer
          *
          */
         SDL_Window *window;
@@ -114,17 +112,17 @@ namespace GLESC {
         SDL_bool fullscreen{GLESC_WINDOW_FULLSCREEN};
         
         /**
-         * @brief Variable where the windowManager height is stored
+         * @brief Height of the window in pixels
          *
          */
-        int height{GLESC_WINDOW_HEIGHT};
+        uint32_t height{GLESC_WINDOW_HEIGHT};
         /**
-         * @brief Variable where the windowManager width is stored
+         * @brief Width of the window in pixels
          *
          */
-        int width{GLESC_WINDOW_WIDTH};
-        int x{GLESC_WINDOW_X};
-        int y{GLESC_WINDOW_Y};
+        uint32_t width{GLESC_WINDOW_WIDTH};
+        uint32_t x{GLESC_WINDOW_X};
+        uint32_t y{GLESC_WINDOW_Y};
     }; // class WindowManager
     
 } // namespace GLESC

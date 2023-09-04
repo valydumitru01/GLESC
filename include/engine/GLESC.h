@@ -33,7 +33,7 @@ namespace GLESC {
         /**
          * @brief The engine can only be created by the main function, where the game loop is defined
          */
-        friend int::main();
+        friend int::main(int argc, char* argv[]);
     
     public:
         void initGame();
@@ -70,7 +70,7 @@ namespace GLESC {
          * @param name
          * @return
          */
-        static inline Entity getEntity(EntityName name);
+        inline Entity getEntity(const EntityName& name);
         
         /**
          * @brief Get the Entity object with the given name, the entity can not exist.
@@ -78,14 +78,14 @@ namespace GLESC {
          * @param name The name of the entity
          * @return The entity with the given name or std::nullopt if the entity does not exist
          */
-        static inline std::optional<Entity> tryGetEntity(EntityName name);
+        inline std::optional<Entity> tryGetEntity(const EntityName& name);
         
         /**
          * @brief Create an entity with the given name. The name must be unique.
          * @param name The name of the entity
          * @return The entity with the given name
          */
-        static inline Entity createEntity(EntityName name);
+        inline Entity createEntity(const EntityName& name);
         
         
         GLESC_RENDER_API graphicInterface{};
@@ -102,7 +102,7 @@ namespace GLESC {
          * @brief Handles the input of the game
          * @details Handles all the inputs of the game, and stores the state of the inputs.
          */
-        InputManager inputManager{};
+        InputManager inputManager;
         /**
          * @brief Handles the rendering of the game
          * @details Handles all the rendering of the game, provides a high level interface to the graphics API.
@@ -110,26 +110,26 @@ namespace GLESC {
          */
         GLESC::Renderer renderer;
         
-        PhysicsManager physicsManager{};
-        
+        PhysicsManager physicsManager;
+        ECS ecs;
         InputSystem inputSystem;
         PhysicsSystem physicsSystem;
         RenderSystem renderSystem;
         CameraSystem cameraSystem;
         
     }; // class Engine
+    inline Entity GLESC::Engine::createEntity(const EntityName& name) {
+        return Entity(name, ecs);
+    }
+    
+    inline std::optional<Entity> Engine::tryGetEntity(const EntityName& name) {
+        if (ecs.tryGetEntityID(name) == NULL_ENTITY)
+            return std::nullopt;
+        return Entity(ecs.tryGetEntityID(name), ecs);
+    }
+    
+    inline GLESC::Entity Engine::getEntity(const EntityName& name) {
+        return Entity(ecs.getEntityID(name), ecs);
+    }
 } // namespace GLESC
 
-inline GLESC::Entity GLESC::Engine::createEntity(EntityName name) {
-    return Entity(name);
-}
-
-inline std::optional<GLESC::Entity> GLESC::Engine::tryGetEntity(EntityName name) {
-    if (GLESC::ECS::getECS()->tryGetEntityID(name) == NULL_ENTITY)
-        return std::nullopt;
-    return Entity(GLESC::ECS::getECS()->tryGetEntityID(name));
-}
-
-inline GLESC::Entity GLESC::Engine::getEntity(EntityName name) {
-    return Entity(GLESC::ECS::getECS()->getEntityID(name));
-}

@@ -39,7 +39,7 @@
 
 #define GLESC_RENDER_API OpenGLAPI
 // The minimum version of OpenGL supported by the engine
-// Do not change this values unless you know what you are doing
+// Do not change this values unless you know what you are doing,
 // and you rewrite the code to support the new version
 // This will change the assert in the GAPIAsserts.h file
 // It will allow the engine to run even if the OpenGL version is not supported
@@ -47,7 +47,7 @@
 #define GLESC_MINIMUM_MINOR_VERSION 3
 
 #define GLESC_GL_MAJOR_VERSION 4
-#define GLESC_GL_MINOR_VERSION 60
+#define GLESC_GL_MINOR_VERSION 6
 #define GLESC_GL_CORE_PROFILE true
 
 // #define GLESC_RENDER_API VulkanAPI

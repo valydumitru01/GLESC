@@ -85,7 +85,7 @@ bool EntityManager::doesEntityExist(EntityID entity) const {
 
 bool EntityManager::isEntityAlive(EntityID entity) const {
     // Entity is alive if it is in the entityIDs map
-    return entityIDs.right.find(entity) != entityIDs.right.end() && signatures[entity].any();
+    return entityIDs.right.find(entity) != entityIDs.right.end();
 }
 
 bool EntityManager::isEntityNameAlive(EntityName name) const {

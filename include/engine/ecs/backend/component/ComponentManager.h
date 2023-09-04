@@ -125,7 +125,7 @@ Component &GLESC::ComponentManager::getComponent(EntityID entity) {
 template<typename Component>
 void GLESC::ComponentManager::registerComponentIfNotRegistered() {
     // No need for asserts or printing, they are already done in the functions called
-    if (isComponentRegistered<Component>()) {
+    if (!isComponentRegistered<Component>()) {
         registerComponent<Component>();
     }
 }

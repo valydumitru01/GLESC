@@ -9,6 +9,7 @@
 #include <boost/stacktrace.hpp>
 #include <sstream>
 #include <algorithm>
+#include <array>
 BaseException::BaseException(const std::string &message) : runtime_error(message){
     const auto exePath = PROJECT_BINARY_DIR + std::string("/") + std::string(PROJECT_NAME)
             + std::string(".exe");

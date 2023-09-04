@@ -8,7 +8,8 @@
 #include "engine/ecs/backend/component/components/InputComponent.h"
 
 
-InputSystem::InputSystem(InputManager &inputManager) : inputManager(inputManager) {
+InputSystem::InputSystem(InputManager &inputManager, GLESC::ECS &ecs) :
+        System(ecs, "InputSystem"), inputManager(inputManager) {
     addComponentRequirement<InputComponent>();
 }
 

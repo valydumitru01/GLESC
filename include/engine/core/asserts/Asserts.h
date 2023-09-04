@@ -14,7 +14,7 @@
 #ifndef NDEBUG
 #define ASSERT_CONTENT(condition, message) \
         Logger::get().error("Assertion `" #condition "` failed in " + std::string(__FILE__) + " line " + \
-        std::to_string(__LINE__) + ": " + std::string(message)); \
+        std::to_string(__LINE__) + ": \n\t" + std::string(message)); \
         std::terminate();
 
 #define ASSERT(condition, message) \

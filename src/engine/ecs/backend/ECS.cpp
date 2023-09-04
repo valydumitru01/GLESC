@@ -4,29 +4,31 @@
  * Licensed under the MIT License. See LICENSE.txt in the project root for license information.
  ******************************************************************************/
 
-#include "engine/ecs/backend/Coordinator.h"
+#include <utility>
+
+#include "engine/ecs/backend/ECS.h"
 
 using namespace GLESC;
 
-std::set<EntityID> Coordinator::getAssociatedEntities(SystemName name) const {
+std::set<EntityID> ECS::getAssociatedEntities(const SystemName& name) const {
     if(!systemManager.isSystemRegistered(name))
         return {};
     return systemManager.getAssociatedEntities(name);
 }
 
-void Coordinator::registerSystem(SystemName name) {
+void ECS::registerSystem(const SystemName& name) {
     if(systemManager.isSystemRegistered(name))
         return;
     systemManager.registerSystem(name);
 }
 
-EntityID Coordinator::createEntity(EntityName name) {
+EntityID ECS::createEntity(const EntityName& name) {
     if(entityManager.doesEntityExist(name))
         return NULL_ENTITY;
     return entityManager.createNextEntity(name);
 }
 
-bool Coordinator::destroyEntity(EntityID entity) {
+bool ECS::destroyEntity(EntityID entity) {
     if(!entityManager.doesEntityExist(entity))
         return false;
     entityManager.destroyEntity(entity);
@@ -35,16 +37,16 @@ bool Coordinator::destroyEntity(EntityID entity) {
     return true;
 }
 
-EntityID Coordinator::getEntityID(EntityName name) const{
-    return entityManager.getEntity(name);
+EntityID ECS::getEntityID(EntityName name) const{
+    return entityManager.getEntity(std::move(name));
 }
 
-EntityName Coordinator::getEntityName(EntityID entity) {
+EntityName ECS::getEntityName(EntityID entity) {
     if(entityManager.doesEntityExist(entity))
         return nullptr;
     return entityManager.getEntityName(entity);
 }
 
-EntityID Coordinator::tryGetEntityID(EntityName name) const {
-    return entityManager.tryGetEntity(name);
+EntityID ECS::tryGetEntityID(EntityName name) const {
+    return entityManager.tryGetEntity(std::move(name));
 }

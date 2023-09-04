@@ -7,7 +7,7 @@
 #include "engine/ecs/frontend/system/systems/CameraSystem.h"
 #include <utility>
 
-CameraSystem::CameraSystem(GLESC::Renderer &renderer) : renderer(renderer) {
+CameraSystem::CameraSystem(GLESC::Renderer &renderer, GLESC::ECS ecs) : System(ecs, "CameraSystem"), renderer(renderer) {
     addComponentRequirement <CameraComponent>();
     addComponentRequirement <TransformComponent>();
 }

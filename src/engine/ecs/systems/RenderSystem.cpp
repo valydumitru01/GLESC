@@ -8,7 +8,8 @@
 
 #include "engine/ecs/frontend/system/systems/RenderSystem.h"
 
-RenderSystem::RenderSystem(GLESC::Renderer &renderer) : renderer(renderer) {
+RenderSystem::RenderSystem(GLESC::Renderer &renderer, GLESC::ECS &ecs) :
+        System(ecs, "RenderSystem"), renderer(renderer) {
     addComponentRequirement<TransformComponent>();
     addComponentRequirement<RenderComponent>();
 };

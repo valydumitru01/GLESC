@@ -15,7 +15,7 @@
 class RenderSystem : public System {
 public:
     void update(double timeOfFrame);
-    explicit RenderSystem(GLESC::Renderer &renderer);
+    explicit RenderSystem(GLESC::Renderer &renderer, GLESC::ECS& ecs);
 private:
     GLESC::Renderer &renderer;
 };

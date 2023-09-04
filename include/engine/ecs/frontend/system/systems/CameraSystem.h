@@ -11,7 +11,7 @@
 
 class CameraSystem : public System {
 public:
-    explicit CameraSystem(GLESC::Renderer &renderer);
+    explicit CameraSystem(GLESC::Renderer &renderer, GLESC::ECS ecs);
     
     void update();
 

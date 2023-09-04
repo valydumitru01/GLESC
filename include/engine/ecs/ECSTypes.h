@@ -27,15 +27,15 @@ using ComponentID = std::uint8_t;
 /**
  * @brief Component name
  */
-using ComponentName = const char *;
+using ComponentName = std::string;
 /**
  * @brief System name
  */
-using SystemName = const char *;
+using SystemName = std::string;
 /**
  * @brief Entity name
  */
-using EntityName = const char *;
+using EntityName = std::string;
 /**
  * @brief Redefinition of the type of the pointer to the component array to
  * reduce verbosity

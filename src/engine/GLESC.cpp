@@ -4,17 +4,17 @@
  * Licensed under the MIT License. See LICENSE.txt in the project root for license information.
  ******************************************************************************/
 #include "engine/GLESC.h"
-#include "engine/ecs/backend/Coordinator.h"
+#include "engine/ecs/backend/ECS.h"
 
 using namespace GLESC;
 
 Engine::Engine() :
         windowManager(graphicInterface),
         renderer(windowManager, graphicInterface),
-        inputSystem(inputManager),
-        physicsSystem(physicsManager),
-        renderSystem(renderer),
-        cameraSystem(renderer) {}
+        inputSystem(inputManager, ecs),
+        physicsSystem(physicsManager, ecs),
+        renderSystem(renderer, ecs),
+        cameraSystem(renderer, ecs) {}
 
 
 void Engine::processInput() {

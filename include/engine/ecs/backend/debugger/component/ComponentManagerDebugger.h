@@ -25,9 +25,9 @@ namespace GLESC {
         for (const auto &[name, array] : componentManager.componentArrays) {
             Logger::get().info(std::string("Component name: ") + name);
             for (int i = 0; i < static_cast<int>(array->getSize()); i++) {
-                Logger::get().info(
+                Logger::get().importantInfo(
                         std::string("Component Index: ") + std::to_string(i) +
-                        std::string(" Component Values: ") + array->getComponent(i).toString());
+                        std::string(" Component Values: \n") + array->getComponent(i).toString());
             }
         }
         Logger::get().info(std::string("Next component ID: ") + std::to_string(componentManager.nextComponentID));

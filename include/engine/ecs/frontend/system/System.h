@@ -7,7 +7,7 @@
 #pragma once
 
 #include "engine/ecs/frontend/entity/Entity.h"
-#include "engine/ecs/backend/Coordinator.h"
+#include "engine/ecs/backend/ECS.h"
 #include "engine/core/logger/Logger.h"
 #include <set>
 #include <memory>
@@ -16,22 +16,22 @@ class System {
     friend class Entity;
 
 public:
-    System();
+    explicit System(GLESC::ECS& ecs, const SystemName& name);
     
     template<class T>
     void addComponentRequirement() {
-        GLESC::ECS::getECS()
-                ->addComponentRequirementToSystem<T>(this->name());
+        ecs.addComponentRequirementToSystem<T>(name);
     }
     
     [[nodiscard]] std::set<EntityID> getAssociatedEntities() const;
 
 
 protected:
-    [[nodiscard]] inline SystemName name() const { return typeid(*this).name(); }
-    
     template<class T>
     inline T &getComponent(EntityID entityId) {
-        return GLESC::ECS::getECS()->getComponent<T>(entityId);
+        return ecs.getComponent<T>(entityId);
     }
+private:
+    GLESC::ECS& ecs;
+    SystemName name;
 };

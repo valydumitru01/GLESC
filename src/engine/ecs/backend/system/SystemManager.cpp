@@ -12,12 +12,12 @@
 #include "engine/ecs/backend/asserts/system/SystemAsserts.h"
 
 
-[[nodiscard]] std::set<EntityID> SystemManager::getAssociatedEntities(SystemName name) const {
+[[nodiscard]] std::set<EntityID> SystemManager::getAssociatedEntities(const SystemName& name) const {
     ASSERT_SYSTEM_IS_REGISTERED(name);
     return associatedEntities.find(name)->second;
 }
 
-void SystemManager::registerSystem(SystemName name) {
+void SystemManager::registerSystem(const SystemName& name) {
     ASSERT_SYSTEM_IS_NOT_REGISTERED(name);
     systemSignatures.try_emplace(name, Signature{});
     associatedEntities.try_emplace(name);
@@ -57,21 +57,21 @@ void SystemManager::entityDestroyed(EntityID entity) {
     }
 }
 
-bool SystemManager::isSystemRegistered(SystemName name) const{
+bool SystemManager::isSystemRegistered(const SystemName& name) const{
     return systemSignatures.find(name) != systemSignatures.end();
 }
 
-void SystemManager::addComponentRequirementToSystem(SystemName name, ComponentID componentID) {
+void SystemManager::addComponentRequirementToSystem(const SystemName& name, ComponentID componentID) {
     ASSERT_SYSTEM_IS_REGISTERED(name);
     ASSERT_COMPONENT_IS_NOT_REQUIRED_BY_SYSTEM(name, componentID);
     systemSignatures.find(name)->second.set(componentID);
     ASSERT_COMPONENT_IS_REQUIRED_BY_SYSTEM(name, componentID);
 }
 
-[[maybe_unused]] bool SystemManager::isEntityAssociatedWithSystem(SystemName name, EntityID entity) const {
+[[maybe_unused]] bool SystemManager::isEntityAssociatedWithSystem(const SystemName& name, EntityID entity) const {
     return associatedEntities.find(name)->second.find(entity) != associatedEntities.find(name)->second.end();
 }
 
-[[maybe_unused]] bool SystemManager::isComponentRequiredBySystem(SystemName system, ComponentID component) const {
+[[maybe_unused]] bool SystemManager::isComponentRequiredBySystem(const SystemName& system, ComponentID component) const {
     return systemSignatures.find(system)->second.test(component);
 }

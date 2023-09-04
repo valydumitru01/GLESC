@@ -14,9 +14,6 @@
 # EXTERNAL cache entries
 ########################
 
-//The directory containing a CMake configuration file for $.
-$_DIR:PATH=$_DIR-NOTFOUND
-
 //Builds the googlemock subproject
 BUILD_GMOCK:BOOL=ON
 
@@ -69,7 +66,7 @@ CMAKE_CXX_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG
 CMAKE_CXX_STANDARD_LIBRARIES:STRING=-lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
 
 //C compiler
-CMAKE_C_COMPILER:STRING=C:/MinGW/bin/gcc.exe
+CMAKE_C_COMPILER:FILEPATH=C:/MinGW/bin/gcc.exe
 
 //A wrapper around 'ar' adding the appropriate '--plugin' option
 // for the GCC compiler
@@ -337,9 +334,6 @@ FETCHCONTENT_UPDATES_DISCONNECTED_GOOGLETEST:BOOL=OFF
 //Enable installation of googletest. (Projects embedding googletest
 // may want to turn this OFF.)
 INSTALL_GTEST:BOOL=ON
-
-//The directory containing a CMake configuration file for ImGui.
-ImGui_DIR:PATH=ImGui_DIR-NOTFOUND
 
 //Value Computed by CMake
 game_BINARY_DIR:STATIC=C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release

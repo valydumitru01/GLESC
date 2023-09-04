@@ -412,6 +412,62 @@ private:
                 return GL_VERTEX_SHADER;
             case static_cast<GLuint>(GAPIValues::ShaderTypeFragment):
                 return GL_FRAGMENT_SHADER;
+                
+                // Clear
+            case static_cast<GLuint>(GAPIValues::ClearBitsDepth):
+                return GL_DEPTH_BUFFER_BIT;
+            case static_cast<GLuint>(GAPIValues::ClearBitsColor):
+                return GL_COLOR_BUFFER_BIT;
+            case static_cast<GLuint>(GAPIValues::ClearBitsStencil):
+                return GL_STENCIL_BUFFER_BIT;
+                
+                // Stencil
+            case static_cast<GLuint>(GAPIValues::StencilTest):
+                return GL_STENCIL_TEST;
+            case static_cast<GLuint>(GAPIValues::StencilTestAlways):
+                return GL_ALWAYS;
+            case static_cast<GLuint>(GAPIValues::StencilTestNever):
+                return GL_NEVER;
+            case static_cast<GLuint>(GAPIValues::StencilTestLess):
+                return GL_LESS;
+            case static_cast<GLuint>(GAPIValues::StencilTestLessEqual):
+                return GL_LEQUAL;
+            case static_cast<GLuint>(GAPIValues::StencilTestGreater):
+                return GL_GREATER;
+            case static_cast<GLuint>(GAPIValues::StencilTestGreaterEqual):
+                return GL_GEQUAL;
+            case static_cast<GLuint>(GAPIValues::StencilTestEqual):
+                return GL_EQUAL;
+            case static_cast<GLuint>(GAPIValues::StencilTestNotEqual):
+                return GL_NOTEQUAL;
+            case static_cast<GLuint>(GAPIValues::StencilFail):
+                return GL_STENCIL_FAIL;
+            case static_cast<GLuint>(GAPIValues::StencilPassDepthFail):
+                return GL_STENCIL_PASS_DEPTH_FAIL;
+            case static_cast<GLuint>(GAPIValues::StencilPassDepthPass):
+                return GL_STENCIL_PASS_DEPTH_PASS;
+            case static_cast<GLuint>(GAPIValues::StencilFunc):
+                return GL_STENCIL_FUNC;
+            case static_cast<GLuint>(GAPIValues::StencilRef):
+                return GL_STENCIL_REF;
+            case static_cast<GLuint>(GAPIValues::StencilValueMask):
+                return GL_STENCIL_VALUE_MASK;
+            case static_cast<GLuint>(GAPIValues::StencilWriteMask):
+                return GL_STENCIL_WRITEMASK;
+            case static_cast<GLuint>(GAPIValues::StencilBackFunc):
+                return GL_STENCIL_BACK_FUNC;
+            case static_cast<GLuint>(GAPIValues::StencilBackFail):
+                return GL_STENCIL_BACK_FAIL;
+            case static_cast<GLuint>(GAPIValues::StencilBackPassDepthFail):
+                return GL_STENCIL_BACK_PASS_DEPTH_FAIL;
+            case static_cast<GLuint>(GAPIValues::StencilBackPassDepthPass):
+                return GL_STENCIL_BACK_PASS_DEPTH_PASS;
+            case static_cast<GLuint>(GAPIValues::StencilBackRef):
+                return GL_STENCIL_BACK_REF;
+            case static_cast<GLuint>(GAPIValues::StencilBackValueMask):
+                return GL_STENCIL_BACK_VALUE_MASK;
+            case static_cast<GLuint>(GAPIValues::StencilBackWriteMask):
+                return GL_STENCIL_BACK_WRITEMASK;
             default:
                 throw GAPIException("Texture filter not supported");
             

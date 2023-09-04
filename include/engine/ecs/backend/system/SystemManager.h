@@ -14,11 +14,11 @@ private:
     /**
      * @brief A map of the names of the systems and their associated entities
      */
-    std::unordered_map<SystemName, std::set <EntityID>> associatedEntities;
+    std::unordered_map<SystemName, std::set <EntityID>> associatedEntities{};
     /**
      * @brief A map of the names of the systems and their signatures
      */
-    std::unordered_map<SystemName, Signature> systemSignatures;
+    std::unordered_map<SystemName, Signature> systemSignatures{};
 public:
     SystemManager() = default;
     
@@ -29,7 +29,7 @@ public:
      * such as the signature and the associated entities. The system must not be registered.
      * @param name
      */
-    void registerSystem(SystemName name);
+    void registerSystem(const SystemName& name);
     
     /**
      * @brief Adds a component requirement to a system, this changes the entities that are considered
@@ -37,7 +37,7 @@ public:
      * @param name The name of the system
      * @param componentID The ID of the component
      */
-    void addComponentRequirementToSystem(SystemName name, ComponentID componentID);
+    void addComponentRequirementToSystem(const SystemName& name, ComponentID componentID);
     
     /**
      * @brief Removes the entity from the systems it is associated with.
@@ -58,14 +58,14 @@ public:
      * @param name The name of the system
      * @return A set of entities associated with the system
      */
-    [[nodiscard]] std::set<EntityID> getAssociatedEntities(SystemName name) const;
+    [[nodiscard]] std::set<EntityID> getAssociatedEntities(const SystemName& name) const;
     
     /**
      * @brief Checks if a system is registered
      * @param name The name of the system
      * @return True if the system is registered, false otherwise
      */
-    [[nodiscard]] bool isSystemRegistered(SystemName name) const;
+    [[nodiscard]] bool isSystemRegistered(const SystemName& name) const;
     
     /**
      * @brief Checks if an entity is associated with a system
@@ -73,14 +73,14 @@ public:
      * @param entity The ID of the entity
      * @return True if the entity is associated with the system, false otherwise
      */
-    [[maybe_unused]] [[nodiscard]] bool isEntityAssociatedWithSystem(SystemName name, EntityID entity) const;
+    [[maybe_unused]] [[nodiscard]] bool isEntityAssociatedWithSystem(const SystemName& name, EntityID entity) const;
     /**
      * @brief Checks if a component is required by a system
      * @param system The name of the system
      * @param component The ID of the component
      * @return True if the component is required by the system, false otherwise
      */
-    [[maybe_unused]] [[nodiscard]] bool isComponentRequiredBySystem(SystemName system, ComponentID component) const;
+    [[maybe_unused]] [[nodiscard]] bool isComponentRequiredBySystem(const SystemName& system, ComponentID component) const;
 
 
 };

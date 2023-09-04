@@ -12,16 +12,16 @@
 #include "engine/ecs/backend/component/ComponentManager.h"
 
 namespace GLESC {
-    class Coordinator {
+    class ECS {
     public:
-        Coordinator() = default;
+        ECS() = default;
         
         /**
          * @brief Create an entity with the given name. The name must be unique.
          * @param name The name of the entity
          * @return The ID of the entity or NULL_ENTITY if the entity name already exists.
          */
-        EntityID createEntity(EntityName name);
+        EntityID createEntity(const EntityName &name);
         
         /**
          * @brief Destroy an entity
@@ -29,9 +29,6 @@ namespace GLESC {
          * @return True if the entity was destroyed, false if the entity does not exist
          */
         bool destroyEntity(EntityID entity);
-        
-        template<class Component>
-        void registerComponent();
         
         template<class Component>
         void addComponent(EntityID entity, Component component);
@@ -50,7 +47,7 @@ namespace GLESC {
          * If the system is already registered, nothing happens.
          * @param name The name of the system
          */
-        void registerSystem(SystemName name);
+        void registerSystem(const SystemName &name);
         
         template<typename System>
         bool doesEntityHaveComponent(EntityID entity);
@@ -61,6 +58,7 @@ namespace GLESC {
          * @return The ID of the entity with the given name or NULL_ENTITY if the entity does not exist
          */
         EntityID getEntityID(EntityName name) const;
+        
         /**
          * @brief Tries to get the entity ID from the entity name.
          * @details This will return the ID of the entity with the given name. If the entity does not exist,
@@ -79,7 +77,7 @@ namespace GLESC {
          * @param componentID The ID of the component
          */
         template<typename Component>
-        void addComponentRequirementToSystem(SystemName name);
+        void addComponentRequirementToSystem(const SystemName& name);
         
         /**
          * @brief Get the name of the entity given the ID
@@ -93,55 +91,48 @@ namespace GLESC {
          * @param name The name of the system
          * @return A set of entities associated with the system or an empty set if the system does not exist
          */
-        [[nodiscard]] std::set<EntityID> getAssociatedEntities(SystemName name) const;
+        [[nodiscard]] std::set<EntityID> getAssociatedEntities(const SystemName &name) const;
     
     private:
-        ComponentManager componentManager;
-        SystemManager systemManager;
-        EntityManager entityManager;
-    }; // class Coordinator
-    
-    class ECS {
-    public:
-        static std::shared_ptr<Coordinator> getECS() {
-            static std::shared_ptr<Coordinator> coordinator;
-            return coordinator;
-        }
+        ComponentManager componentManager{};
+        SystemManager systemManager{};
+        EntityManager entityManager{};
     }; // class ECS
     
     
+    
     template<typename Component>
-    void Coordinator::addComponent(EntityID entity, Component component) {
+    void ECS::addComponent(EntityID entity, Component component) {
         componentManager.addComponent<Component>(entity, component);
     }
     
     template<class Component>
-    void Coordinator::removeComponent(EntityID entity) {
+    void ECS::removeComponent(EntityID entity) {
         componentManager.removeComponent<Component>(entity);
         systemManager.entitySignatureChanged(entity, entityManager.getSignature(entity));
     }
     
     template<class Component>
-    Component &Coordinator::getComponent(EntityID entity) {
+    Component &ECS::getComponent(EntityID entity) {
         return componentManager.getComponent<Component>(entity);
     }
     
     template<class Component>
-    ComponentID Coordinator::getComponentID() {
+    ComponentID ECS::getComponentID() {
         return componentManager.getComponentID<Component>();
     }
-    
+
     template<typename Component>
-    void Coordinator::addComponentRequirementToSystem(SystemName name) {
-        if(!systemManager.isSystemRegistered(name))
+    void ECS::addComponentRequirementToSystem(const SystemName& name) {
+        if (!systemManager.isSystemRegistered(name))
             return;
-        
+        componentManager.registerComponentIfNotRegistered<Component>();
         systemManager.addComponentRequirementToSystem(name,
                                                       componentManager.getComponentID<Component>());
     }
     
     template<typename System>
-    bool Coordinator::doesEntityHaveComponent(EntityID entity) {
+    bool ECS::doesEntityHaveComponent(EntityID entity) {
         return entityManager.doesEntityHaveComponent(entity, componentManager.getComponentID<System>());
     }
     

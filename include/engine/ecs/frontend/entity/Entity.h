@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include "engine/ecs/backend/Coordinator.h"
+#include "engine/ecs/backend/ECS.h"
 #include "engine/core/logger/Logger.h"
 #include "engine/ecs/ECSTypes.h"
 
@@ -23,18 +23,20 @@ namespace GLESC {
          * @brief This constructor is internal to the ECS, it is used to create a new Entity
          * @param name The name of the entity
          */
-        explicit Entity(EntityName name);
+        explicit Entity(const EntityName& name, ECS& ecs);
         /**
          * @brief This constructor is internal to the ECS, it is used to cast an EntityID to an Entity
          * @param id
          */
-        explicit Entity(EntityID id);
+        explicit Entity(EntityID id, ECS& ecs);
     
         /**
          * @brief The entity's ID
          * The ID is used to identify the entity in the ECS
          */
         const EntityID ID;
+        
+        ECS& ecs;
     public:
         
         /**
@@ -89,22 +91,22 @@ namespace GLESC {
 
 template<typename Component>
 GLESC::Entity &GLESC::Entity::addComponent(Component &&component) {
-    GLESC::ECS::getECS()->addComponent<Component>(ID, std::forward<Component>(component));
+    ecs.addComponent<Component>(ID, std::forward<Component>(component));
     return *this;
 }
 
 template<typename Component>
 GLESC::Entity &GLESC::Entity::removeComponent() {
-    GLESC::ECS::getECS()->removeComponent<Component>(ID);
+    ecs.removeComponent<Component>(ID);
     return *this;
 }
 
 template<typename Component>
 [[nodiscard]] Component &GLESC::Entity::getComponent() const {
-    return GLESC::ECS::getECS()->getComponent<Component>(ID);
+    return ecs.getComponent<Component>(ID);
 }
 
 template<typename Component>
 bool GLESC::Entity::hasComponent() const {
-    return GLESC::ECS::getECS()->doesEntityHaveComponent(ID, GLESC::ECS::getECS()->getComponentID<Component>());
+    return ecs.doesEntityHaveComponent(ID, ecs.getComponentID<Component>());
 }
