@@ -14,7 +14,10 @@
         Logger::get().info(initialMessage);     \
         CONTENT                                 \
         } while(0)
-
+#define DEBUG_CODE_BASIC(CONTENT) \
+        do{                                     \
+        CONTENT                                 \
+        } while(0)
 #else
 #define DEBUG_CODE(initialMessage, CONTENT) \
         do { } while (0)

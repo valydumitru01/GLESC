@@ -93,6 +93,7 @@ enum class GAPIValues {
     StencilBackValueMask [[maybe_unused]],
     StencilBackWriteMask [[maybe_unused]],
     
+    
     // Blending
     Blending [[maybe_unused]],
     BlendingOneMinusSrcAlpha [[maybe_unused]],
@@ -141,8 +142,10 @@ enum class GAPIValues {
     
     // Texture Unit
     TextureUnit0 [[maybe_unused]],
-    TextureUnit1 [[maybe_unused]],
+    TextureUnit1 [[maybe_unused]]
 };
+
+
 
 class IGraphicInterface {
 public:

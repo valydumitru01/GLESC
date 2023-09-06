@@ -69,8 +69,6 @@ o
 ?include/engine/core/low-level-renderer/texture/TextureManager.h,b\4\b42e51a6e7090d4f8cd7dc9daeb756d89f9a77bf
 l
 <include/engine/core/low-level-renderer/buffers/IndexBuffer.h,8\b\8be581a11a857cc03405edf6eff9e26352ef8b73
-V
-&src/engine/ecs/backend/Coordinator.cpp,0\6\0699ff40617500bd98220b47badf9bf84e7a225d
 j
 :src/engine/core/low-level-renderer/buffers/IndexBuffer.cpp,9\d\9db8d3fd77203693c0d3e4ac4b1a0a19e06f9971
 ƒ
@@ -87,8 +85,6 @@ j
 :include/engine/subsystems/renderer/shaders/ShaderManager.h,2\0\2044f20453aa5d5f8663f12f3674501030a26fba
 M
 include/engine/ecs/ECSTypes.h,0\a\0aae88874e7c2d482b393024bca136e678fcbdb1
-X
-(include/engine/ecs/backend/Coordinator.h,7\5\75bf3f4c9b6b5128301afc82009b1cbea23a32ad
 W
 'src/engine/ecs/systems/CameraSystem.cpp,5\a\5a6d8e5cf6473a464d43587adf5a5d79508c2520
 D

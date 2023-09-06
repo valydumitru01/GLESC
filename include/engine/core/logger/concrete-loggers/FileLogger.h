@@ -33,6 +33,8 @@ public:
     
     void importantInfoPurple(const std::string &text) override;
     
+    void importantSuccess(const std::string &text) override;
+    
     void success(const std::string &text) override;
 private:
     std::ofstream logFile;

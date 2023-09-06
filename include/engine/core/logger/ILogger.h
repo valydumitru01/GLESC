@@ -8,7 +8,7 @@
 #include <string>
 class ILogger{
 public:
-    virtual ~ILogger() {};
+    virtual ~ILogger() = default;
     /**
      * @brief Display log messages
      * Background and text default
@@ -88,9 +88,14 @@ public:
      */
     virtual void importantInfoPurple(const std::string &text) = 0;
     
+    /**
+     * @brief Display important success information
+     * @param text
+     */
+    virtual void importantSuccess(const std::string &text) = 0;
     
     /**
-     * @brief Display important information
+     * @brief Display success information
      * Background -- Green
      * Text       -- White Bold
      *

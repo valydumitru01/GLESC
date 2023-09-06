@@ -35,7 +35,6 @@ void OpenGLDebugger::enableGlDebugCallback() {
 
 void OpenGLDebugger::setSdlGlDebugContextAttribute() {
     #ifdef DEBUG
-    Logger::get().warning("ENTERING DEBUG MODE");
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_FLAGS, SDL_GL_CONTEXT_DEBUG_FLAG);
     #endif
 }

@@ -9,9 +9,6 @@
 #include <memory>
 #include <vector>
 #include "ILogger.h"
-//Include loggers
-#include "engine/core/logger/concrete-loggers/TerminalLogger.h"
-#include "engine/core/logger/concrete-loggers/FileLogger.h"
 
 
 class Logger : public ILogger{
@@ -61,6 +58,8 @@ public:
     
     void importantInfoPurple(const std::string &text) override;
 
+    void importantSuccess(const std::string &text) override;
+    
     void success(const std::string &text) override;
 private:
     Logger();

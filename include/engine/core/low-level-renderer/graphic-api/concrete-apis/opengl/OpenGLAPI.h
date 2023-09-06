@@ -17,6 +17,7 @@
 #include "engine/core/low-level-renderer/asserts/GAPIAsserts.h"
 #include "engine/core/low-level-renderer/graphic-api/IGraphicInterface.h"
 #include "engine/core/low-level-renderer/graphic-api/concrete-apis/opengl/OpenGLDebugger.h"
+#include "engine/core/low-level-renderer/debugger/graphic-api/GAPIDebugger.h"
 
 
 class OpenGLAPI final : public IGraphicInterface {
@@ -24,6 +25,7 @@ public:
     explicit OpenGLAPI() {
         ASSERT_GL_CORRECT_VERSION();
     }
+    
     
     [[nodiscard]] GraphicsAPI getGraphicsAPI() const override { return GraphicsAPI::OPENGL; }
     
@@ -94,18 +96,20 @@ public:
     
     [[nodiscard]] SDL_GLContext getContext() const { return context; };
     
-    void preWindowCreationInit() override{
+    void preWindowCreationInit() override {
+        PRINT_GAPI_INIT("OpenGL",
+                        std::to_string(GLESC_GL_MAJOR_VERSION) + "." + std::to_string(GLESC_GL_MINOR_VERSION));
         // Core functions of OpenGL a.k.a. full modern openGL functionality.
         // More info: https://wiki.libsdl.org/SDL_GLprofile
-        if (GLESC_GLSL_CORE_PROFILE)
+        if (GLESC_GLSL_CORE_PROFILE) [[likely]]
             setSDLGLAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
         else
             setSDLGLAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_COMPATIBILITY);
         // We're using OpenGL Version 4.3 (released in 2012).
         // Changing this numbers will change some functions available of OpenGL.
         // Choosing a relatively old version of OpenGl allow most computers to use it.
-        setSDLGLAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, GLESC_GLSL_MAJOR_VERSION);
-        setSDLGLAttribute(SDL_GL_CONTEXT_MINOR_VERSION, GLESC_GLSL_MINOR_VERSION);
+        setSDLGLAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, GLESC_GL_MAJOR_VERSION);
+        setSDLGLAttribute(SDL_GL_CONTEXT_MINOR_VERSION, GLESC_GL_MINOR_VERSION);
         // Stencil size of 4 bits is used
         // Could be increased later if needed
         // Increases performance the lower it is, fewer data stored in each pixel
@@ -114,7 +118,8 @@ public:
         // Possible performance loss
         OpenGLDebugger::setSdlGlDebugContextAttribute();
     }
-    void postWindowCreationInit() override{
+    
+    void postWindowCreationInit() override {
         // Initialize GLEW, must be called before the following OpenGL calls
         initGLEW();
         
@@ -235,86 +240,95 @@ public:
     // -------------------------------- Uniforms ------------------------------------
     
     
-    inline GAPIint getUniformLocation(GAPIuint program, const std::string &name) override{
+    inline GAPIint getUniformLocation(GAPIuint program, const std::string &name) override {
         return glGetUniformLocation(program, name.c_str());
     }
     
-    inline void setUniform1Float(GAPIint location, GAPIfloat v0) override{
+    inline void setUniform1Float(GAPIint location, GAPIfloat v0) override {
         glUniform1f(location, v0);
     }
     
-    inline void setUniform1FloatVector(GAPIint location, GAPIsize count, const GAPIfloat *value) override{
+    inline void setUniform1FloatVector(GAPIint location, GAPIsize count, const GAPIfloat *value) override {
         glUniform1fv(location, count, value);
     }
     
-    inline void setUniform1Int(GAPIint location, GAPIint v0) override{
+    inline void setUniform1Int(GAPIint location, GAPIint v0) override {
         glUniform1i(location, v0);
     }
     
-    inline void setUniform1IntVector(GAPIint location, GAPIsize count, const GAPIint *value) override{
+    inline void setUniform1IntVector(GAPIint location, GAPIsize count, const GAPIint *value) override {
         glUniform1iv(location, count, value);
     }
     
-    inline void setUniform2Float(GAPIint location, GAPIfloat v0, GAPIfloat v1) override{
+    inline void setUniform2Float(GAPIint location, GAPIfloat v0, GAPIfloat v1) override {
         glUniform2f(location, v0, v1);
     }
     
-    inline void setUniform2FloatVector(GAPIint location, GAPIsize count, const GAPIfloat *value) override{
+    inline void setUniform2FloatVector(GAPIint location, GAPIsize count, const GAPIfloat *value) override {
         glUniform2fv(location, count, value);
     }
     
-    inline void setUniform2Int(GAPIint location, GAPIint v0, GAPIint v1) override{
+    inline void setUniform2Int(GAPIint location, GAPIint v0, GAPIint v1) override {
         glUniform2i(location, v0, v1);
     }
     
-    inline void setUniform2IntVector(GAPIint location, GAPIsize count, const GAPIint *value) override{
+    inline void setUniform2IntVector(GAPIint location, GAPIsize count, const GAPIint *value) override {
         glUniform2iv(location, count, value);
     }
     
-    inline void setUniform3Float(GAPIint location, GAPIfloat v0, GAPIfloat v1, GAPIfloat v2) override{
+    inline void setUniform3Float(GAPIint location, GAPIfloat v0, GAPIfloat v1, GAPIfloat v2) override {
         glUniform3f(location, v0, v1, v2);
     }
     
-    inline void setUniform3FloatVector(GAPIint location, GAPIsize count, const GAPIfloat *value) override{
+    inline void setUniform3FloatVector(GAPIint location, GAPIsize count, const GAPIfloat *value) override {
         glUniform3fv(location, count, value);
     }
     
-    inline void setUniform3Int(GAPIint location, GAPIint v0, GAPIint v1, GAPIint v2) override{
+    inline void setUniform3Int(GAPIint location, GAPIint v0, GAPIint v1, GAPIint v2) override {
         glUniform3i(location, v0, v1, v2);
     }
     
-    inline void setUniform3IntVector(GAPIint location, GAPIsize count, const GAPIint *value) override{
+    inline void setUniform3IntVector(GAPIint location, GAPIsize count, const GAPIint *value) override {
         glUniform3iv(location, count, value);
     }
     
-    inline void setUniform4Float(GAPIint location, GAPIfloat v0, GAPIfloat v1, GAPIfloat v2, GAPIfloat v3) override{
+    inline void setUniform4Float(GAPIint location, GAPIfloat v0, GAPIfloat v1, GAPIfloat v2, GAPIfloat v3) override {
         glUniform4f(location, v0, v1, v2, v3);
     }
     
-    inline void setUniform4FloatVector(GAPIint location, GAPIsize count, const GAPIfloat *value) override{
+    inline void setUniform4FloatVector(GAPIint location, GAPIsize count, const GAPIfloat *value) override {
         glUniform4fv(location, count, value);
     }
     
-    inline void setUniform4Int(GAPIint location, GAPIint v0, GAPIint v1, GAPIint v2, GAPIint v3) override{
+    inline void setUniform4Int(GAPIint location, GAPIint v0, GAPIint v1, GAPIint v2, GAPIint v3) override {
         glUniform4i(location, v0, v1, v2, v3);
     }
     
-    inline void setUniform4IntVector(GAPIint location, GAPIsize count, const GAPIint *value) override{
+    inline void setUniform4IntVector(GAPIint location, GAPIsize count, const GAPIint *value) override {
         glUniform4iv(location, count, value);
     }
     
     inline void
-    setUniformMatrix2FloatVector(GAPIint location, GAPIsize count, GAPIbool transpose, const GAPIfloat *value) override{
+    setUniformMatrix2FloatVector(GAPIint location,
+                                 GAPIsize count,
+                                 GAPIbool transpose,
+                                 const GAPIfloat *value) override {
         glUniformMatrix2fv(location, count, transpose, value);
     }
     
     inline void
-    setUniformMatrix3FloatVector(GAPIint location, GAPIsize count, GAPIbool transpose, const GAPIfloat *value) override{
+    setUniformMatrix3FloatVector(GAPIint location,
+                                 GAPIsize count,
+                                 GAPIbool transpose,
+                                 const GAPIfloat *value) override {
         glUniformMatrix3fv(location, count, transpose, value);
     }
     
     inline void
-    setUniformMatrix4FloatVector(GAPIint location, GAPIsize count, GAPIbool transpose, const GAPIfloat *value) override{
+    setUniformMatrix4FloatVector(GAPIint location,
+                                 GAPIsize count,
+                                 GAPIbool transpose,
+                                 const GAPIfloat *value) override {
         glUniformMatrix4fv(location, count, transpose, value);
     }
     
@@ -323,7 +337,7 @@ public:
         glUseProgram(shaderProgram);
     }
     
-    void clear(const std::initializer_list<GAPIValues>& values) override {
+    void clear(const std::initializer_list<GAPIValues> &values) override {
         GLuint mask = 0;
         for (auto value : values) {
             mask |= translateEnumToOpenGL(value);
@@ -348,6 +362,7 @@ public:
         // Must be called after creating the context
         this->setViewport(x, y, w, h);
     }
+
 private:
     
     void setSDLGLAttribute(SDL_GLattr attrib, int val) {

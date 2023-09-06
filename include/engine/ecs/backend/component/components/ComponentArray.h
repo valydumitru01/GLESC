@@ -29,30 +29,7 @@ public:
 
 template<typename Component>
 class ComponentArray : public IComponentArray {
-private:
-    /**
-     * @brief The packed array of components (of generic type T),
-     * set to a specified maximum amount, matching the maximum number
-     * of entities allowed to exist simultaneously, so that each entity
-     * has a unique spot.
-     */
-    std::array<Component, maxEntities> componentArray;
-    
-    /**
-     * @brief Map from an entity ID to an array index.
-     *
-     */
-    boost::bimap<EntityID, size_t> entityToIndexMap;
-    
-    /**
-     * @brief Total size of valid entries in the array.
-     *
-     */
-    size_t size{};
-    
-    inline size_t getSize() override {
-        return size;
-    }
+
 public:
     
     IComponent& getComponent(int index) override {
@@ -159,6 +136,29 @@ public:
             removeData(entity);
         }
     }
-
+private:
+    /**
+     * @brief The packed array of components (of generic type T),
+     * set to a specified maximum amount, matching the maximum number
+     * of entities allowed to exist simultaneously, so that each entity
+     * has a unique spot.
+     */
+    std::array<Component, maxEntities> componentArray;
+    
+    /**
+     * @brief Map from an entity ID to an array index.
+     *
+     */
+    boost::bimap<EntityID, size_t> entityToIndexMap;
+    
+    /**
+     * @brief Total size of valid entries in the array.
+     *
+     */
+    size_t size{};
+    
+    inline size_t getSize() override {
+        return size;
+    }
 
 };

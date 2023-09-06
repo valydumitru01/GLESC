@@ -6,6 +6,9 @@
 
 #include "engine/core/logger/Logger.h"
 
+//Include loggers
+#include "engine/core/logger/concrete-loggers/TerminalLogger.h"
+#include "engine/core/logger/concrete-loggers/FileLogger.h"
 Logger::Logger() {
     addLogger(std::make_unique<TerminalLogger>());
     addLogger(std::make_unique<FileLogger>());
@@ -64,4 +67,8 @@ void Logger::importantInfoPurple(const std::string &text){
 
 void Logger::success(const std::string &text){
     executeOnAllInputs(&ILogger::success, text);
+}
+
+void Logger::importantSuccess(const std::string &text) {
+    executeOnAllInputs(&ILogger::importantSuccess, text);
 }

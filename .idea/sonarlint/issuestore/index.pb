@@ -51,16 +51,12 @@ W
 'include/engine/core/debugger/Debugger.h,d\0\d0c0a520391af322d0292a638913289e86dfcd33
 r
 Binclude/engine/ecs/backend/debugger/entity/EntityManagerDebugger.h,2\a\2a8a0512c054b54e894d2c629a50f2b245d4b88f
-V
-&src/engine/ecs/backend/Coordinator.cpp,0\6\0699ff40617500bd98220b47badf9bf84e7a225d
 M
 include/engine/ecs/ECSTypes.h,0\a\0aae88874e7c2d482b393024bca136e678fcbdb1
 W
 'src/engine/ecs/systems/CameraSystem.cpp,5\a\5a6d8e5cf6473a464d43587adf5a5d79508c2520
 _
 /src/engine/ecs/backend/entity/EntityManager.cpp,2\b\2bd1f1606331b1b72ba288e702f5ea3cf447a9d2
-X
-(include/engine/ecs/backend/Coordinator.h,7\5\75bf3f4c9b6b5128301afc82009b1cbea23a32ad
 j
 :include/engine/subsystems/renderer/shaders/ShaderManager.h,2\0\2044f20453aa5d5f8663f12f3674501030a26fba
 j

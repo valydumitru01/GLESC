@@ -16,9 +16,7 @@ FileLogger::FileLogger() {
 
 
 FileLogger::~FileLogger() {
-    if (logFile.is_open()) {
-        logFile.close();
-    }
+    logFile.close();
 }
 void FileLogger::log(const std::string &text) {
     logFile << "[LOG] " << text << std::endl;
@@ -54,6 +52,10 @@ void FileLogger::importantInfoBlue(const std::string &text) {
 
 void FileLogger::importantInfoPurple(const std::string &text) {
     logFile << "[IMPORTANT INFO Purple] " << text << std::endl;
+}
+
+void FileLogger::importantSuccess(const std::string &text) {
+    logFile << "[IMPORTANT SUCCESS] " << text << std::endl;
 }
 
 void FileLogger::success(const std::string &text) {

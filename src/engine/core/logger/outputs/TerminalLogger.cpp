@@ -44,7 +44,10 @@ void TerminalLogger::importantInfoBlue(const std::string &text) {
 void TerminalLogger::importantInfoPurple(const std::string &text) {
     std::cout << dye::black_on_purple(text) << std::endl;
 }
-
-void TerminalLogger::success(const std::string &text) {
+void TerminalLogger::importantSuccess(const std::string &text) {
     std::cout << dye::black_on_green(text) << std::endl;
 }
+void TerminalLogger::success(const std::string &text) {
+    std::cout << dye::green_on_black(text) << std::endl;
+}
+
