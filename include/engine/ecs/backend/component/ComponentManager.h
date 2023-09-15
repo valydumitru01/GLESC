@@ -6,7 +6,7 @@
 
 #pragma once
 #include "engine/ecs/ECSTypes.h"
-#include "engine/ecs/backend/component/components/ComponentArray.h"
+#include "engine/ecs/frontend/component/ComponentArray.h"
 #include "engine/ecs/backend/asserts/component/ComponentAsserts.h"
 
 namespace GLESC {

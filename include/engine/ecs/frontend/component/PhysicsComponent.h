@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include "engine/ecs/backend/component/IComponent.h"
+#include "IComponent.h"
 #include "engine/core/math/debugger/MathDebugger.h"
 
 struct PhysicsComponent : public IComponent {

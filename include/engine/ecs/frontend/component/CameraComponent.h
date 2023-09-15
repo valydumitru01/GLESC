@@ -7,7 +7,7 @@
 #pragma once
 
 #include "glm/glm.hpp"
-#include "engine/ecs/backend/component/IComponent.h"
+#include "IComponent.h"
 #include "engine/core/math/debugger/MathDebugger.h"
 
 struct CameraComponent : IComponent {

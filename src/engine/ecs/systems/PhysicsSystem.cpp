@@ -5,7 +5,7 @@
  ******************************************************************************/
 
 #include "engine/ecs/frontend/system/systems/PhysicsSystem.h"
-#include "engine/ecs/backend/component/components/PhysicsComponent.h"
+#include "engine/ecs/frontend/component/PhysicsComponent.h"
 
 PhysicsSystem::PhysicsSystem(PhysicsManager &physicsManager, GLESC::ECS &ecs) : System(ecs, "PhysicsSystem"),
         gravity({0, 8.91, 0}), physicsManager(physicsManager){

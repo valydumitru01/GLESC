@@ -8,7 +8,7 @@
 
 #include <unordered_map>
 
-#include "engine/ecs/backend/component/IComponent.h"
+#include "IComponent.h"
 #include "engine/subsystems/input/InputTypes.h"
 #include "engine/subsystems/input/InputKeys.h"
 #include "engine/subsystems/input/debugger/InputDebugger.h"

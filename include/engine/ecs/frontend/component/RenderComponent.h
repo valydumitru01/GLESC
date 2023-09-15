@@ -5,7 +5,7 @@
  ******************************************************************************/
 
 #pragma once
-#include "engine/ecs/backend/component/IComponent.h"
+#include "IComponent.h"
 #include "engine/subsystems/renderer/Mesh.h"
 
 struct RenderComponent : public IComponent {

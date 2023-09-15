@@ -6,26 +6,10 @@ project(game)
 set(CMAKE_CXX_STANDARD 20)
 # Ensure that the compiler supports the c++ version
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+# Enables CMake code to be forward compatible with newer versions of CMake.
+cmake_policy(SET CMP0074 NEW)
 
 find_package(Boost REQUIRED)
-# ------------ PLATFORM DETECTION ------------
-# Defining custom variables to detect the platform
-if (WIN32)
-    set(WINDOWS)
-elseif (UNIX AND NOT APPLE)
-    set(LINUX)
-elseif (APPLE)
-    set(APPLE)
-endif ()
-
-# This allows the project to be built on different platforms
-if (WINDOWS)
-    target_compile_definitions(game PRIVATE __WINDOWS__)
-elseif (LINUX)
-    target_compile_definitions(game PRIVATE __LINUX__)
-elseif (APPLE)
-    target_compile_definitions(game PRIVATE __APPLE__)
-endif ()
 
 
 # ------------ FOLDER LOCATIONS ------------
@@ -61,6 +45,9 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE ${CMAKE_SOURCE_DIR}/bin/release)
 
 
 # ------------ FILES ------------
+# We're using GLOB_RECURSE to obtain all the files in the directories
+# It will be necessary to re-run cmake if you add new files to the project
+
 # Obtain all the source files in the source directory
 file(GLOB_RECURSE SOURCE_FILES "${SRC_DIR}/*.cpp")
 # Obtain all the source files in the library source directory
@@ -106,6 +93,25 @@ set_source_files_properties(
 # ------------ EXECUTABLE ------------
 # Add an executable target called game to be built from the source files
 add_executable(game ${SOURCE_FILES} ${LIB_SOURCE_FILES})
+
+# ------------ PLATFORM DETECTION ------------
+# Defining custom variables to detect the platform
+if (WIN32)
+    set(WINDOWS TRUE)
+elseif (UNIX AND NOT APPLE)
+    set(LINUX TRUE)
+elseif (APPLE)
+    set(APPLE TRUE)
+endif ()
+
+# This allows the project to be built on different platforms
+if (WINDOWS)
+    target_compile_definitions(game PRIVATE __WINDOWS__)
+elseif (LINUX)
+    target_compile_definitions(game PRIVATE __LINUX__)
+elseif (APPLE)
+    target_compile_definitions(game PRIVATE __APPLE__)
+endif ()
 
 # ------------ MACRO DEFINITIONS ------------
 
@@ -181,22 +187,24 @@ endif ()
 
 # ------------ BUILD TYPES ------------
 # ............ DEBUG ............
-
-set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -O0") # Optimization flag, no optimization
-set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG") # Define DEBUG macro
-set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g") # Produce debugging information
-set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -ggdb") # Produce debugging information for gdb
-set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -D_DEBUG") # Define _DEBUG macro
-set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG") # Define DEBUG macro
-set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG_LOGGING") # Define DEBUG_LOGGING macro
+set(DEBUG_FLAGS
+        "-O0" # Optimization flag, no optimization
+        "-g"  # Produce debugging information
+        "-ggdb" # Produce debugging information for gdb
+)
+string(JOIN " " CMAKE_CXX_FLAGS_DEBUG ${DEBUG_FLAGS})
 
 # ............ RELEASE ............
-set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}" "-O3") # Optimization flag, -O3 is not always faster than -O2
-set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}" "-DRELEASE") # Define RELEASE macro
-set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}" "-DNDEBUG") # Define NDEBUG macro
-set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}" "-DDEBUG_LOGGING") # Define DEBUG_LOGGING macro
-set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}" "-flto") # Link time optimization
-set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}" "-s") # Strip symbols from binary
+set(RELEASE_FLAGS
+        "-O3" # Optimization flag, -O3 is not always faster than -O2 TODO: Test which one is faster
+        "-DRELEASE" # Enable miscellaneous release features
+        "-DNDEBUG" # This disables the assert statements, avoiding the overhead of checking the condition
+        "-DNLOGGING" # This disables the logging statements, avoiding the overhead of writing to the log file
+        "-NDEBUG_GAPI" # This disables debugging for graphics API, avoiding the overhead
+        "-flto" # Link time optimization, optimizes code at link time but increases compilation time
+        "-s" # Strip symbols from binary, reduces the size of the binary but makes debugging harder
+)
+string(JOIN " " CMAKE_CXX_FLAGS_RELEASE ${RELEASE_FLAGS})
 
 ###################################
 # ------------ TESTING -----------

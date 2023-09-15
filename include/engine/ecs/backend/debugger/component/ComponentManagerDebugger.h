@@ -14,12 +14,12 @@
  * @param componentManager The component manager
  */
 #define PRINT_COMPONENTS_STATUS(componentManager, contextMessage) \
-    DEBUG_CODE( \
+    LOG( \
         "Component print status - " contextMessage, \
         GLESC::printComponentStatus(componentManager); \
     )
 
-#ifdef DEBUG
+#ifndef NLOGGING
 namespace GLESC {
     [[maybe_unused]] inline void printComponentStatus(const ComponentManager &componentManager) noexcept {
         for (const auto &[name, array] : componentManager.componentArrays) {

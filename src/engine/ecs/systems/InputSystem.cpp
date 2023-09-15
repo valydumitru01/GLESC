@@ -5,7 +5,7 @@
  ******************************************************************************/
 
 #include "engine/ecs/frontend/system/systems/InputSystem.h"
-#include "engine/ecs/backend/component/components/InputComponent.h"
+#include "engine/ecs/frontend/component/InputComponent.h"
 
 
 InputSystem::InputSystem(InputManager &inputManager, GLESC::ECS &ecs) :

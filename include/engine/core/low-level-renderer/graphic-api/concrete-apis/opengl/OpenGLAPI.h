@@ -116,7 +116,7 @@ public:
         setSDLGLAttribute(SDL_GL_STENCIL_SIZE, 4);
         // Enable debug context
         // Possible performance loss
-        OpenGLDebugger::setSdlGlDebugContextAttribute();
+        GL_SET_DEBUG_CONTEXT_ATTRIBUTE();
     }
     
     void postWindowCreationInit() override {
@@ -150,7 +150,7 @@ public:
         
         // Enable opengl debug callback
         // Improves debugging outputs
-        OpenGLDebugger::enableGlDebugCallback();
+        GL_ENABLE_DEBUG_CALLBACK();
         
         // This makes our buffer swap synchronized with the monitor's vertical refresh
         // Parameters: 0 for immediate updates,

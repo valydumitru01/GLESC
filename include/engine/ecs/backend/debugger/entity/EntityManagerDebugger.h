@@ -14,12 +14,12 @@
  * @param entityManager The entity manager
  */
 #define PRINT_ENTITIES_STATUS(entityManager, contextMessage) \
-    DEBUG_CODE( \
+    LOG( \
     std::string("Entity print status - ") + contextMessage, \
     printStatusEntities(entityManager);\
     )
 
-#ifdef DEBUG
+#ifndef NLOGGING
 namespace GLESC {
     [[maybe_unused]] void printStatusEntities(const EntityManager &entityManager) noexcept{
         for (auto &entityID : entityManager.entityIDs) {

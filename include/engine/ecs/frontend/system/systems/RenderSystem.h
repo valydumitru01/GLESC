@@ -6,8 +6,8 @@
 
 #pragma once
 
-#include "engine/ecs/backend/component/components/RenderComponent.h"
-#include "engine/ecs/backend/component/components/TransformComponent.h"
+#include "engine/ecs/frontend/component/RenderComponent.h"
+#include "engine/ecs/frontend/component/TransformComponent.h"
 #include "engine/ecs/frontend/system/System.h"
 
 #include "engine/subsystems/renderer/Renderer.h"

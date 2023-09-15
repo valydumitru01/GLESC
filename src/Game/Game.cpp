@@ -8,11 +8,11 @@
 #include "engine/ecs/frontend/entity/Entity.h"
 
 // Components
-#include "engine/ecs/backend/component/components/RenderComponent.h"
-#include "engine/ecs/backend/component/components/CameraComponent.h"
-#include "engine/ecs/backend/component/components/PhysicsComponent.h"
-#include "engine/ecs/backend/component/components/TransformComponent.h"
-#include "engine/ecs/backend/component/components/InputComponent.h"
+#include "engine/ecs/frontend/component/RenderComponent.h"
+#include "engine/ecs/frontend/component/CameraComponent.h"
+#include "engine/ecs/frontend/component/PhysicsComponent.h"
+#include "engine/ecs/frontend/component/TransformComponent.h"
+#include "engine/ecs/frontend/component/InputComponent.h"
 
 
 

@@ -6,4 +6,3 @@
 
 #pragma once
 
-#define

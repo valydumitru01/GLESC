@@ -12,7 +12,7 @@
 #include "engine/ecs/ECSTypes.h"
 #include "engine/core/exceptions/ecs/ECSException.h"
 #include "engine/core/logger/Logger.h"
-#include "engine/ecs/backend/component/IComponent.h"
+#include "IComponent.h"
 
 class IComponentArray {
 public:

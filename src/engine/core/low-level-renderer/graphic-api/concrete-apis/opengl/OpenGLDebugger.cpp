@@ -3,12 +3,12 @@
  * Copyright (c) 2023 Valentin Dumitru.
  * Licensed under the MIT License. See LICENSE.txt in the project root for license information.
  ******************************************************************************/
+#ifndef NDEBUG_GAPI // Don't compile this file if NDEBUG_GAPI is defined
 
 #include <set>
 #include <SDL2/SDL.h>
 #include "engine/core/low-level-renderer/graphic-api/concrete-apis/opengl/OpenGLDebugger.h"
-#include "engine/core/exceptions/core/low-level-renderer/GAPIException.h"
-#include "engine/core/logger/Logger.h"
+#include "engine/core/low-level-renderer/asserts/GAPIAsserts.h"
 
 void OpenGLDebugger::glDebugCallback(GLenum source, GLenum type, GLuint errorCode, GLenum severity, GLsizei length,
                                      const GLchar *message, const void *userParam) {
@@ -17,29 +17,13 @@ void OpenGLDebugger::glDebugCallback(GLenum source, GLenum type, GLuint errorCod
     if (nonSignificantErrorCodes.find(errorCode) != nonSignificantErrorCodes.end()) {
         return;
     }
+    ASSERT_GL_CALL_IS_CORRECT(false,
+                              "Debug message (" + std::to_string(errorCode) + "): " + message +
+                              " | " + errorStringFromSource(source) +
+                              " | " + errorStringFromType(type) +
+                              " | " + errorStringFromSeverity(severity));
     
-    throw GAPIException(
-            "Debug message (" + std::to_string(errorCode) + "): " + message + " | " + errorStringFromSource(source) + " | " +
-            errorStringFromType(type) + " | " + errorStringFromSeverity(severity));
-    
 }
-
-void OpenGLDebugger::enableGlDebugCallback() {
-    #ifdef DEBUG
-    glEnable(GL_DEBUG_OUTPUT);
-    glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS);
-    glDebugMessageCallback(glDebugCallback, nullptr);
-    glDebugMessageControl(GL_DONT_CARE, GL_DONT_CARE, GL_DONT_CARE, 0, nullptr, GL_TRUE);
-    #endif
-}
-
-void OpenGLDebugger::setSdlGlDebugContextAttribute() {
-    #ifdef DEBUG
-    SDL_GL_SetAttribute(SDL_GL_CONTEXT_FLAGS, SDL_GL_CONTEXT_DEBUG_FLAG);
-    #endif
-}
-
-
 
 std::string OpenGLDebugger::errorStringFromSource(GLenum source) {
     
@@ -70,7 +54,7 @@ std::string OpenGLDebugger::errorStringFromType(GLenum type) {
     
     typeString += "Type: ";
     
-    switch (type){
+    switch (type) {
         case GL_DEBUG_TYPE_ERROR:
             return typeString + "Error";
         case GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR:
@@ -112,3 +96,4 @@ std::string OpenGLDebugger::errorStringFromSeverity(GLenum severity) {
     }
 }
 
+#endif
