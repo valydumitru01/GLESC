@@ -13,10 +13,6 @@ Y
 +include/engine/ecs/frontend/entity/Entity.h,6\8\68de6552e64998e01a7b7d9d9e0069c32182baa7
 a
 1include/engine/ecs/backend/entity/EntityManager.h,d\e\deaa665a80215e4622d217c68fb436f7394d728b
-p
-@include/engine/ecs/backend/component/components/ComponentArray.h,3\b\3bc117062b55ffb822bb3873c4ef3f6bc2e406ed
-a
-1include/engine/ecs/backend/component/IComponent.h,f\e\fe8b24615d0164237d7c72db23fe3860b96e4608
 J
 scripts/py/static_check.py,e\1\e139eb2bf2cb6ede69f37bf3a619ad8f6dce27b0
 W
@@ -93,3 +89,13 @@ i
 9include/engine/ecs/frontend/system/systems/CameraSystem.h,c\0\c090aa4aec1a41e9a3cb4fb2d65614d392504284
 i
 9include/engine/ecs/frontend/system/systems/RenderSystem.h,d\1\d1ae257de4a84d54a7b87cbda15a06099a80638f
+>
+CMakeLists.txt,9\a\9a2aa4db38d3115ed60da621e012c0efc0172aae
+_
+/src/engine/ecs/backend/system/SystemManager.cpp,3\0\30cafcdea5527325d049f814bdd18fdcba255518
+\
+,src/engine/core/exceptions/BaseException.cpp,2\2\22ce59d6cc265907d2ed97f07694cee3d937b3df
+g
+7include/engine/ecs/frontend/component/RenderComponent.h,2\0\20d904e7beb62dc35a0c5cab76d9d25c343a2093
+A
+src/Game/Game.cpp,6\d\6dd2bba8815a8c002ea288e37e049b2b044bbdbc

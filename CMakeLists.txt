@@ -200,7 +200,7 @@ set(RELEASE_FLAGS
         "-DRELEASE" # Enable miscellaneous release features
         "-DNDEBUG" # This disables the assert statements, avoiding the overhead of checking the condition
         "-DNLOGGING" # This disables the logging statements, avoiding the overhead of writing to the log file
-        "-NDEBUG_GAPI" # This disables debugging for graphics API, avoiding the overhead
+        "-DDEBUG_GAPI" # This disables debugging for graphics API, avoiding the overhead
         "-flto" # Link time optimization, optimizes code at link time but increases compilation time
         "-s" # Strip symbols from binary, reduces the size of the binary but makes debugging harder
 )

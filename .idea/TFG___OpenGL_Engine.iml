@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module classpath="CMake" type="CPP_MODULE" version="4">
-  <component name="FacetManager">
-    <facet type="Python" name="Python facet">
-      <configuration sdkName="Python 3.10 (TFG---OpenGL-Engine)" />
-    </facet>
-  </component>
   <component name="SonarLintModuleSettings">
-    <option name="uniqueId" value="64d89529-6438-4598-9537-3793d6533211" />
+    <option name="uniqueId" value="258f86c6-60be-4c23-96f1-fa7f6dfb9a82" />
   </component>
 </module>

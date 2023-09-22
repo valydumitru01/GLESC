@@ -9,6 +9,7 @@
 #include <memory>
 #include <bitset>
 #include <set>
+#include <cstdint>
 
 #include "engine/Config.h"
 

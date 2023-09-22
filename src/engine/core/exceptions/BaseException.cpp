@@ -13,9 +13,8 @@
 BaseException::BaseException(const std::string &message) : runtime_error(message){
     const auto exePath = PROJECT_BINARY_DIR + std::string("/") + std::string(PROJECT_NAME)
             + std::string(".exe");
-    const auto st = boost::stacktrace::stacktrace();
     
-    for (auto i : st) {
+    for (const auto st = boost::stacktrace::stacktrace(); auto i : st) {
         std::stringstream ss;
         ss << std::hex << i.address();
         std::string line = addr2Line(ss.str(), exePath);
