@@ -1,12 +1,13 @@
 /*******************************************************************************
  *
  * Copyright (c) 2023 Valentin Dumitru.
- * Licensed under the MIT License. See LICENSE.txt in the project root for license information.
+ * Licensed under the MIT License.
+ * See LICENSE.txt in the project root for license information.
  ******************************************************************************/
 
 #pragma once
 
-#include <cmath>
+#include "engine/core/math/Math.h"
 
 template<typename T>
 class Vector3 {
@@ -254,6 +255,55 @@ public:
     
 };
 
+// Specialization for float
+template<>
+bool Vector2<float>::operator==(const Vector2<float> &other) const {
+    return GLESC::Math::floatEquals(x, other.x) &&
+           GLESC::Math::floatEquals(y, other.y);
+}
+
+// Specialization for float
+template<>
+bool Vector3<float>::operator==(const Vector3<float> &other) const {
+    return GLESC::Math::floatEquals(x, other.x) &&
+           GLESC::Math::floatEquals(y, other.y) &&
+           GLESC::Math::floatEquals(z, other.z);
+}
+
+// Specialization for float
+template<>
+bool Vector4<float>::operator==(const Vector4<float> &other) const {
+    return GLESC::Math::floatEquals(y, other.y) &&
+           GLESC::Math::floatEquals(y, other.y) &&
+           GLESC::Math::floatEquals(z, other.z) &&
+           GLESC::Math::floatEquals(w, other.w);
+}
+
+// Specialization for double
+template<>
+bool Vector2<double>::operator==(const Vector2<double> &other) const {
+    return GLESC::Math::doubleEquals(x, other.x) &&
+           GLESC::Math::doubleEquals(y, other.y);
+}
+
+// Specialization for double
+template<>
+bool Vector3<double>::operator==(const Vector3<double> &other) const {
+    return GLESC::Math::doubleEquals(x, other.x) &&
+           GLESC::Math::doubleEquals(y, other.y) &&
+           GLESC::Math::doubleEquals(z, other.z);
+}
+
+// Specialization for double
+template<>
+bool Vector4<double>::operator==(const Vector4<double> &other) const {
+    return GLESC::Math::doubleEquals(y, other.y) &&
+           GLESC::Math::doubleEquals(y, other.y) &&
+           GLESC::Math::doubleEquals(z, other.z) &&
+           GLESC::Math::doubleEquals(w, other.w);
+}
+
+// Type Aliases
 using Vector2F [[maybe_unused]] = Vector2<float>;
 using Vector3F [[maybe_unused]] = Vector3<float>;
 using Vector4F [[maybe_unused]] = Vector4<float>;

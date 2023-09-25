@@ -6,7 +6,7 @@
 
 #pragma once
 #include "IComponent.h"
-#include "engine/subsystems/renderer/Mesh.h"
+#include "engine/subsystems/renderer/mesh/Mesh.h"
 
 struct RenderComponent : public IComponent {
     /**

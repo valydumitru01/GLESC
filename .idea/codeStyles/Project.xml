@@ -73,7 +73,7 @@
       <option name="SPACE_BEFORE_COLON" value="false" />
     </codeStyleSettings>
     <codeStyleSettings language="ObjectiveC">
-      <option name="RIGHT_MARGIN" value="120" />
+      <option name="RIGHT_MARGIN" value="80" />
       <option name="KEEP_CONTROL_STATEMENT_IN_ONE_LINE" value="false" />
       <option name="METHOD_CALL_CHAIN_WRAP" value="1" />
       <option name="FOR_STATEMENT_WRAP" value="1" />

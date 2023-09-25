@@ -19,7 +19,7 @@
 #include "engine/core/low-level-renderer/texture/TextureManager.h"
 #include "engine/core/window/WindowManager.h"
 #include "engine/res-mng/textures/TextureLoader.h"
-#include "engine/subsystems/renderer/Mesh.h"
+#include "engine/subsystems/renderer/mesh/Mesh.h"
 #include "engine/subsystems/renderer/shaders/ShaderManager.h"
 
 namespace GLESC {

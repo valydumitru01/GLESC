@@ -92,7 +92,17 @@ set_source_files_properties(
 )
 # ------------ EXECUTABLE ------------
 # Add an executable target called game to be built from the source files
-add_executable(game ${SOURCE_FILES} ${LIB_SOURCE_FILES})
+add_executable(game ${SOURCE_FILES} ${LIB_SOURCE_FILES}
+        include/engine/core/exceptions/subsystems/MeshException.h
+        src/engine/subsystems/renderer/mesh/Halfedge.cpp
+        include/engine/subsystems/renderer/mesh/Halfedge.h
+        include/engine/subsystems/renderer/mesh/Edge.h
+        include/engine/subsystems/renderer/mesh/Face.h
+        src/engine/subsystems/renderer/mesh/Face.cpp
+        src/engine/subsystems/renderer/mesh/Vertex.cpp
+        src/engine/subsystems/renderer/mesh/Edge.cpp
+        include/engine/core/math/Math.h
+)
 
 # ------------ PLATFORM DETECTION ------------
 # Defining custom variables to detect the platform

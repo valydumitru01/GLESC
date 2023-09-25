@@ -1,18 +1,19 @@
+
 /*******************************************************************************
  *
  * Copyright (c) 2023 Valentin Dumitru.
  * Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
  ******************************************************************************/
+#include "engine/core/math/Vector.h"
 
-#include "engine/ecs/frontend/system/System.h"
-
-using namespace GLESC;
-
-System::System(GLESC::ECS &ecs, const SystemName& name) : ecs(ecs), name(name) {
-    ecs.registerSystem(name);
-}
-
-std::set<EntityID> System::getAssociatedEntities() const {
-    return ecs.getAssociatedEntities(name);
+namespace GLESC {
+    struct Face {
+        bool operator==(const Face &other) const;
+        /**
+         * @brief The normal (perpendicular vector that comes out of the face) of the face
+         */
+        Vector3F normal;
+    };
+    
 }

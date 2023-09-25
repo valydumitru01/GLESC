@@ -4,15 +4,10 @@
  * Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
  ******************************************************************************/
-
-#include "engine/ecs/frontend/system/System.h"
-
+#include "engine/subsystems/renderer/mesh/Face.h"
+#include "engine/core/math/Math.h"
 using namespace GLESC;
 
-System::System(GLESC::ECS &ecs, const SystemName& name) : ecs(ecs), name(name) {
-    ecs.registerSystem(name);
-}
-
-std::set<EntityID> System::getAssociatedEntities() const {
-    return ecs.getAssociatedEntities(name);
+bool Face::operator==(const Face &other) const {
+    return normal == other.normal;
 }
