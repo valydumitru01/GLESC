@@ -1,6 +1,6 @@
 <component name="CopyrightManager">
   <copyright>
-    <option name="notice" value="&#10;Copyright (c) &amp;#36;originalComment.match(&quot;Copyright \(c\) (\d+)&quot;, 1, &quot;-&quot;, &quot;&amp;#36;today.year&quot;)&amp;#36;today.year Valentin Dumitru. &#10;Licensed under the MIT License. &#10;See LICENSE.txt in the project root for license information." />
+    <option name="notice" value="Copyright (c) &amp;#36;originalComment.match(&quot;Copyright \(c\) (\d+)&quot;, 1, &quot;-&quot;, &quot;&amp;#36;today.year&quot;)&amp;#36;today.year. Valentin Dumitru.&#10;Licensed under the MIT License.&#10;See LICENSE.txt in the project root for license information." />
     <option name="myName" value="MIT" />
   </copyright>
 </component>

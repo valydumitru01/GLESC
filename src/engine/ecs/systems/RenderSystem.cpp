@@ -1,7 +1,10 @@
-/*******************************************************************************
+/******************************************************************************
+ * @file   Example.h
+ * @author Valentin Dumitru
+ * @date   2023-09-26
+ * @brief @todo
  *
- * Copyright (c) 2023 Valentin Dumitru.
- * Licensed under the MIT License.
+ * Copyright (c) 2023 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
  ******************************************************************************/
 
@@ -23,19 +26,10 @@ void RenderSystem::update(double timeOfFrame) {
         auto &render = getComponent<RenderComponent>(entity);
         auto &transform = getComponent<TransformComponent>(entity);
         
-        renderer.renderMesh(render.mesh, transform.position, transform.rotation, transform.scale);
+        renderer.transformMesh(render.mesh, transform.position,
+                               transform.rotation, transform.scale);
         
-        //renderer.renderTexture(render.textureID, transform.position, transform.rotation, transform.scale);
-        
-        //render.textureID = renderer.getTextureManager().loadTexture(render.texturePath);
-        
-        //renderer.getTextureManager().bindTexture(render.textureID);
-        
-        // Set the texture uniform
-        //renderer.getShaderManager().setInt("texture1", static_cast<int>(render.textureID));
-        
-        // Draw the vertices
-        //GlApi::drawElements(render.mesh.getIndexCount());
+        renderer.renderMesh(render.mesh);
         
         // TODO: Batch rendering
     }

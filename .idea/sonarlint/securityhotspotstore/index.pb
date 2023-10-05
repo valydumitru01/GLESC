@@ -15,12 +15,8 @@ a
 1include/engine/ecs/backend/entity/EntityManager.h,d\e\deaa665a80215e4622d217c68fb436f7394d728b
 J
 scripts/py/static_check.py,e\1\e139eb2bf2cb6ede69f37bf3a619ad8f6dce27b0
-W
-'src/engine/subsystems/renderer/Mesh.cpp,f\e\feb55b2a902a41c0f6c82bda6f7eefe66cfdf1e3
 g
 7include/engine/ecs/backend/component/ComponentManager.h,5\d\5d7c2d7812eb3f2b0966e330b10598b64e84d7c8
-Y
-)include/engine/subsystems/renderer/Mesh.h,b\c\bcd611ed5b996d4a174968000e989eb9d51d279f
 h
 8include/engine/subsystems/input/debugger/InputDebugger.h,7\0\70425d7646cfd1b251ac127f4499f891ca8b2d78
 z

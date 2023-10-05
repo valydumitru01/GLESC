@@ -21,19 +21,24 @@
 #include "engine/res-mng/textures/TextureLoader.h"
 #include "engine/subsystems/renderer/mesh/Mesh.h"
 #include "engine/subsystems/renderer/shaders/ShaderManager.h"
+#include "engine/core/math/Matrix.h"
 
 namespace GLESC {
     class Renderer {
     public:
-        explicit Renderer(WindowManager &windowManager, GLESC_RENDER_API &graphicsInterface) :
+        explicit Renderer(WindowManager &windowManager,
+                          GLESC_RENDER_API &graphicsInterface) :
                 windowManager(windowManager),
                 shaderManager(graphicsInterface),
                 textureManager(graphicsInterface),
                 graphicsInterface(graphicsInterface) {
             
             // Set the projection matrix
-            projection = calculateProjectionMatrix(45.0f, 0.1f, 100.0f, (float) windowManager.getWidth(),
-                                                   (float) windowManager.getHeight());
+            projection = calculateProjectionMatrix(45.0f, 0.1f, 100.0f,
+                                                   (float) windowManager
+                                                           .getWidth(),
+                                                   (float) windowManager
+                                                           .getHeight());
         }
         
         ~Renderer() {
@@ -42,7 +47,8 @@ namespace GLESC {
         
         void start() {
             graphicsInterface.clear(
-                    {GAPIValues::ClearBitsColor, GAPIValues::ClearBitsDepth, GAPIValues::ClearBitsStencil});
+                    {GAPIValues::ClearBitsColor, GAPIValues::ClearBitsDepth,
+                     GAPIValues::ClearBitsStencil});
             graphicsInterface.clearColor(0.2f, 0.3f, 0.3f, 1.0f);
         }
         
@@ -50,18 +56,28 @@ namespace GLESC {
             swapBuffers();
         }
         
-        void
-        renderMesh(GLESC::Mesh const &mesh,
-                   const glm::vec3 &position,
-                   const glm::vec3 &rotation,
-                   const glm::vec3 &scale) {
-            glm::mat4 model = calculateModelMatrix(position, rotation, scale);
-            
-            // Set the model matrix uniform in the shader
-            // With OpenGL the multiplication must be done in reverse P x V x M
-            getShaderManager().setMat4("mvp", model * getView() * getProjection());
-            getShaderManager().setVec3("position", position);
+        void transformMesh(GLESC::Mesh &mesh,
+                           const Vector3D &position,
+                           const Vector3D &rotation,
+                           const Vector3D &scale) {
+            Matrix4D transform =
+                    calculateTransformMatrix(position, rotation, scale);
+            // Apply transformations to vertices
+            for (auto &vertex : mesh.getVertices()) {
+                Vector4D pos = Vector4D(vertex.getPosition().getX(),
+                                        vertex.getPosition().getY(),
+                                        vertex.getPosition().getZ(), 1.0f);
+                pos = transform * pos;
+                Vector3D newPos = Vector3D(pos.getX(), pos.getY(), pos.getZ());
+                vertex.setPosition(newPos);
+            }
         }
+        
+        void
+        renderMesh(GLESC::Mesh const &mesh) {
+            
+        }
+        
         
         /**
          * @brief Get the shader manager object
@@ -118,14 +134,21 @@ namespace GLESC {
          * @return projection matrix
          */
         static glm::mat4
-        calculateProjectionMatrix(float fov, float nearPlane, float farPlane, float viewWidth, float viewHeight) {
-            if (viewHeight == 0)
-                throw EngineException("Unable to make projection matrix: viewHeight is 0");
-            if (viewWidth == 0)
-                throw EngineException("Unable to make projection matrix: viewWidth is 0");
+        calculateProjectionMatrix(float fov,
+                                  float nearPlane,
+                                  float farPlane,
+                                  float viewWidth,
+                                  float viewHeight) {
+            if (viewHeight == 0.0f)
+                throw EngineException(
+                        "Unable to make projection matrix: viewHeight is 0");
+            if (viewWidth == 0.0f)
+                throw EngineException(
+                        "Unable to make projection matrix: viewWidth is 0");
             
             float aspectRatio = viewWidth / viewHeight;
-            return glm::perspective(glm::radians(fov), aspectRatio, nearPlane, farPlane);
+            return glm::perspective(glm::radians(fov), aspectRatio, nearPlane,
+                                    farPlane);
         }
         
         void swapBuffers() {
@@ -139,11 +162,16 @@ namespace GLESC {
          * @return view matrix
          */
         static glm::mat4
-        calculateViewMatrix(const glm::vec3 &position, const glm::vec3 &rotation, const glm::vec3 &scale) {
+        calculateViewMatrix(const glm::vec3 &position,
+                            const glm::vec3 &rotation,
+                            const glm::vec3 &scale) {
             glm::mat4 model = glm::translate(glm::mat4(1.0f), position);
-            model = glm::rotate(model, glm::radians(rotation.x), glm::vec3(1.0f, 0.0f, 0.0f));
-            model = glm::rotate(model, glm::radians(rotation.y), glm::vec3(0.0f, 1.0f, 0.0f));
-            model = glm::rotate(model, glm::radians(rotation.z), glm::vec3(0.0f, 0.0f, 1.0f));
+            model = glm::rotate(model, glm::radians(rotation.x),
+                                glm::vec3(1.0f, 0.0f, 0.0f));
+            model = glm::rotate(model, glm::radians(rotation.y),
+                                glm::vec3(0.0f, 1.0f, 0.0f));
+            model = glm::rotate(model, glm::radians(rotation.z),
+                                glm::vec3(0.0f, 0.0f, 1.0f));
             model = glm::scale(model, scale);
             return glm::inverse(model);
         }
@@ -151,25 +179,37 @@ namespace GLESC {
     private:
         
         /**
-         * @brief Calculate the model matrix for a given position, rotation, and scale
-         * @details Given the position, rotation, and scale, this method calculates the model matrix
+         * @brief Calculates transform matrix
+         * @details Given the position, rotation, and scale, this method
+         * calculates the transform matrix
          * @param position The position vector
          * @param rotation The rotation vector
          * @param scale The scale vector
          * @return The model matrix
          */
-        static glm::mat4
-        calculateModelMatrix(const glm::vec3 &position, const glm::vec3 &rotation, const glm::vec3 &scale) {
-            glm::mat4 model = glm::translate(glm::mat4(1.0f), position);
-            model = glm::rotate(model, glm::radians(rotation.x), glm::vec3(1.0f, 0.0f, 0.0f));
-            model = glm::rotate(model, glm::radians(rotation.y), glm::vec3(0.0f, 1.0f, 0.0f));
-            model = glm::rotate(model, glm::radians(rotation.z), glm::vec3(0.0f, 0.0f, 1.0f));
+        static Matrix4D
+        calculateTransformMatrix(const Vector3D &position,
+                                 const Vector3D &rotation,
+                                 const Vector3D &scale) {
+            
+            Matrix4D model = Matrix4D(1.0).translate(position);
+            
+            model = model.rotate( rotation.getX(),
+                                glm::vec3(1.0f, 0.0f, 0.0f));
+            
+            model = glm::rotate(model, glm::radians(rotation.y),
+                                glm::vec3(0.0f, 1.0f, 0.0f));
+            
+            model = glm::rotate(model, glm::radians(rotation.z),
+                                glm::vec3(0.0f, 0.0f, 1.0f));
+            
             model = glm::scale(model, scale);
             return model;
         }
         
         GLESC_RENDER_API &graphicsInterface;
-        // Uncomment the below line and comment the above to enable code completion and proper syntax highlighting
+        // Uncomment the below line and comment the above to enable code
+        // completion and proper syntax highlighting
         // IGraphicInterface &graphicsInterface;
         /**
          * @brief Window manager
@@ -190,8 +230,8 @@ namespace GLESC {
         /**
          * @brief Projection matrix
          * @details The projection matrix makes the world look like it's in 3D
-         * includes field of view, aspect ratio, and near and far planes. Converts global
-         * coordinates to normalized device coordinates
+         * includes field of view, aspect ratio, and near and far planes.
+         * Converts global coordinates to normalized device coordinates
          * @see https://learnopengl.com/Getting-started/Coordinate-Systems
          */
         glm::mat4 projection{};

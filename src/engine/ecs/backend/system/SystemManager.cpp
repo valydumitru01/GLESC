@@ -1,7 +1,10 @@
-/*******************************************************************************
+/******************************************************************************
+ * @file   Example.h
+ * @author Valentin Dumitru
+ * @date   2023-09-26
+ * @brief @todo
  *
- * Copyright (c) 2023 Valentin Dumitru.
- * Licensed under the MIT License.
+ * Copyright (c) 2023 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
  ******************************************************************************/
 
@@ -62,7 +65,8 @@ bool SystemManager::isSystemRegistered(const SystemName& name) const{
     return systemSignatures.contains(name);
 }
 
-void SystemManager::addComponentRequirementToSystem(const SystemName& name, ComponentID componentID) {
+void SystemManager::addComponentRequirementToSystem(const SystemName& name,
+                                                    ComponentID componentID) {
     ASSERT_SYSTEM_IS_REGISTERED(name);
     ASSERT_COMPONENT_IS_NOT_REQUIRED_BY_SYSTEM(name, componentID);
     systemSignatures.find(name)->second.set(componentID);

@@ -1,322 +1,271 @@
-/*******************************************************************************
+/******************************************************************************
+ * @file   Example.h
+ * @author Valentin Dumitru
+ * @date   2023-09-26
+ * @brief @todo
  *
- * Copyright (c) 2023 Valentin Dumitru.
- * Licensed under the MIT License.
+ * Copyright (c) 2023 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
  ******************************************************************************/
 
 #pragma once
 
+#include <type_traits>
+#include <cmath>
+#include <string>
 #include "engine/core/math/Math.h"
 
-template<typename T>
-class Vector3 {
-public:
-    T x, y, z;
+
+namespace GLESC::Math {
+    template<typename Type, size_t N>
+    class Vector {
+        static_assert(N > 0, "Size must be greater than 0");
     
-    // Constructors
-    Vector3() : x(T(0)), y(T(0)), z(T(0)) {}
+    public:
+        // Constructors
+        Vector() : data() {}
+        
+        template<typename... Args>
+        explicit Vector(Args &&... args) requires (sizeof ...(Args) == N)
+                : data(std::forward<Args>(args) ...) {}
+        
+        explicit Vector(Type values) {
+            for (size_t i = 0; i < N; ++i) {
+                data[i] = values;
+            }
+        }
+        
+        Vector(const Vector<Type, N> &other) {
+            for (size_t i = 0; i < N; ++i) {
+                data[i] = other.data[i];
+            }
+        }
+        
+        Vector(Vector<Type, N> &&other) noexcept {
+            for (size_t i = 0; i < N; ++i) {
+                data[i] = std::move(other.data[i]);
+            }
+        }
+        
+        Vector<Type, N> &operator=(const Vector<Type, N> &other) {
+            if (this == &other) return *this;
+            
+            for (size_t i = 0; i < N; ++i) {
+                data[i] = other.data[i];
+            }
+            return *this;
+        }
+        
+        Vector<Type, N> operator+(const Vector<Type, N> &rhs) const {
+            Vector<Type, N> result;
+            for (size_t i = 0; i < N; ++i) {
+                result.data[i] = data[i] + rhs.data[i];
+            }
+            return result;
+        }
+        
+        Type& operator[](size_t index) {
+            return data[index];
+        }
+        
+        const Type& operator[](size_t index) const{
+            return data[index];
+        }
+        
+        Vector<Type, N> operator-(const Vector<Type, N> &rhs) const {
+            Vector<Type, N> result;
+            for (size_t i = 0; i < N; ++i) {
+                result.data[i] = data[i] - rhs.data[i];
+            }
+            return result;
+        }
+        
+        Vector<Type, N> operator*(Type scalar) const {
+            Vector<Type, N> result;
+            for (size_t i = 0; i < N; ++i) {
+                result.data[i] = data[i] * scalar;
+            }
+            return result;
+        }
+        
+        Vector<Type, N> operator/(Type scalar) const {
+            Vector<Type, N> result;
+            for (size_t i = 0; i < N; ++i) {
+                result.data[i] = data[i] / scalar;
+            }
+            return result;
+        }
+        
+        [[nodiscard]] Type dot(const Vector<Type, N> &rhs) const {
+            Type result = Type(0);
+            for (size_t i = 0; i < N; ++i) {
+                result += data[i] * rhs.data[i];
+            }
+            return result;
+        }
+        
+        [[nodiscard]] Type length() const {
+            Type result = Type(0);
+            for (size_t i = 0; i < N; ++i) {
+                result += data[i] * data[i];
+            }
+            return std::sqrt(result);
+        }
+        
+        [[nodiscard]] Vector<Type, N> normalize() const {
+            Type length = this->length();
+            Vector<Type, N> result;
+            for (size_t i = 0; i < N; ++i) {
+                result.data[i] = data[i] / length;
+            }
+            return result;
+        }
+        
+        Vector<Type, N> operator+=(const Vector<Type, N> &rhs) {
+            for (size_t i = 0; i < N; ++i) {
+                data[i] += rhs.data[i];
+            }
+            return *this;
+        }
+        
+        bool operator<(const Vector<Type, N> &rhs) const {
+            for (size_t i = 0; i < N; ++i) {
+                if (data[i] >= rhs.data[i]) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        
+        Vector<Type, N> operator-=(const Vector<Type, N> &rhs) {
+            for (size_t i = 0; i < N; ++i) {
+                data[i] -= rhs.data[i];
+            }
+            return *this;
+        }
+        
+        Vector<Type, N> operator*=(Type scalar) {
+            for (size_t i = 0; i < N; ++i) {
+                data[i] *= scalar;
+            }
+            return *this;
+        }
+        
+        Vector<Type, N> operator/=(Type scalar) {
+            for (size_t i = 0; i < N; ++i) {
+                data[i] /= scalar;
+            }
+            return *this;
+        }
+        
+        bool operator==(const Vector<Type, N> &rhs) const {
+            for (size_t i = 0; i < N; ++i) {
+                if (data[i] != rhs.data[i]) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        
+        bool operator==(const Vector<Type,
+                N> &other) const requires(std::is_floating_point_v<Type>) {
+            for (size_t i = 0; i < N; ++i) {
+                if (!GLESC::Math::decimalEquals(data[i], other.data[i])) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        
+        bool operator!=(const Vector<Type, N> &rhs) const {
+            for (size_t i = 0; i < N; ++i) {
+                if (data[i] == rhs.data[i]) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        
+        [[nodiscard]] std::string toString() const {
+            std::string result;
+            result += "[";
+            for (size_t i = 0; i < N; ++i) {
+                result += std::to_string(data[i]);
+            }
+            result += "]";
+            return result;
+        }
+        
+        
+        Vector<Type, 3> cross(Vector<Type, 3> &other) const requires (N == 3) {
+            return Vector<Type, 3>(
+                    data[1] * other.data[2] - data[2] * other.data[1],
+                    data[2] * other.data[0] - data[0] * other.data[2],
+                    data[0] * other.data[1] - data[1] * other.data[0]);
+        }
+        
+        [[nodiscard]] Type getX() const requires (N >= 1) {
+            return data[0];
+        }
+        
+        [[nodiscard]] Type getY() const requires (N >= 2) {
+            return data[1];
+        }
+        
+        [[nodiscard]] Type getZ() const requires (N >= 3) {
+            return data[2];
+        }
+        
+        [[nodiscard]] Type getW() const requires (N >= 4) {
+            return data[3];
+        }
     
-    Vector3(T x, T y, T z) : x(x), y(y), z(z) {}
     
-    // Operator Overloads
-    Vector3<T> operator+(const Vector3<T> &rhs) const {
-        return Vector3<T>(x + rhs.x, y + rhs.y, z + rhs.z);
+    private:
+        Type data[N];
+    };
+    
+    
+}
+
+
+template<typename Type, size_t N> using Vector = GLESC::Math::Vector<Type, N>;
+
+using Vector2 = Vector<float, 2>;
+using Vector3 = Vector<float, 3>;
+using Vector4 = Vector<float, 4>;
+
+
+using Vector2F = Vector<float, 2>;
+using Vector2D = Vector<double, 2>;
+using Vector2I = Vector<int, 2>;
+using Vector2U = Vector<unsigned int, 2>;
+using Vector2L = Vector<long, 2>;
+
+using Vector3F = Vector<float, 3>;
+using Vector3D = Vector<double, 3>;
+using Vector3I = Vector<int, 3>;
+using Vector3U = Vector<unsigned int, 3>;
+using Vector3L = Vector<long, 3>;
+
+using Vector4F = Vector<float, 4>;
+using Vector4D = Vector<double, 4>;
+using Vector4I = Vector<int, 4>;
+using Vector4U = Vector<unsigned int, 4>;
+using Vector4L = Vector<long, 4>;
+
+
+namespace std {
+    template<typename T, size_t U>
+    struct hash<Vector < T, U>> {
+    std::size_t operator()(const Vector <T, U> &vec) const {
+        std::hash<T> hasher;
+        std::size_t seed = 0;
+        for (size_t i = 0; i < U; ++i) {
+            seed ^= hasher(vec.data[i]) + 0x9e3779b9 + (seed << 6) +
+                    (seed >> 2);
+        }
+        return seed;
     }
-    
-    Vector3<T> operator-(const Vector3<T> &rhs) const {
-        return Vector3<T>(x - rhs.x, y - rhs.y, z - rhs.z);
-    }
-    
-    Vector3<T> operator*(T scalar) const {
-        return Vector3<T>(x * scalar, y * scalar, z * scalar);
-    }
-    
-    Vector3<T> operator/(T scalar) const {
-        return Vector3<T>(x / scalar, y / scalar, z / scalar);
-    }
-    
-    T dot(const Vector3<T> &rhs) const {
-        return x * rhs.x + y * rhs.y + z * rhs.z;
-    }
-    
-    Vector3<T> cross(const Vector3<T> &rhs) const {
-        return Vector3<T>(y * rhs.z - z * rhs.y,
-                          z * rhs.x - x * rhs.z,
-                          x * rhs.y - y * rhs.x);
-    }
-    
-    T length() const {
-        return std::sqrt(x * x + y * y + z * z);
-    }
-    
-    Vector3<T> normalize() const {
-        T length = this->length();
-        return Vector3<T>(x / length, y / length, z / length);
-    }
-    
-    Vector3<T> operator+=(const Vector3<T> &rhs) {
-        x += rhs.x;
-        y += rhs.y;
-        z += rhs.z;
-        return *this;
-    }
-    
-    Vector3<T> operator-=(const Vector3<T> &rhs) {
-        x -= rhs.x;
-        y -= rhs.y;
-        z -= rhs.z;
-        return *this;
-    }
-    
-    Vector3<T> operator*=(T scalar) {
-        x *= scalar;
-        y *= scalar;
-        z *= scalar;
-        return *this;
-    }
-    
-    Vector3<T> operator/=(T scalar) {
-        x /= scalar;
-        y /= scalar;
-        z /= scalar;
-        return *this;
-    }
-    
-    bool operator==(const Vector3<T> &rhs) const {
-        return x == rhs.x && y == rhs.y && z == rhs.z;
-    }
-    
-    bool operator!=(const Vector3<T> &rhs) const {
-        return x != rhs.x || y != rhs.y || z != rhs.z;
-    }
-    
 };
-
-template<typename T>
-class Vector2 {
-public:
-    T x, y;
-    
-    // Constructors
-    Vector2() : x(T(0)), y(T(0)) {}
-    
-    Vector2(T x, T y) : x(x), y(y) {}
-    
-    // Operator Overloads
-    Vector2<T> operator+(const Vector2<T> &rhs) const {
-        return Vector2<T>(x + rhs.x, y + rhs.y);
-    }
-    
-    Vector2<T> operator-(const Vector2<T> &rhs) const {
-        return Vector2<T>(x - rhs.x, y - rhs.y);
-    }
-    
-    Vector2<T> operator*(T scalar) const {
-        return Vector2<T>(x * scalar, y * scalar);
-    }
-    
-    Vector2<T> operator/(T scalar) const {
-        return Vector2<T>(x / scalar, y / scalar);
-    }
-    
-    T dot(const Vector2<T> &rhs) const {
-        return x * rhs.x + y * rhs.y;
-    }
-    
-    T length() const {
-        return std::sqrt(x * x + y * y);
-    }
-    
-    Vector2<T> normalize() const {
-        T length = this->length();
-        return Vector2<T>(x / length, y / length);
-    }
-    
-    Vector2<T> operator+=(const Vector2<T> &rhs) {
-        x += rhs.x;
-        y += rhs.y;
-        return *this;
-    }
-    
-    Vector2<T> operator-=(const Vector2<T> &rhs) {
-        x -= rhs.x;
-        y -= rhs.y;
-        return *this;
-    }
-    
-    Vector2<T> operator*=(T scalar) {
-        x *= scalar;
-        y *= scalar;
-        return *this;
-    }
-    
-    Vector2<T> operator/=(T scalar) {
-        x /= scalar;
-        y /= scalar;
-        return *this;
-    }
-    
-    bool operator==(const Vector2<T> &rhs) const {
-        return x == rhs.x && y == rhs.y;
-    }
-    
-    bool operator!=(const Vector2<T> &rhs) const {
-        return x != rhs.x || y != rhs.y;
-    }
-};
-
-template<typename T>
-class Vector4 {
-public:
-    T x, y, z, w;
-    
-    // Constructors
-    Vector4() : x(T(0)), y(T(0)), z(T(0)), w(T(0)) {}
-    
-    Vector4(T x, T y, T z, T w) : x(x), y(y), z(z), w(w) {}
-    
-    // Operator Overloads
-    Vector4<T> operator+(const Vector4<T> &rhs) const {
-        return Vector4<T>(x + rhs.x, y + rhs.y, z + rhs.z, w + rhs.w);
-    }
-    
-    Vector4<T> operator-(const Vector4<T> &rhs) const {
-        return Vector4<T>(x - rhs.x, y - rhs.y, z - rhs.z, w - rhs.w);
-    }
-    
-    Vector4<T> operator*(T scalar) const {
-        return Vector4<T>(x * scalar, y * scalar, z * scalar, w * scalar);
-    }
-    
-    Vector4<T> operator/(T scalar) const {
-        return Vector4<T>(x / scalar, y / scalar, z / scalar, w / scalar);
-    }
-    
-    T dot(const Vector4<T> &rhs) const {
-        return x * rhs.x + y * rhs.y + z * rhs.z + w * rhs.w;
-    }
-    
-    T length() const {
-        return std::sqrt(x * x + y * y + z * z + w * w);
-    }
-    
-    Vector4<T> normalize() const {
-        T length = this->length();
-        return Vector4<T>(x / length, y / length, z / length, w / length);
-    }
-    
-    Vector4<T> operator+=(const Vector4<T> &rhs) {
-        x += rhs.x;
-        y += rhs.y;
-        z += rhs.z;
-        w += rhs.w;
-        return *this;
-    }
-    
-    Vector4<T> operator-=(const Vector4<T> &rhs) {
-        x -= rhs.x;
-        y -= rhs.y;
-        z -= rhs.z;
-        w -= rhs.w;
-        return *this;
-    }
-    
-    Vector4<T> operator*=(T scalar) {
-        x *= scalar;
-        y *= scalar;
-        z *= scalar;
-        w *= scalar;
-        return *this;
-    }
-    
-    Vector4<T> operator/=(T scalar) {
-        x /= scalar;
-        y /= scalar;
-        z /= scalar;
-        w /= scalar;
-        return *this;
-    }
-    
-    bool operator==(const Vector4<T> &rhs) const {
-        return x == rhs.x && y == rhs.y && z == rhs.z && w == rhs.w;
-    }
-    
-    bool operator!=(const Vector4<T> &rhs) const {
-        return x != rhs.x || y != rhs.y || z != rhs.z || w != rhs.w;
-    }
-    
-    Vector4<T> cross(const Vector4<T> &rhs) const {
-        return Vector4<T>(y * rhs.z - z * rhs.y,
-                          z * rhs.x - x * rhs.z,
-                          x * rhs.y - y * rhs.x,
-                          0);
-    }
-    
-};
-
-// Specialization for float
-template<>
-bool Vector2<float>::operator==(const Vector2<float> &other) const {
-    return GLESC::Math::floatEquals(x, other.x) &&
-           GLESC::Math::floatEquals(y, other.y);
 }
-
-// Specialization for float
-template<>
-bool Vector3<float>::operator==(const Vector3<float> &other) const {
-    return GLESC::Math::floatEquals(x, other.x) &&
-           GLESC::Math::floatEquals(y, other.y) &&
-           GLESC::Math::floatEquals(z, other.z);
-}
-
-// Specialization for float
-template<>
-bool Vector4<float>::operator==(const Vector4<float> &other) const {
-    return GLESC::Math::floatEquals(y, other.y) &&
-           GLESC::Math::floatEquals(y, other.y) &&
-           GLESC::Math::floatEquals(z, other.z) &&
-           GLESC::Math::floatEquals(w, other.w);
-}
-
-// Specialization for double
-template<>
-bool Vector2<double>::operator==(const Vector2<double> &other) const {
-    return GLESC::Math::doubleEquals(x, other.x) &&
-           GLESC::Math::doubleEquals(y, other.y);
-}
-
-// Specialization for double
-template<>
-bool Vector3<double>::operator==(const Vector3<double> &other) const {
-    return GLESC::Math::doubleEquals(x, other.x) &&
-           GLESC::Math::doubleEquals(y, other.y) &&
-           GLESC::Math::doubleEquals(z, other.z);
-}
-
-// Specialization for double
-template<>
-bool Vector4<double>::operator==(const Vector4<double> &other) const {
-    return GLESC::Math::doubleEquals(y, other.y) &&
-           GLESC::Math::doubleEquals(y, other.y) &&
-           GLESC::Math::doubleEquals(z, other.z) &&
-           GLESC::Math::doubleEquals(w, other.w);
-}
-
-// Type Aliases
-using Vector2F [[maybe_unused]] = Vector2<float>;
-using Vector3F [[maybe_unused]] = Vector3<float>;
-using Vector4F [[maybe_unused]] = Vector4<float>;
-
-using Vector2I [[maybe_unused]] = Vector2<int>;
-using Vector3I [[maybe_unused]] = Vector3<int>;
-using Vector4I [[maybe_unused]] = Vector4<int>;
-
-using Vector3U [[maybe_unused]] = Vector3<unsigned int>;
-using Vector2U [[maybe_unused]] = Vector2<unsigned int>;
-using Vector4U [[maybe_unused]] = Vector4<unsigned int>;
-
-using Vector2D [[maybe_unused]] = Vector2<double>;
-using Vector3D [[maybe_unused]] = Vector3<double>;
-using Vector4D [[maybe_unused]] = Vector4<double>;
-

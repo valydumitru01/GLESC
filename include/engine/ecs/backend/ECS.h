@@ -1,7 +1,11 @@
 /*******************************************************************************
+ * @file   Example.h
+ * @author Valentin Dumitru
+ * @date   2023-09-26
  *
  * Copyright (c) 2023.
- * Licensed under the MIT License. See LICENSE.txt in the project root for license information.
+ * Licensed under the MIT License.
+ * See LICENSE.txt in the project root for license information.
  ******************************************************************************/
 
 #pragma once
@@ -91,7 +95,8 @@ namespace GLESC {
          * @param name The name of the system
          * @return A set of entities associated with the system or an empty set if the system does not exist
          */
-        [[nodiscard]] std::set<EntityID> getAssociatedEntities(const SystemName &name) const;
+        [[nodiscard]] std::set<EntityID>
+        getAssociatedEntities(const SystemName &name) const;
     
     private:
         ComponentManager componentManager{};
@@ -109,7 +114,8 @@ namespace GLESC {
     template<class Component>
     void ECS::removeComponent(EntityID entity) {
         componentManager.removeComponent<Component>(entity);
-        systemManager.entitySignatureChanged(entity, entityManager.getSignature(entity));
+        systemManager.entitySignatureChanged(entity,
+        entityManager.getSignature(entity));
     }
     
     template<class Component>
@@ -128,12 +134,13 @@ namespace GLESC {
             return;
         componentManager.registerComponentIfNotRegistered<Component>();
         systemManager.addComponentRequirementToSystem(name,
-                                                      componentManager.getComponentID<Component>());
+                      componentManager.getComponentID<Component>());
     }
     
     template<typename System>
     bool ECS::doesEntityHaveComponent(EntityID entity) {
-        return entityManager.doesEntityHaveComponent(entity, componentManager.getComponentID<System>());
+        return entityManager.doesEntityHaveComponent(entity,
+               componentManager.getComponentID<System>());
     }
     
     

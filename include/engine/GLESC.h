@@ -1,7 +1,11 @@
-/*******************************************************************************
+/******************************************************************************
+ * @file   Example.h
+ * @author Valentin Dumitru
+ * @date   2023-09-26
+ * @brief @todo
  *
- * Copyright (c) 2023.
- * Licensed under the MIT License. See LICENSE.txt in the project root for license information.
+ * Copyright (c) 2023 Valentin Dumitru. Licensed under the MIT License.
+ * See LICENSE.txt in the project root for license information.
  ******************************************************************************/
 
 #pragma once
@@ -31,7 +35,8 @@
 namespace GLESC {
     class Engine {
         /**
-         * @brief The engine can only be created by the main function, where the game loop is defined
+         * @brief The engine can only be created by the main function,
+         * where the game loop is defined
          */
         friend int::main(int argc, char* argv[]);
     
@@ -42,13 +47,15 @@ namespace GLESC {
     
     private:
         /**
-         * @brief The constructor is private, the engine can only be created by the main function
+         * @brief The constructor is private,
+         * the engine can only be created by the main function
          */
         Engine();
         
         /**
          * @brief Processes the logic of the game
-         * Is called every frame, must be called at constant intervals of time as it does not use elapsed, more
+         * Is called every frame, must be called at
+         * constant intervals of time as it does not use elapsed, more
          * information https://www.gameprogrammingpatterns.com/game-loop.html
          */
         void update();

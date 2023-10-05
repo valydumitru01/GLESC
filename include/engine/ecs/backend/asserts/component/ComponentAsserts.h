@@ -1,7 +1,10 @@
-/*******************************************************************************
+/******************************************************************************
+ * @file   Example.h
+ * @author Valentin Dumitru
+ * @date   2023-09-26
+ * @brief @todo
  *
- * Copyright (c) 2023 Valentin Dumitru.
- * Licensed under the MIT License.
+ * Copyright (c) 2023 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
  ******************************************************************************/
 
@@ -11,7 +14,8 @@
 #include "engine/ecs/frontend/component/IComponent.h"
 
 #define ASSERT_IS_COMPONENT(component) \
-    static_assert(std::is_base_of<Component, component>::value, "T must inherit from Component")
+    static_assert(std::is_base_of<IComponent, component>::value, \
+    "T must inherit from Component")
 
 #define ASSERT_IS_COMPONENT_REGISTERED(component) \
     ASSERT(isComponentRegistered<component>(), \

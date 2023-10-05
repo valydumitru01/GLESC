@@ -20,7 +20,7 @@ public:
     
     virtual bool hasComponent(EntityID entity) = 0;
     
-    virtual IComponent& getComponent(int index) = 0;
+    virtual IComponent& getComponent(std::size_t index) = 0;
     
     virtual void removeData(EntityID entity) = 0;
     
@@ -31,8 +31,9 @@ template<typename Component>
 class ComponentArray : public IComponentArray {
 
 public:
+    ComponentArray() = default;
     
-    IComponent& getComponent(int index) override {
+    IComponent& getComponent(std::size_t index) override {
         return componentArray[index];
     }
     

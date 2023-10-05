@@ -17,8 +17,6 @@ J
 scripts/py/static_check.py,e\1\e139eb2bf2cb6ede69f37bf3a619ad8f6dce27b0
 g
 7include/engine/ecs/backend/component/ComponentManager.h,5\d\5d7c2d7812eb3f2b0966e330b10598b64e84d7c8
-Y
-)include/engine/subsystems/renderer/Mesh.h,b\c\bcd611ed5b996d4a174968000e989eb9d51d279f
 h
 8include/engine/subsystems/input/debugger/InputDebugger.h,7\0\70425d7646cfd1b251ac127f4499f891ca8b2d78
 z
@@ -41,8 +39,6 @@ m
 -src/engine/res-mng/textures/TextureLoader.cpp,4\5\4531d26401f2d2a0041484a774146536d8513c9e
 _
 /include/engine/res-mng/textures/TextureLoader.h,e\d\ed09487f9b8de2941ede8daa52e166a13027911d
-W
-'src/engine/subsystems/renderer/Mesh.cpp,f\e\feb55b2a902a41c0f6c82bda6f7eefe66cfdf1e3
 W
 'include/engine/core/debugger/Debugger.h,d\0\d0c0a520391af322d0292a638913289e86dfcd33
 r

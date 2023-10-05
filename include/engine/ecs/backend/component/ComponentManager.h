@@ -5,14 +5,16 @@
  ******************************************************************************/
 
 #pragma once
+
 #include "engine/ecs/ECSTypes.h"
 #include "engine/ecs/frontend/component/ComponentArray.h"
 #include "engine/ecs/backend/asserts/component/ComponentAsserts.h"
 
 namespace GLESC {
     class ComponentManager {
-        friend void printComponentStatus(const ComponentManager& componentManager) noexcept;
-
+        friend void
+        printComponentStatus(const ComponentManager &componentManager) noexcept;
+    
     public:
         ComponentManager() = default;
         
@@ -40,6 +42,7 @@ namespace GLESC {
         void entityDestroyed(EntityID entity);
         
         ~ComponentManager() = default;
+    
     private:
         //TODO: Change the use of strings to something more lightweight
         /**
@@ -75,7 +78,8 @@ namespace GLESC {
 
 template<typename Component>
 bool GLESC::ComponentManager::isComponentRegistered() {
-    return componentArrays.find(typeid(Component).name()) != componentArrays.end();
+    return componentArrays.find(typeid(Component).name()) !=
+           componentArrays.end();
 }
 
 template<typename Component>
@@ -85,7 +89,8 @@ void GLESC::ComponentManager::registerComponent() {
     PRINT_COMPONENTS_STATUS(*this, "Before registering component");
     
     const char *typeName = typeid(Component).name();
-    componentArrays.try_emplace(typeName, std::make_shared<ComponentArray<Component>>());
+    componentArrays.try_emplace(typeName,
+                                std::make_shared<ComponentArray<Component>>());
     componentIDs.try_emplace(typeName, nextComponentID);
     ++nextComponentID;
     
@@ -101,7 +106,8 @@ ComponentID GLESC::ComponentManager::getComponentID() {
 }
 
 template<typename Component>
-void GLESC::ComponentManager::addComponent(EntityID entity, Component component) {
+void
+GLESC::ComponentManager::addComponent(EntityID entity, Component component) {
     // No need for asserts or printing, they are already done in the functions called
     registerComponentIfNotRegistered<Component>();
     getComponentArray<Component>()->insertData(entity, component);
@@ -125,14 +131,16 @@ Component &GLESC::ComponentManager::getComponent(EntityID entity) {
 
 template<typename Component>
 void GLESC::ComponentManager::registerComponentIfNotRegistered() {
-    // No need for asserts or printing, they are already done in the functions called
+    // No need for asserts or printing,
+    // they are already done in the functions called
     if (!isComponentRegistered<Component>()) {
         registerComponent<Component>();
     }
 }
 
 template<typename Component>
-std::shared_ptr<ComponentArray<Component>> GLESC::ComponentManager::getComponentArray() {
+std::shared_ptr<ComponentArray<Component>>
+GLESC::ComponentManager::getComponentArray() {
     ASSERT_IS_COMPONENT(Component);
     ASSERT_IS_COMPONENT_REGISTERED(Component);
     

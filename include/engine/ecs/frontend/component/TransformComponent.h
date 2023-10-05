@@ -8,18 +8,20 @@
 
 #include "IComponent.h"
 #include "engine/core/math/debugger/MathDebugger.h"
+#include "engine/core/math/Vector.h"
 
 struct TransformComponent : public IComponent {
-    glm::vec3 position{0.f};
-    glm::vec3 rotation{0.f};
-    glm::vec3 scale{1.f};
+    Vector3D position{0.0};
+    Vector3D rotation{0.0};
+    Vector3D scale{1.0};
+    
     std::string toString() override {
         return "TransformComponent:"
                + std::string("\n\tposition: ")
-               + GLESC::glmToString(position)
+               + position.toString()
                + std::string("\n\trotation: ")
-               + GLESC::glmToString(rotation)
+               + rotation.toString()
                + std::string("\n\tscale: ")
-               + GLESC::glmToString(scale);
+               + scale.toString();
     }
 };
