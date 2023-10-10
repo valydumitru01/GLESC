@@ -1,4 +1,45 @@
-"C:\Program Files\JetBrains\CLion 2022.3.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Program Files/JetBrains/CLion 2022.3.2/bin/ninja/win/x64/ninja.exe" -DCMAKE_CXX_COMPILER=C:/MinGW/bin/g++.exe -G Ninja -S C:\Users\valyd\Desktop\Github_Repos\TFG---OpenGL-Engine -B C:\Users\valyd\Desktop\Github_Repos\TFG---OpenGL-Engine\bin\debug
--- Configuring done (0.3s)
--- Generating done (0.0s)
--- Build files have been written to: C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/debug
+"C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Program Files/JetBrains/CLion 2023.2.2/bin/ninja/win/x64/ninja.exe" -G Ninja -S C:\Users\Lenovo\Desktop\Github_repos\TFG---OpenGL-Engine -B C:\Users\Lenovo\Desktop\Github_repos\TFG---OpenGL-Engine\bin\debug
+-- The C compiler identification is GNU 12.3.0
+-- The CXX compiler identification is GNU 12.3.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: C:/Program Files/mingw/mingw64/bin/gcc.exe - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: C:/Program Files/mingw/mingw64/bin/c++.exe - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+Source files: C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/Game/Game.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/GLESC.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/core/counter/Counter.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/core/debugger/Stacktrace.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/core/exceptions/BaseException.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/core/file-system/FileSystemPath.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/core/logger/Logger.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/core/logger/outputs/FileLogger.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/core/logger/outputs/TerminalLogger.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/core/low-level-renderer/buffers/IndexBuffer.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/core/low-level-renderer/buffers/VertexBuffer.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/core/low-level-renderer/graphic-api/concrete-apis/opengl/OpenGLDebugger.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/core/low-level-renderer/graphic-api/concrete-apis/vulkan/VulkanGDI.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/core/low-level-renderer/texture/TextureManager.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/core/window/WindowManager.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/ecs/backend/ECS.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/ecs/backend/component/ComponentManager.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/ecs/backend/entity/EntityManager.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/ecs/backend/system/SystemManager.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/ecs/frontend/entity/Entity.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/ecs/frontend/system/System.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/ecs/systems/CameraSystem.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/ecs/systems/InputSystem.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/ecs/systems/PhysicsSystem.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/ecs/systems/RenderSystem.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/main.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/res-mng/files/FileManager.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/res-mng/textures/TextureLoader.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/hud/HUDManager.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/input/InputManager.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/physics/PhysicsManager.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/mesh/Face.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/mesh/Mesh.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/mesh/Vertex.cpp
+Library source files: C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include/glm/detail/glm.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include/imgui/example.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include/imgui/imgui.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include/imgui/imgui_demo.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include/imgui/imgui_draw.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include/imgui/imgui_impl_opengl3.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include/imgui/imgui_impl_sdl2.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include/imgui/imgui_tables.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include/imgui/imgui_widgets.cpp
+Test files: C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/tests/main.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/tests/unit/engine/core/math/MathTest.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/tests/unit/engine/core/math/MatrixTest.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/tests/unit/engine/core/math/VectorTest.cpp
+-- Found Boost: C:/Program Files/boost/boost_1_83_0 (found version "1.83.0")  
+-- Boost found
+-- Building tests
+-- Could NOT find GTest (missing: GTEST_LIBRARY GTEST_INCLUDE_DIR GTEST_MAIN_LIBRARY) 
+-- Fetching Google Test
+-- Could NOT find Python (missing: Python_EXECUTABLE Interpreter) 
+-- Google Test fetched
+-- Adding executable target game
+-- Adding executable target game_test
+-- Adding macro definitions
+Platform definition: __WINDOWS__
+Fragment shader: C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag
+Vertex shader: C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert
+Project name: game
+Project binary dir: C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/debug
+-- Adding compile flags
+Compile flags: -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
+-- Adding include directories
+-- Adding include directories of the project
+-- Adding include directories of the libraries
+-- Include directories added: include lib/include C:/Program Files/boost/boost_1_83_0
+-- Adding linking libraries
+-- Adding linking libraries of the project
+Applying flags on the build type
+Build type: Debug
+Applied flags: -O0 -g -ggdb
+-- Configuring done (8.8s)
+-- Generating done (0.1s)
+-- Build files have been written to: C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/debug

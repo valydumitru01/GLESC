@@ -18,7 +18,6 @@ int main(int argc, char* argv[]) {
     #endif
     GLESC::Engine glesc;
     Counter counter(FpsRates::Fps60);
-    
     glesc.initGame();
     while (glesc.running) {
         counter.timeFrame();

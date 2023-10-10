@@ -13,13 +13,17 @@
 #include <iostream>
 #include <stdexcept>
 #include <string>
+#include "engine/core/debugger/Stacktrace.h"
 #include "engine/core/logger/Logger.h"
 
 #ifndef NDEBUG
 #define ASSERT_CONTENT(condition, message) \
-        Logger::get().error("Assertion `" #condition "` failed in " + std::string(__FILE__) + " line " + \
-        std::to_string(__LINE__) + ": \n\t" + std::string(message)); \
-        std::terminate();
+        std::string stacktrace = GLESC::generateStackTrace(); \
+        Logger::get().error( \
+            "Assertion `" #condition "` failed in " + std::string(__FILE__) + \
+            " line " + std::to_string(__LINE__) + ": \n\t" + \
+            std::string(message) + "\nStacktrace:\n" + stacktrace); \
+        std::terminate(); \
 
 #define ASSERT(condition, message) \
         do { \

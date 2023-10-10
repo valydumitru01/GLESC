@@ -48,7 +48,7 @@ inline std::string keyToString<GLESC::Key>(const GLESC::Key& key) {
         case GLESC::Key::F:return "F";
         case GLESC::Key::T:return "T";
         case GLESC::Key::G:return "G";
-        case GLESC::Key::Y:return "Y";
+        case GLESC::Key::Y:return "y";
         case GLESC::Key::H:return "H";
         case GLESC::Key::U:return "U";
         case GLESC::Key::J:return "J";
@@ -58,7 +58,7 @@ inline std::string keyToString<GLESC::Key>(const GLESC::Key& key) {
         case GLESC::Key::L:return "L";
         case GLESC::Key::P:return "P";
         case GLESC::Key::Z:return "Z";
-        case GLESC::Key::X:return "X";
+        case GLESC::Key::X:return "x";
         case GLESC::Key::C:return "C";
         case GLESC::Key::V:return "V";
         case GLESC::Key::B:return "B";

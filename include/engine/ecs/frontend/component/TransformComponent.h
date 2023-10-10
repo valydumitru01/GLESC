@@ -11,9 +11,9 @@
 #include "engine/core/math/Vector.h"
 
 struct TransformComponent : public IComponent {
-    Vector3D position{0.0};
-    Vector3D rotation{0.0};
-    Vector3D scale{1.0};
+    Vec3D position{0.0};
+    Vec3D rotation{0.0};
+    Vec3D scale{1.0};
     
     std::string toString() override {
         return "TransformComponent:"

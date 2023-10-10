@@ -10,19 +10,19 @@
 
 #include "engine/subsystems/renderer/mesh/Vertex.h"
 using namespace GLESC;
-Vertex::Vertex(const Vector3D &position,
-               const std::optional<Vector4F> &color,
-               const std::optional<Vector2F> &uv) :
+Vertex::Vertex(const Vec3D &position,
+               const std::optional<Vec4F> &color,
+               const std::optional<Vec2F> &uv) :
         position(position), color(color), uv(uv) {}
 
-Vertex::Vertex(const Vector3D &position) :
-        Vertex(position, defaultVertexColor, std::nullopt) {}
+Vertex::Vertex(const Vec3D &position)  :
+        Vertex(position, std::nullopt, std::nullopt) {}
 
-Vertex::Vertex(const Vector3D &position, const Vector4F &color) :
+Vertex::Vertex(const Vec3D &position, const Vec4F &color)  :
         Vertex(position, color, std::nullopt) {}
 
-Vertex::Vertex(const Vector3D &position, const Vector2F &uv) :
-        Vertex(position, defaultVertexColor, uv) {}
+Vertex::Vertex(const Vec3D &position, const Vec2F &uv)  :
+        Vertex(position, std::nullopt, uv) {}
 
 bool Vertex::operator==(const Vertex &other) const {
     return position == other.position && color == other.color && uv == other.uv;
@@ -33,27 +33,27 @@ bool Vertex::operator<(const Vertex &other) const {
 }
 
 
-Vector3D Vertex::getPosition() const {
+Vec3D Vertex::getPosition() const {
     return position;
 }
 
-std::optional<Vector4F> Vertex::getColor() const {
+std::optional<Vec4F> Vertex::getColor() const {
     return color;
 }
 
-std::optional<Vector2F> Vertex::getUv() const {
+std::optional<Vec2F> Vertex::getUv() const {
     return uv;
 }
 
-void Vertex::setPosition(const Vector3D &positionParam) {
+void Vertex::setPosition(const Vec3D &positionParam) {
     Vertex::position = positionParam;
 }
 
-void Vertex::setColor(const Vector4F &colorParam) {
+void Vertex::setColor(const Vec4F &colorParam) {
     Vertex::color = colorParam;
 }
 
-void Vertex::setUv(const Vector2F &uvParam) {
+void Vertex::setUv(const Vec2F &uvParam) {
     Vertex::uv = uvParam;
 }
 

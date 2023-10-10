@@ -18,7 +18,7 @@
 namespace GLESC {
     class Mesh {
         using VertexPtr = std::shared_ptr<Vertex>;
-        using FaceVertices = Vector3<VertexPtr>;
+        using FaceVertices = Vec3<VertexPtr>;
     public:
         Mesh() = default;
         

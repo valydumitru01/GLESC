@@ -13,8 +13,8 @@ using namespace GLESC;
 
 void
 Face::calculateData(Vertex &vertex1, Vertex &vertex2, Vertex &vertex3) {
-    Vector3D v1 = vertex2.getPosition() - vertex1.getPosition();
-    Vector3D v2 = vertex3.getPosition() - vertex1.getPosition();
+    Vec3D v1 = vertex2.getPosition() - vertex1.getPosition();
+    Vec3D v2 = vertex3.getPosition() - vertex1.getPosition();
     crossProduct = v1.cross(v2);
     
     this->vertexA = std::make_shared<Vertex>(vertex1);
@@ -31,7 +31,7 @@ bool Face::operator<(const Face &other) const {
     return crossProduct < other.crossProduct;
 }
 
-Vector3D Face::getNormal() const {
+Vec3D Face::getNormal() const {
     return crossProduct.normalize();
 }
 
@@ -39,7 +39,7 @@ double Face::getArea() const {
     return crossProduct.length() / 2;
 }
 
-Vector3D Face::getCrossProduct() const {
+Vec3D Face::getCrossProduct() const {
     return crossProduct;
 }
 

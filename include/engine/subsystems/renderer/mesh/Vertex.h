@@ -24,7 +24,7 @@ namespace GLESC {
         /**
          * @brief The default color of the vertex
          */
-        inline static const Vector4D defaultVertexColor = Vector4D(0, 0, 0, 1);
+        inline static const Vec4D defaultVertexColor = Vec4D(0, 0, 0, 1);
         
         Vertex() = default;
         
@@ -38,9 +38,9 @@ namespace GLESC {
          * @param color
          * @param uv
          */
-        explicit Vertex(const Vector3D &position,
-                        const std::optional<Vector4F> &color,
-                        const std::optional<Vector2F> &uv);
+        explicit Vertex(const Vec3D &position,
+                        const std::optional<Vec4F> &color,
+                        const std::optional<Vec2F> &uv);
         
         /**
          * @brief Constructor for just the position,
@@ -48,10 +48,10 @@ namespace GLESC {
          * will be no uvs and therefore no textures.
          * @param position
          */
-        Vertex(const Vector3D &position);
+        Vertex(const Vec3D &position);
         
         Vertex(const double x, const double y, const double z) :
-                Vertex(Vector3D(x, y, z)) {}
+                Vertex(Vec3D(x, y, z)) {}
         
         /**
          * @brief Constructor for position and color, if there are colors,
@@ -59,11 +59,11 @@ namespace GLESC {
          * @param position The position of the vertex
          * @param color The color of the vertex
          */
-        explicit Vertex(const Vector3D &position, const Vector4F &color);
+        explicit Vertex(const Vec3D &position, const Vec4F &color);
         
         Vertex(const double x, const double y, const double z, const float r,
                const float g, const float b, const float a) :
-                Vertex(Vector3D(x, y, z), Vector4F(r, g, b, a)) {}
+                Vertex(Vec3D(x, y, z), Vec4F(r, g, b, a)) {}
         
         /**
          * @brief Constructor for position and uv, if there are uvs,
@@ -71,11 +71,11 @@ namespace GLESC {
          * @param position
          * @param uv
          */
-        explicit Vertex(const Vector3D &position, const Vector2F &uv);
+        explicit Vertex(const Vec3D &position, const Vec2F &uv);
         
         Vertex(const double x, const double y, const double z, const float u,
                const float v) :
-                Vertex(Vector3D(x, y, z), Vector2F(u, v)) {}
+                Vertex(Vec3D(x, y, z), Vec2F(u, v)) {}
         
         /**
          * @brief Compares two vertices
@@ -89,17 +89,17 @@ namespace GLESC {
         
         bool operator<(const Vertex &other) const;
         
-        [[nodiscard]] Vector3D getPosition() const;
+        [[nodiscard]] Vec3D getPosition() const;
         
-        [[nodiscard]] std::optional<Vector4F> getColor() const;
+        [[nodiscard]] std::optional<Vec4F> getColor() const;
         
-        [[nodiscard]] std::optional<Vector2F> getUv() const;
+        [[nodiscard]] std::optional<Vec2F> getUv() const;
         
-        void setPosition(const Vector3D &positionParam);
+        void setPosition(const Vec3D &positionParam);
         
-        void setColor(const Vector4F &colorParam);
+        void setColor(const Vec4F &colorParam);
         
-        void setUv(const Vector2F &uvParam);
+        void setUv(const Vec2F &uvParam);
         
         
         [[nodiscard]] std::string toString() const;
@@ -114,7 +114,7 @@ namespace GLESC {
          * can be changed to floats and use floating origin so that
          * the world moves around the player instead of vice versa.
          */
-        Vector3D position;
+        Vec3D position;
         /**
          * @brief The color of the vertex
          * @details The color of the vertex, it is optional because
@@ -122,7 +122,7 @@ namespace GLESC {
          * It should be values between 0.0 and 1.0, and RGBA
          * (red, green, blue, alpha)
          */
-        std::optional<Vector4F> color;
+        std::optional<Vec4F> color;
         /**
          * @brief The uv of the vertex, UVs are used for textures
          * @details The uv of the vertex, it is optional because
@@ -130,7 +130,7 @@ namespace GLESC {
          * Uvs are used to map textures to the mesh.
          * It should be values between 0.0 and 1.0.
          */
-        std::optional<Vector2F> uv;
+        std::optional<Vec2F> uv;
     };
     
     
@@ -141,15 +141,15 @@ namespace std {
     struct hash<GLESC::Vertex> {
         std::size_t operator()(const GLESC::Vertex &v) const {
             // We must take into consideration the optional values
-            auto hash1 = std::hash<Vector3D>()(v.getPosition());
+            auto hash1 = std::hash<Vec3D>()(v.getPosition());
             
             if (v.getColor().has_value()) {
-                auto hash2 = std::hash<Vector4F>()(v.getColor().value());
+                auto hash2 = std::hash<Vec4F>()(v.getColor().value());
                 return hash1 ^ hash2;
             }
             
             if (v.getUv().has_value()) {
-                auto hash2 = std::hash<Vector2F>()(v.getUv().value());
+                auto hash2 = std::hash<Vec2F>()(v.getUv().value());
                 return hash1 ^ hash2;
             }
             

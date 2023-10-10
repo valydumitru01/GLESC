@@ -43,14 +43,18 @@ Mesh::addVertices(const std::initializer_list<Vertex> verticesParam) {
 }
 
 void Mesh::addFace(const FaceVertices &faceVertices) {
-    if (faceVertices.x->getPosition() == faceVertices.y->getPosition() ||
-        faceVertices.x->getPosition() == faceVertices.z->getPosition() ||
-        faceVertices.y->getPosition() == faceVertices.z->getPosition()) {
+    if (faceVertices.getX()->getPosition() ==
+        faceVertices.getY()->getPosition() ||
+        faceVertices.getX()->getPosition() ==
+        faceVertices.getZ()->getPosition() ||
+        faceVertices.getY()->getPosition() ==
+        faceVertices.getZ()->getPosition()) {
         throw MeshException("Vertices must be unique");
     }
     Face face;
     
-    face.calculateData(*faceVertices.x, *faceVertices.y, *faceVertices.z);
+    face.calculateData(*faceVertices.getX(), *faceVertices.getY(),
+                       *faceVertices.getZ());
     faces.push_back(face);
     
 }
@@ -61,11 +65,11 @@ void Mesh::addFaces(const std::initializer_list<FaceVertices> &faceVertices) {
     }
 }
 
-std::vector<Vertex>& Mesh::getVertices() {
+std::vector<Vertex> &Mesh::getVertices() {
     return vertices;
 }
 
-std::vector<Face>& Mesh::getFaces() {
+std::vector<Face> &Mesh::getFaces() {
     return faces;
 }
 

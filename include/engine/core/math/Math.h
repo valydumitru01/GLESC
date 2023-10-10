@@ -8,6 +8,8 @@
  * See LICENSE.txt in the project root for license information.
  ******************************************************************************/
 #pragma once
+#include <cmath>
+#include "engine/core/asserts/Asserts.h"
 
 
 namespace GLESC::Math {
@@ -17,20 +19,21 @@ namespace GLESC::Math {
             3.1415926535897932384626433832795028841971693993751058209749445923f;
     
     template<typename T>
-    inline bool decimalEquals(T a, T b) {
-        ASSERT(false,
-               "Default implementation of decimalEquals is not supported");
+    constexpr inline bool eq(T a, T b) {
+        return a == b;
     }
     
     template<>
-    inline bool decimalEquals<float>(float a, float b) {
+    constexpr inline bool eq<float>(float a, float b) {
         return std::fabs(a - b) < FLOAT_COMPARISON_EPSILON;
     }
     
     template<>
-    inline bool decimalEquals<double>(double a, double b) {
+    constexpr inline bool eq<double>(double a, double b) {
         return std::fabs(a - b) < DOUBLE_COMPARISON_EPSILON;
     }
+    
+    
     
     
     template<typename T>

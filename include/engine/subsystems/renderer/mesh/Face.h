@@ -24,11 +24,11 @@ namespace GLESC {
         
         bool operator<(const Face &other) const;
         
-        [[nodiscard]] Vector3D getNormal() const;
+        [[nodiscard]] Vec3D getNormal() const;
         
         [[nodiscard]] double getArea() const;
         
-        [[nodiscard]] Vector3D getCrossProduct() const;
+        [[nodiscard]] Vec3D getCrossProduct() const;
         
         [[nodiscard]] std::string toString() const;
     
@@ -37,7 +37,7 @@ namespace GLESC {
          * @brief The normal (perpendicular vector that comes out of the face)
          * of the face
          */
-        Vector3D crossProduct;
+        Vec3D crossProduct;
         
         std::shared_ptr<Vertex> vertexA;
         std::shared_ptr<Vertex> vertexB;
@@ -49,6 +49,6 @@ namespace GLESC {
 template<>
 struct std::hash<GLESC::Face> {
     std::size_t operator()(const GLESC::Face &face) const {
-        return std::hash<Vector3D>()(face.getCrossProduct());
+        return std::hash<Vec3D>()(face.getCrossProduct());
     }
 };

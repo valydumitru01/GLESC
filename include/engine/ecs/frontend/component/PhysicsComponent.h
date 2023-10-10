@@ -11,9 +11,9 @@
 
 struct PhysicsComponent : public IComponent {
     float mass{1.0F};
-    glm::vec3 velocity{};
-    glm::vec3 force{};
-    glm::vec3 acceleration{};
+    Vec3F velocity{};
+    Vec3F force{};
+    Vec3F acceleration{};
     
     std::string toString() override {
         return "PhysicsComponent:"
