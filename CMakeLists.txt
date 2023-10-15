@@ -19,6 +19,7 @@ include(cmake/FileLocations.cmake)
 include(cmake/FindPackages.cmake)
 include(cmake/LinkedLibraries.cmake)
 include(cmake/PlatformDetection.cmake)
+
 if (BUILD_TESTING)
     message(STATUS "Building tests")
     include(cmake/Testing.cmake)
@@ -128,6 +129,11 @@ target_link_libraries(game
 
 
 if (BUILD_TESTING)
+    target_compile_definitions(game_test PRIVATE GTEST_HAS_DEATH_TEST=1)
+    target_link_directories(game_test PRIVATE
+            ${LIB_STATIC_DIR} # This is where the static libraries are located
+            # This is defined in FileLocations.cmake
+    )
     target_include_directories(game_test PRIVATE
             # Libraries that are needed for the tests
             ${INCLUDE_DIR} # This is where the header files for the project are located
@@ -137,6 +143,7 @@ if (BUILD_TESTING)
     )
     # Link libraries for the test executable
     target_link_libraries(game_test
+            gtest
             gtest_main # This is the google test library, needed for the tests
             ${MAIN_LIBS} # These are the libraries that the project depends on
             # Defined in LinkedLibraries.cmake

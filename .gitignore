@@ -1,6 +1,8 @@
 # Ignore all files in the .vscode directory
 .vscode/
 
+.idea/
+
 # Except c_cpp_properties.json
 !.vscode/c_cpp_properties.json
 
