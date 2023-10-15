@@ -146,7 +146,6 @@ enum class GAPIValues {
 };
 
 
-
 class IGraphicInterface {
 public:
     IGraphicInterface() = default;
@@ -155,7 +154,7 @@ public:
     
     [[nodiscard]] virtual GraphicsAPI getGraphicsAPI() const = 0;
     
-    virtual void clear(const std::initializer_list<GAPIValues>& values) = 0;
+    virtual void clear(const std::initializer_list<GAPIValues> &values) = 0;
     
     virtual void clearColor(GAPIfloat r, GAPIfloat g, GAPIfloat b, GAPIfloat a) = 0;
     
@@ -185,19 +184,19 @@ public:
     
     virtual void deleteBuffer(GAPIuint buffer) = 0;
     
-    virtual void
-    setBufferData(const std::any *data,
-                  GAPIsize size,
-                  GAPIuint buffer,
-                  GAPIValues bufferType,
-                  GAPIValues bufferUsage) = 0;
+    virtual void setBufferData(const std::any *data,
+                               GAPIsize size,
+                               GAPIuint buffer,
+                               GAPIValues bufferType,
+                               GAPIValues bufferUsage) = 0;
     
     // ------------------------------------------------------------------------------
     // -------------------------------- Texture -------------------------------------
     
     /**
      * @brief Create a texture from an SDL_Surface
-     * @details This function creates a texture from an SDL_Surface. It also sets the texture parameters.
+     * @details This function creates a texture from an SDL_Surface.
+     * It also sets the texture parameters.
      * @param surface
      * @param minFilter
      * @param magFilter
@@ -205,12 +204,11 @@ public:
      * @param wrapT
      * @return
      */
-    virtual GAPIuint
-    createTexture(SDL_Surface &surface,
-                  GAPIValues minFilter,
-                  GAPIValues magFilter,
-                  GAPIValues wrapS,
-                  GAPIValues wrapT) = 0;
+    virtual GAPIuint createTexture(SDL_Surface &surface,
+                                   GAPIValues minFilter,
+                                   GAPIValues magFilter,
+                                   GAPIValues wrapS,
+                                   GAPIValues wrapT) = 0;
     
     /**
      * @brief Create texture with default parameters
@@ -233,7 +231,8 @@ public:
     
     virtual void useShaderProgram(GAPIuint shaderProgram) = 0;
     
-    virtual GAPIuint loadAndCompileShader(GAPIValues shaderType, const std::string &shaderSource) = 0;
+    virtual GAPIuint
+    loadAndCompileShader(GAPIValues shaderType, const std::string &shaderSource) = 0;
     
     virtual bool compilationOK(GAPIuint shaderID, GAPIchar *message) = 0;
     
@@ -250,7 +249,8 @@ public:
     
     virtual void setUniform1Float(GAPIint location, GAPIfloat v0) = 0;
     
-    virtual void setUniform1FloatVector(GAPIint location, GAPIsize count, const GAPIfloat *value) = 0;
+    virtual void
+    setUniform1FloatVector(GAPIint location, GAPIsize count, const GAPIfloat *value) = 0;
     
     virtual void setUniform1Int(GAPIint location, GAPIint v0) = 0;
     
@@ -258,7 +258,8 @@ public:
     
     virtual void setUniform2Float(GAPIint location, GAPIfloat v0, GAPIfloat v1) = 0;
     
-    virtual void setUniform2FloatVector(GAPIint location, GAPIsize count, const GAPIfloat *value) = 0;
+    virtual void
+    setUniform2FloatVector(GAPIint location, GAPIsize count, const GAPIfloat *value) = 0;
     
     virtual void setUniform2Int(GAPIint location, GAPIint v0, GAPIint v1) = 0;
     
@@ -266,36 +267,48 @@ public:
     
     virtual void setUniform3Float(GAPIint location, GAPIfloat v0, GAPIfloat v1, GAPIfloat v2) = 0;
     
-    virtual void setUniform3FloatVector(GAPIint location, GAPIsize count, const GAPIfloat *value) = 0;
+    virtual void
+    setUniform3FloatVector(GAPIint location, GAPIsize count, const GAPIfloat *value) = 0;
     
     virtual void setUniform3Int(GAPIint location, GAPIint v0, GAPIint v1, GAPIint v2) = 0;
     
     virtual void setUniform3IntVector(GAPIint location, GAPIsize count, const GAPIint *value) = 0;
     
-    virtual void setUniform4Float(GAPIint location, GAPIfloat v0, GAPIfloat v1, GAPIfloat v2, GAPIfloat v3) = 0;
+    virtual void
+    setUniform4Float(GAPIint location, GAPIfloat v0, GAPIfloat v1, GAPIfloat v2, GAPIfloat v3) = 0;
     
-    virtual void setUniform4FloatVector(GAPIint location, GAPIsize count, const GAPIfloat *value) = 0;
+    virtual void
+    setUniform4FloatVector(GAPIint location, GAPIsize count, const GAPIfloat *value) = 0;
     
-    virtual void setUniform4Int(GAPIint location, GAPIint v0, GAPIint v1, GAPIint v2, GAPIint v3) = 0;
+    virtual void
+    setUniform4Int(GAPIint location, GAPIint v0, GAPIint v1, GAPIint v2, GAPIint v3) = 0;
     
     virtual void setUniform4IntVector(GAPIint location, GAPIsize count, const int *value) = 0;
     
-    virtual void
-    setUniformMatrix2FloatVector(GAPIint location, GAPIsize count, GAPIbool transpose, const GAPIfloat *value) = 0;
+    virtual void setUniformMatrix2FloatVector(GAPIint location,
+                                              GAPIsize count,
+                                              GAPIbool transpose,
+                                              const GAPIfloat *value) = 0;
     
-    virtual void
-    setUniformMatrix3FloatVector(GAPIint location, GAPIsize count, GAPIbool transpose, const GAPIfloat *value) = 0;
+    virtual void setUniformMatrix3FloatVector(GAPIint location,
+                                              GAPIsize count,
+                                              GAPIbool transpose,
+                                              const GAPIfloat *value) = 0;
     
-    virtual void
-    setUniformMatrix4FloatVector(GAPIint location, GAPIsize count, GAPIbool transpose, const GAPIfloat *value) = 0;
-
+    virtual void setUniformMatrix4FloatVector(GAPIint location,
+                                              GAPIsize count,
+                                              GAPIbool transpose,
+                                              const GAPIfloat *value) = 0;
+    
 };
 
 
 #if GLESC_RENDER_API == OpenGLAPI
-    #include "engine/core/low-level-renderer/graphic-api/concrete-apis/opengl/OpenGLAPI.h"
+
+#include "engine/core/low-level-renderer/graphic-api/concrete-apis/opengl/OpenGLAPI.h"
+
 #elif GLESC_RENDER_API == VulkanAPI
-    #include "engine/core/low-level-renderer/graphic-api/concrete-apis/vulkan/VulkanAPI.h"
+#include "engine/core/low-level-renderer/graphic-api/concrete-apis/vulkan/VulkanAPI.h"
 #elif GLESC_RENDER_API == DirectXAPI
-    #include "engine/core/low-level-renderer/graphic-api/concrete-apis/directx/DirectXAPI.h"
+#include "engine/core/low-level-renderer/graphic-api/concrete-apis/directx/DirectXAPI.h"
 #endif

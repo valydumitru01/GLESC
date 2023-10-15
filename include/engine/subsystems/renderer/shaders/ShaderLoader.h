@@ -15,8 +15,8 @@
 
 template<typename GAPI>
 class ShaderLoader {
-    template <typename GAPI_>
-    friend class ShaderManager;
+    template<typename GAPI_> friend
+    class ShaderManager;
 
 public:
     GAPIint loadShaders() {
@@ -30,8 +30,9 @@ public:
         
         std::string glslCoreStr = graphicInterface.getIsGlslCore() ? "core" : "";
         
-        std::string glslVersionStr = "#version " + std::to_string(graphicInterface.getGlslMajorVersion()) + "" +
-                                     std::to_string(graphicInterface.getGlslMinorVersion()) + " " + glslCoreStr + "\n";
+        std::string glslVersionStr =
+                "#version " + std::to_string(graphicInterface.getGlslMajorVersion()) + "" +
+                std::to_string(graphicInterface.getGlslMinorVersion()) + " " + glslCoreStr + "\n";
         
         // Setting the glsl version to the shader source
         vertexShaderSource = glslVersionStr + vertexShaderSource;
@@ -54,7 +55,8 @@ public:
 private:
     
     explicit ShaderLoader(IGraphicInterface &graphicInterface) :
-            vertexShader(0), fragmentShader(0), shaderProgram(0), graphicInterface(graphicInterface) {
+            vertexShader(0), fragmentShader(0), shaderProgram(0), graphicInterface(
+            graphicInterface) {
     }
     
     
@@ -84,7 +86,8 @@ private:
      * Sets the actual coordinates of the vertices in the GPU
      */
     void loadVertexShader() {
-        vertexShader = graphicInterface.loadAndCompileShader(GAPIValues::ShaderTypeVertex, vertexShaderSource);
+        vertexShader = graphicInterface
+                .loadAndCompileShader(GAPIValues::ShaderTypeVertex, vertexShaderSource);
         shaderNamesMap.emplace(vertexShader, "VERTEX");
         handleErrorsCompilation(vertexShader);
     }
@@ -94,7 +97,8 @@ private:
      * Calculates colors of pixels (a fragment is a pixel in OpenGL)
      */
     void loadFragmentShader() {
-        fragmentShader = graphicInterface.loadAndCompileShader(GAPIValues::ShaderTypeFragment, fragmentShaderSource);
+        fragmentShader = graphicInterface
+                .loadAndCompileShader(GAPIValues::ShaderTypeFragment, fragmentShaderSource);
         shaderNamesMap.emplace(fragmentShader, "FRAGMENT");
         handleErrorsCompilation(fragmentShader);
     }

@@ -10,22 +10,27 @@
 
 class ShaderException : public BaseException {
 public:
-    explicit ShaderException(const std::string &message) : BaseException("Shader error:" + message) {}
+    explicit ShaderException(const std::string &message) :
+            BaseException("Shader error:" + message) {}
 };
 
 class ShaderCompilationException : public ShaderException {
 public:
-    explicit ShaderCompilationException(const std::string& shaderName, const std::string &message) :
-            ShaderException("Shader compilation error:" + shaderName + ":" + message) {}
+    explicit ShaderCompilationException(const std::string &shaderName,
+                                        const std::string &message) :
+            ShaderException(
+                    "Shader compilation error:" + shaderName + ":" + message) {}
 };
 
 class ShaderLinkingException : public ShaderException {
 public:
-    explicit ShaderLinkingException(const std::string &message) : ShaderException("Shader linking error:" + message) {}
+    explicit ShaderLinkingException(const std::string &message) :
+            ShaderException("Shader linking error:" + message) {}
 };
 
 class ShaderUniformNotFoundException : public ShaderException {
 public:
-    explicit ShaderUniformNotFoundException(const std::string& uniformName, const std::string &message) :
+    explicit ShaderUniformNotFoundException(const std::string &uniformName,
+                                            const std::string &message) :
             ShaderException("Shader uniform not found:" + message) {}
 };

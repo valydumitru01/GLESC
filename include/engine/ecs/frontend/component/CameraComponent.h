@@ -9,10 +9,11 @@
 #include "glm/glm.hpp"
 #include "IComponent.h"
 #include "engine/core/math/debugger/MathDebugger.h"
+#include "engine/core/math/Matrix.h"
 
 struct CameraComponent : IComponent {
 public:
-    glm::mat4 view{};
+    Matrix4D view{};
     float fov{};
     float viewWidth{};
     float viewHeight{};
@@ -22,7 +23,7 @@ public:
     std::string toString() override{
         return  "CameraComponent:"
                 + std::string("\n\tview: ")
-                + GLESC::glmToString(view)
+                + view.toString()
                 + std::string("\n\tfov: ")
                 + std::to_string(fov)
                 + std::string("\n\tviewWidth: ")

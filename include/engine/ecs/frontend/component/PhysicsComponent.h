@@ -20,11 +20,11 @@ struct PhysicsComponent : public IComponent {
                + std::string("\n\tmass: ")
                + std::to_string(mass)
                + std::string("\n\tvelocity: ")
-               + GLESC::glmToString(velocity)
+               + velocity.toString()
                + std::string("\n\tforce: ")
-               + GLESC::glmToString(force)
+               + force.toString()
                + std::string("\n\tacceleration: ")
-               + GLESC::glmToString(acceleration);
+               + acceleration.toString();
     }
 };
 

@@ -7,7 +7,7 @@ project(game)
 # Option for building tests
 option(BUILD_TESTING "Build tests" ON)
 # The c++ version used
-set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD 17)
 # Ensure that the compiler supports the c++ version
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # Enables CMake code to be forward compatible with newer versions of CMake.

@@ -73,12 +73,12 @@
       <option name="SPACE_BEFORE_COLON" value="false" />
     </codeStyleSettings>
     <codeStyleSettings language="ObjectiveC">
-      <option name="RIGHT_MARGIN" value="80" />
+      <option name="RIGHT_MARGIN" value="100" />
       <option name="KEEP_CONTROL_STATEMENT_IN_ONE_LINE" value="false" />
       <option name="METHOD_CALL_CHAIN_WRAP" value="1" />
       <option name="FOR_STATEMENT_WRAP" value="1" />
       <option name="ASSIGNMENT_WRAP" value="1" />
-      <option name="SOFT_MARGINS" value="120" />
+      <option name="SOFT_MARGINS" value="100" />
       <indentOptions>
         <option name="SMART_TABS" value="true" />
         <option name="LABEL_INDENT_ABSOLUTE" value="true" />

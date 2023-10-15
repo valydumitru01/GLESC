@@ -62,7 +62,8 @@ void SystemManager::entityDestroyed(EntityID entity) {
 }
 
 bool SystemManager::isSystemRegistered(const SystemName& name) const{
-    return systemSignatures.contains(name);
+    // Check if name is contained in systems
+    return systemSignatures.find(name) != systemSignatures.end();
 }
 
 void SystemManager::addComponentRequirementToSystem(const SystemName& name,
@@ -74,7 +75,8 @@ void SystemManager::addComponentRequirementToSystem(const SystemName& name,
 }
 
 [[maybe_unused]] bool SystemManager::isEntityAssociatedWithSystem(const SystemName& name, EntityID entity) const {
-    return associatedEntities.find(name)->second.contains(entity);
+    auto it = associatedEntities.find(name);
+    return it != associatedEntities.end() && it->second.find(entity) != it->second.end();
 }
 
 [[maybe_unused]] bool SystemManager::isComponentRequiredBySystem(const SystemName& system, ComponentID component) const {

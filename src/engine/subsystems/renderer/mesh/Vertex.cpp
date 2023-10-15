@@ -10,10 +10,10 @@
 
 #include "engine/subsystems/renderer/mesh/Vertex.h"
 using namespace GLESC;
-Vertex::Vertex(const Vec3D &position,
-               const std::optional<Vec4F> &color,
-               const std::optional<Vec2F> &uv) :
-        position(position), color(color), uv(uv) {}
+Vertex::Vertex(const Vec3D &positionParam,
+               const std::optional<Vec4F> &colorParam,
+               const std::optional<Vec2F> &uvParam) :
+        position(positionParam), color(colorParam), uv(uvParam) {}
 
 Vertex::Vertex(const Vec3D &position)  :
         Vertex(position, std::nullopt, std::nullopt) {}

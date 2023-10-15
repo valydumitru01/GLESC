@@ -16,7 +16,8 @@
 
 class TextureManager {
 public:
-    explicit TextureManager(GLESC_RENDER_API &graphicInterface) : graphicInterface(graphicInterface) {};
+    explicit TextureManager(GLESC_RENDER_API &graphicInterfaceParam) :
+            graphicInterface(graphicInterfaceParam) {};
 private:
     GLESC_RENDER_API &graphicInterface;
 };

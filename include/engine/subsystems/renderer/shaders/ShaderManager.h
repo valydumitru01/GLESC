@@ -17,7 +17,8 @@
 
 class ShaderManager {
 public:
-    explicit ShaderManager(GLESC_RENDER_API& graphicInterface) : graphicInterface(graphicInterface) {}
+    explicit ShaderManager(GLESC_RENDER_API &graphicInterfaceParam) :
+            graphicInterface(graphicInterfaceParam) {}
     
     /**
      * @brief Change boolean value of Uniform by name
@@ -26,7 +27,9 @@ public:
      * @param value The new boolean value
      */
     void setBool(const std::string &name, bool value) {
-        graphicInterface.setUniform1Int(graphicInterface.getUniformLocation(shaderProgram, name), (int) value);
+        graphicInterface.setUniform1Int(
+                graphicInterface.getUniformLocation(shaderProgram, name),
+                (int) value);
     }
     
     /**
@@ -36,7 +39,9 @@ public:
      * @param value The new int value
      */
     void setInt(const std::string &name, int value) {
-        graphicInterface.setUniform1Int(graphicInterface.getUniformLocation(shaderProgram, name), value);
+        graphicInterface.setUniform1Int(
+                graphicInterface.getUniformLocation(shaderProgram, name),
+                value);
     }
     
     /**
@@ -46,7 +51,9 @@ public:
      * @param value The new float value
      */
     void setFloat(const std::string &name, float value) {
-        graphicInterface.setUniform1Float(graphicInterface.getUniformLocation(shaderProgram, name), value);
+        graphicInterface.setUniform1Float(
+                graphicInterface.getUniformLocation(shaderProgram, name),
+                value);
     }
     
     /**
@@ -56,7 +63,9 @@ public:
      * @param value The new glm::vec2 value
      */
     void setVec2(const std::string &name, const glm::vec2 &value) {
-        graphicInterface.setUniform2FloatVector(graphicInterface.getUniformLocation(shaderProgram, name), 1, &value[0]);
+        graphicInterface.setUniform2FloatVector(
+                graphicInterface.getUniformLocation(shaderProgram, name), 1,
+                &value[0]);
     }
     
     /**
@@ -67,7 +76,8 @@ public:
      * @param y The new y value of vec2
      */
     void setVec2(const std::string &name, float x, float y) {
-        graphicInterface.setUniform2Float(graphicInterface.getUniformLocation(shaderProgram, name), x, y);
+        graphicInterface.setUniform2Float(
+                graphicInterface.getUniformLocation(shaderProgram, name), x, y);
     }
     
     /**
@@ -77,7 +87,9 @@ public:
      * @param value The new glm::vec3 value
      */
     void setVec3(const std::string &name, const glm::vec3 &value) {
-        graphicInterface.setUniform3FloatVector(graphicInterface.getUniformLocation(shaderProgram, name), 1, &value[0]);
+        graphicInterface.setUniform3FloatVector(
+                graphicInterface.getUniformLocation(shaderProgram, name), 1,
+                &value[0]);
     }
     
     /**
@@ -89,7 +101,9 @@ public:
      * @param z The new z value of vec3
      */
     void setVec3(const std::string &name, float x, float y, float z) {
-        graphicInterface.setUniform3Float(graphicInterface.getUniformLocation(shaderProgram, name), x, y, z);
+        graphicInterface.setUniform3Float(
+                graphicInterface.getUniformLocation(shaderProgram, name), x, y,
+                z);
     }
     
     /**
@@ -99,7 +113,9 @@ public:
      * @param value The new glm::vec4 value
      */
     void setVec4(const std::string &name, const glm::vec4 &value) {
-        graphicInterface.setUniform4FloatVector(graphicInterface.getUniformLocation(shaderProgram, name), 1, &value[0]);
+        graphicInterface.setUniform4FloatVector(
+                graphicInterface.getUniformLocation(shaderProgram, name), 1,
+                &value[0]);
     }
     
     /**
@@ -112,7 +128,9 @@ public:
      * @param w The new w value of vec4
      */
     void setVec4(const std::string &name, float x, float y, float z, float w) {
-        graphicInterface.setUniform4Float(graphicInterface.getUniformLocation(shaderProgram, name), x, y, z, w);
+        graphicInterface.setUniform4Float(
+                graphicInterface.getUniformLocation(shaderProgram, name), x, y,
+                z, w);
     }
     
     /**
@@ -123,7 +141,11 @@ public:
      */
     void setMat2(const std::string &name, const glm::mat2 &mat) {
         graphicInterface
-                .setUniformMatrix2FloatVector(graphicInterface.getUniformLocation(shaderProgram, name), 1, GL_FALSE,
+                .setUniformMatrix2FloatVector(graphicInterface
+                                                      .getUniformLocation(
+                                                              shaderProgram,
+                                                              name), 1,
+                                              GL_FALSE,
                                               &mat[0][0]);
     }
     
@@ -135,7 +157,11 @@ public:
      */
     void setMat3(const std::string &name, const glm::mat3 &mat) {
         graphicInterface
-                .setUniformMatrix3FloatVector(graphicInterface.getUniformLocation(shaderProgram, name), 1, GL_FALSE,
+                .setUniformMatrix3FloatVector(graphicInterface
+                                                      .getUniformLocation(
+                                                              shaderProgram,
+                                                              name), 1,
+                                              GL_FALSE,
                                               &mat[0][0]);
     }
     
@@ -147,7 +173,11 @@ public:
      */
     void setMat4(const std::string &name, const glm::mat4 &mat) {
         graphicInterface
-                .setUniformMatrix4FloatVector(graphicInterface.getUniformLocation(shaderProgram, name), 1, GL_FALSE,
+                .setUniformMatrix4FloatVector(graphicInterface
+                                                      .getUniformLocation(
+                                                              shaderProgram,
+                                                              name), 1,
+                                              GL_FALSE,
                                               &mat[0][0]);
     }
     
@@ -161,7 +191,7 @@ public:
 
 private:
     GAPIint shaderProgram{};
-    GLESC_RENDER_API& graphicInterface;
+    GLESC_RENDER_API &graphicInterface;
     // Uncomment this line and comment the line above to enable code completion and proper syntax highlighting
     // IGraphicInterface &graphicInterface;
 };

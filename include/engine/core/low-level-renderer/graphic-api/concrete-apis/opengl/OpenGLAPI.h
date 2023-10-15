@@ -27,8 +27,7 @@ public:
     }
     
     
-    [[nodiscard]] GraphicsAPI
-    getGraphicsAPI() const override { return GraphicsAPI::OPENGL; }
+    [[nodiscard]] GraphicsAPI getGraphicsAPI() const override { return GraphicsAPI::OPENGL; }
     
     
     void deleteTexture(GAPIuint textureID) override {
@@ -43,8 +42,7 @@ public:
         this->setViewport(0, 0, width, height);
     }
     
-    void
-    setViewport(GAPIint x, GAPIint y, GAPIint width, GAPIint height) override {
+    void setViewport(GAPIint x, GAPIint y, GAPIint width, GAPIint height) override {
         glViewport(x, y, width, height);
     }
     
@@ -58,24 +56,20 @@ public:
         glGenTextures(1, &textureID);
         bindTexture(textureID);
         
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER,
-                        translateEnumToOpenGL(minFilter));
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, translateEnumToOpenGL(minFilter));
         
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER,
-                        translateEnumToOpenGL(magFilter));
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, translateEnumToOpenGL(magFilter));
         
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S,
-                        translateEnumToOpenGL(wrapS));
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, translateEnumToOpenGL(wrapS));
         
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T,
-                        translateEnumToOpenGL(wrapT));
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, translateEnumToOpenGL(wrapT));
         
         // TODO: Check this, it assumes that any 4-byte-per-pixel texture is RGBA, and any other texture is RGB.
         //  This might not always be correct depending on the specifics of the SDL_Surface format.
         GLenum format = (surface.format->BytesPerPixel == 4) ? GL_RGBA : GL_RGB;
         // Generate the texture
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, surface.w, surface.h, 0, format,
-                     GL_UNSIGNED_BYTE, surface.pixels);
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, surface.w, surface.h, 0, format, GL_UNSIGNED_BYTE,
+                     surface.pixels);
         glGenerateMipmap(GL_TEXTURE_2D);
         
         
@@ -86,10 +80,8 @@ public:
     
     GAPIuint createTexture(SDL_Surface &surface) override {
         return this
-                ->createTexture(surface, GAPIValues::MinFilterLinear,
-                                GAPIValues::MagFilterLinear,
-                                GAPIValues::WrapModeRepeat,
-                                GAPIValues::WrapModeRepeat);
+                ->createTexture(surface, GAPIValues::MinFilterLinear, GAPIValues::MagFilterLinear,
+                                GAPIValues::WrapModeRepeat, GAPIValues::WrapModeRepeat);
     }
     
     void bindTexture(GAPIuint textureID) override {
@@ -105,18 +97,14 @@ public:
     [[nodiscard]] SDL_GLContext getContext() const { return context; };
     
     void preWindowCreationInit() override {
-        PRINT_GAPI_INIT("OpenGL",
-                        std::to_string(GLESC_GL_MAJOR_VERSION) + "." +
-                        std::to_string(GLESC_GL_MINOR_VERSION));
+        PRINT_GAPI_INIT("OpenGL", std::to_string(GLESC_GL_MAJOR_VERSION) + "." +
+                                  std::to_string(GLESC_GL_MINOR_VERSION));
         // Core functions of OpenGL a.k.a. full modern openGL functionality.
         // More info: https://wiki.libsdl.org/SDL_GLprofile
-        if (GLESC_GLSL_CORE_PROFILE)
-            [[likely]]
-                    setSDLGLAttribute(SDL_GL_CONTEXT_PROFILE_MASK,
-                                      SDL_GL_CONTEXT_PROFILE_CORE);
-        else
-            setSDLGLAttribute(SDL_GL_CONTEXT_PROFILE_MASK,
-                              SDL_GL_CONTEXT_PROFILE_COMPATIBILITY);
+        #ifdef GLESC_GLSL_CORE_PROFILE
+            setSDLGLAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
+        #endif
+            setSDLGLAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_COMPATIBILITY);
         // We're using OpenGL Version 4.3 (released in 2012).
         // Changing this numbers will change some functions available of OpenGL.
         // Choosing a relatively old version of OpenGl allow most computers to use it.
@@ -170,9 +158,8 @@ public:
         // -1 for adaptive v-sync
         // More info: https://wiki.libsdl.org/SDL2/SDL_GL_SetSwapInterval
         if (SDL_GL_SetSwapInterval(1) == -1)
-            throw EngineException(
-                    std::string("Unable activate v-sync (swap interval): ") +
-                    std::string(SDL_GetError()));
+            throw EngineException(std::string("Unable activate v-sync (swap interval): ") +
+                                  std::string(SDL_GetError()));
     }
     
     // -------------------------------------------------------------------------
@@ -194,12 +181,11 @@ public:
         glDeleteBuffers(1, &buffer);
     }
     
-    void
-    setBufferData(const std::any *data,
-                  GAPIsize size,
-                  GAPIuint buffer,
-                  GAPIValues bufferType,
-                  GAPIValues bufferUsage) override {
+    void setBufferData(const std::any *data,
+                       GAPIsize size,
+                       GAPIuint buffer,
+                       GAPIValues bufferType,
+                       GAPIValues bufferUsage) override {
         glBufferData(translateEnumToOpenGL(bufferType), size, data,
                      translateEnumToOpenGL(bufferUsage));
     }
@@ -208,8 +194,7 @@ public:
     // ------------------------------------------------------------------------------
     
     
-    GAPIuint loadAndCompileShader(GAPIValues shaderType,
-                                  const std::string &shaderSource) override {
+    GAPIuint loadAndCompileShader(GAPIValues shaderType, const std::string &shaderSource) override {
         GLuint vertexShader = glCreateShader(translateEnumToOpenGL(shaderType));
         const GAPIchar *source = shaderSource.c_str();
         
@@ -220,8 +205,7 @@ public:
     }
     
     
-    [[nodiscard]] bool
-    compilationOK(GAPIuint shaderID, GAPIchar *message) override {
+    [[nodiscard]] bool compilationOK(GAPIuint shaderID, GAPIchar *message) override {
         int error;
         glGetShaderiv(shaderID, GL_COMPILE_STATUS, &error);
         if (error == GL_TRUE) {
@@ -231,8 +215,7 @@ public:
         return false;
     }
     
-    GAPIuint createShaderProgram(GAPIuint vertexShaderID,
-                                 GAPIuint fragmentShaderID) override {
+    GAPIuint createShaderProgram(GAPIuint vertexShaderID, GAPIuint fragmentShaderID) override {
         GLuint shaderProgram = glCreateProgram();
         glAttachShader(shaderProgram, vertexShaderID);
         glAttachShader(shaderProgram, fragmentShaderID);
@@ -242,8 +225,7 @@ public:
         return shaderProgram;
     }
     
-    [[nodiscard]] bool
-    linkOK(GAPIuint shaderProgram, GAPIchar *message) override {
+    [[nodiscard]] bool linkOK(GAPIuint shaderProgram, GAPIchar *message) override {
         int error;
         glGetProgramiv(shaderProgram, GL_LINK_STATUS, &error);
         if (error == GL_TRUE) {
@@ -258,8 +240,7 @@ public:
     // -------------------------------- Uniforms ------------------------------------
     
     
-    inline GAPIint
-    getUniformLocation(GAPIuint program, const std::string &name) override {
+    inline GAPIint getUniformLocation(GAPIuint program, const std::string &name) override {
         return glGetUniformLocation(program, name.c_str());
     }
     
@@ -267,9 +248,8 @@ public:
         glUniform1f(location, v0);
     }
     
-    inline void setUniform1FloatVector(GAPIint location,
-                                       GAPIsize count,
-                                       const GAPIfloat *value) override {
+    inline void
+    setUniform1FloatVector(GAPIint location, GAPIsize count, const GAPIfloat *value) override {
         glUniform1fv(location, count, value);
     }
     
@@ -277,57 +257,45 @@ public:
         glUniform1i(location, v0);
     }
     
-    inline void setUniform1IntVector(GAPIint location,
-                                     GAPIsize count,
-                                     const GAPIint *value) override {
+    inline void
+    setUniform1IntVector(GAPIint location, GAPIsize count, const GAPIint *value) override {
         glUniform1iv(location, count, value);
     }
     
-    inline void
-    setUniform2Float(GAPIint location, GAPIfloat v0, GAPIfloat v1) override {
+    inline void setUniform2Float(GAPIint location, GAPIfloat v0, GAPIfloat v1) override {
         glUniform2f(location, v0, v1);
     }
     
-    inline void setUniform2FloatVector(GAPIint location,
-                                       GAPIsize count,
-                                       const GAPIfloat *value) override {
+    inline void
+    setUniform2FloatVector(GAPIint location, GAPIsize count, const GAPIfloat *value) override {
         glUniform2fv(location, count, value);
     }
     
-    inline void
-    setUniform2Int(GAPIint location, GAPIint v0, GAPIint v1) override {
+    inline void setUniform2Int(GAPIint location, GAPIint v0, GAPIint v1) override {
         glUniform2i(location, v0, v1);
     }
     
-    inline void setUniform2IntVector(GAPIint location,
-                                     GAPIsize count,
-                                     const GAPIint *value) override {
+    inline void
+    setUniform2IntVector(GAPIint location, GAPIsize count, const GAPIint *value) override {
         glUniform2iv(location, count, value);
     }
     
-    inline void setUniform3Float(GAPIint location,
-                                 GAPIfloat v0,
-                                 GAPIfloat v1,
-                                 GAPIfloat v2) override {
+    inline void
+    setUniform3Float(GAPIint location, GAPIfloat v0, GAPIfloat v1, GAPIfloat v2) override {
         glUniform3f(location, v0, v1, v2);
     }
     
-    inline void setUniform3FloatVector(GAPIint location,
-                                       GAPIsize count,
-                                       const GAPIfloat *value) override {
+    inline void
+    setUniform3FloatVector(GAPIint location, GAPIsize count, const GAPIfloat *value) override {
         glUniform3fv(location, count, value);
     }
     
-    inline void setUniform3Int(GAPIint location,
-                               GAPIint v0,
-                               GAPIint v1,
-                               GAPIint v2) override {
+    inline void setUniform3Int(GAPIint location, GAPIint v0, GAPIint v1, GAPIint v2) override {
         glUniform3i(location, v0, v1, v2);
     }
     
-    inline void setUniform3IntVector(GAPIint location,
-                                     GAPIsize count,
-                                     const GAPIint *value) override {
+    inline void
+    setUniform3IntVector(GAPIint location, GAPIsize count, const GAPIint *value) override {
         glUniform3iv(location, count, value);
     }
     
@@ -339,47 +307,39 @@ public:
         glUniform4f(location, v0, v1, v2, v3);
     }
     
-    inline void setUniform4FloatVector(GAPIint location,
-                                       GAPIsize count,
-                                       const GAPIfloat *value) override {
+    inline void
+    setUniform4FloatVector(GAPIint location, GAPIsize count, const GAPIfloat *value) override {
         glUniform4fv(location, count, value);
     }
     
-    inline void setUniform4Int(GAPIint location,
-                               GAPIint v0,
-                               GAPIint v1,
-                               GAPIint v2,
-                               GAPIint v3) override {
+    inline void
+    setUniform4Int(GAPIint location, GAPIint v0, GAPIint v1, GAPIint v2, GAPIint v3) override {
         glUniform4i(location, v0, v1, v2, v3);
     }
     
-    inline void setUniform4IntVector(GAPIint location,
-                                     GAPIsize count,
-                                     const GAPIint *value) override {
+    inline void
+    setUniform4IntVector(GAPIint location, GAPIsize count, const GAPIint *value) override {
         glUniform4iv(location, count, value);
     }
     
-    inline void
-    setUniformMatrix2FloatVector(GAPIint location,
-                                 GAPIsize count,
-                                 GAPIbool transpose,
-                                 const GAPIfloat *value) override {
+    inline void setUniformMatrix2FloatVector(GAPIint location,
+                                             GAPIsize count,
+                                             GAPIbool transpose,
+                                             const GAPIfloat *value) override {
         glUniformMatrix2fv(location, count, transpose, value);
     }
     
-    inline void
-    setUniformMatrix3FloatVector(GAPIint location,
-                                 GAPIsize count,
-                                 GAPIbool transpose,
-                                 const GAPIfloat *value) override {
+    inline void setUniformMatrix3FloatVector(GAPIint location,
+                                             GAPIsize count,
+                                             GAPIbool transpose,
+                                             const GAPIfloat *value) override {
         glUniformMatrix3fv(location, count, transpose, value);
     }
     
-    inline void
-    setUniformMatrix4FloatVector(GAPIint location,
-                                 GAPIsize count,
-                                 GAPIbool transpose,
-                                 const GAPIfloat *value) override {
+    inline void setUniformMatrix4FloatVector(GAPIint location,
+                                             GAPIsize count,
+                                             GAPIbool transpose,
+                                             const GAPIfloat *value) override {
         glUniformMatrix4fv(location, count, transpose, value);
     }
     
@@ -396,8 +356,7 @@ public:
         glClear(mask);
     }
     
-    void
-    clearColor(GAPIfloat r, GAPIfloat g, GAPIfloat b, GAPIfloat a) override {
+    void clearColor(GAPIfloat r, GAPIfloat g, GAPIfloat b, GAPIfloat a) override {
         glClearColor(r, g, b, a);
     }
     
@@ -406,16 +365,12 @@ public:
         glDeleteShader(shaderID);
     }
     
-    void createContext(SDL_Window &window,
-                       GAPIint w,
-                       GAPIint h,
-                       GAPIint x,
-                       GAPIint y) override {
+    void createContext(SDL_Window &window, GAPIint w, GAPIint h, GAPIint x, GAPIint y) override {
         // OpenGL context initialization over the SDL windowManager,
         // needed for using OpenGL functions
         this->context = SDL_GL_CreateContext(&window);
-        ASSERT_NOT_EQUAL(this->context, nullptr, "Unable to create context: " +
-                                                 std::string(SDL_GetError()));
+        ASSERT_NOT_EQUAL(this->context, nullptr,
+                         "Unable to create context: " + std::string(SDL_GetError()));
         Logger::get().success("GL context created!");
         // Must be called after creating the context
         this->setViewport(x, y, w, h);
@@ -425,8 +380,7 @@ private:
     
     void setSDLGLAttribute(SDL_GLattr attrib, int val) {
         if (SDL_GL_SetAttribute(attrib, val) == -1)
-            throw GAPIException("Unable to set gl attribute: " +
-                                std::string(SDL_GetError()));
+            throw GAPIException("Unable to set gl attribute: " + std::string(SDL_GetError()));
     }
     
     
@@ -438,11 +392,8 @@ private:
         GLuint err;
         glewExperimental = GL_TRUE;
         if ((err = glewInit()) != GLEW_OK)
-            throw GAPIInitException(
-                    "Unable to initialize GLEW: " +
-                    std::string(
-                            reinterpret_cast<const char *>(glewGetErrorString(
-                                    err))));
+            throw GAPIInitException("Unable to initialize GLEW: " + std::string(
+                    reinterpret_cast<const char *>(glewGetErrorString(err))));
     }
     
     static GAPIint translateEnumToOpenGL(GAPIValues value) {

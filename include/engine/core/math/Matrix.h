@@ -13,6 +13,7 @@
 #include <memory>
 #include "Vector.h"
 #include "engine/core/exceptions/core/math/MathException.h"
+#include "engine/core/math/asserts/MatrixAsserts.h"
 
 
 template<typename Type, size_t N, size_t M>
@@ -68,7 +69,7 @@ public:
     
     // ==============Assignment operators==============
     
-    Matrix<Type, N, M> &operator=(Matrix<double, 3ULL, 3ULL> other) {
+    [[nodiscard]] Matrix<Type, N, M> &operator=(Matrix<double, 3, 3> other) {
         if (this == &other) {
             return *this;
         }
@@ -79,7 +80,8 @@ public:
     }
     
     
-    Matrix<Type, N, M> &operator*=(const Matrix<Type, N, M> &rhs) {
+    [[nodiscard]] Matrix<Type, N, M> &
+    operator*=(const Matrix<Type, N, M> &rhs) {
         Matrix<Type, N, M> temp;
         for (size_t i = 0; i < N; ++i) {
             for (size_t j = 0; j < M; ++j) {
@@ -93,7 +95,7 @@ public:
         return *this;
     }
     
-    Matrix<Type, N, M> &operator*=(Type scalar) {
+    [[nodiscard]] Matrix<Type, N, M> &operator*=(Type scalar) {
         Matrix<Type, N, M> result;
         for (size_t i = 0; i < N; ++i) {
             for (size_t k = 0; k < M; ++k) {
@@ -103,7 +105,8 @@ public:
         std::swap(data, result.data);
     }
     
-    Matrix<Type, N, M> &operator+=(const Matrix<Type, N, M> &rhs) {
+    [[nodiscard]] Matrix<Type, N, M> &
+    operator+=(const Matrix<Type, N, M> &rhs) {
         Matrix<Type, N, M> result;
         for (size_t i = 0; i < N; ++i) {
             for (size_t k = 0; k < M; k++) {
@@ -113,7 +116,8 @@ public:
         std::swap(data, result.data);
     }
     
-    Matrix<Type, N, M> &operator-=(const Matrix<Type, N, M> &rhs) {
+    [[nodiscard]] Matrix<Type, N, M> &
+    operator-=(const Matrix<Type, N, M> &rhs) {
         Matrix<Type, N, M> result;
         for (size_t i = 0; i < N; ++i) {
             for (size_t k = 0; k < M; k++) {
@@ -123,7 +127,7 @@ public:
         std::swap(data, result.data);
     }
     
-    Matrix<Type, N, M> &operator/=(Type scalar) {
+    [[nodiscard]] Matrix<Type, N, M> &operator/=(Type scalar) {
         if (GLESC::Math::eq(scalar, 0))
             throw MathException("Division by zero");
         Matrix<Type, N, M> result;
@@ -137,7 +141,8 @@ public:
     
     // ==============Arithmetic Operators===================
     
-    Matrix<Type, N, M> operator+(const Matrix<Type, N, M> &rhs) const {
+    [[nodiscard]] Matrix<Type, N, M>
+    operator+(const Matrix<Type, N, M> &rhs) const {
         Matrix<Type, N, M> result;
         for (size_t i = 0; i < N; ++i) {
             for (size_t k = 0; k < M; ++k) {
@@ -147,7 +152,8 @@ public:
         return result;
     }
     
-    Matrix<Type, N, M> operator-(const Matrix<Type, N, M> &rhs) const {
+    [[nodiscard]] Matrix<Type, N, M>
+    operator-(const Matrix<Type, N, M> &rhs) const {
         Matrix<Type, N, M> result;
         for (size_t i = 0; i < N; ++i) {
             for (size_t k = 0; k < M; ++k) {
@@ -157,7 +163,7 @@ public:
         return result;
     }
     
-    Matrix<Type, N, M> operator-() const {
+    [[nodiscard]] Matrix<Type, N, M> operator-() const {
         Matrix<Type, N, M> result;
         for (size_t i = 0; i < N; ++i) {
             for (size_t k = 0; k < M; ++k) {
@@ -167,7 +173,7 @@ public:
         return result;
     }
     
-    Vec<Type, M>
+    [[nodiscard]] Vec<Type, M>
     operator*(const Vec<Type, M> &rhs) const {
         Vec<Type, M> result;
         for (size_t i = 0; i < N; ++i) {
@@ -180,7 +186,7 @@ public:
     }
     
     template<size_t X>
-    Matrix<Type, N, X>
+    [[nodiscard]] Matrix<Type, N, X>
     operator*(const Matrix<Type, M, X> &other) const {
         Matrix<Type, N, M> result;
         for (size_t i = 0; i < N; ++i) {
@@ -194,7 +200,7 @@ public:
         return result;
     }
     
-    Matrix<Type, N, M> operator*(Type scalar) const {
+    [[nodiscard]] Matrix<Type, N, M> operator*(Type scalar) const {
         Matrix<Type, N, M> result;
         for (size_t i = 0; i < N; ++i) {
             for (size_t k = 0; k < M; ++k) {
@@ -205,7 +211,7 @@ public:
     }
     
     
-    Matrix<Type, N, M> operator/(Type scalar) const {
+    [[nodiscard]] Matrix<Type, N, M> operator/(Type scalar) const {
         if (GLESC::Math::eq(scalar, Type()))
             throw MathException("Division by zero");
         Matrix<Type, N, M> result;
@@ -218,12 +224,12 @@ public:
     }
     
     // ==============Access Operators===================
-    Vec<Type, M> &operator[](size_t index) {
+    [[nodiscard]] Vec<Type, M> &operator[](size_t index) {
         return data[index];
     }
     
     // ==============Comparison Operators===================
-    bool operator==(const Matrix<Type, N, M> &rhs) const {
+    [[nodiscard]] bool operator==(const Matrix<Type, N, M> &rhs) const {
         for (size_t i = 0; i < N; ++i) {
             for (size_t k = 0; k < M; ++k) {
                 if (data[i][k] != rhs.data[i][k]) {
@@ -234,11 +240,11 @@ public:
         return true;
     }
     
-    bool operator!=(const Matrix<Type, N, M> &rhs) const {
+    [[nodiscard]] bool operator!=(const Matrix<Type, N, M> &rhs) const {
         return !(*this == rhs);
     }
     
-    bool operator<(const Matrix<Type, N, M> &rhs) const {
+    [[nodiscard]] bool operator<(const Matrix<Type, N, M> &rhs) const {
         for (size_t i = 0; i < N; ++i) {
             if (data[i] >= rhs.data[i]) {
                 return false;
@@ -247,7 +253,7 @@ public:
         return true;
     }
     
-    bool operator>(const Matrix<Type, N, M> &rhs) const {
+    [[nodiscard]] bool operator>(const Matrix<Type, N, M> &rhs) const {
         for (size_t i = 0; i < N; ++i) {
             if (data[i] <= rhs.data[i]) {
                 return false;
@@ -256,18 +262,18 @@ public:
         return true;
     }
     
-    bool operator<=(const Matrix<Type, N, M> &rhs) const {
+    [[nodiscard]] bool operator<=(const Matrix<Type, N, M> &rhs) const {
         return !(*this > rhs);
     }
     
-    bool operator>=(const Matrix<Type, N, M> &rhs) const {
+    [[nodiscard]] bool operator>=(const Matrix<Type, N, M> &rhs) const {
         return !(*this < rhs);
     }
     
     
     // =================Matrix Functions=================
     
-    Matrix<Type, N, M> transpose() {
+    [[nodiscard]] Matrix<Type, N, M> transpose() {
         Matrix<Type, N, M> result;
         for (size_t i = 0; i < M; ++i) {
             for (size_t k = 0; k < N; ++k) {
@@ -277,7 +283,8 @@ public:
         return result;
     }
     
-    Matrix<Type, N, M> translate(const Vec<Type, M - 1> &translation) {
+    [[nodiscard]] Matrix<Type, N, M>
+    translate(const Vec<Type, M - 1> &translation) {
         Matrix<Type, N, M> result(*this);
         for (size_t i = 0; i < N - 1; ++i) {
             result.data[i][M - 1] += translation[i];
@@ -285,7 +292,7 @@ public:
         return result;
     }
     
-    Matrix<Type, N, M> scale(const Vec<Type, M - 1> &scale) {
+    [[nodiscard]] Matrix<Type, N, M> scale(const Vec<Type, M - 1> &scale) {
         Matrix<Type, N, M> result(*this);
         for (size_t i = 0; i < N - 1; ++i) {
             result.data[i][i] *= scale[i];
@@ -293,7 +300,8 @@ public:
         return result;
     }
     
-    Matrix<Type, N, M> rotate(const Type &degree) requires (M == 3 && N == 3) {
+    [[nodiscard]] Matrix<Type, N, M> rotate(const Type &degree) {
+        S_ASSERT_MAT_IS_OF_SIZE(N, M, 3, 3);
         Matrix<Type, N, M> result(*this);
         Type c = cos(degree), s = sin(degree);
         Matrix<Type, 3, 3> rotation = {{c, -s, 0},
@@ -303,7 +311,8 @@ public:
     }
     
     [[nodiscard]] Matrix<Type, N, M>
-    rotate(const Vec<Type, 3> &degrees) const requires (M == 4 && N == 4) {
+    rotate(const Vec<Type, 3> &degrees) const {
+        S_ASSERT_MAT_IS_OF_SIZE(N, M, 4, 4);
         Matrix<Type, 4, 4> result(*this);
         Matrix<Type, 4, 4> rotationX =
                 {{1, 0,                   0,                    0},
@@ -326,94 +335,103 @@ public:
         return rotationX * rotationY * rotationZ * result;
     }
     
-    Type determinant() requires (N == 2 && M == 2) {
-        return data[0][0] * data[1][1] - data[0][1] * data[1][0];
+    
+    [[nodiscard]] Type determinant() {
+        if constexpr (N == 2 && M == 2) {
+            return data[0][0] * data[1][1] - data[0][1] * data[1][0];
+        } else if constexpr (N == 3 && M == 3) {
+            return data[0][0] *
+                   (data[1][1] * data[2][2] - data[1][2] * data[2][1]) -
+                   data[0][1] *
+                   (data[1][0] * data[2][2] - data[1][2] * data[2][0]) +
+                   data[0][2] *
+                   (data[1][0] * data[2][1] - data[1][1] * data[2][0]);
+        } else if constexpr (N == 4 && M == 4) {
+            Type det;
+            det = data[0][0] * (
+                    data[1][1] *
+                    (data[2][2] * data[3][3] - data[2][3] * data[3][2]) -
+                    data[1][2] *
+                    (data[2][1] * data[3][3] - data[2][3] * data[3][1]) +
+                    data[1][3] *
+                    (data[2][1] * data[3][2] - data[2][2] * data[3][1]));
+            
+            det -= data[0][1] * (
+                    data[1][0] *
+                    (data[2][2] * data[3][3] - data[2][3] * data[3][2]) -
+                    data[1][2] *
+                    (data[2][0] * data[3][3] - data[2][3] * data[3][0]) +
+                    data[1][3] *
+                    (data[2][0] * data[3][2] - data[2][2] * data[3][0]));
+            
+            det += data[0][2] * (
+                    data[1][0] *
+                    (data[2][1] * data[3][3] - data[2][3] * data[3][1]) -
+                    data[1][1] *
+                    (data[2][0] * data[3][3] - data[2][3] * data[3][0]) +
+                    data[1][3] *
+                    (data[2][0] * data[3][1] - data[2][1] * data[3][0]));
+            
+            det -= data[0][3] * (
+                    data[1][0] *
+                    (data[2][1] * data[3][2] - data[2][2] * data[3][1]) -
+                    data[1][1] *
+                    (data[2][0] * data[3][2] - data[2][2] * data[3][0]) +
+                    data[1][2] *
+                    (data[2][0] * data[3][1] - data[2][1] * data[3][0]));
+            
+            return det;
+        } else {
+            static_assert(false, "Matrix size must be 2x2, 3x3 or 4x4");
+        }
     }
     
-    Type determinant() requires (N == 3 && M == 3) {
-        return data[0][0] *
-               (data[1][1] * data[2][2] - data[1][2] * data[2][1]) -
-               data[0][1] *
-               (data[1][0] * data[2][2] - data[1][2] * data[2][0]) +
-               data[0][2] * (data[1][0] * data[2][1] - data[1][1] * data[2][0]);
-    }
-    
-    Type determinant() requires (N == 4 && M == 4) {
-        Type det;
-        // calculate the 4x4 determinant
-        // using cofactors for a 3x3 matrix
-        det = data[0][0] * (
-                data[1][1] *
-                (data[2][2] * data[3][3] - data[2][3] * data[3][2]) -
-                data[1][2] *
-                (data[2][1] * data[3][3] - data[2][3] * data[3][1]) +
-                data[1][3] *
-                (data[2][1] * data[3][2] - data[2][2] * data[3][1]));
-        
-        det -= data[0][1] * (
-                data[1][0] *
-                (data[2][2] * data[3][3] - data[2][3] * data[3][2]) -
-                data[1][2] *
-                (data[2][0] * data[3][3] - data[2][3] * data[3][0]) +
-                data[1][3] *
-                (data[2][0] * data[3][2] - data[2][2] * data[3][0]));
-        
-        det += data[0][2] * (
-                data[1][0] *
-                (data[2][1] * data[3][3] - data[2][3] * data[3][1]) -
-                data[1][1] *
-                (data[2][0] * data[3][3] - data[2][3] * data[3][0]) +
-                data[1][3] *
-                (data[2][0] * data[3][1] - data[2][1] * data[3][0]));
-        
-        det -= data[0][3] * (
-                data[1][0] *
-                (data[2][1] * data[3][2] - data[2][2] * data[3][1]) -
-                data[1][1] *
-                (data[2][0] * data[3][2] - data[2][2] * data[3][0]) +
-                data[1][2] *
-                (data[2][0] * data[3][1] - data[2][1] * data[3][0]));
-        
-        return det;
-    }
-    
-    Matrix<Type, N, M> inverse() requires (N == 2 && M == 2) {
+    [[nodiscard]] Matrix<Type, N, M> inverse() {
         Type det = determinant();
         if (GLESC::Math::eq(det, 0))
             throw std::runtime_error("Singular matrix");
         Matrix<Type, N, M> inv;
-        inv(0, 0) = data[1][1] / det;
-        inv(0, 1) = -data[0][1] / det;
-        inv(1, 0) = -data[1][0] / det;
-        inv(1, 1) = data[0][0] / det;
-        return inv;
-    }
-    
-    Matrix<Type, N, M> inverse() requires (N == 3 && M == 3) {
-        Type det = determinant();
-        if (GLESC::Math::eq(det, 0)) {
-            throw std::runtime_error("Singular matrix");
-        }
         
-        Matrix<Type, N, M> inv;
-        for (int i = 0; i < 3; ++i) {
-            for (int j = 0; j < 3; ++j) {
-                // Calculate the sub-determinant
-                int x1 = (i + 1) % 3, x2 = (i + 2) % 3;
-                int y1 = (j + 1) % 3, y2 = (j + 2) % 3;
-                
-                Type subDet = data[x1][y1] * data[x2][y2]
-                              - data[x1][y2] * data[x2][y1];
-                
-                // Multiply by pow(-1, i+j)
-                inv[j][i] = ((i + j) % 2 == 0 ? 1 : -1) * subDet;
+        if constexpr (N == 2 && M == 2) {
+            
+            inv(0, 0) = data[1][1] / det;
+            inv(0, 1) = -data[0][1] / det;
+            inv(1, 0) = -data[1][0] / det;
+            inv(1, 1) = data[0][0] / det;
+            
+        } else if constexpr (N == 3 && M == 3) {
+            
+            for (int i = 0; i < 3; ++i) {
+                for (int j = 0; j < 3; j++) {
+                    // Calculate the sub-determinant
+                    int x1 = (i + 1) % 3, x2 = (i + 2) % 3;
+                    int y1 = (j + 1) % 3, y2 = (j + 2) % 3;
+                    
+                    Type subDet = data[x1][y1] * data[x2][y2]
+                                  - data[x1][y2] * data[x2][y1];
+                    
+                    // Multiply by pow(-1, i+j)
+                    inv[j][i] = ((i + j) % 2 == 0 ? 1 : -1) * subDet;
+                }
             }
+            
+            return inv / det;
+        } else if constexpr (N == 4 && M == 4) {
+            
+            for (size_t i = 0; i < 4; ++i) {
+                for (size_t j = 0; j < 4; ++j) {
+                    Type m = minor(i, j);
+                    inv[j][i] = ((i + j) % 2 == 0 ? 1 : -1) * m;
+                }
+            }
+            
+            
+            return inv;
         }
-        
-        return inv / det;
     }
     
-    Type minor(size_t i, size_t j) const {
+    [[nodiscard]] Type minor(size_t i, size_t j) const {
+        S_ASSERT_MAT_IS_OF_SIZE(N, M, 4, 4);
         Matrix<Type, 3, 3> subMatrix;
         
         for (size_t row = 0, curRow = 0; row < 4; ++row) {
@@ -431,22 +449,21 @@ public:
         return subMatrix.determinant();
     }
     
-    Matrix<Type, N, M> inverse() requires (N == 4 && M == 4) {
-        Type det = determinant();
-        if (GLESC::Math::eq(det, Type()))
-            throw std::runtime_error("Singular matrix");
-        
-        Matrix<Type, N, M> inv;
-        
-        for (size_t i = 0; i < 4; ++i) {
-            for (size_t j = 0; j < 4; ++j) {
-                Type m = minor(i, j);
-                inv[j][i] = ((i + j) % 2 == 0 ? 1 : -1) * m;
+    [[nodiscard]] std::string toString() const {
+        std::string result;
+        for (size_t i = 0; i < N; ++i) {
+            result += "[";
+            for (size_t j = 0; j < M; ++j) {
+                result += std::to_string(data[i][j]);
+                if (j != M - 1) {
+                    result += ", ";
+                }
             }
+            result += "]\n";
         }
-        
-        return inv / det;
+        return result;
     }
+
 private:
     Vec<Type, N> data[M];
 }; // class Matrix
@@ -476,11 +493,11 @@ using Matrix3F = Matrix<float, 3, 3>;
 using Matrix4F = Matrix<float, 4, 4>;
 
 
-namespace GLESC::Math{
+namespace GLESC::Math {
     inline Matrix4D perspective(double fovRadians,
-                         double aspectRatio,
-                         double nearPlane,
-                         double farPlane){
+                                double aspectRatio,
+                                double nearPlane,
+                                double farPlane) {
         Matrix4D result;
         
         double f = 1.0 / tan(fovRadians / 2.0);

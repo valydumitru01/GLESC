@@ -14,12 +14,25 @@
 #include <cmath>
 #include <string>
 #include "engine/core/math/Math.h"
+#include "engine/core/math/asserts/VectorAsserts.h"
 
 
 namespace GLESC::Math {
+    
     template<typename Type, size_t N>
     class Vector {
-        static_assert(N > 0, "Size must be greater than 0");
+        template<typename OtherType>
+        using EnableIfNarrowerNumber = std::enable_if_t<
+                std::is_arithmetic_v<OtherType> &&
+                std::is_arithmetic_v<Type> &&
+                !std::is_same_v<Type, OtherType> &&
+                (sizeof(OtherType) < sizeof(Type))
+        >;
+        
+        template<size_t Size>
+        using EnableIfVectorIsSizeOrMore = std::enable_if_t<N == Size, std::void_t<>>;
+        
+        static_assert(N > 1, "Size must be greater than 1");
     
     public:
         // ================================================
@@ -31,9 +44,14 @@ namespace GLESC::Math {
             }
         }
         
-        template<typename... Args>
-        explicit Vector(Args &&... args) requires (sizeof ...(Args) == N)
-                : data(std::forward<Args>(args) ...) {}
+        
+        template<typename... Args,
+                 typename = std::enable_if_t<(sizeof...(Args) == N) &&
+                                             (std::conjunction_v<std::is_convertible<Args, Type>...>)>
+        >
+        explicit Vector(Args&&... args) : data{static_cast<Type>(args)...} {
+        }
+        
         
         explicit Vector(Type values) {
             for (size_t i = 0; i < N; ++i) {
@@ -53,12 +71,128 @@ namespace GLESC::Math {
             }
         }
         
+        template<typename Size >
         Vector(std::initializer_list<Type> list) {
-            ASSERT(list.size() == N,
-                   "Initializer list size must be equal to N");
+            ASSERT_INIT_LIST_IS_OF_SIZE(list, N);
             for (size_t i = 0; i < N; ++i) {
                 data[i] = *(list.begin() + i);
             }
+        }
+        
+        // #################Numeric Types###################
+        /**
+         * @brief
+         * @details
+ * https://stackoverflow.com/questions/1657883/variable-number-of-arguments-in-c
+         * @tparam Args
+         * @param args
+         */
+        template<typename... Args,
+                 typename = std::enable_if_t<(sizeof...(Args) == N) &&
+                         std::conjunction_v<std::is_same<Type, Args>...>>,
+                 typename = EnableIfNarrowerNumber<std::common_type_t<Args...>>>
+        explicit Vector(Args&&... args)
+        : data{static_cast<Type>(std::forward<Args>(args))...} {
+        }
+        
+        template<typename OtherType,
+                 typename = EnableIfNarrowerNumber<OtherType>>
+        explicit Vector(OtherType value) {
+            for (size_t i = 0; i < N; ++i) {
+                data[i] = static_cast<Type>(value);
+            }
+        }
+        
+        template<typename OtherType,
+                 typename = EnableIfNarrowerNumber<OtherType>>
+        explicit Vector(const Vector<OtherType, N> &other) {
+            for (size_t i = 0; i < N; ++i) {
+                data[i] = static_cast<Type>(other[i]);
+            }
+        }
+        
+        template<typename OtherType,
+                 typename = EnableIfNarrowerNumber<OtherType>>
+        explicit Vector(Vector<OtherType, N> &&other) {
+            for (size_t i = 0; i < N; ++i) {
+                data[i] = static_cast<Type>(std::move(other[i]));
+            }
+        }
+        
+        template<typename OtherType,
+                 typename = EnableIfNarrowerNumber<OtherType>>
+        explicit Vector(std::initializer_list<OtherType> list) {
+            ASSERT_INIT_LIST_IS_OF_SIZE(list.size(), N);
+            for (size_t i = 0; i < N; ++i) {
+                data[i] = static_cast<Type>(*(list.begin() + i));
+            }
+        }
+        
+        
+        // ================================================
+        // ===============Getters and Setters==============
+        // ================================================
+        
+        // Specialization for 1 dimensional vectors
+        [[nodiscard]] Type &x() {
+            return data[0];
+        }
+        
+        void x(Type value) {
+            data[0] = value;
+        }
+        
+        [[nodiscard]] Type getX() const {
+            return data[0];
+        }
+        
+        // Specialization for 2 dimensional vectors
+        [[nodiscard]] Type &y() {
+            
+            return data[1];
+        }
+        
+        void y(Type value) {
+            S_ASSERT_VEC_IS_OF_SIZE_OR_BIGGER(N, 2);
+            data[1] = value;
+        }
+        
+        [[nodiscard]] Type getY() const {
+            S_ASSERT_VEC_IS_OF_SIZE_OR_BIGGER(N, 2);
+            return data[1];
+        }
+        
+        
+        // Specialization for 3 dimensional vectors
+        [[nodiscard]] Type &z() {
+            S_ASSERT_VEC_IS_OF_SIZE_OR_BIGGER(N, 3);
+            return data[2];
+        }
+        
+        void z(Type value) {
+            S_ASSERT_VEC_IS_OF_SIZE_OR_BIGGER(N, 3);
+            data[2] = value;
+        }
+        
+        [[nodiscard]] Type getZ() const {
+            S_ASSERT_VEC_IS_OF_SIZE_OR_BIGGER(N, 3);
+            return data[2];
+        }
+        
+        // Specialization for 4 dimensional vectors
+        [[nodiscard]] Type &w() {
+            S_ASSERT_VEC_IS_OF_SIZE_OR_BIGGER(N, 4);
+            return data[3];
+        }
+        
+        void w(Type value) {
+            S_ASSERT_VEC_IS_OF_SIZE_OR_BIGGER(N, 4);
+            data[3] = value;
+        }
+        
+        [[nodiscard]] Type getW() const {
+            S_ASSERT_VEC_IS_OF_SIZE_OR_BIGGER(N, 4);
+            return data[3];
         }
         
         // ================================================
@@ -105,6 +239,52 @@ namespace GLESC::Math {
             return *this;
         }
         
+        // ############All Numeric Types###############
+        
+        template<typename OtherType,
+                 typename = EnableIfNarrowerNumber<OtherType>>
+        Vector<Type, N> &operator=(const Vector<OtherType, N> &other) {
+            for (size_t i = 0; i < N; ++i) {
+                data[i] = static_cast<Type>(other[i]);
+            }
+            return *this;
+        }
+        
+        template<typename OtherType,
+                 typename = EnableIfNarrowerNumber<OtherType>>
+        Vector<Type, N> operator+=(const Vector<OtherType, N> &rhs) {
+            for (size_t i = 0; i < N; ++i) {
+                data[i] += static_cast<Type>(rhs[i]);
+            }
+            return *this;
+        }
+        
+        template<typename OtherType,
+                 typename = EnableIfNarrowerNumber<OtherType>>
+        Vector<Type, N> operator-=(const Vector<OtherType, N> &rhs) {
+            for (size_t i = 0; i < N; ++i) {
+                data[i] -= static_cast<Type>(rhs[i]);
+            }
+            return *this;
+        }
+        
+        template<typename OtherType,
+                 typename = EnableIfNarrowerNumber<OtherType>>
+        Vector<Type, N> operator*=(OtherType scalar) {
+            for (size_t i = 0; i < N; ++i) {
+                data[i] *= static_cast<Type>(scalar);
+            }
+            return *this;
+        }
+        
+        template<typename OtherType,
+                 typename = EnableIfNarrowerNumber<OtherType>>
+        Vector<Type, N> operator/=(OtherType scalar) {
+            for (size_t i = 0; i < N; ++i) {
+                data[i] /= static_cast<Type>(scalar);
+            }
+            return *this;
+        }
         
         // ==============Arithmetic Operators===================
         Vector<Type, N> operator+(const Vector<Type, N> &rhs) const {
@@ -138,6 +318,29 @@ namespace GLESC::Math {
             }
             return result;
         }
+        
+        // ############All Numeric Types###############
+        
+        template<typename OtherType,
+                 typename = EnableIfNarrowerNumber<OtherType>>
+        Vector<Type, N> operator+(const Vector<OtherType, N> &rhs) const {
+            Vector<Type, N> result;
+            for (size_t i = 0; i < N; ++i) {
+                result.data[i] = data[i] + static_cast<Type>(rhs.data[i]);
+            }
+            return result;
+        }
+        
+        template<typename OtherType,
+                 typename = EnableIfNarrowerNumber<OtherType>>
+        Vector<Type, N> operator-(const Vector<OtherType, N> &rhs) const {
+            Vector<Type, N> result;
+            for (size_t i = 0; i < N; ++i) {
+                result.data[i] = data[i] - static_cast<Type>(rhs.data[i]);
+            }
+            return result;
+        }
+        
         
         // ==============Access Operators===================
         Type &operator[](size_t index) {
@@ -185,7 +388,28 @@ namespace GLESC::Math {
             return !(*this < rhs);
         }
         
+        // ############All Numeric Types###############
         
+        template<typename OtherType,
+                 typename = EnableIfNarrowerNumber<OtherType>>
+        bool operator==(const Vector<OtherType, N> &rhs) const {
+            for (size_t i = 0; i < N; ++i) {
+                if (data[i] != static_cast<Type>(rhs.data[i])) {
+                    return false;
+                }
+            }
+        }
+        
+        template<typename OtherType,
+                 typename = EnableIfNarrowerNumber<OtherType>>
+        bool operator!=(const Vector<OtherType, N> &rhs) const {
+            for (size_t i = 0; i < N; ++i) {
+                if (data[i] == static_cast<Type>(rhs.data[i])) {
+                    return false;
+                }
+            }
+            return true;
+        }
         // =================Vector Functions=================
         
         [[nodiscard]] Type dot(const Vector<Type, N> &rhs) const {
@@ -225,44 +449,6 @@ namespace GLESC::Math {
         }
         
         
-        // -----------------------------------------------
-        // Specialization for vectors of different dimensions
-        // -----------------------------------------------
-        
-        // Specialization for 1 dimensional vectors
-        [[nodiscard]] Type& x() requires (N >= 1) {
-            return data[0];
-        }
-        void x(Type value) requires (N >= 1) {
-            data[0] = value;
-        }
-        [[nodiscard]] Type getX() const requires (N >= 1) {
-            return data[0];
-        }
-        
-        // Specialization for 2 dimensional vectors
-        [[nodiscard]] Type& y() requires (N >= 2) {
-            return data[1];
-        }
-        void y(Type value) requires (N >= 2) {
-            data[1] = value;
-        }
-        [[nodiscard]] Type getY() const requires (N >= 2) {
-            return data[1];
-        }
-        
-        
-        // Specialization for 3 dimensional vectors
-        [[nodiscard]] Type& z() requires (N >= 3) {
-            return data[2];
-        }
-        void z(Type value) requires (N >= 3) {
-            data[2] = value;
-        }
-        [[nodiscard]] Type getZ() const requires (N >= 3) {
-            return data[2];
-        }
-        
         /**
          * @brief Calculates the cross product of two vectors
          * @details The cross product is a vector that is perpendicular to the
@@ -271,137 +457,13 @@ namespace GLESC::Math {
          * @param other
          * @return
          */
-        Vector<Type, 3> cross(Vector<Type, 3> &other) const requires (N == 3) {
+        [[nodiscard]] Vector<Type, 3> cross(Vector<Type, 3> &other) const {
+            S_ASSERT_VEC_IS_OF_SIZE(N, 3);
             return Vector<Type, 3>(
                     data[1] * other[2] - data[2] * other[1],
                     data[2] * other[0] - data[0] * other[2],
                     data[0] * other[1] - data[1] * other[0]);
         }
-        
-        
-        // Specialization for 4 dimensional vectors
-        [[nodiscard]] Type& w() requires (N >= 4) {
-            return data[3];
-        }
-        void w(Type value) requires (N >= 4) {
-            data[3] = value;
-        }
-        
-        // ###############################################
-        // Specialization for vectors of different types
-        // ###############################################
-        
-        // ############All Arithmetic Types###############
-        
-        // ==============Assignment operators==============
-        
-        template<typename OtherType>
-        requires std::is_arithmetic_v<OtherType> && std::is_arithmetic_v<Type>
-                 && (!std::is_same_v<Type, OtherType>)
-        Vector<Type, N> &operator=(const Vector<OtherType, N> &other) {
-            for (size_t i = 0; i < N; ++i) {
-                data[i] = static_cast<Type>(other[i]);
-            }
-            return *this;
-        }
-        
-        template<typename OtherType>
-        requires std::is_arithmetic_v<OtherType> && std::is_arithmetic_v<Type>
-                 && (!std::is_same_v<Type, OtherType>)
-        Vector<Type, N> operator+=(const Vector<OtherType, N> &rhs) {
-            for (size_t i = 0; i < N; ++i) {
-                data[i] += static_cast<Type>(rhs[i]);
-            }
-            return *this;
-        }
-        
-        template<typename OtherType>
-        requires std::is_arithmetic_v<OtherType> && std::is_arithmetic_v<Type>
-                 && (!std::is_same_v<Type, OtherType>)
-        Vector<Type, N> operator-=(const Vector<OtherType, N> &rhs) {
-            for (size_t i = 0; i < N; ++i) {
-                data[i] -= static_cast<Type>(rhs[i]);
-            }
-            return *this;
-        }
-        
-        template<typename OtherType>
-        requires std::is_arithmetic_v<OtherType> && std::is_arithmetic_v<Type>
-                 && (!std::is_same_v<Type, OtherType>)
-        Vector<Type, N> operator*=(OtherType scalar) {
-            for (size_t i = 0; i < N; ++i) {
-                data[i] *= static_cast<Type>(scalar);
-            }
-            return *this;
-        }
-        
-        template<typename OtherType>
-        requires std::is_arithmetic_v<OtherType> && std::is_arithmetic_v<Type>
-                 && (!std::is_same_v<Type, OtherType>)
-        Vector<Type, N> operator/=(OtherType scalar) {
-            for (size_t i = 0; i < N; ++i) {
-                data[i] /= static_cast<Type>(scalar);
-            }
-            return *this;
-        }
-        
-        // ==============Arithmetic Operators===================
-        
-        template<typename OtherType>
-        requires std::is_arithmetic_v<OtherType> && std::is_arithmetic_v<Type>
-        Vector<Type, N> operator+(const Vector<OtherType, N> &rhs) const {
-            Vector<Type, N> result;
-            for (size_t i = 0; i < N; ++i) {
-                result.data[i] = data[i] + static_cast<Type>(rhs.data[i]);
-            }
-            return result;
-        }
-        
-        template<typename OtherType>
-        requires std::is_arithmetic_v<OtherType> && std::is_arithmetic_v<Type>
-        Vector<Type, N> operator-(const Vector<OtherType, N> &rhs) const {
-            Vector<Type, N> result;
-            for (size_t i = 0; i < N; ++i) {
-                result.data[i] = data[i] - static_cast<Type>(rhs.data[i]);
-            }
-            return result;
-        }
-        
-        
-        template<typename OtherType>
-        requires std::is_arithmetic_v<OtherType> && std::is_arithmetic_v<Type>
-        bool operator==(const Vector<OtherType, N> &rhs) const {
-            for (size_t i = 0; i < N; ++i) {
-                if (data[i] != static_cast<Type>(rhs.data[i])) {
-                    return false;
-                }
-            }
-        }
-        
-        template<typename OtherType>
-        requires std::is_arithmetic_v<OtherType> && std::is_arithmetic_v<Type>
-        bool operator!=(const Vector<OtherType, N> &rhs) const {
-            for (size_t i = 0; i < N; ++i) {
-                if (data[i] == static_cast<Type>(rhs.data[i])) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        
-        
-        // ############All Floating Point Types###############
-        
-        bool operator==(const Vector<Type,
-                N> &other) const requires(std::is_floating_point_v<Type>) {
-            for (size_t i = 0; i < N; ++i) {
-                if (!GLESC::Math::eq(data[i], other[i])) {
-                    return false;
-                }
-            }
-            return true;
-        }
-    
     
     private:
         Type data[N];

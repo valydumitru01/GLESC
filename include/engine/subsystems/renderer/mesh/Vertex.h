@@ -34,13 +34,13 @@ namespace GLESC {
          * This constructor will be called by the other constructors.
          * And when a parameter is empty, it will receive nullopt for
          * that parameter or the default value.
-         * @param position
-         * @param color
-         * @param uv
+         * @param positionParam
+         * @param colorParam
+         * @param uvParam
          */
-        explicit Vertex(const Vec3D &position,
-                        const std::optional<Vec4F> &color,
-                        const std::optional<Vec2F> &uv);
+        explicit Vertex(const Vec3D &positionParam,
+                        const std::optional<Vec4F> &colorParam,
+                        const std::optional<Vec2F> &uvParam);
         
         /**
          * @brief Constructor for just the position,
