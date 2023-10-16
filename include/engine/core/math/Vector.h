@@ -21,12 +21,13 @@ namespace GLESC::Math {
     
     template<typename Type, size_t N>
     class Vector {
-        template<typename OtherType> using EnableIfNarrowerNumber = std::enable_if_t<
-                std::is_arithmetic_v<OtherType> && std::is_arithmetic_v<Type> &&
-                !std::is_same_v<Type, OtherType> && (sizeof(OtherType) < sizeof(Type))>;
-        
-        template<size_t Size> using EnableIfVectorIsSizeOrMore = std::enable_if_t<N == Size,
-                std::void_t<>>;
+        template<typename OtherType> using EnableIfNarrowerNumber =
+                std::enable_if_t<
+                        std::is_arithmetic_v<OtherType>
+                        && std::is_arithmetic_v<Type>
+                        && !std::is_same_v<Type, OtherType>
+                        && (sizeof(OtherType) < sizeof(Type))
+                >;
         
         static_assert(N > 1, "Size must be greater than 1");
     
@@ -42,34 +43,36 @@ namespace GLESC::Math {
         
         template<typename... Args, typename = std::enable_if_t<
                 (sizeof...(Args) == N) && (std::conjunction_v<std::is_convertible<Args, Type>...>)>>
-        /*NOLINT*/Vector(Args &&... args) : data{static_cast<Type>(args)...} {
+        /*NOLINT*/Vector(Args &&... args) noexcept : data{static_cast<Type>(args)...} {
         }
         
         
-        explicit Vector(Type values) {
-            for (size_t i = 0; i < N; ++i) {
-                data[i] = values;
-            }
+        explicit Vector(Type values) noexcept {
+            std::fill(std::begin(data), std::end(data), values);
         }
         
-        Vector(const Vector<Type, N> &other) {
-            for (size_t i = 0; i < N; ++i) {
-                data[i] = other[i];
-            }
+        /**
+         * @brief Copy constructor
+         * @details Copies the data from the other vector to this one
+         * @param other The vector to copy from
+         */
+        Vector(const Vector<Type, N> &other) noexcept {
+            std::copy(std::begin(other.data), std::end(other.data), std::begin(data));
         }
         
+        /**
+         * @brief Move constructor
+         * @details Moves the data from the other vector to this one
+         * @param other The vector to move from
+         */
         Vector(Vector<Type, N> &&other) noexcept {
-            // Using std::move instead of memcpy because it invokes constructor
-            // and destructor of the elements
             std::move(std::begin(other.data), std::end(other.data), std::begin(data));
         }
         
         template<typename Size>
-        Vector(std::initializer_list<Type> list) {
+        Vector(std::initializer_list<Type> list) noexcept {
             ASSERT_INIT_LIST_IS_OF_SIZE(list, N);
-            for (size_t i = 0; i < N; ++i) {
-                data[i] = *(list.begin() + i);
-            }
+            std::copy(list.begin(), list.end(), std::begin(data));
         }
         
         // #################Numeric Types###################
@@ -80,8 +83,11 @@ namespace GLESC::Math {
          * @tparam Args
          * @param args
          */
-        template<typename... Args, typename = std::enable_if_t<
-                (sizeof...(Args) == N) && std::conjunction_v<std::is_same<Type, Args>...>>,
+        template<typename... Args,
+                 typename =std::enable_if_t<
+                         (sizeof...(Args) == N)
+                         && std::conjunction_v<std::is_same<Type, Args>...>
+                 >,
                  typename = EnableIfNarrowerNumber<std::common_type_t<Args...>>>
         explicit Vector(Args &&... args)
                 : data{static_cast<Type>(std::forward<Args>(args))...} {
@@ -121,7 +127,6 @@ namespace GLESC::Math {
         // ===============Getters and Setters==============
         // ================================================
         
-        // Specialization for 1 dimensional vectors
         [[nodiscard]] Type &x() {
             return data[0];
         }
@@ -211,7 +216,7 @@ namespace GLESC::Math {
             if (this == &other)
                 return *this;
             
-            memcpy(data, other.data, sizeof(Type) * N);
+            std::copy(std::begin(other.data), std::end(other.data), std::begin(data));
             return *this;
         }
         
@@ -230,9 +235,23 @@ namespace GLESC::Math {
             return *this;
         }
         
+        Vector<Type, N> operator+=(Type scalar) {
+            for (size_t i = 0; i < N; ++i) {
+                data[i] += scalar;
+            }
+            return *this;
+        }
+        
         Vector<Type, N> operator-=(const Vector<Type, N> &rhs) {
             for (size_t i = 0; i < N; ++i) {
                 data[i] -= rhs.data[i];
+            }
+            return *this;
+        }
+        
+        Vector<Type, N> operator-=(Type scalar) {
+            for (size_t i = 0; i < N; ++i) {
+                data[i] -= scalar;
             }
             return *this;
         }
@@ -244,9 +263,23 @@ namespace GLESC::Math {
             return *this;
         }
         
+        Vector<Type, N> operator*=(const Vector<Type, N> &rhs) {
+            for (size_t i = 0; i < N; ++i) {
+                data[i] *= rhs.data[i];
+            }
+            return *this;
+        }
+        
         Vector<Type, N> operator/=(Type scalar) {
             for (size_t i = 0; i < N; ++i) {
                 data[i] /= scalar;
+            }
+            return *this;
+        }
+        
+        Vector<Type, N> operator/=(const Vector<Type, N> &rhs) {
+            for (size_t i = 0; i < N; ++i) {
+                data[i] /= rhs.data[i];
             }
             return *this;
         }
@@ -257,6 +290,14 @@ namespace GLESC::Math {
         Vector<Type, N> &operator=(const Vector<OtherType, N> &other) {
             for (size_t i = 0; i < N; ++i) {
                 data[i] = static_cast<Type>(other[i]);
+            }
+            return *this;
+        }
+        
+        template<typename OtherType, typename = EnableIfNarrowerNumber<OtherType>>
+        Vector<Type, N> &operator=(Vector<OtherType, N> &&other) {
+            for (size_t i = 0; i < N; ++i) {
+                data[i] = static_cast<Type>(std::move(other[i]));
             }
             return *this;
         }
@@ -393,8 +434,7 @@ namespace GLESC::Math {
         Vector<Type, N> operator*(OtherType scalar) const {
             Vector<Type, N> result;
             for (size_t i = 0; i < N; ++i) {
-                result.data[i] =
-                        static_cast<Type>(data[i] * static_cast<Type>(scalar));
+                result.data[i] = static_cast<Type>(data[i] * static_cast<Type>(scalar));
             }
             return result;
         }
@@ -412,8 +452,7 @@ namespace GLESC::Math {
         Vector<Type, N> operator/(const Vector<OtherType, N> &rhs) const {
             Vector<Type, N> result;
             for (size_t i = 0; i < N; ++i) {
-                result.data[i] =
-                        static_cast<Type>(data[i] / static_cast<Type>(rhs.data[i]));
+                result.data[i] = static_cast<Type>(data[i] / static_cast<Type>(rhs.data[i]));
             }
             return result;
         }
