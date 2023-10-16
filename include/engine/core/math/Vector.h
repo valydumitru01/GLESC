@@ -21,13 +21,9 @@ namespace GLESC::Math {
     
     template<typename Type, size_t N>
     class Vector {
-        template<typename OtherType> using EnableIfNarrowerNumber =
-                std::enable_if_t<
-                        std::is_arithmetic_v<OtherType>
-                        && std::is_arithmetic_v<Type>
-                        && !std::is_same_v<Type, OtherType>
-                        && (sizeof(OtherType) < sizeof(Type))
-                >;
+        template<typename OtherType> using EnableIfNarrowerNumber = std::enable_if_t<
+                std::is_arithmetic_v<OtherType> && std::is_arithmetic_v<Type> &&
+                !std::is_same_v<Type, OtherType> && (sizeof(OtherType) < sizeof(Type))>;
         
         static_assert(N > 1, "Size must be greater than 1");
     
@@ -69,9 +65,10 @@ namespace GLESC::Math {
             std::move(std::begin(other.data), std::end(other.data), std::begin(data));
         }
         
-        template<typename Size>
+        template<typename dummy>
+        // Abi error workaround
         Vector(std::initializer_list<Type> list) noexcept {
-            ASSERT_INIT_LIST_IS_OF_SIZE(list, N);
+            ASSERT_INIT_LIST_IS_OF_SIZE(list.size(), N);
             std::copy(list.begin(), list.end(), std::begin(data));
         }
         
@@ -83,11 +80,8 @@ namespace GLESC::Math {
          * @tparam Args
          * @param args
          */
-        template<typename... Args,
-                 typename =std::enable_if_t<
-                         (sizeof...(Args) == N)
-                         && std::conjunction_v<std::is_same<Type, Args>...>
-                 >,
+        template<typename... Args, typename =std::enable_if_t<
+                (sizeof...(Args) == N) && std::conjunction_v<std::is_same<Type, Args>...>>,
                  typename = EnableIfNarrowerNumber<std::common_type_t<Args...>>>
         explicit Vector(Args &&... args)
                 : data{static_cast<Type>(std::forward<Args>(args))...} {
@@ -114,8 +108,9 @@ namespace GLESC::Math {
             }
         }
         
-        template<typename OtherType, typename = EnableIfNarrowerNumber<OtherType>>
-        Vector(std::initializer_list<OtherType> list) {
+        template<typename dummy, // Abi error workaround
+                 typename OtherType>
+        Vector(std::initializer_list<OtherType> list) noexcept {
             ASSERT_INIT_LIST_IS_OF_SIZE(list.size(), N);
             for (size_t i = 0; i < N; ++i) {
                 data[i] = static_cast<Type>(*(list.begin() + i));
@@ -402,7 +397,7 @@ namespace GLESC::Math {
         }
         
         // ############All Numeric Types###############
-        
+        // TODO: Change these with constexpr ifs, its shorter and more readable
         template<typename OtherType, typename = EnableIfNarrowerNumber<OtherType>>
         Vector<Type, N> operator+(const Vector<OtherType, N> &rhs) const {
             Vector<Type, N> result;
@@ -468,16 +463,47 @@ namespace GLESC::Math {
         }
         
         // ==============Comparison Operators===================
-        constexpr bool operator==(const Vector &rhs) const {
-            for (size_t i = 0; i < N; ++i) {
-                if (data[i] != rhs.data[i])
-                    return false;
+        template<typename OtherType>
+        constexpr bool operator==(const Vector<OtherType, N> &rhs) const {
+            if constexpr (std::is_floating_point_v<OtherType>) {
+                for (size_t i = 0; i < N; ++i) {
+                    if (!eq(data[i], rhs.data[i]))
+                        return false;
+                }
+                return true;
+            } else if (std::is_convertible_v<OtherType, Type>) {
+                for (size_t i = 0; i < N; ++i) {
+                    if (data[i] != static_cast<Type>(rhs.data[i])) {
+                        return false;
+                    }
+                }
+                return true;
+                
+            } else {
+                for (size_t i = 0; i < N; ++i) {
+                    if (data[i] != rhs.data[i]) {
+                        return false;
+                    }
+                }
+                return true;
             }
-            return true;
         }
         
         constexpr bool operator!=(const Vector &rhs) const {
-            return !(*this == rhs);
+            if constexpr (std::is_floating_point_v<Type>) {
+                for (size_t i = 0; i < N; ++i) {
+                    if (eq(data[i], rhs.data[i]))
+                        return false;
+                }
+                return true;
+            } else {
+                for (size_t i = 0; i < N; ++i) {
+                    if (data[i] == rhs.data[i]) {
+                        return false;
+                    }
+                }
+                return true;
+            }
         }
         
         constexpr bool operator<(const Vector &rhs) const {
@@ -504,26 +530,8 @@ namespace GLESC::Math {
             return !(*this < rhs);
         }
         
-        // ############All Numeric Types###############
         
-        template<typename OtherType, typename = EnableIfNarrowerNumber<OtherType>>
-        bool operator==(const Vector<OtherType, N> &rhs) const {
-            for (size_t i = 0; i < N; ++i) {
-                if (data[i] != static_cast<Type>(rhs.data[i])) {
-                    return false;
-                }
-            }
-        }
-        
-        template<typename OtherType, typename = EnableIfNarrowerNumber<OtherType>>
-        bool operator!=(const Vector<OtherType, N> &rhs) const {
-            for (size_t i = 0; i < N; ++i) {
-                if (data[i] == static_cast<Type>(rhs.data[i])) {
-                    return false;
-                }
-            }
-            return true;
-        }
+
         // =================Vector Functions=================
         
         [[nodiscard]] Type dot(const Vector<Type, N> &rhs) const {
@@ -618,14 +626,14 @@ using Vec4L = Vec<long, 4>;
 
 namespace std {
     template<typename T, size_t U>
-    struct hash<Vec < T, U>> {
-    std::size_t operator()(const Vec <T, U> &vec) const {
-        std::hash<T> hasher;
-        std::size_t seed = 0;
-        for (size_t i = 0; i < U; ++i) {
-            seed ^= hasher(vec[i]) + 0x9e3779b9 + (seed << 6) + (seed >> 2);
+    struct hash<Vec<T, U>> {
+        std::size_t operator()(const Vec<T, U> &vec) const {
+            std::hash<T> hasher;
+            std::size_t seed = 0;
+            for (size_t i = 0; i < U; ++i) {
+                seed ^= hasher(vec[i]) + 0x9e3779b9 + (seed << 6) + (seed >> 2);
+            }
+            return seed;
         }
-        return seed;
-    }
-};
+    };
 }

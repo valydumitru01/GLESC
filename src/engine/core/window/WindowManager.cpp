@@ -24,7 +24,7 @@ WindowManager::WindowManager(GLESC_RENDER_API &graphicInterfaceParam) :
 }
 
 void WindowManager::setSize(uint16_t windowWidth, uint16_t windowHeight) {
-    ASSERT(isInitialized, "WindowManager not initialized! Cannot set size!");
+    D_ASSERT(isInitialized, "WindowManager not initialized! Cannot set size!");
     width = windowWidth;
     height = windowHeight;
     
@@ -33,14 +33,14 @@ void WindowManager::setSize(uint16_t windowWidth, uint16_t windowHeight) {
 
 
 void WindowManager::setFullscreen(SDL_bool isFullScreen) {
-    ASSERT(isInitialized, "WindowManager not initialized! Cannot set fullscreen!");
+    D_ASSERT(isInitialized, "WindowManager not initialized! Cannot set fullscreen!");
     fullscreen = isFullScreen;
     SDL_SetWindowFullscreen(window, fullscreen);
 }
 
 
 void WindowManager::setMouseRelative(bool enabled) {
-    ASSERT(isInitialized, "WindowManager not initialized! Cannot set mouse relative!");
+    D_ASSERT(isInitialized, "WindowManager not initialized! Cannot set mouse relative!");
     SDL_bool isRelative;
     std::string failOutput;
     if (enabled) {
@@ -58,18 +58,18 @@ void WindowManager::setMouseRelative(bool enabled) {
 }
 
 SDL_Window &WindowManager::getWindow() {
-    ASSERT(isInitialized, "WindowManager not initialized! Cannot get window!");
+    D_ASSERT(isInitialized, "WindowManager not initialized! Cannot get window!");
     return *window;
 }
 
 uint32_t WindowManager::getWidth() const {
-    ASSERT(isInitialized, "WindowManager not initialized! Cannot get width!");
+    D_ASSERT(isInitialized, "WindowManager not initialized! Cannot get width!");
     return width;
 }
 
 
 uint32_t WindowManager::getHeight() const {
-    ASSERT(isInitialized, "WindowManager not initialized! Cannot get height!");
+    D_ASSERT(isInitialized, "WindowManager not initialized! Cannot get height!");
     return height;
 }
 
@@ -101,8 +101,8 @@ int WindowManager::getRaisedFlags() {
 
 void WindowManager::initSDL() {
     int result = SDL_Init(SDL_INIT_EVERYTHING);
-    ASSERT_EQUAL(result, 0, "Unable to initialize SDL: " + std::string(SDL_GetError()));
-    Logger::get().success("SDL Initialized!");
+    D_ASSERT_EQUAL(result, 0, "Unable to initialize SDL: " + std::string(SDL_GetError()));
+   GLESC::Logger::get().success("SDL Initialized!");
 }
 
 
@@ -110,8 +110,8 @@ SDL_Window *WindowManager::createWindow(const char *title) {
     int flags = getRaisedFlags();
     SDL_Window *tempWindow =
             SDL_CreateWindow(title, GLESC_WINDOW_X, GLESC_WINDOW_Y, GLESC_WINDOW_WIDTH, GLESC_WINDOW_HEIGHT, flags);
-    ASSERT_NOT_EQUAL(tempWindow, nullptr, "Unable to create windowManager: " + std::string(SDL_GetError()));
-    Logger::get().success("Window created!");
+    D_ASSERT_NOT_EQUAL(tempWindow, nullptr, "Unable to create windowManager: " + std::string(SDL_GetError()));
+   GLESC::Logger::get().success("Window created!");
     SDL_SetWindowMinimumSize(tempWindow, windowMinWidth, windowMinHeight);
     
     return tempWindow;

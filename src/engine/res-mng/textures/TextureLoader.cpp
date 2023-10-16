@@ -12,7 +12,7 @@
 #include "engine/core/logger/Logger.h"
 
 TextureLoader::TextureLoader(){
-        Logger::get().importantInfo("Texture manager created.");
+       GLESC::Logger::get().importantInfo("Texture manager created.");
 }
 
 /**

@@ -19,7 +19,7 @@
 #else
     #define LOG(initialMessage, CONTENT) \
             do{                                     \
-            Logger::get().info(initialMessage);     \
+           GLESC::Logger::get().info(initialMessage);     \
             CONTENT                                 \
             } while(0)
     #define LOG_BASIC(CONTENT) \

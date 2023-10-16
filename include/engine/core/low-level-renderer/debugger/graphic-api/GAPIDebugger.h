@@ -14,7 +14,7 @@
 #include "engine/core/logger/Logger.h"
 
 #define GAPI_PRINT_CODE(CONTENT) \
-    LOG_BASIC(Logger::get().info("GAPI status:"); \
+    LOG_BASIC(GLESC::Logger::get().info("GAPI status:"); \
         CONTENT                  \
         )
 
@@ -23,7 +23,7 @@
     
 #ifndef NLOGGING
 inline void printGAPIInit(const std::string& GAPIName, const std::string& GAPIVersion){
-    Logger::get().importantSuccess("Initializing Graphic Application Programming Interface");
-    Logger::get().success("\t" + GAPIName + " version " + GAPIVersion);
+   GLESC::Logger::get().importantSuccess("Initializing Graphic Application Programming Interface");
+   GLESC::Logger::get().success("\t" + GAPIName + " version " + GAPIVersion);
 }
 #endif

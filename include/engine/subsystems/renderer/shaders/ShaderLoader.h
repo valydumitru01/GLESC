@@ -22,11 +22,11 @@ public:
     GAPIint loadShaders() {
         std::string vertexPath = VERT_SHADER;
         vertexShaderSource = FileManager::readFile(vertexPath);
-        Logger::get().success("Shader file read successfully: " + vertexPath);
+       GLESC::Logger::get().success("Shader file read successfully: " + vertexPath);
         
         std::string fragmentPath = FRAG_SHADER;
         fragmentShaderSource = FileManager::readFile(fragmentPath);
-        Logger::get().success("Shader file read successfully: " + fragmentPath);
+       GLESC::Logger::get().success("Shader file read successfully: " + fragmentPath);
         
         std::string glslCoreStr = graphicInterface.getIsGlslCore() ? "core" : "";
         
@@ -38,15 +38,15 @@ public:
         vertexShaderSource = glslVersionStr + vertexShaderSource;
         fragmentShaderSource = glslVersionStr + fragmentShaderSource;
         
-        Logger::get().info("Shader file content: \n" + vertexShaderSource);
-        Logger::get().info("Shader file content: \n" + fragmentShaderSource);
+       GLESC::Logger::get().info("Shader file content: \n" + vertexShaderSource);
+       GLESC::Logger::get().info("Shader file content: \n" + fragmentShaderSource);
         
         loadVertexShader();
-        Logger::get().success("Vertex shader loaded successfully");
+       GLESC::Logger::get().success("Vertex shader loaded successfully");
         loadFragmentShader();
-        Logger::get().success("Fragment shader loaded successfully");
+       GLESC::Logger::get().success("Fragment shader loaded successfully");
         createShaderProgram();
-        Logger::get().success("Shader program created successfully");
+       GLESC::Logger::get().success("Shader program created successfully");
         
         clean();
         return shaderProgram;

@@ -14,7 +14,7 @@
 
 int main(int argc, char* argv[]) {
     #ifdef DEBUG
-    Logger::get().warning("DEBUG MODE IS ON");
+   GLESC::Logger::get().warning("DEBUG MODE IS ON");
     #endif
     GLESC::Engine glesc;
     Counter counter(FpsRates::Fps60);

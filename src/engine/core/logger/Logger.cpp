@@ -13,13 +13,14 @@
 //Include loggers
 #include "engine/core/logger/concrete-loggers/TerminalLogger.h"
 #include "engine/core/logger/concrete-loggers/FileLogger.h"
+using namespace GLESC;
 Logger::Logger() {
     addLogger(std::make_unique<TerminalLogger>());
     addLogger(std::make_unique<FileLogger>());
 }
 
-Logger& Logger::get() {
-    static Logger logger = Logger(); // Guaranteed to be destroyed.
+Logger&GLESC::Logger::get() {
+    static Logger logger = Logger();
     return logger;
 }
 

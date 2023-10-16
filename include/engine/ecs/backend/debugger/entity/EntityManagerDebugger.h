@@ -35,14 +35,14 @@ namespace GLESC {
                     "Entity: " + std::string(entityNamePrint) +
                     " ID: " + std::to_string(entityIDPrint) +
                     " Signature: " + entitySignaturePrint.to_string();
-            Logger::get().info(entityListMessage);
+           GLESC::Logger::get().info(entityListMessage);
         }
         std::string availableEntitiesMessage =
                 "Available entities: " + std::to_string(entityManager.availableEntities.size());
-        Logger::get().info(availableEntitiesMessage);
+       GLESC::Logger::get().info(availableEntitiesMessage);
         std::string
                 livingEntityCountMessage = "Living entity count: " + std::to_string(entityManager.livingEntityCount);
-        Logger::get().info(livingEntityCountMessage);
+       GLESC::Logger::get().info(livingEntityCountMessage);
     }
 }
 #endif

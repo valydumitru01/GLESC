@@ -7,7 +7,7 @@
 !.vscode/c_cpp_properties.json
 
 # Ingore executable
-bin/game.exe
+bin/**
 /build/
 
 # Default ignored files

@@ -31,14 +31,14 @@ void SystemManager::registerSystem(const SystemName& name) {
 void SystemManager::entitySignatureChanged(EntityID entity, Signature entitySignature) {
     /*
 #ifdef DEBUG
-    Logger::get().importantInfoBlue("Entity signature changed. Updated systems: ");
+   GLESC::Logger::get().importantInfoBlue("Entity signature changed. Updated systems: ");
     for (auto &pair : systems) {
         auto const &system = pair.first;
         auto const &systemSignature = pair.second.first;
         if ((entitySignature & systemSignature) == systemSignature) {
-            Logger::get().infoBlue("Entity" + std::to_string(entity) + " is added to " + system);
+           GLESC::Logger::get().infoBlue("Entity" + std::to_string(entity) + " is added to " + system);
         } else {
-            Logger::get().infoBlue("Entity" + std::toString(entity) + " is removed from " + system);
+           GLESC::Logger::get().infoBlue("Entity" + std::toString(entity) + " is removed from " + system);
         }
     }
 #endif*/

@@ -128,7 +128,7 @@ public:
     }
     
     [[nodiscard]] Matrix<Type, N, M> &operator/=(Type scalar) {
-        if (GLESC::Math::eq(scalar, 0))
+        if (eq(scalar, 0))
             throw MathException("Division by zero");
         Matrix<Type, N, M> result;
         for (size_t i = 0; i < N; ++i) {
@@ -212,7 +212,7 @@ public:
     
     
     [[nodiscard]] Matrix<Type, N, M> operator/(Type scalar) const {
-        if (GLESC::Math::eq(scalar, Type()))
+        if (eq(scalar, Type()))
             throw MathException("Division by zero");
         Matrix<Type, N, M> result;
         for (size_t i = 0; i < N; ++i) {
@@ -382,13 +382,13 @@ public:
             
             return det;
         } else {
-            static_assert(false, "Matrix size must be 2x2, 3x3 or 4x4");
+            D_ASSERT(false, "Matrix size must be 2x2, 3x3 or 4x4");
         }
     }
     
     [[nodiscard]] Matrix<Type, N, M> inverse() {
         Type det = determinant();
-        if (GLESC::Math::eq(det, 0))
+        if (eq(det, 0))
             throw std::runtime_error("Singular matrix");
         Matrix<Type, N, M> inv;
         

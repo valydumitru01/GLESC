@@ -39,7 +39,6 @@ add_executable(game_test
 )
 # ------------ MACRO DEFINITIONS ------------
 # Macro definitions for the project
-
 message(STATUS "Adding macro definitions")
 target_compile_definitions(game PRIVATE
         # This is the platform definition for the project

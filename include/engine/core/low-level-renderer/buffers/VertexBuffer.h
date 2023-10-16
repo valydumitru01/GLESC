@@ -42,7 +42,7 @@ private:
             case ShaderDataType::None:
                 return 0;
         }
-        ASSERT(false, "Unknown ShaderDataType");
+        D_ASSERT(false, "Unknown ShaderDataType");
     }
     
     static int shaderDataDimSize(ShaderDataDim type) {
@@ -61,7 +61,7 @@ private:
             case ShaderDataDim::Mat4:
                 return 16;
         }
-        ASSERT(false, "Unknown ShaderDataDim");
+        D_ASSERT(false, "Unknown ShaderDataDim");
     }
 };
 

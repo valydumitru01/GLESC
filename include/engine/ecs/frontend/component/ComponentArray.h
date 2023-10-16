@@ -40,7 +40,7 @@ public:
     void insertData(EntityID entity, Component component) {
 #ifdef DEBUG
         const char *name = typeid(Component).name();
-        Logger::get()
+       GLESC::Logger::get()
                 .importantInfo("Adding component \"" + std::string(name) + "\" to entity" + std::to_string(entity));
         printEntityToIndexMap("Map before inserting:", entityToIndexMap);
         if (entityToIndexMap.left.find(entity) != entityToIndexMap.left.end()) {
@@ -58,12 +58,12 @@ public:
     }
     
     void printEntityToIndexMap(const std::string &message, const boost::bimap<EntityID, size_t> &map) {
-        Logger::get().importantInfoBlue(message);
+       GLESC::Logger::get().importantInfoBlue(message);
         const char *name = typeid(Component).name();
-        Logger::get().infoBlue("Array of " + std::string(name));
-        Logger::get().infoBlue("\tEntityToIndexMap size: " + std::to_string(map.size()));
+       GLESC::Logger::get().infoBlue("Array of " + std::string(name));
+       GLESC::Logger::get().infoBlue("\tEntityToIndexMap size: " + std::to_string(map.size()));
         for (const auto &entry : map) {
-            Logger::get().infoBlue(
+           GLESC::Logger::get().infoBlue(
                     "\tEntity ID: " + std::to_string(entry.left) + ", Array Index: " + std::to_string(entry.right));
         }
     }
@@ -77,7 +77,7 @@ public:
     void removeData(EntityID entity) override {
 #ifdef DEBUG
         const char *name = typeid(Component).name();
-        Logger::get().importantInfoPurple(
+       GLESC::Logger::get().importantInfoPurple(
                 "Removing component \"" + std::string(name) + "\" from entity" + std::to_string(entity));
         
         printEntityToIndexMap("Removing from map:", entityToIndexMap);

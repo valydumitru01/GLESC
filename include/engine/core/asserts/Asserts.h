@@ -13,6 +13,7 @@
 #include <iostream>
 #include <stdexcept>
 #include <string>
+#include <sstream>
 #include "engine/core/debugger/Stacktrace.h"
 #include "engine/core/logger/Logger.h"
 
@@ -22,66 +23,81 @@
 
 
 #define ASSERT_CONTENT(condition, message) \
-        std::string stacktrace = GLESC::generateStackTrace(); \
-        Logger::get().error( \
-            "Assertion `" #condition "` failed in " + std::string(__FILE__) + \
-            " line " + std::to_string(__LINE__) + ": \n\t" + \
-            std::string(message) + "\nStacktrace:\n" + stacktrace); \
-        std::terminate();
+            std::ostringstream oss;                                              \
+            oss << "Assertion failed: " << #condition << "\n"                    \
+                << "Message: " << message << "\n"                                \
+                << "File: " << __FILE__ << "\n"                                  \
+                << "Line: " << __LINE__ << "\n"                                  \
+                << "Function: " << __PRETTY_FUNCTION__ << "\n"                   \
+                << "Stacktrace: \n" << GLESC::generateStackTrace();              \
+            GLESC::Logger::get().error(oss.str());                               \
+            std::terminate();
 
-#define ASSERT(condition, message) \
+
+
+#define D_ASSERT(condition, message) \
         do { \
             if (! (condition)) { \
                 ASSERT_CONTENT(condition, message) \
             } \
         } while (false)
 
-#define ASSERT_FALSE(condition, message) \
+#define D_ASSERT_FALSE(condition, message) \
         do { \
             if (condition) { \
                 ASSERT_CONTENT(condition, message) \
             } \
         } while (false)
 
-#define ASSERT_NOT_NULL(condition, message) \
+#define D_ASSERT_NOT_NULL(condition, message) \
         do { \
             if (condition == nullptr) { \
                 ASSERT_CONTENT(condition, message) \
             } \
         } while (false)
 
-#define ASSERT_NULL(condition, message) \
+#define D_ASSERT_NULL(condition, message) \
         do { \
             if (condition != nullptr) { \
                 ASSERT_CONTENT(condition, message) \
             } \
         } while (false)
 
-#define ASSERT_EQUAL(condition, expected, message) \
+#define D_ASSERT_EQUAL(condition, expected, message) \
         do { \
             if (condition != expected) { \
                 ASSERT_CONTENT(condition, message) \
             } \
         } while (false)
 
-#define ASSERT_GREATER(condition, expected, message) \
+#define D_ASSERT_GREATER(condition, expected, message) \
         do { \
             if (condition <= expected) { \
                 ASSERT_CONTENT(condition, message) \
             } \
         } while (false)
 
-#define ASSERT_GREATER_OR_EQUAL(condition, expected, message) \
+#define D_ASSERT_GREATER_OR_EQUAL(condition, expected, message) \
         do { \
             if (condition < expected) { \
                 ASSERT_CONTENT(condition, message) \
             } \
         } while (false)
 
-#define ASSERT_LESS(condition, expected, message) \
+#define D_ASSERT_LESS(condition, expected, message) \
+        do { \
+            if (condition >= expected) { \
+                ASSERT_CONTENT(condition, message) \
+            } \
+        } while (false)
+#define D_ASSERT_LESS_OR_EQUAL(condition, expected, message) \
+        do { \
+            if (condition > expected) { \
+                ASSERT_CONTENT(condition, message) \
+            } \
+        } while (false)
 
-
-#define ASSERT_NOT_EQUAL(condition, expected, message) \
+#define D_ASSERT_NOT_EQUAL(condition, expected, message) \
         do { \
             if (condition == expected) { \
                 ASSERT_CONTENT(condition, message) \
@@ -118,16 +134,16 @@
 // Empty asserts are used to substitute asserts in release mode,
 // this way the compiler will optimize them out (remove them)
 
-#define ASSERT(condition, message) do { } while (false)
-#define ASSERT_FALSE(condition, message) do { } while (false)
-#define ASSERT_NOT_NULL(condition, message) do { } while (false)
-#define ASSERT_NULL(condition, message) do { } while (false)
-#define ASSERT_EQUAL(condition, expected, message) do { } while (false)
-#define ASSERT_GREATER(condition, expected, message) do { } while (false)
-#define ASSERT_GREATER_OR_EQUAL(condition, expected, message) do { } while (false)
-#define ASSERT_LESS(condition, expected, message) do { } while (false)
-#define ASSERT_LESS_OR_EQUAL(condition, expected, message) do { } while (false)
-#define ASSERT_NOT_EQUAL(condition, expected, message) do { } while (false)
+#define D_ASSERT(condition, message) do { } while (false)
+#define D_ASSERT_FALSE(condition, message) do { } while (false)
+#define D_ASSERT_NOT_NULL(condition, message) do { } while (false)
+#define D_ASSERT_NULL(condition, message) do { } while (false)
+#define D_ASSERT_EQUAL(condition, expected, message) do { } while (false)
+#define D_ASSERT_GREATER(condition, expected, message) do { } while (false)
+#define D_ASSERT_GREATER_OR_EQUAL(condition, expected, message) do { } while (false)
+#define D_ASSERT_LESS(condition, expected, message) do { } while (false)
+#define D_ASSERT_LESS_OR_EQUAL(condition, expected, message) do { } while (false)
+#define D_ASSERT_NOT_EQUAL(condition, expected, message) do { } while (false)
 
 #define S_ASSERT_EQUAL(condition, expected, message) do { } while (false)
 #define S_ASSERT_GREATER(condition, expected, message) do { } while (false)

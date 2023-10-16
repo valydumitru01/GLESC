@@ -123,7 +123,7 @@ public:
         // Initialize GLEW, must be called before the following OpenGL calls
         initGLEW();
         
-        Logger::get().success("Glew Initialized!");
+       GLESC::Logger::get().success("Glew Initialized!");
         // Enable depth test
         // Fragments will be discarded if they are behind
         // More info: https://www.khronos.org/opengl/wiki/Depth_Test
@@ -369,9 +369,9 @@ public:
         // OpenGL context initialization over the SDL windowManager,
         // needed for using OpenGL functions
         this->context = SDL_GL_CreateContext(&window);
-        ASSERT_NOT_EQUAL(this->context, nullptr,
+        D_ASSERT_NOT_EQUAL(this->context, nullptr,
                          "Unable to create context: " + std::string(SDL_GetError()));
-        Logger::get().success("GL context created!");
+       GLESC::Logger::get().success("GL context created!");
         // Must be called after creating the context
         this->setViewport(x, y, w, h);
     }

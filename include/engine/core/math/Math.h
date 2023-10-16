@@ -21,7 +21,7 @@ namespace GLESC::Math {
             3.1415926535897932384626433832795028841971693993751058209749445923f;
     
     template<typename LValueT, typename RValueT>
-    constexpr inline bool eq(LValueT a, RValueT b) {
+    constexpr inline bool flexibleEquals(LValueT a, RValueT b) {
         if constexpr (std::is_floating_point_v<LValueT> &&
                       std::is_floating_point_v<RValueT>) {
             return std::fabs(a - b) < FLOAT_COMPARISON_EPSILON;
@@ -30,4 +30,9 @@ namespace GLESC::Math {
         }
     }
 
+}
+
+template<typename LValueT, typename RValueT>
+bool eq(LValueT a, RValueT b) {
+    return GLESC::Math::flexibleEquals(a, b);
 }

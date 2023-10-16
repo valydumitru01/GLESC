@@ -14,15 +14,15 @@
 
 
 #define S_ASSERT_VEC_IS_OF_SIZE_OR_BIGGER(vecSize, expectedSize) \
-    S_ASSERT_GREATER_OR_EQUAL(vecSize, expectedSize, \
-        "Vector size is incorrect, expected size" #expectedSize \
-        " or bigger");
+    S_ASSERT_GREATER_OR_EQUAL(vecSize, expectedSize,             \
+        "Vector size is incorrect, expected size" #expectedSize  \
+        " or bigger")
 
-#define S_ASSERT_VEC_IS_OF_SIZE(vecSize, expectedSize) \
-    S_ASSERT_EQUAL(vecSize, expectedSize, \
-        "Vector size is incorrect, expected size"#expectedSize);
+#define S_ASSERT_VEC_IS_OF_SIZE(vecSize, expectedSize)           \
+    S_ASSERT_EQUAL(vecSize, expectedSize,                        \
+        "Vector size is incorrect, expected size"#expectedSize)
 
-#define ASSERT_INIT_LIST_IS_OF_SIZE(size, expectedSize) \
-    ASSERT_EQUAL(size, expectedSize, \
-        "Vector size is not the expected one");
+#define ASSERT_INIT_LIST_IS_OF_SIZE(listSize, expectedSize)      \
+    D_ASSERT_EQUAL(listSize, expectedSize,                       \
+    "List size is incorrect, expected size"#expectedSize)
     

@@ -14,11 +14,11 @@
 
 
 #define ASSERT_GL_CORRECT_VERSION() \
-    ASSERT(isGLCorrectVersion(GLESC_GL_MAJOR_VERSION, GLESC_GL_MINOR_VERSION), \
+    D_ASSERT(isGLCorrectVersion(GLESC_GL_MAJOR_VERSION, GLESC_GL_MINOR_VERSION), \
     "OpenGL version is not supported")
 
 #define ASSERT_GL_CALL_IS_CORRECT(isCorrect, message) \
-    ASSERT(isCorrect, \
+    D_ASSERT(isCorrect, \
     "OpenGL call is not correct")
 
 [[maybe_unused]] inline bool isGLCorrectVersion(int glslMajorVersion, int glslMinorVersion){
