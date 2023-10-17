@@ -29,10 +29,37 @@ namespace GLESC::Math {
             return a == b;
         }
     }
+    
+    template <typename T>
+    T flexibleSqrt(const T& value) {
+        T result = T();
+        if constexpr (std::is_arithmetic_v<T>) {
+            if constexpr (std::is_integral_v<T>) {
+                return static_cast<T>(std::round(std::sqrt(static_cast<double>(value))));
+            } else {
+                return static_cast<T>(std::sqrt(value));
+            }
+        } else {
+            // For user-defined types, you might want to call a member function
+            // or free function that computes the square root for that type.
+            // For demonstration, let's assume T has a member function sqrt() that
+            // computes the square root:
+            result = value.sqrt();
+            
+            // If you want to use a free function instead, you could do:
+            // result = sqrt(value);  // Assumes a suitable sqrt function exists for type T
+        }
+        return result;
+    }
 
 }
 
 template<typename LValueT, typename RValueT>
 bool eq(LValueT a, RValueT b) {
     return GLESC::Math::flexibleEquals(a, b);
+}
+
+template<typename Type>
+Type sqRoot(Type value) {
+    return GLESC::Math::flexibleSqrt(value);
 }

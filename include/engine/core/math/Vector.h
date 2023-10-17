@@ -489,7 +489,7 @@ namespace GLESC::Math {
             }
         }
         
-        constexpr bool operator!=(const Vector &rhs) const {
+        constexpr bool operator!=(const Vector<Type, N> &rhs) const {
             if constexpr (std::is_floating_point_v<Type>) {
                 for (size_t i = 0; i < N; ++i) {
                     if (eq(data[i], rhs.data[i]))
@@ -506,27 +506,27 @@ namespace GLESC::Math {
             }
         }
         
-        constexpr bool operator<(const Vector &rhs) const {
+        bool operator<(const Vector<Type, N> &rhs) const {
             for (size_t i = 0; i < N; ++i) {
-                if (data[i] >= rhs.data[i])
-                    return false;
+                if (data[i] < rhs.data[i]) return true;
+                if (data[i] > rhs.data[i]) return false;
             }
-            return true;
+            return false;
         }
         
-        constexpr bool operator>(const Vector &rhs) const {
+        constexpr bool operator>(const Vector<Type, N> &rhs) const {
             for (size_t i = 0; i < N; ++i) {
-                if (data[i] <= rhs.data[i])
-                    return false;
+                if (data[i] > rhs.data[i]) return true;
+                if (data[i] < rhs.data[i]) return false;
             }
-            return true;
+            return false;
         }
         
-        constexpr bool operator<=(const Vector &rhs) const {
+        constexpr bool operator<=(const Vector<Type, N> &rhs) const {
             return !(*this > rhs);
         }
         
-        constexpr bool operator>=(const Vector &rhs) const {
+        constexpr bool operator>=(const Vector<Type, N> &rhs) const {
             return !(*this < rhs);
         }
         
@@ -535,7 +535,7 @@ namespace GLESC::Math {
         // =================Vector Functions=================
         
         [[nodiscard]] Type dot(const Vector<Type, N> &rhs) const {
-            Type result = Type(0);
+            Type result = Type();
             for (size_t i = 0; i < N; ++i) {
                 result += data[i] * rhs.data[i];
             }
@@ -543,11 +543,19 @@ namespace GLESC::Math {
         }
         
         [[nodiscard]] Type length() const {
-            Type result = Type(0);
+            Type result = Type();
             for (size_t i = 0; i < N; ++i) {
                 result += data[i] * data[i];
             }
-            return std::sqrt(result);
+            return sqRoot(result);
+        }
+        
+        [[nodiscard]]Type lengthSquared() const {
+            Type result = Type();
+            for (size_t i = 0; i < N; ++i) {
+                result += data[i] * data[i];
+            }
+            return result;
         }
         
         [[nodiscard]] Vector<Type, N> normalize() const {

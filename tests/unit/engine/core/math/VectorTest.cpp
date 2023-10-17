@@ -879,3 +879,167 @@ TEST(VectorTests, LessThanOperator) {
     Vec<size_t, 4> vecSt6(333, 222, 111, 445);
     EXPECT_TRUE(vecSt5 < vecSt6);
 }
+
+TEST(VectorTests, LessThanOrEqualOperator) {
+    Vec<int, 2> vecI(1, 2);
+    Vec<int, 2> vecI2(1, 2);
+    EXPECT_TRUE(vecI <= vecI2);
+    
+    Vec<float, 3> vecF(1.0, 2.0, 3.0);
+    Vec<float, 3> vecF2(1.0, 2.0, 3.0);
+    EXPECT_TRUE(vecF <= vecF2);
+    
+    Vec<size_t, 4> vecSt(1, 2, 3, 4);
+    Vec<size_t, 4> vecSt2(1, 2, 3, 4);
+    EXPECT_TRUE(vecSt <= vecSt2);
+    
+    // A harder one
+    Vec<size_t, 4> vecSt3(333, 222, 111, 444);
+    Vec<size_t, 4> vecSt4(333, 222, 111, 444);
+    EXPECT_TRUE(vecSt3 <= vecSt4);
+    
+    // A harder one
+    Vec<size_t, 4> vecSt5(333, 222, 111, 444);
+    Vec<size_t, 4> vecSt6(333, 222, 111, 445);
+    EXPECT_TRUE(vecSt5 <= vecSt6);
+}
+
+TEST(VectorTests, GreaterThanOperator) {
+    Vec<int, 2> vecI(1, 2);
+    Vec<int, 2> vecI2(1, 2);
+    EXPECT_FALSE(vecI > vecI2);
+    
+    Vec<float, 3> vecF(1.0, 2.0, 3.0);
+    Vec<float, 3> vecF2(1.0, 2.0, 3.0);
+    EXPECT_FALSE(vecF > vecF2);
+    
+    Vec<size_t, 4> vecSt(1, 2, 3, 4);
+    Vec<size_t, 4> vecSt2(1, 2, 3, 4);
+    EXPECT_FALSE(vecSt > vecSt2);
+    
+    // A harder one
+    Vec<size_t, 4> vecSt3(333, 222, 111, 444);
+    Vec<size_t, 4> vecSt4(333, 222, 111, 444);
+    EXPECT_FALSE(vecSt3 > vecSt4);
+    
+    // A harder one
+    Vec<size_t, 4> vecSt5(333, 222, 111, 444);
+    Vec<size_t, 4> vecSt6(333, 222, 111, 445);
+    EXPECT_FALSE(vecSt5 > vecSt6);
+    
+    // A harder one
+    Vec<size_t, 4> vecSt7(333, 222, 111, 444);
+    Vec<size_t, 4> vecSt8(333, 222, 111, 443);
+    EXPECT_TRUE(vecSt7 > vecSt8);
+}
+
+TEST(VectorTests, GreaterOrEqualThanOperator) {
+    Vec<int, 2> vecI(1, 2);
+    Vec<int, 2> vecI2(1, 2);
+    EXPECT_TRUE(vecI >= vecI2);
+    
+    Vec<float, 3> vecF(1.0, 2.0, 3.0);
+    Vec<float, 3> vecF2(1.0, 2.0, 3.0);
+    EXPECT_TRUE(vecF >= vecF2);
+    
+    Vec<size_t, 4> vecSt(1, 2, 3, 4);
+    Vec<size_t, 4> vecSt2(1, 2, 3, 4);
+    EXPECT_TRUE(vecSt >= vecSt2);
+    
+    // A harder one
+    Vec<size_t, 4> vecSt3(333, 222, 111, 444);
+    Vec<size_t, 4> vecSt4(333, 222, 111, 444);
+    EXPECT_TRUE(vecSt3 >= vecSt4);
+    
+    // A harder one
+    Vec<size_t, 4> vecSt5(333, 222, 111, 444);
+    Vec<size_t, 4> vecSt6(333, 222, 111, 445);
+    EXPECT_FALSE(vecSt5 >= vecSt6);
+    
+    // A harder one
+    Vec<size_t, 4> vecSt7(333, 222, 111, 444);
+    Vec<size_t, 4> vecSt8(333, 222, 111, 443);
+    EXPECT_TRUE(vecSt7 >= vecSt8);
+}
+
+// ---------------------------------------------------------------- //
+// --------------------- Vector Functions ------------------------- //
+// ---------------------------------------------------------------- //
+
+TEST(VectorTests, DotProduct) {
+    Vec<int, 2> vecI(1, 2);
+    Vec<int, 2> vecI2(1, 2);
+    EXPECT_EQ(vecI.dot(vecI2), 5);
+    
+    Vec<float, 3> vecF(1.0, 2.0, 3.0);
+    Vec<float, 3> vecF2(1.0, 2.0, 3.0);
+    EXPECT_FLOAT_EQ(vecF.dot(vecF2), 14.0);
+    
+    Vec<size_t, 4> vecSt(1, 2, 3, 4);
+    Vec<size_t, 4> vecSt2(1, 2, 3, 4);
+    EXPECT_EQ(vecSt.dot(vecSt2), 30);
+    
+    Vec<float, 4> vecSt3(1.11f, 2.22f, 1.11f, 4.44f);
+    Vec<float, 4> vecSt4(3.33f, 2.22f, 1.11f, 4.44f);
+    EXPECT_FLOAT_EQ(vecSt3.dot(vecSt4), 29.5674f);
+    
+    Vec<size_t, 3> vecSt5(333, 222, 111);
+    Vec<size_t, 3> vecSt6(333, 222, 111);
+    EXPECT_EQ(vecSt5.dot(vecSt6), 172494);
+}
+
+
+// lenght
+TEST(VectorTests, Length) {
+    Vec<int, 2> vecI(1, 2);
+    EXPECT_EQ(vecI.length(), 2);
+    
+    Vec<float, 3> vecF(1.0, 2.0, 3.0);
+    EXPECT_FLOAT_EQ(vecF.length(), 3.7416573868);
+    
+    Vec<size_t, 4> vecSt(1, 2, 3, 4);
+    EXPECT_EQ(vecSt.length(), 5);
+    
+    // A harder one
+    Vec<float, 4> vecSt3(1.11f, 2.22f, 1.11f, 4.44f);
+    EXPECT_FLOAT_EQ(vecSt3.length(), 5.756816);
+}
+
+// lenght squared
+TEST(VectorTests, LengthSquared) {
+    Vec<int, 2> vecI(1, 2);
+    EXPECT_EQ(vecI.lengthSquared(), 5);
+    
+    Vec<float, 3> vecF(1.0, 2.0, 3.0);
+    EXPECT_EQ(vecF.lengthSquared(), 14.0);
+    
+    Vec<size_t, 4> vecSt(1, 2, 3, 4);
+    EXPECT_EQ(vecSt.lengthSquared(), 30);
+    
+    // A harder one
+    Vec<float, 4> vecSt3(1.11f, 2.22f, 1.11f, 4.44f);
+    EXPECT_FLOAT_EQ(vecSt3.lengthSquared(), 33.1665);
+}
+
+// normalize
+TEST(VectorTests, Normalize) {
+    Vec<int, 2> vecI(1, 2);
+    Vec<int, 2> normI = vecI.normalize();
+    EXPECT_EQ(normI[0], 0);
+    EXPECT_EQ(normI[1], 1);
+    
+    Vec<float, 3> vecF(1.0, 2.0, 3.0);
+    Vec<float, 3> normF = vecF.normalize();
+    EXPECT_FLOAT_EQ(normF[0], 0.2672612419);
+    EXPECT_FLOAT_EQ(normF[1], 0.5345224838);
+    EXPECT_FLOAT_EQ(normF[2], 0.8017837257);
+    
+    Vec<size_t, 4> vecSt(10, 2, 3, 4);
+    Vec<size_t, 4> normSt = vecSt.normalize();
+    EXPECT_EQ(normSt[0], 1);
+    EXPECT_EQ(normSt[1], 0);
+    EXPECT_EQ(normSt[2], 0);
+    EXPECT_EQ(normSt[3], 0);
+    
+}
+
