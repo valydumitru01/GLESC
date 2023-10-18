@@ -65,32 +65,8 @@ public:
      * @brief Initializer list constructor
      * @param list
      */
-    Matrix(const std::initializer_list<std::initializer_list<Type>> &list) {
-        do {
-            if (list.size() != N) {
-                std::ostringstream oss;
-                oss << "Assertion failed: " << "list.size()" << "\n" << "Message: "
-                    << "List size is incorrect, expected size" "N" << "\n" << "File: " << "_file_name_"
-                    << "\n" << "Line: " << 67 << "\n" << "Function: " << "_function_name_" << "\n"
-                    << "Stacktrace: \n" << GLESC::generateStackTrace();
-                GLESC::Logger::get().error(oss.str());
-                std::terminate();
-            }
-        } while (false);
-        for (const auto &row : list) {
-            do {
-                if (row.size() != M) {
-                    std::ostringstream oss;
-                    oss << "Assertion failed: " << "row.size()" << "\n" << "Message: "
-                        << "List size is incorrect, expected size" "M" << "\n" << "File: " << "_file_name_"
-                        << "\n" << "Line: " << 67 << "\n" << "Function: " << "_function_name_" << "\n"
-                        << "Stacktrace: \n" << GLESC::generateStackTrace();
-                    GLESC::Logger::get().error(oss.str());
-                    std::terminate();
-                }
-            } while (false);
-        }
-        
+    inline Matrix(const std::initializer_list<std::initializer_list<Type>> &list) {
+        ASSERT_MAT_INIT_LIST_IS_OF_SIZE(N, M, list);
         size_t i = 0;
         for (const auto &row : list) {
             size_t j = 0;

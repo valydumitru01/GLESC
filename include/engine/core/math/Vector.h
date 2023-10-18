@@ -65,9 +65,6 @@ namespace GLESC::Math {
         Vector(Vector<Type, N> &&other) noexcept {
             std::move(std::begin(other.data), std::end(other.data), std::begin(data));
         }
-        //TODO: Check the abi error workaround, fix it
-        template<typename dummy>
-        // Abi error workaround
         Vector(std::initializer_list<Type> list) noexcept {
             ASSERT_INIT_LIST_IS_OF_SIZE(list.size(), N);
             std::copy(list.begin(), list.end(), std::begin(data));
@@ -109,17 +106,16 @@ namespace GLESC::Math {
             }
         }
         
-        template<typename dummy, // Abi error workaround
-                 typename OtherType>
+        // ================================================
+        
+        
+        template<typename OtherType>
         Vector(std::initializer_list<OtherType> list) noexcept {
             ASSERT_INIT_LIST_IS_OF_SIZE(list.size(), N);
             for (size_t i = 0; i < N; ++i) {
                 data[i] = static_cast<Type>(*(list.begin() + i));
             }
         }
-        
-        
-        // ================================================
         // ===============Getters and Setters==============
         // ================================================
         

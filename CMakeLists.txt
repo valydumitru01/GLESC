@@ -20,102 +20,93 @@ include(cmake/FindPackages.cmake)
 include(cmake/LinkedLibraries.cmake)
 include(cmake/PlatformDetection.cmake)
 
-if (BUILD_TESTING)
-    message(STATUS "Building tests")
-    include(cmake/Testing.cmake)
-endif ()
+include(cmake/Testing.cmake)
 
 # ------------ TARGETS ------------
-# Add an executable target called game to be built from the source files
-message(STATUS "Adding executable target game")
-add_executable(game
-        ${SOURCE_FILES} # These are the source files for the project
-        ${LIB_SOURCE_FILES}# These are the source files for the libraries
-)
-message(STATUS "Adding executable target game_test")
-add_executable(game_test
-        ${TEST_FILES} # These are the test source files for the project
-        ${LIB_SOURCE_FILES} # These are the source files for the libraries (the same as for the main project)
-)
-# ------------ MACRO DEFINITIONS ------------
-# Macro definitions for the project
-message(STATUS "Adding macro definitions")
-target_compile_definitions(game PRIVATE
-        # This is the platform definition for the project
-        # Defined in PlatformDetection.cmake
-        ${PLATFORM}
-)
-message("Platform definition: ${PLATFORM}")
+# function to create the executables of given name
+function(create_executable name)
+    message(STATUS "Adding executable target ${name}")
+    add_executable(${name})
+endfunction()
 
 
-# This is needed to allow the shaders to be loaded
-target_compile_definitions(game PRIVATE
-        # This stores the path to the fragment shader
-        FRAG_SHADER="${FRAG_SHADER}"
-)
-message("Fragment shader: ${FRAG_SHADER}")
-target_compile_definitions(game PRIVATE
-        # This stores the path to the vertex shader
-        VERT_SHADER="${VERT_SHADER}"
-)
-message("Vertex shader: ${VERT_SHADER}")
+# ------------ DEFINITIONS ------------
+# Function to set common definitions to the given target
+function(set_common_definitions target)
+    message(STATUS "Adding common definitions to ${target}")
 
-# This is needed to allow stacktrace to be printed with the correct project name
-target_compile_definitions(game PRIVATE
-        PROJECT_NAME="${PROJECT_NAME}"
-)
-message("Project name: ${PROJECT_NAME}")
+    # Set project binary directory based on build type
+    if (CMAKE_BUILD_TYPE STREQUAL "Debug")
+        set(PROJECT_BINARY_DIR "${CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG}")
+    elseif (CMAKE_BUILD_TYPE STREQUAL "Release")
+        set(PROJECT_BINARY_DIR "${PROJECT_BINARY_DIR_RELEASE_RELEASE}")
+    endif ()
 
-# This is also needed to allow stacktrace to be printed
-# This stores the path to the executable
-# This is different for each build type with cmake
-if (CMAKE_BUILD_TYPE STREQUAL "Debug")
-    target_compile_definitions(game PRIVATE PROJECT_BINARY_DIR="${CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG}")
-elseif (CMAKE_BUILD_TYPE STREQUAL "Release")
-    target_compile_definitions(game PRIVATE PROJECT_BINARY_DIR="${PROJECT_BINARY_DIR_RELEASE_RELEASE}")
-endif ()
-message("Project binary dir: ${PROJECT_BINARY_DIR}")
+    # Store all definitions in a list
+    set(defs
+            ${PLATFORM} # This is the platform the project is being built on
+            GLEW_STATIC # This is needed for glew to work statically
+            FRAG_SHADER="${FRAG_SHADER}" # This is the fragment shader file
+            VERT_SHADER="${VERT_SHADER}" # This is the vertex shader file
+            PROJECT_NAME="${PROJECT_NAME}" # This is the name of the executable
+            # This is needed for stack traces to work
+            PROJECT_BINARY_DIR="${PROJECT_BINARY_DIR}" # This is the binary directory of the project
+            # This is also needed for stack traces to work
+    )
+
+    # Apply definitions to the target
+    target_compile_definitions(${target} PRIVATE ${defs})
+
+    # Verbose log of all definitions
+    message(VERBOSE "Added definitions:")
+    foreach (def IN LISTS defs)
+        message(VERBOSE "  ${def}")
+    endforeach ()
+
+endfunction()
+function(add_extra_definitions target defs)
+    message(STATUS "Adding extra definitions to ${target}")
+    target_compile_definitions(${target} PRIVATE ${defs})
+    message(VERBOSE "Added definitions: ${defs} to ${target}")
+endfunction()
 
 
-# This is needed to allow the glew library (glew32s.lib) to be linked statically
-target_compile_definitions(game PRIVATE GLEW_STATIC)
 
 # ------------ COMPILE FLAGS ------------
-message(STATUS "Adding compile flags")
-# Apply the flags to your source files
-set_source_files_properties(
-        ${SOURCE_FILES} ${INCLUDE_FILES} ${TEST_FILES}
-        PROPERTIES
-        COMPILE_FLAGS
-        ${MY_COMPILE_FLAGS} # These are the compile flags for the project
-        # Defined in CompilerFlags.cmake
-)
-message("Compile flags: ${MY_COMPILE_FLAGS}")
+# Function to set common compile flags
+function(set_compile_flags_to_common_files)
+    message(STATUS "Adding compile flags to common files")
+    set_source_files_properties(
+            ${SOURCE_FILES} ${INCLUDE_FILES} ${TEST_FILES}
+            PROPERTIES
+            COMPILE_FLAGS ${MY_COMPILE_FLAGS}
+    )
+    message(VERBOSE "Added compile flags: ${MY_COMPILE_FLAGS}")
+    message(VERBOSE "These compile flags are only applied to the project sources.
+        No compile flags are applied to the library sources.
+        The following sources are affected:
+        ${SOURCE_FILES} ${INCLUDE_FILES} ${TEST_FILES}\n")
+endfunction()
+function(set_compile_flags_to_extra_files files)
+    message(STATUS "Adding compile flags to extra files")
+    set_source_files_properties(
+            files
+            PROPERTIES
+            COMPILE_FLAGS ${flags}
+    )
+    message(VERBOSE "Added compile flags: ${flags} to ${target}")
+    message(VERBOSE "he following sources are affected:\n
+        ${files}")
+endfunction()
 
 # ------------ INCLUDE DIRECTORIES ------------
-message(STATUS "Adding include directories")
-message(STATUS "Adding include directories of the project")
 # Must be added before linking libraries
-target_include_directories(game
-        PRIVATE
-        ${INCLUDE_DIR} # This is where the header files for the project are located
-)
-message(STATUS "Adding include directories of the libraries")
-target_include_directories(game
-        SYSTEM # This is needed to suppress warnings, we don't want to see warnings from the libraries
-        PRIVATE
-        ${LIB_INCLUDE_DIR} # This is where the library header files are located
-        ${Boost_INCLUDE_DIRS} # This is where the boost header files are located
-)
-message(STATUS "Include directories added: ${INCLUDE_DIR} ${LIB_INCLUDE_DIR} ${Boost_INCLUDE_DIRS}")
+
+
+
+
 
 # ------------ LINKING LIBRARIES ------------
-message(STATUS "Adding linking libraries")
-
-# Instruct the linker to link your program statically with the libraries it depends on
-set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -static")
-
-message(STATUS "Adding linking libraries of the project")
 
 target_link_directories(game PRIVATE
         ${LIB_STATIC_DIR} # This is where the static libraries are located
@@ -125,43 +116,27 @@ target_link_libraries(game
         ${MAIN_LIBS} # These are the libraries that the project depends on
         # Defined in LinkedLibraries.cmake
 )
+foreach(target game game_test)
+    create_executable(${target})
+    set_common_sources(${target})
+    set_common_definitions(${target})
+    set_common_include_dirs(${target})
 
+    set_common_static_lib_dirs(${target})
+    link_common_static_libs(${target})
 
-if (BUILD_TESTING)
-    target_compile_definitions(game_test PRIVATE GTEST_HAS_DEATH_TEST=1)
-    target_link_directories(game_test PRIVATE
-            ${LIB_STATIC_DIR} # This is where the static libraries are located
-            # This is defined in FileLocations.cmake
-    )
-    target_include_directories(game_test PRIVATE
-            # Libraries that are needed for the tests
-            ${INCLUDE_DIR} # This is where the header files for the project are located
-            ${LIB_INCLUDE_DIR} # This is where the library header files are located
-            ${Boost_INCLUDE_DIRS} # This is where the boost header files are located
-            # Defined in FileLocations.cmake
-    )
-    # Link libraries for the test executable
-    target_link_libraries(game_test
-            gtest
-            gtest_main # This is the google test library, needed for the tests
-            ${MAIN_LIBS} # These are the libraries that the project depends on
-            # Defined in LinkedLibraries.cmake
-    )
-endif ()
+    set_common_build_type_flags(${target})
+endforeach()
+set_compile_flags_to_common_files()
 
+if(BUILD_TESTING)
+    message(STATUS "Building tests")
+    set_compile_flags_to_extra_files(${TEST_FILES})
+    add_extra_sources(game_test ${TEST_FILES})
+    add_extra_definitions(game_test GTEST_HAS_DEATH_TEST=1)
+    add_extra_include_dirs(game_test ${TEST_INCLUDE_DIR})
+    link_extra_static_libs(game_test gtest gtest_main)
+
+endif()
 
 # ------------ BUILD TYPES ------------
-# This applies to all targets created
-message("Applying flags on the build type")
-# ............ DEBUG ............
-set(CMAKE_CXX_FLAGS_DEBUG "${DEBUG_FLAGS}")
-# ............ RELEASE ............
-set(CMAKE_CXX_FLAGS_RELEASE "${RELEASE_FLAGS}")
-
-if (CMAKE_BUILD_TYPE STREQUAL "Debug")
-    message("Build type: Debug")
-    message("Applied flags: ${CMAKE_CXX_FLAGS_DEBUG}")
-elseif (CMAKE_BUILD_TYPE STREQUAL "Release")
-    message("Build type: Release")
-    message("Applied flags: ${CMAKE_CXX_FLAGS_RELEASE}")
-endif ()

@@ -29,3 +29,29 @@ elseif (LINUX)
 elseif (APPLE)
     # TODO: Add libraries for Mac
 endif ()
+
+
+
+
+# Function to set common linked libraries
+function(link_common_static_libs target)
+    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -static")
+    message(STATUS "Adding linking libraries to ${target}")
+    message(VERBOSE "A new flag has been added to the linker: ${CMAKE_EXE_LINKER_FLAGS}")
+    # Instruct the linker to link your program statically with the libraries it depends on
+    target_link_directories(${target} PRIVATE ${LIB_STATIC_DIR})
+    target_link_libraries(${target}
+            ${MAIN_LIBS}# These are the libraries that the project depends on
+            # Defined in LinkedLibraries.cmake
+    )
+    message(VERBOSE "The linked static libraries are located in ${LIB_STATIC_DIR}")
+    message(VERBOSE "The following libraries have been linked to ${target}: ${MAIN_LIBS}")
+endfunction()
+
+function(link_extra_static_libs target extra_libs)
+    message(STATUS "Adding extra linking libraries to ${target}")
+    target_link_libraries(${target}
+            ${EXTRA_LIBS}# These are the libraries that the project depends on
+            # Defined in LinkedLibraries.cmake
+    )
+endfunction()

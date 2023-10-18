@@ -4,7 +4,10 @@
 # Also we're using list instead of string because it allows us to add comments to the flags
 
 # Initialize an empty list to store compile flags
-set(aux_compile_flags "")
+set(aux_compile_flags
+        "" # Starts empty
+        PARENT_SCOPE
+)
 
 # Append flags one by one (with comments)
 list(APPEND aux_compile_flags "-Wall")           # Enable all warnings
@@ -42,3 +45,17 @@ set(aux_release_flags
 )
 
 string(JOIN " " RELEASE_FLAGS ${aux_release_flags})
+
+function(set_common_build_type_flags target)
+    message("Applying flags on the build type for target: ${target}")
+
+    if (CMAKE_BUILD_TYPE STREQUAL "Debug")
+        target_compile_options(${target} PRIVATE ${DEBUG_FLAGS})
+        message("Build type: Debug")
+        message("Applied flags: ${DEBUG_FLAGS}")
+    elseif (CMAKE_BUILD_TYPE STREQUAL "Release")
+        target_compile_options(${target} PRIVATE ${RELEASE_FLAGS})
+        message("Build type: Release")
+        message("Applied flags: ${RELEASE_FLAGS}")
+    endif ()
+endfunction()
