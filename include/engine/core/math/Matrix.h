@@ -35,25 +35,36 @@ public:
         }
     }
     
-    explicit Matrix(Type data[N][M]) {
+    explicit Matrix(Type (&data)[N][M]) {
         for (size_t i = 0; i < N; ++i) {
             for (size_t j = 0; j < M; j++) {
                 this->data[i][j] = data[i][j];
             }
         }
     }
+    /**
+     * @brief Copy constructor
+     * @param other
+     */
+    Matrix(const Matrix<Type, N, M> &other) {
+        std::copy(std::begin(other.data), std::end(other.data), std::begin(data));
+    }
+    /**
+     * @brief Move constructor
+     * @param list
+     */
+    Matrix(Matrix<Type, N, M> &&other) noexcept {
+        std::move(std::begin(other.data), std::end(other.data), std::begin(data));
+    }
     
+    /**
+     * @brief Initializer list constructor
+     * @param list
+     */
     Matrix(const std::initializer_list<std::initializer_list<Type>> &list) {
-        if (list.size() != N) {
-            throw MathException("Invalid matrix size");
-        }
-        
+        S_ASSERT_INIT_LIST_IS_OF_SIZE(N, M, list);
         size_t i = 0;
         for (const auto &row : list) {
-            if (row.size() != M) {
-                throw MathException("Invalid matrix size");
-            }
-            
             size_t j = 0;
             for (const auto &element : row) {
                 data[i][j] = element;
@@ -68,81 +79,130 @@ public:
     
     
     // ==============Assignment operators==============
-    
-    [[nodiscard]] Matrix<Type, N, M> &operator=(Matrix<double, 3, 3> other) {
+    /**
+     * @brief Copy assignment operator
+     * @param other
+     * @return Matrix<Type, N, M>& - reference to this
+     */
+    Matrix<Type, N, M> &operator=(const Matrix<Type, N, M> &other) noexcept{
         if (this == &other) {
             return *this;
         }
-        for (size_t i = 0; i < N; ++i) {
-            data[i] = other.data[i];
+        std::copy(std::begin(other.data), std::end(other.data), std::begin(data));
+        return *this;
+    }
+    
+    /**
+     * @brief Move assignment operator
+     * @param rhs
+     * @return Matrix<Type, N, M>& - reference to this
+     */
+    Matrix<Type, N, M> &operator=(Matrix<Type, N, M> &&rhs) noexcept {
+        if (this == &rhs) {
+            return *this;
+        }
+        std::move(std::begin(rhs.data), std::end(rhs.data), std::begin(data));
+        return *this;
+    }
+    
+    /**
+     * @brief Initializer list assignment operator
+     * @param rhs
+     * @return Matrix<Type, N, M>& - reference to this
+     */
+    Matrix<Type, N, M> &operator=(const std::initializer_list<std::initializer_list<Type>> &rhs) {
+        S_ASSERT_INIT_LIST_IS_OF_SIZE(N, M, rhs);
+        size_t i = 0;
+        for (const auto &row : rhs) {
+            size_t j = 0;
+            for (const auto &element : row) {
+                data[i][j] = element;
+                ++j;
+            }
+            ++i;
         }
         return *this;
     }
     
     
-    [[nodiscard]] Matrix<Type, N, M> &
-    operator*=(const Matrix<Type, N, M> &rhs) {
-        Matrix<Type, N, M> temp;
+    Matrix<Type, N, M> &operator*=(const Matrix<Type, N, M> &rhs) {
         for (size_t i = 0; i < N; ++i) {
             for (size_t j = 0; j < M; ++j) {
-                temp.data[i][j] = 0;
                 for (size_t k = 0; k < N; ++k) {
-                    temp.data[i][j] += data[i][k] * rhs.data[k][j];
+                    data[i][k] *= rhs.data[k][j];
                 }
             }
         }
-        std::swap(data, temp.data);
         return *this;
     }
     
-    [[nodiscard]] Matrix<Type, N, M> &operator*=(Type scalar) {
-        Matrix<Type, N, M> result;
+    Matrix<Type, N, M> &operator*=(Type scalar) {
         for (size_t i = 0; i < N; ++i) {
             for (size_t k = 0; k < M; ++k) {
-                result.data[i][k] = data[i][k] * scalar;
+                data[i][k] *= scalar;
             }
         }
-        std::swap(data, result.data);
+        
+        return *this;
     }
     
-    [[nodiscard]] Matrix<Type, N, M> &
-    operator+=(const Matrix<Type, N, M> &rhs) {
-        Matrix<Type, N, M> result;
+    Matrix<Type, N, M> &operator+=(Type rhs) {
         for (size_t i = 0; i < N; ++i) {
             for (size_t k = 0; k < M; k++) {
-                result.data[i][k] = data[i][k] + rhs.data[i][k];
+                data[i][k] += rhs;
             }
         }
-        std::swap(data, result.data);
+        return *this;
     }
     
-    [[nodiscard]] Matrix<Type, N, M> &
-    operator-=(const Matrix<Type, N, M> &rhs) {
-        Matrix<Type, N, M> result;
+    Matrix<Type, N, M> &operator+=(const Matrix<Type, N, M> &rhs) {
         for (size_t i = 0; i < N; ++i) {
             for (size_t k = 0; k < M; k++) {
-                result.data[i][k] = data[i][k] - rhs.data[i][k];
+                data[i][k] += rhs.data[i][k];
             }
         }
-        std::swap(data, result.data);
+        return *this;
     }
     
-    [[nodiscard]] Matrix<Type, N, M> &operator/=(Type scalar) {
+    Matrix<Type, N, M> &operator-=(const Matrix<Type, N, M> &rhs) {
+        for (size_t i = 0; i < N; ++i) {
+            for (size_t k = 0; k < M; k++) {
+                data[i][k] -= rhs.data[i][k];
+            }
+        }
+        return *this;
+    }
+    Matrix<Type, N, M> &operator-=(Type rhs) {
+        for (size_t i = 0; i < N; ++i) {
+            for (size_t k = 0; k < M; k++) {
+                data[i][k] -= rhs;
+            }
+        }
+        return *this;
+    }
+    
+    
+    Matrix<Type, N, M> &operator/=(Type scalar) {
         if (eq(scalar, 0))
             throw MathException("Division by zero");
-        Matrix<Type, N, M> result;
         for (size_t i = 0; i < N; ++i) {
             for (size_t k = 0; k < M; k++) {
-                result.data[i][k] = data[i][k] / scalar;
+                data[i][k] /= scalar;
             }
         }
-        std::swap(data, result.data);
+        return *this;
+    }
+    
+    Matrix<Type, N, M> &operator/=(const Matrix<Type, N, M> &rhs) {
+        if (eq(rhs.determinant(), 0))
+            throw MathException("Division by zero");
+        *this = *this * rhs.inverse();
+        return *this;
     }
     
     // ==============Arithmetic Operators===================
     
-    [[nodiscard]] Matrix<Type, N, M>
-    operator+(const Matrix<Type, N, M> &rhs) const {
+    [[nodiscard]] Matrix<Type, N, M> operator+(const Matrix<Type, N, M> &rhs) const {
         Matrix<Type, N, M> result;
         for (size_t i = 0; i < N; ++i) {
             for (size_t k = 0; k < M; ++k) {
@@ -152,8 +212,7 @@ public:
         return result;
     }
     
-    [[nodiscard]] Matrix<Type, N, M>
-    operator-(const Matrix<Type, N, M> &rhs) const {
+    [[nodiscard]] Matrix<Type, N, M> operator-(const Matrix<Type, N, M> &rhs) const {
         Matrix<Type, N, M> result;
         for (size_t i = 0; i < N; ++i) {
             for (size_t k = 0; k < M; ++k) {
@@ -173,8 +232,7 @@ public:
         return result;
     }
     
-    [[nodiscard]] Vec<Type, M>
-    operator*(const Vec<Type, M> &rhs) const {
+    [[nodiscard]] Vec<Type, M> operator*(const Vec<Type, M> &rhs) const {
         Vec<Type, M> result;
         for (size_t i = 0; i < N; ++i) {
             result[i] = 0;
@@ -186,8 +244,7 @@ public:
     }
     
     template<size_t X>
-    [[nodiscard]] Matrix<Type, N, X>
-    operator*(const Matrix<Type, M, X> &other) const {
+    [[nodiscard]] Matrix<Type, N, X> operator*(const Matrix<Type, M, X> &other) const {
         Matrix<Type, N, M> result;
         for (size_t i = 0; i < N; ++i) {
             for (size_t k = 0; k < M; ++k) {
@@ -283,8 +340,7 @@ public:
         return result;
     }
     
-    [[nodiscard]] Matrix<Type, N, M>
-    translate(const Vec<Type, M - 1> &translation) {
+    [[nodiscard]] Matrix<Type, N, M> translate(const Vec<Type, M - 1> &translation) {
         Matrix<Type, N, M> result(*this);
         for (size_t i = 0; i < N - 1; ++i) {
             result.data[i][M - 1] += translation[i];
@@ -310,75 +366,52 @@ public:
         return result * rotation;
     }
     
-    [[nodiscard]] Matrix<Type, N, M>
-    rotate(const Vec<Type, 3> &degrees) const {
+    [[nodiscard]] Matrix<Type, N, M> rotate(const Vec<Type, 3> &degrees) const {
         S_ASSERT_MAT_IS_OF_SIZE(N, M, 4, 4);
         Matrix<Type, 4, 4> result(*this);
-        Matrix<Type, 4, 4> rotationX =
-                {{1, 0,                   0,                    0},
-                 {0, cos(degrees.getX()), -sin(degrees.getX()), 0},
-                 {0, sin(degrees.getX()), cos(degrees.getX()),  0},
-                 {0, 0,                   0,                    1}};
+        Matrix<Type, 4, 4> rotationX = {{1, 0,                   0,                    0},
+                                        {0, cos(degrees.getX()), -sin(degrees.getX()), 0},
+                                        {0, sin(degrees.getX()), cos(degrees.getX()),  0},
+                                        {0, 0,                   0,                    1}};
         
-        Matrix<Type, 4, 4> rotationY =
-                {{cos(degrees.getY()),  0, sin(degrees.getY()), 0},
-                 {0,                    1, 0,                   0},
-                 {-sin(degrees.getY()), 0, cos(degrees.getY()), 0},
-                 {0,                    0, 0,                   1}};
+        Matrix<Type, 4, 4> rotationY = {{cos(degrees.getY()),  0, sin(degrees.getY()), 0},
+                                        {0,                    1, 0,                   0},
+                                        {-sin(degrees.getY()), 0, cos(degrees.getY()), 0},
+                                        {0,                    0, 0,                   1}};
         
-        Matrix<Type, 4, 4> rotationZ =
-                {{cos(degrees.getZ()), -sin(degrees.getZ()), 0, 0},
-                 {sin(degrees.getZ()), cos(degrees.getZ()),  0, 0},
-                 {0,                   0,                    1, 0},
-                 {0,                   0,                    0, 1}};
+        Matrix<Type, 4, 4> rotationZ = {{cos(degrees.getZ()), -sin(degrees.getZ()), 0, 0},
+                                        {sin(degrees.getZ()), cos(degrees.getZ()),  0, 0},
+                                        {0,                   0,                    1, 0},
+                                        {0,                   0,                    0, 1}};
         
         return rotationX * rotationY * rotationZ * result;
     }
     
     
-    [[nodiscard]] Type determinant() {
+    [[nodiscard]]Type determinant() const {
         if constexpr (N == 2 && M == 2) {
             return data[0][0] * data[1][1] - data[0][1] * data[1][0];
         } else if constexpr (N == 3 && M == 3) {
-            return data[0][0] *
-                   (data[1][1] * data[2][2] - data[1][2] * data[2][1]) -
-                   data[0][1] *
-                   (data[1][0] * data[2][2] - data[1][2] * data[2][0]) +
-                   data[0][2] *
-                   (data[1][0] * data[2][1] - data[1][1] * data[2][0]);
+            return data[0][0] * (data[1][1] * data[2][2] - data[1][2] * data[2][1]) -
+                   data[0][1] * (data[1][0] * data[2][2] - data[1][2] * data[2][0]) +
+                   data[0][2] * (data[1][0] * data[2][1] - data[1][1] * data[2][0]);
         } else if constexpr (N == 4 && M == 4) {
             Type det;
-            det = data[0][0] * (
-                    data[1][1] *
-                    (data[2][2] * data[3][3] - data[2][3] * data[3][2]) -
-                    data[1][2] *
-                    (data[2][1] * data[3][3] - data[2][3] * data[3][1]) +
-                    data[1][3] *
-                    (data[2][1] * data[3][2] - data[2][2] * data[3][1]));
+            det = data[0][0] * (data[1][1] * (data[2][2] * data[3][3] - data[2][3] * data[3][2]) -
+                                data[1][2] * (data[2][1] * data[3][3] - data[2][3] * data[3][1]) +
+                                data[1][3] * (data[2][1] * data[3][2] - data[2][2] * data[3][1]));
             
-            det -= data[0][1] * (
-                    data[1][0] *
-                    (data[2][2] * data[3][3] - data[2][3] * data[3][2]) -
-                    data[1][2] *
-                    (data[2][0] * data[3][3] - data[2][3] * data[3][0]) +
-                    data[1][3] *
-                    (data[2][0] * data[3][2] - data[2][2] * data[3][0]));
+            det -= data[0][1] * (data[1][0] * (data[2][2] * data[3][3] - data[2][3] * data[3][2]) -
+                                 data[1][2] * (data[2][0] * data[3][3] - data[2][3] * data[3][0]) +
+                                 data[1][3] * (data[2][0] * data[3][2] - data[2][2] * data[3][0]));
             
-            det += data[0][2] * (
-                    data[1][0] *
-                    (data[2][1] * data[3][3] - data[2][3] * data[3][1]) -
-                    data[1][1] *
-                    (data[2][0] * data[3][3] - data[2][3] * data[3][0]) +
-                    data[1][3] *
-                    (data[2][0] * data[3][1] - data[2][1] * data[3][0]));
+            det += data[0][2] * (data[1][0] * (data[2][1] * data[3][3] - data[2][3] * data[3][1]) -
+                                 data[1][1] * (data[2][0] * data[3][3] - data[2][3] * data[3][0]) +
+                                 data[1][3] * (data[2][0] * data[3][1] - data[2][1] * data[3][0]));
             
-            det -= data[0][3] * (
-                    data[1][0] *
-                    (data[2][1] * data[3][2] - data[2][2] * data[3][1]) -
-                    data[1][1] *
-                    (data[2][0] * data[3][2] - data[2][2] * data[3][0]) +
-                    data[1][2] *
-                    (data[2][0] * data[3][1] - data[2][1] * data[3][0]));
+            det -= data[0][3] * (data[1][0] * (data[2][1] * data[3][2] - data[2][2] * data[3][1]) -
+                                 data[1][1] * (data[2][0] * data[3][2] - data[2][2] * data[3][0]) +
+                                 data[1][2] * (data[2][0] * data[3][1] - data[2][1] * data[3][0]));
             
             return det;
         } else {
@@ -407,8 +440,7 @@ public:
                     int x1 = (i + 1) % 3, x2 = (i + 2) % 3;
                     int y1 = (j + 1) % 3, y2 = (j + 2) % 3;
                     
-                    Type subDet = data[x1][y1] * data[x2][y2]
-                                  - data[x1][y2] * data[x2][y1];
+                    Type subDet = data[x1][y1] * data[x2][y2] - data[x1][y2] * data[x2][y1];
                     
                     // Multiply by pow(-1, i+j)
                     inv[j][i] = ((i + j) % 2 == 0 ? 1 : -1) * subDet;
@@ -494,10 +526,8 @@ using Matrix4F = Matrix<float, 4, 4>;
 
 
 namespace GLESC::Math {
-    inline Matrix4D perspective(double fovRadians,
-                                double aspectRatio,
-                                double nearPlane,
-                                double farPlane) {
+    inline Matrix4D
+    perspective(double fovRadians, double aspectRatio, double nearPlane, double farPlane) {
         Matrix4D result;
         
         double f = 1.0 / tan(fovRadians / 2.0);

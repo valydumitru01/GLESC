@@ -11,7 +11,16 @@
 
 #include "engine/core/asserts/Asserts.h"
 
-#define S_ASSERT_MAT_IS_OF_SIZE(matN, matM, expectedN, expectedM) \
-    S_ASSERT(matN == expectedN && matM == expectedM, \
-        "Matrix size is incorrect, actual size is " #matN "x" #matM \
-        ", expected size is " #expectedN "x" #expectedM);
+#define S_ASSERT_INIT_LIST_IS_OF_SIZE(N,M,list) \
+    D_ASSERT_EQUAL(list.size(), N,              \
+    "List size is incorrect, expected size"#N); \
+    for (const auto& row : list) {              \
+    D_ASSERT_EQUAL(row.size(), M,               \
+    "List size is incorrect, expected size"#M); \
+    }
+
+#define S_ASSERT_MAT_IS_OF_SIZE(N, M, expectedN, expectedM) \
+    S_ASSERT_EQUAL(N, expectedN, \
+    "Matrix size is incorrect, expected size"#expectedN); \
+    S_ASSERT_EQUAL(M, expectedM, \
+    "Matrix size is incorrect, expected size"#expectedM);

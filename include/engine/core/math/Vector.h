@@ -36,6 +36,7 @@ namespace GLESC::Math {
                 data[i] = Type();
             }
         }
+        //TODO: Add list vector constructor
         
         template<typename... Args, typename = std::enable_if_t<
                 (sizeof...(Args) == N) && (std::conjunction_v<std::is_convertible<Args, Type>...>)>>
@@ -64,7 +65,7 @@ namespace GLESC::Math {
         Vector(Vector<Type, N> &&other) noexcept {
             std::move(std::begin(other.data), std::end(other.data), std::begin(data));
         }
-        
+        //TODO: Check the abi error workaround, fix it
         template<typename dummy>
         // Abi error workaround
         Vector(std::initializer_list<Type> list) noexcept {
@@ -207,7 +208,7 @@ namespace GLESC::Math {
         
         // ==============Assignment operators==============
         
-        Vector<Type, N> &operator=(const Vector<Type, N> &other) {
+        Vector<Type, N> &operator=(const Vector<Type, N> &other) noexcept{
             if (this == &other)
                 return *this;
             
@@ -543,11 +544,7 @@ namespace GLESC::Math {
         }
         
         [[nodiscard]] Type length() const {
-            Type result = Type();
-            for (size_t i = 0; i < N; ++i) {
-                result += data[i] * data[i];
-            }
-            return sqRoot(result);
+            return sqRoot(lengthSquared());
         }
         
         [[nodiscard]]Type lengthSquared() const {
@@ -575,8 +572,14 @@ namespace GLESC::Math {
         [[nodiscard]] std::string toString() const {
             std::string result;
             result += "[";
-            for (size_t i = 0; i < N; ++i) {
-                result += std::to_string(data[i]);
+            if constexpr (std::is_arithmetic_v<Type>) {
+                for (size_t i = 0; i < N; ++i) {
+                    result += std::to_string(data[i]) + ", ";
+                }
+            } else {
+                for (size_t i = 0; i < N; ++i) {
+                    result += data[i].toString() + ", ";
+                }
             }
             result += "]";
             return result;

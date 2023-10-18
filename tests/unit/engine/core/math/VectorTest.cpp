@@ -981,15 +981,13 @@ TEST(VectorTests, DotProduct) {
     
     Vec<float, 4> vecSt3(1.11f, 2.22f, 1.11f, 4.44f);
     Vec<float, 4> vecSt4(3.33f, 2.22f, 1.11f, 4.44f);
-    EXPECT_FLOAT_EQ(vecSt3.dot(vecSt4), 29.5674f);
+    EXPECT_FLOAT_EQ(vecSt3.dot(vecSt4), 29.5704f);
     
     Vec<size_t, 3> vecSt5(333, 222, 111);
     Vec<size_t, 3> vecSt6(333, 222, 111);
     EXPECT_EQ(vecSt5.dot(vecSt6), 172494);
 }
 
-
-// lenght
 TEST(VectorTests, Length) {
     Vec<int, 2> vecI(1, 2);
     EXPECT_EQ(vecI.length(), 2);
@@ -1002,7 +1000,7 @@ TEST(VectorTests, Length) {
     
     // A harder one
     Vec<float, 4> vecSt3(1.11f, 2.22f, 1.11f, 4.44f);
-    EXPECT_FLOAT_EQ(vecSt3.length(), 5.756816);
+    EXPECT_FLOAT_EQ(vecSt3.length(), 5.206361493404008f);
 }
 
 // lenght squared
@@ -1018,10 +1016,9 @@ TEST(VectorTests, LengthSquared) {
     
     // A harder one
     Vec<float, 4> vecSt3(1.11f, 2.22f, 1.11f, 4.44f);
-    EXPECT_FLOAT_EQ(vecSt3.lengthSquared(), 33.1665);
+    EXPECT_FLOAT_EQ(vecSt3.lengthSquared(), 27.106201f);
 }
 
-// normalize
 TEST(VectorTests, Normalize) {
     Vec<int, 2> vecI(1, 2);
     Vec<int, 2> normI = vecI.normalize();
@@ -1034,12 +1031,67 @@ TEST(VectorTests, Normalize) {
     EXPECT_FLOAT_EQ(normF[1], 0.5345224838);
     EXPECT_FLOAT_EQ(normF[2], 0.8017837257);
     
-    Vec<size_t, 4> vecSt(10, 2, 3, 4);
+    Vec<size_t, 4> vecSt(10, 66, 123, 21);
     Vec<size_t, 4> normSt = vecSt.normalize();
-    EXPECT_EQ(normSt[0], 1);
+    EXPECT_EQ(normSt[0], 0); // All zeros because of integer division
     EXPECT_EQ(normSt[1], 0);
     EXPECT_EQ(normSt[2], 0);
     EXPECT_EQ(normSt[3], 0);
     
+}
+
+TEST(VectorTests, Cross){
+    // Test with unit vectors
+    Vec<float, 3> i(1.0f, 0.0f, 0.0f);
+    Vec<float, 3> j(0.0f, 1.0f, 0.0f);
+    Vec<float, 3> k(0.0f, 0.0f, 1.0f);
+    
+    EXPECT_FLOAT_EQ((i.cross(j))[2], 1.0f);
+    EXPECT_FLOAT_EQ((j.cross(k))[0], 1.0f);
+    EXPECT_FLOAT_EQ((k.cross(i))[1], 1.0f);
+    
+    // Test with zero vectors
+    Vec<float, 3> zero(0.0f, 0.0f, 0.0f);
+    Vec<float, 3> result = i.cross(zero);
+    EXPECT_FLOAT_EQ(result[0], 0.0f);
+    EXPECT_FLOAT_EQ(result[1], 0.0f);
+    EXPECT_FLOAT_EQ(result[2], 0.0f);
+    
+    // Test with parallel vectors (should result in a zero vector)
+    Vec<float, 3> parallel = i * 2.0f;
+    result = i.cross(parallel);
+    EXPECT_FLOAT_EQ(result[0], 0.0f);
+    EXPECT_FLOAT_EQ(result[1], 0.0f);
+    EXPECT_FLOAT_EQ(result[2], 0.0f);
+    
+    // Test with opposite vectors (should also result in a zero vector)
+    Vec<float, 3> opposite = i * -1.0f;
+    result = i.cross(opposite);
+    EXPECT_FLOAT_EQ(result[0], 0.0f);
+    EXPECT_FLOAT_EQ(result[1], 0.0f);
+    EXPECT_FLOAT_EQ(result[2], 0.0f);
+    
+    // Test with arbitrary vectors
+    Vec<float, 3> vec1(3.0f, -3.0f, 1.0f);
+    Vec<float, 3> vec2(4.0f, 9.0f, 2.0f);
+    result = vec1.cross(vec2);
+    EXPECT_FLOAT_EQ(result[0], -15.0f);
+    EXPECT_FLOAT_EQ(result[1], -2.0f);
+    EXPECT_FLOAT_EQ(result[2], 39.0f);
+}
+
+TEST(VectorTests, toString){
+    Vec<int, 2> vecI(1, 2);
+    EXPECT_EQ(vecI.toString(), "[1, 2]");
+    
+    Vec<float, 3> vecF(1.0, 2.0, 3.0);
+    EXPECT_EQ(vecF.toString(), "[1, 2, 3]");
+    
+    Vec<size_t, 4> vecSt(1, 2, 3, 4);
+    EXPECT_EQ(vecSt.toString(), "[1, 2, 3, 4]");
+    
+    // A harder one
+    Vec<float, 4> vecSt3(1.11f, 2.22f, 1.11f, 4.44f);
+    EXPECT_EQ(vecSt3.toString(), "[1.11, 2.22, 1.11, 4.44]");
 }
 
