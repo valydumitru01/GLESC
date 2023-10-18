@@ -91,6 +91,14 @@ TEST(MatrixTests, AssignmentOperators){
     ASSERT_EQ(matrix2[1][0], 3);
     ASSERT_EQ(matrix2[1][1], 4);
     
+    // Initializer incorrect dimensions
+    
+    ASSERT_DEATH(([]{
+        Matrix2I matrix3 = {{1, 2},
+                            {3, 4},
+                            {5, 6}};
+    }()), ".*");
+    
     // Add assignment with scalar
     Matrix2I matrix3 = {{1, 2},
                         {3, 4}};

@@ -11,7 +11,7 @@
 
 #include "engine/core/asserts/Asserts.h"
 
-#define S_ASSERT_INIT_LIST_IS_OF_SIZE(N,M,list) \
+#define ASSERT_MAT_INIT_LIST_IS_OF_SIZE(N,M,list) \
     D_ASSERT_EQUAL(list.size(), N,              \
     "List size is incorrect, expected size"#N); \
     for (const auto& row : list) {              \

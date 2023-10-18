@@ -14,6 +14,8 @@
 #include "Vector.h"
 #include "engine/core/exceptions/core/math/MathException.h"
 #include "engine/core/math/asserts/MatrixAsserts.h"
+#include "engine/core/logger/Logger.h"
+#include "engine/core/debugger/Stacktrace.h"
 
 
 template<typename Type, size_t N, size_t M>
@@ -42,6 +44,7 @@ public:
             }
         }
     }
+    
     /**
      * @brief Copy constructor
      * @param other
@@ -49,6 +52,7 @@ public:
     Matrix(const Matrix<Type, N, M> &other) {
         std::copy(std::begin(other.data), std::end(other.data), std::begin(data));
     }
+    
     /**
      * @brief Move constructor
      * @param list
@@ -62,7 +66,31 @@ public:
      * @param list
      */
     Matrix(const std::initializer_list<std::initializer_list<Type>> &list) {
-        S_ASSERT_INIT_LIST_IS_OF_SIZE(N, M, list);
+        do {
+            if (list.size() != N) {
+                std::ostringstream oss;
+                oss << "Assertion failed: " << "list.size()" << "\n" << "Message: "
+                    << "List size is incorrect, expected size" "N" << "\n" << "File: " << "_file_name_"
+                    << "\n" << "Line: " << 67 << "\n" << "Function: " << "_function_name_" << "\n"
+                    << "Stacktrace: \n" << GLESC::generateStackTrace();
+                GLESC::Logger::get().error(oss.str());
+                std::terminate();
+            }
+        } while (false);
+        for (const auto &row : list) {
+            do {
+                if (row.size() != M) {
+                    std::ostringstream oss;
+                    oss << "Assertion failed: " << "row.size()" << "\n" << "Message: "
+                        << "List size is incorrect, expected size" "M" << "\n" << "File: " << "_file_name_"
+                        << "\n" << "Line: " << 67 << "\n" << "Function: " << "_function_name_" << "\n"
+                        << "Stacktrace: \n" << GLESC::generateStackTrace();
+                    GLESC::Logger::get().error(oss.str());
+                    std::terminate();
+                }
+            } while (false);
+        }
+        
         size_t i = 0;
         for (const auto &row : list) {
             size_t j = 0;
@@ -84,7 +112,7 @@ public:
      * @param other
      * @return Matrix<Type, N, M>& - reference to this
      */
-    Matrix<Type, N, M> &operator=(const Matrix<Type, N, M> &other) noexcept{
+    Matrix<Type, N, M> &operator=(const Matrix<Type, N, M> &other) noexcept {
         if (this == &other) {
             return *this;
         }
@@ -111,7 +139,7 @@ public:
      * @return Matrix<Type, N, M>& - reference to this
      */
     Matrix<Type, N, M> &operator=(const std::initializer_list<std::initializer_list<Type>> &rhs) {
-        S_ASSERT_INIT_LIST_IS_OF_SIZE(N, M, rhs);
+        ASSERT_MAT_INIT_LIST_IS_OF_SIZE(N, M, rhs);
         size_t i = 0;
         for (const auto &row : rhs) {
             size_t j = 0;
@@ -172,6 +200,7 @@ public:
         }
         return *this;
     }
+    
     Matrix<Type, N, M> &operator-=(Type rhs) {
         for (size_t i = 0; i < N; ++i) {
             for (size_t k = 0; k < M; k++) {
@@ -419,18 +448,18 @@ public:
         }
     }
     
-    [[nodiscard]] Matrix<Type, N, M> inverse() {
+    [[nodiscard]] Matrix<Type, N, M> inverse() const {
         Type det = determinant();
         if (eq(det, 0))
-            throw std::runtime_error("Singular matrix");
+            throw MathException("Singular matrix");
         Matrix<Type, N, M> inv;
         
         if constexpr (N == 2 && M == 2) {
             
-            inv(0, 0) = data[1][1] / det;
-            inv(0, 1) = -data[0][1] / det;
-            inv(1, 0) = -data[1][0] / det;
-            inv(1, 1) = data[0][0] / det;
+            inv[0][0] = data[1][1] / det;
+            inv[0][1] = -data[0][1] / det;
+            inv[1][0] = -data[1][0] / det;
+            inv[1][1] = data[0][0] / det;
             
         } else if constexpr (N == 3 && M == 3) {
             
