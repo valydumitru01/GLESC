@@ -1,142 +1,158 @@
-# Main CMakeLists.txt file for the project
+# ==========================================================
+# ===================== CMakeLists.txt =====================
+# ==========================================================
+# This is the main CMakeLists.txt file for the project.
+# Here all the modules work together to create the project.
+# All the modules are found in the cmake folder.
 
 # Set the minimum version of CMake that can be used
 cmake_minimum_required(VERSION 3.10)
 # Main project name
 project(game)
-# Option for building tests
-option(BUILD_TESTING "Build tests" ON)
 # The c++ version used
 set(CMAKE_CXX_STANDARD 17)
 # Ensure that the compiler supports the c++ version
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-# Enables CMake code to be forward compatible with newer versions of CMake.
+# Enables CMake code to be forward compatible with newer
+# versions of CMake.
 cmake_policy(SET CMP0074 NEW)
 cmake_policy(SET CMP0135 NEW)
 
-include(cmake/CompilerFlags.cmake)
-include(cmake/FileLocations.cmake)
-include(cmake/FindPackages.cmake)
-include(cmake/LinkedLibraries.cmake)
-include(cmake/PlatformDetection.cmake)
+# ----------------------------------------------------------
+# Function: include_cmake_once
+# Description:
+#   This function is used to include cmake files only once.
+#   It is very important that this function stays at the top
+#   of the CMakeLists.txt file. This is because the modules
+#   that are included by this function may use this for
+#   including other cmake files.
+# Parameters:
+#   cmake_file: The cmake file to include
+# ----------------------------------------------------------
+function(include_cmake_once cmake_file)
+  string(TOUPPER ${cmake_file} cmake_file_upper)
+  string(REPLACE "." "_" cmake_file_upper ${cmake_file_upper})
+  if (NOT DEFINED CMAKE_INCLUDED_${cmake_file_upper})
+    include(${cmake_file})
+    set(CMAKE_INCLUDED_${cmake_file_upper} TRUE PARENT_SCOPE)
+  endif ()
+endfunction()
 
-include(cmake/Testing.cmake)
-
-# ------------ TARGETS ------------
-# function to create the executables of given name
+include_cmake_once(cmake/FindPackages.cmake)
+include_cmake_once(cmake/LinkedLibraries.cmake)
+include_cmake_once(cmake/PlatformDetection.cmake)
+include_cmake_once(cmake/CompilerDefinitions.cmake)
+include_cmake_once(cmake/Testing.cmake)
+# ----------------------------------------------------------
+# Function: include_cmake_once
+# Description:
+#   Simple wrapper to add an executable target
+# Parameters:
+#   name: The name of the executable target
+# ----------------------------------------------------------
 function(create_executable name)
-    message(STATUS "Adding executable target ${name}")
-    add_executable(${name})
+  message(STATUS "Adding executable target ${name}")
+  add_executable(${name})
 endfunction()
 
-
-# ------------ DEFINITIONS ------------
-# Function to set common definitions to the given target
-function(set_common_definitions target)
-    message(STATUS "Adding common definitions to ${target}")
-
-    # Set project binary directory based on build type
-    if (CMAKE_BUILD_TYPE STREQUAL "Debug")
-        set(PROJECT_BINARY_DIR "${CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG}")
-    elseif (CMAKE_BUILD_TYPE STREQUAL "Release")
-        set(PROJECT_BINARY_DIR "${PROJECT_BINARY_DIR_RELEASE_RELEASE}")
-    endif ()
-
-    # Store all definitions in a list
-    set(defs
-            ${PLATFORM} # This is the platform the project is being built on
-            GLEW_STATIC # This is needed for glew to work statically
-            FRAG_SHADER="${FRAG_SHADER}" # This is the fragment shader file
-            VERT_SHADER="${VERT_SHADER}" # This is the vertex shader file
-            PROJECT_NAME="${PROJECT_NAME}" # This is the name of the executable
-            # This is needed for stack traces to work
-            PROJECT_BINARY_DIR="${PROJECT_BINARY_DIR}" # This is the binary directory of the project
-            # This is also needed for stack traces to work
-    )
-
-    # Apply definitions to the target
-    target_compile_definitions(${target} PRIVATE ${defs})
-
-    # Verbose log of all definitions
-    message(VERBOSE "Added definitions:")
-    foreach (def IN LISTS defs)
-        message(VERBOSE "  ${def}")
-    endforeach ()
-
-endfunction()
-function(add_extra_definitions target defs)
-    message(STATUS "Adding extra definitions to ${target}")
-    target_compile_definitions(${target} PRIVATE ${defs})
-    message(VERBOSE "Added definitions: ${defs} to ${target}")
-endfunction()
-
-
-
-# ------------ COMPILE FLAGS ------------
-# Function to set common compile flags
-function(set_compile_flags_to_common_files)
-    message(STATUS "Adding compile flags to common files")
-    set_source_files_properties(
-            ${SOURCE_FILES} ${INCLUDE_FILES} ${TEST_FILES}
-            PROPERTIES
-            COMPILE_FLAGS ${MY_COMPILE_FLAGS}
-    )
-    message(VERBOSE "Added compile flags: ${MY_COMPILE_FLAGS}")
-    message(VERBOSE "These compile flags are only applied to the project sources.
-        No compile flags are applied to the library sources.
-        The following sources are affected:
-        ${SOURCE_FILES} ${INCLUDE_FILES} ${TEST_FILES}\n")
-endfunction()
-function(set_compile_flags_to_extra_files files)
-    message(STATUS "Adding compile flags to extra files")
-    set_source_files_properties(
-            files
-            PROPERTIES
-            COMPILE_FLAGS ${flags}
-    )
-    message(VERBOSE "Added compile flags: ${flags} to ${target}")
-    message(VERBOSE "he following sources are affected:\n
-        ${files}")
-endfunction()
-
-# ------------ INCLUDE DIRECTORIES ------------
-# Must be added before linking libraries
-
-
-
-
-
-# ------------ LINKING LIBRARIES ------------
-
-target_link_directories(game PRIVATE
-        ${LIB_STATIC_DIR} # This is where the static libraries are located
-        # This is defined in FileLocations.cmake
+# Defining all the targets of the project
+set(targets
+    # The main target
+    game
+    # The test target
+    game_test
 )
-target_link_libraries(game
-        ${MAIN_LIBS} # These are the libraries that the project depends on
-        # Defined in LinkedLibraries.cmake
-)
-foreach(target game game_test)
-    create_executable(${target})
-    set_common_sources(${target})
-    set_common_definitions(${target})
-    set_common_include_dirs(${target})
 
-    set_common_static_lib_dirs(${target})
-    link_common_static_libs(${target})
+# ----------------------------------------------------------
+# Finding packages
 
-    set_common_build_type_flags(${target})
-endforeach()
+# This finds all the packages that are common to all targets
+find_common_packages()
+
+if (TARGET game_test)
+  find_extra_package(GTest)
+  find_extra_package(GTestMain)
+  find_extra_package(GMock)
+  find_extra_package(GMockMain)
+endif ()
+
+# ----------------------------------------------------------
+
+
+# ----------------------------------------------------------
+# Creating the targets
+foreach (target ${targets})
+  create_executable(${target})
+endforeach ()
+# ----------------------------------------------------------
+
+
+# ----------------------------------------------------------
+# Setting the source files
+foreach (target ${targets})
+  set_common_sources(${target})
+endforeach ()
+
+if (TARGET game_test)
+  add_extra_sources(game_test ${TEST_FILES})
+endif ()
+# ----------------------------------------------------------
+
+# ----------------------------------------------------------
+# Setting compiler definitions
+foreach (target ${targets})
+  set_common_definitions(${target})
+endforeach ()
+
+if (TARGET game_test)
+  add_extra_definitions(game_test GTEST_HAS_DEATH_TEST=1)
+endif ()
+
+# ----------------------------------------------------------
+
+# ----------------------------------------------------------
+# Setting include directories
+foreach (target ${targets})
+  set_common_include_dirs(${target})
+endforeach ()
+# ----------------------------------------------------------
+
+# ----------------------------------------------------------
+# Setting the static libraries directories before linking
+# and then linking the static libraries
+foreach (target ${targets})
+  set_common_static_lib_dirs(${target})
+endforeach ()
+
+foreach (target ${targets})
+  link_common_libs(${target})
+endforeach ()
+if (TARGET game_test)
+  link_extra_libs(game_test gtest gtest_main)
+endif ()
+# ----------------------------------------------------------
+# Setting the compiler flags
+
+# Here we set the compiler flags that are applied to all
+# files and can be specific to the target
+foreach (target ${targets})
+  set_common_compiler_flags_to_build_type(${target})
+endforeach ()
+# And here we apply the compiler flags to the files
+# which are common to all targets (and cannot be specific
+# to a target)
 set_compile_flags_to_common_files()
+# Here we apply those flags to extra files
+if (TARGET game_test)
+  set_compile_flags_to_extra_files(${TEST_FILES})
+endif ()
 
-if(BUILD_TESTING)
-    message(STATUS "Building tests")
-    set_compile_flags_to_extra_files(${TEST_FILES})
-    add_extra_sources(game_test ${TEST_FILES})
-    add_extra_definitions(game_test GTEST_HAS_DEATH_TEST=1)
-    add_extra_include_dirs(game_test ${TEST_INCLUDE_DIR})
-    link_extra_static_libs(game_test gtest gtest_main)
+# ----------------------------------------------------------
 
-endif()
+if (BUILD_TESTING)
+  message(STATUS "Building tests")
 
-# ------------ BUILD TYPES ------------
+
+
+endif ()
+
