@@ -17,7 +17,7 @@
 #   target: The target to link the libraries to.
 # ----------------------------------------------------------
 function(set_new_dir dir_var dir_name)
-  set(${dir_var} ${dir_name} PARENT_SCOPE)
+  set(${dir_var} ${dir_name} CACHE INTERNAL "" FORCE)
   verbose_info("Created variable ${dir_var} for directory: ${dir_name}")
 endfunction()
 # ----------------------------------------------------------
@@ -31,76 +31,71 @@ endfunction()
 #   dir: The directory to search in
 # ----------------------------------------------------------
 function(set_all_files_of_type var_name dir ext)
-  info("Finding all files of type ${ext} in ${dir}")
+  verbose_info("Finding all files of type ${ext} in ${dir}")
   file(GLOB_RECURSE temp_var ${dir}/*.${ext})
-  set(${var_name} ${temp_var} PARENT_SCOPE)
+  set(${var_name} ${temp_var} CACHE INTERNAL "" FORCE)
   verbose_info("Variable created ${var_name} for files with extension ${ext} in directory ${dir}
 \t\tFiles found: ${temp_var}")
 endfunction()
 
 
+function(define_directories_and_files)
+  verbose_info("----Defining directories and files----")
+  # ..................... Project Dirs .......................
+  # Set the source directory, this is where the source files
+  # are located
+  set_new_dir(SRC_DIR src)
+  # Set the include directory, this is where the header files
+  # are located
+  set_new_dir(INCLUDE_DIR include)
+  # ..........................................................
 
-# ..................... Project Dirs .......................
-# Set the source directory, this is where the source files
-# are located
-set_new_dir(SRC_DIR src)
-# Set the include directory, this is where the header files
-# are located
-set_new_dir(INCLUDE_DIR include)
-# ..........................................................
+  # ..................... Library Dirs .......................
+  # Set the include directory for the library, this is where
+  # the library header files are located
+  set_new_dir(LIB_INCLUDE_DIR lib/include)
+  # Set the source directory for the library, this is where
+  # the library source files are located.
+  # Src and include are the same for the library.
+  set_new_dir(LIB_SRC_DIR ${LIB_INCLUDE_DIR})
+  # Set the static library directory, this is where the static
+  # library files (.a extension) are located.
+  set_new_dir(LIB_STATIC_DIR lib/lib)
+  # Set the test directory, this is where the test files are
+  # located
+  # ..........................................................
 
+  # ....................... Test Dirs ........................
+  set_new_dir(TEST_DIR tests)
+  # ..........................................................
 
-# ..................... Library Dirs .......................
-# Set the include directory for the library, this is where
-# the library header files are located
-set_new_dir(LIB_INCLUDE_DIR lib/include)
-# Set the source directory for the library, this is where
-# the library source files are located.
-# Src and include are the same for the library.
-set_new_dir(LIB_SRC_DIR ${LIB_INCLUDE_DIR})
-# Set the static library directory, this is where the static
-# library files (.a extension) are located.
-set_new_dir(LIB_STATIC_DIR lib/lib)
-# Set the test directory, this is where the test files are
-# located
-# ..........................................................
+  # ...................... Binary Dirs .......................
+  set(CMAKE_RUNTIME_OUTPUT_DIRECTORY
+      ${CMAKE_SOURCE_DIR}/bin)
+  set_new_dir(BIN_DIR
+      ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
+  set_new_dir(BIN_DIR_DEBUG
+      ${BIN_DIR}/debug)
+  set_new_dir(BIN_DIR_RELEASE
+      ${BIN_DIR}/release)
+  # ..........................................................
 
+  # ...................... Source Files ......................
+  # We're using GLOB_RECURSE to obtain all the files in the
+  # directories.
+  # It will be necessary to re-run cmake if you add new files
+  # to the project.
+  set_all_files_of_type(SOURCE_FILES ${SRC_DIR} cpp)
+  set_all_files_of_type(LIB_SOURCE_FILES ${LIB_SRC_DIR} cpp)
+  set_all_files_of_type(TEST_FILES ${TEST_DIR} cpp)
 
-# ....................... Test Dirs ........................
-set_new_dir(TEST_DIR tests)
-# ..........................................................
+  # Obtain the vertex shader files in the source directory
+  set_all_files_of_type(VERT_SHADER ${SRC_DIR} vert)
+  # Obtain the fragment shader files in the source directory
+  set_all_files_of_type(FRAG_SHADER ${SRC_DIR} frag)
+  # ..........................................................
 
-
-# ...................... Binary Dirs .......................
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY
-    ${CMAKE_SOURCE_DIR}/bin)
-set_new_dir(BIN_DIR
-    ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
-set_new_dir(BIN_DIR_DEBUG
-    ${BIN_DIR}/debug)
-set_new_dir(BIN_DIR_RELEASE
-    ${BIN_DIR}/release)
-# ..........................................................
-
-
-
-
-# ...................... Source Files ......................
-# We're using GLOB_RECURSE to obtain all the files in the
-# directories.
-# It will be necessary to re-run cmake if you add new files
-# to the project.
-set_all_files_of_type(SOURCE_FILES ${SRC_DIR} cpp)
-set_all_files_of_type(LIB_SOURCE_FILES ${LIB_SRC_DIR} cpp)
-set_all_files_of_type(TEST_FILES ${TEST_DIR} cpp)
-
-# Obtain the vertex shader files in the source directory
-set_all_files_of_type(VERT_SHADER ${SRC_DIR} vert)
-# Obtain the fragment shader files in the source directory
-set_all_files_of_type(FRAG_SHADER ${SRC_DIR} frag)
-# ..........................................................
-
-
+endfunction()
 
 # ----------------------------------------------------------
 # Function: set_common_include_dirs
@@ -112,10 +107,19 @@ set_all_files_of_type(FRAG_SHADER ${SRC_DIR} frag)
 # ----------------------------------------------------------
 function(set_common_include_dirs target)
   important_info("Adding include directories of the project to target ${target}")
+  if ("${INCLUDE_DIR}" STREQUAL "" OR NOT DEFINED INCLUDE_DIR)
+    error("The include directory has not been defined")
+  endif ()
+  if ("${LIB_INCLUDE_DIR}" STREQUAL "" OR NOT DEFINED LIB_INCLUDE_DIR)
+    error("The library include directory has not been defined")
+  endif ()
+  if ("${Boost_INCLUDE_DIRS}" STREQUAL "" OR NOT DEFINED Boost_INCLUDE_DIRS)
+    error("The Boost include directories have not been defined")
+  endif ()
   target_include_directories(${target} SYSTEM PRIVATE
       ${INCLUDE_DIR} ${LIB_INCLUDE_DIR} ${Boost_INCLUDE_DIRS})
 
-  verbose_info("Added include directories to ${target}:
+  success("Added include directories to ${target}:
 \t\tProject Include Directory: ${INCLUDE_DIR}
 \t\tLibrary Include Directory:${LIB_INCLUDE_DIR}
 \t\tBoost Include Directories: ${Boost_INCLUDE_DIRS}")
@@ -137,7 +141,7 @@ function(add_extra_include_dirs target dirs)
 
   target_include_directories(${target} PRIVATE ${dirs})
 
-  verbose_info("Added include directories to target ${target}:
+  success("Added include directories to target ${target}:
 \t\t ${dirs}")
 endfunction()
 
@@ -154,11 +158,11 @@ endfunction()
 #   target: The target to add the static library directories.
 # ----------------------------------------------------------
 function(set_common_static_lib_dirs target)
-  info("Adding static library directories of the project to ${target}")
+  important_info("Adding static library directories of the project to ${target}")
 
   target_link_directories(${target} PRIVATE ${LIB_STATIC_DIR})
 
-  verbose_info("Added static library directories to ${target}: ${LIB_STATIC_DIR}")
+  success("Added static library directories to ${target}: ${LIB_STATIC_DIR}")
 endfunction()
 # ----------------------------------------------------------
 # Function: add_extra_static_lib_dirs
@@ -188,14 +192,14 @@ endfunction()
 #   target: The target to add the static library directories.
 # ----------------------------------------------------------
 function(set_common_sources target)
-  info("Adding common sources to target ${target}")
+  important_info("Adding common sources to target ${target}")
   target_sources(${target} PRIVATE
       # These are the source files for the project
       ${SOURCE_FILES}
       # These are the source files for the libraries
       ${LIB_SOURCE_FILES}
   )
-  verbose_info("Added common sources to target ${target}:
+  success("Added common sources to target ${target}:
 \t\tSource Files: ${SOURCE_FILES}
 \t\tLibrary Source Files: ${LIB_SOURCE_FILES}")
 endfunction()
@@ -210,8 +214,8 @@ endfunction()
 #   srcs: The sources to add to the target.
 # ----------------------------------------------------------
 function(add_extra_sources target srcs)
-  info("Adding extra sources to ${target}")
+  important_info("Adding extra sources to ${target}")
   target_sources(${target} PRIVATE ${srcs})
-  verbose_info("Added extra sources to target ${target}:
+  success("Added extra sources to target ${target}:
 \t\tExtra sources: ${srcs} ")
 endfunction()

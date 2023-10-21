@@ -18,7 +18,7 @@ function(find_all_packages packages)
   foreach (package ${packages})
     find_package(${package} REQUIRED)
     if (${package}_FOUND)
-      message(STATUS "${package} found")
+      success("${package} found")
     endif ()
   endforeach ()
 
@@ -34,7 +34,8 @@ endfunction()
 # ----------------------------------------------------------
 function(find_common_packages)
   set(common_packages Boost)
-  important_info("Finding common packages ${common_packages}")
+  important_info("Finding common packages
+\t\tPackages to find: ${common_packages}")
   find_all_packages("${common_packages}")
 endfunction()
 
@@ -51,6 +52,7 @@ endfunction()
 #   package: The name of the package to find.
 # ----------------------------------------------------------
 function(find_extra_packages packages)
-  important_info("Finding extra packages ${packages}")
+  important_info("Finding extra packages
+\t\tExtra packages to find: ${packages}")
   find_all_packages("${packages}")
 endfunction()

@@ -41,6 +41,7 @@ set(MY_COMPILE_FLAGS
     "-Wcast-align"
     # Link statically
     "-static"
+    CACHE STRING "Flags used by the compiler during all build types."
 )
 
 # ----------------------------------------------------------
@@ -54,6 +55,7 @@ set(DEBUG_FLAGS
     "-ggdb"
     # Verbose output, enabled only for specific problems
     #"-v"
+    CACHE STRING "Flags used by the compiler during debug builds."
 )
 
 # ----------------------------------------------------------
@@ -79,6 +81,7 @@ set(RELEASE_FLAGS
     # Strip symbols from binary, reduces the size of the
     # binary but makes debugging harder
     "-s"
+    CACHE STRING "Flags used by the compiler during release builds."
 )
 
 # ----------------------------------------------------------
@@ -92,14 +95,13 @@ set(RELEASE_FLAGS
 #   target: The target to apply the flags to.
 # ----------------------------------------------------------
 function(set_common_compiler_flags_to_build_type target)
+  important_info("Adding common compile flags to build type for target ${target}")
   if (CMAKE_BUILD_TYPE STREQUAL "Debug")
     target_compile_options(${target} PRIVATE ${DEBUG_FLAGS})
-    important_info("Target: ${target} - Build type - Debug
-\t\tApplied flags: ${DEBUG_FLAGS}")
+    success("Flags applied to build type DEBUG: ${DEBUG_FLAGS}")
   elseif (CMAKE_BUILD_TYPE STREQUAL "Release")
     target_compile_options(${target} PRIVATE ${RELEASE_FLAGS})
-    important_info("Build type: Release")
-    important_info("Applied flags: ${RELEASE_FLAGS}")
+    success("Flags applied to build type RELEASE: ${RELEASE_FLAGS}")
   endif ()
 endfunction()
 
@@ -117,14 +119,9 @@ function(set_compile_flags_to_common_files)
       COMPILE_FLAGS
       ${MY_COMPILE_FLAGS}
   )
-  verbose_info(
-      "Added compile flags: ${MY_COMPILE_FLAGS}")
-  verbose_info(
-      "These compile flags are only applied to the project
-       sources.
-       No compile flags are applied to the library sources.
-       The following sources are affected:
-       ${SOURCE_FILES} ${TEST_FILES}\n")
+  verbose_info("The following sources are affected:
+\t\t${SOURCE_FILES} ${TEST_FILES}")
+  success("Added compile flags: ${MY_COMPILE_FLAGS}")
 endfunction()
 # ----------------------------------------------------------
 # Function: set_compile_flags_to_extra_files
@@ -139,13 +136,12 @@ endfunction()
 function(set_compile_flags_to_extra_files files)
   important_info("Adding compile flags to extra files")
   set_source_files_properties(
-      files
+      ${files}
       PROPERTIES
       COMPILE_FLAGS
       ${MY_COMPILE_FLAGS}
   )
-  verbose_info("Added compile flags
-          to ${target}: ${MY_COMPILE_FLAGS}")
-  verbose_info("he following sources are affected:
-        ${files}")
+  verbose_info("The following sources are affected:
+\t\t${files}")
+  success("Added compile flags: ${MY_COMPILE_FLAGS}")
 endfunction()

@@ -53,7 +53,7 @@ function(verbose_info msg)
 endfunction()
 
 function(info msg)
-  log("${msg}" "STATUS" "" FALSE)
+  message("STATUS" "${msg}")
 endfunction()
 
 function(important_info msg)
@@ -65,6 +65,5 @@ function(success msg)
 endfunction()
 
 function(debug msg)
-  log("__DEBUG__MESSAGE__:" "DEBUG" "magenta" TRUE)
-  log("    ${msg}" "DEBUG" "magenta" TRUE)
+  log("__DEBUG__MESSAGE__:\n\t\t${msg}" "DEBUG" "magenta" TRUE)
 endfunction()

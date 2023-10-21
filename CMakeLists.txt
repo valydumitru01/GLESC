@@ -38,16 +38,19 @@ set(CMAKE_MESSAGE_LOG_LEVEL DEBUG)
 # ----------------------------------------------------------
 function(include_cmake_once cmake_file)
   string(REGEX REPLACE "[^a-zA-Z0-9]" "_" cmake_file_upper ${cmake_file})
+  set(CURRENT_FILE ${CMAKE_CURRENT_LIST_FILE})
+  string(REPLACE "${CMAKE_SOURCE_DIR}/" "" STRIPPED_PATH ${CURRENT_FILE})
+  debug("Including cmake file ${cmake_file} to file ${STRIPPED_PATH}")
   if (NOT DEFINED CMAKE_INCLUDED_${cmake_file_upper})
-    message(STATUS "Including cmake file ${cmake_file}")
     include(cmake/${cmake_file})
     set(CMAKE_INCLUDED_${cmake_file_upper} TRUE PARENT_SCOPE)
-  else()
-    debug("CMake file ${cmake_file} already included")
-  endif()
+  else ()
+    debug("CMake file ${cmake_file} already included, not necessary to include it again for file ${STRIPPED_PATH}")
+  endif ()
 endfunction()
 
 include_cmake_once(FindPackages.cmake)
+include_cmake_once(FileLocations.cmake)
 include_cmake_once(LinkedLibraries.cmake)
 include_cmake_once(PlatformDetection.cmake)
 include_cmake_once(CompilerDefinitions.cmake)
@@ -61,7 +64,7 @@ include_cmake_once(Testing.cmake)
 #   name: The name of the executable target
 # ----------------------------------------------------------
 function(create_executable name)
-  message(STATUS "Adding executable target ${name}")
+  important_info("Adding executable target ${name}")
   add_executable(${name})
 endfunction()
 
@@ -72,7 +75,12 @@ set(targets
     # The test target
     game_test
 )
-
+# Here we define the directories and files of the cmake
+# and store them in variables for later use
+define_directories_and_files()
+# Here we're detecting the platform where the project is
+# being built
+detect_platform()
 # ----------------------------------------------------------
 # Finding packages
 
@@ -104,7 +112,7 @@ foreach (target ${targets})
 endforeach ()
 
 if (TARGET game_test)
-  add_extra_sources(game_test TEST_FILES)
+  add_extra_sources(game_test ${TEST_FILES})
 endif ()
 # ----------------------------------------------------------
 

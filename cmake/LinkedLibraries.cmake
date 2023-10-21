@@ -37,6 +37,7 @@ set(MAIN_LIBS
     # This is the glew library, OpenGL Extension Wrangler,
     # used to load OpenGL functions
     glew32s
+    CACHE STRING "Main libraries"
 )
 if (WIN32)
   list(APPEND
@@ -97,7 +98,7 @@ function(link_common_libs target)
       # Defined in LinkedLibraries.cmake
       ${MAIN_LIBS}
   )
-  verbose_info("Linked libraries to target ${target}:
+  success("Linked libraries to target ${target}:
 \t\t${MAIN_LIBS}")
 endfunction()
 
@@ -115,6 +116,6 @@ function(link_extra_libs target extra_libs)
   target_link_libraries(${target}
       ${extra_libs}
   )
-  verbose_info("Linked extra libraries to target ${target}:
+  success("Linked extra libraries to target ${target}:
 \t\t${extra_libs}")
 endfunction()

@@ -45,11 +45,11 @@ function(set_common_definitions target)
 
   # Set project binary directory based on build type
   if (CMAKE_BUILD_TYPE STREQUAL "Debug")
-    set(PROJECT_BINARY_DIR
-        "${CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG}")
+    set(MY_PROJECT_BINARY_DIR
+        "${BIN_DIR_DEBUG}")
   elseif (CMAKE_BUILD_TYPE STREQUAL "Release")
-    set(PROJECT_BINARY_DIR
-        "${CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE}")
+    set(MY_PROJECT_BINARY_DIR
+        "${BIN_DIR_RELEASE}")
   endif ()
 
   # Store all definitions in a list
@@ -58,7 +58,7 @@ function(set_common_definitions target)
       # built on
       ${PLATFORM}
       # This is needed for glew to work statically
-      GLEW_STATIC
+      GLEW_STATICS
       # This is the fragment shader file location
       FRAG_SHADER="${FRAG_SHADER}"
       # This is the vertex shader file location
@@ -67,7 +67,7 @@ function(set_common_definitions target)
       PROJECT_NAME="${PROJECT_NAME}"
       # This is the binary directory of the project,
       # it is needed for stack traces to work
-      PROJECT_BINARY_DIR="${PROJECT_BINARY_DIR}"
+      PROJECT_BINARY_DIR="${MY_PROJECT_BINARY_DIR}"
   )
 
   # Apply definitions to the target
@@ -79,7 +79,7 @@ function(set_common_definitions target)
     set(defs_string "${defs_string}${def}\n\t\t")
   endforeach ()
   string(STRIP "${defs_string}" defs_string)
-  verbose_info("${defs_string}")
+  success("${defs_string}")
 endfunction()
 
 
@@ -98,5 +98,5 @@ endfunction()
 function(add_extra_definitions target defs)
   important_info( "Adding extra definitions to ${target}")
   target_compile_definitions(${target} PRIVATE ${defs})
-  verbose_info( "Added definitions to ${target}: ${defs}")
+  success( "Added definitions to ${target}: ${defs}")
 endfunction()
