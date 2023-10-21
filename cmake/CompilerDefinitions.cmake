@@ -41,7 +41,7 @@ include_cmake_once(PlatformDetection.cmake)
 #   target: The target to add the definitions to.
 # ----------------------------------------------------------
 function(set_common_definitions target)
-  message(STATUS "Adding common definitions to ${target}")
+  important_info("Adding common definitions to target ${target}")
 
   # Set project binary directory based on build type
   if (CMAKE_BUILD_TYPE STREQUAL "Debug")
@@ -74,10 +74,12 @@ function(set_common_definitions target)
   target_compile_definitions(${target} PRIVATE ${defs})
 
   # Verbose log of all definitions
-  message(VERBOSE "Added definitions to ${target}:")
+  set(defs_string "Added definitions to ${target}:\n\t\t")
   foreach (def IN LISTS defs)
-    message(VERBOSE "  ${def}")
+    set(defs_string "${defs_string}${def}\n\t\t")
   endforeach ()
+  string(STRIP "${defs_string}" defs_string)
+  verbose_info("${defs_string}")
 endfunction()
 
 
@@ -94,8 +96,7 @@ endfunction()
 #   defs: The definitions to add.
 # ----------------------------------------------------------
 function(add_extra_definitions target defs)
-  message(STATUS "Adding extra definitions to ${target}")
+  important_info( "Adding extra definitions to ${target}")
   target_compile_definitions(${target} PRIVATE ${defs})
-  message(VERBOSE
-      "Added definitions to ${target}: ${defs}")
+  verbose_info( "Added definitions to ${target}: ${defs}")
 endfunction()

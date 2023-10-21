@@ -6,6 +6,23 @@
 #   for function finding for the project
 
 
+# ----------------------------------------------------------
+# Function: find_all_packages
+# Description:
+#   This function finds all packages that are passed as a
+#   parameter. It's a utility function for finding packages
+#   in a data oriented way.
+# ----------------------------------------------------------
+function(find_all_packages packages)
+
+  foreach (package ${packages})
+    find_package(${package} REQUIRED)
+    if (${package}_FOUND)
+      message(STATUS "${package} found")
+    endif ()
+  endforeach ()
+
+endfunction()
 
 
 # ----------------------------------------------------------
@@ -16,13 +33,9 @@
 #   for the Boost library.
 # ----------------------------------------------------------
 function(find_common_packages)
-  message(STATUS "Finding common packages")
-  find_package(Boost REQUIRED)
-  if (Boost_FOUND)
-    message(STATUS "Boost found")
-  else ()
-    message(FATAL_ERROR "Boost not found")
-  endif ()
+  set(common_packages Boost)
+  important_info("Finding common packages ${common_packages}")
+  find_all_packages("${common_packages}")
 endfunction()
 
 
@@ -37,12 +50,7 @@ endfunction()
 # Parameters:
 #   package: The name of the package to find.
 # ----------------------------------------------------------
-function(find_extra_package package)
-  message(STATUS "Finding extra package ${package}")
-  find_package(${package} REQUIRED)
-  if (${package}_FOUND)
-    message(STATUS "${package} found")
-  else ()
-    message(FATAL_ERROR "${package} not found")
-  endif ()
+function(find_extra_packages packages)
+  important_info("Finding extra packages ${packages}")
+  find_all_packages("${packages}")
 endfunction()

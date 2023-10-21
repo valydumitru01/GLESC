@@ -18,8 +18,7 @@
 # ----------------------------------------------------------
 function(set_new_dir dir_var dir_name)
   set(${dir_var} ${dir_name} PARENT_SCOPE)
-  message(VERBOSE "Added ${dir_var}
-        directory: ${dir_name}")
+  verbose_info("Created variable ${dir_var} for directory: ${dir_name}")
 endfunction()
 # ----------------------------------------------------------
 # Function: set_all_files_of_type
@@ -32,10 +31,11 @@ endfunction()
 #   dir: The directory to search in
 # ----------------------------------------------------------
 function(set_all_files_of_type var_name dir ext)
-  message(STATUS "Finding all files of type ${ext} in ${dir}")
+  info("Finding all files of type ${ext} in ${dir}")
   file(GLOB_RECURSE temp_var ${dir}/*.${ext})
   set(${var_name} ${temp_var} PARENT_SCOPE)
-  message(VERBOSE "Added ${var_name} files: ${temp_var}")
+  verbose_info("Variable created ${var_name} for files with extension ${ext} in directory ${dir}
+\t\tFiles found: ${temp_var}")
 endfunction()
 
 
@@ -111,19 +111,14 @@ set_all_files_of_type(FRAG_SHADER ${SRC_DIR} frag)
 #   target: The target to add the include directories to.
 # ----------------------------------------------------------
 function(set_common_include_dirs target)
-  message(STATUS
-      "Adding include directories of the project to ${target}")
-
-  target_include_directories(${target} PRIVATE ${INCLUDE_DIR})
-
-  message(STATUS
-      "Adding include directories of the libraries to${target}")
-
+  important_info("Adding include directories of the project to target ${target}")
   target_include_directories(${target} SYSTEM PRIVATE
-      ${LIB_INCLUDE_DIR} ${Boost_INCLUDE_DIRS})
+      ${INCLUDE_DIR} ${LIB_INCLUDE_DIR} ${Boost_INCLUDE_DIRS})
 
-  message(VERBOSE "Added include directories to ${target}:
-        ${INCLUDE_DIR} ${LIB_INCLUDE_DIR} ${Boost_INCLUDE_DIRS}")
+  verbose_info("Added include directories to ${target}:
+\t\tProject Include Directory: ${INCLUDE_DIR}
+\t\tLibrary Include Directory:${LIB_INCLUDE_DIR}
+\t\tBoost Include Directories: ${Boost_INCLUDE_DIRS}")
 
 endfunction()
 # ----------------------------------------------------------
@@ -138,13 +133,12 @@ endfunction()
 #  dirs: The directories to add to the target.
 # ----------------------------------------------------------
 function(add_extra_include_dirs target dirs)
-  message(STATUS
-      "Adding extra include directories to ${target}")
+  important_info("Adding extra include directories to target ${target}")
 
   target_include_directories(${target} PRIVATE ${dirs})
 
-  message(VERBOSE
-      "Added include directories to ${target}: ${dirs}")
+  verbose_info("Added include directories to target ${target}:
+\t\t ${dirs}")
 endfunction()
 
 
@@ -160,13 +154,11 @@ endfunction()
 #   target: The target to add the static library directories.
 # ----------------------------------------------------------
 function(set_common_static_lib_dirs target)
-  message(STATUS
-      "Adding static library directories of the project to ${target}")
+  info("Adding static library directories of the project to ${target}")
 
   target_link_directories(${target} PRIVATE ${LIB_STATIC_DIR})
 
-  message(VERBOSE
-      "Added static library directories to ${target}: ${LIB_STATIC_DIR}")
+  verbose_info("Added static library directories to ${target}: ${LIB_STATIC_DIR}")
 endfunction()
 # ----------------------------------------------------------
 # Function: add_extra_static_lib_dirs
@@ -178,11 +170,10 @@ endfunction()
 #   target: The target to add the static library directories.
 # ----------------------------------------------------------
 function(add_extra_static_lib_dirs target dirs)
-  message(STATUS
-      "Adding extra static library directories to ${target}")
+  info("Adding extra static library directories to target ${target}")
   target_link_directories(${target} PRIVATE ${dirs})
-  message(VERBOSE
-      "Added static library directories to ${target}: ${dirs}")
+  verbose_info("Added static library directories to target ${target}:
+\t\t${dirs}")
 endfunction()
 
 
@@ -197,16 +188,16 @@ endfunction()
 #   target: The target to add the static library directories.
 # ----------------------------------------------------------
 function(set_common_sources target)
-  message(STATUS
-      "Adding common sources to ${target}")
+  info("Adding common sources to target ${target}")
   target_sources(${target} PRIVATE
       # These are the source files for the project
       ${SOURCE_FILES}
       # These are the source files for the libraries
       ${LIB_SOURCE_FILES}
   )
-  message(VERBOSE
-      "Added sources: ${SOURCE_FILES} ${LIB_SOURCE_FILES} to ${target}")
+  verbose_info("Added common sources to target ${target}:
+\t\tSource Files: ${SOURCE_FILES}
+\t\tLibrary Source Files: ${LIB_SOURCE_FILES}")
 endfunction()
 # ----------------------------------------------------------
 # Function: add_extra_sources
@@ -219,7 +210,8 @@ endfunction()
 #   srcs: The sources to add to the target.
 # ----------------------------------------------------------
 function(add_extra_sources target srcs)
-  message(STATUS "Adding extra sources to ${target}")
+  info("Adding extra sources to ${target}")
   target_sources(${target} PRIVATE ${srcs})
-  message(VERBOSE "Added sources: ${srcs} to ${target}")
+  verbose_info("Added extra sources to target ${target}:
+\t\tExtra sources: ${srcs} ")
 endfunction()

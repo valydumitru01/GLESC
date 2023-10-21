@@ -91,25 +91,14 @@ endif ()
 #   target: The target to link the libraries to.
 # ----------------------------------------------------------
 function(link_common_libs target)
-  message(VERBOSE
-      "A new flag has been added to the
-            linker: ${CMAKE_EXE_LINKER_FLAGS}")
-
-
-
-  message(STATUS
-      "Adding linking libraries to ${target}")
+  important_info( "Linking libraries to target ${target}")
   target_link_libraries(${target}
       # These are the libraries that the project depends on.
       # Defined in LinkedLibraries.cmake
       ${MAIN_LIBS}
   )
-  message(VERBOSE
-      "The linked static libraries are located
-      in ${LIB_STATIC_DIR}")
-  message(VERBOSE
-      "The following libraries have been linked
-      to ${target}: ${MAIN_LIBS}")
+  verbose_info("Linked libraries to target ${target}:
+\t\t${MAIN_LIBS}")
 endfunction()
 
 # ----------------------------------------------------------
@@ -122,8 +111,10 @@ endfunction()
 #   extra_libs: The extra libraries to link to the target.
 # ----------------------------------------------------------
 function(link_extra_libs target extra_libs)
-  message(STATUS "Adding extra linking libraries to ${target}")
+  important_info( "Linking extra libraries to target ${target}")
   target_link_libraries(${target}
       ${extra_libs}
   )
+  verbose_info("Linked extra libraries to target ${target}:
+\t\t${extra_libs}")
 endfunction()

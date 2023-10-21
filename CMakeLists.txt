@@ -4,20 +4,27 @@
 # This is the main CMakeLists.txt file for the project.
 # Here all the modules work together to create the project.
 # All the modules are found in the cmake folder.
-
 # Set the minimum version of CMake that can be used
 cmake_minimum_required(VERSION 3.10)
+include(cmake/Printing.cmake)
+important_info("CMake Version: ${CMAKE_VERSION}")
+
 # Main project name
 project(game)
 # The c++ version used
 set(CMAKE_CXX_STANDARD 17)
+important_info("C++ Version: ${CMAKE_CXX_STANDARD}")
+
 # Ensure that the compiler supports the c++ version
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
 # Enables CMake code to be forward compatible with newer
 # versions of CMake.
 cmake_policy(SET CMP0074 NEW)
 cmake_policy(SET CMP0135 NEW)
 
+set(CMAKE_VERBOSE_MAKEFILE ON)
+set(CMAKE_MESSAGE_LOG_LEVEL DEBUG)
 # ----------------------------------------------------------
 # Function: include_cmake_once
 # Description:
@@ -30,19 +37,22 @@ cmake_policy(SET CMP0135 NEW)
 #   cmake_file: The cmake file to include
 # ----------------------------------------------------------
 function(include_cmake_once cmake_file)
-  string(TOUPPER ${cmake_file} cmake_file_upper)
-  string(REPLACE "." "_" cmake_file_upper ${cmake_file_upper})
+  string(REGEX REPLACE "[^a-zA-Z0-9]" "_" cmake_file_upper ${cmake_file})
   if (NOT DEFINED CMAKE_INCLUDED_${cmake_file_upper})
-    include(${cmake_file})
+    message(STATUS "Including cmake file ${cmake_file}")
+    include(cmake/${cmake_file})
     set(CMAKE_INCLUDED_${cmake_file_upper} TRUE PARENT_SCOPE)
-  endif ()
+  else()
+    debug("CMake file ${cmake_file} already included")
+  endif()
 endfunction()
 
-include_cmake_once(cmake/FindPackages.cmake)
-include_cmake_once(cmake/LinkedLibraries.cmake)
-include_cmake_once(cmake/PlatformDetection.cmake)
-include_cmake_once(cmake/CompilerDefinitions.cmake)
-include_cmake_once(cmake/Testing.cmake)
+include_cmake_once(FindPackages.cmake)
+include_cmake_once(LinkedLibraries.cmake)
+include_cmake_once(PlatformDetection.cmake)
+include_cmake_once(CompilerDefinitions.cmake)
+include_cmake_once(CompilerFlags.cmake)
+include_cmake_once(Testing.cmake)
 # ----------------------------------------------------------
 # Function: include_cmake_once
 # Description:
@@ -70,10 +80,10 @@ set(targets
 find_common_packages()
 
 if (TARGET game_test)
-  find_extra_package(GTest)
-  find_extra_package(GTestMain)
-  find_extra_package(GMock)
-  find_extra_package(GMockMain)
+  find_extra_packages(GTest)
+  find_extra_packages(GTestMain)
+  find_extra_packages(GMock)
+  find_extra_packages(GMockMain)
 endif ()
 
 # ----------------------------------------------------------
@@ -94,7 +104,7 @@ foreach (target ${targets})
 endforeach ()
 
 if (TARGET game_test)
-  add_extra_sources(game_test ${TEST_FILES})
+  add_extra_sources(game_test TEST_FILES)
 endif ()
 # ----------------------------------------------------------
 
@@ -149,10 +159,4 @@ endif ()
 
 # ----------------------------------------------------------
 
-if (BUILD_TESTING)
-  message(STATUS "Building tests")
-
-
-
-endif ()
 

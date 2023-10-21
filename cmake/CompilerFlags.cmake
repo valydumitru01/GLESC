@@ -14,7 +14,7 @@ include_cmake_once(FileLocations.cmake)
 # ----------------------------------------------------------
 # Defining general compile flags
 
-set(aux_compile_flags
+set(MY_COMPILE_FLAGS
     # Enable all warnings
     "-Wall"
     # Enable extra warnings
@@ -42,11 +42,10 @@ set(aux_compile_flags
     # Link statically
     "-static"
 )
-string(JOIN " " MY_COMPILE_FLAGS ${aux_compile_flags})
 
 # ----------------------------------------------------------
 # Defining debug build flags
-set(aux_debug_flags
+set(DEBUG_FLAGS
     # Optimization flag, no optimization
     "-O0"
     # Produce debugging information
@@ -57,10 +56,9 @@ set(aux_debug_flags
     #"-v"
 )
 
-string(JOIN " " DEBUG_FLAGS ${aux_debug_flags})
 # ----------------------------------------------------------
 # Defining release build flags
-set(aux_release_flags
+set(RELEASE_FLAGS
     # Optimization flag, -O3 is not always faster than -O2
     # TODO: Test which one is faster
     "-O3"
@@ -83,7 +81,6 @@ set(aux_release_flags
     "-s"
 )
 
-string(JOIN " " RELEASE_FLAGS ${aux_release_flags})
 # ----------------------------------------------------------
 # Function: set_common_compiler_flags_to_build_type
 # Description:
@@ -95,18 +92,14 @@ string(JOIN " " RELEASE_FLAGS ${aux_release_flags})
 #   target: The target to apply the flags to.
 # ----------------------------------------------------------
 function(set_common_compiler_flags_to_build_type target)
-  message(STATUS
-      "Applying flags on the build type for
-      target: ${target}")
-
   if (CMAKE_BUILD_TYPE STREQUAL "Debug")
     target_compile_options(${target} PRIVATE ${DEBUG_FLAGS})
-    message("Build type: Debug")
-    message("Applied flags: ${DEBUG_FLAGS}")
+    important_info("Target: ${target} - Build type - Debug
+\t\tApplied flags: ${DEBUG_FLAGS}")
   elseif (CMAKE_BUILD_TYPE STREQUAL "Release")
     target_compile_options(${target} PRIVATE ${RELEASE_FLAGS})
-    message("Build type: Release")
-    message("Applied flags: ${RELEASE_FLAGS}")
+    important_info("Build type: Release")
+    important_info("Applied flags: ${RELEASE_FLAGS}")
   endif ()
 endfunction()
 
@@ -117,16 +110,16 @@ endfunction()
 #   the common project files.
 # ----------------------------------------------------------
 function(set_compile_flags_to_common_files)
-  message(STATUS "Adding compile flags to common files")
+  important_info("Adding compile flags to common files")
   set_source_files_properties(
       ${SOURCE_FILES} ${TEST_FILES}
       PROPERTIES
       COMPILE_FLAGS
       ${MY_COMPILE_FLAGS}
   )
-  message(VERBOSE
+  verbose_info(
       "Added compile flags: ${MY_COMPILE_FLAGS}")
-  message(VERBOSE
+  verbose_info(
       "These compile flags are only applied to the project
        sources.
        No compile flags are applied to the library sources.
@@ -144,15 +137,15 @@ endfunction()
 #   files: The files to apply the flags to.
 # ----------------------------------------------------------
 function(set_compile_flags_to_extra_files files)
-  message(STATUS "Adding compile flags to extra files")
+  important_info("Adding compile flags to extra files")
   set_source_files_properties(
       files
       PROPERTIES
       COMPILE_FLAGS
       ${MY_COMPILE_FLAGS}
   )
-  message(VERBOSE "Added compile flags
+  verbose_info("Added compile flags
           to ${target}: ${MY_COMPILE_FLAGS}")
-  message(VERBOSE "he following sources are affected:
+  verbose_info("he following sources are affected:
         ${files}")
 endfunction()
