@@ -5,6 +5,17 @@
 #   This module is in charge of providing functions
 #   for function finding for the project
 
+# **********************************************************
+# ~~~~~~~~~~~~~~~~~~ Module initialization ~~~~~~~~~~~~~~~~~
+# **********************************************************
+
+set(common_packages
+    Boost
+    CACHE INTERNAL "" FORCE)
+
+# **********************************************************
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# **********************************************************
 
 # ----------------------------------------------------------
 # Function: find_all_packages
@@ -19,6 +30,8 @@ function(find_all_packages packages)
     find_package(${package} REQUIRED)
     if (${package}_FOUND)
       success("${package} found")
+      # Apparently, the include directories are not set in the cache
+      set("${package}_INCLUDE_DIRS" ${${package}_INCLUDE_DIRS} CACHE INTERNAL "" FORCE)
     endif ()
   endforeach ()
 
@@ -33,7 +46,7 @@ endfunction()
 #   for the Boost library.
 # ----------------------------------------------------------
 function(find_common_packages)
-  set(common_packages Boost)
+
   important_info("Finding common packages
 \t\tPackages to find: ${common_packages}")
   find_all_packages("${common_packages}")

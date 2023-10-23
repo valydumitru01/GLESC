@@ -314,6 +314,9 @@ CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 //Flags used by the compiler during debug builds.
 DEBUG_FLAGS:STRING=-O0;-g;-ggdb
 
+//The name of the debug build type
+DEBUG_VAR:STRING=Debug
+
 //Directory under which to collect all populated content
 FETCHCONTENT_BASE_DIR:PATH=C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps
 
@@ -334,42 +337,9 @@ FETCHCONTENT_UPDATES_DISCONNECTED:BOOL=OFF
 //Enables UPDATE_DISCONNECTED behavior just for population of googletest
 FETCHCONTENT_UPDATES_DISCONNECTED_GOOGLETEST:BOOL=OFF
 
-//Path to a library.
-GMOCK_LIBRARY:FILEPATH=GMOCK_LIBRARY-NOTFOUND
-
-//Path to a library.
-GMOCK_LIBRARY_DEBUG:FILEPATH=GMOCK_LIBRARY_DEBUG-NOTFOUND
-
-//Path to a library.
-GMOCK_MAIN_LIBRARY:FILEPATH=GMOCK_MAIN_LIBRARY-NOTFOUND
-
-//Path to a library.
-GMOCK_MAIN_LIBRARY_DEBUG:FILEPATH=GMOCK_MAIN_LIBRARY_DEBUG-NOTFOUND
-
-//Path to a file.
-GTEST_INCLUDE_DIR:PATH=GTEST_INCLUDE_DIR-NOTFOUND
-
-//Path to a library.
-GTEST_LIBRARY:FILEPATH=GTEST_LIBRARY-NOTFOUND
-
-//Path to a library.
-GTEST_LIBRARY_DEBUG:FILEPATH=GTEST_LIBRARY_DEBUG-NOTFOUND
-
-//Path to a library.
-GTEST_MAIN_LIBRARY:FILEPATH=GTEST_MAIN_LIBRARY-NOTFOUND
-
-//Path to a library.
-GTEST_MAIN_LIBRARY_DEBUG:FILEPATH=GTEST_MAIN_LIBRARY_DEBUG-NOTFOUND
-
-//The directory containing a CMake configuration file for GTest.
-GTest_DIR:PATH=GTest_DIR-NOTFOUND
-
 //Enable installation of googletest. (Projects embedding googletest
 // may want to turn this OFF.)
 INSTALL_GTEST:BOOL=ON
-
-//Main libraries
-MAIN_LIBS:STRING=mingw32;SDL2;SDL2main;SDL2_net;SDL2_mixer;SDL2_image;glew32s
 
 //Flags used by the compiler during all build types.
 MY_COMPILE_FLAGS:STRING=-Wall;-Wextra;-Wpedantic;-Wshadow;-Wconversion;-Wuninitialized;-Wold-style-cast;-Wfloat-equal;-Wcast-qual;-Wcast-align;-static
@@ -439,6 +409,9 @@ gtest_hide_internal_symbols:BOOL=OFF
 //Dependencies for the target
 gtest_main_LIB_DEPENDS:STATIC=general;gtest;
 
+//Main libraries
+temp_main_libs:STRING=mingw32;SDL2;SDL2main;SDL2_net;SDL2_mixer;SDL2_image;glew32s
+
 
 ########################
 # INTERNAL cache entries
@@ -451,6 +424,7 @@ BIN_DIR_RELEASE:INTERNAL=C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engin
 Boost_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: Boost_INCLUDE_DIR
 Boost_INCLUDE_DIR-ADVANCED:INTERNAL=1
+Boost_INCLUDE_DIRS:INTERNAL=C:/Program Files/boost/boost_1_83_0
 //ADVANCED property for variable: CMAKE_ADDR2LINE
 CMAKE_ADDR2LINE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_AR
@@ -638,33 +612,20 @@ CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 //Details about finding Boost
 FIND_PACKAGE_MESSAGE_DETAILS_Boost:INTERNAL=[C:/Program Files/boost/boost_1_83_0][c ][v1.83.0()]
 FRAG_SHADER:INTERNAL=C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag
-//ADVANCED property for variable: GMOCK_LIBRARY
-GMOCK_LIBRARY-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: GMOCK_LIBRARY_DEBUG
-GMOCK_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: GMOCK_MAIN_LIBRARY
-GMOCK_MAIN_LIBRARY-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: GMOCK_MAIN_LIBRARY_DEBUG
-GMOCK_MAIN_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: GTEST_INCLUDE_DIR
-GTEST_INCLUDE_DIR-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: GTEST_LIBRARY
-GTEST_LIBRARY-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: GTEST_LIBRARY_DEBUG
-GTEST_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: GTEST_MAIN_LIBRARY
-GTEST_MAIN_LIBRARY-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: GTEST_MAIN_LIBRARY_DEBUG
-GTEST_MAIN_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
 INCLUDE_DIR:INTERNAL=include
 LIB_INCLUDE_DIR:INTERNAL=lib/include
 LIB_SOURCE_FILES:INTERNAL=C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include/glm/detail/glm.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include/imgui/example.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include/imgui/imgui.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include/imgui/imgui_demo.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include/imgui/imgui_draw.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include/imgui/imgui_impl_opengl3.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include/imgui/imgui_impl_sdl2.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include/imgui/imgui_tables.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include/imgui/imgui_widgets.cpp
 LIB_SRC_DIR:INTERNAL=lib/include
 LIB_STATIC_DIR:INTERNAL=lib/lib
+//Main libraries
+MAIN_LIBS:INTERNAL=mingw32;SDL2;SDL2main;SDL2_net;SDL2_mixer;SDL2_image;glew32s;opengl32;imm32;version;setupapi;winmm
+//Common definitions
+MY_DEFINITIONS:INTERNAL=__WINDOWS__;GLEW_STATIC;FRAG_SHADER="C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag";VERT_SHADER="C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert";PROJECT_NAME="game";PROJECT_BINARY_DIR="C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release"
 SOURCE_FILES:INTERNAL=C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/Game/Game.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/GLESC.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/core/counter/Counter.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/core/debugger/Stacktrace.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/core/exceptions/BaseException.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/core/file-system/FileSystemPath.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/core/logger/Logger.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/core/logger/outputs/FileLogger.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/core/logger/outputs/TerminalLogger.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/core/low-level-renderer/buffers/IndexBuffer.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/core/low-level-renderer/buffers/VertexBuffer.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/core/low-level-renderer/graphic-api/concrete-apis/opengl/OpenGLDebugger.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/core/low-level-renderer/graphic-api/concrete-apis/vulkan/VulkanGDI.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/core/low-level-renderer/texture/TextureManager.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/core/window/WindowManager.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/ecs/backend/ECS.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/ecs/backend/component/ComponentManager.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/ecs/backend/entity/EntityManager.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/ecs/backend/system/SystemManager.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/ecs/frontend/entity/Entity.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/ecs/frontend/system/System.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/ecs/systems/CameraSystem.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/ecs/systems/InputSystem.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/ecs/systems/PhysicsSystem.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/ecs/systems/RenderSystem.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/main.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/res-mng/files/FileManager.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/res-mng/textures/TextureLoader.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/hud/HUDManager.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/input/InputManager.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/physics/PhysicsManager.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/mesh/Face.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/mesh/Mesh.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/mesh/Vertex.cpp
 SRC_DIR:INTERNAL=src
 TEST_DIR:INTERNAL=tests
 TEST_FILES:INTERNAL=C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/tests/main.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/tests/unit/engine/core/math/MathTest.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/tests/unit/engine/core/math/MatrixTest.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/tests/unit/engine/core/math/VectorTest.cpp
+TEST_SOURCE_FILES:INTERNAL=C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/tests/main.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/tests/unit/engine/core/math/MathTest.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/tests/unit/engine/core/math/MatrixTest.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/tests/unit/engine/core/math/VectorTest.cpp
 VERT_SHADER:INTERNAL=C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert
 //Components requested for this build tree.
 _Boost_COMPONENTS_SEARCHED:INTERNAL=
@@ -689,6 +650,7 @@ _Python_Interpreter_REASON_FAILURE:INTERNAL=
 //NumPy reason failure
 _Python_NumPy_REASON_FAILURE:INTERNAL=
 cmake_package_name:INTERNAL=GTest
+common_packages:INTERNAL=Boost
 generated_dir:INTERNAL=C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-build/googletest/generated
 //ADVANCED property for variable: gmock_build_tests
 gmock_build_tests-ADVANCED:INTERNAL=1

@@ -52,344 +52,344 @@ build cmake_object_order_depends_target_game: phony || CMakeFiles/game.dir
 build CMakeFiles/game.dir/src/Game/Game.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/Game/Game.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\src\Game\Game.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\Game
 
 build CMakeFiles/game.dir/src/engine/GLESC.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/GLESC.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\src\engine\GLESC.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine
 
 build CMakeFiles/game.dir/src/engine/core/counter/Counter.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/core/counter/Counter.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\src\engine\core\counter\Counter.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\core\counter
 
 build CMakeFiles/game.dir/src/engine/core/debugger/Stacktrace.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/core/debugger/Stacktrace.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\src\engine\core\debugger\Stacktrace.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\core\debugger
 
 build CMakeFiles/game.dir/src/engine/core/exceptions/BaseException.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/core/exceptions/BaseException.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\src\engine\core\exceptions\BaseException.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\core\exceptions
 
 build CMakeFiles/game.dir/src/engine/core/file-system/FileSystemPath.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/core/file-system/FileSystemPath.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\src\engine\core\file-system\FileSystemPath.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\core\file-system
 
 build CMakeFiles/game.dir/src/engine/core/logger/Logger.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/core/logger/Logger.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\src\engine\core\logger\Logger.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\core\logger
 
 build CMakeFiles/game.dir/src/engine/core/logger/outputs/FileLogger.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/core/logger/outputs/FileLogger.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\src\engine\core\logger\outputs\FileLogger.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\core\logger\outputs
 
 build CMakeFiles/game.dir/src/engine/core/logger/outputs/TerminalLogger.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/core/logger/outputs/TerminalLogger.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\src\engine\core\logger\outputs\TerminalLogger.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\core\logger\outputs
 
 build CMakeFiles/game.dir/src/engine/core/low-level-renderer/buffers/IndexBuffer.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/core/low-level-renderer/buffers/IndexBuffer.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\src\engine\core\low-level-renderer\buffers\IndexBuffer.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\core\low-level-renderer\buffers
 
 build CMakeFiles/game.dir/src/engine/core/low-level-renderer/buffers/VertexBuffer.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/core/low-level-renderer/buffers/VertexBuffer.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\src\engine\core\low-level-renderer\buffers\VertexBuffer.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\core\low-level-renderer\buffers
 
 build CMakeFiles/game.dir/src/engine/core/low-level-renderer/graphic-api/concrete-apis/opengl/OpenGLDebugger.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/core/low-level-renderer/graphic-api/concrete-apis/opengl/OpenGLDebugger.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\src\engine\core\low-level-renderer\graphic-api\concrete-apis\opengl\OpenGLDebugger.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\core\low-level-renderer\graphic-api\concrete-apis\opengl
 
 build CMakeFiles/game.dir/src/engine/core/low-level-renderer/graphic-api/concrete-apis/vulkan/VulkanGDI.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/core/low-level-renderer/graphic-api/concrete-apis/vulkan/VulkanGDI.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\src\engine\core\low-level-renderer\graphic-api\concrete-apis\vulkan\VulkanGDI.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\core\low-level-renderer\graphic-api\concrete-apis\vulkan
 
 build CMakeFiles/game.dir/src/engine/core/low-level-renderer/texture/TextureManager.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/core/low-level-renderer/texture/TextureManager.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\src\engine\core\low-level-renderer\texture\TextureManager.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\core\low-level-renderer\texture
 
 build CMakeFiles/game.dir/src/engine/core/window/WindowManager.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/core/window/WindowManager.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\src\engine\core\window\WindowManager.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\core\window
 
 build CMakeFiles/game.dir/src/engine/ecs/backend/ECS.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/ecs/backend/ECS.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\src\engine\ecs\backend\ECS.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\ecs\backend
 
 build CMakeFiles/game.dir/src/engine/ecs/backend/component/ComponentManager.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/ecs/backend/component/ComponentManager.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\src\engine\ecs\backend\component\ComponentManager.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\ecs\backend\component
 
 build CMakeFiles/game.dir/src/engine/ecs/backend/entity/EntityManager.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/ecs/backend/entity/EntityManager.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\src\engine\ecs\backend\entity\EntityManager.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\ecs\backend\entity
 
 build CMakeFiles/game.dir/src/engine/ecs/backend/system/SystemManager.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/ecs/backend/system/SystemManager.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\src\engine\ecs\backend\system\SystemManager.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\ecs\backend\system
 
 build CMakeFiles/game.dir/src/engine/ecs/frontend/entity/Entity.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/ecs/frontend/entity/Entity.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\src\engine\ecs\frontend\entity\Entity.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\ecs\frontend\entity
 
 build CMakeFiles/game.dir/src/engine/ecs/frontend/system/System.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/ecs/frontend/system/System.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\src\engine\ecs\frontend\system\System.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\ecs\frontend\system
 
 build CMakeFiles/game.dir/src/engine/ecs/systems/CameraSystem.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/ecs/systems/CameraSystem.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\src\engine\ecs\systems\CameraSystem.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\ecs\systems
 
 build CMakeFiles/game.dir/src/engine/ecs/systems/InputSystem.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/ecs/systems/InputSystem.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\src\engine\ecs\systems\InputSystem.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\ecs\systems
 
 build CMakeFiles/game.dir/src/engine/ecs/systems/PhysicsSystem.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/ecs/systems/PhysicsSystem.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\src\engine\ecs\systems\PhysicsSystem.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\ecs\systems
 
 build CMakeFiles/game.dir/src/engine/ecs/systems/RenderSystem.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/ecs/systems/RenderSystem.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\src\engine\ecs\systems\RenderSystem.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\ecs\systems
 
 build CMakeFiles/game.dir/src/engine/main.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/main.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\src\engine\main.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine
 
 build CMakeFiles/game.dir/src/engine/res-mng/files/FileManager.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/res-mng/files/FileManager.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\src\engine\res-mng\files\FileManager.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\res-mng\files
 
 build CMakeFiles/game.dir/src/engine/res-mng/textures/TextureLoader.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/res-mng/textures/TextureLoader.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\src\engine\res-mng\textures\TextureLoader.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\res-mng\textures
 
 build CMakeFiles/game.dir/src/engine/subsystems/hud/HUDManager.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/hud/HUDManager.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\src\engine\subsystems\hud\HUDManager.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\subsystems\hud
 
 build CMakeFiles/game.dir/src/engine/subsystems/input/InputManager.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/input/InputManager.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\src\engine\subsystems\input\InputManager.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\subsystems\input
 
 build CMakeFiles/game.dir/src/engine/subsystems/physics/PhysicsManager.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/physics/PhysicsManager.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\src\engine\subsystems\physics\PhysicsManager.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\subsystems\physics
 
 build CMakeFiles/game.dir/src/engine/subsystems/renderer/mesh/Face.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/mesh/Face.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\src\engine\subsystems\renderer\mesh\Face.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\subsystems\renderer\mesh
 
 build CMakeFiles/game.dir/src/engine/subsystems/renderer/mesh/Mesh.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/mesh/Mesh.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\src\engine\subsystems\renderer\mesh\Mesh.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\subsystems\renderer\mesh
 
 build CMakeFiles/game.dir/src/engine/subsystems/renderer/mesh/Vertex.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/mesh/Vertex.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\src\engine\subsystems\renderer\mesh\Vertex.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\subsystems\renderer\mesh
 
 build CMakeFiles/game.dir/lib/include/glm/detail/glm.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include/glm/detail/glm.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\lib\include\glm\detail\glm.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s"
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\lib\include\glm\detail
 
 build CMakeFiles/game.dir/lib/include/imgui/example.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include/imgui/example.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\lib\include\imgui\example.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s"
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\lib\include\imgui
 
 build CMakeFiles/game.dir/lib/include/imgui/imgui.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include/imgui/imgui.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\lib\include\imgui\imgui.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s"
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\lib\include\imgui
 
 build CMakeFiles/game.dir/lib/include/imgui/imgui_demo.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include/imgui/imgui_demo.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\lib\include\imgui\imgui_demo.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s"
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\lib\include\imgui
 
 build CMakeFiles/game.dir/lib/include/imgui/imgui_draw.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include/imgui/imgui_draw.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\lib\include\imgui\imgui_draw.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s"
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\lib\include\imgui
 
 build CMakeFiles/game.dir/lib/include/imgui/imgui_impl_opengl3.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include/imgui/imgui_impl_opengl3.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\lib\include\imgui\imgui_impl_opengl3.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s"
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\lib\include\imgui
 
 build CMakeFiles/game.dir/lib/include/imgui/imgui_impl_sdl2.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include/imgui/imgui_impl_sdl2.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\lib\include\imgui\imgui_impl_sdl2.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s"
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\lib\include\imgui
 
 build CMakeFiles/game.dir/lib/include/imgui/imgui_tables.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include/imgui/imgui_tables.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\lib\include\imgui\imgui_tables.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s"
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\lib\include\imgui
 
 build CMakeFiles/game.dir/lib/include/imgui/imgui_widgets.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include/imgui/imgui_widgets.cpp || cmake_object_order_depends_target_game
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game.dir\lib\include\imgui\imgui_widgets.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s"
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\lib\include\imgui
 
@@ -403,7 +403,7 @@ build CMakeFiles/game.dir/lib/include/imgui/imgui_widgets.cpp.obj: CXX_COMPILER_
 
 build game.exe: CXX_EXECUTABLE_LINKER__game_Release CMakeFiles/game.dir/src/Game/Game.cpp.obj CMakeFiles/game.dir/src/engine/GLESC.cpp.obj CMakeFiles/game.dir/src/engine/core/counter/Counter.cpp.obj CMakeFiles/game.dir/src/engine/core/debugger/Stacktrace.cpp.obj CMakeFiles/game.dir/src/engine/core/exceptions/BaseException.cpp.obj CMakeFiles/game.dir/src/engine/core/file-system/FileSystemPath.cpp.obj CMakeFiles/game.dir/src/engine/core/logger/Logger.cpp.obj CMakeFiles/game.dir/src/engine/core/logger/outputs/FileLogger.cpp.obj CMakeFiles/game.dir/src/engine/core/logger/outputs/TerminalLogger.cpp.obj CMakeFiles/game.dir/src/engine/core/low-level-renderer/buffers/IndexBuffer.cpp.obj CMakeFiles/game.dir/src/engine/core/low-level-renderer/buffers/VertexBuffer.cpp.obj CMakeFiles/game.dir/src/engine/core/low-level-renderer/graphic-api/concrete-apis/opengl/OpenGLDebugger.cpp.obj CMakeFiles/game.dir/src/engine/core/low-level-renderer/graphic-api/concrete-apis/vulkan/VulkanGDI.cpp.obj CMakeFiles/game.dir/src/engine/core/low-level-renderer/texture/TextureManager.cpp.obj CMakeFiles/game.dir/src/engine/core/window/WindowManager.cpp.obj CMakeFiles/game.dir/src/engine/ecs/backend/ECS.cpp.obj CMakeFiles/game.dir/src/engine/ecs/backend/component/ComponentManager.cpp.obj CMakeFiles/game.dir/src/engine/ecs/backend/entity/EntityManager.cpp.obj CMakeFiles/game.dir/src/engine/ecs/backend/system/SystemManager.cpp.obj CMakeFiles/game.dir/src/engine/ecs/frontend/entity/Entity.cpp.obj CMakeFiles/game.dir/src/engine/ecs/frontend/system/System.cpp.obj CMakeFiles/game.dir/src/engine/ecs/systems/CameraSystem.cpp.obj CMakeFiles/game.dir/src/engine/ecs/systems/InputSystem.cpp.obj CMakeFiles/game.dir/src/engine/ecs/systems/PhysicsSystem.cpp.obj CMakeFiles/game.dir/src/engine/ecs/systems/RenderSystem.cpp.obj CMakeFiles/game.dir/src/engine/main.cpp.obj CMakeFiles/game.dir/src/engine/res-mng/files/FileManager.cpp.obj CMakeFiles/game.dir/src/engine/res-mng/textures/TextureLoader.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/hud/HUDManager.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/input/InputManager.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/physics/PhysicsManager.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/renderer/mesh/Face.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/renderer/mesh/Mesh.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/renderer/mesh/Vertex.cpp.obj CMakeFiles/game.dir/lib/include/glm/detail/glm.cpp.obj CMakeFiles/game.dir/lib/include/imgui/example.cpp.obj CMakeFiles/game.dir/lib/include/imgui/imgui.cpp.obj CMakeFiles/game.dir/lib/include/imgui/imgui_demo.cpp.obj CMakeFiles/game.dir/lib/include/imgui/imgui_draw.cpp.obj CMakeFiles/game.dir/lib/include/imgui/imgui_impl_opengl3.cpp.obj CMakeFiles/game.dir/lib/include/imgui/imgui_impl_sdl2.cpp.obj CMakeFiles/game.dir/lib/include/imgui/imgui_tables.cpp.obj CMakeFiles/game.dir/lib/include/imgui/imgui_widgets.cpp.obj
   FLAGS = -O3 -DNDEBUG
-  LINK_LIBRARIES = -lmingw32  -lSDL2  -lSDL2main  -lSDL2_net  -lSDL2_mixer  -lSDL2_image  -lglew32s  -lopengl32  -limm32  -lDbgHelp  -lversion  -lsetupapi  -lwinmm  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  LINK_LIBRARIES = -lmingw32  -lSDL2  -lSDL2main  -lSDL2_net  -lSDL2_mixer  -lSDL2_image  -lglew32s  -lopengl32  -limm32  -lversion  -lsetupapi  -lwinmm  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   LINK_PATH = -LC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/lib
   OBJECT_DIR = CMakeFiles\game.dir
   POST_BUILD = cd .
@@ -419,359 +419,383 @@ build game.exe: CXX_EXECUTABLE_LINKER__game_Release CMakeFiles/game.dir/src/Game
 #############################################
 # Order-only phony target for game_test
 
-build cmake_object_order_depends_target_game_test: phony || CMakeFiles/game_test.dir
+build cmake_object_order_depends_target_game_test: phony || cmake_object_order_depends_target_gtest
 
 build CMakeFiles/game_test.dir/src/Game/Game.cpp.obj: CXX_COMPILER__game_test_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/Game/Game.cpp || cmake_object_order_depends_target_game_test
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DGTEST_HAS_DEATH_TEST=1 -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game_test.dir\src\Game\Game.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0" -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest
   OBJECT_DIR = CMakeFiles\game_test.dir
   OBJECT_FILE_DIR = CMakeFiles\game_test.dir\src\Game
 
 build CMakeFiles/game_test.dir/src/engine/GLESC.cpp.obj: CXX_COMPILER__game_test_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/GLESC.cpp || cmake_object_order_depends_target_game_test
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DGTEST_HAS_DEATH_TEST=1 -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game_test.dir\src\engine\GLESC.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0" -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest
   OBJECT_DIR = CMakeFiles\game_test.dir
   OBJECT_FILE_DIR = CMakeFiles\game_test.dir\src\engine
 
 build CMakeFiles/game_test.dir/src/engine/core/counter/Counter.cpp.obj: CXX_COMPILER__game_test_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/core/counter/Counter.cpp || cmake_object_order_depends_target_game_test
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DGTEST_HAS_DEATH_TEST=1 -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game_test.dir\src\engine\core\counter\Counter.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0" -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest
   OBJECT_DIR = CMakeFiles\game_test.dir
   OBJECT_FILE_DIR = CMakeFiles\game_test.dir\src\engine\core\counter
 
 build CMakeFiles/game_test.dir/src/engine/core/debugger/Stacktrace.cpp.obj: CXX_COMPILER__game_test_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/core/debugger/Stacktrace.cpp || cmake_object_order_depends_target_game_test
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DGTEST_HAS_DEATH_TEST=1 -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game_test.dir\src\engine\core\debugger\Stacktrace.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0" -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest
   OBJECT_DIR = CMakeFiles\game_test.dir
   OBJECT_FILE_DIR = CMakeFiles\game_test.dir\src\engine\core\debugger
 
 build CMakeFiles/game_test.dir/src/engine/core/exceptions/BaseException.cpp.obj: CXX_COMPILER__game_test_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/core/exceptions/BaseException.cpp || cmake_object_order_depends_target_game_test
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DGTEST_HAS_DEATH_TEST=1 -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game_test.dir\src\engine\core\exceptions\BaseException.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0" -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest
   OBJECT_DIR = CMakeFiles\game_test.dir
   OBJECT_FILE_DIR = CMakeFiles\game_test.dir\src\engine\core\exceptions
 
 build CMakeFiles/game_test.dir/src/engine/core/file-system/FileSystemPath.cpp.obj: CXX_COMPILER__game_test_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/core/file-system/FileSystemPath.cpp || cmake_object_order_depends_target_game_test
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DGTEST_HAS_DEATH_TEST=1 -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game_test.dir\src\engine\core\file-system\FileSystemPath.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0" -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest
   OBJECT_DIR = CMakeFiles\game_test.dir
   OBJECT_FILE_DIR = CMakeFiles\game_test.dir\src\engine\core\file-system
 
 build CMakeFiles/game_test.dir/src/engine/core/logger/Logger.cpp.obj: CXX_COMPILER__game_test_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/core/logger/Logger.cpp || cmake_object_order_depends_target_game_test
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DGTEST_HAS_DEATH_TEST=1 -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game_test.dir\src\engine\core\logger\Logger.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0" -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest
   OBJECT_DIR = CMakeFiles\game_test.dir
   OBJECT_FILE_DIR = CMakeFiles\game_test.dir\src\engine\core\logger
 
 build CMakeFiles/game_test.dir/src/engine/core/logger/outputs/FileLogger.cpp.obj: CXX_COMPILER__game_test_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/core/logger/outputs/FileLogger.cpp || cmake_object_order_depends_target_game_test
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DGTEST_HAS_DEATH_TEST=1 -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game_test.dir\src\engine\core\logger\outputs\FileLogger.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0" -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest
   OBJECT_DIR = CMakeFiles\game_test.dir
   OBJECT_FILE_DIR = CMakeFiles\game_test.dir\src\engine\core\logger\outputs
 
 build CMakeFiles/game_test.dir/src/engine/core/logger/outputs/TerminalLogger.cpp.obj: CXX_COMPILER__game_test_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/core/logger/outputs/TerminalLogger.cpp || cmake_object_order_depends_target_game_test
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DGTEST_HAS_DEATH_TEST=1 -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game_test.dir\src\engine\core\logger\outputs\TerminalLogger.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0" -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest
   OBJECT_DIR = CMakeFiles\game_test.dir
   OBJECT_FILE_DIR = CMakeFiles\game_test.dir\src\engine\core\logger\outputs
 
 build CMakeFiles/game_test.dir/src/engine/core/low-level-renderer/buffers/IndexBuffer.cpp.obj: CXX_COMPILER__game_test_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/core/low-level-renderer/buffers/IndexBuffer.cpp || cmake_object_order_depends_target_game_test
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DGTEST_HAS_DEATH_TEST=1 -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game_test.dir\src\engine\core\low-level-renderer\buffers\IndexBuffer.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0" -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest
   OBJECT_DIR = CMakeFiles\game_test.dir
   OBJECT_FILE_DIR = CMakeFiles\game_test.dir\src\engine\core\low-level-renderer\buffers
 
 build CMakeFiles/game_test.dir/src/engine/core/low-level-renderer/buffers/VertexBuffer.cpp.obj: CXX_COMPILER__game_test_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/core/low-level-renderer/buffers/VertexBuffer.cpp || cmake_object_order_depends_target_game_test
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DGTEST_HAS_DEATH_TEST=1 -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game_test.dir\src\engine\core\low-level-renderer\buffers\VertexBuffer.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0" -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest
   OBJECT_DIR = CMakeFiles\game_test.dir
   OBJECT_FILE_DIR = CMakeFiles\game_test.dir\src\engine\core\low-level-renderer\buffers
 
 build CMakeFiles/game_test.dir/src/engine/core/low-level-renderer/graphic-api/concrete-apis/opengl/OpenGLDebugger.cpp.obj: CXX_COMPILER__game_test_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/core/low-level-renderer/graphic-api/concrete-apis/opengl/OpenGLDebugger.cpp || cmake_object_order_depends_target_game_test
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DGTEST_HAS_DEATH_TEST=1 -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game_test.dir\src\engine\core\low-level-renderer\graphic-api\concrete-apis\opengl\OpenGLDebugger.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0" -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest
   OBJECT_DIR = CMakeFiles\game_test.dir
   OBJECT_FILE_DIR = CMakeFiles\game_test.dir\src\engine\core\low-level-renderer\graphic-api\concrete-apis\opengl
 
 build CMakeFiles/game_test.dir/src/engine/core/low-level-renderer/graphic-api/concrete-apis/vulkan/VulkanGDI.cpp.obj: CXX_COMPILER__game_test_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/core/low-level-renderer/graphic-api/concrete-apis/vulkan/VulkanGDI.cpp || cmake_object_order_depends_target_game_test
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DGTEST_HAS_DEATH_TEST=1 -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game_test.dir\src\engine\core\low-level-renderer\graphic-api\concrete-apis\vulkan\VulkanGDI.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0" -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest
   OBJECT_DIR = CMakeFiles\game_test.dir
   OBJECT_FILE_DIR = CMakeFiles\game_test.dir\src\engine\core\low-level-renderer\graphic-api\concrete-apis\vulkan
 
 build CMakeFiles/game_test.dir/src/engine/core/low-level-renderer/texture/TextureManager.cpp.obj: CXX_COMPILER__game_test_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/core/low-level-renderer/texture/TextureManager.cpp || cmake_object_order_depends_target_game_test
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DGTEST_HAS_DEATH_TEST=1 -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game_test.dir\src\engine\core\low-level-renderer\texture\TextureManager.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0" -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest
   OBJECT_DIR = CMakeFiles\game_test.dir
   OBJECT_FILE_DIR = CMakeFiles\game_test.dir\src\engine\core\low-level-renderer\texture
 
 build CMakeFiles/game_test.dir/src/engine/core/window/WindowManager.cpp.obj: CXX_COMPILER__game_test_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/core/window/WindowManager.cpp || cmake_object_order_depends_target_game_test
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DGTEST_HAS_DEATH_TEST=1 -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game_test.dir\src\engine\core\window\WindowManager.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0" -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest
   OBJECT_DIR = CMakeFiles\game_test.dir
   OBJECT_FILE_DIR = CMakeFiles\game_test.dir\src\engine\core\window
 
 build CMakeFiles/game_test.dir/src/engine/ecs/backend/ECS.cpp.obj: CXX_COMPILER__game_test_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/ecs/backend/ECS.cpp || cmake_object_order_depends_target_game_test
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DGTEST_HAS_DEATH_TEST=1 -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game_test.dir\src\engine\ecs\backend\ECS.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0" -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest
   OBJECT_DIR = CMakeFiles\game_test.dir
   OBJECT_FILE_DIR = CMakeFiles\game_test.dir\src\engine\ecs\backend
 
 build CMakeFiles/game_test.dir/src/engine/ecs/backend/component/ComponentManager.cpp.obj: CXX_COMPILER__game_test_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/ecs/backend/component/ComponentManager.cpp || cmake_object_order_depends_target_game_test
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DGTEST_HAS_DEATH_TEST=1 -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game_test.dir\src\engine\ecs\backend\component\ComponentManager.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0" -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest
   OBJECT_DIR = CMakeFiles\game_test.dir
   OBJECT_FILE_DIR = CMakeFiles\game_test.dir\src\engine\ecs\backend\component
 
 build CMakeFiles/game_test.dir/src/engine/ecs/backend/entity/EntityManager.cpp.obj: CXX_COMPILER__game_test_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/ecs/backend/entity/EntityManager.cpp || cmake_object_order_depends_target_game_test
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DGTEST_HAS_DEATH_TEST=1 -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game_test.dir\src\engine\ecs\backend\entity\EntityManager.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0" -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest
   OBJECT_DIR = CMakeFiles\game_test.dir
   OBJECT_FILE_DIR = CMakeFiles\game_test.dir\src\engine\ecs\backend\entity
 
 build CMakeFiles/game_test.dir/src/engine/ecs/backend/system/SystemManager.cpp.obj: CXX_COMPILER__game_test_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/ecs/backend/system/SystemManager.cpp || cmake_object_order_depends_target_game_test
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DGTEST_HAS_DEATH_TEST=1 -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game_test.dir\src\engine\ecs\backend\system\SystemManager.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0" -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest
   OBJECT_DIR = CMakeFiles\game_test.dir
   OBJECT_FILE_DIR = CMakeFiles\game_test.dir\src\engine\ecs\backend\system
 
 build CMakeFiles/game_test.dir/src/engine/ecs/frontend/entity/Entity.cpp.obj: CXX_COMPILER__game_test_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/ecs/frontend/entity/Entity.cpp || cmake_object_order_depends_target_game_test
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DGTEST_HAS_DEATH_TEST=1 -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game_test.dir\src\engine\ecs\frontend\entity\Entity.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0" -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest
   OBJECT_DIR = CMakeFiles\game_test.dir
   OBJECT_FILE_DIR = CMakeFiles\game_test.dir\src\engine\ecs\frontend\entity
 
 build CMakeFiles/game_test.dir/src/engine/ecs/frontend/system/System.cpp.obj: CXX_COMPILER__game_test_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/ecs/frontend/system/System.cpp || cmake_object_order_depends_target_game_test
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DGTEST_HAS_DEATH_TEST=1 -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game_test.dir\src\engine\ecs\frontend\system\System.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0" -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest
   OBJECT_DIR = CMakeFiles\game_test.dir
   OBJECT_FILE_DIR = CMakeFiles\game_test.dir\src\engine\ecs\frontend\system
 
 build CMakeFiles/game_test.dir/src/engine/ecs/systems/CameraSystem.cpp.obj: CXX_COMPILER__game_test_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/ecs/systems/CameraSystem.cpp || cmake_object_order_depends_target_game_test
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DGTEST_HAS_DEATH_TEST=1 -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game_test.dir\src\engine\ecs\systems\CameraSystem.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0" -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest
   OBJECT_DIR = CMakeFiles\game_test.dir
   OBJECT_FILE_DIR = CMakeFiles\game_test.dir\src\engine\ecs\systems
 
 build CMakeFiles/game_test.dir/src/engine/ecs/systems/InputSystem.cpp.obj: CXX_COMPILER__game_test_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/ecs/systems/InputSystem.cpp || cmake_object_order_depends_target_game_test
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DGTEST_HAS_DEATH_TEST=1 -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game_test.dir\src\engine\ecs\systems\InputSystem.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0" -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest
   OBJECT_DIR = CMakeFiles\game_test.dir
   OBJECT_FILE_DIR = CMakeFiles\game_test.dir\src\engine\ecs\systems
 
 build CMakeFiles/game_test.dir/src/engine/ecs/systems/PhysicsSystem.cpp.obj: CXX_COMPILER__game_test_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/ecs/systems/PhysicsSystem.cpp || cmake_object_order_depends_target_game_test
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DGTEST_HAS_DEATH_TEST=1 -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game_test.dir\src\engine\ecs\systems\PhysicsSystem.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0" -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest
   OBJECT_DIR = CMakeFiles\game_test.dir
   OBJECT_FILE_DIR = CMakeFiles\game_test.dir\src\engine\ecs\systems
 
 build CMakeFiles/game_test.dir/src/engine/ecs/systems/RenderSystem.cpp.obj: CXX_COMPILER__game_test_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/ecs/systems/RenderSystem.cpp || cmake_object_order_depends_target_game_test
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DGTEST_HAS_DEATH_TEST=1 -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game_test.dir\src\engine\ecs\systems\RenderSystem.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0" -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest
   OBJECT_DIR = CMakeFiles\game_test.dir
   OBJECT_FILE_DIR = CMakeFiles\game_test.dir\src\engine\ecs\systems
 
 build CMakeFiles/game_test.dir/src/engine/main.cpp.obj: CXX_COMPILER__game_test_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/main.cpp || cmake_object_order_depends_target_game_test
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DGTEST_HAS_DEATH_TEST=1 -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game_test.dir\src\engine\main.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0" -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest
   OBJECT_DIR = CMakeFiles\game_test.dir
   OBJECT_FILE_DIR = CMakeFiles\game_test.dir\src\engine
 
 build CMakeFiles/game_test.dir/src/engine/res-mng/files/FileManager.cpp.obj: CXX_COMPILER__game_test_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/res-mng/files/FileManager.cpp || cmake_object_order_depends_target_game_test
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DGTEST_HAS_DEATH_TEST=1 -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game_test.dir\src\engine\res-mng\files\FileManager.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0" -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest
   OBJECT_DIR = CMakeFiles\game_test.dir
   OBJECT_FILE_DIR = CMakeFiles\game_test.dir\src\engine\res-mng\files
 
 build CMakeFiles/game_test.dir/src/engine/res-mng/textures/TextureLoader.cpp.obj: CXX_COMPILER__game_test_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/res-mng/textures/TextureLoader.cpp || cmake_object_order_depends_target_game_test
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DGTEST_HAS_DEATH_TEST=1 -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game_test.dir\src\engine\res-mng\textures\TextureLoader.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0" -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest
   OBJECT_DIR = CMakeFiles\game_test.dir
   OBJECT_FILE_DIR = CMakeFiles\game_test.dir\src\engine\res-mng\textures
 
 build CMakeFiles/game_test.dir/src/engine/subsystems/hud/HUDManager.cpp.obj: CXX_COMPILER__game_test_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/hud/HUDManager.cpp || cmake_object_order_depends_target_game_test
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DGTEST_HAS_DEATH_TEST=1 -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game_test.dir\src\engine\subsystems\hud\HUDManager.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0" -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest
   OBJECT_DIR = CMakeFiles\game_test.dir
   OBJECT_FILE_DIR = CMakeFiles\game_test.dir\src\engine\subsystems\hud
 
 build CMakeFiles/game_test.dir/src/engine/subsystems/input/InputManager.cpp.obj: CXX_COMPILER__game_test_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/input/InputManager.cpp || cmake_object_order_depends_target_game_test
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DGTEST_HAS_DEATH_TEST=1 -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game_test.dir\src\engine\subsystems\input\InputManager.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0" -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest
   OBJECT_DIR = CMakeFiles\game_test.dir
   OBJECT_FILE_DIR = CMakeFiles\game_test.dir\src\engine\subsystems\input
 
 build CMakeFiles/game_test.dir/src/engine/subsystems/physics/PhysicsManager.cpp.obj: CXX_COMPILER__game_test_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/physics/PhysicsManager.cpp || cmake_object_order_depends_target_game_test
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DGTEST_HAS_DEATH_TEST=1 -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game_test.dir\src\engine\subsystems\physics\PhysicsManager.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0" -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest
   OBJECT_DIR = CMakeFiles\game_test.dir
   OBJECT_FILE_DIR = CMakeFiles\game_test.dir\src\engine\subsystems\physics
 
 build CMakeFiles/game_test.dir/src/engine/subsystems/renderer/mesh/Face.cpp.obj: CXX_COMPILER__game_test_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/mesh/Face.cpp || cmake_object_order_depends_target_game_test
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DGTEST_HAS_DEATH_TEST=1 -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game_test.dir\src\engine\subsystems\renderer\mesh\Face.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0" -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest
   OBJECT_DIR = CMakeFiles\game_test.dir
   OBJECT_FILE_DIR = CMakeFiles\game_test.dir\src\engine\subsystems\renderer\mesh
 
 build CMakeFiles/game_test.dir/src/engine/subsystems/renderer/mesh/Mesh.cpp.obj: CXX_COMPILER__game_test_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/mesh/Mesh.cpp || cmake_object_order_depends_target_game_test
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DGTEST_HAS_DEATH_TEST=1 -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game_test.dir\src\engine\subsystems\renderer\mesh\Mesh.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0" -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest
   OBJECT_DIR = CMakeFiles\game_test.dir
   OBJECT_FILE_DIR = CMakeFiles\game_test.dir\src\engine\subsystems\renderer\mesh
 
 build CMakeFiles/game_test.dir/src/engine/subsystems/renderer/mesh/Vertex.cpp.obj: CXX_COMPILER__game_test_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/mesh/Vertex.cpp || cmake_object_order_depends_target_game_test
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DGTEST_HAS_DEATH_TEST=1 -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game_test.dir\src\engine\subsystems\renderer\mesh\Vertex.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0" -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest
   OBJECT_DIR = CMakeFiles\game_test.dir
   OBJECT_FILE_DIR = CMakeFiles\game_test.dir\src\engine\subsystems\renderer\mesh
 
 build CMakeFiles/game_test.dir/lib/include/glm/detail/glm.cpp.obj: CXX_COMPILER__game_test_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include/glm/detail/glm.cpp || cmake_object_order_depends_target_game_test
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DGTEST_HAS_DEATH_TEST=1 -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game_test.dir\lib\include\glm\detail\glm.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s"
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0" -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest
   OBJECT_DIR = CMakeFiles\game_test.dir
   OBJECT_FILE_DIR = CMakeFiles\game_test.dir\lib\include\glm\detail
 
 build CMakeFiles/game_test.dir/lib/include/imgui/example.cpp.obj: CXX_COMPILER__game_test_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include/imgui/example.cpp || cmake_object_order_depends_target_game_test
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DGTEST_HAS_DEATH_TEST=1 -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game_test.dir\lib\include\imgui\example.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s"
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0" -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest
   OBJECT_DIR = CMakeFiles\game_test.dir
   OBJECT_FILE_DIR = CMakeFiles\game_test.dir\lib\include\imgui
 
 build CMakeFiles/game_test.dir/lib/include/imgui/imgui.cpp.obj: CXX_COMPILER__game_test_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include/imgui/imgui.cpp || cmake_object_order_depends_target_game_test
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DGTEST_HAS_DEATH_TEST=1 -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game_test.dir\lib\include\imgui\imgui.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s"
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0" -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest
   OBJECT_DIR = CMakeFiles\game_test.dir
   OBJECT_FILE_DIR = CMakeFiles\game_test.dir\lib\include\imgui
 
 build CMakeFiles/game_test.dir/lib/include/imgui/imgui_demo.cpp.obj: CXX_COMPILER__game_test_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include/imgui/imgui_demo.cpp || cmake_object_order_depends_target_game_test
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DGTEST_HAS_DEATH_TEST=1 -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game_test.dir\lib\include\imgui\imgui_demo.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s"
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0" -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest
   OBJECT_DIR = CMakeFiles\game_test.dir
   OBJECT_FILE_DIR = CMakeFiles\game_test.dir\lib\include\imgui
 
 build CMakeFiles/game_test.dir/lib/include/imgui/imgui_draw.cpp.obj: CXX_COMPILER__game_test_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include/imgui/imgui_draw.cpp || cmake_object_order_depends_target_game_test
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DGTEST_HAS_DEATH_TEST=1 -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game_test.dir\lib\include\imgui\imgui_draw.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s"
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0" -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest
   OBJECT_DIR = CMakeFiles\game_test.dir
   OBJECT_FILE_DIR = CMakeFiles\game_test.dir\lib\include\imgui
 
 build CMakeFiles/game_test.dir/lib/include/imgui/imgui_impl_opengl3.cpp.obj: CXX_COMPILER__game_test_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include/imgui/imgui_impl_opengl3.cpp || cmake_object_order_depends_target_game_test
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DGTEST_HAS_DEATH_TEST=1 -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game_test.dir\lib\include\imgui\imgui_impl_opengl3.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s"
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0" -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest
   OBJECT_DIR = CMakeFiles\game_test.dir
   OBJECT_FILE_DIR = CMakeFiles\game_test.dir\lib\include\imgui
 
 build CMakeFiles/game_test.dir/lib/include/imgui/imgui_impl_sdl2.cpp.obj: CXX_COMPILER__game_test_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include/imgui/imgui_impl_sdl2.cpp || cmake_object_order_depends_target_game_test
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DGTEST_HAS_DEATH_TEST=1 -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game_test.dir\lib\include\imgui\imgui_impl_sdl2.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s"
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0" -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest
   OBJECT_DIR = CMakeFiles\game_test.dir
   OBJECT_FILE_DIR = CMakeFiles\game_test.dir\lib\include\imgui
 
 build CMakeFiles/game_test.dir/lib/include/imgui/imgui_tables.cpp.obj: CXX_COMPILER__game_test_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include/imgui/imgui_tables.cpp || cmake_object_order_depends_target_game_test
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DGTEST_HAS_DEATH_TEST=1 -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game_test.dir\lib\include\imgui\imgui_tables.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s"
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0" -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest
   OBJECT_DIR = CMakeFiles\game_test.dir
   OBJECT_FILE_DIR = CMakeFiles\game_test.dir\lib\include\imgui
 
 build CMakeFiles/game_test.dir/lib/include/imgui/imgui_widgets.cpp.obj: CXX_COMPILER__game_test_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include/imgui/imgui_widgets.cpp || cmake_object_order_depends_target_game_test
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DGTEST_HAS_DEATH_TEST=1 -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game_test.dir\lib\include\imgui\imgui_widgets.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s"
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0" -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest
   OBJECT_DIR = CMakeFiles\game_test.dir
   OBJECT_FILE_DIR = CMakeFiles\game_test.dir\lib\include\imgui
 
 build CMakeFiles/game_test.dir/tests/main.cpp.obj: CXX_COMPILER__game_test_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/tests/main.cpp || cmake_object_order_depends_target_game_test
   DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DGTEST_HAS_DEATH_TEST=1 -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
   DEP_FILE = CMakeFiles\game_test.dir\tests\main.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always "-O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s" -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -IC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0"
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0" -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest
   OBJECT_DIR = CMakeFiles\game_test.dir
   OBJECT_FILE_DIR = CMakeFiles\game_test.dir\tests
+
+build CMakeFiles/game_test.dir/tests/unit/engine/core/math/MathTest.cpp.obj: CXX_COMPILER__game_test_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/tests/unit/engine/core/math/MathTest.cpp || cmake_object_order_depends_target_game_test
+  DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DGTEST_HAS_DEATH_TEST=1 -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
+  DEP_FILE = CMakeFiles\game_test.dir\tests\unit\engine\core\math\MathTest.cpp.obj.d
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0" -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest
+  OBJECT_DIR = CMakeFiles\game_test.dir
+  OBJECT_FILE_DIR = CMakeFiles\game_test.dir\tests\unit\engine\core\math
+
+build CMakeFiles/game_test.dir/tests/unit/engine/core/math/MatrixTest.cpp.obj: CXX_COMPILER__game_test_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/tests/unit/engine/core/math/MatrixTest.cpp || cmake_object_order_depends_target_game_test
+  DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DGTEST_HAS_DEATH_TEST=1 -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
+  DEP_FILE = CMakeFiles\game_test.dir\tests\unit\engine\core\math\MatrixTest.cpp.obj.d
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0" -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest
+  OBJECT_DIR = CMakeFiles\game_test.dir
+  OBJECT_FILE_DIR = CMakeFiles\game_test.dir\tests\unit\engine\core\math
+
+build CMakeFiles/game_test.dir/tests/unit/engine/core/math/VectorTest.cpp.obj: CXX_COMPILER__game_test_unscanned_Release C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/tests/unit/engine/core/math/VectorTest.cpp || cmake_object_order_depends_target_game_test
+  DEFINES = -DFRAG_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/FragmentShader.frag\" -DGLEW_STATIC -DGTEST_HAS_DEATH_TEST=1 -DPROJECT_BINARY_DIR=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DVERT_SHADER=\"C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert\" -D__WINDOWS__
+  DEP_FILE = CMakeFiles\game_test.dir\tests\unit\engine\core\math\VectorTest.cpp.obj.d
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DDEBUG_GAPI -flto -s -Wall
+  INCLUDES = -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/include -isystem "C:/Program Files/boost/boost_1_83_0" -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest/include -isystem C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps/googletest-src/googletest
+  OBJECT_DIR = CMakeFiles\game_test.dir
+  OBJECT_FILE_DIR = CMakeFiles\game_test.dir\tests\unit\engine\core\math
 
 
 # =============================================================================
@@ -781,9 +805,9 @@ build CMakeFiles/game_test.dir/tests/main.cpp.obj: CXX_COMPILER__game_test_unsca
 #############################################
 # Link the executable game_test.exe
 
-build game_test.exe: CXX_EXECUTABLE_LINKER__game_test_Release CMakeFiles/game_test.dir/src/Game/Game.cpp.obj CMakeFiles/game_test.dir/src/engine/GLESC.cpp.obj CMakeFiles/game_test.dir/src/engine/core/counter/Counter.cpp.obj CMakeFiles/game_test.dir/src/engine/core/debugger/Stacktrace.cpp.obj CMakeFiles/game_test.dir/src/engine/core/exceptions/BaseException.cpp.obj CMakeFiles/game_test.dir/src/engine/core/file-system/FileSystemPath.cpp.obj CMakeFiles/game_test.dir/src/engine/core/logger/Logger.cpp.obj CMakeFiles/game_test.dir/src/engine/core/logger/outputs/FileLogger.cpp.obj CMakeFiles/game_test.dir/src/engine/core/logger/outputs/TerminalLogger.cpp.obj CMakeFiles/game_test.dir/src/engine/core/low-level-renderer/buffers/IndexBuffer.cpp.obj CMakeFiles/game_test.dir/src/engine/core/low-level-renderer/buffers/VertexBuffer.cpp.obj CMakeFiles/game_test.dir/src/engine/core/low-level-renderer/graphic-api/concrete-apis/opengl/OpenGLDebugger.cpp.obj CMakeFiles/game_test.dir/src/engine/core/low-level-renderer/graphic-api/concrete-apis/vulkan/VulkanGDI.cpp.obj CMakeFiles/game_test.dir/src/engine/core/low-level-renderer/texture/TextureManager.cpp.obj CMakeFiles/game_test.dir/src/engine/core/window/WindowManager.cpp.obj CMakeFiles/game_test.dir/src/engine/ecs/backend/ECS.cpp.obj CMakeFiles/game_test.dir/src/engine/ecs/backend/component/ComponentManager.cpp.obj CMakeFiles/game_test.dir/src/engine/ecs/backend/entity/EntityManager.cpp.obj CMakeFiles/game_test.dir/src/engine/ecs/backend/system/SystemManager.cpp.obj CMakeFiles/game_test.dir/src/engine/ecs/frontend/entity/Entity.cpp.obj CMakeFiles/game_test.dir/src/engine/ecs/frontend/system/System.cpp.obj CMakeFiles/game_test.dir/src/engine/ecs/systems/CameraSystem.cpp.obj CMakeFiles/game_test.dir/src/engine/ecs/systems/InputSystem.cpp.obj CMakeFiles/game_test.dir/src/engine/ecs/systems/PhysicsSystem.cpp.obj CMakeFiles/game_test.dir/src/engine/ecs/systems/RenderSystem.cpp.obj CMakeFiles/game_test.dir/src/engine/main.cpp.obj CMakeFiles/game_test.dir/src/engine/res-mng/files/FileManager.cpp.obj CMakeFiles/game_test.dir/src/engine/res-mng/textures/TextureLoader.cpp.obj CMakeFiles/game_test.dir/src/engine/subsystems/hud/HUDManager.cpp.obj CMakeFiles/game_test.dir/src/engine/subsystems/input/InputManager.cpp.obj CMakeFiles/game_test.dir/src/engine/subsystems/physics/PhysicsManager.cpp.obj CMakeFiles/game_test.dir/src/engine/subsystems/renderer/mesh/Face.cpp.obj CMakeFiles/game_test.dir/src/engine/subsystems/renderer/mesh/Mesh.cpp.obj CMakeFiles/game_test.dir/src/engine/subsystems/renderer/mesh/Vertex.cpp.obj CMakeFiles/game_test.dir/lib/include/glm/detail/glm.cpp.obj CMakeFiles/game_test.dir/lib/include/imgui/example.cpp.obj CMakeFiles/game_test.dir/lib/include/imgui/imgui.cpp.obj CMakeFiles/game_test.dir/lib/include/imgui/imgui_demo.cpp.obj CMakeFiles/game_test.dir/lib/include/imgui/imgui_draw.cpp.obj CMakeFiles/game_test.dir/lib/include/imgui/imgui_impl_opengl3.cpp.obj CMakeFiles/game_test.dir/lib/include/imgui/imgui_impl_sdl2.cpp.obj CMakeFiles/game_test.dir/lib/include/imgui/imgui_tables.cpp.obj CMakeFiles/game_test.dir/lib/include/imgui/imgui_widgets.cpp.obj CMakeFiles/game_test.dir/tests/main.cpp.obj
+build game_test.exe: CXX_EXECUTABLE_LINKER__game_test_Release CMakeFiles/game_test.dir/src/Game/Game.cpp.obj CMakeFiles/game_test.dir/src/engine/GLESC.cpp.obj CMakeFiles/game_test.dir/src/engine/core/counter/Counter.cpp.obj CMakeFiles/game_test.dir/src/engine/core/debugger/Stacktrace.cpp.obj CMakeFiles/game_test.dir/src/engine/core/exceptions/BaseException.cpp.obj CMakeFiles/game_test.dir/src/engine/core/file-system/FileSystemPath.cpp.obj CMakeFiles/game_test.dir/src/engine/core/logger/Logger.cpp.obj CMakeFiles/game_test.dir/src/engine/core/logger/outputs/FileLogger.cpp.obj CMakeFiles/game_test.dir/src/engine/core/logger/outputs/TerminalLogger.cpp.obj CMakeFiles/game_test.dir/src/engine/core/low-level-renderer/buffers/IndexBuffer.cpp.obj CMakeFiles/game_test.dir/src/engine/core/low-level-renderer/buffers/VertexBuffer.cpp.obj CMakeFiles/game_test.dir/src/engine/core/low-level-renderer/graphic-api/concrete-apis/opengl/OpenGLDebugger.cpp.obj CMakeFiles/game_test.dir/src/engine/core/low-level-renderer/graphic-api/concrete-apis/vulkan/VulkanGDI.cpp.obj CMakeFiles/game_test.dir/src/engine/core/low-level-renderer/texture/TextureManager.cpp.obj CMakeFiles/game_test.dir/src/engine/core/window/WindowManager.cpp.obj CMakeFiles/game_test.dir/src/engine/ecs/backend/ECS.cpp.obj CMakeFiles/game_test.dir/src/engine/ecs/backend/component/ComponentManager.cpp.obj CMakeFiles/game_test.dir/src/engine/ecs/backend/entity/EntityManager.cpp.obj CMakeFiles/game_test.dir/src/engine/ecs/backend/system/SystemManager.cpp.obj CMakeFiles/game_test.dir/src/engine/ecs/frontend/entity/Entity.cpp.obj CMakeFiles/game_test.dir/src/engine/ecs/frontend/system/System.cpp.obj CMakeFiles/game_test.dir/src/engine/ecs/systems/CameraSystem.cpp.obj CMakeFiles/game_test.dir/src/engine/ecs/systems/InputSystem.cpp.obj CMakeFiles/game_test.dir/src/engine/ecs/systems/PhysicsSystem.cpp.obj CMakeFiles/game_test.dir/src/engine/ecs/systems/RenderSystem.cpp.obj CMakeFiles/game_test.dir/src/engine/main.cpp.obj CMakeFiles/game_test.dir/src/engine/res-mng/files/FileManager.cpp.obj CMakeFiles/game_test.dir/src/engine/res-mng/textures/TextureLoader.cpp.obj CMakeFiles/game_test.dir/src/engine/subsystems/hud/HUDManager.cpp.obj CMakeFiles/game_test.dir/src/engine/subsystems/input/InputManager.cpp.obj CMakeFiles/game_test.dir/src/engine/subsystems/physics/PhysicsManager.cpp.obj CMakeFiles/game_test.dir/src/engine/subsystems/renderer/mesh/Face.cpp.obj CMakeFiles/game_test.dir/src/engine/subsystems/renderer/mesh/Mesh.cpp.obj CMakeFiles/game_test.dir/src/engine/subsystems/renderer/mesh/Vertex.cpp.obj CMakeFiles/game_test.dir/lib/include/glm/detail/glm.cpp.obj CMakeFiles/game_test.dir/lib/include/imgui/example.cpp.obj CMakeFiles/game_test.dir/lib/include/imgui/imgui.cpp.obj CMakeFiles/game_test.dir/lib/include/imgui/imgui_demo.cpp.obj CMakeFiles/game_test.dir/lib/include/imgui/imgui_draw.cpp.obj CMakeFiles/game_test.dir/lib/include/imgui/imgui_impl_opengl3.cpp.obj CMakeFiles/game_test.dir/lib/include/imgui/imgui_impl_sdl2.cpp.obj CMakeFiles/game_test.dir/lib/include/imgui/imgui_tables.cpp.obj CMakeFiles/game_test.dir/lib/include/imgui/imgui_widgets.cpp.obj CMakeFiles/game_test.dir/tests/main.cpp.obj CMakeFiles/game_test.dir/tests/unit/engine/core/math/MathTest.cpp.obj CMakeFiles/game_test.dir/tests/unit/engine/core/math/MatrixTest.cpp.obj CMakeFiles/game_test.dir/tests/unit/engine/core/math/VectorTest.cpp.obj | lib/libgtest.a || lib/libgtest.a
   FLAGS = -O3 -DNDEBUG
-  LINK_LIBRARIES = -lmingw32  -lSDL2  -lSDL2main  -lSDL2_net  -lSDL2_mixer  -lSDL2_image  -lglew32s  -lopengl32  -limm32  -lDbgHelp  -lversion  -lsetupapi  -lwinmm  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  LINK_LIBRARIES = -lmingw32  -lSDL2  -lSDL2main  -lSDL2_net  -lSDL2_mixer  -lSDL2_image  -lglew32s  -lopengl32  -limm32  -lversion  -lsetupapi  -lwinmm  lib/libgtest.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   LINK_PATH = -LC:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/lib/lib
   OBJECT_DIR = CMakeFiles\game_test.dir
   POST_BUILD = cd .
@@ -791,18 +815,6 @@ build game_test.exe: CXX_EXECUTABLE_LINKER__game_test_Release CMakeFiles/game_te
   TARGET_FILE = game_test.exe
   TARGET_IMPLIB = libgame_test.dll.a
   TARGET_PDB = game_test.exe.dbg
-
-
-#############################################
-# Utility command for test
-
-build CMakeFiles/test.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D C:\Users\Lenovo\Desktop\Github_repos\TFG---OpenGL-Engine\bin\release && "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\ctest.exe" --force-new-ctest-process "
-  DESC = Running tests...
-  pool = console
-  restat = 1
-
-build test: phony CMakeFiles/test.util
 
 
 #############################################
@@ -871,20 +883,8 @@ build install/strip: phony CMakeFiles/install/strip.util
 
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
-# C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/cmake/Testing.cmake
+# C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/cmake/modules/Testing.cmake
 # =============================================================================
-
-
-#############################################
-# Utility command for test
-
-build _deps/googletest-build/CMakeFiles/test.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D C:\Users\Lenovo\Desktop\Github_repos\TFG---OpenGL-Engine\bin\release\_deps\googletest-build && "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\ctest.exe" --force-new-ctest-process "
-  DESC = Running tests...
-  pool = console
-  restat = 1
-
-build _deps/googletest-build/test: phony _deps/googletest-build/CMakeFiles/test.util
 
 
 #############################################
@@ -1022,18 +1022,6 @@ build lib/libgmock_main.a: CXX_STATIC_LIBRARY_LINKER__gmock_main_Release _deps/g
 
 
 #############################################
-# Utility command for test
-
-build _deps/googletest-build/googlemock/CMakeFiles/test.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D C:\Users\Lenovo\Desktop\Github_repos\TFG---OpenGL-Engine\bin\release\_deps\googletest-build\googlemock && "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\ctest.exe" --force-new-ctest-process "
-  DESC = Running tests...
-  pool = console
-  restat = 1
-
-build _deps/googletest-build/googlemock/test: phony _deps/googletest-build/googlemock/CMakeFiles/test.util
-
-
-#############################################
 # Utility command for edit_cache
 
 build _deps/googletest-build/googlemock/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
@@ -1168,18 +1156,6 @@ build lib/libgtest_main.a: CXX_STATIC_LIBRARY_LINKER__gtest_main_Release _deps/g
 
 
 #############################################
-# Utility command for test
-
-build _deps/googletest-build/googletest/CMakeFiles/test.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D C:\Users\Lenovo\Desktop\Github_repos\TFG---OpenGL-Engine\bin\release\_deps\googletest-build\googletest && "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\ctest.exe" --force-new-ctest-process "
-  DESC = Running tests...
-  pool = console
-  restat = 1
-
-build _deps/googletest-build/googletest/test: phony _deps/googletest-build/googletest/CMakeFiles/test.util
-
-
-#############################################
 # Utility command for edit_cache
 
 build _deps/googletest-build/googletest/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
@@ -1304,14 +1280,14 @@ build _deps/googletest-build/googletest/all: phony lib/libgtest.a lib/libgtest_m
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDependentOption.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakePackageConfigHelpers.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeRCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FetchContent.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FetchContent/CMakeLists.cmake.in C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindBoost.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindGTest.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindPackageHandleStandardArgs.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindPackageMessage.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindPython.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindPython/Support.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/GNUInstallDirs.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/GoogleTest.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/WindowsPaths.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/WriteBasicConfigVersionFile.cmake C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/CMakeLists.txt C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/cmake/CompilerFlags.cmake C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/cmake/FileLocations.cmake C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/cmake/FindPackages.cmake C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/cmake/LinkedLibraries.cmake C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/cmake/PlatformDetection.cmake C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/cmake/Testing.cmake CMakeCache.txt CMakeFiles/3.26.4/CMakeCCompiler.cmake CMakeFiles/3.26.4/CMakeCXXCompiler.cmake CMakeFiles/3.26.4/CMakeRCCompiler.cmake CMakeFiles/3.26.4/CMakeSystem.cmake _deps/googletest-src/CMakeLists.txt _deps/googletest-src/googlemock/CMakeLists.txt _deps/googletest-src/googlemock/cmake/gmock.pc.in _deps/googletest-src/googlemock/cmake/gmock_main.pc.in _deps/googletest-src/googletest/CMakeLists.txt _deps/googletest-src/googletest/cmake/Config.cmake.in _deps/googletest-src/googletest/cmake/gtest.pc.in _deps/googletest-src/googletest/cmake/gtest_main.pc.in _deps/googletest-src/googletest/cmake/internal_utils.cmake
+build build.ninja: RERUN_CMAKE | C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDependentOption.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakePackageConfigHelpers.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeRCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FetchContent.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FetchContent/CMakeLists.cmake.in C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindBoost.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindPackageHandleStandardArgs.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindPackageMessage.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindPython.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindPython/Support.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/GNUInstallDirs.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/WindowsPaths.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/WriteBasicConfigVersionFile.cmake C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/CMakeLists.txt C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/cmake/core/ErrorChecking.cmake C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/cmake/core/Including.cmake C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/cmake/core/PlatformDetection.cmake C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/cmake/core/Printing.cmake C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/cmake/modules/CompilerDefinitions.cmake C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/cmake/modules/CompilerFlags.cmake C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/cmake/modules/FileLocations.cmake C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/cmake/modules/FindPackages.cmake C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/cmake/modules/LinkLibraries.cmake C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/cmake/modules/Testing.cmake CMakeCache.txt CMakeFiles/3.26.4/CMakeCCompiler.cmake CMakeFiles/3.26.4/CMakeCXXCompiler.cmake CMakeFiles/3.26.4/CMakeRCCompiler.cmake CMakeFiles/3.26.4/CMakeSystem.cmake _deps/googletest-src/CMakeLists.txt _deps/googletest-src/googlemock/CMakeLists.txt _deps/googletest-src/googlemock/cmake/gmock.pc.in _deps/googletest-src/googlemock/cmake/gmock_main.pc.in _deps/googletest-src/googletest/CMakeLists.txt _deps/googletest-src/googletest/cmake/Config.cmake.in _deps/googletest-src/googletest/cmake/gtest.pc.in _deps/googletest-src/googletest/cmake/gtest_main.pc.in _deps/googletest-src/googletest/cmake/internal_utils.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDependentOption.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakePackageConfigHelpers.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeRCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FetchContent.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FetchContent/CMakeLists.cmake.in C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindBoost.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindGTest.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindPackageHandleStandardArgs.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindPackageMessage.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindPython.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindPython/Support.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/GNUInstallDirs.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/GoogleTest.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/WindowsPaths.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/WriteBasicConfigVersionFile.cmake C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/CMakeLists.txt C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/cmake/CompilerFlags.cmake C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/cmake/FileLocations.cmake C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/cmake/FindPackages.cmake C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/cmake/LinkedLibraries.cmake C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/cmake/PlatformDetection.cmake C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/cmake/Testing.cmake CMakeCache.txt CMakeFiles/3.26.4/CMakeCCompiler.cmake CMakeFiles/3.26.4/CMakeCXXCompiler.cmake CMakeFiles/3.26.4/CMakeRCCompiler.cmake CMakeFiles/3.26.4/CMakeSystem.cmake _deps/googletest-src/CMakeLists.txt _deps/googletest-src/googlemock/CMakeLists.txt _deps/googletest-src/googlemock/cmake/gmock.pc.in _deps/googletest-src/googlemock/cmake/gmock_main.pc.in _deps/googletest-src/googletest/CMakeLists.txt _deps/googletest-src/googletest/cmake/Config.cmake.in _deps/googletest-src/googletest/cmake/gtest.pc.in _deps/googletest-src/googletest/cmake/gtest_main.pc.in _deps/googletest-src/googletest/cmake/internal_utils.cmake: phony
+build C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDependentOption.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakePackageConfigHelpers.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeRCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FetchContent.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FetchContent/CMakeLists.cmake.in C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindBoost.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindPackageHandleStandardArgs.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindPackageMessage.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindPython.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindPython/Support.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/GNUInstallDirs.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/WindowsPaths.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/WriteBasicConfigVersionFile.cmake C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/CMakeLists.txt C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/cmake/core/ErrorChecking.cmake C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/cmake/core/Including.cmake C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/cmake/core/PlatformDetection.cmake C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/cmake/core/Printing.cmake C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/cmake/modules/CompilerDefinitions.cmake C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/cmake/modules/CompilerFlags.cmake C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/cmake/modules/FileLocations.cmake C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/cmake/modules/FindPackages.cmake C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/cmake/modules/LinkLibraries.cmake C$:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/cmake/modules/Testing.cmake CMakeCache.txt CMakeFiles/3.26.4/CMakeCCompiler.cmake CMakeFiles/3.26.4/CMakeCXXCompiler.cmake CMakeFiles/3.26.4/CMakeRCCompiler.cmake CMakeFiles/3.26.4/CMakeSystem.cmake _deps/googletest-src/CMakeLists.txt _deps/googletest-src/googlemock/CMakeLists.txt _deps/googletest-src/googlemock/cmake/gmock.pc.in _deps/googletest-src/googlemock/cmake/gmock_main.pc.in _deps/googletest-src/googletest/CMakeLists.txt _deps/googletest-src/googletest/cmake/Config.cmake.in _deps/googletest-src/googletest/cmake/gtest.pc.in _deps/googletest-src/googletest/cmake/gtest_main.pc.in _deps/googletest-src/googletest/cmake/internal_utils.cmake: phony
 
 
 #############################################

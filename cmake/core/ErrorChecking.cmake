@@ -1,0 +1,8 @@
+function(assert_not_empty param)
+  if(NOT DEFINED param)
+    error("Parameter is not set.")
+  elseif(param STREQUAL "")
+    string(STRIP "${param}" param_stripped)
+    error("Parameter is empty.")
+  endif()
+endfunction()

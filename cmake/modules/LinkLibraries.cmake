@@ -1,15 +1,16 @@
-# ············· MODULE DEPENDENCIES ·············
-include_cmake_once(FileLocations.cmake)
-# ···············································
-
-
 # ==========================================================
-# ================ LINKED LIBRARIES MODULE =================
+# ================= LINK LIBRARIES MODULE ==================
 # ==========================================================
 # Module description:
 #   This module is in charge of providing functions to link
 #   the libraries that the project depends on. It also
 #   defines the libraries that the project depends on.
+
+
+
+# **********************************************************
+# ~~~~~~~~~~~~~~~~~~ Module initialization ~~~~~~~~~~~~~~~~~
+# **********************************************************
 
 # This is the list of all the libraries that are needed to
 # build the game
@@ -37,12 +38,14 @@ set(MAIN_LIBS
     # This is the glew library, OpenGL Extension Wrangler,
     # used to load OpenGL functions
     glew32s
-    CACHE STRING "Main libraries"
+    CACHE INTERNAL "Main libraries" FORCE
 )
-if (WIN32)
-  list(APPEND
-      MAIN_LIBS
-      # This is the OpenGL library, needed to use OpenGL
+if (PLATFORM STREQUAL "__WINDOWS__")
+  # Appending with set instead of list because it's a cache
+  # variable.
+  set(MAIN_LIBS
+      ${MAIN_LIBS}
+      # This is the library that allows us to use OpenGL
       # in Windows.
       opengl32
 
@@ -73,15 +76,18 @@ if (WIN32)
       # multimedia functionalities, such as playing sound
       # files, providing timers, and accessing joysticks
       winmm
+      CACHE INTERNAL "Main libraries" FORCE
   )
-elseif (LINUX)
+elseif (PLATFORM STREQUAL "__LINUX__")
   # TODO: Add libraries for Linux
-elseif (APPLE)
+elseif (PLATFORM STREQUAL "__APPLE__")
   # TODO: Add libraries for Mac
 endif ()
 
 
-
+# **********************************************************
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# **********************************************************
 
 # ----------------------------------------------------------
 # Function: link_common_libs
@@ -92,6 +98,8 @@ endif ()
 #   target: The target to link the libraries to.
 # ----------------------------------------------------------
 function(link_common_libs target)
+  assert_not_empty(${target})
+  assert_not_empty(${MAIN_LIBS})
   important_info( "Linking libraries to target ${target}")
   target_link_libraries(${target}
       # These are the libraries that the project depends on.
@@ -112,6 +120,8 @@ endfunction()
 #   extra_libs: The extra libraries to link to the target.
 # ----------------------------------------------------------
 function(link_extra_libs target extra_libs)
+  assert_not_empty(${target})
+  assert_not_empty(${extra_libs})
   important_info( "Linking extra libraries to target ${target}")
   target_link_libraries(${target}
       ${extra_libs}

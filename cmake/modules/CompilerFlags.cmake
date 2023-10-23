@@ -1,6 +1,3 @@
-# ·················· MODULE DEPENDENCIES ···················
-include_cmake_once(FileLocations.cmake)
-# ··························································
 # ==========================================================
 # ================ COMPILER FLAGS MODULE ===================
 # ==========================================================
@@ -11,9 +8,12 @@ include_cmake_once(FileLocations.cmake)
 #   different targets and files.
 
 
-# ----------------------------------------------------------
-# Defining general compile flags
+# **********************************************************
+# ~~~~~~~~~~~~~~~~~~ Module initialization ~~~~~~~~~~~~~~~~~
+# **********************************************************
 
+verbose_info("Defining compiler flags")
+# Defining general compile flags
 set(MY_COMPILE_FLAGS
     # Enable all warnings
     "-Wall"
@@ -44,7 +44,6 @@ set(MY_COMPILE_FLAGS
     CACHE STRING "Flags used by the compiler during all build types."
 )
 
-# ----------------------------------------------------------
 # Defining debug build flags
 set(DEBUG_FLAGS
     # Optimization flag, no optimization
@@ -58,7 +57,6 @@ set(DEBUG_FLAGS
     CACHE STRING "Flags used by the compiler during debug builds."
 )
 
-# ----------------------------------------------------------
 # Defining release build flags
 set(RELEASE_FLAGS
     # Optimization flag, -O3 is not always faster than -O2
@@ -84,6 +82,13 @@ set(RELEASE_FLAGS
     CACHE STRING "Flags used by the compiler during release builds."
 )
 
+# **********************************************************
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# **********************************************************
+
+
+
+
 # ----------------------------------------------------------
 # Function: set_common_compiler_flags_to_build_type
 # Description:
@@ -95,6 +100,7 @@ set(RELEASE_FLAGS
 #   target: The target to apply the flags to.
 # ----------------------------------------------------------
 function(set_common_compiler_flags_to_build_type target)
+  assert_not_empty(${target})
   important_info("Adding common compile flags to build type for target ${target}")
   if (CMAKE_BUILD_TYPE STREQUAL "Debug")
     target_compile_options(${target} PRIVATE ${DEBUG_FLAGS})
@@ -112,6 +118,9 @@ endfunction()
 #   the common project files.
 # ----------------------------------------------------------
 function(set_compile_flags_to_common_files)
+  assert_not_empty(${SOURCE_FILES})
+  assert_not_empty(${TEST_FILES})
+  assert_not_empty(${MY_COMPILE_FLAGS})
   important_info("Adding compile flags to common files")
   set_source_files_properties(
       ${SOURCE_FILES} ${TEST_FILES}
@@ -134,6 +143,8 @@ endfunction()
 #   files: The files to apply the flags to.
 # ----------------------------------------------------------
 function(set_compile_flags_to_extra_files files)
+  assert_not_empty(${files})
+  assert_not_empty(${MY_COMPILE_FLAGS})
   important_info("Adding compile flags to extra files")
   set_source_files_properties(
       ${files}

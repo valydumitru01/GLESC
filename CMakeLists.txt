@@ -4,10 +4,35 @@
 # This is the main CMakeLists.txt file for the project.
 # Here all the modules work together to create the project.
 # All the modules are found in the cmake folder.
+
+
 # Set the minimum version of CMake that can be used
-cmake_minimum_required(VERSION 3.10)
-include(cmake/Printing.cmake)
+cmake_minimum_required(VERSION 3.20)
+# Enables CMake code to be forward compatible with newer
+# versions of CMake.
+cmake_policy(SET CMP0074 NEW)
+cmake_policy(SET CMP0135 NEW)
+
+# Enforces that the specified C++ standard is required.
+# If the compiler can't support it, CMake config will fail.
+# Prevents fallback to older standards, ensuring consistent
+# behavior across different compilers and systems.
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+set(CMAKE_VERBOSE_MAKEFILE ON)
+set(CMAKE_MESSAGE_LOG_LEVEL DEBUG)
+# Core functionality, needed to build the project
+# Using the regular include, because the custom
+# include_once might depend on these
+include(cmake/core/Printing.cmake)
+include(cmake/core/ErrorChecking.cmake)
+include(cmake/core/Including.cmake)
+include(cmake/core/PlatformDetection.cmake)
+
 important_info("CMake Version: ${CMAKE_VERSION}")
+
+
+
 
 # Main project name
 project(game)
@@ -15,47 +40,15 @@ project(game)
 set(CMAKE_CXX_STANDARD 17)
 important_info("C++ Version: ${CMAKE_CXX_STANDARD}")
 
-# Ensure that the compiler supports the c++ version
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Enables CMake code to be forward compatible with newer
-# versions of CMake.
-cmake_policy(SET CMP0074 NEW)
-cmake_policy(SET CMP0135 NEW)
 
-set(CMAKE_VERBOSE_MAKEFILE ON)
-set(CMAKE_MESSAGE_LOG_LEVEL DEBUG)
-# ----------------------------------------------------------
-# Function: include_cmake_once
-# Description:
-#   This function is used to include cmake files only once.
-#   It is very important that this function stays at the top
-#   of the CMakeLists.txt file. This is because the modules
-#   that are included by this function may use this for
-#   including other cmake files.
-# Parameters:
-#   cmake_file: The cmake file to include
-# ----------------------------------------------------------
-function(include_cmake_once cmake_file)
-  string(REGEX REPLACE "[^a-zA-Z0-9]" "_" cmake_file_upper ${cmake_file})
-  set(CURRENT_FILE ${CMAKE_CURRENT_LIST_FILE})
-  string(REPLACE "${CMAKE_SOURCE_DIR}/" "" STRIPPED_PATH ${CURRENT_FILE})
-  debug("Including cmake file ${cmake_file} to file ${STRIPPED_PATH}")
-  if (NOT DEFINED CMAKE_INCLUDED_${cmake_file_upper})
-    include(cmake/${cmake_file})
-    set(CMAKE_INCLUDED_${cmake_file_upper} TRUE PARENT_SCOPE)
-  else ()
-    debug("CMake file ${cmake_file} already included, not necessary to include it again for file ${STRIPPED_PATH}")
-  endif ()
-endfunction()
 
-include_cmake_once(FindPackages.cmake)
-include_cmake_once(FileLocations.cmake)
-include_cmake_once(LinkedLibraries.cmake)
-include_cmake_once(PlatformDetection.cmake)
-include_cmake_once(CompilerDefinitions.cmake)
-include_cmake_once(CompilerFlags.cmake)
-include_cmake_once(Testing.cmake)
+include_cmake_once(modules/FindPackages.cmake)
+include_cmake_once(modules/FileLocations.cmake)
+include_cmake_once(modules/LinkLibraries.cmake)
+include_cmake_once(modules/CompilerDefinitions.cmake)
+include_cmake_once(modules/CompilerFlags.cmake)
+include_cmake_once(modules/Testing.cmake)
 # ----------------------------------------------------------
 # Function: include_cmake_once
 # Description:
@@ -75,14 +68,8 @@ set(targets
     # The test target
     game_test
 )
-# Here we define the directories and files of the cmake
-# and store them in variables for later use
-define_directories_and_files()
-# Here we're detecting the platform where the project is
-# being built
-detect_platform()
+
 # ----------------------------------------------------------
-# Finding packages
 
 # This finds all the packages that are common to all targets
 find_common_packages()
@@ -110,9 +97,9 @@ endforeach ()
 foreach (target ${targets})
   set_common_sources(${target})
 endforeach ()
-
+error("WHY DOESNT THIS WORK")
 if (TARGET game_test)
-  add_extra_sources(game_test ${TEST_FILES})
+  add_extra_sources(game_test "${TEST_SOURCE_FILES}")
 endif ()
 # ----------------------------------------------------------
 
@@ -162,7 +149,8 @@ endforeach ()
 set_compile_flags_to_common_files()
 # Here we apply those flags to extra files
 if (TARGET game_test)
-  set_compile_flags_to_extra_files(${TEST_FILES})
+  # Cache variables need to be passed as strings
+  set_compile_flags_to_extra_files("${TEST_SOURCE_FILES}")
 endif ()
 
 # ----------------------------------------------------------
