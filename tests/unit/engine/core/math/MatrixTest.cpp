@@ -451,6 +451,4 @@ TEST(MatrixTests, MatrixFunctions){
     ASSERT_EQ(matrix17, Matrix3F({{0, -1, 0},
                                   {1, 0, 0},
                                   {0, 0, 1}}));
-    
-    
 }
