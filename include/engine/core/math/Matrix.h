@@ -459,47 +459,55 @@ public:
         }
     }
     
+    Matrix<Type, N, M> adjoint() const {
+        Matrix<Type, N, M> adj;
+        for (int r = 0; r < 3; r++) {
+            for (int c = 0; c < 3; c++) {
+                adj.data[r][c] = (data[(c + 1) % 3][(r + 1) % 3] * data[(c + 2) % 3][(r + 2) % 3]) -
+                                 (data[(c + 1) % 3][(r + 2) % 3] * data[(c + 2) % 3][(r + 1) % 3]);
+            }
+        }
+        return adj;
+    }
+    
     [[nodiscard]] Matrix<Type, N, M> inverse() const {
         Type det = determinant();
         if (eq(det, 0))
-            throw MathException("Singular matrix");
-        Matrix<Type, N, M> inv;
-        
+            throw MathException("Division by zero");
         if constexpr (N == 2 && M == 2) {
-            
-            inv[0][0] = data[1][1] / det;
-            inv[0][1] = -data[0][1] / det;
-            inv[1][0] = -data[1][0] / det;
-            inv[1][1] = data[0][0] / det;
-            
+            Matrix<Type, N, M> inv;
+            inv.data[0][0] =  data[1][1] / det;
+            inv.data[0][1] = -data[0][1] / det;
+            inv.data[1][0] = -data[1][0] / det;
+            inv.data[1][1] =  data[0][0] / det;
+            return inv;
         } else if constexpr (N == 3 && M == 3) {
-            
-            for (int i = 0; i < 3; ++i) {
-                for (int j = 0; j < 3; j++) {
-                    // Calculate the sub-determinant
-                    int x1 = (i + 1) % 3, x2 = (i + 2) % 3;
-                    int y1 = (j + 1) % 3, y2 = (j + 2) % 3;
-                    
-                    Type subDet = data[x1][y1] * data[x2][y2] - data[x1][y2] * data[x2][y1];
-                    
-                    // Multiply by pow(-1, i+j)
-                    inv[j][i] = ((i + j) % 2 == 0 ? 1 : -1) * subDet;
+            Matrix<Type, N, M> inv = adjoint();
+            for (int r = 0; r < 3; r++) {
+                for (int c = 0; c < 3; c++) {
+                    inv.data[r][c] /= det;
                 }
             }
-            
-            return inv / det;
+            return inv;
         } else if constexpr (N == 4 && M == 4) {
+            Matrix<Type, 4, 4> inv;
+            
+            // Calculate the adjugate matrix
             for (size_t i = 0; i < 4; ++i) {
                 for (size_t j = 0; j < 4; ++j) {
-                    Type m = minor(i, j);
-                    inv[j][i] = ((i + j) % 2 == 0 ? 1 : -1) * m;
+                    Type minorVal = minor(i, j); // Function that computes the minor
+                    inv[j][i] = ((i + j) % 2 == 0 ? 1 : -1) * minorVal;
                 }
             }
+            
+            // Multiply by 1/det to get the inverse
+            return inv / det;
         }
-        return inv;
+        
     }
     
     [[nodiscard]] Type minor(size_t i, size_t j) const {
+        S_ASSERT_MAT_IS_OF_SIZE(N, M, 4, 4);
         Matrix<Type, 3, 3> subMatrix;
         
         for (size_t row = 0, curRow = 0; row < 4; ++row) {
