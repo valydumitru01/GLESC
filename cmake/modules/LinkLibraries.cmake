@@ -7,7 +7,6 @@
 #   defines the libraries that the project depends on.
 
 
-
 # **********************************************************
 # ~~~~~~~~~~~~~~~~~~ Module initialization ~~~~~~~~~~~~~~~~~
 # **********************************************************
@@ -97,16 +96,16 @@ endif ()
 # Parameters:
 #   target: The target to link the libraries to.
 # ----------------------------------------------------------
-function(link_common_libs target)
+function(set_common_link_libs target)
   assert_not_empty(${target})
   assert_not_empty(${MAIN_LIBS})
-  important_info( "Linking libraries to target ${target}")
+  important_info( "Setting linking libraries to target ${target}")
   target_link_libraries(${target}
       # These are the libraries that the project depends on.
       # Defined in LinkedLibraries.cmake
       ${MAIN_LIBS}
   )
-  success("Linked libraries to target ${target}:
+  success("Linking libraries to target ${target} are set! Libraries:
 \t\t${MAIN_LIBS}")
 endfunction()
 
@@ -119,13 +118,13 @@ endfunction()
 #   target: The target to link the libraries to.
 #   extra_libs: The extra libraries to link to the target.
 # ----------------------------------------------------------
-function(link_extra_libs target extra_libs)
+function(add_extra_link_libs target extra_libs)
   assert_not_empty(${target})
   assert_not_empty(${extra_libs})
-  important_info( "Linking extra libraries to target ${target}")
+  important_info( "Setting extra linking libraries to target ${target}")
   target_link_libraries(${target}
       ${extra_libs}
   )
-  success("Linked extra libraries to target ${target}:
+  success("Extra linking libraries to target ${target} are set! Extra libraries:
 \t\t${extra_libs}")
 endfunction()

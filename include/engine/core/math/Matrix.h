@@ -217,6 +217,16 @@ public:
         return result;
     }
     
+    [[nodiscard]] Matrix<Type, N, M> operator+(Type scalar) const {
+        Matrix<Type, N, M> result;
+        for (size_t i = 0; i < N; ++i) {
+            for (size_t k = 0; k < M; k++) {
+                result.data[i][k] = data[i][k] + scalar;
+            }
+        }
+        return result;
+    }
+    
     [[nodiscard]] Matrix<Type, N, M> operator-(const Matrix<Type, N, M> &rhs) const {
         Matrix<Type, N, M> result;
         for (size_t i = 0; i < N; ++i) {
@@ -227,10 +237,20 @@ public:
         return result;
     }
     
+    [[nodiscard]] Matrix<Type, N, M> operator-(Type scalar) const {
+        Matrix<Type, N, M> result;
+        for (size_t i = 0; i < N; ++i) {
+            for (size_t k = 0; k < M; k++) {
+                result.data[i][k] = data[i][k] - scalar;
+            }
+        }
+        return result;
+    }
+    
     [[nodiscard]] Matrix<Type, N, M> operator-() const {
         Matrix<Type, N, M> result;
         for (size_t i = 0; i < N; ++i) {
-            for (size_t k = 0; k < M; ++k) {
+            for (size_t k = 0; k < M; k++) {
                 result.data[i][k] = -data[i][k];
             }
         }
@@ -282,6 +302,14 @@ public:
                 result.data[i][k] = data[i][k] / scalar;
             }
         }
+        return result;
+    }
+    
+    [[nodiscard]] Matrix<Type, N, M> operator/(const Matrix<Type, N, M> &rhs) const {
+        if (eq(rhs.determinant(), Type()))
+            throw MathException("Division by zero");
+        Matrix<Type, N, M> result;
+        result = *this * rhs.inverse();
         return result;
     }
     
@@ -394,6 +422,8 @@ public:
     
     
     [[nodiscard]]Type determinant() const {
+        static_assert((N == 2 && M == 2) || (N == 3 && M == 3) || (N == 4 && M == 4),
+                "Matrix size must be 2x2, 3x3 or 4x4");
         if constexpr (N == 2 && M == 2) {
             return data[0][0] * data[1][1] - data[0][1] * data[1][0];
         } else if constexpr (N == 3 && M == 3) {
@@ -419,8 +449,6 @@ public:
                                  data[1][2] * (data[2][0] * data[3][1] - data[2][1] * data[3][0]));
             
             return det;
-        } else {
-            D_ASSERT(false, "Matrix size must be 2x2, 3x3 or 4x4");
         }
     }
     
@@ -468,7 +496,6 @@ public:
     }
     
     [[nodiscard]] Type minor(size_t i, size_t j) const {
-        S_ASSERT_MAT_IS_OF_SIZE(N, M, 4, 4);
         Matrix<Type, 3, 3> subMatrix;
         
         for (size_t row = 0, curRow = 0; row < 4; ++row) {
@@ -482,7 +509,6 @@ public:
             }
             ++curRow;
         }
-        // Assuming you have a 3x3 determinant function
         return subMatrix.determinant();
     }
     

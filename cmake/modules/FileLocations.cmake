@@ -87,10 +87,14 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY
     ${CMAKE_SOURCE_DIR}/bin)
 set_new_dir(BIN_DIR
     ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
-set_new_dir(BIN_DIR_DEBUG
-    ${BIN_DIR}/debug)
-set_new_dir(BIN_DIR_RELEASE
+if (CMAKE_BUILD_TYPE STREQUAL "Debug")
+  set_new_dir(BIN_DIR
+      ${BIN_DIR}/debug)
+else ()
+set_new_dir(BIN_DIR
     ${BIN_DIR}/release)
+endif ()
+
 # ..........................................................
 
 # ...................... Source Files ......................
@@ -173,7 +177,7 @@ endfunction()
 # Parameters:
 #   target: The target to add the static library directories.
 # ----------------------------------------------------------
-function(set_common_static_lib_dirs target)
+function(set_common_link_lib_dirs target)
   important_info("Adding static library directories of the project to target ${target}")
   assert_not_empty(${target})
   target_link_directories(${target} PRIVATE ${LIB_STATIC_DIR})
@@ -189,7 +193,7 @@ endfunction()
 # Parameters:
 #   target: The target to add the static library directories.
 # ----------------------------------------------------------
-function(add_extra_static_lib_dirs target dirs)
+function(add_extra_link_lib_dirs target dirs)
   assert_not_empty(${target})
   assert_not_empty(${dirs})
   info("Adding extra static library directories to target ${target}")
@@ -237,6 +241,7 @@ endfunction()
 function(add_extra_sources target srcs)
   assert_not_empty(${target})
   assert_not_empty(${srcs})
+
   important_info("Adding extra sources to ${target}")
   target_sources(${target} PRIVATE ${srcs})
   success("Added extra sources to target ${target}:

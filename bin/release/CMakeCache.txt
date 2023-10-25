@@ -314,9 +314,6 @@ CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 //Flags used by the compiler during debug builds.
 DEBUG_FLAGS:STRING=-O0;-g;-ggdb
 
-//The name of the debug build type
-DEBUG_VAR:STRING=Debug
-
 //Directory under which to collect all populated content
 FETCHCONTENT_BASE_DIR:PATH=C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release/_deps
 
@@ -342,10 +339,13 @@ FETCHCONTENT_UPDATES_DISCONNECTED_GOOGLETEST:BOOL=OFF
 INSTALL_GTEST:BOOL=ON
 
 //Flags used by the compiler during all build types.
-MY_COMPILE_FLAGS:STRING=-Wall;-Wextra;-Wpedantic;-Wshadow;-Wconversion;-Wuninitialized;-Wold-style-cast;-Wfloat-equal;-Wcast-qual;-Wcast-align;-static
+MAIN_COMPILE_FLAGS:STRING=-static
 
 //Flags used by the compiler during release builds.
 RELEASE_FLAGS:STRING=-O3;-DRELEASE;-DNDEBUG;-DNLOGGING;-DDEBUG_GAPI;-flto;-s
+
+//Flags that are applied only to project sources.
+SOURCE_COMPILE_FLAGS:STRING=-Wall;-Wextra;-Wpedantic;-Wshadow;-Wconversion;-Wuninitialized;-Wold-style-cast;-Wfloat-equal;-Wcast-qual;-Wcast-align
 
 //Value Computed by CMake
 game_BINARY_DIR:STATIC=C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release
@@ -409,17 +409,12 @@ gtest_hide_internal_symbols:BOOL=OFF
 //Dependencies for the target
 gtest_main_LIB_DEPENDS:STATIC=general;gtest;
 
-//Main libraries
-temp_main_libs:STRING=mingw32;SDL2;SDL2main;SDL2_net;SDL2_mixer;SDL2_image;glew32s
-
 
 ########################
 # INTERNAL cache entries
 ########################
 
-BIN_DIR:INTERNAL=C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin
-BIN_DIR_DEBUG:INTERNAL=C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/debug
-BIN_DIR_RELEASE:INTERNAL=C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release
+BIN_DIR:INTERNAL=C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/bin/release
 //ADVANCED property for variable: Boost_DIR
 Boost_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: Boost_INCLUDE_DIR
@@ -624,7 +619,6 @@ MY_DEFINITIONS:INTERNAL=__WINDOWS__;GLEW_STATIC;FRAG_SHADER="C:/Users/Lenovo/Des
 SOURCE_FILES:INTERNAL=C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/Game/Game.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/GLESC.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/core/counter/Counter.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/core/debugger/Stacktrace.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/core/exceptions/BaseException.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/core/file-system/FileSystemPath.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/core/logger/Logger.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/core/logger/outputs/FileLogger.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/core/logger/outputs/TerminalLogger.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/core/low-level-renderer/buffers/IndexBuffer.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/core/low-level-renderer/buffers/VertexBuffer.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/core/low-level-renderer/graphic-api/concrete-apis/opengl/OpenGLDebugger.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/core/low-level-renderer/graphic-api/concrete-apis/vulkan/VulkanGDI.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/core/low-level-renderer/texture/TextureManager.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/core/window/WindowManager.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/ecs/backend/ECS.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/ecs/backend/component/ComponentManager.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/ecs/backend/entity/EntityManager.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/ecs/backend/system/SystemManager.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/ecs/frontend/entity/Entity.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/ecs/frontend/system/System.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/ecs/systems/CameraSystem.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/ecs/systems/InputSystem.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/ecs/systems/PhysicsSystem.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/ecs/systems/RenderSystem.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/main.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/res-mng/files/FileManager.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/res-mng/textures/TextureLoader.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/hud/HUDManager.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/input/InputManager.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/physics/PhysicsManager.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/mesh/Face.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/mesh/Mesh.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/mesh/Vertex.cpp
 SRC_DIR:INTERNAL=src
 TEST_DIR:INTERNAL=tests
-TEST_FILES:INTERNAL=C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/tests/main.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/tests/unit/engine/core/math/MathTest.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/tests/unit/engine/core/math/MatrixTest.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/tests/unit/engine/core/math/VectorTest.cpp
 TEST_SOURCE_FILES:INTERNAL=C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/tests/main.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/tests/unit/engine/core/math/MathTest.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/tests/unit/engine/core/math/MatrixTest.cpp;C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/tests/unit/engine/core/math/VectorTest.cpp
 VERT_SHADER:INTERNAL=C:/Users/Lenovo/Desktop/Github_repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders/VertexShader.vert
 //Components requested for this build tree.

@@ -18,15 +18,6 @@ include_cmake_once(modules/FileLocations.cmake)
 # ~~~~~~~~~~~~~~~~~~ Module initialization ~~~~~~~~~~~~~~~~~
 # **********************************************************
 
-# Set project binary directory based on build type
-if (CMAKE_BUILD_TYPE STREQUAL "Debug")
-  set(MY_PROJECT_BINARY_DIR
-      "${BIN_DIR_DEBUG}")
-elseif (CMAKE_BUILD_TYPE STREQUAL "Release")
-  set(MY_PROJECT_BINARY_DIR
-      "${BIN_DIR_RELEASE}")
-endif ()
-
 
 # Store all definitions in a list
 set(MY_DEFINITIONS
@@ -43,7 +34,7 @@ set(MY_DEFINITIONS
     PROJECT_NAME="${PROJECT_NAME}"
     # This is the binary directory of the project,
     # it is needed for stack traces to work
-    PROJECT_BINARY_DIR="${MY_PROJECT_BINARY_DIR}"
+    PROJECT_BINARY_DIR="${BIN_DIR}"
     CACHE INTERNAL "Common definitions" FORCE
 )
 
