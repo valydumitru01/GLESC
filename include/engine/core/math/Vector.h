@@ -577,6 +577,8 @@ namespace GLESC::Math {
                     result += data[i].toString() + ", ";
                 }
             }
+            result.pop_back();
+            result.pop_back();
             result += "]";
             return result;
         }

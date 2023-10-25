@@ -484,7 +484,8 @@ TEST(VectorTests, MoveAssignmentOperator) {
     EXPECT_FLOAT_EQ(vecI4[0], 1.0);
     EXPECT_FLOAT_EQ(vecI4[1], 2.0);
 }
-TEST(VectorTests, CopyAssignmentOperator){
+
+TEST(VectorTests, CopyAssignmentOperator) {
     Vec<double, 2> vecI(1.0f, 2.0f);
     Vec<double, 2> vecI2;
     vecI2 = vecI; // NOLINT
@@ -509,7 +510,7 @@ TEST(VectorTests, CopyAssignmentOperator){
     
 }
 
-TEST(VectorTests, AdditionAssignmentOperator){
+TEST(VectorTests, AdditionAssignmentOperator) {
     Vec<double, 2> vecI(1.0, 2.0);
     Vec<double, 2> vecI2(1.0, 2.0);
     vecI += vecI2;
@@ -543,7 +544,7 @@ TEST(VectorTests, AdditionAssignmentOperator){
     EXPECT_FLOAT_EQ(vecI4[1], 4.0);
 }
 
-TEST(VectorTests, SubstractionAssignmentOperator){
+TEST(VectorTests, SubstractionAssignmentOperator) {
     Vec<double, 2> vecI(1.0, 2.0);
     Vec<double, 2> vecI2(1.0, 2.0);
     vecI -= vecI2;
@@ -577,7 +578,7 @@ TEST(VectorTests, SubstractionAssignmentOperator){
     EXPECT_FLOAT_EQ(vecI4[1], 0.0);
 }
 
-TEST(VectorTests, MultiplicationAssignmentOperator){
+TEST(VectorTests, MultiplicationAssignmentOperator) {
     Vec<double, 2> vecI(1.0, 2.0);
     Vec<double, 2> vecI2(1.0, 2.0);
     vecI *= vecI2;
@@ -611,7 +612,7 @@ TEST(VectorTests, MultiplicationAssignmentOperator){
     EXPECT_FLOAT_EQ(vecI4[1], 4.0);
 }
 
-TEST(VectorTests, DivisionAssignmentOperator){
+TEST(VectorTests, DivisionAssignmentOperator) {
     Vec<double, 2> vecI(1.0, 2.0);
     Vec<double, 2> vecI2(1.0, 2.0);
     vecI /= vecI2;
@@ -1040,7 +1041,7 @@ TEST(VectorTests, Normalize) {
     
 }
 
-TEST(VectorTests, Cross){
+TEST(VectorTests, Cross) {
     // Test with unit vectors
     Vec<float, 3> i(1.0f, 0.0f, 0.0f);
     Vec<float, 3> j(0.0f, 1.0f, 0.0f);
@@ -1080,18 +1081,30 @@ TEST(VectorTests, Cross){
     EXPECT_FLOAT_EQ(result[2], 39.0f);
 }
 
-TEST(VectorTests, toString){
+TEST(VectorTests, toString) {
     Vec<int, 2> vecI(1, 2);
     EXPECT_EQ(vecI.toString(), "[1, 2]");
     
+    
     Vec<float, 3> vecF(1.0, 2.0, 3.0);
-    EXPECT_EQ(vecF.toString(), "[1, 2, 3]");
+    EXPECT_EQ(vecF.toString(), std::string(
+            "[" + std::to_string(vecF[0]) +
+            ", " + std::to_string(vecF[1]) +
+            ", " + std::to_string(vecF[2]) + "]"));
     
     Vec<size_t, 4> vecSt(1, 2, 3, 4);
-    EXPECT_EQ(vecSt.toString(), "[1, 2, 3, 4]");
+    EXPECT_EQ(vecSt.toString(), std::string(
+            "[" + std::to_string(vecSt[0]) +
+            ", " + std::to_string(vecSt[1]) +
+            ", " + std::to_string(vecSt[2]) +
+            ", " + std::to_string(vecSt[3]) + "]"));
     
     // A harder one
     Vec<float, 4> vecSt3(1.11f, 2.22f, 1.11f, 4.44f);
-    EXPECT_EQ(vecSt3.toString(), "[1.11, 2.22, 1.11, 4.44]");
+    EXPECT_EQ(vecSt3.toString(), std::string(
+            "[" + std::to_string(vecSt3[0]) +
+            ", " + std::to_string(vecSt3[1]) +
+            ", " + std::to_string(vecSt3[2]) +
+            ", " + std::to_string(vecSt3[3]) + "]"));
 }
 

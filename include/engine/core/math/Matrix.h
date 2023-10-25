@@ -132,9 +132,7 @@ public:
     Matrix<Type, N, M> &operator*=(const Matrix<Type, N, M> &rhs) {
         for (size_t i = 0; i < N; ++i) {
             for (size_t j = 0; j < M; ++j) {
-                for (size_t k = 0; k < N; ++k) {
-                    data[i][k] *= rhs.data[k][j];
-                }
+                data[i][j] *= rhs.data[i][j];
             }
         }
         return *this;
@@ -199,9 +197,13 @@ public:
     }
     
     Matrix<Type, N, M> &operator/=(const Matrix<Type, N, M> &rhs) {
-        if (eq(rhs.determinant(), 0))
-            throw MathException("Division by zero");
-        *this = *this * rhs.inverse();
+        for (size_t i = 0; i < N; ++i) {
+            if (eq(rhs.data[i][i], 0))
+                throw MathException("Division by zero");
+            for (size_t k = 0; k < M; k++) {
+                data[i][k] /= rhs.data[i][k];
+            }
+        }
         return *this;
     }
     
@@ -270,17 +272,18 @@ public:
     
     template<size_t X>
     [[nodiscard]] Matrix<Type, N, X> operator*(const Matrix<Type, M, X> &other) const {
-        Matrix<Type, N, M> result;
+        Matrix<Type, N, X> result;
         for (size_t i = 0; i < N; ++i) {
-            for (size_t k = 0; k < M; ++k) {
-                result.data[i][k] = 0;
-                for (size_t j = 0; j < N; ++j) {
-                    result.data[i][k] += data[i][j] * other.data[j][k];
+            for (size_t j = 0; j < X; ++j) {
+                result[i][j] = 0;
+                for (size_t k = 0; k < M; ++k) {
+                    result[i][j] += data[i][k] * other.data[k][j];
                 }
             }
         }
         return result;
     }
+    
     
     [[nodiscard]] Matrix<Type, N, M> operator*(Type scalar) const {
         Matrix<Type, N, M> result;
@@ -306,10 +309,14 @@ public:
     }
     
     [[nodiscard]] Matrix<Type, N, M> operator/(const Matrix<Type, N, M> &rhs) const {
-        if (eq(rhs.determinant(), Type()))
-            throw MathException("Division by zero");
         Matrix<Type, N, M> result;
-        result = *this * rhs.inverse();
+        for (size_t i = 0; i < N; ++i) {
+            if (eq(rhs.data[i][i], Type()))
+                throw MathException("Division by zero");
+            for (size_t k = 0; k < M; k++) {
+                result.data[i][k] = data[i][k] / rhs.data[i][k];
+            }
+        }
         return result;
     }
     
@@ -423,7 +430,7 @@ public:
     
     [[nodiscard]]Type determinant() const {
         static_assert((N == 2 && M == 2) || (N == 3 && M == 3) || (N == 4 && M == 4),
-                "Matrix size must be 2x2, 3x3 or 4x4");
+                      "Matrix size must be 2x2, 3x3 or 4x4");
         if constexpr (N == 2 && M == 2) {
             return data[0][0] * data[1][1] - data[0][1] * data[1][0];
         } else if constexpr (N == 3 && M == 3) {
@@ -482,17 +489,14 @@ public:
             
             return inv / det;
         } else if constexpr (N == 4 && M == 4) {
-            
             for (size_t i = 0; i < 4; ++i) {
                 for (size_t j = 0; j < 4; ++j) {
                     Type m = minor(i, j);
                     inv[j][i] = ((i + j) % 2 == 0 ? 1 : -1) * m;
                 }
             }
-            
-            
-            return inv;
         }
+        return inv;
     }
     
     [[nodiscard]] Type minor(size_t i, size_t j) const {

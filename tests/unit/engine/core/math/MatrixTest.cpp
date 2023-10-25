@@ -10,7 +10,10 @@
 #include <gtest/gtest.h>
 #include "engine/core/math/Math.h"
 #include "engine/core/math/Matrix.h"
-
+#define ASSERT_EQ_F(a,b) \
+    ASSERT_NEAR(a,b,GLESC::Math::FLOAT_COMPARISON_EPSILON)
+#define ASSERT_EQ_D(a,b) \
+    ASSERT_NEAR(a,b,GLESC::Math::DOUBLE_COMPARISON_EPSILON)
 TEST(MatrixTests, Constructors) {
     // Default constructor
     Matrix2I matrix;
@@ -295,13 +298,13 @@ TEST(MatrixTests, MatrixFunctions){
     Matrix3F matrixDet2 = {{1, 2, 3},
                         {0, 1, 4},
                         {5, 6, 0}};
-    ASSERT_EQ(matrixDet2.determinant(), 31);
+    ASSERT_EQ(matrixDet2.determinant(), 1);
     
     Matrix4F matrixDet3 = {{1, 2, 3, 4},
                         {0, 1, 4, 5},
                         {5, 6, 0, 7},
                         {8, 9, 10, 0}};
-    ASSERT_EQ(matrixDet3.determinant(), -360);
+    ASSERT_EQ(matrixDet3.determinant(), -95);
     
     
     
@@ -318,33 +321,33 @@ TEST(MatrixTests, MatrixFunctions){
                            {0, 1, 4},
                            {5, 6, 0}};
     Matrix3F matrixInv4 = matrixInv3.inverse();
-    ASSERT_TRUE(eq(matrixInv4[0][0], -24));
-    ASSERT_TRUE(eq(matrixInv4[0][1], 18));
-    ASSERT_TRUE(eq(matrixInv4[0][2], 5));
-    ASSERT_TRUE(eq(matrixInv4[1][0], 20));
-    ASSERT_TRUE(eq(matrixInv4[1][1], -15));
-    ASSERT_TRUE(eq(matrixInv4[1][2], -4));
-    ASSERT_TRUE(eq(matrixInv4[2][0], -5));
-    ASSERT_TRUE(eq(matrixInv4[2][1], 4));
-    ASSERT_TRUE(eq(matrixInv4[2][2], 1));
+    ASSERT_EQ_F(matrixInv4[0][0], -24);
+    ASSERT_EQ_F(matrixInv4[0][1], 18);
+    ASSERT_EQ_F(matrixInv4[0][2], 5);
+    ASSERT_EQ_F(matrixInv4[1][0], 20);
+    ASSERT_EQ_F(matrixInv4[1][1], -15);
+    ASSERT_EQ_F(matrixInv4[1][2], -4);
+    ASSERT_EQ_F(matrixInv4[2][0], -5);
+    ASSERT_EQ_F(matrixInv4[2][1], 4);
+    ASSERT_EQ_F(matrixInv4[2][2], 1);
     
     Matrix4F matrixInv5 = {{1, 2, 3, 4},
                            {0, 1, 4, 5},
                            {5, 6, 0, 7},
                            {8, 9, 10, 0}};
     Matrix4F matrixInv6 = matrixInv5.inverse();
-    ASSERT_TRUE(eq(matrixInv6[0][0], 9.5));
-    ASSERT_TRUE(eq(matrixInv6[0][1], -8.5));
-    ASSERT_TRUE(eq(matrixInv6[0][2], -1.5));
-    ASSERT_TRUE(eq(matrixInv6[0][3], 1));
-    ASSERT_TRUE(eq(matrixInv6[1][0], -8));
-    ASSERT_TRUE(eq(matrixInv6[1][1], 7));
-    ASSERT_TRUE(eq(matrixInv6[1][2], 1));
-    ASSERT_TRUE(eq(matrixInv6[1][3], 0));
-    ASSERT_TRUE(eq(matrixInv6[2][0], 1.5));
-    ASSERT_TRUE(eq(matrixInv6[2][1], -1.5));
-    ASSERT_TRUE(eq(matrixInv6[2][2], 0.5));
-    ASSERT_TRUE(eq(matrixInv6[2][3], 0));
+    ASSERT_EQ_F(matrixInv6[0][0], 9.5);
+    ASSERT_EQ_F(matrixInv6[0][1], -8.5);
+    ASSERT_EQ_F(matrixInv6[0][2], -1.5);
+    ASSERT_EQ_F(matrixInv6[0][3], 1);
+    ASSERT_EQ_F(matrixInv6[1][0], -8);
+    ASSERT_EQ_F(matrixInv6[1][1], 7);
+    ASSERT_EQ_F(matrixInv6[1][2], 1);
+    ASSERT_EQ_F(matrixInv6[1][3], 0);
+    ASSERT_EQ_F(matrixInv6[2][0], 1.5);
+    ASSERT_EQ_F(matrixInv6[2][1], -1.5);
+    ASSERT_EQ_F(matrixInv6[2][2], 0.5);
+    ASSERT_EQ_F(matrixInv6[2][3], 0);
     
     
     // Transpose
