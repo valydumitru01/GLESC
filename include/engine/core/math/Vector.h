@@ -24,8 +24,6 @@ namespace GLESC::Math {
         template<typename OtherType> using EnableIfNarrowerNumber = std::enable_if_t<
                 std::is_arithmetic_v<OtherType> && std::is_arithmetic_v<Type> &&
                 !std::is_same_v<Type, OtherType> && (sizeof(OtherType) < sizeof(Type))>;
-        
-        static_assert(N > 1, "Size must be greater than 1");
     
     public:
         // ================================================
@@ -66,7 +64,7 @@ namespace GLESC::Math {
             std::move(std::begin(other.data), std::end(other.data), std::begin(data));
         }
         Vector(std::initializer_list<Type> list) noexcept {
-            ASSERT_INIT_LIST_IS_OF_SIZE(list.size(), N);
+            D_ASSERT_INIT_LIST_IS_OF_SIZE(list.size(), N);
             std::copy(list.begin(), list.end(), std::begin(data));
         }
         
@@ -111,7 +109,7 @@ namespace GLESC::Math {
         
         template<typename OtherType>
         Vector(std::initializer_list<OtherType> list) noexcept {
-            ASSERT_INIT_LIST_IS_OF_SIZE(list.size(), N);
+            D_ASSERT_INIT_LIST_IS_OF_SIZE(list.size(), N);
             for (size_t i = 0; i < N; ++i) {
                 data[i] = static_cast<Type>(*(list.begin() + i));
             }
@@ -276,55 +274,6 @@ namespace GLESC::Math {
             return *this;
         }
         
-        // ############All Numeric Types###############
-        
-        template<typename OtherType, typename = EnableIfNarrowerNumber<OtherType>>
-        Vector<Type, N> &operator=(const Vector<OtherType, N> &other) {
-            for (size_t i = 0; i < N; ++i) {
-                data[i] = static_cast<Type>(other[i]);
-            }
-            return *this;
-        }
-        
-        template<typename OtherType, typename = EnableIfNarrowerNumber<OtherType>>
-        Vector<Type, N> &operator=(Vector<OtherType, N> &&other) {
-            for (size_t i = 0; i < N; ++i) {
-                data[i] = static_cast<Type>(std::move(other[i]));
-            }
-            return *this;
-        }
-        
-        template<typename OtherType, typename = EnableIfNarrowerNumber<OtherType>>
-        Vector<Type, N> operator+=(const Vector<OtherType, N> &rhs) {
-            for (size_t i = 0; i < N; ++i) {
-                data[i] += static_cast<Type>(rhs[i]);
-            }
-            return *this;
-        }
-        
-        template<typename OtherType, typename = EnableIfNarrowerNumber<OtherType>>
-        Vector<Type, N> operator-=(const Vector<OtherType, N> &rhs) {
-            for (size_t i = 0; i < N; ++i) {
-                data[i] -= static_cast<Type>(rhs[i]);
-            }
-            return *this;
-        }
-        
-        template<typename OtherType, typename = EnableIfNarrowerNumber<OtherType>>
-        Vector<Type, N> operator*=(OtherType scalar) {
-            for (size_t i = 0; i < N; ++i) {
-                data[i] *= static_cast<Type>(scalar);
-            }
-            return *this;
-        }
-        
-        template<typename OtherType, typename = EnableIfNarrowerNumber<OtherType>>
-        Vector<Type, N> operator/=(OtherType scalar) {
-            for (size_t i = 0; i < N; ++i) {
-                data[i] /= static_cast<Type>(scalar);
-            }
-            return *this;
-        }
         
         // ==============Arithmetic Operators===================
         
@@ -459,6 +408,10 @@ namespace GLESC::Math {
             return data[index];
         }
         
+        const Type& get(size_t index) const {
+            return data[index];
+        }
+        
         // ==============Comparison Operators===================
         template<typename OtherType>
         constexpr bool operator==(const Vector<OtherType, N> &rhs) const {
@@ -531,6 +484,10 @@ namespace GLESC::Math {
 
         // =================Vector Functions=================
         
+        void swap(Vector<Type, N> &other) {
+            std::swap(data, other.data);
+        }
+        
         [[nodiscard]] Type dot(const Vector<Type, N> &rhs) const {
             Type result = Type();
             for (size_t i = 0; i < N; ++i) {
@@ -549,6 +506,10 @@ namespace GLESC::Math {
                 result += data[i] * data[i];
             }
             return result;
+        }
+        
+        [[nodiscard]] Type isHomogeneous() const {
+            return data[N - 1] == Type(1);
         }
         
         [[nodiscard]] Vector<Type, N> normalize() const {

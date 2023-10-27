@@ -74,3 +74,4 @@ namespace GLESC {
     };
     
 }
+using Logger = GLESC::Logger ;

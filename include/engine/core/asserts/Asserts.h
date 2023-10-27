@@ -35,7 +35,7 @@
 
 
 
-#define D_ASSERT(condition, message) \
+#define D_ASSERT_TRUE(condition, message) \
         do { \
             if (! (condition)) { \
                 ASSERT_CONTENT(condition, message) \

@@ -24,7 +24,7 @@ WindowManager::WindowManager(GLESC_RENDER_API &graphicInterfaceParam) :
 }
 
 void WindowManager::setSize(uint16_t windowWidth, uint16_t windowHeight) {
-    D_ASSERT(isInitialized, "WindowManager not initialized! Cannot set size!");
+    D_ASSERT_TRUE(isInitialized, "WindowManager not initialized! Cannot set size!");
     width = windowWidth;
     height = windowHeight;
     
@@ -33,14 +33,14 @@ void WindowManager::setSize(uint16_t windowWidth, uint16_t windowHeight) {
 
 
 void WindowManager::setFullscreen(SDL_bool isFullScreen) {
-    D_ASSERT(isInitialized, "WindowManager not initialized! Cannot set fullscreen!");
+    D_ASSERT_TRUE(isInitialized, "WindowManager not initialized! Cannot set fullscreen!");
     fullscreen = isFullScreen;
     SDL_SetWindowFullscreen(window, fullscreen);
 }
 
 
 void WindowManager::setMouseRelative(bool enabled) {
-    D_ASSERT(isInitialized, "WindowManager not initialized! Cannot set mouse relative!");
+    D_ASSERT_TRUE(isInitialized, "WindowManager not initialized! Cannot set mouse relative!");
     SDL_bool isRelative;
     std::string failOutput;
     if (enabled) {
@@ -58,18 +58,18 @@ void WindowManager::setMouseRelative(bool enabled) {
 }
 
 SDL_Window &WindowManager::getWindow() {
-    D_ASSERT(isInitialized, "WindowManager not initialized! Cannot get window!");
+    D_ASSERT_TRUE(isInitialized, "WindowManager not initialized! Cannot get window!");
     return *window;
 }
 
 uint32_t WindowManager::getWidth() const {
-    D_ASSERT(isInitialized, "WindowManager not initialized! Cannot get width!");
+    D_ASSERT_TRUE(isInitialized, "WindowManager not initialized! Cannot get width!");
     return width;
 }
 
 
 uint32_t WindowManager::getHeight() const {
-    D_ASSERT(isInitialized, "WindowManager not initialized! Cannot get height!");
+    D_ASSERT_TRUE(isInitialized, "WindowManager not initialized! Cannot get height!");
     return height;
 }
 

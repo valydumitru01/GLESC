@@ -14,7 +14,7 @@
 namespace GLESC{
 template <typename keyEnum>
 std::string keyToString(const keyEnum& key) {
-    D_ASSERT(false, "Key not supported to be converted to string");
+    D_ASSERT_TRUE(false, "Key not supported to be converted to string");
 }
 template<>
 inline std::string keyToString<GLESC::KeyState> (const GLESC::KeyState& keyState) {

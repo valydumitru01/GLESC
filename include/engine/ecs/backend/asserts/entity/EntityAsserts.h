@@ -15,14 +15,14 @@
  * @param entityName The entity name to be checked.
  */
 #define ASSERT_ENTITY_CAN_BE_CREATED(entityName) \
-    D_ASSERT(canEntityBeCreated(entityName), "No entities to be created")
+    D_ASSERT_TRUE(canEntityBeCreated(entityName), "No entities to be created")
 
 /**
  * @brief Asserts the entity is alive.
  * @param entityID The entity ID to be checked.
  */
 #define ASSERT_ENTITY_IS_ALIVE(entityID) \
-    D_ASSERT(isEntityAlive(entityID), "Entity is not alive, but should be")
+    D_ASSERT_TRUE(isEntityAlive(entityID), "Entity is not alive, but should be")
 /**
  * @brief Asserts the entity is not alive.
  * @param entityID The entity ID to be checked.
@@ -37,7 +37,7 @@
  * @param entityIDs The entityIDs map.
  */
 #define ASSERT_ENTITY_NAME_IS_ALIVE(entityName) \
-    D_ASSERT(isEntityNameAlive(entityName), "Entity is not alive, but should be")
+    D_ASSERT_TRUE(isEntityNameAlive(entityName), "Entity is not alive, but should be")
 
 #define ASSERT_ENTITY_NAME_IS_NOT_ALIVE(entityName) \
     D_ASSERT_FALSE(isEntityNameAlive(entityName), "Entity is alive, but should not be")
@@ -48,4 +48,4 @@
  * @param signatures The signatures of the entities.
  */
 #define ASSERT_COMPONENT_IS_IN_RANGE(componentID) \
-    D_ASSERT(isComponentInRange(componentID), "Component is out of range")
+    D_ASSERT_TRUE(isComponentInRange(componentID), "Component is out of range")

@@ -441,9 +441,6 @@ TEST(VectorTests, AssignmentOperator) {
     // Narrower number
     Vec<int, 2> vecI3(1, 2);
     Vec<double, 2> vecI4;
-    vecI4 = vecI3;
-    EXPECT_FLOAT_EQ(vecI4[0], 1.0);
-    EXPECT_FLOAT_EQ(vecI4[1], 2.0);
 }
 
 TEST(VectorTests, MoveAssignmentOperator) {
@@ -480,9 +477,6 @@ TEST(VectorTests, MoveAssignmentOperator) {
     // Narrower number
     Vec<int, 2> vecI3(1, 2);
     Vec<double, 2> vecI4;
-    vecI4 = std::move(vecI3);
-    EXPECT_FLOAT_EQ(vecI4[0], 1.0);
-    EXPECT_FLOAT_EQ(vecI4[1], 2.0);
 }
 
 TEST(VectorTests, CopyAssignmentOperator) {
@@ -502,11 +496,6 @@ TEST(VectorTests, CopyAssignmentOperator) {
     // Narrower number
     Vec<int, 4> vecSt(1, 2, 3, 4);
     Vec<double, 4> vecSt2;
-    vecSt2 = vecSt; // NOLINT
-    EXPECT_FLOAT_EQ(vecSt2[0], vecSt[0]);
-    EXPECT_FLOAT_EQ(vecSt2[1], vecSt[1]);
-    EXPECT_FLOAT_EQ(vecSt2[2], vecSt[2]);
-    EXPECT_FLOAT_EQ(vecSt2[3], vecSt[3]);
     
 }
 

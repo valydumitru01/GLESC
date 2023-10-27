@@ -18,7 +18,7 @@
     "T must inherit from Component")
 
 #define ASSERT_IS_COMPONENT_REGISTERED(component) \
-    D_ASSERT(isComponentRegistered<component>(), \
+    D_ASSERT_TRUE(isComponentRegistered<component>(), \
     "Component is already registered, and must not be")
 
 #define ASSERT_IS_COMPONENT_NOT_REGISTERED(component) \

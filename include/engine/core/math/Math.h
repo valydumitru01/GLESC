@@ -30,6 +30,23 @@ namespace GLESC::Math {
         }
     }
     
+    template<typename Type>
+    constexpr inline Type flexibleAbs(Type value) {
+        if constexpr (std::is_floating_point_v<Type>) {
+            return std::fabs(value);
+        } else if constexpr (std::is_unsigned_v<Type>){
+            return value;
+        } else if constexpr (std::is_arithmetic_v<Type> && std::is_signed_v<Type>) {
+            return std::abs(value);
+        } else {
+            // For user-defined types, you might want to call a member function
+            // or free function that computes the absolute value for that type.
+            // For demonstration, let's assume T has a member function abs() that
+            // computes the absolute value:
+            return value.abs();
+        }
+    }
+    
     template <typename T>
     T flexibleSqrt(const T& value) {
         T result = T();
@@ -45,9 +62,6 @@ namespace GLESC::Math {
             // For demonstration, let's assume T has a member function sqrt() that
             // computes the square root:
             result = value.sqrt();
-            
-            // If you want to use a free function instead, you could do:
-            // result = sqrt(value);  // Assumes a suitable sqrt function exists for type T
         }
         return result;
     }
@@ -62,4 +76,9 @@ bool eq(LValueT a, RValueT b) {
 template<typename Type>
 Type sqRoot(Type value) {
     return GLESC::Math::flexibleSqrt(value);
+}
+
+template<typename Type>
+Type absol(Type value) {
+    return GLESC::Math::flexibleAbs(value);
 }

@@ -22,7 +22,10 @@
     S_ASSERT_EQUAL(vecSize, expectedSize,                        \
         "Vector size is incorrect, expected size"#expectedSize)
 
-#define ASSERT_INIT_LIST_IS_OF_SIZE(listSize, expectedSize)      \
-    D_ASSERT_EQUAL(listSize, expectedSize,                       \
+#define D_ASSERT_INIT_LIST_IS_OF_SIZE(listSize, expectedSize)      \
+    D_ASSERT_EQUAL(listSize, expectedSize,                         \
     "List size is incorrect, expected size"#expectedSize)
     
+#define D_ASSERT_VEC_IS_HOMOGENEOUS(vec)                          \
+    D_ASSERT_TRUE(vec.isHomogeneous(),                            \
+    "Vector is not homogenous")

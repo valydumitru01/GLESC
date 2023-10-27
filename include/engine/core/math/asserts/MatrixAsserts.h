@@ -24,3 +24,7 @@
     "Matrix size is incorrect, expected size"#expectedN); \
     S_ASSERT_EQUAL(M, expectedM, \
     "Matrix size is incorrect, expected size"#expectedM);
+
+#define S_ASSERT_MAT_IS_SQUARE(N, M) \
+    S_ASSERT_EQUAL(N, M, \
+    "Matrix is not square");
