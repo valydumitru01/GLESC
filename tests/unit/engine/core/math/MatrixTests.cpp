@@ -52,7 +52,7 @@ using MyTypes = ::testing::Types<
 template<class Type>
 class MatrixTests : public testing::Test {
 protected:
-    MatrixTests() {}
+    MatrixTests() = default;
     void SetUp() override
     {initializeMatrixWithValues(this->matrix);
     initializeMatrixWithDifferentValues(this->matrix2);}
@@ -68,8 +68,8 @@ TYPED_TEST_SUITE(MatrixTests, MyTypes);
     constexpr size_t N = TypeParam::Rows; \
     constexpr size_t M = TypeParam::Cols; \
     using Mat = Matrix<Type, N, M>; \
-    using VecN = Vec<Type, N>; \
-    using VecM = Vec<Type, M>
+    using VecN = Vector<Type, N>; \
+    using VecM = Vector<Type, M>
 
 TYPED_TEST(MatrixTests, Constructors) {
     PREPARE_TEST();
@@ -162,8 +162,93 @@ TYPED_TEST(MatrixTests, ComparisonOperators){
     
 }
 
+TYPED_TEST(MatrixTests, Assignments){
+    PREPARE_TEST();
+    // Copy assignment
+    Mat matrixCopyAssign;
+    matrixCopyAssign = this->matrix;
+    EXPECT_EQ_MAT(matrixCopyAssign, this->matrix);
+    
+    // Move assignment
+    Mat matrixMoveAssign;
+    matrixMoveAssign = std::move(this->matrix);
+    EXPECT_EQ_MAT(matrixMoveAssign, this->matrix);
+    
+    // Operator += with matrix
+    Mat matrixPlusEquals;
+    initializeMatrixWithValues(matrixPlusEquals);
+    matrixPlusEquals += this->matrix;
+    for (size_t i = 0; i < matrixPlusEquals.rows(); ++i)
+        for (size_t j = 0; j < matrixPlusEquals.cols(); ++j)
+            EXPECT_EQ_CUSTOM(matrixPlusEquals[i][j], this->matrix[i][j] + this->matrix[i][j]);
+    
+    // Operator += with scalar
+    Mat matrixPlusScalarEquals; initializeMatrixWithValues(matrixPlusScalarEquals);
+    Type  scalar = Type(2);
+    matrixPlusScalarEquals += scalar;
+    for (size_t i = 0; i < matrixPlusScalarEquals.rows(); ++i)
+        for (size_t j = 0; j < matrixPlusScalarEquals.cols(); ++j)
+            EXPECT_EQ_CUSTOM(matrixPlusScalarEquals[i][j], this->matrix[i][j] + scalar);
+    
+    // Operator -= with matrix
+    Mat matrixMinusEquals;
+    initializeMatrixWithValues(matrixMinusEquals);
+    matrixMinusEquals -= this->matrix;
+    for (size_t i = 0; i < matrixMinusEquals.rows(); ++i)
+        for (size_t j = 0; j < matrixMinusEquals.cols(); ++j)
+            EXPECT_EQ_CUSTOM(matrixMinusEquals[i][j], this->matrix[i][j] - this->matrix[i][j]);
+    
+    // Operator -= with scalar
+    Mat matrixMinusScalarEquals; initializeMatrixWithValues(matrixMinusScalarEquals);
+    Type  scalarMinus = Type(2);
+    matrixMinusScalarEquals -= scalarMinus;
+    for (size_t i = 0; i < matrixMinusScalarEquals.rows(); ++i)
+        for (size_t j = 0; j < matrixMinusScalarEquals.cols(); ++j)
+            EXPECT_EQ_CUSTOM(matrixMinusScalarEquals[i][j], this->matrix[i][j] - scalarMinus);
+    
+    // Operator *= with matrix
+    Mat matrixMultEquals;
+    initializeMatrixWithValues(matrixMultEquals);
+    matrixMultEquals *= this->matrix;
+    for (size_t i = 0; i < matrixMultEquals.rows(); ++i) {
+        for (size_t j = 0; j < matrixMultEquals.cols(); ++j) {
+            int expectedValue = 0;
+            for (size_t k = 0; k < this->matrix.cols(); ++k) {
+                expectedValue += this->matrix[i][k] * this->matrix[k][j];
+            }
+            EXPECT_EQ_CUSTOM(matrixMultEquals[i][j], expectedValue);
+        }
+    }
+    
+    // Operator *= with scalar
+    Mat matrixMultScalarEquals; initializeMatrixWithValues(matrixMultScalarEquals);
+    Type scalarMult = Type(2);
+    matrixMultScalarEquals *= scalarMult;
+    for (size_t i = 0; i < matrixMultScalarEquals.rows(); ++i)
+        for (size_t j = 0; j < matrixMultScalarEquals.cols(); ++j)
+            EXPECT_EQ_CUSTOM(matrixMultScalarEquals[i][j], this->matrix[i][j] * scalarMult);
+    
+    // Operator /= with scalar
+    Mat matrixDivScalarEquals; initializeMatrixWithValues(matrixDivScalarEquals);
+    Type scalarDiv = Type (2);
+    matrixDivScalarEquals /= scalarDiv;
+    for (size_t i = 0; i < matrixDivScalarEquals.rows(); ++i)
+        for (size_t j = 0; j < matrixDivScalarEquals.cols(); ++j)
+            EXPECT_EQ_CUSTOM(matrixDivScalarEquals[i][j], this->matrix[i][j] / scalarDiv);
+    
+    // Operator /= with matrix
+    Mat matrixDivEquals; initializeMatrixWithValues(matrixDivEquals);
+    matrixDivEquals /= this->matrix;
+    EXPECT_EQ_MAT(matrixDivEquals, matrixDivEquals / this->matrix.inverse());
+    
+    // Dividing by zero
+    Mat matrixDivZero; initializeMatrixWithValues(matrixDivZero);
+    EXPECT_THROW(matrixDivZero /= Mat(), MathException);
+    EXPECT_THROW(matrixDivZero /= Type(0), MathException);
+}
+
 // Define test
-TYPED_TEST(MatrixTests, MatrixOperators) {
+TYPED_TEST(MatrixTests, ArithmeticOperators) {
     PREPARE_TEST();
     // ------------------------------ Addition -----------------------------
     
@@ -243,6 +328,11 @@ TYPED_TEST(MatrixTests, MatrixOperators) {
     for (size_t i = 0; i < matrixDivScalarResult.rows(); ++i)
         for (size_t j = 0; j < matrixDivScalarResult.cols(); ++j)
             EXPECT_EQ_CUSTOM(matrixDivScalarResult[i][j], this->matrix[i][j] / 2);
+    
+    // Division by zero
+    Mat matrixDivZero; initializeMatrixWithValues(matrixDivZero);
+    EXPECT_THROW(matrixDivZero / Mat(), MathException);
+    EXPECT_THROW(matrixDivZero / Type(0), MathException);
 
 }
 
@@ -260,8 +350,13 @@ TYPED_TEST(MatrixTests, Functions){
             expectedTransposeResult[j][i] = this->matrix[i][j];
     EXPECT_EQ_MAT(matrixTransposeResult, expectedTransposeResult);
     
+    // Inverse
+    Mat matrixInverseResult = this->matrix.inverse();
+    Mat expectedInverseResult;
+    // TODO: Implement inverse
+    
     // Translate
-    auto translateVec=Vec<Type, N-1>(1);
+    auto translateVec=Vector<Type, N - 1>(1);
     Mat matrixTranslateResult = this->matrix.translate(translateVec);
     Mat expectedTranslateResult = this->matrix;
     
@@ -274,4 +369,13 @@ TYPED_TEST(MatrixTests, Functions){
             EXPECT_EQ_CUSTOM(matrixTranslateResult[i][j], expectedTranslateResult[i][j]);
         }
     }
+    
+    // Scale
+    // TODO: Implement scale
+    
+    // Rotate
+    // TODO: Implement rotate
+    
+    // LookAt
+    // TODO: Implement lookAt
 }

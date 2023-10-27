@@ -20,7 +20,7 @@
 namespace GLESC::Math {
     
     template<typename Type, size_t N>
-    class Vector {
+    class Vec {
         template<typename OtherType> using EnableIfNarrowerNumber = std::enable_if_t<
                 std::is_arithmetic_v<OtherType> && std::is_arithmetic_v<Type> &&
                 !std::is_same_v<Type, OtherType> && (sizeof(OtherType) < sizeof(Type))>;
@@ -29,7 +29,7 @@ namespace GLESC::Math {
         // ================================================
         // ==================Constructors==================
         // ================================================
-        Vector() {
+        Vec() {
             for (size_t i = 0; i < N; ++i) {
                 data[i] = Type();
             }
@@ -38,11 +38,11 @@ namespace GLESC::Math {
         
         template<typename... Args, typename = std::enable_if_t<
                 (sizeof...(Args) == N) && (std::conjunction_v<std::is_convertible<Args, Type>...>)>>
-        /*NOLINT*/Vector(Args &&... args) noexcept : data{static_cast<Type>(args)...} {
+        /*NOLINT*/Vec(Args &&... args) noexcept : data{static_cast<Type>(args)...} {
         }
         
         
-        explicit Vector(Type values) noexcept {
+        explicit Vec(Type values) noexcept {
             std::fill(std::begin(data), std::end(data), values);
         }
         
@@ -51,7 +51,7 @@ namespace GLESC::Math {
          * @details Copies the data from the other vector to this one
          * @param other The vector to copy from
          */
-        Vector(const Vector<Type, N> &other) noexcept {
+        Vec(const Vec<Type, N> &other) noexcept {
             std::copy(std::begin(other.data), std::end(other.data), std::begin(data));
         }
         
@@ -60,10 +60,10 @@ namespace GLESC::Math {
          * @details Moves the data from the other vector to this one
          * @param other The vector to move from
          */
-        Vector(Vector<Type, N> &&other) noexcept {
+        Vec(Vec<Type, N> &&other) noexcept {
             std::move(std::begin(other.data), std::end(other.data), std::begin(data));
         }
-        Vector(std::initializer_list<Type> list) noexcept {
+        Vec(std::initializer_list<Type> list) noexcept {
             D_ASSERT_INIT_LIST_IS_OF_SIZE(list.size(), N);
             std::copy(list.begin(), list.end(), std::begin(data));
         }
@@ -79,26 +79,26 @@ namespace GLESC::Math {
         template<typename... Args, typename =std::enable_if_t<
                 (sizeof...(Args) == N) && std::conjunction_v<std::is_same<Type, Args>...>>,
                  typename = EnableIfNarrowerNumber<std::common_type_t<Args...>>>
-        explicit Vector(Args &&... args)
+        explicit Vec(Args &&... args)
                 : data{static_cast<Type>(std::forward<Args>(args))...} {
         }
         
         template<typename OtherType, typename = EnableIfNarrowerNumber<OtherType>>
-        explicit Vector(OtherType value) {
+        explicit Vec(OtherType value) {
             for (size_t i = 0; i < N; ++i) {
                 data[i] = static_cast<Type>(value);
             }
         }
         
         template<typename OtherType, typename = EnableIfNarrowerNumber<OtherType>>
-        explicit Vector(const Vector<OtherType, N> &other) {
+        explicit Vec(const Vec<OtherType, N> &other) {
             for (size_t i = 0; i < N; ++i) {
                 data[i] = static_cast<Type>(other[i]);
             }
         }
         
         template<typename OtherType, typename = EnableIfNarrowerNumber<OtherType>>
-        explicit Vector(Vector<OtherType, N> &&other) {
+        explicit Vec(Vec<OtherType, N> &&other) {
             for (size_t i = 0; i < N; ++i) {
                 data[i] = static_cast<Type>(std::move(other[i]));
             }
@@ -108,7 +108,7 @@ namespace GLESC::Math {
         
         
         template<typename OtherType>
-        Vector(std::initializer_list<OtherType> list) noexcept {
+        Vec(std::initializer_list<OtherType> list) noexcept {
             D_ASSERT_INIT_LIST_IS_OF_SIZE(list.size(), N);
             for (size_t i = 0; i < N; ++i) {
                 data[i] = static_cast<Type>(*(list.begin() + i));
@@ -202,7 +202,7 @@ namespace GLESC::Math {
         
         // ==============Assignment operators==============
         
-        Vector<Type, N> &operator=(const Vector<Type, N> &other) noexcept{
+        Vec<Type, N> &operator=(const Vec<Type, N> &other) noexcept{
             if (this == &other)
                 return *this;
             
@@ -210,7 +210,7 @@ namespace GLESC::Math {
             return *this;
         }
         
-        Vector<Type, N> &operator=(Vector<Type, N> &&other) noexcept {
+        Vec<Type, N> &operator=(Vec<Type, N> &&other) noexcept {
             if (this == &other)
                 return *this;
             
@@ -218,56 +218,56 @@ namespace GLESC::Math {
             return *this;
         }
         
-        Vector<Type, N> operator+=(const Vector<Type, N> &rhs) {
+        Vec<Type, N> operator+=(const Vec<Type, N> &rhs) {
             for (size_t i = 0; i < N; ++i) {
                 data[i] += rhs.data[i];
             }
             return *this;
         }
         
-        Vector<Type, N> operator+=(Type scalar) {
+        Vec<Type, N> operator+=(Type scalar) {
             for (size_t i = 0; i < N; ++i) {
                 data[i] += scalar;
             }
             return *this;
         }
         
-        Vector<Type, N> operator-=(const Vector<Type, N> &rhs) {
+        Vec<Type, N> operator-=(const Vec<Type, N> &rhs) {
             for (size_t i = 0; i < N; ++i) {
                 data[i] -= rhs.data[i];
             }
             return *this;
         }
         
-        Vector<Type, N> operator-=(Type scalar) {
+        Vec<Type, N> operator-=(Type scalar) {
             for (size_t i = 0; i < N; ++i) {
                 data[i] -= scalar;
             }
             return *this;
         }
         
-        Vector<Type, N> operator*=(Type scalar) {
+        Vec<Type, N> operator*=(Type scalar) {
             for (size_t i = 0; i < N; ++i) {
                 data[i] *= scalar;
             }
             return *this;
         }
         
-        Vector<Type, N> operator*=(const Vector<Type, N> &rhs) {
+        Vec<Type, N> operator*=(const Vec<Type, N> &rhs) {
             for (size_t i = 0; i < N; ++i) {
                 data[i] *= rhs.data[i];
             }
             return *this;
         }
         
-        Vector<Type, N> operator/=(Type scalar) {
+        Vec<Type, N> operator/=(Type scalar) {
             for (size_t i = 0; i < N; ++i) {
                 data[i] /= scalar;
             }
             return *this;
         }
         
-        Vector<Type, N> operator/=(const Vector<Type, N> &rhs) {
+        Vec<Type, N> operator/=(const Vec<Type, N> &rhs) {
             for (size_t i = 0; i < N; ++i) {
                 data[i] /= rhs.data[i];
             }
@@ -277,32 +277,32 @@ namespace GLESC::Math {
         
         // ==============Arithmetic Operators===================
         
-        Vector<Type, N> operator+(const Type &scalar) const {
-            Vector<Type, N> result;
+        Vec<Type, N> operator+(const Type &scalar) const {
+            Vec<Type, N> result;
             for (size_t i = 0; i < N; ++i) {
                 result.data[i] = data[i] + scalar;
             }
             return result;
         }
         
-        Vector<Type, N> operator+(const Vector<Type, N> &rhs) const {
-            Vector<Type, N> result;
+        Vec<Type, N> operator+(const Vec<Type, N> &rhs) const {
+            Vec<Type, N> result;
             for (size_t i = 0; i < N; ++i) {
                 result.data[i] = data[i] + rhs.data[i];
             }
             return result;
         }
         
-        Vector<Type, N> operator-(const Type &scalar) const {
-            Vector<Type, N> result;
+        Vec<Type, N> operator-(const Type &scalar) const {
+            Vec<Type, N> result;
             for (size_t i = 0; i < N; ++i) {
                 result.data[i] = data[i] - scalar;
             }
             return result;
         }
         
-        Vector<Type, N> operator-(const Vector<Type, N> &rhs) const {
-            Vector<Type, N> result;
+        Vec<Type, N> operator-(const Vec<Type, N> &rhs) const {
+            Vec<Type, N> result;
             for (size_t i = 0; i < N; ++i) {
                 result.data[i] = data[i] - rhs.data[i];
             }
@@ -310,32 +310,32 @@ namespace GLESC::Math {
         }
         
         
-        Vector<Type, N> operator/(Type scalar) const {
-            Vector<Type, N> result;
+        Vec<Type, N> operator/(Type scalar) const {
+            Vec<Type, N> result;
             for (size_t i = 0; i < N; ++i) {
                 result.data[i] = data[i] / scalar;
             }
             return result;
         }
         
-        Vector<Type, N> operator/(const Vector<Type, N> &rhs) const {
-            Vector<Type, N> result;
+        Vec<Type, N> operator/(const Vec<Type, N> &rhs) const {
+            Vec<Type, N> result;
             for (size_t i = 0; i < N; ++i) {
                 result.data[i] = data[i] / rhs.data[i];
             }
             return result;
         }
         
-        Vector<Type, N> operator*(Type scalar) const {
-            Vector<Type, N> result;
+        Vec<Type, N> operator*(Type scalar) const {
+            Vec<Type, N> result;
             for (size_t i = 0; i < N; ++i) {
                 result.data[i] = data[i] * scalar;
             }
             return result;
         }
         
-        Vector<Type, N> operator*(const Vector<Type, N> &rhs) const {
-            Vector<Type, N> result;
+        Vec<Type, N> operator*(const Vec<Type, N> &rhs) const {
+            Vec<Type, N> result;
             for (size_t i = 0; i < N; ++i) {
                 result.data[i] = data[i] * rhs.data[i];
             }
@@ -345,8 +345,8 @@ namespace GLESC::Math {
         // ############All Numeric Types###############
         // TODO: Change these with constexpr ifs, its shorter and more readable
         template<typename OtherType, typename = EnableIfNarrowerNumber<OtherType>>
-        Vector<Type, N> operator+(const Vector<OtherType, N> &rhs) const {
-            Vector<Type, N> result;
+        Vec<Type, N> operator+(const Vec<OtherType, N> &rhs) const {
+            Vec<Type, N> result;
             for (size_t i = 0; i < N; ++i) {
                 result.data[i] = data[i] + static_cast<Type>(rhs.data[i]);
             }
@@ -354,8 +354,8 @@ namespace GLESC::Math {
         }
         
         template<typename OtherType, typename = EnableIfNarrowerNumber<OtherType>>
-        Vector<Type, N> operator-(const OtherType &scalar) const {
-            Vector<Type, N> result;
+        Vec<Type, N> operator-(const OtherType &scalar) const {
+            Vec<Type, N> result;
             for (size_t i = 0; i < N; ++i) {
                 result.data[i] = data[i] - static_cast<Type>(scalar);
             }
@@ -363,8 +363,8 @@ namespace GLESC::Math {
         }
         
         template<typename OtherType, typename = EnableIfNarrowerNumber<OtherType>>
-        Vector<Type, N> operator-(const Vector<OtherType, N> &rhs) const {
-            Vector<Type, N> result;
+        Vec<Type, N> operator-(const Vec<OtherType, N> &rhs) const {
+            Vec<Type, N> result;
             for (size_t i = 0; i < N; ++i) {
                 result.data[i] = data[i] - static_cast<Type>(rhs.data[i]);
             }
@@ -372,8 +372,8 @@ namespace GLESC::Math {
         }
         
         template<typename OtherType, typename = EnableIfNarrowerNumber<OtherType>>
-        Vector<Type, N> operator*(OtherType scalar) const {
-            Vector<Type, N> result;
+        Vec<Type, N> operator*(OtherType scalar) const {
+            Vec<Type, N> result;
             for (size_t i = 0; i < N; ++i) {
                 result.data[i] = static_cast<Type>(data[i] * static_cast<Type>(scalar));
             }
@@ -381,8 +381,8 @@ namespace GLESC::Math {
         }
         
         template<typename OtherType, typename = EnableIfNarrowerNumber<OtherType>>
-        Vector<Type, N> operator/(OtherType scalar) const {
-            Vector<Type, N> result;
+        Vec<Type, N> operator/(OtherType scalar) const {
+            Vec<Type, N> result;
             for (size_t i = 0; i < N; ++i) {
                 result.data[i] = static_cast<Type>(data[i] / scalar);
             }
@@ -390,8 +390,8 @@ namespace GLESC::Math {
         }
         
         template<typename OtherType, typename = EnableIfNarrowerNumber<OtherType>>
-        Vector<Type, N> operator/(const Vector<OtherType, N> &rhs) const {
-            Vector<Type, N> result;
+        Vec<Type, N> operator/(const Vec<OtherType, N> &rhs) const {
+            Vec<Type, N> result;
             for (size_t i = 0; i < N; ++i) {
                 result.data[i] = static_cast<Type>(data[i] / static_cast<Type>(rhs.data[i]));
             }
@@ -414,7 +414,7 @@ namespace GLESC::Math {
         
         // ==============Comparison Operators===================
         template<typename OtherType>
-        constexpr bool operator==(const Vector<OtherType, N> &rhs) const {
+        constexpr bool operator==(const Vec<OtherType, N> &rhs) const {
             if constexpr (std::is_floating_point_v<OtherType>) {
                 for (size_t i = 0; i < N; ++i) {
                     if (!eq(data[i], rhs.data[i]))
@@ -439,7 +439,7 @@ namespace GLESC::Math {
             }
         }
         
-        constexpr bool operator!=(const Vector<Type, N> &rhs) const {
+        constexpr bool operator!=(const Vec<Type, N> &rhs) const {
             if constexpr (std::is_floating_point_v<Type>) {
                 for (size_t i = 0; i < N; ++i) {
                     if (eq(data[i], rhs.data[i]))
@@ -456,7 +456,7 @@ namespace GLESC::Math {
             }
         }
         
-        bool operator<(const Vector<Type, N> &rhs) const {
+        bool operator<(const Vec<Type, N> &rhs) const {
             for (size_t i = 0; i < N; ++i) {
                 if (data[i] < rhs.data[i]) return true;
                 if (data[i] > rhs.data[i]) return false;
@@ -464,7 +464,7 @@ namespace GLESC::Math {
             return false;
         }
         
-        constexpr bool operator>(const Vector<Type, N> &rhs) const {
+        constexpr bool operator>(const Vec<Type, N> &rhs) const {
             for (size_t i = 0; i < N; ++i) {
                 if (data[i] > rhs.data[i]) return true;
                 if (data[i] < rhs.data[i]) return false;
@@ -472,11 +472,11 @@ namespace GLESC::Math {
             return false;
         }
         
-        constexpr bool operator<=(const Vector<Type, N> &rhs) const {
+        constexpr bool operator<=(const Vec<Type, N> &rhs) const {
             return !(*this > rhs);
         }
         
-        constexpr bool operator>=(const Vector<Type, N> &rhs) const {
+        constexpr bool operator>=(const Vec<Type, N> &rhs) const {
             return !(*this < rhs);
         }
         
@@ -484,11 +484,11 @@ namespace GLESC::Math {
 
         // =================Vector Functions=================
         
-        void swap(Vector<Type, N> &other) {
+        void swap(Vec<Type, N> &other) {
             std::swap(data, other.data);
         }
         
-        [[nodiscard]] Type dot(const Vector<Type, N> &rhs) const {
+        [[nodiscard]] Type dot(const Vec<Type, N> &rhs) const {
             Type result = Type();
             for (size_t i = 0; i < N; ++i) {
                 result += data[i] * rhs.data[i];
@@ -512,9 +512,9 @@ namespace GLESC::Math {
             return data[N - 1] == Type(1);
         }
         
-        [[nodiscard]] Vector<Type, N> normalize() const {
+        [[nodiscard]] Vec<Type, N> normalize() const {
             Type length = this->length();
-            Vector<Type, N> result;
+            Vec<Type, N> result;
             for (size_t i = 0; i < N; ++i) {
                 result.data[i] = data[i] / length;
             }
@@ -553,9 +553,9 @@ namespace GLESC::Math {
          * @param other
          * @return
          */
-        [[nodiscard]] Vector<Type, 3> cross(Vector<Type, 3> &other) const {
+        [[nodiscard]] Vec<Type, 3> cross(Vec<Type, 3> &other) const {
             S_ASSERT_VEC_IS_OF_SIZE(N, 3);
-            return Vector<Type, 3>(data[1] * other[2] - data[2] * other[1],
+            return Vec<Type, 3>(data[1] * other[2] - data[2] * other[1],
                                    data[2] * other[0] - data[0] * other[2],
                                    data[0] * other[1] - data[1] * other[0]);
         }
@@ -568,36 +568,36 @@ namespace GLESC::Math {
 }
 
 
-template<typename Type, size_t N> using Vec = GLESC::Math::Vector<Type, N>;
+template<typename Type, size_t N> using Vector = GLESC::Math::Vec<Type, N>;
 
-template<typename Type> using Vec2 = Vec<Type, 2>;
-template<typename Type> using Vec3 = Vec<Type, 3>;
-template<typename Type> using Vec4 = Vec<Type, 4>;
+template<typename Type> using Vec2 = Vector<Type, 2>;
+template<typename Type> using Vec3 = Vector<Type, 3>;
+template<typename Type> using Vec4 = Vector<Type, 4>;
 
 
-using Vec2F = Vec<float, 2>;
-using Vec2D = Vec<double, 2>;
-using Vec2I = Vec<int, 2>;
-using Vec2U = Vec<unsigned int, 2>;
-using Vec2L = Vec<long, 2>;
+using Vec2F = Vector<float, 2>;
+using Vec2D = Vector<double, 2>;
+using Vec2I = Vector<int, 2>;
+using Vec2U = Vector<unsigned int, 2>;
+using Vec2L = Vector<long, 2>;
 
-using Vec3F = Vec<float, 3>;
-using Vec3D = Vec<double, 3>;
-using Vec3I = Vec<int, 3>;
-using Vec3U = Vec<unsigned int, 3>;
-using Vec3L = Vec<long, 3>;
+using Vec3F = Vector<float, 3>;
+using Vec3D = Vector<double, 3>;
+using Vec3I = Vector<int, 3>;
+using Vec3U = Vector<unsigned int, 3>;
+using Vec3L = Vector<long, 3>;
 
-using Vec4F = Vec<float, 4>;
-using Vec4D = Vec<double, 4>;
-using Vec4I = Vec<int, 4>;
-using Vec4U = Vec<unsigned int, 4>;
-using Vec4L = Vec<long, 4>;
+using Vec4F = Vector<float, 4>;
+using Vec4D = Vector<double, 4>;
+using Vec4I = Vector<int, 4>;
+using Vec4U = Vector<unsigned int, 4>;
+using Vec4L = Vector<long, 4>;
 
 
 namespace std {
     template<typename T, size_t U>
-    struct hash<Vec<T, U>> {
-        std::size_t operator()(const Vec<T, U> &vec) const {
+    struct hash<Vector < T, U>> {
+        std::size_t operator()(const Vector<T, U> &vec) const {
             std::hash<T> hasher;
             std::size_t seed = 0;
             for (size_t i = 0; i < U; ++i) {

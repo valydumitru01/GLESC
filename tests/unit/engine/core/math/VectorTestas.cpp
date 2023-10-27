@@ -9,7 +9,7 @@
  ******************************************************************************/
 #include <gtest/gtest.h>
 #include "engine/core/math/Math.h"
-#include "engine/core/math/Vector.h"
+#include "engine/core/math/Vec.h"
 
 
 using namespace GLESC::Math;

@@ -12,7 +12,7 @@
 #include <cmath>
 #include <memory>
 #include <algorithm>
-#include "Vector.h"
+#include "Vec.h"
 #include "engine/core/exceptions/core/math/MathException.h"
 #include "engine/core/math/asserts/MatrixAsserts.h"
 #include "engine/core/logger/Logger.h"
@@ -200,13 +200,9 @@ public:
     }
     
     Matrix<Type, N, M> &operator/=(const Matrix<Type, N, M> &rhs) {
-        for (size_t i = 0; i < N; ++i) {
-            if (eq(rhs.data[i][i], 0))
-                throw MathException("Division by zero");
-            for (size_t k = 0; k < M; k++) {
-                data[i][k] /= rhs.data[i][k];
-            }
-        }
+        if (eq(rhs.determinant(), 0))
+            throw MathException("Division by zero");
+        *this *= rhs.inverse();
         return *this;
     }
     
@@ -310,21 +306,23 @@ public:
         }
         return result;
     }
-    
+    /**
+     * @brief Matrix division by matrix
+     * @details The matrix division by matrix is defined as the multiplication of the first matrix
+     * by the inverse of the second matrix
+     * @param rhs
+     * @return
+     */
     [[nodiscard]] Matrix<Type, N, M> operator/(const Matrix<Type, N, M> &rhs) const {
         Matrix<Type, N, M> result;
-        for (size_t i = 0; i < N; ++i) {
-            if (eq(rhs.data[i][i], Type()))
-                throw MathException("Division by zero");
-            for (size_t k = 0; k < M; k++) {
-                result.data[i][k] = data[i][k] / rhs.data[i][k];
-            }
-        }
+        if (eq(rhs.determinant(), Type()))
+            throw MathException("Division by zero");
+        result = *this * rhs.inverse();
         return result;
     }
     
     // ==============Access Operators===================
-    [[nodiscard]] Vec<Type, M> &operator[](size_t index) {
+    [[nodiscard]] Vector<Type, M> &operator[](size_t index) {
         return data[index];
     }
     
@@ -369,7 +367,7 @@ public:
         return result;
     }
     
-    [[nodiscard]] Matrix<Type, N, M> translate(const Vec<Type, M - 1> &translation) {
+    [[nodiscard]] Matrix<Type, N, M> translate(const Vector<Type, M - 1> &translation) {
         Matrix<Type, N, M> result(*this);
         for (size_t i = 0; i < N - 1; ++i) {
             result.data[i][M - 1] += translation[i];
@@ -377,7 +375,7 @@ public:
         return result;
     }
     
-    [[nodiscard]] Matrix<Type, N, M> scale(const Vec<Type, M - 1> &scale) {
+    [[nodiscard]] Matrix<Type, N, M> scale(const Vector<Type, M - 1> &scale) {
         Matrix<Type, N, M> result(*this);
         for (size_t i = 0; i < N - 1; ++i) {
             result.data[i][i] *= scale[i];
@@ -395,7 +393,7 @@ public:
         return result * rotation;
     }
     
-    [[nodiscard]] Matrix<Type, N, M> rotate(const Vec<Type, 3> &degrees) const {
+    [[nodiscard]] Matrix<Type, N, M> rotate(const Vector<Type, 3> &degrees) const {
         S_ASSERT_MAT_IS_OF_SIZE(N, M, 4, 4);
         Matrix<Type, 4, 4> result(*this);
         Matrix<Type, 4, 4> rotationX = {{1, 0,                   0,                    0},
@@ -594,7 +592,7 @@ public:
     }
 
 protected:
-    Vec<Type, N> data[M];
+    Vector<Type, N> data[M];
 }; // class Matrix
 
 using Matrix2 = Matrix<float, 2, 2>;

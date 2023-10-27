@@ -10,7 +10,7 @@
 
 #include <functional>
 #include <memory>
-#include "engine/core/math/Vector.h"
+#include "engine/core/math/Vec.h"
 #include "Vertex.h"
 
 namespace GLESC {
