@@ -22,9 +22,9 @@
 template<typename Type, size_t N, size_t M>
 class Matrix {
 public:
-    // ================================================
-    // ==================Constructors==================
-    // ================================================
+    // =============================================================================================
+    // ========================================= Constructors ======================================
+    // =============================================================================================
     
     Matrix() {
         for (size_t i = 0; i < N; ++i) {
@@ -80,12 +80,12 @@ public:
             ++i;
         }
     }
-    // ================================================
-    // ==================Operators=====================
-    // ================================================
+    // =============================================================================================
+    // =========================================== Operators =======================================
+    // =============================================================================================
     
     
-    // ==============Assignment operators==============
+    // ==================================== Assignment Operators ===================================
     /**
      * @brief Copy assignment operator
      * @param other
@@ -140,6 +140,7 @@ public:
         }
         return *this;
     }
+    
     
     Matrix<Type, N, M> &operator*=(Type scalar) {
         for (size_t i = 0; i < N; ++i) {
@@ -206,7 +207,7 @@ public:
         return *this;
     }
     
-    // ==============Arithmetic Operators===================
+    // ==================================== Arithmetic Operators ===================================
     
     [[nodiscard]] Matrix<Type, N, M> operator+(const Matrix<Type, N, M> &rhs) const {
         Matrix<Type, N, M> result;
@@ -283,6 +284,29 @@ public:
         return result;
     }
     
+    /**
+     * @brief Multiplying Matrix by Vector
+     * @details A matrix NxM multiplied by a vector Mx1 results in a vector N
+     * (which acts as a matrix Nx1)
+     * For example:
+     * | 1 2 3 |   | 7 |   | 58 |
+     * | 4 5 6 | * | 8 | = | 139 |
+     *             | 9 |
+     * 2x3      *  3x1       = 2x1
+     * @tparam X
+     * @param other
+     * @return
+     */
+    [[nodiscard]] Vector<Type, N> operator*(const Vector<Type, M> &other) const {
+        Vector<Type, N> result;
+        for (size_t i = 0; i < N; ++i) {
+            for (size_t k = 0; k < M; ++k) {
+                result[i] += data[i][k] * other[k];
+            }
+        }
+        return result;
+    }
+    
     
     [[nodiscard]] Matrix<Type, N, M> operator*(Type scalar) const {
         Matrix<Type, N, M> result;
@@ -321,7 +345,12 @@ public:
         return result;
     }
     
-    // ==============Access Operators===================
+    // ==================================== Access Operators ===================================
+    
+    [[nodiscard]] const Vector<Type, M> &operator[](size_t index) const {
+        return data[index];
+    }
+    
     [[nodiscard]] Vector<Type, M> &operator[](size_t index) {
         return data[index];
     }
@@ -338,7 +367,8 @@ public:
         return M;
     }
     
-    // ==============Comparison Operators===================
+    // ==================================== Comparison Operators ===================================
+    
     [[nodiscard]] bool operator==(const Matrix<Type, N, M> &rhs) const {
         for (size_t i = 0; i < N; ++i) {
             for (size_t k = 0; k < M; ++k) {
@@ -354,20 +384,21 @@ public:
         return !(*this == rhs);
     }
     
+    // =============================================================================================
+    // ===================================== Matrix Functions ======================================
+    // =============================================================================================
     
-    // =================Matrix Functions=================
-    
-    [[nodiscard]] Matrix<Type, N, M> transpose() {
-        Matrix<Type, N, M> result;
+    [[nodiscard]] Matrix<Type, M, N> transpose() const {
+        Matrix<Type, M, N> result;
         for (size_t i = 0; i < M; ++i) {
-            for (size_t k = 0; k < N; ++k) {
-                result.data[i][k] = data[k][i];
+            for (size_t j = 0; j < N; ++j) {
+                result[j][i] = data[i][j];
             }
         }
         return result;
     }
     
-    [[nodiscard]] Matrix<Type, N, M> translate(const Vector<Type, M - 1> &translation) {
+    [[nodiscard]] Matrix<Type, N, M> translate(const Vector<Type, M - 1> &translation) const {
         Matrix<Type, N, M> result(*this);
         for (size_t i = 0; i < N - 1; ++i) {
             result.data[i][M - 1] += translation[i];
@@ -375,7 +406,7 @@ public:
         return result;
     }
     
-    [[nodiscard]] Matrix<Type, N, M> scale(const Vector<Type, M - 1> &scale) {
+    [[nodiscard]] Matrix<Type, N, M> scale(const Vector<Type, M - 1> &scale) const {
         Matrix<Type, N, M> result(*this);
         for (size_t i = 0; i < N - 1; ++i) {
             result.data[i][i] *= scale[i];
@@ -383,7 +414,7 @@ public:
         return result;
     }
     
-    [[nodiscard]] Matrix<Type, N, M> rotate(const Type &degree) {
+    [[nodiscard]] Matrix<Type, N, M> rotate(const Type &degree) const {
         S_ASSERT_MAT_IS_OF_SIZE(N, M, 3, 3);
         Matrix<Type, N, M> result(*this);
         Type c = cos(degree), s = sin(degree);
@@ -488,17 +519,18 @@ public:
     }
     
     [[nodiscard]] Matrix<Type, N, M> inverse() const {
+        S_ASSERT_MAT_IS_SQUARE(N, M);
         Type det = determinant();
         if (eq(det, 0))
             throw MathException("Division by zero");
-        if constexpr (N == 2 && M == 2) {
+        if constexpr (N == 2) {
             Matrix<Type, N, M> inv;
             inv.data[0][0] = data[1][1] / det;
             inv.data[0][1] = -data[0][1] / det;
             inv.data[1][0] = -data[1][0] / det;
             inv.data[1][1] = data[0][0] / det;
             return inv;
-        } else if constexpr (N == 3 && M == 3) {
+        } else if constexpr (N == 3) {
             Matrix<Type, N, M> inv = adjoint();
             for (int r = 0; r < 3; r++) {
                 for (int c = 0; c < 3; c++) {
@@ -506,7 +538,7 @@ public:
                 }
             }
             return inv;
-        } else if constexpr (N == 4 && M == 4) {
+        } else if constexpr (N == 4) {
             
             Type A2323 = data[2][2] * data[3][3] - data[2][3] * data[3][2];
             Type A1323 = data[2][1] * data[3][3] - data[2][3] * data[3][1];
@@ -554,6 +586,8 @@ public:
             im[3][3] = det * (data[0][0] * A1212 - data[0][1] * A0212 + data[0][2] * A0112);
             
             return im;
+        } else{
+        
         }
         
     }
@@ -592,7 +626,13 @@ public:
     }
 
 protected:
-    Vector<Type, N> data[M];
+    /**
+     * @brief Matrix data
+     * @details Matrix data is stored in a vector of vectors
+     * M is the number of columns or the width of the matrix
+     * N is the number of rows (or vertices) or the height of the matrix
+     */
+    Vector<Type, M> data[N];
 }; // class Matrix
 
 using Matrix2 = Matrix<float, 2, 2>;

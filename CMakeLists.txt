@@ -126,7 +126,7 @@ foreach (target ${targets})
 endforeach ()
 
 if (TARGET game_test)
-  add_extra_definitions(game_test GTEST_HAS_DEATH_TEST=1)
+  add_extra_definitions(game_test "GTEST_HAS_DEATH_TEST")
 endif ()
 
 # ----------------------------------------------------------

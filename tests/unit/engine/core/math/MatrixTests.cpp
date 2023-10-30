@@ -47,7 +47,13 @@ using MyTypes = ::testing::Types<
         MatrixType<int, 4, 4>, MatrixType<size_t, 4, 4>,
         MatrixType<float, 5, 5>, MatrixType<double, 5, 5>,
         MatrixType<int, 5, 5>, MatrixType<size_t, 5, 5>,
-        MatrixType<double, 10, 10>, MatrixType<float, 10, 10>
+        MatrixType<double, 10, 10>, MatrixType<float, 10, 10>,
+        // Non-square matrices
+        MatrixType<float, 2, 3>, MatrixType<double, 2, 3>,
+        MatrixType<int, 2, 3>, MatrixType<size_t, 2, 3>,
+        MatrixType<float, 3, 2>, MatrixType<double, 3, 2>,
+        MatrixType<int, 3, 2>, MatrixType<size_t, 3, 2>,
+        MatrixType<float, 4, 3>, MatrixType<double, 4, 3>
 >;
 template<class Type>
 class MatrixTests : public testing::Test {
@@ -237,14 +243,18 @@ TYPED_TEST(MatrixTests, Assignments){
             EXPECT_EQ_CUSTOM(matrixDivScalarEquals[i][j], this->matrix[i][j] / scalarDiv);
     
     // Operator /= with matrix
-    Mat matrixDivEquals; initializeMatrixWithValues(matrixDivEquals);
-    matrixDivEquals /= this->matrix;
-    EXPECT_EQ_MAT(matrixDivEquals, matrixDivEquals / this->matrix.inverse());
-    
-    // Dividing by zero
-    Mat matrixDivZero; initializeMatrixWithValues(matrixDivZero);
-    EXPECT_THROW(matrixDivZero /= Mat(), MathException);
-    EXPECT_THROW(matrixDivZero /= Type(0), MathException);
+    if constexpr (N==M){
+        Mat matrixDivEquals; initializeMatrixWithValues(matrixDivEquals);
+        matrixDivEquals /= this->matrix;
+        Mat expectedDivEquals;
+        initializeMatrixWithValues(expectedDivEquals);
+        expectedDivEquals = expectedDivEquals * this->matrix.inverse();
+        EXPECT_EQ_MAT(matrixDivEquals, expectedDivEquals);
+        // Dividing by zero
+        Mat matrixDivZero; initializeMatrixWithValues(matrixDivZero);
+        EXPECT_THROW(matrixDivZero /= Mat(), MathException);
+        EXPECT_THROW(matrixDivZero /= Type(0), MathException);
+    }
 }
 
 // Define test
@@ -287,28 +297,33 @@ TYPED_TEST(MatrixTests, ArithmeticOperators) {
     // ------------------------------ Multiplication -----------------------------
     
     // Multiplication operator (dot product)
-    Mat matrixMultResult = this->matrix * this->matrix;
-    for (size_t i = 0; i < matrixMultResult.rows(); ++i) {
-        for (size_t j = 0; j < matrixMultResult.cols(); ++j) {
-            int expectedValue = 0;
-            for (size_t k = 0; k < this->matrix.cols(); ++k) {
-                expectedValue += this->matrix[i][k] * this->matrix[k][j];
+    if constexpr (N==M){
+        Mat matrixMultResult = this->matrix * this->matrix;
+        for (size_t i = 0; i < matrixMultResult.rows(); ++i) {
+            for (size_t j = 0; j < matrixMultResult.cols(); ++j) {
+                int expectedValue = 0;
+                for (size_t k = 0; k < this->matrix.cols(); ++k) {
+                    expectedValue += this->matrix[i][k] * this->matrix[k][j];
+                }
+                EXPECT_EQ_CUSTOM(matrixMultResult[i][j], expectedValue);
             }
-            EXPECT_EQ_CUSTOM(matrixMultResult[i][j], expectedValue);
         }
+    
+        // Multiplication operator with different size matrices
+        using FirstMat =
+                Matrix<typename TypeParam::ValueType, TypeParam::Rows+1, TypeParam::Cols>;
+        using OtherMat =
+                Matrix<typename TypeParam::ValueType, TypeParam::Rows, TypeParam::Cols + 1>;
+        using ExpectedMat =
+                Matrix<typename TypeParam::ValueType, TypeParam::Rows+1, TypeParam::Cols+1>;
+        FirstMat firstMatrix;
+        OtherMat matrixToMultiply;
+        initializeMatrixWithValues(firstMatrix);
+        initializeMatrixWithValues(matrixToMultiply);
+        ExpectedMat vectorMultResult = firstMatrix * matrixToMultiply;
+        ExpectedMat expectedVectorMultResult;
+        
     }
-    
-    // Multiplication operator with different size matrices
-    using FirstMat = Matrix<typename TypeParam::ValueType, TypeParam::Rows+1, TypeParam::Cols>;
-    using OtherMat = Matrix<typename TypeParam::ValueType, TypeParam::Rows, TypeParam::Cols + 1>;
-    using ExpectedMat = Matrix<typename TypeParam::ValueType, TypeParam::Rows+1, TypeParam::Cols+1>;
-    FirstMat firstMatrix;
-    OtherMat matrixToMultiply;
-    initializeMatrixWithValues(firstMatrix);
-    initializeMatrixWithValues(matrixToMultiply);
-    ExpectedMat vectorMultResult = firstMatrix * matrixToMultiply;
-    ExpectedMat expectedVectorMultResult;
-    
     
     // Multiplication operator with scalar
     Mat matrixMultScalarResult = this->matrix * 2;
@@ -316,66 +331,73 @@ TYPED_TEST(MatrixTests, ArithmeticOperators) {
         for (size_t j = 0; j < matrixMultScalarResult.cols(); ++j)
             EXPECT_EQ_CUSTOM(matrixMultScalarResult[i][j], this->matrix[i][j] * 2);
     
-    // ------------------------------ Division -----------------------------
+    // ----------------------------------------- Division ------------------------------------------
     // Division operator
-    Mat matrixDivResult = this->matrix2 / this->matrix;
-    for (size_t i = 0; i < matrixDivResult.rows(); ++i)
-        for (size_t j = 0; j < matrixDivResult.cols(); ++j)
-            EXPECT_EQ_CUSTOM(matrixDivResult[i][j], this->matrix2[i][j] / this->matrix[i][j]);
-    
-    // Division operator with scalar
-    Mat matrixDivScalarResult = this->matrix / 2;
-    for (size_t i = 0; i < matrixDivScalarResult.rows(); ++i)
-        for (size_t j = 0; j < matrixDivScalarResult.cols(); ++j)
-            EXPECT_EQ_CUSTOM(matrixDivScalarResult[i][j], this->matrix[i][j] / 2);
-    
-    // Division by zero
-    Mat matrixDivZero; initializeMatrixWithValues(matrixDivZero);
-    EXPECT_THROW(matrixDivZero / Mat(), MathException);
-    EXPECT_THROW(matrixDivZero / Type(0), MathException);
-
+    if constexpr (N==M){
+        Mat matrixDivResult = this->matrix2 / this->matrix;
+        for (size_t i = 0; i < matrixDivResult.rows(); ++i)
+            for (size_t j = 0; j < matrixDivResult.cols(); ++j)
+                EXPECT_EQ_CUSTOM(matrixDivResult[i][j], this->matrix2[i][j] / this->matrix[i][j]);
+        
+        // Division operator with scalar
+        Mat matrixDivScalarResult = this->matrix / 2;
+        for (size_t i = 0; i < matrixDivScalarResult.rows(); ++i)
+            for (size_t j = 0; j < matrixDivScalarResult.cols(); ++j)
+                EXPECT_EQ_CUSTOM(matrixDivScalarResult[i][j], this->matrix[i][j] / 2);
+        
+        // Division by zero
+        Mat matrixDivZero; initializeMatrixWithValues(matrixDivZero);
+        EXPECT_THROW(matrixDivZero / Mat(), MathException);
+        EXPECT_THROW(matrixDivZero / Type(0), MathException);
+    }
 }
 
 TYPED_TEST(MatrixTests, Functions){
     PREPARE_TEST();
     // Determinant
-    Type matrixDeterminantResult = this->matrix.determinant();
-    
+    if constexpr (N==M){
+        Type matrixDeterminantResult = this->matrix.determinant();
+    }
     
     // Transpose
-    Mat matrixTransposeResult = this->matrix.transpose();
-    Mat expectedTransposeResult;
+    Matrix<Type, M,N> matrixTransposeResult = this->matrix.transpose();
+    Matrix<Type, M,N> expectedTransposeResult;
     for (size_t i = 0; i < this->matrix.rows(); ++i)
         for (size_t j = 0; j < this->matrix.cols(); ++j)
             expectedTransposeResult[j][i] = this->matrix[i][j];
     EXPECT_EQ_MAT(matrixTransposeResult, expectedTransposeResult);
     
     // Inverse
-    Mat matrixInverseResult = this->matrix.inverse();
-    Mat expectedInverseResult;
-    // TODO: Implement inverse
-    
-    // Translate
-    auto translateVec=Vector<Type, N - 1>(1);
-    Mat matrixTranslateResult = this->matrix.translate(translateVec);
-    Mat expectedTranslateResult = this->matrix;
-    
-    for (size_t i = 0; i < N - 1; ++i) {
-        expectedTranslateResult[i][N - 1] += translateVec[i];
+    if constexpr (N==M){
+        Mat matrixInverseResult = this->matrix.inverse();
+        Mat expectedInverseResult=gaussianInverse(this->matrix);
     }
     
-    for (size_t i = 0; i < expectedTranslateResult.rows(); ++i) {
-        for (size_t j = 0; j < expectedTranslateResult.cols(); ++j) {
-            EXPECT_EQ_CUSTOM(matrixTranslateResult[i][j], expectedTranslateResult[i][j]);
+    // ---------------------------------- Matrix transformations -----------------------------------
+    
+    if constexpr (N==M){
+        // Translate
+        auto translateVec=Vector<Type, N - 1>(1);
+        Mat matrixTranslateResult = this->matrix.translate(translateVec);
+        Mat expectedTranslateResult = this->matrix;
+        
+        for (size_t i = 0; i < N - 1; ++i) {
+            expectedTranslateResult[i][N - 1] += translateVec[i];
         }
+        
+        for (size_t i = 0; i < expectedTranslateResult.rows(); ++i) {
+            for (size_t j = 0; j < expectedTranslateResult.cols(); ++j) {
+                EXPECT_EQ_CUSTOM(matrixTranslateResult[i][j], expectedTranslateResult[i][j]);
+            }
+        }
+        
+        // Scale
+        // TODO: Implement scale
+        
+        // Rotate
+        // TODO: Implement rotate
+        
+        // LookAt
+        // TODO: Implement lookAt
     }
-    
-    // Scale
-    // TODO: Implement scale
-    
-    // Rotate
-    // TODO: Implement rotate
-    
-    // LookAt
-    // TODO: Implement lookAt
 }

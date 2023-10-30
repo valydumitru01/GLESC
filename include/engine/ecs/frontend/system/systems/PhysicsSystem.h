@@ -13,7 +13,7 @@ public:
     explicit PhysicsSystem(PhysicsManager &physicsManager, GLESC::ECS &ecs);
     void update();
 private:
-    Vec3F gravity;
+    Vec3D gravity;
     PhysicsManager &physicsManager;
 };
 

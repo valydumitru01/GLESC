@@ -21,27 +21,50 @@ namespace GLESC::Math {
     
     template<typename Type, size_t N>
     class Vec {
-        template<typename OtherType> using EnableIfNarrowerNumber = std::enable_if_t<
-                std::is_arithmetic_v<OtherType> && std::is_arithmetic_v<Type> &&
-                !std::is_same_v<Type, OtherType> && (sizeof(OtherType) < sizeof(Type))>;
     
     public:
-        // ================================================
-        // ==================Constructors==================
-        // ================================================
-        Vec() {
+        // =========================================================================================
+        // ====================================== Constructors =====================================
+        // =========================================================================================
+        
+        /**
+         * @brief Default constructor
+         * @details Initializes the vector with 0s
+         */
+        Vec() noexcept {
             for (size_t i = 0; i < N; ++i) {
                 data[i] = Type();
             }
         }
-        //TODO: Add list vector constructor
         
-        template<typename... Args, typename = std::enable_if_t<
-                (sizeof...(Args) == N) && (std::conjunction_v<std::is_convertible<Args, Type>...>)>>
-        /*NOLINT*/Vec(Args &&... args) noexcept : data{static_cast<Type>(args)...} {
+        /**
+         * @brief Array constructor
+         * @details Initializes the vector with the values from the array
+         * @param values
+         */
+        explicit Vec(Type values[N]) noexcept {
+            std::copy(values, values + N, std::begin(data));
+        }
+        
+        /**
+         * @brief Variadic constructor
+         * @details Initializes the vector with the values from the variadic arguments.
+         * This means that this constructor can be called with any number of arguments.
+         * This constructor is only enabled if the number of arguments is equal to the
+         * dimension of the vector.
+         * @tparam Args
+         * @param args
+         */
+        template<typename... Args, typename = std::enable_if_t<(sizeof...(Args) == N)>>
+        explicit Vec(Args &&... args) noexcept : data{args...} {
         }
         
         
+        /**
+         * @brief Fill constructor
+         * @details Initializes all the values of the vector with the given value
+         * @param values
+         */
         explicit Vec(Type values) noexcept {
             std::fill(std::begin(data), std::end(data), values);
         }
@@ -63,146 +86,240 @@ namespace GLESC::Math {
         Vec(Vec<Type, N> &&other) noexcept {
             std::move(std::begin(other.data), std::end(other.data), std::begin(data));
         }
+        
+        /**
+         * @brief Initializer list constructor
+         * @details Initializes the vector with the values from the initializer list.
+         * @param list
+         */
         Vec(std::initializer_list<Type> list) noexcept {
             D_ASSERT_INIT_LIST_IS_OF_SIZE(list.size(), N);
             std::copy(list.begin(), list.end(), std::begin(data));
         }
         
-        // #################Numeric Types###################
+        // =========================================================================================
+        // ======================================== Accessors ======================================
+        // =========================================================================================
+        
+        // ================================== General Accessors ====================================
         /**
-         * @brief
-         * @details
-         * https://stackoverflow.com/questions/1657883/variable-number-of-arguments-in-c
-         * @tparam Args
-         * @param args
+         * @brief Returns the data of the vector given an index
+         * @param index
+         * @return
          */
-        template<typename... Args, typename =std::enable_if_t<
-                (sizeof...(Args) == N) && std::conjunction_v<std::is_same<Type, Args>...>>,
-                 typename = EnableIfNarrowerNumber<std::common_type_t<Args...>>>
-        explicit Vec(Args &&... args)
-                : data{static_cast<Type>(std::forward<Args>(args))...} {
+        Type &operator[](size_t index) {
+            return data[index];
         }
         
-        template<typename OtherType, typename = EnableIfNarrowerNumber<OtherType>>
-        explicit Vec(OtherType value) {
-            for (size_t i = 0; i < N; ++i) {
-                data[i] = static_cast<Type>(value);
-            }
+        /**
+         * @brief Returns the data of the vector given an index, const version (read only)
+         * @param index
+         * @return
+         */
+        const Type &operator[](size_t index) const {
+            return data[index];
         }
         
-        template<typename OtherType, typename = EnableIfNarrowerNumber<OtherType>>
-        explicit Vec(const Vec<OtherType, N> &other) {
-            for (size_t i = 0; i < N; ++i) {
-                data[i] = static_cast<Type>(other[i]);
-            }
+        /**
+         * @brief Returns the data of the vector given an index
+         * @details This is the same as operator[] but it's more explicit (it's const, read only)
+         * @param index
+         * @return
+         */
+        const Type &get(size_t index) const {
+            return data[index];
         }
         
-        template<typename OtherType, typename = EnableIfNarrowerNumber<OtherType>>
-        explicit Vec(Vec<OtherType, N> &&other) {
-            for (size_t i = 0; i < N; ++i) {
-                data[i] = static_cast<Type>(std::move(other[i]));
-            }
+        /**
+         * @brief Returns the data of the vector given an index
+         * @details This is the same as operator[] but it's more explicit.
+         * Because it's a normal setter.
+         * @param index
+         * @param value
+         */
+        void set(size_t index, Type value) {
+            data[index] = value;
         }
         
-        // ================================================
+        // ================================== Special Accessors ====================================
         
-        
-        template<typename OtherType>
-        Vec(std::initializer_list<OtherType> list) noexcept {
-            D_ASSERT_INIT_LIST_IS_OF_SIZE(list.size(), N);
-            for (size_t i = 0; i < N; ++i) {
-                data[i] = static_cast<Type>(*(list.begin() + i));
-            }
-        }
-        // ===============Getters and Setters==============
-        // ================================================
-        
+        /**
+         * @brief Returns the x (reference) value of the vector.
+         * @details This is the same as operator[] but only for the x (first) value.
+         * The returned value is a reference so it can be modified.
+         * @return The x (first) value of the vector
+         */
         [[nodiscard]] Type &x() {
+            S_ASSERT_VEC_IS_OF_SIZE_OR_BIGGER(N, 1);
             return data[0];
         }
         
+        /**
+         * @brief Sets the x (first) value of the vector
+         * @details This works as a setter but for the x (first) value of the vector.
+         * @param value The value to set
+         */
         void x(Type value) {
+            S_ASSERT_VEC_IS_OF_SIZE_OR_BIGGER(N, 1);
             data[0] = value;
         }
         
-        [[nodiscard]] Type getX() const {
+        /**
+         * @brief Returns the x (first) value of the vector
+         * @details This is a getter for the x (first) value of the vector.
+         * @return The x (first) value of the vector
+         */
+        [[nodiscard]] const Type &getX() const {
+            S_ASSERT_VEC_IS_OF_SIZE_OR_BIGGER(N, 1);
             return data[0];
         }
         
+        /**
+         * @brief Sets the x (first) value of the vector
+         * @details This works as a setter but for the x (first) value of the vector.
+         * @param value The value to set
+         */
         void setX(Type value) {
+            S_ASSERT_VEC_IS_OF_SIZE_OR_BIGGER(N, 1);
             data[0] = value;
         }
         
-        // Specialization for 2 dimensional vectors
+        /**
+         * @brief Returns the y (second) value of the vector.
+         * @details This is the same as operator[] but only for the y (second) value.
+         * The returned value is a reference so it can be modified.
+         * @return The y (second) value of the vector
+         */
         [[nodiscard]] Type &y() {
+            S_ASSERT_VEC_IS_OF_SIZE_OR_BIGGER(N, 2);
             return data[1];
         }
         
+        /**
+         * @brief Sets the y (second) value of the vector.
+         * @details This works as a setter but for the y (second) value of the vector.
+         * @param value The value to set
+         */
         void y(Type value) {
             S_ASSERT_VEC_IS_OF_SIZE_OR_BIGGER(N, 2);
             data[1] = value;
         }
         
+        /**
+         * @brief Returns the y (second) value of the vector.
+         * @details This is a getter for the y (second) value of the vector.
+         * @return The y (second) value of the vector
+         */
         [[nodiscard]] Type getY() const {
             S_ASSERT_VEC_IS_OF_SIZE_OR_BIGGER(N, 2);
             return data[1];
         }
         
+        /**
+         * @brief Sets the y (second) value of the vector.
+         * @details This works as a setter for the y (second) value of the vector.
+         * @param value The value to set
+         */
         void setY(Type value) {
             S_ASSERT_VEC_IS_OF_SIZE_OR_BIGGER(N, 2);
             data[1] = value;
         }
         
-        
-        // Specialization for 3 dimensional vectors
+        /**
+         * @brief Returns the z (third) value of the vector.
+         * @details This is the same as operator[] but only for the z (third) value.
+         * The returned value is a reference so it can be modified.
+         * @return The z (third) value of the vector
+         */
         [[nodiscard]] Type &z() {
             S_ASSERT_VEC_IS_OF_SIZE_OR_BIGGER(N, 3);
             return data[2];
         }
         
+        /**
+         * @brief Sets the z (third) value of the vector
+         * @details This works as a setter but for the z (third) value of the vector.
+         * @param value The value to set
+         */
         void z(Type value) {
             S_ASSERT_VEC_IS_OF_SIZE_OR_BIGGER(N, 3);
             data[2] = value;
         }
         
+        /**
+         * @brief Returns the z (third) value of the vector
+         * @details This is a getter for the z (third) value of the vector.
+         * @return The z (third) value of the vector
+         */
         [[nodiscard]] Type getZ() const {
             S_ASSERT_VEC_IS_OF_SIZE_OR_BIGGER(N, 3);
             return data[2];
         }
         
+        /**
+         * @brief Sets the z (third) value of the vector
+         * @details This works as a setter for the z (third) value of the vector.
+         * @param value The value to set
+         */
         void setZ(Type value) {
             S_ASSERT_VEC_IS_OF_SIZE_OR_BIGGER(N, 3);
             data[2] = value;
         }
         
-        // Specialization for 4 dimensional vectors
+        /**
+         * @brief Returns the w (fourth) value of the vector.
+         * @details This is the same as operator[] but only for the w (fourth) value.
+         * The returned value is a reference so it can be modified.
+         * @return The w (fourth) value of the vector
+         */
         [[nodiscard]] Type &w() {
             S_ASSERT_VEC_IS_OF_SIZE_OR_BIGGER(N, 4);
             return data[3];
         }
         
+        /**
+         * @brief Sets the w (fourth) value of the vector
+         * @details This works as a setter but for the w (fourth) value of the vector.
+         * @param value The value to set
+         */
         void w(Type value) {
             S_ASSERT_VEC_IS_OF_SIZE_OR_BIGGER(N, 4);
             data[3] = value;
         }
         
+        /**
+         * @brief Returns the w (fourth) value of the vector
+         * @details This is a getter for the w (fourth) value of the vector.
+         * @return The w (fourth) value of the vector
+         */
         [[nodiscard]] Type getW() const {
             S_ASSERT_VEC_IS_OF_SIZE_OR_BIGGER(N, 4);
             return data[3];
         }
         
+        /**
+         * @brief Sets the w (fourth) value of the vector
+         * @details This works as a setter for the w (fourth) value of the vector.
+         * @param value The value to set
+         */
         void setW(Type value) {
             S_ASSERT_VEC_IS_OF_SIZE_OR_BIGGER(N, 4);
             data[3] = value;
         }
         
-        // ================================================
-        // ==================Operators=====================
-        // ================================================
+        // =========================================================================================
+        // ======================================= Operators =======================================
+        // =========================================================================================
         
-        // ==============Assignment operators==============
+        // ================================= Assignment Operators ==================================
         
-        Vec<Type, N> &operator=(const Vec<Type, N> &other) noexcept{
+        /**
+         * @brief Copy assignment operator
+         * @details Copies the data from the other vector to this one
+         * @param other
+         * @return A reference to this vector
+         */
+        Vec<Type, N> &operator=(const Vec<Type, N> &other) noexcept {
             if (this == &other)
                 return *this;
             
@@ -210,6 +327,12 @@ namespace GLESC::Math {
             return *this;
         }
         
+        /**
+         * @brief Move assignment operator
+         * @details Moves the data from the other vector to this one
+         * @param other The vector to move from
+         * @return A reference to this vector
+         */
         Vec<Type, N> &operator=(Vec<Type, N> &&other) noexcept {
             if (this == &other)
                 return *this;
@@ -218,6 +341,35 @@ namespace GLESC::Math {
             return *this;
         }
         
+        /**
+         * @brief Array assignment operator
+         * @details Assigns the values from the array to this vector
+         * @param values
+         * @return A reference to this vector
+         */
+        Vec<Type, N> &operator=(Type values[N]) noexcept {
+            std::copy(values, values + N, std::begin(data));
+            return *this;
+        }
+        
+        /**
+         * @brief Initializer list assignment operator
+         * @details Assigns the values from the initializer list to this vector
+         * @param list
+         * @return A reference to this vector
+         */
+        Vec<Type, N> &operator=(std::initializer_list<Type> list) noexcept {
+            D_ASSERT_INIT_LIST_IS_OF_SIZE(list.size(), N);
+            std::copy(list.begin(), list.end(), std::begin(data));
+            return *this;
+        }
+        
+        /**
+         * @brief In-place addition with another vector
+         * @details Adds the elements of the given vector to this vector element-wise.
+         * @param rhs The vector to add
+         * @return A reference to this vector after the operation
+         */
         Vec<Type, N> operator+=(const Vec<Type, N> &rhs) {
             for (size_t i = 0; i < N; ++i) {
                 data[i] += rhs.data[i];
@@ -225,6 +377,12 @@ namespace GLESC::Math {
             return *this;
         }
         
+        /**
+         * @brief In-place addition with a scalar
+         * @details Adds the scalar value to each element of this vector.
+         * @param scalar The scalar value to add
+         * @return A reference to this vector after the operation
+         */
         Vec<Type, N> operator+=(Type scalar) {
             for (size_t i = 0; i < N; ++i) {
                 data[i] += scalar;
@@ -232,6 +390,12 @@ namespace GLESC::Math {
             return *this;
         }
         
+        /**
+         * @brief In-place subtraction with another vector
+         * @details Subtracts the elements of the given vector from this vector element-wise.
+         * @param rhs The vector to subtract
+         * @return A reference to this vector after the operation
+         */
         Vec<Type, N> operator-=(const Vec<Type, N> &rhs) {
             for (size_t i = 0; i < N; ++i) {
                 data[i] -= rhs.data[i];
@@ -239,6 +403,12 @@ namespace GLESC::Math {
             return *this;
         }
         
+        /**
+         * @brief In-place subtraction with a scalar
+         * @details Subtracts the scalar value from each element of this vector.
+         * @param scalar The scalar value to subtract
+         * @return A reference to this vector after the operation
+         */
         Vec<Type, N> operator-=(Type scalar) {
             for (size_t i = 0; i < N; ++i) {
                 data[i] -= scalar;
@@ -246,6 +416,12 @@ namespace GLESC::Math {
             return *this;
         }
         
+        /**
+         * @brief In-place multiplication with a scalar
+         * @details Multiplies each element of this vector by the scalar value.
+         * @param scalar The scalar value to multiply with
+         * @return A reference to this vector after the operation
+         */
         Vec<Type, N> operator*=(Type scalar) {
             for (size_t i = 0; i < N; ++i) {
                 data[i] *= scalar;
@@ -253,6 +429,13 @@ namespace GLESC::Math {
             return *this;
         }
         
+        /**
+         * @brief In-place multiplication with another vector
+         * @details Multiplies the elements of this vector with the elements of the given vector
+         * element-wise.
+         * @param rhs The vector to multiply with
+         * @return A reference to this vector after the operation
+         */
         Vec<Type, N> operator*=(const Vec<Type, N> &rhs) {
             for (size_t i = 0; i < N; ++i) {
                 data[i] *= rhs.data[i];
@@ -260,6 +443,12 @@ namespace GLESC::Math {
             return *this;
         }
         
+        /**
+         * @brief In-place division with a scalar
+         * @details Divides each element of this vector by the scalar value.
+         * @param scalar The scalar value to divide by
+         * @return A reference to this vector after the operation
+         */
         Vec<Type, N> operator/=(Type scalar) {
             for (size_t i = 0; i < N; ++i) {
                 data[i] /= scalar;
@@ -267,6 +456,13 @@ namespace GLESC::Math {
             return *this;
         }
         
+        /**
+         * @brief In-place division with another vector
+         * @details Divides the elements of this vector by the elements of the given vector
+         * element-wise.
+         * @param rhs The vector to divide by
+         * @return A reference to this vector after the operation
+         */
         Vec<Type, N> operator/=(const Vec<Type, N> &rhs) {
             for (size_t i = 0; i < N; ++i) {
                 data[i] /= rhs.data[i];
@@ -275,8 +471,14 @@ namespace GLESC::Math {
         }
         
         
-        // ==============Arithmetic Operators===================
+        // ================================== Arithmetic Operators =================================
         
+        /**
+         * @brief Overloads the '+' operator for scalar addition
+         * @details Adds a scalar to each component of the vector
+         * @param scalar The scalar value to add
+         * @return A new vector containing the result
+         */
         Vec<Type, N> operator+(const Type &scalar) const {
             Vec<Type, N> result;
             for (size_t i = 0; i < N; ++i) {
@@ -285,6 +487,12 @@ namespace GLESC::Math {
             return result;
         }
         
+        /**
+         * @brief Overloads the '+' operator for vector addition
+         * @details Adds the corresponding components of two vectors
+         * @param rhs The right-hand-side vector to add
+         * @return A new vector containing the result
+         */
         Vec<Type, N> operator+(const Vec<Type, N> &rhs) const {
             Vec<Type, N> result;
             for (size_t i = 0; i < N; ++i) {
@@ -293,6 +501,25 @@ namespace GLESC::Math {
             return result;
         }
         
+        /**
+         * @brief Overloads the unary '-' operator for negation
+         * @details Negates each component of the vector
+         * @return A new vector containing the result
+         */
+        Vec<Type, N> operator-() const {
+            Vec<Type, N> result;
+            for (size_t i = 0; i < N; ++i) {
+                result.data[i] = -data[i];
+            }
+            return result;
+        }
+        
+        /**
+         * @brief Overloads the '-' operator for scalar subtraction
+         * @details Subtracts a scalar from each component of the vector
+         * @param scalar The scalar value to subtract
+         * @return A new vector containing the result
+         */
         Vec<Type, N> operator-(const Type &scalar) const {
             Vec<Type, N> result;
             for (size_t i = 0; i < N; ++i) {
@@ -301,6 +528,12 @@ namespace GLESC::Math {
             return result;
         }
         
+        /**
+         * @brief Overloads the '-' operator for vector subtraction
+         * @details Subtracts the corresponding components of two vectors
+         * @param rhs The right-hand-side vector to subtract
+         * @return A new vector containing the result
+         */
         Vec<Type, N> operator-(const Vec<Type, N> &rhs) const {
             Vec<Type, N> result;
             for (size_t i = 0; i < N; ++i) {
@@ -309,7 +542,12 @@ namespace GLESC::Math {
             return result;
         }
         
-        
+        /**
+         * @brief Overloads the '/' operator for scalar division
+         * @details Divides each component of the vector by a scalar
+         * @param scalar The scalar value to divide by
+         * @return A new vector containing the result
+         */
         Vec<Type, N> operator/(Type scalar) const {
             Vec<Type, N> result;
             for (size_t i = 0; i < N; ++i) {
@@ -318,6 +556,12 @@ namespace GLESC::Math {
             return result;
         }
         
+        /**
+         * @brief Overloads the '/' operator for vector division
+         * @details Divides the corresponding components of two vectors
+         * @param rhs The right-hand-side vector to divide by
+         * @return A new vector containing the result
+         */
         Vec<Type, N> operator/(const Vec<Type, N> &rhs) const {
             Vec<Type, N> result;
             for (size_t i = 0; i < N; ++i) {
@@ -326,6 +570,12 @@ namespace GLESC::Math {
             return result;
         }
         
+        /**
+         * @brief Overloads the '*' operator for scalar multiplication
+         * @details Multiplies each component of the vector by a scalar
+         * @param scalar The scalar value to multiply by
+         * @return A new vector containing the result
+         */
         Vec<Type, N> operator*(Type scalar) const {
             Vec<Type, N> result;
             for (size_t i = 0; i < N; ++i) {
@@ -334,6 +584,12 @@ namespace GLESC::Math {
             return result;
         }
         
+        /**
+         * @brief Overloads the '*' operator for vector multiplication
+         * @details Multiplies the corresponding components of two vectors
+         * @param rhs The right-hand-side vector to multiply by
+         * @return A new vector containing the result
+         */
         Vec<Type, N> operator*(const Vec<Type, N> &rhs) const {
             Vec<Type, N> result;
             for (size_t i = 0; i < N; ++i) {
@@ -342,147 +598,90 @@ namespace GLESC::Math {
             return result;
         }
         
-        // ############All Numeric Types###############
-        // TODO: Change these with constexpr ifs, its shorter and more readable
-        template<typename OtherType, typename = EnableIfNarrowerNumber<OtherType>>
-        Vec<Type, N> operator+(const Vec<OtherType, N> &rhs) const {
-            Vec<Type, N> result;
-            for (size_t i = 0; i < N; ++i) {
-                result.data[i] = data[i] + static_cast<Type>(rhs.data[i]);
-            }
-            return result;
-        }
         
-        template<typename OtherType, typename = EnableIfNarrowerNumber<OtherType>>
-        Vec<Type, N> operator-(const OtherType &scalar) const {
-            Vec<Type, N> result;
-            for (size_t i = 0; i < N; ++i) {
-                result.data[i] = data[i] - static_cast<Type>(scalar);
-            }
-            return result;
-        }
+        // ==================================== Comparison Operators ================================
         
-        template<typename OtherType, typename = EnableIfNarrowerNumber<OtherType>>
-        Vec<Type, N> operator-(const Vec<OtherType, N> &rhs) const {
-            Vec<Type, N> result;
-            for (size_t i = 0; i < N; ++i) {
-                result.data[i] = data[i] - static_cast<Type>(rhs.data[i]);
-            }
-            return result;
-        }
-        
-        template<typename OtherType, typename = EnableIfNarrowerNumber<OtherType>>
-        Vec<Type, N> operator*(OtherType scalar) const {
-            Vec<Type, N> result;
-            for (size_t i = 0; i < N; ++i) {
-                result.data[i] = static_cast<Type>(data[i] * static_cast<Type>(scalar));
-            }
-            return result;
-        }
-        
-        template<typename OtherType, typename = EnableIfNarrowerNumber<OtherType>>
-        Vec<Type, N> operator/(OtherType scalar) const {
-            Vec<Type, N> result;
-            for (size_t i = 0; i < N; ++i) {
-                result.data[i] = static_cast<Type>(data[i] / scalar);
-            }
-            return result;
-        }
-        
-        template<typename OtherType, typename = EnableIfNarrowerNumber<OtherType>>
-        Vec<Type, N> operator/(const Vec<OtherType, N> &rhs) const {
-            Vec<Type, N> result;
-            for (size_t i = 0; i < N; ++i) {
-                result.data[i] = static_cast<Type>(data[i] / static_cast<Type>(rhs.data[i]));
-            }
-            return result;
-        }
-        
-        
-        // ==============Access Operators===================
-        Type &operator[](size_t index) {
-            return data[index];
-        }
-        
-        const Type &operator[](size_t index) const {
-            return data[index];
-        }
-        
-        const Type& get(size_t index) const {
-            return data[index];
-        }
-        
-        // ==============Comparison Operators===================
+        /**
+         * @brief Equality operator for vectors
+         * @details Compares this vector to another, allowing for different underlying types.
+         * Handles floating-point comparison via 'eq' function.
+         * @param rhs Vector to compare against
+         * @return True if the vectors are equal, false otherwise
+         */
         template<typename OtherType>
         constexpr bool operator==(const Vec<OtherType, N> &rhs) const {
-            if constexpr (std::is_floating_point_v<OtherType>) {
-                for (size_t i = 0; i < N; ++i) {
+            for (size_t i = 0; i < N; ++i) {
+                if constexpr (std::is_floating_point_v<OtherType>) {
                     if (!eq(data[i], rhs.data[i]))
                         return false;
-                }
-                return true;
-            } else if (std::is_convertible_v<OtherType, Type>) {
-                for (size_t i = 0; i < N; ++i) {
-                    if (data[i] != static_cast<Type>(rhs.data[i])) {
+                } else {
+                    if (data[i] != static_cast<Type>(rhs.data[i]))
                         return false;
-                    }
                 }
-                return true;
-                
-            } else {
-                for (size_t i = 0; i < N; ++i) {
-                    if (data[i] != rhs.data[i]) {
-                        return false;
-                    }
-                }
-                return true;
             }
+            return true;
         }
         
+        /**
+         * @brief Inequality operator for vectors
+         * @details Utilizes the equality operator for the actual comparison
+         * @param rhs Vector to compare against
+         * @return True if the vectors are not equal, false otherwise
+         */
         constexpr bool operator!=(const Vec<Type, N> &rhs) const {
-            if constexpr (std::is_floating_point_v<Type>) {
-                for (size_t i = 0; i < N; ++i) {
-                    if (eq(data[i], rhs.data[i]))
-                        return false;
-                }
-                return true;
-            } else {
-                for (size_t i = 0; i < N; ++i) {
-                    if (data[i] == rhs.data[i]) {
-                        return false;
-                    }
-                }
-                return true;
-            }
+            return !(*this == rhs);
         }
         
+        /**
+         * @brief Less than operator for vectors
+         * @details Compares elements in sequence; returns as soon as a determining element is found
+         * @param rhs Vector to compare against
+         * @return True if this vector is less than rhs, false otherwise
+         */
         bool operator<(const Vec<Type, N> &rhs) const {
             for (size_t i = 0; i < N; ++i) {
-                if (data[i] < rhs.data[i]) return true;
-                if (data[i] > rhs.data[i]) return false;
+                if (data[i] < rhs.data[i])
+                    return true;
+                if (data[i] > rhs.data[i])
+                    return false;
             }
             return false;
         }
         
+        /**
+         * @brief Greater than operator for vectors
+         * @details Derived from the less-than-or-equal operator
+         * @param rhs Vector to compare against
+         * @return True if this vector is greater than rhs, false otherwise
+         */
         constexpr bool operator>(const Vec<Type, N> &rhs) const {
-            for (size_t i = 0; i < N; ++i) {
-                if (data[i] > rhs.data[i]) return true;
-                if (data[i] < rhs.data[i]) return false;
-            }
-            return false;
+            return !(*this <= rhs);
         }
         
+        /**
+         * @brief Less than or equal to operator for vectors
+         * @details Derived from the greater-than operator
+         * @param rhs Vector to compare against
+         * @return True if this vector is less than or equal to rhs, false otherwise
+         */
         constexpr bool operator<=(const Vec<Type, N> &rhs) const {
             return !(*this > rhs);
         }
         
+        /**
+         * @brief Greater than or equal to operator for vectors
+         * @details Derived from the less-than operator
+         * @param rhs Vector to compare against
+         * @return True if this vector is greater than or equal to rhs, false otherwise
+         */
         constexpr bool operator>=(const Vec<Type, N> &rhs) const {
             return !(*this < rhs);
         }
         
         
-
-        // =================Vector Functions=================
+        // =========================================================================================
+        // ==================================== Vector Methods =====================================
+        // =========================================================================================
         
         void swap(Vec<Type, N> &other) {
             std::swap(data, other.data);
@@ -512,12 +711,35 @@ namespace GLESC::Math {
             return data[N - 1] == Type(1);
         }
         
+        [[nodiscard]] Vec<Type, N + 1> getHomogenous() const {
+            Vec<Type, N + 1> result;
+            for (size_t i = 0; i < N; ++i) {
+                result[i] = data[i];
+            }
+            result[N] = Type(1);
+            return result;
+        }
+        
+        [[nodiscard]] Vec<Type, N - 1> getNonHomogeneous() const {
+            Vec<Type, N - 1> result;
+            if (data[N - 1] == Type(0) || data[N - 1] == Type(1))
+                for (size_t i = 0; i < N - 1; ++i)
+                    result[i] = data[i];
+            else
+                for (size_t i = 0; i < N - 1; ++i)
+                    result[i] = data[i] / data[N - 1];
+            
+            return result;
+        }
+        
+        
         [[nodiscard]] Vec<Type, N> normalize() const {
             Type length = this->length();
+            if (eq(length, Type(1)) ||eq(length, Type(0))) { return *this; }
             Vec<Type, N> result;
-            for (size_t i = 0; i < N; ++i) {
+            for (size_t i = 0; i < N; ++i)
                 result.data[i] = data[i] / length;
-            }
+            
             return result;
         }
         
@@ -556,8 +778,8 @@ namespace GLESC::Math {
         [[nodiscard]] Vec<Type, 3> cross(Vec<Type, 3> &other) const {
             S_ASSERT_VEC_IS_OF_SIZE(N, 3);
             return Vec<Type, 3>(data[1] * other[2] - data[2] * other[1],
-                                   data[2] * other[0] - data[0] * other[2],
-                                   data[0] * other[1] - data[1] * other[0]);
+                                data[2] * other[0] - data[0] * other[2],
+                                data[0] * other[1] - data[1] * other[0]);
         }
     
     private:
@@ -597,13 +819,13 @@ using Vec4L = Vector<long, 4>;
 namespace std {
     template<typename T, size_t U>
     struct hash<Vector < T, U>> {
-        std::size_t operator()(const Vector<T, U> &vec) const {
-            std::hash<T> hasher;
-            std::size_t seed = 0;
-            for (size_t i = 0; i < U; ++i) {
-                seed ^= hasher(vec[i]) + 0x9e3779b9 + (seed << 6) + (seed >> 2);
-            }
-            return seed;
+    std::size_t operator()(const Vector <T, U> &vec) const {
+        std::hash<T> hasher;
+        std::size_t seed = 0;
+        for (size_t i = 0; i < U; ++i) {
+            seed ^= hasher(vec[i]) + 0x9e3779b9 + (seed << 6) + (seed >> 2);
         }
-    };
+        return seed;
+    }
+};
 }
