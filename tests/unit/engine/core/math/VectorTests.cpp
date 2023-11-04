@@ -178,12 +178,7 @@ TYPED_TEST(VertexTests, Constructors) {
         EXPECT_EQ_VEC(initListConstruct, this->v1);
     } // Enough with the initializers, it could go on forever
     
-    // Initializer list error
-    
-    EXPECT_DEATH(Vec initListConstruct
-            ({getExpectedValue1<Type>(0), getExpectedValue1<Type>(1), getExpectedValue1<Type>(2),
-              getExpectedValue1<Type>(3), getExpectedValue1<Type>(4)}), "");
-    
+
     // Fill constructor
     Type fillValue = Type(1);
     Vec fillConstruct(fillValue);
@@ -248,11 +243,6 @@ TYPED_TEST(VertexTests, AssignmentOperators) {
         EXPECT_EQ_VEC(initListAssign, this->v1);
     } // Enough with the initializers, it could go on forever
     
-    // Initializer list error
-    Vec initListAssignError;
-    EXPECT_DEATH((initListAssignError = {getExpectedValue1<Type>(0), getExpectedValue1<Type>(1),
-                                         getExpectedValue1<Type>(2), getExpectedValue1<Type>(3),
-                                         getExpectedValue1<Type>(4)}), "");
     
     // =============================================================================================
     // In place arithmetic assignment
@@ -504,34 +494,49 @@ TYPED_TEST(VertexTests, VectorMethods){
     Vec homogenous;
     initVector(homogenous);
     homogenous.set(N - 1, Type(0));
-    EXPECT_TRUE(homogenous.isHomogeneous());
-    homogenous.set(N - 1, Type(1));
     EXPECT_FALSE(homogenous.isHomogeneous());
-    
-    // Get Homogeneous
+    homogenous.set(N - 1, Type(1));
+    EXPECT_TRUE(homogenous.isHomogeneous());
+
+    // Homogenize
     Vector<Type, N-1> homogenize;
     initVector(homogenize);
-    Vector<Type, N-1> homogenizeExpected;
-    for (size_t i = 0; i < N-2; ++i)
+    Vector<Type, N> homogenizeExpected;  // Changed to N from N-1
+    for (size_t i = 0; i < N - 1; ++i) {
         homogenizeExpected.set(i, getExpectedValue1<Type>(i));
-    homogenizeExpected.set(N-1, Type(1));
-    EXPECT_EQ_VEC(homogenize.getHomogenous(), homogenizeExpected);
-    
-    // Get non homogeneous
+    }
+    homogenizeExpected.set(N - 1, Type(1));  // Setting the last element to 1
+    EXPECT_EQ_VEC(homogenize.homogenize(), homogenizeExpected);
+
+    // Dehomogenize
     Vector<Type, N+1> nonHomogenize;
     initVector(nonHomogenize);
-    Vector<Type, N+1> nonHomogenizeExpected;
-    for (size_t i = 0; i < N; ++i)
-        nonHomogenizeExpected.set(i, getExpectedValue1<Type>(i) * getExpectedValue1<Type>(N));
-    EXPECT_EQ_VEC(nonHomogenize.getNonHomogeneous(), nonHomogenizeExpected);
+    Vector<Type, N> nonHomogenizeExpected;  // Changed to N from N+1
+    Type w = nonHomogenize.get(N); // Get the last (homogenizing) component
+
+    // Skip the loop if w is zero to avoid division by zero
+    if (w != Type(0)) {
+        std::cout<< "-----values:";
+        for (size_t i = 0; i < N; ++i) {
+            nonHomogenizeExpected.set(i, nonHomogenize.get(i) / w);
+            
+            std::cout << std::setprecision(std::numeric_limits<Type>::max_digits10)
+            << nonHomogenize.dehomogenize().get(i) << std::endl;
+            
+            std::cout << std::setprecision(std::numeric_limits<Type>::max_digits10)
+                      << nonHomogenizeExpected.get(i) << std::endl;
+        }
+    }
+    EXPECT_EQ_VEC(nonHomogenize.dehomogenize(), nonHomogenizeExpected);
     
     // Normalize
     Vec normalize;
     initVector(normalize);
     normalize=normalize.normalize();
     Type normalizeLength = normalize.length();
-    EXPECT_EQ_CUSTOM(normalizeLength, Type(1));
-    
+    // If it's integral, it should be 0 due to truncation
+    if constexpr (!std::is_integral_v<Type>)
+        EXPECT_EQ_CUSTOM(normalizeLength, Type(1));
     // Size
     EXPECT_EQ_CUSTOM(this->v1.size(), N);
     

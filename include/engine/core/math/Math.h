@@ -17,6 +17,12 @@
 namespace GLESC::Math {
     constexpr float FLOAT_COMPARISON_EPSILON = 1e-6f;
     constexpr double DOUBLE_COMPARISON_EPSILON = 1e-10;
+    /**
+     * @brief This epsilon is special for math related operations.
+     * @details Is less precise and its used for any type of data. This is necessary
+     * because many operations like determinants or matrix inverse are not precise.
+     */
+    constexpr float ENGINE_EPSILON = 1e-6f;
     constexpr float PI =
             3.1415926535897932384626433832795028841971693993751058209749445923f;
     
@@ -65,7 +71,6 @@ namespace GLESC::Math {
         }
         return result;
     }
-
 }
 
 template<typename LValueT, typename RValueT>

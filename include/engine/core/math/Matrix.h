@@ -17,6 +17,7 @@
 #include "engine/core/math/asserts/MatrixAsserts.h"
 #include "engine/core/logger/Logger.h"
 #include "engine/core/debugger/Stacktrace.h"
+#include "engine/core/math/MatrixAlgorithms.h"
 
 
 template<typename Type, size_t N, size_t M>
@@ -40,12 +41,12 @@ public:
         }
     }
     
-    explicit Matrix(Type (&data)[N][M]) {
-        for (size_t i = 0; i < N; ++i) {
-            for (size_t j = 0; j < M; j++) {
-                this->data[i][j] = data[i][j];
-            }
-        }
+    /**
+     * @brief Constructor array list
+     * @param data
+     */
+    Matrix(Type (&data)[N][M]) {
+        std::copy(std::begin(data), std::end(data), std::begin(this->data));
     }
     
     /**
@@ -65,31 +66,33 @@ public:
     }
     
     /**
-     * @brief Initializer list constructor
+     * @brief Constructor from initializer list
      * @param list
      */
-    inline Matrix(const std::initializer_list<std::initializer_list<Type>> &list) {
-        ASSERT_MAT_INIT_LIST_IS_OF_SIZE(N, M, list);
+    Matrix(std::initializer_list<std::initializer_list<Type>> list) {
+        assert(list.size() == N && "Matrix rows size is incorrect");
         size_t i = 0;
         for (const auto &row : list) {
-            size_t j = 0;
-            for (const auto &element : row) {
-                data[i][j] = element;
-                ++j;
+            size_t k = 0;
+            for (const auto &col : row) {
+                data[i][k] = col;
+                ++k;
             }
             ++i;
         }
     }
+    
     // =============================================================================================
     // =========================================== Operators =======================================
     // =============================================================================================
     
     
     // ==================================== Assignment Operators ===================================
+
     /**
-     * @brief Copy assignment operator
-     * @param other
-     * @return Matrix<Type, N, M>& - reference to this
+     * @brief Copy assignment operator.
+     * @param other The matrix to copy from.
+     * @return Reference to the modified instance.
      */
     Matrix<Type, N, M> &operator=(const Matrix<Type, N, M> &other) noexcept {
         if (this == &other) {
@@ -98,11 +101,11 @@ public:
         std::copy(std::begin(other.data), std::end(other.data), std::begin(data));
         return *this;
     }
-    
+
     /**
-     * @brief Move assignment operator
-     * @param rhs
-     * @return Matrix<Type, N, M>& - reference to this
+     * @brief Move assignment operator.
+     * @param rhs The matrix to move from.
+     * @return Reference to the modified instance.
      */
     Matrix<Type, N, M> &operator=(Matrix<Type, N, M> &&rhs) noexcept {
         if (this == &rhs) {
@@ -111,47 +114,74 @@ public:
         std::move(std::begin(rhs.data), std::end(rhs.data), std::begin(data));
         return *this;
     }
-    
     /**
-     * @brief Initializer list assignment operator
-     * @param rhs
-     * @return Matrix<Type, N, M>& - reference to this
+     * @brief Assignment operator from a 2D array.
+     * @param data 2D array to assign from.
+     * @return Reference to the modified instance.
      */
-    Matrix<Type, N, M> &operator=(const std::initializer_list<std::initializer_list<Type>> &rhs) {
-        ASSERT_MAT_INIT_LIST_IS_OF_SIZE(N, M, rhs);
+    Matrix<Type, N, M> &operator=(Type (&data)[N][M]) {
+        std::copy(std::begin(data), std::end(data), std::begin(this->data));
+        return *this;
+    }
+
+    /**
+     * @brief Assignment operator from an initializer list of initializer lists.
+     * @param list Initializer list of initializer lists to assign from.
+     * @return Reference to the modified instance.
+     */
+    Matrix<Type, N, M> &operator=(std::initializer_list<std::initializer_list<Type>> list) {
         size_t i = 0;
-        for (const auto &row : rhs) {
-            size_t j = 0;
-            for (const auto &element : row) {
-                data[i][j] = element;
-                ++j;
+        for (const auto &row : list) {
+            size_t k = 0;
+            for (const auto &col : row) {
+                data[i][k] = col;
+                ++k;
             }
             ++i;
         }
         return *this;
     }
     
-    
-    Matrix<Type, N, M> &operator*=(const Matrix<Type, N, M> &rhs) {
+    /**
+     * @brief In-place element-wise multiplication with another matrix.
+     * @param rhs The matrix to multiply with.
+     * @return Reference to the modified instance.
+     */
+    template<size_t X>
+    Matrix<Type, N, M> &operator*=(const Matrix<Type, M, X> &rhs) {
+        S_ASSERT_MAT_IS_SQUARE(M, X);
+        Matrix<Type, N, X> result;
         for (size_t i = 0; i < N; ++i) {
-            for (size_t j = 0; j < M; ++j) {
-                data[i][j] *= rhs.data[i][j];
+            for (size_t j = 0; j < X; ++j) {
+                result[i][j] = 0;
+                for (size_t k = 0; k < M; ++k) {
+                    result[i][j] += data[i][k] * rhs[k][j];
+                }
             }
         }
+        *this = std::move(result);
         return *this;
     }
-    
-    
+
+    /**
+     * @brief In-place scalar multiplication.
+     * @param scalar The scalar to multiply with.
+     * @return Reference to the modified instance.
+     */
     Matrix<Type, N, M> &operator*=(Type scalar) {
         for (size_t i = 0; i < N; ++i) {
             for (size_t k = 0; k < M; ++k) {
                 data[i][k] *= scalar;
             }
         }
-        
         return *this;
     }
-    
+
+    /**
+     * @brief In-place scalar addition.
+     * @param rhs The scalar to add.
+     * @return Reference to the modified instance.
+     */
     Matrix<Type, N, M> &operator+=(Type rhs) {
         for (size_t i = 0; i < N; ++i) {
             for (size_t k = 0; k < M; k++) {
@@ -160,7 +190,12 @@ public:
         }
         return *this;
     }
-    
+
+    /**
+     * @brief In-place element-wise addition with another matrix.
+     * @param rhs The matrix to add with.
+     * @return Reference to the modified instance.
+     */
     Matrix<Type, N, M> &operator+=(const Matrix<Type, N, M> &rhs) {
         for (size_t i = 0; i < N; ++i) {
             for (size_t k = 0; k < M; k++) {
@@ -169,7 +204,12 @@ public:
         }
         return *this;
     }
-    
+
+    /**
+     * @brief In-place element-wise subtraction with another matrix.
+     * @param rhs The matrix to subtract with.
+     * @return Reference to the modified instance.
+     */
     Matrix<Type, N, M> &operator-=(const Matrix<Type, N, M> &rhs) {
         for (size_t i = 0; i < N; ++i) {
             for (size_t k = 0; k < M; k++) {
@@ -178,7 +218,12 @@ public:
         }
         return *this;
     }
-    
+
+    /**
+     * @brief In-place scalar subtraction.
+     * @param rhs The scalar to subtract.
+     * @return Reference to the modified instance.
+     */
     Matrix<Type, N, M> &operator-=(Type rhs) {
         for (size_t i = 0; i < N; ++i) {
             for (size_t k = 0; k < M; k++) {
@@ -187,11 +232,17 @@ public:
         }
         return *this;
     }
-    
-    
+
+    /**
+     * @brief In-place scalar division.
+     * @param scalar The scalar to divide by.
+     * @return Reference to the modified instance.
+     * @throws MathException if division by zero
+     */
     Matrix<Type, N, M> &operator/=(Type scalar) {
-        if (eq(scalar, 0))
+        if (eq(scalar, Type(0))) {
             throw MathException("Division by zero");
+        }
         for (size_t i = 0; i < N; ++i) {
             for (size_t k = 0; k < M; k++) {
                 data[i][k] /= scalar;
@@ -199,10 +250,17 @@ public:
         }
         return *this;
     }
-    
+
+    /**
+     * @brief In-place division by another matrix.
+     * @param rhs The matrix to divide by.
+     * @return Reference to the modified instance.
+     * @throws MathException if division by zero
+     */
     Matrix<Type, N, M> &operator/=(const Matrix<Type, N, M> &rhs) {
-        if (eq(rhs.determinant(), 0))
+        if (eq(rhs.determinant(), Type(0))) {
             throw MathException("Division by zero");
+        }
         *this *= rhs.inverse();
         return *this;
     }
@@ -277,7 +335,7 @@ public:
         for (size_t i = 0; i < N; ++i) {
             for (size_t j = 0; j < X; ++j) {
                 for (size_t k = 0; k < M; ++k) {
-                    result[i][j] += (*this).get(i,k) * other.get(k,j);
+                    result[i][j] += (*this).get(i, k) * other.get(k, j);
                 }
             }
         }
@@ -330,6 +388,7 @@ public:
         }
         return result;
     }
+    
     /**
      * @brief Matrix division by matrix
      * @details The matrix division by matrix is defined as the multiplication of the first matrix
@@ -390,61 +449,13 @@ public:
     
     [[nodiscard]] Matrix<Type, M, N> transpose() const {
         Matrix<Type, M, N> result;
-        for (size_t i = 0; i < M; ++i) {
-            for (size_t j = 0; j < N; ++j) {
+        for (size_t i = 0; i < N; ++i) {
+            for (size_t j = 0; j < M; ++j) {
                 result[j][i] = data[i][j];
             }
         }
         return result;
     }
-    
-    [[nodiscard]] Matrix<Type, N, M> translate(const Vector<Type, M - 1> &translation) const {
-        Matrix<Type, N, M> result(*this);
-        for (size_t i = 0; i < N - 1; ++i) {
-            result.data[i][M - 1] += translation[i];
-        }
-        return result;
-    }
-    
-    [[nodiscard]] Matrix<Type, N, M> scale(const Vector<Type, M - 1> &scale) const {
-        Matrix<Type, N, M> result(*this);
-        for (size_t i = 0; i < N - 1; ++i) {
-            result.data[i][i] *= scale[i];
-        }
-        return result;
-    }
-    
-    [[nodiscard]] Matrix<Type, N, M> rotate(const Type &degree) const {
-        S_ASSERT_MAT_IS_OF_SIZE(N, M, 3, 3);
-        Matrix<Type, N, M> result(*this);
-        Type c = cos(degree), s = sin(degree);
-        Matrix<Type, 3, 3> rotation = {{c, -s, 0},
-                                       {s, c,  0},
-                                       {0, 0,  1}};
-        return result * rotation;
-    }
-    
-    [[nodiscard]] Matrix<Type, N, M> rotate(const Vector<Type, 3> &degrees) const {
-        S_ASSERT_MAT_IS_OF_SIZE(N, M, 4, 4);
-        Matrix<Type, 4, 4> result(*this);
-        Matrix<Type, 4, 4> rotationX = {{1, 0,                   0,                    0},
-                                        {0, cos(degrees.getX()), -sin(degrees.getX()), 0},
-                                        {0, sin(degrees.getX()), cos(degrees.getX()),  0},
-                                        {0, 0,                   0,                    1}};
-        
-        Matrix<Type, 4, 4> rotationY = {{cos(degrees.getY()),  0, sin(degrees.getY()), 0},
-                                        {0,                    1, 0,                   0},
-                                        {-sin(degrees.getY()), 0, cos(degrees.getY()), 0},
-                                        {0,                    0, 0,                   1}};
-        
-        Matrix<Type, 4, 4> rotationZ = {{cos(degrees.getZ()), -sin(degrees.getZ()), 0, 0},
-                                        {sin(degrees.getZ()), cos(degrees.getZ()),  0, 0},
-                                        {0,                   0,                    1, 0},
-                                        {0,                   0,                    0, 1}};
-        
-        return rotationX * rotationY * rotationZ * result;
-    }
-    
     
     [[nodiscard]]Type determinant() const {
         S_ASSERT_MAT_IS_SQUARE(N, M);
@@ -474,69 +485,34 @@ public:
             
             return det;
         } else {
-            int n = N;
-            Matrix<Type, N, M> localData(*this);
-            Type det = Type(1);
-            
-            for (int i = 0; i < n; ++i) {
-                int maxRow = i;
-                
-                for (int k = i + 1; k < n; ++k) {
-                    if (absol(localData[k][i]) > absol(localData[maxRow][i])) {
-                        maxRow = k;
-                    }
-                }
-                
-                if (localData[maxRow][i] == 0) {
-                    return 0;
-                }
-                
-                localData[maxRow].swap(localData[i]);
-                det *= localData[i][i];
-                
-                for (int k = i + 1; k < n; ++k) {
-                    Type factor = localData[k][i] / localData[i][i];
-                    for (int j = i; j < n; ++j) {
-                        localData[k][j] -= factor * localData[i][j];
-                    }
-                }
-            }
-            
-            return det;
+            return MatrixAlgorithms::laplaceExpansionDeterminant(*this);
         }
         
     }
-    
-    Matrix<Type, N, M> adjoint() const {
-        Matrix<Type, N, M> adj;
-        for (int r = 0; r < 3; r++) {
-            for (int c = 0; c < 3; c++) {
-                adj.data[r][c] = (data[(c + 1) % 3][(r + 1) % 3] * data[(c + 2) % 3][(r + 2) % 3]) -
-                                 (data[(c + 1) % 3][(r + 2) % 3] * data[(c + 2) % 3][(r + 1) % 3]);
-            }
-        }
-        return adj;
-    }
-    
     [[nodiscard]] Matrix<Type, N, M> inverse() const {
         S_ASSERT_MAT_IS_SQUARE(N, M);
         Type det = determinant();
+        Type inDet = 1.0 / det;
         if (eq(det, 0))
             throw MathException("Division by zero");
         if constexpr (N == 2) {
             Matrix<Type, N, M> inv;
-            inv.data[0][0] = data[1][1] / det;
-            inv.data[0][1] = -data[0][1] / det;
-            inv.data[1][0] = -data[1][0] / det;
-            inv.data[1][1] = data[0][0] / det;
+            inv.data[0][0] = data[1][1] * inDet;
+            inv.data[0][1] = -data[0][1] * inDet;
+            inv.data[1][0] = -data[1][0] * inDet;
+            inv.data[1][1] = data[0][0] * inDet;
             return inv;
         } else if constexpr (N == 3) {
-            Matrix<Type, N, M> inv = adjoint();
-            for (int r = 0; r < 3; r++) {
-                for (int c = 0; c < 3; c++) {
-                    inv.data[r][c] /= det;
-                }
-            }
+            Matrix<Type, N, M> inv;
+            inv.data[0][0] = (data[1][1]*data[2][2] - data[1][2]*data[2][1]) * inDet;
+            inv.data[0][1] = (data[0][2]*data[2][1] - data[0][1]*data[2][2]) * inDet;
+            inv.data[0][2] = (data[0][1]*data[1][2] - data[0][2]*data[1][1]) * inDet;
+            inv.data[1][0] = (data[1][2]*data[2][0] - data[1][0]*data[2][2]) * inDet;
+            inv.data[1][1] = (data[0][0]*data[2][2] - data[0][2]*data[2][0]) * inDet;
+            inv.data[1][2] = (data[0][2]*data[1][0] - data[0][0]*data[1][2]) * inDet;
+            inv.data[2][0] = (data[1][0]*data[2][1] - data[1][1]*data[2][0]) * inDet;
+            inv.data[2][1] = (data[0][1]*data[2][0] - data[0][0]*data[2][1]) * inDet;
+            inv.data[2][2] = (data[0][0]*data[1][1] - data[0][1]*data[1][0]) * inDet;
             return inv;
         } else if constexpr (N == 4) {
             
@@ -560,55 +536,77 @@ public:
             Type A0112 = data[1][0] * data[2][1] - data[1][1] * data[2][0];
             
             
-            det = data[0][0] * (data[1][1] * A2323 - data[1][2] * A1323 + data[1][3] * A1223) -
-                  data[0][1] * (data[1][0] * A2323 - data[1][2] * A0323 + data[1][3] * A0223) +
-                  data[0][2] * (data[1][0] * A1323 - data[1][1] * A0323 + data[1][3] * A0123) -
-                  data[0][3] * (data[1][0] * A1223 - data[1][1] * A0223 + data[1][2] * A0123);
-            det = 1 / det;
+            Matrix<Type, N, M> in;
             
-            Matrix<Type, N, M> im;
+            in.data[0][0] = inDet * (data[1][1] * A2323 - data[1][2] * A1323 + data[1][3] * A1223);
+            in.data[0][1] = inDet * -(data[0][1] * A2323 - data[0][2] * A1323 + data[0][3] * A1223);
+            in.data[0][2] = inDet * (data[0][1] * A2313 - data[0][2] * A1313 + data[0][3] * A1213);
+            in.data[0][3] = inDet * -(data[0][1] * A2312 - data[0][2] * A1312 + data[0][3] * A1212);
+            in.data[1][0] = inDet * -(data[1][0] * A2323 - data[1][2] * A0323 + data[1][3] * A0223);
+            in.data[1][1] = inDet * (data[0][0] * A2323 - data[0][2] * A0323 + data[0][3] * A0223);
+            in.data[1][2] = inDet * -(data[0][0] * A2313 - data[0][2] * A0313 + data[0][3] * A0213);
+            in.data[1][3] = inDet * (data[0][0] * A2312 - data[0][2] * A0312 + data[0][3] * A0212);
+            in.data[2][0] = inDet * (data[1][0] * A1323 - data[1][1] * A0323 + data[1][3] * A0123);
+            in.data[2][1] = inDet * -(data[0][0] * A1323 - data[0][1] * A0323 + data[0][3] * A0123);
+            in.data[2][2] = inDet * (data[0][0] * A1313 - data[0][1] * A0313 + data[0][3] * A0113);
+            in.data[2][3] = inDet * -(data[0][0] * A1312 - data[0][1] * A0312 + data[0][3] * A0112);
+            in.data[3][0] = inDet * -(data[1][0] * A1223 - data[1][1] * A0223 + data[1][2] * A0123);
+            in.data[3][1] = inDet * (data[0][0] * A1223 - data[0][1] * A0223 + data[0][2] * A0123);
+            in.data[3][2] = inDet * -(data[0][0] * A1213 - data[0][1] * A0213 + data[0][2] * A0113);
+            in.data[3][3] = inDet * (data[0][0] * A1212 - data[0][1] * A0212 + data[0][2] * A0112);
             
-            im[0][0] = det * (data[1][1] * A2323 - data[1][2] * A1323 + data[1][3] * A1223);
-            im[0][1] = det * -(data[0][1] * A2323 - data[0][2] * A1323 + data[0][3] * A1223);
-            im[0][2] = det * (data[0][1] * A2313 - data[0][2] * A1313 + data[0][3] * A1213);
-            im[0][3] = det * -(data[0][1] * A2312 - data[0][2] * A1312 + data[0][3] * A1212);
-            im[1][0] = det * -(data[1][0] * A2323 - data[1][2] * A0323 + data[1][3] * A0223);
-            im[1][1] = det * (data[0][0] * A2323 - data[0][2] * A0323 + data[0][3] * A0223);
-            im[1][2] = det * -(data[0][0] * A2313 - data[0][2] * A0313 + data[0][3] * A0213);
-            im[1][3] = det * (data[0][0] * A2312 - data[0][2] * A0312 + data[0][3] * A0212);
-            im[2][0] = det * (data[1][0] * A1323 - data[1][1] * A0323 + data[1][3] * A0123);
-            im[2][1] = det * -(data[0][0] * A1323 - data[0][1] * A0323 + data[0][3] * A0123);
-            im[2][2] = det * (data[0][0] * A1313 - data[0][1] * A0313 + data[0][3] * A0113);
-            im[2][3] = det * -(data[0][0] * A1312 - data[0][1] * A0312 + data[0][3] * A0112);
-            im[3][0] = det * -(data[1][0] * A1223 - data[1][1] * A0223 + data[1][2] * A0123);
-            im[3][1] = det * (data[0][0] * A1223 - data[0][1] * A0223 + data[0][2] * A0123);
-            im[3][2] = det * -(data[0][0] * A1213 - data[0][1] * A0213 + data[0][2] * A0113);
-            im[3][3] = det * (data[0][0] * A1212 - data[0][1] * A0212 + data[0][2] * A0112);
-            
-            return im;
-        } else{
-        
+            return in;
+        } else {
+            return MatrixAlgorithms::gaussianInverse(*this);
         }
         
     }
     
-    [[nodiscard]] Type minor(size_t i, size_t j) const {
-        S_ASSERT_MAT_IS_OF_SIZE(N, M, 4, 4);
-        Matrix<Type, 3, 3> subMatrix;
-        
-        for (size_t row = 0, curRow = 0; row < 4; ++row) {
-            if (row == i)
-                continue;
-            for (size_t col = 0, curCol = 0; col < 4; ++col) {
-                if (col == j)
-                    continue;
-                subMatrix[curRow][curCol] = data[row][col];
-                ++curCol;
-            }
-            ++curRow;
+    [[nodiscard]] Matrix<Type, N, M> translate(const Vector<Type, N-1> &translation) const {
+        S_ASSERT_MAT_IS_SQUARE(N, M);
+        Matrix<Type, N, M> result(*this);
+        for (size_t i = 0; i < N-1; ++i) {
+            result.data[i][M-1] += translation[i];
         }
-        return subMatrix.determinant();
+        return result;
     }
+    
+    [[nodiscard]] Matrix<Type, N, M> scale(const Vector<Type, N-1> &scale) const {
+        S_ASSERT_MAT_IS_SQUARE(N, M);
+        Matrix<Type, N, M> result(*this);
+        for (size_t i = 0; i < N-1; ++i) {
+            result.data[i][i] *= scale[i];
+        }
+        return result;
+    }
+    
+    
+    template <typename VecType>
+    [[nodiscard]] Matrix<Type, N, M> rotate(const VecType &degrees) const {
+        if constexpr (std::is_same_v<VecType, Type> && N == 3 && M == 3) {
+            return MatrixAlgorithms::rotate2D(*this, static_cast<Type>(degrees));
+            
+        } else if constexpr (std::is_same_v<VecType, Vector<Type, 3>> && N == 4 && M == 4) {
+            return MatrixAlgorithms::rotate3D(*this, static_cast<Vector<Type, 3>>(degrees));
+        }
+        else {
+            static_assert(N!=3 && M!=3 || N!=4 && M!=4,
+                    "Rotation is only supported for 2D and 3D matrices");
+        }
+    }
+    
+    
+    
+    
+    [[nodiscard]] Matrix<Type, 3, 3> lookAt(const Vector<Type, 2> &target) const {
+        return MatrixAlgorithms::lookAt2D(*this, target);
+    }
+    
+    [[nodiscard]] Matrix<Type, 4, 4> lookAt(const Vector<Type, 3> &target,
+                                            const Vector<Type, 3> &up) const {
+        return MatrixAlgorithms::lookAt3D(*this, target, up);
+    }
+    
     
     [[nodiscard]] std::string toString() const {
         std::string result;

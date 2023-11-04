@@ -13,6 +13,7 @@
 #include <type_traits>
 #include <cmath>
 #include <string>
+#include <engine/core/exceptions/core/math/MathException.h>
 #include "engine/core/math/Math.h"
 #include "engine/core/math/asserts/VectorAsserts.h"
 
@@ -42,8 +43,8 @@ namespace GLESC::Math {
          * @details Initializes the vector with the values from the array
          * @param values
          */
-        explicit Vec(Type values[N]) noexcept {
-            std::copy(values, values + N, std::begin(data));
+        explicit Vec(const Type(&list)[N]) noexcept {
+            std::copy(std::begin(list), std::end(list), std::begin(data));
         }
         
         /**
@@ -56,7 +57,7 @@ namespace GLESC::Math {
          * @param args
          */
         template<typename... Args, typename = std::enable_if_t<(sizeof...(Args) == N)>>
-        explicit Vec(Args &&... args) noexcept : data{args...} {
+        Vec(Args &&... args) noexcept : data{args...} {
         }
         
         
@@ -87,15 +88,6 @@ namespace GLESC::Math {
             std::move(std::begin(other.data), std::end(other.data), std::begin(data));
         }
         
-        /**
-         * @brief Initializer list constructor
-         * @details Initializes the vector with the values from the initializer list.
-         * @param list
-         */
-        Vec(std::initializer_list<Type> list) noexcept {
-            D_ASSERT_INIT_LIST_IS_OF_SIZE(list.size(), N);
-            std::copy(list.begin(), list.end(), std::begin(data));
-        }
         
         // =========================================================================================
         // ======================================== Accessors ======================================
@@ -347,20 +339,8 @@ namespace GLESC::Math {
          * @param values
          * @return A reference to this vector
          */
-        Vec<Type, N> &operator=(Type values[N]) noexcept {
-            std::copy(values, values + N, std::begin(data));
-            return *this;
-        }
-        
-        /**
-         * @brief Initializer list assignment operator
-         * @details Assigns the values from the initializer list to this vector
-         * @param list
-         * @return A reference to this vector
-         */
-        Vec<Type, N> &operator=(std::initializer_list<Type> list) noexcept {
-            D_ASSERT_INIT_LIST_IS_OF_SIZE(list.size(), N);
-            std::copy(list.begin(), list.end(), std::begin(data));
+        Vec<Type, N> &operator=(const Type(&list)[N]) noexcept {
+            std::copy(std::begin(list), std::end(list), std::begin(data));
             return *this;
         }
         
@@ -611,13 +591,8 @@ namespace GLESC::Math {
         template<typename OtherType>
         constexpr bool operator==(const Vec<OtherType, N> &rhs) const {
             for (size_t i = 0; i < N; ++i) {
-                if constexpr (std::is_floating_point_v<OtherType>) {
-                    if (!eq(data[i], rhs.data[i]))
-                        return false;
-                } else {
-                    if (data[i] != static_cast<Type>(rhs.data[i]))
-                        return false;
-                }
+                if (!eq(data[i], rhs.data[i]))
+                    return false;
             }
             return true;
         }
@@ -665,7 +640,7 @@ namespace GLESC::Math {
          * @return True if this vector is less than or equal to rhs, false otherwise
          */
         constexpr bool operator<=(const Vec<Type, N> &rhs) const {
-            return !(*this > rhs);
+            return *this < rhs || *this == rhs;
         }
         
         /**
@@ -711,7 +686,8 @@ namespace GLESC::Math {
             return data[N - 1] == Type(1);
         }
         
-        [[nodiscard]] Vec<Type, N + 1> getHomogenous() const {
+        
+        [[nodiscard]] Vec<Type, N + 1> homogenize() const {
             Vec<Type, N + 1> result;
             for (size_t i = 0; i < N; ++i) {
                 result[i] = data[i];
@@ -720,14 +696,16 @@ namespace GLESC::Math {
             return result;
         }
         
-        [[nodiscard]] Vec<Type, N - 1> getNonHomogeneous() const {
+        [[nodiscard]] Vec<Type, N - 1> dehomogenize() const {
+            if (data[N - 1] == Type(0))
+                throw MathException("Cannot dehomogenize a vector with a zero w-component.");
+            
             Vec<Type, N - 1> result;
-            if (data[N - 1] == Type(0) || data[N - 1] == Type(1))
-                for (size_t i = 0; i < N - 1; ++i)
-                    result[i] = data[i];
-            else
-                for (size_t i = 0; i < N - 1; ++i)
-                    result[i] = data[i] / data[N - 1];
+            Type wInv = Type(1) / data[N - 1];
+            
+            for (size_t i = 0; i < N - 1; ++i) {
+                result[i] = data[i] * wInv;
+            }
             
             return result;
         }
@@ -735,7 +713,7 @@ namespace GLESC::Math {
         
         [[nodiscard]] Vec<Type, N> normalize() const {
             Type length = this->length();
-            if (eq(length, Type(1)) ||eq(length, Type(0))) { return *this; }
+            if (eq(length, Type(1)) || eq(length, Type(0))) { return *this; }
             Vec<Type, N> result;
             for (size_t i = 0; i < N; ++i)
                 result.data[i] = data[i] / length;
@@ -782,7 +760,7 @@ namespace GLESC::Math {
                                 data[0] * other[1] - data[1] * other[0]);
         }
     
-    private:
+    protected:
         Type data[N];
     };
     

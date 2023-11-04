@@ -26,19 +26,14 @@
 namespace GLESC {
     class Renderer {
     public:
-        explicit Renderer(WindowManager &windowManager,
-                          GLESC_RENDER_API &graphicsInterface) :
-                graphicsInterface(graphicsInterface),
-                windowManager(windowManager),
-                shaderManager(graphicsInterface),
-                textureManager(graphicsInterface) {
+        explicit Renderer(WindowManager &windowManager, GLESC_RENDER_API &graphicsInterface) :
+                graphicsInterface(graphicsInterface), windowManager(windowManager), shaderManager(
+                graphicsInterface), textureManager(graphicsInterface) {
             
             // Set the projection matrix
-            projection = calculateProjectionMatrix(
-                    45.0f, 0.1f, 100.0f,
-                    static_cast<float>(windowManager.getWidth()),
-                    static_cast<float>( windowManager.getHeight())
-            );
+            projection = calculateProjectionMatrix(45.0f, 0.1f, 100.0f,
+                                                   static_cast<float>(windowManager.getWidth()),
+                                                   static_cast<float>( windowManager.getHeight()));
         }
         
         ~Renderer() {
@@ -46,9 +41,8 @@ namespace GLESC {
         }
         
         void start() {
-            graphicsInterface.clear(
-                    {GAPIValues::ClearBitsColor, GAPIValues::ClearBitsDepth,
-                     GAPIValues::ClearBitsStencil});
+            graphicsInterface.clear({GAPIValues::ClearBitsColor, GAPIValues::ClearBitsDepth,
+                                     GAPIValues::ClearBitsStencil});
             graphicsInterface.clearColor(0.2f, 0.3f, 0.3f, 1.0f);
         }
         
@@ -60,12 +54,10 @@ namespace GLESC {
                            const Vec3D &position,
                            const Vec3D &rotation,
                            const Vec3D &scale) {
-            Matrix4D transform =
-                    calculateTransformMatrix(position, rotation, scale);
+            Matrix4D transform = calculateTransformMatrix(position, rotation, scale);
             // Apply transformations to vertices
             for (auto &vertex : mesh.getVertices()) {
-                Vec4D pos = Vec4D(vertex.getPosition().x(),
-                                  vertex.getPosition().y(),
+                Vec4D pos = Vec4D(vertex.getPosition().x(), vertex.getPosition().y(),
                                   vertex.getPosition().z(), 1.0f);
                 pos = transform * pos;
                 Vec3D newPos = Vec3D(pos.x(), pos.y(), pos.z());
@@ -73,8 +65,7 @@ namespace GLESC {
             }
         }
         
-        void
-        renderMesh(GLESC::Mesh const &mesh) {
+        void renderMesh(GLESC::Mesh const &mesh) {
             
         }
         
@@ -133,22 +124,18 @@ namespace GLESC {
          * @param camera component
          * @return projection matrix
          */
-        static Matrix4D
-        calculateProjectionMatrix(float fov,
-                                  float nearPlane,
-                                  float farPlane,
-                                  float viewWidth,
-                                  float viewHeight) {
+        static Matrix4D calculateProjectionMatrix(float fov,
+                                                  float nearPlane,
+                                                  float farPlane,
+                                                  float viewWidth,
+                                                  float viewHeight) {
             if (viewHeight == 0.0f)
-                throw EngineException(
-                        "Unable to make projection matrix: viewHeight is 0");
+                throw EngineException("Unable to make projection matrix: viewHeight is 0");
             if (viewWidth == 0.0f)
-                throw EngineException(
-                        "Unable to make projection matrix: viewWidth is 0");
+                throw EngineException("Unable to make projection matrix: viewWidth is 0");
             
             float aspectRatio = viewWidth / viewHeight;
-            return GLESC::Math::perspective(glm::radians(fov), aspectRatio, nearPlane,
-                                    farPlane);
+            return GLESC::Math::perspective(glm::radians(fov), aspectRatio, nearPlane, farPlane);
         }
         
         void swapBuffers() {
@@ -162,11 +149,8 @@ namespace GLESC {
          * @return view matrix
          */
         static Matrix4D
-        calculateViewMatrix(const Vec3D &position,
-                            const Vec3D &rotation,
-                            const Vec3D &scale) {
-            Matrix4D model = calculateTransformMatrix(position, rotation,
-                                                      scale);
+        calculateViewMatrix(const Vec3D &position, const Vec3D &rotation, const Vec3D &scale) {
+            Matrix4D model = calculateTransformMatrix(position, rotation, scale);
             return model.inverse();
         }
     
@@ -182,9 +166,7 @@ namespace GLESC {
          * @return The model matrix
          */
         static Matrix4D
-        calculateTransformMatrix(const Vec3D &position,
-                                 const Vec3D &rotation,
-                                 const Vec3D &scale) {
+        calculateTransformMatrix(const Vec3D &position, const Vec3D &rotation, const Vec3D &scale) {
             
             Matrix4D model = Matrix4D(1.0).translate(position);
             

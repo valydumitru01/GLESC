@@ -11,14 +11,6 @@
 
 #include "engine/core/asserts/Asserts.h"
 
-#define ASSERT_MAT_INIT_LIST_IS_OF_SIZE(N,M,list) \
-    D_ASSERT_EQUAL(list.size(), N,              \
-    "List size is incorrect, expected size"#N); \
-    for (const auto& row : list) {              \
-    D_ASSERT_EQUAL(row.size(), M,               \
-    "List size is incorrect, expected size"#M); \
-    }
-
 #define S_ASSERT_MAT_IS_OF_SIZE(N, M, expectedN, expectedM) \
     S_ASSERT_EQUAL(N, expectedN, \
     "Matrix size is incorrect, expected size"#expectedN); \
@@ -28,3 +20,8 @@
 #define S_ASSERT_MAT_IS_SQUARE(N, M) \
     S_ASSERT_EQUAL(N, M, \
     "Matrix is not square");
+
+#define S_ASSERT_ROTATION_NOT_AVAILABLE() \
+    S_ASSERT(false, \
+        "Rotation is not available for this matrix" \
+        ", only available for 3x3 and 4x4 matrices");

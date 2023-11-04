@@ -11,6 +11,9 @@
 
 #include <gtest/gtest.h>
 #include <algorithm>
+#include <type_traits>
+#include <limits>
+#include <cmath>
 #include "engine/core/math/Math.h"
 #include "engine/core/math/Matrix.h"
 
@@ -20,20 +23,41 @@
 #define EXPECT_EQ_D(a, b) \
     ASSERT_NEAR(a,b,GLESC::Math::DOUBLE_COMPARISON_EPSILON*std::max(std::abs(a),std::abs(b)))
 
-
 #define EXPECT_EQ_CUSTOM(a, b) \
-    do {                       \
-        if (std::is_same_v<decltype(a), float>) \
-            EXPECT_NEAR((a), (b),               \
-            GLESC::Math::FLOAT_COMPARISON_EPSILON \
-            * std::max(static_cast<float>(std::fabs(a)), static_cast<float>(std::fabs(b)))); \
-        else if (std::is_same_v<decltype(a), double>) \
-            EXPECT_NEAR((a), (b),               \
-            GLESC::Math::DOUBLE_COMPARISON_EPSILON \
-            * std::max(static_cast<double>(std::fabs(a)), static_cast<double>(std::fabs(b)))); \
-        else \
+    do { \
+        using ValueType = std::decay_t<decltype(a)>; \
+        if constexpr (std::is_floating_point_v<ValueType>) { \
+            ValueType epsilon = GLESC::Math::ENGINE_EPSILON \
+                * std::max(std::max(static_cast<ValueType>(std::fabs(a)),          \
+                           static_cast<ValueType>(std::fabs(b))),static_cast<ValueType>(1)); \
+            EXPECT_NEAR((a), (b), epsilon); \
+        } else { \
             EXPECT_EQ((a), (b)); \
+        } \
     } while (false)
+
+/**
+ * @brief Old version, TODO: need fixing
+ */
+/*
+#define EXPECT_EQ_CUSTOM(a, b)                                 \
+    do {                                                       \
+        if constexpr (std::is_floating_point_v<decltype(a)>) {           \
+            decltype(a) epsilon;                                   \
+            if constexpr (std::is_same_v<decltype(a), float>) {    \
+                epsilon = GLESC::Math::FLOAT_COMPARISON_EPSILON;   \
+            }                                                      \
+            else if constexpr (std::is_same_v<decltype(a), double>){ \
+                epsilon = GLESC::Math::DOUBLE_COMPARISON_EPSILON;  \
+            }                                                      \
+            epsilon *= std::max(std::fabs(a), std::fabs(b));       \
+            std::cout << "Epsilon: " << epsilon << "\n";           \
+            EXPECT_NEAR((a), (b), epsilon);                    \
+        } else {                                               \
+            EXPECT_EQ((a), (b));                               \
+        }                                                      \
+    } while (false)
+*/
 
 #define EXPECT_EQ_MAT(a, b) \
     do {                    \
@@ -48,69 +72,11 @@
 
 #define EXPECT_EQ_VEC(a, b) \
     do { \
+        std::cout<< "Comparing vectors:\n"; \
+        std::cout<< "Left vector: " << a.toString() <<"\n"; \
+        std::cout<< "Right vector: " << b.toString() <<"\n";\
         for (size_t i = 0; i < a.size(); ++i) \
             EXPECT_EQ_CUSTOM((a).get(i), (b).get(i)); \
     } while (false)
 
 
-template<typename Type, size_t N>
-inline Matrix<Type, N, N> gaussianInverse(const Matrix<Type, N, N>& inputMatrix) {
-    Matrix<Type, N, 2 * N> augmentedMatrix; // Resized to hold original and identity matrix
-    Matrix<Type, N, N> identityMatrix; // Initialize with identity matrix
-    Matrix<Type, N, N> inverseResult;
-    
-    // Initialize identityMatrix
-    for (size_t i = 0; i < N; ++i)
-        identityMatrix[i][i] = 1;
-    
-    // Augment the original matrix with identity matrix
-    for (size_t i = 0; i < N; ++i) {
-        for (size_t j = 0; j < N; ++j) {
-            augmentedMatrix[i][j] = inputMatrix[i][j];
-            augmentedMatrix[i][N + j] = identityMatrix[i][j];
-        }
-    }
-    
-    // Perform Gaussian Elimination
-    for (size_t i = 0; i < N; ++i) {
-        // Adding checks for singular (non-invertible) matrix
-        if (augmentedMatrix[i][i] == 0) {
-            // Search for a row with non-zero entry in current column
-            size_t swapRow = i + 1;
-            while (swapRow < N && augmentedMatrix[swapRow][i] == 0)
-                ++swapRow;
-            
-            // If no such row found, then all entries in this column are 0
-            if (swapRow == N) {
-                std::cout << "Matrix is singular (non-invertible)\n";
-                return inverseResult;
-            }
-            
-            // Swap the current row with the found non-zero entry row
-            for (size_t j = 0; j < 2 * N; ++j)
-                std::swap(augmentedMatrix[i][j], augmentedMatrix[swapRow][j]);
-        }
-        
-        // Scale the row
-        Type rowScale = Type(1) / augmentedMatrix[i][i];
-        for (size_t j = 0; j < 2 * N; ++j) {
-            augmentedMatrix[i][j] *= rowScale;
-        }
-        
-        // Eliminate other entries in this column
-        for (size_t j = 0; j < N; ++j) {
-            if (i == j) continue;
-            Type scale = augmentedMatrix[j][i];
-            for (size_t k = 0; k < 2 * N; ++k) {
-                augmentedMatrix[j][k] -= scale * augmentedMatrix[i][k];
-            }
-        }
-    }
-    
-    // Extract the inverse matrix from the augmented matrix
-    for (size_t i = 0; i < N; ++i)
-        for (size_t j = 0; j < N; ++j)
-            inverseResult[i][j] = augmentedMatrix[i][N + j];
-    
-    return inverseResult;
-}

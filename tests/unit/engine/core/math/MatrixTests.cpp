@@ -18,15 +18,28 @@ struct MatrixType {
     static const size_t Cols = M;
 };
 
+/**
+ * @brief Generate next value for the matrix
+ * @details It will generate numbers for the matrices for the tests. It's important to generate
+ * the numbers in a way the matrix is invertible and the laplaceExpansionDeterminant is not zero.
+ * @tparam MyType
+ * @param i
+ * @param j
+ * @return The next value for the matrix given the row and column
+ */
+template <class MyType>
+MyType generateNextValue(size_t i, size_t j) {
+    if (i == j) { // Diagonal element
+        return MyType(1);
+    } else { // Off-diagonal element
+        return MyType(i + j + i*j*7 + 7);
+    }
+}
 template <class MyType, size_t N, size_t M>
 void initializeMatrixWithValues(Matrix<MyType, N, M> &matrix) {
-    // Matrices will have the following format (i.e. 3x3):
-    // |1 2 3|
-    // |4 5 6|
-    // |7 8 9|
     for (size_t i = 0; i < matrix.rows(); ++i)
         for (size_t j = 0; j < matrix.cols(); ++j)
-            matrix[i][j] = i * matrix.cols() + j +1;
+            matrix[i][j] = generateNextValue<MyType>(i, j);
 }
 template <class MyType, size_t N, size_t M>
 void initializeMatrixWithDifferentValues(Matrix<MyType, N, M> &matrix) {
@@ -36,7 +49,7 @@ void initializeMatrixWithDifferentValues(Matrix<MyType, N, M> &matrix) {
     // |73 83 93|
     for (size_t i = 0; i < matrix.rows(); ++i)
         for (size_t j = 0; j < matrix.cols(); ++j)
-            matrix[i][j] = ((MyType(i) * matrix.cols() + MyType(j)) * MyType(10)) + MyType(3);
+            matrix[i][j] = generateNextValue<MyType>(i + 10, j + 10);
 }
 using MyTypes = ::testing::Types<
         MatrixType<float, 2, 2>, MatrixType<double, 2, 2>,
@@ -116,7 +129,37 @@ TYPED_TEST(MatrixTests, Constructors) {
     EXPECT_EQ_MAT(matrixMove, this->matrix);
     
     // Initializer list constructor
-    // TODO: Can't be done dynamically
+    Mat matrixInitList;
+    initializeMatrixWithValues(matrixInitList); // To avoid errors for dimensions
+    // that are not checked with constexpr
+    if constexpr (N==2 && M==2){
+        matrixInitList = {{generateNextValue<Type>(0, 0), generateNextValue<Type>(0, 1)},
+                          {generateNextValue<Type>(1, 0), generateNextValue<Type>(1, 1)}};
+    }
+    else if constexpr (N==3 && M==3){
+        matrixInitList =
+                {{generateNextValue<Type>(0, 0), generateNextValue<Type>(0, 1),
+                        generateNextValue<Type>(0, 2)},
+                 {generateNextValue<Type>(1, 0), generateNextValue<Type>(1, 1),
+                         generateNextValue<Type>(1, 2)},
+                 {generateNextValue<Type>(2, 0), generateNextValue<Type>(2, 1),
+                         generateNextValue<Type>(2, 2)}};
+    }
+    else if constexpr (N==4 && M==4){
+        matrixInitList =
+                {{generateNextValue<Type>(0, 0), generateNextValue<Type>(0, 1),
+                  generateNextValue<Type>(0, 2), generateNextValue<Type>(0, 3)},
+                 {generateNextValue<Type>(1, 0), generateNextValue<Type>(1, 1),
+                  generateNextValue<Type>(1, 2 ), generateNextValue<Type>(1, 3)},
+                 {generateNextValue<Type>(2, 0), generateNextValue<Type>(2, 1),
+                  generateNextValue<Type>(2, 2), generateNextValue<Type>(2, 3)},
+                 {generateNextValue<Type>(3, 0), generateNextValue<Type>(3, 1),
+                  generateNextValue<Type>(3, 2), generateNextValue<Type>(3, 3)}};
+    }
+    Mat expectedInitList;
+    initializeMatrixWithValues(expectedInitList);
+    EXPECT_EQ_MAT(matrixInitList, expectedInitList);
+    
 }
 
 TYPED_TEST(MatrixTests, Accessors) {
@@ -144,12 +187,12 @@ TYPED_TEST(MatrixTests, Accessors) {
     // Operator [] ----------------------------------
     for (size_t i = 0; i < this->matrix.rows(); ++i)
         for (size_t j = 0; j < this->matrix.cols(); ++j)
-            EXPECT_EQ_CUSTOM(this->matrix[i][j], i * this->matrix.cols() + j + 1);
+            EXPECT_EQ_CUSTOM(this->matrix[i][j], generateNextValue<Type>(i, j));
     
     // Const Getters ----------------------------------
     for (size_t i = 0; i < this->matrix.rows(); ++i)
         for (size_t j = 0; j < this->matrix.cols(); ++j)
-            EXPECT_EQ_CUSTOM(this->matrix.get(i, j), i * this->matrix.cols() + j + 1);
+            EXPECT_EQ_CUSTOM(this->matrix.get(i, j), generateNextValue<Type>(i, j));
     // Getters must return a const reference
     static_assert(std::is_same_v<decltype(this->matrix.get(0, 0)), const Type&>);
     
@@ -179,72 +222,54 @@ TYPED_TEST(MatrixTests, Assignments){
     Mat matrixMoveAssign;
     matrixMoveAssign = std::move(this->matrix);
     EXPECT_EQ_MAT(matrixMoveAssign, this->matrix);
-    
+
     // Operator += with matrix
     Mat matrixPlusEquals;
     initializeMatrixWithValues(matrixPlusEquals);
     matrixPlusEquals += this->matrix;
-    for (size_t i = 0; i < matrixPlusEquals.rows(); ++i)
-        for (size_t j = 0; j < matrixPlusEquals.cols(); ++j)
-            EXPECT_EQ_CUSTOM(matrixPlusEquals[i][j], this->matrix[i][j] + this->matrix[i][j]);
-    
+    EXPECT_EQ_MAT(matrixPlusEquals, (this->matrix + this->matrix));
+
     // Operator += with scalar
     Mat matrixPlusScalarEquals; initializeMatrixWithValues(matrixPlusScalarEquals);
-    Type  scalar = Type(2);
+    Type scalar = Type(2);
     matrixPlusScalarEquals += scalar;
-    for (size_t i = 0; i < matrixPlusScalarEquals.rows(); ++i)
-        for (size_t j = 0; j < matrixPlusScalarEquals.cols(); ++j)
-            EXPECT_EQ_CUSTOM(matrixPlusScalarEquals[i][j], this->matrix[i][j] + scalar);
-    
+    EXPECT_EQ_MAT(matrixPlusScalarEquals, (this->matrix + scalar));
+
     // Operator -= with matrix
     Mat matrixMinusEquals;
     initializeMatrixWithValues(matrixMinusEquals);
     matrixMinusEquals -= this->matrix;
-    for (size_t i = 0; i < matrixMinusEquals.rows(); ++i)
-        for (size_t j = 0; j < matrixMinusEquals.cols(); ++j)
-            EXPECT_EQ_CUSTOM(matrixMinusEquals[i][j], this->matrix[i][j] - this->matrix[i][j]);
-    
+    EXPECT_EQ_MAT(matrixMinusEquals, (this->matrix - this->matrix));
+
     // Operator -= with scalar
     Mat matrixMinusScalarEquals; initializeMatrixWithValues(matrixMinusScalarEquals);
-    Type  scalarMinus = Type(2);
+    Type scalarMinus = Type(2);
     matrixMinusScalarEquals -= scalarMinus;
-    for (size_t i = 0; i < matrixMinusScalarEquals.rows(); ++i)
-        for (size_t j = 0; j < matrixMinusScalarEquals.cols(); ++j)
-            EXPECT_EQ_CUSTOM(matrixMinusScalarEquals[i][j], this->matrix[i][j] - scalarMinus);
-    
+    EXPECT_EQ_MAT(matrixMinusScalarEquals, (this->matrix - scalarMinus));
+
     // Operator *= with matrix
-    Mat matrixMultEquals;
-    initializeMatrixWithValues(matrixMultEquals);
-    matrixMultEquals *= this->matrix;
-    for (size_t i = 0; i < matrixMultEquals.rows(); ++i) {
-        for (size_t j = 0; j < matrixMultEquals.cols(); ++j) {
-            int expectedValue = 0;
-            for (size_t k = 0; k < this->matrix.cols(); ++k) {
-                expectedValue += this->matrix[i][k] * this->matrix[k][j];
-            }
-            EXPECT_EQ_CUSTOM(matrixMultEquals[i][j], expectedValue);
-        }
+    if constexpr (N==M){ // Only square matrices can be multiplied in place
+        Matrix<Type, M, N> matrixMultEquals;
+        initializeMatrixWithValues(matrixMultEquals);
+        matrixMultEquals *= this->matrix;
+        EXPECT_EQ_MAT(matrixMultEquals, (this->matrix * this->matrix));
     }
-    
     // Operator *= with scalar
     Mat matrixMultScalarEquals; initializeMatrixWithValues(matrixMultScalarEquals);
     Type scalarMult = Type(2);
     matrixMultScalarEquals *= scalarMult;
-    for (size_t i = 0; i < matrixMultScalarEquals.rows(); ++i)
-        for (size_t j = 0; j < matrixMultScalarEquals.cols(); ++j)
-            EXPECT_EQ_CUSTOM(matrixMultScalarEquals[i][j], this->matrix[i][j] * scalarMult);
-    
+    EXPECT_EQ_MAT(matrixMultScalarEquals, (this->matrix * scalarMult));
+
     // Operator /= with scalar
     Mat matrixDivScalarEquals; initializeMatrixWithValues(matrixDivScalarEquals);
-    Type scalarDiv = Type (2);
+    Type scalarDiv = Type(2);
     matrixDivScalarEquals /= scalarDiv;
-    for (size_t i = 0; i < matrixDivScalarEquals.rows(); ++i)
-        for (size_t j = 0; j < matrixDivScalarEquals.cols(); ++j)
-            EXPECT_EQ_CUSTOM(matrixDivScalarEquals[i][j], this->matrix[i][j] / scalarDiv);
+    EXPECT_EQ_MAT(matrixDivScalarEquals, (this->matrix / scalarDiv));
     
     // Operator /= with matrix
     if constexpr (N==M){
         Mat matrixDivEquals; initializeMatrixWithValues(matrixDivEquals);
+        std::cout<< "Dividing matrices:\n";
         matrixDivEquals /= this->matrix;
         Mat expectedDivEquals;
         initializeMatrixWithValues(expectedDivEquals);
@@ -257,97 +282,97 @@ TYPED_TEST(MatrixTests, Assignments){
     }
 }
 
-// Define test
 TYPED_TEST(MatrixTests, ArithmeticOperators) {
     PREPARE_TEST();
     // ------------------------------ Addition -----------------------------
-    
+
     // Addition operator
     Mat matrixAdditionResult = this->matrix + this->matrix;
-    for (size_t i = 0; i < matrixAdditionResult.rows(); ++i)
-        for (size_t j = 0; j < matrixAdditionResult.cols(); ++j)
-            EXPECT_EQ_CUSTOM(matrixAdditionResult[i][j], this->matrix[i][j] + this->matrix[i][j]);
-    
+    Mat expectedAddition = this->matrix; // Initialize it with identical values to this->matrix
+    for (size_t i = 0; i < expectedAddition.rows(); ++i)
+        for (size_t j = 0; j < expectedAddition.cols(); ++j)
+            expectedAddition[i][j] *= 2;  // Double each element
+    EXPECT_EQ_MAT(matrixAdditionResult, expectedAddition);
+
     // Addition operator with scalar
     Mat matrixAddScalarResult = this->matrix + 2;
-    for (size_t i = 0; i < matrixAddScalarResult.rows(); ++i)
-        for (size_t j = 0; j < matrixAddScalarResult.cols(); ++j)
-            EXPECT_EQ_CUSTOM(matrixAddScalarResult[i][j], this->matrix[i][j] + 2);
-    
+    Mat expectedAddScalar = this->matrix; // Initialize it with identical values to this->matrix
+    for (size_t i = 0; i < expectedAddScalar.rows(); ++i)
+        for (size_t j = 0; j < expectedAddScalar.cols(); ++j)
+            expectedAddScalar[i][j] += 2;  // Add 2 to each element
+    EXPECT_EQ_MAT(matrixAddScalarResult, expectedAddScalar);
+
     // ------------------------------ Subtraction -----------------------------
     
     // Subtraction operator
     Mat matrixSubtrResult = this->matrix - this->matrix;
-    for (size_t i = 0; i < matrixSubtrResult.rows(); ++i)
-        for (size_t j = 0; j < matrixSubtrResult.cols(); ++j)
-            EXPECT_EQ_CUSTOM(matrixSubtrResult[i][j], this->matrix[i][j] - this->matrix[i][j]);
-    
+    Mat expectedSubtr = this->matrix; // Initialize it with zero values
+    for (size_t i = 0; i < expectedSubtr.rows(); ++i)
+        for (size_t j = 0; j < expectedSubtr.cols(); ++j)
+            expectedSubtr[i][j] = 0;  // All elements should be zero
+    EXPECT_EQ_MAT(matrixSubtrResult, expectedSubtr);
+
     // Subtraction operator with scalar
     Mat matrixSubtrScalarResult = this->matrix - 2;
-    for (size_t i = 0; i < matrixSubtrScalarResult.rows(); ++i)
-        for (size_t j = 0; j < matrixSubtrScalarResult.cols(); ++j)
-            EXPECT_EQ_CUSTOM(matrixSubtrScalarResult[i][j], this->matrix[i][j] - 2);
-    
+    Mat expectedSubtrScalar = this->matrix;
+    for (size_t i = 0; i < expectedSubtrScalar.rows(); ++i)
+        for (size_t j = 0; j < expectedSubtrScalar.cols(); ++j)
+            expectedSubtrScalar[i][j] -= 2;  // Subtract 2 from each element
+    EXPECT_EQ_MAT(matrixSubtrScalarResult, expectedSubtrScalar);
+
     // Unary minus operator
     Mat matrixUnaryMinusResult = -this->matrix;
-    for (size_t i = 0; i < matrixUnaryMinusResult.rows(); ++i)
-        for (size_t j = 0; j < matrixUnaryMinusResult.cols(); ++j)
-            EXPECT_EQ_CUSTOM(matrixUnaryMinusResult[i][j], -this->matrix[i][j]);
-    
+    Mat expectedUnaryMinus = this->matrix;
+    for (size_t i = 0; i < expectedUnaryMinus.rows(); ++i)
+        for (size_t j = 0; j < expectedUnaryMinus.cols(); ++j)
+            expectedUnaryMinus[i][j] = -expectedUnaryMinus[i][j];  // Negate each element
+    EXPECT_EQ_MAT(matrixUnaryMinusResult, expectedUnaryMinus);
+
     // ------------------------------ Multiplication -----------------------------
-    
+
     // Multiplication operator (dot product)
-    if constexpr (N==M){
+    if constexpr (N == M) {
         Mat matrixMultResult = this->matrix * this->matrix;
-        for (size_t i = 0; i < matrixMultResult.rows(); ++i) {
-            for (size_t j = 0; j < matrixMultResult.cols(); ++j) {
-                int expectedValue = 0;
-                for (size_t k = 0; k < this->matrix.cols(); ++k) {
-                    expectedValue += this->matrix[i][k] * this->matrix[k][j];
+        Mat expectedMultResult;
+        for (size_t i = 0; i < N; ++i) {
+            for (size_t j = 0; j < N; ++j) {
+                expectedMultResult[i][j] = 0;
+                for (size_t k = 0; k < N; ++k) {
+                    expectedMultResult[i][j] += this->matrix[i][k] * this->matrix[k][j];
                 }
-                EXPECT_EQ_CUSTOM(matrixMultResult[i][j], expectedValue);
             }
         }
-    
-        // Multiplication operator with different size matrices
-        using FirstMat =
-                Matrix<typename TypeParam::ValueType, TypeParam::Rows+1, TypeParam::Cols>;
-        using OtherMat =
-                Matrix<typename TypeParam::ValueType, TypeParam::Rows, TypeParam::Cols + 1>;
-        using ExpectedMat =
-                Matrix<typename TypeParam::ValueType, TypeParam::Rows+1, TypeParam::Cols+1>;
-        FirstMat firstMatrix;
-        OtherMat matrixToMultiply;
-        initializeMatrixWithValues(firstMatrix);
-        initializeMatrixWithValues(matrixToMultiply);
-        ExpectedMat vectorMultResult = firstMatrix * matrixToMultiply;
-        ExpectedMat expectedVectorMultResult;
-        
+        EXPECT_EQ_MAT(matrixMultResult, expectedMultResult);
     }
-    
+
     // Multiplication operator with scalar
     Mat matrixMultScalarResult = this->matrix * 2;
-    for (size_t i = 0; i < matrixMultScalarResult.rows(); ++i)
-        for (size_t j = 0; j < matrixMultScalarResult.cols(); ++j)
-            EXPECT_EQ_CUSTOM(matrixMultScalarResult[i][j], this->matrix[i][j] * 2);
-    
+    Mat expectedMultScalar = this->matrix;
+    for (size_t i = 0; i < expectedMultScalar.rows(); ++i)
+        for (size_t j = 0; j < expectedMultScalar.cols(); ++j)
+            expectedMultScalar[i][j] *= 2;  // Multiply each element by 2
+    EXPECT_EQ_MAT(matrixMultScalarResult, expectedMultScalar);
+
     // ----------------------------------------- Division ------------------------------------------
     // Division operator
-    if constexpr (N==M){
+    if constexpr (N == M) {
         Mat matrixDivResult = this->matrix2 / this->matrix;
-        for (size_t i = 0; i < matrixDivResult.rows(); ++i)
-            for (size_t j = 0; j < matrixDivResult.cols(); ++j)
-                EXPECT_EQ_CUSTOM(matrixDivResult[i][j], this->matrix2[i][j] / this->matrix[i][j]);
+        Mat expectedDivResult = this->matrix2;
+        expectedDivResult *= this->matrix.inverse();
+        EXPECT_EQ_MAT(matrixDivResult, expectedDivResult);
         
         // Division operator with scalar
         Mat matrixDivScalarResult = this->matrix / 2;
-        for (size_t i = 0; i < matrixDivScalarResult.rows(); ++i)
-            for (size_t j = 0; j < matrixDivScalarResult.cols(); ++j)
-                EXPECT_EQ_CUSTOM(matrixDivScalarResult[i][j], this->matrix[i][j] / 2);
+        Mat expectedDivScalarResult = this->matrix;
+        for (size_t i = 0; i < expectedDivScalarResult.rows(); ++i)
+            for (size_t j = 0; j < expectedDivScalarResult.cols(); ++j)
+                expectedDivScalarResult[i][j] /= 2;  // Divide each element by 2
+        EXPECT_EQ_MAT(matrixDivScalarResult, expectedDivScalarResult);
         
         // Division by zero
         Mat matrixDivZero; initializeMatrixWithValues(matrixDivZero);
-        EXPECT_THROW(matrixDivZero / Mat(), MathException);
+        Mat zeroMatrix;
+        EXPECT_THROW(matrixDivZero / zeroMatrix, MathException);
         EXPECT_THROW(matrixDivZero / Type(0), MathException);
     }
 }
@@ -357,6 +382,10 @@ TYPED_TEST(MatrixTests, Functions){
     // Determinant
     if constexpr (N==M){
         Type matrixDeterminantResult = this->matrix.determinant();
+        Type expectedDeterminantResult =
+                MatrixAlgorithms::laplaceExpansionDeterminant(this->matrix);
+        EXPECT_EQ_CUSTOM(matrixDeterminantResult,
+                      expectedDeterminantResult);
     }
     
     // Transpose
@@ -370,11 +399,11 @@ TYPED_TEST(MatrixTests, Functions){
     // Inverse
     if constexpr (N==M){
         Mat matrixInverseResult = this->matrix.inverse();
-        Mat expectedInverseResult=gaussianInverse(this->matrix);
+        Mat expectedInverseResult = MatrixAlgorithms::gaussianInverse(this->matrix);
     }
     
     // ---------------------------------- Matrix transformations -----------------------------------
-    
+    // All transformations need to be tested only for square matrices
     if constexpr (N==M){
         // Translate
         auto translateVec=Vector<Type, N - 1>(1);
@@ -392,12 +421,202 @@ TYPED_TEST(MatrixTests, Functions){
         }
         
         // Scale
-        // TODO: Implement scale
+        auto scaleVec=Vector<Type, N - 1>(2);
+        Mat matrixScaleResult = this->matrix.scale(scaleVec);
+        Mat expectedScaleResult = this->matrix;
+        
+        for (size_t i = 0; i < N - 1; ++i) {
+            expectedScaleResult[i][i] *= scaleVec[i];
+            
+        }
+        
+        EXPECT_EQ_MAT(matrixScaleResult, expectedScaleResult);
+        
         
         // Rotate
-        // TODO: Implement rotate
+        // Only defined (or necessary) for 3x3 and 4x4 matrices
+        if constexpr (N == 3 && M == 3) {
+            Type angle = GLESC::Math::PI/4; // 45 degree rotation for instance
+            Mat matrixRotateResult = this->matrix.rotate(angle);
+            
+            Mat expectedRotateResult(MatrixAlgorithms::rotate2D(this->matrix, angle));
+            
+            EXPECT_EQ_MAT(matrixRotateResult, expectedRotateResult);
+        }else if constexpr (N == 4 && M == 4) {
+            Type angle = GLESC::Math::PI/4; // 45 degree rotation for instance
+            Vector<Type, 3> axis(0, 0, 1); // Rotation about the z-axis
+            Mat matrixRotateResult = this->matrix.rotate(axis * angle);
+            
+            Mat expectedRotateResult(MatrixAlgorithms::rotate3D(this->matrix, axis * angle));
+            
+            EXPECT_EQ_MAT(matrixRotateResult, expectedRotateResult);
+        }
         
         // LookAt
-        // TODO: Implement lookAt
+        if constexpr (N == 3){
+            Vector<Type, 2> target(4, -12);
+            Mat matrixLookAtResult = this->matrix.lookAt(target);
+            Mat expectedLookAtResult;
+            expectedLookAtResult = MatrixAlgorithms::lookAt2D(this->matrix, target);
+            
+            EXPECT_EQ_MAT(matrixLookAtResult, expectedLookAtResult);
+        
+        }
+        else if constexpr (N == 4) {
+            Vector<Type, 3> target(-3, 12, 1);
+            Vector<Type, 3> up(0, 1, 0);
+            Mat matrixLookAtResult = this->matrix.lookAt(target, up);
+            Mat expectedLookAtResult;
+            expectedLookAtResult = MatrixAlgorithms::lookAt3D(this->matrix, target, up);
+            
+            EXPECT_EQ_MAT(matrixLookAtResult, expectedLookAtResult);
+        }
+
     }
+    
+}
+
+
+TEST(MatrixTests, ExactSolutionDeterminant){
+    // Zero determinant - All elements of a row are zero
+    Matrix<double, 3, 3> matrix1{
+            {1, 2, 3},
+            {0, 0, 0},
+            {7, 8, 9}
+    };
+    double expectedDeterminant1 = 0;
+    EXPECT_EQ_CUSTOM(matrix1.determinant(), expectedDeterminant1);
+    
+    // 2. Zero determinant - Two rows are identical
+    Matrix<double, 3, 3> matrix2{
+            {1, 2, 3},
+            {1, 2, 3},
+            {7, 8, 9}
+    };
+    double expectedDeterminant2 = 0;
+    EXPECT_EQ_CUSTOM(matrix2.determinant(), expectedDeterminant2);
+
+    
+    // Zero determinant - Two rows are proportional
+    Matrix<double, 3, 3> matrix4{
+            {1, 2, 3},
+            {2, 4, 6},
+            {7, 8, 9}
+    };
+    double expectedDeterminant4 = 0;
+    EXPECT_EQ_CUSTOM(matrix4.determinant(), expectedDeterminant4);
+    
+    // Determinant of a 2x2 matrix
+    Matrix<double, 2, 2> matrix5{
+            {1, 2},
+            {3, 4}
+    };
+    // https://www.wolframalpha.com/input?i2d=true&i=%7B%7B1%2C2%7D%2C%7B3%2C4%7D%7D
+    double expectedDeterminant5 = -2;
+    EXPECT_EQ_CUSTOM(matrix5.determinant(), expectedDeterminant5);
+    
+    // Determinant of a 3x3 matrix
+    Matrix<double, 3, 3> matrix6{
+            {-1, 2, 3},
+            {4, 5, -6},
+            {7, -8, 9}
+    };
+    // https://www.wolframalpha.com/input?i2d=true&i=%7B%7B-1%2C2%2C3%7D%2C%7B4%2C5%2C-6%7D%2C%7B7%2C-8%2C9%7D%7D
+    double expectedDeterminant6 = -354;
+    EXPECT_EQ_CUSTOM(matrix6.determinant(), expectedDeterminant6);
+    
+    // Determinant of a 4x4 matrix
+    Matrix<double, 4, 4> matrix7{
+                {1, 2, 3, -4},
+                {-5, 6, 7, 8},
+                {9, 15, -1, 2},
+                {3, -4, 5, 6}
+        };
+    // https://www.wolframalpha.com/input?i2d=true&i=%7B%7B1%2C2%2C3%2C-4%7D%2C%7B-5%2C6%2C7%2C8%7D%2C%7B9%2C15%2C-1%2C2%7D%2C%7B3%2C-4%2C5%2C6%7D%7D
+    double expectedDeterminant7 = -9588;
+    EXPECT_EQ_CUSTOM(matrix7.determinant(), expectedDeterminant7);
+    
+    // Determinant of a 5x5 matrix
+    Matrix<double, 5, 5> matrix8{
+            {-1, 2, 3, 4, 5},
+            {6, 7, 8, -9, 0},
+            {11, -21, 31, -41, 51},
+            {-61, 71, 81, 91, 10},
+            {11.1, 32.1, -53.1, 64.1, -75.1}
+    };
+    // https://www.wolframalpha.com/input?i2d=true&i=%7B%7B-1%2C2%2C3%2C4%2C5%7D%2C%7B6%2C7%2C8%2C-9%2C0%7D%2C%7B11%2C-21%2C31%2C-41%2C51%7D%2C%7B-61%2C71%2C81%2C91%2C10%7D%2C%7B11.1%2C32.1%2C-53.1%2C64.1%2C-75.1%7D%7D
+    double expectedDeterminant8 = -6.344832400000001* pow(10,6);
+    EXPECT_EQ_CUSTOM(matrix8.determinant(), expectedDeterminant8);
+    
+}
+
+TEST(MatrixTests, ExactSolutionInverse){
+    // Inverse of a 2x2 matrix
+    Matrix<double, 2, 2> matrix1{
+            {1, 2},
+            {3, 4}
+    };
+    // https://www.wolframalpha.com/input?i2d=true&i=%7B%7B1%2C2%7D%2C%7B3%2C4%7D%7D
+    Matrix<double, 2, 2> expectedInverse1{
+            {-2, 1},
+            {1.5, -0.5}
+    };
+    EXPECT_EQ_MAT(matrix1.inverse(), expectedInverse1);
+    
+    // Inverse of a 3x3 matrix
+    Matrix<double, 3, 3> matrix2{
+            {1, 2, -3},
+            {-3, 4, -5},
+            {7, -8, 9}
+    };
+    // https://www.wolframalpha.com/input?i2d=true&i=%7B%7B1%2C2%2C-3%7D%2C%7B-3%2C4%2C-5%7D%2C%7B7%2C-8%2C9%7D%7D
+    Matrix<double, 3, 3> expectedInverse2{
+            {0.5, -0.75, -0.25},
+            {1, -3.75, -1.75},
+            {0.5, -2.75, -1.25}
+    };
+    EXPECT_EQ_MAT(matrix2.inverse(), expectedInverse2);
+    
+    // Inverse of a 4x4 matrix
+    Matrix<double, 4, 4> matrix3{
+            {1, 2, 3, -4},
+            {-5, 6, 7, 8},
+            {9, 15, -1, 2},
+            {3, -4, 5, 6}
+    };
+    //https://www.wolframalpha.com/input?i2d=true&i=%7B%7B1%2C2%2C3%2C-4%7D%2C%7B-5%2C6%2C7%2C8%7D%2C%7B9%2C15%2C-1%2C2%7D%2C%7B3%2C-4%2C5%2C6%7D%7D
+    Matrix<double, 4, 4> expectedInverse3{
+            {0.0223196, -0.0636212, 0.0450563, 0.0846892},
+            {0.01335, 0.0367126, 0.0362954, -0.0521485},
+            {0.148728, 0.0340008, -0.0175219, 0.0596579},
+            {-0.126199, 0.0279516, 0.0162703, 0.0398415}
+    };
+    EXPECT_EQ_MAT(matrix3.inverse(), expectedInverse3);
+    
+    // Inverse of a 5x5 matrix
+    Matrix<double, 5, 5> matrix4{
+            {-1, 2, 3, 4, 5},
+            {6, 7, 8, -9, 0},
+            {11, -21, 31, -41, 51},
+            {-61, 71, 81, 91, 10},
+            {11.1, 32.1, -53.1, 64.1, -75.1}
+    };
+    // https://www.wolframalpha.com/input?i2d=true&i=%7B%7B-1%2C2%2C3%2C4%2C5%7D%2C%7B6%2C7%2C8%2C-9%2C0%7D%2C%7B11%2C-21%2C31%2C-41%2C51%7D%2C%7B-61%2C71%2C81%2C91%2C10%7D%2C%7B11.1%2C32.1%2C-53.1%2C64.1%2C-75.1%7D%7D
+    Matrix<double, 5, 5> expectedInverse4{
+            {-0.0935895, -0.0085282, 0.0719947, 0.00517271, 0.043349},
+            {0.351945, 0.119422, -0.0858807, -0.0162524, -0.0370535},
+            {-0.326954, -0.0438212, 0.0777137, 0.02122, 0.0338326},
+            {-0.0792838, -0.0628653, 0.0502792, 0.00966992, 0.0301534},
+            {0.300103, 0.0271107, -0.0381003, -0.0129324, -0.020931}
+    };
+    EXPECT_EQ_MAT(matrix4.inverse(), expectedInverse4);
+}
+
+TEST(MatrixTests, ExactSolutionTranslate){
+    // Translation of a 2x2 matrix
+    Matrix<double, 2, 2> matrix1{
+            {1, 2},
+            {3, 4}
+    };
+    
 }
