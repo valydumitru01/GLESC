@@ -9,8 +9,7 @@
  ******************************************************************************/
 #include "engine/core/window/WindowManager.h"
 using namespace GLESC;
-WindowManager::WindowManager(GLESC_RENDER_API &graphicInterfaceParam) :
-        graphicInterface(graphicInterfaceParam) {
+WindowManager::WindowManager(){
     initSDL();
     window = createWindow(GLESC_WINDOW_TITLE);
     graphicInterface.preWindowCreationInit();

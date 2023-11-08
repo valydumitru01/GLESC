@@ -7,86 +7,91 @@
 #pragma once
 
 #include <string>
-#include "engine/core/low-level-renderer/graphic-api/IGraphicInterface.h"
+#include "engine/core/low-level-renderer/graphic-api/Gapi.h"
 #include "engine/subsystems/renderer/shaders/ShaderLoader.h"
 #include "engine/core/logger/Logger.h"
 #include "engine/res-mng/files/FileManager.h"
 #include "engine/core/exceptions/subsystems/ShaderException.h"
 
-template<typename GAPI>
 class ShaderLoader {
-    template<typename GAPI_> friend
-    class ShaderManager;
 
 public:
-    GAPIint loadShaders() {
-        std::string vertexPath = VERT_SHADER;
-        vertexShaderSource = FileManager::readFile(vertexPath);
-       GLESC::Logger::get().success("Shader file read successfully: " + vertexPath);
+    static GAPIint loadShader(std::string fileName){
+        std::string shaderPath = std::string(SHADER_PATH) + "/" + fileName;
+        std::string shaderSource = FileManager::readFile(shaderPath);
+        GLESC::Logger::get().success("Shader file read successfully: " + shaderPath);
         
-        std::string fragmentPath = FRAG_SHADER;
-        fragmentShaderSource = FileManager::readFile(fragmentPath);
-       GLESC::Logger::get().success("Shader file read successfully: " + fragmentPath);
+        std::string vertexCode;
+        std::string fragmentCode;
+        const char* tokenVertex = "#shader vertex";
+        const char* tokenFragment = "#shader fragment";
+        size_t vertexPos = shaderSource.find(tokenVertex);
+        size_t fragmentPos = shaderSource.find(tokenFragment);
         
-        std::string glslCoreStr = graphicInterface.getIsGlslCore() ? "core" : "";
+        // Extract vertex shader code
+        if(vertexPos != std::string::npos){
+            vertexPos += strlen(tokenVertex); // Move past the token
+            fragmentPos = shaderSource.find(tokenFragment, vertexPos);
+            vertexCode = shaderSource.substr(vertexPos, fragmentPos - vertexPos);
+        }
         
+        // Extract fragment shader code
+        if(fragmentPos != std::string::npos){
+            fragmentPos += strlen(tokenFragment); // Move past the token
+            fragmentCode = shaderSource.substr(fragmentPos);
+        }
+        
+        std::string glslCoreStr = GLESC_GLSL_CORE_PROFILE ? "core" : "";
         std::string glslVersionStr =
-                "#version " + std::to_string(graphicInterface.getGlslMajorVersion()) + "" +
-                std::to_string(graphicInterface.getGlslMinorVersion()) + " " + glslCoreStr + "\n";
+                "#version " + std::to_string(GLESC_GLSL_MAJOR_VERSION) + "" +
+                std::to_string(GLESC_GLSL_MINOR_VERSION) + " " + glslCoreStr + "\n";
         
-        // Setting the glsl version to the shader source
-        vertexShaderSource = glslVersionStr + vertexShaderSource;
-        fragmentShaderSource = glslVersionStr + fragmentShaderSource;
+        // Prepend the GLSL version to shader sources
+        vertexShaderSource = glslVersionStr + vertexCode;
+        fragmentShaderSource = glslVersionStr + fragmentCode;
         
-       GLESC::Logger::get().info("Shader file content: \n" + vertexShaderSource);
-       GLESC::Logger::get().info("Shader file content: \n" + fragmentShaderSource);
+        GLESC::Logger::get().info("Vertex Shader:\n" + vertexShaderSource);
+        GLESC::Logger::get().info("Fragment Shader:\n" + fragmentShaderSource);
         
         loadVertexShader();
-       GLESC::Logger::get().success("Vertex shader loaded successfully");
+        GLESC::Logger::get().success("Vertex shader loaded successfully");
         loadFragmentShader();
-       GLESC::Logger::get().success("Fragment shader loaded successfully");
-        createShaderProgram();
-       GLESC::Logger::get().success("Shader program created successfully");
+        GLESC::Logger::get().success("Fragment shader loaded successfully");
+        GAPIuint shaderProgram = createShaderProgram();
+        GLESC::Logger::get().success("Shader program created successfully");
         
         clean();
         return shaderProgram;
     }
-
 private:
-    
-    explicit ShaderLoader(IGraphicInterface &graphicInterface) :
-            vertexShader(0), fragmentShader(0), shaderProgram(0), graphicInterface(
-            graphicInterface) {
-    }
-    
     
     /**
      * @brief Source of the vertex shader
      *
      */
-    std::string vertexShaderSource;
+    static std::string vertexShaderSource;
     /**
      * @brief Source of the fragment shader
      *
      */
-    std::string fragmentShaderSource;
+    static std::string fragmentShaderSource;
     /**
      * @brief ID reference to the vertex shader
      *
      */
-    GAPIuint vertexShader;
+    static GAPIuint vertexShader;
     /**
      * @brief ID reference to the fragment shader
      *
      */
-    GAPIuint fragmentShader;
+    static GAPIuint fragmentShader;
     
     /**
      * @brief Loads the vertex shader
      * Sets the actual coordinates of the vertices in the GPU
      */
-    void loadVertexShader() {
-        vertexShader = graphicInterface
+    static void loadVertexShader() {
+        vertexShader = gapi
                 .loadAndCompileShader(GAPIValues::ShaderTypeVertex, vertexShaderSource);
         shaderNamesMap.emplace(vertexShader, "VERTEX");
         handleErrorsCompilation(vertexShader);
@@ -96,8 +101,8 @@ private:
      * @brief Loads the fragment shader
      * Calculates colors of pixels (a fragment is a pixel in OpenGL)
      */
-    void loadFragmentShader() {
-        fragmentShader = graphicInterface
+    static void loadFragmentShader() {
+        fragmentShader = gapi
                 .loadAndCompileShader(GAPIValues::ShaderTypeFragment, fragmentShaderSource);
         shaderNamesMap.emplace(fragmentShader, "FRAGMENT");
         handleErrorsCompilation(fragmentShader);
@@ -107,25 +112,22 @@ private:
      * @brief Links the loaded shaders into the shader program
      *
      */
-    void createShaderProgram() {
-        shaderProgram = graphicInterface.createShaderProgram(vertexShader, fragmentShader);
-        handleErrorsLinking();
+    static GAPIint createShaderProgram() {
+        GAPIint shaderProgram = gapi.createShaderProgram(vertexShader, fragmentShader);
+        handleErrorsLinking(shaderProgram);
+        return shaderProgram;
     }
     
-    /**
-     * @brief ID reference to the shader program
-     *
-     */
-    GAPIint shaderProgram;
+
     
     /**
      * @brief Handle shader compilation errors
      *
      * @param shaderType ID reference of the shader
      */
-    void handleErrorsCompilation(unsigned int shaderType) {
+    static void handleErrorsCompilation(unsigned int shaderType) {
         char *infoLog = new char[512];
-        if (!graphicInterface.compilationOK(shaderType, infoLog)) {
+        if (!gapi.compilationOK(shaderType, infoLog)) {
             throw ShaderCompilationException(std::string(shaderNamesMap.at(shaderType)), infoLog);
         }
         delete[] infoLog;
@@ -135,9 +137,9 @@ private:
      * @brief Handle shader linking into the shader program
      *
      */
-    void handleErrorsLinking() {
+    static void handleErrorsLinking(GAPIint shaderProgram) {
         char *infoLog = new char[512];
-        if (!graphicInterface.linkOK(shaderProgram, infoLog)) {
+        if (!gapi.linkOK(shaderProgram, infoLog)) {
             throw ShaderLinkingException(std::string(infoLog));
         }
         delete[] infoLog;
@@ -154,16 +156,13 @@ private:
      * Once the shaders are linked, they can be cleared as they are
      * no longer needed.
      */
-    void clean() const {
+    static void clean() {
         std::destroy(shaderNamesMap.begin(), shaderNamesMap.end()); //Delete pointers from map
-        graphicInterface.deleteShader(vertexShader);
-        graphicInterface.deleteShader(fragmentShader);
+        gapi.deleteShader(vertexShader);
+        gapi.deleteShader(fragmentShader);
     }
     
-    std::unordered_map<unsigned int, const char *> shaderNamesMap;
-    GAPI graphicInterface;
-    // Uncomment this line and comment the above one to enable code completion and proper syntax highlighting
-    // IGraphicInterface &graphicInterface;
+    static std::unordered_map<unsigned int, const char *> shaderNamesMap;
     
     
 };

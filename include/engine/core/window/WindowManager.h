@@ -12,7 +12,7 @@
 #include "GL/glew.h"
 #include "engine/core/exceptions/EngineException.h"
 #include "engine/core/window/WindowManager.h"
-#include "engine/core/low-level-renderer/graphic-api/IGraphicInterface.h"
+#include "engine/core/low-level-renderer/graphic-api/Gapi.h"
 #include "engine/core/logger/Logger.h"
 #include "engine/Config.h"
 
@@ -26,8 +26,7 @@ constexpr int windowMinHeight = 177;
 namespace GLESC {
     class WindowManager {
     public:
-        explicit
-        WindowManager(GLESC_RENDER_API &graphicInterfaceParam);
+        WindowManager();
         
         /**
          * @brief Callback function when windowManager size is modified
@@ -94,11 +93,6 @@ namespace GLESC {
         SDL_Window *createWindow(const char *title);
         
         SDL_bool isInitialized{SDL_FALSE};
-        /**
-         * @brief The graphics API used by the windowManager
-         *
-         */
-        GLESC_RENDER_API &graphicInterface;
         
         /**
          * @brief The SDL window struct pointer

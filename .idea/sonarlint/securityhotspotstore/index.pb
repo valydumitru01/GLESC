@@ -29,10 +29,6 @@ Z
 *include/engine/subsystems/hud/HUDManager.h,9\4\94c8a5375ed2aef9a020908faecb3b5d73760420
 X
 (src/engine/core/window/WindowManager.cpp,4\7\47acc1dc6ce401691c78ae8c2f4f351418fa549d
-m
-=include/engine/core/low-level-renderer/buffers/VertexBuffer.h,5\8\589004348a2dd75874c876a28b2de587e4c07804
-k
-;src/engine/core/low-level-renderer/buffers/VertexBuffer.cpp,2\d\2de5cc79fa329548ab6e5cd1c4d1c8579adf6ab5
 W
 'src/engine/ecs/systems/RenderSystem.cpp,c\5\c5570a78ed8c891d26aa504a2fc5c7d7c7d4ba96
 ]
@@ -59,10 +55,6 @@ C
 src/engine/main.cpp,7\d\7d330072c74588e15cb1c12eb3d6fa72edca2ca2
 o
 ?include/engine/core/low-level-renderer/texture/TextureManager.h,b\4\b42e51a6e7090d4f8cd7dc9daeb756d89f9a77bf
-l
-<include/engine/core/low-level-renderer/buffers/IndexBuffer.h,8\b\8be581a11a857cc03405edf6eff9e26352ef8b73
-j
-:src/engine/core/low-level-renderer/buffers/IndexBuffer.cpp,9\d\9db8d3fd77203693c0d3e4ac4b1a0a19e06f9971
 ƒ
 Sinclude/engine/core/low-level-renderer/graphic-api/concrete-apis/opengl/OpenGLAPI.h,e\d\ed487cad1cbe3d3541302187160579744d9b05a5
 v

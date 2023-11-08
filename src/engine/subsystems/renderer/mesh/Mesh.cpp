@@ -13,12 +13,12 @@
 
 using namespace GLESC;
 
-Mesh::VertexPtr Mesh::addVertex(const Vertex vertex) {
+Mesh::VertexPtr Mesh::addVertex(const Vertex& vertex) {
     vertices.push_back(vertex);
     return std::make_shared<Vertex>(vertices.back());
 }
 
-Mesh::VertexPtr Mesh::getVertex(const Vertex vertex) const {
+Mesh::VertexPtr Mesh::getVertex(const Vertex& vertex) const {
     auto it = vertices.begin();
     while (it != vertices.end()) {
         if (*it == vertex) {

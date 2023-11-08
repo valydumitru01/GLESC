@@ -426,7 +426,7 @@ TYPED_TEST(MatrixTests, Functions){
         Mat expectedScaleResult = this->matrix;
         
         for (size_t i = 0; i < N - 1; ++i) {
-            expectedScaleResult[i][i] *= scaleVec[i];
+            expectedScaleResult[i][i] += scaleVec[i];
             
         }
         
@@ -613,10 +613,149 @@ TEST(MatrixTests, ExactSolutionInverse){
 }
 
 TEST(MatrixTests, ExactSolutionTranslate){
-    // Translation of a 2x2 matrix
-    Matrix<double, 2, 2> matrix1{
-            {1, 2},
-            {3, 4}
+    // Translation of a 3x3 matrix
+    Matrix<double, 3, 3> transform2D{
+            {1, 2, -3},
+            {-3, 4, -5},
+            {7, -8, 9}
+    };
+    Vector<double, 2> translateVec2D(1, 2);
+    // Must increase the last column by the translation vector
+    Matrix<double, 3, 3> expectedTranslate2D{
+            {1, 2, -2},
+            {-3, 4, -5},
+            {7, -8, 9}
+    };
+    expectedTranslate2D = expectedTranslate2D.translate(translateVec2D);
+    EXPECT_EQ_MAT(expectedTranslate2D, expectedTranslate2D);
+
+    // Translation of a 4x4 matrix
+    Matrix<double, 4, 4> transform3D{
+            {1, 2, -3, 4},
+            {-3, 4, -5, 6},
+            {7, -8, 9, 10},
+            {11, 12, 13, 14}
+    };
+    Vector<double, 3> translate3D(1, 2, 3);
+    Matrix<double, 4, 4> expectedTranslate3D{
+            {1, 2, -3, 5},
+            {-3, 4, -5, 8},
+            {7, -8, 9, 13},
+            {11, 12, 13, 14}
+    };
+    expectedTranslate3D = expectedTranslate3D.translate(translate3D);
+    EXPECT_EQ_MAT(expectedTranslate3D, expectedTranslate3D);
+}
+
+TEST(MatrixTests, ExactSolutionScale){
+    // Translation of a 3x3 matrix
+    Matrix<double, 3, 3> scale2D{
+            {1, 2, 3},
+            {4, 5, 6},
+            {7, 8, 9}
+    };
+    Vector<double, 2> scaleVec2D(1, 2);
+    // Must increase (add +) diagonal elements (expect the last one) by the scale vector
+    Matrix<double, 3, 3> expectedScale2D{
+            {2, 2, 3},
+            {4, 7, 6},
+            {7, 8, 9}
+    };
+    scale2D = scale2D.scale(scaleVec2D);
+    EXPECT_EQ_MAT(scale2D, expectedScale2D);
+    
+    // Translation of a 4x4 matrix
+    Matrix<double, 4, 4> scale3D{
+            {1, 2, 3, 4},
+            {5, 6, 7, 8},
+            {9, 10, 11, 12},
+            {13, 14, 15, 16}
+    };
+    Vector<double, 3> scaleVec3D(1, 2, 3);
+    Matrix<double, 4, 4> expectedScale3D{
+            {2, 2, 3, 4},
+            {5, 8, 7, 8},
+            {9, 10, 14, 12},
+            {13, 14, 15, 16}
+    };
+    scale3D = scale3D.scale(scaleVec3D);
+    EXPECT_EQ_MAT(scale3D, expectedScale3D);
+}
+
+TEST(MatrixTests, ExactSolutionRotate){
+    // Rotation of a 3x3 matrix
+    Matrix<double, 3, 3> rotate2D{
+            {1, 2, 3},
+            {4, 5, 6},
+            {7, 8, 9}
+    };
+    double dgrs = GLESC::Math::PI/4; // 45 degree rotation for instance
+    rotate2D = rotate2D.rotate(dgrs);
+    Matrix<double, 3, 3> expectedRotate2D = {
+            {-2.12132034, -2.12132034, -2.12132034},
+            {3.53553391, 4.94974747, 6.36396103},
+            {7, 8, 9}
+    };
+    EXPECT_EQ_MAT(rotate2D, expectedRotate2D);
+    
+    
+    // Rotation of a 4x4 matrix
+    Matrix<double, 4, 4> rotate3D{
+            {1, 2, 3, 4},
+            {5, 6, 7, 8},
+            {9, 10, 11, 12},
+            {13, 14, 15, 16}
+    };
+    Vector<double, 3> axis(0, 0, 1); // Rotation about the z-axis
+    double dgrs3D = GLESC::Math::PI/4; // 45 degree rotation for instance
+    rotate3D = rotate3D.rotate(axis * dgrs3D);
+    
+    Matrix<double, 4, 4> expectedRotate3D = {
+            {-2.82842712, -2.82842712, -2.82842712, -2.82842712},
+            {4.24264069, 5.65685425, 7.07106781, 8.48528137},
+            {9, 10, 11, 12},
+            {13, 14, 15, 16}
+    };
+    EXPECT_EQ_MAT(rotate3D, expectedRotate3D);
+}
+
+TEST(MatrixTests, ExactSolutionLookAt){
+    // LookAt for a 3x3 matrix (2D transformation)
+    Matrix<double, 3, 3> matrix2D{
+            {1, 0, 0},
+            {0, 1, 0},
+            {0, 0, 1}
+    };
+    Vector<double, 2> target2D(1, 1);
+    
+    matrix2D = matrix2D.lookAt(target2D);
+    
+    Matrix<double, 3, 3> expectedLookAt2D = {
+            {0.70710678, 0.70710678, 0.0},
+            {-0.70710678, 0.70710678, 0.0},
+            {0.0, 0.0, 1.0}
     };
     
+    EXPECT_EQ_MAT(matrix2D, expectedLookAt2D);
+    
+    // LookAt for a 4x4 matrix
+    Matrix<double, 4, 4> matrix3D{
+            {1, 0, 0, 0},
+            {0, 1, 0, 0},
+            {0, 0, 1, 0},
+            {0, 0, 0, 1}
+    };
+    Vector<double, 3> target3D(1, 3, -1);
+    Vector<double, 3> up(0, 1, 0);
+    
+    matrix3D = matrix3D.lookAt(target3D, up);
+    
+    Matrix<double, 4, 4> expectedLookAt3D = {
+            {0.70710678, -0.63960215, -0.30151134, 0.0},
+            {0.0, 0.42640143, -0.90453403, 0.0},
+            {0.70710678, 0.63960215, 0.30151134, 0.0},
+            {0.0, 0.0, 0.0, 1.0}
+    };
+    
+    EXPECT_EQ_MAT(matrix3D, expectedLookAt3D);
 }

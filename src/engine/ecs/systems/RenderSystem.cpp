@@ -20,7 +20,7 @@ RenderSystem::RenderSystem(GLESC::Renderer &renderer, GLESC::ECS &ecs) :
 
 
 void RenderSystem::update(double timeOfFrame) {
-    renderer.getShaderManager().use();
+    renderer.getUniformHandler().use();
     
     for (auto &entity : getAssociatedEntities()) {
         auto &render = getComponent<RenderComponent>(entity);

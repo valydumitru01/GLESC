@@ -118,6 +118,8 @@ namespace GLESC {
         GLESC::Renderer renderer;
         
         PhysicsManager physicsManager;
+        
+        
         ECS ecs;
         InputSystem inputSystem;
         PhysicsSystem physicsSystem;

@@ -60,6 +60,7 @@ verbose_info("----Defining directories and files----")
 set_new_dir(SRC_DIR src)
 # Set the include directory, this is where the header files
 # are located
+set_new_dir(SHADER_DIR src/engine/subsystems/renderer/shaders)
 set_new_dir(INCLUDE_DIR include)
 # ..........................................................
 
@@ -105,11 +106,6 @@ endif ()
 set_all_files_of_type(SOURCE_FILES ${SRC_DIR} cpp)
 set_all_files_of_type(LIB_SOURCE_FILES ${LIB_SRC_DIR} cpp)
 set_all_files_of_type(TEST_SOURCE_FILES ${TEST_DIR} cpp)
-
-# Obtain the vertex shader files in the source directory
-set_all_files_of_type(VERT_SHADER ${SRC_DIR} vert)
-# Obtain the fragment shader files in the source directory
-set_all_files_of_type(FRAG_SHADER ${SRC_DIR} frag)
 # ..........................................................
 
 

@@ -770,9 +770,9 @@ namespace GLESC::Math {
 
 template<typename Type, size_t N> using Vector = GLESC::Math::Vec<Type, N>;
 
-template<typename Type> using Vec2 = Vector<Type, 2>;
-template<typename Type> using Vec3 = Vector<Type, 3>;
-template<typename Type> using Vec4 = Vector<Type, 4>;
+using Vec2 = Vector<float, 2>;
+using Vec3 = Vector<float, 3>;
+using Vec4 = Vector<float, 4>;
 
 
 using Vec2F = Vector<float, 2>;

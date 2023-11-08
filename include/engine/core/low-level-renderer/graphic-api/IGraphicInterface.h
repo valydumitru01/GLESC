@@ -10,18 +10,8 @@
 #include <functional>
 #include <any>
 #include <SDL2/SDL.h>
+#include "engine/core/low-level-renderer/graphic-api/GapiTypes.h"
 
-// TODO: Make the types be defined by the graphic API
-using GAPIbool = unsigned char;
-using GAPIuint = unsigned int;
-using GAPIfloat = float;
-using GAPIint = int;
-using GAPIsize = unsigned int;
-using GAPIchar = char;
-
-enum class GraphicsAPI {
-    OPENGL [[maybe_unused]] = 0, VULKAN [[maybe_unused]]
-};
 /**
  * @brief This class is used to define the different texture filters that can be used
  * @details It contains the different types of filters that can be used for the textures.
@@ -145,14 +135,18 @@ enum class GAPIValues {
     TextureUnit1 [[maybe_unused]]
 };
 
+enum class ShaderDataType {
+    None = 0, Float = sizeof(float), Int = sizeof(int), Bool = sizeof(bool)
+};
+enum class ShaderDataDim {
+    Value = 0, Vec2 = 2, Vec3 = 3, Vec4 = 4, Mat2 = 4, Mat3 = 9, Mat4 = 16
+};
 
 class IGraphicInterface {
 public:
     IGraphicInterface() = default;
     
     virtual ~IGraphicInterface() = default;
-    
-    [[nodiscard]] virtual GraphicsAPI getGraphicsAPI() const = 0;
     
     virtual void clear(const std::initializer_list<GAPIValues> &values) = 0;
     
@@ -189,6 +183,24 @@ public:
                                GAPIuint buffer,
                                GAPIValues bufferType,
                                GAPIValues bufferUsage) = 0;
+    
+    virtual void genVertexArray(GAPIuint &vertexArrayID) = 0;
+    
+    virtual void bindVertexArray(GAPIuint vertexArrayID) = 0;
+    
+    virtual void unbindVertexArray() = 0;
+    
+    virtual void deleteVertexArray(GAPIuint vertexArrayID) = 0;
+    
+    virtual void enableVertexAttribArray(GAPIuint index) = 0;
+    
+    virtual void vertexAttribPointer(GAPIuint vertexArray,
+                                     GAPIuint count,
+                                     ShaderDataType type,
+                                     GAPIbool isNormalized,
+                                     GAPIuint stride,
+                                     GAPIuint offset) = 0;
+    
     
     // ------------------------------------------------------------------------------
     // -------------------------------- Texture -------------------------------------
@@ -303,12 +315,3 @@ public:
 };
 
 
-#if GLESC_RENDER_API == OpenGLAPI
-
-#include "engine/core/low-level-renderer/graphic-api/concrete-apis/opengl/OpenGLAPI.h"
-
-#elif GLESC_RENDER_API == VulkanAPI
-#include "engine/core/low-level-renderer/graphic-api/concrete-apis/vulkan/VulkanAPI.h"
-#elif GLESC_RENDER_API == DirectXAPI
-#include "engine/core/low-level-renderer/graphic-api/concrete-apis/directx/DirectXAPI.h"
-#endif

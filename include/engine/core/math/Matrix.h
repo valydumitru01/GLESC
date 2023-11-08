@@ -88,7 +88,7 @@ public:
     
     
     // ==================================== Assignment Operators ===================================
-
+    
     /**
      * @brief Copy assignment operator.
      * @param other The matrix to copy from.
@@ -101,7 +101,7 @@ public:
         std::copy(std::begin(other.data), std::end(other.data), std::begin(data));
         return *this;
     }
-
+    
     /**
      * @brief Move assignment operator.
      * @param rhs The matrix to move from.
@@ -114,6 +114,7 @@ public:
         std::move(std::begin(rhs.data), std::end(rhs.data), std::begin(data));
         return *this;
     }
+    
     /**
      * @brief Assignment operator from a 2D array.
      * @param data 2D array to assign from.
@@ -123,7 +124,7 @@ public:
         std::copy(std::begin(data), std::end(data), std::begin(this->data));
         return *this;
     }
-
+    
     /**
      * @brief Assignment operator from an initializer list of initializer lists.
      * @param list Initializer list of initializer lists to assign from.
@@ -162,7 +163,7 @@ public:
         *this = std::move(result);
         return *this;
     }
-
+    
     /**
      * @brief In-place scalar multiplication.
      * @param scalar The scalar to multiply with.
@@ -176,7 +177,7 @@ public:
         }
         return *this;
     }
-
+    
     /**
      * @brief In-place scalar addition.
      * @param rhs The scalar to add.
@@ -190,7 +191,7 @@ public:
         }
         return *this;
     }
-
+    
     /**
      * @brief In-place element-wise addition with another matrix.
      * @param rhs The matrix to add with.
@@ -204,7 +205,7 @@ public:
         }
         return *this;
     }
-
+    
     /**
      * @brief In-place element-wise subtraction with another matrix.
      * @param rhs The matrix to subtract with.
@@ -218,7 +219,7 @@ public:
         }
         return *this;
     }
-
+    
     /**
      * @brief In-place scalar subtraction.
      * @param rhs The scalar to subtract.
@@ -232,7 +233,7 @@ public:
         }
         return *this;
     }
-
+    
     /**
      * @brief In-place scalar division.
      * @param scalar The scalar to divide by.
@@ -250,7 +251,7 @@ public:
         }
         return *this;
     }
-
+    
     /**
      * @brief In-place division by another matrix.
      * @param rhs The matrix to divide by.
@@ -489,6 +490,7 @@ public:
         }
         
     }
+    
     [[nodiscard]] Matrix<Type, N, M> inverse() const {
         S_ASSERT_MAT_IS_SQUARE(N, M);
         Type det = determinant();
@@ -504,15 +506,15 @@ public:
             return inv;
         } else if constexpr (N == 3) {
             Matrix<Type, N, M> inv;
-            inv.data[0][0] = (data[1][1]*data[2][2] - data[1][2]*data[2][1]) * inDet;
-            inv.data[0][1] = (data[0][2]*data[2][1] - data[0][1]*data[2][2]) * inDet;
-            inv.data[0][2] = (data[0][1]*data[1][2] - data[0][2]*data[1][1]) * inDet;
-            inv.data[1][0] = (data[1][2]*data[2][0] - data[1][0]*data[2][2]) * inDet;
-            inv.data[1][1] = (data[0][0]*data[2][2] - data[0][2]*data[2][0]) * inDet;
-            inv.data[1][2] = (data[0][2]*data[1][0] - data[0][0]*data[1][2]) * inDet;
-            inv.data[2][0] = (data[1][0]*data[2][1] - data[1][1]*data[2][0]) * inDet;
-            inv.data[2][1] = (data[0][1]*data[2][0] - data[0][0]*data[2][1]) * inDet;
-            inv.data[2][2] = (data[0][0]*data[1][1] - data[0][1]*data[1][0]) * inDet;
+            inv.data[0][0] = (data[1][1] * data[2][2] - data[1][2] * data[2][1]) * inDet;
+            inv.data[0][1] = (data[0][2] * data[2][1] - data[0][1] * data[2][2]) * inDet;
+            inv.data[0][2] = (data[0][1] * data[1][2] - data[0][2] * data[1][1]) * inDet;
+            inv.data[1][0] = (data[1][2] * data[2][0] - data[1][0] * data[2][2]) * inDet;
+            inv.data[1][1] = (data[0][0] * data[2][2] - data[0][2] * data[2][0]) * inDet;
+            inv.data[1][2] = (data[0][2] * data[1][0] - data[0][0] * data[1][2]) * inDet;
+            inv.data[2][0] = (data[1][0] * data[2][1] - data[1][1] * data[2][0]) * inDet;
+            inv.data[2][1] = (data[0][1] * data[2][0] - data[0][0] * data[2][1]) * inDet;
+            inv.data[2][2] = (data[0][0] * data[1][1] - data[0][1] * data[1][0]) * inDet;
             return inv;
         } else if constexpr (N == 4) {
             
@@ -562,48 +564,51 @@ public:
         
     }
     
-    [[nodiscard]] Matrix<Type, N, M> translate(const Vector<Type, N-1> &translation) const {
+    [[nodiscard]] Matrix<Type, N, M> translate(const Vector<Type, N - 1> &translation) const {
         S_ASSERT_MAT_IS_SQUARE(N, M);
         Matrix<Type, N, M> result(*this);
-        for (size_t i = 0; i < N-1; ++i) {
-            result.data[i][M-1] += translation[i];
+        for (size_t i = 0; i < N - 1; ++i) {
+            result.data[i][M - 1] += translation[i];
         }
         return result;
     }
     
-    [[nodiscard]] Matrix<Type, N, M> scale(const Vector<Type, N-1> &scale) const {
+    [[nodiscard]] Matrix<Type, N, M> scale(const Vector<Type, N - 1> &scale) const {
         S_ASSERT_MAT_IS_SQUARE(N, M);
         Matrix<Type, N, M> result(*this);
-        for (size_t i = 0; i < N-1; ++i) {
-            result.data[i][i] *= scale[i];
+        for (size_t i = 0; i < N - 1; ++i) {
+            result.data[i][i] += scale[i];
         }
         return result;
     }
     
-    
-    template <typename VecType>
+    /**
+     * @brief Applies a rotation to the model matrix.
+     * @details The
+     * @tparam VecType
+     * @param degrees
+     * @return
+     */
+    template<typename VecType>
     [[nodiscard]] Matrix<Type, N, M> rotate(const VecType &degrees) const {
         if constexpr (std::is_same_v<VecType, Type> && N == 3 && M == 3) {
             return MatrixAlgorithms::rotate2D(*this, static_cast<Type>(degrees));
             
         } else if constexpr (std::is_same_v<VecType, Vector<Type, 3>> && N == 4 && M == 4) {
             return MatrixAlgorithms::rotate3D(*this, static_cast<Vector<Type, 3>>(degrees));
-        }
-        else {
-            static_assert(N!=3 && M!=3 || N!=4 && M!=4,
-                    "Rotation is only supported for 2D and 3D matrices");
+        } else {
+            static_assert(N != 3 && M != 3 || N != 4 && M != 4,
+                          "Rotation is only supported for 2D and 3D matrices");
         }
     }
-    
-    
     
     
     [[nodiscard]] Matrix<Type, 3, 3> lookAt(const Vector<Type, 2> &target) const {
         return MatrixAlgorithms::lookAt2D(*this, target);
     }
     
-    [[nodiscard]] Matrix<Type, 4, 4> lookAt(const Vector<Type, 3> &target,
-                                            const Vector<Type, 3> &up) const {
+    [[nodiscard]] Matrix<Type, 4, 4>
+    lookAt(const Vector<Type, 3> &target, const Vector<Type, 3> &up) const {
         return MatrixAlgorithms::lookAt3D(*this, target, up);
     }
     

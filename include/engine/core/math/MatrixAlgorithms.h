@@ -161,9 +161,21 @@ namespace MatrixAlgorithms {
         Matrix<T, 3, 3> rotation = {{T(c), T(-s), T(0)},
                                     {T(s), T(c),  T(0)},
                                     {T(0), T(0),  T(1)}};
-        return result * rotation;
+        return rotation * result;
     }
     
+    /**
+     * @brief Rotate a 3D matrix around the X, Y, and Z axis.
+     * This function applies sequential rotations to the input matrix based on the given angles.
+     * TODO: Be cautious about gimbal lock when using Euler angles.
+     *   It's recommended to use quaternions for robustness.
+     *
+     * @tparam T The data type of the matrix and vector elements (e.g., float, double).
+     * @param matrix The input 4x4 matrix that needs to be rotated.
+     * @param dgrs A 3D vector containing the rotation angles (in radians) around X, Y, and Z axes
+     * respectively.
+     * @return A 4x4 matrix which is the result of the input matrix after the rotations.
+     */
     template<typename T>
     Matrix<T, 4, 4> rotate3D(const Matrix<T, 4, 4> &matrix, Vector<T, 3> dgrs) {
         Matrix<T, 4, 4> result(matrix);
@@ -175,48 +187,51 @@ namespace MatrixAlgorithms {
         T sz = sin(dgrs.getZ());
         
         
-        Matrix<T, 4, 4> rotationX = {{T(1), T(0),  T(0),   T(0)},
-                                     {T(0), T(cx), T(-sx), T(0)},
-                                     {T(0), T(sx), T(cx),  T(0)},
-                                     {T(0), T(0),  T(0),   T(1)}};
+        // Combine the three rotation matrices into a single matrix
+        Matrix<T, 4, 4> rot = {{cy * cz,                 -cy * sz,                sy,       T(0)},
+                               {sx * sy * cz + cx * sz,  -sx * sy * sz + cx * cz, -sx * cy, T(0)},
+                               {-cx * sy * cz + sx * sz, cx * sy * sz + sx * cz,  cx * cy,  T(0)},
+                               {T(0),                    T(0),                    T(0),     T(1)}};
         
-        Matrix<T, 4, 4> rotationY = {{T(cy),  T(0), T(sy), T(0)},
-                                     {T(0),   T(1), T(0),  T(0)},
-                                     {T(-sy), T(0), T(cy), T(0)},
-                                     {T(0),   T(0), T(0),  T(1)}};
-        
-        Matrix<T, 4, 4> rotationZ = {{T(cz), T(-sz), T(0), T(0)},
-                                     {T(sz), T(cz),  T(0), T(0)},
-                                     {T(0),  T(0),   T(1), T(0)},
-                                     {T(0),  T(0),   T(0), T(1)}};
-        return rotationX * rotationY * rotationZ * result;
+        return rot * result;
     }
     
     template<typename T>
     Matrix<T, 3, 3> lookAt2D(const Matrix<T, 3, 3> &matrix, const Vector<T, 2> &target) {
         Vector<T, 2> eye(matrix[0][2], matrix[1][2]);
         Vector<T, 2> direction = target - eye;
-        T angle = atan2(direction[1], direction[0]);
+        if (eye == target) {
+            return matrix;
+        }
+        T angle = -atan2(direction[1], direction[0]);
         return rotate2D(matrix, angle);
     }
     
     template<typename T>
-    Matrix<T, 4, 4> lookAt3D(const Matrix<T, 4, 4> &matrix,
-                             const Vector<T, 3> &target,
-                             const Vector<T, 3> &up) {
+    Matrix<T, 4, 4> lookAt3D(const Matrix<T, 4, 4> &matrix, const Vector<T, 3> &target, const Vector<T, 3> &up) {
         Vector<T, 3> eye(matrix[0][3], matrix[1][3], matrix[2][3]);
         Vector<T, 3> zAxis = (eye - target).normalize();
         Vector<T, 3> xAxis = up.cross(zAxis).normalize();
         Vector<T, 3> yAxis = zAxis.cross(xAxis).normalize();
         
-        Matrix<T, 4, 4> result(matrix);
+        // Rotation matrix using the new basis vectors (inverted change of basis matrix)
+        Matrix<T, 4, 4> lookRotation = {
+                {xAxis[0], yAxis[0], zAxis[0], 0},
+                {xAxis[1], yAxis[1], zAxis[1], 0},
+                {xAxis[2], yAxis[2], zAxis[2], 0},
+                {0, 0, 0, 1}
+        };
         
-        Matrix<T, 4, 4> lookRotation = {{xAxis[0], xAxis[1], xAxis[2], T(0)},
-                                        {yAxis[0], yAxis[1], yAxis[2], T(0)},
-                                        {zAxis[0], zAxis[1], zAxis[2], T(0)},
-                                        {T(0),     T(0),     T(0),     T(1)}};
+        // Translation matrix to move the camera to the origin
+        Matrix<T, 4, 4> translation = {
+                {1, 0, 0, -eye[0]},
+                {0, 1, 0, -eye[1]},
+                {0, 0, 1, -eye[2]},
+                {0, 0, 0, 1}
+        };
         
-        return lookRotation * result;
+        // First translate to the origin, then apply the rotation
+        return lookRotation * translation * matrix;
     }
     
     

@@ -11,7 +11,7 @@
 #include <SDL2/SDL_image.h>
 #include "engine/Config.h"
 #include "engine/core/exceptions/resources/ResourceException.h"
-#include "engine/core/low-level-renderer/graphic-api/IGraphicInterface.h"
+#include "engine/core/low-level-renderer/graphic-api/Gapi.h"
 #include "engine/res-mng/textures/TextureLoader.h"
 
 class TextureLoader {

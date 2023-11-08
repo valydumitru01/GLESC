@@ -7,28 +7,23 @@
 #pragma once
 
 #include <memory>
-#include <GL/glew.h>
 
+#include <GL/glew.h>
 #include <SDL2/SDL.h>
-#include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtc/type_ptr.hpp>
 
 #include "engine/core/exceptions/EngineException.h"
-#include "engine/core/low-level-renderer/graphic-api/IGraphicInterface.h"
+#include "engine/core/low-level-renderer/graphic-api/Gapi.h"
 #include "engine/core/low-level-renderer/texture/TextureManager.h"
 #include "engine/core/window/WindowManager.h"
 #include "engine/res-mng/textures/TextureLoader.h"
 #include "engine/subsystems/renderer/mesh/Mesh.h"
-#include "engine/subsystems/renderer/shaders/ShaderManager.h"
+#include "engine/subsystems/renderer/shaders/UniformHandler.h"
 #include "engine/core/math/Matrix.h"
 
 namespace GLESC {
     class Renderer {
     public:
-        explicit Renderer(WindowManager &windowManager, GLESC_RENDER_API &graphicsInterface) :
-                graphicsInterface(graphicsInterface), windowManager(windowManager), shaderManager(
-                graphicsInterface), textureManager(graphicsInterface) {
+        explicit Renderer(WindowManager &windowManager) :windowManager(windowManager){
             
             // Set the projection matrix
             projection = calculateProjectionMatrix(45.0f, 0.1f, 100.0f,
@@ -37,13 +32,13 @@ namespace GLESC {
         }
         
         ~Renderer() {
-            graphicsInterface.deleteContext();
+            gapi.deleteContext();
         }
         
         void start() {
-            graphicsInterface.clear({GAPIValues::ClearBitsColor, GAPIValues::ClearBitsDepth,
+            gapi.clear({GAPIValues::ClearBitsColor, GAPIValues::ClearBitsDepth,
                                      GAPIValues::ClearBitsStencil});
-            graphicsInterface.clearColor(0.2f, 0.3f, 0.3f, 1.0f);
+            gapi.clearColor(0.2f, 0.3f, 0.3f, 1.0f);
         }
         
         void end() {
@@ -57,10 +52,9 @@ namespace GLESC {
             Matrix4D transform = calculateTransformMatrix(position, rotation, scale);
             // Apply transformations to vertices
             for (auto &vertex : mesh.getVertices()) {
-                Vec4D pos = Vec4D(vertex.getPosition().x(), vertex.getPosition().y(),
-                                  vertex.getPosition().z(), 1.0f);
+                Vec4D pos = vertex.getPosition().homogenize();
                 pos = transform * pos;
-                Vec3D newPos = Vec3D(pos.x(), pos.y(), pos.z());
+                Vec3D newPos = pos.dehomogenize();
                 vertex.setPosition(newPos);
             }
         }
@@ -69,14 +63,6 @@ namespace GLESC {
             
         }
         
-        
-        /**
-         * @brief Get the shader manager object
-         * @return ShaderManager& The shader manager object
-         */
-        [[nodiscard]] ShaderManager &getShaderManager() {
-            return shaderManager;
-        }
         
         /**
          * @brief Get the Texture Manager object
@@ -139,7 +125,7 @@ namespace GLESC {
         }
         
         void swapBuffers() {
-            graphicsInterface.getSwapBuffersFunc()(windowManager.getWindow());
+            gapi.getSwapBuffersFunc()(windowManager.getWindow());
         }
         
         /**
@@ -176,21 +162,14 @@ namespace GLESC {
             
             return model;
         }
-        
-        GLESC_RENDER_API &graphicsInterface;
         // Uncomment the below line and comment the above to enable code
         // completion and proper syntax highlighting
-        // IGraphicInterface &graphicsInterface;
+        // IGraphicInterface &gapi;
         /**
          * @brief Window manager
          *
          */
         GLESC::WindowManager &windowManager;
-        /**
-         * @brief Shader manager
-         *
-         */
-        ShaderManager shaderManager;
         /**
          * @brief Texture manager
          *

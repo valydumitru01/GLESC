@@ -18,13 +18,13 @@
 namespace GLESC {
     class Mesh {
         using VertexPtr = std::shared_ptr<Vertex>;
-        using FaceVertices = Vec3<VertexPtr>;
+        using FaceVertices = Vector< VertexPtr, 3>;
     public:
         Mesh() = default;
         
-        VertexPtr addVertex(Vertex vertex);
+        VertexPtr addVertex(const Vertex& vertex);
         
-        [[nodiscard]] VertexPtr getVertex(Vertex vertex) const;
+        [[nodiscard]] VertexPtr getVertex(const Vertex& vertex) const;
         
         [[nodiscard]] VertexPtr getVertex(size_t index) const;
         

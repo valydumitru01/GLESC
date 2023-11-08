@@ -27,9 +27,7 @@ set(MY_DEFINITIONS
     # This is needed for glew to work statically
     GLEW_STATIC
     # This is the fragment shader file location
-    FRAG_SHADER="${FRAG_SHADER}"
-    # This is the vertex shader file location
-    VERT_SHADER="${VERT_SHADER}"
+    SHADER_PATH="${SHADER_DIR}"
     # This is the name of the executable
     PROJECT_NAME="${PROJECT_NAME}"
     # This is the binary directory of the project,

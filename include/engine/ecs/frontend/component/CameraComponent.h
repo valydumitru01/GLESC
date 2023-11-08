@@ -6,7 +6,6 @@
 
 #pragma once
 
-#include "glm/glm.hpp"
 #include "IComponent.h"
 #include "engine/core/math/debugger/MathDebugger.h"
 #include "engine/core/math/Matrix.h"
