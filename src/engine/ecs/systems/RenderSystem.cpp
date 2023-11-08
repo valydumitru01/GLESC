@@ -9,6 +9,7 @@
  ******************************************************************************/
 
 #include <utility>
+#include "engine/subsystems/renderer/shaders/Shader.h"
 
 #include "engine/ecs/frontend/system/systems/RenderSystem.h"
 
@@ -20,8 +21,7 @@ RenderSystem::RenderSystem(GLESC::Renderer &renderer, GLESC::ECS &ecs) :
 
 
 void RenderSystem::update(double timeOfFrame) {
-    renderer.getUniformHandler().use();
-    
+    renderer.getDefaultShader().bind();
     for (auto &entity : getAssociatedEntities()) {
         auto &render = getComponent<RenderComponent>(entity);
         auto &transform = getComponent<TransformComponent>(entity);

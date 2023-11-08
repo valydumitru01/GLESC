@@ -13,9 +13,11 @@
 #include <iostream>
 #include <engine/core/exceptions/core/math/MathException.h>
 
-template<typename Type, size_t N, size_t M>
-class Matrix;
-
+namespace GLESC::Math {
+    template<typename Type, size_t N, size_t M>
+    class Matrix;
+}
+using namespace GLESC::Math;
 namespace MatrixAlgorithms {
     template<typename Type, size_t N>
     inline Matrix<Type, N, N> gaussianInverse(const Matrix<Type, N, N> &inputMatrix) {
@@ -208,27 +210,24 @@ namespace MatrixAlgorithms {
     }
     
     template<typename T>
-    Matrix<T, 4, 4> lookAt3D(const Matrix<T, 4, 4> &matrix, const Vector<T, 3> &target, const Vector<T, 3> &up) {
+    Matrix<T, 4, 4>
+    lookAt3D(const Matrix<T, 4, 4> &matrix, const Vector<T, 3> &target, const Vector<T, 3> &up) {
         Vector<T, 3> eye(matrix[0][3], matrix[1][3], matrix[2][3]);
         Vector<T, 3> zAxis = (eye - target).normalize();
         Vector<T, 3> xAxis = up.cross(zAxis).normalize();
         Vector<T, 3> yAxis = zAxis.cross(xAxis).normalize();
         
         // Rotation matrix using the new basis vectors (inverted change of basis matrix)
-        Matrix<T, 4, 4> lookRotation = {
-                {xAxis[0], yAxis[0], zAxis[0], 0},
-                {xAxis[1], yAxis[1], zAxis[1], 0},
-                {xAxis[2], yAxis[2], zAxis[2], 0},
-                {0, 0, 0, 1}
-        };
+        Matrix<T, 4, 4> lookRotation = {{xAxis[0], yAxis[0], zAxis[0], 0},
+                                        {xAxis[1], yAxis[1], zAxis[1], 0},
+                                        {xAxis[2], yAxis[2], zAxis[2], 0},
+                                        {0,        0,        0,        1}};
         
         // Translation matrix to move the camera to the origin
-        Matrix<T, 4, 4> translation = {
-                {1, 0, 0, -eye[0]},
-                {0, 1, 0, -eye[1]},
-                {0, 0, 1, -eye[2]},
-                {0, 0, 0, 1}
-        };
+        Matrix<T, 4, 4> translation = {{1, 0, 0, -eye[0]},
+                                       {0, 1, 0, -eye[1]},
+                                       {0, 0, 1, -eye[2]},
+                                       {0, 0, 0, 1}};
         
         // First translate to the origin, then apply the rotation
         return lookRotation * translation * matrix;

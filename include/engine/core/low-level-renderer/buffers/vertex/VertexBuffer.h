@@ -15,8 +15,7 @@ namespace GLESC {
     
     class VertexBuffer {
     public:
-        VertexBuffer(const std::any *data,
-                     GAPIsize size);
+        VertexBuffer(const void *data, GAPIsize size);
         
         ~VertexBuffer();
         

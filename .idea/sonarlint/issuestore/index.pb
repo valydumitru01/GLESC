@@ -45,8 +45,6 @@ W
 'src/engine/ecs/systems/CameraSystem.cpp,5\a\5a6d8e5cf6473a464d43587adf5a5d79508c2520
 _
 /src/engine/ecs/backend/entity/EntityManager.cpp,2\b\2bd1f1606331b1b72ba288e702f5ea3cf447a9d2
-j
-:include/engine/subsystems/renderer/shaders/ShaderManager.h,2\0\2044f20453aa5d5f8663f12f3674501030a26fba
 m
 =src/engine/core/low-level-renderer/texture/TextureManager.cpp,4\d\4df485364b5dab1de26a5228c39f00d634b1930e
 o

@@ -26,6 +26,12 @@ namespace GLESC::Math {
     constexpr float PI =
             3.1415926535897932384626433832795028841971693993751058209749445923f;
     
+    
+    template<typename Type>
+    Type radians(const Type &degrees) {
+        return degrees * PI / Type(180);
+    }
+    
     template<typename LValueT, typename RValueT>
     constexpr inline bool flexibleEquals(LValueT a, RValueT b) {
         if constexpr (std::is_floating_point_v<LValueT> &&

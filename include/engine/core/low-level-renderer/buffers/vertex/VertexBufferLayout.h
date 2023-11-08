@@ -30,12 +30,12 @@ namespace GLESC {
         [[nodiscard]] uint32_t getStride() const;
         
         template<ShaderDataType shaderDataType, ShaderDataDim shaderDataDim>
-        void push(GAPIuint count) {
-            elements.push_back({shaderDataType, shaderDataDim, count, 0, false});
+        void push() {
+            elements.push_back({shaderDataType, shaderDataDim,
+                                static_cast<GAPIuint>(shaderDataDim), 0, false});
             
             stride += static_cast<GAPIuint>(shaderDataType)
-                      * static_cast<GAPIuint>(shaderDataDim)
-                      * count;
+                      * static_cast<GAPIuint>(shaderDataDim);
         }
     
     private:

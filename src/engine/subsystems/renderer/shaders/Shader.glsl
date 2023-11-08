@@ -1,4 +1,3 @@
-// FRAGMENT SHADER
 #shader fragment
 /* The glsl version is automatically set */
 out vec4 FragColor;
@@ -16,7 +15,6 @@ void main()
     FragColor = vec4(color, 1.0);
 }
 
-// VERTEX SHADER
 #shader vertex
 /* The glsl version is automatically set */
 layout (location = 0) in vec3 pos;

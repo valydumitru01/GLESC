@@ -10,14 +10,13 @@
 #include "engine/core/low-level-renderer/graphic-api/Gapi.h"
 
 namespace GLESC {
-    template<typename GAPI>
     class IndexBuffer {
     public:
         IndexBuffer(const GAPIuint *data, GAPIsize count) :
                 count(count){
             gapi.genBuffers(1, indexBufferID);
             gapi.bindBuffer(GAPIValues::BufferTypeIndex, indexBufferID);
-            gapi.setBufferData(reinterpret_cast<const std::any *>(data), count, indexBufferID,
+            gapi.setBufferData(data, count, indexBufferID,
                                    GAPIValues::BufferTypeIndex,
                                    GAPIValues::BufferUsageStatic);
             gapi.unbindBuffer(GAPIValues::BufferTypeIndex);

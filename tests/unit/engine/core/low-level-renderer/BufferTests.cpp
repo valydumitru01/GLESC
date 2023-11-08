@@ -21,29 +21,42 @@ TEST(BufferTests, test) {
     GLESC::Renderer renderer(window);
     GLESC::Shader shader("Shader.glsl");
     
-    GLESC::Mesh cube = GLESC::MeshFactory::cube(3);
+    auto* positions = new GAPIfloat[12]{
+        -0.5f, -0.5f,
+        0.5f, -0.5f,
+        0.5f,  0.5f,
+        -0.5f,  0.5f
+    };
+    auto* indices = new GAPIuint[6]{
+        0, 1, 2,
+        2, 3, 0
+    };
+    
+    
+    
     GLESC::VertexArray va;
-    
-    GLESC::VertexBuffer vb(cube.getVertices(), cube.getVertices().size());
-    GLESC::IndexBuffer ib;
-    GLESC::VertexBufferLayout layout;
-    va.addBuffer(vb);
+    GLESC::VertexBuffer vb(positions, 12);
+    GLESC::IndexBuffer ib(indices, 6);
     
     GLESC::VertexBufferLayout layout;
-    layout.push<float>(3);
+    layout.push<ShaderDataType::Float, ShaderDataDim::Vec2>();
     
-    va.addLayout(layout);
+    va.addBuffer(vb, layout);
+    
+    
     ib.bind();
     va.bind();
+    vb.unbind();
+    shader.unbind();
     
     for (int i = 0; i < 1000; ++i) {
-        renderer.start();
-        
+        gapi.clear({GAPIValues::ClearBitsColor, GAPIValues::ClearBitsDepth,
+                    GAPIValues::ClearBitsStencil});
+        gapi.clearColor(0.2f, 0.3f, 0.3f, 1.0f);
         shader.bind();
-        renderer.draw(va, ib, shader);
-        window.update();
+        shader.setVec3("color", {0.2f, 0.3f, 0.8f});
         
-        renderer.end();
+        gapi.swapBuffers(window.getWindow());
     }
     
 }

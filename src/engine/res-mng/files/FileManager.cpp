@@ -8,6 +8,8 @@
  * See LICENSE.txt in the project root for license information.
  ******************************************************************************/
 
+#include <fstream>
+#include <sstream>
 #include "engine/res-mng/files/FileManager.h"
 #include "engine/core/exceptions/resources/OpenException.h"
 

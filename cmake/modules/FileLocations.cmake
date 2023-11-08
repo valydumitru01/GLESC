@@ -60,7 +60,7 @@ verbose_info("----Defining directories and files----")
 set_new_dir(SRC_DIR src)
 # Set the include directory, this is where the header files
 # are located
-set_new_dir(SHADER_DIR src/engine/subsystems/renderer/shaders)
+set_new_dir(SHADER_DIR ${CMAKE_SOURCE_DIR}/src/engine/subsystems/renderer/shaders)
 set_new_dir(INCLUDE_DIR include)
 # ..........................................................
 

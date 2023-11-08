@@ -136,10 +136,13 @@ enum class GAPIValues {
 };
 
 enum class ShaderDataType {
-    None = 0, Float = sizeof(float), Int = sizeof(int), Bool = sizeof(bool)
+    None [[maybe_unused]] = 0, Float [[maybe_unused]] = sizeof(float),
+    Int [[maybe_unused]] = sizeof(int), Bool [[maybe_unused]] = sizeof(bool)
 };
 enum class ShaderDataDim {
-    Value = 0, Vec2 = 2, Vec3 = 3, Vec4 = 4, Mat2 = 4, Mat3 = 9, Mat4 = 16
+    Value [[maybe_unused]] = 0 , Vec2 [[maybe_unused]] = 2, Vec3 [[maybe_unused]] = 3,
+    Vec4 [[maybe_unused]] = 4, Mat2 [[maybe_unused]] = 4, Mat3 [[maybe_unused]] = 9,
+    Mat4 [[maybe_unused]] = 16
 };
 
 class IGraphicInterface {
@@ -156,7 +159,7 @@ public:
     
     virtual void setViewport(GAPIint x, GAPIint y, GAPIint width, GAPIint height) = 0;
     
-    virtual std::function<void(SDL_Window &)> getSwapBuffersFunc() = 0;
+    virtual void swapBuffers(SDL_Window& window) = 0;
     
     virtual void createContext(SDL_Window &window, GAPIint w, GAPIint h, GAPIint x, GAPIint y) = 0;
     
@@ -178,7 +181,7 @@ public:
     
     virtual void deleteBuffer(GAPIuint buffer) = 0;
     
-    virtual void setBufferData(const std::any *data,
+    virtual void setBufferData(const void *data,
                                GAPIsize size,
                                GAPIuint buffer,
                                GAPIValues bufferType,
@@ -313,5 +316,3 @@ public:
                                               const GAPIfloat *value) = 0;
     
 };
-
-

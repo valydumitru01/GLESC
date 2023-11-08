@@ -1,5 +1,5 @@
 /******************************************************************************
- * @file   MatrixTestTyped.cpp
+ * @file   GLESC::Math::MatrixTestTyped.cpp
  * @author Valentin Dumitru
  * @date   2023-10-26
  * @brief  Add description of this file if needed @todo 
@@ -10,6 +10,7 @@
 #include <gtest/gtest.h>
 #include "engine/core/math/Matrix.h"
 #include "MathTestHelper.h"
+
 
 template<typename T, size_t N, size_t M>
 struct MatrixType {
@@ -36,13 +37,13 @@ MyType generateNextValue(size_t i, size_t j) {
     }
 }
 template <class MyType, size_t N, size_t M>
-void initializeMatrixWithValues(Matrix<MyType, N, M> &matrix) {
+void initializeMatrixWithValues(GLESC::Math::Matrix<MyType, N, M> &matrix) {
     for (size_t i = 0; i < matrix.rows(); ++i)
         for (size_t j = 0; j < matrix.cols(); ++j)
             matrix[i][j] = generateNextValue<MyType>(i, j);
 }
 template <class MyType, size_t N, size_t M>
-void initializeMatrixWithDifferentValues(Matrix<MyType, N, M> &matrix) {
+void initializeMatrixWithDifferentValues(GLESC::Math::Matrix<MyType, N, M> &matrix) {
     // Matrices will have the following format (i.e. 3x3):
     // |13 23 33|
     // |43 53 63|
@@ -76,8 +77,9 @@ protected:
     {initializeMatrixWithValues(this->matrix);
     initializeMatrixWithDifferentValues(this->matrix2);}
     void TearDown() override {}
-    Matrix<typename Type::ValueType, Type::Rows, Type::Cols> matrix;
-    Matrix<typename Type::ValueType, Type::Rows, Type::Cols> matrix2; // For combined operations
+    GLESC::Math::Matrix<typename Type::ValueType, Type::Rows, Type::Cols> matrix;
+    // For combined operations
+    GLESC::Math::Matrix<typename Type::ValueType, Type::Rows, Type::Cols> matrix2;
 };
 
 TYPED_TEST_SUITE(MatrixTests, MyTypes);
@@ -86,7 +88,7 @@ TYPED_TEST_SUITE(MatrixTests, MyTypes);
     using Type = typename TypeParam::ValueType; \
     constexpr size_t N = TypeParam::Rows; \
     constexpr size_t M = TypeParam::Cols; \
-    using Mat = Matrix<Type, N, M>; \
+    using Mat = GLESC::Math::Matrix<Type, N, M>; \
     using VecN = Vector<Type, N>; \
     using VecM = Vector<Type, M>
 
@@ -249,7 +251,7 @@ TYPED_TEST(MatrixTests, Assignments){
 
     // Operator *= with matrix
     if constexpr (N==M){ // Only square matrices can be multiplied in place
-        Matrix<Type, M, N> matrixMultEquals;
+        GLESC::Math::Matrix<Type, M, N> matrixMultEquals;
         initializeMatrixWithValues(matrixMultEquals);
         matrixMultEquals *= this->matrix;
         EXPECT_EQ_MAT(matrixMultEquals, (this->matrix * this->matrix));
@@ -389,8 +391,8 @@ TYPED_TEST(MatrixTests, Functions){
     }
     
     // Transpose
-    Matrix<Type, M,N> matrixTransposeResult = this->matrix.transpose();
-    Matrix<Type, M,N> expectedTransposeResult;
+    GLESC::Math::Matrix<Type, M,N> matrixTransposeResult = this->matrix.transpose();
+    GLESC::Math::Matrix<Type, M,N> expectedTransposeResult;
     for (size_t i = 0; i < this->matrix.rows(); ++i)
         for (size_t j = 0; j < this->matrix.cols(); ++j)
             expectedTransposeResult[j][i] = this->matrix[i][j];
@@ -479,7 +481,7 @@ TYPED_TEST(MatrixTests, Functions){
 
 TEST(MatrixTests, ExactSolutionDeterminant){
     // Zero determinant - All elements of a row are zero
-    Matrix<double, 3, 3> matrix1{
+    GLESC::Math::Matrix<double, 3, 3> matrix1{
             {1, 2, 3},
             {0, 0, 0},
             {7, 8, 9}
@@ -488,7 +490,7 @@ TEST(MatrixTests, ExactSolutionDeterminant){
     EXPECT_EQ_CUSTOM(matrix1.determinant(), expectedDeterminant1);
     
     // 2. Zero determinant - Two rows are identical
-    Matrix<double, 3, 3> matrix2{
+    GLESC::Math::Matrix<double, 3, 3> matrix2{
             {1, 2, 3},
             {1, 2, 3},
             {7, 8, 9}
@@ -498,7 +500,7 @@ TEST(MatrixTests, ExactSolutionDeterminant){
 
     
     // Zero determinant - Two rows are proportional
-    Matrix<double, 3, 3> matrix4{
+    GLESC::Math::Matrix<double, 3, 3> matrix4{
             {1, 2, 3},
             {2, 4, 6},
             {7, 8, 9}
@@ -507,7 +509,7 @@ TEST(MatrixTests, ExactSolutionDeterminant){
     EXPECT_EQ_CUSTOM(matrix4.determinant(), expectedDeterminant4);
     
     // Determinant of a 2x2 matrix
-    Matrix<double, 2, 2> matrix5{
+    GLESC::Math::Matrix<double, 2, 2> matrix5{
             {1, 2},
             {3, 4}
     };
@@ -516,7 +518,7 @@ TEST(MatrixTests, ExactSolutionDeterminant){
     EXPECT_EQ_CUSTOM(matrix5.determinant(), expectedDeterminant5);
     
     // Determinant of a 3x3 matrix
-    Matrix<double, 3, 3> matrix6{
+    GLESC::Math::Matrix<double, 3, 3> matrix6{
             {-1, 2, 3},
             {4, 5, -6},
             {7, -8, 9}
@@ -526,7 +528,7 @@ TEST(MatrixTests, ExactSolutionDeterminant){
     EXPECT_EQ_CUSTOM(matrix6.determinant(), expectedDeterminant6);
     
     // Determinant of a 4x4 matrix
-    Matrix<double, 4, 4> matrix7{
+    GLESC::Math::Matrix<double, 4, 4> matrix7{
                 {1, 2, 3, -4},
                 {-5, 6, 7, 8},
                 {9, 15, -1, 2},
@@ -537,7 +539,7 @@ TEST(MatrixTests, ExactSolutionDeterminant){
     EXPECT_EQ_CUSTOM(matrix7.determinant(), expectedDeterminant7);
     
     // Determinant of a 5x5 matrix
-    Matrix<double, 5, 5> matrix8{
+    GLESC::Math::Matrix<double, 5, 5> matrix8{
             {-1, 2, 3, 4, 5},
             {6, 7, 8, -9, 0},
             {11, -21, 31, -41, 51},
@@ -552,25 +554,25 @@ TEST(MatrixTests, ExactSolutionDeterminant){
 
 TEST(MatrixTests, ExactSolutionInverse){
     // Inverse of a 2x2 matrix
-    Matrix<double, 2, 2> matrix1{
+    GLESC::Math::Matrix<double, 2, 2> matrix1{
             {1, 2},
             {3, 4}
     };
     // https://www.wolframalpha.com/input?i2d=true&i=%7B%7B1%2C2%7D%2C%7B3%2C4%7D%7D
-    Matrix<double, 2, 2> expectedInverse1{
+    GLESC::Math::Matrix<double, 2, 2> expectedInverse1{
             {-2, 1},
             {1.5, -0.5}
     };
     EXPECT_EQ_MAT(matrix1.inverse(), expectedInverse1);
     
     // Inverse of a 3x3 matrix
-    Matrix<double, 3, 3> matrix2{
+    GLESC::Math::Matrix<double, 3, 3> matrix2{
             {1, 2, -3},
             {-3, 4, -5},
             {7, -8, 9}
     };
     // https://www.wolframalpha.com/input?i2d=true&i=%7B%7B1%2C2%2C-3%7D%2C%7B-3%2C4%2C-5%7D%2C%7B7%2C-8%2C9%7D%7D
-    Matrix<double, 3, 3> expectedInverse2{
+    GLESC::Math::Matrix<double, 3, 3> expectedInverse2{
             {0.5, -0.75, -0.25},
             {1, -3.75, -1.75},
             {0.5, -2.75, -1.25}
@@ -578,14 +580,14 @@ TEST(MatrixTests, ExactSolutionInverse){
     EXPECT_EQ_MAT(matrix2.inverse(), expectedInverse2);
     
     // Inverse of a 4x4 matrix
-    Matrix<double, 4, 4> matrix3{
+    GLESC::Math::Matrix<double, 4, 4> matrix3{
             {1, 2, 3, -4},
             {-5, 6, 7, 8},
             {9, 15, -1, 2},
             {3, -4, 5, 6}
     };
     //https://www.wolframalpha.com/input?i2d=true&i=%7B%7B1%2C2%2C3%2C-4%7D%2C%7B-5%2C6%2C7%2C8%7D%2C%7B9%2C15%2C-1%2C2%7D%2C%7B3%2C-4%2C5%2C6%7D%7D
-    Matrix<double, 4, 4> expectedInverse3{
+    GLESC::Math::Matrix<double, 4, 4> expectedInverse3{
             {0.0223196, -0.0636212, 0.0450563, 0.0846892},
             {0.01335, 0.0367126, 0.0362954, -0.0521485},
             {0.148728, 0.0340008, -0.0175219, 0.0596579},
@@ -594,7 +596,7 @@ TEST(MatrixTests, ExactSolutionInverse){
     EXPECT_EQ_MAT(matrix3.inverse(), expectedInverse3);
     
     // Inverse of a 5x5 matrix
-    Matrix<double, 5, 5> matrix4{
+    GLESC::Math::Matrix<double, 5, 5> matrix4{
             {-1, 2, 3, 4, 5},
             {6, 7, 8, -9, 0},
             {11, -21, 31, -41, 51},
@@ -602,7 +604,7 @@ TEST(MatrixTests, ExactSolutionInverse){
             {11.1, 32.1, -53.1, 64.1, -75.1}
     };
     // https://www.wolframalpha.com/input?i2d=true&i=%7B%7B-1%2C2%2C3%2C4%2C5%7D%2C%7B6%2C7%2C8%2C-9%2C0%7D%2C%7B11%2C-21%2C31%2C-41%2C51%7D%2C%7B-61%2C71%2C81%2C91%2C10%7D%2C%7B11.1%2C32.1%2C-53.1%2C64.1%2C-75.1%7D%7D
-    Matrix<double, 5, 5> expectedInverse4{
+    GLESC::Math::Matrix<double, 5, 5> expectedInverse4{
             {-0.0935895, -0.0085282, 0.0719947, 0.00517271, 0.043349},
             {0.351945, 0.119422, -0.0858807, -0.0162524, -0.0370535},
             {-0.326954, -0.0438212, 0.0777137, 0.02122, 0.0338326},
@@ -614,14 +616,14 @@ TEST(MatrixTests, ExactSolutionInverse){
 
 TEST(MatrixTests, ExactSolutionTranslate){
     // Translation of a 3x3 matrix
-    Matrix<double, 3, 3> transform2D{
+    GLESC::Math::Matrix<double, 3, 3> transform2D{
             {1, 2, -3},
             {-3, 4, -5},
             {7, -8, 9}
     };
     Vector<double, 2> translateVec2D(1, 2);
     // Must increase the last column by the translation vector
-    Matrix<double, 3, 3> expectedTranslate2D{
+    GLESC::Math::Matrix<double, 3, 3> expectedTranslate2D{
             {1, 2, -2},
             {-3, 4, -5},
             {7, -8, 9}
@@ -630,14 +632,14 @@ TEST(MatrixTests, ExactSolutionTranslate){
     EXPECT_EQ_MAT(expectedTranslate2D, expectedTranslate2D);
 
     // Translation of a 4x4 matrix
-    Matrix<double, 4, 4> transform3D{
+    GLESC::Math::Matrix<double, 4, 4> transform3D{
             {1, 2, -3, 4},
             {-3, 4, -5, 6},
             {7, -8, 9, 10},
             {11, 12, 13, 14}
     };
     Vector<double, 3> translate3D(1, 2, 3);
-    Matrix<double, 4, 4> expectedTranslate3D{
+    GLESC::Math::Matrix<double, 4, 4> expectedTranslate3D{
             {1, 2, -3, 5},
             {-3, 4, -5, 8},
             {7, -8, 9, 13},
@@ -649,14 +651,14 @@ TEST(MatrixTests, ExactSolutionTranslate){
 
 TEST(MatrixTests, ExactSolutionScale){
     // Translation of a 3x3 matrix
-    Matrix<double, 3, 3> scale2D{
+    GLESC::Math::Matrix<double, 3, 3> scale2D{
             {1, 2, 3},
             {4, 5, 6},
             {7, 8, 9}
     };
     Vector<double, 2> scaleVec2D(1, 2);
     // Must increase (add +) diagonal elements (expect the last one) by the scale vector
-    Matrix<double, 3, 3> expectedScale2D{
+    GLESC::Math::Matrix<double, 3, 3> expectedScale2D{
             {2, 2, 3},
             {4, 7, 6},
             {7, 8, 9}
@@ -665,14 +667,14 @@ TEST(MatrixTests, ExactSolutionScale){
     EXPECT_EQ_MAT(scale2D, expectedScale2D);
     
     // Translation of a 4x4 matrix
-    Matrix<double, 4, 4> scale3D{
+    GLESC::Math::Matrix<double, 4, 4> scale3D{
             {1, 2, 3, 4},
             {5, 6, 7, 8},
             {9, 10, 11, 12},
             {13, 14, 15, 16}
     };
     Vector<double, 3> scaleVec3D(1, 2, 3);
-    Matrix<double, 4, 4> expectedScale3D{
+    GLESC::Math::Matrix<double, 4, 4> expectedScale3D{
             {2, 2, 3, 4},
             {5, 8, 7, 8},
             {9, 10, 14, 12},
@@ -684,14 +686,14 @@ TEST(MatrixTests, ExactSolutionScale){
 
 TEST(MatrixTests, ExactSolutionRotate){
     // Rotation of a 3x3 matrix
-    Matrix<double, 3, 3> rotate2D{
+    GLESC::Math::Matrix<double, 3, 3> rotate2D{
             {1, 2, 3},
             {4, 5, 6},
             {7, 8, 9}
     };
     double dgrs = GLESC::Math::PI/4; // 45 degree rotation for instance
     rotate2D = rotate2D.rotate(dgrs);
-    Matrix<double, 3, 3> expectedRotate2D = {
+    GLESC::Math::Matrix<double, 3, 3> expectedRotate2D = {
             {-2.12132034, -2.12132034, -2.12132034},
             {3.53553391, 4.94974747, 6.36396103},
             {7, 8, 9}
@@ -700,7 +702,7 @@ TEST(MatrixTests, ExactSolutionRotate){
     
     
     // Rotation of a 4x4 matrix
-    Matrix<double, 4, 4> rotate3D{
+    GLESC::Math::Matrix<double, 4, 4> rotate3D{
             {1, 2, 3, 4},
             {5, 6, 7, 8},
             {9, 10, 11, 12},
@@ -710,7 +712,7 @@ TEST(MatrixTests, ExactSolutionRotate){
     double dgrs3D = GLESC::Math::PI/4; // 45 degree rotation for instance
     rotate3D = rotate3D.rotate(axis * dgrs3D);
     
-    Matrix<double, 4, 4> expectedRotate3D = {
+    GLESC::Math::Matrix<double, 4, 4> expectedRotate3D = {
             {-2.82842712, -2.82842712, -2.82842712, -2.82842712},
             {4.24264069, 5.65685425, 7.07106781, 8.48528137},
             {9, 10, 11, 12},
@@ -721,7 +723,7 @@ TEST(MatrixTests, ExactSolutionRotate){
 
 TEST(MatrixTests, ExactSolutionLookAt){
     // LookAt for a 3x3 matrix (2D transformation)
-    Matrix<double, 3, 3> matrix2D{
+    GLESC::Math::Matrix<double, 3, 3> matrix2D{
             {1, 0, 0},
             {0, 1, 0},
             {0, 0, 1}
@@ -730,7 +732,7 @@ TEST(MatrixTests, ExactSolutionLookAt){
     
     matrix2D = matrix2D.lookAt(target2D);
     
-    Matrix<double, 3, 3> expectedLookAt2D = {
+    GLESC::Math::Matrix<double, 3, 3> expectedLookAt2D = {
             {0.70710678, 0.70710678, 0.0},
             {-0.70710678, 0.70710678, 0.0},
             {0.0, 0.0, 1.0}
@@ -739,7 +741,7 @@ TEST(MatrixTests, ExactSolutionLookAt){
     EXPECT_EQ_MAT(matrix2D, expectedLookAt2D);
     
     // LookAt for a 4x4 matrix
-    Matrix<double, 4, 4> matrix3D{
+    GLESC::Math::Matrix<double, 4, 4> matrix3D{
             {1, 0, 0, 0},
             {0, 1, 0, 0},
             {0, 0, 1, 0},
@@ -750,7 +752,7 @@ TEST(MatrixTests, ExactSolutionLookAt){
     
     matrix3D = matrix3D.lookAt(target3D, up);
     
-    Matrix<double, 4, 4> expectedLookAt3D = {
+    GLESC::Math::Matrix<double, 4, 4> expectedLookAt3D = {
             {0.70710678, -0.63960215, -0.30151134, 0.0},
             {0.0, 0.42640143, -0.90453403, 0.0},
             {0.70710678, 0.63960215, 0.30151134, 0.0},

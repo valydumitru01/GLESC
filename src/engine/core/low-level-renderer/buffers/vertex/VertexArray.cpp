@@ -34,6 +34,7 @@ GAPIuint VertexArray::getRendererID() const {
 
 void VertexArray::addBuffer(const GLESC::VertexBuffer &vb,
                             const GLESC::VertexBufferLayout &layout) {
+    this->bind();
     vb.bind();
     auto const &elements = layout.getElements();
     auto const &stride = layout.getStride();

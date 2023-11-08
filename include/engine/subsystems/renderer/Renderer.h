@@ -17,13 +17,14 @@
 #include "engine/core/window/WindowManager.h"
 #include "engine/res-mng/textures/TextureLoader.h"
 #include "engine/subsystems/renderer/mesh/Mesh.h"
-#include "engine/subsystems/renderer/shaders/UniformHandler.h"
+#include "engine/subsystems/renderer/shaders/Shader.h"
 #include "engine/core/math/Matrix.h"
 
 namespace GLESC {
     class Renderer {
     public:
-        explicit Renderer(WindowManager &windowManager) :windowManager(windowManager){
+        explicit Renderer(WindowManager &windowManager) :windowManager(windowManager),
+        shader(Shader("Shader.glsl")){
             
             // Set the projection matrix
             projection = calculateProjectionMatrix(45.0f, 0.1f, 100.0f,
@@ -63,6 +64,9 @@ namespace GLESC {
             
         }
         
+        GLESC::Shader& getDefaultShader(){
+            return shader;
+        }
         
         /**
          * @brief Get the Texture Manager object
@@ -121,11 +125,12 @@ namespace GLESC {
                 throw EngineException("Unable to make projection matrix: viewWidth is 0");
             
             float aspectRatio = viewWidth / viewHeight;
-            return GLESC::Math::perspective(glm::radians(fov), aspectRatio, nearPlane, farPlane);
+            return GLESC::Math::perspective(GLESC::Math::radians(fov),
+                                            aspectRatio, nearPlane, farPlane);
         }
         
         void swapBuffers() {
-            gapi.getSwapBuffersFunc()(windowManager.getWindow());
+            gapi.swapBuffers(windowManager.getWindow());
         }
         
         /**
@@ -176,6 +181,8 @@ namespace GLESC {
          */
         TextureManager textureManager;
         
+        GLESC::Shader shader;
+        
         /**
          * @brief Projection matrix
          * @details The projection matrix makes the world look like it's in 3D
@@ -190,6 +197,7 @@ namespace GLESC {
          * @see https://learnopengl.com/Getting-started/Coordinate-Systems
          */
         Matrix4D view{};
-    }; // class Renderer
+        
+    };// class Renderer
     
 } // namespace GLESC

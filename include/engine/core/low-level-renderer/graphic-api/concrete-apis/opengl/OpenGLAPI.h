@@ -61,8 +61,10 @@ namespace GLESC {
             
             glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, translateEnumToOpenGL(wrapT));
             
-            // TODO: Check this, it assumes that any 4-byte-per-pixel texture is RGBA, and any other texture is RGB.
-            //  This might not always be correct depending on the specifics of the SDL_Surface format.
+            // TODO: Check this, it assumes that any 4-byte-per-pixel texture is RGBA,
+            //  and any other texture is RGB.
+            //  This might not always be correct depending on the specifics of the SDL_Surface
+            //  format.
             GLenum format = (surface.format->BytesPerPixel == 4) ? GL_RGBA : GL_RGB;
             // Generate the texture
             glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, surface.w, surface.h, 0, format,
@@ -85,10 +87,8 @@ namespace GLESC {
             glBindTexture(GL_TEXTURE_2D, textureID);
         }
         
-        std::function<void(SDL_Window &)> getSwapBuffersFunc() override {
-            return [](SDL_Window &window) {
-                SDL_GL_SwapWindow(&window);
-            };
+        void swapBuffers(SDL_Window& window) override {
+            SDL_GL_SwapWindow(&window);
         }
         
         [[nodiscard]] SDL_GLContext getContext() const { return context; };
@@ -178,7 +178,7 @@ namespace GLESC {
             glDeleteBuffers(1, &buffer);
         }
         
-        void setBufferData(const std::any *data,
+        void setBufferData(const void *data,
                            GAPIsize size,
                            GAPIuint buffer,
                            GAPIValues bufferType,

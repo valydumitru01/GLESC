@@ -12,9 +12,9 @@ using namespace GLESC;
 WindowManager::WindowManager(){
     initSDL();
     window = createWindow(GLESC_WINDOW_TITLE);
-    graphicInterface.preWindowCreationInit();
-    graphicInterface.createContext(*window, width, height, x, y);
-    graphicInterface.postWindowCreationInit();
+    gapi.preWindowCreationInit();
+    gapi.createContext(*window, width, height, x, y);
+    gapi.postWindowCreationInit();
     
     isInitialized = SDL_TRUE;
     // Enable mouse relative mode
@@ -27,7 +27,7 @@ void WindowManager::setSize(uint16_t windowWidth, uint16_t windowHeight) {
     width = windowWidth;
     height = windowHeight;
     
-    graphicInterface.setViewport(0, 0, width, height);
+    gapi.setViewport(0, 0, width, height);
 }
 
 

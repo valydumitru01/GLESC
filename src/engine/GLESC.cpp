@@ -13,8 +13,8 @@
 using namespace GLESC;
 
 Engine::Engine() :
-        windowManager(graphicInterface),
-        renderer(windowManager, graphicInterface),
+        windowManager(),
+        renderer(windowManager),
         inputSystem(inputManager, ecs),
         physicsSystem(physicsManager, ecs),
         renderSystem(renderer, ecs),

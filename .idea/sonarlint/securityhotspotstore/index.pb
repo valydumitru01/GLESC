@@ -65,8 +65,6 @@ Z
 -include/engine/subsystems/renderer/Renderer.h,0\9\097ce921e22a23623497de371caf756c423d0499
 G
 include/engine/Config.h,4\a\4a4b7845963c6789d5333235929e5ffd70b396f7
-j
-:include/engine/subsystems/renderer/shaders/ShaderManager.h,2\0\2044f20453aa5d5f8663f12f3674501030a26fba
 M
 include/engine/ecs/ECSTypes.h,0\a\0aae88874e7c2d482b393024bca136e678fcbdb1
 W

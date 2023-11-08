@@ -14,8 +14,8 @@
 
 using namespace GLESC;
 
-Shader::Shader(std::string fileName) :
-        shaderProgram(ShaderLoader::loadShader(std::move(fileName))) {
+Shader::Shader(const std::string& fileName) :
+        shaderProgram(ShaderLoader::loadShader(fileName)) {
 }
 
 Shader::~Shader() {
@@ -49,7 +49,7 @@ void Shader::setVec2(const std::string &name, const Vec2 &value) {
     UniformHandler::setVec2(shaderProgram, name, value);
 }
 
-void Shader::setVec2(const std::string &name, float x, float y) {
+[[maybe_unused]] void Shader::setVec2(const std::string &name, float x, float y) {
     UniformHandler::setVec2(shaderProgram, name, x, y);
 }
 
@@ -58,28 +58,28 @@ void Shader::setVec3(const std::string &name, const Vec3 &value) {
 }
 
 
-void Shader::setVec3(const std::string &name, float x, float y, float z) {
+[[maybe_unused]] void Shader::setVec3(const std::string &name, float x, float y, float z) {
     UniformHandler::setVec3(shaderProgram, name, x, y, z);
 }
 
-void Shader::setVec4(const std::string &name, const Vec4 &value) {
+[[maybe_unused]] void Shader::setVec4(const std::string &name, const Vec4 &value) {
     UniformHandler::setVec4(shaderProgram, name, value);
 }
 
 
-void Shader::setVec4(const std::string &name, float x, float y, float z, float w) {
+[[maybe_unused]] void Shader::setVec4(const std::string &name, float x, float y, float z, float w) {
     UniformHandler::setVec4(shaderProgram, name, x, y, z, w);
 }
 
 
-void Shader::setMat2(const std::string &name, const Matrix2 &mat) {
+[[maybe_unused]] void Shader::setMat2(const std::string &name, const Matrix2 &mat) {
     UniformHandler::setMat2(shaderProgram, name, mat);
 }
 
-void Shader::setMat3(const std::string &name, const Matrix3 &mat) {
+[[maybe_unused]] void Shader::setMat3(const std::string &name, const Matrix3 &mat) {
     UniformHandler::setMat3(shaderProgram, name, mat);
 }
 
-void Shader::setMat4(const std::string &name, const Matrix4 &mat) {
+[[maybe_unused]] void Shader::setMat4(const std::string &name, const Matrix4 &mat) {
     UniformHandler::setMat4(shaderProgram, name, mat);
 }

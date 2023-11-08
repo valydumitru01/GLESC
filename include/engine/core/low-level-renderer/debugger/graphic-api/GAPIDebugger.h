@@ -23,7 +23,7 @@
     
 #ifndef NLOGGING
 inline void printGAPIInit(const std::string& GAPIName, const std::string& GAPIVersion){
-   GLESC::Logger::get().importantSuccess("Initializing Graphic Application Programming Interface");
+   GLESC::Logger::get().importantSuccess("Initializing Graphic Application Programming Interface (GAPI)");
    GLESC::Logger::get().success("\t" + GAPIName + " version " + GAPIVersion);
 }
 #endif

@@ -12,7 +12,7 @@
 using namespace GLESC;
 
 
-VertexBuffer::VertexBuffer(const std::any *data,
+VertexBuffer::VertexBuffer(const void *data,
                            GAPIsize size){
     
     gapi.genBuffers(1, vertexBufferID);
