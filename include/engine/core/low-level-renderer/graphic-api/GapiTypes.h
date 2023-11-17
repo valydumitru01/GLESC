@@ -26,9 +26,14 @@ using GAPIbyte = GLbyte;
 #define GAPI_FALSE GL_FALSE
 #define GAPI_TRUE GL_TRUE
 
-#elifdef GLESC_VULKAN
 
-#elifdef GLESC_DIRECTX
+#endif
+
+#ifdef GLESC_VULKAN
+
+#endif
+
+#ifdef GLESC_DIRECTX
 
 #endif
 

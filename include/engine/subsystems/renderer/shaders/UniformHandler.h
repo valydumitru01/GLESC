@@ -27,7 +27,7 @@ public:
      * @param value The new boolean value
      */
     static void setBool(GLuint shaderProgram, const std::string &name, bool value) {
-        gapi.setUniform1Int(gapi.getUniformLocation(shaderProgram, name), (int) value);
+        gapi.setUniform(shaderProgram, name)->u1B(value);
     }
     
     /**
@@ -123,7 +123,7 @@ public:
      * @param name Name of the Uniform
      * @param mat The new Matrix2 value
      */
-    static void setMat2(GLuint shaderProgram, const std::string &name, const Matrix2 &mat) {
+    static void setMat2(GLuint shaderProgram, const std::string &name, const Mat2 &mat) {
         gapi.setUniformMatrix2FloatVector(gapi.getUniformLocation(shaderProgram, name), 1,
                                           GAPI_FALSE, &mat[0][0]);
     }
@@ -134,7 +134,7 @@ public:
      * @param name Name of the Uniform
      * @param mat The new Matrix3 value
      */
-    static void setMat3(GLuint shaderProgram, const std::string &name, const Matrix3 &mat) {
+    static void setMat3(GLuint shaderProgram, const std::string &name, const Mat3 &mat) {
         gapi.setUniformMatrix3FloatVector(gapi.getUniformLocation(shaderProgram, name), 1,
                                           GAPI_FALSE, &mat[0][0]);
     }
@@ -145,7 +145,7 @@ public:
      * @param name Name of the Uniform
      * @param mat The new glm::mat4 value
      */
-    static void setMat4(GLuint shaderProgram, const std::string &name, const Matrix4 &mat) {
+    static void setMat4(GLuint shaderProgram, const std::string &name, const Mat4 &mat) {
         gapi.setUniformMatrix4FloatVector(gapi.getUniformLocation(shaderProgram, name), 1,
                                           GAPI_FALSE, &mat[0][0]);
     }

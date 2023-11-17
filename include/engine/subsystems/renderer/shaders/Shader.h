@@ -109,7 +109,7 @@ namespace GLESC {
          * @param name Name of the Uniform
          * @param mat The new Matrix2 value
          */
-        [[maybe_unused]] void setMat2(const std::string &name, const Matrix2 &mat);
+        [[maybe_unused]] void setMat2(const std::string &name, const Mat2 &mat);
         
         /**
          * @brief Change mat3 value of Uniform by name
@@ -117,7 +117,7 @@ namespace GLESC {
          * @param name Name of the Uniform
          * @param mat The new Matrix3 value
          */
-        [[maybe_unused]] void setMat3(const std::string &name, const Matrix3 &mat);
+        [[maybe_unused]] void setMat3(const std::string &name, const Mat3 &mat);
         
         /**
          * @brief Change mat4 value of Uniform by name
@@ -125,7 +125,7 @@ namespace GLESC {
          * @param name Name of the Uniform
          * @param mat The new Matrix4 value
          */
-        [[maybe_unused]] void setMat4(const std::string &name, const Matrix4 &mat);
+        [[maybe_unused]] void setMat4(const std::string &name, const Mat4 &mat);
     
     private:
         /**

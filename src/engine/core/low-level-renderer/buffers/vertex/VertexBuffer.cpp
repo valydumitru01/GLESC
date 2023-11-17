@@ -17,8 +17,8 @@ VertexBuffer::VertexBuffer(const void *data,
     
     gapi.genBuffers(1, vertexBufferID);
     gapi.bindBuffer(GAPIValues::BufferTypeVertex, vertexBufferID);
-    gapi.setBufferData(data, size, vertexBufferID, GAPIValues::BufferTypeVertex,
-                           GAPIValues::BufferUsageStatic);
+    gapi.setBufferData(data, size, GAPIValues::BufferTypeVertex,
+                           GAPIValues::BufferUsageStaticDraw);
     gapi.unbindBuffer(GAPIValues::BufferTypeVertex);
 }
 
@@ -37,7 +37,7 @@ void VertexBuffer::unbind() const {
 void VertexBuffer::setData(const std::any *data, GAPIsize size) {
     gapi.bindBuffer(GAPIValues::BufferTypeVertex, vertexBufferID);
     gapi
-            .setBufferData(data, size, vertexBufferID, GAPIValues::BufferTypeVertex,
-                           GAPIValues::BufferUsageStatic);
+            .setBufferData(data, size, GAPIValues::BufferTypeVertex,
+                           GAPIValues::BufferUsageStaticDraw);
     gapi.unbindBuffer(GAPIValues::BufferTypeVertex);
 }

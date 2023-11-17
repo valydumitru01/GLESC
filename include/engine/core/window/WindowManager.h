@@ -15,6 +15,7 @@
 #include "engine/core/low-level-renderer/graphic-api/Gapi.h"
 #include "engine/core/logger/Logger.h"
 #include "engine/Config.h"
+#include "engine/core/math/Vec.h"
 
 /**
  * @brief 1.77 is the standard ratio (16:9)
@@ -27,31 +28,6 @@ namespace GLESC {
     class WindowManager {
     public:
         WindowManager();
-        
-        /**
-         * @brief Callback function when windowManager size is modified
-         * This will call glViewport with the new resolution
-         *
-         */
-        void setSize(uint16_t windowWidth, uint16_t windowHeight);
-        
-        
-        /**
-         * @brief Turn fullscreen on or off
-         * This will change the flags of the windowManager object
-         *
-         */
-        void setFullscreen(SDL_bool isFullScreen);
-        
-        /**
-         * @brief Enables mouse
-         * If enabled mouse is visible and position is absolute (allows moving it across the windowManager)
-         * If disabled mouse is hidden and position is relative (stays in center)
-         *
-         * @param enabled
-         */
-        void setMouseRelative(bool enabled);
-        
         /**
          * @brief Get the Window object
          *
@@ -60,17 +36,120 @@ namespace GLESC {
         SDL_Window &getWindow();
         
         /**
-         * @brief Get the width of the windowManager
-         * @return int the width
+         * @brief Get the width and height of the window
+         * @return pair -> left: width, right: height
          */
-        [[nodiscard]] uint32_t getWidth() const;
+        [[nodiscard]] std::pair<int, int> getWindowSize() const;
+        /**
+         * @brief Callback function when window size is modified
+         * This will change the viewport with the new resolution
+         *
+         */
+        void setSize(uint16_t windowWidth, uint16_t windowHeight);
         
         /**
-         * @brief Get the height of the windowManager
-         * @return int the height
+         * @brief Set the position of the window.
+         * Changes the location of the window on the screen.
+         *
+         * @param windowX New X position.
+         * @param windowY New Y position.
          */
-        [[nodiscard]] uint32_t getHeight() const;
-    
+        void setPosition(unsigned int windowX, unsigned int windowY);
+        /**
+         * @brief Get the position of the window.
+         * @return Vec2I -> x: position on X axis, y: position on Y axis
+         */
+        [[nodiscard]] Vec2I getPosition();
+        
+        
+        
+        /**
+         * @brief Set the window icon.
+         * Updates the icon displayed in the window's title bar.
+         *
+         * @param iconFile Path to the icon file.
+         */
+        void setIcon(const std::string &iconFile);
+        
+        
+        
+        /**
+         * @brief Gets whether the windowManager is fullscreen or not
+         * @return true if windowManager is fullscreen, false otherwise
+         */
+        [[nodiscard]] bool isFullscreen();
+        /**
+         * @brief Turn fullscreen on or off
+         * This will change the flags of the windowManager object
+         *
+         */
+        void setFullscreen(bool isFullScreen);
+        
+        
+        
+        /**
+         * @brief Enables mouse
+         * If enabled mouse is visible and position is absolute (allows moving it across the window)
+         * If disabled mouse is hidden and position is relative (stays in center)
+         *
+         * @param enabled true to enable, false to disable
+         */
+        void setMouseRelative(bool enabled);
+        /**
+         * @brief Gets whether the mouse is relative or not
+         * @return true if mouse is relative, false otherwise
+         */
+        [[nodiscard]] bool getMouseRelative();
+        
+        
+        
+        /**
+         * @brief Sets the window borderless, meaning no title bar with close button
+         * @param isBorderless true to enable, false to disable
+         */
+        void setBorderlessWindow(bool isBorderless);
+        /**
+         * @brief Gets whether the window is borderless or not
+         * @return true if window is borderless, false otherwise
+         */
+        [[nodiscard]] bool isBorderlessWindow();
+        
+        
+        
+        /**
+         * @brief Sets the window resizable. If enabled, the window can be resized by the user.
+         * If disabled, the window cannot be resized, when trying to resize it, nothing will happen.
+         * @param isResizable true to enable, false to disable
+         */
+        void setResizable(bool isResizable);
+        /**
+         * @brief Gets whether the window is resizable or not
+         * @return true if window is resizable, false otherwise
+         */
+        [[nodiscard]] bool isResizable();
+        
+        
+        
+        /**
+         * @brief Sets the window fullscreen borderless or "fake fullscreen".
+         * @details This will make the window fullscreen but also facilitates changing to different
+         * apps and windows. This won't change the resolution of the screen, like true fullscreen.
+         * But also is less efficient than true fullscreen, costing more resources.
+         * @param isFullScreen true to enable, false to disable
+         */
+        void setFullscreenBorderless(bool isFullScreen);
+        /**
+         * @brief Gets whether the window is fullscreen borderless or not
+         * @return true if window is fullscreen borderless, false otherwise
+         */
+        [[nodiscard]] bool isFullscreenBorderless();
+        
+        
+        
+        /**
+         * @brief Destroy window and release resources.
+         */
+        void destroyWindow();
     private:
         
         /**
@@ -78,7 +157,7 @@ namespace GLESC {
          *
          * @return int the flags
          */
-        [[nodiscard]] static int getRaisedFlags();
+        [[nodiscard]] static uint32_t getRaisedFlags();
         
         /**
          * @brief Initialize SDL, checks if there is any error while doing it
@@ -90,33 +169,17 @@ namespace GLESC {
          * @brief Initialize the windowManager with its title, setting its flags
          * Checks if there is any error while doing it.
          */
-        SDL_Window *createWindow(const char *title);
+        [[nodiscard]] SDL_Window *createWindow(const char *title);
         
-        SDL_bool isInitialized{SDL_FALSE};
         
         /**
          * @brief The SDL window struct pointer
          *
          */
         SDL_Window *window;
-        /**
-         * @brief True if is fullscreen and false if it is not
-         *
-         */
-        SDL_bool fullscreen{GLESC_WINDOW_FULLSCREEN};
         
-        /**
-         * @brief Height of the window in pixels
-         *
-         */
-        uint32_t height{GLESC_WINDOW_HEIGHT};
-        /**
-         * @brief Width of the window in pixels
-         *
-         */
-        uint32_t width{GLESC_WINDOW_WIDTH};
-        uint32_t x{GLESC_WINDOW_X};
-        uint32_t y{GLESC_WINDOW_Y};
+        
+        
     }; // class WindowManager
     
 } // namespace GLESC

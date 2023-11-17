@@ -28,6 +28,8 @@ set(MY_DEFINITIONS
     GLEW_STATIC
     # This is the fragment shader file location
     SHADER_PATH="${SHADER_DIR}"
+    # Here assets are stored
+    ASSETS_PATH="${ASSETS_DIR}"
     # This is the name of the executable
     PROJECT_NAME="${PROJECT_NAME}"
     # This is the binary directory of the project,

@@ -10,5 +10,5 @@
 
 class GAPIInitException : public GAPIException{
 public:
-    explicit GAPIInitException(const std::string &message) : GAPIException("GDI setShaderProgram error:" + message) {}
+    explicit GAPIInitException(const std::string &message) : GAPIException("GDI error:" + message) {}
 };

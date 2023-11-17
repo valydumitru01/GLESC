@@ -660,35 +660,39 @@ namespace GLESC::Math {
         Vector<Type, M> data[N];
     }; // class Matrix
 } // namespace GLESC::Math
-using Matrix2 = GLESC::Math::Matrix<float, 2, 2>;
-using Matrix3 = GLESC::Math::Matrix<float, 3, 3>;
-using Matrix4 = GLESC::Math::Matrix<float, 4, 4>;
+using Mat2 = GLESC::Math::Matrix<float, 2, 2>;
+using Mat3 = GLESC::Math::Matrix<float, 3, 3>;
+using Mat4 = GLESC::Math::Matrix<float, 4, 4>;
 
-using Matrix2D = GLESC::Math::Matrix<double, 2, 2>;
-using Matrix3D = GLESC::Math::Matrix<double, 3, 3>;
-using Matrix4D = GLESC::Math::Matrix<double, 4, 4>;
+using Mat2D = GLESC::Math::Matrix<double, 2, 2>;
+using Mat3D = GLESC::Math::Matrix<double, 3, 3>;
+using Mat4D = GLESC::Math::Matrix<double, 4, 4>;
 
-using Matrix2I = GLESC::Math::Matrix<int, 2, 2>;
-using Matrix3I = GLESC::Math::Matrix<int, 3, 3>;
-using Matrix4I = GLESC::Math::Matrix<int, 4, 4>;
+using Mat2I = GLESC::Math::Matrix<int, 2, 2>;
+using Mat3I = GLESC::Math::Matrix<int, 3, 3>;
+using Mat4I = GLESC::Math::Matrix<int, 4, 4>;
 
-using Matrix2U = GLESC::Math::Matrix<unsigned int, 2, 2>;
-using Matrix3U = GLESC::Math::Matrix<unsigned int, 3, 3>;
-using Matrix4U = GLESC::Math::Matrix<unsigned int, 4, 4>;
+using Mat2Ui = GLESC::Math::Matrix<unsigned int, 2, 2>;
+using Mat3Ui = GLESC::Math::Matrix<unsigned int, 3, 3>;
+using Mat4Ui = GLESC::Math::Matrix<unsigned int, 4, 4>;
 
-using Matrix2L = GLESC::Math::Matrix<long, 2, 2>;
-using Matrix3L = GLESC::Math::Matrix<long, 3, 3>;
-using Matrix4L = GLESC::Math::Matrix<long, 4, 4>;
+using Mat2L = GLESC::Math::Matrix<long, 2, 2>;
+using Mat3L = GLESC::Math::Matrix<long, 3, 3>;
+using Mat4L = GLESC::Math::Matrix<long, 4, 4>;
 
-using Matrix2F = GLESC::Math::Matrix<float, 2, 2>;
-using Matrix3F = GLESC::Math::Matrix<float, 3, 3>;
-using Matrix4F = GLESC::Math::Matrix<float, 4, 4>;
+using Mat2Ul = GLESC::Math::Matrix<unsigned long, 2, 2>;
+using Mat3Ul = GLESC::Math::Matrix<unsigned long, 3, 3>;
+using Mat4Ul = GLESC::Math::Matrix<unsigned long, 4, 4>;
+
+using Mat2F = GLESC::Math::Matrix<float, 2, 2>;
+using Mat3F = GLESC::Math::Matrix<float, 3, 3>;
+using Mat4F = GLESC::Math::Matrix<float, 4, 4>;
 
 
 namespace GLESC::Math {
-    inline Matrix4D
+    inline Mat4D
     perspective(double fovRadians, double aspectRatio, double nearPlane, double farPlane) {
-        Matrix4D result;
+        Mat4D result;
         
         double f = 1.0 / tan(fovRadians / 2.0);
         

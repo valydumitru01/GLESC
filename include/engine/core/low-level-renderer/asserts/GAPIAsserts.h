@@ -19,7 +19,10 @@
 
 #define ASSERT_GL_CALL_IS_CORRECT(isCorrect, message) \
     D_ASSERT_TRUE(isCorrect, \
-    "OpenGL call is not correct")
+    "OpenGL call is not correct" + std::string(message))
+
+#define ASSERT_GLEW_OK(isGlewOk, message) \
+    D_ASSERT_TRUE(isGlewOk,std::string("Unable to initialize GLEW: ")+ message)
 
 [[maybe_unused]] inline bool isGLCorrectVersion(int glslMajorVersion, int glslMinorVersion){
     return glslMajorVersion >= GLESC_MINIMUM_MAJOR_VERSION

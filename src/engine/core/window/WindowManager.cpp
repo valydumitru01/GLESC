@@ -7,86 +7,136 @@
  * Copyright (c) 2023 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
  ******************************************************************************/
+#include <engine/core/math/Vec.h>
+#include <engine/core/exceptions/core/window/WindowException.h>
 #include "engine/core/window/WindowManager.h"
+
 using namespace GLESC;
-WindowManager::WindowManager(){
+
+WindowManager::WindowManager() {
     initSDL();
+    gapi.preWindowConfig();
     window = createWindow(GLESC_WINDOW_TITLE);
-    gapi.preWindowCreationInit();
-    gapi.createContext(*window, width, height, x, y);
+    auto x = GLESC_WINDOW_X;
+    auto y = GLESC_WINDOW_Y;
+    auto width = static_cast<unsigned short>(GLESC_WINDOW_WIDTH);
+    auto height = static_cast<unsigned short>(GLESC_WINDOW_HEIGHT);
+    auto isFullscreen = GLESC_WINDOW_FULLSCREEN;
+    
+    setFullscreen(isFullscreen);
+    setSize(width, height);
+    setPosition(x, y);
+    gapi.createContext(*window);
     gapi.postWindowCreationInit();
     
-    isInitialized = SDL_TRUE;
     // Enable mouse relative mode
     // This will make the mouse cursor invisible and locked in the middle of the screen
     setMouseRelative(true);
+    setIcon("textures/TinyLogo.bmp");
 }
 
 void WindowManager::setSize(uint16_t windowWidth, uint16_t windowHeight) {
-    D_ASSERT_TRUE(isInitialized, "WindowManager not initialized! Cannot set size!");
-    width = windowWidth;
-    height = windowHeight;
-    
-    gapi.setViewport(0, 0, width, height);
+    SDLCall(SDL_SetWindowSize(window, windowWidth, windowHeight));
+    if (isResizable()){
+        gapi.setViewport(0, 0, windowWidth, windowHeight);
+    }
+}
+
+void WindowManager::setFullscreen(bool isFullScreen) {
+    Uint32 flag = isFullScreen ? SDL_WINDOW_FULLSCREEN : 0;
+    SDLCall(SDL_SetWindowFullscreen(window, flag));
+}
+void WindowManager::setFullscreenBorderless(bool isFullScreen) {
+    Uint32 flag = isFullScreen ? SDL_WINDOW_FULLSCREEN_DESKTOP : 0;
+    SDLCall(SDL_SetWindowFullscreen(window, flag));
+}
+bool WindowManager::isFullscreenBorderless() {
+    auto flags = SDL_GetWindowFlags(window);
+    return (flags & SDL_WINDOW_FULLSCREEN_DESKTOP) != 0;
+}
+void WindowManager::setBorderlessWindow(bool isBorderless) {
+    SDLCall(SDL_SetWindowBordered(window, isBorderless ? SDL_FALSE : SDL_TRUE));
+}
+bool WindowManager::isBorderlessWindow() {
+    auto flags = SDL_GetWindowFlags(window);
+    return (flags & SDL_WINDOW_BORDERLESS) != 0;
+}
+
+void WindowManager::setResizable(bool isResizable) {
+    SDLCall(SDL_SetWindowResizable(window, static_cast<SDL_bool>(isResizable)));
+}
+
+bool WindowManager::isResizable() {
+    auto flags = SDL_GetWindowFlags(window);
+    return (flags & SDL_WINDOW_RESIZABLE) != 0;
+}
+
+bool WindowManager::isFullscreen() {
+    auto flags = SDL_GetWindowFlags(window);
+    return (flags & SDL_WINDOW_FULLSCREEN) != 0;
 }
 
 
-void WindowManager::setFullscreen(SDL_bool isFullScreen) {
-    D_ASSERT_TRUE(isInitialized, "WindowManager not initialized! Cannot set fullscreen!");
-    fullscreen = isFullScreen;
-    SDL_SetWindowFullscreen(window, fullscreen);
+void WindowManager::setPosition(unsigned int windowX, unsigned int windowY) {
+    SDLCall(SDL_SetWindowPosition(window, static_cast<int>(windowX), static_cast<int>(windowY)));
+}
+
+Vec2I WindowManager::getPosition() {
+    int x, y;
+    SDLCall(SDL_GetWindowPosition(window, &x, &y));
+    return {x, y};
+}
+
+void WindowManager::setIcon(const std::string &iconFile) {
+    std::string iconPath = std::string(ASSETS_PATH) + "/" + iconFile;
+    Logger::get().info("Loading icon: " + iconPath);
+    
+    SDL_Surface* iconSurface = SDL_LoadBMP(iconPath.c_str());
+    if (!iconSurface) {
+        throw WindowException("Unable to load icon: " + iconPath + ". Error: " + SDL_GetError());
+    }
+    
+    SDLCall(SDL_SetWindowIcon(window, iconSurface));
+    SDLCall(SDL_FreeSurface(iconSurface));
 }
 
 
 void WindowManager::setMouseRelative(bool enabled) {
-    D_ASSERT_TRUE(isInitialized, "WindowManager not initialized! Cannot set mouse relative!");
-    SDL_bool isRelative;
-    std::string failOutput;
-    if (enabled) {
-        isRelative = SDL_TRUE;
-        failOutput = "disable";
-    } else {
-        isRelative = SDL_FALSE;
-        failOutput = "enable";
+    if (SDL_SetRelativeMouseMode(static_cast<SDL_bool>(enabled)) != 0) {
+        
+        std::string action = enabled ? "enable" : "disable";
+        throw WindowException(
+                "Unable to " + action + " mouse relative mode: "+ std::string(SDL_GetError())
+                );
     }
-    
-    // Tells SDL whether we want to set relative mode to our mouse.
-    if (SDL_SetRelativeMouseMode(isRelative) == -1)
-        throw EngineException(
-                "Unable to " + failOutput + " mouse relative mode: " + std::string(SDL_GetError()));
+}
+
+bool WindowManager::getMouseRelative() {
+    return SDL_GetRelativeMouseMode();
 }
 
 SDL_Window &WindowManager::getWindow() {
-    D_ASSERT_TRUE(isInitialized, "WindowManager not initialized! Cannot get window!");
     return *window;
 }
 
-uint32_t WindowManager::getWidth() const {
-    D_ASSERT_TRUE(isInitialized, "WindowManager not initialized! Cannot get width!");
-    return width;
+std::pair<int, int> WindowManager::getWindowSize() const {
+    int w, h;
+    SDLCall(SDL_GetWindowSize(window, &w, &h));
+    return std::make_pair(w, h);
 }
 
-
-uint32_t WindowManager::getHeight() const {
-    D_ASSERT_TRUE(isInitialized, "WindowManager not initialized! Cannot get height!");
-    return height;
-}
-
-int WindowManager::getRaisedFlags() {
-    
+uint32_t WindowManager::getRaisedFlags() {
     // Flags that are needed to be passed to the windowManager * to configure it.
     // To add more flags we need to use the binary OR ( | )
     // More info: https://wiki.libsdl.org/SDL_WindowFlags
     
-    int flags = 0;
+    uint32_t flags = 0;
     #if GLESC_RENDER_API == OpenGLAPI
     // Flag to allow SDL windowManager work with OpenGL
     flags |= SDL_WINDOW_OPENGL;
     #elif GLESC_RENDER_API == VulkanAPI
     flags |= SDL_WINDOW_VULKAN;
     #endif
-    // Flag to allow windowManager resize
-    flags |= SDL_WINDOW_RESIZABLE;
     // Window has no borders
     // flags |= SDL_WINDOW_BORDERLESS;
     // Window grabs input focus
@@ -101,17 +151,25 @@ int WindowManager::getRaisedFlags() {
 void WindowManager::initSDL() {
     int result = SDL_Init(SDL_INIT_EVERYTHING);
     D_ASSERT_EQUAL(result, 0, "Unable to initialize SDL: " + std::string(SDL_GetError()));
-   GLESC::Logger::get().success("SDL Initialized!");
+    GLESC::Logger::get().success("SDL Initialized!");
 }
 
 
 SDL_Window *WindowManager::createWindow(const char *title) {
-    int flags = getRaisedFlags();
+    uint32_t flags = getRaisedFlags();
     SDL_Window *tempWindow =
-            SDL_CreateWindow(title, GLESC_WINDOW_X, GLESC_WINDOW_Y, GLESC_WINDOW_WIDTH, GLESC_WINDOW_HEIGHT, flags);
-    D_ASSERT_NOT_EQUAL(tempWindow, nullptr, "Unable to create windowManager: " + std::string(SDL_GetError()));
-   GLESC::Logger::get().success("Window created!");
-    SDL_SetWindowMinimumSize(tempWindow, windowMinWidth, windowMinHeight);
+            SDL_CreateWindow(title, GLESC_WINDOW_X, GLESC_WINDOW_Y, GLESC_WINDOW_WIDTH,
+                             GLESC_WINDOW_HEIGHT, flags);
+    D_ASSERT_NOT_EQUAL(tempWindow, nullptr,
+                       "Unable to create windowManager: " + std::string(SDL_GetError()));
+    GLESC::Logger::get().success("Window created!");
+    SDLCall(SDL_SetWindowMinimumSize(tempWindow, windowMinWidth, windowMinHeight));
     
     return tempWindow;
+}
+
+void WindowManager::destroyWindow() {
+    SDLCall(SDL_DestroyWindow(window));
+    SDLCall(SDL_Quit());
+    GLESC::Logger::get().success("Window destroyed!");
 }

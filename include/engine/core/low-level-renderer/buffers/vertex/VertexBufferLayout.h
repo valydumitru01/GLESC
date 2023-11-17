@@ -13,8 +13,9 @@
 
 namespace GLESC {
     struct VertexBufferElement {
-        ShaderDataType type;
-        ShaderDataDim dimension;
+        GAPITypes type;
+        DataTypeSize typeSize;
+        DataDimSize dimensionSize;
         GAPIuint count;
         GAPIsize offset;
         GAPIbool normalized;
@@ -29,13 +30,13 @@ namespace GLESC {
         
         [[nodiscard]] uint32_t getStride() const;
         
-        template<ShaderDataType shaderDataType, ShaderDataDim shaderDataDim>
+        template<GAPITypes type, DataTypeSize dataTypeSize, DataDimSize dataDimSize>
         void push() {
-            elements.push_back({shaderDataType, shaderDataDim,
-                                static_cast<GAPIuint>(shaderDataDim), 0, false});
+            elements.push_back({type, dataTypeSize, dataDimSize,
+                                static_cast<GAPIuint>(dataDimSize), 0, false});
             
-            stride += static_cast<GAPIuint>(shaderDataType)
-                      * static_cast<GAPIuint>(shaderDataDim);
+            stride += static_cast<GAPIuint>(dataTypeSize)
+                      * static_cast<GAPIuint>(dataDimSize);
         }
     
     private:

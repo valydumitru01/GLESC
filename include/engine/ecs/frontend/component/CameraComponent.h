@@ -12,7 +12,7 @@
 
 struct CameraComponent : IComponent {
 public:
-    Matrix4D view{};
+    Mat4D view{};
     float fov{};
     float viewWidth{};
     float viewHeight{};

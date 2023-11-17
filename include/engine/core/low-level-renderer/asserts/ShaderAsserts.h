@@ -9,8 +9,21 @@
  **************************************************************************************************/
 #pragma once
 #include "engine/core/asserts/Asserts.h"
-#define SHADER_TOKEN_NOT_FOUND(shader)\
+#define D_ASSERT_SHADER_TOKEN_FOUND(shader)\
     D_ASSERT_TRUE(false, #shader "shader token not found in shader file.")
 
-#define SHADER_MISSING_CODE(shader)\
+#define D_ASSERT_SHADER_CODE_FOUND(shader)\
     D_ASSERT_TRUE(false, #shader "shader code not found.")
+
+#define D_ASSERT_COMPILATION_OK(shaderType) \
+    char *infoLog = new char[512];\
+    D_ASSERT_TRUE(gapi.compilationOK(shaderType, infoLog), \
+        "Compilation failed, error message " + std::string(infoLog));\
+    delete[] infoLog;
+
+
+#define D_ASSERT_LINKING_OK(shaderProgram) \
+    char *infoLog = new char[512];\
+    D_ASSERT_TRUE(gapi.linkOK(shaderProgram, infoLog), \
+        "Linking failed, error message " + std::string(infoLog));\
+    delete[] infoLog;

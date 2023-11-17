@@ -10,6 +10,7 @@
 #include <SDL2/SDL.h>
 #include <string>
 #include <GL/glew.h>
+#include <engine/core/math/Vec.h>
 
 #include "engine/Config.h"
 #include "engine/core/exceptions/core/low-level-renderer/GAPIInitException.h"
@@ -41,6 +42,12 @@ namespace GLESC {
         
         void setViewport(GAPIint x, GAPIint y, GAPIint width, GAPIint height) override {
             glViewport(x, y, width, height);
+        }
+        
+        std::tuple<GAPIint, GAPIint, GAPIint, GAPIint> getViewport() override {
+            GAPIint viewport[4];
+            glGetIntegerv(GL_VIEWPORT, viewport);
+            return std::make_tuple(viewport[0], viewport[1], viewport[2], viewport[3]);
         }
         
         
@@ -87,21 +94,22 @@ namespace GLESC {
             glBindTexture(GL_TEXTURE_2D, textureID);
         }
         
-        void swapBuffers(SDL_Window& window) override {
+        void swapBuffers(SDL_Window &window) override {
             SDL_GL_SwapWindow(&window);
         }
         
         [[nodiscard]] SDL_GLContext getContext() const { return context; };
         
-        void preWindowCreationInit() override {
+        void preWindowConfig() override {
             PRINT_GAPI_INIT("OpenGL", std::to_string(GLESC_GL_MAJOR_VERSION) + "." +
                                       std::to_string(GLESC_GL_MINOR_VERSION));
             // Core functions of OpenGL a.k.a. full modern openGL functionality.
             // More info: https://wiki.libsdl.org/SDL_GLprofile
             #ifdef GLESC_GLSL_CORE_PROFILE
             setSDLGLAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
-            #endif
+            #else
             setSDLGLAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_COMPATIBILITY);
+            #endif
             // We're using OpenGL Version 4.3 (released in 2012).
             // Changing this numbers will change some functions available of OpenGL.
             // Choosing a relatively old version of OpenGl allow most computers to use it.
@@ -159,6 +167,23 @@ namespace GLESC {
                                       std::string(SDL_GetError()));
         }
         
+        void draw(GAPIValues primitiveType, GAPIuint start, GAPIuint count) override {
+            glDrawArrays(translateEnumToOpenGL(primitiveType), start, count);
+        }
+        
+        RGBColor readPixelColor(int x, int y) {
+            RGBColor color;
+            glReadPixels(x, y, 1, 1, GL_RGB, GL_UNSIGNED_BYTE, &color);
+            return color;
+        }
+        
+        RGBColorNormalized readPixelColorNormalized(int x, int y) {
+            RGBColorNormalized color;
+            glReadPixels(x, y, 1, 1, GL_RGB, GL_FLOAT, &color);
+            return color;
+        }
+        
+        
         // -------------------------------------------------------------------------
         // ------------------------------ Buffers ----------------------------------
         
@@ -180,7 +205,6 @@ namespace GLESC {
         
         void setBufferData(const void *data,
                            GAPIsize size,
-                           GAPIuint buffer,
                            GAPIValues bufferType,
                            GAPIValues bufferUsage) override {
             glBufferData(translateEnumToOpenGL(bufferType), size, data,
@@ -209,12 +233,12 @@ namespace GLESC {
         
         void vertexAttribPointer(GAPIuint vertexArray,
                                  GAPIuint count,
-                                 ShaderDataType type,
+                                 GAPITypes type,
                                  GAPIbool isNormalized,
                                  GAPIuint stride,
                                  GAPIuint offset) override {
             glVertexAttribPointer(vertexArray, count, static_cast<GLenum>(type), isNormalized,
-                                  stride, reinterpret_cast<const void *>(offset));
+                                  stride, (GLvoid *) (offset));
         }
         
         
@@ -234,16 +258,6 @@ namespace GLESC {
         }
         
         
-        [[nodiscard]] bool compilationOK(GAPIuint shaderID, GAPIchar *message) override {
-            int error;
-            glGetShaderiv(shaderID, GL_COMPILE_STATUS, &error);
-            if (error == GL_TRUE) {
-                glGetShaderInfoLog(shaderID, 512, nullptr, message);
-                return true;
-            }
-            return false;
-        }
-        
         GAPIuint createShaderProgram(GAPIuint vertexShaderID, GAPIuint fragmentShaderID) override {
             GLuint shaderProgram = glCreateProgram();
             glAttachShader(shaderProgram, vertexShaderID);
@@ -254,128 +268,360 @@ namespace GLESC {
             return shaderProgram;
         }
         
-        [[nodiscard]] bool linkOK(GAPIuint shaderProgram, GAPIchar *message) override {
-            int error;
-            glGetProgramiv(shaderProgram, GL_LINK_STATUS, &error);
-            if (error == GL_TRUE) {
-                glGetProgramInfoLog(shaderProgram, 512, nullptr, message);
-                return true;
+        void destroyShaderProgram(GAPIuint shaderProgram) {
+            glDeleteProgram(shaderProgram);
+        }
+        
+        [[nodiscard]] bool compilationOK(GAPIuint shaderID, GAPIchar *message) override {
+            GLint success;
+            glGetShaderiv(shaderID, GL_COMPILE_STATUS, &success);
+            if (!success) {
+                glGetShaderInfoLog(shaderID, 512, nullptr, message);
+                return false;
             }
-            return false;
+            return true;
         }
         
-        
-        
-        // -------------------------------- Uniforms ------------------------------------
-        
-        
-        inline GAPIint getUniformLocation(GAPIuint program, const std::string &name) override {
-            return glGetUniformLocation(program, name.c_str());
+        [[nodiscard]] bool linkOK(GAPIuint shaderProgram, GAPIchar *message) override {
+            GLint success;
+            glGetProgramiv(shaderProgram, GL_LINK_STATUS, &success);
+            if (!success) {
+                glGetProgramInfoLog(shaderProgram, 512, nullptr, message);
+                return false;
+            }
+            return true;
         }
-        
-        inline void setUniform1Float(GAPIint location, GAPIfloat v0) override {
-            glUniform1f(location, v0);
-        }
-        
-        inline void
-        setUniform1FloatVector(GAPIint location, GAPIsize count, const GAPIfloat *value) override {
-            glUniform1fv(location, count, value);
-        }
-        
-        inline void setUniform1Int(GAPIint location, GAPIint v0) override {
-            glUniform1i(location, v0);
-        }
-        
-        inline void
-        setUniform1IntVector(GAPIint location, GAPIsize count, const GAPIint *value) override {
-            glUniform1iv(location, count, value);
-        }
-        
-        inline void setUniform2Float(GAPIint location, GAPIfloat v0, GAPIfloat v1) override {
-            glUniform2f(location, v0, v1);
-        }
-        
-        inline void
-        setUniform2FloatVector(GAPIint location, GAPIsize count, const GAPIfloat *value) override {
-            glUniform2fv(location, count, value);
-        }
-        
-        inline void setUniform2Int(GAPIint location, GAPIint v0, GAPIint v1) override {
-            glUniform2i(location, v0, v1);
-        }
-        
-        inline void
-        setUniform2IntVector(GAPIint location, GAPIsize count, const GAPIint *value) override {
-            glUniform2iv(location, count, value);
-        }
-        
-        inline void
-        setUniform3Float(GAPIint location, GAPIfloat v0, GAPIfloat v1, GAPIfloat v2) override {
-            glUniform3f(location, v0, v1, v2);
-        }
-        
-        inline void
-        setUniform3FloatVector(GAPIint location, GAPIsize count, const GAPIfloat *value) override {
-            glUniform3fv(location, count, value);
-        }
-        
-        inline void setUniform3Int(GAPIint location, GAPIint v0, GAPIint v1, GAPIint v2) override {
-            glUniform3i(location, v0, v1, v2);
-        }
-        
-        inline void
-        setUniform3IntVector(GAPIint location, GAPIsize count, const GAPIint *value) override {
-            glUniform3iv(location, count, value);
-        }
-        
-        inline void setUniform4Float(GAPIint location,
-                                     GAPIfloat v0,
-                                     GAPIfloat v1,
-                                     GAPIfloat v2,
-                                     GAPIfloat v3) override {
-            glUniform4f(location, v0, v1, v2, v3);
-        }
-        
-        inline void
-        setUniform4FloatVector(GAPIint location, GAPIsize count, const GAPIfloat *value) override {
-            glUniform4fv(location, count, value);
-        }
-        
-        inline void
-        setUniform4Int(GAPIint location, GAPIint v0, GAPIint v1, GAPIint v2, GAPIint v3) override {
-            glUniform4i(location, v0, v1, v2, v3);
-        }
-        
-        inline void
-        setUniform4IntVector(GAPIint location, GAPIsize count, const GAPIint *value) override {
-            glUniform4iv(location, count, value);
-        }
-        
-        inline void setUniformMatrix2FloatVector(GAPIint location,
-                                                 GAPIsize count,
-                                                 GAPIbool transpose,
-                                                 const GAPIfloat *value) override {
-            glUniformMatrix2fv(location, count, transpose, value);
-        }
-        
-        inline void setUniformMatrix3FloatVector(GAPIint location,
-                                                 GAPIsize count,
-                                                 GAPIbool transpose,
-                                                 const GAPIfloat *value) override {
-            glUniformMatrix3fv(location, count, transpose, value);
-        }
-        
-        inline void setUniformMatrix4FloatVector(GAPIint location,
-                                                 GAPIsize count,
-                                                 GAPIbool transpose,
-                                                 const GAPIfloat *value) override {
-            glUniformMatrix4fv(location, count, transpose, value);
-        }
-        
         
         void useShaderProgram(GAPIuint shaderProgram) override {
             glUseProgram(shaderProgram);
         }
+        
+        void deleteShader(GAPIuint shaderID) override {
+            glDeleteShader(shaderID);
+        }
+        // -------------------------------- Uniforms ------------------------------------
+        
+        class GLUniformSetter : public IUniformSetter {
+            friend class OpenGLAPI;
+        
+        public:
+            // Implement single value setters
+            void u1F(GAPIfloat v0) override {
+                glUniform1f(location, v0);
+            }
+            
+            void u1I(GAPIint v0) override {
+                glUniform1i(location, v0);
+            }
+            
+            void u1Ui(GAPIuint v0) override {
+                glUniform1ui(location, v0);
+            }
+            
+            void u1B(GAPIbool v0) override {
+                glUniform1i(location, static_cast<GAPIint>(v0));
+            }
+            
+            
+            // Single vectors
+            // Floats
+            void u2F(Vec2F vec2) override {
+                glUniform2f(location, vec2.x(), vec2.y());
+            }
+            
+            void u3F(Vec3F vec3) override {
+                glUniform3f(location, vec3.x(), vec3.y(), vec3.z());
+            }
+            
+            void u4F(Vec4F vec4) override {
+                glUniform4f(location, vec4.x(), vec4.y(), vec4.z(), vec4.w());
+            }
+            
+            void u2F(GAPIfloat vec2[2]) override {
+                glUniform2f(location, vec2[0], vec2[1]);
+            }
+            
+            void u3F(GAPIfloat vec3[3]) override {
+                glUniform3f(location, vec3[0], vec3[1], vec3[2]);
+            }
+            
+            void u4F(GAPIfloat vec4[4]) override {
+                glUniform4f(location, vec4[0], vec4[1], vec4[2], vec4[3]);
+            }
+            
+            void u2F(GAPIfloat v0, GAPIfloat v1) override {
+                glUniform2f(location, v0, v1);
+            }
+            
+            void u3F(GAPIfloat v0, GAPIfloat v1, GAPIfloat v2) override {
+                glUniform3f(location, v0, v1, v2);
+            }
+            
+            void u4F(GAPIfloat v0, GAPIfloat v1, GAPIfloat v2, GAPIfloat v3) override {
+                glUniform4f(location, v0, v1, v2, v3);
+            }
+            
+            // Ints
+            void u2I(Vec2I vec2) override {
+                glUniform2i(location, vec2.x(), vec2.y());
+            }
+            
+            void u3I(Vec3I vec3) override {
+                glUniform3i(location, vec3.x(), vec3.y(), vec3.z());
+            }
+            
+            void u4I(Vec4I vec4) override {
+                glUniform4i(location, vec4.x(), vec4.y(), vec4.z(), vec4.w());
+            }
+            
+            void u2I(GAPIint vec2[2]) override {
+                glUniform2i(location, vec2[0], vec2[1]);
+            }
+            
+            void u3I(GAPIint vec3[3]) override {
+                glUniform3i(location, vec3[0], vec3[1], vec3[2]);
+            }
+            
+            void u4I(GAPIint vec4[4]) override {
+                glUniform4i(location, vec4[0], vec4[1], vec4[2], vec4[3]);
+            }
+            
+            void u2I(GAPIint v0, GAPIint v1) override {
+                glUniform2i(location, v0, v1);
+            }
+            
+            void u3I(GAPIint v0, GAPIint v1, GAPIint v2) override {
+                glUniform3i(location, v0, v1, v2);
+            }
+            
+            void u4I(GAPIint v0, GAPIint v1, GAPIint v2, GAPIint v3) override {
+                glUniform4i(location, v0, v1, v2, v3);
+            }
+            
+            // Unsigned ints
+            void u2Ui(Vec2Ui vec2) override {
+                glUniform2ui(location, vec2.x(), vec2.y());
+            }
+            
+            void u3Ui(Vec3Ui vec3) override {
+                glUniform3ui(location, vec3.x(), vec3.y(), vec3.z());
+            }
+            
+            void u4Ui(Vec4Ui vec4) override {
+                glUniform4ui(location, vec4.x(), vec4.y(), vec4.z(), vec4.w());
+            }
+            
+            void u2Ui(GAPIuint vec2[2]) override {
+                glUniform2ui(location, vec2[0], vec2[1]);
+            }
+            
+            void u3Ui(GAPIuint vec3[3]) override {
+                glUniform3ui(location, vec3[0], vec3[1], vec3[2]);
+            }
+            
+            void u4Ui(GAPIuint vec4[4]) override {
+                glUniform4ui(location, vec4[0], vec4[1], vec4[2], vec4[3]);
+            }
+            
+            void u2Ui(GAPIuint v0, GAPIuint v1) override {
+                glUniform2ui(location, v0, v1);
+            }
+            
+            void u3Ui(GAPIuint v0, GAPIuint v1, GAPIuint v2) override {
+                glUniform3ui(location, v0, v1, v2);
+            }
+            
+            void u4Ui(GAPIuint v0, GAPIuint v1, GAPIuint v2, GAPIuint v3) override {
+                glUniform4ui(location, v0, v1, v2, v3);
+            }
+            
+            // Booleans
+            void u2B(Vec2B vec2) override {
+                glUniform2i(location, static_cast<GAPIint>(vec2.x()),
+                            static_cast<GAPIint>(vec2.y()));
+            }
+            
+            void u3B(Vec3B vec3) override {
+                glUniform3i(location, static_cast<GAPIint>(vec3.x()),
+                            static_cast<GAPIint>(vec3.y()),
+                            static_cast<GAPIint>(vec3.z()));
+            }
+            
+            void u4B(Vec4B vec4) override {
+                glUniform4i(location, static_cast<GAPIint>(vec4.x()),
+                            static_cast<GAPIint>(vec4.y()),
+                            static_cast<GAPIint>(vec4.z()), static_cast<GAPIint>(vec4.w()));
+            }
+            
+            void u2B(GAPIbool vec2[2]) override {
+                glUniform2i(location, static_cast<GAPIint>(vec2[0]), static_cast<GAPIint>(vec2[1]));
+            }
+            
+            void u3B(GAPIbool vec3[3]) override {
+                glUniform3i(location, static_cast<GAPIint>(vec3[0]), static_cast<GAPIint>(vec3[1]),
+                            static_cast<GAPIint>(vec3[2]));
+            }
+            
+            void u4B(GAPIbool vec4[4]) override {
+                glUniform4i(location, static_cast<GAPIint>(vec4[0]), static_cast<GAPIint>(vec4[1]),
+                            static_cast<GAPIint>(vec4[2]), static_cast<GAPIint>(vec4[3]));
+            }
+            
+            void u2B(GAPIbool v0, GAPIbool v1) override {
+                glUniform2i(location, static_cast<GAPIint>(v0), static_cast<GAPIint>(v1));
+            }
+            
+            void u3B(GAPIbool v0, GAPIbool v1, GAPIbool v2) override {
+                glUniform3i(location, static_cast<GAPIint>(v0), static_cast<GAPIint>(v1),
+                            static_cast<GAPIint>(v2));
+            }
+            
+            void u4B(GAPIbool v0, GAPIbool v1, GAPIbool v2, GAPIbool v3) override {
+                glUniform4i(location, static_cast<GAPIint>(v0), static_cast<GAPIint>(v1),
+                            static_cast<GAPIint>(v2), static_cast<GAPIint>(v3));
+            }
+            
+            
+            // Single matrices
+            // Floats
+            void uMat2F(Mat2F mat) override {
+                glUniformMatrix2fv(location, 1, GL_FALSE, &mat[0][0]);
+            }
+            
+            void uMat3F(Mat3F mat) override {
+                glUniformMatrix3fv(location, 1, GL_FALSE, &mat[0][0]);
+            }
+            
+            void uMat4F(Mat4F mat) override {
+                glUniformMatrix4fv(location, 1, GL_FALSE, &mat[0][0]);
+            }
+            
+            // Vectors of vectors
+            // Floats
+            void u1FVec(const std::vector<GAPIfloat> &values) override {
+                glUniform1fv(location, values.size(), values.data());
+            }
+            
+            void u2FVec(const std::vector<Vec2F> &values) override {
+                glUniform2fv(location, values.size(),
+                             reinterpret_cast<const GLfloat *>(values.data()));
+            }
+            
+            void u3FVec(const std::vector<Vec3F> &values) override {
+                glUniform3fv(location, values.size(),
+                             reinterpret_cast<const GLfloat *>(values.data()));
+            }
+            
+            void u4FVec(const std::vector<Vec4F> &values) override {
+                glUniform4fv(location, values.size(),
+                             reinterpret_cast<const GLfloat *>(values.data()));
+            }
+            
+            // Ints
+            void u1IVec(const std::vector<GAPIint> &values) override {
+                glUniform1iv(location, values.size(), values.data());
+            }
+            
+            void u2IVec(const std::vector<Vec2I> &values) override {
+                glUniform2iv(location, values.size(),
+                             reinterpret_cast<const GLint *>(values.data()));
+            }
+            
+            void u3IVec(const std::vector<Vec3I> &values) override {
+                glUniform3iv(location, values.size(),
+                             reinterpret_cast<const GLint *>(values.data()));
+            }
+            
+            void u4IVec(const std::vector<Vec4I> &values) override {
+                glUniform4iv(location, values.size(),
+                             reinterpret_cast<const GLint *>(values.data()));
+            }
+            
+            // Unsigned ints
+            void u1UiVec(const std::vector<GAPIuint> &values) override {
+                glUniform1uiv(location, values.size(), values.data());
+            }
+            
+            void u2UiVec(const std::vector<Vec2Ui> &values) override {
+                glUniform2uiv(location, values.size(),
+                              reinterpret_cast<const GLuint *>(values.data()));
+            }
+            
+            void u3UiVec(const std::vector<Vec3Ui> &values) override {
+                glUniform3uiv(location, values.size(),
+                              reinterpret_cast<const GLuint *>(values.data()));
+            }
+            
+            void u4UiVec(const std::vector<Vec4Ui> &values) override {
+                glUniform4uiv(location, values.size(),
+                              reinterpret_cast<const GLuint *>(values.data()));
+            }
+            
+            // Booleans
+            void u1BVec(const std::vector<GAPIbool> &values) override {
+                glUniform1iv(location, values.size(),
+                             reinterpret_cast<const GLint *>(values.data()));
+            }
+            
+            void u2BVec(const std::vector<Vec2B> &values) override {
+                glUniform2iv(location, values.size(),
+                             reinterpret_cast<const GLint *>(values.data()));
+            }
+            
+            void u3BVec(const std::vector<Vec3B> &values) override {
+                glUniform3iv(location, values.size(),
+                             reinterpret_cast<const GLint *>(values.data()));
+            }
+            
+            void u4BVec(const std::vector<Vec4B> &values) override {
+                glUniform4iv(location, values.size(),
+                             reinterpret_cast<const GLint *>(values.data()));
+            }
+            
+            
+            // Implement multiple matrix setters
+            void uMat2FVec(const std::vector<Mat2F> &mats) override {
+                glUniformMatrix2fv(location, mats.size(), GL_FALSE,
+                                   reinterpret_cast<const GLfloat *>(mats.data()));
+            }
+            
+            void uMat3FVec(const std::vector<Mat3F> &mats) override {
+                glUniformMatrix3fv(location, mats.size(), GL_FALSE,
+                                   reinterpret_cast<const GLfloat *>(mats.data()));
+            }
+            
+            void uMat4FVec(const std::vector<Mat4F> &mats) override {
+                glUniformMatrix4fv(location, mats.size(), GL_FALSE,
+                                   reinterpret_cast<const GLfloat *>(mats.data()));
+            }
+        
+        
+        private:
+            GLUniformSetter(GAPIuint program, const std::string uName) {
+                // First, check if the program is a valid program generated by OpenGL
+                if (!glIsProgram(program)) {
+                    throw GAPIException("Can't set uniform, shader program is invalid");
+                }
+                // Get the location of the uniform
+                GAPIint tempLocation = glGetUniformLocation(program, uName.c_str());
+                
+                // Check if the uniform location was found
+                if (tempLocation == -1) {
+                    throw GAPIException("Can't set uniform, uniform " + uName + " not found");
+                }
+                
+                this->location = tempLocation;
+            }
+        
+        private:
+            GAPIuint location;
+        };
+        
+        virtual std::unique_ptr<IUniformSetter>
+        setUniform(GAPIuint program, const std::string &uName) override {
+            return std::make_unique<GLUniformSetter>(GLUniformSetter(program, uName));
+        }
+        
         
         void clear(const std::initializer_list<GAPIValues> &values) override {
             GLuint mask = 0;
@@ -390,21 +636,15 @@ namespace GLESC {
         }
         
         
-        void deleteShader(GAPIuint shaderID) override {
-            glDeleteShader(shaderID);
-        }
-        
-        void
-        createContext(SDL_Window &window, GAPIint w, GAPIint h, GAPIint x, GAPIint y) override {
+        void createContext(SDL_Window &window) override {
             // OpenGL context initialization over the SDL windowManager,
             // needed for using OpenGL functions
             this->context = SDL_GL_CreateContext(&window);
             D_ASSERT_NOT_EQUAL(this->context, nullptr,
                                "Unable to create context: " + std::string(SDL_GetError()));
             GLESC::Logger::get().success("GL context created!");
-            // Must be called after creating the context
-            this->setViewport(x, y, w, h);
         }
+    
     
     private:
         
@@ -419,15 +659,15 @@ namespace GLESC {
          * enabling gl functions like glEnable() or glCullFace()
          */
         static void initGLEW() {
-            GLuint err;
             glewExperimental = GL_TRUE;
-            if ((err = glewInit()) != GLEW_OK)
-                throw GAPIInitException("Unable to initialize GLEW: " + std::string(
-                        reinterpret_cast<const char *>(glewGetErrorString(err))));
+            GLuint err = glewInit();
+            std::string
+                    errStr = std::string(reinterpret_cast<const char *>(glewGetErrorString(err)));
+            ASSERT_GLEW_OK((err == GLEW_OK), errStr);
         }
         
         static GAPIint translateEnumToOpenGL(GAPIValues value) {
-            switch (static_cast<int>(value)) {
+            switch (static_cast<GAPIint>(value)) {
                 // Texture Filter
                 case static_cast<GLuint>(GAPIValues::MinFilterNearest):
                     return GL_NEAREST;
@@ -460,10 +700,18 @@ namespace GLESC {
                 case static_cast<GLuint>(GAPIValues::BufferTypeIndex):
                     return GL_ELEMENT_ARRAY_BUFFER;
                     // Usage
-                case static_cast<GLuint>(GAPIValues::BufferUsageStatic):
+                case static_cast<GLuint>(GAPIValues::BufferUsageStaticDraw):
+                    return GL_STATIC_DRAW;
+                case static_cast<GLuint>(GAPIValues::BufferUsageDynamicDraw):
+                    return GL_DYNAMIC_DRAW;
+                case static_cast<GLuint>(GAPIValues::BufferUsageStreamDraw):
+                    return GL_STREAM_DRAW;
+                case static_cast<GLuint>(GAPIValues::BufferUsageStaticRead):
                     return GL_STATIC_READ;
-                case static_cast<GLuint>(GAPIValues::BufferUsageDynamic):
+                case static_cast<GLuint>(GAPIValues::BufferUsageDynamicRead):
                     return GL_DYNAMIC_READ;
+                case static_cast<GLuint>(GAPIValues::BufferUsageStreamRead):
+                    return GL_STREAM_READ;
                     
                     // Shader Types
                 case static_cast<GLuint>(GAPIValues::ShaderTypeVertex):
@@ -526,8 +774,19 @@ namespace GLESC {
                     return GL_STENCIL_BACK_VALUE_MASK;
                 case static_cast<GLuint>(GAPIValues::StencilBackWriteMask):
                     return GL_STENCIL_BACK_WRITEMASK;
-                default:
-                    throw GAPIException("Texture filter not supported");
+                    // Primitive types
+                case static_cast<GLuint>(GAPIValues::PrimitiveTypeTriangles):
+                    return GL_TRIANGLES;
+                case static_cast<GLuint>(GAPIValues::PrimitiveTypeTriangleStrip):
+                    return GL_TRIANGLE_STRIP;
+                case static_cast<GLuint>(GAPIValues::PrimitiveTypeTriangleFan):
+                    return GL_TRIANGLE_FAN;
+                case static_cast<GLuint>(GAPIValues::PrimitiveTypeLines):
+                    return GL_LINES;
+                case static_cast<GLuint>(GAPIValues::PrimitiveTypeLineStrip):
+                    return GL_LINE_STRIP;
+                case static_cast<GLuint>(GAPIValues::PrimitiveTypeLineLoop):
+                    return GL_LINE_LOOP;
                 
             }
         }
@@ -538,3 +797,4 @@ namespace GLESC {
     };
     
 }
+

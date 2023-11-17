@@ -774,24 +774,35 @@ using Vec2 = Vector<float, 2>;
 using Vec3 = Vector<float, 3>;
 using Vec4 = Vector<float, 4>;
 
+using Vec2B = Vector<bool, 2>;
+using Vec3B = Vector<bool, 3>;
+using Vec4B = Vector<bool, 4>;
+
+using Vec2Ui = Vector<unsigned int, 2>;
+using Vec3Ui = Vector<unsigned int, 3>;
+using Vec4Ui = Vector<unsigned int, 4>;
+
+using Vec2I = Vector<int, 2>;
+using Vec3I = Vector<int, 3>;
+using Vec4I = Vector<int, 4>;
+
+using Vec2Ul = Vector<unsigned long, 2>;
+using Vec3Ul = Vector<unsigned long, 3>;
+using Vec4Ul = Vector<unsigned long, 4>;
+
+using Vec2L = Vector<long, 2>;
+using Vec3L = Vector<long, 3>;
+using Vec4L = Vector<long, 4>;
 
 using Vec2F = Vector<float, 2>;
-using Vec2D = Vector<double, 2>;
-using Vec2I = Vector<int, 2>;
-using Vec2U = Vector<unsigned int, 2>;
-using Vec2L = Vector<long, 2>;
-
 using Vec3F = Vector<float, 3>;
-using Vec3D = Vector<double, 3>;
-using Vec3I = Vector<int, 3>;
-using Vec3U = Vector<unsigned int, 3>;
-using Vec3L = Vector<long, 3>;
-
 using Vec4F = Vector<float, 4>;
+
+using Vec2D = Vector<double, 2>;
+using Vec3D = Vector<double, 3>;
 using Vec4D = Vector<double, 4>;
-using Vec4I = Vector<int, 4>;
-using Vec4U = Vector<unsigned int, 4>;
-using Vec4L = Vector<long, 4>;
+
+
 
 
 namespace std {

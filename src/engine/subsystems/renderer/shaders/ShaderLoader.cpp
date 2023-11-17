@@ -36,6 +36,26 @@ GAPIuint ShaderLoader::loadShader(const std::string& fileName) {
     return shaderProgram;
 }
 
+GAPIuint ShaderLoader::loadShader(const std::string& vertexShaderSourceParam,
+                                  const std::string& fragmentShaderSourceParam) {
+    vertexShaderSource = vertexShaderSourceParam;
+    fragmentShaderSource = fragmentShaderSourceParam;
+    prependGLSLVersion(vertexShaderSource, fragmentShaderSource);
+    
+    GLESC::Logger::get().info("Vertex Shader:\n" + vertexShaderSource);
+    GLESC::Logger::get().info("Fragment Shader:\n" + fragmentShaderSource);
+    
+    vertexShader=loadVertexShader(vertexShaderSource);
+    GLESC::Logger::get().success("Vertex shader loaded successfully");
+    fragmentShader=loadFragmentShader(fragmentShaderSource);
+    GLESC::Logger::get().success("Fragment shader loaded successfully");
+    GAPIuint shaderProgram = createShaderProgram();
+    GLESC::Logger::get().success("Shader program created successfully");
+    
+    clean();
+    return shaderProgram;
+}
+
 void ShaderLoader::extractShaderCode(const std::string& shaderSource,
                                      std::string& vertexCode,
                                      std::string& fragmentCode) {
@@ -73,27 +93,34 @@ std::string ShaderLoader::getGLSLVersionString() {
 #else
     std::string glslCoreStr = "";
 #endif
+    // check if minor version occupies 2 digits
+#if GLESC_GLSL_MINOR_VERSION < 10
+    std::string glslMinorVersionStr = std::to_string(GLESC_GLSL_MINOR_VERSION) + "0";
+#else
+    std::string glslMinorVersionStr = std::to_string(GLESC_GLSL_MINOR_VERSION);
+#endif
+    
     return "#version " + std::to_string(GLESC_GLSL_MAJOR_VERSION) +
-    std::to_string(GLESC_GLSL_MINOR_VERSION) + " " + glslCoreStr + "\n";
+            glslMinorVersionStr + " " + glslCoreStr + "\n";
 }
 
 void ShaderLoader::validateShaderTokens(size_t vertexPos, size_t fragmentPos) {
     if (vertexPos == std::string::npos) {
-        SHADER_TOKEN_NOT_FOUND("vertex");
+        D_ASSERT_SHADER_TOKEN_FOUND("vertex");
     }
     
     if (fragmentPos == std::string::npos) {
-        SHADER_TOKEN_NOT_FOUND("fragment");
+        D_ASSERT_SHADER_TOKEN_FOUND("fragment");
     }
 }
 
 void ShaderLoader::validateShaderCodes(const std::string& vertexCode, const std::string& fragmentCode) {
     if (vertexCode.empty()) {
-        SHADER_MISSING_CODE("vertex");
+        D_ASSERT_SHADER_CODE_FOUND("vertex");
     }
     
     if (fragmentCode.empty()) {
-        SHADER_MISSING_CODE("fragment");
+        D_ASSERT_SHADER_CODE_FOUND("fragment");
     }
 }
 
@@ -106,46 +133,27 @@ GAPIuint ShaderLoader::vertexShader;
 
 GAPIuint ShaderLoader::fragmentShader;
 
-GAPIuint ShaderLoader::loadVertexShader(const std::string& vertexShaderSource) {
+GAPIuint ShaderLoader::loadVertexShader(const std::string& vertexShaderSourceParam) {
     GAPIuint vertShader = gapi
-            .loadAndCompileShader(GAPIValues::ShaderTypeVertex, vertexShaderSource);
+            .loadAndCompileShader(GAPIValues::ShaderTypeVertex, vertexShaderSourceParam);
     shaderNamesMap.emplace(vertShader, "VERTEX");
-    handleErrorsCompilation(vertShader);
+    D_ASSERT_COMPILATION_OK(vertShader);
     return vertShader;
 }
 
-GAPIuint ShaderLoader::loadFragmentShader(const std::string& fragmentShaderSource) {
+GAPIuint ShaderLoader::loadFragmentShader(const std::string& fragmentShaderSourceParam) {
     GAPIuint fragShader = gapi
-            .loadAndCompileShader(GAPIValues::ShaderTypeFragment, fragmentShaderSource);
+            .loadAndCompileShader(GAPIValues::ShaderTypeFragment, fragmentShaderSourceParam);
     shaderNamesMap.emplace(fragShader, "FRAGMENT");
-    handleErrorsCompilation(fragShader);
+    D_ASSERT_COMPILATION_OK(fragShader);
     return fragShader;
 }
 
 
 GAPIuint ShaderLoader::createShaderProgram() {
     GAPIuint shaderProgram = gapi.createShaderProgram(vertexShader, fragmentShader);
-    handleErrorsLinking(shaderProgram);
+    D_ASSERT_LINKING_OK(shaderProgram);
     return shaderProgram;
-}
-
-
-
-void ShaderLoader::handleErrorsCompilation(unsigned int shaderType) {
-    char *infoLog = new char[512];
-    if (!gapi.compilationOK(shaderType, infoLog)) {
-        throw ShaderCompilationException(std::string(shaderNamesMap.at(shaderType)), infoLog);
-    }
-    delete[] infoLog;
-}
-
-
-void ShaderLoader::handleErrorsLinking(GAPIuint shaderProgram) {
-    char *infoLog = new char[512];
-    if (!gapi.linkOK(shaderProgram, infoLog)) {
-        throw ShaderLinkingException(std::string(infoLog));
-    }
-    delete[] infoLog;
 }
 
 /**

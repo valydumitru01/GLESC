@@ -30,12 +30,22 @@
 #endif
 
 
-#ifndef NDEBUG_GAPI
-    #define GAPI_DEBUG_CODE(CONTENT) \
-                do {                                     \
-                CONTENT                                  \
-                } while (0)
+#ifndef NDEBUG
+#include <SDL2/SDL.h>
+#include <iostream>
+#include <string>
+#include "engine/core/logger/Logger.h"
+
+#define SDLCall(call)                                                 \
+    do {                                                              \
+        call;                                                         \
+        const char* error = SDL_GetError();                           \
+        if (*error != '\0') {                                         \
+            Logger::get().error("Error when calling SDL function: "   \
+                #call " " + std::string(error)); \
+            SDL_ClearError();                                         \
+        }                                                             \
+    } while (0)
 #else
-    #define GAPI_DEBUG_CODE(CONTENT) \
-            do { } while (0)
+    #define SDLCall(call) call
 #endif

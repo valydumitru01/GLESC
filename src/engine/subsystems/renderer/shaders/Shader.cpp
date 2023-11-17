@@ -72,14 +72,14 @@ void Shader::setVec3(const std::string &name, const Vec3 &value) {
 }
 
 
-[[maybe_unused]] void Shader::setMat2(const std::string &name, const Matrix2 &mat) {
+[[maybe_unused]] void Shader::setMat2(const std::string &name, const Mat2 &mat) {
     UniformHandler::setMat2(shaderProgram, name, mat);
 }
 
-[[maybe_unused]] void Shader::setMat3(const std::string &name, const Matrix3 &mat) {
+[[maybe_unused]] void Shader::setMat3(const std::string &name, const Mat3 &mat) {
     UniformHandler::setMat3(shaderProgram, name, mat);
 }
 
-[[maybe_unused]] void Shader::setMat4(const std::string &name, const Matrix4 &mat) {
+[[maybe_unused]] void Shader::setMat4(const std::string &name, const Mat4 &mat) {
     UniformHandler::setMat4(shaderProgram, name, mat);
 }

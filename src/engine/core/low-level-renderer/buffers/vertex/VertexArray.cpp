@@ -46,8 +46,8 @@ void VertexArray::addBuffer(const GLESC::VertexBuffer &vb,
         gapi.vertexAttribPointer(i, element.count, element.type, GAPI_FALSE, stride, offset);
         
         offset += element.count
-                  * static_cast<GAPIuint>(element.dimension)
-                  * static_cast<GAPIuint>(element.type);
+                  * static_cast<GAPIuint>(element.dimensionSize)
+                  * static_cast<GAPIuint>(element.typeSize);
         
     }
 }

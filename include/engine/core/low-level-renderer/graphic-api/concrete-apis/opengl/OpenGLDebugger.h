@@ -11,8 +11,10 @@
 #include <GL/glew.h>
 #include "engine/core/debugger/Debugger.h"
 
-#define GL_ENABLE_DEBUG_CALLBACK() GAPI_DEBUG_CODE( OpenGLDebugger::enableGlDebugCallback();)
-#define GL_SET_DEBUG_CONTEXT_ATTRIBUTE() GAPI_DEBUG_CODE( OpenGLDebugger::setSdlGlDebugContextAttribute();)
+#define GL_ENABLE_DEBUG_CALLBACK() \
+    OpenGLDebugger::enableGlDebugCallback()
+#define GL_SET_DEBUG_CONTEXT_ATTRIBUTE() \
+    OpenGLDebugger::setSdlGlDebugContextAttribute()
 
 class OpenGLDebugger {
 public:
@@ -34,7 +36,8 @@ public:
     
     /**
      * @brief Sets the SDL_GL_CONTEXT_DEBUG_FLAG attribute
-     * @details This attribute is used to enable OpenGL debug context, which is required for the OpenGL debug callback.
+     * @details This attribute is used to enable OpenGL debug context, which is required for
+     * the OpenGL debug callback.
      * This might reduce performance. It must be called before creating the OpenGL context.
      * @see https://wiki.libsdl.org/SDL_GLattr#SDL_GLattr
      */
@@ -46,7 +49,8 @@ public:
 private:
     /**
      * @brief Returns a string representation of the OpenGL error type
-     * @details This function is used to convert the type parameter of the OpenGL debug callback to a string
+     * @details This function is used to convert the type parameter of the OpenGL debug callback
+     * to a string
      * @param type
      * @return
      */
@@ -54,7 +58,8 @@ private:
     
     /**
      * @brief Returns a string representation of the OpenGL error severity
-     * @details This function is used to convert the severity parameter of the OpenGL debug callback to a string
+     * @details This function is used to convert the severity parameter of the OpenGL debug
+     * callback to a string
      * @param severity
      * @return
      */
@@ -62,7 +67,8 @@ private:
     
     /**
      * @brief Returns a string representation of the OpenGL error source
-     * @details This function is used to convert the source parameter of the OpenGL debug callback to a string
+     * @details This function is used to convert the source parameter of the OpenGL debug callback
+     * to a string
      * @param source
      * @return
      */
@@ -80,6 +86,7 @@ private:
      * @param userParam
      */
     static void
-    glDebugCallback(GLenum source, GLenum type, GLuint errorCode, GLenum severity, GLsizei length, const GLchar *message, const void *userParam);
+    glDebugCallback(GLenum source, GLenum type, GLuint errorCode, GLenum severity, GLsizei length,
+                    const GLchar *message, const void *userParam);
 }; // class OpenGLDebugger
 #endif

@@ -14,7 +14,8 @@
 #include "engine/core/low-level-renderer/graphic-api/concrete-apis/opengl/OpenGLDebugger.h"
 #include "engine/core/low-level-renderer/asserts/GAPIAsserts.h"
 
-void OpenGLDebugger::glDebugCallback(GLenum source, GLenum type, GLuint errorCode, GLenum severity, GLsizei length,
+void OpenGLDebugger::glDebugCallback(GLenum source, GLenum type, GLuint errorCode,
+                                     GLenum severity, GLsizei length,
                                      const GLchar *message, const void *userParam) {
     // ignore non-significant error/warning codes
     const std::set<GLuint> nonSignificantErrorCodes = {131169, 131185, 131218, 131204};
@@ -22,10 +23,10 @@ void OpenGLDebugger::glDebugCallback(GLenum source, GLenum type, GLuint errorCod
         return;
     }
     ASSERT_GL_CALL_IS_CORRECT(false,
-                              "Debug message (" + std::to_string(errorCode) + "): " + message +
-                              " | " + errorStringFromSource(source) +
-                              " | " + errorStringFromType(type) +
-                              " | " + errorStringFromSeverity(severity));
+                              "Debug message (" + std::to_string(errorCode) + "): \n Message:" + message +
+                              "\n | " + errorStringFromSource(source) +
+                              "\n | " + errorStringFromType(type) +
+                              "\n | " + errorStringFromSeverity(severity));
     
 }
 

@@ -16,9 +16,9 @@ namespace GLESC {
                 count(count){
             gapi.genBuffers(1, indexBufferID);
             gapi.bindBuffer(GAPIValues::BufferTypeIndex, indexBufferID);
-            gapi.setBufferData(data, count, indexBufferID,
+            gapi.setBufferData(data, count,
                                    GAPIValues::BufferTypeIndex,
-                                   GAPIValues::BufferUsageStatic);
+                                   GAPIValues::BufferUsageStaticDraw);
             gapi.unbindBuffer(GAPIValues::BufferTypeIndex);
         }
         

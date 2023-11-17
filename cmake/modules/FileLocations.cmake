@@ -61,6 +61,9 @@ set_new_dir(SRC_DIR src)
 # Set the include directory, this is where the header files
 # are located
 set_new_dir(SHADER_DIR ${CMAKE_SOURCE_DIR}/src/engine/subsystems/renderer/shaders)
+# Set the assets directory, this is where the assets are
+# located
+set_new_dir(ASSETS_DIR ${CMAKE_SOURCE_DIR}/assets)
 set_new_dir(INCLUDE_DIR include)
 # ..........................................................
 

@@ -11,5 +11,5 @@
 class GAPIException : public EngineException {
 public:
     explicit GAPIException(const std::string &message)
-            : EngineException("GDI error:" + message) {}
+            : EngineException("GAPI error:" + message) {}
 };

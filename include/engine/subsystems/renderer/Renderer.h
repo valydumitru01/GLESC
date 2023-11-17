@@ -23,13 +23,15 @@
 namespace GLESC {
     class Renderer {
     public:
-        explicit Renderer(WindowManager &windowManager) :windowManager(windowManager),
-        shader(Shader("Shader.glsl")){
+        explicit Renderer(WindowManager &windowManager) :
+                windowManager(windowManager), shader(Shader("Shader.glsl")) {
             
             // Set the projection matrix
             projection = calculateProjectionMatrix(45.0f, 0.1f, 100.0f,
-                                                   static_cast<float>(windowManager.getWidth()),
-                                                   static_cast<float>( windowManager.getHeight()));
+                                                   static_cast<float>(windowManager
+                                                           .getWindowSize().first),
+                                                   static_cast<float>(windowManager
+                                                           .getWindowSize().second));
         }
         
         ~Renderer() {
@@ -38,7 +40,7 @@ namespace GLESC {
         
         void start() {
             gapi.clear({GAPIValues::ClearBitsColor, GAPIValues::ClearBitsDepth,
-                                     GAPIValues::ClearBitsStencil});
+                        GAPIValues::ClearBitsStencil});
             gapi.clearColor(0.2f, 0.3f, 0.3f, 1.0f);
         }
         
@@ -50,7 +52,7 @@ namespace GLESC {
                            const Vec3D &position,
                            const Vec3D &rotation,
                            const Vec3D &scale) {
-            Matrix4D transform = calculateTransformMatrix(position, rotation, scale);
+            Mat4D transform = calculateTransformMatrix(position, rotation, scale);
             // Apply transformations to vertices
             for (auto &vertex : mesh.getVertices()) {
                 Vec4D pos = vertex.getPosition().homogenize();
@@ -64,7 +66,7 @@ namespace GLESC {
             
         }
         
-        GLESC::Shader& getDefaultShader(){
+        GLESC::Shader &getDefaultShader() {
             return shader;
         }
         
@@ -80,7 +82,7 @@ namespace GLESC {
          * @brief Gets the projection matrix
          * @return projection matrix
          */
-        [[nodiscard]] Matrix4D getProjection() const {
+        [[nodiscard]] Mat4D getProjection() const {
             return projection;
         }
         
@@ -88,7 +90,7 @@ namespace GLESC {
          * @brief Gets the view matrix
          * @return view matrix
          */
-        [[nodiscard]] Matrix4D getView() const {
+        [[nodiscard]] Mat4D getView() const {
             return view;
         }
         
@@ -96,7 +98,7 @@ namespace GLESC {
          * @brief Sets the projection matrix
          * @param projection projection matrix
          */
-        void setProjection(const Matrix4D &projectionParam) {
+        void setProjection(const Mat4D &projectionParam) {
             Renderer::projection = projectionParam;
         }
         
@@ -104,7 +106,7 @@ namespace GLESC {
          * @brief Sets the view matrix
          * @param view view matrix
          */
-        void setView(const Matrix4D &viewParam) {
+        void setView(const Mat4D &viewParam) {
             Renderer::view = viewParam;
         }
         
@@ -114,19 +116,19 @@ namespace GLESC {
          * @param camera component
          * @return projection matrix
          */
-        static Matrix4D calculateProjectionMatrix(float fov,
-                                                  float nearPlane,
-                                                  float farPlane,
-                                                  float viewWidth,
-                                                  float viewHeight) {
+        static Mat4D calculateProjectionMatrix(float fov,
+                                               float nearPlane,
+                                               float farPlane,
+                                               float viewWidth,
+                                               float viewHeight) {
             if (viewHeight == 0.0f)
                 throw EngineException("Unable to make projection matrix: viewHeight is 0");
             if (viewWidth == 0.0f)
                 throw EngineException("Unable to make projection matrix: viewWidth is 0");
             
             float aspectRatio = viewWidth / viewHeight;
-            return GLESC::Math::perspective(GLESC::Math::radians(fov),
-                                            aspectRatio, nearPlane, farPlane);
+            return GLESC::Math::perspective(GLESC::Math::radians(fov), aspectRatio, nearPlane,
+                                            farPlane);
         }
         
         void swapBuffers() {
@@ -139,9 +141,9 @@ namespace GLESC {
          * @param transform component of the camera
          * @return view matrix
          */
-        static Matrix4D
+        static Mat4D
         calculateViewMatrix(const Vec3D &position, const Vec3D &rotation, const Vec3D &scale) {
-            Matrix4D model = calculateTransformMatrix(position, rotation, scale);
+            Mat4D model = calculateTransformMatrix(position, rotation, scale);
             return model.inverse();
         }
     
@@ -156,10 +158,10 @@ namespace GLESC {
          * @param scale The scale vector
          * @return The model matrix
          */
-        static Matrix4D
+        static Mat4D
         calculateTransformMatrix(const Vec3D &position, const Vec3D &rotation, const Vec3D &scale) {
             
-            Matrix4D model = Matrix4D(1.0).translate(position);
+            Mat4D model = Mat4D(1.0).translate(position);
             
             model = model.rotate(rotation);
             
@@ -190,13 +192,13 @@ namespace GLESC {
          * Converts global coordinates to normalized device coordinates
          * @see https://learnopengl.com/Getting-started/Coordinate-Systems
          */
-        Matrix4D projection{};
+        Mat4D projection{};
         /**
          * @brief View matrix
          * @details This matrix converts
          * @see https://learnopengl.com/Getting-started/Coordinate-Systems
          */
-        Matrix4D view{};
+        Mat4D view{};
         
     };// class Renderer
     

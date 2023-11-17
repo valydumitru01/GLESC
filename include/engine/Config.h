@@ -24,10 +24,9 @@
 // ######################################### WINDOW CONFIG #########################################
 
 // Default values for the window configuration
-#define GLESC_WINDOW_WIDTH 800
-#define GLESC_WINDOW_HEIGHT 450
+#define GLESC_WINDOW_WIDTH 800u
+#define GLESC_WINDOW_HEIGHT 600u
 
-// More info: https://wiki.libsdl.org/SDL_CreateWindow
 #define GLESC_WINDOW_X SDL_WINDOWPOS_CENTERED
 #define GLESC_WINDOW_Y SDL_WINDOWPOS_CENTERED
 
