@@ -5,13 +5,16 @@
  ******************************************************************************/
 
 #pragma once
-
+#include <SDL2/SDL.h>
 
 #include "GapiEnums.h"
 #include "GapiStructs.h"
 #include "IUniformSetter.h"
 #include "engine/core/low-level-renderer/graphic-api/GapiTypes.h"
 
+#ifdef GLESC_OPENGL
+using UniformSetter = GLUniformSetter;
+#endif
 
 class IGraphicInterface {
 public:
@@ -55,6 +58,12 @@ public:
     virtual void bindBuffer(GAPIValues bufferType, GAPIuint buffer) = 0;
     
     virtual void unbindBuffer(GAPIValues bufferType) = 0;
+    
+    virtual std::vector<float> getBufferDataF(GLuint bufferId) =0;
+    
+    virtual std::vector<unsigned int> getBufferDataUi(GLuint bufferId)=0;
+    
+    virtual std::vector<int> getBufferDataI(GLuint bufferId)=0;
     
     virtual void deleteBuffer(GAPIuint buffer) = 0;
     
@@ -118,6 +127,8 @@ public:
     // ------------------------------------------------------------------------------
     virtual void useShaderProgram(GAPIuint shaderProgram) = 0;
     
+    virtual bool isShaderProgram(GAPIuint shaderProgram) = 0;
+    
     virtual GAPIuint
     loadAndCompileShader(GAPIValues shaderType, const std::string &shaderSource) = 0;
     
@@ -131,8 +142,9 @@ public:
     
     virtual void deleteShader(GAPIuint shaderID) = 0;
     
+    
     // Uniforms
-    virtual std::unique_ptr<IUniformSetter>
+    virtual std::unique_ptr<UniformSetter>
     setUniform(GAPIuint program, const std::string &name) = 0;
     
 };

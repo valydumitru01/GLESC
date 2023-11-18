@@ -30,7 +30,7 @@
 #define GLESC_WINDOW_X SDL_WINDOWPOS_CENTERED
 #define GLESC_WINDOW_Y SDL_WINDOWPOS_CENTERED
 
-#define GLESC_WINDOW_TITLE "Game Engine"
+#define GLESC_WINDOW_TITLE "GLESC Game Engine"
 #define GLESC_WINDOW_FULLSCREEN SDL_FALSE
 
 // #################################################################################################

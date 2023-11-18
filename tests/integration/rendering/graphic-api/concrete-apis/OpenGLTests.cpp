@@ -13,8 +13,10 @@
 #include <GL/glew.h>
 #include <engine/Config.h>
 #include <engine/core/logger/Logger.h>
-#include "../../../../unit/engine/LoopHelper.h"
-class OpenGLTests : public ::testing::Test {
+#include <engine/subsystems/renderer/shaders/ShaderLoader.h>
+#include "unit/engine/LoopHelper.h"
+#include "integration/rendering/IHelloTriangleRenderTest.h"
+class OpenGLTests : public IHelloTriangleRenderTest {
 protected:
     
     SDL_Window *window{};
@@ -23,22 +25,7 @@ protected:
     
     GLuint shaderProgram{};
     
-    static GLuint compileShader(GLenum type, const char* source) {
-        GLuint shader = glCreateShader(type);
-        glShaderSource(shader, 1, &source, nullptr);
-        glCompileShader(shader);
-        
-        // Check for shader compile errors
-        GLint success;
-        GLchar infoLog[512];
-        glGetShaderiv(shader, GL_COMPILE_STATUS, &success);
-        if (!success) {
-            glGetShaderInfoLog(shader, 512, nullptr, infoLog);
-            throw std::runtime_error("Shader compilation failed: " + std::string(infoLog));
-        }
-        
-        return shader;
-    }
+    
     
     void destroyOpenGL(const std::string &message){
         // Cleanup
@@ -49,7 +36,7 @@ protected:
         SDL_Quit();
     }
     
-    void initializeTest(){
+    void initializeOpengl(){
         // Initialize SDL
         if (SDL_Init(SDL_INIT_VIDEO) < 0) {
             SDL_Log("Failed to initialize SDL: %s", SDL_GetError());
@@ -101,45 +88,90 @@ protected:
             throw std::runtime_error("Shader link failed: " + std::string(infoLog));
         }
     }
-    void prepareShaders(){
-        // Shader sources
-        const char* vertexShaderSource = R"glsl(
-        #version 330 core
-        layout (location = 0) in vec3 position;
-        void main() {
-            gl_Position = vec4(position, 1.0);
-        }
-        )glsl";
-            
-            const char* fragmentShaderSource = R"glsl(
-        #version 330 core
-        out vec4 color;
-        uniform vec4 uColor; // Uniform for color
-        void main() {
-            color = uColor;
-        }
-        )glsl";
-        // Compile shaders
-        GLuint vertexShader = compileShader(GL_VERTEX_SHADER, vertexShaderSource);
-        GLuint fragmentShader = compileShader(GL_FRAGMENT_SHADER, fragmentShaderSource);
+    static GLuint compileShader(GLenum type, const char* source) {
+        GLuint shader = glCreateShader(type);
+        glShaderSource(shader, 1, &source, nullptr);
+        glCompileShader(shader);
         
-        // Create shader program
-        shaderProgram = glCreateProgram();
-        glAttachShader(shaderProgram, vertexShader);
-        glAttachShader(shaderProgram, fragmentShader);
-        linkProgram(shaderProgram);
+        // Check for shader compile errors
+        GLint success;
+        GLchar infoLog[512];
+        glGetShaderiv(shader, GL_COMPILE_STATUS, &success);
+        if (!success) {
+            glGetShaderInfoLog(shader, 512, nullptr, infoLog);
+            throw std::runtime_error("Shader compilation failed: " + std::string(infoLog));
+        }
         
-        // Delete shaders after linking
-        glDeleteShader(vertexShader);
-        glDeleteShader(fragmentShader);
+        return shader;
     }
+    void prepareShaders() override{
+        shaderProgram = ShaderLoader::loadShader(vertexShaderSource, fragmentShaderSource);
+        GLESC::Logger::get().success("Shader program created successfully");
+    }
+    
+    GLuint VBO{};
+    GLuint VAO{};
+    
+    void prepareBuffers() override{
+        // Vertex Buffer Object (VBO)
+        glGenBuffers(1, &VBO);
+        glBindBuffer(GL_ARRAY_BUFFER, VBO);
+        glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(float), vertices.data(), GL_STATIC_DRAW);
+        
+        // Vertex Array Object (VAO)
+        glGenVertexArrays(1, &VAO);
+        glBindVertexArray(VAO);
+        
+        // Set vertex attributes
+        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat),
+                              (GLvoid *) 0);
+        glEnableVertexAttribArray(0);
+        
+        // Unbind VAO
+        glBindVertexArray(0);
+    }
+    
+    void render() override{
+        // Render
+        glClearColor(backgroundColor.r, backgroundColor.g, backgroundColor.b,
+                     backgroundColor.a);
+        glClear(GL_COLOR_BUFFER_BIT);
+        
+        // Use shader program
+        glUseProgram(this->shaderProgram);
+        
+        // Set the color uniform
+        GLint colorLocation = glGetUniformLocation(this->shaderProgram, "uColor");
+        glUniform4f(colorLocation, triangleColor.r, triangleColor.g, triangleColor.b,
+                    triangleColor.a);
+        
+        // Draw the triangle
+        glBindVertexArray(VAO);
+        glDrawArrays(GL_TRIANGLES, 0, 3);
+        glBindVertexArray(0);
+        
+        // Swap window
+        SDL_GL_SwapWindow(window);
+    }
+    
     void SetUp() override {
-        initializeTest();
+        initializeOpengl();
         prepareShaders();
+        prepareBuffers();
+        
+        LOOP() {
+            render();
+        }
+    }
+    
+    void destroyRender() override{
+        // Cleanup
+        glDeleteVertexArrays(1, &VAO);
+        glDeleteBuffers(1, &VBO);
     }
     
     void TearDown() override {
-        destroyOpenGL("Test finished!");
+        destroyRender();
     }
 };
 
@@ -154,56 +186,35 @@ protected:
 
 
 TEST_F(OpenGLTests, test) {
-    // Triangle vertices
-    GLfloat vertices[] = {
-            0.0f,  0.5f,  0.0f,
-            -0.5f, -0.5f, 0.0f,
-            0.5f, -0.5f, 0.0f
-    };
-    
-    // Vertex Buffer Object (VBO)
-    GLuint VBO;
-    glGenBuffers(1, &VBO);
+    // Binding before reading
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+    // Get the size of the buffer data
+    GLint bufferSize = 0;
+    glGetBufferParameteriv(GL_ARRAY_BUFFER, GL_BUFFER_SIZE, &bufferSize);
+    size_t numElements = bufferSize / sizeof(float);
     
-    // Vertex Array Object (VAO)
-    GLuint VAO;
-    glGenVertexArrays(1, &VAO);
-    glBindVertexArray(VAO);
+    // Read the buffer data
+    std::vector<float> actualVertices(numElements);
+    glGetBufferSubData(GL_ARRAY_BUFFER, 0, bufferSize, actualVertices.data());
     
-    // Set vertex attributes
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat),
-                          (GLvoid *) 0);
-    glEnableVertexAttribArray(0);
-    
-    // Unbind VAO
-    glBindVertexArray(0);
-    
-    // Main loop
-    LOOP()
-    {
-        // Render
-        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
-        glClear(GL_COLOR_BUFFER_BIT);
-        
-        // Use shader program
-        glUseProgram(this->shaderProgram);
-        
-        // Set the color uniform
-        GLint colorLocation = glGetUniformLocation(this->shaderProgram, "uColor");
-        glUniform4f(colorLocation, 1.0f, 0.0f, 0.0f, 1.0f); // Red color
-        
-        // Draw the triangle
-        glBindVertexArray(VAO);
-        glDrawArrays(GL_TRIANGLES, 0, 3);
-        glBindVertexArray(0);
-        
-        // Swap window
-        SDL_GL_SwapWindow(window);
+    // Check the vertex data
+    ASSERT_EQ(actualVertices.size(), vertices.size());
+    for (size_t i = 0; i < actualVertices.size(); ++i) {
+        std::cout << "Vertex data " << i << ": " << actualVertices[i] << "\n";
+        EXPECT_NEAR(actualVertices[i], vertices[i], dataEpsilon)
+                            << "Vertex data mismatch at index " << i;
     }
     
-    // Cleanup
-    glDeleteVertexArrays(1, &VAO);
-    glDeleteBuffers(1, &VBO);
+    // Check the background color
+    float pixel[3];
+    glReadPixels(10, 10, 1, 1, GL_RGBA, GL_FLOAT, pixel);
+    EXPECT_NEAR(pixel[0], backgroundColor.r, colorEpsilon);
+    EXPECT_NEAR(pixel[1], backgroundColor.g, colorEpsilon);
+    EXPECT_NEAR(pixel[2], backgroundColor.b, colorEpsilon);
+    
+    // Check the triangle color
+    glReadPixels(400, 300, 1, 1, GL_RGBA, GL_FLOAT, pixel);
+    EXPECT_NEAR(pixel[0], triangleColor.r, colorEpsilon);
+    EXPECT_NEAR(pixel[1], triangleColor.g, colorEpsilon);
+    EXPECT_NEAR(pixel[2], triangleColor.b, colorEpsilon);
 }

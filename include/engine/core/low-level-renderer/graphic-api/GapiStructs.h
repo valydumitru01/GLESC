@@ -16,9 +16,11 @@ struct RGBColor {
     GAPIbyte r;
     GAPIbyte g;
     GAPIbyte b;
+    GAPIbyte a;
 };
 struct RGBColorNormalized {
     GAPIfloat r;
     GAPIfloat g;
     GAPIfloat b;
+    GAPIfloat a;
 };

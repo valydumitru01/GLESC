@@ -97,12 +97,9 @@ public:
     virtual void uMat2FVec(const std::vector<Mat2F>& mats) = 0;
     virtual void uMat3FVec(const std::vector<Mat3F>& mats) = 0;
     virtual void uMat4FVec(const std::vector<Mat4F>& mats) = 0;
-    // Ints
-    virtual void uMat2IVec(const std::vector<Mat2I>& mats) = 0;
-    virtual void uMat3IVec(const std::vector<Mat3I>& mats) = 0;
-    virtual void uMat4IVec(const std::vector<Mat4I>& mats) = 0;
-    // Unsigned ints
-    virtual void uMat2UiVec(const std::vector<Mat2Ui>& mats) = 0;
-    virtual void uMat3UiVec(const std::vector<Mat3Ui>& mats) = 0;
-    virtual void uMat4UiVec(const std::vector<Mat4Ui>& mats) = 0;
 };
+// Forward declaration for the different uniform setters to be able to create pointers
+// using conditional compilation
+class GLUniformSetter;
+class VulkanUniformSetter;
+class DirectXUniformSetter;

@@ -10,7 +10,8 @@
 #pragma once
 #include <SDL2/SDL.h>
 
-#define LOOP_TIME 3000
+#define LOOP_FRAMES 2
+
 
 #define LOOP() \
-    for (Uint32 _startTick = SDL_GetTicks(); SDL_GetTicks() - _startTick < LOOP_TIME; )
+    for (int i = 0; i < LOOP_FRAMES; i++)

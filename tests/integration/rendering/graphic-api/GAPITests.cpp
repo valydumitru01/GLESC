@@ -9,55 +9,24 @@
  **************************************************************************************************/
 #include <gtest/gtest.h>
 #include <SDL2/SDL.h>
-#include <engine/core/low-level-renderer/graphic-api/Gapi.h>
-#include <engine/subsystems/renderer/shaders/ShaderLoader.h>
-#include <engine/core/window/WindowManager.h>
-#include "../../../unit/engine/LoopHelper.h"
-#include "../../../unit/engine/core/math/MathTestHelper.h"
+#include "engine/core/low-level-renderer/graphic-api/Gapi.h"
+#include "engine/subsystems/renderer/shaders/ShaderLoader.h"
+#include "engine/core/window/WindowManager.h"
+#include "unit/engine/LoopHelper.h"
+#include "unit/engine/core/math/MathTestHelper.h"
+#include "integration/rendering/IHelloTriangleRenderTest.h"
 
-class GAPIHelloTriangleTests : public ::testing::Test {
+class GAPIHelloTriangleTests : public IHelloTriangleRenderTest {
 protected:
-    
-    void SetUp() override {
-        render();
-        prepareShaders();
-    }
-    
-    void TearDown() override {
-        destroyGAPI("Test finished!");
-        
-        // Test passed
-        ASSERT_TRUE(true);
-    }
-    
-    GAPIuint VBO;
-    GAPIuint VAO;
-    float backgroundColor[4] = {0.2f, 0.3f, 0.3f, 1.0f};
-    float triangleColor[4] = {1.0f, 0.0f, 0.0f, 1.0f};
-    
-    GLESC::WindowManager windowManager{};
-    
+    GAPIuint VBO{};
+    GAPIuint VAO{};
     GAPIuint shaderProgram{};
-private:
-    void destroyGAPI(const std::string &message) {
-        // Cleanup
-        gapi.deleteVertexArray(VAO);
-        GLESC::Logger::get().success("VAO deleted!");
-        gapi.deleteBuffer(VBO);
-        GLESC::Logger::get().success("VBO deleted!");
-        
-        // Cleanup
-        GLESC::Logger::get().error(message);
-        gapi.destroyShaderProgram(shaderProgram);
-        gapi.deleteContext();
-        windowManager.destroyWindow();
-        SDL_Quit();
-    }
     
-    void render() {
-        // Triangle vertices
-        GLfloat vertices[] = {0.0f, 0.5f, 0.0f, -0.5f, -0.5f, 0.0f, 0.5f, -0.5f, 0.0f};
-        
+    void prepareShaders() override {
+        shaderProgram = ShaderLoader::loadShader(vertexShaderSource, fragmentShaderSource);
+        GLESC::Logger::get().success("Shader program created successfully");
+    }
+    void prepareBuffers() override{
         // Vertex Buffer Object (VBO)
         gapi.genBuffers(1, VBO);
         GLESC::Logger::get().success("VBO created!");
@@ -65,7 +34,7 @@ private:
         gapi.bindBuffer(GAPIValues::BufferTypeVertex, VBO);
         GLESC::Logger::get().success("VBO bound!");
         
-        gapi.setBufferData(vertices, sizeof(vertices), GAPIValues::BufferTypeVertex,
+        gapi.setBufferData(vertices.data(), vertices.size() * sizeof(float), GAPIValues::BufferTypeVertex,
                            GAPIValues::BufferUsageStaticDraw);
         GLESC::Logger::get().success("VBO data set!");
         
@@ -85,16 +54,21 @@ private:
         // Unbind VAO
         gapi.unbindVertexArray();
         GLESC::Logger::get().success("VAO unbound!");
-        
+    }
+    
+    void render() override{
         
         // Render
-        gapi.clearColor(backgroundColor[0], backgroundColor[1], backgroundColor[2],
-                        backgroundColor[3]);
+        gapi.clearColor(backgroundColor.r, backgroundColor.g, backgroundColor.b, 1.0f);
         GLESC::Logger::get().success("Clear color set!");
         gapi.clear({GAPIValues::ClearBitsColor, GAPIValues::ClearBitsDepth,
                     GAPIValues::ClearBitsStencil});
         GLESC::Logger::get().success("Clear values set!");
         
+        // Use the shader
+        gapi.useShaderProgram(shaderProgram);
+        gapi.setUniform(shaderProgram, "uColor")->u4F(triangleColor.r, triangleColor.g,
+                                                      triangleColor.b, triangleColor.a);
         // Draw the triangle
         gapi.bindVertexArray(VAO);
         GLESC::Logger::get().success("VAO bound!");
@@ -102,55 +76,66 @@ private:
         GLESC::Logger::get().success("Triangle drawn!");
         gapi.unbindVertexArray();
         GLESC::Logger::get().success("VAO unbound!");
-        gapi.setUniform(shaderProgram, "uColor")->u4F(triangleColor);
         
-        // Swap window
         gapi.swapBuffers(windowManager.getWindow());
-        GLESC::Logger::get().success("Window swapped!");
+        GLESC::Logger::get().success("Window swapped");
     }
     
-    void prepareShaders() {
-        // Shader sources
-        const char *vertexShaderSource = R"glsl(
-        /* version automatically set */
-        layout (location = 0) in vec3 position;
-        void main() {
-            gl_Position = vec4(position, 1.0);
-        }
-        )glsl";
-        const char *fragmentShaderSource = R"glsl(
-        /* version automatically set */
-        out vec4 color;
-        uniform vec4 uColor; // Uniform for color
-        void main() {
-            color = uColor;
-        }
-        )glsl";
-        shaderProgram = ShaderLoader::loadShader(vertexShaderSource, fragmentShaderSource);
-        GLESC::Logger::get().success("Shader program created successfully");
+    
+    void destroyRender() override {
+        // Cleanup
+        gapi.deleteVertexArray(VAO);
+        GLESC::Logger::get().success("VAO deleted!");
+        gapi.deleteBuffer(VBO);
+        GLESC::Logger::get().success("VBO deleted!");
+        
+        // Cleanup
+        gapi.destroyShaderProgram(shaderProgram);
+        gapi.deleteContext();
+        windowManager.destroyWindow();
+        SDL_Quit();
     }
+    void SetUp() override {
+        prepareShaders();
+        prepareBuffers();
+        
+        LOOP() {
+            render();
+        }
+    }
+    
+    void TearDown() override {
+        destroyRender();
+    }
+    
+private:
+    GLESC::WindowManager windowManager{};
+    
 };
 
 
+
 TEST_F(GAPIHelloTriangleTests, test) {
-    
-    
-    
+    std::vector<float> actualVertices = gapi.getBufferDataF(VBO);
+    ASSERT_EQ(actualVertices.size(), vertices.size());
+    for (size_t i = 0; i < actualVertices.size(); ++i) {
+        std::cout<< "Vertex data " << i << ": " << actualVertices[i] << "\n";
+        EXPECT_NEAR(actualVertices[i], vertices[i], dataEpsilon)
+                            << "Vertex data mismatch at index " << i;
+    }
     
     // Check if the background color is correct
-    auto [r, g, b] = gapi.readPixelColorNormalized(0, 0);
-    EXPECT_EQ_CUSTOM(r, backgroundColor[0]);
-    EXPECT_EQ_CUSTOM(g, backgroundColor[1]);
-    EXPECT_EQ_CUSTOM(b, backgroundColor[2]);
+    auto rgb = gapi.readPixelColorNormalized(10, 10);
+    EXPECT_NEAR(rgb.r, backgroundColor.r, colorEpsilon);
+    EXPECT_NEAR(rgb.g, backgroundColor.g, colorEpsilon);
+    EXPECT_NEAR(rgb.b, backgroundColor.b, colorEpsilon);
     
     // Check if the triangle is drawn correctly
     // The shader program is set to draw a triangle with the color red
-    auto [r1, g1, b1] = gapi.readPixelColorNormalized(400, 300);
-    EXPECT_EQ_CUSTOM(r1, 1.0f);
-    EXPECT_EQ_CUSTOM(g1, 0.0f);
-    EXPECT_EQ_CUSTOM(b1, 0.0f);
-    
-    
+    auto rgb1 = gapi.readPixelColorNormalized(400, 300);
+    EXPECT_NEAR(rgb1.r, triangleColor.r, colorEpsilon);
+    EXPECT_NEAR(rgb1.g, triangleColor.g, colorEpsilon);
+    EXPECT_NEAR(rgb1.b, triangleColor.b, colorEpsilon);
 }
 
 

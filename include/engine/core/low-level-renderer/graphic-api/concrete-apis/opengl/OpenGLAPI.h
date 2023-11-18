@@ -19,6 +19,7 @@
 #include "engine/core/low-level-renderer/graphic-api/IGraphicInterface.h"
 #include "engine/core/low-level-renderer/graphic-api/concrete-apis/opengl/OpenGLDebugger.h"
 #include "engine/core/low-level-renderer/debugger/graphic-api/GAPIDebugger.h"
+#include "GLUniformSetter.h"
 
 namespace GLESC {
     class OpenGLAPI final : public IGraphicInterface {
@@ -179,7 +180,7 @@ namespace GLESC {
         
         RGBColorNormalized readPixelColorNormalized(int x, int y) {
             RGBColorNormalized color;
-            glReadPixels(x, y, 1, 1, GL_RGB, GL_FLOAT, &color);
+            glReadPixels(x, y, 1, 1, GL_RGBA, GL_FLOAT, &color);
             return color;
         }
         
@@ -210,7 +211,17 @@ namespace GLESC {
             glBufferData(translateEnumToOpenGL(bufferType), size, data,
                          translateEnumToOpenGL(bufferUsage));
         }
+        std::vector<float> getBufferDataF(GLuint bufferId) override{
+            return getBufferData<float>(bufferId);
+        }
         
+        std::vector<unsigned int> getBufferDataUi(GLuint bufferId) override{
+            return getBufferData<unsigned int>(bufferId);
+        }
+        
+        std::vector<int> getBufferDataI(GLuint bufferId) override{
+            return getBufferData<int>(bufferId);
+        }
         void genVertexArray(GAPIuint &vertexArrayID) override {
             glGenVertexArrays(1, &vertexArrayID);
         };
@@ -296,332 +307,22 @@ namespace GLESC {
             glUseProgram(shaderProgram);
         }
         
+        bool isShaderProgram(GAPIuint shaderProgram) override {
+            return glIsProgram(shaderProgram);
+        }
+        
         void deleteShader(GAPIuint shaderID) override {
             glDeleteShader(shaderID);
         }
         // -------------------------------- Uniforms ------------------------------------
         
-        class GLUniformSetter : public IUniformSetter {
-            friend class OpenGLAPI;
-        
-        public:
-            // Implement single value setters
-            void u1F(GAPIfloat v0) override {
-                glUniform1f(location, v0);
-            }
-            
-            void u1I(GAPIint v0) override {
-                glUniform1i(location, v0);
-            }
-            
-            void u1Ui(GAPIuint v0) override {
-                glUniform1ui(location, v0);
-            }
-            
-            void u1B(GAPIbool v0) override {
-                glUniform1i(location, static_cast<GAPIint>(v0));
-            }
-            
-            
-            // Single vectors
-            // Floats
-            void u2F(Vec2F vec2) override {
-                glUniform2f(location, vec2.x(), vec2.y());
-            }
-            
-            void u3F(Vec3F vec3) override {
-                glUniform3f(location, vec3.x(), vec3.y(), vec3.z());
-            }
-            
-            void u4F(Vec4F vec4) override {
-                glUniform4f(location, vec4.x(), vec4.y(), vec4.z(), vec4.w());
-            }
-            
-            void u2F(GAPIfloat vec2[2]) override {
-                glUniform2f(location, vec2[0], vec2[1]);
-            }
-            
-            void u3F(GAPIfloat vec3[3]) override {
-                glUniform3f(location, vec3[0], vec3[1], vec3[2]);
-            }
-            
-            void u4F(GAPIfloat vec4[4]) override {
-                glUniform4f(location, vec4[0], vec4[1], vec4[2], vec4[3]);
-            }
-            
-            void u2F(GAPIfloat v0, GAPIfloat v1) override {
-                glUniform2f(location, v0, v1);
-            }
-            
-            void u3F(GAPIfloat v0, GAPIfloat v1, GAPIfloat v2) override {
-                glUniform3f(location, v0, v1, v2);
-            }
-            
-            void u4F(GAPIfloat v0, GAPIfloat v1, GAPIfloat v2, GAPIfloat v3) override {
-                glUniform4f(location, v0, v1, v2, v3);
-            }
-            
-            // Ints
-            void u2I(Vec2I vec2) override {
-                glUniform2i(location, vec2.x(), vec2.y());
-            }
-            
-            void u3I(Vec3I vec3) override {
-                glUniform3i(location, vec3.x(), vec3.y(), vec3.z());
-            }
-            
-            void u4I(Vec4I vec4) override {
-                glUniform4i(location, vec4.x(), vec4.y(), vec4.z(), vec4.w());
-            }
-            
-            void u2I(GAPIint vec2[2]) override {
-                glUniform2i(location, vec2[0], vec2[1]);
-            }
-            
-            void u3I(GAPIint vec3[3]) override {
-                glUniform3i(location, vec3[0], vec3[1], vec3[2]);
-            }
-            
-            void u4I(GAPIint vec4[4]) override {
-                glUniform4i(location, vec4[0], vec4[1], vec4[2], vec4[3]);
-            }
-            
-            void u2I(GAPIint v0, GAPIint v1) override {
-                glUniform2i(location, v0, v1);
-            }
-            
-            void u3I(GAPIint v0, GAPIint v1, GAPIint v2) override {
-                glUniform3i(location, v0, v1, v2);
-            }
-            
-            void u4I(GAPIint v0, GAPIint v1, GAPIint v2, GAPIint v3) override {
-                glUniform4i(location, v0, v1, v2, v3);
-            }
-            
-            // Unsigned ints
-            void u2Ui(Vec2Ui vec2) override {
-                glUniform2ui(location, vec2.x(), vec2.y());
-            }
-            
-            void u3Ui(Vec3Ui vec3) override {
-                glUniform3ui(location, vec3.x(), vec3.y(), vec3.z());
-            }
-            
-            void u4Ui(Vec4Ui vec4) override {
-                glUniform4ui(location, vec4.x(), vec4.y(), vec4.z(), vec4.w());
-            }
-            
-            void u2Ui(GAPIuint vec2[2]) override {
-                glUniform2ui(location, vec2[0], vec2[1]);
-            }
-            
-            void u3Ui(GAPIuint vec3[3]) override {
-                glUniform3ui(location, vec3[0], vec3[1], vec3[2]);
-            }
-            
-            void u4Ui(GAPIuint vec4[4]) override {
-                glUniform4ui(location, vec4[0], vec4[1], vec4[2], vec4[3]);
-            }
-            
-            void u2Ui(GAPIuint v0, GAPIuint v1) override {
-                glUniform2ui(location, v0, v1);
-            }
-            
-            void u3Ui(GAPIuint v0, GAPIuint v1, GAPIuint v2) override {
-                glUniform3ui(location, v0, v1, v2);
-            }
-            
-            void u4Ui(GAPIuint v0, GAPIuint v1, GAPIuint v2, GAPIuint v3) override {
-                glUniform4ui(location, v0, v1, v2, v3);
-            }
-            
-            // Booleans
-            void u2B(Vec2B vec2) override {
-                glUniform2i(location, static_cast<GAPIint>(vec2.x()),
-                            static_cast<GAPIint>(vec2.y()));
-            }
-            
-            void u3B(Vec3B vec3) override {
-                glUniform3i(location, static_cast<GAPIint>(vec3.x()),
-                            static_cast<GAPIint>(vec3.y()),
-                            static_cast<GAPIint>(vec3.z()));
-            }
-            
-            void u4B(Vec4B vec4) override {
-                glUniform4i(location, static_cast<GAPIint>(vec4.x()),
-                            static_cast<GAPIint>(vec4.y()),
-                            static_cast<GAPIint>(vec4.z()), static_cast<GAPIint>(vec4.w()));
-            }
-            
-            void u2B(GAPIbool vec2[2]) override {
-                glUniform2i(location, static_cast<GAPIint>(vec2[0]), static_cast<GAPIint>(vec2[1]));
-            }
-            
-            void u3B(GAPIbool vec3[3]) override {
-                glUniform3i(location, static_cast<GAPIint>(vec3[0]), static_cast<GAPIint>(vec3[1]),
-                            static_cast<GAPIint>(vec3[2]));
-            }
-            
-            void u4B(GAPIbool vec4[4]) override {
-                glUniform4i(location, static_cast<GAPIint>(vec4[0]), static_cast<GAPIint>(vec4[1]),
-                            static_cast<GAPIint>(vec4[2]), static_cast<GAPIint>(vec4[3]));
-            }
-            
-            void u2B(GAPIbool v0, GAPIbool v1) override {
-                glUniform2i(location, static_cast<GAPIint>(v0), static_cast<GAPIint>(v1));
-            }
-            
-            void u3B(GAPIbool v0, GAPIbool v1, GAPIbool v2) override {
-                glUniform3i(location, static_cast<GAPIint>(v0), static_cast<GAPIint>(v1),
-                            static_cast<GAPIint>(v2));
-            }
-            
-            void u4B(GAPIbool v0, GAPIbool v1, GAPIbool v2, GAPIbool v3) override {
-                glUniform4i(location, static_cast<GAPIint>(v0), static_cast<GAPIint>(v1),
-                            static_cast<GAPIint>(v2), static_cast<GAPIint>(v3));
-            }
-            
-            
-            // Single matrices
-            // Floats
-            void uMat2F(Mat2F mat) override {
-                glUniformMatrix2fv(location, 1, GL_FALSE, &mat[0][0]);
-            }
-            
-            void uMat3F(Mat3F mat) override {
-                glUniformMatrix3fv(location, 1, GL_FALSE, &mat[0][0]);
-            }
-            
-            void uMat4F(Mat4F mat) override {
-                glUniformMatrix4fv(location, 1, GL_FALSE, &mat[0][0]);
-            }
-            
-            // Vectors of vectors
-            // Floats
-            void u1FVec(const std::vector<GAPIfloat> &values) override {
-                glUniform1fv(location, values.size(), values.data());
-            }
-            
-            void u2FVec(const std::vector<Vec2F> &values) override {
-                glUniform2fv(location, values.size(),
-                             reinterpret_cast<const GLfloat *>(values.data()));
-            }
-            
-            void u3FVec(const std::vector<Vec3F> &values) override {
-                glUniform3fv(location, values.size(),
-                             reinterpret_cast<const GLfloat *>(values.data()));
-            }
-            
-            void u4FVec(const std::vector<Vec4F> &values) override {
-                glUniform4fv(location, values.size(),
-                             reinterpret_cast<const GLfloat *>(values.data()));
-            }
-            
-            // Ints
-            void u1IVec(const std::vector<GAPIint> &values) override {
-                glUniform1iv(location, values.size(), values.data());
-            }
-            
-            void u2IVec(const std::vector<Vec2I> &values) override {
-                glUniform2iv(location, values.size(),
-                             reinterpret_cast<const GLint *>(values.data()));
-            }
-            
-            void u3IVec(const std::vector<Vec3I> &values) override {
-                glUniform3iv(location, values.size(),
-                             reinterpret_cast<const GLint *>(values.data()));
-            }
-            
-            void u4IVec(const std::vector<Vec4I> &values) override {
-                glUniform4iv(location, values.size(),
-                             reinterpret_cast<const GLint *>(values.data()));
-            }
-            
-            // Unsigned ints
-            void u1UiVec(const std::vector<GAPIuint> &values) override {
-                glUniform1uiv(location, values.size(), values.data());
-            }
-            
-            void u2UiVec(const std::vector<Vec2Ui> &values) override {
-                glUniform2uiv(location, values.size(),
-                              reinterpret_cast<const GLuint *>(values.data()));
-            }
-            
-            void u3UiVec(const std::vector<Vec3Ui> &values) override {
-                glUniform3uiv(location, values.size(),
-                              reinterpret_cast<const GLuint *>(values.data()));
-            }
-            
-            void u4UiVec(const std::vector<Vec4Ui> &values) override {
-                glUniform4uiv(location, values.size(),
-                              reinterpret_cast<const GLuint *>(values.data()));
-            }
-            
-            // Booleans
-            void u1BVec(const std::vector<GAPIbool> &values) override {
-                glUniform1iv(location, values.size(),
-                             reinterpret_cast<const GLint *>(values.data()));
-            }
-            
-            void u2BVec(const std::vector<Vec2B> &values) override {
-                glUniform2iv(location, values.size(),
-                             reinterpret_cast<const GLint *>(values.data()));
-            }
-            
-            void u3BVec(const std::vector<Vec3B> &values) override {
-                glUniform3iv(location, values.size(),
-                             reinterpret_cast<const GLint *>(values.data()));
-            }
-            
-            void u4BVec(const std::vector<Vec4B> &values) override {
-                glUniform4iv(location, values.size(),
-                             reinterpret_cast<const GLint *>(values.data()));
-            }
-            
-            
-            // Implement multiple matrix setters
-            void uMat2FVec(const std::vector<Mat2F> &mats) override {
-                glUniformMatrix2fv(location, mats.size(), GL_FALSE,
-                                   reinterpret_cast<const GLfloat *>(mats.data()));
-            }
-            
-            void uMat3FVec(const std::vector<Mat3F> &mats) override {
-                glUniformMatrix3fv(location, mats.size(), GL_FALSE,
-                                   reinterpret_cast<const GLfloat *>(mats.data()));
-            }
-            
-            void uMat4FVec(const std::vector<Mat4F> &mats) override {
-                glUniformMatrix4fv(location, mats.size(), GL_FALSE,
-                                   reinterpret_cast<const GLfloat *>(mats.data()));
-            }
-        
-        
-        private:
-            GLUniformSetter(GAPIuint program, const std::string uName) {
-                // First, check if the program is a valid program generated by OpenGL
-                if (!glIsProgram(program)) {
-                    throw GAPIException("Can't set uniform, shader program is invalid");
-                }
-                // Get the location of the uniform
-                GAPIint tempLocation = glGetUniformLocation(program, uName.c_str());
-                
-                // Check if the uniform location was found
-                if (tempLocation == -1) {
-                    throw GAPIException("Can't set uniform, uniform " + uName + " not found");
-                }
-                
-                this->location = tempLocation;
-            }
-        
-        private:
-            GAPIuint location;
-        };
-        
-        virtual std::unique_ptr<IUniformSetter>
+        std::unique_ptr<UniformSetter>
         setUniform(GAPIuint program, const std::string &uName) override {
-            return std::make_unique<GLUniformSetter>(GLUniformSetter(program, uName));
+            if (isShaderProgram(program) == GL_FALSE)
+                throw GAPIException("Program " + std::to_string(program) +
+                    " is not a shader program.");
+            return std::make_unique<UniformSetter>(GLUniformSetter(program, uName));
         }
-        
         
         void clear(const std::initializer_list<GAPIValues> &values) override {
             GLuint mask = 0;
@@ -790,7 +491,24 @@ namespace GLESC {
                 
             }
         }
-        
+        template<typename T>
+        std::vector<T> getBufferData(GLuint bufferId) {
+            glBindBuffer(GL_ARRAY_BUFFER, bufferId);
+            
+            GLint sizeBytes = 0;
+            glGetBufferParameteriv(GL_ARRAY_BUFFER, GL_BUFFER_SIZE, &sizeBytes);
+            
+            if (sizeBytes <= 0) {
+                throw GAPIException("Invalid buffer size.");
+            }
+            auto numElements = sizeBytes / sizeof(T);
+            std::vector<T> data(numElements);
+            
+            glGetBufferSubData(GL_ARRAY_BUFFER, 0, sizeBytes, data.data());
+            glBindBuffer(GL_ARRAY_BUFFER, 0);
+            
+            return data;
+        }
         
         SDL_GLContext context{};
         

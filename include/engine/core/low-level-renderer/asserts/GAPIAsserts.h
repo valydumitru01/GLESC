@@ -19,7 +19,7 @@
 
 #define ASSERT_GL_CALL_IS_CORRECT(isCorrect, message) \
     D_ASSERT_TRUE(isCorrect, \
-    "OpenGL call is not correct" + std::string(message))
+    "OpenGL call is not correct \n" + std::string(message))
 
 #define ASSERT_GLEW_OK(isGlewOk, message) \
     D_ASSERT_TRUE(isGlewOk,std::string("Unable to initialize GLEW: ")+ message)

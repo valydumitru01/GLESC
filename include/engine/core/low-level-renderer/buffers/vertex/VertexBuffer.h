@@ -7,6 +7,7 @@
 #pragma once
 
 #include <utility>
+#include <any>
 
 #include "engine/core/low-level-renderer/graphic-api/Gapi.h"
 #include "engine/core/asserts/Asserts.h"
