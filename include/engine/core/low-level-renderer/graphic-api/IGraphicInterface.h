@@ -42,7 +42,9 @@ public:
     
     virtual void deleteContext() = 0;
     
-    virtual void draw(GAPIValues primitiveType, GAPIuint start, GAPIuint count) = 0;
+    virtual void drawTriangles(GAPIuint start, GAPIuint count) = 0;
+    
+    virtual void drawTrianglesIndexed(GAPIuint count) = 0;
     
     virtual RGBColor readPixelColor(int x, int y) = 0;
     
@@ -80,14 +82,14 @@ public:
     
     virtual void deleteVertexArray(GAPIuint vertexArrayID) = 0;
     
-    virtual void enableVertexAttribArray(GAPIuint index) = 0;
+    virtual void enableVertexData(GAPIuint index) = 0;
     
-    virtual void vertexAttribPointer(GAPIuint vertexArray,
-                                     GAPIuint count,
-                                     GAPITypes type,
-                                     GAPIbool isNormalized,
-                                     GAPIuint stride,
-                                     GAPIuint offset) = 0;
+    virtual void createVertexData(GAPIuint vertexArray,
+                                  GAPIuint count,
+                                  GAPIType type,
+                                  GAPIbool isNormalized,
+                                  GAPIuint stride,
+                                  GAPIuint offset) = 0;
     // ------------------------------------------------------------------------------
     // -------------------------------- Texture -------------------------------------
     

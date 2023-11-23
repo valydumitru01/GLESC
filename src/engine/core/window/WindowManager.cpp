@@ -35,6 +35,7 @@ WindowManager::WindowManager() {
     setIcon("textures/TinyLogo.bmp");
 }
 
+
 void WindowManager::setSize(uint16_t windowWidth, uint16_t windowHeight) {
     SDLCall(SDL_SetWindowSize(window, windowWidth, windowHeight));
     if (isResizable()){
@@ -119,10 +120,10 @@ SDL_Window &WindowManager::getWindow() {
     return *window;
 }
 
-std::pair<int, int> WindowManager::getWindowSize() const {
-    int w, h;
-    SDLCall(SDL_GetWindowSize(window, &w, &h));
-    return std::make_pair(w, h);
+GLESC::WindowManager::WindowDimensions WindowManager::getWindowSize() const {
+    WindowDimensions dimensions{};
+    SDLCall(SDL_GetWindowSize(window, &dimensions.width, &dimensions.height));
+    return dimensions;
 }
 
 uint32_t WindowManager::getRaisedFlags() {

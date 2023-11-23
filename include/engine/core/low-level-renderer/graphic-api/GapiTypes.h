@@ -9,6 +9,7 @@
  ******************************************************************************/
 #pragma once
 #include "engine/Config.h"
+#include "GapiEnums.h"
 
 #ifdef GLESC_OPENGL
 #include <GL/glew.h>
@@ -17,6 +18,7 @@ using GAPIuint = GLuint;
 using GAPIfloat = GLfloat;
 using GAPIint = GLint;
 using GAPIsize = GLuint;
+using GAPIshort = GLshort;
 using GAPIchar = GLchar;
 using GAPIvoid = GLvoid;
 using GAPIenum = GLenum;

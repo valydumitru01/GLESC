@@ -9,16 +9,17 @@
  **************************************************************************************************/
 #include <gtest/gtest.h>
 #include <SDL2/SDL.h>
+#include "LoopHelper.h"
 #include "engine/core/low-level-renderer/graphic-api/Gapi.h"
-#include "engine/subsystems/renderer/shaders/ShaderLoader.h"
 #include "engine/core/window/WindowManager.h"
-#include "unit/engine/LoopHelper.h"
+#include "engine/subsystems/renderer/shaders/ShaderLoader.h"
+#include "integration/rendering/IBaseRenderTest.h"
 #include "unit/engine/core/math/MathTestHelper.h"
-#include "integration/rendering/IHelloTriangleRenderTest.h"
 
-class GAPIHelloTriangleTests : public IHelloTriangleRenderTest {
+class GAPIHelloTriangleTests : public IBaseRenderTest {
 protected:
     GAPIuint VBO{};
+    GAPIuint EBO{};
     GAPIuint VAO{};
     GAPIuint shaderProgram{};
     
@@ -26,7 +27,8 @@ protected:
         shaderProgram = ShaderLoader::loadShader(vertexShaderSource, fragmentShaderSource);
         GLESC::Logger::get().success("Shader program created successfully");
     }
-    void prepareBuffers() override{
+    
+    void prepareBuffers() override {
         // Vertex Buffer Object (VBO)
         gapi.genBuffers(1, VBO);
         GLESC::Logger::get().success("VBO created!");
@@ -34,7 +36,8 @@ protected:
         gapi.bindBuffer(GAPIValues::BufferTypeVertex, VBO);
         GLESC::Logger::get().success("VBO bound!");
         
-        gapi.setBufferData(vertices.data(), vertices.size() * sizeof(float), GAPIValues::BufferTypeVertex,
+        gapi.setBufferData(vertices.data(), vertices.size() * sizeof(float),
+                           GAPIValues::BufferTypeVertex,
                            GAPIValues::BufferUsageStaticDraw);
         GLESC::Logger::get().success("VBO data set!");
         
@@ -46,17 +49,32 @@ protected:
         GLESC::Logger::get().success("VAO bound!");
         
         // Set vertex attributes
-        gapi.vertexAttribPointer(0, 3, GAPITypes::Float, GAPI_FALSE, 3 * sizeof(float), 0);
+        gapi.createVertexData(0, 2, GAPIType::Float, GAPI_FALSE, 2 * sizeof(float), 0);
         GLESC::Logger::get().success("Vertex attributes set!");
-        gapi.enableVertexAttribArray(0);
+        
+        gapi.enableVertexData(0);
         GLESC::Logger::get().success("Vertex attributes enabled!");
         
+        // Vertex Element Buffer Object (EBO)
+        gapi.genBuffers(1, EBO);
+        GLESC::Logger::get().success("EBO created!");
+        
+        gapi.bindBuffer(GAPIValues::BufferTypeElement, EBO);
+        GLESC::Logger::get().success("EBO bound!");
+        
+        gapi.setBufferData(indices.data(), indices.size() * sizeof(GAPIuint),
+                           GAPIValues::BufferTypeElement,
+                           GAPIValues::BufferUsageStaticDraw);
+        
+        
+        
+        gapi.unbindBuffer(GAPIValues::BufferTypeVertex);
         // Unbind VAO
         gapi.unbindVertexArray();
         GLESC::Logger::get().success("VAO unbound!");
     }
     
-    void render() override{
+    void render() override {
         
         // Render
         gapi.clearColor(backgroundColor.r, backgroundColor.g, backgroundColor.b, 1.0f);
@@ -67,13 +85,16 @@ protected:
         
         // Use the shader
         gapi.useShaderProgram(shaderProgram);
-        gapi.setUniform(shaderProgram, "uColor")->u4F(triangleColor.r, triangleColor.g,
-                                                      triangleColor.b, triangleColor.a);
+        gapi.setUniform(shaderProgram, "uColor")->u4F(figureColor.r, figureColor.g,
+                                                      figureColor.b, figureColor.a);
+        GLESC::Logger::get().success("Shader color set!");
         // Draw the triangle
         gapi.bindVertexArray(VAO);
         GLESC::Logger::get().success("VAO bound!");
-        gapi.draw(GAPIValues::PrimitiveTypeTriangles, 0, 3);
+        
+        gapi.drawTrianglesIndexed(6);
         GLESC::Logger::get().success("Triangle drawn!");
+        
         gapi.unbindVertexArray();
         GLESC::Logger::get().success("VAO unbound!");
         
@@ -95,6 +116,7 @@ protected:
         windowManager.destroyWindow();
         SDL_Quit();
     }
+    
     void SetUp() override {
         prepareShaders();
         prepareBuffers();
@@ -107,19 +129,17 @@ protected:
     void TearDown() override {
         destroyRender();
     }
-    
+
 private:
     GLESC::WindowManager windowManager{};
-    
 };
-
 
 
 TEST_F(GAPIHelloTriangleTests, test) {
     std::vector<float> actualVertices = gapi.getBufferDataF(VBO);
     ASSERT_EQ(actualVertices.size(), vertices.size());
     for (size_t i = 0; i < actualVertices.size(); ++i) {
-        std::cout<< "Vertex data " << i << ": " << actualVertices[i] << "\n";
+        std::cout << "Vertex data " << i << ": " << actualVertices[i] << "\n";
         EXPECT_NEAR(actualVertices[i], vertices[i], dataEpsilon)
                             << "Vertex data mismatch at index " << i;
     }
@@ -133,9 +153,9 @@ TEST_F(GAPIHelloTriangleTests, test) {
     // Check if the triangle is drawn correctly
     // The shader program is set to draw a triangle with the color red
     auto rgb1 = gapi.readPixelColorNormalized(400, 300);
-    EXPECT_NEAR(rgb1.r, triangleColor.r, colorEpsilon);
-    EXPECT_NEAR(rgb1.g, triangleColor.g, colorEpsilon);
-    EXPECT_NEAR(rgb1.b, triangleColor.b, colorEpsilon);
+    EXPECT_NEAR(rgb1.r, figureColor.r, colorEpsilon);
+    EXPECT_NEAR(rgb1.g, figureColor.g, colorEpsilon);
+    EXPECT_NEAR(rgb1.b, figureColor.b, colorEpsilon);
 }
 
 

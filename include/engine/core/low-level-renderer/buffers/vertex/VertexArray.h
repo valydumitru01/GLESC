@@ -19,15 +19,22 @@ namespace GLESC {
         
         ~VertexArray();
         
+        void destroy();
+        
         void addBuffer(const GLESC::VertexBuffer &vb, const GLESC::VertexBufferLayout &layout);
         
         void bind() const;
         
         void unbind() const;
         
-        [[nodiscard]] GAPIuint getRendererID() const;
+        [[nodiscard]] GAPIuint getRendererID() const {
+            return vertexArrayID;
+        }
     
     private:
+        void destroyOnce();
+        
+        bool objectAlive = true;
         GAPIuint vertexArrayID;
     }; // class VertexArray
     

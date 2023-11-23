@@ -43,9 +43,9 @@ TEST_F(WindowManagerTest, Size) {
     EXPECT_EQ_CUSTOM(vpHeight, 600);
     
     windowManager.setSize(200, 200);
-    std::tie(width, height) = windowManager.getWindowSize();
-    EXPECT_EQ_CUSTOM(width, 200);
-    EXPECT_EQ_CUSTOM(height, 200);
+    auto [width1, height1] = windowManager.getWindowSize();
+    EXPECT_EQ_CUSTOM(width1, 200);
+    EXPECT_EQ_CUSTOM(height1, 200);
     
     // Checking the viewport has changed
     std::tie(vpX, vpY, vpWidth, vpHeight) = gapi.getViewport();

@@ -34,6 +34,7 @@ enum class GAPIValues {
     WrapModeClampToBorder [[maybe_unused]],
     // Buffers
     BufferTypeVertex [[maybe_unused]],
+    BufferTypeElement [[maybe_unused]],
     BufferTypeIndex [[maybe_unused]],
     // Buffer Usage
     BufferUsageStaticDraw [[maybe_unused]],
@@ -146,10 +147,19 @@ enum class GAPIValues {
     TextureUnit0 [[maybe_unused]],
     TextureUnit1 [[maybe_unused]]
 };
+enum class GAPITypeCount {
+    Value [[maybe_unused]] = 1,
+    Vec2 [[maybe_unused]] = 2,
+    Vec3 [[maybe_unused]] = 3,
+    Vec4 [[maybe_unused]] = 4,
+    Mat2 [[maybe_unused]] = 4,
+    Mat3 [[maybe_unused]] = 9,
+    Mat4 [[maybe_unused]] = 16,
+};
 #ifdef GLESC_OPENGL
 #include <GL/glew.h>
 
-enum class GAPITypes {
+enum class GAPIType {
     Float [[maybe_unused]] = GL_FLOAT,
     Int [[maybe_unused]] = GL_INT,
     UnsignedInt [[maybe_unused]] = GL_UNSIGNED_INT,
@@ -158,21 +168,159 @@ enum class GAPITypes {
     Byte [[maybe_unused]] = GL_BYTE,
     Short [[maybe_unused]] = GL_SHORT,
     UnsignedShort [[maybe_unused]] = GL_UNSIGNED_SHORT,
-    HalfFloat [[maybe_unused]] = GL_HALF_FLOAT
+    Vec2F [[maybe_unused]] = GL_FLOAT_VEC2,
+    Vec3F [[maybe_unused]] = GL_FLOAT_VEC3,
+    Vec4F [[maybe_unused]] = GL_FLOAT_VEC4,
+    Vec2I [[maybe_unused]] = GL_INT_VEC2,
+    Vec3I [[maybe_unused]] = GL_INT_VEC3,
+    Vec4I [[maybe_unused]] = GL_INT_VEC4,
+    Vec2UI [[maybe_unused]] = GL_UNSIGNED_INT_VEC2,
+    Vec3UI [[maybe_unused]] = GL_UNSIGNED_INT_VEC3,
+    Vec4UI [[maybe_unused]] = GL_UNSIGNED_INT_VEC4,
+    Vec2B [[maybe_unused]] = GL_BOOL_VEC2,
+    Vec3B [[maybe_unused]] = GL_BOOL_VEC3,
+    Vec4B [[maybe_unused]] = GL_BOOL_VEC4,
+    Mat2F [[maybe_unused]] = GL_FLOAT_MAT2,
+    Mat3F [[maybe_unused]] = GL_FLOAT_MAT3,
+    Mat4F [[maybe_unused]] = GL_FLOAT_MAT4,
 };
-enum class DataTypeSize {
-    SizeNone [[maybe_unused]] = 0,
-    SizeFloat [[maybe_unused]] = sizeof(GLfloat),
-    SizeInt [[maybe_unused]] = sizeof(GLint),
-    SizeBool [[maybe_unused]] = sizeof(GLboolean)
+enum class GAPITypeSize {
+    None [[maybe_unused]] = 0,
+    Float [[maybe_unused]] = sizeof(GLfloat),
+    Int [[maybe_unused]] = sizeof(GLint),
+    Bool [[maybe_unused]] = sizeof(GLboolean),
+    UnsignedInt [[maybe_unused]] = sizeof(GLuint),
+    UnsignedByte [[maybe_unused]] = sizeof(GLubyte),
+    Byte [[maybe_unused]] = sizeof(GLbyte),
+    Short [[maybe_unused]] = sizeof(GLshort),
+    UnsignedShort [[maybe_unused]] = sizeof(GLushort),
+    Vec2F [[maybe_unused]] = sizeof(GLfloat) * static_cast<GLsizei>(GAPITypeCount::Vec2),
+    Vec3F [[maybe_unused]] = sizeof(GLfloat) * static_cast<GLsizei>(GAPITypeCount::Vec3),
+    Vec4F [[maybe_unused]] = sizeof(GLfloat) * static_cast<GLsizei>(GAPITypeCount::Vec4),
+    Vec2I [[maybe_unused]] = sizeof(GLint) * static_cast<GLsizei>(GAPITypeCount::Vec2),
+    Vec3I [[maybe_unused]] = sizeof(GLint) * static_cast<GLsizei>(GAPITypeCount::Vec3),
+    Vec4I [[maybe_unused]] = sizeof(GLint) * static_cast<GLsizei>(GAPITypeCount::Vec4),
+    Vec2UI [[maybe_unused]] = sizeof(GLuint) * static_cast<GLsizei>(GAPITypeCount::Vec2),
+    Vec3UI [[maybe_unused]] = sizeof(GLuint) * static_cast<GLsizei>(GAPITypeCount::Vec3),
+    Vec4UI [[maybe_unused]] = sizeof(GLuint) * static_cast<GLsizei>(GAPITypeCount::Vec4),
+    Vec2B [[maybe_unused]] = sizeof(GLboolean) * static_cast<GLsizei>(GAPITypeCount::Vec2),
+    Vec3B [[maybe_unused]] = sizeof(GLboolean) * static_cast<GLsizei>(GAPITypeCount::Vec3),
+    Vec4B [[maybe_unused]] = sizeof(GLboolean) * static_cast<GLsizei>(GAPITypeCount::Vec4),
+    Mat2F [[maybe_unused]] = sizeof(GLfloat) * static_cast<GLsizei>(GAPITypeCount::Mat2),
+    Mat3F [[maybe_unused]] = sizeof(GLfloat) * static_cast<GLsizei>(GAPITypeCount::Mat3),
+    Mat4F [[maybe_unused]] = sizeof(GLfloat) * static_cast<GLsizei>(GAPITypeCount::Mat4),
 };
+
 #endif
-enum class DataDimSize {
-    Value [[maybe_unused]] = 0,
-    Vec2 [[maybe_unused]] = 2,
-    Vec3 [[maybe_unused]] = 3,
-    Vec4 [[maybe_unused]] = 4,
-    Mat2 [[maybe_unused]] = 4,
-    Mat3 [[maybe_unused]] = 9,
-    Mat4 [[maybe_unused]] = 16
-};
+constexpr static GAPITypeCount getTypeCount(GAPIType type) {
+    switch (type) {
+        case GAPIType::Float:
+        case GAPIType::Int:
+        case GAPIType::UnsignedInt:
+        case GAPIType::Bool:
+        case GAPIType::UnsignedByte:
+        case GAPIType::Byte:
+        case GAPIType::Short:
+        case GAPIType::UnsignedShort:
+            return GAPITypeCount::Value;
+        case GAPIType::Vec2F:
+        case GAPIType::Vec2I:
+        case GAPIType::Vec2UI:
+        case GAPIType::Vec2B:
+            return GAPITypeCount::Vec2;
+        case GAPIType::Vec3F:
+        case GAPIType::Vec3I:
+        case GAPIType::Vec3UI:
+        case GAPIType::Vec3B:
+            return GAPITypeCount::Vec3;
+        case GAPIType::Vec4F:
+        case GAPIType::Vec4I:
+        case GAPIType::Vec4UI:
+        case GAPIType::Vec4B:
+            return GAPITypeCount::Vec4;
+        case GAPIType::Mat2F:
+            return GAPITypeCount::Mat2;
+        case GAPIType::Mat3F:
+            return GAPITypeCount::Mat3;
+        case GAPIType::Mat4F:
+            return GAPITypeCount::Mat4;
+    }
+}
+constexpr static GAPITypeSize getTypeSize(GAPIType type) {
+    switch (type) {
+        case GAPIType::Float:
+            return GAPITypeSize::Float;
+        case GAPIType::Int:
+            return GAPITypeSize::Int;
+        case GAPIType::UnsignedInt:
+            return GAPITypeSize::UnsignedInt;
+        case GAPIType::Bool:
+            return GAPITypeSize::Bool;
+        case GAPIType::UnsignedByte:
+            return GAPITypeSize::UnsignedByte;
+        case GAPIType::Byte:
+            return GAPITypeSize::Byte;
+        case GAPIType::Short:
+            return GAPITypeSize::Short;
+        case GAPIType::UnsignedShort:
+            return GAPITypeSize::UnsignedShort;
+        case GAPIType::Vec2F:
+            return GAPITypeSize::Vec2F;
+        case GAPIType::Vec3F:
+            return GAPITypeSize::Vec3F;
+        case GAPIType::Vec4F:
+            return GAPITypeSize::Vec4F;
+        case GAPIType::Vec2I:
+            return GAPITypeSize::Vec2I;
+        case GAPIType::Vec3I:
+            return GAPITypeSize::Vec3I;
+        case GAPIType::Vec4I:
+            return GAPITypeSize::Vec4I;
+        case GAPIType::Vec2UI:
+            return GAPITypeSize::Vec2UI;
+        case GAPIType::Vec3UI:
+            return GAPITypeSize::Vec3UI;
+        case GAPIType::Vec4UI:
+            return GAPITypeSize::Vec4UI;
+        case GAPIType::Vec2B:
+            return GAPITypeSize::Vec2B;
+        case GAPIType::Vec3B:
+            return GAPITypeSize::Vec3B;
+        case GAPIType::Vec4B:
+            return GAPITypeSize::Vec4B;
+        case GAPIType::Mat2F:
+            return GAPITypeSize::Mat2F;
+        case GAPIType::Mat3F:
+            return GAPITypeSize::Mat3F;
+        case GAPIType::Mat4F:
+            return GAPITypeSize::Mat4F;
+    }
+}
+constexpr static GAPIType getTypePrimitiveType(GAPIType type) {
+    if (getTypeCount(type) == GAPITypeCount::Value) {
+        return type;
+    }
+    switch (type) {
+        case GAPIType::Vec2F:
+        case GAPIType::Vec3F:
+        case GAPIType::Vec4F:
+        case GAPIType::Mat2F:
+        case GAPIType::Mat3F:
+        case GAPIType::Mat4F:
+            return GAPIType::Float;
+        case GAPIType::Vec2I:
+        case GAPIType::Vec3I:
+        case GAPIType::Vec4I:
+            return GAPIType::Int;
+        case GAPIType::Vec2UI:
+        case GAPIType::Vec3UI:
+        case GAPIType::Vec4UI:
+            return GAPIType::UnsignedInt;
+        case GAPIType::Vec2B:
+        case GAPIType::Vec3B:
+        case GAPIType::Vec4B:
+            return GAPIType::Bool;
+        default:
+            return GAPIType::Float;
+    }
+}

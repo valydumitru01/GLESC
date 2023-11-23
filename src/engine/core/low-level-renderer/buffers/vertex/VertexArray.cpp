@@ -16,7 +16,11 @@ VertexArray::VertexArray(){
 }
 
 VertexArray::~VertexArray() {
-    gapi.deleteVertexArray(vertexArrayID);
+    destroyOnce();
+}
+
+void VertexArray::destroy() {
+    destroyOnce();
 }
 
 void VertexArray::bind() const {
@@ -27,27 +31,49 @@ void VertexArray::unbind() const {
     gapi.unbindVertexArray();
 }
 
-GAPIuint VertexArray::getRendererID() const {
-    return vertexArrayID;
-}
-
 
 void VertexArray::addBuffer(const GLESC::VertexBuffer &vb,
                             const GLESC::VertexBufferLayout &layout) {
-    this->bind();
-    vb.bind();
+    this->bind(); // Bind the VAO to set up its state
+    vb.bind(); // Bind the VBO to associate it with the VAO
+    
+    // Retrieve the vertex attribute elements
     auto const &elements = layout.getElements();
+    // Get the stride (byte offset between consecutive attributes)
     auto const &stride = layout.getStride();
-    GAPIuint offset = 0;
-    for (int i = 0; i < elements.size(); ++i) {
+    
+    GAPIuint offset = 0; // Start with an offset of 0
+    for (size_t i = 0; i < elements.size(); ++i) {
+        // For each element in the layout
         auto const &element = elements[i];
         
-        gapi.enableVertexAttribArray(i);
-        gapi.vertexAttribPointer(i, element.count, element.type, GAPI_FALSE, stride, offset);
+        // Enable the vertex attribute array
+        gapi.enableVertexData(static_cast<GAPIuint>(i));
         
-        offset += element.count
-                  * static_cast<GAPIuint>(element.dimensionSize)
-                  * static_cast<GAPIuint>(element.typeSize);
+        // Get the data from the enum type
+        auto const typeCount = static_cast<GAPIuint>(getTypeCount(element.type));
+        auto const type = getTypePrimitiveType(element.type);
+        // The type size can be vectors or matrices, so we get the size from the primitive type
+        // and not from the type of the element of the layout because it can be a vector or a matrix
+        // and gapi recognizes only the size of the primitive types
+        auto const typeSize = static_cast<GAPIuint>(getTypeSize(type));
         
+        // Set up the vertex attribute pointers
+        gapi.createVertexData(static_cast<GAPIuint>(i),
+                              typeCount,
+                              type,
+                              element.normalized,
+                              stride,
+                              offset);
+        
+        // Calculate the offset for the next attribute
+        offset += typeCount * typeSize;
+    }
+}
+
+void VertexArray::destroyOnce() {
+    if (objectAlive) {
+        gapi.deleteVertexArray(vertexArrayID);
+        objectAlive = false;
     }
 }

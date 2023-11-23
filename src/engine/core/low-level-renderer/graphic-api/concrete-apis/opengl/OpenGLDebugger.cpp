@@ -23,7 +23,8 @@ void OpenGLDebugger::glDebugCallback(GLenum source, GLenum type, GLuint errorCod
         return;
     }
     ASSERT_GL_CALL_IS_CORRECT(false,
-                              "Debug message (" + std::to_string(errorCode) + "): \n Message:" + message +
+                              "Debug message (" +
+                              std::to_string(errorCode) + "): \n Message:" + message +
                               "\n | " + errorStringFromSource(source) +
                               "\n | " + errorStringFromType(type) +
                               "\n | " + errorStringFromSeverity(severity));

@@ -30,22 +30,27 @@ namespace GLESC {
         
         
         void deleteTexture(GAPIuint textureID) override {
+            GAPI_FUNCTION_LOG("deleteTexture", textureID);
             glDeleteTextures(1, &textureID);
         }
         
         void deleteContext() override {
+            GAPI_FUNCTION_NO_ARGS_LOG("deleteContext");
             SDL_GL_DeleteContext(this->context);
         }
         
         void setViewport(GAPIint width, GAPIint height) override {
+            GAPI_FUNCTION_LOG("setViewport", width, height);
             this->setViewport(0, 0, width, height);
         }
         
         void setViewport(GAPIint x, GAPIint y, GAPIint width, GAPIint height) override {
+            GAPI_FUNCTION_LOG("setViewport", x, y, width, height);
             glViewport(x, y, width, height);
         }
         
         std::tuple<GAPIint, GAPIint, GAPIint, GAPIint> getViewport() override {
+            GAPI_FUNCTION_NO_ARGS_LOG("getViewport");
             GAPIint viewport[4];
             glGetIntegerv(GL_VIEWPORT, viewport);
             return std::make_tuple(viewport[0], viewport[1], viewport[2], viewport[3]);
@@ -57,6 +62,7 @@ namespace GLESC {
                                GAPIValues magFilter,
                                GAPIValues wrapS,
                                GAPIValues wrapT) override {
+            GAPI_FUNCTION_LOG("createTexture", "SDL_Surface", minFilter, magFilter, wrapS, wrapT);
             GAPIuint textureID;
             glGenTextures(1, &textureID);
             bindTexture(textureID);
@@ -86,16 +92,19 @@ namespace GLESC {
         
         
         GAPIuint createTexture(SDL_Surface &surface) override {
+            GAPI_FUNCTION_LOG("createTexture", "SDL_Surface");
             return this->createTexture(surface, GAPIValues::MinFilterLinear,
                                        GAPIValues::MagFilterLinear, GAPIValues::WrapModeRepeat,
                                        GAPIValues::WrapModeRepeat);
         }
         
         void bindTexture(GAPIuint textureID) override {
+            GAPI_FUNCTION_LOG("bindTexture", textureID);
             glBindTexture(GL_TEXTURE_2D, textureID);
         }
         
         void swapBuffers(SDL_Window &window) override {
+            GAPI_FUNCTION_LOG("swapBuffers", "SDL_Window");
             SDL_GL_SwapWindow(&window);
         }
         
@@ -168,17 +177,30 @@ namespace GLESC {
                                       std::string(SDL_GetError()));
         }
         
-        void draw(GAPIValues primitiveType, GAPIuint start, GAPIuint count) override {
-            glDrawArrays(translateEnumToOpenGL(primitiveType), start, count);
+        void drawTriangles(GAPIuint start, GAPIuint count) override {
+
+            GAPI_FUNCTION_LOG("drawTriangles", start, count);
+            glDrawArrays(translateEnumToOpenGL(GAPIValues::PrimitiveTypeTriangles), start, count);
         }
         
+        void drawTrianglesIndexed(GAPIuint indicesCount) override {
+            GAPI_FUNCTION_LOG("drawTrianglesIndexed", indicesCount);
+            glDrawElements(translateEnumToOpenGL(GAPIValues::PrimitiveTypeTriangles),
+                           indicesCount,
+                           static_cast<GLenum>(GAPIType::UnsignedInt),
+                           nullptr);
+        }
+        
+        
         RGBColor readPixelColor(int x, int y) {
+            GAPI_FUNCTION_LOG("readPixelColor", x, y);
             RGBColor color;
             glReadPixels(x, y, 1, 1, GL_RGB, GL_UNSIGNED_BYTE, &color);
             return color;
         }
         
         RGBColorNormalized readPixelColorNormalized(int x, int y) {
+            GAPI_FUNCTION_LOG("readPixelColorNormalized", x, y);
             RGBColorNormalized color;
             glReadPixels(x, y, 1, 1, GL_RGBA, GL_FLOAT, &color);
             return color;
@@ -189,18 +211,22 @@ namespace GLESC {
         // ------------------------------ Buffers ----------------------------------
         
         void genBuffers(GAPIuint amount, GAPIuint &bufferID) override {
+            GAPI_FUNCTION_LOG("genBuffers", amount);
             glGenBuffers(amount, &bufferID);
         }
         
         void bindBuffer(GAPIValues bufferType, GAPIuint buffer) override {
+            GAPI_FUNCTION_LOG("bindBuffer", bufferType, buffer);
             glBindBuffer(translateEnumToOpenGL(bufferType), buffer);
         }
         
         void unbindBuffer(GAPIValues bufferType) override {
+            GAPI_FUNCTION_LOG("unbindBuffer", bufferType);
             glBindBuffer(translateEnumToOpenGL(bufferType), 0);
         }
         
         void deleteBuffer(GAPIuint buffer) override {
+            GAPI_FUNCTION_LOG("deleteBuffer", buffer);
             glDeleteBuffers(1, &buffer);
         }
         
@@ -208,48 +234,90 @@ namespace GLESC {
                            GAPIsize size,
                            GAPIValues bufferType,
                            GAPIValues bufferUsage) override {
+            GAPI_FUNCTION_LOG("setBufferData", data, size, bufferType, bufferUsage);
             glBufferData(translateEnumToOpenGL(bufferType), size, data,
                          translateEnumToOpenGL(bufferUsage));
         }
-        std::vector<float> getBufferDataF(GLuint bufferId) override{
+        
+        std::vector<float> getBufferDataF(GLuint bufferId) override {
+            GAPI_FUNCTION_LOG("getBufferDataF", bufferId);
             return getBufferData<float>(bufferId);
         }
         
-        std::vector<unsigned int> getBufferDataUi(GLuint bufferId) override{
+        std::vector<unsigned int> getBufferDataUi(GLuint bufferId) override {
+            GAPI_FUNCTION_LOG("getBufferDataUi", bufferId);
             return getBufferData<unsigned int>(bufferId);
         }
         
-        std::vector<int> getBufferDataI(GLuint bufferId) override{
+        std::vector<int> getBufferDataI(GLuint bufferId) override {
+            GAPI_FUNCTION_LOG("getBufferDataI", bufferId);
             return getBufferData<int>(bufferId);
         }
+        
         void genVertexArray(GAPIuint &vertexArrayID) override {
+            GAPI_FUNCTION_LOG("genVertexArray", vertexArrayID);
             glGenVertexArrays(1, &vertexArrayID);
         };
         
         void bindVertexArray(GAPIuint vertexArrayID) override {
+            GAPI_FUNCTION_LOG("bindVertexArray", vertexArrayID);
             glBindVertexArray(vertexArrayID);
         }
         
         void unbindVertexArray() override {
+            GAPI_FUNCTION_NO_ARGS_LOG("unbindVertexArray");
             glBindVertexArray(0);
         }
         
         void deleteVertexArray(GAPIuint vertexArrayID) override {
+            GAPI_FUNCTION_LOG("deleteVertexArray", vertexArrayID);
             glDeleteVertexArrays(1, &vertexArrayID);
         }
         
-        void enableVertexAttribArray(GAPIuint index) override {
+        void enableVertexData(GAPIuint index) override {
+            GAPI_FUNCTION_LOG("enableVertexData", index);
             glEnableVertexAttribArray(index);
         }
-        
-        void vertexAttribPointer(GAPIuint vertexArray,
-                                 GAPIuint count,
-                                 GAPITypes type,
-                                 GAPIbool isNormalized,
-                                 GAPIuint stride,
-                                 GAPIuint offset) override {
-            glVertexAttribPointer(vertexArray, count, static_cast<GLenum>(type), isNormalized,
-                                  stride, (GLvoid *) (offset));
+        /**
+         * @brief Configures the layout of the vertex data.
+         *
+         * This method sets up how OpenGL interprets the vertex buffer data.
+         * It is used to specify the location and data format of the array of generic vertex
+         * attributes.
+         *
+         * @param index The index of the vertex attribute to be modified.
+         * @param count The number of components per generic vertex attribute.
+         *              Typically, this is 1, 2, 3, or 4.
+         * @param type The data type of each component in the array.
+         *             For example, GL_FLOAT, GL_INT, etc.
+         * @param isNormalized Specifies whether fixed-point data values should be normalized or
+         *                     converted directly as fixed-point values when they are accessed.
+         * @param stride The byte offset between consecutive vertex attributes.
+         *               If the attributes are tightly packed, this value is 0.
+         * @param offset The offset of the first component of the first vertex attribute in the
+         *               buffer.
+         *               This is usually a byte offset.
+         */
+        void createVertexData(GAPIuint index,
+                              GAPIuint count,
+                              GAPIType type,
+                              GAPIbool isNormalized,
+                              GAPIuint stride,
+                              GAPIuint offset) override {
+            GAPI_FUNCTION_LOG("createVertexData", index, count, type, isNormalized, stride,
+                              offset);
+            // Calls glVertexAttribPointer to define an array of generic vertex attribute data.
+            // The parameters are set according to the function arguments, allowing for flexible
+            // configuration of vertex data.
+            
+            glVertexAttribPointer(index,    // Specifies the index of the generic vertex attribute.
+                                  count,     // Number of components per generic vertex attribute.
+                                  static_cast<GLenum>
+                                  (type), // Converts the GAPITypes enum to GLenum.
+                                  isNormalized, // Specifies whether to normalize the data.
+                                  stride,    // Byte offset between consecutive vertex attributes.
+                                  (GLvoid *)
+                                  (offset)); // Offset of the first component in the buffer.
         }
         
         
@@ -259,6 +327,7 @@ namespace GLESC {
         
         GAPIuint
         loadAndCompileShader(GAPIValues shaderType, const std::string &shaderSource) override {
+            GAPI_FUNCTION_LOG("loadAndCompileShader", shaderType, shaderSource);
             GLuint vertexShader = glCreateShader(translateEnumToOpenGL(shaderType));
             const GAPIchar *source = shaderSource.c_str();
             
@@ -270,6 +339,7 @@ namespace GLESC {
         
         
         GAPIuint createShaderProgram(GAPIuint vertexShaderID, GAPIuint fragmentShaderID) override {
+            GAPI_FUNCTION_LOG("createShaderProgram", vertexShaderID, fragmentShaderID);
             GLuint shaderProgram = glCreateProgram();
             glAttachShader(shaderProgram, vertexShaderID);
             glAttachShader(shaderProgram, fragmentShaderID);
@@ -280,10 +350,12 @@ namespace GLESC {
         }
         
         void destroyShaderProgram(GAPIuint shaderProgram) {
+            GAPI_FUNCTION_LOG("destroyShaderProgram", shaderProgram);
             glDeleteProgram(shaderProgram);
         }
         
         [[nodiscard]] bool compilationOK(GAPIuint shaderID, GAPIchar *message) override {
+            GAPI_FUNCTION_LOG("compilationOK", shaderID, message);
             GLint success;
             glGetShaderiv(shaderID, GL_COMPILE_STATUS, &success);
             if (!success) {
@@ -294,6 +366,7 @@ namespace GLESC {
         }
         
         [[nodiscard]] bool linkOK(GAPIuint shaderProgram, GAPIchar *message) override {
+            GAPI_FUNCTION_LOG("linkOK", shaderProgram, message);
             GLint success;
             glGetProgramiv(shaderProgram, GL_LINK_STATUS, &success);
             if (!success) {
@@ -304,27 +377,32 @@ namespace GLESC {
         }
         
         void useShaderProgram(GAPIuint shaderProgram) override {
+            GAPI_FUNCTION_LOG("useShaderProgram", shaderProgram);
             glUseProgram(shaderProgram);
         }
         
         bool isShaderProgram(GAPIuint shaderProgram) override {
+            GAPI_FUNCTION_LOG("isShaderProgram", shaderProgram);
             return glIsProgram(shaderProgram);
         }
         
         void deleteShader(GAPIuint shaderID) override {
+            GAPI_FUNCTION_LOG("deleteShader", shaderID);
             glDeleteShader(shaderID);
         }
         // -------------------------------- Uniforms ------------------------------------
         
         std::unique_ptr<UniformSetter>
         setUniform(GAPIuint program, const std::string &uName) override {
+            GAPI_FUNCTION_LOG("setUniform", program, uName);
             if (isShaderProgram(program) == GL_FALSE)
                 throw GAPIException("Program " + std::to_string(program) +
-                    " is not a shader program.");
+                                    " is not a shader program.");
             return std::make_unique<UniformSetter>(GLUniformSetter(program, uName));
         }
         
         void clear(const std::initializer_list<GAPIValues> &values) override {
+            GAPI_FUNCTION_LOG("clear", values);
             GLuint mask = 0;
             for (auto value : values) {
                 mask |= translateEnumToOpenGL(value);
@@ -333,11 +411,13 @@ namespace GLESC {
         }
         
         void clearColor(GAPIfloat r, GAPIfloat g, GAPIfloat b, GAPIfloat a) override {
+            GAPI_FUNCTION_LOG("clearColor", r, g, b, a);
             glClearColor(r, g, b, a);
         }
         
         
         void createContext(SDL_Window &window) override {
+            GAPI_FUNCTION_NO_ARGS_LOG("createContext");
             // OpenGL context initialization over the SDL windowManager,
             // needed for using OpenGL functions
             this->context = SDL_GL_CreateContext(&window);
@@ -350,6 +430,7 @@ namespace GLESC {
     private:
         
         void setSDLGLAttribute(SDL_GLattr attrib, int val) {
+            GAPI_FUNCTION_LOG("setSDLGLAttribute", attrib, val);
             if (SDL_GL_SetAttribute(attrib, val) == -1)
                 throw GAPIException("Unable to set gl attribute: " + std::string(SDL_GetError()));
         }
@@ -360,6 +441,7 @@ namespace GLESC {
          * enabling gl functions like glEnable() or glCullFace()
          */
         static void initGLEW() {
+            GAPI_FUNCTION_NO_ARGS_LOG("initGLEW");
             glewExperimental = GL_TRUE;
             GLuint err = glewInit();
             std::string
@@ -399,6 +481,8 @@ namespace GLESC {
                 case static_cast<GLuint>(GAPIValues::BufferTypeVertex):
                     return GL_ARRAY_BUFFER;
                 case static_cast<GLuint>(GAPIValues::BufferTypeIndex):
+                    return GL_ELEMENT_ARRAY_BUFFER;
+                case static_cast<GLuint>(GAPIValues::BufferTypeElement):
                     return GL_ELEMENT_ARRAY_BUFFER;
                     // Usage
                 case static_cast<GLuint>(GAPIValues::BufferUsageStaticDraw):
@@ -491,8 +575,10 @@ namespace GLESC {
                 
             }
         }
+        
         template<typename T>
         std::vector<T> getBufferData(GLuint bufferId) {
+            GAPI_FUNCTION_LOG("getBufferData", bufferId);
             glBindBuffer(GL_ARRAY_BUFFER, bufferId);
             
             GLint sizeBytes = 0;

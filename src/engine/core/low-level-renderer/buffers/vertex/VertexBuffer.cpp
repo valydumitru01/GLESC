@@ -9,21 +9,28 @@
  ******************************************************************************/
 
 #include "engine/core/low-level-renderer/buffers/vertex/VertexBuffer.h"
+
 using namespace GLESC;
 
 
 VertexBuffer::VertexBuffer(const void *data,
-                           GAPIsize size){
-    
+                           GAPIsize size) {
+    D_ASSERT_NOT_NULL(data, "Data is null in VertexBuffer constructor");
+    D_ASSERT_TRUE(size > 0, "Size is 0 in VertexBuffer constructor");
     gapi.genBuffers(1, vertexBufferID);
     gapi.bindBuffer(GAPIValues::BufferTypeVertex, vertexBufferID);
     gapi.setBufferData(data, size, GAPIValues::BufferTypeVertex,
-                           GAPIValues::BufferUsageStaticDraw);
+                       GAPIValues::BufferUsageStaticDraw);
     gapi.unbindBuffer(GAPIValues::BufferTypeVertex);
 }
 
+
 VertexBuffer::~VertexBuffer() {
-    gapi.deleteBuffer(vertexBufferID);
+    destroyOnce();
+}
+
+void VertexBuffer::destroy() {
+    destroyOnce();
 }
 
 void VertexBuffer::bind() const {
@@ -34,10 +41,12 @@ void VertexBuffer::unbind() const {
     gapi.unbindBuffer(GAPIValues::BufferTypeVertex);
 }
 
-void VertexBuffer::setData(const std::any *data, GAPIsize size) {
-    gapi.bindBuffer(GAPIValues::BufferTypeVertex, vertexBufferID);
-    gapi
-            .setBufferData(data, size, GAPIValues::BufferTypeVertex,
-                           GAPIValues::BufferUsageStaticDraw);
-    gapi.unbindBuffer(GAPIValues::BufferTypeVertex);
+void VertexBuffer::destroyOnce() {
+    if (objectAlive) {
+        
+        gapi.deleteBuffer(vertexBufferID);
+        
+        objectAlive = false;
+    }
 }
+

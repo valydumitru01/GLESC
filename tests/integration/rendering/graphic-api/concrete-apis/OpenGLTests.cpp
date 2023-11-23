@@ -14,9 +14,10 @@
 #include <engine/Config.h>
 #include <engine/core/logger/Logger.h>
 #include <engine/subsystems/renderer/shaders/ShaderLoader.h>
-#include "unit/engine/LoopHelper.h"
-#include "integration/rendering/IHelloTriangleRenderTest.h"
-class OpenGLTests : public IHelloTriangleRenderTest {
+#include "LoopHelper.h"
+#include "integration/rendering/IBaseRenderTest.h"
+
+class OpenGLTests : public IBaseRenderTest {
 protected:
     
     SDL_Window *window{};
@@ -26,17 +27,20 @@ protected:
     GLuint shaderProgram{};
     
     
-    
-    void destroyOpenGL(const std::string &message){
+    void destroyOpenGL(const std::string &message) {
         // Cleanup
-        GLESC::Logger::get().error(message);
         glDeleteProgram(shaderProgram);
+        Logger::get().success("Shader program deleted!");
         SDL_GL_DeleteContext(glContext);
+        Logger::get().success("OpenGL context deleted!");
         SDL_DestroyWindow(window);
+        Logger::get().success("Window deleted!");
         SDL_Quit();
+        Logger::get().success("SDL quit!");
+        GLESC::Logger::get().error(message);
     }
     
-    void initializeOpengl(){
+    void initializeOpengl() {
         // Initialize SDL
         if (SDL_Init(SDL_INIT_VIDEO) < 0) {
             SDL_Log("Failed to initialize SDL: %s", SDL_GetError());
@@ -49,8 +53,8 @@ protected:
         SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
         
         // Create window
-        window =SDL_CreateWindow("GAPI Test", GLESC_WINDOW_X, GLESC_WINDOW_Y, GLESC_WINDOW_WIDTH,
-                                 GLESC_WINDOW_HEIGHT, SDL_WINDOW_OPENGL);
+        window = SDL_CreateWindow("GAPI Test", GLESC_WINDOW_X, GLESC_WINDOW_Y, GLESC_WINDOW_WIDTH,
+                                  GLESC_WINDOW_HEIGHT, SDL_WINDOW_OPENGL);
         if (!window) {
             SDL_Log("Failed to create window: %s", SDL_GetError());
             SDL_Quit();
@@ -75,99 +79,100 @@ protected:
             ASSERT_TRUE(false);
         }
     }
-    // Function to link shader program and check for errors
-    static void linkProgram(GLuint program) {
-        glLinkProgram(program);
-        
-        // Check for linking errors
-        GLint success;
-        GLchar infoLog[512];
-        glGetProgramiv(program, GL_LINK_STATUS, &success);
-        if (!success) {
-            glGetProgramInfoLog(program, 512, nullptr, infoLog);
-            throw std::runtime_error("Shader link failed: " + std::string(infoLog));
-        }
-    }
-    static GLuint compileShader(GLenum type, const char* source) {
-        GLuint shader = glCreateShader(type);
-        glShaderSource(shader, 1, &source, nullptr);
-        glCompileShader(shader);
-        
-        // Check for shader compile errors
-        GLint success;
-        GLchar infoLog[512];
-        glGetShaderiv(shader, GL_COMPILE_STATUS, &success);
-        if (!success) {
-            glGetShaderInfoLog(shader, 512, nullptr, infoLog);
-            throw std::runtime_error("Shader compilation failed: " + std::string(infoLog));
-        }
-        
-        return shader;
-    }
-    void prepareShaders() override{
+    
+    void prepareShaders() override {
         shaderProgram = ShaderLoader::loadShader(vertexShaderSource, fragmentShaderSource);
         GLESC::Logger::get().success("Shader program created successfully");
     }
     
     GLuint VBO{};
+    GLuint EBO{};
     GLuint VAO{};
     
-    void prepareBuffers() override{
+    void prepareBuffers() override {
         // Vertex Buffer Object (VBO)
         glGenBuffers(1, &VBO);
         glBindBuffer(GL_ARRAY_BUFFER, VBO);
-        glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(float), vertices.data(), GL_STATIC_DRAW);
+        glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(float), vertices.data(),
+                     GL_STATIC_DRAW);
+        Logger::get().success("VBO created!");
         
         // Vertex Array Object (VAO)
         glGenVertexArrays(1, &VAO);
         glBindVertexArray(VAO);
+        Logger::get().success("VAO created!");
         
         // Set vertex attributes
-        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat),
-                              (GLvoid *) 0);
+        glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(GLfloat), (GLvoid *) 0);
         glEnableVertexAttribArray(0);
+        Logger::get().success("Vertex attributes set!");
         
-        // Unbind VAO
+        // Vertex Element Buffer Object (EBO)
+        glGenBuffers(1, &EBO);
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+        glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(GLuint), indices.data(),
+                     GL_STATIC_DRAW);
+        Logger::get().success("EBO created!");
+        
+        // Unbind VBO
+        glBindBuffer(GL_ARRAY_BUFFER, 0);
+        
+        // Unbind VAO (to prevent accidental modification)
         glBindVertexArray(0);
     }
     
-    void render() override{
+    void render() override {
         // Render
         glClearColor(backgroundColor.r, backgroundColor.g, backgroundColor.b,
                      backgroundColor.a);
         glClear(GL_COLOR_BUFFER_BIT);
+        Logger::get().success("Clear values set!");
         
         // Use shader program
         glUseProgram(this->shaderProgram);
         
         // Set the color uniform
         GLint colorLocation = glGetUniformLocation(this->shaderProgram, "uColor");
-        glUniform4f(colorLocation, triangleColor.r, triangleColor.g, triangleColor.b,
-                    triangleColor.a);
+        glUniform4f(colorLocation, figureColor.r, figureColor.g, figureColor.b,
+                    figureColor.a);
+        Logger::get().success("Color uniform set!");
+        
         
         // Draw the triangle
         glBindVertexArray(VAO);
-        glDrawArrays(GL_TRIANGLES, 0, 3);
+        Logger::get().success("VAO bound!");
+        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+        Logger::get().success("Triangle drawn!");
         glBindVertexArray(0);
         
         // Swap window
         SDL_GL_SwapWindow(window);
+        Logger::get().success("Window swapped!");
+        
     }
     
     void SetUp() override {
         initializeOpengl();
+        Logger::get().success("OpenGL initialized!");
         prepareShaders();
+        Logger::get().success("Shaders prepared!");
         prepareBuffers();
+        Logger::get().success("Buffers prepared!");
         
         LOOP() {
             render();
         }
+        Logger::get().success("Rendered!");
     }
     
-    void destroyRender() override{
+    void destroyRender() override {
         // Cleanup
-        glDeleteVertexArrays(1, &VAO);
+        Logger::get().success("Destroying render!");
         glDeleteBuffers(1, &VBO);
+        Logger::get().success("VBO deleted!");
+        glDeleteVertexArrays(1, &VAO);
+        Logger::get().success("VAO deleted!");
+        destroyOpenGL("OpenGL destroyed!");
     }
     
     void TearDown() override {
@@ -176,26 +181,25 @@ protected:
 };
 
 
-
-
-
-
-
-
-
-
-
 TEST_F(OpenGLTests, test) {
+    Logger::get().success("Test started!");
     // Binding before reading
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    Logger::get().success("Reading buffer data!");
     // Get the size of the buffer data
     GLint bufferSize = 0;
     glGetBufferParameteriv(GL_ARRAY_BUFFER, GL_BUFFER_SIZE, &bufferSize);
+    Logger::get().success("Read buffer size: " + std::to_string(bufferSize));
     size_t numElements = bufferSize / sizeof(float);
+    
     
     // Read the buffer data
     std::vector<float> actualVertices(numElements);
     glGetBufferSubData(GL_ARRAY_BUFFER, 0, bufferSize, actualVertices.data());
+    Logger::get().success("Buffer data read! Data: ");
+    for (auto &actualVertex : actualVertices) {
+        Logger::get().success(std::to_string(actualVertex));
+    }
     
     // Check the vertex data
     ASSERT_EQ(actualVertices.size(), vertices.size());
@@ -206,15 +210,23 @@ TEST_F(OpenGLTests, test) {
     }
     
     // Check the background color
-    float pixel[3];
-    glReadPixels(10, 10, 1, 1, GL_RGBA, GL_FLOAT, pixel);
-    EXPECT_NEAR(pixel[0], backgroundColor.r, colorEpsilon);
-    EXPECT_NEAR(pixel[1], backgroundColor.g, colorEpsilon);
-    EXPECT_NEAR(pixel[2], backgroundColor.b, colorEpsilon);
+    RGBColorNormalized pixel{};
+    Logger::get().success("Reading pixel color!");
+    glReadPixels(10, 10, 1, 1, GL_RGBA, GL_FLOAT, &pixel);
+    Logger::get().success("Pixel color read! Pixel: " + std::to_string(pixel.r) + " " +
+                          std::to_string(pixel.g) + " " + std::to_string(pixel.b));
+    EXPECT_NEAR(pixel.r, backgroundColor.r, colorEpsilon);
+    EXPECT_NEAR(pixel.g, backgroundColor.g, colorEpsilon);
+    EXPECT_NEAR(pixel.b, backgroundColor.b, colorEpsilon);
+    Logger::get().success("Pixel color checked!");
     
     // Check the triangle color
-    glReadPixels(400, 300, 1, 1, GL_RGBA, GL_FLOAT, pixel);
-    EXPECT_NEAR(pixel[0], triangleColor.r, colorEpsilon);
-    EXPECT_NEAR(pixel[1], triangleColor.g, colorEpsilon);
-    EXPECT_NEAR(pixel[2], triangleColor.b, colorEpsilon);
+    Logger::get().success("Reading triangle color!");
+    glReadPixels(400, 300, 1, 1, GL_RGBA, GL_FLOAT, &pixel);
+    Logger::get().success("Triangle color read! Pixel: " + std::to_string(pixel.r) + " " +
+                          std::to_string(pixel.g) + " " + std::to_string(pixel.b));
+    EXPECT_NEAR(pixel.r, figureColor.r, colorEpsilon);
+    EXPECT_NEAR(pixel.g, figureColor.g, colorEpsilon);
+    EXPECT_NEAR(pixel.b, figureColor.b, colorEpsilon);
+    Logger::get().success("Triangle color checked!");
 }

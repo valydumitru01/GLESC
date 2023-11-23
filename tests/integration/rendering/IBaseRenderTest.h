@@ -12,15 +12,20 @@
 #include <gtest/gtest.h>
 #include "engine/core/low-level-renderer/graphic-api/GapiStructs.h"
 
-class IHelloTriangleRenderTest : public ::testing::Test {
+class IBaseRenderTest : public ::testing::Test {
 public:
     static constexpr auto colorEpsilon = 0.05f;
     static constexpr auto dataEpsilon = 0.001f;
     RGBColorNormalized backgroundColor = {0.2f, 0.3f, 0.3f, 1.0f};
-    RGBColorNormalized triangleColor = {1.0f, 0.0f, 0.0f, 1.0f};
-    std::vector<float> vertices = {0.0f, 0.5f, 0.0f,   // Vertex 1 (X, Y, Z)
-                                   -0.5f, -0.5f, 0.0f, // Vertex 2 (X, Y, Z)
-                                   0.5f, -0.5f, 0.0f}; // Vertex 3 (X, Y, Z)
+    RGBColorNormalized figureColor = {1.0f, 0.0f, 0.0f, 1.0f};
+    // Square
+    std::vector<GAPIfloat> vertices = {
+            -0.5f, -0.5f, // bottom left
+            0.5f, -0.5f, // bottom right
+            0.5f, 0.5f, // top right
+            -0.5f, 0.5f // top left
+    };
+   std::vector<GAPIuint> indices = {0, 1, 2, 2, 3, 0};
     
     const char* vertexShaderSource = R"glsl(
         layout (location = 0) in vec3 position;
@@ -37,7 +42,7 @@ public:
         }
         )glsl";
     
-   virtual void prepareShaders() = 0;
+    virtual void prepareShaders() = 0;
     
     virtual void prepareBuffers() = 0;
     

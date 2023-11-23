@@ -13,6 +13,7 @@
 #include "engine/core/debugger/Debugger.h"
 #include "engine/core/logger/Logger.h"
 
+
 #define GAPI_PRINT_CODE(CONTENT) \
     LOG_BASIC(GLESC::Logger::get().info("GAPI status:"); \
         CONTENT                  \
@@ -20,10 +21,29 @@
 
 #define PRINT_GAPI_INIT(name, version) \
     GAPI_PRINT_CODE(printGAPIInit(name, version););
-    
+
+// Macro to log the function name and its parameters
+#define GAPI_FUNCTION_LOG(FUNCTION_NAME, ...) \
+    GLESC::Logger::get().infoBlue("Entering GAPI function " #FUNCTION_NAME + \
+        std::string("(") +                     \
+            argsToString(#__VA_ARGS__, __VA_ARGS__)                     \
+        + std::string(")"));
+
+#define GAPI_FUNCTION_NO_ARGS_LOG(FUNCTION_NAME) \
+    GLESC::Logger::get().info("Entering " #FUNCTION_NAME);
+
+#define GAPI_FUNCTION_IMPLEMENTATION_LOG(FUNCTION_NAME, ...) \
+    GLESC::Logger::get().infoBlue("\tExecuting " #FUNCTION_NAME + \
+        std::string("(")+                     \
+            argsToString(#__VA_ARGS__, __VA_ARGS__)                     \
+        +std::string(")"));
+
+
 #ifndef NLOGGING
+
 inline void printGAPIInit(const std::string& GAPIName, const std::string& GAPIVersion){
-   GLESC::Logger::get().importantSuccess("Initializing Graphic Application Programming Interface (GAPI)");
+   GLESC::Logger::get().importantSuccess(
+           "Initializing Graphic Application Programming Interface (GAPI)");
    GLESC::Logger::get().success("\t" + GAPIName + " version " + GAPIVersion);
 }
 #endif

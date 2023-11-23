@@ -29,9 +29,9 @@ namespace GLESC {
             // Set the projection matrix
             projection = calculateProjectionMatrix(45.0f, 0.1f, 100.0f,
                                                    static_cast<float>(windowManager
-                                                           .getWindowSize().first),
+                                                           .getWindowSize().width),
                                                    static_cast<float>(windowManager
-                                                           .getWindowSize().second));
+                                                           .getWindowSize().height));
         }
         
         ~Renderer() {

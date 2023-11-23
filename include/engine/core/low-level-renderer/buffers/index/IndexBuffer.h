@@ -6,39 +6,33 @@
 
 #pragma once
 
-#include "engine/core/low-level-renderer/graphic-api/Gapi.h"
-#include "engine/core/low-level-renderer/graphic-api/Gapi.h"
+
+#include <vector>
+#include "engine/core/low-level-renderer/graphic-api/GapiTypes.h"
 
 namespace GLESC {
     class IndexBuffer {
     public:
-        IndexBuffer(const GAPIuint *data, GAPIsize count) :
-                count(count){
-            gapi.genBuffers(1, indexBufferID);
-            gapi.bindBuffer(GAPIValues::BufferTypeIndex, indexBufferID);
-            gapi.setBufferData(data, count,
-                                   GAPIValues::BufferTypeIndex,
-                                   GAPIValues::BufferUsageStaticDraw);
-            gapi.unbindBuffer(GAPIValues::BufferTypeIndex);
-        }
+        IndexBuffer() = default;
+        IndexBuffer(const GAPIuint *data,const GAPIsize count);
+        IndexBuffer(const std::vector<GAPIuint> &data);
         
-        ~IndexBuffer() {
-            gapi.deleteBuffer(indexBufferID);
-        }
+        ~IndexBuffer();
         
+        void destroy();
         
-        void bind() const {
-            gapi.bindBuffer(GAPIValues::BufferTypeIndex, indexBufferID);
-        }
+        void bind() const;
         
-        void unbind() const {
-            gapi.unbindBuffer(GAPIValues::BufferTypeIndex);
-        }
-        
+        void unbind() const;
         
         [[nodiscard]] inline GAPIsize getCount() const { return count; }
+        
+        [[nodiscard]] GAPIuint getBufferID() const { return indexBufferID; }
     
     private:
+        void destroyOnce();
+        
+        bool objectAlive = true;
         GAPIsize count{};
         GAPIuint indexBufferID{};
     };

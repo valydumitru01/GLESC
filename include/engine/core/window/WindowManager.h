@@ -37,9 +37,14 @@ namespace GLESC {
         
         /**
          * @brief Get the width and height of the window
-         * @return pair -> left: width, right: height
+         * @return WindowDimensions -> width: width of the window,
+         *                             height: height of the window
          */
-        [[nodiscard]] std::pair<int, int> getWindowSize() const;
+        struct WindowDimensions{
+            int width;
+            int height;
+        };
+        [[nodiscard]] WindowDimensions getWindowSize() const;
         /**
          * @brief Callback function when window size is modified
          * This will change the viewport with the new resolution
@@ -143,8 +148,6 @@ namespace GLESC {
          * @return true if window is fullscreen borderless, false otherwise
          */
         [[nodiscard]] bool isFullscreenBorderless();
-        
-        
         
         /**
          * @brief Destroy window and release resources.

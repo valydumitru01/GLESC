@@ -13,11 +13,7 @@
 
 namespace GLESC {
     struct VertexBufferElement {
-        GAPITypes type;
-        DataTypeSize typeSize;
-        DataDimSize dimensionSize;
-        GAPIuint count;
-        GAPIsize offset;
+        GAPIType type;
         GAPIbool normalized;
     };
     
@@ -30,17 +26,16 @@ namespace GLESC {
         
         [[nodiscard]] uint32_t getStride() const;
         
-        template<GAPITypes type, DataTypeSize dataTypeSize, DataDimSize dataDimSize>
-        void push() {
-            elements.push_back({type, dataTypeSize, dataDimSize,
-                                static_cast<GAPIuint>(dataDimSize), 0, false});
+        void push(GAPIType type, GAPIbool normalized = GAPI_FALSE) {
+            auto typeSize = getTypeSize(type);
+            elements.push_back({type, normalized});
             
-            stride += static_cast<GAPIuint>(dataTypeSize)
-                      * static_cast<GAPIuint>(dataDimSize);
+            stride += static_cast<GAPIuint>(typeSize);
         }
     
     private:
         std::vector<VertexBufferElement> elements;
         GAPIuint stride;
-    };
-}
+        
+    }; // class VertexBufferLayout
+} // namespace GLESC
