@@ -39,8 +39,8 @@ namespace GLESC {
         }
         
         void start() {
-            gapi.clear({GAPIValues::ClearBitsColor, GAPIValues::ClearBitsDepth,
-                        GAPIValues::ClearBitsStencil});
+            gapi.clear({GAPI::ClearBits::Color, GAPI::ClearBits::Depth,
+                        GAPI::ClearBits::Stencil});
             gapi.clearColor(0.2f, 0.3f, 0.3f, 1.0f);
         }
         

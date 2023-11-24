@@ -13,9 +13,9 @@
 class ShaderLoader {
 
 public:
-    static GAPIuint loadShader(const std::string& fileName);
-    static GAPIuint loadShader(const std::string& vertexShaderSourceParam,
-                              const std::string& fragmentShaderSourceParam);
+    static GAPI::UInt loadShader(const std::string& fileName);
+    static GAPI::UInt loadShader(const std::string& vertexShaderSourceParam,
+                                 const std::string& fragmentShaderSourceParam);
 private:
     
     /**
@@ -32,30 +32,30 @@ private:
      * @brief ID reference to the vertex shader
      *
      */
-    static GAPIuint vertexShader;
+    static GAPI::UInt vertexShader;
     /**
      * @brief ID reference to the fragment shader
      *
      */
-    static GAPIuint fragmentShader;
+    static GAPI::UInt fragmentShader;
     
     /**
      * @brief Loads the vertex shader
      * Sets the actual coordinates of the vertices in the GPU
      */
-    static GAPIuint loadVertexShader(const std::string& vertexShaderSourceParam);
+    static GAPI::UInt loadVertexShader(const std::string& vertexShaderSourceParam);
     
     /**
      * @brief Loads the fragment shader
      * Calculates colors of pixels (a fragment is a pixel in OpenGL)
      */
-    static GAPIuint loadFragmentShader(const std::string& fragmentShaderSourceParam);
+    static GAPI::UInt loadFragmentShader(const std::string& fragmentShaderSourceParam);
     
     /**
      * @brief Links the loaded shaders into the shader program
      *
      */
-    static GAPIuint createShaderProgram();
+    static GAPI::UInt createShaderProgram();
     
     static void extractShaderCode(const std::string& shaderSource,
                                   std::string& vertexCode,

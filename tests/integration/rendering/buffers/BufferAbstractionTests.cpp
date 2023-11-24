@@ -23,42 +23,42 @@ class BufferTests : public GAPIBaseRenderTest {
 protected:
     GLESC::WindowManager windowManager;
     // These are pointers because we don't want to call the constructor
-    GLESC::VertexArray* va;
-    GLESC::VertexBuffer* vb;
-    GLESC::IndexBuffer* ib;
-    GAPIuint shaderProgram{};
+    GLESC::VertexArray* vao;
+    GLESC::VertexBuffer* vbo;
+    GLESC::IndexBuffer* ibo;
+    GAPI::UInt shaderProgram{};
+    
+    BufferTests() : GAPIBaseRenderTest() {
+    }
     
     void prepareShaders() override {
         shaderProgram = ShaderLoader::loadShader(vertexShaderSource, fragmentShaderSource);
-        GLESC::Logger::get().success("Shader program created successfully");
     }
     
     void prepareBuffers() override {
-        GLESC::Logger::get().success("Creating buffers...");
-        va = new GLESC::VertexArray();
-        GLESC::Logger::get().success("Vertex array created!");
-        vb = new GLESC::VertexBuffer(vertices);
-        GLESC::Logger::get().success("Vertex buffer created!");
-        ib = new GLESC::IndexBuffer(indices);
-        GLESC::Logger::get().success("Index buffer created!");
+        vao = new GLESC::VertexArray();
+        vao->bind();
+        vbo = new GLESC::VertexBuffer(vertices);
+        ibo = new GLESC::IndexBuffer(indices);
         
         GLESC::VertexBufferLayout layout;
-        layout.push(GAPIType::Vec2F, 2);
-        GLESC::Logger::get().success("Vertex buffer layout created!");
+        layout.push(GAPI::Types::Vec2F);
         
-        va->addBuffer(*vb, layout);
-        GLESC::Logger::get().success("Vertex buffer added to vertex array!");
+        vao->addBuffer(*vbo, layout);
+        
+        
+        vao->unbind();
         
     }
     
     void destroyRender() override {
-        ib->destroy();
-        vb->destroy();
-        va->destroy();
+        ibo->destroy();
+        vbo->destroy();
+        vao->destroy();
         
-        delete ib;
-        delete vb;
-        delete va;
+        delete ibo;
+        delete vbo;
+        delete vao;
         
         gapi.destroyShaderProgram(shaderProgram);
         gapi.deleteContext();
@@ -66,11 +66,14 @@ protected:
     }
     
     void render() override {
-        gapi.clear({GAPIValues::ClearBitsColor, GAPIValues::ClearBitsDepth,
-                    GAPIValues::ClearBitsStencil});
         gapi.clearColor(backgroundColor.r, backgroundColor.g, backgroundColor.b,
                          backgroundColor.a);
-        va->bind();
+        gapi.clear({GAPI::ClearBits::Color, GAPI::ClearBits::Depth,
+                    GAPI::ClearBits::Stencil});
+        vao->bind();
+        gapi.useShaderProgram(shaderProgram);
+        gapi.setUniform(shaderProgram, "uColor")->u4F(figureColor.r, figureColor.g,
+                                                      figureColor.b, figureColor.a);
         gapi.drawTrianglesIndexed(indices.size());
         
         gapi.swapBuffers(windowManager.getWindow());
@@ -94,6 +97,6 @@ private:
 TEST_F(BufferTests, test) {
     checkBackgroundColor();
     checkTriangleColor();
-    checkBufferData(vb->getBufferID());
-    checkBufferData(ib->getBufferID());
+    checkBufferData<GAPI::BufferTypes::Vertex>(vbo->getBufferID());
+    checkBufferData<GAPI::BufferTypes::Element>(ibo->getBufferID());
 }

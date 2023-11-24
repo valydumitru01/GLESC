@@ -27,7 +27,7 @@ namespace GLESC {
         
         void unbind() const;
         
-        [[nodiscard]] GAPIuint getRendererID() const {
+        [[nodiscard]] GAPI::UInt getRendererID() const {
             return vertexArrayID;
         }
     
@@ -35,7 +35,7 @@ namespace GLESC {
         void destroyOnce();
         
         bool objectAlive = true;
-        GAPIuint vertexArrayID;
+        GAPI::UInt vertexArrayID{0};
     }; // class VertexArray
     
 } // namespace GLESC

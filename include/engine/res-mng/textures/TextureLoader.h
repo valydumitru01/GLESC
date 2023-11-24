@@ -30,7 +30,7 @@ private:
      * @brief Bidirectional map cache of the textures that have been loaded.
      * @details This is used to cache the textures so they don't have to be loaded every time.
      */
-    boost::bimap<size_t, GAPIuint> textureCache;
+    boost::bimap<size_t, GAPI::UInt> textureCache;
     
     /**
      * @brief Hasher used to hash the file path.

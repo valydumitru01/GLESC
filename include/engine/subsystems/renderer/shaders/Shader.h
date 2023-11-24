@@ -32,6 +32,6 @@ namespace GLESC {
         /**
          * @brief The shader program
          */
-        GAPIuint shaderProgram;
+        GAPI::UInt shaderProgram;
     }; // class Shader
 }

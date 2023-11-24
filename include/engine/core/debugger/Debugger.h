@@ -55,45 +55,71 @@
     } while (0)
 
 
-
-    template<typename T>
-    std::string argsToString(const char* names, T value) {
-        std::ostringstream arg;
-        const char* nameEnd = std::strchr(names, ',');
-        std::string name(names, nameEnd ? nameEnd - names : std::strlen(names));
-        
-        arg << name << ": " << GLESC::toString(value);
-        std::string result = arg.str();
-        
-        // Replace '\n' with a space (or any other character/string)
-        std::replace(result.begin(), result.end(), '\n', ' ');
-        
-        if (nameEnd && *nameEnd == ',') {
-            nameEnd++; // Skip the comma
-            while (*nameEnd == ' ') nameEnd++; // Skip any whitespace after the comma
-            return result + ", " + argsToString(nameEnd, std::forward<T>(value));
-        } else {
-            return result;
-        }
-    }
+/**
+* @brief Converts the last argument of a variadic template into a string.
+*
+* This is the base case for the variadic template recursion. It processes the
+* final argument, extracting its name and converting its value to a string.
+*
+* @tparam T The type of the argument.
+* @param names A comma-separated list of argument names as a C-string.
+* @param value The value of the argument to be converted to string.
+* @return std::string A formatted string representing the argument's name and value.
+*/
+template<typename T>
+std::string argsToString(const char *names, T value) {
+    std::ostringstream arg;
+    const char *nameEnd = std::strchr(names, ',');
+    std::string name(names, nameEnd ? nameEnd - names : std::strlen(names));
     
-    template<typename T, typename... Args>
-    std::string argsToString(const char* names, T value, Args... args) {
-        std::ostringstream arg;
-        const char* nameEnd = strchr(names, ',');
-        std::string name(names, nameEnd ? nameEnd - names : strlen(names));
-        
-        arg << name << ": " << GLESC::toString(value);
-        
-        if (nameEnd && *nameEnd == ',') {
-            nameEnd++; // Skip the comma
-            while (*nameEnd == ' ') nameEnd++; // Skip any whitespace after the comma
-            // Recursively process the remaining arguments
-            return arg.str() + ", " + argsToString(nameEnd, args...);
-        } else {
-            return arg.str();
-        }
+    arg << name << ": " << GLESC::toString(value);
+    std::string result = arg.str();
+    
+    // Replace '\n' with a space (or any other character/string)
+    std::replace(result.begin(), result.end(), '\n', ' ');
+    
+    return result;
+}
+
+/**
+ * @brief Converts each argument of a variadic template into a string.
+ *
+ * This function processes each argument of a variadic template, converting
+ * them into a string format. It is recursively called for each argument
+ * until only one is left, at which point the base case function is invoked.
+ *
+ * @tparam T The type of the first argument.
+ * @tparam Args The types of the remaining arguments.
+ * @param names A comma-separated list of argument names as a C-string.
+ * @param value The value of the first argument.
+ * @param args The remaining arguments.
+ * @return std::string A formatted string representing all arguments' names and values.
+ */
+template<typename T, typename... Args>
+std::string argsToString(const char *names, T value, Args... args) {
+    std::ostringstream arg;
+    const char *nameEnd = std::strchr(names, ',');
+    std::string name(names, nameEnd ? nameEnd - names : std::strlen(names));
+    
+    arg << name << ": " << GLESC::toString(value);
+    
+    // Proceed to the next argument, if any
+    if (nameEnd && *nameEnd == ',') {
+        nameEnd++; // Skip the comma
+        while (*nameEnd == ' ')
+            nameEnd++; // Skip any whitespace after the comma
+        // Recursively process the remaining arguments
+        return arg.str() + ", " + argsToString(nameEnd, args...);
+    } else {
+        return arg.str();
     }
+}
+
+#define FUNCTION_CALL_STR(FUNCTION_NAME, ...) \
+        std::string(FUNCTION_NAME) + \
+        std::string("(")+                     \
+            argsToString(#__VA_ARGS__, __VA_ARGS__)                     \
+        +std::string(")")
 #else
-    #define SDLCall(call) call
+#define SDLCall(call) call
 #endif

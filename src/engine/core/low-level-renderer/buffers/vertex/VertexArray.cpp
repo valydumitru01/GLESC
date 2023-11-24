@@ -34,37 +34,34 @@ void VertexArray::unbind() const {
 
 void VertexArray::addBuffer(const GLESC::VertexBuffer &vb,
                             const GLESC::VertexBufferLayout &layout) {
-    this->bind(); // Bind the VAO to set up its state
-    vb.bind(); // Bind the VBO to associate it with the VAO
-    
     // Retrieve the vertex attribute elements
     auto const &elements = layout.getElements();
     // Get the stride (byte offset between consecutive attributes)
     auto const &stride = layout.getStride();
     
-    GAPIuint offset = 0; // Start with an offset of 0
+    GAPI::UInt offset = 0; // Start with an offset of 0
     for (size_t i = 0; i < elements.size(); ++i) {
         // For each element in the layout
         auto const &element = elements[i];
         
-        // Enable the vertex attribute array
-        gapi.enableVertexData(static_cast<GAPIuint>(i));
-        
         // Get the data from the enum type
-        auto const typeCount = static_cast<GAPIuint>(getTypeCount(element.type));
+        auto const typeCount = static_cast<GAPI::UInt>(getTypeCount(element.type));
         auto const type = getTypePrimitiveType(element.type);
         // The type size can be vectors or matrices, so we get the size from the primitive type
         // and not from the type of the element of the layout because it can be a vector or a matrix
         // and gapi recognizes only the size of the primitive types
-        auto const typeSize = static_cast<GAPIuint>(getTypeSize(type));
+        auto const typeSize = static_cast<GAPI::UInt>(getTypeSize(type));
         
         // Set up the vertex attribute pointers
-        gapi.createVertexData(static_cast<GAPIuint>(i),
+        gapi.createVertexData(static_cast<GAPI::UInt>(i),
                               typeCount,
                               type,
                               element.normalized,
                               stride,
                               offset);
+        
+        // Enable the vertex attribute array
+        gapi.enableVertexData(static_cast<GAPI::UInt>(i));
         
         // Calculate the offset for the next attribute
         offset += typeCount * typeSize;

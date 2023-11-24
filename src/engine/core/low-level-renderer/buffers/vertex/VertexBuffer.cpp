@@ -13,18 +13,6 @@
 using namespace GLESC;
 
 
-VertexBuffer::VertexBuffer(const void *data,
-                           GAPIsize size) {
-    D_ASSERT_NOT_NULL(data, "Data is null in VertexBuffer constructor");
-    D_ASSERT_TRUE(size > 0, "Size is 0 in VertexBuffer constructor");
-    gapi.genBuffers(1, vertexBufferID);
-    gapi.bindBuffer(GAPIValues::BufferTypeVertex, vertexBufferID);
-    gapi.setBufferData(data, size, GAPIValues::BufferTypeVertex,
-                       GAPIValues::BufferUsageStaticDraw);
-    gapi.unbindBuffer(GAPIValues::BufferTypeVertex);
-}
-
-
 VertexBuffer::~VertexBuffer() {
     destroyOnce();
 }
@@ -34,11 +22,11 @@ void VertexBuffer::destroy() {
 }
 
 void VertexBuffer::bind() const {
-    gapi.bindBuffer(GAPIValues::BufferTypeVertex, vertexBufferID);
+    gapi.bindBuffer(GAPI::BufferTypes::Vertex, vertexBufferID);
 }
 
 void VertexBuffer::unbind() const {
-    gapi.unbindBuffer(GAPIValues::BufferTypeVertex);
+    gapi.unbindBuffer(GAPI::BufferTypes::Vertex);
 }
 
 void VertexBuffer::destroyOnce() {

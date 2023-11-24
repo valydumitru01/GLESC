@@ -52,13 +52,24 @@ public:
         ASSERT_NEAR(figureColor.a, color.a, colorEpsilon);
     }
     
-    void checkBufferData(GAPIuint VBO){
-        std::vector<float> actualVertices = gapi.getBufferDataF(VBO);
-        ASSERT_EQ(actualVertices.size(), vertices.size());
-        for (size_t i = 0; i < actualVertices.size(); ++i) {
-            std::cout<< "Vertex data " << i << ": " << actualVertices[i] << "\n";
-            EXPECT_NEAR(actualVertices[i], vertices[i], dataEpsilon)
-                                << "Vertex data mismatch at index " << i;
+    template<GAPI::BufferTypes type>
+    void checkBufferData(GAPI::UInt buffer) {
+        gapi.bindBuffer(type, buffer);
+        
+        if constexpr (type == GAPI::BufferTypes::Index) {
+            auto actualIndices = gapi.getBufferDataUI(buffer);
+            ASSERT_EQ(actualIndices.size(), indices.size());
+            for (size_t i = 0; i < actualIndices.size(); ++i) {
+                EXPECT_EQ(actualIndices[i], indices[i])
+                                    << "Index data mismatch at index " << i;
+            }
+        } else if constexpr (type == GAPI::BufferTypes::Vertex) {
+            auto actualVertices = gapi.getBufferDataF(buffer);
+            ASSERT_EQ(actualVertices.size(), vertices.size());
+            for (size_t i = 0; i < actualVertices.size(); ++i) {
+                EXPECT_NEAR(actualVertices[i], vertices[i], dataEpsilon)
+                                    << "Vertex data mismatch at index " << i;
+            }
         }
     }
 

@@ -12,19 +12,17 @@
 #include "engine/core/low-level-renderer/graphic-api/Gapi.h"
 using namespace GLESC;
 
-IndexBuffer::IndexBuffer(const GAPIuint *data,const GAPIsize count) :
+IndexBuffer::IndexBuffer(const GAPI::UInt *data, const GAPI::Size count) :
         count(count){
     gapi.genBuffers(1, indexBufferID);
-    gapi.bindBuffer(GAPIValues::BufferTypeIndex, indexBufferID);
+    this->bind();
     gapi.setBufferData(data, count,
-                       GAPIValues::BufferTypeIndex,
-                       GAPIValues::BufferUsageStaticDraw);
-    gapi.unbindBuffer(GAPIValues::BufferTypeIndex);
+                       GAPI::BufferTypes::Index,
+                       GAPI::BufferUsages::StaticDraw);
 }
 
-IndexBuffer::IndexBuffer(const std::vector<GAPIuint> &data) :
-    IndexBuffer(data.data(), static_cast<GAPIsize>(data.size())){
-}
+IndexBuffer::IndexBuffer(const std::vector<GAPI::UInt> &data) :
+    IndexBuffer(data.data(), static_cast<GAPI::Size>(data.size())){}
 
 IndexBuffer::~IndexBuffer() {
     destroyOnce();
@@ -36,11 +34,11 @@ void IndexBuffer::destroy() {
 
 
 void IndexBuffer::bind() const {
-    gapi.bindBuffer(GAPIValues::BufferTypeIndex, indexBufferID);
+    gapi.bindBuffer(GAPI::BufferTypes::Index, indexBufferID);
 }
 
 void IndexBuffer::unbind() const {
-    gapi.unbindBuffer(GAPIValues::BufferTypeIndex);
+    gapi.unbindBuffer(GAPI::BufferTypes::Index);
 }
 
 

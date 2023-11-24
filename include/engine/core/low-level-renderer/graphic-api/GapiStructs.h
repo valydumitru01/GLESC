@@ -13,14 +13,14 @@
 #include "GapiTypes.h"
 
 struct RGBColor {
-    GAPIbyte r;
-    GAPIbyte g;
-    GAPIbyte b;
-    GAPIbyte a;
+    GAPI::Byte r;
+    GAPI::Byte g;
+    GAPI::Byte b;
+    GAPI::Byte a;
 };
 struct RGBColorNormalized {
-    GAPIfloat r;
-    GAPIfloat g;
-    GAPIfloat b;
-    GAPIfloat a;
+    GAPI::Float r;
+    GAPI::Float g;
+    GAPI::Float b;
+    GAPI::Float a;
 };

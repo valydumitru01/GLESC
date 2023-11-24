@@ -13,17 +13,25 @@
 
 #ifdef GLESC_OPENGL
 #include <GL/glew.h>
-using GAPIbool = GLboolean;
-using GAPIuint = GLuint;
-using GAPIfloat = GLfloat;
-using GAPIint = GLint;
-using GAPIsize = GLuint;
-using GAPIshort = GLshort;
-using GAPIchar = GLchar;
-using GAPIvoid = GLvoid;
-using GAPIenum = GLenum;
-using GAPIbitfield = GLbitfield;
-using GAPIbyte = GLbyte;
+
+namespace GAPI{
+    enum class Bool{
+        False = GL_FALSE,
+        True = GL_TRUE
+    };
+    using UInt = GLuint;
+    using Float = GLfloat;
+    using Int = GLint;
+    using Size = GLuint;
+    using Short = GLshort;
+    using Char = GLchar;
+    using UShort = GLushort;
+    using UChar = GLubyte;
+    using Void = GLvoid;
+    using Bitfield = GLbitfield;
+    using Byte = GLbyte;
+
+} // namespace GAPI
 
 #define GAPI_FALSE GL_FALSE
 #define GAPI_TRUE GL_TRUE
@@ -39,3 +47,33 @@ using GAPIbyte = GLbyte;
 
 #endif
 
+
+template<typename T>
+struct isGraphicsType : std::false_type {};
+
+// Specialize for expected types
+template<> struct isGraphicsType<GAPI::Float> : std::true_type {};
+template<> struct isGraphicsType<GAPI::Int> : std::true_type {};
+template<> struct isGraphicsType<GAPI::UInt> : std::true_type {};
+template<> struct isGraphicsType<GAPI::UShort> : std::true_type {};
+template<> struct isGraphicsType<GAPI::UChar> : std::true_type {};
+
+
+#include "engine/core/math/Vec.h"
+
+// GLM vector types
+template<> struct isGraphicsType<Vec2F> : std::true_type {};
+template<> struct isGraphicsType<Vec3F> : std::true_type {};
+template<> struct isGraphicsType<Vec4F> : std::true_type {};
+
+#include "engine/core/math/Matrix.h"
+// GLM matrix types
+template<> struct isGraphicsType<Mat2F> : std::true_type {};
+template<> struct isGraphicsType<Mat3F> : std::true_type {};
+template<> struct isGraphicsType<Mat4F> : std::true_type {};
+
+// GLM quaternion type
+//template<> struct is_graphics_type<QuatF> : std::true_type {};
+
+template<typename T>
+bool constexpr isGraphicsType_v = isGraphicsType<T>::value;

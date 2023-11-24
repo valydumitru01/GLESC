@@ -16,17 +16,26 @@ namespace GLESC {
     
     class VertexBuffer {
     public:
-        VertexBuffer() = default;
+        template<class Type>
+        VertexBuffer(const Type *data, GAPI::Size size) {
+            D_ASSERT_NOT_NULL(data, "Data is null in VertexBuffer constructor");
+            D_ASSERT_TRUE(size > 0, "Size is 0 in VertexBuffer constructor");
+            gapi.genBuffers(1, vertexBufferID);
+            this->bind();
+            gapi.setBufferData(data, size,
+                               GAPI::BufferTypes::Vertex,
+                               GAPI::BufferUsages::StaticDraw);
+        }
         
-        VertexBuffer(const void *data, GAPIsize size);
+        template<class Type, class = std::enable_if_t<isGraphicsType_v<Type>>>
+        VertexBuffer(const std::vector<Type> &data) :
+            VertexBuffer(data.data(), data.size()) {
         
-        template<typename T>
-        VertexBuffer(std::vector<T> data) :
-                VertexBuffer(data.data(), data.size() * sizeof(T)) {}
+        }
         
         ~VertexBuffer();
         
-        [[nodiscard]] GAPIuint getBufferID() const { return vertexBufferID; }
+        [[nodiscard]] GAPI::UInt getBufferID() const { return vertexBufferID; }
         
         void destroy();
         
@@ -45,7 +54,7 @@ namespace GLESC {
         void destroyOnce();
         
         bool objectAlive = true;
-        GAPIuint vertexBufferID{};
+        GAPI::UInt vertexBufferID{0};
         
     };
 }

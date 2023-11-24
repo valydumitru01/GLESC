@@ -9,13 +9,14 @@
 
 #include <vector>
 #include "engine/core/low-level-renderer/graphic-api/GapiTypes.h"
+#include "engine/core/low-level-renderer/graphic-api/Gapi.h"
 
 namespace GLESC {
     class IndexBuffer {
     public:
-        IndexBuffer() = default;
-        IndexBuffer(const GAPIuint *data,const GAPIsize count);
-        IndexBuffer(const std::vector<GAPIuint> &data);
+        IndexBuffer(const GAPI::UInt *data, const GAPI::Size count);
+
+        IndexBuffer(const std::vector<GAPI::UInt> &data);
         
         ~IndexBuffer();
         
@@ -25,15 +26,15 @@ namespace GLESC {
         
         void unbind() const;
         
-        [[nodiscard]] inline GAPIsize getCount() const { return count; }
+        [[nodiscard]] inline GAPI::Size getCount() const { return count; }
         
-        [[nodiscard]] GAPIuint getBufferID() const { return indexBufferID; }
+        [[nodiscard]] GAPI::UInt getBufferID() const { return indexBufferID; }
     
     private:
         void destroyOnce();
         
         bool objectAlive = true;
-        GAPIsize count{};
-        GAPIuint indexBufferID{};
+        GAPI::Size count{};
+        GAPI::UInt indexBufferID{0};
     };
 }

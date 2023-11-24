@@ -14,7 +14,7 @@
 #include "engine/res-mng/files/FileManager.h"
 #include "engine/subsystems/renderer/shaders/ShaderLoader.h"
 
-GAPIuint ShaderLoader::loadShader(const std::string& fileName) {
+GAPI::UInt ShaderLoader::loadShader(const std::string& fileName) {
     std::string shaderPath = std::string(SHADER_PATH) + "/" + fileName;
     std::string shaderSource = FileManager::readFile(shaderPath);
     GLESC::Logger::get().success("Shader file read successfully: " + shaderPath);
@@ -29,15 +29,15 @@ GAPIuint ShaderLoader::loadShader(const std::string& fileName) {
     GLESC::Logger::get().success("Vertex shader loaded successfully");
     fragmentShader=loadFragmentShader(fragmentShaderSource);
     GLESC::Logger::get().success("Fragment shader loaded successfully");
-    GAPIuint shaderProgram = createShaderProgram();
+    GAPI::UInt shaderProgram = createShaderProgram();
     GLESC::Logger::get().success("Shader program created successfully");
     
     clean();
     return shaderProgram;
 }
 
-GAPIuint ShaderLoader::loadShader(const std::string& vertexShaderSourceParam,
-                                  const std::string& fragmentShaderSourceParam) {
+GAPI::UInt ShaderLoader::loadShader(const std::string& vertexShaderSourceParam,
+                                    const std::string& fragmentShaderSourceParam) {
     vertexShaderSource = vertexShaderSourceParam;
     fragmentShaderSource = fragmentShaderSourceParam;
     prependGLSLVersion(vertexShaderSource, fragmentShaderSource);
@@ -49,7 +49,7 @@ GAPIuint ShaderLoader::loadShader(const std::string& vertexShaderSourceParam,
     GLESC::Logger::get().success("Vertex shader loaded successfully");
     fragmentShader=loadFragmentShader(fragmentShaderSource);
     GLESC::Logger::get().success("Fragment shader loaded successfully");
-    GAPIuint shaderProgram = createShaderProgram();
+    GAPI::UInt shaderProgram = createShaderProgram();
     GLESC::Logger::get().success("Shader program created successfully");
     
     clean();
@@ -129,29 +129,29 @@ std::string ShaderLoader::vertexShaderSource;
 
 std::string ShaderLoader::fragmentShaderSource;
 
-GAPIuint ShaderLoader::vertexShader;
+GAPI::UInt ShaderLoader::vertexShader;
 
-GAPIuint ShaderLoader::fragmentShader;
+GAPI::UInt ShaderLoader::fragmentShader;
 
-GAPIuint ShaderLoader::loadVertexShader(const std::string& vertexShaderSourceParam) {
-    GAPIuint vertShader = gapi
-            .loadAndCompileShader(GAPIValues::ShaderTypeVertex, vertexShaderSourceParam);
+GAPI::UInt ShaderLoader::loadVertexShader(const std::string& vertexShaderSourceParam) {
+    GAPI::UInt vertShader = gapi
+            .loadAndCompileShader(GAPI::ShaderTypes::Vertex, vertexShaderSourceParam);
     shaderNamesMap.emplace(vertShader, "VERTEX");
     D_ASSERT_COMPILATION_OK(vertShader);
     return vertShader;
 }
 
-GAPIuint ShaderLoader::loadFragmentShader(const std::string& fragmentShaderSourceParam) {
-    GAPIuint fragShader = gapi
-            .loadAndCompileShader(GAPIValues::ShaderTypeFragment, fragmentShaderSourceParam);
+GAPI::UInt ShaderLoader::loadFragmentShader(const std::string& fragmentShaderSourceParam) {
+    GAPI::UInt fragShader = gapi
+            .loadAndCompileShader(GAPI::ShaderTypes::Fragment, fragmentShaderSourceParam);
     shaderNamesMap.emplace(fragShader, "FRAGMENT");
     D_ASSERT_COMPILATION_OK(fragShader);
     return fragShader;
 }
 
 
-GAPIuint ShaderLoader::createShaderProgram() {
-    GAPIuint shaderProgram = gapi.createShaderProgram(vertexShader, fragmentShader);
+GAPI::UInt ShaderLoader::createShaderProgram() {
+    GAPI::UInt shaderProgram = gapi.createShaderProgram(vertexShader, fragmentShader);
     D_ASSERT_LINKING_OK(shaderProgram);
     return shaderProgram;
 }

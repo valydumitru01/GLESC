@@ -90,17 +90,17 @@ protected:
     GLuint VAO{};
     
     void prepareBuffers() override {
+        // Vertex Array Object (VAO)
+        glGenVertexArrays(1, &VAO);
+        glBindVertexArray(VAO);
+        Logger::get().success("VAO created!");
+        
         // Vertex Buffer Object (VBO)
         glGenBuffers(1, &VBO);
         glBindBuffer(GL_ARRAY_BUFFER, VBO);
         glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(float), vertices.data(),
                      GL_STATIC_DRAW);
         Logger::get().success("VBO created!");
-        
-        // Vertex Array Object (VAO)
-        glGenVertexArrays(1, &VAO);
-        glBindVertexArray(VAO);
-        Logger::get().success("VAO created!");
         
         // Set vertex attributes
         glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(GLfloat), (GLvoid *) 0);
