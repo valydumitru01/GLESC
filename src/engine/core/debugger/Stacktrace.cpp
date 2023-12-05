@@ -16,7 +16,7 @@
 
 
 [[nodiscard]] std::string GLESC::addr2Line(const std::string &addr,
-                                    const std::string &exePath) {
+                                           const std::string &exePath) {
     std::ostringstream command;
     command << "addr2line -f -C -e " << exePath << " " << addr;
     std::array<char, 128> buffer{};
@@ -53,3 +53,4 @@
     
     return stacktrace;
 }
+

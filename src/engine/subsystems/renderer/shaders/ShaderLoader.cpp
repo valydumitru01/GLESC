@@ -12,7 +12,7 @@
 #include "engine/core/low-level-renderer/asserts/ShaderAsserts.h"
 #include "engine/core/low-level-renderer/graphic-api/Gapi.h"
 #include "engine/res-mng/files/FileManager.h"
-#include "engine/subsystems/renderer/shaders/ShaderLoader.h"
+#include "engine/core/low-level-renderer/shader/ShaderLoader.h"
 
 GAPI::UInt ShaderLoader::loadShader(const std::string& fileName) {
     std::string shaderPath = std::string(SHADER_PATH) + "/" + fileName;

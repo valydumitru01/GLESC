@@ -13,7 +13,7 @@
 #include <GL/glew.h>
 #include <engine/Config.h>
 #include <engine/core/logger/Logger.h>
-#include <engine/subsystems/renderer/shaders/ShaderLoader.h>
+#include <engine/core/low-level-renderer/shader/ShaderLoader.h>
 #include "LoopHelper.h"
 #include "integration/rendering/IBaseRenderTest.h"
 
@@ -133,8 +133,8 @@ protected:
         
         // Set the color uniform
         GLint colorLocation = glGetUniformLocation(this->shaderProgram, "uColor");
-        glUniform4f(colorLocation, figureColor.r, figureColor.g, figureColor.b,
-                    figureColor.a);
+        glUniform4f(colorLocation, expectedTriangleColor.r, expectedTriangleColor.g, expectedTriangleColor.b,
+                    expectedTriangleColor.a);
         Logger::get().success("Color uniform set!");
         
         
@@ -210,7 +210,7 @@ TEST_F(OpenGLTests, test) {
     }
     
     // Check the background color
-    RGBColorNormalized pixel{};
+    GAPI::RGBColorNormalized pixel{};
     Logger::get().success("Reading pixel color!");
     glReadPixels(10, 10, 1, 1, GL_RGBA, GL_FLOAT, &pixel);
     Logger::get().success("Pixel color read! Pixel: " + std::to_string(pixel.r) + " " +
@@ -225,8 +225,8 @@ TEST_F(OpenGLTests, test) {
     glReadPixels(400, 300, 1, 1, GL_RGBA, GL_FLOAT, &pixel);
     Logger::get().success("Triangle color read! Pixel: " + std::to_string(pixel.r) + " " +
                           std::to_string(pixel.g) + " " + std::to_string(pixel.b));
-    EXPECT_NEAR(pixel.r, figureColor.r, colorEpsilon);
-    EXPECT_NEAR(pixel.g, figureColor.g, colorEpsilon);
-    EXPECT_NEAR(pixel.b, figureColor.b, colorEpsilon);
+    EXPECT_NEAR(pixel.r, expectedTriangleColor.r, colorEpsilon);
+    EXPECT_NEAR(pixel.g, expectedTriangleColor.g, colorEpsilon);
+    EXPECT_NEAR(pixel.b, expectedTriangleColor.b, colorEpsilon);
     Logger::get().success("Triangle color checked!");
 }

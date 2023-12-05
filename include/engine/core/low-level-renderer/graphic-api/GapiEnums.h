@@ -8,10 +8,10 @@
  * See LICENSE.txt in the project root for license information.
  **************************************************************************************************/
 #pragma once
-
 #include "engine/Config.h"
 
 namespace GAPI {
+    
     enum class TypeCount {
         Value [[maybe_unused]] = 1,
         Vec2 [[maybe_unused]] = 2,
@@ -21,39 +21,59 @@ namespace GAPI {
         Mat3 [[maybe_unused]] = 9,
         Mat4 [[maybe_unused]] = 16,
     };
+    namespace Texture {
+        namespace InternalFormat {
+            enum class BitDepth {
+                Bit8 [[maybe_unused]] = 8,
+                Bit16 [[maybe_unused]] = 16,
+                Bit24 [[maybe_unused]] = 24,
+                Bit32 [[maybe_unused]] = 32
+            };
+            enum class ColorFormat {
+                R [[maybe_unused]],
+                RG [[maybe_unused]],
+                RGB [[maybe_unused]],
+                RGBA [[maybe_unused]]
+            };
+            enum class TextureType {
+                Color [[maybe_unused]], Depth [[maybe_unused]],
+                Stencil [[maybe_unused]], DepthStencil [[maybe_unused]]
+            };
+        };
+    }
+
 }
 #ifdef GLESC_OPENGL
 
 #include <GL/glew.h>
 
 namespace GAPI {
-    class TextureFilters {
-    public:
-        enum class MinFilter {
-            Nearest [[maybe_unused]] = GL_NEAREST,
-            Linear [[maybe_unused]] = GL_LINEAR,
-            NearestMipmapNearest [[maybe_unused]] = GL_NEAREST_MIPMAP_NEAREST,
-            LinearMipmapNearest [[maybe_unused]] = GL_LINEAR_MIPMAP_NEAREST,
-            NearestMipmapLinear [[maybe_unused]] = GL_NEAREST_MIPMAP_LINEAR,
-            LinearMipmapLinear [[maybe_unused]] = GL_LINEAR_MIPMAP_LINEAR
+    namespace Texture {
+        namespace Filters {
+            enum class Min {
+                Nearest [[maybe_unused]] = GL_NEAREST,
+                Linear [[maybe_unused]] = GL_LINEAR,
+                NearestMipmapNearest [[maybe_unused]] = GL_NEAREST_MIPMAP_NEAREST,
+                LinearMipmapNearest [[maybe_unused]] = GL_LINEAR_MIPMAP_NEAREST,
+                NearestMipmapLinear [[maybe_unused]] = GL_NEAREST_MIPMAP_LINEAR,
+                LinearMipmapLinear [[maybe_unused]] = GL_LINEAR_MIPMAP_LINEAR
+            };
+            
+            enum class Mag {
+                Nearest [[maybe_unused]] = GL_NEAREST,
+                Linear [[maybe_unused]] = GL_LINEAR,
+            };
+            
+            enum class WrapMode {
+                Repeat [[maybe_unused]] = GL_REPEAT,
+                MirroredRepeat [[maybe_unused]] = GL_MIRRORED_REPEAT,
+                ClampToEdge [[maybe_unused]] = GL_CLAMP_TO_EDGE,
+                ClampToBorder [[maybe_unused]] = GL_CLAMP_TO_BORDER
+            };
         };
-        
-        enum class MagFilter {
-            Nearest [[maybe_unused]] = GL_NEAREST,
-            Linear [[maybe_unused]] = GL_LINEAR,
-        };
-        
-        enum class WrapMode {
-            Repeat [[maybe_unused]] = GL_REPEAT,
-            MirroredRepeat [[maybe_unused]] = GL_MIRRORED_REPEAT,
-            ClampToEdge [[maybe_unused]] = GL_CLAMP_TO_EDGE,
-            ClampToBorder [[maybe_unused]] = GL_CLAMP_TO_BORDER
-        };
-    };
-    
+    }
     enum class BufferTypes {
         Vertex [[maybe_unused]] = GL_ARRAY_BUFFER,
-        Element [[maybe_unused]] = GL_ELEMENT_ARRAY_BUFFER,
         Index [[maybe_unused]] = GL_ELEMENT_ARRAY_BUFFER
     };
     
@@ -71,7 +91,6 @@ namespace GAPI {
         Depth [[maybe_unused]] = GL_DEPTH_BUFFER_BIT,
         Stencil [[maybe_unused]] = GL_STENCIL_BUFFER_BIT
     };
-// the rest enums would be similar in style.
     
     enum class ShaderTypes {
         Vertex [[maybe_unused]] = GL_VERTEX_SHADER,
@@ -104,7 +123,6 @@ namespace GAPI {
     
     enum class BlendingParameters {
         Blending [[maybe_unused]] = GL_BLEND,
-        BlendEquation [[maybe_unused]] = GL_BLEND_EQUATION,
         BlendEquationRGB [[maybe_unused]] = GL_BLEND_EQUATION_RGB,
         BlendEquationAlpha [[maybe_unused]] = GL_BLEND_EQUATION_ALPHA,
         BlendDstRGB [[maybe_unused]] = GL_BLEND_DST_RGB,
@@ -140,12 +158,12 @@ namespace GAPI {
     enum class Types {
         Float [[maybe_unused]] = GL_FLOAT,
         Int [[maybe_unused]] = GL_INT,
-        UnsignedInt [[maybe_unused]] = GL_UNSIGNED_INT,
+        UInt [[maybe_unused]] = GL_UNSIGNED_INT,
         Bool [[maybe_unused]] = GL_BOOL,
-        UnsignedByte [[maybe_unused]] = GL_UNSIGNED_BYTE,
         Byte [[maybe_unused]] = GL_BYTE,
+        UByte [[maybe_unused]] = GL_UNSIGNED_BYTE,
         Short [[maybe_unused]] = GL_SHORT,
-        UnsignedShort [[maybe_unused]] = GL_UNSIGNED_SHORT,
+        UShort [[maybe_unused]] = GL_UNSIGNED_SHORT,
         Vec2F [[maybe_unused]] = GL_FLOAT_VEC2,
         Vec3F [[maybe_unused]] = GL_FLOAT_VEC3,
         Vec4F [[maybe_unused]] = GL_FLOAT_VEC4,
@@ -188,92 +206,92 @@ namespace GAPI {
         Mat3F [[maybe_unused]] = sizeof(GLfloat) * static_cast<GLsizei>(TypeCount::Mat3),
         Mat4F [[maybe_unused]] = sizeof(GLfloat) * static_cast<GLsizei>(TypeCount::Mat4),
     };
+    
+    namespace Texture {
+        enum class Types {
+            Texture2D [[maybe_unused]] = GL_TEXTURE_2D,
+            Texture3D [[maybe_unused]] = GL_TEXTURE_3D,
+            TextureCubeMap [[maybe_unused]] = GL_TEXTURE_CUBE_MAP,
+            Texture2DArray [[maybe_unused]] = GL_TEXTURE_2D_ARRAY,
+            TextureCubeMapArray [[maybe_unused]] = GL_TEXTURE_CUBE_MAP_ARRAY,
+            Texture2DMultisample [[maybe_unused]] = GL_TEXTURE_2D_MULTISAMPLE,
+            Texture2DMultisampleArray [[maybe_unused]] = GL_TEXTURE_2D_MULTISAMPLE_ARRAY
+        }; // enum class TextureTypes
+        
+        
+        enum class BufferFormat {
+            R [[maybe_unused]] = GL_RED,
+            RG [[maybe_unused]] = GL_RG,
+            RGB [[maybe_unused]] = GL_RGB,
+            RGBA [[maybe_unused]] = GL_RGBA
+        }; // enum class TextureFormat
+        
+        
+    } // namespace Texture
 }
+#else
+#error "No graphic API selected!"
 #endif
+
+
+
+
+
+
 namespace GAPI {
     constexpr static TypeCount getTypeCount(Types type) {
         switch (type) {
             case Types::Float:
             case Types::Int:
-            case Types::UnsignedInt:
+            case Types::UInt:
             case Types::Bool:
-            case Types::UnsignedByte:
+            case Types::UByte:
             case Types::Byte:
             case Types::Short:
-            case Types::UnsignedShort:
-                return TypeCount::Value;
+            case Types::UShort:return TypeCount::Value;
             case Types::Vec2F:
             case Types::Vec2I:
             case Types::Vec2UI:
-            case Types::Vec2B:
-                return TypeCount::Vec2;
+            case Types::Vec2B:return TypeCount::Vec2;
             case Types::Vec3F:
             case Types::Vec3I:
             case Types::Vec3UI:
-            case Types::Vec3B:
-                return TypeCount::Vec3;
+            case Types::Vec3B:return TypeCount::Vec3;
             case Types::Vec4F:
             case Types::Vec4I:
             case Types::Vec4UI:
-            case Types::Vec4B:
-                return TypeCount::Vec4;
-            case Types::Mat2F:
-                return TypeCount::Mat2;
-            case Types::Mat3F:
-                return TypeCount::Mat3;
-            case Types::Mat4F:
-                return TypeCount::Mat4;
+            case Types::Vec4B:return TypeCount::Vec4;
+            case Types::Mat2F:return TypeCount::Mat2;
+            case Types::Mat3F:return TypeCount::Mat3;
+            case Types::Mat4F:return TypeCount::Mat4;
         }
     }
     
     constexpr static TypeSize getTypeSize(Types type) {
         switch (type) {
-            case Types::Float:
-                return TypeSize::Float;
-            case Types::Int:
-                return TypeSize::Int;
-            case Types::UnsignedInt:
-                return TypeSize::UnsignedInt;
-            case Types::Bool:
-                return TypeSize::Bool;
-            case Types::UnsignedByte:
-                return TypeSize::UnsignedByte;
-            case Types::Byte:
-                return TypeSize::Byte;
-            case Types::Short:
-                return TypeSize::Short;
-            case Types::UnsignedShort:
-                return TypeSize::UnsignedShort;
-            case Types::Vec2F:
-                return TypeSize::Vec2F;
-            case Types::Vec3F:
-                return TypeSize::Vec3F;
-            case Types::Vec4F:
-                return TypeSize::Vec4F;
-            case Types::Vec2I:
-                return TypeSize::Vec2I;
-            case Types::Vec3I:
-                return TypeSize::Vec3I;
-            case Types::Vec4I:
-                return TypeSize::Vec4I;
-            case Types::Vec2UI:
-                return TypeSize::Vec2UI;
-            case Types::Vec3UI:
-                return TypeSize::Vec3UI;
-            case Types::Vec4UI:
-                return TypeSize::Vec4UI;
-            case Types::Vec2B:
-                return TypeSize::Vec2B;
-            case Types::Vec3B:
-                return TypeSize::Vec3B;
-            case Types::Vec4B:
-                return TypeSize::Vec4B;
-            case Types::Mat2F:
-                return TypeSize::Mat2F;
-            case Types::Mat3F:
-                return TypeSize::Mat3F;
-            case Types::Mat4F:
-                return TypeSize::Mat4F;
+            case Types::Float:return TypeSize::Float;
+            case Types::Int:return TypeSize::Int;
+            case Types::UInt:return TypeSize::UnsignedInt;
+            case Types::Bool:return TypeSize::Bool;
+            case Types::UByte:return TypeSize::UnsignedByte;
+            case Types::Byte:return TypeSize::Byte;
+            case Types::Short:return TypeSize::Short;
+            case Types::UShort:return TypeSize::UnsignedShort;
+            case Types::Vec2F:return TypeSize::Vec2F;
+            case Types::Vec3F:return TypeSize::Vec3F;
+            case Types::Vec4F:return TypeSize::Vec4F;
+            case Types::Vec2I:return TypeSize::Vec2I;
+            case Types::Vec3I:return TypeSize::Vec3I;
+            case Types::Vec4I:return TypeSize::Vec4I;
+            case Types::Vec2UI:return TypeSize::Vec2UI;
+            case Types::Vec3UI:return TypeSize::Vec3UI;
+            case Types::Vec4UI:return TypeSize::Vec4UI;
+            case Types::Vec2B:return TypeSize::Vec2B;
+            case Types::Vec3B:return TypeSize::Vec3B;
+            case Types::Vec4B:return TypeSize::Vec4B;
+            case Types::Mat2F:return TypeSize::Mat2F;
+            case Types::Mat3F:return TypeSize::Mat3F;
+            case Types::Mat4F:return TypeSize::Mat4F;
         }
     }
     
@@ -287,22 +305,17 @@ namespace GAPI {
             case Types::Vec4F:
             case Types::Mat2F:
             case Types::Mat3F:
-            case Types::Mat4F:
-                return Types::Float;
+            case Types::Mat4F:return Types::Float;
             case Types::Vec2I:
             case Types::Vec3I:
-            case Types::Vec4I:
-                return Types::Int;
+            case Types::Vec4I:return Types::Int;
             case Types::Vec2UI:
             case Types::Vec3UI:
-            case Types::Vec4UI:
-                return Types::UnsignedInt;
+            case Types::Vec4UI:return Types::UInt;
             case Types::Vec2B:
             case Types::Vec3B:
-            case Types::Vec4B:
-                return Types::Bool;
-            default:
-                return Types::Float;
+            case Types::Vec4B:return Types::Bool;
+            default:return Types::Float;
         }
     }
 }

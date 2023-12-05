@@ -16,4 +16,6 @@ namespace GLESC {
                                               const std::string &exePath);
     
     [[nodiscard]] std::string generateStackTrace();
+    
+    [[nodiscard]] std::string printStackTrace();
 }

@@ -8,14 +8,12 @@
 
 #include <memory>
 #include <string>
-#include "SDL2/SDL.h"
-#include "GL/glew.h"
-#include "engine/core/exceptions/EngineException.h"
-#include "engine/core/window/WindowManager.h"
-#include "engine/core/low-level-renderer/graphic-api/Gapi.h"
-#include "engine/core/logger/Logger.h"
-#include "engine/Config.h"
+#include <GL/glew.h>
+#include <SDL2/SDL.h>
+
 #include "engine/core/math/Vec.h"
+#include "WindowStructs.h"
+
 
 /**
  * @brief 1.77 is the standard ratio (16:9)
@@ -40,10 +38,6 @@ namespace GLESC {
          * @return WindowDimensions -> width: width of the window,
          *                             height: height of the window
          */
-        struct WindowDimensions{
-            int width;
-            int height;
-        };
         [[nodiscard]] WindowDimensions getWindowSize() const;
         /**
          * @brief Callback function when window size is modified

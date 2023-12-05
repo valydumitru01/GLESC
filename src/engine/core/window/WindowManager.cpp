@@ -7,15 +7,18 @@
  * Copyright (c) 2023 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
  ******************************************************************************/
-#include <engine/core/math/Vec.h>
-#include <engine/core/exceptions/core/window/WindowException.h>
+#include "engine/core/math/Vec.h"
+#include "engine/core/exceptions/EngineException.h"
+#include "engine/core/exceptions/core/window/WindowException.h"
+#include "engine/core/logger/Logger.h"
+#include "engine/core/low-level-renderer/graphic-api/Gapi.h"
 #include "engine/core/window/WindowManager.h"
 
 using namespace GLESC;
 
 WindowManager::WindowManager() {
     initSDL();
-    gapi.preWindowConfig();
+    gapi.preWindowCreationInit();
     window = createWindow(GLESC_WINDOW_TITLE);
     auto x = GLESC_WINDOW_X;
     auto y = GLESC_WINDOW_Y;
@@ -120,7 +123,7 @@ SDL_Window &WindowManager::getWindow() {
     return *window;
 }
 
-GLESC::WindowManager::WindowDimensions WindowManager::getWindowSize() const {
+GLESC::WindowDimensions WindowManager::getWindowSize() const {
     WindowDimensions dimensions{};
     SDLCall(SDL_GetWindowSize(window, &dimensions.width, &dimensions.height));
     return dimensions;
@@ -170,6 +173,7 @@ SDL_Window *WindowManager::createWindow(const char *title) {
 }
 
 void WindowManager::destroyWindow() {
+    gapi.deleteContext();
     SDLCall(SDL_DestroyWindow(window));
     SDLCall(SDL_Quit());
     GLESC::Logger::get().success("Window destroyed!");

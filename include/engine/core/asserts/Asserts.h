@@ -22,86 +22,68 @@
 // Runtime asserts are used to check conditions at runtime
 
 
-#define ASSERT_CONTENT(condition, message) \
-            std::ostringstream oss;                                              \
-            oss << "Assertion failed: " << #condition << "\n"                    \
-                << "Message: " << message << "\n"                                \
-                << "File: " << __FILE__ << "\n"                                  \
-                << "Line: " << __LINE__ << "\n"                                  \
-                << "Function: " << __PRETTY_FUNCTION__ << "\n"                   \
-                << "Stacktrace: \n" << GLESC::generateStackTrace();              \
-            GLESC::Logger::get().error(oss.str());                               \
-            std::terminate();
+#define ASSERT_CONTENT(failureCondition, message) \
+        if (!(failureCondition)) { \
+            std::ostringstream oss; \
+            oss << "\n==================== ASSERTION FAILED ====================\n" \
+                << "Failed Condition: " << #failureCondition << "\n" \
+                << "Message  : " << message << "\n\n" \
+                << "Location : " << __FILE__ << ", Line " << __LINE__ << "\n" \
+                << "Function : " << __PRETTY_FUNCTION__ << "\n\n" \
+                << "Stacktrace:\n" << GLESC::generateStackTrace() \
+                << "\n=========================================================\n"; \
+            GLESC::Logger::get().error(oss.str()); \
+            std::terminate();                  \
+        }
 
-
-
-#define D_ASSERT_TRUE(condition, message) \
-        do { \
-            if (! (condition)) { \
-                ASSERT_CONTENT(condition, message) \
-            } \
+#define D_ASSERT_TRUE(value, message) \
+        do {                              \
+            ASSERT_CONTENT(value , message) \
         } while (false)
 
-#define D_ASSERT_FALSE(condition, message) \
+#define D_ASSERT_FALSE(value, message) \
         do { \
-            if (condition) { \
-                ASSERT_CONTENT(condition, message) \
-            } \
+            ASSERT_CONTENT(!(value), message) \
         } while (false)
 
-#define D_ASSERT_NOT_NULL(condition, message) \
+#define D_ASSERT_NOT_NULLPTR(value, message) \
         do { \
-            if (condition == nullptr) { \
-                ASSERT_CONTENT(condition, message) \
-            } \
+            ASSERT_CONTENT((value) != nullptr, message) \
         } while (false)
 
-#define D_ASSERT_NULL(condition, message) \
+#define D_ASSERT_NULL(value, message) \
         do { \
-            if (condition != nullptr) { \
-                ASSERT_CONTENT(condition, message) \
-            } \
+            ASSERT_CONTENT((value) == nullptr, message) \
         } while (false)
 
-#define D_ASSERT_EQUAL(condition, expected, message) \
+#define D_ASSERT_EQUAL(value, expected, message) \
         do { \
-            if (condition != expected) { \
-                ASSERT_CONTENT(condition, message) \
-            } \
+            ASSERT_CONTENT((value) == (expected), message) \
         } while (false)
 
-#define D_ASSERT_GREATER(condition, expected, message) \
+#define D_ASSERT_GREATER(value, expected, message) \
         do { \
-            if (condition <= expected) { \
-                ASSERT_CONTENT(condition, message) \
-            } \
+            ASSERT_CONTENT((value) > (expected), message) \
         } while (false)
 
-#define D_ASSERT_GREATER_OR_EQUAL(condition, expected, message) \
+#define D_ASSERT_GREATER_OR_EQUAL(value, expected, message) \
         do { \
-            if (condition < expected) { \
-                ASSERT_CONTENT(condition, message) \
-            } \
+            ASSERT_CONTENT((value) >= (expected), message) \
         } while (false)
 
-#define D_ASSERT_LESS(condition, expected, message) \
+#define D_ASSERT_LESS(value, expected, message) \
         do { \
-            if (condition >= expected) { \
-                ASSERT_CONTENT(condition, message) \
-            } \
-        } while (false)
-#define D_ASSERT_LESS_OR_EQUAL(condition, expected, message) \
-        do { \
-            if (condition > expected) { \
-                ASSERT_CONTENT(condition, message) \
-            } \
+            ASSERT_CONTENT((value) < (expected), message) \
         } while (false)
 
-#define D_ASSERT_NOT_EQUAL(condition, expected, message) \
+#define D_ASSERT_LESS_OR_EQUAL(value, expected, message) \
         do { \
-            if (condition == expected) { \
-                ASSERT_CONTENT(condition, message) \
-            } \
+            ASSERT_CONTENT((value) <= (expected), message) \
+        } while (false)
+
+#define D_ASSERT_NOT_EQUAL(value, expected, message) \
+        do { \
+            ASSERT_CONTENT((value) != (expected), message) \
         } while (false)
 
 

@@ -12,11 +12,11 @@
 #include "LoopHelper.h"
 #include "engine/core/low-level-renderer/graphic-api/Gapi.h"
 #include "engine/core/window/WindowManager.h"
-#include "engine/subsystems/renderer/shaders/ShaderLoader.h"
+#include "engine/core/low-level-renderer/shader/ShaderLoader.h"
 #include "integration/rendering/IBaseRenderTest.h"
 #include "unit/engine/core/math/MathTestHelper.h"
 
-class GAPIHelloTriangleTests : public IBaseRenderTest {
+class GAPIAbstractionTests : public IBaseRenderTest {
 protected:
     GAPI::UInt VBO{};
     GAPI::UInt EBO{};
@@ -52,10 +52,10 @@ protected:
         // Vertex Element Buffer Object (EBO)
         gapi.genBuffers(1, EBO);
         
-        gapi.bindBuffer(GAPI::BufferTypes::Element, EBO);
+        gapi.bindBuffer(GAPI::BufferTypes::Index, EBO);
         
         gapi.setBufferData(indices.data(), indices.size(),
-                           GAPI::BufferTypes::Element,
+                           GAPI::BufferTypes::Index,
                            GAPI::BufferUsages::StaticDraw);
         
         
@@ -79,8 +79,8 @@ protected:
         
         // Use the shader
         gapi.useShaderProgram(shaderProgram);
-        gapi.setUniform(shaderProgram, "uColor")->u4F(figureColor.r, figureColor.g,
-                                                      figureColor.b, figureColor.a);
+        gapi.setUniform(shaderProgram, "uColor")->u4F(expectedTriangleColor.r, expectedTriangleColor.g,
+                                                      expectedTriangleColor.b, expectedTriangleColor.a);
         // Draw the triangle
         gapi.bindVertexArray(VAO);
         
@@ -122,7 +122,7 @@ private:
 };
 
 
-TEST_F(GAPIHelloTriangleTests, test) {
+TEST_F(GAPIAbstractionTests, test) {
     std::vector<float> actualVertices = gapi.getBufferDataF(VBO);
     ASSERT_EQ(actualVertices.size(), vertices.size());
     for (size_t i = 0; i < actualVertices.size(); ++i) {
@@ -139,9 +139,9 @@ TEST_F(GAPIHelloTriangleTests, test) {
     // Check if the triangle is drawn correctly
     // The shader program is set to draw a triangle with the color red
     auto rgb1 = gapi.readPixelColorNormalized(400, 300);
-    EXPECT_NEAR(rgb1.r, figureColor.r, colorEpsilon);
-    EXPECT_NEAR(rgb1.g, figureColor.g, colorEpsilon);
-    EXPECT_NEAR(rgb1.b, figureColor.b, colorEpsilon);
+    EXPECT_NEAR(rgb1.r, expectedTriangleColor.r, colorEpsilon);
+    EXPECT_NEAR(rgb1.g, expectedTriangleColor.g, colorEpsilon);
+    EXPECT_NEAR(rgb1.b, expectedTriangleColor.b, colorEpsilon);
 }
 
 

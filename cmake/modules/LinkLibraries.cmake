@@ -75,6 +75,9 @@ if (PLATFORM STREQUAL "__WINDOWS__")
       # multimedia functionalities, such as playing sound
       # files, providing timers, and accessing joysticks
       winmm
+
+      # This is used for generating stacktraces in Windows
+      dbghelp
       CACHE INTERNAL "Main libraries" FORCE
   )
 elseif (PLATFORM STREQUAL "__LINUX__")

@@ -6,20 +6,20 @@
 
 #pragma once
 
-#include <functional>
-#include <SDL2/SDL.h>
-#include <string>
 #include <GL/glew.h>
-#include <engine/core/math/Vec.h>
+#include <SDL2/SDL.h>
+#include <functional>
+#include <string>
 
 #include "engine/Config.h"
 #include "engine/core/exceptions/core/low-level-renderer/GAPIInitException.h"
 #include "engine/core/logger/Logger.h"
 #include "engine/core/low-level-renderer/asserts/GAPIAsserts.h"
 #include "engine/core/low-level-renderer/graphic-api/IGraphicInterface.h"
-#include "engine/core/low-level-renderer/graphic-api/concrete-apis/opengl/OpenGLDebugger.h"
-#include "engine/core/low-level-renderer/debugger/graphic-api/GAPIDebugger.h"
-#include "GLUniformSetter.h"
+#include "engine/core/low-level-renderer/graphic-api/concrete-apis/debugger/GAPIDebugger.h"
+#include "engine/core/low-level-renderer/graphic-api/concrete-apis/opengl/GLUniformSetter.h"
+#include "engine/core/low-level-renderer/graphic-api/concrete-apis/opengl/debugger/OpenGLDebugger.h"
+#include "engine/core/math/Vec.h"
 
 namespace GLESC {
     class OpenGLAPI final : public IGraphicInterface {
@@ -51,26 +51,25 @@ namespace GLESC {
             glViewport(x, y, width, height);
         }
         
-        std::tuple<GAPI::Int, GAPI::Int, GAPI::Int, GAPI::Int> getViewport() override {
+        GAPI::Viewport getViewport() override {
             GAPI_FUNCTION_NO_ARGS_LOG("getViewport");
             GAPI::Int viewport[4];
             GAPI_FUNCTION_IMPLEMENTATION_LOG("glGetIntegerv", GL_VIEWPORT, viewport);
             glGetIntegerv(GL_VIEWPORT, viewport);
-            return std::make_tuple(viewport[0], viewport[1], viewport[2], viewport[3]);
+            return GAPI::Viewport{viewport[0], viewport[1], viewport[2], viewport[3]};
         }
         
-        
-        GAPI::UInt createTexture(SDL_Surface &surface,
-                                 GAPI::TextureFilters::MinFilter minFilter,
-                                 GAPI::TextureFilters::MagFilter magFilter,
-                                 GAPI::TextureFilters::WrapMode wrapS,
-                                 GAPI::TextureFilters::WrapMode wrapT) override {
+        GAPI::UInt createTexture(GAPI::Texture::Filters::Min minFilter,
+                                 GAPI::Texture::Filters::Mag magFilter,
+                                 GAPI::Texture::Filters::WrapMode wrapS,
+                                 GAPI::Texture::Filters::WrapMode wrapT) override {
             GAPI_FUNCTION_LOG("createTexture", "SDL_Surface", minFilter, magFilter, wrapS, wrapT);
             
             auto minFilterGL = static_cast<GLenum>(minFilter);
             auto magFilterGL = static_cast<GLenum>(magFilter);
             auto wrapSGL = static_cast<GLenum>(wrapS);
             auto wrapTGL = static_cast<GLenum>(wrapT);
+            
             int numTextures = 1;
             GAPI::UInt textureID = 0;
             GAPI_FUNCTION_IMPLEMENTATION_LOG("glGenTextures", numTextures, &textureID);
@@ -98,40 +97,44 @@ namespace GLESC {
                                              wrapTGL);
             glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, wrapTGL);
             
-            // TODO: Check this, it assumes that any 4-byte-per-pixel texture is RGBA,
-            //  and any other texture is RGB.
-            //  This might not always be correct depending on the specifics of the SDL_Surface
-            //  format.
-            GLenum format = (surface.format->BytesPerPixel == 4) ? GL_RGBA : GL_RGB;
-            // Generate the texture
-            GAPI_FUNCTION_IMPLEMENTATION_LOG("glTexImage2D", GL_TEXTURE_2D, 0, GL_RGBA,
-                                             surface.w, surface.h, 0, format,
-                                             GL_UNSIGNED_BYTE, surface.pixels);
-            glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, surface.w, surface.h, 0, format,
-                         GL_UNSIGNED_BYTE, surface.pixels);
-            
-            GAPI_FUNCTION_IMPLEMENTATION_LOG("glGenerateMipmap", GL_TEXTURE_2D);
-            glGenerateMipmap(GL_TEXTURE_2D);
-            
-            
-            bindTexture(0);
             return textureID;
         }
         
-        
-        GAPI::UInt createTexture(SDL_Surface &surface) override {
-            GAPI_FUNCTION_LOG("createTexture", "SDL_Surface");
-            return this->createTexture(surface, GAPI::TextureFilters::MinFilter::Linear,
-                                       GAPI::TextureFilters::MagFilter::Linear,
-                                       GAPI::TextureFilters::WrapMode::Repeat,
-                                       GAPI::TextureFilters::WrapMode::Repeat);
+        GAPI::Void setTextureData(GAPI::Int level,
+                                  GAPI::UInt width,
+                                  GAPI::UInt height,
+                                  GAPI::UByte *texelBuffer) override {
+            GAPI_FUNCTION_LOG("setTextureData", level, height, width, "texelBuffer");
+            
+            GAPI_FUNCTION_IMPLEMENTATION_LOG("glTexImage2D", GL_TEXTURE_2D, level, GL_RGBA8,
+                                             width, height, 0, texelBuffer);
+            
+            // TODO: Add support for non-alpha textures to reduce memory usage
+            glTexImage2D(GL_TEXTURE_2D, level, GL_RGBA8, width, height, 0, GL_RGBA,
+                         GL_UNSIGNED_BYTE, texelBuffer);
         }
         
-        void bindTexture(GAPI::UInt textureID) override {
+        
+        GAPI::Void bindTexture(GAPI::UInt textureID) override {
             GAPI_FUNCTION_LOG("bindTexture", textureID);
             GAPI_FUNCTION_IMPLEMENTATION_LOG("glBindTexture", GL_TEXTURE_2D, textureID);
             glBindTexture(GL_TEXTURE_2D, textureID);
         }
+        
+        GAPI::Void bindTextureOnSlot(GAPI::UInt textureID, GAPI::UInt slot) override {
+            GAPI_FUNCTION_LOG("bindTextureOnSlot", textureID, slot);
+            GAPI_FUNCTION_IMPLEMENTATION_LOG("glActiveTexture", GL_TEXTURE0 + slot);
+            glActiveTexture(GL_TEXTURE0 + slot);
+            GAPI_FUNCTION_IMPLEMENTATION_LOG("glBindTexture", GL_TEXTURE_2D, textureID);
+            glBindTexture(GL_TEXTURE_2D, textureID);
+        }
+        
+        GAPI::Void unbindTexture() override {
+            GAPI_FUNCTION_NO_ARGS_LOG("unbindTexture");
+            GAPI_FUNCTION_IMPLEMENTATION_LOG("glBindTexture", GL_TEXTURE_2D, 0);
+            glBindTexture(GL_TEXTURE_2D, 0);
+        }
+        
         
         void swapBuffers(SDL_Window &window) override {
             GAPI_FUNCTION_LOG("swapBuffers", "SDL_Window");
@@ -141,7 +144,7 @@ namespace GLESC {
         
         [[nodiscard]] SDL_GLContext getContext() const { return context; };
         
-        void preWindowConfig() override {
+        void preWindowCreationInit() override {
             PRINT_GAPI_INIT("OpenGL", std::to_string(GLESC_GL_MAJOR_VERSION) + "." +
                                       std::to_string(GLESC_GL_MINOR_VERSION));
             // Core functions of OpenGL a.k.a. full modern openGL functionality.
@@ -238,14 +241,14 @@ namespace GLESC {
                                              GL_UNSIGNED_INT, nullptr);
             glDrawElements(static_cast<GLenum>(GAPI::PrimitiveTypes::Triangles),
                            indicesCount,
-                           static_cast<GLenum>(GAPI::Types::UnsignedInt),
+                           static_cast<GLenum>(GAPI::Types::UInt),
                            nullptr);
         }
         
         
-        RGBColor readPixelColor(int x, int y) {
+        GAPI::RGBColor readPixelColor(int x, int y) {
             GAPI_FUNCTION_LOG("readPixelColor", x, y);
-            RGBColor color;
+            GAPI::RGBColor color;
             GAPI_FUNCTION_IMPLEMENTATION_LOG("glReadPixels", x, y, 1, 1, GL_RGB,
                                              GL_UNSIGNED_BYTE, color.r, color.g, color.b, color.a);
             glReadPixels(x, y, 1, 1, GL_RGB, GL_UNSIGNED_BYTE, &color);
@@ -254,9 +257,9 @@ namespace GLESC {
             return color;
         }
         
-        RGBColorNormalized readPixelColorNormalized(int x, int y) {
+        GAPI::RGBColorNormalized readPixelColorNormalized(int x, int y) {
             GAPI_FUNCTION_LOG("readPixelColorNormalized", x, y);
-            RGBColorNormalized color{};
+            GAPI::RGBColorNormalized color{};
             GAPI_FUNCTION_IMPLEMENTATION_LOG("glReadPixels", x, y, 1, 1, GL_RGB,
                                              GL_FLOAT, color.r, color.g, color.b, color.a);
             glReadPixels(x, y, 1, 1, GL_RGBA, GL_FLOAT, &color);
@@ -355,7 +358,9 @@ namespace GLESC {
                              GAPI::Size count,
                              GAPI::BufferTypes bufferType,
                              GAPI::BufferUsages bufferUsage) {
+            #ifndef NLOGGING
             std::vector<T> vectorData(data, data + count);
+            #endif
             GAPI_FUNCTION_LOG("setBufferData", vectorData, count, bufferType, bufferUsage);
             
             auto size = count * sizeof(T);
@@ -380,6 +385,7 @@ namespace GLESC {
             GAPI_FUNCTION_LOG("getBufferDataI", bufferId);
             return getBufferData<int>(bufferId);
         }
+        
         template<typename T>
         std::vector<T> getBufferData(GLuint bufferId) {
             GAPI_FUNCTION_LOG("getBufferData", bufferId);
@@ -402,7 +408,6 @@ namespace GLESC {
             GAPI_FUNCTION_IMPLEMENTATION_LOG("post glGetBufferSubData", data);
             GAPI_FUNCTION_IMPLEMENTATION_LOG("glBindBuffer", GL_ARRAY_BUFFER, 0);
             glBindBuffer(GL_ARRAY_BUFFER, 0);
-            
             
             
             return data;
@@ -484,7 +489,7 @@ namespace GLESC {
                                   glNormalized, // Specifies whether to normalize the data.
                                   stride,    // Byte offset between consecutive vertex attributes.
                                   (GLvoid *)
-                                  (offset)); // Offset of the first component in the buffer.
+                                          (offset)); // Offset of the first component in the buffer.
         }
         
         
@@ -493,7 +498,8 @@ namespace GLESC {
         
         
         GAPI::UInt
-        loadAndCompileShader(GAPI::ShaderTypes shaderType, const std::string &shaderSource) override {
+        loadAndCompileShader(GAPI::ShaderTypes shaderType,
+                             const std::string &shaderSource) override {
             GAPI_FUNCTION_LOG("loadAndCompileShader", shaderType, shaderSource);
             auto shaderTypeGL = static_cast<GLenum>(shaderType);
             
@@ -511,7 +517,8 @@ namespace GLESC {
         }
         
         
-        GAPI::UInt createShaderProgram(GAPI::UInt vertexShaderID, GAPI::UInt fragmentShaderID) override {
+        GAPI::UInt
+        createShaderProgram(GAPI::UInt vertexShaderID, GAPI::UInt fragmentShaderID) override {
             GAPI_FUNCTION_LOG("createShaderProgram", vertexShaderID, fragmentShaderID);
             GAPI_FUNCTION_IMPLEMENTATION_LOG("glCreateProgram", 0);
             GLuint shaderProgram = glCreateProgram();
@@ -642,7 +649,6 @@ namespace GLESC {
             D_ASSERT_GLEW_OK((err == GLEW_OK), errStr);
         }
         
-
         
         SDL_GLContext context{};
         

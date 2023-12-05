@@ -18,6 +18,18 @@
 namespace GLESC {
     class Shader {
     public:
+        /**
+         * @brief Constructor that receives the source code of the vertex and fragment shaders
+         * @param vertexShaderSource The source code of the vertex shader
+         * @param fragmentShaderSource The source code of the fragment shader
+         */
+        Shader(const std::string &vertexShaderSource, const std::string &fragmentShaderSource);
+        
+        /**
+         * @brief Constructor that receives the file name of the shader source code (including
+         *      vertex and fragment shaders in a single file)
+         * @param fileName The file name of the shader source code
+         */
         Shader(const std::string &fileName);
         
         ~Shader();

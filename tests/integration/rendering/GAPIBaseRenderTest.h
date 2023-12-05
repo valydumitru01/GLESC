@@ -35,21 +35,39 @@ public:
     virtual void render() = 0;
     
     void checkBackgroundColor() {
-        RGBColorNormalized color = gapi.readPixelColorNormalized(backgroundPixelCoordinates.x(),
-                                                                 backgroundPixelCoordinates.y());
-        ASSERT_NEAR(backgroundColor.r, color.r, colorEpsilon);
-        ASSERT_NEAR(backgroundColor.g, color.g, colorEpsilon);
-        ASSERT_NEAR(backgroundColor.b, color.b, colorEpsilon);
-        ASSERT_NEAR(backgroundColor.a, color.a, colorEpsilon);
+        Logger::get().info("============Checking Background=============");
+        GAPI::RGBColorNormalized
+                color = gapi.readPixelColorNormalized(backgroundPixelCoordinates.x(),
+                                                      backgroundPixelCoordinates.y());
+        EXPECT_NEAR(backgroundColor.r, color.r, colorEpsilon);
+        printExpectNear("color red", backgroundColor.r, color.r);
+        EXPECT_NEAR(backgroundColor.g, color.g, colorEpsilon);
+        printExpectNear("color green", backgroundColor.g, color.g);
+        EXPECT_NEAR(backgroundColor.b, color.b, colorEpsilon);
+        printExpectNear("color blue", backgroundColor.b, color.b);
+        EXPECT_NEAR(backgroundColor.a, color.a, colorEpsilon);
+        printExpectNear("color alpha", backgroundColor.a, color.a);
     }
     
     void checkTriangleColor() {
-        RGBColorNormalized color = gapi.readPixelColorNormalized(trianglePixelCoordinates.x(),
-                                                                 trianglePixelCoordinates.y());
-        ASSERT_NEAR(figureColor.r, color.r, colorEpsilon);
-        ASSERT_NEAR(figureColor.g, color.g, colorEpsilon);
-        ASSERT_NEAR(figureColor.b, color.b, colorEpsilon);
-        ASSERT_NEAR(figureColor.a, color.a, colorEpsilon);
+        Logger::get().info("============Checking Triangle color=============");
+        GAPI::RGBColorNormalized readTriangleColor =
+                gapi.readPixelColorNormalized(trianglePixelCoordinates.x(),
+                                              trianglePixelCoordinates.y());
+        EXPECT_NEAR(expectedTriangleColor.r, readTriangleColor.r, colorEpsilon);
+        printExpectNear("color red", expectedTriangleColor.r, readTriangleColor.r);
+        EXPECT_NEAR(expectedTriangleColor.g, readTriangleColor.g, colorEpsilon);
+        printExpectNear("color green", expectedTriangleColor.g, readTriangleColor.g);
+        EXPECT_NEAR(expectedTriangleColor.b, readTriangleColor.b, colorEpsilon);
+        printExpectNear("color blue", expectedTriangleColor.b, readTriangleColor.b);
+        EXPECT_NEAR(expectedTriangleColor.a, readTriangleColor.a, colorEpsilon);
+        printExpectNear("color alpha", expectedTriangleColor.a, readTriangleColor.a);
+    }
+    
+    void printExpectNear(const std::string &message, float expected, float actual) {
+        Logger::get().info("\tChecking " + message + ": expected[ "
+                           + std::to_string(expected) + " ] == read[ " +
+                           std::to_string(actual) + " ]");
     }
     
     template<GAPI::BufferTypes type>
@@ -57,16 +75,20 @@ public:
         gapi.bindBuffer(type, buffer);
         
         if constexpr (type == GAPI::BufferTypes::Index) {
+            Logger::get().info("============Checking indices=============");
             auto actualIndices = gapi.getBufferDataUI(buffer);
-            ASSERT_EQ(actualIndices.size(), indices.size());
+            EXPECT_EQ(actualIndices.size(), indices.size());
             for (size_t i = 0; i < actualIndices.size(); ++i) {
+                printExpectNear("index", actualIndices[i], indices[i]);
                 EXPECT_EQ(actualIndices[i], indices[i])
                                     << "Index data mismatch at index " << i;
             }
         } else if constexpr (type == GAPI::BufferTypes::Vertex) {
+            Logger::get().info("============Checking vertices=============");
             auto actualVertices = gapi.getBufferDataF(buffer);
-            ASSERT_EQ(actualVertices.size(), vertices.size());
+            EXPECT_EQ(actualVertices.size(), vertices.size());
             for (size_t i = 0; i < actualVertices.size(); ++i) {
+                printExpectNear("vertex", actualVertices[i], vertices[i]);
                 EXPECT_NEAR(actualVertices[i], vertices[i], dataEpsilon)
                                     << "Vertex data mismatch at index " << i;
             }

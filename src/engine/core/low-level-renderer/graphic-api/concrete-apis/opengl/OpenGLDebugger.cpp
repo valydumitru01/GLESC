@@ -11,7 +11,7 @@
 
 #include <set>
 #include <SDL2/SDL.h>
-#include "engine/core/low-level-renderer/graphic-api/concrete-apis/opengl/OpenGLDebugger.h"
+#include "engine/core/low-level-renderer/graphic-api/concrete-apis/opengl/debugger/OpenGLDebugger.h"
 #include "engine/core/low-level-renderer/asserts/GAPIAsserts.h"
 
 void OpenGLDebugger::glDebugCallback(GLenum source, GLenum type, GLuint errorCode,

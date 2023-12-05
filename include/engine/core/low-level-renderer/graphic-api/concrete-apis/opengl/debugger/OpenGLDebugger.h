@@ -9,7 +9,7 @@
 #ifndef NDEBUG_GAPI // Don't compile this file if NDEBUG_GAPI is defined
 #include <string>
 #include <GL/glew.h>
-#include "engine/core/low-level-renderer/debugger/graphic-api/GAPIDebugger.h"
+#include "engine/core/low-level-renderer/graphic-api/concrete-apis/debugger/GAPIDebugger.h"
 #include "engine/core/debugger/Debugger.h"
 
 

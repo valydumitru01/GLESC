@@ -8,10 +8,10 @@
 
 #include <SDL2/SDL.h>
 
-#include "GapiEnums.h"
-#include "GapiStructs.h"
-#include "IUniformSetter.h"
+#include "engine/core/low-level-renderer/graphic-api/GapiEnums.h"
+#include "engine/core/low-level-renderer/graphic-api/GapiStructs.h"
 #include "engine/core/low-level-renderer/graphic-api/GapiTypes.h"
+#include "engine/core/low-level-renderer/graphic-api/IUniformSetter.h"
 
 #ifdef GLESC_OPENGL
 using UniformSetter = GLUniformSetter;
@@ -23,7 +23,7 @@ public:
     
     virtual ~IGraphicInterface() = default;
     
-    virtual void preWindowConfig() = 0;
+    virtual void preWindowCreationInit() = 0;
     
     virtual void postWindowCreationInit() = 0;
     
@@ -35,7 +35,7 @@ public:
     
     virtual void setViewport(GAPI::Int x, GAPI::Int y, GAPI::Int width, GAPI::Int height) = 0;
     
-    virtual std::tuple<GAPI::Int, GAPI::Int, GAPI::Int, GAPI::Int> getViewport() = 0;
+    virtual GAPI::Viewport getViewport() = 0;
     
     virtual void swapBuffers(SDL_Window &window) = 0;
     
@@ -47,9 +47,9 @@ public:
     
     virtual void drawTrianglesIndexed(GAPI::UInt count) = 0;
     
-    virtual RGBColor readPixelColor(int x, int y) = 0;
+    virtual GAPI::RGBColor readPixelColor(int x, int y) = 0;
     
-    virtual RGBColorNormalized readPixelColorNormalized(int x, int y) = 0;
+    virtual GAPI::RGBColorNormalized readPixelColorNormalized(int x, int y) = 0;
     
     
     
@@ -135,35 +135,20 @@ public:
     // ------------------------------------------------------------------------------
     // -------------------------------- Texture -------------------------------------
     
-    /**
-     * @brief Create a texture from an SDL_Surface
-     * @details This function creates a texture from an SDL_Surface.
-     * It also sets the texture parameters.
-     * @param surface
-     * @param minFilter
-     * @param magFilter
-     * @param wrapS
-     * @param wrapT
-     * @return
-     */
-    virtual GAPI::UInt createTexture(SDL_Surface &surface,
-                                     GAPI::TextureFilters::MinFilter minFilter,
-                                     GAPI::TextureFilters::MagFilter magFilter,
-                                     GAPI::TextureFilters::WrapMode wrapS,
-                                     GAPI::TextureFilters::WrapMode wrapT) = 0;
     
-    /**
-     * @brief Create texture with default parameters
-     * @details The default parameters are:
-     * minFilter = LINEAR
-     * magFilter = LINEAR
-     * wrapS = REPEAT
-     * wrapT = REPEAT
-     * @param textureID
-     */
-    virtual GAPI::UInt createTexture(SDL_Surface &surface) = 0;
+    virtual GAPI::UInt createTexture(GAPI::Texture::Filters::Min minFilter,
+                                     GAPI::Texture::Filters::Mag magFilter,
+                                     GAPI::Texture::Filters::WrapMode wrapS,
+                                     GAPI::Texture::Filters::WrapMode wrapT) = 0;
+    
+    virtual GAPI::Void
+    setTextureData(GAPI::Int level, GAPI::UInt width, GAPI::UInt height, GAPI::UByte *texelBuffer) = 0;
     
     virtual void bindTexture(GAPI::UInt textureID) = 0;
+    
+    virtual GAPI::Void bindTextureOnSlot(GAPI::UInt textureID, GAPI::UInt slot) = 0;
+    
+    virtual GAPI::Void unbindTexture() = 0;
     
     virtual void deleteTexture(GAPI::UInt textureID) = 0;
     
@@ -178,7 +163,8 @@ public:
     
     virtual bool compilationOK(GAPI::UInt shaderID, GAPI::Char *message) = 0;
     
-    virtual GAPI::UInt createShaderProgram(GAPI::UInt vertexShaderID, GAPI::UInt fragmentShaderID) = 0;
+    virtual GAPI::UInt
+    createShaderProgram(GAPI::UInt vertexShaderID, GAPI::UInt fragmentShaderID) = 0;
     
     virtual void destroyShaderProgram(GAPI::UInt shaderProgram) = 0;
     

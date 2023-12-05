@@ -27,6 +27,8 @@ namespace GAPI{
     using Char = GLchar;
     using UShort = GLushort;
     using UChar = GLubyte;
+    using Byte = GLbyte;
+    using UByte = GLubyte;
     using Void = GLvoid;
     using Bitfield = GLbitfield;
     using Byte = GLbyte;

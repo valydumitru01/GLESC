@@ -10,6 +10,8 @@
 
 
 #include <gtest/gtest.h>
+#include <engine/core/low-level-renderer/graphic-api/GapiStructs.h>
+#include <engine/core/low-level-renderer/graphic-api/Gapi.h>
 #include "engine/core/window/WindowManager.h"
 #include "../math/MathTestHelper.h"
 
@@ -33,24 +35,26 @@ protected:
 TEST_F(WindowManagerTest, Size) {
     windowManager.setResizable(true);
     windowManager.setSize(800, 600);
-    auto [width, height] = windowManager.getWindowSize();
-    EXPECT_EQ_CUSTOM(width, 800);
-    EXPECT_EQ_CUSTOM(height, 600);
+    GAPI::Viewport vp;
+    GLESC::WindowDimensions windowDimensions;
+    windowDimensions= windowManager.getWindowSize();
+    EXPECT_EQ_CUSTOM(windowDimensions.width, 800);
+    EXPECT_EQ_CUSTOM(windowDimensions.height, 600);
     
     // Checking the viewport has changed
-    auto [vpX, vpY, vpWidth, vpHeight] = gapi.getViewport();
-    EXPECT_EQ_CUSTOM(vpWidth, 800);
-    EXPECT_EQ_CUSTOM(vpHeight, 600);
+    vp = gapi.getViewport();
+    EXPECT_EQ_CUSTOM(vp.width, 800);
+    EXPECT_EQ_CUSTOM(vp.height, 600);
     
     windowManager.setSize(200, 200);
-    auto [width1, height1] = windowManager.getWindowSize();
-    EXPECT_EQ_CUSTOM(width1, 200);
-    EXPECT_EQ_CUSTOM(height1, 200);
+    windowDimensions = windowManager.getWindowSize();
+    EXPECT_EQ_CUSTOM(windowDimensions.width, 200);
+    EXPECT_EQ_CUSTOM(windowDimensions.height, 200);
     
     // Checking the viewport has changed
-    std::tie(vpX, vpY, vpWidth, vpHeight) = gapi.getViewport();
-    EXPECT_EQ_CUSTOM(vpWidth, 200);
-    EXPECT_EQ_CUSTOM(vpHeight, 200);
+    vp = gapi.getViewport();
+    EXPECT_EQ_CUSTOM(vp.width, 200);
+    EXPECT_EQ_CUSTOM(vp.height, 200);
     
 }
 
