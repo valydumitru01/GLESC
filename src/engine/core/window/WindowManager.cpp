@@ -18,7 +18,7 @@ using namespace GLESC;
 
 WindowManager::WindowManager() {
     initSDL();
-    gapi.preWindowCreationInit();
+    getGAPI().preWindowCreationInit();
     window = createWindow(GLESC_WINDOW_TITLE);
     auto x = GLESC_WINDOW_X;
     auto y = GLESC_WINDOW_Y;
@@ -29,8 +29,8 @@ WindowManager::WindowManager() {
     setFullscreen(isFullscreen);
     setSize(width, height);
     setPosition(x, y);
-    gapi.createContext(*window);
-    gapi.postWindowCreationInit();
+    getGAPI().createContext(*window);
+    getGAPI().postWindowCreationInit();
     
     // Enable mouse relative mode
     // This will make the mouse cursor invisible and locked in the middle of the screen
@@ -42,7 +42,7 @@ WindowManager::WindowManager() {
 void WindowManager::setSize(uint16_t windowWidth, uint16_t windowHeight) {
     SDLCall(SDL_SetWindowSize(window, windowWidth, windowHeight));
     if (isResizable()){
-        gapi.setViewport(0, 0, windowWidth, windowHeight);
+        getGAPI().setViewport(0, 0, windowWidth, windowHeight);
     }
 }
 
@@ -129,6 +129,11 @@ GLESC::WindowDimensions WindowManager::getWindowSize() const {
     return dimensions;
 }
 
+Vec2UI WindowManager::getWindowCenter() const {
+    auto dimensions = getWindowSize();
+    return {dimensions.width / 2, dimensions.height / 2};
+}
+
 uint32_t WindowManager::getRaisedFlags() {
     // Flags that are needed to be passed to the windowManager * to configure it.
     // To add more flags we need to use the binary OR ( | )
@@ -173,7 +178,7 @@ SDL_Window *WindowManager::createWindow(const char *title) {
 }
 
 void WindowManager::destroyWindow() {
-    gapi.deleteContext();
+    getGAPI().deleteContext();
     SDLCall(SDL_DestroyWindow(window));
     SDLCall(SDL_Quit());
     GLESC::Logger::get().success("Window destroyed!");

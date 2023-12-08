@@ -21,26 +21,6 @@ namespace GAPI {
         Mat3 [[maybe_unused]] = 9,
         Mat4 [[maybe_unused]] = 16,
     };
-    namespace Texture {
-        namespace InternalFormat {
-            enum class BitDepth {
-                Bit8 [[maybe_unused]] = 8,
-                Bit16 [[maybe_unused]] = 16,
-                Bit24 [[maybe_unused]] = 24,
-                Bit32 [[maybe_unused]] = 32
-            };
-            enum class ColorFormat {
-                R [[maybe_unused]],
-                RG [[maybe_unused]],
-                RGB [[maybe_unused]],
-                RGBA [[maybe_unused]]
-            };
-            enum class TextureType {
-                Color [[maybe_unused]], Depth [[maybe_unused]],
-                Stencil [[maybe_unused]], DepthStencil [[maybe_unused]]
-            };
-        };
-    }
 
 }
 #ifdef GLESC_OPENGL
@@ -70,6 +50,97 @@ namespace GAPI {
                 ClampToEdge [[maybe_unused]] = GL_CLAMP_TO_EDGE,
                 ClampToBorder [[maybe_unused]] = GL_CLAMP_TO_BORDER
             };
+            
+        };
+        // TODO: This is messy, we're copying the messy opengl enums, we should make our own
+        //  enums and convert them to opengl enums
+        enum class GPUBufferFormat{
+            R8 [[maybe_unused]] = GL_R8,
+            R8_SNORM [[maybe_unused]] = GL_R8_SNORM,
+            R16 [[maybe_unused]] = GL_R16,
+            R16_SNORM [[maybe_unused]] = GL_R16_SNORM,
+            RG8 [[maybe_unused]] = GL_RG8,
+            RG8_SNORM [[maybe_unused]] = GL_RG8_SNORM,
+            RG16 [[maybe_unused]] = GL_RG16,
+            RG16_SNORM [[maybe_unused]] = GL_RG16_SNORM,
+            R3_G3_B2 [[maybe_unused]] = GL_R3_G3_B2,
+            RGB [[maybe_unused]] = GL_RGB,
+            RGBA [[maybe_unused]] = GL_RGBA,
+            RGB4 [[maybe_unused]] = GL_RGB4,
+            RGB5 [[maybe_unused]] = GL_RGB5,
+            RGB8 [[maybe_unused]] = GL_RGB8,
+            RGB8_SNORM [[maybe_unused]] = GL_RGB8_SNORM,
+            RGB10 [[maybe_unused]] = GL_RGB10,
+            RGB12 [[maybe_unused]] = GL_RGB12,
+            RGB16_SNORM [[maybe_unused]] = GL_RGB16_SNORM,
+            RGBA2 [[maybe_unused]] = GL_RGBA2,
+            RGBA4 [[maybe_unused]] = GL_RGBA4,
+            RGB5_A1 [[maybe_unused]] = GL_RGB5_A1,
+            RGBA8 [[maybe_unused]] = GL_RGBA8,
+            RGBA8_SNORM [[maybe_unused]] = GL_RGBA8_SNORM,
+            RGB10_A2 [[maybe_unused]] = GL_RGB10_A2,
+            RGB10_A2UI [[maybe_unused]] = GL_RGB10_A2UI,
+            RGBA12 [[maybe_unused]] = GL_RGBA12,
+            RGBA16 [[maybe_unused]] = GL_RGBA16,
+            SRGB8 [[maybe_unused]] = GL_SRGB8,
+            SRGB8_ALPHA8 [[maybe_unused]] = GL_SRGB8_ALPHA8,
+            R16F [[maybe_unused]] = GL_R16F,
+            RG16F [[maybe_unused]] = GL_RG16F,
+            RGB16F [[maybe_unused]] = GL_RGB16F,
+            RGBA16F [[maybe_unused]] = GL_RGBA16F,
+            R32F [[maybe_unused]] = GL_R32F,
+            RG32F [[maybe_unused]] = GL_RG32F,
+            RGB32F [[maybe_unused]] = GL_RGB32F,
+            RGBA32F [[maybe_unused]] = GL_RGBA32F,
+            R11F_G11F_B10F [[maybe_unused]] = GL_R11F_G11F_B10F,
+            RGB9_E5 [[maybe_unused]] = GL_RGB9_E5,
+            R8I [[maybe_unused]] = GL_R8I,
+            R8UI [[maybe_unused]] = GL_R8UI,
+            R16I [[maybe_unused]] = GL_R16I,
+            R16UI [[maybe_unused]] = GL_R16UI,
+            R32I [[maybe_unused]] = GL_R32I,
+            R32UI [[maybe_unused]] = GL_R32UI,
+            RG8I [[maybe_unused]] = GL_RG8I,
+            RG8UI [[maybe_unused]] = GL_RG8UI,
+            RG16I [[maybe_unused]] = GL_RG16I,
+            RG16UI [[maybe_unused]] = GL_RG16UI,
+            RG32I [[maybe_unused]] = GL_RG32I,
+            RG32UI [[maybe_unused]] = GL_RG32UI,
+            RGB8I [[maybe_unused]] = GL_RGB8I,
+            RGB8UI [[maybe_unused]] = GL_RGB8UI,
+            RGB16I [[maybe_unused]] = GL_RGB16I,
+            RGB16UI [[maybe_unused]] = GL_RGB16UI,
+            RGB32I [[maybe_unused]] = GL_RGB32I,
+            RGB32UI [[maybe_unused]] = GL_RGB32UI,
+            RGBA8I [[maybe_unused]] = GL_RGBA8I,
+            RGBA8UI [[maybe_unused]] = GL_RGBA8UI,
+            RGBA16I [[maybe_unused]] = GL_RGBA16I,
+            RGBA16UI [[maybe_unused]] = GL_RGBA16UI,
+            RGBA32I [[maybe_unused]] = GL_RGBA32I,
+            RGBA32UI [[maybe_unused]] = GL_RGBA32UI,
+            DEPTH_COMPONENT16 [[maybe_unused]] = GL_DEPTH_COMPONENT16,
+            DEPTH_COMPONENT24 [[maybe_unused]] = GL_DEPTH_COMPONENT24,
+            DEPTH_COMPONENT32F [[maybe_unused]] = GL_DEPTH_COMPONENT32F,
+            DEPTH24_STENCIL8 [[maybe_unused]] = GL_DEPTH24_STENCIL8,
+            DEPTH32F_STENCIL8 [[maybe_unused]] = GL_DEPTH32F_STENCIL8,
+            STENCIL_INDEX8 [[maybe_unused]] = GL_STENCIL_INDEX8,
+        };
+        enum class CPUBufferFormat{
+            R [[maybe_unused]] = GL_R,
+            RG [[maybe_unused]] = GL_RG,
+            RGB [[maybe_unused]] = GL_RGB,
+            BGR [[maybe_unused]] = GL_BGR,
+            RGBA [[maybe_unused]] = GL_RGBA,
+            BGRA [[maybe_unused]] = GL_BGRA,
+            DepthComponent [[maybe_unused]] = GL_DEPTH_COMPONENT,
+            DepthStencil [[maybe_unused]] = GL_DEPTH_STENCIL
+        };
+        
+        enum class BitDepth{
+            Bit8 [[maybe_unused]] = 8,
+            Bit16 [[maybe_unused]] = 16,
+            Bit24 [[maybe_unused]] = 24,
+            Bit32 [[maybe_unused]] = 32
         };
     }
     enum class BufferTypes {
@@ -217,15 +288,6 @@ namespace GAPI {
             Texture2DMultisample [[maybe_unused]] = GL_TEXTURE_2D_MULTISAMPLE,
             Texture2DMultisampleArray [[maybe_unused]] = GL_TEXTURE_2D_MULTISAMPLE_ARRAY
         }; // enum class TextureTypes
-        
-        
-        enum class BufferFormat {
-            R [[maybe_unused]] = GL_RED,
-            RG [[maybe_unused]] = GL_RG,
-            RGB [[maybe_unused]] = GL_RGB,
-            RGBA [[maybe_unused]] = GL_RGBA
-        }; // enum class TextureFormat
-        
         
     } // namespace Texture
 }

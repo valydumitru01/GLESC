@@ -7,6 +7,7 @@
 #pragma once
 
 #include <SDL2/SDL.h>
+#include <set>
 
 #include "engine/core/low-level-renderer/graphic-api/GapiEnums.h"
 #include "engine/core/low-level-renderer/graphic-api/GapiStructs.h"
@@ -49,7 +50,7 @@ public:
     
     virtual GAPI::RGBColor readPixelColor(int x, int y) = 0;
     
-    virtual GAPI::RGBColorNormalized readPixelColorNormalized(int x, int y) = 0;
+    virtual GAPI::RGBColorNormalized readPixelColorNormalized(GAPI::UInt x, GAPI::UInt y) = 0;
     
     
     
@@ -62,11 +63,11 @@ public:
     
     virtual void unbindBuffer(GAPI::BufferTypes bufferType) = 0;
     
-    virtual std::vector<float> getBufferDataF(GLuint bufferId) = 0;
+    virtual std::vector<float> getBufferDataF(GAPI::UInt bufferId) = 0;
     
-    virtual std::vector<unsigned int> getBufferDataUI(GLuint bufferId) = 0;
+    virtual std::vector<unsigned int> getBufferDataUI(GAPI::UInt bufferId) = 0;
     
-    virtual std::vector<int> getBufferDataI(GLuint bufferId) = 0;
+    virtual std::vector<int> getBufferDataI(GAPI::UInt bufferId) = 0;
     
     virtual void deleteBuffer(GAPI::UInt buffer) = 0;
     
@@ -136,27 +137,42 @@ public:
     // -------------------------------- Texture -------------------------------------
     
     
-    virtual GAPI::UInt createTexture(GAPI::Texture::Filters::Min minFilter,
+    virtual GAPI::TextureID createTexture(GAPI::Texture::Filters::Min minFilter,
                                      GAPI::Texture::Filters::Mag magFilter,
                                      GAPI::Texture::Filters::WrapMode wrapS,
                                      GAPI::Texture::Filters::WrapMode wrapT) = 0;
     
     virtual GAPI::Void
-    setTextureData(GAPI::Int level, GAPI::UInt width, GAPI::UInt height, GAPI::UByte *texelBuffer) = 0;
+    setTextureData(GAPI::Int level,
+                   GAPI::UInt width,
+                   GAPI::UInt height,
+                   GAPI::Texture::CPUBufferFormat inputFormat,
+                   GAPI::Texture::BitDepth bitsPerPixel,
+                   GAPI::UByte *texelBuffer) = 0;
     
-    virtual void bindTexture(GAPI::UInt textureID) = 0;
+    virtual std::vector<GAPI::UByte> getTextureData(GAPI::TextureID textureID) = 0;
     
-    virtual GAPI::Void bindTextureOnSlot(GAPI::UInt textureID, GAPI::UInt slot) = 0;
+    virtual GAPI::Texture::GPUBufferFormat getTextureColorFormat(GAPI::TextureID textureID) = 0;
+    
+    virtual GAPI::UInt getTextureWidth(GAPI::TextureID textureID) = 0;
+    
+    virtual GAPI::UInt getTextureHeight(GAPI::TextureID textureID) = 0;
+    
+    virtual void bindTexture(GAPI::TextureID textureID) = 0;
+    
+    virtual GAPI::Void bindTextureOnSlot(GAPI::TextureID textureID, GAPI::UInt slot) = 0;
     
     virtual GAPI::Void unbindTexture() = 0;
     
-    virtual void deleteTexture(GAPI::UInt textureID) = 0;
+    virtual void deleteTexture(GAPI::TextureID textureID) = 0;
     
     // -------------------------------- Shaders -------------------------------------
     // ------------------------------------------------------------------------------
     virtual void useShaderProgram(GAPI::UInt shaderProgram) = 0;
     
     virtual bool isShaderProgram(GAPI::UInt shaderProgram) = 0;
+    
+    virtual void deleteShaderProgram(GAPI::UInt shaderProgram) = 0;
     
     virtual GAPI::UInt
     loadAndCompileShader(GAPI::ShaderTypes shaderType, const std::string &shaderSource) = 0;
@@ -176,6 +192,18 @@ public:
     // Uniforms
     virtual std::unique_ptr<UniformSetter>
     setUniform(GAPI::UInt program, const std::string &name) = 0;
+
+protected:
+    virtual GAPI::Bool isTexture(GAPI::UInt textureID) = 0;
+    
+    virtual GAPI::Bool isTextureBound(GAPI::UInt textureID) = 0;
+    
+    virtual GAPI::Bool anyTextureBound() = 0;
+    
+    std::set<GAPI::TextureID> textures{};
+    
+    GAPI::TextureID boundTexture{};
+    
     
 };
 

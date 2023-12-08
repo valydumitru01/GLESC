@@ -32,6 +32,8 @@ namespace GAPI{
     using Void = GLvoid;
     using Bitfield = GLbitfield;
     using Byte = GLbyte;
+    
+    using TextureID = UInt;
 
 } // namespace GAPI
 

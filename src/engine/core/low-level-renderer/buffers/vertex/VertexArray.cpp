@@ -12,7 +12,7 @@
 using namespace GLESC;
 
 VertexArray::VertexArray(){
-    gapi.genVertexArray(vertexArrayID);
+    getGAPI().genVertexArray(vertexArrayID);
 }
 
 VertexArray::~VertexArray() {
@@ -24,11 +24,11 @@ void VertexArray::destroy() {
 }
 
 void VertexArray::bind() const {
-    gapi.bindVertexArray(vertexArrayID);
+    getGAPI().bindVertexArray(vertexArrayID);
 }
 
 void VertexArray::unbind() const {
-    gapi.unbindVertexArray();
+    getGAPI().unbindVertexArray();
 }
 
 
@@ -53,7 +53,7 @@ void VertexArray::addBuffer(const GLESC::VertexBuffer &vb,
         auto const typeSize = static_cast<GAPI::UInt>(getTypeSize(type));
         
         // Set up the vertex attribute pointers
-        gapi.createVertexData(static_cast<GAPI::UInt>(i),
+        getGAPI().createVertexData(static_cast<GAPI::UInt>(i),
                               typeCount,
                               type,
                               element.normalized,
@@ -61,7 +61,7 @@ void VertexArray::addBuffer(const GLESC::VertexBuffer &vb,
                               offset);
         
         // Enable the vertex attribute array
-        gapi.enableVertexData(static_cast<GAPI::UInt>(i));
+        getGAPI().enableVertexData(static_cast<GAPI::UInt>(i));
         
         // Calculate the offset for the next attribute
         offset += typeCount * typeSize;
@@ -70,7 +70,7 @@ void VertexArray::addBuffer(const GLESC::VertexBuffer &vb,
 
 void VertexArray::destroyOnce() {
     if (objectAlive) {
-        gapi.deleteVertexArray(vertexArrayID);
+        getGAPI().deleteVertexArray(vertexArrayID);
         objectAlive = false;
     }
 }

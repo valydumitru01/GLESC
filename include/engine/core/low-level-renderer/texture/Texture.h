@@ -25,7 +25,7 @@ namespace GLESC {
          *            depends on the platform and the renderer). This parameter specifies the slot
          *            to which the texture will be bound.
          */
-        void bind(GAPI::UInt slot = 0) const;
+        void bind(Tex::Slot slot = Tex::Slot::Slot0) const;
         
         void unbind() const;
         
@@ -37,11 +37,11 @@ namespace GLESC {
         
         [[nodiscard]] inline const std::string &getPath() const { return path; }
         
-        [[nodiscard]] inline GAPI::UInt getBitDepth() const {
-            return static_cast<GAPI::UInt>(format->bitDepth);
-        }
+        [[nodiscard]] inline GAPI::UInt getTextureID() const { return textureID; }
         
         [[nodiscard]] Pixel getPixel(GAPI::UInt x, GAPI::UInt y) const;
+        
+        [[nodiscard]] const std::vector<GAPI::UByte> &getPixelsInBytes() const{ return pixels;}
         
         [[nodiscard]] const Format &getFormat() const;
         

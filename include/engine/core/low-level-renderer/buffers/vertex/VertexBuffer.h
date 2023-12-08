@@ -20,9 +20,9 @@ namespace GLESC {
         VertexBuffer(const Type *data, GAPI::Size size) {
             D_ASSERT_NOT_NULLPTR(data, "Data is null in VertexBuffer constructor");
             D_ASSERT_TRUE(size > 0, "Size is 0 in VertexBuffer constructor");
-            gapi.genBuffers(1, vertexBufferID);
+            getGAPI().genBuffers(1, vertexBufferID);
             this->bind();
-            gapi.setBufferData(data, size,
+            getGAPI().setBufferData(data, size,
                                GAPI::BufferTypes::Vertex,
                                GAPI::BufferUsages::StaticDraw);
         }

@@ -22,17 +22,17 @@ void VertexBuffer::destroy() {
 }
 
 void VertexBuffer::bind() const {
-    gapi.bindBuffer(GAPI::BufferTypes::Vertex, vertexBufferID);
+    getGAPI().bindBuffer(GAPI::BufferTypes::Vertex, vertexBufferID);
 }
 
 void VertexBuffer::unbind() const {
-    gapi.unbindBuffer(GAPI::BufferTypes::Vertex);
+    getGAPI().unbindBuffer(GAPI::BufferTypes::Vertex);
 }
 
 void VertexBuffer::destroyOnce() {
     if (objectAlive) {
         
-        gapi.deleteBuffer(vertexBufferID);
+        getGAPI().deleteBuffer(vertexBufferID);
         
         objectAlive = false;
     }

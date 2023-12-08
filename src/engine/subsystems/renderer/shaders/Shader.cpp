@@ -24,15 +24,15 @@ Shader::Shader(const std::string &fileName) :
 }
 
 Shader::~Shader() {
-    gapi.deleteShader(shaderProgram);
+    getGAPI().deleteShaderProgram(shaderProgram);
 }
 
 void Shader::bind() const {
-    gapi.useShaderProgram(shaderProgram);
+    getGAPI().useShaderProgram(shaderProgram);
 }
 
 void Shader::unbind() const {
-    gapi.useShaderProgram(0);
+    getGAPI().useShaderProgram(0);
 }
 
 UniformSetter Shader::setUniform(const std::string &name) const {

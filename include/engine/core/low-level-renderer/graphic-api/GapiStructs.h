@@ -53,5 +53,4 @@ namespace GAPI {
         [[maybe_unused]] Viewport(GAPI::Int x, GAPI::Int y, GAPI::Int width, GAPI::Int height)
                 : x(x), y(y), width(width), height(height) {}
     }; // struct Viewport
-    
 } // namespace GAPI

@@ -17,13 +17,13 @@
 
 #define D_ASSERT_COMPILATION_OK(shaderType) \
     char *infoLog = new char[512];\
-    D_ASSERT_TRUE(gapi.compilationOK(shaderType, infoLog), \
+    D_ASSERT_TRUE(getGAPI().compilationOK(shaderType, infoLog), \
         "Compilation failed, error message " + std::string(infoLog));\
     delete[] infoLog;
 
 
 #define D_ASSERT_LINKING_OK(shaderProgram) \
     char *infoLog = new char[512];\
-    D_ASSERT_TRUE(gapi.linkOK(shaderProgram, infoLog), \
+    D_ASSERT_TRUE(getGAPI().linkOK(shaderProgram, infoLog), \
         "Linking failed, error message " + std::string(infoLog));\
     delete[] infoLog;

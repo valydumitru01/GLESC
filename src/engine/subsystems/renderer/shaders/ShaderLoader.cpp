@@ -134,7 +134,7 @@ GAPI::UInt ShaderLoader::vertexShader;
 GAPI::UInt ShaderLoader::fragmentShader;
 
 GAPI::UInt ShaderLoader::loadVertexShader(const std::string& vertexShaderSourceParam) {
-    GAPI::UInt vertShader = gapi
+    GAPI::UInt vertShader = getGAPI()
             .loadAndCompileShader(GAPI::ShaderTypes::Vertex, vertexShaderSourceParam);
     shaderNamesMap.emplace(vertShader, "VERTEX");
     D_ASSERT_COMPILATION_OK(vertShader);
@@ -142,7 +142,7 @@ GAPI::UInt ShaderLoader::loadVertexShader(const std::string& vertexShaderSourceP
 }
 
 GAPI::UInt ShaderLoader::loadFragmentShader(const std::string& fragmentShaderSourceParam) {
-    GAPI::UInt fragShader = gapi
+    GAPI::UInt fragShader = getGAPI()
             .loadAndCompileShader(GAPI::ShaderTypes::Fragment, fragmentShaderSourceParam);
     shaderNamesMap.emplace(fragShader, "FRAGMENT");
     D_ASSERT_COMPILATION_OK(fragShader);
@@ -151,7 +151,7 @@ GAPI::UInt ShaderLoader::loadFragmentShader(const std::string& fragmentShaderSou
 
 
 GAPI::UInt ShaderLoader::createShaderProgram() {
-    GAPI::UInt shaderProgram = gapi.createShaderProgram(vertexShader, fragmentShader);
+    GAPI::UInt shaderProgram = getGAPI().createShaderProgram(vertexShader, fragmentShader);
     D_ASSERT_LINKING_OK(shaderProgram);
     return shaderProgram;
 }
@@ -169,8 +169,8 @@ GAPI::UInt ShaderLoader::createShaderProgram() {
  */
 void ShaderLoader::clean() {
     std::destroy(shaderNamesMap.begin(), shaderNamesMap.end()); //Delete pointers from map
-    gapi.deleteShader(vertexShader);
-    gapi.deleteShader(fragmentShader);
+    getGAPI().deleteShader(vertexShader);
+    getGAPI().deleteShader(fragmentShader);
 }
 
 std::unordered_map<unsigned int, const char *> ShaderLoader::shaderNamesMap;

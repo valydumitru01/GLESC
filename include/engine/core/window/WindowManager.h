@@ -39,6 +39,12 @@ namespace GLESC {
          *                             height: height of the window
          */
         [[nodiscard]] WindowDimensions getWindowSize() const;
+        
+        /**
+         * @brief Get the center of the window
+         */
+        [[nodiscard]] Vec2UI getWindowCenter() const;
+        
         /**
          * @brief Callback function when window size is modified
          * This will change the viewport with the new resolution

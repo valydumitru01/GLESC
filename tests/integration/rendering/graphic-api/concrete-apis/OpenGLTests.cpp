@@ -11,13 +11,14 @@
 #include <gtest/gtest.h>
 #include <SDL2/SDL.h>
 #include <GL/glew.h>
+
+#include "LoopHelper.h"
+#include "integration/rendering/RenderingTestHelper.h"
 #include <engine/Config.h>
 #include <engine/core/logger/Logger.h>
 #include <engine/core/low-level-renderer/shader/ShaderLoader.h>
-#include "LoopHelper.h"
-#include "integration/rendering/IBaseRenderTest.h"
 
-class OpenGLTests : public IBaseRenderTest {
+class OpenGLTests : public ::testing::Test {
 protected:
     
     SDL_Window *window{};
@@ -80,16 +81,17 @@ protected:
         }
     }
     
-    void prepareShaders() override {
-        shaderProgram = ShaderLoader::loadShader(vertexShaderSource, fragmentShaderSource);
+    void prepareShaders() {
+        shaderProgram =
+                ShaderLoader::loadShader(vertexShaderSourceColor, fragmentShaderSourceColor);
         GLESC::Logger::get().success("Shader program created successfully");
     }
     
     GLuint VBO{};
-    GLuint EBO{};
+    GLuint IBO{};
     GLuint VAO{};
     
-    void prepareBuffers() override {
+    void prepareBuffers() {
         // Vertex Array Object (VAO)
         glGenVertexArrays(1, &VAO);
         glBindVertexArray(VAO);
@@ -98,7 +100,8 @@ protected:
         // Vertex Buffer Object (VBO)
         glGenBuffers(1, &VBO);
         glBindBuffer(GL_ARRAY_BUFFER, VBO);
-        glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(float), vertices.data(),
+        glBufferData(GL_ARRAY_BUFFER, positionOnlyVertices.size() * sizeof(float),
+                     positionOnlyVertices.data(),
                      GL_STATIC_DRAW);
         Logger::get().success("VBO created!");
         
@@ -108,8 +111,8 @@ protected:
         Logger::get().success("Vertex attributes set!");
         
         // Vertex Element Buffer Object (EBO)
-        glGenBuffers(1, &EBO);
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+        glGenBuffers(1, &IBO);
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
         glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(GLuint), indices.data(),
                      GL_STATIC_DRAW);
         Logger::get().success("EBO created!");
@@ -121,7 +124,7 @@ protected:
         glBindVertexArray(0);
     }
     
-    void render() override {
+    void render() {
         // Render
         glClearColor(backgroundColor.r, backgroundColor.g, backgroundColor.b,
                      backgroundColor.a);
@@ -133,8 +136,9 @@ protected:
         
         // Set the color uniform
         GLint colorLocation = glGetUniformLocation(this->shaderProgram, "uColor");
-        glUniform4f(colorLocation, expectedTriangleColor.r, expectedTriangleColor.g, expectedTriangleColor.b,
-                    expectedTriangleColor.a);
+        glUniform4f(colorLocation, expectedFigureColor.r, expectedFigureColor.g,
+                    expectedFigureColor.b,
+                    expectedFigureColor.a);
         Logger::get().success("Color uniform set!");
         
         
@@ -146,6 +150,7 @@ protected:
         glBindVertexArray(0);
         
         // Swap window
+        SDL_GL_SwapWindow(window);
         SDL_GL_SwapWindow(window);
         Logger::get().success("Window swapped!");
         
@@ -159,13 +164,11 @@ protected:
         prepareBuffers();
         Logger::get().success("Buffers prepared!");
         
-        LOOP() {
-            render();
-        }
+        render();
         Logger::get().success("Rendered!");
     }
     
-    void destroyRender() override {
+    void destroyRender() {
         // Cleanup
         Logger::get().success("Destroying render!");
         glDeleteBuffers(1, &VBO);
@@ -182,51 +185,8 @@ protected:
 
 
 TEST_F(OpenGLTests, test) {
-    Logger::get().success("Test started!");
-    // Binding before reading
-    glBindBuffer(GL_ARRAY_BUFFER, VBO);
-    Logger::get().success("Reading buffer data!");
-    // Get the size of the buffer data
-    GLint bufferSize = 0;
-    glGetBufferParameteriv(GL_ARRAY_BUFFER, GL_BUFFER_SIZE, &bufferSize);
-    Logger::get().success("Read buffer size: " + std::to_string(bufferSize));
-    size_t numElements = bufferSize / sizeof(float);
-    
-    
-    // Read the buffer data
-    std::vector<float> actualVertices(numElements);
-    glGetBufferSubData(GL_ARRAY_BUFFER, 0, bufferSize, actualVertices.data());
-    Logger::get().success("Buffer data read! Data: ");
-    for (auto &actualVertex : actualVertices) {
-        Logger::get().success(std::to_string(actualVertex));
-    }
-    
-    // Check the vertex data
-    ASSERT_EQ(actualVertices.size(), vertices.size());
-    for (size_t i = 0; i < actualVertices.size(); ++i) {
-        std::cout << "Vertex data " << i << ": " << actualVertices[i] << "\n";
-        EXPECT_NEAR(actualVertices[i], vertices[i], dataEpsilon)
-                            << "Vertex data mismatch at index " << i;
-    }
-    
-    // Check the background color
-    GAPI::RGBColorNormalized pixel{};
-    Logger::get().success("Reading pixel color!");
-    glReadPixels(10, 10, 1, 1, GL_RGBA, GL_FLOAT, &pixel);
-    Logger::get().success("Pixel color read! Pixel: " + std::to_string(pixel.r) + " " +
-                          std::to_string(pixel.g) + " " + std::to_string(pixel.b));
-    EXPECT_NEAR(pixel.r, backgroundColor.r, colorEpsilon);
-    EXPECT_NEAR(pixel.g, backgroundColor.g, colorEpsilon);
-    EXPECT_NEAR(pixel.b, backgroundColor.b, colorEpsilon);
-    Logger::get().success("Pixel color checked!");
-    
-    // Check the triangle color
-    Logger::get().success("Reading triangle color!");
-    glReadPixels(400, 300, 1, 1, GL_RGBA, GL_FLOAT, &pixel);
-    Logger::get().success("Triangle color read! Pixel: " + std::to_string(pixel.r) + " " +
-                          std::to_string(pixel.g) + " " + std::to_string(pixel.b));
-    EXPECT_NEAR(pixel.r, expectedTriangleColor.r, colorEpsilon);
-    EXPECT_NEAR(pixel.g, expectedTriangleColor.g, colorEpsilon);
-    EXPECT_NEAR(pixel.b, expectedTriangleColor.b, colorEpsilon);
-    Logger::get().success("Triangle color checked!");
+    checkBackgroundColor();
+    checkCenterColor(expectedFigureColor);
+    checkIndices(IBO, indices);
+    checkVertices(VBO, positionOnlyVertices);
 }

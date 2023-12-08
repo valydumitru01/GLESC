@@ -11,24 +11,101 @@
 
 #include <string>
 #include "engine/core/low-level-renderer/graphic-api/GapiEnums.h"
-
+#include "engine/core/asserts/Asserts.h"
 
 namespace GAPI{
-inline std::string toString(GAPI::Texture::InternalFormat::ColorFormat typeCount) {
-    switch (typeCount) {
-        case GAPI::Texture::InternalFormat::ColorFormat::R:return "R";
-        case GAPI::Texture::InternalFormat::ColorFormat::RG:return "RG";
-        case GAPI::Texture::InternalFormat::ColorFormat::RGB:return "RGB";
-        case GAPI::Texture::InternalFormat::ColorFormat::RGBA:return "RGBA";
-    }
-}
 
-inline std::string toString(GAPI::Texture::InternalFormat::BitDepth bitDepth) {
-    return std::to_string(static_cast<unsigned>(bitDepth));
-}
 
 inline std::string toString(GAPI::TypeCount typeCount) {
     return std::to_string(static_cast<unsigned>(typeCount));
+}
+
+inline std::string toString(GAPI::Texture::GPUBufferFormat internalFormat){
+        switch (internalFormat) {
+            case GAPI::Texture::GPUBufferFormat::R8:return "R8";
+            case GAPI::Texture::GPUBufferFormat::R8_SNORM:return "R8_SNORM";
+            case GAPI::Texture::GPUBufferFormat::R16:return "R16";
+            case GAPI::Texture::GPUBufferFormat::R16_SNORM:return "R16_SNORM";
+            case GAPI::Texture::GPUBufferFormat::RG8:return "RG8";
+            case GAPI::Texture::GPUBufferFormat::RG8_SNORM:return "RG8_SNORM";
+            case GAPI::Texture::GPUBufferFormat::RG16:return "RG16";
+            case GAPI::Texture::GPUBufferFormat::RG16_SNORM:return "RG16_SNORM";
+            case GAPI::Texture::GPUBufferFormat::R3_G3_B2:return "R3_G3_B2";
+            case GAPI::Texture::GPUBufferFormat::RGB:return "RGB";
+            case GAPI::Texture::GPUBufferFormat::RGBA:return "RGBA";
+            case GAPI::Texture::GPUBufferFormat::RGB4:return "RGB4";
+            case GAPI::Texture::GPUBufferFormat::RGB5:return "RGB5";
+            case GAPI::Texture::GPUBufferFormat::RGB8:return "RGB8";
+            case GAPI::Texture::GPUBufferFormat::RGB8_SNORM:return "RGB8_SNORM";
+            case GAPI::Texture::GPUBufferFormat::RGB10:return "RGB10";
+            case GAPI::Texture::GPUBufferFormat::RGB12:return "RGB12";
+            case GAPI::Texture::GPUBufferFormat::RGB16_SNORM:return "RGB16_SNORM";
+            case GAPI::Texture::GPUBufferFormat::RGBA2:return "RGBA2";
+            case GAPI::Texture::GPUBufferFormat::RGBA4:return "RGBA4";
+            case GAPI::Texture::GPUBufferFormat::RGB5_A1:return "RGB5_A1";
+            case GAPI::Texture::GPUBufferFormat::RGBA8:return "RGBA8";
+            case GAPI::Texture::GPUBufferFormat::RGBA8_SNORM:return "RGBA8_SNORM";
+            case GAPI::Texture::GPUBufferFormat::RGB10_A2:return "RGB10_A2";
+            case GAPI::Texture::GPUBufferFormat::RGB10_A2UI:return "RGB10_A2UI";
+            case GAPI::Texture::GPUBufferFormat::RGBA12:return "RGBA12";
+            case GAPI::Texture::GPUBufferFormat::RGBA16:return "RGBA16";
+            case GAPI::Texture::GPUBufferFormat::SRGB8:return "SRGB8";
+            case GAPI::Texture::GPUBufferFormat::SRGB8_ALPHA8:return "SRGB8_ALPHA8";
+            case GAPI::Texture::GPUBufferFormat::R16F:return "R16F";
+            case GAPI::Texture::GPUBufferFormat::RG16F:return "RG16F";
+            case GAPI::Texture::GPUBufferFormat::RGB16F:return "RGB16F";
+            case GAPI::Texture::GPUBufferFormat::RGBA16F:return "RGBA16F";
+            case GAPI::Texture::GPUBufferFormat::R32F:return "R32F";
+            case GAPI::Texture::GPUBufferFormat::RG32F:return "RG32F";
+            case GAPI::Texture::GPUBufferFormat::RGB32F:return "RGB32F";
+            case GAPI::Texture::GPUBufferFormat::RGBA32F:return "RGBA32F";
+            case GAPI::Texture::GPUBufferFormat::R11F_G11F_B10F:return "R11F_G11F_B10F";
+            case GAPI::Texture::GPUBufferFormat::RGB9_E5:return "RGB9_E5";
+            case GAPI::Texture::GPUBufferFormat::R8I:return "R8I";
+            case GAPI::Texture::GPUBufferFormat::R8UI:return "R8UI";
+            case GAPI::Texture::GPUBufferFormat::R16I:return "R16I";
+            case GAPI::Texture::GPUBufferFormat::R16UI:return "R16UI";
+            case GAPI::Texture::GPUBufferFormat::R32I:return "R32I";
+            case GAPI::Texture::GPUBufferFormat::R32UI:return "R32UI";
+            case GAPI::Texture::GPUBufferFormat::RG8I:return "RG8I";
+            case GAPI::Texture::GPUBufferFormat::RG8UI:return "RG8UI";
+            case GAPI::Texture::GPUBufferFormat::RG16I:return "RG16I";
+            case GAPI::Texture::GPUBufferFormat::RG16UI:return "RG16UI";
+            case GAPI::Texture::GPUBufferFormat::RG32I:return "RG32I";
+            case GAPI::Texture::GPUBufferFormat::RG32UI:return "RG32UI";
+            case GAPI::Texture::GPUBufferFormat::RGB8I:return "RGB8I";
+            case GAPI::Texture::GPUBufferFormat::RGB8UI:return "RGB8UI";
+            case GAPI::Texture::GPUBufferFormat::RGB16I:return "RGB16I";
+            case GAPI::Texture::GPUBufferFormat::RGB16UI:return "RGB16UI";
+            case GAPI::Texture::GPUBufferFormat::RGB32I:return "RGB32I";
+            case GAPI::Texture::GPUBufferFormat::RGB32UI:return "RGB32UI";
+            case GAPI::Texture::GPUBufferFormat::RGBA8I:return "RGBA8I";
+            case GAPI::Texture::GPUBufferFormat::RGBA8UI:return "RGBA8UI";
+            case GAPI::Texture::GPUBufferFormat::RGBA16I:return "RGBA16I";
+            case GAPI::Texture::GPUBufferFormat::RGBA16UI:return "RGBA16UI";
+            case GAPI::Texture::GPUBufferFormat::RGBA32I:return "RGBA32I";
+            case GAPI::Texture::GPUBufferFormat::RGBA32UI:return "RGBA32UI";
+            case GAPI::Texture::GPUBufferFormat::DEPTH_COMPONENT16:return "DEPTH_COMPONENT16";
+            case GAPI::Texture::GPUBufferFormat::DEPTH_COMPONENT24:return "DEPTH_COMPONENT24";
+            case GAPI::Texture::GPUBufferFormat::DEPTH_COMPONENT32F:return "DEPTH_COMPONENT32F";
+            case GAPI::Texture::GPUBufferFormat::DEPTH24_STENCIL8:return "DEPTH24_STENCIL8";
+            case GAPI::Texture::GPUBufferFormat::DEPTH32F_STENCIL8:return "DEPTH32F_STENCIL8";
+            case GAPI::Texture::GPUBufferFormat::STENCIL_INDEX8:return "STENCIL_INDEX8";
+            
+        }
+}
+inline std::string  toString(GAPI::Texture::CPUBufferFormat format){
+    switch (format) {
+        case GAPI::Texture::CPUBufferFormat::R:return "R";
+        case GAPI::Texture::CPUBufferFormat::RG:return "RG";
+        case GAPI::Texture::CPUBufferFormat::RGB:return "RGB";
+        case GAPI::Texture::CPUBufferFormat::RGBA:return "RGBA";
+        case GAPI::Texture::CPUBufferFormat::BGR:return "BGR";
+        case GAPI::Texture::CPUBufferFormat::BGRA:return "BGRA";
+        case GAPI::Texture::CPUBufferFormat::DepthComponent:return "DepthComponent";
+        case GAPI::Texture::CPUBufferFormat::DepthStencil:return "DepthStencil";
+        default: "Invalid format";
+    }
 }
 
 inline std::string toString(GAPI::Types type) {
@@ -56,6 +133,7 @@ inline std::string toString(GAPI::Types type) {
         case GAPI::Types::Mat2F:return "Mat2F";
         case GAPI::Types::Mat3F:return "Mat3F";
         case GAPI::Types::Mat4F:return "Mat4F";
+        default: return "Invalid type";
     }
 }
 
@@ -176,12 +254,4 @@ inline std::string toString(GAPI::Texture::Types type) {
     }
 }
 
-inline std::string toString(GAPI::Texture::BufferFormat type) {
-    switch (type) {
-        case GAPI::Texture::BufferFormat::R:return "R";
-        case GAPI::Texture::BufferFormat::RG:return "RG";
-        case GAPI::Texture::BufferFormat::RGB:return "RGB";
-        case GAPI::Texture::BufferFormat::RGBA:return "RGBA";
-    }
-}
 }

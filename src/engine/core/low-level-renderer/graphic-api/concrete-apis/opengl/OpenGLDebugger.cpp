@@ -19,9 +19,9 @@ void OpenGLDebugger::glDebugCallback(GLenum source, GLenum type, GLuint errorCod
                                      const GLchar *message, const void *userParam) {
     // ignore non-significant error/warning codes
     const std::set<GLuint> nonSignificantErrorCodes = {131169, 131185, 131218, 131204};
-    if (nonSignificantErrorCodes.find(errorCode) != nonSignificantErrorCodes.end()) {
+    if (nonSignificantErrorCodes.find(errorCode) != nonSignificantErrorCodes.end())
         return;
-    }
+    
     D_ASSERT_GL_CALL_IS_CORRECT(false,
                               "Debug message (" +
                               std::to_string(errorCode) + "): \n Message:" + message +

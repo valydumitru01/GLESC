@@ -778,7 +778,7 @@ using Vec2B = Vector<bool, 2>;
 using Vec3B = Vector<bool, 3>;
 using Vec4B = Vector<bool, 4>;
 
-using Vec2Ui = Vector<unsigned int, 2>;
+using Vec2UI = Vector<unsigned int, 2>;
 using Vec3Ui = Vector<unsigned int, 3>;
 using Vec4Ui = Vector<unsigned int, 4>;
 

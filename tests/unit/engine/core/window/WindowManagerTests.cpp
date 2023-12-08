@@ -42,7 +42,7 @@ TEST_F(WindowManagerTest, Size) {
     EXPECT_EQ_CUSTOM(windowDimensions.height, 600);
     
     // Checking the viewport has changed
-    vp = gapi.getViewport();
+    vp = getGAPI().getViewport();
     EXPECT_EQ_CUSTOM(vp.width, 800);
     EXPECT_EQ_CUSTOM(vp.height, 600);
     
@@ -52,7 +52,7 @@ TEST_F(WindowManagerTest, Size) {
     EXPECT_EQ_CUSTOM(windowDimensions.height, 200);
     
     // Checking the viewport has changed
-    vp = gapi.getViewport();
+    vp = getGAPI().getViewport();
     EXPECT_EQ_CUSTOM(vp.width, 200);
     EXPECT_EQ_CUSTOM(vp.height, 200);
     

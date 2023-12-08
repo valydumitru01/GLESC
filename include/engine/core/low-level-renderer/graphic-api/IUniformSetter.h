@@ -43,7 +43,7 @@ public:
     virtual void u3I(GAPI::Int v0, GAPI::Int v1, GAPI::Int v2) = 0;
     virtual void u4I(GAPI::Int v0, GAPI::Int v1, GAPI::Int v2, GAPI::Int v3) = 0;
     // Unsigned ints
-    virtual void u2Ui(Vec2Ui vec2) = 0;
+    virtual void u2Ui(Vec2UI vec2) = 0;
     virtual void u3Ui(Vec3Ui vec3) = 0;
     virtual void u4Ui(Vec4Ui vec4) = 0;
     virtual void u2Ui(GAPI::UInt vec2[2]) = 0;
@@ -82,7 +82,7 @@ public:
     virtual void u4IVec(const std::vector<Vec4I>& values) = 0;
     // Unsigned ints
     virtual void u1UiVec(const std::vector<GAPI::UInt>& values) = 0;
-    virtual void u2UiVec(const std::vector<Vec2Ui>& values) = 0;
+    virtual void u2UiVec(const std::vector<Vec2UI>& values) = 0;
     virtual void u3UiVec(const std::vector<Vec3Ui>& values) = 0;
     virtual void u4UiVec(const std::vector<Vec4Ui>& values) = 0;
     // Booleans

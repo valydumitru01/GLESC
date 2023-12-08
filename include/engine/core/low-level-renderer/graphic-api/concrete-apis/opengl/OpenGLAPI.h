@@ -10,6 +10,7 @@
 #include <SDL2/SDL.h>
 #include <functional>
 #include <string>
+#include <engine/core/low-level-renderer/graphic-api/debugger/GapiDebugger.h>
 
 #include "engine/Config.h"
 #include "engine/core/exceptions/core/low-level-renderer/GAPIInitException.h"
@@ -29,11 +30,6 @@ namespace GLESC {
         }
         
         
-        void deleteTexture(GAPI::UInt textureID) override {
-            GAPI_FUNCTION_LOG("deleteTexture", textureID);
-            GAPI_FUNCTION_IMPLEMENTATION_LOG("glDeleteTextures", textureID);
-            glDeleteTextures(1, &textureID);
-        }
         
         void deleteContext() override {
             GAPI_FUNCTION_NO_ARGS_LOG("deleteContext");
@@ -57,82 +53,6 @@ namespace GLESC {
             GAPI_FUNCTION_IMPLEMENTATION_LOG("glGetIntegerv", GL_VIEWPORT, viewport);
             glGetIntegerv(GL_VIEWPORT, viewport);
             return GAPI::Viewport{viewport[0], viewport[1], viewport[2], viewport[3]};
-        }
-        
-        GAPI::UInt createTexture(GAPI::Texture::Filters::Min minFilter,
-                                 GAPI::Texture::Filters::Mag magFilter,
-                                 GAPI::Texture::Filters::WrapMode wrapS,
-                                 GAPI::Texture::Filters::WrapMode wrapT) override {
-            GAPI_FUNCTION_LOG("createTexture", "SDL_Surface", minFilter, magFilter, wrapS, wrapT);
-            
-            auto minFilterGL = static_cast<GLenum>(minFilter);
-            auto magFilterGL = static_cast<GLenum>(magFilter);
-            auto wrapSGL = static_cast<GLenum>(wrapS);
-            auto wrapTGL = static_cast<GLenum>(wrapT);
-            
-            int numTextures = 1;
-            GAPI::UInt textureID = 0;
-            GAPI_FUNCTION_IMPLEMENTATION_LOG("glGenTextures", numTextures, &textureID);
-            glGenTextures(numTextures, &textureID);
-            
-            bindTexture(textureID);
-            
-            GAPI_FUNCTION_IMPLEMENTATION_LOG("glTexParameteri", GL_TEXTURE_2D,
-                                             GL_TEXTURE_MIN_FILTER,
-                                             minFilterGL);
-            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, minFilterGL);
-            
-            GAPI_FUNCTION_IMPLEMENTATION_LOG("glTexParameteri", GL_TEXTURE_2D,
-                                             GL_TEXTURE_MAG_FILTER,
-                                             magFilterGL);
-            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, magFilterGL);
-            
-            GAPI_FUNCTION_IMPLEMENTATION_LOG("glTexParameteri", GL_TEXTURE_2D,
-                                             GL_TEXTURE_WRAP_S,
-                                             wrapSGL);
-            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, wrapSGL);
-            
-            GAPI_FUNCTION_IMPLEMENTATION_LOG("glTexParameteri", GL_TEXTURE_2D,
-                                             GL_TEXTURE_WRAP_T,
-                                             wrapTGL);
-            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, wrapTGL);
-            
-            return textureID;
-        }
-        
-        GAPI::Void setTextureData(GAPI::Int level,
-                                  GAPI::UInt width,
-                                  GAPI::UInt height,
-                                  GAPI::UByte *texelBuffer) override {
-            GAPI_FUNCTION_LOG("setTextureData", level, height, width, "texelBuffer");
-            
-            GAPI_FUNCTION_IMPLEMENTATION_LOG("glTexImage2D", GL_TEXTURE_2D, level, GL_RGBA8,
-                                             width, height, 0, texelBuffer);
-            
-            // TODO: Add support for non-alpha textures to reduce memory usage
-            glTexImage2D(GL_TEXTURE_2D, level, GL_RGBA8, width, height, 0, GL_RGBA,
-                         GL_UNSIGNED_BYTE, texelBuffer);
-        }
-        
-        
-        GAPI::Void bindTexture(GAPI::UInt textureID) override {
-            GAPI_FUNCTION_LOG("bindTexture", textureID);
-            GAPI_FUNCTION_IMPLEMENTATION_LOG("glBindTexture", GL_TEXTURE_2D, textureID);
-            glBindTexture(GL_TEXTURE_2D, textureID);
-        }
-        
-        GAPI::Void bindTextureOnSlot(GAPI::UInt textureID, GAPI::UInt slot) override {
-            GAPI_FUNCTION_LOG("bindTextureOnSlot", textureID, slot);
-            GAPI_FUNCTION_IMPLEMENTATION_LOG("glActiveTexture", GL_TEXTURE0 + slot);
-            glActiveTexture(GL_TEXTURE0 + slot);
-            GAPI_FUNCTION_IMPLEMENTATION_LOG("glBindTexture", GL_TEXTURE_2D, textureID);
-            glBindTexture(GL_TEXTURE_2D, textureID);
-        }
-        
-        GAPI::Void unbindTexture() override {
-            GAPI_FUNCTION_NO_ARGS_LOG("unbindTexture");
-            GAPI_FUNCTION_IMPLEMENTATION_LOG("glBindTexture", GL_TEXTURE_2D, 0);
-            glBindTexture(GL_TEXTURE_2D, 0);
         }
         
         
@@ -257,7 +177,7 @@ namespace GLESC {
             return color;
         }
         
-        GAPI::RGBColorNormalized readPixelColorNormalized(int x, int y) {
+        GAPI::RGBColorNormalized readPixelColorNormalized(GAPI::UInt x, GAPI::UInt y) {
             GAPI_FUNCTION_LOG("readPixelColorNormalized", x, y);
             GAPI::RGBColorNormalized color{};
             GAPI_FUNCTION_IMPLEMENTATION_LOG("glReadPixels", x, y, 1, 1, GL_RGB,
@@ -267,6 +187,222 @@ namespace GLESC {
                                              GL_UNSIGNED_BYTE, color.r, color.g, color.b, color.a);
             return color;
         }
+        // -------------------------------------------------------------------------
+        // ------------------------------ Texture ----------------------------------
+        
+        GAPI::TextureID createTexture(GAPI::Texture::Filters::Min minFilter,
+                                 GAPI::Texture::Filters::Mag magFilter,
+                                 GAPI::Texture::Filters::WrapMode wrapS,
+                                 GAPI::Texture::Filters::WrapMode wrapT) override {
+            GAPI_FUNCTION_LOG("createTexture", "SDL_Surface", minFilter, magFilter, wrapS, wrapT);
+            
+            auto minFilterGL = static_cast<GLenum>(minFilter);
+            auto magFilterGL = static_cast<GLenum>(magFilter);
+            auto wrapSGL = static_cast<GLenum>(wrapS);
+            auto wrapTGL = static_cast<GLenum>(wrapT);
+            
+            int numTextures = 1;
+            GAPI::TextureID textureID = 0;
+            GAPI_FUNCTION_IMPLEMENTATION_LOG("glGenTextures", numTextures, &textureID);
+            glGenTextures(numTextures, &textureID);
+            textures.emplace(textureID);
+            this->bindTexture(textureID);
+            
+            GAPI_FUNCTION_IMPLEMENTATION_LOG("glTexParameteri", GL_TEXTURE_2D,
+                                             GL_TEXTURE_MIN_FILTER,
+                                             minFilterGL);
+            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, minFilterGL);
+            
+            GAPI_FUNCTION_IMPLEMENTATION_LOG("glTexParameteri", GL_TEXTURE_2D,
+                                             GL_TEXTURE_MAG_FILTER,
+                                             magFilterGL);
+            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, magFilterGL);
+            
+            GAPI_FUNCTION_IMPLEMENTATION_LOG("glTexParameteri", GL_TEXTURE_2D,
+                                             GL_TEXTURE_WRAP_S,
+                                             wrapSGL);
+            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, wrapSGL);
+            
+            GAPI_FUNCTION_IMPLEMENTATION_LOG("glTexParameteri", GL_TEXTURE_2D,
+                                             GL_TEXTURE_WRAP_T,
+                                             wrapTGL);
+            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, wrapTGL);
+            
+            return textureID;
+        }
+        
+        void deleteTexture(GAPI::TextureID textureID) override {
+            GAPI_FUNCTION_LOG("deleteTexture", textureID);
+            
+            D_ASSERT_TRUE(isTexture(textureID), "Bound object is not a texture.");
+            
+            GAPI_FUNCTION_IMPLEMENTATION_LOG("glDeleteTextures", textureID);
+            glDeleteTextures(1, &textureID);
+            
+            this->textures.erase(textureID);
+        }
+        
+        GAPI::Void setTextureData(GAPI::Int level,
+                                  GAPI::UInt width,
+                                  GAPI::UInt height,
+                                  GAPI::Texture::CPUBufferFormat inputFormat,
+                                  GAPI::Texture::BitDepth bitsPerPixel,
+                                  GAPI::UByte *texelBuffer) override {
+            GAPI_FUNCTION_LOG("setTextureData", level, height, width, "texelBuffer");
+            D_ASSERT_TRUE(anyTextureBound(), "No texture bound.");
+            
+            GLenum GLinternalFormat;
+            GLenum inputFormatGL = static_cast<GLenum>(inputFormat);
+            
+            GLuint padding;
+            if (inputFormat == GAPI::Texture::CPUBufferFormat::RGB &&
+                bitsPerPixel == GAPI::Texture::BitDepth::Bit24){
+                GLinternalFormat = GL_RGB8;
+                padding = 1;
+            }
+            else if (inputFormat == GAPI::Texture::CPUBufferFormat::RGBA &&
+                    bitsPerPixel == GAPI::Texture::BitDepth::Bit32){
+                GLinternalFormat = GL_RGBA8;
+                padding = 4;
+            }
+            else
+                throw GAPIException("Invalid texture format.");
+            
+            GAPI_FUNCTION_IMPLEMENTATION_LOG("glPixelStorei", GL_UNPACK_ALIGNMENT, padding);
+            glPixelStorei(GL_UNPACK_ALIGNMENT, padding);
+            
+            GAPI_FUNCTION_IMPLEMENTATION_LOG("glTexImage2D", GL_TEXTURE_2D, level, GLinternalFormat,
+                                             width, height, 0, inputFormatGL,
+                                             GL_UNSIGNED_BYTE, texelBuffer);
+            glTexImage2D(GL_TEXTURE_2D, level, GLinternalFormat , width, height, 0, inputFormatGL,
+                         GL_UNSIGNED_BYTE, texelBuffer);
+            
+            GAPI_FUNCTION_IMPLEMENTATION_LOG("glPixelStorei", GL_UNPACK_ALIGNMENT, 4);
+            glPixelStorei(GL_UNPACK_ALIGNMENT, 4); // Reset to default
+        }
+        
+        GAPI::Texture::GPUBufferFormat getTextureColorFormat(GAPI::TextureID textureID) override {
+            GAPI_FUNCTION_LOG("getTextureColorFormat", textureID);
+            D_ASSERT_TRUE(isTexture(textureID), "Passed object is not a texture.");
+            D_ASSERT_TRUE(isTextureBound(textureID), "Passed texture is not bound.");
+            
+            GLint internalFormat;
+            GAPI_FUNCTION_IMPLEMENTATION_LOG("glGetTexLevelParameteriv", GL_TEXTURE_2D, 0,
+                                             GL_TEXTURE_INTERNAL_FORMAT, &internalFormat);
+            glGetTexLevelParameteriv(GL_TEXTURE_2D, 0, GL_TEXTURE_INTERNAL_FORMAT, &internalFormat);
+            
+            
+            GAPI::Texture::GPUBufferFormat externalFormatEnum =
+                    static_cast<GAPI::Texture::GPUBufferFormat>(internalFormat);
+            Logger::get().info("\t\tInternal format: " + GAPI::toString(externalFormatEnum));
+            return static_cast<GAPI::Texture::GPUBufferFormat>(externalFormatEnum);
+        }
+        
+        GAPI::UInt getTextureHeight(GAPI::TextureID textureID) override {
+            GAPI_FUNCTION_LOG("getTextureHeight", textureID);
+            D_ASSERT_TRUE(isTexture(textureID), "Passed object is not a texture.");
+            D_ASSERT_TRUE(isTextureBound(textureID), "Passed texture is not bound.");
+            
+            GLint textureHeight;
+            GAPI_FUNCTION_IMPLEMENTATION_LOG("glGetTexLevelParameteriv", GL_TEXTURE_2D, 0,
+                                             GL_TEXTURE_HEIGHT, &textureHeight);
+            glGetTexLevelParameteriv(GL_TEXTURE_2D, 0, GL_TEXTURE_HEIGHT, &textureHeight);
+            
+            
+            D_ASSERT_TRUE(textureHeight > 0, "Invalid texture height.");
+            return static_cast<GAPI::UInt>(textureHeight);
+        }
+        
+        GAPI::UInt getTextureWidth(GAPI::TextureID textureID) override {
+            GAPI_FUNCTION_LOG("getTextureWidth", textureID);
+            D_ASSERT_TRUE(isTexture(textureID), "Passed object is not a texture.");
+            D_ASSERT_TRUE(isTextureBound( textureID), "Passed texture is not bound.");
+            
+            GLint textureWidth;
+            GAPI_FUNCTION_IMPLEMENTATION_LOG("glGetTexLevelParameteriv", GL_TEXTURE_2D, 0,
+                                             GL_TEXTURE_WIDTH, &textureWidth);
+            glGetTexLevelParameteriv(GL_TEXTURE_2D, 0, GL_TEXTURE_WIDTH, &textureWidth);
+            
+            
+            D_ASSERT_TRUE(textureWidth > 0, "Invalid texture width.");
+            return static_cast<GAPI::UInt>(textureWidth);
+        }
+        
+        std::vector<GAPI::UByte> getTextureData(GAPI::TextureID textureID) override {
+            GAPI_FUNCTION_LOG("getTextureData", textureID);
+            D_ASSERT_TRUE(isTexture(textureID) , "Object is not a texture");
+            D_ASSERT_TRUE(isTextureBound(textureID), "Passed texture is not bound.");
+            
+            bindTexture(textureID);
+            
+            GLint textureWidth = getTextureWidth(textureID);
+            GLint textureHeight = getTextureHeight(textureID);
+            GAPI::Texture::GPUBufferFormat internalBufferFormat = getTextureColorFormat(textureID);
+            
+            
+            size_t numBytes = 0;
+            GLuint  padding = 0;
+            GAPI::Texture::CPUBufferFormat extractedFormat;
+            if (internalBufferFormat == GAPI::Texture::GPUBufferFormat::RGB ||
+                internalBufferFormat == GAPI::Texture::GPUBufferFormat::RGB8){
+                numBytes = textureWidth * textureHeight * 3;
+                extractedFormat = GAPI::Texture::CPUBufferFormat::RGB;
+                padding = 1;
+            }
+            else if (internalBufferFormat == GAPI::Texture::GPUBufferFormat::RGBA ||
+                     internalBufferFormat == GAPI::Texture::GPUBufferFormat::RGBA8){
+                numBytes = textureWidth * textureHeight * 4;
+                extractedFormat = GAPI::Texture::CPUBufferFormat::RGBA;
+                padding = 4;
+            }
+            else
+                throw GAPIException("Invalid texture format.");
+            
+            std::vector<GAPI::UByte> data(numBytes);
+            GLenum extractedFormatGL = static_cast<GLenum>(extractedFormat);
+            
+            GAPI_FUNCTION_IMPLEMENTATION_LOG("glPixelStorei", GL_PACK_ALIGNMENT, padding);
+            glPixelStorei(GL_PACK_ALIGNMENT, padding);
+            
+            GAPI_FUNCTION_IMPLEMENTATION_LOG("glGetTexImage", GL_TEXTURE_2D, 0, extractedFormatGL,
+                                             GL_UNSIGNED_BYTE, "data.data()");
+            glGetTexImage(GL_TEXTURE_2D, 0, extractedFormatGL, GL_UNSIGNED_BYTE, data.data());
+            
+            GAPI_FUNCTION_IMPLEMENTATION_LOG("glPixelStorei", GL_PACK_ALIGNMENT, 4);
+            glPixelStorei(GL_PACK_ALIGNMENT, 4); // Reset to default
+            return data;
+        }
+        
+        
+        GAPI::Void bindTexture(GAPI::TextureID textureID) override {
+            GAPI_FUNCTION_LOG("bindTexture", textureID);
+            D_ASSERT_TRUE(isTexture(textureID) , "Object is not a texture");
+            
+            GAPI_FUNCTION_IMPLEMENTATION_LOG("glBindTexture", GL_TEXTURE_2D, textureID);
+            glBindTexture(GL_TEXTURE_2D, textureID);
+            
+            boundTexture = textureID;
+        }
+        
+        GAPI::Void bindTextureOnSlot(GAPI::TextureID textureID, GAPI::UInt slot) override {
+            GAPI_FUNCTION_LOG("bindTextureOnSlot", textureID, slot);
+            D_ASSERT_TRUE(isTexture(textureID) , "Object is not a texture");
+            
+            GAPI_FUNCTION_IMPLEMENTATION_LOG("glActiveTexture", GL_TEXTURE0 + slot);
+            glActiveTexture(GL_TEXTURE0 + slot);
+            GAPI_FUNCTION_IMPLEMENTATION_LOG("glBindTexture", GL_TEXTURE_2D, textureID);
+            
+            bindTexture(textureID);
+        }
+        
+        GAPI::Void unbindTexture() override {
+            GAPI_FUNCTION_NO_ARGS_LOG("unbindTexture");
+            GAPI_FUNCTION_IMPLEMENTATION_LOG("glBindTexture", GL_TEXTURE_2D, 0);
+            glBindTexture(GL_TEXTURE_2D, 0);
+            
+            boundTexture = 0;
+        }
+        
         
         
         // -------------------------------------------------------------------------
@@ -371,24 +507,24 @@ namespace GLESC {
             glBufferData(type, size, data, usage);
         }
         
-        std::vector<float> getBufferDataF(GLuint bufferId) override {
+        std::vector<float> getBufferDataF(GAPI::UInt bufferId) override {
             GAPI_FUNCTION_LOG("getBufferDataF", bufferId);
-            return getBufferData<float>(bufferId);
+            return getBufferDataGL<float>(static_cast<GLuint>(bufferId));
         }
         
-        std::vector<unsigned int> getBufferDataUI(GLuint bufferId) override {
+        std::vector<unsigned int> getBufferDataUI(GAPI::UInt bufferId) override {
             GAPI_FUNCTION_LOG("getBufferDataUI", bufferId);
-            return getBufferData<unsigned int>(bufferId);
+            return getBufferDataGL<unsigned int>(static_cast<GLuint>(bufferId));
         }
         
-        std::vector<int> getBufferDataI(GLuint bufferId) override {
+        std::vector<int> getBufferDataI(GAPI::UInt bufferId) override {
             GAPI_FUNCTION_LOG("getBufferDataI", bufferId);
-            return getBufferData<int>(bufferId);
+            return getBufferDataGL<int>(static_cast<GLuint>(bufferId));
         }
         
         template<typename T>
-        std::vector<T> getBufferData(GLuint bufferId) {
-            GAPI_FUNCTION_LOG("getBufferData", bufferId);
+        std::vector<T> getBufferDataGL(GLuint bufferId) {
+            GAPI_FUNCTION_LOG("getBufferDataGL", bufferId);
             GAPI_FUNCTION_IMPLEMENTATION_LOG("glBindBuffer", GL_ARRAY_BUFFER, bufferId);
             glBindBuffer(GL_ARRAY_BUFFER, bufferId);
             
@@ -573,10 +709,21 @@ namespace GLESC {
             glUseProgram(shaderProgram);
         }
         
+        /**
+         * @brief Checks if the given shader program is a shader program.
+         * @param shaderProgram The shader program ID
+         * @return true if the given shader program is a shader program, false otherwise.
+         */
         bool isShaderProgram(GAPI::UInt shaderProgram) override {
             GAPI_FUNCTION_LOG("isShaderProgram", shaderProgram);
             GAPI_FUNCTION_IMPLEMENTATION_LOG("glIsProgram", shaderProgram);
             return glIsProgram(shaderProgram);
+        }
+        
+        void deleteShaderProgram(GAPI::UInt shaderProgram) override {
+            GAPI_FUNCTION_LOG("deleteShaderProgram", shaderProgram);
+            GAPI_FUNCTION_IMPLEMENTATION_LOG("glDeleteProgram", shaderProgram);
+            glDeleteProgram(shaderProgram);
         }
         
         void deleteShader(GAPI::UInt shaderID) override {
@@ -651,6 +798,27 @@ namespace GLESC {
         
         
         SDL_GLContext context{};
+    private:
+        GAPI::Bool isTexture(GAPI::TextureID textureID) {
+            GAPI_FUNCTION_LOG("isTexture", textureID);
+            GAPI::Bool isTextureBool =
+                    static_cast<GAPI::Bool>(textures.find(textureID) != textures.end());
+            return isTextureBool;
+        }
+        
+        GAPI::Bool isTextureBound(GAPI::TextureID textureID) override{
+            GAPI_FUNCTION_LOG("isTextureBound", textureID);
+            GAPI::Bool isTextureBoundBool =
+                    static_cast<GAPI::Bool>(textureID == boundTexture);
+            return isTextureBoundBool;
+        }
+        
+        GAPI::Bool anyTextureBound() override{
+            GAPI_FUNCTION_NO_ARGS_LOG("anyTextureBound");
+            GAPI::Bool anyTextureBoundBool =
+                    static_cast<GAPI::Bool>(boundTexture != 0);
+            return anyTextureBoundBool;
+        }
         
     };
     

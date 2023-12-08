@@ -9,10 +9,9 @@
  **************************************************************************************************/
 #pragma once
 #include <iomanip>
-
-#include "engine/core/low-level-renderer/graphic-api/debugger/GapiDebugger.h"
-#include "engine/core/low-level-renderer/graphic-api/GapiStructs.h"
-#include "engine/core/low-level-renderer/graphic-api/GapiTypes.h"
+#include <sstream>
+#include "engine/core/low-level-renderer/texture/debugger/TextureDebugger.h"
+#include "TextureEnums.h"
 
 struct Pixel {
     GAPI::UByte r, g, b, a;
@@ -40,21 +39,21 @@ struct Pixel {
 
 
 struct Format {
-    GAPI::Types dataType;
-    GAPI::Texture::InternalFormat::BitDepth bitDepth;
-    GAPI::Texture::InternalFormat::ColorFormat colorFormat;
-    
+    Tex::Format colorFormat;
+    Tex::BitDepth bitDepth;
     Uint32 rMask, gMask, bMask, aMask;
     Uint8 rLoss, gLoss, bLoss, aLoss;
     Uint8 rShift, gShift, bShift, aShift;
     
     std::string toString() const {
+        
+        std::string bitDepthString = Tex::toString(bitDepth);
+        std::string  colorFormatString = Tex::toString(colorFormat);
         std::stringstream ss;
         auto maskLength = static_cast<unsigned int>(bitDepth) / 4;
         ss << std::hex << std::setfill('0');
-        ss << "\tData type: " << GAPI::toString(dataType) << "\n";
-        ss << "\tBit depth: " << GAPI::toString(bitDepth) << "\n";
-        ss << "\tColor format: " << GAPI::toString(colorFormat) << "\n";
+        ss << "\tBit depth: " << bitDepthString << "\n";
+        ss << "\tColor format: " << colorFormatString << "\n";
         ss << "\tRed mask: 0x" << std::setw(maskLength) << rMask << "\n";
         ss << "\tGreen mask: 0x" << std::setw(maskLength) << gMask << "\n";
         ss << "\tBlue mask: 0x" << std::setw(maskLength) << bMask << "\n";

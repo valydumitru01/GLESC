@@ -35,13 +35,13 @@ namespace GLESC {
         }
         
         ~Renderer() {
-            gapi.deleteContext();
+            getGAPI().deleteContext();
         }
         
         void start() {
-            gapi.clear({GAPI::ClearBits::Color, GAPI::ClearBits::Depth,
+            getGAPI().clear({GAPI::ClearBits::Color, GAPI::ClearBits::Depth,
                         GAPI::ClearBits::Stencil});
-            gapi.clearColor(0.2f, 0.3f, 0.3f, 1.0f);
+            getGAPI().clearColor(0.2f, 0.3f, 0.3f, 1.0f);
         }
         
         void end() {
@@ -132,7 +132,7 @@ namespace GLESC {
         }
         
         void swapBuffers() {
-            gapi.swapBuffers(windowManager.getWindow());
+            getGAPI().swapBuffers(windowManager.getWindow());
         }
         
         /**

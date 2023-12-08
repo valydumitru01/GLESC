@@ -9,17 +9,18 @@
  **************************************************************************************************/
 #include <gtest/gtest.h>
 #include <SDL2/SDL.h>
+
 #include "LoopHelper.h"
 #include "engine/core/low-level-renderer/buffers/index/IndexBuffer.h"
 #include "engine/core/low-level-renderer/buffers/vertex/VertexArray.h"
 #include "engine/core/low-level-renderer/buffers/vertex/VertexBuffer.h"
 #include "engine/core/low-level-renderer/graphic-api/Gapi.h"
-#include "engine/core/window/WindowManager.h"
 #include "engine/core/low-level-renderer/shader/ShaderLoader.h"
-#include "integration/rendering/GAPIBaseRenderTest.h"
+#include "engine/core/window/WindowManager.h"
+#include <integration/rendering/RenderingTestHelper.h>
 
 
-class BufferAbstractionTests : public GAPIBaseRenderTest {
+class BufferAbstractionTests : public ::testing::Test {
 protected:
     GLESC::WindowManager windowManager;
     // These are pointers because we don't want to call the constructor
@@ -27,18 +28,17 @@ protected:
     GLESC::VertexBuffer* vbo;
     GLESC::IndexBuffer* ibo;
     GAPI::UInt shaderProgram{};
-    
-    BufferAbstractionTests() : GAPIBaseRenderTest() {
+    BufferAbstractionTests() {
     }
     
-    void prepareShaders() override {
-        shaderProgram = ShaderLoader::loadShader(vertexShaderSource, fragmentShaderSource);
+    void prepareShaders() {
+        shaderProgram = ShaderLoader::loadShader(vertexShaderSourceColor, fragmentShaderSourceColor);
     }
     
-    void prepareBuffers() override {
+    void prepareBuffers() {
         vao = new GLESC::VertexArray();
         vao->bind();
-        vbo = new GLESC::VertexBuffer(vertices);
+        vbo = new GLESC::VertexBuffer(positionOnlyVertices);
         ibo = new GLESC::IndexBuffer(indices);
         
         GLESC::VertexBufferLayout layout;
@@ -50,33 +50,19 @@ protected:
         vao->unbind();
         
     }
-    
-    void destroyRender() override {
-        ibo->destroy();
-        vbo->destroy();
-        vao->destroy();
-        
-        delete ibo;
-        delete vbo;
-        delete vao;
-        
-        gapi.destroyShaderProgram(shaderProgram);
-        gapi.deleteContext();
-        windowManager.destroyWindow();
-    }
-    
-    void render() override {
-        gapi.clearColor(backgroundColor.r, backgroundColor.g, backgroundColor.b,
+    void render() {
+        getGAPI().clearColor(backgroundColor.r, backgroundColor.g, backgroundColor.b,
                          backgroundColor.a);
-        gapi.clear({GAPI::ClearBits::Color, GAPI::ClearBits::Depth,
+        getGAPI().clear({GAPI::ClearBits::Color, GAPI::ClearBits::Depth,
                     GAPI::ClearBits::Stencil});
         vao->bind();
-        gapi.useShaderProgram(shaderProgram);
-        gapi.setUniform(shaderProgram, "uColor")->u4F(expectedTriangleColor.r, expectedTriangleColor.g,
-                                                      expectedTriangleColor.b, expectedTriangleColor.a);
-        gapi.drawTrianglesIndexed(indices.size());
+        getGAPI().useShaderProgram(shaderProgram);
+        getGAPI().setUniform(shaderProgram, "uColor")->u4F(expectedFigureColor.r, expectedFigureColor.g,
+                                                      expectedFigureColor.b, expectedFigureColor.a);
+        getGAPI().drawTrianglesIndexed(indices.size());
         
-        gapi.swapBuffers(windowManager.getWindow());
+        getGAPI().swapBuffers(windowManager.getWindow());
+        getGAPI().swapBuffers(windowManager.getWindow());
     }
     
     void SetUp() override {
@@ -89,6 +75,17 @@ protected:
     }
     
     void TearDown() override {
+        ibo->destroy();
+        vbo->destroy();
+        vao->destroy();
+        
+        delete ibo;
+        delete vbo;
+        delete vao;
+        
+        getGAPI().destroyShaderProgram(shaderProgram);
+        getGAPI().deleteContext();
+        windowManager.destroyWindow();
     }
     
 private:
@@ -96,7 +93,7 @@ private:
 
 TEST_F(BufferAbstractionTests, test) {
     checkBackgroundColor();
-    checkTriangleColor();
-    checkBufferData<GAPI::BufferTypes::Vertex>(vbo->getBufferID());
-    checkBufferData<GAPI::BufferTypes::Index>(ibo->getBufferID());
+    checkCenterColor(expectedFigureColor);
+    checkIndices(ibo->getBufferID(), indices);
+    checkVertices(vbo->getBufferID(), positionOnlyVertices);
 }

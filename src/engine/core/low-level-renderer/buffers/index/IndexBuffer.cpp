@@ -14,9 +14,9 @@ using namespace GLESC;
 
 IndexBuffer::IndexBuffer(const GAPI::UInt *data, const GAPI::Size count) :
         count(count){
-    gapi.genBuffers(1, indexBufferID);
+    getGAPI().genBuffers(1, indexBufferID);
     this->bind();
-    gapi.setBufferData(data, count,
+    getGAPI().setBufferData(data, count,
                        GAPI::BufferTypes::Index,
                        GAPI::BufferUsages::StaticDraw);
 }
@@ -34,18 +34,18 @@ void IndexBuffer::destroy() {
 
 
 void IndexBuffer::bind() const {
-    gapi.bindBuffer(GAPI::BufferTypes::Index, indexBufferID);
+    getGAPI().bindBuffer(GAPI::BufferTypes::Index, indexBufferID);
 }
 
 void IndexBuffer::unbind() const {
-    gapi.unbindBuffer(GAPI::BufferTypes::Index);
+    getGAPI().unbindBuffer(GAPI::BufferTypes::Index);
 }
 
 
 
 void IndexBuffer::destroyOnce(){
     if (objectAlive) {
-        gapi.deleteBuffer(indexBufferID);
+        getGAPI().deleteBuffer(indexBufferID);
         objectAlive = false;
     }
 }

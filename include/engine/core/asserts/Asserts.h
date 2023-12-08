@@ -23,7 +23,7 @@
 
 
 #define ASSERT_CONTENT(failureCondition, message) \
-        if (!(failureCondition)) { \
+        if (!(static_cast<bool>(failureCondition))) { \
             std::ostringstream oss; \
             oss << "\n==================== ASSERTION FAILED ====================\n" \
                 << "Failed Condition: " << #failureCondition << "\n" \

@@ -9,31 +9,15 @@
  **************************************************************************************************/
 #pragma once
 
-
-#define PRINT_TEXTURE_DATA(texture) printTextureData(texture)
-
 #ifndef NLOGGING
 
-#include "engine/core/low-level-renderer/texture/Texture.h"
+#include <string>
+#include "engine/core/low-level-renderer/texture/TextureEnums.h"
+#include "engine/core/logger/Logger.h"
+#define PRINT_TEXTURE_DATA(texture) Logger::get().info(toString());
 
-void printTextureData(GLESC::Texture &texture) {
-    std::stringstream ss;
-    Logger ::get().info(texture.toString());
-    
-    
-    int pixelCount = 20;
-    pixelCount = sqRoot(pixelCount);
-    GAPI::UInt widthStep = std::max(1u, texture.getWidth() / pixelCount);
-    GAPI::UInt heightStep = std::max(1u, texture.getHeight() / pixelCount);
-    Logger ::get().info("\tPixels:");
-    for (GAPI::UInt y = 0; y < texture.getHeight(); y += heightStep) {
-        for (GAPI::UInt x = 0; x < texture.getWidth(); x += widthStep) {
-            auto pixel = texture.getPixel(x, y);
-            
-            Logger ::get().info("\t\tPixel at (" + std::to_string(x) + ", " + std::to_string(y) +
-                                "): " + pixel.toString());
-        }
-    }
+namespace Tex{
+    std::string toString(Tex::Format format);
+    std::string toString(Tex::BitDepth bitDepth);
 }
-
 #endif // NLOGGING
