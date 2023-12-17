@@ -36,6 +36,6 @@ void Shader::unbind() const {
 }
 
 UniformSetter Shader::setUniform(const std::string &name) const {
-    return {shaderProgram, name};
+    return getGAPI().setUniform(name);
 }
 

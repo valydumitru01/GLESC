@@ -2,7 +2,7 @@
  * @file   GLESC::Math::MatrixTestTyped.cpp
  * @author Valentin Dumitru
  * @date   2023-10-26
- * @brief  Add description of this file if needed @todo 
+ * @brief  @todo Add description of this file if needed
  *
  * Copyright (c) 2023 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
@@ -408,7 +408,7 @@ TYPED_TEST(MatrixTests, Functions){
     // All transformations need to be tested only for square matrices
     if constexpr (N==M){
         // Translate
-        auto translateVec=Vector<Type, N - 1>(1);
+        auto translateVec=VectorT<Type, N - 1>(1);
         Mat matrixTranslateResult = this->matrix.translate(translateVec);
         Mat expectedTranslateResult = this->matrix;
         
@@ -423,7 +423,7 @@ TYPED_TEST(MatrixTests, Functions){
         }
         
         // Scale
-        auto scaleVec=Vector<Type, N - 1>(2);
+        auto scaleVec=VectorT<Type, N - 1>(2);
         Mat matrixScaleResult = this->matrix.scale(scaleVec);
         Mat expectedScaleResult = this->matrix;
         
@@ -621,7 +621,7 @@ TEST(MatrixTests, ExactSolutionTranslate){
             {-3, 4, -5},
             {7, -8, 9}
     };
-    Vector<double, 2> translateVec2D(1, 2);
+    VectorT<double, 2> translateVec2D(1, 2);
     // Must increase the last column by the translation vector
     GLESC::Math::Matrix<double, 3, 3> expectedTranslate2D{
             {1, 2, -2},
@@ -638,7 +638,7 @@ TEST(MatrixTests, ExactSolutionTranslate){
             {7, -8, 9, 10},
             {11, 12, 13, 14}
     };
-    Vector<double, 3> translate3D(1, 2, 3);
+    VectorT<double, 3> translate3D(1, 2, 3);
     GLESC::Math::Matrix<double, 4, 4> expectedTranslate3D{
             {1, 2, -3, 5},
             {-3, 4, -5, 8},
@@ -656,7 +656,7 @@ TEST(MatrixTests, ExactSolutionScale){
             {4, 5, 6},
             {7, 8, 9}
     };
-    Vector<double, 2> scaleVec2D(1, 2);
+    VectorT<double, 2> scaleVec2D(1, 2);
     // Must increase (add +) diagonal elements (expect the last one) by the scale vector
     GLESC::Math::Matrix<double, 3, 3> expectedScale2D{
             {2, 2, 3},
@@ -673,7 +673,7 @@ TEST(MatrixTests, ExactSolutionScale){
             {9, 10, 11, 12},
             {13, 14, 15, 16}
     };
-    Vector<double, 3> scaleVec3D(1, 2, 3);
+    VectorT<double, 3> scaleVec3D(1, 2, 3);
     GLESC::Math::Matrix<double, 4, 4> expectedScale3D{
             {2, 2, 3, 4},
             {5, 8, 7, 8},
@@ -708,7 +708,7 @@ TEST(MatrixTests, ExactSolutionRotate){
             {9, 10, 11, 12},
             {13, 14, 15, 16}
     };
-    Vector<double, 3> axis(0, 0, 1); // Rotation about the z-axis
+    VectorT<double, 3> axis(0, 0, 1); // Rotation about the z-axis
     double dgrs3D = GLESC::Math::PI/4; // 45 degree rotation for instance
     rotate3D = rotate3D.rotate(axis * dgrs3D);
     
@@ -728,7 +728,7 @@ TEST(MatrixTests, ExactSolutionLookAt){
             {0, 1, 0},
             {0, 0, 1}
     };
-    Vector<double, 2> target2D(1, 1);
+    VectorT<double, 2> target2D(1, 1);
     
     matrix2D = matrix2D.lookAt(target2D);
     
@@ -747,8 +747,8 @@ TEST(MatrixTests, ExactSolutionLookAt){
             {0, 0, 1, 0},
             {0, 0, 0, 1}
     };
-    Vector<double, 3> target3D(1, 3, -1);
-    Vector<double, 3> up(0, 1, 0);
+    VectorT<double, 3> target3D(1, 3, -1);
+    VectorT<double, 3> up(0, 1, 0);
     
     matrix3D = matrix3D.lookAt(target3D, up);
     

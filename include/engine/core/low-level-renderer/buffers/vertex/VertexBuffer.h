@@ -22,9 +22,8 @@ namespace GLESC {
             D_ASSERT_TRUE(size > 0, "Size is 0 in VertexBuffer constructor");
             getGAPI().genBuffers(1, vertexBufferID);
             this->bind();
-            getGAPI().setBufferData(data, size,
-                               GAPI::BufferTypes::Vertex,
-                               GAPI::BufferUsages::StaticDraw);
+            getGAPI().setBufferStaticData(data, size,
+                                          GAPI::BufferTypes::Vertex);
         }
         
         template<class Type, class = std::enable_if_t<isGraphicsType_v<Type>>>

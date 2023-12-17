@@ -16,9 +16,8 @@ IndexBuffer::IndexBuffer(const GAPI::UInt *data, const GAPI::Size count) :
         count(count){
     getGAPI().genBuffers(1, indexBufferID);
     this->bind();
-    getGAPI().setBufferData(data, count,
-                       GAPI::BufferTypes::Index,
-                       GAPI::BufferUsages::StaticDraw);
+    getGAPI().setBufferStaticData(data, count,
+                                  GAPI::BufferTypes::Index);
 }
 
 IndexBuffer::IndexBuffer(const std::vector<GAPI::UInt> &data) :

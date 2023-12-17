@@ -22,16 +22,47 @@ RenderSystem::RenderSystem(GLESC::Renderer &renderer, GLESC::ECS &ecs) :
 
 void RenderSystem::update(double timeOfFrame) {
     renderer.getDefaultShader().bind();
+    /*
+    // Maps for batched rendering and instanced rendering
+    std::unordered_map<MeshMaterialKey, std::vector<Entity>, MeshMaterialKeyHash> staticBatches;
+    std::unordered_map<MeshMaterialKey, std::vector<InstanceData>, MeshMaterialKeyHash> instancedBatches;
+    
+    Frustum frustum = calculateFrustum(renderer.getCamera().getViewProjectionMatrix());
+    
+    // Populate the maps with entities that share the same mesh and material
     for (auto &entity : getAssociatedEntities()) {
         auto &render = getComponent<RenderComponent>(entity);
         auto &transform = getComponent<TransformComponent>(entity);
         
-        renderer.transformMesh(render.mesh, transform.position,
-                               transform.rotation, transform.scale);
+        MeshMaterialKey key(render.mesh, render.material);
+        BoundingVolume boundingVolume = calculateBoundingVolume(render.mesh, transform);
         
-        renderer.renderMesh(render.mesh);
-        
-        // TODO: Batch rendering
+        // Decide whether to batch, instance, or render individually
+        if (render.mesh.isStatic() && !render.mesh.dirtyFlag) {
+            staticBatches[key].push_back(entity);
+        } else {
+            // For dynamic objects or instances, prepare instance data
+            InstanceData data = {transform.position, transform.rotation, transform.scale};
+            instancedBatches[key].push_back(data);
+        }
     }
+    
+    // Render static batches
+    for (auto &batch : staticBatches) {
+        const auto &key = batch.first;
+        // Render the pre-batched mesh
+        renderer.renderBatch(key.mesh);
+    }
+    
+    // Render instanced batches
+    for (auto &batch : instancedBatches) {
+        const auto &key = batch.first;
+        const auto &instances = batch.second;
+        
+        // Setup instance data buffer and render all instances
+        renderer.setupInstanceBuffer(instances);
+        renderer.renderInstanced(key.mesh, instances.size());
+    }*/
+    
+    // Render dynamic entities individually if any are left (not shown in this snippet)
 }
-

@@ -1,87 +1,55 @@
-/******************************************************************************
+/**************************************************************************************************
  * @file   Mesh.cpp
  * @author Valentin Dumitru
- * @date   2023-09-26
- * @brief Implementation of the Mesh class
+ * @date   17/12/2023
+ * @brief  Add description of this file if needed @TODO
  *
  * Copyright (c) 2023 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
- ******************************************************************************/
-
+ **************************************************************************************************/
 #include "engine/subsystems/renderer/mesh/Mesh.h"
-#include "engine/core/exceptions/subsystems/MeshException.h"
 
 using namespace GLESC;
 
-Mesh::VertexPtr Mesh::addVertex(const Vertex& vertex) {
-    vertices.push_back(vertex);
-    return std::make_shared<Vertex>(vertices.back());
+void Mesh::addTris(const Vertex& a, const Vertex& b, const Vertex& c) {
+    addVertex(a); addVertex(b); addVertex(c);
+    dirtyFlag = true;
 }
 
-Mesh::VertexPtr Mesh::getVertex(const Vertex& vertex) const {
-    auto it = vertices.begin();
-    while (it != vertices.end()) {
-        if (*it == vertex) {
-            return std::make_shared<Vertex>(*it);
-        }
-        ++it;
-    }
-}
-
-Mesh::VertexPtr Mesh::getVertex(const size_t index) const {
-    return std::make_shared<Vertex>(vertices[index]);
-}
-
-std::vector<Mesh::VertexPtr>
-Mesh::addVertices(const std::initializer_list<Vertex> verticesParam) {
-    std::vector<std::shared_ptr<Vertex>> addedVertices;
-    for (const auto &vertex : verticesParam) {
-        vertices.push_back(vertex);
-        addedVertices.push_back(std::make_shared<Vertex>(vertices.back()));
-    }
-    return addedVertices;
-}
-
-void Mesh::addFace(const FaceVertices &faceVertices) {
-    if (faceVertices.getX()->getPosition() ==
-        faceVertices.getY()->getPosition() ||
-        faceVertices.getX()->getPosition() ==
-        faceVertices.getZ()->getPosition() ||
-        faceVertices.getY()->getPosition() ==
-        faceVertices.getZ()->getPosition()) {
-        throw MeshException("Vertices must be unique");
-    }
-    Face face;
-    
-    face.calculateData(*faceVertices.getX(), *faceVertices.getY(),
-                       *faceVertices.getZ());
-    faces.push_back(face);
-    
-}
-
-void Mesh::addFaces(const std::initializer_list<FaceVertices> &faceVertices) {
-    for (const auto &vertex : faceVertices) {
-        addFace(vertex);
-    }
-}
-
-std::vector<Vertex> &Mesh::getVertices() {
-    return vertices;
-}
-
-std::vector<Face> &Mesh::getFaces() {
-    return faces;
+void Mesh::addQuad(const Vertex& a, const Vertex& b, const Vertex& c, const Vertex& d) {
+    addVertex(a); addVertex(b); addVertex(c); addVertex(d);
+    dirtyFlag = true;
 }
 
 std::string Mesh::toString() const {
-    std::string result = "Mesh: \n";
-    result += "Vertices: \n";
-    for (const auto &vertex : vertices) {
-        result += vertex.toString() + "\n";
+    std::string result = "Mesh\n";
+    result += "Vertices (first 10):\n";
+    for (int i = 0; i < 10 && i < vertices.size(); ++i) {
+        result += vertices[i].toString() + "\n";
     }
-    result += "Faces: \n";
-    for (const auto &face : faces) {
-        result += face.toString() + "\n";
+    result += "Indices (first 10):\n";
+    for (int i = 0; i < 10 && i < indices.size(); ++i) {
+        result += std::to_string(indices[i]) + "\n";
     }
     return result;
+}
+void Mesh::addVertex(const Vertex& vertex) {
+    // Attempt to insert the vertex with its index into the map.
+    // The insert operation does not overwrite existing entries and returns a pair.
+    // The first element of the pair is an iterator to the existing or inserted element,
+    // and the second element is a boolean that is true if the insertion was successful.
+    auto result = vertexToIndexMap.insert({vertex, static_cast<Index>(vertices.size())});
+    
+    // If the vertex was not already in the map (i.e., insertion was successful),
+    // then add the vertex to the vertices vector.
+    if (result.second) {
+        vertices.push_back(vertex);
+        topology.addVertex(vertex.getPosition());
+    } else{
+    }
+    
+    // Regardless of whether the vertex was just inserted or already existed,
+    // add its index to the indices vector.
+    // result.first is an iterator to the pair in the map, and .second accesses the index.
+    indices.push_back(result.first->second);
 }

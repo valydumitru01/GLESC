@@ -94,8 +94,6 @@ namespace GLESC {
          */
         inline Entity createEntity(const EntityName& name);
         
-        
-        GLESC_RENDER_API graphicInterface{};
         /**
          * @brief If true, the game is running. If false, the game is stopped.
          */

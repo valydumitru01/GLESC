@@ -18,9 +18,9 @@ class System {
 public:
     explicit System(GLESC::ECS& ecs, const SystemName& name);
     
-    template<class T>
+    template<class Component>
     void addComponentRequirement() {
-        ecs.addComponentRequirementToSystem<T>(name);
+        ecs.addComponentRequirementToSystem<Component>(name);
     }
     
     [[nodiscard]] std::set<EntityID> getAssociatedEntities() const;

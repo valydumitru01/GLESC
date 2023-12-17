@@ -6,17 +6,15 @@
 
 #pragma once
 
-#include <SDL2/SDL.h>
+#include <unordered_map>
 #include <set>
+#include <SDL2/SDL.h>
 
 #include "engine/core/low-level-renderer/graphic-api/GapiEnums.h"
 #include "engine/core/low-level-renderer/graphic-api/GapiStructs.h"
 #include "engine/core/low-level-renderer/graphic-api/GapiTypes.h"
 #include "engine/core/low-level-renderer/graphic-api/IUniformSetter.h"
 
-#ifdef GLESC_OPENGL
-using UniformSetter = GLUniformSetter;
-#endif
 
 class IGraphicInterface {
 public:
@@ -48,9 +46,9 @@ public:
     
     virtual void drawTrianglesIndexed(GAPI::UInt count) = 0;
     
-    virtual GAPI::RGBColor readPixelColor(int x, int y) = 0;
+    virtual GAPI::RGBAColor readPixelColor(int x, int y) = 0;
     
-    virtual GAPI::RGBColorNormalized readPixelColorNormalized(GAPI::UInt x, GAPI::UInt y) = 0;
+    virtual GAPI::RGBAColorNormalized readPixelColorNormalized(GAPI::UInt x, GAPI::UInt y) = 0;
     
     
     
@@ -71,50 +69,34 @@ public:
     
     virtual void deleteBuffer(GAPI::UInt buffer) = 0;
     
-    virtual void setBufferData(const GAPI::Float *data,
-                               GAPI::Size count,
-                               GAPI::BufferTypes bufferType,
-                               GAPI::BufferUsages bufferUsage) = 0;
+    virtual void allocateDynamicBuffer(GAPI::UInt size, GAPI::BufferTypes bufferType) = 0;
     
-    virtual void setBufferData(const GAPI::UInt *data,
-                               GAPI::Size count,
-                               GAPI::BufferTypes bufferType,
-                               GAPI::BufferUsages bufferUsage) = 0;
+    virtual void
+    setBufferStaticData(const GAPI::Float *data, GAPI::Size count, GAPI::BufferTypes bufferType) = 0;
     
-    virtual void setBufferData(const GAPI::Int *data,
-                               GAPI::Size count,
-                               GAPI::BufferTypes bufferType,
-                               GAPI::BufferUsages bufferUsage) = 0;
+    virtual void
+    setBufferStaticData(const GAPI::UInt *data, GAPI::Size count, GAPI::BufferTypes bufferType) = 0;
     
-    virtual void setBufferData(const Vec2F *data,
-                               GAPI::Size count,
-                               GAPI::BufferTypes bufferType,
-                               GAPI::BufferUsages bufferUsage) = 0;
+    virtual void
+    setBufferStaticData(const GAPI::Int *data, GAPI::Size count, GAPI::BufferTypes bufferType) = 0;
     
-    virtual void setBufferData(const Vec3F *data,
-                               GAPI::Size count,
-                               GAPI::BufferTypes bufferType,
-                               GAPI::BufferUsages bufferUsage) = 0;
+    virtual void
+    setBufferStaticData(const Vec2F *data, GAPI::Size count, GAPI::BufferTypes bufferType) = 0;
     
-    virtual void setBufferData(const Vec4F *data,
-                               GAPI::Size count,
-                               GAPI::BufferTypes bufferType,
-                               GAPI::BufferUsages bufferUsage) = 0;
+    virtual void
+    setBufferStaticData(const Vec3F *data, GAPI::Size count, GAPI::BufferTypes bufferType) = 0;
     
-    virtual void setBufferData(const Mat2F *data,
-                               GAPI::Size count,
-                               GAPI::BufferTypes bufferType,
-                               GAPI::BufferUsages bufferUsage) = 0;
+    virtual void
+    setBufferStaticData(const Vec4F *data, GAPI::Size count, GAPI::BufferTypes bufferType) = 0;
     
-    virtual void setBufferData(const Mat3F *data,
-                               GAPI::Size count,
-                               GAPI::BufferTypes bufferType,
-                               GAPI::BufferUsages bufferUsage) = 0;
+    virtual void
+    setBufferStaticData(const Mat2F *data, GAPI::Size count, GAPI::BufferTypes bufferType) = 0;
     
-    virtual void setBufferData(const Mat4F *data,
-                               GAPI::Size count,
-                               GAPI::BufferTypes bufferType,
-                               GAPI::BufferUsages bufferUsage) = 0;
+    virtual void
+    setBufferStaticData(const Mat3F *data, GAPI::Size count, GAPI::BufferTypes bufferType) = 0;
+    
+    virtual void
+    setBufferStaticData(const Mat4F *data, GAPI::Size count, GAPI::BufferTypes bufferType) = 0;
     
     
     virtual void genVertexArray(GAPI::UInt &vertexArrayID) = 0;
@@ -190,8 +172,7 @@ public:
     
     
     // Uniforms
-    virtual std::unique_ptr<UniformSetter>
-    setUniform(GAPI::UInt program, const std::string &name) = 0;
+    virtual UniformSetter setUniform(const std::string &name) = 0;
 
 protected:
     virtual GAPI::Bool isTexture(GAPI::UInt textureID) = 0;
@@ -200,9 +181,20 @@ protected:
     
     virtual GAPI::Bool anyTextureBound() = 0;
     
-    std::set<GAPI::TextureID> textures{};
+    /**
+     * @brief Check if the uniform location is cached
+     * @param name
+     * @return -1 if the uniform location is not cached, otherwise the uniform location
+     */
+    virtual GAPI::Int getUniformLocation(const std::string &uName) const = 0;
+    
+    std::set<GAPI::TextureID> textureCache{};
+    
+    mutable std::unordered_map<std::string, GAPI::UInt> uniformLocationsCache;
     
     GAPI::TextureID boundTexture{};
+    
+    GAPI::ShaderProgramID boundShaderProgram{};
     
     
 };

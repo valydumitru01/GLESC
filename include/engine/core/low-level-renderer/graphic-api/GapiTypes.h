@@ -2,7 +2,7 @@
  * @file   GapiTypes.h
  * @author Valentin Dumitru
  * @date   2023-11-07
- * @brief  Add description of this file if needed @todo 
+ * @brief  @todo Add description of this file if needed
  *
  * Copyright (c) 2023 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
@@ -34,6 +34,7 @@ namespace GAPI{
     using Byte = GLbyte;
     
     using TextureID = UInt;
+    using ShaderProgramID = UInt;
 
 } // namespace GAPI
 
@@ -63,7 +64,7 @@ template<> struct isGraphicsType<GAPI::UShort> : std::true_type {};
 template<> struct isGraphicsType<GAPI::UChar> : std::true_type {};
 
 
-#include "engine/core/math/Vec.h"
+#include "engine/core/math/Vector.h"
 
 // GLM vector types
 template<> struct isGraphicsType<Vec2F> : std::true_type {};

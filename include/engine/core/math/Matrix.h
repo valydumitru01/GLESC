@@ -13,7 +13,7 @@
 #include <cassert>
 #include <memory>
 #include <algorithm>
-#include "Vec.h"
+#include "Vector.h"
 #include "engine/core/exceptions/core/math/MathException.h"
 #include "engine/core/math/asserts/MatrixAsserts.h"
 #include "engine/core/logger/Logger.h"

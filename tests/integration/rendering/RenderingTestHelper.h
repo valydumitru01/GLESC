@@ -16,8 +16,8 @@
 
 static constexpr auto colorEpsilon = 0.05f;
 static constexpr auto dataEpsilon = 0.001f;
-static GAPI::RGBColorNormalized backgroundColor = {0.2f, 0.3f, 0.3f, 1.0f};
-static GAPI::RGBColorNormalized expectedFigureColor = {1.0f, 0.0f, 0.0f, 1.0f};
+static GAPI::RGBAColorNormalized backgroundColor = {0.2f, 0.3f, 0.3f, 1.0f};
+static GAPI::RGBAColorNormalized expectedFigureColor = {1.0f, 0.0f, 0.0f, 1.0f};
 static std::string vertexShaderSourceColor = R"glsl(
         layout (location = 0) in vec3 position;
         void main() {
@@ -80,10 +80,10 @@ inline void printExpectNear(const std::string &message, Type expected, Type actu
 
 
 inline void
-checkPixelColor(GAPI::RGBColorNormalized expected, GAPI::UInt xCoord, GAPI::UInt yCoord,
+checkPixelColor(GAPI::RGBAColorNormalized expected, GAPI::UInt xCoord, GAPI::UInt yCoord,
                 std::string message) {
     Logger::get().info("============" + message + "=============");
-    GAPI::RGBColorNormalized readTriangleColor =
+    GAPI::RGBAColorNormalized readTriangleColor =
             getGAPI().readPixelColorNormalized(xCoord, yCoord);
     EXPECT_NEAR(expected.r, readTriangleColor.r, colorEpsilon);
     printExpectNear("color red", expected.r, readTriangleColor.r);
@@ -99,7 +99,7 @@ inline void checkBackgroundColor() {
     checkPixelColor(backgroundColor, 0, 0, "Checking Background color");
 }
 
-inline void checkCenterColor(GAPI::RGBColorNormalized expected) {
+inline void checkCenterColor(GAPI::RGBAColorNormalized expected) {
     checkPixelColor(expected, GLESC_WINDOW_WIDTH / 2, GLESC_WINDOW_HEIGHT / 2,
                     "Checking Center color");
 }

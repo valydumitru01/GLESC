@@ -6,53 +6,42 @@
 
 #pragma once
 
+
+#include <map>
 #include <memory>
 
 #include <GL/glew.h>
-#include <SDL2/SDL.h>
-
-#include "engine/core/exceptions/EngineException.h"
+#include "engine/core/asserts/Asserts.h"
+#include "engine/core/low-level-renderer/buffers/index/IndexBuffer.h"
+#include "engine/core/low-level-renderer/buffers/vertex/VertexArray.h"
 #include "engine/core/low-level-renderer/graphic-api/Gapi.h"
 #include "engine/core/low-level-renderer/texture/TextureManager.h"
 #include "engine/core/window/WindowManager.h"
 #include "engine/res-mng/textures/TextureLoader.h"
+#include "engine/subsystems/renderer/math/RenderMath.h"
 #include "engine/subsystems/renderer/mesh/Mesh.h"
 #include "engine/subsystems/renderer/shaders/Shader.h"
-#include "engine/core/math/Matrix.h"
 
 namespace GLESC {
     class Renderer {
     public:
-        explicit Renderer(WindowManager &windowManager) :
-                windowManager(windowManager), shader(Shader("Shader.glsl")) {
-            
-            // Set the projection matrix
-            projection = calculateProjectionMatrix(45.0f, 0.1f, 100.0f,
-                                                   static_cast<float>(windowManager
-                                                           .getWindowSize().width),
-                                                   static_cast<float>(windowManager
-                                                           .getWindowSize().height));
-        }
+        explicit Renderer(WindowManager &windowManager);
         
-        ~Renderer() {
-            getGAPI().deleteContext();
-        }
+        ~Renderer();
         
-        void start() {
+        void clear() {
             getGAPI().clear({GAPI::ClearBits::Color, GAPI::ClearBits::Depth,
                         GAPI::ClearBits::Stencil});
             getGAPI().clearColor(0.2f, 0.3f, 0.3f, 1.0f);
         }
         
-        void end() {
-            swapBuffers();
-        }
         
+        template<bool isTextured>
         void transformMesh(GLESC::Mesh &mesh,
                            const Vec3D &position,
                            const Vec3D &rotation,
-                           const Vec3D &scale) {
-            Mat4D transform = calculateTransformMatrix(position, rotation, scale);
+                           const Vec3D &scale){
+            Mat4D transform = RenderMath::calculateTransformMatrix(position, rotation, scale);
             // Apply transformations to vertices
             for (auto &vertex : mesh.getVertices()) {
                 Vec4D pos = vertex.getPosition().homogenize();
@@ -62,8 +51,25 @@ namespace GLESC {
             }
         }
         
-        void renderMesh(GLESC::Mesh const &mesh) {
+        void renderMesh(const std::shared_ptr<GLESC::Mesh>& meshPtr) {
+            D_ASSERT_NOT_NULLPTR(meshPtr, "Mesh pointer is null");
             
+            GLESC::Mesh& mesh = *meshPtr;
+            
+            if (mesh.isDirty()) {
+                setupMesh(mesh);
+                mesh.setClean();
+            }
+            
+            auto found = VAOs.find(meshPtr);
+            if (found != VAOs.end()) {
+                found->second->bind();
+                getGAPI().drawTrianglesIndexed(mesh.getIndices().size());
+            }
+            // handle the case where the mesh is not found in VAOs
+            else {
+                VAOs[meshPtr] = nullptr;
+            }
         }
         
         GLESC::Shader &getDefaultShader() {
@@ -110,68 +116,36 @@ namespace GLESC {
             Renderer::view = viewParam;
         }
         
-        /**
-         * @brief Creates a projection matrix from a camera component
-         * @details uses the perspective function from glm
-         * @param camera component
-         * @return projection matrix
-         */
-        static Mat4D calculateProjectionMatrix(float fov,
-                                               float nearPlane,
-                                               float farPlane,
-                                               float viewWidth,
-                                               float viewHeight) {
-            if (viewHeight == 0.0f)
-                throw EngineException("Unable to make projection matrix: viewHeight is 0");
-            if (viewWidth == 0.0f)
-                throw EngineException("Unable to make projection matrix: viewWidth is 0");
-            
-            float aspectRatio = viewWidth / viewHeight;
-            return GLESC::Math::perspective(GLESC::Math::radians(fov), aspectRatio, nearPlane,
-                                            farPlane);
-        }
+        
         
         void swapBuffers() {
             getGAPI().swapBuffers(windowManager.getWindow());
         }
         
-        /**
-         * @brief Creates a view matrix from a transform component of the camera
-         * @details uses the lookAt function from glm
-         * @param transform component of the camera
-         * @return view matrix
-         */
-        static Mat4D
-        calculateViewMatrix(const Vec3D &position, const Vec3D &rotation, const Vec3D &scale) {
-            Mat4D model = calculateTransformMatrix(position, rotation, scale);
-            return model.inverse();
-        }
+        
     
     private:
+        using MeshPtr = std::shared_ptr<Mesh>;
+        using VertexArrayPtr = std::shared_ptr<VertexArray>;
         
-        /**
-         * @brief Calculates transform matrix
-         * @details Given the position, rotation, and scale, this method
-         * calculates the transform matrix
-         * @param position The position vector
-         * @param rotation The rotation vector
-         * @param scale The scale vector
-         * @return The model matrix
-         */
-        static Mat4D
-        calculateTransformMatrix(const Vec3D &position, const Vec3D &rotation, const Vec3D &scale) {
+        // Map from Mesh pointer to VertexArray pointer
+        std::unordered_map<MeshPtr, VertexArrayPtr> VAOs;
+        void setupMesh(const Mesh& mesh) {/*
+            using Vertex = Vertex;
+            VertexArray vertexArray;
+            VertexBuffer vertexBuffer(mesh.getVertices().data(),
+                                      mesh.getVertices().size() * sizeof(Vertex));
+            IndexBuffer indexBuffer(mesh.getIndices().size() * sizeof(unsigned int),
+                                    mesh.getIndices().data());
             
-            Mat4D model = Mat4D(1.0).translate(position);
+            VertexBufferLayout layout;
+            layout.push(GAPI::Types::Vec3F);
+            layout.push(GAPI::Types::Vec3F);
+            layout.push(GAPI::Types::Vec2F);
+            vertexArray.addBuffer(vertexBuffer, layout);
             
-            model = model.rotate(rotation);
-            
-            model = model.scale(scale);
-            
-            return model;
+            VAOs[&mesh] = vertexArray;*/
         }
-        // Uncomment the below line and comment the above to enable code
-        // completion and proper syntax highlighting
-        // IGraphicInterface &gapi;
         /**
          * @brief Window manager
          *

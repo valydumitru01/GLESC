@@ -20,7 +20,7 @@
 #include "engine/core/low-level-renderer/graphic-api/concrete-apis/debugger/GAPIDebugger.h"
 #include "engine/core/low-level-renderer/graphic-api/concrete-apis/opengl/GLUniformSetter.h"
 #include "engine/core/low-level-renderer/graphic-api/concrete-apis/opengl/debugger/OpenGLDebugger.h"
-#include "engine/core/math/Vec.h"
+#include "engine/core/math/Vector.h"
 
 namespace GLESC {
     class OpenGLAPI final : public IGraphicInterface {
@@ -28,7 +28,6 @@ namespace GLESC {
         explicit OpenGLAPI() {
             D_ASSERT_GL_CORRECT_VERSION();
         }
-        
         
         
         void deleteContext() override {
@@ -127,7 +126,7 @@ namespace GLESC {
             // More info: https://www.khronos.org/opengl/wiki/Blending
             GAPI_FUNCTION_IMPLEMENTATION_LOG("glEnable", GL_BLEND);
             glEnable(GL_BLEND);
-            // Set blending function to alpha blending (default)
+            // Set blending function to alpha blending
             GAPI_FUNCTION_IMPLEMENTATION_LOG("glBlendFunc", GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
             glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
             // Set blending equation to add (default)
@@ -166,9 +165,9 @@ namespace GLESC {
         }
         
         
-        GAPI::RGBColor readPixelColor(int x, int y) {
+        GAPI::RGBAColor readPixelColor(int x, int y) {
             GAPI_FUNCTION_LOG("readPixelColor", x, y);
-            GAPI::RGBColor color;
+            GAPI::RGBAColor color;
             GAPI_FUNCTION_IMPLEMENTATION_LOG("glReadPixels", x, y, 1, 1, GL_RGB,
                                              GL_UNSIGNED_BYTE, color.r, color.g, color.b, color.a);
             glReadPixels(x, y, 1, 1, GL_RGB, GL_UNSIGNED_BYTE, &color);
@@ -177,9 +176,9 @@ namespace GLESC {
             return color;
         }
         
-        GAPI::RGBColorNormalized readPixelColorNormalized(GAPI::UInt x, GAPI::UInt y) {
+        GAPI::RGBAColorNormalized readPixelColorNormalized(GAPI::UInt x, GAPI::UInt y) {
             GAPI_FUNCTION_LOG("readPixelColorNormalized", x, y);
-            GAPI::RGBColorNormalized color{};
+            GAPI::RGBAColorNormalized color{};
             GAPI_FUNCTION_IMPLEMENTATION_LOG("glReadPixels", x, y, 1, 1, GL_RGB,
                                              GL_FLOAT, color.r, color.g, color.b, color.a);
             glReadPixels(x, y, 1, 1, GL_RGBA, GL_FLOAT, &color);
@@ -191,9 +190,9 @@ namespace GLESC {
         // ------------------------------ Texture ----------------------------------
         
         GAPI::TextureID createTexture(GAPI::Texture::Filters::Min minFilter,
-                                 GAPI::Texture::Filters::Mag magFilter,
-                                 GAPI::Texture::Filters::WrapMode wrapS,
-                                 GAPI::Texture::Filters::WrapMode wrapT) override {
+                                      GAPI::Texture::Filters::Mag magFilter,
+                                      GAPI::Texture::Filters::WrapMode wrapS,
+                                      GAPI::Texture::Filters::WrapMode wrapT) override {
             GAPI_FUNCTION_LOG("createTexture", "SDL_Surface", minFilter, magFilter, wrapS, wrapT);
             
             auto minFilterGL = static_cast<GLenum>(minFilter);
@@ -205,7 +204,7 @@ namespace GLESC {
             GAPI::TextureID textureID = 0;
             GAPI_FUNCTION_IMPLEMENTATION_LOG("glGenTextures", numTextures, &textureID);
             glGenTextures(numTextures, &textureID);
-            textures.emplace(textureID);
+            textureCache.emplace(textureID);
             this->bindTexture(textureID);
             
             GAPI_FUNCTION_IMPLEMENTATION_LOG("glTexParameteri", GL_TEXTURE_2D,
@@ -239,7 +238,7 @@ namespace GLESC {
             GAPI_FUNCTION_IMPLEMENTATION_LOG("glDeleteTextures", textureID);
             glDeleteTextures(1, &textureID);
             
-            this->textures.erase(textureID);
+            this->textureCache.erase(textureID);
         }
         
         GAPI::Void setTextureData(GAPI::Int level,
@@ -256,16 +255,14 @@ namespace GLESC {
             
             GLuint padding;
             if (inputFormat == GAPI::Texture::CPUBufferFormat::RGB &&
-                bitsPerPixel == GAPI::Texture::BitDepth::Bit24){
+                bitsPerPixel == GAPI::Texture::BitDepth::Bit24) {
                 GLinternalFormat = GL_RGB8;
                 padding = 1;
-            }
-            else if (inputFormat == GAPI::Texture::CPUBufferFormat::RGBA &&
-                    bitsPerPixel == GAPI::Texture::BitDepth::Bit32){
+            } else if (inputFormat == GAPI::Texture::CPUBufferFormat::RGBA &&
+                       bitsPerPixel == GAPI::Texture::BitDepth::Bit32) {
                 GLinternalFormat = GL_RGBA8;
                 padding = 4;
-            }
-            else
+            } else
                 throw GAPIException("Invalid texture format.");
             
             GAPI_FUNCTION_IMPLEMENTATION_LOG("glPixelStorei", GL_UNPACK_ALIGNMENT, padding);
@@ -274,7 +271,7 @@ namespace GLESC {
             GAPI_FUNCTION_IMPLEMENTATION_LOG("glTexImage2D", GL_TEXTURE_2D, level, GLinternalFormat,
                                              width, height, 0, inputFormatGL,
                                              GL_UNSIGNED_BYTE, texelBuffer);
-            glTexImage2D(GL_TEXTURE_2D, level, GLinternalFormat , width, height, 0, inputFormatGL,
+            glTexImage2D(GL_TEXTURE_2D, level, GLinternalFormat, width, height, 0, inputFormatGL,
                          GL_UNSIGNED_BYTE, texelBuffer);
             
             GAPI_FUNCTION_IMPLEMENTATION_LOG("glPixelStorei", GL_UNPACK_ALIGNMENT, 4);
@@ -316,7 +313,7 @@ namespace GLESC {
         GAPI::UInt getTextureWidth(GAPI::TextureID textureID) override {
             GAPI_FUNCTION_LOG("getTextureWidth", textureID);
             D_ASSERT_TRUE(isTexture(textureID), "Passed object is not a texture.");
-            D_ASSERT_TRUE(isTextureBound( textureID), "Passed texture is not bound.");
+            D_ASSERT_TRUE(isTextureBound(textureID), "Passed texture is not bound.");
             
             GLint textureWidth;
             GAPI_FUNCTION_IMPLEMENTATION_LOG("glGetTexLevelParameteriv", GL_TEXTURE_2D, 0,
@@ -330,7 +327,7 @@ namespace GLESC {
         
         std::vector<GAPI::UByte> getTextureData(GAPI::TextureID textureID) override {
             GAPI_FUNCTION_LOG("getTextureData", textureID);
-            D_ASSERT_TRUE(isTexture(textureID) , "Object is not a texture");
+            D_ASSERT_TRUE(isTexture(textureID), "Object is not a texture");
             D_ASSERT_TRUE(isTextureBound(textureID), "Passed texture is not bound.");
             
             bindTexture(textureID);
@@ -340,22 +337,20 @@ namespace GLESC {
             GAPI::Texture::GPUBufferFormat internalBufferFormat = getTextureColorFormat(textureID);
             
             
-            size_t numBytes = 0;
-            GLuint  padding = 0;
+            size_t numBytes;
+            GLuint padding;
             GAPI::Texture::CPUBufferFormat extractedFormat;
             if (internalBufferFormat == GAPI::Texture::GPUBufferFormat::RGB ||
-                internalBufferFormat == GAPI::Texture::GPUBufferFormat::RGB8){
+                internalBufferFormat == GAPI::Texture::GPUBufferFormat::RGB8) {
                 numBytes = textureWidth * textureHeight * 3;
                 extractedFormat = GAPI::Texture::CPUBufferFormat::RGB;
                 padding = 1;
-            }
-            else if (internalBufferFormat == GAPI::Texture::GPUBufferFormat::RGBA ||
-                     internalBufferFormat == GAPI::Texture::GPUBufferFormat::RGBA8){
+            } else if (internalBufferFormat == GAPI::Texture::GPUBufferFormat::RGBA ||
+                       internalBufferFormat == GAPI::Texture::GPUBufferFormat::RGBA8) {
                 numBytes = textureWidth * textureHeight * 4;
                 extractedFormat = GAPI::Texture::CPUBufferFormat::RGBA;
                 padding = 4;
-            }
-            else
+            } else
                 throw GAPIException("Invalid texture format.");
             
             std::vector<GAPI::UByte> data(numBytes);
@@ -376,7 +371,7 @@ namespace GLESC {
         
         GAPI::Void bindTexture(GAPI::TextureID textureID) override {
             GAPI_FUNCTION_LOG("bindTexture", textureID);
-            D_ASSERT_TRUE(isTexture(textureID) , "Object is not a texture");
+            D_ASSERT_TRUE(isTexture(textureID), "Object is not a texture");
             
             GAPI_FUNCTION_IMPLEMENTATION_LOG("glBindTexture", GL_TEXTURE_2D, textureID);
             glBindTexture(GL_TEXTURE_2D, textureID);
@@ -386,7 +381,7 @@ namespace GLESC {
         
         GAPI::Void bindTextureOnSlot(GAPI::TextureID textureID, GAPI::UInt slot) override {
             GAPI_FUNCTION_LOG("bindTextureOnSlot", textureID, slot);
-            D_ASSERT_TRUE(isTexture(textureID) , "Object is not a texture");
+            D_ASSERT_TRUE(isTexture(textureID), "Object is not a texture");
             
             GAPI_FUNCTION_IMPLEMENTATION_LOG("glActiveTexture", GL_TEXTURE0 + slot);
             glActiveTexture(GL_TEXTURE0 + slot);
@@ -435,69 +430,76 @@ namespace GLESC {
             glDeleteBuffers(1, &buffer);
         }
         
-        void setBufferData(const GAPI::Float *data, GAPI::Size count,
-                           GAPI::BufferTypes bufferType,
-                           GAPI::BufferUsages bufferUsage) override {
-            setBufferDataGL(data, count, bufferType, bufferUsage);
+        void allocateDynamicBuffer(GAPI::UInt size, GAPI::BufferTypes bufferType) {
+            GAPI_FUNCTION_LOG("allocateDynamicBuffer", size, bufferType);
+            auto bufferTypeGL = static_cast<GLenum>(bufferType);
+            GAPI_FUNCTION_IMPLEMENTATION_LOG("glBufferData", bufferTypeGL, size, nullptr);
+            glBufferData(bufferTypeGL, size, nullptr, GL_DYNAMIC_DRAW);
         }
         
-        void setBufferData(const GAPI::UInt *data, GAPI::Size count,
-                           GAPI::BufferTypes bufferType,
-                           GAPI::BufferUsages bufferUsage) override {
-            setBufferDataGL(data, count, bufferType, bufferUsage);
+        void setBufferStaticData(const GAPI::Float *data,
+                                 GAPI::Size count,
+                                 GAPI::BufferTypes bufferType) override {
+            setBufferStaticDataGL(data, count, bufferType, GAPI::BufferUsages::StaticDraw);
         }
         
-        void setBufferData(const GAPI::Int *data, GAPI::Size count,
-                           GAPI::BufferTypes bufferType,
-                           GAPI::BufferUsages bufferUsage) override {
-            setBufferDataGL(data, count, bufferType, bufferUsage);
+        void setBufferStaticData(const GAPI::UInt *data,
+                                 GAPI::Size count,
+                                 GAPI::BufferTypes bufferType) override {
+            setBufferStaticDataGL(data, count, bufferType, GAPI::BufferUsages::StaticDraw);
         }
         
-        void setBufferData(const Vec2F *data, GAPI::Size count,
-                           GAPI::BufferTypes bufferType,
-                           GAPI::BufferUsages bufferUsage) override {
-            setBufferDataGL(data, count, bufferType, bufferUsage);
+        void setBufferStaticData(const GAPI::Int *data,
+                                 GAPI::Size count,
+                                 GAPI::BufferTypes bufferType) override {
+            setBufferStaticDataGL(data, count, bufferType, GAPI::BufferUsages::StaticDraw);
         }
         
-        void setBufferData(const Vec3F *data, GAPI::Size count,
-                           GAPI::BufferTypes bufferType,
-                           GAPI::BufferUsages bufferUsage) override {
-            setBufferDataGL(data, count, bufferType, bufferUsage);
+        void setBufferStaticData(const Vec2F *data,
+                                 GAPI::Size count,
+                                 GAPI::BufferTypes bufferType) override {
+            setBufferStaticDataGL(data, count, bufferType, GAPI::BufferUsages::StaticDraw);
         }
         
-        void setBufferData(const Vec4F *data, GAPI::Size count,
-                           GAPI::BufferTypes bufferType,
-                           GAPI::BufferUsages bufferUsage) override {
-            setBufferDataGL(data, count, bufferType, bufferUsage);
+        void setBufferStaticData(const Vec3F *data,
+                                 GAPI::Size count,
+                                 GAPI::BufferTypes bufferType) override {
+            setBufferStaticDataGL(data, count, bufferType, GAPI::BufferUsages::StaticDraw);
         }
         
-        void setBufferData(const Mat2F *data, GAPI::Size count,
-                           GAPI::BufferTypes bufferType,
-                           GAPI::BufferUsages bufferUsage) override {
-            setBufferDataGL(data, count, bufferType, bufferUsage);
+        void setBufferStaticData(const Vec4F *data,
+                                 GAPI::Size count,
+                                 GAPI::BufferTypes bufferType) override {
+            setBufferStaticDataGL(data, count, bufferType, GAPI::BufferUsages::StaticDraw);
         }
         
-        void setBufferData(const Mat3F *data, GAPI::Size count,
-                           GAPI::BufferTypes bufferType,
-                           GAPI::BufferUsages bufferUsage) override {
-            setBufferDataGL(data, count, bufferType, bufferUsage);
+        void setBufferStaticData(const Mat2F *data,
+                                 GAPI::Size count,
+                                 GAPI::BufferTypes bufferType) override {
+            setBufferStaticDataGL(data, count, bufferType, GAPI::BufferUsages::StaticDraw);
         }
         
-        void setBufferData(const Mat4F *data, GAPI::Size count,
-                           GAPI::BufferTypes bufferType,
-                           GAPI::BufferUsages bufferUsage) override {
-            setBufferDataGL(data, count, bufferType, bufferUsage);
+        void setBufferStaticData(const Mat3F *data,
+                                 GAPI::Size count,
+                                 GAPI::BufferTypes bufferType) override {
+            setBufferStaticDataGL(data, count, bufferType, GAPI::BufferUsages::StaticDraw);
+        }
+        
+        void setBufferStaticData(const Mat4F *data,
+                                 GAPI::Size count,
+                                 GAPI::BufferTypes bufferType) override {
+            setBufferStaticDataGL(data, count, bufferType, GAPI::BufferUsages::StaticDraw);
         }
         
         template<typename T, typename std::enable_if<isGraphicsType_v<T>, T>::type * = nullptr>
-        void setBufferDataGL(const T *data,
-                             GAPI::Size count,
-                             GAPI::BufferTypes bufferType,
-                             GAPI::BufferUsages bufferUsage) {
+        void setBufferStaticDataGL(const T *data,
+                                   GAPI::Size count,
+                                   GAPI::BufferTypes bufferType,
+                                   GAPI::BufferUsages bufferUsage) {
             #ifndef NLOGGING
             std::vector<T> vectorData(data, data + count);
             #endif
-            GAPI_FUNCTION_LOG("setBufferData", vectorData, count, bufferType, bufferUsage);
+            GAPI_FUNCTION_LOG("setBufferStaticData", vectorData, count, bufferType, bufferUsage);
             
             auto size = count * sizeof(T);
             GLenum type = static_cast<GLenum>(bufferType);
@@ -707,6 +709,7 @@ namespace GLESC {
             GAPI_FUNCTION_LOG("useShaderProgram", shaderProgram);
             GAPI_FUNCTION_IMPLEMENTATION_LOG("glUseProgram", shaderProgram);
             glUseProgram(shaderProgram);
+            boundShaderProgram = shaderProgram;
         }
         
         /**
@@ -717,6 +720,7 @@ namespace GLESC {
         bool isShaderProgram(GAPI::UInt shaderProgram) override {
             GAPI_FUNCTION_LOG("isShaderProgram", shaderProgram);
             GAPI_FUNCTION_IMPLEMENTATION_LOG("glIsProgram", shaderProgram);
+            // TODO: Cache shader programs instead of calling glIsProgram every time.
             return glIsProgram(shaderProgram);
         }
         
@@ -733,13 +737,9 @@ namespace GLESC {
         }
         // -------------------------------- Uniforms ------------------------------------
         
-        std::unique_ptr<UniformSetter>
-        setUniform(GAPI::UInt program, const std::string &uName) override {
-            GAPI_FUNCTION_LOG("setUniform", program, uName);
-            if (isShaderProgram(program) == GL_FALSE)
-                throw GAPIException("Program " + std::to_string(program) +
-                                    " is not a shader program.");
-            return std::make_unique<UniformSetter>(GLUniformSetter(program, uName));
+        UniformSetter setUniform(const std::string &uName) override {
+            // TODO: Even if the design is cool, is definitely not efficient.
+            return GLUniformSetter(static_cast<GAPI::UInt>(getUniformLocation(uName)), uName);
         }
         
         void clear(const std::initializer_list<GAPI::ClearBits> &values) override {
@@ -797,28 +797,47 @@ namespace GLESC {
         }
         
         
-        SDL_GLContext context{};
-    private:
         GAPI::Bool isTexture(GAPI::TextureID textureID) {
             GAPI_FUNCTION_LOG("isTexture", textureID);
             GAPI::Bool isTextureBool =
-                    static_cast<GAPI::Bool>(textures.find(textureID) != textures.end());
+                    static_cast<GAPI::Bool>(textureCache.find(textureID) != textureCache.end());
             return isTextureBool;
         }
         
-        GAPI::Bool isTextureBound(GAPI::TextureID textureID) override{
+        GAPI::Bool isTextureBound(GAPI::TextureID textureID) override {
             GAPI_FUNCTION_LOG("isTextureBound", textureID);
             GAPI::Bool isTextureBoundBool =
                     static_cast<GAPI::Bool>(textureID == boundTexture);
             return isTextureBoundBool;
         }
         
-        GAPI::Bool anyTextureBound() override{
+        GAPI::Bool anyTextureBound() override {
             GAPI_FUNCTION_NO_ARGS_LOG("anyTextureBound");
             GAPI::Bool anyTextureBoundBool =
                     static_cast<GAPI::Bool>(boundTexture != 0);
             return anyTextureBoundBool;
         }
+        
+        GAPI::Int getUniformLocation(const std::string &uName) const override {
+            GAPI_FUNCTION_LOG("getUniformLocation", uName);
+            auto it = uniformLocationsCache.find(uName);
+            if (it != uniformLocationsCache.end()) {
+                // If the uniform is found, return the location.
+                GAPI_FUNCTION_IMPLEMENTATION_LOG("cacheing uniform location...", uName);
+                return it->second;
+            } else {
+                // If the uniform is not found, get the location and cache it.
+                GAPI_FUNCTION_IMPLEMENTATION_LOG("glGetUniformLocation", boundShaderProgram,
+                                                 uName);
+                GLint location = glGetUniformLocation(boundShaderProgram, uName.c_str());
+                if (location == -1)
+                    throw GAPIException("Uniform " + uName + " not found.");
+                uniformLocationsCache[uName] = location;
+                return location;
+            }
+        }
+        
+        SDL_GLContext context{};
         
     };
     

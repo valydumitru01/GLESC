@@ -39,7 +39,7 @@ protected:
     };
     
     
-    GAPI::RGBColorNormalized backgroundColor = {0.2f, 0.3f, 0.3f, 1.0f};
+    GAPI::RGBAColorNormalized backgroundColor = {0.2f, 0.3f, 0.3f, 1.0f};
     
     TextureAbstractionTests() {
     }
@@ -90,7 +90,6 @@ protected:
         // The texture is bound to slot 0, so we need to set the uniform to 0
         shader->setUniform("uTexture").u1I(0);
         render();
-        SDL_Delay(1000);
         // checkTextureData(texture->getTextureID(), texture->getPixelsInBytes());
         Logger::get().info("============Checking texture data=============");
         auto actualData = getGAPI().getTextureData(texture->getTextureID());

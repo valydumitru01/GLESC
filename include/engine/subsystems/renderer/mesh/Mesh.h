@@ -12,37 +12,43 @@
 
 #include <string>
 #include <memory>
+#include <unordered_map>
+#include "engine/core/math/geometry/Polyhedron.h"
 #include "engine/subsystems/renderer/mesh/Vertex.h"
-#include "engine/subsystems/renderer/mesh/Face.h"
 
 namespace GLESC {
     class Mesh {
-        using VertexPtr = std::shared_ptr<Vertex>;
-        using FaceVertices = Vector< VertexPtr, 3>;
+        friend class Renderer;
+        using Index = unsigned int;
     public:
-        Mesh() = default;
+        Mesh(): dirtyFlag(false) {}
         
-        VertexPtr addVertex(const Vertex& vertex);
+        ~Mesh() = default;
         
-        [[nodiscard]] VertexPtr getVertex(const Vertex& vertex) const;
+        void addTris(const Vertex& a, const Vertex& b, const Vertex& c);
         
-        [[nodiscard]] VertexPtr getVertex(size_t index) const;
+        void addQuad(const Vertex& a, const Vertex& b, const Vertex& c, const Vertex& d);
         
-        std::vector<VertexPtr>
-        addVertices(std::initializer_list<Vertex> verticesParam);
+        void addQuad(){
         
-        void addFace(const FaceVertices &faceVertices);
+        }
         
-        void addFaces(const std::initializer_list<FaceVertices> &faceVertices);
+        bool isDirty() const { return dirtyFlag; }
         
-        std::vector<Vertex>& getVertices();
+        void setClean() { dirtyFlag = false; }
         
-        std::vector<Face>& getFaces();
+        std::string toString() const;
         
-        [[nodiscard]] std::string toString() const;
-    
+        std::vector<Vertex> getVertices() const { return vertices; }
     private:
+        std::vector<Index> getIndices() const { return indices; }
+        void addVertex(const Vertex& vertex);
+        
+        std::unordered_map<Vertex, Index> vertexToIndexMap;
         std::vector<Vertex> vertices;
-        std::vector<Face> faces;
+        std::vector<Index> indices;
+        Polyhedron topology;
+        bool dirtyFlag;
+        
     }; // class Mesh
 }// namespace GLESC

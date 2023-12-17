@@ -5,7 +5,9 @@
  ******************************************************************************/
 
 #pragma once
+#include <variant>
 #include "IComponent.h"
+#include "engine/subsystems/renderer/material/Material.h"
 #include "engine/subsystems/renderer/mesh/Mesh.h"
 
 struct RenderComponent : public IComponent {
@@ -15,8 +17,14 @@ struct RenderComponent : public IComponent {
      */
     GLESC::Mesh mesh;
     
+    /**
+     * @brief The material of the object
+     * Contains the color and texture of the object.
+     */
+    GLESC::Material material;
+    
     std::string toString() override {
-        return "RenderComponent" + mesh.toString();
+        return "RenderComponent:\n" + mesh.toString();
     }
 };
 

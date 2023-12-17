@@ -9,7 +9,7 @@
  ******************************************************************************/
 
 #include "engine/ecs/frontend/system/systems/CameraSystem.h"
-#include <utility>
+#include "engine/subsystems/renderer/math/RenderMath.h"
 
 CameraSystem::CameraSystem(GLESC::Renderer &renderer, GLESC::ECS ecs) :
         System(ecs, "CameraSystem"), renderer(renderer) {
@@ -22,16 +22,14 @@ void CameraSystem::update() {
     for (auto &entity : getAssociatedEntities()) {
         auto &transform = getComponent<TransformComponent>(entity);
         auto &camera = getComponent<CameraComponent>(entity);
-        auto projection =
-                renderer.calculateProjectionMatrix(camera.fov, camera.nearPlane,
-                                                   camera.farPlane,
-                                                   camera.viewWidth,
-                                                   camera.viewHeight);
-        renderer.setProjection(
-                projection);
-        auto view = renderer.calculateViewMatrix(transform.position,
-                                                 transform.rotation,
-                                                 transform.scale);
+        auto projection = RenderMath::calculateProjectionMatrix(camera.fov, camera.nearPlane,
+                                                                camera.farPlane,
+                                                                camera.viewWidth,
+                                                                camera.viewHeight);
+        renderer.setProjection(projection);
+        auto view = RenderMath::calculateViewMatrix(transform.position,
+                                                    transform.rotation,
+                                                    transform.scale);
         renderer.setView(view);
     }
 }

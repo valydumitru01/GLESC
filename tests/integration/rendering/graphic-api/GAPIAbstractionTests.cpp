@@ -42,9 +42,8 @@ protected:
         
         getGAPI().bindBuffer(GAPI::BufferTypes::Vertex, VBO);
         
-        getGAPI().setBufferData(positionOnlyVertices.data(), positionOnlyVertices.size(),
-                           GAPI::BufferTypes::Vertex,
-                           GAPI::BufferUsages::StaticDraw);
+        getGAPI().setBufferStaticData(positionOnlyVertices.data(), positionOnlyVertices.size(),
+                                      GAPI::BufferTypes::Vertex);
         
         
         
@@ -56,9 +55,8 @@ protected:
         
         getGAPI().bindBuffer(GAPI::BufferTypes::Index, IBO);
         
-        getGAPI().setBufferData(indices.data(), indices.size(),
-                           GAPI::BufferTypes::Index,
-                           GAPI::BufferUsages::StaticDraw);
+        getGAPI().setBufferStaticData(indices.data(), indices.size(),
+                                      GAPI::BufferTypes::Index);
         
         
         // Set vertex attributes for the currently bound VBO
@@ -81,8 +79,8 @@ protected:
         
         // Use the shader
         getGAPI().useShaderProgram(shaderProgram);
-        getGAPI().setUniform(shaderProgram, "uColor")
-                ->u4F(expectedFigureColor.r, expectedFigureColor.g,
+        getGAPI().setUniform("uColor")
+                .u4F(expectedFigureColor.r, expectedFigureColor.g,
                       expectedFigureColor.b, expectedFigureColor.a);
         // Draw the triangle
         getGAPI().bindVertexArray(VAO);

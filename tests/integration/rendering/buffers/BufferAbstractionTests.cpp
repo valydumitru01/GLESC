@@ -57,7 +57,7 @@ protected:
                     GAPI::ClearBits::Stencil});
         vao->bind();
         getGAPI().useShaderProgram(shaderProgram);
-        getGAPI().setUniform(shaderProgram, "uColor")->u4F(expectedFigureColor.r, expectedFigureColor.g,
+        getGAPI().setUniform("uColor").u4F(expectedFigureColor.r, expectedFigureColor.g,
                                                       expectedFigureColor.b, expectedFigureColor.a);
         getGAPI().drawTrianglesIndexed(indices.size());
         

@@ -21,7 +21,7 @@ struct Pixel {
     Pixel(GAPI::UByte rParam, GAPI::UByte gParam, GAPI::UByte bParam, GAPI::UByte aParam)
             : r(rParam), g(gParam), b(bParam), a(aParam) {}
     
-    GAPI::RGBColorNormalized getColorNormalized() const {
+    GAPI::RGBAColorNormalized getColorNormalized() const {
         return {r / 255.0f, g / 255.0f, b / 255.0f, a / 255.0f};
     }
     
@@ -34,7 +34,7 @@ struct Pixel {
         return ss.str();
     }
     
-    GAPI::RGBColor getColor() const { return {r, g, b, a}; }
+    GAPI::RGBAColor getColor() const { return {r, g, b, a}; }
 };
 
 

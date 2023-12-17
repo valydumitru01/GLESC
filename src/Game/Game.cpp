@@ -31,9 +31,7 @@ void GLESC::Engine::initGame() {
     
     camera.addComponent(CameraComponent())
             .addComponent(TransformComponent())
-            .addComponent(InputComponent())
-            .addComponent(RenderComponent())
-            .removeComponent<RenderComponent>();
+            .addComponent(InputComponent());
     
     
     

@@ -11,7 +11,7 @@
 #include <GL/glew.h>
 #include <SDL2/SDL.h>
 
-#include "engine/core/math/Vec.h"
+#include "engine/core/math/Vector.h"
 #include "WindowStructs.h"
 
 

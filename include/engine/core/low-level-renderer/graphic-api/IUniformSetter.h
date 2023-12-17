@@ -10,7 +10,7 @@
 #pragma once
 
 #include "engine/core/math/Matrix.h"
-#include "engine/core/math/Vec.h"
+#include "engine/core/math/Vector.h"
 #include "GapiTypes.h"
 
 class IUniformSetter {
@@ -104,3 +104,15 @@ public:
 class GLUniformSetter;
 class VulkanUniformSetter;
 class DirectXUniformSetter;
+
+#ifdef GLESC_OPENGL
+using UniformSetter = GLUniformSetter;
+#endif
+
+#ifdef GLESC_VULKAN
+using UniformSetter = VulkanUniformSetter;
+#endif GLESC_DIRECTX
+
+#ifdef GLESC_DIRECTX
+using UniformSetter = DirectXUniformSetter;
+#endif
