@@ -379,6 +379,97 @@ TYPED_TEST(MatrixTests, ArithmeticOperators) {
     }
 }
 
+TYPED_TEST(MatrixTests, Determinan){
+    PREPARE_TEST();
+    // Determinant
+    if constexpr (N==M){
+        Type matrixDeterminantResult = this->matrix.determinant();
+        Type expectedDeterminantResult =
+                MatrixAlgorithms::laplaceExpansionDeterminant(this->matrix);
+        EXPECT_EQ_CUSTOM(matrixDeterminantResult,
+                      expectedDeterminantResult);
+    }
+}
+
+TYPED_TEST(MatrixTests, Transpose){
+    PREPARE_TEST();
+    // Transpose
+    GLESC::Math::Matrix<Type, M,N> matrixTransposeResult = this->matrix.transpose();
+    GLESC::Math::Matrix<Type, M,N> expectedTransposeResult;
+    for (size_t i = 0; i < this->matrix.rows(); ++i)
+        for (size_t j = 0; j < this->matrix.cols(); ++j)
+            expectedTransposeResult[j][i] = this->matrix[i][j];
+    EXPECT_EQ_MAT(matrixTransposeResult, expectedTransposeResult);
+}
+
+TYPED_TEST(MatrixTests, Inverse){
+    PREPARE_TEST();
+    // Inverse
+    if constexpr (N==M){
+        Mat matrixInverseResult = this->matrix.inverse();
+        Mat expectedInverseResult = MatrixAlgorithms::gaussianInverse(this->matrix);
+    }
+}
+
+TYPED_TEST(MatrixTests, MatrixTranslate){
+    PREPARE_TEST();
+    // ---------------------------------- Matrix transformations -----------------------------------
+    // All transformations need to be tested only for square matrices
+    if constexpr (N==M) {
+        // Translate
+        auto translateVec = VectorT<Type, N - 1>(1);
+        Mat matrixTranslateResult = this->matrix.translate(translateVec);
+        Mat expectedTranslateResult = this->matrix;
+        
+        for (size_t i = 0; i < N - 1; ++i) {
+            expectedTranslateResult[i][N - 1] += translateVec[i];
+        }
+        
+        for (size_t i = 0; i < expectedTranslateResult.rows(); ++i) {
+            for (size_t j = 0; j < expectedTranslateResult.cols(); ++j) {
+                EXPECT_EQ_CUSTOM(matrixTranslateResult[i][j], expectedTranslateResult[i][j]);
+            }
+        }
+    }
+}
+
+TYPED_TEST(MatrixTests, MatrixScale){
+    PREPARE_TEST();
+    // Scale
+    auto scaleVec = VectorT<Type, N - 1>(2);
+    Mat matrixScaleResult = this->matrix.scale(scaleVec);
+    Mat expectedScaleResult = this->matrix;
+    
+    for (size_t i = 0; i < N - 1; ++i) {
+        expectedScaleResult[i][i] += scaleVec[i];
+        
+    }
+    
+    EXPECT_EQ_MAT(matrixScaleResult, expectedScaleResult);
+}
+
+TYPED_TEST(MatrixTests, MatrixRotate){
+    PREPARE_TEST();
+    // Rotate
+    // Only defined (or necessary) for 3x3 and 4x4 matrices
+    if constexpr (N == 3 && M == 3) {
+        Type angle = GLESC::Math::PI/4; // 45 degree rotation for instance
+        Mat matrixRotateResult = this->matrix.rotate(angle);
+        
+        Mat expectedRotateResult(MatrixAlgorithms::rotate2D(this->matrix, angle));
+        
+        EXPECT_EQ_MAT(matrixRotateResult, expectedRotateResult);
+    }else if constexpr (N == 4 && M == 4) {
+        Type angle = GLESC::Math::PI/4; // 45 degree rotation for instance
+        Vector<Type, 3> axis(0, 0, 1); // Rotation about the z-axis
+        Mat matrixRotateResult = this->matrix.rotate(axis * angle);
+        
+        Mat expectedRotateResult(MatrixAlgorithms::rotate3D(this->matrix, axis * angle));
+        
+        EXPECT_EQ_MAT(matrixRotateResult, expectedRotateResult);
+    }
+}
+/*
 TYPED_TEST(MatrixTests, Functions){
     PREPARE_TEST();
     // Determinant
@@ -478,7 +569,22 @@ TYPED_TEST(MatrixTests, Functions){
     
 }
 
+*/
 
+
+TYPED_TEST(MatrixTests, Rank){
+    PREPARE_TEST();
+    // Rank
+    if constexpr (N==M){
+        size_t matrixRankResult = this->matrix.rank();
+        size_t expectedRankResult =
+                MatrixAlgorithms::gaussianEliminationRank(this->matrix);
+        EXPECT_EQ_CUSTOM(matrixRankResult,
+                      expectedRankResult);
+    }
+}
+
+// ------------------------------ Exact solutions -----------------------------
 TEST(MatrixTests, ExactSolutionDeterminant){
     // Zero determinant - All elements of a row are zero
     GLESC::Math::Matrix<double, 3, 3> matrix1{

@@ -24,11 +24,11 @@ void Mesh::addQuad(const Vertex& a, const Vertex& b, const Vertex& c, const Vert
 std::string Mesh::toString() const {
     std::string result = "Mesh\n";
     result += "Vertices (first 10):\n";
-    for (int i = 0; i < 10 && i < vertices.size(); ++i) {
+    for (size_t i = 0; i < 10 && i < vertices.size(); ++i) {
         result += vertices[i].toString() + "\n";
     }
     result += "Indices (first 10):\n";
-    for (int i = 0; i < 10 && i < indices.size(); ++i) {
+    for (size_t i = 0; i < 10 && i < indices.size(); ++i) {
         result += std::to_string(indices[i]) + "\n";
     }
     return result;

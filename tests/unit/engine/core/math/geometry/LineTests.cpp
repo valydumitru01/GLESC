@@ -10,29 +10,31 @@
 
 #include <gtest/gtest.h>
 #include <engine/core/math/geometry/GeometryTypes.h>
-#include <engine/core/math/geometry/Line.h>
+#include <engine/core/math/geometry/figures/line/Line.h>
+#include <unit/engine/core/math/MathTestHelper.h>
 
+using namespace GLESC::Math;
 TEST(LineTests, Constructor) {
-    using namespace GLESC::Math;
-    
     // Test construction with point and direction
     Point p1(0, 0, 0);
-    Direction d1(1, 1, 1);
+    Direction d1(0, 0, 1);
     Line line1(p1, d1);
-    EXPECT_EQ(line1.point, p1);
-    EXPECT_EQ(line1.direction, d1);
+    EXPECT_EQ_VEC(line1.getPoint(), p1);
+    EXPECT_EQ_VEC(line1.getDirection(), d1);
     
     // Test construction with two points
     Point p2(0, 0, 0);
     Point p3(1, 1, 1);
     Line line2(p2, p3, Line::Construct::PointPoint);
-    EXPECT_EQ(line2.point, p2);
-    EXPECT_EQ(line2.direction, p3 - p2);
+    EXPECT_EQ_VEC(line2.getPoint(), p2);
+    EXPECT_EQ_VEC(line2.getDirection(), p3 - p2);
+    
+    // Expect death when constructing with a zero direction
+    Direction zeroDirection(0, 0, 0);
+    EXPECT_DEATH(Line line3(Point(0, 0, 0), zeroDirection), "");
 }
 
 TEST(LineTests, IntersectsAnotherLine) {
-    using namespace GLESC::Math;
-    
     // Parallel lines should not intersect
     Line line1(Point(0, 0, 0), Direction(1, 0, 0));
     Line line2(Point(0, 1, 0), Direction(1, 0, 0));
@@ -45,8 +47,6 @@ TEST(LineTests, IntersectsAnotherLine) {
 }
 
 TEST(LineTests, IntersectsPoint) {
-    using namespace GLESC::Math;
-    
     // Line and point intersect
     Line line(Point(0, 0, 0), Direction(1, 1, 1));
     Vec3D pointOnLine(1, 1, 1);
@@ -58,9 +58,18 @@ TEST(LineTests, IntersectsPoint) {
 }
 
 TEST(LineTests, DirectionNormalization) {
-    using namespace GLESC::Math;
-    
+    // When constructing with a non-normalized direction, it should be normalized
     Direction nonNormalizedDirection(1, 2, 3);
     Line line(Point(0, 0, 0), nonNormalizedDirection);
-    EXPECT_DOUBLE_EQ(line.direction.length(), 1.0);  // Assuming a 'length()' method exists
+    EXPECT_EQ_CUSTOM(line.getDirection().length(), 1.0);
+    
+    // When constructing with a normalized direction, it should stay normalized
+    Direction normalizedDirection(1, 0, 0);
+    Line line2(Point(0, 0, 0), normalizedDirection);
+    EXPECT_EQ_CUSTOM(line2.getDirection().length(), 1.0);
+    
+    // When changing the direction, it should be normalized too
+    line2.setDirection(nonNormalizedDirection);
+    EXPECT_EQ_CUSTOM(line2.getDirection().length(), 1.0);
+    
 }

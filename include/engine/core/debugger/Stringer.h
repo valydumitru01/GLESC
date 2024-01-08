@@ -15,13 +15,16 @@
 #include <type_traits>
 #include <iomanip>
 #include <cstdint>
+
 namespace GLESC {
     template<typename T, typename = void>
-    struct isIterable : std::false_type {};
+    struct isIterable : std::false_type {
+    };
     
     template<typename T>
     struct isIterable<T, std::void_t<decltype(std::declval<T>().begin()),
-            decltype(std::declval<T>().end())>> : std::true_type {};
+            decltype(std::declval<T>().end())>> : std::true_type {
+    };
     
     template<typename T>
     constexpr bool isIterable_v = isIterable<T>::value;
@@ -47,7 +50,7 @@ namespace GLESC {
         if constexpr (std::is_pointer_v<Type>) {
             if constexpr (std::is_void_v<std::remove_const_t<std::remove_pointer_t<Type>>>) {
                 // Format void* pointers as hexadecimal memory addresses
-                oss << "void*: 0x" << std::hex << std::setw(sizeof(void*) * 2) << std::setfill('0')
+                oss << "void*: 0x" << std::hex << std::setw(sizeof(void *) * 2) << std::setfill('0')
                     << reinterpret_cast<uintptr_t>(value);
             } else {
                 return nonIterableToString(*value);
@@ -61,11 +64,12 @@ namespace GLESC {
             oss << "nullptr";
         } else if constexpr (std::is_floating_point_v<Type>) {
             // Handle floating points with more precision
-            oss << std::fixed << std::setprecision(std::numeric_limits<Type>::max_digits10) << value;
+            oss << std::fixed << std::setprecision(std::numeric_limits<Type>::max_digits10)
+                << value;
         } else if constexpr (std::is_arithmetic_v<Type>) {
             // Directly use std::to_string for arithmetic types
             return std::to_string(value);
-        } else if constexpr (hasToString_v<Type>){
+        } else if constexpr (hasToString_v<Type>) {
             // Handle types with a toString() method
             oss << value.toString();
         } else {

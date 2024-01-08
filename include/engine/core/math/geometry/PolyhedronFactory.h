@@ -9,75 +9,88 @@
  **************************************************************************************************/
 #pragma once
 
-#include "Polyhedron.h"
+#include "engine/core/math/geometry/figures/polyhedron/Polyhedron.h"
 
 namespace PolyhedronFactory {
-    namespace Polygons {
-        static GLESC::Math::Polyhedron createCube(double radius) {
-            GLESC::Math::Polyhedron cube;
-            cube.addVertex({-radius, -radius, -radius});
-            cube.addVertex({radius, -radius, -radius});
-            cube.addVertex({radius, radius, -radius});
-            cube.addVertex({-radius, radius, -radius});
-            cube.addVertex({-radius, -radius, radius});
-            cube.addVertex({radius, -radius, radius});
-            cube.addVertex({radius, radius, radius});
-            cube.addVertex({-radius, radius, radius});
-            cube.addFace({0, 1, 2, 3});
-            cube.addFace({4, 5, 6, 7});
-            cube.addFace({0, 1, 5, 4});
-            cube.addFace({2, 3, 7, 6});
-            cube.addFace({0, 3, 7, 4});
-            cube.addFace({1, 2, 6, 5});
-            return cube;
-        }
+    namespace Regular {
+        /**
+         * @brief Regular polyhedron with 4 faces (pyramid, all faces are triangles)
+         * @param radius radius of the polyhedron
+         * @return A tetrahedron
+         */
+        static GLESC::Math::Polyhedron tetra();
         
+        /**
+         * @brief Regular polyhedron with 6 faces (cube, all faces are squares)
+         * @param radius radius of the polyhedron
+         * @return A cube
+         */
+        static GLESC::Math::Polyhedron cube();
+        
+        /**
+         * @brief Regular polyhedron with 8 faces (octahedron, all faces are triangles, looks like
+         * two pyramids glued together)
+         * @param radius radius of the polyhedron
+         * @return An octahedron
+         */
+        static GLESC::Math::Polyhedron octa();
+        
+        /**
+         * @brief Regular polyhedron with 12 faces (dodecahedron, all faces are pentagons)
+         * @param radius radius of the polyhedron
+         * @return A dodecahedron
+         */
+        static GLESC::Math::Polyhedron dodeca();
+        
+        /**
+         * @brief Regular polyhedron with 20 faces (icosahedron, all faces are triangles, looks like
+         * a 20 side dice in D&D)
+         * @param radius radius of the polyhedron
+         * @return An icosahedron
+         */
+        static GLESC::Math::Polyhedron icos();
+    }; // namespace Regular
+    namespace Common {
+        /**
+         * @brief A pyramid is a polyhedron formed by connecting a polygonal base and a point,
+         * called the apex. Each base edge and apex form a triangle, called a lateral face.
+         * @param radius radius of the base
+         * @param height height of the pyramid
+         * @param baseSides number of sides of the base
+         */
         static GLESC::Math::Polyhedron
-        createPrism(double radius, double height, unsigned int sides) {
-            GLESC::Math::Polyhedron prism;
-            double angle = 2 * GLESC::Math::pi<double>() / sides;
-            for (unsigned int i = 0; i < sides; i++) {
-                prism.addVertex({radius * cos(angle * i), radius * sin(angle * i), height / 2});
-                prism.addVertex({radius * cos(angle * i), radius * sin(angle * i), -height / 2});
-            }
-            for (unsigned int i = 0; i < sides; i++) {
-                prism.addFace(
-                        {2 * i, 2 * i + 1, (2 * i + 3) % (2 * sides), (2 * i + 2) % (2 * sides)});
-                prism.addFace({2 * i, 2 * i + 1, 2 * i + 3, 2 * i + 2});
-            }
-            return prism;
-        }
+        pyramid(double radius, double height, unsigned int baseSides);
         
-        static GLESC::Math::Polyhedron createTetrahedron(double radius) {
-            GLESC::Math::Polyhedron tetrahedron;
-            tetrahedron.addVertex({radius, radius, radius});
-            tetrahedron.addVertex({-radius, -radius, radius});
-            tetrahedron.addVertex({-radius, radius, -radius});
-            tetrahedron.addVertex({radius, -radius, -radius});
-            tetrahedron.addFace({0, 1, 2});
-            tetrahedron.addFace({0, 1, 3});
-            tetrahedron.addFace({0, 2, 3});
-            tetrahedron.addFace({1, 2, 3});
-            return tetrahedron;
-        }
+        /**
+         * @brief A rectangular cuboid is a polyhedron with 6 rectangular faces. It is also known as
+         * a rectangular hexahedron, right rectangular prism, rectangular prism, or rectangular
+         * parallelepiped.
+         * @param width
+         * @param height
+         * @param depth
+         * @return
+         */
+        static GLESC::Math::Polyhedron rectangularCuboid(double width, double height, double depth);
         
-        static GLESC::Math::Polyhedron createOctahedron(double radius) {
-            GLESC::Math::Polyhedron octahedron;
-            octahedron.addVertex({0, 0, radius});
-            octahedron.addVertex({0, 0, -radius});
-            octahedron.addVertex({radius, 0, 0});
-            octahedron.addVertex({-radius, 0, 0});
-            octahedron.addVertex({0, radius, 0});
-            octahedron.addVertex({0, -radius, 0});
-            octahedron.addFace({0, 2, 4});
-            octahedron.addFace({0, 2, 5});
-            octahedron.addFace({0, 3, 4});
-            octahedron.addFace({0, 3, 5});
-            octahedron.addFace({1, 2, 4});
-            octahedron.addFace({1, 2, 5});
-            octahedron.addFace({1, 3, 4});
-            octahedron.addFace({1, 3, 5});
-            return octahedron;
-        }
-    }; // class Polygon
-}; // class PolygonFactory
+        /**
+         * @brief A prism is a polyhedron with an n-sided polygonal base, a translated copy (not in
+         * the same plane as the first), and n other faces (necessarily all parallelograms) joining
+         * corresponding sides of the two bases.
+         * @param radius radius of the base or the top
+         * @param height height of the prism
+         * @param sides number of sides of the base
+         * @return
+         */
+        static GLESC::Math::Polyhedron prism(double radius, double height, unsigned int sides);
+        
+        /**
+         * @brief An icosphere is a polyhedron with N faces, all of them triangles. It is a sphere
+         * approximated by a polyhedron with N faces.
+         * @param subdivisions number of subdivisions of the icosphere. The higher the number, the
+         *                    smoother the sphere will be.
+         */
+        static GLESC::Math::Polyhedron icosphere(int subdivisions);
+        
+    }
+
+}; // namespace PolygonFactory

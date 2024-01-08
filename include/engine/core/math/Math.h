@@ -34,13 +34,15 @@ namespace GLESC::Math {
     }
     
     template<typename Type>
-    constexpr inline Type epsilon() {
-        if constexpr (std::is_same_v<Type, float>) {
+    constexpr inline auto epsilon() {
+        using DecayedType = std::remove_const_t<std::remove_reference_t<Type>>;
+        if constexpr (std::is_same_v<DecayedType, float>) {
             return FLOAT_COMPARISON_EPSILON;
-        } else if constexpr (std::is_same_v<Type, double>) {
+        } else if constexpr (std::is_same_v<DecayedType, double>) {
             return DOUBLE_COMPARISON_EPSILON;
         } else {
-            static_assert(std::is_floating_point_v<Type>, "Type must be floating point");
+            // Handle other floating point types
+            return DecayedType(1e-7);
         }
     }
     
@@ -60,8 +62,7 @@ namespace GLESC::Math {
         if constexpr (std::is_floating_point_v<LValueT> && std::is_floating_point_v<RValueT>) {
             // Determine the type with the lower precision
             using LowerPrecisionType = std::conditional_t<
-                    (sizeof(LValueT) < sizeof(RValueT)), LValueT, RValueT
-                    >;
+                    (sizeof(LValueT) < sizeof(RValueT)), LValueT, RValueT>;
             
             // Use the epsilon of the type with the lower precision
             constexpr auto epsilon = GLESC::Math::epsilon<LowerPrecisionType>();
@@ -84,7 +85,7 @@ namespace GLESC::Math {
             // or free function that computes the absolute value for that type.
             // For demonstration, let's assume T has a member function abs() that
             // computes the absolute value:
-            return value.abs();
+            return value.absol();
         }
     }
     
@@ -119,6 +120,6 @@ Type sqRoot(const Type& value) {
 }
 
 template<typename Type>
-Type abs(const Type& value) {
+Type absol(const Type& value) {
     return GLESC::Math::flexibleAbs(value);
 }

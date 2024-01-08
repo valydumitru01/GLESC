@@ -10,10 +10,10 @@
  
 #include <gtest/gtest.h>
 
-#include "engine/core/math/geometry/Line.h"
-#include "engine/core/math/geometry/Plane.h"
-#include "engine/core/math/geometry/figures/Sphere.h"
-#include "engine/core/math/geometry/Polyhedron.h"
+#include "engine/core/math/geometry/figures/line/Line.h"
+#include "engine/core/math/geometry/figures/plane/Plane.h"
+#include "engine/core/math/geometry/figures/sphere/Sphere.h"
+#include "engine/core/math/geometry/figures/polyhedron/Polyhedron.h"
 #include "MathTestHelper.h"
 
 

@@ -12,8 +12,8 @@
 #include <utility>
 
 #include "engine/core/math/Vector.h"
-#include "Line.h"
-#include "GeometryTypes.h"
+#include "engine/core/math/geometry/figures/line/Line.h"
+#include "engine/core/math/geometry/GeometryTypes.h"
 
 
 namespace GLESC::Math {
@@ -21,10 +21,10 @@ namespace GLESC::Math {
     public:
         /**
          * @brief Construct a new Plane object.
-         * @details The default constructor creates a plane with the normal vector (0, 0, 0) and
+         * @details The default constructor creates a plane with the normal vector (0, 0, 1) and
          * distance 0. Constructs a "zero plane".
          */
-        Plane() : normal(0, 0, 0), distance(0) {};
+        Plane();
         
         /**
          * @brief Construct a new Plane object from a normal vector and a distance.
@@ -35,69 +35,39 @@ namespace GLESC::Math {
          * @param normalParam The normal vector of the plane.
          * @param distanceParam The distance from the origin to the plane.
          */
-        Plane(const Direction& normalParam, double distanceParam) {
-            setNormal(normalParam);
-            setDistance(distanceParam);
-        }
+        Plane(const Direction &normalParam, double distanceParam);
         
         /**
          * @brief
          * @param point
          * @param normalParam
          */
-        Plane(const Point &point, const Direction &normalParam) :
-                Plane(normalParam, calculateDistanceFromPointAndNormal(point, normalParam)) {
-            D_ASSERT_TRUE(isPlaneCorrectFromPointAndNormal(point, normalParam),
-                          "Invalid plane definition from point and normal");
-        }
+        Plane(const Point &point, const Direction &normalParam) noexcept;
         
-        Plane(const Point &point1, const Point &point2, const Point &point3) :
-                Plane((calculateNormalFromPoints(point1, point2, point3)),
-                      calculateDistanceFromPoints(point1, point2, point3)) {
-            
-            D_ASSERT_TRUE(isPlaneCorrectFromPoints(point1, point2, point3),
-                          "Invalid plane definition from 3 points");
-        }
+        Plane(const Point &point1, const Point &point2, const Point &point3) noexcept;
         
-        Plane(const Point &point, const Line &line) :
-                Plane(calculateNormalFromPointAndLine(point, line),
-                      calculateDistanceFromPointAndLine(point, line)) {
-            D_ASSERT_TRUE(isPlaneCorrectFromPointAndLine(point, line),
-                          "Invalid plane definition from point and line");
-        }
+        Plane(const Point &point, const Line &line) noexcept;
         
-        Plane(const Plane &plane) = default;
+        
+        
+        
+        Plane(const Plane &plane) noexcept = default;
         
         Plane(Plane &&plane) noexcept = default;
         
-        Plane &operator=(const Plane &plane) = default;
+        Plane &operator=(const Plane &plane) noexcept= default;
         
         Plane &operator=(Plane &&plane) noexcept = default;
         
         ~Plane() = default;
         
-        void setNormal(const Direction &normalParam) {
-            D_ASSERT_FALSE(eq(normalParam.length(), 0),
-                           "Normal cannot be a zero vector");
-            
-            if (normalParam.length() > 1)
-                normal = normalParam.normalize();
-            
-            normal = normalParam;
-        }
+        void setNormal(const Direction &normalParam);
         
-        void setDistance(double distanceParam) {
-            distance = distanceParam;
-        }
+        void setDistance(double distanceParam);
         
+        [[nodiscard]] const Direction &getNormal() const;
         
-        [[nodiscard]] const Direction &getNormal() const {
-            return normal;
-        }
-        
-        [[nodiscard]] double getDistance() const {
-            return distance;
-        }
+        [[nodiscard]] double getDistance() const;
         
         /**
          * @brief Calculate the distance from the plane to a point.
@@ -110,38 +80,34 @@ namespace GLESC::Math {
          * @param point
          * @return
          */
-        [[nodiscard]] double distanceToPoint(const Point &point) const {
-            return normal.dot(point) + distance;
-        }
+        [[nodiscard]] double distanceToPoint(const Point &point) const;
         
-        [[nodiscard]] bool intersects(const Point &point) const {
-            return eq(distanceToPoint(point), 0);
-        }
+        [[nodiscard]] bool intersects(const Point &point) const;
         
-        [[nodiscard]] bool intersects(const Plane &plane) const {
-            return eq(normal.dot(plane.normal), 0);
-        }
+        [[nodiscard]] bool intersects(const Plane &plane) const;
         
-        [[nodiscard]] bool intersects(const Point &point, const Direction &direction) const {
-            return eq(normal.dot(direction), 0);
-        }
+        /**
+         * @brief Checks if the plane intersects with a given line.
+         * @param line The line to check for intersection with the plane.
+         * @return True if the plane intersects with the line, false otherwise.
+         */
+        [[nodiscard]] bool intersects(const Line &line) const;
         
-        [[nodiscard]] bool intersects(const Line &line) const {
-            return normal.dot(line.direction) != 0;
-        }
+        /**
+         * @brief Checks if the plane intersects with a given line and sets the intersection point
+         * if it exists. The parameter intersectionPoint is set to the intersection point.
+         * @param line The line to check for intersection with the plane.
+         * @param intersectionPoint The intersection point that is overwritten if it exists.
+         * @return True if the plane intersects with the line, false otherwise.
+         */
+        [[nodiscard]] bool intersects(const Line &line, Point &intersectionPoint) const;
         
-        [[nodiscard]] bool intersects(const Line &line, Point &intersectionPoint) const {
-            if (!intersects(line)) {
-                return false;
-            }
-            double t = -(normal.dot(line.point) + distance) / normal.dot(line.direction);
-            intersectionPoint = line.point + line.direction * t;
-            return true;
-        }
-        
-        bool operator==(const Plane &other) const {
-            return eq(normal.dot(other.normal), 1) && eq(distance, other.distance);
-        }
+        /**
+         * @brief Compare two planes for equality.
+         * @param other The plane to compare with.
+         * @return True if the planes are equal, false otherwise.
+         */
+        bool operator==(const Plane &other) const;
     
     private:
         
@@ -154,11 +120,7 @@ namespace GLESC::Math {
          * @return Direction The normal vector of the plane.
          */
         [[nodiscard]] static Direction calculateNormalFromPoints(
-                const Point& firstPoint, const Point& secondPoint, const Point& thirdPoint) {
-            Direction vectorFromFirstToSecond = secondPoint - firstPoint;
-            Direction vectorFromFirstToThird = thirdPoint - firstPoint;
-            return vectorFromFirstToSecond.cross(vectorFromFirstToThird).normalize();
-        }
+                const Point &firstPoint, const Point &secondPoint, const Point &thirdPoint);
         
         /**
          * @brief Calculate the normal vector of the plane defined by a point and a line.
@@ -168,10 +130,7 @@ namespace GLESC::Math {
          * @return Direction The normal vector of the plane.
          */
         [[nodiscard]] static Direction calculateNormalFromPointAndLine(
-                const Point& point, const Line& line) {
-            Direction vectorFromLineToPoint = point - line.point;
-            return line.direction.cross(vectorFromLineToPoint).normalize();
-        }
+                const Point &point, const Line &line);
         
         /**
          * @brief Calculate the distance from the origin to the plane defined by a point on the
@@ -182,9 +141,7 @@ namespace GLESC::Math {
          * @return double The distance from the origin to the plane.
          */
         [[nodiscard]] static double calculateDistanceFromPointAndNormal(
-                const Point& point, const Direction& normal) {
-            return -normal.dot(point);
-        }
+                const Point &point, const Direction &normal);
         
         /**
          * @brief Calculate the distance from the origin to the plane defined by a point and a line.
@@ -194,11 +151,7 @@ namespace GLESC::Math {
          * @return double The distance from the origin to the plane.
          */
         [[nodiscard]] static double calculateDistanceFromPointAndLine(
-                const Point& point, const Line& line) {
-            Direction vectorFromLineToPoint = point - line.point;
-            Direction normal = line.direction.cross(vectorFromLineToPoint).normalize();
-            return -normal.dot(point);
-        }
+                const Point &point, const Line &line);
         
         /**
          * @brief Calculate the distance from the origin to the plane defined by three distinct
@@ -210,10 +163,7 @@ namespace GLESC::Math {
          * @return double The distance from the origin to the plane.
          */
         [[nodiscard]] static double calculateDistanceFromPoints(
-                const Point& point1, const Point& point2, const Point& point3) {
-            Direction normal = calculateNormalFromPoints(point1, point2, point3);
-            return -normal.dot(point1);
-        }
+                const Point &point1, const Point &point2, const Point &point3);
         
         /**
          * @brief Check if three points can define a plane.
@@ -227,11 +177,8 @@ namespace GLESC::Math {
          * @return true If the points are distinct and do not lie on a single line.
          * @return false Otherwise.
          */
-        [[nodiscard]] static bool isPlaneCorrectFromPoints(const Point &point1, const Point &point2, const Point &point3) {
-            bool pointsAreDifferent = !(point1 == point2 || point1 == point3 || point2 == point3);
-            bool pointsDontLieOnLine = !Line(point1, point2).intersects(point3);
-            return pointsAreDifferent && pointsDontLieOnLine;
-        }
+        [[nodiscard]] static bool
+        isPlaneCorrectFromPoints(const Point &point1, const Point &point2, const Point &point3);
         
         /**
          * @brief Check if a point and a normal vector can define a plane.
@@ -244,10 +191,8 @@ namespace GLESC::Math {
          * @return true If the normal vector is not a zero vector.
          * @return false Otherwise.
          */
-        [[nodiscard]] static bool isPlaneCorrectFromPointAndNormal(const Point &point, const Direction &normalParam) {
-            bool isNormalCorrect = !eq(normalParam.length(), 0);
-            return isNormalCorrect;
-        }
+        [[nodiscard]] static bool
+        isPlaneCorrectFromPointAndNormal(const Point &point, const Direction &normalParam);
         
         /**
          * @brief Check if a point and a line can define a plane.
@@ -260,10 +205,8 @@ namespace GLESC::Math {
          * @return true If the point is not on the line.
          * @return false If the point is on the line.
          */
-        [[nodiscard]] static bool isPlaneCorrectFromPointAndLine(const Point &point, const Line &line) {
-            bool pointIsNotOnLine = !line.intersects(point);
-            return pointIsNotOnLine;
-        }
+        [[nodiscard]] static bool
+        isPlaneCorrectFromPointAndLine(const Point &point, const Line &line);
         
         
         /**

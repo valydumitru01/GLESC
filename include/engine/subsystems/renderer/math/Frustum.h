@@ -9,10 +9,10 @@
  **************************************************************************************************/
 #pragma once
 
-#include <engine/core/math/geometry/Figure.h>
-#include "engine/core/math/geometry/Polyhedron.h"
+#include <engine/core/math/geometry/figures/Figure.h>
+#include "engine/core/math/geometry/figures/polyhedron/Polyhedron.h"
 #include "engine/core/math/Matrix.h"
-#include "engine/core/math/geometry/Plane.h"
+#include "engine/core/math/geometry/figures/plane/Plane.h"
 
 class Frustum {
 public:

@@ -123,7 +123,7 @@ namespace GLESC::Math {
         }
         
         /**
-         * @brief Returns the data of the vector given an index
+         * @brief Sets the data of the vector given an index
          * @details This is the same as operator[] but it's more explicit.
          * Because it's a normal setter.
          * @param index
@@ -469,7 +469,7 @@ namespace GLESC::Math {
         
         /**
          * @brief Overloads the '+' operator for vector addition
-         * @details Adds the corresponding components of two vectors
+         * @details Adds the corresponding data of two vectors
          * @param rhs The right-hand-side vector to add
          * @return A new vector containing the result
          */
@@ -510,7 +510,7 @@ namespace GLESC::Math {
         
         /**
          * @brief Overloads the '-' operator for vector subtraction
-         * @details Subtracts the corresponding components of two vectors
+         * @details Subtracts the corresponding data of two vectors
          * @param rhs The right-hand-side vector to subtract
          * @return A new vector containing the result
          */
@@ -538,7 +538,7 @@ namespace GLESC::Math {
         
         /**
          * @brief Overloads the '/' operator for vector division
-         * @details Divides the corresponding components of two vectors
+         * @details Divides the corresponding data of two vectors
          * @param rhs The right-hand-side vector to divide by
          * @return A new vector containing the result
          */
@@ -566,7 +566,7 @@ namespace GLESC::Math {
         
         /**
          * @brief Overloads the '*' operator for vector multiplication
-         * @details Multiplies the corresponding components of two vectors
+         * @details Multiplies the corresponding data of two vectors
          * @param rhs The right-hand-side vector to multiply by
          * @return A new vector containing the result
          */
@@ -696,6 +696,12 @@ namespace GLESC::Math {
             return result;
         }
         
+        [[nodiscard]] Vector<Type, N> project(const Vector<Type, N> &other) const {
+            Type dotProduct = this->dot(other);
+            Type otherLengthSquared = other.dot(other);
+            return other * (dotProduct / otherLengthSquared);
+        }
+        
         [[nodiscard]] Vector<Type, N - 1> dehomogenize() const {
             if (data[N - 1] == Type(0))
                 throw MathException("Cannot dehomogenize a vector with a zero w-component.");
@@ -713,7 +719,9 @@ namespace GLESC::Math {
         
         [[nodiscard]] Vector<Type, N> normalize() const {
             Type length = this->length();
-            if (eq(length, Type(1)) || eq(length, Type(0))) { return *this; }
+            if (eq(length, Type(1)) || eq(length, Type(0))) {
+                return *this;
+            }
             Vector<Type, N> result;
             for (size_t i = 0; i < N; ++i)
                 result.data[i] = data[i] / length;
@@ -725,9 +733,137 @@ namespace GLESC::Math {
             return N;
         }
         
-        bool isParallel(const Vector<Type, N>& other) const {
+        /**
+         * @brief Checks if the vector is parallel to another vector
+         * @details This method only makes sense when the vector acts as a direction vector.
+         * @param other The vector to check against
+         * @return True if the vectors are parallel, false otherwise
+         */
+        bool isParallel(const Vector<Type, N> &other) const {
             Vector<Type, N> crossProd = this->cross(other);
             return eq(crossProd.length(), 0);
+        }
+        
+        /**
+         * @brief Checks if the vector is orthogonal to another vector
+         * @details This method only makes sense when the vector acts as a direction vector.
+         * @param other The vector to check against
+         * @return True if the vectors are orthogonal, false otherwise
+         */
+        bool isOrthogonal(const Vector<Type, N> &other) const {
+            return eq(this->dot(other), 0);
+        }
+        
+        /**
+         * @brief Get an orthogonal (or perpendicular) vector.
+         * @return A new vector that is orthogonal to this one. If the vector has more than 2
+         * dimensions, the axis of orthogonality is chosen arbitrarily.
+         */
+        Vector<Type, N> getOrthogonal() const {
+            static_assert(N == 2 || N == 3 || N == 4,
+                          "getOrthogonal is only implemented for 2D, 3D, and 4D vectors");
+            
+            if constexpr (N == 2) {
+                // In 2D, the orthogonal vector can be obtained by swapping the data
+                // and negating one of them.
+                return Vector<Type, 2>(-data[1], data[0]);
+            } else if constexpr (N == 3) {
+                // In 3D, we use the cross product to find an orthogonal vector.
+                // First, we need a non-parallel vector to cross with.
+                // We choose either (0, 1, 0) or (1, 0, 0) depending on which one is less parallel
+                // to the original vector, to avoid degenerate cross products.
+                Vector<Type, 3> nonParallel =
+                        (absol(data[0]) > absol(data[1])) ? Vector<Type, 3>(0, 1, 0) : Vector<Type,
+                                3>(1, 0, 0);
+                
+                // The cross product of this vector with 'nonParallel' yields an orthogonal vector.
+                return this->cross(nonParallel);
+            } else if constexpr (N == 4) {
+                // Finding an orthogonal vector in 4D involves more choices due to extra degrees of
+                // freedom. Here, we zero out two data and solve the other two to maintain
+                // orthogonality. The choice of which data to zero out depends on the
+                // non-zero data of the original vector.
+                if (data[0] != 0 || data[1] != 0) {
+                    // If the first or second component is non-zero, we set the last two data
+                    // to zero and negate one of the first two data to create orthogonality.
+                    return Vector<Type, 4>(-data[1], data[0], 0, 0);
+                } else {
+                    // If the first two data are zero, we work with the last two data.
+                    // We negate one and copy the other to create orthogonality.
+                    return Vector<Type, 4>(0, -data[3], data[2], 0);
+                }
+            }
+        }
+        
+        
+        /**
+         * @brief Checks if the current vector is a scalar multiple of another vector.
+         *
+         * @param other The vector to compare against.
+         * @return true If the current vector is a scalar multiple of the other vector.
+         * @return false Otherwise.
+         */
+        bool isMultipleOf(const Vector<Type, N> &other) const {
+            Type ratio;
+            bool ratioInitialized = false;
+            
+            for (size_t i = 0; i < N; ++i) {
+                if (!eq(absol(other.data[i]), 0)) {
+                    if (!ratioInitialized) {
+                        ratio = data[i] / other.data[i];
+                        ratioInitialized = true;
+                    } else if (absol(data[i] / other.data[i] - ratio) > epsilon<Type>()) {
+                        return false;
+                    }
+                } else if (!eq(absol(data[i]), 0)) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        
+        bool isCollinear(std::vector<Vector<Type, N>> &points) const {
+            // Collinearity check is trivial if there are fewer than 3 points
+            if (points.size() < 3) {
+                return true;
+            }
+            
+            // Compute direction vector from first two points (this and points[0])
+            GLESC::Math::Vector<Type, N> direction = points[0] - *this;
+            
+            // Iterate over the rest of the points (starting iteration at 1, because we already
+            // checked the first point)
+            for (size_t i = 1; i < points.size(); ++i) {
+                // Compute vector from the first point to the current point
+                GLESC::Math::Vector<Type, N> v = points[i] - points[0];
+                
+                // Check if v is a scalar multiple of the direction vector
+                if (!v.isMultipleOf(direction)) {
+                    return false; // This point does not lie on the line, so not collinear
+                }
+            }
+            
+            return true; // All points are collinear;
+        }
+        
+        bool isCollinear(std::initializer_list<Vector<Type, N>> points) const {
+            return isCollinear(points);
+        }
+        
+        
+        /**
+         * @brief Calculates the cross product of two vectors
+         * @details The cross product is a vector that is perpendicular to the
+         * plane formed by the two vectors.
+         * Only works for 3 dimensional vectors.
+         * @param other
+         * @return
+         */
+        [[nodiscard]] Vector<Type, 3> cross(const Vector<Type, 3> &other) const {
+            S_ASSERT_VEC_IS_OF_SIZE(N, 3);
+            return Vector<Type, 3>(data[1] * other[2] - data[2] * other[1],
+                                   data[2] * other[0] - data[0] * other[2],
+                                   data[0] * other[1] - data[1] * other[0]);
         }
         
         [[nodiscard]] std::string toString() const {
@@ -747,22 +883,7 @@ namespace GLESC::Math {
             result += "]";
             return result;
         }
-        
-        
-        /**
-         * @brief Calculates the cross product of two vectors
-         * @details The cross product is a vector that is perpendicular to the
-         * plane formed by the two vectors.
-         * Only works for 3 dimensional vectors.
-         * @param other
-         * @return
-         */
-        [[nodiscard]] Vector<Type, 3> cross(const Vector<Type, 3> &other) const {
-            S_ASSERT_VEC_IS_OF_SIZE(N, 3);
-            return Vector<Type, 3>(data[1] * other[2] - data[2] * other[1],
-                                data[2] * other[0] - data[0] * other[2],
-                                data[0] * other[1] - data[1] * other[0]);
-        }
+    
     
     protected:
         Type data[N];
@@ -771,6 +892,49 @@ namespace GLESC::Math {
     
 }
 
+#include "Matrix.h"
+class VectorMethods {
+public:
+    
+    template<typename ParamType, size_t ParamN>
+    static bool areCollinear(std::initializer_list<GLESC::Math::Vector<ParamType, ParamN>> points) {
+        return areCollinear(std::vector<GLESC::Math::Vector<ParamType, ParamN>>(points));
+    }
+    
+    /**
+     * @brief Checks if a set of vectors are collinear in N-dimensional space.
+     *
+     * @details This function determines if a series of vectors (points) are collinear,
+     *          meaning they all lie on a single straight line. It computes a direction
+     *          vector from the first two points and checks if all subsequent vectors
+     *          are scalar multiples of this direction vector, indicating they all lie
+     *          on the same line.
+     *
+     * @tparam Type The data type of the vector data (e.g., double, float).
+     * @param points A vector of VectorN objects representing the points.
+     * @return true If all vectors are collinear.
+     * @return false If any vector is not collinear with the others.
+     */
+    template<typename ParamType, size_t ParamN>
+    static bool areCollinear(const std::vector<GLESC::Math::Vector < ParamType, ParamN>> &points) {
+        if (points.size() < 3) {
+            return true;
+        }
+        
+        // Construct a matrix with the points
+        GLESC::Math::Matrix <ParamType, ParamN, ParamN> matrix;
+        for (size_t i = 0; i < ParamN; ++i) {
+            for (size_t j = 0; j < ParamN; ++j) {
+                // If the index is within the number of points, use the point data
+                // Otherwise, use 0
+                matrix[i][j] = (i < points.size()) ? points[i][j] : ParamType(0);
+            }
+        }
+        
+        // Check if the rank of the matrix is less than the number of points
+        return matrix.rank() < points.size();
+    }
+};
 
 template<typename Type, size_t N> using VectorT = GLESC::Math::Vector<Type, N>;
 
@@ -805,8 +969,6 @@ using Vec4F = VectorT<float, 4>;
 using Vec2D = VectorT<double, 2>;
 using Vec3D = VectorT<double, 3>;
 using Vec4D = VectorT<double, 4>;
-
-
 
 
 namespace std {

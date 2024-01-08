@@ -9,8 +9,8 @@
  **************************************************************************************************/
 #pragma once
 
-#include <engine/core/math/geometry/Polyhedron.h>
-#include "Plane.h"
+#include <engine/core/math/geometry/figures/polyhedron/Polyhedron.h>
+#include "engine/core/math/geometry/figures/plane/Plane.h"
 
 namespace GLESC::Math {
     class Figure {
@@ -19,7 +19,9 @@ namespace GLESC::Math {
         
         [[nodiscard]] virtual bool intersects(const Plane &plane) const = 0;
         
-        [[nodiscard]] virtual bool intersects(const Face & face) const = 0;
+        [[nodiscard]] virtual bool intersects(const Line & line) const = 0;
+        
+        [[nodiscard]] virtual bool intersects(const PolyhedronFace & face) const = 0;
         
         [[nodiscard]] virtual bool intersects(const Polyhedron &polyhedron) const = 0;
         

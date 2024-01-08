@@ -12,12 +12,12 @@
 #include <gtest/gtest.h>
 #include <engine/core/math/Math.h>
 #include <engine/core/math/geometry/GeometryTypes.h>
-#include <engine/core/math/geometry/Face.h>
+#include <engine/core/math/geometry/figures/polyhedron/PolyhedronFace.h>
 
 TEST(FaceTests, Constructor) {
     using namespace GLESC::Math;
     std::vector<Point> vertices = {{0, 0, 0}, {1, 0, 0}, {0, 1, 0}};
-    Face face({0, 1, 2}, vertices);
+    PolyhedronFace face({0, 1, 2}, vertices);
     
     // Test if face normal is correct
     Direction expectedNormal(0, 0, 1); // Assuming a CCW winding order
@@ -33,7 +33,7 @@ TEST(FaceTests, IntersectsPoint) {
     
     // Define a face
     Points vertices = {{0, 0, 0}, {1, 0, 0}, {0, 1, 0}};
-    Face face({0, 1, 2}, vertices);
+    PolyhedronFace face({0, 1, 2}, vertices);
     
     // Point inside the face
     Vec3D pointInside(0.1, 0.1, 0);
@@ -47,7 +47,7 @@ TEST(FaceTests, IntersectsPoint) {
     
     // Degenerate cases
     Points verticesForDegenerateCases = {{0, 0, 0}, {1, 0, 0}, {0, 1, 0}};
-    Face faceForDegenerateCases({0, 1, 2}, verticesForDegenerateCases);
+    PolyhedronFace faceForDegenerateCases({0, 1, 2}, verticesForDegenerateCases);
     
     // Point on the edge of the face
     Vec3D pointOnEdge(0.5, 0.5, 0);
@@ -63,26 +63,26 @@ TEST(FaceTests, IntersectsFace) {
     
     // Define vertices for a triangular face
     Points vertices = {{0, 0, 0}, {1, 0, 0}, {0, 1, 0}};
-    Face face({0, 1, 2}, vertices);
+    PolyhedronFace face({0, 1, 2}, vertices);
     
     // Face intersecting the face
-    Face intersectingFace({0, 1, 2}, vertices);
+    PolyhedronFace intersectingFace({0, 1, 2}, vertices);
     EXPECT_TRUE(face.intersects(intersectingFace));
     
     // Face not intersecting the face (above the original face)
-    Face nonIntersectingFace({0, 1, 2}, {{0, 0, 1}, {1, 0, 1}, {0, 1, 1}});
+    PolyhedronFace nonIntersectingFace({0, 1, 2}, {{0, 0, 1}, {1, 0, 1}, {0, 1, 1}});
     EXPECT_FALSE(face.intersects(nonIntersectingFace));
     
     // Coplanar face, not intersecting
-    Face coplanarNonIntersectingFace({0, 1, 2}, {{2, 0, 0}, {3, 0, 0}, {2, 1, 0}});
+    PolyhedronFace coplanarNonIntersectingFace({0, 1, 2}, {{2, 0, 0}, {3, 0, 0}, {2, 1, 0}});
     EXPECT_FALSE(face.intersects(coplanarNonIntersectingFace));
     
     // Edge-touching face
-    Face edgeTouchingFace({0, 1, 2}, {{1, 0, 0}, {1, 1, 0}, {0, 1, 0}});
+    PolyhedronFace edgeTouchingFace({0, 1, 2}, {{1, 0, 0}, {1, 1, 0}, {0, 1, 0}});
     EXPECT_TRUE(face.intersects(edgeTouchingFace));
     
     // Vertex-touching face
-    Face vertexTouchingFace({0, 1, 2}, {{1, 0, 0}, {2, -1, 0}, {2, 1, 0}});
+    PolyhedronFace vertexTouchingFace({0, 1, 2}, {{1, 0, 0}, {2, -1, 0}, {2, 1, 0}});
     EXPECT_TRUE(face.intersects(vertexTouchingFace));
 }
 
@@ -91,7 +91,7 @@ TEST(FaceTests, IntersectsLine) {
     
     // Define a face
     Points vertices = {{0, 0, 0}, {1, 0, 0}, {0, 1, 0}};
-    Face face({0, 1, 2}, vertices);
+    PolyhedronFace face({0, 1, 2}, vertices);
     
     // Line intersecting the face
     Line lineIntersecting(Vec3D(0.5, 0.5, -1), Vec3D(0, 0, 1));
@@ -104,7 +104,7 @@ TEST(FaceTests, IntersectsLine) {
     
     // Degenerate cases
     Points verticesForDegenerateCases = {{0, 0, 0}, {1, 0, 0}, {0, 1, 0}};
-    Face faceForDegenerateCases({0, 1, 2}, verticesForDegenerateCases);
+    PolyhedronFace faceForDegenerateCases({0, 1, 2}, verticesForDegenerateCases);
     
     // Line parallel to an edge of the face
     Line lineParallel(Vec3D(0, 0, -1), Vec3D(1, -1, 0));
@@ -122,7 +122,7 @@ TEST(FaceTests, IntersectsPlane) {
     
     // Define vertices for a triangular face
     Points vertices = {{0, 0, 0}, {1, 0, 0}, {0, 1, 0}};
-    Face face({0, 1, 2}, vertices);
+    PolyhedronFace face({0, 1, 2}, vertices);
     
     // Plane intersecting the face
     Plane intersectingPlane({0, 0, 1}, Direction(0, 0, 1));

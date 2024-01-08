@@ -13,7 +13,7 @@
 #include <string>
 #include <memory>
 #include <unordered_map>
-#include "engine/core/math/geometry/Polyhedron.h"
+#include "engine/core/math/geometry/figures/polyhedron/Polyhedron.h"
 #include "engine/subsystems/renderer/mesh/Vertex.h"
 
 namespace GLESC {
@@ -28,10 +28,6 @@ namespace GLESC {
         void addTris(const Vertex& a, const Vertex& b, const Vertex& c);
         
         void addQuad(const Vertex& a, const Vertex& b, const Vertex& c, const Vertex& d);
-        
-        void addQuad(){
-        
-        }
         
         bool isDirty() const { return dirtyFlag; }
         

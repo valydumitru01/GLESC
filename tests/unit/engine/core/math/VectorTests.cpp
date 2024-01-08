@@ -47,10 +47,10 @@ inline void initVector2(Vector<VecType, N> &v) {
 }
 
 template<typename Type>
-class VertexTests : public ::testing::Test {
+class VectorTests : public ::testing::Test {
 protected:
     
-    VertexTests() = default;
+    VectorTests() = default;
     
     void SetUp() override {
         initVector(this->v1);
@@ -69,14 +69,14 @@ using MyTypes = ::testing::Types<VectorType<float, 2>, VectorType<float, 3>, Vec
         VectorType<unsigned int, 3>, VectorType<unsigned int, 4>, VectorType<short, 2>,
         VectorType<short, 3>, VectorType<short, 4>>;
 
-TYPED_TEST_SUITE(VertexTests, MyTypes);
+TYPED_TEST_SUITE(VectorTests, MyTypes);
 
 #define PREPARE_TEST()\
     using Type = typename TypeParam::ValueType; \
     constexpr size_t N = TypeParam::Length;     \
     using Vec = Vector<Type, N>;
 
-TYPED_TEST(VertexTests, Accesors) {
+TYPED_TEST(VectorTests, Accesors) {
     PREPARE_TEST();
     EXPECT_EQ(this->v1.size(), N);
     for (size_t i = 0; i < N; ++i)
@@ -128,7 +128,7 @@ TYPED_TEST(VertexTests, Accesors) {
     
 }
 
-TYPED_TEST(VertexTests, Constructors) {
+TYPED_TEST(VectorTests, Constructors) {
     PREPARE_TEST();
     // Default constructor
     Vec defaultConstruct;
@@ -178,7 +178,7 @@ TYPED_TEST(VertexTests, Constructors) {
         EXPECT_EQ_VEC(initListConstruct, this->v1);
     } // Enough with the initializers, it could go on forever
     
-
+    
     // Fill constructor
     Type fillValue = Type(1);
     Vec fillConstruct(fillValue);
@@ -201,7 +201,7 @@ TYPED_TEST(VertexTests, Constructors) {
     EXPECT_EQ_VEC(moveConstruct2, this->v1);
 }
 
-TYPED_TEST(VertexTests, AssignmentOperators) {
+TYPED_TEST(VectorTests, AssignmentOperators) {
     PREPARE_TEST();
     // Copy assignment
     Vec copyAssign;
@@ -324,7 +324,7 @@ TYPED_TEST(VertexTests, AssignmentOperators) {
     EXPECT_EQ_VEC(divAssignScalar, expectDivAssignScalar);
 }
 
-TYPED_TEST(VertexTests, ArithmeticOperators){
+TYPED_TEST(VectorTests, ArithmeticOperators) {
     PREPARE_TEST();
     
     // Addition with another vector
@@ -404,7 +404,7 @@ TYPED_TEST(VertexTests, ArithmeticOperators){
     EXPECT_EQ_VEC(divScalar, expectDivScalar);
 }
 
-TYPED_TEST(VertexTests, ComparisonOperators){
+TYPED_TEST(VectorTests, ComparisonOperators) {
     PREPARE_TEST();
     
     // Equality
@@ -438,7 +438,7 @@ TYPED_TEST(VertexTests, ComparisonOperators){
     EXPECT_TRUE(gte >= this->v1);
 }
 
-TYPED_TEST(VertexTests, VectorMethods){
+TYPED_TEST(VectorTests, VectorSwap) {
     PREPARE_TEST();
     
     // Swap
@@ -449,6 +449,10 @@ TYPED_TEST(VertexTests, VectorMethods){
     swap.swap(swap2);
     EXPECT_EQ_VEC(swap, this->v2);
     EXPECT_EQ_VEC(swap2, this->v1);
+}
+
+TYPED_TEST(VectorTests, VectorDot) {
+    PREPARE_TEST();
     
     // Dot product
     Type dot = this->v1.dot(this->v2);
@@ -456,22 +460,10 @@ TYPED_TEST(VertexTests, VectorMethods){
     for (size_t i = 0; i < N; ++i)
         expectDot += getExpectedValue1<Type>(i) * getExpectedValue2<Type>(i);
     EXPECT_EQ_CUSTOM(dot, expectDot);
-    
-    // Length
-    Type length = this->v1.length();
-    Type expectLength = Type();
-    for (size_t i = 0; i < N; ++i)
-        expectLength += getExpectedValue1<Type>(i) * getExpectedValue1<Type>(i);
-    expectLength = sqRoot(expectLength);
-    EXPECT_EQ_CUSTOM(length, expectLength);
-    
-    
-    // Length squared
-    Type lengthSquared = this->v1.lengthSquared();
-    Type expectLengthSquared = Type();
-    for (size_t i = 0; i < N; ++i)
-        expectLengthSquared += getExpectedValue1<Type>(i) * getExpectedValue1<Type>(i);
-    EXPECT_EQ_CUSTOM(lengthSquared, expectLengthSquared);
+}
+
+TYPED_TEST(VectorTests, VectorCross) {
+    PREPARE_TEST();
     
     // Cross
     if constexpr (N == 3) { // Cross product is only defined for 3D vectors
@@ -489,57 +481,231 @@ TYPED_TEST(VertexTests, VectorMethods){
                                  getExpectedValue1<Type>(1) * getExpectedValue2<Type>(0));
         EXPECT_EQ_VEC(crossResult, expectCrossResult);
     }
+}
+
+TYPED_TEST(VectorTests, VectorIsOrthogonal) {
+    PREPARE_TEST();
     
-    // Is homogeneous
-    Vec homogenous;
-    initVector(homogenous);
-    homogenous.set(N - 1, Type(0));
-    EXPECT_FALSE(homogenous.isHomogeneous());
-    homogenous.set(N - 1, Type(1));
-    EXPECT_TRUE(homogenous.isHomogeneous());
-
-    // Homogenize
-    Vector<Type, N-1> homogenize;
-    initVector(homogenize);
-    Vector<Type, N> homogenizeExpected;  // Changed to N from N-1
-    for (size_t i = 0; i < N - 1; ++i) {
-        homogenizeExpected.set(i, getExpectedValue1<Type>(i));
+    // Orthogonal vectors for any dimension N
+    Vec orthogonalVec1, orthogonalVec2;
+    orthogonalVec1.set(0, Type(1));  // First element is 1, rest are 0
+    if (N > 1) {
+        orthogonalVec2.set(1, Type(1));  // Second element is 1, rest are 0
     }
-    homogenizeExpected.set(N - 1, Type(1));  // Setting the last element to 1
-    EXPECT_EQ_VEC(homogenize.homogenize(), homogenizeExpected);
+    
+    // Check if orthogonal
+    EXPECT_TRUE(orthogonalVec1.isOrthogonal(orthogonalVec2));
+    
+    // Orthogonal for any dimension N but with non-zero elements and different values
+    Vec orthogonalVec3, orthogonalVec4;
+    for (size_t i = 0; i < N; ++i) {
+        orthogonalVec3.set(i, Type(i + 1));
+        orthogonalVec4.set(i, Type((i + 1) * 2));  // Scalar multiple of orthogonalVec3
+    }
+    
+    // Check if orthogonal
+    EXPECT_TRUE(orthogonalVec3.isOrthogonal(orthogonalVec4));
+}
 
-    // Dehomogenize
-    Vector<Type, N+1> nonHomogenize;
-    initVector(nonHomogenize);
-    Vector<Type, N> nonHomogenizeExpected;  // Changed to N from N+1
-    Type w = nonHomogenize.get(N); // Get the last (homogenizing) component
-
-    // Skip the loop if w is zero to avoid division by zero
-    if (w != Type(0)) {
-        std::cout<< "-----values:";
-        for (size_t i = 0; i < N; ++i) {
-            nonHomogenizeExpected.set(i, nonHomogenize.get(i) / w);
-            
-            std::cout << std::setprecision(std::numeric_limits<Type>::max_digits10)
-            << nonHomogenize.dehomogenize().get(i) << std::endl;
-            
-            std::cout << std::setprecision(std::numeric_limits<Type>::max_digits10)
-                      << nonHomogenizeExpected.get(i) << std::endl;
+TYPED_TEST(VectorTests, VectorIsParallel) {
+    PREPARE_TEST();
+    
+    // Parallel vectors for any dimension N
+    Vec parallelVec1, parallelVec2;
+    for (size_t i = 0; i < N; ++i) {
+        parallelVec1.set(i, Type(i + 1));
+        parallelVec2.set(i, Type((i + 1) * 2));  // Scalar multiple of parallelVec1
+    }
+    
+    // Check if parallel (one vector is a scalar multiple of the other)
+    bool isParallel = true;
+    Type scalar = parallelVec2.get(0) / parallelVec1.get(0);
+    for (size_t i = 1; i < N; ++i) {
+        if (parallelVec2.get(i) / parallelVec1.get(i) != scalar) {
+            isParallel = false;
+            break;
         }
     }
-    EXPECT_EQ_VEC(nonHomogenize.dehomogenize(), nonHomogenizeExpected);
+    
+    EXPECT_TRUE(isParallel);
+}
+
+
+TYPED_TEST(VectorTests, VectorGetOrthogonal) {
+    PREPARE_TEST();
+    
+    if constexpr (N == 2 || N == 3 || N == 4) {
+        // Orthogonal
+        Vec orthogonal;
+        initVector(orthogonal);
+        Vec orthogonalResult = orthogonal.getOrthogonal();
+        bool isOrthogonal = orthogonalResult.dot(orthogonal) == Type();
+        EXPECT_TRUE(isOrthogonal);
+    }
+}
+
+TYPED_TEST(VectorTests, VectorLenght) {
+    PREPARE_TEST();
+    
+    // Length
+    Type length = this->v1.length();
+    Type expectLength = Type();
+    for (size_t i = 0; i < N; ++i)
+        expectLength += getExpectedValue1<Type>(i) * getExpectedValue1<Type>(i);
+    expectLength = sqRoot(expectLength);
+    EXPECT_EQ_CUSTOM(length, expectLength);
+    
+    
+    // Length squared
+    Type lengthSquared = this->v1.lengthSquared();
+    Type expectLengthSquared = Type();
+    for (size_t i = 0; i < N; ++i)
+        expectLengthSquared += getExpectedValue1<Type>(i) * getExpectedValue1<Type>(i);
+    EXPECT_EQ_CUSTOM(lengthSquared, expectLengthSquared);
+}
+
+TYPED_TEST(VectorTests, VectorHomogenous) {
+    PREPARE_TEST();
+    
+    // Test if the vector is homogeneous when the last element is not 1
+    Vec homogeneous;
+    initVector(homogeneous);
+    homogeneous.set(N - 1, Type(0));
+    EXPECT_FALSE(homogeneous.isHomogeneous());
+    
+    // Test if the vector is homogeneous when the last element is 1
+    homogeneous.set(N - 1, Type(1));
+    EXPECT_TRUE(homogeneous.isHomogeneous());
+    
+    // Test homogenizing a vector
+    Vector<Type, N - 1> toHomogenize;
+    initVector(toHomogenize);
+    Vec homogenized = toHomogenize.homogenize();
+    Vec expectedHomogenized;
+    for (size_t i = 0; i < N - 1; ++i) {
+        expectedHomogenized.set(i, toHomogenize.get(i));
+    }
+    expectedHomogenized.set(N - 1, Type(1));
+    EXPECT_EQ_VEC(homogenized, expectedHomogenized);
+    
+    // Test dehomogenizing a vector
+    Vector<Type, N + 1> toDehomogenize;
+    initVector(toDehomogenize);
+    toDehomogenize.set(N, Type(1)); // Ensure last element is non-zero to avoid division by zero
+    Vec dehomogenized = toDehomogenize.dehomogenize();
+    Vec expectedDehomogenized;
+    for (size_t i = 0; i < N; ++i) {
+        expectedDehomogenized.set(i, toDehomogenize.get(i));
+    }
+    EXPECT_EQ_VEC(dehomogenized, expectedDehomogenized);
+}
+
+TYPED_TEST(VectorTests, VectorNormalize) {
+    PREPARE_TEST();
     
     // Normalize
     Vec normalize;
     initVector(normalize);
-    normalize=normalize.normalize();
+    normalize = normalize.normalize();
     Type normalizeLength = normalize.length();
     // If it's integral, it should be 0 due to truncation
     if constexpr (!std::is_integral_v<Type>)
         EXPECT_EQ_CUSTOM(normalizeLength, Type(1));
+    
+}
+
+TYPED_TEST(VectorTests, VectorSize) {
+    PREPARE_TEST();
+    
     // Size
     EXPECT_EQ_CUSTOM(this->v1.size(), N);
+}
+
+TYPED_TEST(VectorTests, VectorMultiple) {
+    PREPARE_TEST();
     
+    // Vectors are the same
+    Vec multiple;
+    initVector(multiple);
+    Vec multiple2;
+    initVector2(multiple2);
+    EXPECT_TRUE(multiple.isMultipleOf(multiple)); // A vector is always a multiple of itself
+    
+    // Vectors are multiple
+    // Create a vector that is a known multiple of the initial vector
+    Vec multiple3;
+    Type scalarMultiple = Type(2); // Example scalar multiple
+    for (size_t i = 0; i < N; ++i) {
+        multiple3.set(i, this->v1.get(i) * scalarMultiple);
+    }
+    EXPECT_TRUE(multiple3.isMultipleOf(this->v1));
+    
+    // Vectors are not multiple
+    Vec notMultiple;
+    initVector(notMultiple);
+    notMultiple.set(0, notMultiple.get(0) + Type(1)); // This change makes it not a multiple of v1
+    EXPECT_FALSE(notMultiple.isMultipleOf(this->v1));
+}
+
+TYPED_TEST(VectorTests, VectorCollinearityMethod) {
+    PREPARE_TEST();
+    auto generatePoints = [&](size_t count, bool makeNonCollinear) {
+        std::vector<Vec> points;
+        for (size_t i = 0; i < count; ++i) {
+            Vec point;
+            for (size_t j = 0; j < N; ++j) {
+                point.set(j, this->v1.get(j) * static_cast<Type>(i + 1));
+            }
+            if (makeNonCollinear) {
+                point.set(0, point.get(0) + Type(1));
+            }
+            points.push_back(point);
+        }
+        return points;
+    };
+    
+    size_t minimumNumberOfPointsToTest = 1;
+    size_t maximumNumberOfPointsToTest = 10;
+    
+    // Test all subsets of points for collinearity
+    for (size_t count = minimumNumberOfPointsToTest; count <= maximumNumberOfPointsToTest; ++count){
+        auto collinearPoints = generatePoints(count, false);
+        EXPECT_TRUE(VectorMethods::areCollinear(collinearPoints)) << "Failed at count: " << count;
+        
+        // Test all subsets of points for non-collinearity
+        // Ignore the case where there are only 2 points, since they are always collinear
+        if (count > 2){
+            auto nonCollinearPoints = generatePoints(count, true);
+            EXPECT_FALSE(VectorMethods::areCollinear(nonCollinearPoints))
+                                << "Failed at count: " << count;
+        }
+        
+    }
+}
+
+TYPED_TEST(VectorTests, VectorCollinearityOperator) {
+    PREPARE_TEST();
+    
+    // Collinear vectors
+    Vec collinear;
+    initVector(collinear);
+    Vec collinear2;
+    initVector2(collinear2);
+    std::vector<Vec> collinearVecs = {collinear, collinear2};
+    EXPECT_TRUE(collinear.isCollinear(collinearVecs));
+    
+    // Non-collinear vectors
+    Vec nonCollinear;
+    initVector(nonCollinear);
+    nonCollinear.set(0, nonCollinear.get(0) + Type(1)); // This change makes it not a multiple of v1
+    Vec nonCollinear2;
+    initVector2(nonCollinear2);
+    std::vector<Vec> nonCollinearVecs = {nonCollinear, nonCollinear2};
+    EXPECT_FALSE(nonCollinear.isCollinear(nonCollinearVecs));
+}
+
+TYPED_TEST(VectorTests, VectorToString) {
+    PREPARE_TEST();
     // To String
     std::string toString = this->v1.toString();
     std::string expectToString = "[";
@@ -550,5 +716,4 @@ TYPED_TEST(VertexTests, VectorMethods){
     }
     expectToString += "]";
     EXPECT_EQ(toString, expectToString);
-    
 }

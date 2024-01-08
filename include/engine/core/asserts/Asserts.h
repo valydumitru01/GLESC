@@ -16,6 +16,7 @@
 #include <sstream>
 #include "engine/core/debugger/Stacktrace.h"
 #include "engine/core/logger/Logger.h"
+#include "engine/core/debugger/Stringer.h"
 
 #ifndef NDEBUG
 // ------------------------ Runtime asserts ---------------------------
@@ -30,10 +31,9 @@
                 << "Message  : " << message << "\n\n" \
                 << "Location : " << __FILE__ << ", Line " << __LINE__ << "\n" \
                 << "Function : " << __PRETTY_FUNCTION__ << "\n\n" \
-                << "Stacktrace:\n" << GLESC::generateStackTrace() \
-                << "\n=========================================================\n"; \
+                << "Stacktrace:\n" << GLESC::generateStackTrace(); \
             GLESC::Logger::get().error(oss.str()); \
-            std::terminate();                  \
+            std::terminate(); \
         }
 
 #define D_ASSERT_TRUE(value, message) \
@@ -56,9 +56,15 @@
             ASSERT_CONTENT((value) == nullptr, message) \
         } while (false)
 
+inline void
+printComparingValues(const std::string &value, const std::string &expected) {
+    GLESC::Logger::get().error("Checked Value : " + value + "\nExpected Value: " + expected);
+}
+
 #define D_ASSERT_EQUAL(value, expected, message) \
+        printComparingValues(GLESC::toString(value), GLESC::toString(expected)); \
         do { \
-            ASSERT_CONTENT((value) == (expected), message) \
+            ASSERT_CONTENT(eq((value), (expected)), message) \
         } while (false)
 
 #define D_ASSERT_GREATER(value, expected, message) \
@@ -83,7 +89,7 @@
 
 #define D_ASSERT_NOT_EQUAL(value, expected, message) \
         do { \
-            ASSERT_CONTENT((value) != (expected), message) \
+            ASSERT_CONTENT(!eq((value), (expected)), message) \
         } while (false)
 
 

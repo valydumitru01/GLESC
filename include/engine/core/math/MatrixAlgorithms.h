@@ -19,8 +19,16 @@ namespace GLESC::Math {
 }
 using namespace GLESC::Math;
 namespace MatrixAlgorithms {
+    
     template<typename Type, size_t N>
-    inline Matrix<Type, N, N> gaussianInverse(const Matrix<Type, N, N> &inputMatrix) {
+    struct GaussianEliminationResult {
+        Matrix<Type, N, N> inverse;
+        unsigned int rank;
+        Type determinant;
+    };
+    
+    template<typename Type, size_t N>
+    inline Matrix<Type, N, N> gaussianElimination(const Matrix<Type, N, N> &inputMatrix) {
         Matrix<Type, N, 2 * N> augmentedMatrix; // Resized to hold original and identity matrix
         Matrix<Type, N, N> identityMatrix; // Initialize with identity matrix
         Matrix<Type, N, N> inverseResult;
@@ -179,7 +187,7 @@ namespace MatrixAlgorithms {
      * @return A 4x4 matrix which is the result of the input matrix after the rotations.
      */
     template<typename T>
-    Matrix<T, 4, 4> rotate3D(const Matrix<T, 4, 4> &matrix, VectorT<T, 3> dgrs) {
+    Matrix<T, 4, 4> rotate3D(const Matrix<T, 4, 4> &matrix, Vector<T, 3> dgrs) {
         Matrix<T, 4, 4> result(matrix);
         T cx = cos(dgrs.getX());
         T sx = sin(dgrs.getX());
@@ -199,9 +207,9 @@ namespace MatrixAlgorithms {
     }
     
     template<typename T>
-    Matrix<T, 3, 3> lookAt2D(const Matrix<T, 3, 3> &matrix, const VectorT<T, 2> &target) {
-        VectorT<T, 2> eye(matrix[0][2], matrix[1][2]);
-        VectorT<T, 2> direction = target - eye;
+    Matrix<T, 3, 3> lookAt2D(const Matrix<T, 3, 3> &matrix, const Vector<T, 2> &target) {
+        Vector<T, 2> eye(matrix[0][2], matrix[1][2]);
+        Vector<T, 2> direction = target - eye;
         if (eye == target) {
             return matrix;
         }
@@ -211,11 +219,11 @@ namespace MatrixAlgorithms {
     
     template<typename T>
     Matrix<T, 4, 4>
-    lookAt3D(const Matrix<T, 4, 4> &matrix, const VectorT<T, 3> &target, const VectorT<T, 3> &up) {
-        VectorT<T, 3> eye(matrix[0][3], matrix[1][3], matrix[2][3]);
-        VectorT<T, 3> zAxis = (eye - target).normalize();
-        VectorT<T, 3> xAxis = up.cross(zAxis).normalize();
-        VectorT<T, 3> yAxis = zAxis.cross(xAxis).normalize();
+    lookAt3D(const Matrix<T, 4, 4> &matrix, const Vector<T, 3> &target, const Vector<T, 3> &up) {
+        Vector<T, 3> eye(matrix[0][3], matrix[1][3], matrix[2][3]);
+        Vector<T, 3> zAxis = (eye - target).normalize();
+        Vector<T, 3> xAxis = up.cross(zAxis).normalize();
+        Vector<T, 3> yAxis = zAxis.cross(xAxis).normalize();
         
         // Rotation matrix using the new basis vectors (inverted change of basis matrix)
         Matrix<T, 4, 4> lookRotation = {{xAxis[0], yAxis[0], zAxis[0], 0},

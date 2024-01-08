@@ -583,7 +583,6 @@ namespace GLESC::Math {
             } else {
                 return MatrixAlgorithms::gaussianInverse(*this);
             }
-            
         }
         
         [[nodiscard]] Matrix<Type, N, M> translate(const Vector<Type, N - 1> &translation) const {
@@ -624,6 +623,36 @@ namespace GLESC::Math {
             }
         }
         
+        /**
+         * @brief Calculates the rank of the matrix.
+         * @details The rank of a matrix is the maximum number of linearly independent rows or
+         * columns. This implementation uses Gaussian elimination.
+         * @return size_t representing the rank of the matrix.
+         */
+        [[nodiscard]] size_t rank() {
+            Matrix<Type, N, M> tempMatrix = *this;  // Copy the current matrix for manipulation
+            size_t rank = 0;
+            
+            // Loop through all rows
+            for (size_t row = 0; row < N; ++row) {
+                // Find pivot
+                if (tempMatrix[row][row] != Type(0)) {
+                    ++rank;
+                    // Loop through all rows below the pivot
+                    for (size_t col = 0; col < N; ++col) {
+                        if (col != row) {
+                            Type multiplier = tempMatrix[col][row] / tempMatrix[row][row];
+                            for (size_t i = 0; i < N; ++i) {
+                                tempMatrix[col][i] -= multiplier * tempMatrix[row][i];
+                            }
+                        }
+                    }
+                }
+            }
+            
+            return rank;
+        }
+        
         
         [[nodiscard]] Matrix<Type, 3, 3> lookAt(const Vector<Type, 2> &target) const {
             return MatrixAlgorithms::lookAt2D(*this, target);
@@ -660,33 +689,27 @@ namespace GLESC::Math {
         Vector<Type, M> data[N];
     }; // class Matrix
 } // namespace GLESC::Math
-using Mat2 = GLESC::Math::Matrix<float, 2, 2>;
-using Mat3 = GLESC::Math::Matrix<float, 3, 3>;
-using Mat4 = GLESC::Math::Matrix<float, 4, 4>;
-
-using Mat2D = GLESC::Math::Matrix<double, 2, 2>;
-using Mat3D = GLESC::Math::Matrix<double, 3, 3>;
-using Mat4D = GLESC::Math::Matrix<double, 4, 4>;
-
-using Mat2I = GLESC::Math::Matrix<int, 2, 2>;
-using Mat3I = GLESC::Math::Matrix<int, 3, 3>;
-using Mat4I = GLESC::Math::Matrix<int, 4, 4>;
-
-using Mat2Ui = GLESC::Math::Matrix<unsigned int, 2, 2>;
-using Mat3Ui = GLESC::Math::Matrix<unsigned int, 3, 3>;
-using Mat4Ui = GLESC::Math::Matrix<unsigned int, 4, 4>;
-
-using Mat2L = GLESC::Math::Matrix<long, 2, 2>;
-using Mat3L = GLESC::Math::Matrix<long, 3, 3>;
-using Mat4L = GLESC::Math::Matrix<long, 4, 4>;
-
-using Mat2Ul = GLESC::Math::Matrix<unsigned long, 2, 2>;
-using Mat3Ul = GLESC::Math::Matrix<unsigned long, 3, 3>;
-using Mat4Ul = GLESC::Math::Matrix<unsigned long, 4, 4>;
-
-using Mat2F = GLESC::Math::Matrix<float, 2, 2>;
-using Mat3F = GLESC::Math::Matrix<float, 3, 3>;
-using Mat4F = GLESC::Math::Matrix<float, 4, 4>;
+using Mat2   [[maybe_unused]] = GLESC::Math::Matrix<float, 2, 2>;
+using Mat3   [[maybe_unused]] = GLESC::Math::Matrix<float, 3, 3>;
+using Mat4   [[maybe_unused]] = GLESC::Math::Matrix<float, 4, 4>;
+using Mat2D  [[maybe_unused]] = GLESC::Math::Matrix<double, 2, 2>;
+using Mat3D  [[maybe_unused]] = GLESC::Math::Matrix<double, 3, 3>;
+using Mat4D  [[maybe_unused]] = GLESC::Math::Matrix<double, 4, 4>;
+using Mat2I  [[maybe_unused]] = GLESC::Math::Matrix<int, 2, 2>;
+using Mat3I  [[maybe_unused]] = GLESC::Math::Matrix<int, 3, 3>;
+using Mat4I  [[maybe_unused]] = GLESC::Math::Matrix<int, 4, 4>;
+using Mat2Ui [[maybe_unused]] = GLESC::Math::Matrix<unsigned int, 2, 2>;
+using Mat3Ui [[maybe_unused]] = GLESC::Math::Matrix<unsigned int, 3, 3>;
+using Mat4Ui [[maybe_unused]] = GLESC::Math::Matrix<unsigned int, 4, 4>;
+using Mat2L  [[maybe_unused]] = GLESC::Math::Matrix<long, 2, 2>;
+using Mat3L  [[maybe_unused]] = GLESC::Math::Matrix<long, 3, 3>;
+using Mat4L  [[maybe_unused]] = GLESC::Math::Matrix<long, 4, 4>;
+using Mat2Ul [[maybe_unused]] = GLESC::Math::Matrix<unsigned long, 2, 2>;
+using Mat3Ul [[maybe_unused]] = GLESC::Math::Matrix<unsigned long, 3, 3>;
+using Mat4Ul [[maybe_unused]] = GLESC::Math::Matrix<unsigned long, 4, 4>;
+using Mat2F  [[maybe_unused]] = GLESC::Math::Matrix<float, 2, 2>;
+using Mat3F  [[maybe_unused]] = GLESC::Math::Matrix<float, 3, 3>;
+using Mat4F  [[maybe_unused]] = GLESC::Math::Matrix<float, 4, 4>;
 
 
 namespace GLESC::Math {

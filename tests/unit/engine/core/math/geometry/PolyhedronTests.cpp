@@ -11,7 +11,7 @@
 #include <gtest/gtest.h>
 #include <unit/engine/core/math/MathTestHelper.h>
 #include "engine/core/math/Math.h"
-#include "engine/core/math/geometry/Polyhedron.h"
+#include "engine/core/math/geometry/figures/polyhedron/Polyhedron.h"
 
 using namespace GLESC::Math;
 
@@ -20,33 +20,34 @@ TEST(GeometryTests, PolyhedronConstructor) {
     EXPECT_EQ_CUSTOM(emptyPolyhedron.getVertices().size(), 0);
     EXPECT_EQ_CUSTOM(emptyPolyhedron.getFaces().size(), 0);
     
-    Polyhedron verticesPolyhedron({{0, 0, 0}, {1, 1, 1}, {2, 2, 2}});
-    EXPECT_EQ_CUSTOM(verticesPolyhedron.getVertices().size(), 3);
+    Polyhedron polyhedronWithVertices({{0, 0, 0},
+                                       {1, 1, 1},
+                                       {2, 3, 2}}, {{0, 1, 2}});
+    EXPECT_EQ_CUSTOM(polyhedronWithVertices.getVertices().size(), 3);
+    EXPECT_EQ_CUSTOM(polyhedronWithVertices.getFaces().size(), 1);
     
-    Polyhedron verticesAndFacesPolyhedron(
-        {{0, 0, 0}, {1, 1, 1}, {2, 2, 2}},
-        {{0, 1, 2}}
-    );
-    EXPECT_EQ_CUSTOM(verticesAndFacesPolyhedron.getVertices().size(), 3);
-    EXPECT_EQ_CUSTOM(verticesAndFacesPolyhedron.getFaces().size(), 1);
     
-    Polyhedron verticesAndFacesPolyhedron2(
-        {{0, 0, 0}, {1, 1, 1}, {2, 2, 2}},
-        {{0, 1, 2}, {0, 1, 2}}
-    );
+    Polyhedron verticesAndFacesPolyhedron2({{0, 0, 0},
+                                            {1, 1, 1},
+                                            {2, 2, 2}}, {{0, 1, 2},
+                                                         {0, 1, 2}});
     EXPECT_EQ_CUSTOM(verticesAndFacesPolyhedron2.getVertices().size(), 3);
     EXPECT_EQ_CUSTOM(verticesAndFacesPolyhedron2.getFaces().size(), 2);
     
-    std::vector<Point> vertices = {{0, 0, 0}, {1, 1, 1}, {2, 2, 2}};
+    std::vector<Point> vertices = {{0, 0, 0},
+                                   {1, 1, 1},
+                                   {2, 2, 2}};
     std::vector<FaceIndices> faces = {{0, 1, 2}};
     
     Polyhedron verticesAndFacesVectorPolyhedron(vertices, faces);
     EXPECT_EQ_CUSTOM(verticesAndFacesVectorPolyhedron.getVertices().size(), 3);
     EXPECT_EQ_CUSTOM(verticesAndFacesVectorPolyhedron.getFaces().size(), 1);
     
-    Polyhedron verticesVectorPolyhedron(vertices);
-    EXPECT_EQ_CUSTOM(verticesVectorPolyhedron.getVertices().size(), 3);
-    EXPECT_EQ_VEC(verticesVectorPolyhedron.getVertices(), vertices);
+    EXPECT_DEATH({
+                     Polyhedron polyhedronCollinearVertices({{0, 0, 0},
+                                                             {1, 1, 1},
+                                                             {2, 2, 2}}, {{0, 1, 2}});
+                 }, "");
 }
 
 Polyhedron createTetrahedron() {
@@ -118,7 +119,7 @@ TEST(GeometryTests, PolyhedronIntersectsPolyhedron) {
     auto tetrahedron = createTetrahedron();
     auto displacedTetrahedron = createTetrahedron();
     // Move the displacedTetrahedron so it doesn't intersect with the original
-    for (auto& vertex : displacedTetrahedron.getVertices()) {
+    for (auto &vertex : displacedTetrahedron.getVertices()) {
         vertex += Point{2, 2, 2}; // Displace by a vector
     }
     

@@ -35,7 +35,7 @@ void GLESC::Engine::initGame() {
     
     
     
-    player.getComponent<RenderComponent>().mesh = MeshFactory::cube(10);
+    player.getComponent<RenderComponent>().mesh = MeshFactory::cube(10, RGBA(1, 0, 0, 1));
     
     
     player.getComponent<PhysicsComponent>().velocity.z(1);
