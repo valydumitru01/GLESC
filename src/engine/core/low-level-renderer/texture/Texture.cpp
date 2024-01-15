@@ -160,7 +160,7 @@ std::string Texture::toString() const {
     ss << "\tFormat:\n" << format->toString();
     
     unsigned int pixelCount = 20;
-    pixelCount = sqRoot(pixelCount);
+    pixelCount = GLESC::Math::sqrt(pixelCount);
     unsigned int widthStep = std::max(1u, getWidth() / pixelCount);
     unsigned int heightStep = std::max(1u, getHeight() / pixelCount);
     Logger::get().info("\tPixels:");

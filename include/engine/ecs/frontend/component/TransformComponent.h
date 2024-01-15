@@ -8,7 +8,7 @@
 
 #include "IComponent.h"
 #include "engine/core/math/debugger/MathDebugger.h"
-#include "engine/core/math/Vector.h"
+#include "engine/core/math/algebra/vector/Vector.h"
 
 struct TransformComponent : public IComponent {
     Vec3D position{0.0};

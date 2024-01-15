@@ -1,5 +1,6 @@
 #include <gtest/gtest.h>
-#include "engine/core/math/Matrix.h"
+#include <engine/core/math/algebra/vector/VectorAlgorithms.h>
+#include "engine/core/math/algebra/matrix/Matrix.h"
 #include "MathTestHelper.h"
 
 template<typename T, size_t N>
@@ -552,7 +553,7 @@ TYPED_TEST(VectorTests, VectorLenght) {
     Type expectLength = Type();
     for (size_t i = 0; i < N; ++i)
         expectLength += getExpectedValue1<Type>(i) * getExpectedValue1<Type>(i);
-    expectLength = sqRoot(expectLength);
+    expectLength = GLESC::Math::sqrt(expectLength);
     EXPECT_EQ_CUSTOM(length, expectLength);
     
     
@@ -670,13 +671,13 @@ TYPED_TEST(VectorTests, VectorCollinearityMethod) {
     // Test all subsets of points for collinearity
     for (size_t count = minimumNumberOfPointsToTest; count <= maximumNumberOfPointsToTest; ++count){
         auto collinearPoints = generatePoints(count, false);
-        EXPECT_TRUE(VectorMethods::areCollinear(collinearPoints)) << "Failed at count: " << count;
+        EXPECT_TRUE(VectorAlgorithms::areCollinear(collinearPoints)) << "Failed at count: " << count;
         
         // Test all subsets of points for non-collinearity
         // Ignore the case where there are only 2 points, since they are always collinear
         if (count > 2){
             auto nonCollinearPoints = generatePoints(count, true);
-            EXPECT_FALSE(VectorMethods::areCollinear(nonCollinearPoints))
+            EXPECT_FALSE(VectorAlgorithms::areCollinear(nonCollinearPoints))
                                 << "Failed at count: " << count;
         }
         

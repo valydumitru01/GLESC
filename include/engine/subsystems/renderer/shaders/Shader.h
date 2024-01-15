@@ -12,8 +12,8 @@
 #include <string>
 #include "engine/core/low-level-renderer/graphic-api/IGraphicInterface.h"
 #include "engine/core/low-level-renderer/graphic-api/GapiTypes.h"
-#include "engine/core/math/Matrix.h"
-#include "engine/core/math/Vector.h"
+#include "engine/core/math/algebra/matrix/Matrix.h"
+#include "engine/core/math/algebra/vector/Vector.h"
 
 namespace GLESC {
     class Shader {

@@ -8,7 +8,7 @@
 
 #include "IComponent.h"
 #include "engine/core/math/debugger/MathDebugger.h"
-#include "engine/core/math/Matrix.h"
+#include "engine/core/math/algebra/matrix/Matrix.h"
 
 struct CameraComponent : IComponent {
 public:

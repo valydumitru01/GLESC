@@ -78,7 +78,7 @@ void Plane::setDistance(double distanceParam) {
 }
 
 [[nodiscard]] bool Plane::intersects(const Point &point) const {
-    return eq(distanceToPoint(point), 0);
+    return GLESC::Math::eq(distanceToPoint(point), 0);
 }
 
 [[nodiscard]] bool Plane::intersects(const Plane &plane) const {
@@ -95,13 +95,13 @@ void Plane::setDistance(double distanceParam) {
     // Check if the line direction is parallel to the plane normal
     // This is determined by checking if their dot product is close to zero
     double dotProduct = normal.dot(line.getDirection());
-    bool isParallel = eq(dotProduct, 0);
+    bool isParallel = GLESC::Math::eq(dotProduct, 0);
     
     if (isParallel) {
         // If the line is parallel to the plane, check if any point on the line lies in the plane
         // Use the distance formula: d = (n ⋅ p) + D
         // If the distance is close to 0, the line lies in the plane
-        return eq(absol(distanceToPoint(line.getPoint())), 0);
+        return GLESC::Math::eq(GLESC::Math::abs(distanceToPoint(line.getPoint())), 0);
     } else {
         // If the line is not parallel to the plane, it will intersect the plane at some point
         return true;
@@ -118,7 +118,7 @@ void Plane::setDistance(double distanceParam) {
 }
 
 bool Plane::operator==(const Plane &other) const {
-    return eq(normal.dot(other.normal), 1) && eq(distance, other.distance);
+    return GLESC::Math::eq(normal.dot(other.normal), 1) && GLESC::Math::eq(distance, other.distance);
 }
 
 

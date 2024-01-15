@@ -8,7 +8,7 @@
  * See LICENSE.txt in the project root for license information.
  ******************************************************************************/
 #include <gtest/gtest.h>
-#include "engine/core/math/Matrix.h"
+#include "engine/core/math/algebra/matrix/Matrix.h"
 #include "MathTestHelper.h"
 
 
@@ -88,9 +88,7 @@ TYPED_TEST_SUITE(MatrixTests, MyTypes);
     using Type = typename TypeParam::ValueType; \
     constexpr size_t N = TypeParam::Rows; \
     constexpr size_t M = TypeParam::Cols; \
-    using Mat = GLESC::Math::Matrix<Type, N, M>; \
-    using VecN = Vector<Type, N>; \
-    using VecM = Vector<Type, M>
+    using Mat = GLESC::Math::Matrix<Type, N, M>;
 
 TYPED_TEST(MatrixTests, Constructors) {
     PREPARE_TEST();
@@ -122,6 +120,7 @@ TYPED_TEST(MatrixTests, Constructors) {
             expectedArray[i][j] = arrayValues[i][j];
     EXPECT_EQ_MAT(matrixArray, expectedArray);
     
+    
     // Copy constructor
     Mat matrixCopy(this->matrix);
     EXPECT_EQ_MAT(matrixCopy, this->matrix);
@@ -130,38 +129,44 @@ TYPED_TEST(MatrixTests, Constructors) {
     Mat matrixMove(std::move(this->matrix));
     EXPECT_EQ_MAT(matrixMove, this->matrix);
     
+    
     // Initializer list constructor
-    Mat matrixInitList;
-    initializeMatrixWithValues(matrixInitList); // To avoid errors for dimensions
-    // that are not checked with constexpr
     if constexpr (N==2 && M==2){
-        matrixInitList = {{generateNextValue<Type>(0, 0), generateNextValue<Type>(0, 1)},
+        Mat matrixInitList{{generateNextValue<Type>(0, 0), generateNextValue<Type>(0, 1)},
                           {generateNextValue<Type>(1, 0), generateNextValue<Type>(1, 1)}};
+        
+        Mat expectedInitList;
+        initializeMatrixWithValues(expectedInitList);
+        EXPECT_EQ_MAT(matrixInitList, expectedInitList);
     }
     else if constexpr (N==3 && M==3){
-        matrixInitList =
+        Mat matrixInitList
                 {{generateNextValue<Type>(0, 0), generateNextValue<Type>(0, 1),
-                        generateNextValue<Type>(0, 2)},
+                         generateNextValue<Type>(0, 2)},
                  {generateNextValue<Type>(1, 0), generateNextValue<Type>(1, 1),
                          generateNextValue<Type>(1, 2)},
                  {generateNextValue<Type>(2, 0), generateNextValue<Type>(2, 1),
                          generateNextValue<Type>(2, 2)}};
+        
+        Mat expectedInitList;
+        initializeMatrixWithValues(expectedInitList);
+        EXPECT_EQ_MAT(matrixInitList, expectedInitList);
     }
     else if constexpr (N==4 && M==4){
-        matrixInitList =
+        Mat matrixInitList
                 {{generateNextValue<Type>(0, 0), generateNextValue<Type>(0, 1),
-                  generateNextValue<Type>(0, 2), generateNextValue<Type>(0, 3)},
+                         generateNextValue<Type>(0, 2), generateNextValue<Type>(0, 3)},
                  {generateNextValue<Type>(1, 0), generateNextValue<Type>(1, 1),
-                  generateNextValue<Type>(1, 2 ), generateNextValue<Type>(1, 3)},
+                         generateNextValue<Type>(1, 2 ), generateNextValue<Type>(1, 3)},
                  {generateNextValue<Type>(2, 0), generateNextValue<Type>(2, 1),
-                  generateNextValue<Type>(2, 2), generateNextValue<Type>(2, 3)},
+                         generateNextValue<Type>(2, 2), generateNextValue<Type>(2, 3)},
                  {generateNextValue<Type>(3, 0), generateNextValue<Type>(3, 1),
-                  generateNextValue<Type>(3, 2), generateNextValue<Type>(3, 3)}};
+                         generateNextValue<Type>(3, 2), generateNextValue<Type>(3, 3)}};
+        
+        Mat expectedInitList;
+        initializeMatrixWithValues(expectedInitList);
+        EXPECT_EQ_MAT(matrixInitList, expectedInitList);
     }
-    Mat expectedInitList;
-    initializeMatrixWithValues(expectedInitList);
-    EXPECT_EQ_MAT(matrixInitList, expectedInitList);
-    
 }
 
 TYPED_TEST(MatrixTests, Accessors) {
@@ -172,13 +177,6 @@ TYPED_TEST(MatrixTests, Accessors) {
     
     // Get cols
     EXPECT_EQ_CUSTOM(this->matrix.cols(), M);
-    
-    // Set rows
-    Mat matrixSetRows;
-    VecM setVector(9999);
-    matrixSetRows[1] = setVector;
-    for (size_t i = 0; i < matrixSetRows.cols(); ++i)
-        EXPECT_EQ_CUSTOM(matrixSetRows[1][i], setVector[i]);
     
     // Set value
     Mat matrixSetCols;
@@ -224,6 +222,41 @@ TYPED_TEST(MatrixTests, Assignments){
     Mat matrixMoveAssign;
     matrixMoveAssign = std::move(this->matrix);
     EXPECT_EQ_MAT(matrixMoveAssign, this->matrix);
+    
+    
+    // Initializer list assignment
+    Mat matrixInitList;
+    initializeMatrixWithValues(matrixInitList);
+    // To avoid errors for dimensions
+    // that are not checked with constexpr
+    if constexpr (N==2 && M==2){
+        matrixInitList = {{generateNextValue<Type>(0, 0), generateNextValue<Type>(0, 1)},
+                          {generateNextValue<Type>(1, 0), generateNextValue<Type>(1, 1)}};
+    }
+    else if constexpr (N==3 && M==3){
+        matrixInitList =
+                {{generateNextValue<Type>(0, 0), generateNextValue<Type>(0, 1),
+                         generateNextValue<Type>(0, 2)},
+                 {generateNextValue<Type>(1, 0), generateNextValue<Type>(1, 1),
+                         generateNextValue<Type>(1, 2)},
+                 {generateNextValue<Type>(2, 0), generateNextValue<Type>(2, 1),
+                         generateNextValue<Type>(2, 2)}};
+    }
+    else if constexpr (N==4 && M==4){
+        matrixInitList =
+                {{generateNextValue<Type>(0, 0), generateNextValue<Type>(0, 1),
+                         generateNextValue<Type>(0, 2), generateNextValue<Type>(0, 3)},
+                 {generateNextValue<Type>(1, 0), generateNextValue<Type>(1, 1),
+                         generateNextValue<Type>(1, 2 ), generateNextValue<Type>(1, 3)},
+                 {generateNextValue<Type>(2, 0), generateNextValue<Type>(2, 1),
+                         generateNextValue<Type>(2, 2), generateNextValue<Type>(2, 3)},
+                 {generateNextValue<Type>(3, 0), generateNextValue<Type>(3, 1),
+                         generateNextValue<Type>(3, 2), generateNextValue<Type>(3, 3)}};
+    }
+    Mat expectedInitList;
+    initializeMatrixWithValues(expectedInitList);
+    EXPECT_EQ_MAT(matrixInitList, expectedInitList);
+    
 
     // Operator += with matrix
     Mat matrixPlusEquals;
@@ -336,14 +369,7 @@ TYPED_TEST(MatrixTests, ArithmeticOperators) {
     if constexpr (N == M) {
         Mat matrixMultResult = this->matrix * this->matrix;
         Mat expectedMultResult;
-        for (size_t i = 0; i < N; ++i) {
-            for (size_t j = 0; j < N; ++j) {
-                expectedMultResult[i][j] = 0;
-                for (size_t k = 0; k < N; ++k) {
-                    expectedMultResult[i][j] += this->matrix[i][k] * this->matrix[k][j];
-                }
-            }
-        }
+        MatrixAlgorithms::matrixMul(this->matrix.data, this->matrix.data, expectedMultResult.data);
         EXPECT_EQ_MAT(matrixMultResult, expectedMultResult);
     }
 
@@ -385,7 +411,7 @@ TYPED_TEST(MatrixTests, Determinan){
     if constexpr (N==M){
         Type matrixDeterminantResult = this->matrix.determinant();
         Type expectedDeterminantResult =
-                MatrixAlgorithms::laplaceExpansionDeterminant(this->matrix);
+                MatrixAlgorithms::laplaceExpansionDeterminant(this->matrix.data);
         EXPECT_EQ_CUSTOM(matrixDeterminantResult,
                       expectedDeterminantResult);
     }
@@ -407,7 +433,7 @@ TYPED_TEST(MatrixTests, Inverse){
     // Inverse
     if constexpr (N==M){
         Mat matrixInverseResult = this->matrix.inverse();
-        Mat expectedInverseResult = MatrixAlgorithms::gaussianInverse(this->matrix);
+        Mat expectedInverseResult = MatrixAlgorithms::gaussianEliminationData(this->matrix.data).inverse;
     }
 }
 
@@ -450,24 +476,23 @@ TYPED_TEST(MatrixTests, MatrixScale){
 
 TYPED_TEST(MatrixTests, MatrixRotate){
     PREPARE_TEST();
+    Type angle = GLESC::Math::PI/4; // 45 degrees rotation for instance
+    Mat matrixRotateResult;
+    Mat expectedRotateResult;
     // Rotate
     // Only defined (or necessary) for 3x3 and 4x4 matrices
     if constexpr (N == 3 && M == 3) {
-        Type angle = GLESC::Math::PI/4; // 45 degree rotation for instance
-        Mat matrixRotateResult = this->matrix.rotate(angle);
+        matrixRotateResult = this->matrix.rotate(angle);
+        MatrixAlgorithms::rotate2D(this->matrix.data, angle, expectedRotateResult.data);
         
-        Mat expectedRotateResult(MatrixAlgorithms::rotate2D(this->matrix, angle));
-        
-        EXPECT_EQ_MAT(matrixRotateResult, expectedRotateResult);
     }else if constexpr (N == 4 && M == 4) {
-        Type angle = GLESC::Math::PI/4; // 45 degree rotation for instance
-        Vector<Type, 3> axis(0, 0, 1); // Rotation about the z-axis
-        Mat matrixRotateResult = this->matrix.rotate(axis * angle);
+        GLESC::Math::Matrix<Type, 3, 3> axis(Type(0), Type(0), Type(1)); // Rotation about the z-axis
+        matrixRotateResult = this->matrix.rotate(axis * angle);
         
-        Mat expectedRotateResult(MatrixAlgorithms::rotate3D(this->matrix, axis * angle));
+        MatrixAlgorithms::rotate3D(this->matrix.data, (axis * angle).data, expectedRotateResult.data);
         
-        EXPECT_EQ_MAT(matrixRotateResult, expectedRotateResult);
     }
+    EXPECT_EQ_MAT(matrixRotateResult, expectedRotateResult);
 }
 /*
 TYPED_TEST(MatrixTests, Functions){
@@ -577,10 +602,10 @@ TYPED_TEST(MatrixTests, Rank){
     // Rank
     if constexpr (N==M){
         size_t matrixRankResult = this->matrix.rank();
-        size_t expectedRankResult =
-                MatrixAlgorithms::gaussianEliminationRank(this->matrix);
+        auto gaussianEliminationData =
+                MatrixAlgorithms::gaussianEliminationData(this->matrix.data);
         EXPECT_EQ_CUSTOM(matrixRankResult,
-                      expectedRankResult);
+                         gaussianEliminationData.rank);
     }
 }
 

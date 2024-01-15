@@ -20,7 +20,7 @@
 #include "engine/core/low-level-renderer/graphic-api/concrete-apis/debugger/GAPIDebugger.h"
 #include "engine/core/low-level-renderer/graphic-api/concrete-apis/opengl/GLUniformSetter.h"
 #include "engine/core/low-level-renderer/graphic-api/concrete-apis/opengl/debugger/OpenGLDebugger.h"
-#include "engine/core/math/Vector.h"
+#include "engine/core/math/algebra/vector/Vector.h"
 
 namespace GLESC {
     class OpenGLAPI final : public IGraphicInterface {

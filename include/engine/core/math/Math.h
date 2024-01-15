@@ -58,7 +58,7 @@ namespace GLESC::Math {
     
     
     template<typename LValueT, typename RValueT>
-    constexpr inline bool flexibleEquals(LValueT a, RValueT b) {
+    constexpr inline bool eq(LValueT a, RValueT b) {
         if constexpr (std::is_floating_point_v<LValueT> && std::is_floating_point_v<RValueT>) {
             // Determine the type with the lower precision
             using LowerPrecisionType = std::conditional_t<
@@ -73,7 +73,7 @@ namespace GLESC::Math {
     }
     
     template<typename Type>
-    constexpr inline Type flexibleAbs(Type value) {
+    constexpr inline Type abs(Type value) {
         if constexpr (std::is_floating_point_v<Type>) {
             return std::fabs(value);
         } else if constexpr (std::is_unsigned_v<Type>){
@@ -90,7 +90,7 @@ namespace GLESC::Math {
     }
     
     template <typename T>
-    T flexibleSqrt(const T& value) {
+    T sqrt(const T& value) {
         T result = T();
         if constexpr (std::is_arithmetic_v<T>) {
             if constexpr (std::is_integral_v<T>) {
@@ -109,17 +109,3 @@ namespace GLESC::Math {
     }
 }
 
-template<typename LValueT, typename RValueT>
-bool eq(const LValueT& a,const RValueT& b) {
-    return GLESC::Math::flexibleEquals(a, b);
-}
-
-template<typename Type>
-Type sqRoot(const Type& value) {
-    return GLESC::Math::flexibleSqrt(value);
-}
-
-template<typename Type>
-Type absol(const Type& value) {
-    return GLESC::Math::flexibleAbs(value);
-}

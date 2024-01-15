@@ -9,8 +9,8 @@
  **************************************************************************************************/
 #pragma once
 
-#include "engine/core/math/Matrix.h"
-#include "engine/core/math/Vector.h"
+#include "engine/core/math/algebra/matrix/Matrix.h"
+#include "engine/core/math/algebra/vector/Vector.h"
 #include "GapiTypes.h"
 
 class IUniformSetter {

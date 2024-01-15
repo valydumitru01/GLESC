@@ -7,7 +7,7 @@
  * Copyright (c) 2023 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
  ******************************************************************************/
-#include "engine/core/math/Vector.h"
+#include "engine/core/math/algebra/vector/Vector.h"
 #include "engine/core/exceptions/EngineException.h"
 #include "engine/core/exceptions/core/window/WindowException.h"
 #include "engine/core/logger/Logger.h"

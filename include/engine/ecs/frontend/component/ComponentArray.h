@@ -74,7 +74,7 @@ public:
      * The maps are updated to reflect the changes
      * @param entity The entity to remove
      */
-    void removeData(EntityID entity) override {
+    void  removeData(EntityID entity) override {
 #ifdef DEBUG
         const char *name = typeid(Component).name();
        GLESC::Logger::get().importantInfoPurple(

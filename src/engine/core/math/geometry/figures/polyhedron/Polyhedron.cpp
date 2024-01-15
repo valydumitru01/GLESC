@@ -7,6 +7,7 @@
  * Copyright (c) 2023 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
  **************************************************************************************************/
+#include <engine/core/math/algebra/vector/VectorAlgorithms.h>
 #include "engine/core/math/geometry/figures/polyhedron/Polyhedron.h"
 
 using namespace GLESC::Math;
@@ -22,7 +23,6 @@ Polyhedron::Polyhedron(Points vertices, const std::vector<FaceIndices> &faces) :
 
 Polyhedron::Polyhedron(const std::initializer_list<Point> &vertices,
                        const std::initializer_list<std::initializer_list<Index>> &faces) {
-    D_ASSERT_FALSE(VectorMethods::areCollinear(vertices), "Vertices must not be collinear.");
     for (const auto &vertex : vertices) {
         addVertex(vertex);
     }

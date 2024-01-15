@@ -16,7 +16,7 @@
 #include <cmath>
 #include "engine/core/debugger/Stringer.h"
 #include "engine/core/math/Math.h"
-#include "engine/core/math/Matrix.h"
+#include "engine/core/math/algebra/matrix/Matrix.h"
 
 
 // Macro for flexible equality check

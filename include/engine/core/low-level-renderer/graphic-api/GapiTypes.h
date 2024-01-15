@@ -64,14 +64,14 @@ template<> struct isGraphicsType<GAPI::UShort> : std::true_type {};
 template<> struct isGraphicsType<GAPI::UChar> : std::true_type {};
 
 
-#include "engine/core/math/Vector.h"
+#include "engine/core/math/algebra/vector/Vector.h"
 
 // GLM vector types
 template<> struct isGraphicsType<Vec2F> : std::true_type {};
 template<> struct isGraphicsType<Vec3F> : std::true_type {};
 template<> struct isGraphicsType<Vec4F> : std::true_type {};
 
-#include "engine/core/math/Matrix.h"
+#include "engine/core/math/algebra/matrix/Matrix.h"
 // GLM matrix types
 template<> struct isGraphicsType<Mat2F> : std::true_type {};
 template<> struct isGraphicsType<Mat3F> : std::true_type {};

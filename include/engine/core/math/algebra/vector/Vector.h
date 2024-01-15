@@ -16,12 +16,15 @@
 #include <engine/core/exceptions/core/math/MathException.h>
 #include "engine/core/math/Math.h"
 #include "engine/core/math/asserts/VectorAsserts.h"
+#include "VectorAlgorithms.h"
 
 
 namespace GLESC::Math {
     
     template<typename Type, size_t N>
     class Vector {
+        template<typename TypeMat, size_t NMat, size_t MMat>
+        friend class Matrix;
     
     public:
         // =========================================================================================
@@ -671,7 +674,7 @@ namespace GLESC::Math {
         }
         
         [[nodiscard]] Type length() const {
-            return sqRoot(lengthSquared());
+            return GLESC::Math::sqrt(lengthSquared());
         }
         
         [[nodiscard]]Type lengthSquared() const {
@@ -719,7 +722,7 @@ namespace GLESC::Math {
         
         [[nodiscard]] Vector<Type, N> normalize() const {
             Type length = this->length();
-            if (eq(length, Type(1)) || eq(length, Type(0))) {
+            if (eq(length, Type(1)) || GLESC::Math::eq(length, Type(0))) {
                 return *this;
             }
             Vector<Type, N> result;
@@ -741,7 +744,7 @@ namespace GLESC::Math {
          */
         bool isParallel(const Vector<Type, N> &other) const {
             Vector<Type, N> crossProd = this->cross(other);
-            return eq(crossProd.length(), 0);
+            return GLESC::Math::eq(crossProd.length(), 0);
         }
         
         /**
@@ -751,7 +754,7 @@ namespace GLESC::Math {
          * @return True if the vectors are orthogonal, false otherwise
          */
         bool isOrthogonal(const Vector<Type, N> &other) const {
-            return eq(this->dot(other), 0);
+            return GLESC::Math::eq(this->dot(other), 0);
         }
         
         /**
@@ -773,7 +776,7 @@ namespace GLESC::Math {
                 // We choose either (0, 1, 0) or (1, 0, 0) depending on which one is less parallel
                 // to the original vector, to avoid degenerate cross products.
                 Vector<Type, 3> nonParallel =
-                        (absol(data[0]) > absol(data[1])) ? Vector<Type, 3>(0, 1, 0) : Vector<Type,
+                        (GLESC::Math::abs(data[0]) > GLESC::Math::abs(data[1])) ? Vector<Type, 3>(0, 1, 0) : Vector<Type,
                                 3>(1, 0, 0);
                 
                 // The cross product of this vector with 'nonParallel' yields an orthogonal vector.
@@ -808,46 +811,35 @@ namespace GLESC::Math {
             bool ratioInitialized = false;
             
             for (size_t i = 0; i < N; ++i) {
-                if (!eq(absol(other.data[i]), 0)) {
+                if (!eq(GLESC::Math::abs(other.data[i]), 0)) {
                     if (!ratioInitialized) {
                         ratio = data[i] / other.data[i];
                         ratioInitialized = true;
-                    } else if (absol(data[i] / other.data[i] - ratio) > epsilon<Type>()) {
+                    } else if (GLESC::Math::abs(data[i] / other.data[i] - ratio) > epsilon<Type>()) {
                         return false;
                     }
-                } else if (!eq(absol(data[i]), 0)) {
+                } else if (!eq(GLESC::Math::abs(data[i]), 0)) {
                     return false;
                 }
             }
             return true;
         }
         
-        bool isCollinear(std::vector<Vector<Type, N>> &points) const {
-            // Collinearity check is trivial if there are fewer than 3 points
-            if (points.size() < 3) {
-                return true;
+        
+        bool isCollinear(const std::vector<Vector>& points) const {
+            // Create a vector of pointers to the data of each point
+            // This is efficient because we don't need to copy the data
+            std::vector<const Type*> pointData;
+            for (const auto& point : points) {
+                pointData.push_back(point.data);
             }
             
-            // Compute direction vector from first two points (this and points[0])
-            GLESC::Math::Vector<Type, N> direction = points[0] - *this;
-            
-            // Iterate over the rest of the points (starting iteration at 1, because we already
-            // checked the first point)
-            for (size_t i = 1; i < points.size(); ++i) {
-                // Compute vector from the first point to the current point
-                GLESC::Math::Vector<Type, N> v = points[i] - points[0];
-                
-                // Check if v is a scalar multiple of the direction vector
-                if (!v.isMultipleOf(direction)) {
-                    return false; // This point does not lie on the line, so not collinear
-                }
-            }
-            
-            return true; // All points are collinear;
+            // Call the areCollinear function with the reference point's data and the vector of data pointers
+            return areCollinear(this->data, pointData);
         }
         
         bool isCollinear(std::initializer_list<Vector<Type, N>> points) const {
-            return isCollinear(points);
+            return this->isCollinear(std::vector<Vector<Type, N>>(points));
         }
         
         
@@ -883,58 +875,13 @@ namespace GLESC::Math {
             result += "]";
             return result;
         }
-    
-    
-    protected:
+        
         Type data[N];
     };
     
     
 }
 
-#include "Matrix.h"
-class VectorMethods {
-public:
-    
-    template<typename ParamType, size_t ParamN>
-    static bool areCollinear(std::initializer_list<GLESC::Math::Vector<ParamType, ParamN>> points) {
-        return areCollinear(std::vector<GLESC::Math::Vector<ParamType, ParamN>>(points));
-    }
-    
-    /**
-     * @brief Checks if a set of vectors are collinear in N-dimensional space.
-     *
-     * @details This function determines if a series of vectors (points) are collinear,
-     *          meaning they all lie on a single straight line. It computes a direction
-     *          vector from the first two points and checks if all subsequent vectors
-     *          are scalar multiples of this direction vector, indicating they all lie
-     *          on the same line.
-     *
-     * @tparam Type The data type of the vector data (e.g., double, float).
-     * @param points A vector of VectorN objects representing the points.
-     * @return true If all vectors are collinear.
-     * @return false If any vector is not collinear with the others.
-     */
-    template<typename ParamType, size_t ParamN>
-    static bool areCollinear(const std::vector<GLESC::Math::Vector < ParamType, ParamN>> &points) {
-        if (points.size() < 3) {
-            return true;
-        }
-        
-        // Construct a matrix with the points
-        GLESC::Math::Matrix <ParamType, ParamN, ParamN> matrix;
-        for (size_t i = 0; i < ParamN; ++i) {
-            for (size_t j = 0; j < ParamN; ++j) {
-                // If the index is within the number of points, use the point data
-                // Otherwise, use 0
-                matrix[i][j] = (i < points.size()) ? points[i][j] : ParamType(0);
-            }
-        }
-        
-        // Check if the rank of the matrix is less than the number of points
-        return matrix.rank() < points.size();
-    }
-};
 
 template<typename Type, size_t N> using VectorT = GLESC::Math::Vector<Type, N>;
 

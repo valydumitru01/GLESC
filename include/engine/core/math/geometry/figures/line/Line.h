@@ -11,7 +11,7 @@
 
 #include <utility>
 
-#include "engine/core/math/Vector.h"
+#include "engine/core/math/algebra/vector/Vector.h"
 #include "engine/core/math/geometry/GeometryTypes.h"
 
 namespace GLESC::Math {

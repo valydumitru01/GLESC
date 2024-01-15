@@ -1,6 +1,6 @@
 #pragma once
 
-#include "engine/core/math/Vector.h"
+#include "engine/core/math/algebra/vector/Vector.h"
 #include "engine/core/low-level-renderer/graphic-api/GapiStructs.h"
 #include <string>
 

@@ -15,6 +15,7 @@
 
 using namespace GLESC::Math;
 
+
 TEST(GeometryTests, PolyhedronConstructor) {
     Polyhedron emptyPolyhedron;
     EXPECT_EQ_CUSTOM(emptyPolyhedron.getVertices().size(), 0);

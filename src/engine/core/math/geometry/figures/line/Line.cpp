@@ -29,7 +29,7 @@ bool Line::intersects(const Line &line) const {
 }
 
 bool Line::intersects(const Vec3D &pointParam) const {
-    return eq(direction.cross(pointParam - this->point).length(), 0);
+    return GLESC::Math::eq(direction.cross(pointParam - this->point).length(), 0);
 }
 
 void Line::setPoint(const Point &pointParam) {

@@ -12,7 +12,7 @@
 #include <array>
 #include <utility>
 #include "engine/core/math/geometry/GeometryTypes.h"
-#include "engine/core/math/Vector.h"
+#include "engine/core/math/algebra/vector/Vector.h"
 #include "engine/core/math/geometry/figures/line/Line.h"
 #include "engine/core/math/geometry/figures/plane/Plane.h"
 
@@ -57,7 +57,7 @@ namespace GLESC::Math {
         
         const Vec3D &getNormal() const{ return plane.getNormal();}
         
-        const std::vector<Point> &getPolyhedronVertices() const{ return polyhedronVertices;}
+        const std::vector<Point> &getPolyhedronVertices() const{ return *polyhedronVertices;}
         
         const std::vector<Index> &getVertexIndices() const{ return indices;}
         
@@ -113,7 +113,7 @@ namespace GLESC::Math {
         /**
          * @brief Const reference to the vertices of the polyhedron that contains this face.
          */
-        const std::vector<Point> &polyhedronVertices;
+        const std::vector<Point> *polyhedronVertices;
         
         
         
