@@ -13,13 +13,13 @@
 #include "engine/core/asserts/Asserts.h"
 
 
-#define S_ASSERT_VEC_IS_OF_SIZE_OR_BIGGER(vecSize, expectedSize) \
-    S_ASSERT_GREATER_OR_EQUAL(vecSize, expectedSize,             \
+#define S_ASSERT_VEC_IS_OF_SIZE_OR_BIGGER(expectedSize) \
+    S_ASSERT_GREATER_OR_EQUAL(N, expectedSize,             \
         "Vector size is incorrect, expected size" #expectedSize  \
         " or bigger")
 
-#define S_ASSERT_VEC_IS_OF_SIZE(vecSize, expectedSize)           \
-    S_ASSERT_EQUAL(vecSize, expectedSize,                        \
+#define S_ASSERT_VEC_IS_OF_SIZE(expectedSize)           \
+    S_ASSERT_EQUAL(N, expectedSize,                        \
         "Vector size is incorrect, expected size"#expectedSize)
     
 #define D_ASSERT_VEC_IS_HOMOGENEOUS(vec)                          \

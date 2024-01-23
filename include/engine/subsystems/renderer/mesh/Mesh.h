@@ -43,7 +43,7 @@ namespace GLESC {
         std::unordered_map<Vertex, Index> vertexToIndexMap;
         std::vector<Vertex> vertices;
         std::vector<Index> indices;
-        Polyhedron topology;
+        Math::Polyhedron topology;
         bool dirtyFlag;
         
     }; // class Mesh

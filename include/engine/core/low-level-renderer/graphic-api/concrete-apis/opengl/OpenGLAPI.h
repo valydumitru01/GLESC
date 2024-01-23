@@ -491,17 +491,17 @@ namespace GLESC {
             setBufferStaticDataGL(data, count, bufferType, GAPI::BufferUsages::StaticDraw);
         }
         
-        template<typename T, typename std::enable_if<isGraphicsType_v<T>, T>::type * = nullptr>
-        void setBufferStaticDataGL(const T *data,
+        template<typename Type, typename std::enable_if<isGraphicsType_v<Type>, Type>::type * = nullptr>
+        void setBufferStaticDataGL(const Type *data,
                                    GAPI::Size count,
                                    GAPI::BufferTypes bufferType,
                                    GAPI::BufferUsages bufferUsage) {
             #ifndef NLOGGING
-            std::vector<T> vectorData(data, data + count);
+            std::vector<Type> vectorData(data, data + count);
             #endif
             GAPI_FUNCTION_LOG("setBufferStaticData", vectorData, count, bufferType, bufferUsage);
             
-            auto size = count * sizeof(T);
+            auto size = count * sizeof(Type);
             GLenum type = static_cast<GLenum>(bufferType);
             GLenum usage = static_cast<GLenum>(bufferUsage);
             

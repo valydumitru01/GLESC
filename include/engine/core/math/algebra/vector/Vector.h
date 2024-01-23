@@ -16,15 +16,14 @@
 #include <engine/core/exceptions/core/math/MathException.h>
 #include "engine/core/math/Math.h"
 #include "engine/core/math/asserts/VectorAsserts.h"
-#include "VectorAlgorithms.h"
+#include "engine/core/math/algebra/vector/VectorBasicAlgorithms.h"
+#include "engine/core/math/algebra/vector/VectorAlgorithms.h"
 
 
 namespace GLESC::Math {
     
     template<typename Type, size_t N>
     class Vector {
-        template<typename TypeMat, size_t NMat, size_t MMat>
-        friend class Matrix;
     
     public:
         // =========================================================================================
@@ -145,7 +144,7 @@ namespace GLESC::Math {
          * @return The x (first) value of the vector
          */
         [[nodiscard]] Type &x() {
-            S_ASSERT_VEC_IS_OF_SIZE_OR_BIGGER(N, 1);
+            S_ASSERT_VEC_IS_OF_SIZE_OR_BIGGER(1);
             return data[0];
         }
         
@@ -155,7 +154,7 @@ namespace GLESC::Math {
          * @param value The value to set
          */
         void x(Type value) {
-            S_ASSERT_VEC_IS_OF_SIZE_OR_BIGGER(N, 1);
+            S_ASSERT_VEC_IS_OF_SIZE_OR_BIGGER(1);
             data[0] = value;
         }
         
@@ -165,7 +164,7 @@ namespace GLESC::Math {
          * @return The x (first) value of the vector
          */
         [[nodiscard]] const Type &getX() const {
-            S_ASSERT_VEC_IS_OF_SIZE_OR_BIGGER(N, 1);
+            S_ASSERT_VEC_IS_OF_SIZE_OR_BIGGER(1);
             return data[0];
         }
         
@@ -175,7 +174,7 @@ namespace GLESC::Math {
          * @param value The value to set
          */
         void setX(Type value) {
-            S_ASSERT_VEC_IS_OF_SIZE_OR_BIGGER(N, 1);
+            S_ASSERT_VEC_IS_OF_SIZE_OR_BIGGER(1);
             data[0] = value;
         }
         
@@ -186,7 +185,7 @@ namespace GLESC::Math {
          * @return The y (second) value of the vector
          */
         [[nodiscard]] Type &y() {
-            S_ASSERT_VEC_IS_OF_SIZE_OR_BIGGER(N, 2);
+            S_ASSERT_VEC_IS_OF_SIZE_OR_BIGGER(2);
             return data[1];
         }
         
@@ -196,7 +195,7 @@ namespace GLESC::Math {
          * @param value The value to set
          */
         void y(Type value) {
-            S_ASSERT_VEC_IS_OF_SIZE_OR_BIGGER(N, 2);
+            S_ASSERT_VEC_IS_OF_SIZE_OR_BIGGER(2);
             data[1] = value;
         }
         
@@ -206,7 +205,7 @@ namespace GLESC::Math {
          * @return The y (second) value of the vector
          */
         [[nodiscard]] Type getY() const {
-            S_ASSERT_VEC_IS_OF_SIZE_OR_BIGGER(N, 2);
+            S_ASSERT_VEC_IS_OF_SIZE_OR_BIGGER(2);
             return data[1];
         }
         
@@ -216,7 +215,7 @@ namespace GLESC::Math {
          * @param value The value to set
          */
         void setY(Type value) {
-            S_ASSERT_VEC_IS_OF_SIZE_OR_BIGGER(N, 2);
+            S_ASSERT_VEC_IS_OF_SIZE_OR_BIGGER(2);
             data[1] = value;
         }
         
@@ -227,7 +226,7 @@ namespace GLESC::Math {
          * @return The z (third) value of the vector
          */
         [[nodiscard]] Type &z() {
-            S_ASSERT_VEC_IS_OF_SIZE_OR_BIGGER(N, 3);
+            S_ASSERT_VEC_IS_OF_SIZE_OR_BIGGER(3);
             return data[2];
         }
         
@@ -237,7 +236,7 @@ namespace GLESC::Math {
          * @param value The value to set
          */
         void z(Type value) {
-            S_ASSERT_VEC_IS_OF_SIZE_OR_BIGGER(N, 3);
+            S_ASSERT_VEC_IS_OF_SIZE_OR_BIGGER(3);
             data[2] = value;
         }
         
@@ -247,7 +246,7 @@ namespace GLESC::Math {
          * @return The z (third) value of the vector
          */
         [[nodiscard]] Type getZ() const {
-            S_ASSERT_VEC_IS_OF_SIZE_OR_BIGGER(N, 3);
+            S_ASSERT_VEC_IS_OF_SIZE_OR_BIGGER(3);
             return data[2];
         }
         
@@ -257,7 +256,7 @@ namespace GLESC::Math {
          * @param value The value to set
          */
         void setZ(Type value) {
-            S_ASSERT_VEC_IS_OF_SIZE_OR_BIGGER(N, 3);
+            S_ASSERT_VEC_IS_OF_SIZE_OR_BIGGER(3);
             data[2] = value;
         }
         
@@ -268,7 +267,7 @@ namespace GLESC::Math {
          * @return The w (fourth) value of the vector
          */
         [[nodiscard]] Type &w() {
-            S_ASSERT_VEC_IS_OF_SIZE_OR_BIGGER(N, 4);
+            S_ASSERT_VEC_IS_OF_SIZE_OR_BIGGER(4);
             return data[3];
         }
         
@@ -278,7 +277,7 @@ namespace GLESC::Math {
          * @param value The value to set
          */
         void w(Type value) {
-            S_ASSERT_VEC_IS_OF_SIZE_OR_BIGGER(N, 4);
+            S_ASSERT_VEC_IS_OF_SIZE_OR_BIGGER(4);
             data[3] = value;
         }
         
@@ -288,7 +287,7 @@ namespace GLESC::Math {
          * @return The w (fourth) value of the vector
          */
         [[nodiscard]] Type getW() const {
-            S_ASSERT_VEC_IS_OF_SIZE_OR_BIGGER(N, 4);
+            S_ASSERT_VEC_IS_OF_SIZE_OR_BIGGER(4);
             return data[3];
         }
         
@@ -298,7 +297,7 @@ namespace GLESC::Math {
          * @param value The value to set
          */
         void setW(Type value) {
-            S_ASSERT_VEC_IS_OF_SIZE_OR_BIGGER(N, 4);
+            S_ASSERT_VEC_IS_OF_SIZE_OR_BIGGER(4);
             data[3] = value;
         }
         
@@ -354,9 +353,7 @@ namespace GLESC::Math {
          * @return A reference to this vector after the operation
          */
         constexpr Vector<Type, N> operator+=(const Vector<Type, N> &rhs) {
-            for (size_t i = 0; i < N; ++i) {
-                data[i] += rhs.data[i];
-            }
+            VectorBasicAlgorithms::vectorAdd(this->data, rhs.data, this->data);
             return *this;
         }
         
@@ -367,9 +364,7 @@ namespace GLESC::Math {
          * @return A reference to this vector after the operation
          */
         constexpr Vector<Type, N> operator+=(Type scalar) {
-            for (size_t i = 0; i < N; ++i) {
-                data[i] += scalar;
-            }
+            VectorBasicAlgorithms::vectorScalarAdd(this->data, scalar, this->data);
             return *this;
         }
         
@@ -380,9 +375,7 @@ namespace GLESC::Math {
          * @return A reference to this vector after the operation
          */
         constexpr Vector<Type, N> operator-=(const Vector<Type, N> &rhs) {
-            for (size_t i = 0; i < N; ++i) {
-                data[i] -= rhs.data[i];
-            }
+            VectorBasicAlgorithms::vectorSub(this->data, rhs, this->data);
             return *this;
         }
         
@@ -392,10 +385,11 @@ namespace GLESC::Math {
          * @param scalar The scalar value to subtract
          * @return A reference to this vector after the operation
          */
-        constexpr Vector<Type, N> operator-=(Type scalar) {
+        constexpr Vector<Type, N> operator-=(const Type scalar) {
             for (size_t i = 0; i < N; ++i) {
                 data[i] -= scalar;
             }
+            VectorBasicAlgorithms::vectorScalarSub(this->data, scalar, this->data);
             return *this;
         }
         
@@ -405,10 +399,8 @@ namespace GLESC::Math {
          * @param scalar The scalar value to multiply with
          * @return A reference to this vector after the operation
          */
-        constexpr Vector<Type, N> operator*=(Type scalar) {
-            for (size_t i = 0; i < N; ++i) {
-                data[i] *= scalar;
-            }
+        constexpr Vector<Type, N> operator*=(const Type scalar) {
+            VectorBasicAlgorithms::vectorScalarMul(this->data, scalar, this->data);
             return *this;
         }
         
@@ -420,9 +412,7 @@ namespace GLESC::Math {
          * @return A reference to this vector after the operation
          */
         constexpr Vector<Type, N> operator*=(const Vector<Type, N> &rhs) {
-            for (size_t i = 0; i < N; ++i) {
-                data[i] *= rhs.data[i];
-            }
+            VectorBasicAlgorithms::vectorMul(this->data, rhs, this->data);
             return *this;
         }
         
@@ -432,10 +422,8 @@ namespace GLESC::Math {
          * @param scalar The scalar value to divide by
          * @return A reference to this vector after the operation
          */
-        constexpr Vector<Type, N> operator/=(Type scalar) {
-            for (size_t i = 0; i < N; ++i) {
-                data[i] /= scalar;
-            }
+        constexpr Vector<Type, N> operator/=(const Type scalar) {
+            VectorBasicAlgorithms::vectorScalarDiv(this->data, scalar, this->data);
             return *this;
         }
         
@@ -447,9 +435,7 @@ namespace GLESC::Math {
          * @return A reference to this vector after the operation
          */
         constexpr Vector<Type, N> operator/=(const Vector<Type, N> &rhs) {
-            for (size_t i = 0; i < N; ++i) {
-                data[i] /= rhs.data[i];
-            }
+            VectorBasicAlgorithms::vectorDiv(this->data, rhs.data, this->data);
             return *this;
         }
         
@@ -464,9 +450,7 @@ namespace GLESC::Math {
          */
         constexpr Vector<Type, N> operator+(const Type &scalar) const {
             Vector<Type, N> result;
-            for (size_t i = 0; i < N; ++i) {
-                result.data[i] = data[i] + scalar;
-            }
+            VectorBasicAlgorithms::vectorScalarAdd(this->data, scalar, result.data);
             return result;
         }
         
@@ -478,9 +462,7 @@ namespace GLESC::Math {
          */
         constexpr Vector<Type, N> operator+(const Vector<Type, N> &rhs) const {
             Vector<Type, N> result;
-            for (size_t i = 0; i < N; ++i) {
-                result.data[i] = data[i] + rhs.data[i];
-            }
+            VectorBasicAlgorithms::vectorAdd(this->data, rhs.data, result.data);
             return result;
         }
         
@@ -491,9 +473,7 @@ namespace GLESC::Math {
          */
         constexpr Vector<Type, N> operator-() const {
             Vector<Type, N> result;
-            for (size_t i = 0; i < N; ++i) {
-                result.data[i] = -data[i];
-            }
+            VectorBasicAlgorithms::vectorNegate(this->data, result.data);
             return result;
         }
         
@@ -505,9 +485,7 @@ namespace GLESC::Math {
          */
         constexpr Vector<Type, N> operator-(const Type &scalar) const {
             Vector<Type, N> result;
-            for (size_t i = 0; i < N; ++i) {
-                result.data[i] = data[i] - scalar;
-            }
+            VectorBasicAlgorithms::vectorScalarSub(this->data, scalar, result.data);
             return result;
         }
         
@@ -519,9 +497,7 @@ namespace GLESC::Math {
          */
         constexpr Vector<Type, N> operator-(const Vector<Type, N> &rhs) const {
             Vector<Type, N> result;
-            for (size_t i = 0; i < N; ++i) {
-                result.data[i] = data[i] - rhs.data[i];
-            }
+            VectorBasicAlgorithms::vectorSub(this->data, rhs.data, result.data);
             return result;
         }
         
@@ -533,9 +509,7 @@ namespace GLESC::Math {
          */
         constexpr Vector<Type, N> operator/(Type scalar) const {
             Vector<Type, N> result;
-            for (size_t i = 0; i < N; ++i) {
-                result.data[i] = data[i] / scalar;
-            }
+            VectorBasicAlgorithms::vectorScalarDiv(this->data, scalar, result.data);
             return result;
         }
         
@@ -547,9 +521,7 @@ namespace GLESC::Math {
          */
         constexpr Vector<Type, N> operator/(const Vector<Type, N> &rhs) const {
             Vector<Type, N> result;
-            for (size_t i = 0; i < N; ++i) {
-                result.data[i] = data[i] / rhs.data[i];
-            }
+            VectorBasicAlgorithms::vectorDiv(this->data, rhs.data, result.data);
             return result;
         }
         
@@ -561,9 +533,7 @@ namespace GLESC::Math {
          */
         constexpr Vector<Type, N> operator*(Type scalar) const {
             Vector<Type, N> result;
-            for (size_t i = 0; i < N; ++i) {
-                result.data[i] = data[i] * scalar;
-            }
+            VectorBasicAlgorithms::vectorScalarMul(this->data, scalar, result.data);
             return result;
         }
         
@@ -575,9 +545,7 @@ namespace GLESC::Math {
          */
         constexpr Vector<Type, N> operator*(const Vector<Type, N> &rhs) const {
             Vector<Type, N> result;
-            for (size_t i = 0; i < N; ++i) {
-                result.data[i] = data[i] * rhs.data[i];
-            }
+            VectorBasicAlgorithms::vectorMul(this->data, rhs.data, result.data);
             return result;
         }
         
@@ -666,23 +634,15 @@ namespace GLESC::Math {
         }
         
         [[nodiscard]] Type dot(const Vector<Type, N> &rhs) const {
-            Type result = Type();
-            for (size_t i = 0; i < N; ++i) {
-                result += data[i] * rhs.data[i];
-            }
-            return result;
+            return VectorBasicAlgorithms::dotProduct(this->data, rhs.data);
         }
         
         [[nodiscard]] Type length() const {
-            return GLESC::Math::sqrt(lengthSquared());
+            return VectorBasicAlgorithms::length(this->data);
         }
         
         [[nodiscard]]Type lengthSquared() const {
-            Type result = Type();
-            for (size_t i = 0; i < N; ++i) {
-                result += data[i] * data[i];
-            }
-            return result;
+            return VectorBasicAlgorithms::lengthSquared(this->data);
         }
         
         [[nodiscard]] Type isHomogeneous() const {
@@ -700,9 +660,9 @@ namespace GLESC::Math {
         }
         
         [[nodiscard]] Vector<Type, N> project(const Vector<Type, N> &other) const {
-            Type dotProduct = this->dot(other);
-            Type otherLengthSquared = other.dot(other);
-            return other * (dotProduct / otherLengthSquared);
+            Vector<Type, N> result;
+            VectorBasicAlgorithms::project(this->data, other.data, result.data);
+            return result;
         }
         
         [[nodiscard]] Vector<Type, N - 1> dehomogenize() const {
@@ -721,14 +681,8 @@ namespace GLESC::Math {
         
         
         [[nodiscard]] Vector<Type, N> normalize() const {
-            Type length = this->length();
-            if (eq(length, Type(1)) || GLESC::Math::eq(length, Type(0))) {
-                return *this;
-            }
             Vector<Type, N> result;
-            for (size_t i = 0; i < N; ++i)
-                result.data[i] = data[i] / length;
-            
+            VectorBasicAlgorithms::normalize(this->data, result.data);
             return result;
         }
         
@@ -763,8 +717,7 @@ namespace GLESC::Math {
          * dimensions, the axis of orthogonality is chosen arbitrarily.
          */
         Vector<Type, N> getOrthogonal() const {
-            static_assert(N == 2 || N == 3 || N == 4,
-                          "getOrthogonal is only implemented for 2D, 3D, and 4D vectors");
+            static_assert(N == 2 || N == 3 || N == 4, "getOrthogonal is only implemented for 2D, 3D, and 4D vectors");
             
             if constexpr (N == 2) {
                 // In 2D, the orthogonal vector can be obtained by swapping the data
@@ -776,8 +729,8 @@ namespace GLESC::Math {
                 // We choose either (0, 1, 0) or (1, 0, 0) depending on which one is less parallel
                 // to the original vector, to avoid degenerate cross products.
                 Vector<Type, 3> nonParallel =
-                        (GLESC::Math::abs(data[0]) > GLESC::Math::abs(data[1])) ? Vector<Type, 3>(0, 1, 0) : Vector<Type,
-                                3>(1, 0, 0);
+                        (GLESC::Math::abs(data[0]) > GLESC::Math::abs(data[1])) ? Vector<Type, 3>(0, 1, 0) : Vector<
+                                Type, 3>(1, 0, 0);
                 
                 // The cross product of this vector with 'nonParallel' yields an orthogonal vector.
                 return this->cross(nonParallel);
@@ -826,20 +779,17 @@ namespace GLESC::Math {
         }
         
         
-        bool isCollinear(const std::vector<Vector>& points) const {
+        bool isCollinear(const std::vector<Vector> &points) const {
             // Create a vector of pointers to the data of each point
-            // This is efficient because we don't need to copy the data
-            std::vector<const Type*> pointData;
-            for (const auto& point : points) {
-                pointData.push_back(point.data);
+            std::vector<const VectorData<Type, N> *> pointData;
+            
+            for (const auto &point : points) {
+                // Cast away const-ness with const_cast. Be very careful with this!
+                pointData.push_back(&point.data);
             }
             
             // Call the areCollinear function with the reference point's data and the vector of data pointers
-            return areCollinear(this->data, pointData);
-        }
-        
-        bool isCollinear(std::initializer_list<Vector<Type, N>> points) const {
-            return this->isCollinear(std::vector<Vector<Type, N>>(points));
+            return VectorAlgorithms::areCollinear(this->data, pointData);
         }
         
         
@@ -852,10 +802,9 @@ namespace GLESC::Math {
          * @return
          */
         [[nodiscard]] Vector<Type, 3> cross(const Vector<Type, 3> &other) const {
-            S_ASSERT_VEC_IS_OF_SIZE(N, 3);
-            return Vector<Type, 3>(data[1] * other[2] - data[2] * other[1],
-                                   data[2] * other[0] - data[0] * other[2],
-                                   data[0] * other[1] - data[1] * other[0]);
+            Vector<Type, 3> result;
+            VectorBasicAlgorithms::crossProduct(this->data, other.data, result.data);
+            return result;
         }
         
         [[nodiscard]] std::string toString() const {
@@ -876,7 +825,7 @@ namespace GLESC::Math {
             return result;
         }
         
-        Type data[N];
+        VectorData<Type, N> data;
     };
     
     

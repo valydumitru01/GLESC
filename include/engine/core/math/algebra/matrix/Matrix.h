@@ -12,55 +12,45 @@
 #include <cmath>
 #include <memory>
 #include <algorithm>
+#include <engine/core/asserts/Asserts.h>
 #include "engine/core/exceptions/core/math/MathException.h"
 #include "engine/core/math/asserts/MatrixAsserts.h"
 #include "engine/core/math/algebra/matrix/MatrixAlgorithms.h"
 #include "engine/core/math/algebra/vector/Vector.h"
+#include "MatrixBasicAlgorithms.h"
 
 namespace GLESC::Math {
     template<typename Type, size_t N, size_t M>
     class Matrix {
+        S_ASSERT(N > 0 && M > 0, "Matrix must have at least one row and one column.");
     public:
         // =========================================================================================
         // ======================================= Constructors ====================================
         // =========================================================================================
         
         Matrix() {
-            for (size_t i = 0; i < N; ++i) {
-                for (size_t k = 0; k < M; ++k) {
-                    data[i][k] = Type();
-                }
-            }
+            MatrixBasicAlgorithms::setMatrxZero(this->data);
         }
         
-        explicit Matrix(Type diagonal) {
-            for (size_t i = 0; i < N; ++i) {
-                data[i][i] = diagonal;
-            }
+        explicit Matrix(const Type diagonal) {
+            MatrixBasicAlgorithms::setMatrixDiagonal(this->data, diagonal);
         }
         
         /**
          * @brief Constructor array list
          * @param data
          */
-        Matrix(Type (&data)[N][M]) {
-            std::copy(std::begin(data), std::end(data), std::begin(this->data));
+        explicit Matrix(const Type (&data)[N][M]) {
+            MatrixBasicAlgorithms::setMatrix(this->data, data);
         }
         
-        /**
-         * @brief Constructor array list lvalue
-         * @param data
-         */
-        Matrix(Type (&&data)[N][M]) {
-            std::copy(std::begin(data), std::end(data), std::begin(this->data));
-        }
         
         /**
          * @brief Copy constructor
          * @param other
          */
         Matrix(const Matrix<Type, N, M> &other) {
-            std::copy(std::begin(other.data), std::end(other.data), std::begin(data));
+            MatrixBasicAlgorithms::copyMatrix(this->data, other.data);
         }
         
         /**
@@ -68,26 +58,14 @@ namespace GLESC::Math {
          * @param list
          */
         Matrix(Matrix<Type, N, M> &&other) noexcept {
-            for (size_t i = 0; i < N; ++i) {
-                for (size_t j = 0; j < M; ++j) {
-                    data[i][j] = std::move(other.data[i][j]);
-                }
-            }
+            MatrixBasicAlgorithms::moveMatrix(this->data, std::move(other.data));
         }
         
-        /**
-         * @brief Constructor from initializer list
-         * @param list
-         */
-        Matrix(std::initializer_list<std::initializer_list<Type>> list) {
-            D_ASSERT_TRUE(list.size() == N && list.begin()->size() == M, "Matrix rows size is incorrect");
-            size_t i = 0;
-            for (const auto& sublist : list) {
-                std::copy(sublist.begin(), sublist.end(), data[i]);
-                ++i;
-            }
-            return *this;
+        Matrix(const MatrixData<Type, N, M> &other) {
+            MatrixBasicAlgorithms::copyMatrix(this->data, other);
         }
+        
+        
         
         // =========================================================================================
         // ========================================= Operators =====================================
@@ -102,10 +80,17 @@ namespace GLESC::Math {
          * @return Reference to the modified instance.
          */
         Matrix<Type, N, M> &operator=(const Matrix<Type, N, M> &other) noexcept {
-            if (this == &other) {
-                return *this;
-            }
-            std::copy(std::begin(other.data), std::end(other.data), std::begin(data));
+            MatrixBasicAlgorithms::copyMatrix(this->data, other.data);
+            return *this;
+        }
+        
+        Matrix<Type, N, M> &operator=(MatrixData<Type, N, M> &other) noexcept {
+            MatrixBasicAlgorithms::moveMatrix(this->data, other);
+            return *this;
+        }
+        
+        Matrix<Type, N, M> &operator=(MatrixData<Type, N, M> &&other) noexcept {
+            MatrixBasicAlgorithms::moveMatrix(this->data, std::move(other));
             return *this;
         }
         
@@ -115,10 +100,7 @@ namespace GLESC::Math {
          * @return Reference to the modified instance.
          */
         Matrix<Type, N, M> &operator=(Matrix<Type, N, M> &&rhs) noexcept {
-            if (this == &rhs) {
-                return *this;
-            }
-            std::move(std::begin(rhs.data), std::end(rhs.data), std::begin(data));
+            MatrixBasicAlgorithms::moveMatrix(this->data, std::move(rhs.data));
             return *this;
         }
         
@@ -128,23 +110,7 @@ namespace GLESC::Math {
          * @return Reference to the modified instance.
          */
         Matrix<Type, N, M> &operator=(Type (&data)[N][M]) {
-            std::copy(std::begin(data), std::end(data), std::begin(this->data));
-            return *this;
-        }
-        
-        /**
-         * @brief Assignment operator from an initializer list of initializer lists.
-         * @param list Initializer list of initializer lists to assign from.
-         * @return Reference to the modified instance.
-         */
-        Matrix<Type, N, M>& operator=(std::initializer_list<std::initializer_list<Type>> list) {
-            D_ASSERT_TRUE(list.size() == N && list.begin()->size() == M, "Matrix rows size is incorrect");
-            auto listIter = list.begin();
-            size_t i = 0;
-            for (const auto& sublist : list) {
-                std::copy(sublist.begin(), sublist.end(), data[i]);
-                ++i;
-            }
+            MatrixBasicAlgorithms::setMatrix(this->data, data);
             return *this;
         }
         
@@ -155,10 +121,7 @@ namespace GLESC::Math {
          */
         template<size_t X>
         Matrix<Type, N, X> &operator*=(const Matrix<Type, M, X> &rhs) {
-            S_ASSERT_MAT_IS_SQUARE(M, X);
-            Matrix<Type, N, X> result;
-            MatrixAlgorithms::matrixMul(data, rhs.data, result.data);
-            *this = std::move(result);
+            MatrixBasicAlgorithms::matrixMul(this->data, rhs.data, data);
             return *this;
         }
         
@@ -168,11 +131,7 @@ namespace GLESC::Math {
          * @return Reference to the modified instance.
          */
         Matrix<Type, N, M> &operator*=(Type scalar) {
-            for (size_t i = 0; i < N; ++i) {
-                for (size_t k = 0; k < M; ++k) {
-                    data[i][k] *= scalar;
-                }
-            }
+            MatrixBasicAlgorithms::matrixScalarMul(this->data, scalar, data);
             return *this;
         }
         
@@ -182,11 +141,7 @@ namespace GLESC::Math {
          * @return Reference to the modified instance.
          */
         Matrix<Type, N, M> &operator+=(Type rhs) {
-            for (size_t i = 0; i < N; ++i) {
-                for (size_t k = 0; k < M; k++) {
-                    data[i][k] += rhs;
-                }
-            }
+            MatrixBasicAlgorithms::matrixScalarAdd(this->data, rhs, data);
             return *this;
         }
         
@@ -196,11 +151,7 @@ namespace GLESC::Math {
          * @return Reference to the modified instance.
          */
         Matrix<Type, N, M> &operator+=(const Matrix<Type, N, M> &rhs) {
-            for (size_t i = 0; i < N; ++i) {
-                for (size_t k = 0; k < M; k++) {
-                    data[i][k] += rhs.data[i][k];
-                }
-            }
+            MatrixBasicAlgorithms::matrixAdd(this->data, rhs.data, data);
             return *this;
         }
         
@@ -210,11 +161,7 @@ namespace GLESC::Math {
          * @return Reference to the modified instance.
          */
         Matrix<Type, N, M> &operator-=(const Matrix<Type, N, M> &rhs) {
-            for (size_t i = 0; i < N; ++i) {
-                for (size_t k = 0; k < M; k++) {
-                    data[i][k] -= rhs.data[i][k];
-                }
-            }
+            MatrixBasicAlgorithms::matrixSub(this->data, rhs.data, data);
             return *this;
         }
         
@@ -224,11 +171,7 @@ namespace GLESC::Math {
          * @return Reference to the modified instance.
          */
         Matrix<Type, N, M> &operator-=(Type rhs) {
-            for (size_t i = 0; i < N; ++i) {
-                for (size_t k = 0; k < M; k++) {
-                    data[i][k] -= rhs;
-                }
-            }
+            MatrixBasicAlgorithms::matrixScalarSub(this->data, rhs, data);
             return *this;
         }
         
@@ -239,14 +182,7 @@ namespace GLESC::Math {
          * @throws MathException if division by zero
          */
         Matrix<Type, N, M> &operator/=(Type scalar) {
-            if (eq(scalar, Type(0))) {
-                throw MathException("Division by zero");
-            }
-            for (size_t i = 0; i < N; ++i) {
-                for (size_t k = 0; k < M; k++) {
-                    data[i][k] /= scalar;
-                }
-            }
+            MatrixBasicAlgorithms::matrixScalarDiv(this->data, scalar, data);
             return *this;
         }
         
@@ -268,51 +204,31 @@ namespace GLESC::Math {
         
         [[nodiscard]] Matrix<Type, N, M> operator+(const Matrix<Type, N, M> &rhs) const {
             Matrix<Type, N, M> result;
-            for (size_t i = 0; i < N; ++i) {
-                for (size_t k = 0; k < M; ++k) {
-                    result.data[i][k] = data[i][k] + rhs.data[i][k];
-                }
-            }
+            MatrixBasicAlgorithms::matrixAdd(this->data, rhs.data, result.data);
             return result;
         }
         
         [[nodiscard]] Matrix<Type, N, M> operator+(Type scalar) const {
             Matrix<Type, N, M> result;
-            for (size_t i = 0; i < N; ++i) {
-                for (size_t k = 0; k < M; k++) {
-                    result.data[i][k] = data[i][k] + scalar;
-                }
-            }
+            MatrixBasicAlgorithms::matrixScalarAdd(this->data, scalar, result.data);
             return result;
         }
         
         [[nodiscard]] Matrix<Type, N, M> operator-(const Matrix<Type, N, M> &rhs) const {
             Matrix<Type, N, M> result;
-            for (size_t i = 0; i < N; ++i) {
-                for (size_t k = 0; k < M; ++k) {
-                    result.data[i][k] = data[i][k] - rhs.data[i][k];
-                }
-            }
+            MatrixBasicAlgorithms::matrixSub(this->data, rhs.data, result.data);
             return result;
         }
         
         [[nodiscard]] Matrix<Type, N, M> operator-(Type scalar) const {
             Matrix<Type, N, M> result;
-            for (size_t i = 0; i < N; ++i) {
-                for (size_t k = 0; k < M; k++) {
-                    result.data[i][k] = data[i][k] - scalar;
-                }
-            }
+            MatrixBasicAlgorithms::matrixScalarSub(this->data, scalar, result.data);
             return result;
         }
         
         [[nodiscard]] Matrix<Type, N, M> operator-() const {
             Matrix<Type, N, M> result;
-            for (size_t i = 0; i < N; ++i) {
-                for (size_t k = 0; k < M; k++) {
-                    result.data[i][k] = -data[i][k];
-                }
-            }
+            MatrixBasicAlgorithms::matrixScalarMul(this->data, Type(-1), result.data);
             return result;
         }
         
@@ -331,7 +247,7 @@ namespace GLESC::Math {
         template<size_t X>
         [[nodiscard]] Matrix<Type, N, X> operator*(const Matrix<Type, M, X> &other) const {
             Matrix<Type, N, X> result;
-            MatrixAlgorithms::matrixMul(data, other.data, result.data);
+            MatrixBasicAlgorithms::matrixMul(this->data, other.data, result.data);
             return result;
         }
         
@@ -344,43 +260,31 @@ namespace GLESC::Math {
          * | 4 5 6 | * | 8 | = | 139 |
          *             | 9 |
          *    2x3    *  3x1  =   2x1
-         * @tparam X
-         * @param other
-         * @return
+         * @tparam X The dimension of the vector
+         * @param vector The vector to multiply with
+         * @return The result of the multiplication
          */
-        [[nodiscard]] std::array<Type, N>  operator*(const Type (&other)[M]) const {
+        [[nodiscard]] std::array<Type, N> operator*(const Vector<Type, M> &vector) const {
             std::array<Type, N> result;
-            for (size_t i = 0; i < N; ++i) {
-                for (size_t k = 0; k < M; ++k) {
-                    result[i] += data[i][k] * other[k];
-                }
-            }
+            MatrixData<Type, N, 1> vectorDataMatrixified({vector.data});
+            MatrixBasicAlgorithms::matrixMul(this->data, vectorDataMatrixified.data, result.data);
             return result;
         }
         
         
         [[nodiscard]] Matrix<Type, N, M> operator*(Type scalar) const {
             Matrix<Type, N, M> result;
-            for (size_t i = 0; i < N; ++i) {
-                for (size_t k = 0; k < M; ++k) {
-                    result.data[i][k] = data[i][k] * scalar;
-                }
-            }
+            MatrixBasicAlgorithms::matrixScalarMul(this->data, scalar, result.data);
             return result;
         }
         
         
         [[nodiscard]] Matrix<Type, N, M> operator/(Type scalar) const {
-            if (eq(scalar, Type()))
-                throw MathException("Division by zero");
             Matrix<Type, N, M> result;
-            for (size_t i = 0; i < N; ++i) {
-                for (size_t k = 0; k < M; ++k) {
-                    result.data[i][k] = data[i][k] / scalar;
-                }
-            }
+            MatrixBasicAlgorithms::matrixScalarDiv(this->data, scalar, result.data);
             return result;
         }
+        
         
         /**
          * @brief Matrix division by matrix
@@ -389,17 +293,22 @@ namespace GLESC::Math {
          * @param rhs
          * @return
          */
-        [[nodiscard]] Matrix<Type, N, M> operator/(const Matrix<Type, N, M> &rhs) const {
+         template<size_t X>
+        [[nodiscard]] Matrix<Type, N, M> operator/(const Matrix<Type,M, X> &rhs) const {
             Matrix<Type, N, M> result;
-            if (eq(rhs.determinant(), Type()))
-                throw MathException("Division by zero");
-            result = *this * rhs.inverse();
+            MatrixBasicAlgorithms::matrixDiv(this->data, rhs.data, result.data);
             return result;
         }
         
-        // ==================================== Access Operators ===================================
+        // =============================================================================================================
+        // ============================================== Access Operators =============================================
+        // =============================================================================================================
         
-        [[nodiscard]] Type (&operator[](size_t index))[M] {
+        [[nodiscard]] const std::array<Type, M> &operator[](size_t index) const {
+            return data[index];
+        }
+        
+        [[nodiscard]] std::array<Type, M> &operator[](size_t index) {
             return data[index];
         }
         
@@ -415,13 +324,14 @@ namespace GLESC::Math {
             return M;
         }
         
-        
-        // ================================== Comparison Operators =================================
+        // =============================================================================================================
+        // =========================================== Comparison Operators ============================================
+        // =============================================================================================================
         
         [[nodiscard]] bool operator==(const Matrix<Type, N, M> &rhs) const {
             for (size_t i = 0; i < N; ++i) {
                 for (size_t k = 0; k < M; ++k) {
-                    if (!eq(data[i][k], rhs.data[i][k])) {
+                    if (!eq(this->data[i][k], rhs.data[i][k])) {
                         return false;
                     }
                 }
@@ -433,61 +343,24 @@ namespace GLESC::Math {
             return !(*this == rhs);
         }
         
-        // =========================================================================================
-        // =================================== Matrix Functions ====================================
-        // =========================================================================================
+        // =============================================================================================================
+        // ============================================= Matrix Functions ==============================================
+        // =============================================================================================================
         
         [[nodiscard]] Matrix<Type, M, N> transpose() const {
             Matrix<Type, M, N> result;
-            for (size_t i = 0; i < N; ++i) {
-                for (size_t j = 0; j < M; ++j) {
-                    result[j][i] = data[i][j];
-                }
-            }
+            MatrixBasicAlgorithms::transpose(this->data, result.data);
             return result;
         }
         
         // TODO: Check if this determinant is more efficient than gaussian elimination
         //   also, don't recalculate, store it
         [[nodiscard]]Type determinant() const {
-            S_ASSERT_MAT_IS_SQUARE(N, M);
-            if constexpr (N == 2 && M == 2) {
-                return data[0][0] * data[1][1] - data[0][1] * data[1][0];
-            } else if constexpr (N == 3 && M == 3) {
-                return data[0][0] * (data[1][1] * data[2][2] - data[1][2] * data[2][1]) -
-                       data[0][1] * (data[1][0] * data[2][2] - data[1][2] * data[2][0]) +
-                       data[0][2] * (data[1][0] * data[2][1] - data[1][1] * data[2][0]);
-            } else if constexpr (N == 4 && M == 4) {
-                Type det;
-                det = data[0][0] *
-                      (data[1][1] * (data[2][2] * data[3][3] - data[2][3] * data[3][2]) -
-                       data[1][2] * (data[2][1] * data[3][3] - data[2][3] * data[3][1]) +
-                       data[1][3] * (data[2][1] * data[3][2] - data[2][2] * data[3][1]));
-                
-                det -= data[0][1] *
-                       (data[1][0] * (data[2][2] * data[3][3] - data[2][3] * data[3][2]) -
-                        data[1][2] * (data[2][0] * data[3][3] - data[2][3] * data[3][0]) +
-                        data[1][3] * (data[2][0] * data[3][2] - data[2][2] * data[3][0]));
-                
-                det += data[0][2] *
-                       (data[1][0] * (data[2][1] * data[3][3] - data[2][3] * data[3][1]) -
-                        data[1][1] * (data[2][0] * data[3][3] - data[2][3] * data[3][0]) +
-                        data[1][3] * (data[2][0] * data[3][1] - data[2][1] * data[3][0]));
-                
-                det -= data[0][3] *
-                       (data[1][0] * (data[2][1] * data[3][2] - data[2][2] * data[3][1]) -
-                        data[1][1] * (data[2][0] * data[3][2] - data[2][2] * data[3][0]) +
-                        data[1][2] * (data[2][0] * data[3][1] - data[2][1] * data[3][0]));
-                
-                return det;
-            } else {
-                return MatrixAlgorithms::laplaceExpansionDeterminant(this->data);
-            }
-            
+            return MatrixBasicAlgorithms::laplaceExpansionDeterminant(this->data);
         }
         
         [[nodiscard]] Matrix<Type, N, M> inverse() const {
-            S_ASSERT(N==M, "Matrix must be square");
+            S_ASSERT(N == M, "Matrix must be square");
             Type det = determinant();
             Type inDet = 1.0 / det;
             if (eq(det, 0))
@@ -501,15 +374,15 @@ namespace GLESC::Math {
                 return inv;
             } else if constexpr (N == 3) {
                 Matrix<Type, N, M> inv;
-                inv.data[0][0] = (data[1][1] * data[2][2] - data[1][2] * data[2][1]) * inDet;
-                inv.data[0][1] = (data[0][2] * data[2][1] - data[0][1] * data[2][2]) * inDet;
-                inv.data[0][2] = (data[0][1] * data[1][2] - data[0][2] * data[1][1]) * inDet;
-                inv.data[1][0] = (data[1][2] * data[2][0] - data[1][0] * data[2][2]) * inDet;
-                inv.data[1][1] = (data[0][0] * data[2][2] - data[0][2] * data[2][0]) * inDet;
-                inv.data[1][2] = (data[0][2] * data[1][0] - data[0][0] * data[1][2]) * inDet;
-                inv.data[2][0] = (data[1][0] * data[2][1] - data[1][1] * data[2][0]) * inDet;
-                inv.data[2][1] = (data[0][1] * data[2][0] - data[0][0] * data[2][1]) * inDet;
-                inv.data[2][2] = (data[0][0] * data[1][1] - data[0][1] * data[1][0]) * inDet;
+                inv.data[0][0] = (this->data[1][1] * data[2][2] - data[1][2] * data[2][1]) * inDet;
+                inv.data[0][1] = (this->data[0][2] * data[2][1] - data[0][1] * data[2][2]) * inDet;
+                inv.data[0][2] = (this->data[0][1] * data[1][2] - data[0][2] * data[1][1]) * inDet;
+                inv.data[1][0] = (this->data[1][2] * data[2][0] - data[1][0] * data[2][2]) * inDet;
+                inv.data[1][1] = (this->data[0][0] * data[2][2] - data[0][2] * data[2][0]) * inDet;
+                inv.data[1][2] = (this->data[0][2] * data[1][0] - data[0][0] * data[1][2]) * inDet;
+                inv.data[2][0] = (this->data[1][0] * data[2][1] - data[1][1] * data[2][0]) * inDet;
+                inv.data[2][1] = (this->data[0][1] * data[2][0] - data[0][0] * data[2][1]) * inDet;
+                inv.data[2][2] = (this->data[0][0] * data[1][1] - data[0][1] * data[1][0]) * inDet;
                 return inv;
             } else if constexpr (N == 4) {
                 
@@ -535,50 +408,35 @@ namespace GLESC::Math {
                 
                 Matrix<Type, N, M> in;
                 
-                in.data[0][0] =
-                        inDet * (data[1][1] * A2323 - data[1][2] * A1323 + data[1][3] * A1223);
-                in.data[0][1] =
-                        inDet * -(data[0][1] * A2323 - data[0][2] * A1323 + data[0][3] * A1223);
-                in.data[0][2] =
-                        inDet * (data[0][1] * A2313 - data[0][2] * A1313 + data[0][3] * A1213);
-                in.data[0][3] =
-                        inDet * -(data[0][1] * A2312 - data[0][2] * A1312 + data[0][3] * A1212);
-                in.data[1][0] =
-                        inDet * -(data[1][0] * A2323 - data[1][2] * A0323 + data[1][3] * A0223);
-                in.data[1][1] =
-                        inDet * (data[0][0] * A2323 - data[0][2] * A0323 + data[0][3] * A0223);
-                in.data[1][2] =
-                        inDet * -(data[0][0] * A2313 - data[0][2] * A0313 + data[0][3] * A0213);
-                in.data[1][3] =
-                        inDet * (data[0][0] * A2312 - data[0][2] * A0312 + data[0][3] * A0212);
-                in.data[2][0] =
-                        inDet * (data[1][0] * A1323 - data[1][1] * A0323 + data[1][3] * A0123);
-                in.data[2][1] =
-                        inDet * -(data[0][0] * A1323 - data[0][1] * A0323 + data[0][3] * A0123);
-                in.data[2][2] =
-                        inDet * (data[0][0] * A1313 - data[0][1] * A0313 + data[0][3] * A0113);
-                in.data[2][3] =
-                        inDet * -(data[0][0] * A1312 - data[0][1] * A0312 + data[0][3] * A0112);
-                in.data[3][0] =
-                        inDet * -(data[1][0] * A1223 - data[1][1] * A0223 + data[1][2] * A0123);
-                in.data[3][1] =
-                        inDet * (data[0][0] * A1223 - data[0][1] * A0223 + data[0][2] * A0123);
-                in.data[3][2] =
-                        inDet * -(data[0][0] * A1213 - data[0][1] * A0213 + data[0][2] * A0113);
-                in.data[3][3] =
-                        inDet * (data[0][0] * A1212 - data[0][1] * A0212 + data[0][2] * A0112);
+                in.data[0][0] = inDet * (this->data[1][1] * A2323 - data[1][2] * A1323 + data[1][3] * A1223);
+                in.data[0][1] = inDet * -(this->data[0][1] * A2323 - data[0][2] * A1323 + data[0][3] * A1223);
+                in.data[0][2] = inDet * (this->data[0][1] * A2313 - data[0][2] * A1313 + data[0][3] * A1213);
+                in.data[0][3] = inDet * -(this->data[0][1] * A2312 - data[0][2] * A1312 + data[0][3] * A1212);
+                in.data[1][0] = inDet * -(this->data[1][0] * A2323 - data[1][2] * A0323 + data[1][3] * A0223);
+                in.data[1][1] = inDet * (this->data[0][0] * A2323 - data[0][2] * A0323 + data[0][3] * A0223);
+                in.data[1][2] = inDet * -(this->data[0][0] * A2313 - data[0][2] * A0313 + data[0][3] * A0213);
+                in.data[1][3] = inDet * (this->data[0][0] * A2312 - data[0][2] * A0312 + data[0][3] * A0212);
+                in.data[2][0] = inDet * (this->data[1][0] * A1323 - data[1][1] * A0323 + data[1][3] * A0123);
+                in.data[2][1] = inDet * -(this->data[0][0] * A1323 - data[0][1] * A0323 + data[0][3] * A0123);
+                in.data[2][2] = inDet * (this->data[0][0] * A1313 - data[0][1] * A0313 + data[0][3] * A0113);
+                in.data[2][3] = inDet * -(this->data[0][0] * A1312 - data[0][1] * A0312 + data[0][3] * A0112);
+                in.data[3][0] = inDet * -(this->data[1][0] * A1223 - data[1][1] * A0223 + data[1][2] * A0123);
+                in.data[3][1] = inDet * (this->data[0][0] * A1223 - data[0][1] * A0223 + data[0][2] * A0123);
+                in.data[3][2] = inDet * -(this->data[0][0] * A1213 - data[0][1] * A0213 + data[0][2] * A0113);
+                in.data[3][3] = inDet * (this->data[0][0] * A1212 - data[0][1] * A0212 + data[0][2] * A0112);
                 
                 return in;
             } else {
-                return Matrix<Type, N, M>(MatrixAlgorithms::gaussianEliminationData(this->data).inverse);
+                return Matrix<Type, N, M>(MatrixBasicAlgorithms::gaussianEliminationData(this->data).inverse);
             }
         }
+        
         /**
          * @brief Applies a rotation to the model matrix with a vector
          * @param translation
          * @return
          */
-        [[nodiscard]] Matrix<Type, N, M> translate(const Vector<Type, N-1> &translation) const {
+        [[nodiscard]] Matrix<Type, N, M> translate(const Vector<Type, N - 1> &translation) const {
             S_ASSERT_MAT_IS_SQUARE(N, M);
             Matrix<Type, N, M> result(*this);
             for (size_t i = 0; i < N - 1; ++i) {
@@ -592,7 +450,7 @@ namespace GLESC::Math {
          * @param scale
          * @return
          */
-        [[nodiscard]] Matrix<Type, N, M> scale(const Vector<Type, N-1> &scale) const {
+        [[nodiscard]] Matrix<Type, N, M> scale(const Vector<Type, N - 1> &scale) const {
             Matrix<Type, N, M> result(*this);
             for (size_t i = 0; i < N - 1; ++i) {
                 result.data[i][i] += scale[i];
@@ -610,8 +468,7 @@ namespace GLESC::Math {
           */
         template<typename VecType>
         [[nodiscard]] Matrix<Type, N, M> rotate(const VecType &degrees) const {
-            static_assert(N != 3 && M != 3 || N != 4 && M != 4,
-                          "Rotation is only supported for 2D and 3D matrices");
+            static_assert(N != 3 && M != 3 || N != 4 && M != 4, "Rotation is only supported for 2D and 3D matrices");
             if constexpr (std::is_same_v<VecType, Type> && N == 3 && M == 3) {
                 // Return matrix
                 Matrix<Type, 3, 3> result;
@@ -634,18 +491,17 @@ namespace GLESC::Math {
          * @return size_t representing the rank of the matrix.
          */
         [[nodiscard]] size_t rank() {
-            return MatrixAlgorithms::gaussianEliminationData(*this).rank;
+            return MatrixBasicAlgorithms::gaussianEliminationData(this->data).rank;
         }
         
         
         [[nodiscard]] Matrix<Type, 3, 3> lookAt(const Vector<Type, 2> &target) const {
             Matrix<Type, 3, 3> result;
-            MatrixAlgorithms::lookAt2D(this->data, target.data, result);
+            MatrixAlgorithms::lookAt2D(this->data, target.data, result.data);
             return result;
         }
         
-        [[nodiscard]] Matrix<Type, 4, 4>
-        lookAt(const Vector<Type, 3> &target, const Vector<Type, 3> &up) const {
+        [[nodiscard]] Matrix<Type, 4, 4> lookAt(const Vector<Type, 3> &target, const Vector<Type, 3> &up) const {
             Matrix<Type, 4, 4> result;
             MatrixAlgorithms::lookAt3D(this->data, target.data, up.data, result.data);
             return result;
@@ -657,7 +513,7 @@ namespace GLESC::Math {
             for (size_t i = 0; i < N; ++i) {
                 result += "[";
                 for (size_t j = 0; j < M; ++j) {
-                    result += std::to_string(data[i][j]);
+                    result += std::to_string(this->data[i][j]);
                     if (j != M - 1) {
                         result += ", ";
                     }
@@ -667,13 +523,101 @@ namespace GLESC::Math {
             return result;
         }
         
+        // =============================================================================================================
+        // ============================================ Iterator =======================================================
+        // =============================================================================================================
+        /*
+        // Forward declaration of iterator classes
+        class Iterator;
+        class ConstIterator;
+        
+        // Iterator begin and end functions
+        Iterator begin() { return Iterator(this, 0, 0); }
+        Iterator end() { return Iterator(this, N, 0); }
+        [[nodiscard]] ConstIterator begin() const { return ConstIterator(this, 0, 0); }
+        [[nodiscard]] ConstIterator end() const { return ConstIterator(this, N, 0); }
+        [[nodiscard]] ConstIterator cbegin() const { return ConstIterator(this, 0, 0); }
+        [[nodiscard]] ConstIterator cend() const { return ConstIterator(this, N, 0); }
+        
+        // Iterator class definition
+        class Iterator {
+            Matrix* matrix;
+            size_t row, col;
+        
+        public:
+            Iterator(Matrix* matrix, size_t row, size_t col) : matrix(matrix), row(row), col(col) {}
+            
+            // Prefix increment
+            Iterator& operator++() {
+                col++;
+                if (col == M && row < N) {
+                    col = 0;
+                    row++;
+                }
+                return *this;
+            }
+            
+            // Postfix increment
+            Iterator operator++(int) {
+                Iterator tmp = *this;
+                ++(*this);
+                return tmp;
+            }
+            
+            // Dereference operator
+            Type& operator*() {
+                return (*matrix)[row][col];
+            }
+            
+            // Inequality check
+            bool operator!=(const Iterator& other) const {
+                return row != other.row || col != other.col;
+            }
+        };
+        
+        // ConstIterator class definition (similar to Iterator)
+        class ConstIterator {
+            const Matrix* matrix;
+            size_t row, col;
+        
+        public:
+            ConstIterator(const Matrix* matrix, size_t row, size_t col) : matrix(matrix), row(row), col(col) {}
+            
+            // Prefix increment
+            ConstIterator& operator++() {
+                col++;
+                if (col == M && row < N) {
+                    col = 0;
+                    row++;
+                }
+                return *this;
+            }
+            
+            // Postfix increment
+            ConstIterator operator++(int) {
+                ConstIterator tmp = *this;
+                ++(*this);
+                return tmp;
+            }
+            
+            // Dereference operator
+            const Type& operator*() const {
+                return (*matrix)[row][col];
+            }
+            
+            // Inequality check
+            bool operator!=(const ConstIterator& other) const {
+                return row != other.row || col != other.col;
+            }
+        };
+        */
         /**
          * @brief Matrix data
          * @details Matrix data is stored in a vector of vectors
          * M is the number of columns or the width of the matrix
          * N is the number of rows (or vertices) or the height of the matrix
          */
-        Type data[N][M];
+        MatrixData<Type, N, M> data;
     }; // class Matrix
 } // namespace GLESC::Math
 using Mat2   [[maybe_unused]] = GLESC::Math::Matrix<float, 2, 2>;
@@ -700,8 +644,7 @@ using Mat4F  [[maybe_unused]] = GLESC::Math::Matrix<float, 4, 4>;
 
 
 namespace GLESC::Math {
-    inline Mat4D
-    perspective(double fovRadians, double aspectRatio, double nearPlane, double farPlane) {
+    inline Mat4D perspective(double fovRadians, double aspectRatio, double nearPlane, double farPlane) {
         Mat4D result;
         
         double f = 1.0 / tan(fovRadians / 2.0);

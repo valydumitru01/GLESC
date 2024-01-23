@@ -72,7 +72,7 @@ std::string argsToString(const char *names, T value) {
     const char *nameEnd = std::strchr(names, ',');
     std::string name(names, nameEnd ? nameEnd - names : std::strlen(names));
     
-    arg << name << ": " << GLESC::toString(value);
+    arg << name << ": " << GLESC::Stringer::toString(value);
     std::string result = arg.str();
     
     // Replace '\n' with a space (or any other character/string)
@@ -101,7 +101,7 @@ std::string argsToString(const char *names, T value, Args... args) {
     const char *nameEnd = std::strchr(names, ',');
     std::string name(names, nameEnd ? nameEnd - names : std::strlen(names));
     
-    arg << name << ": " << GLESC::toString(value);
+    arg << name << ": " << GLESC::Stringer::toString(value);
     
     // Proceed to the next argument, if any
     if (nameEnd && *nameEnd == ',') {

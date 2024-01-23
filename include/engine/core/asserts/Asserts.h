@@ -17,6 +17,7 @@
 #include "engine/core/debugger/Stacktrace.h"
 #include "engine/core/logger/Logger.h"
 #include "engine/core/debugger/Stringer.h"
+#include "engine/core/math/Math.h"
 
 #ifndef NDEBUG
 // ------------------------ Runtime asserts ---------------------------
@@ -62,9 +63,9 @@ printComparingValues(const std::string &value, const std::string &expected) {
 }
 
 #define D_ASSERT_EQUAL(value, expected, message) \
-        printComparingValues(GLESC::toString(value), GLESC::toString(expected)); \
+        printComparingValues(GLESC::Stringer::toString(value), GLESC::Stringer::toString(expected)); \
         do { \
-            ASSERT_CONTENT(eq((value), (expected)), message) \
+            ASSERT_CONTENT(GLESC::Math::eq((value), (expected)), message) \
         } while (false)
 
 #define D_ASSERT_GREATER(value, expected, message) \
@@ -89,7 +90,7 @@ printComparingValues(const std::string &value, const std::string &expected) {
 
 #define D_ASSERT_NOT_EQUAL(value, expected, message) \
         do { \
-            ASSERT_CONTENT(!eq((value), (expected)), message) \
+            ASSERT_CONTENT(!GLESC::Math::eq((value), (expected)), message) \
         } while (false)
 
 
@@ -100,7 +101,7 @@ printComparingValues(const std::string &value, const std::string &expected) {
         static_assert(condition, message)
 
 #define S_ASSERT_EQUAL(condition, expected, message) \
-        static_assert(condition == expected, message)
+        static_assert(GLESC::Math::eq(condition, expected), message)
 
 #define S_ASSERT_GREATER(condition, expected, message) \
         static_assert(condition > expected, message)
@@ -122,23 +123,24 @@ printComparingValues(const std::string &value, const std::string &expected) {
 // Empty asserts are used to substitute asserts in release mode,
 // this way the compiler will optimize them out (remove them)
 
-#define D_ASSERT(condition, message) do { } while (false)
-#define D_ASSERT_FALSE(condition, message) do { } while (false)
-#define D_ASSERT_NOT_NULL(condition, message) do { } while (false)
-#define D_ASSERT_NULL(condition, message) do { } while (false)
-#define D_ASSERT_EQUAL(condition, expected, message) do { } while (false)
-#define D_ASSERT_GREATER(condition, expected, message) do { } while (false)
-#define D_ASSERT_GREATER_OR_EQUAL(condition, expected, message) do { } while (false)
-#define D_ASSERT_LESS(condition, expected, message) do { } while (false)
-#define D_ASSERT_LESS_OR_EQUAL(condition, expected, message) do { } while (false)
-#define D_ASSERT_NOT_EQUAL(condition, expected, message) do { } while (false)
+#define D_ASSERT(condition, message) static_assert(true, message)
+#define D_ASSERT_FALSE(condition, message) static_assert(true, message)
+#define D_ASSERT_NOT_NULL(condition, message) static_assert(true, message)
+#define D_ASSERT_NULL(condition, message) static_assert(true, message)
+#define D_ASSERT_EQUAL(condition, expected, message) static_assert(true, message)
+#define D_ASSERT_GREATER(condition, expected, message) static_assert(true, message)
+#define D_ASSERT_GREATER_OR_EQUAL(condition, expected, message) static_assert(true, message)
+#define D_ASSERT_LESS(condition, expected, message) static_assert(true, message)
+#define D_ASSERT_LESS_OR_EQUAL(condition, expected, message) static_assert(true, message)
+#define D_ASSERT_NOT_EQUAL(condition, expected, message) static_assert(true, message)
 
-#define S_ASSERT_EQUAL(condition, expected, message) do { } while (false)
-#define S_ASSERT_GREATER(condition, expected, message) do { } while (false)
-#define S_ASSERT_GREATER_OR_EQUAL(condition, expected, message) do { } while (false)
-#define S_ASSERT_LESS(condition, expected, message) do { } while (false)
-#define S_ASSERT_LESS_OR_EQUAL(condition, expected, message) do { } while (false)
-#define S_ASSERT_NOT_EQUAL(condition, expected, message) do { } while (false)
+#define S_ASSERT(condition, message) static_assert(true, message)
+#define S_ASSERT_EQUAL(condition, expected, message) static_assert(true, message)
+#define S_ASSERT_GREATER(condition, expected, message) static_assert(true, message)
+#define S_ASSERT_GREATER_OR_EQUAL(condition, expected, message) static_assert(true, message)
+#define S_ASSERT_LESS(condition, expected, message) static_assert(true, message)
+#define S_ASSERT_LESS_OR_EQUAL(condition, expected, message) static_assert(true, message)
+#define S_ASSERT_NOT_EQUAL(condition, expected, message) static_assert(true, message)
 
 
 #endif

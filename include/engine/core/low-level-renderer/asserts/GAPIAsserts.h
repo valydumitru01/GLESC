@@ -10,6 +10,7 @@
 
 #pragma once
 #include "engine/core/asserts/Asserts.h"
+#include "engine/core/debugger/Stringer.h"
 #include "engine/Config.h"
 
 
@@ -19,10 +20,10 @@
 
 #define D_ASSERT_GL_CALL_IS_CORRECT(isCorrect, message) \
     D_ASSERT_TRUE(isCorrect, \
-    "OpenGL call is not correct \n" + std::string(message))
+    "OpenGL call is not correct \n" + GLESC::Stringer::toString(message))
 
 #define D_ASSERT_GLEW_OK(isGlewOk, message) \
-    D_ASSERT_TRUE(isGlewOk,std::string("Unable to initialize GLEW: ")+ message)
+    D_ASSERT_TRUE(isGlewOk,std::string("Unable to initialize GLEW: ") + message)
 
 
 [[maybe_unused]] inline bool isGLCorrectVersion(int glslMajorVersion, int glslMinorVersion){

@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
 #include <engine/core/math/algebra/vector/VectorAlgorithms.h>
 #include "engine/core/math/algebra/matrix/Matrix.h"
-#include "MathTestHelper.h"
+#include "unit/engine/core/math/MathTestHelper.h"
 
 template<typename T, size_t N>
 struct VectorType {
