@@ -13,7 +13,7 @@
 #include <engine/core/low-level-renderer/graphic-api/GapiStructs.h>
 #include <engine/core/low-level-renderer/graphic-api/Gapi.h>
 #include "engine/core/window/WindowManager.h"
-#include "../math/MathTestHelper.h"
+#include "../math/MathCustomTestingFramework.cpp"
 
 class WindowManagerTest : public ::testing::Test {
 protected:

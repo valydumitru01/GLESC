@@ -8,4 +8,3 @@
  * See LICENSE.txt in the project root for license information.
  ******************************************************************************/
 
-#include <gtest/gtest.h>

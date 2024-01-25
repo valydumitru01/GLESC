@@ -12,6 +12,11 @@
 #include <array>
 
 namespace GLESC::Math {
+    
+    template<typename Type, std::size_t M>
+    using MatrixRow = std::array<Type, M>;
+    
     template<typename Type, std::size_t N, std::size_t M>
-    using MatrixData = std::array<std::array<Type, M>, N>;
+    using MatrixData = std::array<MatrixRow<Type, M>, N>;
+    
 }

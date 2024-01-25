@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
-#include <engine/core/math/algebra/vector/VectorAlgorithms.h>
+#include <engine/core/math/algebra/vector/VectorMixedAlgorithms.h>
 #include "engine/core/math/algebra/matrix/Matrix.h"
-#include "unit/engine/core/math/MathTestHelper.h"
+#include "unit/engine/core/math/MathCustomTestingFramework.cpp"
 
 template<typename T, size_t N>
 struct VectorType {
@@ -28,7 +28,7 @@ static MyType getExpectedValue2(size_t i) {
  * @param v
  */
 template<typename VecType, size_t N>
-inline void initVector(Vector<VecType, N> &v) {
+inline void initVector(VectorT<VecType, N> &v) {
     for (size_t i = 0; i < N; ++i)
         v.set(i, getExpectedValue1<VecType>(i));
 }
@@ -42,7 +42,7 @@ inline void initVector(Vector<VecType, N> &v) {
  * @param v
  */
 template<typename VecType, size_t N>
-inline void initVector2(Vector<VecType, N> &v) {
+inline void initVector2(VectorT<VecType, N> &v) {
     for (size_t i = 0; i < N; ++i)
         v.set(i, getExpectedValue2<VecType>(i));
 }
@@ -60,8 +60,8 @@ protected:
     
     void TearDown() override {}
     
-    Vector<typename Type::ValueType, Type::Length> v1;
-    Vector<typename Type::ValueType, Type::Length> v2;
+    VectorT<typename Type::ValueType, Type::Length> v1;
+    VectorT<typename Type::ValueType, Type::Length> v2;
 };
 
 using MyTypes = ::testing::Types<VectorType<float, 2>, VectorType<float, 3>, VectorType<float, 4>,
@@ -75,7 +75,7 @@ TYPED_TEST_SUITE(VectorTests, MyTypes);
 #define PREPARE_TEST()\
     using Type = typename TypeParam::ValueType; \
     constexpr size_t N = TypeParam::Length;     \
-    using Vec = Vector<Type, N>;
+    using Vec = VectorT<Type, N>;
 
 TYPED_TEST(VectorTests, Accesors) {
     PREPARE_TEST();
@@ -579,7 +579,7 @@ TYPED_TEST(VectorTests, VectorHomogenous) {
     EXPECT_TRUE(homogeneous.isHomogeneous());
     
     // Test homogenizing a vector
-    Vector<Type, N - 1> toHomogenize;
+    VectorT<Type, N - 1> toHomogenize;
     initVector(toHomogenize);
     Vec homogenized = toHomogenize.homogenize();
     Vec expectedHomogenized;
@@ -590,7 +590,7 @@ TYPED_TEST(VectorTests, VectorHomogenous) {
     EXPECT_EQ_VEC(homogenized, expectedHomogenized);
     
     // Test dehomogenizing a vector
-    Vector<Type, N + 1> toDehomogenize;
+    VectorT<Type, N + 1> toDehomogenize;
     initVector(toDehomogenize);
     toDehomogenize.set(N, Type(1)); // Ensure last element is non-zero to avoid division by zero
     Vec dehomogenized = toDehomogenize.dehomogenize();
@@ -665,22 +665,32 @@ TYPED_TEST(VectorTests, VectorCollinearityMethod) {
         return points;
     };
     
-    size_t minimumNumberOfPointsToTest = 1;
+    size_t minimumNumberOfPointsToTest = 2;
     size_t maximumNumberOfPointsToTest = 10;
     
+    
     // Test all subsets of points for collinearity
-    for (size_t count = minimumNumberOfPointsToTest; count <= maximumNumberOfPointsToTest; ++count){
-        auto collinearPoints = generatePoints(count, false);
-        EXPECT_TRUE(VectorAlgorithms::areCollinear(collinearPoints)) << "Failed at count: " << count;
-        
-        // Test all subsets of points for non-collinearity
-        // Ignore the case where there are only 2 points, since they are always collinear
-        if (count > 2){
-            auto nonCollinearPoints = generatePoints(count, true);
-            EXPECT_FALSE(VectorAlgorithms::areCollinear(nonCollinearPoints))
-                                << "Failed at count: " << count;
+    for (size_t count = minimumNumberOfPointsToTest; count <= maximumNumberOfPointsToTest; ++count) {
+        std::vector<Vec> collinearPoints = generatePoints(count, false);
+        Vec referenceVector = collinearPoints[0];
+        std::vector<const GLESC::Math::VectorData<Type, N> *> collinearPointsData;
+        for (size_t i = 1; i < count; ++i) {
+            collinearPointsData.push_back(&collinearPoints[i].data);
         }
-        
+        EXPECT_TRUE(GLESC::Math::VectorMixedAlgorithms::areCollinear(referenceVector.data, collinearPointsData))
+                            << "Failed at count: " << count;
+    }
+    
+    // Test all subsets of points for non-collinearity
+    for (size_t count = minimumNumberOfPointsToTest; count <= maximumNumberOfPointsToTest; ++count) {
+        std::vector<Vec> nonCollinearPoints = generatePoints(count, true);
+        Vec referenceVector = nonCollinearPoints[0];
+        std::vector<const GLESC::Math::VectorData<Type, N> *> nonCollinearPointsData;
+        for (size_t i = 1; i < count; ++i) {
+            nonCollinearPointsData.push_back(&nonCollinearPoints[i].data);
+        }
+        EXPECT_FALSE(GLESC::Math::VectorMixedAlgorithms::areCollinear(referenceVector.data, nonCollinearPointsData))
+                            << "Failed at count: " << count;
     }
 }
 

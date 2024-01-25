@@ -9,7 +9,7 @@
  ******************************************************************************/
 
 #include <gtest/gtest.h>
-#include <unit/engine/core/math/MathTestHelper.h>
+#include <unit/engine/core/math/MathCustomTestingFramework.cpp>
 #include "engine/core/math/Math.h"
 #include "engine/core/math/geometry/figures/polyhedron/Polyhedron.h"
 

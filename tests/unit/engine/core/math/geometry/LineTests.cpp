@@ -11,7 +11,7 @@
 #include <gtest/gtest.h>
 #include <engine/core/math/geometry/GeometryTypes.h>
 #include <engine/core/math/geometry/figures/line/Line.h>
-#include <unit/engine/core/math/MathTestHelper.h>
+#include <unit/engine/core/math/MathCustomTestingFramework.cpp>
 
 using namespace GLESC::Math;
 TEST(LineTests, Constructor) {

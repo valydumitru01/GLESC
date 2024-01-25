@@ -11,6 +11,7 @@
 
 #include <cmath>
 #include <type_traits>
+#include <random>
 #include "engine/core/asserts/Asserts.h"
 
 
@@ -54,6 +55,11 @@ namespace GLESC::Math {
     template<typename Type>
     Type radians(const Type &degrees) {
         return degrees * PI / Type(180);
+    }
+    
+    template<typename Type>
+    Type degrees(const Type &radians) {
+        return radians * Type(180) / PI;
     }
     
     
@@ -107,5 +113,44 @@ namespace GLESC::Math {
         }
         return result;
     }
+    
+    template<typename Type>
+    Type generateRandomNumber(Type min, Type max) {
+        S_ASSERT_TRUE(std::is_arithmetic_v<Type>, "Type must be arithmetic");
+        static std::random_device rd;
+        static std::mt19937 mt(rd());
+        
+        // If the type is uint, we use the fast unsigned int type for the distribution
+        if constexpr (std::is_unsigned_v<Type> && std::is_integral_v<Type>) {
+            std::uniform_int_distribution<std::mt19937::result_type> dist(min, max);
+            return dist(mt);
+        }
+        // If the type is int, we just use the int type for the int distribution
+        else if constexpr (std::is_integral_v<Type>) {
+            std::uniform_int_distribution<Type> dist(min, max);
+            return dist(mt);
+        }
+        
+        // If the type is floating point, we use the real distribution and we decrease the max value
+        else if constexpr (std::is_floating_point_v<Type>) {
+            // Prevent the generation of infinity by reducing the max value by the smallest possible amount
+            // in the direction of the min value
+            Type safeMax = std::nextafter(max, std::numeric_limits<Type>::lowest());
+            std::uniform_real_distribution<Type> dist(min, safeMax);
+            return dist(mt);
+        }
+        
+        // If the type is not integral or floating point, we don't know how to generate a random number
+        else {
+            static_assert(std::is_arithmetic_v<Type>, "Unsupported type for generateRandomNumber");
+        }
+    }
+    
+    template<typename Type>
+    Type generateRandomNumber() {
+        return generateRandomNumber(std::numeric_limits<Type>::lowest(), std::numeric_limits<Type>::max());
+    }
+    
+
 }
 

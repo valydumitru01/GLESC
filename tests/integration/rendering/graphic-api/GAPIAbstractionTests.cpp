@@ -14,7 +14,7 @@
 #include "engine/core/low-level-renderer/graphic-api/Gapi.h"
 #include "engine/core/window/WindowManager.h"
 #include "engine/core/low-level-renderer/shader/ShaderLoader.h"
-#include "unit/engine/core/math/MathTestHelper.h"
+#include "unit/engine/core/math/MathCustomTestingFramework.cpp"
 
 class GAPIAbstractionTests : public ::testing::Test {
 protected:

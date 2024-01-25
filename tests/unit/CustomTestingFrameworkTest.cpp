@@ -1,0 +1,33 @@
+/**************************************************************************************************
+ * @file   CustomTestingFrameworkTest.cpp
+ * @author Valentin Dumitru
+ * @date   25/01/2024
+ * @brief  Add description of this file if needed @TODO
+ *
+ * Copyright (c) 2023 Valentin Dumitru. Licensed under the MIT License.
+ * See LICENSE.txt in the project root for license information.
+ **************************************************************************************************/
+
+#include "unit/CustomTestingFramework.cpp"
+#include <gtest/gtest.h>
+#include <random>
+
+template<typename T>
+class CustomTestingFrameworkTest : public testing::Test {};
+
+// Specify the types you want to run your tests on
+using TypesToTest = testing::Types<float, double, int, long>;
+TYPED_TEST_SUITE(CustomTestingFrameworkTest, TypesToTest);
+
+// Define the type-parameterized tests
+TYPED_TEST(CustomTestingFrameworkTest, ExpectEqualCustomWithRandomNumbers) {
+    auto a = GLESC::Math::generateRandomNumber<TypeParam>();
+    TypeParam b = a;
+    
+    EXPECT_EQ_CUSTOM(a, b);
+    
+    // Now change "b" to be different from "a" to see if the test fails
+    b = GLESC::Math::generateRandomNumber<TypeParam>();
+    
+    EXPECT_NE_CUSTOM(a, b);
+}

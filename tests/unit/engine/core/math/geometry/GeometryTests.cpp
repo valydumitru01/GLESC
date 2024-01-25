@@ -14,6 +14,6 @@
 #include "engine/core/math/geometry/figures/plane/Plane.h"
 #include "engine/core/math/geometry/figures/sphere/Sphere.h"
 #include "engine/core/math/geometry/figures/polyhedron/Polyhedron.h"
-#include "unit/engine/core/math/MathTestHelper.h"
+#include "unit/engine/core/math/MathCustomTestingFramework.cpp"
 
 

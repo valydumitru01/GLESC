@@ -7,7 +7,7 @@
  * Copyright (c) 2023 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
  **************************************************************************************************/
-#include <engine/core/math/algebra/vector/VectorAlgorithms.h>
+#include <engine/core/math/algebra/vector/VectorMixedAlgorithms.h>
 #include "engine/core/math/geometry/figures/polyhedron/Polyhedron.h"
 
 using namespace GLESC::Math;

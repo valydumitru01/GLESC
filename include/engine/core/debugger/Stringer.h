@@ -86,9 +86,8 @@ namespace GLESC {
             } else if constexpr (hasToString_v<Type>) {
                 // Handle types with a toString() method
                 oss << value.toString();
-            } else {
-                // Fallback for other types
-                oss << value;
+            } else{
+                // TODO: Handle other types
             }
             
             return oss.str();

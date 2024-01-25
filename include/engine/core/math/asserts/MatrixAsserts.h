@@ -22,6 +22,6 @@
     "Matrix is not square");
 
 #define S_ASSERT_ROTATION_NOT_AVAILABLE() \
-    S_ASSERT(false, \
+    S_ASSERT_TRUE(false, \
         "Rotation is not available for this matrix" \
         ", only available for 3x3 and 4x4 matrices");

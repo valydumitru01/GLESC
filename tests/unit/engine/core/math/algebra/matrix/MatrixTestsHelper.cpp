@@ -12,7 +12,7 @@
 #pragma once
 #include <gtest/gtest.h>
 #include "engine/core/math/algebra/matrix/Matrix.h"
-#include "unit/engine/core/math/MathTestHelper.h"
+#include "unit/engine/core/math/MathCustomTestingFramework.cpp"
 
 template<typename T, size_t N, size_t M>
 struct MatrixType {
