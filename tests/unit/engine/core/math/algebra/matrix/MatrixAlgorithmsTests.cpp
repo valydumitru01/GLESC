@@ -40,7 +40,9 @@ TYPED_TEST_SUITE(MatrixAlgorithmsTests, MatrixAlgorithmsTypes);
 
 TYPED_TEST(MatrixAlgorithmsTests, InitAlgorithm) {
     PREPARE_TEST();
+    std::cout << "Testing matrix initialization for type " << typeid(Type).name() << "\n";
     
+    std::cout << "Testing matrix zero initialization\n";
     // ------------ Zero initialization ------------
     GLESC::Math::MatrixAlgorithms::setMatrxZero(this->matrix);
     for (size_t i = 0; i < N; ++i) {
@@ -49,6 +51,7 @@ TYPED_TEST(MatrixAlgorithmsTests, InitAlgorithm) {
         }
     }
     
+    std::cout << "Testing matrix diagonal initialization";
     // ------------ Diagonal initialization ------------
     auto value = Type(5);
     GLESC::Math::MatrixAlgorithms::setMatrixDiagonal(this->matrix, value);
@@ -59,6 +62,7 @@ TYPED_TEST(MatrixAlgorithmsTests, InitAlgorithm) {
     EXPECT_EQ_MAT(this->matrix, matrixObjective);
     
     
+    std::cout << "Testing matrix array initialization";
     // ------------ Array initialization ------------
     GLESC::Math::MatrixData<Type, N, M> values = {};
     // Fill the values array with arbitrary values
@@ -67,10 +71,11 @@ TYPED_TEST(MatrixAlgorithmsTests, InitAlgorithm) {
             values[i][j] = static_cast<Type>((i + 1) * (j + 1));
         }
     }
-    GLESC::Math::MatrixAlgorithms::setMatrix(this->matrix, values);
+    GLESC::Math::MatrixAlgorithms::setMatrix(values, this->matrix);
     EXPECT_EQ_MAT(this->matrix, values);
     
     
+    std::cout << "Testing matrix copy initialization";
     // ------------ Copy initialization ------------
     GLESC::Math::MatrixData<Type, N, M> copy = {};
     for (size_t i = 0; i < N; i++) {
@@ -78,28 +83,31 @@ TYPED_TEST(MatrixAlgorithmsTests, InitAlgorithm) {
             copy[i][j] = this->matrix[i][j];
         }
     }
-    GLESC::Math::MatrixAlgorithms::copyMatrix(this->matrix, copy);
+    GLESC::Math::MatrixAlgorithms::copyMatrix(copy, this->matrix);
     EXPECT_EQ_MAT(this->matrix, copy);
     
+    std::cout << "Testing matrix move initialization";
     // ------------ Move initialization ------------
-    GLESC::Math::MatrixData<Type, N, M> matrixToMove = {};
+    GLESC::Math::MatrixData<Type, N, M> matrixToMove;
+    GLESC::Math::MatrixAlgorithms::copyMatrix(copy, this->matrix);
     // Fill the matrixToMove with arbitrary values
     for (size_t i = 0; i < N; ++i) {
         for (size_t j = 0; j < M; ++j) {
             matrixToMove[i][j] = static_cast<Type>((i + 1) * (j + 2));
         }
     }
-    GLESC::Math::MatrixAlgorithms::moveMatrix(this->matrix, std::move(matrixToMove));
+    GLESC::Math::MatrixData<Type, N, M> matrixToMoveTo = {};
+    GLESC::Math::MatrixAlgorithms::moveMatrix(matrixToMoveTo, std::move(matrixToMove));
     // Note: The matrixToMove is left in an unspecified state after the move.
     // So we can only check the matrixObjective for the expected values.
-    EXPECT_EQ_MAT(this->matrix, matrixToMove);
+    EXPECT_EQ_MAT(this->matrix, matrixToMoveTo);
     
 }
 
 
 
 // ------------------------------ Exact solutions -----------------------------
-TEST(MatrixAlgorithmsTests, DeterminantAlgorithm) {
+TEST(MatrixAlgorithmsTests, LaplaceExpansionDeterminantAlgorithm) {
     GLESC::Math::MatrixData<double, 2, 2> matrix2x2;
     GLESC::Math::MatrixData<double, 3, 3> matrix3x3;
     GLESC::Math::MatrixData<double, 4, 4> matrix4x4;
@@ -157,6 +165,19 @@ TEST(MatrixAlgorithmsTests, DeterminantAlgorithm) {
     actualDeterminant = GLESC::Math::MatrixAlgorithms::laplaceExpansionDeterminant(matrix5x5);
     EXPECT_EQ_CUSTOM(actualDeterminant, expectedDeterminant);
     
+    
+}
+
+TYPED_TEST(MatrixAlgorithmsTests, DeterminantAlgorithm) {
+    PREPARE_TEST();
+    if constexpr (N == M) {
+        GLESC::Math::MatrixData<Type, N, M> matrixToTest;
+        generateMatrixWithRandomNumbers(matrixToTest);
+        // Check if both determinant algorithms return the same result
+        auto laplaceDeterminant = GLESC::Math::MatrixAlgorithms::laplaceExpansionDeterminant(matrixToTest);
+        auto gaussianDeterminant = GLESC::Math::MatrixAlgorithms::gaussianElimination(matrixToTest).determinant;
+        EXPECT_EQ_CUSTOM(laplaceDeterminant, gaussianDeterminant);
+    }
 }
 
 TEST(MatrixAlgorithmsTests, InverseAlgorithm) {

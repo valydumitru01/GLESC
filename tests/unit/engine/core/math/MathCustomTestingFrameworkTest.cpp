@@ -7,41 +7,31 @@
  * Copyright (c) 2023 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
  **************************************************************************************************/
- 
+
 #include <gtest/gtest.h>
 #include <random>
 #include "unit/engine/core/math/MathCustomTestingFramework.cpp"
 
 
-
 template<typename T>
 class MathCustomTestingFrameworkTest : public ::testing::Test {
-protected:
-    template<typename ValueType,std::size_t N, std::size_t M>
-    void generateMatrixWithRandomNumbers(GLESC::Math::Matrix<ValueType, N, M> &matrix) {
-        for (auto &row : matrix) {
-            for (auto &element : row) {
-                element = GLESC::Math::generateRandomNumber<T>();
-            }
-        }
-    }
 };
 
 // Specify the types you want to run your tests on
-using TypesToTest = ::testing::Types<float, double, int, long>;
+using TypesToTest = ::testing::Types<float, double, int, long, unsigned int, unsigned long>;
 
 TYPED_TEST_SUITE(MathCustomTestingFrameworkTest, TypesToTest);
 
 // Define the type-parameterized tests
 TYPED_TEST(MathCustomTestingFrameworkTest, ExpectEqMatWithRandomNumbers) {
     GLESC::Math::Matrix<TypeParam, 2, 2> a;
-    this->generateMatrixWithRandomNumbers(a);
+    generateMatrixWithRandomNumbers(a);
     GLESC::Math::Matrix<TypeParam, 2, 2> b(a);
     std::cout << "a: \n" << GLESC::Stringer::toString(a) << "\n";
     EXPECT_EQ_MAT(a, b);
-
+    
     // Now change "b" to be different from "a" to see if the test fails
-    this->generateMatrixWithRandomNumbers(b);
-
+    generateMatrixWithRandomNumbers(b);
+    
     EXPECT_NE_MAT(a, b);
 }

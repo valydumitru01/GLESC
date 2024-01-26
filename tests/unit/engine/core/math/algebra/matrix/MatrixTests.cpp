@@ -32,12 +32,16 @@ TYPED_TEST_SUITE(MatrixTests, MyTypes);
 
 TYPED_TEST(MatrixTests, Constructors) {
     PREPARE_TEST();
+    std::cout << "Testing matrix constructors\n";
+    
+    std::cout << "Testing default constructor\n";
     // Default constructor
     Mat matrixDefault;
     Mat expectedDefault;
     GLESC::Math::MatrixAlgorithms::setMatrxZero(expectedDefault.data);
     EXPECT_EQ_MAT(matrixDefault, expectedDefault);
     
+    std::cout << "Testing diagonal constructor\n";
     // Diagonal constructor
     Type diagonalValue = 1;
     Mat matrixDiagonal(diagonalValue);
@@ -45,6 +49,7 @@ TYPED_TEST(MatrixTests, Constructors) {
     GLESC::Math::MatrixAlgorithms::setMatrixDiagonal(expectedDiagonal.data, diagonalValue);
     EXPECT_EQ_MAT(matrixDiagonal, expectedDiagonal);
     
+    std::cout << "Testing array constructor\n";
     // Array constructor
     Type arrayValues[N][M];
     for (size_t i = 0; i < N; ++i)
@@ -56,11 +61,13 @@ TYPED_TEST(MatrixTests, Constructors) {
     EXPECT_EQ_MAT(matrixArray, expectedArray);
     
     
+    std::cout << "Testing copy constructor\n";
     // Copy constructor
     Mat matrixCopy(this->matrix);
     Mat matrixCopyReference;
     EXPECT_EQ_MAT(matrixCopy, this->matrix);
     
+    std::cout << "Testing move constructor\n";
     // Move constructor
     Mat matrixMove(std::move(this->matrix));
     EXPECT_EQ_MAT(matrixMove, this->matrix);
@@ -68,28 +75,35 @@ TYPED_TEST(MatrixTests, Constructors) {
 
 TYPED_TEST(MatrixTests, Accessors) {
     PREPARE_TEST();
+    std::cout << "Testing matrix accessors\n";
     
+    std::cout << "Testing rows\n";
     // Get rows
     EXPECT_EQ_CUSTOM(this->matrix.rows(), N);
     
+    std::cout << "Testing cols\n";
     // Get cols
     EXPECT_EQ_CUSTOM(this->matrix.cols(), M);
     
+    std::cout << "Testing set over []\n";
     // Set value
     Mat matrixSetCols;
     Type setValue = Type(9999);
     matrixSetCols[5][5] = setValue;
     EXPECT_EQ_CUSTOM(matrixSetCols[5][5], setValue);
     
+    std::cout << "Testing get over []\n";
     // Operator [] ----------------------------------
     for (size_t i = 0; i < this->matrix.rows(); ++i)
         for (size_t j = 0; j < this->matrix.cols(); ++j)
             EXPECT_EQ_CUSTOM(this->matrix[i][j], generateNextValue<Type>(i, j));
     
+    std::cout << "Testing const getters\n";
     // Const Getters ----------------------------------
     for (size_t i = 0; i < this->matrix.rows(); ++i)
         for (size_t j = 0; j < this->matrix.cols(); ++j)
             EXPECT_EQ_CUSTOM(this->matrix.get(i, j), generateNextValue<Type>(i, j));
+    
     // Getters must return a const reference
     S_ASSERT_TRUE((std::is_same_v<decltype(this->matrix.get(0, 0)), const Type &>),
                   "Getters (index1, index2) must return a const reference to the matrix element");
@@ -105,11 +119,15 @@ TYPED_TEST(MatrixTests, Accessors) {
 
 TYPED_TEST(MatrixTests, ComparisonOperators) {
     PREPARE_TEST();
+    std::cout << "Testing matrix comparison operators\n";
+    
+    std::cout << "Testing equality operator\n";
     // Equality operator
     Mat matrixEquals;
     initializeMatrixWithValues(matrixEquals);
     EXPECT_EQ(this->matrix, matrixEquals);
     
+    std::cout << "Testing inequality operator\n";
     // Inequality operator
     Mat matrixNotEquals;
     initializeMatrixWithValues(matrixNotEquals);
@@ -120,23 +138,28 @@ TYPED_TEST(MatrixTests, ComparisonOperators) {
 
 TYPED_TEST(MatrixTests, Assignments) {
     PREPARE_TEST();
+    std::cout << "Testing matrix assignments\n";
+    
+    std::cout << "Testing copy assignment\n";
     // Copy assignment
     Mat matrixCopyAssign;
     matrixCopyAssign = this->matrix;
     EXPECT_EQ_MAT(matrixCopyAssign, this->matrix);
     
+    std::cout << "Testing move assignment\n";
     // Move assignment
     Mat matrixMoveAssign;
     matrixMoveAssign = std::move(this->matrix);
     EXPECT_EQ_MAT(matrixMoveAssign, this->matrix);
     
-    
+    std::cout << "Testing += operator with matrix\n";
     // Operator += with matrix
     Mat matrixPlusEquals;
     initializeMatrixWithValues(matrixPlusEquals);
     matrixPlusEquals += this->matrix;
     EXPECT_EQ_MAT(matrixPlusEquals, (this->matrix + this->matrix));
     
+    std::cout << "Testing += operator with scalar\n";
     // Operator += with scalar
     Mat matrixPlusScalarEquals;
     initializeMatrixWithValues(matrixPlusScalarEquals);
@@ -144,12 +167,14 @@ TYPED_TEST(MatrixTests, Assignments) {
     matrixPlusScalarEquals += scalar;
     EXPECT_EQ_MAT(matrixPlusScalarEquals, (this->matrix + scalar));
     
+    std::cout << "Testing -= operator with matrix\n";
     // Operator -= with matrix
     Mat matrixMinusEquals;
     initializeMatrixWithValues(matrixMinusEquals);
     matrixMinusEquals -= this->matrix;
     EXPECT_EQ_MAT(matrixMinusEquals, (this->matrix - this->matrix));
     
+    std::cout << "Testing -= operator with scalar\n";
     // Operator -= with scalar
     Mat matrixMinusScalarEquals;
     initializeMatrixWithValues(matrixMinusScalarEquals);
@@ -157,6 +182,7 @@ TYPED_TEST(MatrixTests, Assignments) {
     matrixMinusScalarEquals -= scalarMinus;
     EXPECT_EQ_MAT(matrixMinusScalarEquals, (this->matrix - scalarMinus));
     
+    std::cout << "Testing *= operator with matrix\n";
     // Operator *= with matrix
     if constexpr (N == M) { // Only square matrices can be multiplied in place
         GLESC::Math::Matrix<Type, M, N> matrixMultEquals;
@@ -164,6 +190,8 @@ TYPED_TEST(MatrixTests, Assignments) {
         matrixMultEquals *= this->matrix;
         EXPECT_EQ_MAT(matrixMultEquals, (this->matrix * this->matrix));
     }
+    
+    std::cout << "Testing *= operator with scalar\n";
     // Operator *= with scalar
     Mat matrixMultScalarEquals;
     initializeMatrixWithValues(matrixMultScalarEquals);
@@ -171,6 +199,7 @@ TYPED_TEST(MatrixTests, Assignments) {
     matrixMultScalarEquals *= scalarMult;
     EXPECT_EQ_MAT(matrixMultScalarEquals, (this->matrix * scalarMult));
     
+    std::cout << "Testing /= operator with scalar\n";
     // Operator /= with scalar
     Mat matrixDivScalarEquals;
     initializeMatrixWithValues(matrixDivScalarEquals);
@@ -178,8 +207,9 @@ TYPED_TEST(MatrixTests, Assignments) {
     matrixDivScalarEquals /= scalarDiv;
     EXPECT_EQ_MAT(matrixDivScalarEquals, (this->matrix / scalarDiv));
     
+    std::cout << "Testing /= operator with matrix\n";
     // Operator /= with matrix
-    if constexpr (N == M) {
+    if constexpr (N == M) { // Only square matrices can be divided in place
         Mat matrixDivEquals;
         initializeMatrixWithValues(matrixDivEquals);
         std::cout << "Dividing matrices:\n";

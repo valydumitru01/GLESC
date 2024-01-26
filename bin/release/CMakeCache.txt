@@ -644,8 +644,6 @@ _Python_EXECUTABLE:INTERNAL=C:/Users/valyd/AppData/Local/Programs/Python/Python3
 //Python Properties
 _Python_INTERPRETER_PROPERTIES:INTERNAL=Python;3;10;0;64;;cp310-win_amd64;;C:\Users\valyd\AppData\Local\Programs\Python\Python310\Lib;C:\Users\valyd\AppData\Local\Programs\Python\Python310\Lib;C:\Users\valyd\AppData\Local\Programs\Python\Python310\Lib\site-packages;C:\Users\valyd\AppData\Local\Programs\Python\Python310\Lib\site-packages
 _Python_INTERPRETER_SIGNATURE:INTERNAL=68ad807602d8506b2a4b3cd3cad32806
-//Interpreter reason failure
-_Python_Interpreter_REASON_FAILURE:INTERNAL=
 //NumPy reason failure
 _Python_NumPy_REASON_FAILURE:INTERNAL=
 cmake_package_name:INTERNAL=GTest

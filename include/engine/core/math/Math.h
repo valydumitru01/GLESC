@@ -12,6 +12,7 @@
 #include <cmath>
 #include <type_traits>
 #include <random>
+#include <cstring>
 #include "engine/core/asserts/Asserts.h"
 
 
@@ -19,23 +20,23 @@ namespace GLESC::Math {
     // TODO: Implement min and max and limit functions
     constexpr float FLOAT_COMPARISON_EPSILON = 1e-6f;
     constexpr double DOUBLE_COMPARISON_EPSILON = 1e-10;
-
-    constexpr float PI          = 3.1415926;            // 7 digits of precision
-    constexpr double PI_DOUBLE  = 3.1415926535897932;   // 16 digits of precision
+    
+    constexpr float PI = 3.1415926;            // 7 digits of precision
+    constexpr double PI_DOUBLE = 3.1415926535897932;   // 16 digits of precision
     
     template<typename Type>
-    constexpr Type pi() {
+    constexpr Type pi() noexcept {
         if constexpr (std::is_same_v<Type, float>)
             return PI;
         else if constexpr (std::is_same_v<Type, double>)
             return PI_DOUBLE;
         else
             static_assert(std::is_floating_point_v<Type>,
-                    "PI is only defined for floating point types");
+                          "PI is only defined for floating point types");
     }
     
     template<typename Type>
-    constexpr inline auto epsilon() {
+    constexpr inline auto epsilon() noexcept {
         using DecayedType = std::remove_const_t<std::remove_reference_t<Type>>;
         if constexpr (std::is_same_v<DecayedType, float>) {
             return FLOAT_COMPARISON_EPSILON;
@@ -47,24 +48,27 @@ namespace GLESC::Math {
         }
     }
     
-    template <typename Type>
+    template<typename Type>
     constexpr inline Type epsilon(Type value) {
         return epsilon<Type>() * flexibleAbs(value);
     }
     
     template<typename Type>
-    Type radians(const Type &degrees) {
+    Type radians(const Type &degrees) noexcept {
         return degrees * PI / Type(180);
     }
     
     template<typename Type>
-    Type degrees(const Type &radians) {
+    Type degrees(const Type &radians) noexcept {
+        S_ASSERT_TRUE(std::is_floating_point_v<Type>, "Type must be floating point");
         return radians * Type(180) / PI;
     }
     
     
     template<typename LValueT, typename RValueT>
     constexpr inline bool eq(LValueT a, RValueT b) {
+        S_ASSERT_TRUE(std::is_arithmetic_v<LValueT> && std::is_arithmetic_v<RValueT>,
+                      "Types must be arithmetic");
         if constexpr (std::is_floating_point_v<LValueT> && std::is_floating_point_v<RValueT>) {
             // Determine the type with the lower precision
             using LowerPrecisionType = std::conditional_t<
@@ -80,9 +84,10 @@ namespace GLESC::Math {
     
     template<typename Type>
     constexpr inline Type abs(Type value) {
+        S_ASSERT_TRUE(std::is_arithmetic_v<Type>, "Type must be arithmetic");
         if constexpr (std::is_floating_point_v<Type>) {
             return std::fabs(value);
-        } else if constexpr (std::is_unsigned_v<Type>){
+        } else if constexpr (std::is_unsigned_v<Type>) {
             return value;
         } else if constexpr (std::is_arithmetic_v<Type> && std::is_signed_v<Type>) {
             return std::abs(value);
@@ -95,8 +100,10 @@ namespace GLESC::Math {
         }
     }
     
-    template <typename T>
-    T sqrt(const T& value) {
+    template<typename T>
+    T sqrt(const T &value) {
+        S_ASSERT_TRUE(std::is_arithmetic_v<T>, "Type must be arithmetic");
+        D_ASSERT_TRUE(value >= T(0), "Value must be positive");
         T result = T();
         if constexpr (std::is_arithmetic_v<T>) {
             if constexpr (std::is_integral_v<T>) {
@@ -114,9 +121,30 @@ namespace GLESC::Math {
         return result;
     }
     
+    
+    template<typename Type>
+    constexpr const int getMantissaBytes(){
+        S_ASSERT_TRUE(std::is_floating_point_v<Type>, "Type must be floating point");
+        return std::numeric_limits<Type>::digits;
+    }
+    
+    /**
+     * @brief Generates a random number between min and max, specifically [min, max)
+     * @details The random number is generated using the Mersenne Twister algorithm
+     * The min and max values parameters must follow the following rules:
+     * - (max - min) < std::numeric_limits<Type>::max()
+     * - max >= min
+     * @tparam Type The type of the random number
+     * @param min The minimum value of the random number
+     * @param max The maximum value of the random number
+     * @return A random number of the given type in the range [min, max)
+     */
     template<typename Type>
     Type generateRandomNumber(Type min, Type max) {
         S_ASSERT_TRUE(std::is_arithmetic_v<Type>, "Type must be arithmetic");
+        D_ASSERT_TRUE(max >= min, "Max must be greater than min");
+        D_ASSERT_TRUE((max + GLESC::Math::abs(min)) < std::numeric_limits<Type>::max(),
+                      "(Max - min) must be less than the max value of the type");
         static std::random_device rd;
         static std::mt19937 mt(rd());
         
@@ -130,27 +158,32 @@ namespace GLESC::Math {
             std::uniform_int_distribution<Type> dist(min, max);
             return dist(mt);
         }
-        
-        // If the type is floating point, we use the real distribution and we decrease the max value
-        else if constexpr (std::is_floating_point_v<Type>) {
-            // Prevent the generation of infinity by reducing the max value by the smallest possible amount
-            // in the direction of the min value
-            Type safeMax = std::nextafter(max, std::numeric_limits<Type>::lowest());
-            std::uniform_real_distribution<Type> dist(min, safeMax);
+        else if constexpr (std::is_floating_point_v<Type>){
+            // For other types (int, etc.), use the type directly
+            std::uniform_real_distribution<Type> dist(min, max);
             return dist(mt);
         }
-        
         // If the type is not integral or floating point, we don't know how to generate a random number
         else {
-            static_assert(std::is_arithmetic_v<Type>, "Unsupported type for generateRandomNumber");
+            S_ASSERT_TRUE(false, "Unsupported type for generateRandomNumber");
         }
     }
-    
+
+    /**
+     * @brief Generates a random number with the widest range possible for the type
+     * @tparam Type The type of the random number
+     * @return A random number of the given type
+     */
     template<typename Type>
     Type generateRandomNumber() {
-        return generateRandomNumber(std::numeric_limits<Type>::lowest(), std::numeric_limits<Type>::max());
+        // For other types, use the standard limits
+        // The maximum range for the random number is
+        // [std::numeric_limits<Type>::lowest()/2, std::numeric_limits<Type>::max()/2)
+        return generateRandomNumber(std::numeric_limits<Type>::lowest() / 4,
+                                    std::numeric_limits<Type>::max() / 4);
+        
     }
     
-
+    
 }
 

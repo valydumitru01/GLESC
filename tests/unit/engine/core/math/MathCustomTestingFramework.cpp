@@ -13,8 +13,24 @@
 #include "unit/CustomTestingFramework.cpp"
 #include "engine/core/math/algebra/matrix/Matrix.h"
 
+template<typename ValueType, std::size_t N, std::size_t M>
+inline void generateMatrixWithRandomNumbers(GLESC::Math::MatrixData<ValueType, N, M> &matrix) {
+    for (auto &row : matrix) {
+        for (auto &element : row) {
+            element = GLESC::Math::generateRandomNumber<ValueType>();
+        }
+    }
+}
+
+template<typename ValueType, std::size_t N, std::size_t M>
+inline void generateMatrixWithRandomNumbers(GLESC::Math::Matrix<ValueType, N, M> &matrix) {
+    generateMatrixWithRandomNumbers(matrix.data);
+    
+}
+
+
 template<typename T, size_t N, size_t M>
-inline void preMatCheckPrint(const GLESC::Math::MatrixData<T, N, M> &a, const GLESC::Math::MatrixData<T, N, M> &b){
+inline void preMatCheckPrint(const GLESC::Math::MatrixData<T, N, M> &a, const GLESC::Math::MatrixData<T, N, M> &b) {
     
     std::cout << "Comparing matrices:\n";
     // Assuming 'toString' is part of the matrix infrastructure
@@ -23,7 +39,7 @@ inline void preMatCheckPrint(const GLESC::Math::MatrixData<T, N, M> &a, const GL
     std::cout << "------------------ Matrix Values comparison: -------------------\n";
 }
 
-inline void postMatCheckPrint(){
+inline void postMatCheckPrint() {
     std::cout << "----------------------------------------------------------------\n";
     std::cout << "Matrices are equal\n";
 }
@@ -95,11 +111,11 @@ inline void expectEqVec(const GLESC::Math::Vector<T, N> &a, const GLESC::Math::V
 // Macro for matrix equality check
 #define EXPECT_EQ_MAT(a, b) \
     expectEqMat(a, b)
-    
+
 // Macro for matrix inequality check
 #define EXPECT_NE_MAT(a, b) \
     expectNeMat(a, b)
-    
+
 // Macro for vector equality check
 #define EXPECT_EQ_VEC(a, b) \
     expectEqVec(a, b)
