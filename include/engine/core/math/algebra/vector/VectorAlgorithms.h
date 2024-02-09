@@ -1,5 +1,5 @@
 /**************************************************************************************************
- * @file   VectorBasicAlgorithms.h
+ * @file   VectorAlgorithms.h
  * @author Valentin Dumitru
  * @date   23/01/2024
  * @brief  @TODO Add description of this file
@@ -9,22 +9,61 @@
  **************************************************************************************************/
 #pragma once
 
-#include <vector>
 #include "engine/core/math/algebra/vector/VectorTypes.h"
+#include "engine/core/exceptions/core/math/MathException.h"
+#include "engine/core/math/Math.h"
 
 namespace GLESC::Math {
     class VectorAlgorithms {
     public:
-        
-        template<typename Type, size_t N, size_t N2>
-        static inline void
-        vectorCopy(const VectorData<Type, N> &vec, VectorData<Type, N2> &result) {
-            size_t minOfTheTwo = std::min(N, N2); // So we don't go out of bounds
+        // =============================================================================================================
+        // ============================================= Vector Init ===================================================
+        // =============================================================================================================
+
+        template <typename Type, size_t N>
+        static void
+        vectorZero(VectorData<Type, N>& vec) {
+            std::fill(std::begin(vec), std::end(vec), Type(0));
+        }
+
+
+        template <typename Type, size_t N>
+        static void
+        vectorFill(VectorData<Type, N>& vec, const Type& value) {
+            std::fill(std::begin(vec), std::end(vec), value);
+        }
+
+        template <typename Type, size_t N>
+        static void
+        vectorInitRawArray(VectorData<Type, N>& vec, const Type (&list)[N]) {
+            std::copy(std::begin(list), std::end(list), std::begin(vec));
+        }
+
+
+        template <typename Type, size_t N, size_t N2>
+        static void
+        vectorCopy(VectorData<Type, N>& vecToCopyTo, const VectorData<Type, N2>& vecToCopy) {
+            if constexpr (N == N2) // This is needed because you can't compare pointers to different types
+                if (&vecToCopyTo == &vecToCopy) {
+                    return;
+                }
+            constexpr size_t minOfTheTwo = std::min(N, N2); // So we don't go out of bounds
             for (size_t i = 0; i < minOfTheTwo; ++i) {
-                result[i] = vec[i];
+                vecToCopyTo[i] = vecToCopy[i];
             }
         }
-        
+
+
+        template <typename Type, size_t N>
+        static void
+        vectorMove(VectorData<Type, N>& vecToMoveTo, VectorData<Type, N>& movedVec) {
+            if (&vecToMoveTo == &movedVec) {
+                return;
+            }
+            std::move(std::begin(movedVec), std::end(movedVec), std::begin(vecToMoveTo));
+        }
+
+
         // =============================================================================================================
         // ========================================= Arithmetic operations =============================================
         // =============================================================================================================
@@ -37,14 +76,14 @@ namespace GLESC::Math {
          * @param b Second vector.
          * @return Sum of the two vectors.
          */
-        template<typename Type, size_t N>
-        static inline void
-        vectorAdd(const VectorData<Type, N> &a, const VectorData<Type, N> &b, VectorData<Type, N> &result) {
+        template <typename Type, size_t N>
+        static void
+        vectorAdd(const VectorData<Type, N>& a, const VectorData<Type, N>& b, VectorData<Type, N>& result) {
             for (size_t i = 0; i < N; ++i) {
                 result[i] = a[i] + b[i];
             }
         }
-        
+
         /**
          * @brief Add a scalar to a vector.
          * @details Adds a scalar to each element of a vector.
@@ -54,31 +93,32 @@ namespace GLESC::Math {
          * @param scalar Scalar to add to the vector.
          * @return Sum of the vector and the scalar.
          */
-        template<typename Type, size_t N>
-        static inline void
-        vectorScalarAdd(const VectorData<Type, N> &vec, const Type &scalar, VectorData<Type, N> &result) {
+        template <typename Type, size_t N>
+        static void
+        vectorScalarAdd(const VectorData<Type, N>& vec, const Type& scalar, VectorData<Type, N>& result) {
             for (size_t i = 0; i < N; ++i) {
                 result[i] = vec[i] + scalar;
             }
         }
-        
+
         /**
          * @brief Subtracts two vectors.
-         *
+         * @details result = vecLeft - vecRight
          * @tparam Type Data type of the vectors (e.g., double, float).
          * @tparam N Dimension of space.
-         * @param a First vector.
-         * @param b Second vector.
+         * @param vecLeft First vector.
+         * @param vecRight Second vector.
          * @return Difference of the two vectors.
          */
-        template<typename Type, size_t N>
-        static inline void
-        vectorSub(const VectorData<Type, N> &a, const VectorData<Type, N> &b, VectorData<Type, N> &result) {
+        template <typename Type, size_t N>
+        static void
+        vectorSub(const VectorData<Type, N>& vecLeft, const VectorData<Type, N>& vecRight,
+                  VectorData<Type, N>& result) {
             for (size_t i = 0; i < N; ++i) {
-                result[i] = a[i] - b[i];
+                result[i] = vecLeft[i] - vecRight[i];
             }
         }
-        
+
         /**
          * @brief Subtracts a scalar from a vector.
          * @details Subtracts a scalar from each element of a vector.
@@ -88,14 +128,14 @@ namespace GLESC::Math {
          * @param scalar Scalar to subtract from the vector.
          * @return Difference of the vector and the scalar.
          */
-        template<typename Type, size_t N>
-        static inline void
-        vectorScalarSub(const VectorData<Type, N> &vec, const Type &scalar, VectorData<Type, N> &result) {
+        template <typename Type, size_t N>
+        static void
+        vectorScalarSub(const VectorData<Type, N>& vec, const Type& scalar, VectorData<Type, N>& result) {
             for (size_t i = 0; i < N; ++i) {
                 result[i] = vec[i] - scalar;
             }
         }
-        
+
         /**
          * @brief Negates a vector.
          * @details Negates each element of a vector.
@@ -104,13 +144,13 @@ namespace GLESC::Math {
          * @param vec Vector to be negated.
          * @return Negated vector.
          */
-        template<typename Type, size_t N>
-        static inline void vectorNegate(const VectorData<Type, N> &vec, VectorData<Type, N> &result) {
+        template <typename Type, size_t N>
+        static void vectorNegate(const VectorData<Type, N>& vec, VectorData<Type, N>& result) {
             for (size_t i = 0; i < N; ++i) {
                 result[i] = -vec[i];
             }
         }
-        
+
         /**
          * @brief Multiplies two vectors.
          *
@@ -120,14 +160,14 @@ namespace GLESC::Math {
          * @param vec2 Second vector.
          * @return Product of the two vectors.
          */
-        template<typename Type, size_t N>
-        static inline void
-        vectorMul(const VectorData<Type, N> &vec1, const VectorData<Type, N> &vec2, VectorData<Type, N> &result) {
+        template <typename Type, size_t N>
+        static void
+        vectorMul(const VectorData<Type, N>& vec1, const VectorData<Type, N>& vec2, VectorData<Type, N>& result) {
             for (size_t i = 0; i < N; ++i) {
                 result[i] = vec1[i] * vec2[i];
             }
         }
-        
+
         /**
          * @brief Multiplies a vector by a scalar.
          *
@@ -137,86 +177,186 @@ namespace GLESC::Math {
          * @param scalar Scalar to multiply the vector by.
          * @return Product of the vector and the scalar.
          */
-        template<typename Type, size_t N>
-        static inline void
-        vectorScalarMul(const VectorData<Type, N> &vec, const Type &scalar, VectorData<Type, N> &result) {
+        template <typename Type, size_t N>
+        static void
+        vectorScalarMul(const VectorData<Type, N>& vec, const Type& scalar, VectorData<Type, N>& result) {
             for (size_t i = 0; i < N; ++i) {
                 result[i] = vec[i] * scalar;
             }
         }
-        
-        
+
+
         /**
          * @brief Divides two vectors.
          *
          * @tparam Type Data type of the vectors (e.g., double, float).
          * @tparam N Dimension of space.
-         * @param a First vector.
-         * @param b Second vector.
+         * @param dividend First vector.
+         * @param divisor Second vector.
          * @return Product of the two vectors.
          */
-        template<typename Type, size_t N>
-        static inline void
-        vectorDiv(const VectorData<Type, N> &a, const VectorData<Type, N> &b, VectorData<Type, N> &result) {
+        template <typename Type, size_t N>
+        static void
+        vectorDiv(const VectorData<Type, N>& dividend, const VectorData<Type, N>& divisor,
+                  VectorData<Type, N>& result) {
             for (size_t i = 0; i < N; ++i) {
-                result[i] = a[i] / b[i];
+                result[i] = dividend[i] / divisor[i];
             }
         }
-        
+
         /**
          * @brief Divides a vector by a scalar.
          *
          * @tparam Type Data type of the vector (e.g., double, float).
          * @tparam N Dimension of space.
-         * @param vec Vector to be divided.
-         * @param scalar Scalar to divide the vector by.
+         * @param dividend Vector to be divided.
+         * @param divisorScalar Scalar to divide the vector by.
          * @return Quotient of the vector and the scalar.
          */
-        template<typename Type, size_t N>
-        static inline void
-        vectorScalarDiv(const VectorData<Type, N> &vec, const Type &scalar, VectorData<Type, N> &result) {
+        template <typename Type, size_t N>
+        static void
+        vectorScalarDiv(const VectorData<Type, N>& dividend, const Type& divisorScalar, VectorData<Type, N>& result) {
             for (size_t i = 0; i < N; ++i) {
-                result[i] = vec[i] / scalar;
+                result[i] = dividend[i] / divisorScalar;
             }
         }
-        
-        
+
+        // =============================================================================================================
+        // ========================================== Vector Comparations ==============================================
+        // =============================================================================================================
+
         /**
-         * @brief Computes the dot product of two vectors.
-         *
-         * @tparam Type Data type of the vectors (e.g., double, float).
-         * @tparam N Dimension of space.
-         * @param a First vector.
-         * @param b Second vector.
-         * @return Dot product of the two vectors.
+         * @brief Equality operator for vectors
+         * @details Compares this vector to another, allowing for different underlying types.
+         * Handles floating-point comparison via 'eq' function.
+         * @param rhs Vector to compare against
+         * @return True if the vectors are equal, false otherwise
          */
-        template<typename Type, size_t N>
-        static inline Type dotProduct(const VectorData<Type, N> &a, const VectorData<Type, N> &b) {
+        template <typename Type, size_t N>
+        static bool eq(const VectorData<Type, N>& vec1, const VectorData<Type, N>& vec2) {
+            for (size_t i = 0; i < N; ++i) {
+                if (!Math::eq(vec1[i], vec2[i])) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+
+        template <typename Type, size_t N>
+        static bool neq(const VectorData<Type, N>& vec1, const VectorData<Type, N>& vec2) {
+            return !eq(vec1, vec2);
+        }
+
+        template <typename Type, size_t N>
+        static bool lt(const VectorData<Type, N>& vec1, const VectorData<Type, N>& vec2) {
+            // Use of length squared is more efficient
+            auto length1 = VectorAlgorithms::sum(vec1);
+            auto length2 = VectorAlgorithms::sum(vec2);
+            return length1 < length2;
+        }
+
+
+        // =============================================================================================================
+        // ========================================== Vector Opeartions ================================================
+        // =============================================================================================================
+
+
+        /**
+         * @brief Checks if a vector is zero.
+         * @details A vector is zero if all its elements are zero.
+         * @tparam Type Data type of the vector (e.g., double, float).
+         * @tparam N Dimension of space.
+         * @param vec Vector to be checked.
+         * @return true if the vector is zero, false otherwise.
+         */
+        template <typename Type, size_t N>
+        static bool isZero(const VectorData<Type, N>& vec) {
+            for (size_t i = 0; i < N; ++i) {
+                if (vec[i] != Type(0)) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        /**
+         * @brief Computes the sum of all elements inside the vector
+         * @tparam Type Data type of the vector (e.g., double, float).
+         * @tparam N Dimension of space.
+         * @param vec Vector to be used.
+         * @return Sum of the vector.
+         */
+        template <typename Type, size_t N>
+        static Type sum(const VectorData<Type, N>& vec) {
             Type result = 0;
             for (size_t i = 0; i < N; ++i) {
-                result += a[i] * b[i];
+                result += vec[i];
             }
             return result;
         }
-        
+
+
+        /**
+         * @brief Computes the absolute value of a vector.
+         * @details Computes the absolute value of each element of a vector, it can be used for in place absolute value.
+         * @tparam Type Data type of the vector (e.g., double, float).
+         * @tparam N Dimension of space.
+         * @param vec Vector to be used.
+         * @param result Vector to store the absolute value of the input vector.
+         * @return Absolute value of the vector.
+         */
+        template <typename Type, size_t N>
+        static void abs(const VectorData<Type, N>& vec, VectorData<Type, N>& result) {
+            for (size_t i = 0; i < N; ++i) {
+                result[i] = Math::abs(vec[i]);
+            }
+        }
+
+        /**
+         * @brief Computes the dot product of two vectors.
+         * @details Also called Inner Product, it is the sum of the products of the corresponding elements of the two.
+         * Dot product gives us a sense of similarity between two vectors.
+         * Also, represents the projection of one vector onto another.
+         * This implementation is for cartesian coordinates in euclidean space only.
+         * @tparam Type Data type of the vectors (e.g., double, float).
+         * @tparam N Dimension of space.
+         * @param leftVec First vector.
+         * @param rightVec Second vector.
+         * @return Dot product of the two vectors.
+         */
+        template <typename Type, size_t N>
+        static Type dotProduct(const VectorData<Type, N>& leftVec, const VectorData<Type, N>& rightVec) {
+            Type result = 0;
+            for (size_t i = 0; i < N; ++i) {
+                result += leftVec[i] * rightVec[i];
+            }
+            return result;
+        }
+
         /**
          * @brief Computes the cross product of two vectors.
-         *
+         * @details The cross product is a vector that is perpendicular to the two vectors being multiplied and the
+         * plane containing them.
+         * This only has meaning in 3D space.
+         * The magnitude of the cross product is the area of the parallelogram that the two vectors span.
+         * The direction of the cross product is orthogonal to both vectors, and follows the right-hand rule.
+         * @note Cross product is not commutative, is anti-commutative, meaning that a x b = -b x a.
          * @tparam Type Data type of the vectors (e.g., double, float).
          * @param vec1 First vector.
          * @param vec2 Second vector.
          * @return Cross product of the two vectors.
          */
-        template<typename Type>
-        static inline VectorData<Type, 3>
-        crossProduct(const VectorData<Type, 3> &vec1, const VectorData<Type, 3> &vec2, VectorData<Type, 3> &result) {
+        template <typename Type>
+        static VectorData<Type, 3>
+        crossProduct(const VectorData<Type, 3>& vec1, const VectorData<Type, 3>& vec2, VectorData<Type, 3>& result) {
             result[0] = vec1[1] * vec2[2] - vec1[2] * vec2[1];
             result[1] = vec1[2] * vec2[0] - vec1[0] * vec2[2];
             result[2] = vec1[0] * vec2[1] - vec1[1] * vec2[0];
             return result;
         }
-        
-        
+
+
         /**
          * @brief Computes the length of a vector.
          *
@@ -225,11 +365,11 @@ namespace GLESC::Math {
          * @param vec Vector.
          * @return Length of the vector.
          */
-        template<typename Type, size_t N>
-        static inline Type length(const VectorData<Type, N> &vec) {
-            return std::sqrt(dotProduct(vec, vec));
+        template <typename Type, size_t N>
+        static Type length(const VectorData<Type, N>& vec) {
+            return Math::sqrt(dotProduct(vec, vec));
         }
-        
+
         /**
          * @brief Computes the squared length of a vector.
          *
@@ -238,11 +378,11 @@ namespace GLESC::Math {
          * @param vec Vector.
          * @return Squared length of the vector.
          */
-        template<typename Type, size_t N>
-        static inline Type lengthSquared(const VectorData<Type, N> &vec) {
+        template <typename Type, size_t N>
+        static Type lengthSquared(const VectorData<Type, N>& vec) {
             return dotProduct(vec, vec);
         }
-        
+
         /**
          * @brief Computes the distance between two vectors.
          *
@@ -252,11 +392,13 @@ namespace GLESC::Math {
          * @param vec2 Second vector.
          * @return Distance between the two vectors.
          */
-        template<typename Type, size_t N>
-        static inline Type distance(const VectorData<Type, N> &vec1, const VectorData<Type, N> &vec2) {
-            return length(vec1 - vec2);
+        template <typename Type, size_t N>
+        static Type distance(const VectorData<Type, N>& vec1, const VectorData<Type, N>& vec2) {
+            VectorData<Type, N> diff;
+            vectorSub(vec1, vec2, diff);
+            return length(diff);
         }
-        
+
         /**
          * @brief Computes the squared distance between two vectors.
          *
@@ -266,11 +408,13 @@ namespace GLESC::Math {
          * @param vec2 Second vector.
          * @return Squared distance between the two vectors.
          */
-        template<typename Type, size_t N>
-        static inline Type distanceSquared(const VectorData<Type, N> &vec1, const VectorData<Type, N> &vec2) {
-            return lengthSquared(vec1 - vec2);
+        template <typename Type, size_t N>
+        static Type distanceSquared(const VectorData<Type, N>& vec1, const VectorData<Type, N>& vec2) {
+            VectorData<Type, N> diff;
+            vectorSub(vec1, vec2, diff);
+            return lengthSquared(diff);
         }
-        
+
         /**
          * @brief Normalizes a vector.
          *
@@ -279,17 +423,18 @@ namespace GLESC::Math {
          * @param vec Vector to be normalized.
          * @return Normalized vector.
          */
-        template<typename Type, size_t N>
-        static inline void normalize(const VectorData<Type, N> &vec, VectorData<Type, N> &result) {
+        template <typename Type, size_t N>
+        static void normalize(const VectorData<Type, N>& vec, VectorData<Type, N>& result) {
             Type length = VectorAlgorithms::length(vec);
-            if (eq(length, Type(1)) || GLESC::Math::eq(length, Type(0)))
+            if (Math::eq(length, Type(1)) || Math::eq(length, Type(0))) {
                 result = vec;
-            
+                return;
+            }
+
             for (size_t i = 0; i < N; ++i)
                 result[i] = vec[i] / length;
-            
         }
-        
+
         /**
          * @brief Computes the angle between two vectors.
          *
@@ -299,11 +444,12 @@ namespace GLESC::Math {
          * @param vec2 Second vector.
          * @return Angle between the two vectors.
          */
-        template<typename Type, size_t N>
-        static inline Type angle(const VectorData<Type, N> &vec1, const VectorData<Type, N> &vec2) {
+        template <typename Type, size_t N>
+        static Type angle(const VectorData<Type, N>& vec1, const VectorData<Type, N>& vec2) {
+            D_ASSERT_TRUE(length(vec1) * length(vec2) != Type(0), "Cannot compute angle between zero vectors");
             return std::acos(dotProduct(vec1, vec2) / (length(vec1) * length(vec2)));
         }
-        
+
         /**
          * @brief Projects a vector onto another vector.
          * @details Projects a vector onto another vector by computing the scalar projection and multiplying it by
@@ -314,12 +460,175 @@ namespace GLESC::Math {
          * @param onto Vector to be projected onto.
          * @return Projected vector.
          */
-        template<typename Type, size_t N>
-        static inline void
-        project(const VectorData<Type, N> &vec, const VectorData<Type, N> &onto, VectorData<Type, N> &result) {
+        template <typename Type, size_t N>
+        static void
+        project(const VectorData<Type, N>& vec, const VectorData<Type, N>& onto, VectorData<Type, N>& result) {
             Type scalarProjection = dotProduct(vec, onto) / length(onto);
             VectorAlgorithms::vectorScalarMul(onto, scalarProjection, result);
         }
-        
+
+
+        /**
+         * @brief Checks if two vectors are parallel.
+         * @details Two vectors are parallel if the absolute value of their dot product equals the product of their
+         * lengths.
+         * @tparam Type Data type of the vectors (e.g., double, float).
+         * @tparam N Dimension of space.
+         * @param vec1 First vector.
+         * @param vec2 Second vector.
+        * @return true if the vectors are parallel, false otherwise.
+        */
+        template <typename Type, size_t N>
+        static bool areParallel(const VectorData<Type, N>& vec1, const VectorData<Type, N>& vec2) {
+            Type absDot = Math::abs(dotProduct(vec1, vec2));
+            Type length1 = length(vec1);
+            Type length2 = length(vec2);
+            Type productOfLengths = length1 * length2;
+            return Math::eq(absDot, productOfLengths); // Account for floating-point errors
+        }
+
+        template <typename Type, size_t N>
+        static bool isHomogeneous(const VectorData<Type, N>& vec) {
+            return vec[N - 1] == Type(1);
+        }
+
+        template <typename Type, size_t N>
+        static void homogenize(const VectorData<Type, N>& vec, VectorData<Type, N + 1>& result) {
+            VectorAlgorithms::vectorCopy(result, vec); // Copies until the Nth element
+            result[N] = Type(1); // Set the N+1th element to 1
+        }
+
+        template <typename Type, size_t N>
+        static void dehomogenize(const VectorData<Type, N>& vec, VectorData<Type, N - 1>& result) {
+            if (vec[N - 1] == Type(0))
+                throw MathException("Cannot dehomogenize a vector with a zero w-component.");
+
+            Type wInv = Type(1) / vec[N - 1]; // Inverse of the w-component
+
+            for (size_t i = 0; i < N - 1; ++i) {
+                result[i] = vec[i] * wInv; // Divide each component by the w-component
+            }
+        }
+
+
+        /**
+         * @brief Checks if two vectors are orthogonal.
+         * @details Two vectors are orthogonal if their dot product is zero.
+         * @tparam Type Data type of the vectors (e.g., double, float).
+         * @tparam N Dimension of space.
+         * @param vec1 First vector.
+         * @param vec2 Second vector.
+         * @return true if the vectors are orthogonal, false otherwise.
+         */
+        template <typename Type, size_t N>
+        static bool areOrthogonal(const VectorData<Type, N>& vec1, const VectorData<Type, N>& vec2) {
+            Type dot = dotProduct(vec1, vec2);
+            return Math::eq(dot, Type(0));
+        }
+
+
+        template <typename Type, size_t N>
+        static void getOrthogonal(const VectorData<Type, N>& data, VectorData<Type, N>& result) {
+            static_assert(N == 2 || N == 3 || N == 4, "getOrthogonal is only implemented for 2D, 3D, and 4D vectors");
+
+            if constexpr (N == 2) {
+                // In 2D, the orthogonal vector can be obtained by swapping the data
+                // and negating one of them.
+                result = {-data[1], data[0]};
+            }
+            else if constexpr (N == 3) {
+                // In 3D, we use the cross product to find an orthogonal vector.
+                // First, we need a non-parallel vector to cross with.
+                // We choose either (0, 1, 0) or (1, 0, 0) depending on which one is less parallel
+                // to the original vector, to avoid degenerate cross products.
+                VectorData<Type, N> nonParallel;
+                if (Math::abs(data[0]) > Math::abs(data[1]))
+                    nonParallel = VectorData<Type, N>({0, 1, 0});
+                else
+                    nonParallel = VectorData<Type, N>({1, 0, 0});
+
+                // The cross product of this vector with 'nonParallel' yields an orthogonal vector.
+                VectorAlgorithms::crossProduct(data, nonParallel, result);
+            }
+            else if constexpr (N == 4) {
+                // Finding an orthogonal vector in 4D involves more choices due to extra degrees of
+                // freedom. Here, we zero out two data and solve the other two to maintain
+                // orthogonality. The choice of which data to zero out depends on the
+                // non-zero data of the original vector.
+                if (data[0] != 0 || data[1] != 0) {
+                    // If the first or second component is non-zero, we set the last two data
+                    // to zero and negate one of the first two data to create orthogonality.
+                    result = VectorData<Type, N>({-data[1], data[0], 0, 0});
+                }
+                else {
+                    // If the first two data are zero, we work with the last two data.
+                    // We negate one and copy the other to create orthogonality.
+                    result = VectorData<Type, N>({0, -data[3], data[2], 0});
+                }
+            }
+        }
+
+        /**
+         * @brief Checks if two vectors are collinear.
+         * @details Two vectors are collinear if one is a scalar multiple of the other.
+         * @tparam Type Data type of the vectors (e.g., double, float).
+         * @tparam N Dimension of space.
+         * @param vec1 First vector.
+         * @param vec2 Second vector.
+         * @return true if the vectors are collinear, false otherwise.
+         */
+        template <typename Type, size_t N>
+        static bool isMultipleOf(const VectorData<Type, N>& vec1, const VectorData<Type, N>& vec2) {
+            Type ratio;
+            bool ratioInitialized = false;
+
+            for (size_t i = 0; i < N; ++i) {
+                if (!Math::eq(vec2[i], Type(0))) {
+                    if (!ratioInitialized) {
+                        ratio = vec1[i] / vec2[i];
+                        ratioInitialized = true;
+                    }
+                    else {
+                        if (!Math::eq(vec1[i] / vec2[i], ratio)) {
+                            return false;
+                        }
+                    }
+                }
+                else if (!Math::eq(vec1[i], Type(0))) {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+
+        /**
+         * @brief Generates a string representation of a vector.
+         * @details Generates a string representation of a vector by calling the toString method of each element.
+         * @tparam Type Data type of the vector (e.g., double, float).
+         * @tparam N Dimension of space.
+         * @param vec Vector to be converted to string.
+         * @return String representation of the vector.
+         */
+        template <typename Type, size_t N>
+        static std::string toString(const VectorData<Type, N>& vec) {
+            std::string result;
+            result += "[";
+            if constexpr (std::is_arithmetic_v<Type>) {
+                for (size_t i = 0; i < N; ++i) {
+                    result += std::to_string(vec[i]) + ", ";
+                }
+            }
+            else {
+                for (size_t i = 0; i < N; ++i) {
+                    result += vec[i].toString() + ", ";
+                }
+            }
+            result.pop_back();
+            result.pop_back();
+            result += "]";
+            return result;
+        }
     }; // class VectorBasicAlgorithms
 } // namespace GLESC::Math

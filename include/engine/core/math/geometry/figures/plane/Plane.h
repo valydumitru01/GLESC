@@ -42,22 +42,35 @@ namespace GLESC::Math {
          * @param point
          * @param normalParam
          */
-        Plane(const Point &point, const Direction &normalParam) noexcept;
+        Plane(const Point &point, const Direction &normalParam);
+        /**
+         * @brief Construct a new Plane object from three distinct points.
+         * @details The normal vector of the plane is calculated from the three points.
+         * The distance is the distance from the origin to the plane.
+         * The points must be distinct and not lie on the same line.
+         * @param point1 The first point.
+         * @param point2 The second point.
+         * @param point3 The third point.
+         */
+        Plane(const Point &point1, const Point &point2, const Point &point3);
+        /**
+         * @brief Construct a new Plane object from a point and a line.
+         * @details The normal vector of the plane is calculated from the point and the line.
+         * The distance is the distance from the origin to the plane.
+         * The point must not lie on the line.
+         * @param point A point not on the line.
+         * @param line A line not containing the point.
+         */
+        Plane(const Point &point, const Line &line);
+
+
+        Plane(const Plane &plane) = default;
         
-        Plane(const Point &point1, const Point &point2, const Point &point3) noexcept;
+        Plane(Plane &&plane) = default;
         
-        Plane(const Point &point, const Line &line) noexcept;
+        Plane &operator=(const Plane &plane) = default;
         
-        
-        
-        
-        Plane(const Plane &plane) noexcept = default;
-        
-        Plane(Plane &&plane) noexcept = default;
-        
-        Plane &operator=(const Plane &plane) noexcept= default;
-        
-        Plane &operator=(Plane &&plane) noexcept = default;
+        Plane &operator=(Plane &&plane) = default;
         
         ~Plane() = default;
         
@@ -164,57 +177,15 @@ namespace GLESC::Math {
          */
         [[nodiscard]] static double calculateDistanceFromPoints(
                 const Point &point1, const Point &point2, const Point &point3);
-        
-        /**
-         * @brief Check if three points can define a plane.
-         *
-         * This function ensures that the three points are distinct and do not lie on a single line,
-         * which is a necessary condition for defining a plane.
-         *
-         * @param point1 The first point.
-         * @param point2 The second point.
-         * @param point3 The third point.
-         * @return true If the points are distinct and do not lie on a single line.
-         * @return false Otherwise.
-         */
-        [[nodiscard]] static bool
-        isPlaneCorrectFromPoints(const Point &point1, const Point &point2, const Point &point3);
-        
-        /**
-         * @brief Check if a point and a normal vector can define a plane.
-         *
-         * This function verifies that the normal vector is not a zero vector,
-         * which is necessary for a valid plane definition.
-         *
-         * @param point A point on the plane.
-         * @param normalParam The normal vector of the plane.
-         * @return true If the normal vector is not a zero vector.
-         * @return false Otherwise.
-         */
-        [[nodiscard]] static bool
-        isPlaneCorrectFromPointAndNormal(const Point &point, const Direction &normalParam);
-        
-        /**
-         * @brief Check if a point and a line can define a plane.
-         *
-         * This function checks if the given point is not on the line,
-         * which is a condition for the point and line to define a plane.
-         *
-         * @param point A point not on the line.
-         * @param line A line in space.
-         * @return true If the point is not on the line.
-         * @return false If the point is on the line.
-         */
-        [[nodiscard]] static bool
-        isPlaneCorrectFromPointAndLine(const Point &point, const Line &line);
-        
-        
+
         /**
          * @brief The unit vector normal to the plane. Defines the orientation of the plane.
          */
         Direction normal{};
         /**
-         * @brief The distance from the origin to the plane.
+         * @brief The distance from the origin to the plane along its normal.
+         * @details If the distance is positive, the plane is in the direction of the normal.
+         * If the distance is negative, the plane is in the opposite direction of the normal.
          */
         double distance{};
         

@@ -63,28 +63,7 @@ namespace PolyhedronFactory::Regular {
     Polyhedron dodeca() {
         GLESC::Math::Polyhedron dodecahedron;
         double phi = (1 + sqrt(5)) / 2;
-        dodecahedron.addVertex({0, 1 / phi, phi});
-        dodecahedron.addVertex({0, 1 / phi, -phi});
-        dodecahedron.addVertex({0, -1 / phi, phi});
-        dodecahedron.addVertex({0, -1 / phi, -phi});
-        dodecahedron.addVertex({1 / phi, phi, 0});
-        dodecahedron.addVertex({1 / phi, -phi, 0});
-        dodecahedron.addVertex({-1 / phi, phi, 0});
-        dodecahedron.addVertex({-1 / phi, -phi, 0});
-        dodecahedron.addVertex({phi, 0, 1 / phi});
-        dodecahedron.addVertex({phi, 0, -1 / phi});
-        dodecahedron.addVertex({-phi, 0, 1 / phi});
-        dodecahedron.addVertex({-phi, 0, -1 / phi});
-        dodecahedron.addFace({0, 4, 8, 9, 1});
-        dodecahedron.addFace({0, 4, 6, 10, 2});
-        dodecahedron.addFace({0, 1, 5, 11, 2});
-        dodecahedron.addFace({1, 5, 7, 10, 3});
-        dodecahedron.addFace({1, 8, 9, 11, 3});
-        dodecahedron.addFace({2, 6, 7, 11, 3});
-        dodecahedron.addFace({2, 6, 10, 3});
-        dodecahedron.addFace({4, 6, 7, 8});
-        dodecahedron.addFace({4, 8, 9, 5});
-        dodecahedron.addFace({5, 7, 9});
+
         return dodecahedron;
     }
     
@@ -131,19 +110,6 @@ namespace PolyhedronFactory::Regular {
 namespace PolyhedronFactory::Common {
     Polyhedron pyramid(double radius, double height, unsigned int baseSides) {
         GLESC::Math::Polyhedron pyramid;
-        double angle = 2 * GLESC::Math::pi<double>() / baseSides;
-        std::vector<unsigned int> baseVertices;
-        
-        for (unsigned int i = 0; i < baseSides; ++i) {
-            pyramid.addVertex({radius * cos(i * angle), radius * sin(i * angle), 0.0});
-            baseVertices.push_back(i);
-        }
-        pyramid.addVertex({0.0, 0.0, height}); // Apex
-        
-        for (unsigned int i = 0; i < baseSides; ++i) {
-            pyramid.addFace({i, (i + 1) % baseSides, baseSides});
-        }
-        pyramid.addFace(baseVertices); // Base face
         return pyramid;
     }
     
@@ -159,37 +125,13 @@ namespace PolyhedronFactory::Common {
         cuboid.addVertex({width / 2, height / 2, -depth / 2});   // 6
         cuboid.addVertex({-width / 2, height / 2, -depth / 2});  // 7
         // Faces
-        cuboid.addFace({0, 1, 2, 3}); // Front
-        cuboid.addFace({4, 5, 6, 7}); // Back
-        cuboid.addFace({0, 1, 5, 4}); // Bottom
-        cuboid.addFace({2, 3, 7, 6}); // Top
-        cuboid.addFace({0, 3, 7, 4}); // Left
-        cuboid.addFace({1, 2, 6, 5}); // Right
+
         return cuboid;
     }
     
     Polyhedron prism(double radius, double height, unsigned int sides) {
         GLESC::Math::Polyhedron prism;
         double angle = 2 * GLESC::Math::pi<double>() / sides;
-        std::vector<unsigned int> base, top;
-        
-        for (unsigned int i = 0; i < sides; ++i) {
-            prism.addVertex({radius * cos(i * angle), radius * sin(i * angle), -height / 2});
-            prism.addVertex({radius * cos(i * angle), radius * sin(i * angle), height / 2});
-            base.push_back(2 * i);
-            top.push_back(2 * i + 1);
-        }
-        
-        for (unsigned int i = 0; i < sides; ++i) {
-            prism.addFace(
-                    {(2 * i) % (2 * sides), (2 * i + 2) % (2 * sides), (2 * i + 3) % (2 * sides),
-                     (2 * i + 1) % (2 * sides)});
-        }
-        
-        // Reverse the order for the top face to ensure correct normals
-        std::reverse(top.begin(), top.end());
-        prism.addFace(base);
-        prism.addFace(top);
         return prism;
     }
     

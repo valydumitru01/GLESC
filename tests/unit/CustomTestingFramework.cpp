@@ -1,5 +1,5 @@
 /**************************************************************************************************
- * @file   CustomFramework.h
+ * @file   CustomTestingFramework.cpp
  * @author Valentin Dumitru
  * @date   25/01/2024
  * @brief  Add description of this file if needed @TODO
@@ -8,29 +8,32 @@
  * See LICENSE.txt in the project root for license information.
  **************************************************************************************************/
 #pragma once
-#include <gtest/gtest.h>
-#include <algorithm>
-#include <type_traits>
-#include <limits>
-#include <cmath>
+
 #include "engine/core/debugger/Stringer.h"
 #include "engine/core/math/Math.h"
+#include <cmath>
+#include <gtest/gtest.h>
+#include <iostream>
+#include <type_traits>
 
 
-template<typename Type1, typename Type2>
-inline void expectEqCustom(const Type1 &a, const Type2 &b) {
-    if constexpr (std::is_floating_point_v<decltype(a)> || std::is_floating_point_v<decltype(b)>) {
-        constexpr auto epsilon1 = std::is_floating_point_v<decltype(a)> ? GLESC::Math::epsilon<decltype(a)>() : 0.0;
-        constexpr auto epsilon2 = std::is_floating_point_v<decltype(b)> ? GLESC::Math::epsilon<decltype(b)>() : 0.0;
-        const auto maxEpsilon = std::max(static_cast<double>(epsilon1), static_cast<double>(epsilon2));
-        EXPECT_NEAR(a, b, maxEpsilon);
-    } else {
-        EXPECT_EQ(a, b);
+template <typename Type1, typename Type2>
+void expectEqCustom(const Type1& a, const Type2& b) {
+    std::cout << "Comparing values: " << GLESC::Stringer::toString(a) << " and " << GLESC::Stringer::toString(b);
+    if constexpr (std::is_floating_point_v<Type1> || std::is_floating_point_v<Type2>) {
+        auto epsilon = pow(10, -5); // A high epsilon to account for the precission loss from operations
+        std::cout << " with epsilon: " << GLESC::Stringer::toString(epsilon) << "\n";
+        EXPECT_NEAR(a, b, epsilon);
     }
+    else{
+        EXPECT_EQ(a, b);
+        std::cout << "\n";
+    }
+
 }
 
-template<typename Type1, typename Type2>
-inline void expectNeCustom(const Type1 &a, const Type2 &b) {
+template <typename Type1, typename Type2>
+void expectNeCustom(const Type1& a, const Type2& b) {
     EXPECT_FALSE(GLESC::Math::eq(a, b));
 }
 
@@ -42,3 +45,7 @@ inline void expectNeCustom(const Type1 &a, const Type2 &b) {
     expectEqCustom(a, b)
 
 
+#define TEST_SECTION(title) \
+    std::cout << "______________________________________________________________________________________________\n"; \
+    std::cout << "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%" << title << "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n"; \
+    std::cout << "______________________________________________________________________________________________\n";

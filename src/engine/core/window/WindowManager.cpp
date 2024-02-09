@@ -129,7 +129,7 @@ GLESC::WindowDimensions WindowManager::getWindowSize() const {
     return dimensions;
 }
 
-Vec2UI WindowManager::getWindowCenter() const {
+Vec2Ui WindowManager::getWindowCenter() const {
     auto dimensions = getWindowSize();
     return {dimensions.width / 2, dimensions.height / 2};
 }

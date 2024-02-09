@@ -19,15 +19,9 @@ namespace GLESC::Math {
         
         Polyhedron(Points vertices, const std::vector<FaceIndices> &faces);
         
-        Polyhedron(const std::initializer_list<Point> &vertices,
-                   const std::initializer_list<std::initializer_list<Index>> &faces);
-        
-        
         void addVertex(const Point &vertex);
         
-        void addFace(std::initializer_list<Index> indices);
-        
-        void addFace(const FaceIndices &indices);
+        void addFace(const FaceIndices &faceParam);
         
         [[nodiscard]] const std::vector<PolyhedronFace> &getFaces() const;
         
@@ -61,6 +55,8 @@ namespace GLESC::Math {
         Polyhedron triangulate() const;
     
     private:
+        [[nodiscard]] bool isOutOfBounds(const std::vector<FaceIndices>& faces) const;
+        [[nodiscard]] bool isOutOfBounds(const FaceIndices& face) const;
         std::vector<Vec3D> vertices;
         std::vector<PolyhedronFace> faces;
     }; // class Polyhedron

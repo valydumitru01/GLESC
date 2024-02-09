@@ -140,7 +140,7 @@ public:
     }
     
     // Unsigned ints
-    inline void u2Ui(Vec2UI vec2) override {
+    inline void u2Ui(Vec2Ui vec2) override {
         GAPI_FUNCTION_IMPLEMENTATION_LOG("glUniform2ui", location, vec2.x(), vec2.y());
         glUniform2ui(location, vec2.x(), vec2.y());
     }
@@ -348,7 +348,7 @@ public:
         glUniform1uiv(location, static_cast<GLsizei>(values.size()), values.data());
     }
     
-    inline void u2UiVec(const std::vector<Vec2UI> &values) override {
+    inline void u2UiVec(const std::vector<Vec2Ui> &values) override {
         GAPI_FUNCTION_IMPLEMENTATION_LOG("glUniform2uiv", location,
                                          static_cast<GLsizei>(values.size()),
                                          reinterpret_cast<const GLuint *>(values.data()));

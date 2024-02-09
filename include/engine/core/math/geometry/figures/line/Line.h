@@ -38,9 +38,9 @@ namespace GLESC::Math {
          */
         void setDirection(const Direction &directionParam);
         
-        Direction getDirection() const {return direction;}
+        const Direction& getDirection() const {return direction;}
         
-        Point getPoint() const {return point;}
+        const Point& getPoint() const {return point;}
         
         [[nodiscard]] bool intersects(const Line &line) const;
         
@@ -56,7 +56,9 @@ namespace GLESC::Math {
         */
         Point point;
         /**
-         * @brief The direction of the line (should be normalized)
+         * @brief The direction of the line
+         * @details This is normalized when calculated, set or modified. This way the direction can be get with the
+         * getter without having to normalize it every time.
          */
         Direction direction;
     };

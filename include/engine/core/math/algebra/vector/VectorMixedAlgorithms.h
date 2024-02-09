@@ -17,6 +17,7 @@
 #include <vector>
 #include "engine/core/math/algebra/matrix/MatrixAlgorithms.h"
 #include "engine/core/math/algebra/vector/VectorTypes.h"
+#include "engine/core/math/algebra/vector/VectorAlgorithms.h"
 #include "engine/core/math/algebra/matrix/MatrixTypes.h"
 
 namespace GLESC::Math {
@@ -25,36 +26,65 @@ namespace GLESC::Math {
         // =============================================================================================================
         // ========================================= Vector operations =================================================
         // =============================================================================================================
-        
-        
-        
-        
+
         /**
          * @brief Checks if points are collinear.
-         *
+         * @details This function checks if a set of points are collinear.
+         * The points are collinear if cross product of the direction vectors from the reference point to each point is
+         * the zero vector.
+         * @tparam Type Data type of the points (e.g., double, float).
+         * @tparam N Dimension of space.
+         * @param p1 First point.
+         * @param p2 Second point.
+         * @param p3 Third point.
+         */
+        template <typename Type>
+        static bool areCollinear(const VectorData<Type, 3>& p1, const VectorData<Type, 3>& p2,
+                                 const VectorData<Type, 3>& p3) {
+            // Compute two vectors from the points
+            VectorData<Type, 3> v1;
+            VectorAlgorithms::vectorSub(p2, p1, v1);
+            VectorData<Type, 3> v2;
+            VectorAlgorithms::vectorSub(p3, p1, v2);
+
+            // Calculate the cross product of v1 and v2
+            VectorData<Type, 3> crossProduct;
+            VectorAlgorithms::crossProduct(v1, v2, crossProduct);
+
+            // If the cross product is (0,0,0), the points are collinear
+            return VectorAlgorithms::isZero(crossProduct);
+        }
+
+        /**
+         * @brief Checks if points are collinear.
+         * @details This function checks if a set of points are collinear.
+         * @see areCollinear(p1, p2, p3)
          * @tparam Type Data type of the points (e.g., double, float).
          * @tparam N Dimension of space.
          * @param referencePoint Reference for forming direction vectors.
          * @param points Points to be checked for collinearity.
          * @return true if points are collinear, false otherwise.
          */
-        template<typename Type, size_t N>
-        static inline bool areCollinear(const VectorData<Type, N> &referencePoint,
-                                        const std::vector<const VectorData<Type, N> *> &points) {
+        template <typename Type>
+        static bool areCollinear(const VectorData<Type, 3>& referencePoint,
+                                 const std::vector<const VectorData<Type, 3>*>& points) {
             if (points.size() < 2) {
+                // Fewer than two points, trivially collinear
                 return true;
             }
-            
-            // Create a 2D array to store the vectors from referencePoint to each point
-            MatrixData<Type, N, N - 1> vectors;
-            for (size_t i = 0; i < points.size(); ++i) {
-                for (size_t j = 0; j < N; ++j) {
-                    vectors[j][i] = points[i]->at(j) - referencePoint[j];
+
+            // Iterate over each set of three points including the reference point
+            for (size_t i = 0; i < points.size() - 1; ++i) {
+                for (size_t j = i + 1; j < points.size(); ++j) {
+                    // Use the three-point collinearity check
+                    if (!VectorMixedAlgorithms::areCollinear(referencePoint, *points[i], *points[j])) {
+                        return false;
+                    }
                 }
             }
-            
-            // Use the existing rank function to determine if the vectors are collinear
-            return MatrixAlgorithms::gaussianElimination(vectors).rank == 1;
+
+            // If all direction vectors are parallel, the points are collinear
+            return true;
         }
     }; // class VectorAlgorithms
 } // namespace GLESC::Math

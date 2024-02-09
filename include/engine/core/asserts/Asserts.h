@@ -1,5 +1,5 @@
 /******************************************************************************
- * @file   Example.h
+ * @file   Asserts.h
  * @author Valentin Dumitru
  * @date   2023-09-26
  * @brief @todo
@@ -10,19 +10,15 @@
 
 #pragma once
 
-#include <iostream>
-#include <stdexcept>
-#include <string>
-#include <sstream>
-
-#include <cmath>
-#include <type_traits>
-#include <limits>
-#include "engine/core/debugger/Stacktrace.h"
-#include "engine/core/logger/Logger.h"
-#include "engine/core/debugger/Stringer.h"
-
 #ifndef NDEBUG
+#include "engine/core/debugger/StackTrace.h"
+#include "engine/core/exceptions/core/AssertFailedException.h"
+#include "engine/core/debugger/Stringer.h"
+#include "engine/core/logger/Logger.h"
+#include <cmath>
+#include <limits>
+#include <string>
+#include <type_traits>
 // ------------------------ Runtime asserts ---------------------------
 // Runtime asserts are used to check conditions at runtime
 
@@ -34,10 +30,8 @@
                 << "Failed Condition: " << #failureCondition << "\n" \
                 << "Message  : " << message << "\n\n" \
                 << "Location : " << __FILE__ << ", Line " << __LINE__ << "\n" \
-                << "Function : " << __PRETTY_FUNCTION__ << "\n\n" \
-                << "Stacktrace:\n" << GLESC::generateStackTrace(); \
-            GLESC::Logger::get().error(oss.str()); \
-            std::terminate(); \
+                << "Function : " << __PRETTY_FUNCTION__ << "\n\n"; \
+            throw AssertFailedException(oss.str()); \
         }
 
 #define D_ASSERT_TRUE(value, message) \
@@ -61,21 +55,33 @@
         } while (false)
 
 inline void
-printComparingValues(const std::string &value, const std::string &expected) {
+printComparingValues(const std::string& value, const std::string& expected)
+{
     GLESC::Logger::get().error("Checked Value : " + value + "\nExpected Value: " + expected);
 }
 
 
-
-template<typename Type>
-inline bool assertEqualsEq(const Type &value, const Type &expected) {
-    if constexpr (std::is_floating_point_v<Type>) {
-        // Check if the numbers are close enough (within some epsilon).
-        const Type epsilon = std::numeric_limits<Type>::epsilon();
-        return std::fabs(value - expected) <= epsilon * std::fabs(value + expected)
-            || std::fabs(value - expected) < epsilon;
-    } else {
-        // For non-floating point types, directly compare the values.
+template <typename Type1, typename Type2>
+bool assertEqualsEq(const Type1& value, const Type2& expected)
+{
+    // Floating point comparison
+    if constexpr (std::is_floating_point_v<Type1> || std::is_floating_point_v<Type2>)
+    {
+        using CommonType = std::common_type_t<Type1, Type2>;
+        const CommonType epsilon = std::numeric_limits<CommonType>::epsilon();
+        const CommonType diff = std::fabs(static_cast<CommonType>(value) - static_cast<CommonType>(expected));
+        return diff <= epsilon * std::max(std::fabs(static_cast<CommonType>(value)),
+                                          std::fabs(static_cast<CommonType>(expected)))
+            || diff < epsilon;
+    }
+    // Pointer comparison
+    else if constexpr (std::is_pointer_v<Type1> && std::is_pointer_v<Type2>)
+    {
+        return value == expected;
+    }
+    // General comparison
+    else
+    {
         return value == expected;
     }
 }
@@ -117,10 +123,10 @@ inline bool assertEqualsEq(const Type &value, const Type &expected) {
 
 #define S_ASSERT_TRUE(condition, message) \
         static_assert(condition, message)
-        
+
 #define S_ASSERT_FALSE(condition, message) \
         static_assert(!(condition), message)
-        
+
 #define S_ASSERT_EQUAL(condition, expected, message) \
         static_assert(GLESC::Math::eq(condition, expected), message)
 

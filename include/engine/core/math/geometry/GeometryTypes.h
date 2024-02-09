@@ -16,5 +16,5 @@ namespace GLESC::Math{
     using Points = std::vector<Point>;
     using Direction = Vec3D;
     using Index = unsigned int;
-    using FaceIndices = std::vector<Index>;
+    using FaceIndices = std::array<Index, 3>;
 }

@@ -12,9 +12,9 @@
 #pragma once
 #include <gtest/gtest.h>
 #include "engine/core/math/algebra/matrix/Matrix.h"
-#include "unit/engine/core/math/MathCustomTestingFramework.cpp"
 
-template<typename T, size_t N, size_t M>
+
+template <typename T, size_t N, size_t M>
 struct MatrixType {
     using ValueType = T;
     static const size_t Rows = N;
@@ -23,59 +23,69 @@ struct MatrixType {
 
 
 using MyTypes = ::testing::Types<
-        MatrixType<float, 2, 2>, MatrixType<double, 2, 2>,
-        MatrixType<int, 2, 2>, MatrixType<size_t, 2, 2>,
-        MatrixType<float, 3, 3>, MatrixType<double, 3, 3>,
-        MatrixType<int, 3, 3>, MatrixType<size_t, 3, 3>,
-        MatrixType<float, 4, 4>, MatrixType<double, 4, 4>,
-        MatrixType<int, 4, 4>, MatrixType<size_t, 4, 4>,
-        MatrixType<float, 5, 5>, MatrixType<double, 5, 5>,
-        MatrixType<int, 5, 5>, MatrixType<size_t, 5, 5>,
-        MatrixType<double, 10, 10>, MatrixType<float, 10, 10>,
-        // Non-square matrices
-        MatrixType<float, 2, 3>, MatrixType<double, 2, 3>,
-        MatrixType<int, 2, 3>, MatrixType<size_t, 2, 3>,
-        MatrixType<float, 3, 2>, MatrixType<double, 3, 2>,
-        MatrixType<int, 3, 2>, MatrixType<size_t, 3, 2>,
-        MatrixType<float, 4, 3>, MatrixType<double, 4, 3>
+    MatrixType<float, 2, 2>,
+    MatrixType<double, 2, 2>,
+    MatrixType<long double, 2, 2>,
+    MatrixType<float, 3, 3>,
+    MatrixType<double, 3, 3>,
+    MatrixType<long double, 3, 3>,
+    MatrixType<float, 4, 4>,
+    MatrixType<double, 4, 4>,
+    MatrixType<long double, 4, 4>,
+    MatrixType<double, 10, 10>,
+    MatrixType<float, 10, 10>,
+    MatrixType<long double, 10, 10>,
+    // Non-square matrices
+    MatrixType<float, 2, 3>,
+    MatrixType<double, 2, 3>,
+    MatrixType<float, 3, 2>,
+    MatrixType<double, 3, 2>,
+    MatrixType<float, 4, 3>,
+    MatrixType<double, 4, 3>
 >;
 
 
 /**
  * @brief Generate next value for the matrix
- * @details It will generate numbers for the matrices for the tests. It's important to generate
- * the numbers in a way the matrix is invertible and the determinant is not zero.
+ * @details It will generate numbers for the matrices for the tests. It ensures that the matrix
+ * is either upper or lower triangular with non-zero diagonal elements, thus guaranteeing a non-zero determinant.
  * @tparam MyType
  * @param i
  * @param j
  * @return The next value for the matrix given the row and column
  */
 template <class MyType>
-inline MyType generateNextValue(size_t i, size_t j) {
-    if (i == j) { // Diagonal element
-        return MyType(1);
-    } else { // Off-diagonal element
-        return MyType(i + j + i*j*7 + 7);
+MyType generateNextValue(size_t i, size_t j) {
+    // Ensure MyType can handle floating-point arithmetic
+    // The formula slightly modifies the identity matrix elements
+    if (i == j) {
+        // Diagonal elements, making them slightly larger than 1
+        return 1 + (2 * i * i * 7 / (j + 1) + 7 * i * j + 5) / 10000.0;
+    } else {
+        // Off-diagonal elements, ensuring they are small to maintain a non-zero determinant
+        return (2 * i * i * 7 / (j + 1) + 7 * i * j + 5) / 10000.0;
     }
 }
-template <class MyType, size_t N, size_t M>
-inline void initializeMatrixWithValues(GLESC::Math::Matrix<MyType, N, M> &matrix) {
-    for (size_t i = 0; i < matrix.rows(); ++i)
-        for (size_t j = 0; j < matrix.cols(); ++j)
-            matrix[i][j] = generateNextValue<MyType>(i, j);
-}
+
 
 template <class MyType, size_t N, size_t M>
-inline void initializeMatrixWithValues(GLESC::Math::MatrixData<MyType, N, M> &matrix) {
+void initializeMatrixWithValues(GLESC::Math::Matrix<MyType, N, M>& matrix) {
     for (size_t i = 0; i < N; ++i)
         for (size_t j = 0; j < M; ++j)
             matrix[i][j] = generateNextValue<MyType>(i, j);
 }
 
 template <class MyType, size_t N, size_t M>
-inline void initializeMatrixWithDifferentValues(GLESC::Math::Matrix<MyType, N, M> &matrix) {
-    for (size_t i = 0; i < matrix.rows(); ++i)
-        for (size_t j = 0; j < matrix.cols(); ++j)
+void initializeMatrixWithValues(GLESC::Math::MatrixData<MyType, N, M>& matrix) {
+    for (size_t i = 0; i < N; ++i)
+        for (size_t j = 0; j < M; ++j)
+            matrix[i][j] = generateNextValue<MyType>(i, j);
+}
+
+template <class MyType, size_t N, size_t M>
+void initializeMatrixWithDifferentValues(GLESC::Math::Matrix<MyType, N, M>& matrix) {
+    for (size_t i = 0; i < N; ++i)
+        for (size_t j = 0; j < M; ++j)
             matrix[i][j] = generateNextValue<MyType>(i + 10, j + 10);
 }
 

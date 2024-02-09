@@ -1,5 +1,5 @@
 /******************************************************************************
- * @file   MathTestHelper.h
+ * @file   MathCustomTestingFramework.cpp
  * @author Valentin Dumitru
  * @date   2023-10-26
  * @brief  @todo Add description of this file if needed
@@ -14,23 +14,23 @@
 #include "engine/core/math/algebra/matrix/Matrix.h"
 
 template<typename ValueType, std::size_t N, std::size_t M>
-inline void generateMatrixWithRandomNumbers(GLESC::Math::MatrixData<ValueType, N, M> &matrix) {
+void generateMatrixWithRandomNumbers(GLESC::Math::MatrixData<ValueType, N, M> &matrix) {
     for (auto &row : matrix) {
         for (auto &element : row) {
-            element = GLESC::Math::generateRandomNumber<ValueType>();
+            element = GLESC::Math::generateRandomNumber<ValueType>(-1000, 1000);
         }
     }
 }
 
 template<typename ValueType, std::size_t N, std::size_t M>
-inline void generateMatrixWithRandomNumbers(GLESC::Math::Matrix<ValueType, N, M> &matrix) {
+void generateMatrixWithRandomNumbers(GLESC::Math::Matrix<ValueType, N, M> &matrix) {
     generateMatrixWithRandomNumbers(matrix.data);
     
 }
 
 
 template<typename T, size_t N, size_t M>
-inline void preMatCheckPrint(const GLESC::Math::MatrixData<T, N, M> &a, const GLESC::Math::MatrixData<T, N, M> &b) {
+void preMatCheckPrint(const GLESC::Math::MatrixData<T, N, M> &a, const GLESC::Math::MatrixData<T, N, M> &b) {
     
     std::cout << "Comparing matrices:\n";
     // Assuming 'toString' is part of the matrix infrastructure
@@ -47,7 +47,7 @@ inline void postMatCheckPrint() {
 
 // Matrix equality check
 template<typename T, size_t N, size_t M>
-inline void expectEqMat(const GLESC::Math::MatrixData<T, N, M> &a, const GLESC::Math::MatrixData<T, N, M> &b) {
+void expectEqMat(const GLESC::Math::MatrixData<T, N, M> &a, const GLESC::Math::MatrixData<T, N, M> &b) {
     S_ASSERT_TRUE(N > 0 && M > 0, "Matrix dimensions must be positive");
     preMatCheckPrint(a, b);
     for (size_t i = 0; i < N; ++i) {
@@ -60,7 +60,7 @@ inline void expectEqMat(const GLESC::Math::MatrixData<T, N, M> &a, const GLESC::
 }
 
 template<typename T, size_t N, size_t M>
-inline void expectNeMat(const GLESC::Math::MatrixData<T, N, M> &a, const GLESC::Math::MatrixData<T, N, M> &b) {
+void expectNeMat(const GLESC::Math::MatrixData<T, N, M> &a, const GLESC::Math::MatrixData<T, N, M> &b) {
     S_ASSERT_TRUE(N > 0 && M > 0, "Matrix dimensions must be positive");
     preMatCheckPrint(a, b);
     bool areEqual = true;
@@ -75,19 +75,19 @@ inline void expectNeMat(const GLESC::Math::MatrixData<T, N, M> &a, const GLESC::
 }
 
 template<typename T, size_t N, size_t M>
-inline void expectEqMat(const GLESC::Math::Matrix<T, N, M> &a, const GLESC::Math::Matrix<T, N, M> &b) {
+void expectEqMat(const GLESC::Math::Matrix<T, N, M> &a, const GLESC::Math::Matrix<T, N, M> &b) {
     expectEqMat(a.data, b.data);
 }
 
 template<typename T, size_t N, size_t M>
-inline void expectNeMat(const GLESC::Math::Matrix<T, N, M> &a, const GLESC::Math::Matrix<T, N, M> &b) {
+void expectNeMat(const GLESC::Math::Matrix<T, N, M> &a, const GLESC::Math::Matrix<T, N, M> &b) {
     expectNeMat(a.data, b.data);
 }
 
 
 // Vector equality check
 template<typename T, size_t N>
-inline void expectEqVec(const GLESC::Math::VectorData<T, N> &a, const GLESC::Math::VectorData<T, N> &b) {
+void expectEqVec(const GLESC::Math::VectorData<T, N> &a, const GLESC::Math::VectorData<T, N> &b) {
     std::cout << "Comparing vectors:\n";
     // Assuming 'toString' is part of the vector infrastructure
     std::cout << "Left vector: " << GLESC::Stringer::toString(a) << "\n";
@@ -102,7 +102,7 @@ inline void expectEqVec(const GLESC::Math::VectorData<T, N> &a, const GLESC::Mat
 }
 
 template<typename T, size_t N>
-inline void expectEqVec(const GLESC::Math::Vector<T, N> &a, const GLESC::Math::Vector<T, N> &b) {
+void expectEqVec(const GLESC::Math::Vector<T, N> &a, const GLESC::Math::Vector<T, N> &b) {
     expectEqVec(a.data, b.data);
 }
 

@@ -43,7 +43,7 @@ namespace GLESC {
         /**
          * @brief Get the center of the window
          */
-        [[nodiscard]] Vec2UI getWindowCenter() const;
+        [[nodiscard]] Vec2Ui getWindowCenter() const;
         
         /**
          * @brief Callback function when window size is modified
