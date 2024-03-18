@@ -1,58 +1,70 @@
 #pragma once
 
-#include "engine/core/math/algebra/vector/Vector.h"
-#include "engine/core/low-level-renderer/graphic-api/GapiStructs.h"
+
+#include <tuple>
 #include <string>
+#include "engine/core/low-level-renderer/graphic-api/GapiStructs.h"
 
 namespace GLESC {
-    
+    template <std::size_t Size, typename Type>
+    class VertexAttrib {
+    public:
+        std::size_t size;
+        Type data[Size];
+    };
+
+    template <typename... Attributes>
     class Vertex {
     public:
-        Vertex(const Vec3D& position, const Vec2F& uv, int textureIndex);
-        
-        
-        Vertex(const Vec3D& position, const RGBA& color);
-        
-        // Position and normal setters and getters
-        [[nodiscard]] Vec3D getPosition() const;
-        void setPosition(const Vec3D& position);
-        
-        [[nodiscard]] Vec3D getNormal() const;
-        void setNormal(const Vec3D& normal);
-        
-        // Color setters and getters
-        [[nodiscard]] RGBA getColor() const;
-        void setColor(const RGBA& color);
-        
-        // Texture setters and getters
-        [[nodiscard]] Vec2F getUv() const;
-        void setUv(const Vec2F& uv);
-        
-        [[nodiscard]] int getTextureIndex() const;
-        void setTextureIndex(int textureIndex);
-        
-        // ToString method for debugging
-        [[nodiscard]] std::string toString() const;
-        
-        // Operators
-        bool operator==(const Vertex& other) const;
-        bool operator<(const Vertex& other) const;
-    
+        Vertex(Attributes... args) : attributes(args...) {}
+
+        [[nodiscard]] size_t size() const {
+            return sizeof...(Attributes);
+        }
+
+        /**
+         * @brief Get the attributes of the vertex, compile time
+         * @return A tuple with the attributes of the vertex
+         */
+        template<std::size_t index>
+        [[nodiscard]] constexpr decltype(auto) getAttribute() const {
+            return std::get<index>(attributes);
+        }
+
+
+        [[nodiscard]] std::tuple<Attributes...> getAttributes() const {
+            return attributes;
+        }
+
+        [[nodiscard]] std::string toString() const {
+            std::string result = "Vertex: ";
+            std::apply([&result](auto&&... args) {
+                ((result += args.toString() + " "), ...);
+            }, attributes);
+            return result;
+        }
+
+        [[nodiscard]] bool operator==(const Vertex& other) const {
+            return attributes == other.attributes;
+        }
+
+        [[nodiscard]] bool operator!=(const Vertex& other) const {
+            return !(*this == other);
+        }
+
     private:
-        Vertex(Vec3D position, Vec3D normal, RGBA color, Vec2F uv, int textureIndex);
-        
-        Vec3D position;
-        Vec3D normal;
-        RGBA color;
-        Vec2F uv;
-        int textureIndex{-1};
+        std::tuple<Attributes...> attributes;
     };
-    
 } // namespace GLESC
 
-namespace std {
-    template<>
-    struct hash<GLESC::Vertex> {
-        std::size_t operator()(const GLESC::Vertex& v) const;
-    };
-} // namespace std
+template <typename... Attributes>
+struct std::hash<GLESC::Vertex<Attributes...>> {
+    std::size_t operator()(const GLESC::Vertex<Attributes...>& vertex) const {
+        std::size_t hash = 0;
+        std::apply([&hash](const auto&... args) {
+            // Directly call hashCombine without attempting to assign its result.
+            (..., (GLESC::Hasher::hashCombine(hash, std::hash<std::decay_t<decltype(args)>>{}(args)), void()));
+        }, vertex.getAttributes());
+        return hash;
+    }
+};

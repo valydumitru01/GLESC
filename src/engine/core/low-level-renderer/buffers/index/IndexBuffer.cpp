@@ -1,5 +1,5 @@
 /******************************************************************************
- * @file   Example.h
+ * @file   IndexBuffer.cpp
  * @author Valentin Dumitru
  * @date   2023-09-26
  * @brief @todo
@@ -12,16 +12,15 @@
 #include "engine/core/low-level-renderer/graphic-api/Gapi.h"
 using namespace GLESC;
 
-IndexBuffer::IndexBuffer(const GAPI::UInt *data, const GAPI::Size count) :
-        count(count){
+IndexBuffer::IndexBuffer(const GAPI::UInt* data, const GAPI::Size count, GAPI::BufferUsages bufferUsage) :
+    count(count) {
     getGAPI().genBuffers(1, indexBufferID);
     this->bind();
-    getGAPI().setBufferStaticData(data, count,
-                                  GAPI::BufferTypes::Index);
+    getGAPI().setIndexBufferData(data, count, bufferUsage);
 }
 
-IndexBuffer::IndexBuffer(const std::vector<GAPI::UInt> &data) :
-    IndexBuffer(data.data(), static_cast<GAPI::Size>(data.size())){}
+IndexBuffer::IndexBuffer(const std::vector<GAPI::UInt>& data, GAPI::BufferUsages bufferUsage) :
+    IndexBuffer(data.data(), static_cast<GAPI::Size>(data.size()), bufferUsage) {}
 
 IndexBuffer::~IndexBuffer() {
     destroyOnce();
@@ -41,8 +40,7 @@ void IndexBuffer::unbind() const {
 }
 
 
-
-void IndexBuffer::destroyOnce(){
+void IndexBuffer::destroyOnce() {
     if (objectAlive) {
         getGAPI().deleteBuffer(indexBufferID);
         objectAlive = false;

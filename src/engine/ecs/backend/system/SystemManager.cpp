@@ -1,5 +1,5 @@
 /******************************************************************************
- * @file   Example.h
+ * @file   SystemManager.cpp
  * @author Valentin Dumitru
  * @date   2023-09-26
  * @brief @todo
@@ -15,10 +15,12 @@
 #include "engine/core/asserts/Asserts.h"
 #include "engine/ecs/backend/asserts/system/SystemAsserts.h"
 
+using namespace GLESC::ECS;
 
-[[nodiscard]] std::set<EntityID> SystemManager::getAssociatedEntities(const SystemName& name) const {
+const std::set<EntityID>&
+SystemManager::getAssociatedEntitiesOfSystem(const SystemName& name) const {
     ASSERT_SYSTEM_IS_REGISTERED(name);
-    return associatedEntities.find(name)->second;
+    return associatedEntities.at(name);
 }
 
 void SystemManager::registerSystem(const SystemName& name) {
@@ -29,25 +31,15 @@ void SystemManager::registerSystem(const SystemName& name) {
 }
 
 void SystemManager::entitySignatureChanged(EntityID entity, Signature entitySignature) {
-    /*
-#ifdef DEBUG
-   GLESC::Logger::get().importantInfoBlue("Entity signature changed. Updated systems: ");
-    for (auto &pair : systems) {
-        auto const &system = pair.first;
-        auto const &systemSignature = pair.second.first;
-        if ((entitySignature & systemSignature) == systemSignature) {
-           GLESC::Logger::get().infoBlue("Entity" + std::to_string(entity) + " is added to " + system);
-        } else {
-           GLESC::Logger::get().infoBlue("Entity" + std::toString(entity) + " is removed from " + system);
-        }
-    }
-#endif*/
+    D_ASSERT_FALSE(systemSignatures.empty(),
+                   "All systems must be registered before entities can be associated with them");
     // Notify each system that an entity's signature changed
-    for (auto &[name, entitySet] : associatedEntities) {
+    for (auto& [name, entitySet] : associatedEntities) {
         if ((entitySignature & systemSignatures[name]) == systemSignatures[name]) {
             // If the systemSignature of the entity matches the systemSignature of the system, insert it into the set
             entitySet.insert(entity);
-        } else {
+        }
+        else {
             entitySet.erase(entity);
         }
     }
@@ -55,13 +47,13 @@ void SystemManager::entitySignatureChanged(EntityID entity, Signature entitySign
 
 void SystemManager::entityDestroyed(EntityID entity) {
     // Erase a destroyed entity from all system lists
-    for (auto &[name, entitySet] : associatedEntities) {
+    for (auto& [name, entitySet] : associatedEntities) {
         entitySet.erase(entity);
-        ASSERT_ENTITY_IS_NOT_ASSOCIATED_WITH_SYSTEM(name,entity);
+        ASSERT_ENTITY_IS_NOT_ASSOCIATED_WITH_SYSTEM(name, entity);
     }
 }
 
-bool SystemManager::isSystemRegistered(const SystemName& name) const{
+bool SystemManager::isSystemRegistered(const SystemName& name) const {
     // Check if name is contained in systems
     return systemSignatures.find(name) != systemSignatures.end();
 }
@@ -79,6 +71,7 @@ void SystemManager::addComponentRequirementToSystem(const SystemName& name,
     return it != associatedEntities.end() && it->second.find(entity) != it->second.end();
 }
 
-[[maybe_unused]] bool SystemManager::isComponentRequiredBySystem(const SystemName& system, ComponentID component) const {
+[[maybe_unused]] bool
+SystemManager::isComponentRequiredBySystem(const SystemName& system, ComponentID component) const {
     return systemSignatures.find(system)->second.test(component);
 }

@@ -12,7 +12,7 @@
 #include <SDL2/SDL.h>
 #include <gtest/gtest.h>
 
-#include "LoopHelper.h"
+#include "LoopHelper.cpp"
 #include "engine/core/low-level-renderer/buffers/index/IndexBuffer.h"
 #include "engine/core/low-level-renderer/buffers/vertex/VertexArray.h"
 #include "engine/core/low-level-renderer/buffers/vertex/VertexBuffer.h"
@@ -54,7 +54,8 @@ protected:
         
         vao = new GLESC::VertexArray();
         vao->bind();
-        vbo = new GLESC::VertexBuffer(positionAndUVVertices);
+        vbo = new GLESC::VertexBuffer(positionAndUVVertices.data(), positionAndUVVertices.size(),
+            positionAndUVVertices.size() * sizeof(float) * 2, GAPI::BufferUsages::StaticDraw);
         ibo = new GLESC::IndexBuffer(indices);
         
         GLESC::VertexBufferLayout layout;

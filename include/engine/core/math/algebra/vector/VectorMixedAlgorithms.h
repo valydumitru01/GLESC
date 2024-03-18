@@ -47,11 +47,17 @@ namespace GLESC::Math {
             VectorData<Type, 3> v2;
             VectorAlgorithms::vectorSub(p3, p1, v2);
 
+            // Early return if either vector is zero, indicating two points are the same
+            // and therefore collinear with any third point
+            if (VectorAlgorithms::isZero(v1) || VectorAlgorithms::isZero(v2)) {
+                return true;
+            }
+
             // Calculate the cross product of v1 and v2
             VectorData<Type, 3> crossProduct;
             VectorAlgorithms::crossProduct(v1, v2, crossProduct);
 
-            // If the cross product is (0,0,0), the points are collinear
+            // If the cross product is almost (0,0,0), the points are collinear
             return VectorAlgorithms::isZero(crossProduct);
         }
 
@@ -72,6 +78,7 @@ namespace GLESC::Math {
                 // Fewer than two points, trivially collinear
                 return true;
             }
+
 
             // Iterate over each set of three points including the reference point
             for (size_t i = 0; i < points.size() - 1; ++i) {

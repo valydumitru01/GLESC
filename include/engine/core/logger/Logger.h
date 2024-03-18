@@ -50,7 +50,9 @@ namespace GLESC {
         void error(const std::string &text) override;
         
         void warning(const std::string &text) override;
-        
+
+        void nonImportantInfo(const std::string &text) override;
+
         void info(const std::string &text) override;
         
         void infoBlue(const std::string &text) override;
@@ -62,6 +64,8 @@ namespace GLESC {
         void importantInfoBlue(const std::string &text) override;
         
         void importantInfoPurple(const std::string &text) override;
+
+        void importantInfoWhite(const std::string &text) override;
         
         void importantSuccess(const std::string &text) override;
         

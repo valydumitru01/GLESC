@@ -11,31 +11,35 @@
 
 #include "VertexBuffer.h"
 #include "VertexBufferLayout.h"
+#include "engine/core/low-level-renderer/buffers/index/IndexBuffer.h"
 
 namespace GLESC {
     class VertexArray {
     public:
         VertexArray();
-        
+
         ~VertexArray();
-        
+
+        [[nodiscard]] GAPI::UInt getRendererID() const { return vertexArrayID; }
+
         void destroy();
-        
-        void addBuffer(const GLESC::VertexBuffer &vb, const GLESC::VertexBufferLayout &layout);
-        
+
+        /**
+         * @brief Add a vertex buffer to the vertex array
+         * @details The vertex buffer and the layout are moved, so they will be invalid after this call
+         * @param vb The vertex buffer to add
+         * @param layout The layout of the vertex buffer
+         */
+        void addBuffer(const VertexBuffer& vb, const VertexBufferLayout& layout);
+
         void bind() const;
-        
+
         void unbind() const;
-        
-        [[nodiscard]] GAPI::UInt getRendererID() const {
-            return vertexArrayID;
-        }
-    
+
     private:
         void destroyOnce();
-        
+
         bool objectAlive = true;
         GAPI::UInt vertexArrayID{0};
     }; // class VertexArray
-    
 } // namespace GLESC

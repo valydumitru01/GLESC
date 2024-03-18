@@ -1,5 +1,5 @@
 /******************************************************************************
- * @file   Example.h
+ * @file   Math.h
  * @author Valentin Dumitru
  * @date   2023-09-26
  * @brief @todo
@@ -21,18 +21,16 @@ namespace GLESC::Math {
     constexpr float FLOAT_COMPARISON_EPSILON = 1e-6f;
     constexpr double DOUBLE_COMPARISON_EPSILON = 1e-10;
 
-    constexpr float PI = 3.1415926; // 7 digits of precision
-    constexpr double PI_DOUBLE = 3.1415926535897932; // 16 digits of precision
+    constexpr double PI = 3.14159265358979323846264338327950288419716939937510;
 
     template <typename Type>
     constexpr Type pi() noexcept {
-        if constexpr (std::is_same_v<Type, float>)
-            return PI;
-        else if constexpr (std::is_same_v<Type, double>)
-            return PI_DOUBLE;
-        else
-            static_assert(std::is_floating_point_v<Type>,
-                          "PI is only defined for floating point types");
+        if constexpr (std::is_floating_point<Type>::value) {
+            return static_cast<Type>(PI);
+        }
+        else {
+            return Type(3);
+        }
     }
 
     template <typename Type>
@@ -75,34 +73,8 @@ namespace GLESC::Math {
     }
 
 
-    /**
-     * @brief Calculates the min of two values, returns the value with the type of the largest precision between the two
-     *        If the types are different, promotes to the common type before comparison.
-     *        For floating-point comparisons, uses an epsilon value to consider precision issues. (@see GLESC::Math::eq)
-     * @tparam Type1 The type of the first value.
-     * @tparam Type2 The type of the second value.
-     * @param a The first value.
-     * @param b The second value.
-     * @return The min of the two values, promoted to the common type of the two input types.
-     */
-    template <typename Type1, typename Type2>
-    constexpr auto min(Type1 a, Type2 b) {
-        using CommonType = std::common_type_t<Type1, Type2>;
-
-        if constexpr (std::is_floating_point_v<CommonType>) {
-            // Use eq for comparison
-            if (eq(a, b)) {
-                return a; // or return b; both are equal as per eq
-            }
-            return static_cast<CommonType>(a) < static_cast<CommonType>(b) ? a : b;
-        }
-        else {
-            return a < b ? a : b;
-        }
-    }
-
     template <typename Type>
-    constexpr Type abs(const Type &value) {
+    constexpr Type abs(const Type& value) {
         S_ASSERT_TRUE(std::is_arithmetic_v<Type>, "Type must be arithmetic");
         if constexpr (std::is_floating_point_v<Type>) {
             return std::fabs(value);
@@ -122,7 +94,20 @@ namespace GLESC::Math {
         }
     }
 
+    template <typename Type1, typename Type2, typename Type3>
+    constexpr Type1 clamp(const Type1& value, const Type2& min, const Type3& max) {
+        if (value < min) {
+            return min;
+        }
+        if (value > max) {
+            return max;
+        }
+        return value;
+    }
+
+
     constexpr double EPSILON_MULTIPLIER_FOR_EQUALITY = 100;
+
     template <typename T1, typename T2>
     struct SelectSmallerFloatingType {
         using type = std::conditional_t<
@@ -133,12 +118,11 @@ namespace GLESC::Math {
     };
 
 
-    template < typename LValueT, typename RValueT >
+    template <typename LValueT, typename RValueT>
     constexpr bool eq(const LValueT& left, const RValueT& right, const double epsilon) {
         static_assert(std::is_arithmetic_v<LValueT> && std::is_arithmetic_v<RValueT>,
                       "Types must be arithmetic");
         if constexpr (std::is_floating_point_v<LValueT> || std::is_floating_point_v<RValueT>) {
-
             // Fixed epsilon comparison
             return std::abs(left - right) < epsilon;
         }
@@ -169,10 +153,23 @@ namespace GLESC::Math {
         }
     }
 
+
     /**
-     * @brief Calculates the max of two values, returns the value with the type of the largest precision between the two
-     *        If the types are different, promotes to the common type before comparison.
-     *        For floating-point comparisons, uses an epsilon value to consider precision issues.(@see GLESC::Math::eq)
+     * @brief Calculates the min of two values
+     * @tparam Type1 The type of the first value.
+     * @tparam Type2 The type of the second value.
+     * @param a The first value.
+     * @param b The second value.
+     * @return The min of the two values, promoted to the common type of the two input types.
+     */
+    template <typename Type1, typename Type2>
+    constexpr auto min(const Type1 a, const Type2 b) {
+        using CommonType = std::common_type_t<Type1, Type2>;
+        return a < b ? static_cast<CommonType>(a) : static_cast<CommonType>(b);
+    }
+
+    /**
+     * @brief Calculates the max of two values
      * @tparam Type1 The type of the first value.
      * @tparam Type2 The type of the second value.
      * @param a The first value.
@@ -180,33 +177,22 @@ namespace GLESC::Math {
      * @return The max of the two values, promoted to the common type of the two input types.
      */
     template <typename Type1, typename Type2>
-    constexpr auto max(Type1 a, Type2 b) {
+    constexpr auto max(const Type1 a, const Type2 b) {
         using CommonType = std::common_type_t<Type1, Type2>;
-
-        if constexpr (std::is_floating_point_v<CommonType>) {
-            // Use eq for comparison
-            if (Math::eq(a, b)) {
-                return a; // or return b; both are equal as per eq
-            }
-            return static_cast<CommonType>(a) > static_cast<CommonType>(b) ? a : b;
-        }
-        else {
-            return a > b ? a : b;
-        }
+        return a > b ? static_cast<CommonType>(a) : static_cast<CommonType>(b);
     }
 
-
-    template <typename T>
-    T sqrt(const T& value) {
-        S_ASSERT_TRUE(std::is_arithmetic_v<T>, "Type must be arithmetic");
-        D_ASSERT_TRUE(value >= T(0), "Value must be positive");
-        T result = T();
-        if constexpr (std::is_arithmetic_v<T>) {
-            if constexpr (std::is_integral_v<T>) {
-                return static_cast<T>(std::round(std::sqrt(static_cast<double>(value))));
+    template <typename Type>
+    Type sqrt(const Type& value) {
+        S_ASSERT_TRUE(std::is_arithmetic_v<Type>, "Type must be arithmetic");
+        D_ASSERT_TRUE(value >= Type(0), "Value must be positive");
+        Type result = Type();
+        if constexpr (std::is_arithmetic_v<Type>) {
+            if constexpr (std::is_integral_v<Type>) {
+                return static_cast<Type>(std::round(std::sqrt(static_cast<double>(value))));
             }
             else {
-                return static_cast<T>(std::sqrt(value));
+                return static_cast<Type>(std::sqrt(value));
             }
         }
         else {

@@ -1,6 +1,5 @@
-
 /******************************************************************************
- * @file   Example.h
+ * @file   Entity.cpp
  * @author Valentin Dumitru
  * @date   2023-09-26
  * @brief @todo
@@ -10,13 +9,11 @@
  ******************************************************************************/
 
 #include "engine/ecs/frontend/entity/Entity.h"
+using namespace GLESC::ECS;
 
-using namespace GLESC;
-GLESC::Entity::Entity(const EntityName& name, ECS& ecs) : ID(ecs.createEntity(name)), ecs(ecs) {
-}
+Entity::Entity(const EntityName& name, ECSCoordinator& ecs) : ID(ecs.createEntity(name)), ecs(ecs) {}
 
-GLESC::Entity::Entity(EntityID id, ECS& ecs) : ID(id), ecs(ecs) {
-}
+Entity::Entity(EntityID id, ECSCoordinator& ecs) : ID(id), ecs(ecs) {}
 
 void Entity::destroy() {
     ecs.destroyEntity(ID);
@@ -25,4 +22,3 @@ void Entity::destroy() {
 EntityName Entity::getName() const {
     return ecs.getEntityName(ID);
 }
-

@@ -10,8 +10,8 @@
  *
  * It's also needed to choose the version of the shader language.
  * The shader language in use is GLSL. Therefore, the version of the shader language is the same as
- * the version of OpenGL. So, if you choose to render with OpenGL, the shader language version will
- * be the same as the OpenGL version. But if you choose to render with Vulkan or DirectX, you must
+ * the version of OpenGL. So, if you choose to update with OpenGL, the shader language version will
+ * be the same as the OpenGL version. But if you choose to update with Vulkan or DirectX, you must
  * choose the version of the shader language, leaving the GL version uncommented.
  *
  * Copyright (c) 2023 Valentin Dumitru. Licensed under the MIT License.

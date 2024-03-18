@@ -34,7 +34,7 @@ WindowManager::WindowManager() {
     
     // Enable mouse relative mode
     // This will make the mouse cursor invisible and locked in the middle of the screen
-    setMouseRelative(true);
+    //setMouseRelative(true);
     setIcon("textures/TinyLogo.bmp");
 }
 
@@ -149,9 +149,11 @@ uint32_t WindowManager::getRaisedFlags() {
     // Window has no borders
     // flags |= SDL_WINDOW_BORDERLESS;
     // Window grabs input focus
-    flags |= SDL_WINDOW_INPUT_GRABBED;
+    // flags |= SDL_WINDOW_INPUT_GRABBED;
     // Window enables High pixel density if supported by monitor
     flags |= SDL_WINDOW_ALLOW_HIGHDPI;
+    // Window is resizable
+    flags |= SDL_WINDOW_RESIZABLE;
     
     return flags;
 }
@@ -160,7 +162,7 @@ uint32_t WindowManager::getRaisedFlags() {
 void WindowManager::initSDL() {
     int result = SDL_Init(SDL_INIT_EVERYTHING);
     D_ASSERT_EQUAL(result, 0, "Unable to initialize SDL: " + std::string(SDL_GetError()));
-    GLESC::Logger::get().success("SDL Initialized!");
+    Logger::get().success("SDL Initialized!");
 }
 
 
@@ -171,7 +173,7 @@ SDL_Window *WindowManager::createWindow(const char *title) {
                              GLESC_WINDOW_HEIGHT, flags);
     D_ASSERT_NOT_EQUAL(tempWindow, nullptr,
                        "Unable to create windowManager: " + std::string(SDL_GetError()));
-    GLESC::Logger::get().success("Window created!");
+    Logger::get().success("Window created!");
     SDLCall(SDL_SetWindowMinimumSize(tempWindow, windowMinWidth, windowMinHeight));
     
     return tempWindow;
@@ -181,5 +183,5 @@ void WindowManager::destroyWindow() {
     getGAPI().deleteContext();
     SDLCall(SDL_DestroyWindow(window));
     SDLCall(SDL_Quit());
-    GLESC::Logger::get().success("Window destroyed!");
+    Logger::get().success("Window destroyed!");
 }

@@ -13,10 +13,10 @@
 
 class MeshMaterialKey {
 public:
-    GLESC::Mesh mesh;
+    GLESC::ColorMesh mesh;
     GLESC::Material material;
     
-    MeshMaterialKey(const Mesh& m, const Material& mat)
+    MeshMaterialKey(const GLESC::ColorMesh& m, const GLESC::Material& mat)
             : mesh(m), material(mat) {}
     
     // Equality operator
@@ -25,10 +25,11 @@ public:
     }
 };
 
-// Custom hash function for MeshMaterialKey
-class MeshMaterialKeyHash {
+class MeshMaterialHash {
 public:
-    size_t operator()(const MeshMaterialKey& key) const {
-        return std::hash<Mesh>()(key.mesh) ^ std::hash<Material>()(key.material);
+    std::size_t operator()(const MeshMaterialKey& key) const {
+        std::size_t hash = std::hash<GLESC::ColorMesh>()(key.mesh);
+        GLESC::Hasher::hashCombine(hash, std::hash<GLESC::Material>()(key.material));
+        return hash;
     }
 };

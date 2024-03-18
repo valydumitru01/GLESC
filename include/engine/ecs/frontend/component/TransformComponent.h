@@ -7,21 +7,14 @@
 #pragma once
 
 #include "IComponent.h"
-#include "engine/core/math/debugger/MathDebugger.h"
 #include "engine/core/math/algebra/vector/Vector.h"
+#include "engine/subsystems/transform/Transform.h"
 
-struct TransformComponent : public IComponent {
-    Vec3D position{0.0};
-    Vec3D rotation{0.0};
-    Vec3D scale{1.0};
+struct TransformComponent : IComponent {
+    GLESC::Transform transform;
     
     std::string toString() override {
-        return "TransformComponent:"
-               + std::string("\n\tposition: ")
-               + position.toString()
-               + std::string("\n\trotation: ")
-               + rotation.toString()
-               + std::string("\n\tscale: ")
-               + scale.toString();
+        return "TransformComponent:\n"
+               + transform.toString();
     }
 };

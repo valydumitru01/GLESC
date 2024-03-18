@@ -8,10 +8,10 @@
  * See LICENSE.txt in the project root for license information.
  ******************************************************************************/
 #include <gtest/gtest.h>
-#include "unit/engine/core/math/algebra/matrix/MatrixTestsHelper.cpp"
 #include "engine/core/math/algebra/matrix/MatrixAlgorithms.h"
 #include "unit/engine/core/math/MathCustomTestingFramework.cpp"
-#ifdef ALGEBRA_TESTING
+#include "unit/engine/core/math/algebra/matrix/MatrixTestsHelper.cpp"
+#ifdef MATH_ALGEBRA_UNIT_TESTING
 template <class Type>
 class MatrixTests : public testing::Test {
 protected:
@@ -38,7 +38,7 @@ TYPED_TEST(MatrixTests, DefaultConstructors) {
     // Default constructor
     Mat matrixDefault;
     Mat expectedDefault;
-    GLESC::Math::MatrixAlgorithms::setMatrxZero(expectedDefault.data);
+    GLESC::Math::MatrixAlgorithms::setMatrixZero(expectedDefault.data);
     EXPECT_EQ_MAT(matrixDefault, expectedDefault);
 }
 
@@ -408,7 +408,7 @@ TYPED_TEST(MatrixTests, MatrixTranslate) {
     if constexpr (N == M) {
         // Translate
         auto translateVec = VectorT<Type, N - 1>(1);
-        Mat matrixTranslateResult = this->matrix.translate(translateVec);
+        Mat matrixTranslateResult = this->matrix.setTranslate(translateVec);
         Mat expectedTranslateResult = this->matrix;
 
         for (size_t i = 0; i < N - 1; ++i) {
@@ -429,9 +429,9 @@ TYPED_TEST(MatrixTests, MatrixScale) {
         // Scale
         auto scaleVec = VectorT<Type, N - 1>(2);
         Mat matrixTransform = this->matrix;
-        Mat matrixScaleResult = this->matrix.scale(scaleVec);
+        Mat matrixScaleResult = this->matrix.setScale(scaleVec);
         Mat expectedScaleResult;
-        GLESC::Math::MatrixAlgorithms::scale(matrixTransform.data, scaleVec.data, expectedScaleResult.data);
+        GLESC::Math::MatrixAlgorithms::setScale(matrixTransform.data, scaleVec.data, expectedScaleResult.data);
 
 
         EXPECT_EQ_MAT(matrixScaleResult, expectedScaleResult);

@@ -1,5 +1,5 @@
 /******************************************************************************
- * @file   Example.h
+ * @file   RenderSystem.h
  * @author Valentin Dumitru
  * @date   2023-09-26
  * @brief @todo
@@ -10,16 +10,17 @@
 
 #pragma once
 
-#include "engine/ecs/frontend/component/RenderComponent.h"
-#include "engine/ecs/frontend/component/TransformComponent.h"
 #include "engine/ecs/frontend/system/System.h"
-
 #include "engine/subsystems/renderer/Renderer.h"
 
-class RenderSystem : public System {
-public:
-    void update(double timeOfFrame);
-    explicit RenderSystem(GLESC::Renderer &renderer, GLESC::ECS& ecs);
-private:
-    GLESC::Renderer &renderer;
-};
+
+namespace GLESC::ECS {
+    class RenderSystem : public System {
+    public:
+        explicit RenderSystem(Renderer& renderer, ECSCoordinator& ecs);
+        void update();
+
+    private:
+        Renderer& renderer;
+    };
+}

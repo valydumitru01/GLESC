@@ -1,5 +1,5 @@
 /******************************************************************************
- * @file   Example.h
+ * @file   ComponentManager.cpp
  * @author Valentin Dumitru
  * @date   2023-09-26
  * @brief @todo
@@ -9,10 +9,25 @@
  ******************************************************************************/
 
 #include "engine/ecs/backend/component/ComponentManager.h"
-using namespace GLESC;
+using namespace GLESC::ECS;
 
 void ComponentManager::entityDestroyed(EntityID entity) {
-    for (auto const &[name, array] : componentArrays) {
+    for (auto const& [name, array] : componentArrays) {
         array->removeData(entity);
     }
 }
+
+bool ComponentManager::isComponentRegistered(ComponentID componentID) const {
+    return componentIDs.right.find(componentID) != componentIDs.right.end();
+}
+
+ComponentName ComponentManager::getComponentName(ComponentID componentID) const {
+    ASSERT_IS_COMPONENT_REGISTERED_BY_ID(componentID);
+
+    return componentIDs.right.at(componentID);
+}
+
+IComponent& ComponentManager::getComponent(EntityID entity, ComponentID componentID) const {
+    return componentArrays.at(getComponentName(componentID))->getComponent(entity);
+}
+

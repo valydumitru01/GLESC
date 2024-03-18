@@ -4,7 +4,7 @@
  * @date   16/01/2024
  * @brief  Add description of this file if needed @TODO
  *
- * Copyright (c) 2023 Valentin Dumitru. Licensed under the MIT License.
+ * Copyright (c) 2024 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
  **************************************************************************************************/
 #pragma once
@@ -16,7 +16,7 @@
 #include "unit/engine/core/math/algebra/vector/VectorTestsHelper.cpp"
 #include "unit/engine/core/math/MathCustomTestingFramework.cpp"
 
-#ifdef ALGEBRA_TESTING
+#ifdef MATH_ALGEBRA_UNIT_TESTING
 template <typename Type>
 class VectorTests : public ::testing::Test {
 protected:
@@ -537,7 +537,40 @@ TYPED_TEST(VectorTests, VectorIsZero) {
     // Non-zero vector
     Vec nonZero = this->v1;
     EXPECT_FALSE(nonZero.isZero());
+}
 
+TYPED_TEST(VectorTests, VectorClamp) {
+    PREPARE_TEST();
+
+    TEST_SECTION("Vector clamp with values");
+    Type min = Type(1);
+    Type max = Type(5);
+
+    this->result = this->v1;
+    this->result.clamp(min, max);
+
+    this->expected = this->v1;
+    GLESC::Math::VectorAlgorithms::clampWithValues(this->expected.data, min, max, this->expected.data);
+
+    EXPECT_EQ_VEC(this->result, this->expected);
+
+    TEST_SECTION("Vector clamp with vector");
+    Vec minVec;
+    for (size_t i = 0; i < N; ++i) {
+        minVec[i] = Type(i + 1);
+    }
+    Vec maxVec;
+    for (size_t i = 0; i < N; ++i) {
+        maxVec[i] = Type(i + 5);
+    }
+
+    this->result = this->v1;
+    this->result.clamp(minVec, maxVec);
+
+    this->expected = this->v1;
+    GLESC::Math::VectorAlgorithms::clampWithVectors(this->expected.data, minVec.data, maxVec.data, this->expected.data);
+
+    EXPECT_EQ_VEC(this->result, this->expected);
 }
 
 TYPED_TEST(VectorTests, VectorSum) {
@@ -553,7 +586,7 @@ TYPED_TEST(VectorTests, Abs) {
     PREPARE_TEST();
 
     // Give v1 negative values
-    Vec abs=-this->v1;
+    Vec abs = -this->v1;
     abs = this->v1.abs();
     EXPECT_EQ_VEC(this->v1.data, abs.data);
 
@@ -751,7 +784,7 @@ TYPED_TEST(VectorTests, VectorMultiple) {
 
 TYPED_TEST(VectorTests, VectorCollinearityOperator) {
     PREPARE_TEST();
-    if constexpr (N==3) {
+    if constexpr (N == 3) {
         // Two vectors are always collinear
         std::vector<Vec> collinearVecs = {this->v2};
         EXPECT_TRUE(this->v1.isCollinear(collinearVecs));
@@ -762,11 +795,20 @@ TYPED_TEST(VectorTests, VectorCollinearityOperator) {
         collinearVecs.push_back(this->v1 * Type(0.33));
         EXPECT_TRUE(this->v1.isCollinear(collinearVecs));
 
-        // Non-collinear vectors
+        // Two equal, one different, they are collinear
         Vec nonCollinear = this->v1;
-        nonCollinear[0] += Type(1); // Make it non-collinear
+        nonCollinear[0] += Type(1); // Make it different
         std::vector<Vec> nonCollinearVecs = {nonCollinear, this->v1};
-        EXPECT_FALSE(this->v1.isCollinear(nonCollinearVecs));
+        EXPECT_TRUE(this->v1.isCollinear(nonCollinearVecs));
+
+        // 3 vectors, all different, not collinear
+        Vec nonCollinear2 = this->v1;
+        Vec nonCollinear3 = this->v1;
+        nonCollinear2[0] += Type(1);
+        nonCollinear3[0] += Type(2);
+        nonCollinear3[1] += Type(6);
+        std::vector<Vec> nonCollinearVecs2 = {nonCollinear2, nonCollinear3};
+        EXPECT_FALSE(this->v1.isCollinear(nonCollinearVecs2));
     }
 }
 

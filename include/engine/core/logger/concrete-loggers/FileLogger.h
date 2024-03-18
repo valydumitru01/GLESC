@@ -6,6 +6,8 @@
 
 #pragma once
 #include <fstream>
+
+#include "engine/core/file-system/FileSystemPath.h"
 #include "engine/core/logger/ILogger.h"
 
 class FileLogger : public ILogger
@@ -20,7 +22,9 @@ public:
     void error(const std::string &text) override;
     
     void warning(const std::string &text) override;
-    
+
+    void nonImportantInfo(const std::string& text) override;
+
     void info(const std::string &text) override;
     
     void infoBlue(const std::string &text) override;
@@ -32,6 +36,8 @@ public:
     void importantInfoBlue(const std::string &text) override;
     
     void importantInfoPurple(const std::string &text) override;
+
+    void importantInfoWhite(const std::string &text) override;
     
     void importantSuccess(const std::string &text) override;
     

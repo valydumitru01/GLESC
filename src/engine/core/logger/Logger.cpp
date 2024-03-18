@@ -19,7 +19,7 @@ Logger::Logger() {
     addLogger(std::make_unique<FileLogger>());
 }
 
-Logger&GLESC::Logger::get() {
+Logger&Logger::get() {
     static Logger logger = Logger();
     return logger;
 }
@@ -46,6 +46,10 @@ void Logger::warning(const std::string &text){
     executeOnAllInputs(&ILogger::warning, text);
 }
 
+void Logger::nonImportantInfo(const std::string &text){
+    executeOnAllInputs(&ILogger::nonImportantInfo, text);
+}
+
 void Logger::info(const std::string &text){
     executeOnAllInputs(&ILogger::info, text);
 }
@@ -68,6 +72,10 @@ void Logger::importantInfoBlue(const std::string &text){
 
 void Logger::importantInfoPurple(const std::string &text){
     executeOnAllInputs(&ILogger::importantInfoPurple, text);
+}
+
+void Logger::importantInfoWhite(const std::string &text){
+    executeOnAllInputs(&ILogger::importantInfoWhite, text);
 }
 
 void Logger::success(const std::string &text){

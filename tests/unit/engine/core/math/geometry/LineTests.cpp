@@ -8,11 +8,12 @@
  * See LICENSE.txt in the project root for license information.
  ******************************************************************************/
 
+#include "TestsConfig.cpp"
+#if MATH_GEOMETRY_UNIT_TESTING
 #include <gtest/gtest.h>
 #include <engine/core/math/geometry/GeometryTypes.h>
 #include <engine/core/math/geometry/figures/line/Line.h>
 #include <unit/engine/core/math/MathCustomTestingFramework.cpp>
-
 using namespace GLESC::Math;
 TEST(LineTests, Constructor) {
     // Test construction with point and direction
@@ -31,7 +32,7 @@ TEST(LineTests, Constructor) {
     
     // Expect death when constructing with a zero direction
     Direction zeroDirection(0, 0, 0);
-    EXPECT_DEATH(Line line3(Point(0, 0, 0), zeroDirection), "");
+    EXPECT_THROW(Line line3(Point(0, 0, 0), zeroDirection), AssertFailedException);
 }
 
 TEST(LineTests, IntersectsAnotherLine) {
@@ -73,3 +74,4 @@ TEST(LineTests, DirectionNormalization) {
     EXPECT_EQ_CUSTOM(line2.getDirection().length(), 1.0);
     
 }
+#endif

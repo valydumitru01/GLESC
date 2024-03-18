@@ -34,6 +34,10 @@ void FileLogger::warning(const std::string &text) {
     logFile << "[WARNING] " << text << std::endl;
 }
 
+void FileLogger::nonImportantInfo(const std::string &text) {
+    logFile << "[NON IMPORTANT INFO] " << text << std::endl;
+}
+
 void FileLogger::info(const std::string &text) {
     logFile << "[INFO] " << text << std::endl;
 }
@@ -56,6 +60,10 @@ void FileLogger::importantInfoBlue(const std::string &text) {
 
 void FileLogger::importantInfoPurple(const std::string &text) {
     logFile << "[IMPORTANT INFO Purple] " << text << std::endl;
+}
+
+void FileLogger::importantInfoWhite(const std::string &text) {
+    logFile << "[IMPORTANT INFO White] " << text << std::endl;
 }
 
 void FileLogger::importantSuccess(const std::string &text) {

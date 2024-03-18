@@ -26,55 +26,45 @@ public:
     }
     
     
-    [[nodiscard]] bool intersects(const GLESC::Math::Figure &volume) const {
+    [[nodiscard]] bool intersects(const BoundingVolume &volume) const {
         // Check each plane for intersection with the volume
         for (const auto &plane : planes) {
-            if (!volume.intersects(plane)) {
+            if (!volume.getTopology().intersects(plane)) {
                 return false;
             }
         }
         return true;
     }
-    
-    [[nodiscard]] bool intersects(const GLESC::Math::Polyhedron &polyhedron) const {
-        // Check each plane for intersection with the volume
-        for (const auto &plane : planes) {
-            if (!polyhedron.intersects(plane)) {
-                return false;
-            }
-        }
-        return true;
-    }
-
 private:
     void extractPlanesFromViewProjectionMatrix(const Mat4D &vpm) {
+        D_ASSERT_TRUE(vpm.isValidViewMatrix(), "Matrix is not a valid view matrix");
         // Left Plane
-        planes[0] = Plane(Vec3D(vpm[0][3] + vpm[0][0],
-                                    vpm[1][3] + vpm[1][0],
-                                    vpm[2][3] + vpm[2][0]), vpm[3][3] + vpm[3][0]);
+        planes[0] = GLESC::Math::Plane(Vec3D(vpm[0][3] + vpm[0][0],
+                                             vpm[1][3] + vpm[1][0],
+                                             vpm[2][3] + vpm[2][0]), vpm[3][3] + vpm[3][0]);
         
         // Right Plane
-        planes[1] = Plane(Vec3D(vpm[0][3] - vpm[0][0],
+        planes[1] = GLESC::Math::Plane(Vec3D(vpm[0][3] - vpm[0][0],
                                     vpm[1][3] - vpm[1][0],
                                     vpm[2][3] - vpm[2][0]), vpm[3][3] - vpm[3][0]);
         
         // Bottom Plane
-        planes[2] = Plane(Vec3D(vpm[0][3] + vpm[0][1],
+        planes[2] = GLESC::Math::Plane(Vec3D(vpm[0][3] + vpm[0][1],
                                     vpm[1][3] + vpm[1][1],
                                     vpm[2][3] + vpm[2][1]), vpm[3][3] + vpm[3][1]);
         
         // Top Plane
-        planes[3] = Plane(Vec3D(vpm[0][3] - vpm[0][1],
+        planes[3] = GLESC::Math::Plane(Vec3D(vpm[0][3] - vpm[0][1],
                                     vpm[1][3] - vpm[1][1],
                                     vpm[2][3] - vpm[2][1]), vpm[3][3] - vpm[3][1]);
         
         // Near Plane
-        planes[4] = Plane(Vec3D(vpm[0][3] + vpm[0][2],
+        planes[4] = GLESC::Math::Plane(Vec3D(vpm[0][3] + vpm[0][2],
                                     vpm[1][3] + vpm[1][2],
                                     vpm[2][3] + vpm[2][2]), vpm[3][3] + vpm[3][2]);
         
         // Far Plane
-        planes[5] = Plane(Vec3D(vpm[0][3] - vpm[0][2],
+        planes[5] = GLESC::Math::Plane(Vec3D(vpm[0][3] - vpm[0][2],
                                     vpm[1][3] - vpm[1][2],
                                     vpm[2][3] - vpm[2][2]), vpm[3][3] - vpm[3][2]);
     }

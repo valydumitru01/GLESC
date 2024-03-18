@@ -41,12 +41,8 @@ W
 'include/engine/core/debugger/Debugger.h,d\0\d0c0a520391af322d0292a638913289e86dfcd33
 `
 0include/engine/core/math/debugger/MathDebugger.h,6\2\6290e267af2680f6decff9eb6621017485d38e27
-x
-Hinclude/engine/ecs/backend/debugger/component/ComponentManagerDebugger.h,0\2\02a4196816d6b9cd7329917adebd9946ee52f488
 m
 =src/engine/core/low-level-renderer/texture/TextureManager.cpp,4\d\4df485364b5dab1de26a5228c39f00d634b1930e
-r
-Binclude/engine/ecs/backend/debugger/entity/EntityManagerDebugger.h,2\a\2a8a0512c054b54e894d2c629a50f2b245d4b88f
 l
 <include/engine/core/low-level-renderer/asserts/GAPIAsserts.h,b\3\b395799a207004d63ea22ce19d5d9d1efc2e88e1
 C

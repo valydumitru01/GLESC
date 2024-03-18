@@ -1,5 +1,5 @@
 /******************************************************************************
- * @file   Example.h
+ * @file   System.cpp
  * @author Valentin Dumitru
  * @date   2023-09-26
  * @brief @todo
@@ -10,9 +10,9 @@
 
 #include "engine/ecs/frontend/system/System.h"
 
-using namespace GLESC;
+using namespace GLESC::ECS;
 
-System::System(GLESC::ECS &ecs, const SystemName& name) : ecs(ecs), name(name) {
+System::System(ECSCoordinator &ecs, const SystemName& name) : ecs(ecs), name(name) {
     ecs.registerSystem(name);
 }
 

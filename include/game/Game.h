@@ -12,10 +12,11 @@
 
 #include "engine/GLESC.h"
 
-class Game : public Engine {
-
+class Game {
 public:
-
+    Game(GLESC::Engine& engine);
+    void update();
 private:
-    Game();
-};
+    GLESC::Engine& engine;
+}; // class Game
+

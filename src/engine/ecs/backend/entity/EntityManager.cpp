@@ -1,7 +1,5 @@
-
-
 /******************************************************************************
- * @file   Example.h
+ * @file   EntityManager.cpp
  * @author Valentin Dumitru
  * @date   2023-09-26
  * @brief @todo
@@ -12,74 +10,82 @@
 
 #include "engine/ecs/backend/entity/EntityManager.h"
 #include "engine/ecs/backend/asserts/entity/EntityAsserts.h"
-#include "engine/ecs/backend/debugger/entity/EntityManagerDebugger.h"
 
-using namespace GLESC;
+using namespace GLESC::ECS;
 
 
 EntityManager::EntityManager() {
     // Initialize the queue with all possible entity IDs
-    for (EntityID entity = EntityID(); static_cast<unsigned int>(entity) < maxEntities; ++entity) {
+    for (EntityID entity = firstEntity; entity < maxEntities + firstEntity; ++entity) {
         availableEntities.push(entity);
     }
 }
 
-EntityID EntityManager::createNextEntity(EntityName name) {
+EntityID EntityManager::createNextEntity(const EntityName& name) {
     ASSERT_ENTITY_CAN_BE_CREATED(name);
-    PRINT_ENTITIES_STATUS(*this, "Before creating entity");
     
     EntityID id = availableEntities.front();
     availableEntities.pop();
     entityIDs.insert({name, id});
     ++livingEntityCount;
-    
-    PRINT_ENTITIES_STATUS(*this, "After creating entity");
-    ASSERT_ENTITY_IS_ALIVE(id);
+
+    ASSERT_ENTITY_EXISTS(id);
     return id;
 }
 
 void EntityManager::destroyEntity(EntityID entity) {
-    ASSERT_ENTITY_IS_ALIVE(entity);
-    PRINT_ENTITIES_STATUS(*this, "After destroying entity");
+    ASSERT_THERE_ARE_LIVING_ENTITIES();
+    ASSERT_ENTITY_EXISTS(entity);
     
     signatures[entity].reset();
     availableEntities.push(entity);
     entityIDs.right.erase(entity);
     --livingEntityCount;
-    
-    PRINT_ENTITIES_STATUS(*this, "Before destroying entity");
+
+    ASSERT_ENTITY_DOESNT_EXIST(entity);
     ASSERT_ENTITY_IS_NOT_ALIVE(entity);
-    ASSERT_ENTITY_NAME_IS_NOT_ALIVE(getEntityName(entity));
 }
 
 Signature EntityManager::getSignature(EntityID entity) const {
-    ASSERT_ENTITY_IS_ALIVE(entity);
+    ASSERT_ENTITY_EXISTS(entity);
     return signatures[entity];
 }
 
 bool EntityManager::doesEntityHaveComponent(EntityID entity, ComponentID componentID) const {
-    ASSERT_ENTITY_IS_ALIVE(entity);
+    ASSERT_ENTITY_EXISTS(entity);
     ASSERT_COMPONENT_IS_IN_RANGE(componentID);
     return signatures[entity][componentID];
 }
 
 EntityName EntityManager::getEntityName(EntityID entity) const {
-    ASSERT_ENTITY_IS_ALIVE(entity);
+    ASSERT_ENTITY_EXISTS(entity);
     return entityIDs.right.at(entity);
 }
 
-EntityID EntityManager::getEntity(EntityName name) const {
-    ASSERT_ENTITY_NAME_IS_ALIVE(name);
+EntityID EntityManager::getEntityID(const EntityName& name) const {
     return entityIDs.left.at(name);
 }
-EntityID EntityManager::tryGetEntity(EntityName name) const {
+EntityID EntityManager::tryGetEntity(const EntityName& name) const {
     if(!doesEntityExist(name))
-        return NULL_ENTITY;
+        return nullEntity;
     return entityIDs.left.at(name);
 }
 
+void EntityManager::removeComponentFromEntity(EntityID entity, ComponentID componentID) {
+    ASSERT_ENTITY_IS_ALIVE(entity);
+    ASSERT_COMPONENT_IS_IN_RANGE(componentID);
+    ASSERT_ENTITY_HAS_COMPONENT(entity, componentID);
+    signatures[entity].reset(componentID);
+}
 
-bool EntityManager::doesEntityExist(EntityName name) const {
+void EntityManager::addComponentToEntity(EntityID entity, ComponentID componentID) {
+    ASSERT_ENTITY_EXISTS(entity);
+    ASSERT_COMPONENT_IS_IN_RANGE(componentID);
+    ASSERT_ENTITY_DOESNT_HAVE_COMPONENT(entity, componentID);
+    signatures[entity].set(componentID);
+}
+
+bool EntityManager::doesEntityExist(const EntityName& name) const {
     return entityIDs.left.find(name) != entityIDs.left.end();
 }
 
@@ -88,21 +94,24 @@ bool EntityManager::doesEntityExist(EntityID entity) const {
 }
 
 bool EntityManager::isEntityAlive(EntityID entity) const {
-    // Entity is alive if it is in the entityIDs map
-    return entityIDs.right.find(entity) != entityIDs.right.end();
+    // Entity is alive if it has a signature that is not empty
+    return doesEntityExist(entity) && !signatures[entity].none();
 }
 
-bool EntityManager::isEntityNameAlive(EntityName name) const {
-    // Entity is alive if it is in the entityIDs map, and it's entity ID is alive
-    return entityIDs.left.find(name) != entityIDs.left.end() && isEntityAlive(entityIDs.left.at(name));
+bool EntityManager::isEntityAlive(const EntityName& name) const {
+    // Entity is alive if it has a signature that is not empty
+    return isEntityAlive(getEntityID(name));
 }
 
 [[maybe_unused]] bool EntityManager::isComponentInRange(ComponentID componentID) const {
     return componentID < signatures[0].size();
 }
 
-bool EntityManager::canEntityBeCreated(EntityName name) const {
+bool EntityManager:: canEntityBeCreated(const EntityName& name) const {
     return livingEntityCount < maxEntities
     && !availableEntities.empty()
     && entityIDs.left.find(name) == entityIDs.left.end();
+}
+bool EntityManager::areThereLivingEntities() const {
+    return livingEntityCount > 0;
 }

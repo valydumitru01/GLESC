@@ -10,7 +10,7 @@
 #include <SDL2/SDL.h>
 #include <gtest/gtest.h>
 
-#include "LoopHelper.h"
+#include "LoopHelper.cpp"
 #include "engine/core/low-level-renderer/buffers/index/IndexBuffer.h"
 #include "engine/core/low-level-renderer/buffers/vertex/VertexArray.h"
 #include "engine/core/low-level-renderer/buffers/vertex/VertexBuffer.h"
@@ -40,7 +40,8 @@ protected:
     void prepareBuffers() {
         vao = new GLESC::VertexArray();
         vao->bind();
-        vbo = new GLESC::VertexBuffer(positionOnlyVertices);
+        vbo = new GLESC::VertexBuffer(positionOnlyVertices.data(), positionOnlyVertices.size(),
+            positionOnlyVertices.size() * sizeof(float), GAPI::BufferUsages::StaticDraw);
         ibo = new GLESC::IndexBuffer(indices);
         
         GLESC::VertexBufferLayout layout;

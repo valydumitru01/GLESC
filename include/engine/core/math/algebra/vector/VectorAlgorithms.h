@@ -104,16 +104,19 @@ namespace GLESC::Math {
         /**
          * @brief Subtracts two vectors.
          * @details result = vecLeft - vecRight
-         * @tparam Type Data type of the vectors (e.g., double, float).
+         * @tparam TypeResult Data type of the result vector (e.g., double, float).
+         * @tparam TypeLeft Data type of the first vector (e.g., double, float).
+         * @tparam TypeRight Data type of the second vector (e.g., double, float).
          * @tparam N Dimension of space.
          * @param vecLeft First vector.
          * @param vecRight Second vector.
          * @return Difference of the two vectors.
          */
-        template <typename Type, size_t N>
-        static void
-        vectorSub(const VectorData<Type, N>& vecLeft, const VectorData<Type, N>& vecRight,
-                  VectorData<Type, N>& result) {
+        template <typename TypeResult, typename TypeLeft, typename TypeRight, size_t N>
+        static void vectorSub(
+            const VectorData<TypeLeft, N>& vecLeft,
+            const VectorData<TypeRight, N>& vecRight,
+            VectorData<TypeResult, N>& result) {
             for (size_t i = 0; i < N; ++i) {
                 result[i] = vecLeft[i] - vecRight[i];
             }
@@ -272,12 +275,25 @@ namespace GLESC::Math {
          */
         template <typename Type, size_t N>
         static bool isZero(const VectorData<Type, N>& vec) {
+            VectorData<Type, N> zeroVec;
+            VectorAlgorithms::vectorFill(zeroVec, Type(0));
+            return eq(vec, zeroVec);
+        }
+
+        template <typename Type, size_t N>
+        static void clampWithVectors(const VectorData<Type, N>& vec, const VectorData<Type, N>& min,
+                                     const VectorData<Type, N>& max, VectorData<Type, N>& result) {
             for (size_t i = 0; i < N; ++i) {
-                if (vec[i] != Type(0)) {
-                    return false;
-                }
+                result[i] = Math::clamp(vec[i], min[i], max[i]);
             }
-            return true;
+        }
+
+        template <typename Type, size_t N>
+        static void clampWithValues(const VectorData<Type, N>& vec, const Type& min, const Type& max,
+                                    VectorData<Type, N>& result) {
+            for (size_t i = 0; i < N; ++i) {
+                result[i] = Math::clamp(vec[i], min, max);
+            }
         }
 
         /**
@@ -325,9 +341,10 @@ namespace GLESC::Math {
          * @param rightVec Second vector.
          * @return Dot product of the two vectors.
          */
-        template <typename Type, size_t N>
-        static Type dotProduct(const VectorData<Type, N>& leftVec, const VectorData<Type, N>& rightVec) {
-            Type result = 0;
+        template <typename TypeLeft, typename TypeRight, size_t N>
+        static auto dotProduct(const VectorData<TypeLeft, N>& leftVec, const VectorData<TypeRight, N>& rightVec) {
+            using CommonType = std::common_type_t<TypeLeft, TypeRight>;
+            CommonType result = 0;
             for (size_t i = 0; i < N; ++i) {
                 result += leftVec[i] * rightVec[i];
             }
@@ -342,18 +359,20 @@ namespace GLESC::Math {
          * The magnitude of the cross product is the area of the parallelogram that the two vectors span.
          * The direction of the cross product is orthogonal to both vectors, and follows the right-hand rule.
          * @note Cross product is not commutative, is anti-commutative, meaning that a x b = -b x a.
-         * @tparam Type Data type of the vectors (e.g., double, float).
+         * @tparam TypeResult Data type of the result vector (e.g., double, float).
+         * @tparam TypeLeft Data type of the first vector (e.g., double, float).
+         * @tparam TypeRight Data type of the second vector (e.g., double, float).
          * @param vec1 First vector.
          * @param vec2 Second vector.
          * @return Cross product of the two vectors.
          */
-        template <typename Type>
-        static VectorData<Type, 3>
-        crossProduct(const VectorData<Type, 3>& vec1, const VectorData<Type, 3>& vec2, VectorData<Type, 3>& result) {
+        template <typename TypeResult, typename TypeLeft, typename TypeRight>
+        static void
+        crossProduct(const VectorData<TypeLeft, 3>& vec1, const VectorData<TypeRight, 3>& vec2,
+                     VectorData<TypeResult, 3>& result) {
             result[0] = vec1[1] * vec2[2] - vec1[2] * vec2[1];
             result[1] = vec1[2] * vec2[0] - vec1[0] * vec2[2];
             result[2] = vec1[0] * vec2[1] - vec1[1] * vec2[0];
-            return result;
         }
 
 

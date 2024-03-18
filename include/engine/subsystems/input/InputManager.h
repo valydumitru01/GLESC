@@ -6,9 +6,9 @@
 
 #pragma once
 
-#include <SDL2/SDL.h>
 #include "InputTypes.h"
 #include "InputKeys.h"
+#include "engine/subsystems/hud/HUDManager.h"
 
 /**
  * @class InputManager
@@ -22,17 +22,17 @@ public:
     /**
      * @brief Constructs an instance of the InputManager class.
      */
-    InputManager();
+    InputManager(HUDManager &hudManager);
     
     /**
     * @brief Destructs an instance of the InputManager class.
     */
-    ~InputManager();
+    ~InputManager() = default;
     
     /**
     * @brief Updates the input manager by processing the current input state.
     */
-    void update();
+    void update(bool& running);
     
     /**
     * @brief Checks if a specific key is currently pressed.
@@ -71,4 +71,9 @@ private:
     */
     MousePosition mousePosition; /**< The current mouse position. */
     KeyMap keyMap; /**< The key map that stores the current state of each key. */
+
+    /**
+     * @brief The HUDManager instance used to handle HUD events.
+     */
+    HUDManager &hudManager;
 };

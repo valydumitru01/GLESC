@@ -1,5 +1,5 @@
 /******************************************************************************
- * @file   Example.h
+ * @file   InputSystem.cpp
  * @author Valentin Dumitru
  * @date   2023-09-26
  * @brief @todo
@@ -11,20 +11,24 @@
 #include "engine/ecs/frontend/system/systems/InputSystem.h"
 #include "engine/ecs/frontend/component/InputComponent.h"
 
+using namespace GLESC::ECS;
 
-InputSystem::InputSystem(InputManager &inputManager, GLESC::ECS &ecs) :
-        System(ecs, "InputSystem"), inputManager(inputManager) {
+InputSystem::InputSystem(InputManager& inputManager, ECSCoordinator& ecs) :
+    System(ecs, "InputSystem"), inputManager(inputManager) {
     addComponentRequirement<InputComponent>();
 }
 
 void InputSystem::update() {
-    for (auto &entity : getAssociatedEntities()) {
-        auto &input = getComponent<InputComponent>(entity);
-        for (auto &keyPressedPair : input.subscribedKeys) {
-            keyPressedPair.second = inputManager.isKeyPressed(keyPressedPair.first);
+    for (auto& entity : getAssociatedEntities()) {
+        auto& input = getComponent<InputComponent>(entity);
+        for (std::pair<const Key, Command>& keyPressedPair : input.subscribedKeys) {
+            const Key& key = keyPressedPair.first;
+            Command& command = keyPressedPair.second;
+
+            if (inputManager.isKeyPressed(key)) {
+                command.execute();
+            }
         }
-        
         input.mousePosition = inputManager.getMousePosition();
     }
 }
-

@@ -10,7 +10,7 @@
 #include <gtest/gtest.h>
 #include <SDL2/SDL.h>
 #include <integration/rendering/RenderingTestHelper.h>
-#include "LoopHelper.h"
+#include "LoopHelper.cpp"
 #include "engine/core/low-level-renderer/graphic-api/Gapi.h"
 #include "engine/core/window/WindowManager.h"
 #include "engine/core/low-level-renderer/shader/ShaderLoader.h"
@@ -42,8 +42,9 @@ protected:
         
         getGAPI().bindBuffer(GAPI::BufferTypes::Vertex, VBO);
         
-        getGAPI().setBufferStaticData(positionOnlyVertices.data(), positionOnlyVertices.size(),
-                                      GAPI::BufferTypes::Vertex);
+        getGAPI().setBufferData(positionOnlyVertices.data(), positionOnlyVertices.size(),
+             positionOnlyVertices.size() * sizeof(float),
+                                      GAPI::BufferTypes::Vertex, GAPI::BufferUsages::StaticDraw);
         
         
         
@@ -55,8 +56,7 @@ protected:
         
         getGAPI().bindBuffer(GAPI::BufferTypes::Index, IBO);
         
-        getGAPI().setBufferStaticData(indices.data(), indices.size(),
-                                      GAPI::BufferTypes::Index);
+        getGAPI().setIndexBufferData(indices.data(), indices.size(), GAPI::BufferUsages::StaticDraw);
         
         
         // Set vertex attributes for the currently bound VBO
@@ -73,7 +73,7 @@ protected:
     void render() {
         // Render
         getGAPI().clearColor(backgroundColor.r, backgroundColor.g, backgroundColor.b, 1.0f);
-        GLESC::Logger::get().success("Clear color set!");
+        Logger::get().success("Clear color set!");
         getGAPI().clear({GAPI::ClearBits::Color, GAPI::ClearBits::Depth,
                     GAPI::ClearBits::Stencil});
         

@@ -4,7 +4,7 @@
  * @date   16/01/2024
  * @brief  Add description of this file if needed @TODO
  *
- * Copyright (c) 2023 Valentin Dumitru. Licensed under the MIT License.
+ * Copyright (c) 2024 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
  **************************************************************************************************/
 
@@ -13,7 +13,7 @@
 #include "engine/core/math/algebra/vector/VectorAlgorithms.h"
 #include "unit/engine/core/math/algebra/vector/VectorTestsHelper.cpp"
 #include "unit/engine/core/math/MathCustomTestingFramework.cpp"
-#ifdef ALGEBRA_TESTING
+#ifdef MATH_ALGEBRA_UNIT_TESTING
 template <class Type>
 class VectorAlgorithmsTests : public testing::Test {
 protected:
@@ -222,8 +222,6 @@ TYPED_TEST(VectorAlgorithmsTests, VectorInequality) {
     isNotEqual = GLESC::Math::VectorAlgorithms::neq(vec1, vec2);
     expectedResult = true;
     EXPECT_EQ(isNotEqual, expectedResult);
-
-
 }
 
 TYPED_TEST(VectorAlgorithmsTests, VectorLessThan) {
@@ -271,6 +269,27 @@ TYPED_TEST(VectorAlgorithmsTests, VectorIsZero) {
     }
     isZero = GLESC::Math::VectorAlgorithms::isZero(zeroVec);
     EXPECT_TRUE(isZero);
+}
+
+TYPED_TEST(VectorAlgorithmsTests, VectorClamp) {
+    PREPARE_TEST();
+    TEST_SECTION("Vector clamp with values");
+    Type min = Type(1);
+    Type max = Type(5);
+    GLESC::Math::VectorAlgorithms::clampWithValues(this->vecA, min, max, this->result);
+    for (size_t i = 0; i < N; ++i) {
+        this->expected[i] = GLESC::Math::clamp(this->vecA[i], min, max);
+    }
+    EXPECT_EQ_VEC(this->result, this->expected);
+
+    TEST_SECTION("Vector clamp with vectors");
+    GLESC::Math::VectorAlgorithms::vectorFill(this->vecA, Type(1));
+    GLESC::Math::VectorAlgorithms::vectorFill(this->vecB, Type(5));
+    GLESC::Math::VectorAlgorithms::clampWithVectors(this->vecA, this->vecB, this->vecB, this->result);
+    for (size_t i = 0; i < N; ++i) {
+        this->expected[i] = GLESC::Math::clamp(this->vecA[i], this->vecA[i], this->vecB[i]);
+    }
+    EXPECT_EQ_VEC(this->result, this->expected);
 }
 
 TYPED_TEST(VectorAlgorithmsTests, VectorSum) {
@@ -512,7 +531,7 @@ TYPED_TEST(VectorAlgorithmsTests, GetOrthogonal) {
     }
 }
 
-TYPED_TEST(VectorAlgorithmsTests, VectorCollinearity) {
+TYPED_TEST(VectorAlgorithmsTests, VectorCollinearityArray) {
     PREPARE_TEST();
     if constexpr (N == 3) {
         // Two vectors are always collinear
@@ -531,11 +550,56 @@ TYPED_TEST(VectorAlgorithmsTests, VectorCollinearity) {
         collinearVecs.push_back(&collinearVec3);
         EXPECT_TRUE(GLESC::Math::VectorMixedAlgorithms::areCollinear(this->vecA, collinearVecs));
 
-        // Non-collinear vectors
+        // Two vectors are the same, therefore they are collinear
         VecData nonCollinear = this->vecA;
-        GLESC::Math::VectorAlgorithms::vectorScalarAdd(nonCollinear, Type(-1), nonCollinear);
+        nonCollinear[0] += 555;
         std::vector<const VecData*> nonCollinearVecs = {&nonCollinear, &this->vecA};
+        EXPECT_TRUE(GLESC::Math::VectorMixedAlgorithms::areCollinear(this->vecA, nonCollinearVecs));
+
+        // Non collinear vectors
+        VecData nonCollinearVec1 = this->vecA;
+        VecData nonCollinearVec2 = this->vecA;
+        VecData nonCollinearVec3 = this->vecA;
+        nonCollinearVec1[0] += 6;
+        nonCollinearVec2[1] += 4;
+        nonCollinearVec3[2] += 3;
+        nonCollinearVecs = {&nonCollinearVec1, &nonCollinearVec2, &nonCollinearVec3};
         EXPECT_FALSE(GLESC::Math::VectorMixedAlgorithms::areCollinear(this->vecA, nonCollinearVecs));
+    }
+}
+
+TYPED_TEST(VectorAlgorithmsTests, VectorCollinearityThreePoints) {
+    PREPARE_TEST();
+    if constexpr (N == 3) {
+        // Three points are always collinear
+        EXPECT_TRUE(GLESC::Math::VectorMixedAlgorithms::areCollinear(this->vecA, this->vecB, this->result));
+        // Collinear points with a scalar multiple
+        VecData collinearPoint1 = this->vecA;
+        VecData collinearPoint2 = this->vecA;
+        VecData collinearPoint3 = this->vecA;
+        GLESC::Math::VectorAlgorithms::vectorScalarMul(collinearPoint1, Type(2), collinearPoint1);
+        GLESC::Math::VectorAlgorithms::vectorScalarMul(collinearPoint2, Type(0.5), collinearPoint2);
+        GLESC::Math::VectorAlgorithms::vectorScalarMul(collinearPoint3, Type(-1), collinearPoint3);
+        EXPECT_TRUE(GLESC::Math::VectorMixedAlgorithms::areCollinear(this->vecA, collinearPoint1, collinearPoint2));
+        EXPECT_TRUE(GLESC::Math::VectorMixedAlgorithms::areCollinear(this->vecA, collinearPoint1, collinearPoint3));
+
+        // Two equal, one non equal
+        VecData equalPoint1 = this->vecA;
+        VecData equalPoint2 = this->vecA;
+        VecData nonEqualPoint = this->vecA;
+        nonEqualPoint[0] += 555;
+        EXPECT_TRUE(GLESC::Math::VectorMixedAlgorithms::areCollinear(equalPoint1, equalPoint2, nonEqualPoint));
+
+        // Non collinear points
+        VecData nonCollinearPoint1 = this->vecA;
+        VecData nonCollinearPoint2 = this->vecA;
+        VecData nonCollinearPoint3 = this->vecA;
+        nonCollinearPoint1[0] += 6;
+        nonCollinearPoint2[1] += 4;
+        nonCollinearPoint3[2] += 3;
+        EXPECT_FALSE(
+            GLESC::Math::VectorMixedAlgorithms::areCollinear(nonCollinearPoint1, nonCollinearPoint2, nonCollinearPoint3
+            ));
     }
 }
 

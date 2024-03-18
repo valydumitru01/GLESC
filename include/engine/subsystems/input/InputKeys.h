@@ -107,7 +107,6 @@ namespace GLESC {
         TAB = SDLK_TAB,
         BACKSPACE = SDLK_BACKSPACE,
         INSERT = SDLK_INSERT,
-        DELETE = SDLK_DELETE,
         PAGE_UP = SDLK_PAGEUP,
         PAGE_DOWN = SDLK_PAGEDOWN,
         HOME = SDLK_HOME,

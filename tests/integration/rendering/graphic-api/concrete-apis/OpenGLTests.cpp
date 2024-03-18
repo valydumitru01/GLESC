@@ -12,7 +12,6 @@
 #include <SDL2/SDL.h>
 #include <GL/glew.h>
 
-#include "LoopHelper.h"
 #include "integration/rendering/RenderingTestHelper.h"
 #include <engine/Config.h>
 #include <engine/core/logger/Logger.h>
@@ -38,7 +37,7 @@ protected:
         Logger::get().success("Window deleted!");
         SDL_Quit();
         Logger::get().success("SDL quit!");
-        GLESC::Logger::get().error(message);
+        Logger::get().error(message);
     }
     
     void initializeOpengl() {
@@ -84,7 +83,7 @@ protected:
     void prepareShaders() {
         shaderProgram =
                 ShaderLoader::loadShader(vertexShaderSourceColor, fragmentShaderSourceColor);
-        GLESC::Logger::get().success("Shader program created successfully");
+        Logger::get().success("Shader program created successfully");
     }
     
     GLuint VBO{};

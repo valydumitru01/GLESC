@@ -50,12 +50,13 @@ namespace GLESC::Math {
         PolyhedronFace& operator=(const PolyhedronFace& other) {
             // Note: The reference member cannot be reassigned.
             // This operator does nothing but is required to exist.
+            D_ASSERT_TRUE(false, "PolyhedronFace assignment operator called");
             return *this;
         }
 
         const Vec3D& getNormal() const { return plane.getNormal(); }
 
-        const std::vector<Point>& getPolyhedronVertices() const { return *polyhedronVertices; }
+        const std::vector<Point>& getPolyhedronVertices() const { return polyhedronVertices; }
 
         const FaceIndices& getVertexIndices() const { return indices; }
 
@@ -97,7 +98,6 @@ namespace GLESC::Math {
         bool intersects(const Plane& plane) const;
 
     private:
-
         /**
         * @brief The indices of the vertices of the face. These indices are used to access the
         *       vertices of the polyhedron that contains this face.
@@ -111,7 +111,7 @@ namespace GLESC::Math {
         /**
         * @brief Const reference to the vertices of the polyhedron that contains this face.
         */
-        const std::vector<Point>* polyhedronVertices;
+        const std::vector<Point>& polyhedronVertices;
 
 
         // Other methods like area calculation, etc., can be added as needed.

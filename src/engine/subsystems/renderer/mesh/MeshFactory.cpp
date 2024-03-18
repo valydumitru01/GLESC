@@ -9,45 +9,61 @@
  **************************************************************************************************/
 
 #include "engine/subsystems/renderer/mesh/MeshFactory.h"
+using namespace GLESC;
+ColorMesh MeshFactory::cube(const RGBA& color) {
+    ColorMesh mesh;
+    Vec4F rgba = Vec4F(color.r, color.g, color.b, color.a);
 
-GLESC::Mesh MeshFactory::cube(double size, RGBA color) {
-    GLESC::Mesh mesh;
-    GLESC::Vertex v1(Vec3D(-size, -size, -size), color);
-    GLESC::Vertex v2(Vec3D(-size, -size, size), color);
-    GLESC::Vertex v3(Vec3D(size, -size, size), color);
-    GLESC::Vertex v4(Vec3D(size, -size, -size), color);
-    GLESC::Vertex v5(Vec3D(-size, size, -size), color);
-    GLESC::Vertex v6(Vec3D(-size, size, size), color);
-    GLESC::Vertex v7(Vec3D(size, size, size), color);
-    GLESC::Vertex v8(Vec3D(size, size, -size), color);
+    // Define vertices with position, color, and normal
+    // Front face
+    ColorMesh::Vertex v1(Vec3D(-1, -1, -1), rgba, Vec3F(0, 0, -1));
+    ColorMesh::Vertex v2(Vec3D(1, -1, -1), rgba, Vec3F(0, 0, -1));
+    ColorMesh::Vertex v3(Vec3D(1, 1, -1), rgba, Vec3F(0, 0, -1));
+    ColorMesh::Vertex v4(Vec3D(-1, 1, -1), rgba, Vec3F(0, 0, -1));
+    // Back face
+    ColorMesh::Vertex v5(Vec3D(-1, -1, 1), rgba, Vec3F(0, 0, 1));
+    ColorMesh::Vertex v6(Vec3D(1, -1, 1), rgba, Vec3F(0, 0, 1));
+    ColorMesh::Vertex v7(Vec3D(1, 1, 1), rgba, Vec3F(0, 0, 1));
+    ColorMesh::Vertex v8(Vec3D(-1, 1, 1), rgba, Vec3F(0, 0, 1));
+
+    // Front face
+    mesh.addTris(v1, v2, v3);
+    mesh.addTris(v3, v4, v1);
+    // Back face
+    mesh.addTris(v6, v5, v8);
+    mesh.addTris(v8, v7, v6);
+    // Right face
+    mesh.addTris(v2, v6, v7);
+    mesh.addTris(v7, v3, v2);
+    // Left face
+    mesh.addTris(v5, v1, v4);
+    mesh.addTris(v4, v8, v5);
+    // Top face
+    mesh.addTris(v4, v3, v7);
+    mesh.addTris(v7, v8, v4);
+    // Bottom face
+    mesh.addTris(v5, v6, v2);
+    mesh.addTris(v2, v1, v5);
+
+    return mesh;
+}
+ColorMesh MeshFactory::sphere(int subdivisions) {
     
-    // Bottom
-    mesh.addQuad(v1, v2, v3, v4);
-    // Top
-    mesh.addQuad(v5, v6, v7, v8);
-    // Left
-    mesh.addQuad(v1, v2, v6, v5);
-    // Right
-    mesh.addQuad(v4, v3, v7, v8);
 }
 
-GLESC::Mesh MeshFactory::sphere(double radius, int subdivisions) {
+ColorMesh MeshFactory::cuboid(const double width, const double height, const double depth) {
     
 }
 
-GLESC::Mesh MeshFactory::cuboid(const double width, const double height, const double depth) {
-    
-}
-
-GLESC::Mesh MeshFactory::pyramid(const double width, const double height, const double depth) {
+ColorMesh MeshFactory::pyramid(const double width, const double height, const double depth) {
     
 }
 
 
-GLESC::Mesh MeshFactory::tris(const Vec3D &v1, const Vec3D &v2, const Vec3D &v3) {
+ColorMesh MeshFactory::tris(const Vec3D &v1, const Vec3D &v2, const Vec3D &v3) {
     
 }
 
-GLESC::Mesh MeshFactory::quad(const Vec3D &v1, const Vec3D &v2, const Vec3D &v3, const Vec3D &v4) {
+ColorMesh MeshFactory::quad(const Vec3D &v1, const Vec3D &v2, const Vec3D &v3, const Vec3D &v4) {
     
 }

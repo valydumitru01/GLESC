@@ -1,12 +1,14 @@
 /******************************************************************************
- * @file   GeometryTests.cpp
+ * @file   PolyhedronTests.cpp
  * @author Valentin Dumitru
  * @date   2023-12-14
  * @brief  @todo Add description of this file if needed
  *
  * Copyright (c) 2023 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
- ******************************************************************************/
+******************************************************************************/
+#include "TestsConfig.cpp"
+#if MATH_GEOMETRY_UNIT_TESTING
 
 #include <gtest/gtest.h>
 #include <unit/engine/core/math/MathCustomTestingFramework.cpp>
@@ -47,11 +49,11 @@ TEST(GeometryTests, PolyhedronConstructor) {
 
 
     TEST_SECTION("Polyhedron with collinear vertices, expect death");
-    EXPECT_DEATH({
+    EXPECT_THROW({
                  Polyhedron polyhedronCollinearVertices({{0, 0, 0},
                      {1, 1, 1},
                      {2, 2, 2}}, {{0, 1, 2}});
-                 }, "");
+                 }, AssertFailedException);
 }
 
 Polyhedron createTetrahedron() {
@@ -133,3 +135,4 @@ TEST(GeometryTests, PolyhedronIntersectsPolyhedron) {
     // Test polyhedron not intersecting another polyhedron
     EXPECT_FALSE(tetrahedron.intersects(displacedTetrahedron));
 }
+#endif

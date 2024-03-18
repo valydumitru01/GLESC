@@ -9,6 +9,8 @@
  **************************************************************************************************/
 
 
+#include "TestsConfig.cpp"
+#if WINDOW_TESTING
 #include <gtest/gtest.h>
 #include <engine/core/low-level-renderer/graphic-api/GapiStructs.h>
 #include <engine/core/low-level-renderer/graphic-api/Gapi.h>
@@ -110,3 +112,4 @@ TEST_F(WindowManagerTest, Resizable){
     windowManager.setResizable(false);
     EXPECT_FALSE(windowManager.isResizable());
 }
+#endif

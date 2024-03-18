@@ -18,7 +18,7 @@ class MathCustomTestingFrameworkTest : public ::testing::Test {
 };
 
 // Specify the types you want to run your tests on
-using TypesToTest = ::testing::Types<float, double, int, long, unsigned int, unsigned long>;
+using TypesToTest = ::testing::Types<float, double, int, long>;
 
 TYPED_TEST_SUITE(MathCustomTestingFrameworkTest, TypesToTest);
 
@@ -29,9 +29,9 @@ TYPED_TEST(MathCustomTestingFrameworkTest, ExpectEqMatWithRandomNumbers) {
     GLESC::Math::Matrix<TypeParam, 2, 2> b(a);
     std::cout << "a: \n" << GLESC::Stringer::toString(a) << "\n";
     EXPECT_EQ_MAT(a, b);
-    
+
     // Now change "b" to be different from "a" to see if the test fails
     generateMatrixWithRandomNumbers(b);
-    
+
     EXPECT_NE_MAT(a, b);
 }

@@ -4,10 +4,12 @@
  * @date   25/01/2024
  * @brief  Add description of this file if needed @TODO
  *
- * Copyright (c) 2023 Valentin Dumitru. Licensed under the MIT License.
+ * Copyright (c) 2024 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
  **************************************************************************************************/
 
+#include "TestsConfig.cpp"
+#if MATH_RANDOM_GENERATION_UNIT_TESTING
 #include <gtest/gtest.h>
 #include <unordered_set>
 #include <cmath>
@@ -90,3 +92,4 @@ TYPED_TEST(RandomNumberGeneratorTest, GeneratesDecimalsForFloatingPointTypes) {
         
     }
 }
+#endif

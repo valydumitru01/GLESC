@@ -6,11 +6,8 @@
 
 #pragma once
 
-
-#include <map>
 #include <memory>
 
-#include <GL/glew.h>
 #include "engine/core/asserts/Asserts.h"
 #include "engine/core/low-level-renderer/buffers/index/IndexBuffer.h"
 #include "engine/core/low-level-renderer/buffers/vertex/VertexArray.h"
@@ -18,162 +15,109 @@
 #include "engine/core/low-level-renderer/texture/TextureManager.h"
 #include "engine/core/window/WindowManager.h"
 #include "engine/res-mng/textures/TextureLoader.h"
-#include "engine/subsystems/renderer/math/RenderMath.h"
+#include "engine/subsystems/renderer/MeshAdapter.h"
+#include "engine/subsystems/renderer/RendererTypes.h"
+#include "engine/subsystems/renderer/material/Material.h"
+#include "engine/subsystems/renderer/mesh/BatchMeshes.h"
+#include "engine/subsystems/renderer/mesh/BatchMeshes.h"
+#include "engine/subsystems/renderer/mesh/BatchMeshes.h"
+#include "engine/subsystems/renderer/mesh/DynamicMeshes.h"
+#include "engine/subsystems/renderer/mesh/InstanceMeshes.h"
 #include "engine/subsystems/renderer/mesh/Mesh.h"
 #include "engine/subsystems/renderer/shaders/Shader.h"
+#include "engine/subsystems/transform/Transform.h"
 
 namespace GLESC {
-    class Renderer {
-    public:
-        explicit Renderer(WindowManager &windowManager);
-        
-        ~Renderer();
-        
-        void clear() {
-            getGAPI().clear({GAPI::ClearBits::Color, GAPI::ClearBits::Depth,
-                        GAPI::ClearBits::Stencil});
-            getGAPI().clearColor(0.2f, 0.3f, 0.3f, 1.0f);
-        }
-        
-        
-        template<bool isTextured>
-        void transformMesh(GLESC::Mesh &mesh,
-                           const Vec3D &position,
-                           const Vec3D &rotation,
-                           const Vec3D &scale){
-            Mat4D transform = RenderMath::calculateTransformMatrix(position, rotation, scale);
-            // Apply transformations to vertices
-            for (auto &vertex : mesh.getVertices()) {
-                Vec4D pos = vertex.getPosition().homogenize();
-                pos = transform * pos;
-                Vec3D newPos = pos.dehomogenize();
-                vertex.setPosition(newPos);
-            }
-        }
-        
-        void renderMesh(const std::shared_ptr<GLESC::Mesh>& meshPtr) {
-            D_ASSERT_NOT_NULLPTR(meshPtr, "Mesh pointer is null");
-            
-            GLESC::Mesh& mesh = *meshPtr;
-            
-            if (mesh.isDirty()) {
-                setupMesh(mesh);
-                mesh.setClean();
-            }
-            
-            auto found = VAOs.find(meshPtr);
-            if (found != VAOs.end()) {
-                found->second->bind();
-                getGAPI().drawTrianglesIndexed(mesh.getIndices().size());
-            }
-            // handle the case where the mesh is not found in VAOs
-            else {
-                VAOs[meshPtr] = nullptr;
-            }
-        }
-        
-        GLESC::Shader &getDefaultShader() {
-            return shader;
-        }
-        
-        /**
-         * @brief Get the Texture Manager object
-         * @return TextureManager& The Texture Manager object
-         */
-        [[nodiscard]] TextureManager &getTextureManager() {
-            return textureManager;
-        }
-        
-        /**
-         * @brief Gets the projection matrix
-         * @return projection matrix
-         */
-        [[nodiscard]] Mat4D getProjection() const {
-            return projection;
-        }
-        
-        /**
-         * @brief Gets the view matrix
-         * @return view matrix
-         */
-        [[nodiscard]] Mat4D getView() const {
-            return view;
-        }
-        
-        /**
-         * @brief Sets the projection matrix
-         * @param projection projection matrix
-         */
-        void setProjection(const Mat4D &projectionParam) {
-            Renderer::projection = projectionParam;
-        }
-        
-        /**
-         * @brief Sets the view matrix
-         * @param view view matrix
-         */
-        void setView(const Mat4D &viewParam) {
-            Renderer::view = viewParam;
-        }
-        
-        
-        
-        void swapBuffers() {
-            getGAPI().swapBuffers(windowManager.getWindow());
-        }
-        
-        
-    
-    private:
-        using MeshPtr = std::shared_ptr<Mesh>;
-        using VertexArrayPtr = std::shared_ptr<VertexArray>;
-        
-        // Map from Mesh pointer to VertexArray pointer
-        std::unordered_map<MeshPtr, VertexArrayPtr> VAOs;
-        void setupMesh(const Mesh& mesh) {/*
-            using Vertex = Vertex;
-            VertexArray vertexArray;
-            VertexBuffer vertexBuffer(mesh.getVertices().data(),
-                                      mesh.getVertices().size() * sizeof(Vertex));
-            IndexBuffer indexBuffer(mesh.getIndices().size() * sizeof(unsigned int),
-                                    mesh.getIndices().data());
-            
-            VertexBufferLayout layout;
-            layout.push(GAPI::Types::Vec3F);
-            layout.push(GAPI::Types::Vec3F);
-            layout.push(GAPI::Types::Vec2F);
-            vertexArray.addBuffer(vertexBuffer, layout);
-            
-            VAOs[&mesh] = vertexArray;*/
-        }
-        /**
-         * @brief Window manager
-         *
-         */
-        GLESC::WindowManager &windowManager;
-        /**
-         * @brief Texture manager
-         *
-         */
-        TextureManager textureManager;
-        
-        GLESC::Shader shader;
-        
-        /**
-         * @brief Projection matrix
-         * @details The projection matrix makes the world look like it's in 3D
-         * includes field of view, aspect ratio, and near and far planes.
-         * Converts global coordinates to normalized device coordinates
-         * @see https://learnopengl.com/Getting-started/Coordinate-Systems
-         */
-        Mat4D projection{};
-        /**
-         * @brief View matrix
-         * @details This matrix converts
-         * @see https://learnopengl.com/Getting-started/Coordinate-Systems
-         */
-        Mat4D view{};
-        
-    };// class Renderer
-    
+ class Renderer {
+ public:
+  explicit Renderer(WindowManager& windowManager);
+
+  ~Renderer();
+
+  Mat4D getProjection() const { return projection; }
+  /**
+   * @brief Sets the projection matrix
+   * @param projectionParam projection matrix
+   */
+  void setProjection(const Mat4D& projectionParam) { this->projection = projectionParam; }
+
+  Mat4D getView() const { return view; }
+  /**
+   * @brief Sets the view matrix
+   * @param viewParam view matrix
+   */
+  void setView(const Mat4D& viewParam) { this->view = viewParam; }
+
+  void clear() const;
+
+  void applyMaterial(const Material& material) const;
+
+  void applyTransform(const Transform& transform) const;
+
+  void transformMeshCPU(ColorMesh& mesh,
+                        const Transform& transform);
+
+  void renderMesh(const ColorMesh& mesh);
+
+
+  void renderInstances(const ColorMesh& mesh,
+                       const std::vector<MeshInstanceData>& instances);
+
+  Shader& getDefaultShader() { return shader; }
+
+
+  void setData(const Material& material,
+               ColorMesh& mesh,
+               const Transform& transform);
+
+  void renderMeshes(double timeOfFrame);
+
+  void swapBuffers() const;
+
+
+  /**
+   * @brief Get the Texture Manager object
+   * @return TextureManager& The Texture Manager object
+   */
+  //[[nodiscard]] TextureManager &getTextureManager() {
+  //    return textureManager;
+  //}
+
+ private:
+
+
+
+
+
+  void cacheMesh(const ColorMesh& mesh,
+                 AdaptedMesh adaptedMesh);
+  void cacheMesh(const ColorMesh& mesh,
+                 AdaptedInstances adaptedInstancesParam);
+  bool isMeshNotCached(const ColorMesh& mesh) const;
+
+  GAPI::BufferUsages getBufferUsage(RenderType renderType);
+
+
+  std::unordered_map<const ColorMesh*, AdaptedMesh> adaptedMeshes;
+
+  std::unordered_map<const ColorMesh*, AdaptedInstances> adaptedInstances;
+  /**
+   * @brief Window manager
+   *
+   */
+  WindowManager& windowManager;
+  /**
+   * @brief Texture manager
+   *
+   */
+  // TextureManager textureManager;
+
+  Shader shader;
+  InstanceMeshes meshInstances;
+  MeshBatches meshBatches;
+  DynamicMeshes dynamicMeshes;
+
+  Mat4D projection;
+  Mat4D view;
+ }; // class Renderer
 } // namespace GLESC

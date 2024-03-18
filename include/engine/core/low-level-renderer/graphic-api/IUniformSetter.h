@@ -64,11 +64,17 @@ public:
     virtual void u4B(GAPI::Bool v0, GAPI::Bool v1, GAPI::Bool v2, GAPI::Bool v3) = 0;
     
     // Single matrices
-    // Floats (Only floats are supported)
+    // Floats
     virtual void uMat2F(Mat2F mat) = 0;
     virtual void uMat3F(Mat3F mat) = 0;
     virtual void uMat4F(Mat4F mat) = 0;
-    
+
+    // Single matrices
+    // Doubles
+    virtual void uMat2D(Mat2D mat) = 0;
+    virtual void uMat3D(Mat3D mat) = 0;
+    virtual void uMat4D(Mat4D mat) = 0;
+
     // Vectors of vectors
     // Floats
     virtual void u1FVec(const std::vector<GAPI::Float>& values) = 0;

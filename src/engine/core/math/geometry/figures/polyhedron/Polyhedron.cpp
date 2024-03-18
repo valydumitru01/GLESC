@@ -24,6 +24,11 @@ void Polyhedron::addVertex(const Point& vertex) {
     vertices.push_back(vertex);
 }
 
+void Polyhedron::clear() {
+    vertices = std::vector<Vec3D>();
+    faces = std::vector<PolyhedronFace>();
+}
+
 
 void Polyhedron::addFace(const FaceIndices& faceParam) {
     // Check for repeated vertices
@@ -33,7 +38,6 @@ void Polyhedron::addFace(const FaceIndices& faceParam) {
         }
     }
     // Check for out of bounds indices
-
     D_ASSERT_FALSE(this->isOutOfBounds(faceParam), "Face must not have out of bounds indices.");
 
     PolyhedronFace face(faceParam, vertices);
@@ -121,27 +125,6 @@ void Polyhedron::addFace(const FaceIndices& faceParam) {
     return false;
 }
 
-Polyhedron Polyhedron::triangulate() const {
-    // Copy the polyhedron
-    Polyhedron triangulatedPolyhedron(*this);
-
-    for (const auto& face : getFaces()) {
-        const auto& indices = face.getVertexIndices();
-        if (indices.size() < 3)
-            continue; // Skip degenerate faces
-
-        // Reference vertex for triangulation
-        Index refVertex = indices[0];
-
-        // Form triangles and add them to the new polyhedron
-        for (size_t i = 1; i + 1 < indices.size(); ++i) {
-            FaceIndices triangleIndices = {refVertex, indices[i], indices[i + 1]};
-            triangulatedPolyhedron.addFace(triangleIndices);
-        }
-    }
-
-    return triangulatedPolyhedron;
-}
 
 
 bool Polyhedron::isOutOfBounds(const std::vector<FaceIndices>& faces) const {

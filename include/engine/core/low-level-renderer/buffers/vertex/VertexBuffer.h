@@ -1,47 +1,37 @@
-/*******************************************************************************
+/******************************************************************************
+ * @file   VertexBuffer.h
+ * @author Valentin Dumitru
+ * @date   2023-11-07
+ * @brief  @todo Add description of this file if needed
  *
- * Copyright (c) 2023.
- * Licensed under the MIT License. See LICENSE.txt in the project root for license information.
+ * Copyright (c) 2023 Valentin Dumitru. Licensed under the MIT License.
+ * See LICENSE.txt in the project root for license information.
  ******************************************************************************/
-
 #pragma once
 
 #include <utility>
 #include <any>
 
-#include "engine/core/low-level-renderer/graphic-api/Gapi.h"
-#include "engine/core/asserts/Asserts.h"
+#include "engine/core/low-level-renderer/graphic-api/GapiTypes.h"
 
 namespace GLESC {
-    
     class VertexBuffer {
     public:
-        template<class Type>
-        VertexBuffer(const Type *data, GAPI::Size size) {
-            D_ASSERT_NOT_NULLPTR(data, "Data is null in VertexBuffer constructor");
-            D_ASSERT_TRUE(size > 0, "Size is 0 in VertexBuffer constructor");
-            getGAPI().genBuffers(1, vertexBufferID);
-            this->bind();
-            getGAPI().setBufferStaticData(data, size,
-                                          GAPI::BufferTypes::Vertex);
-        }
-        
-        template<class Type, class = std::enable_if_t<isGraphicsType_v<Type>>>
-        VertexBuffer(const std::vector<Type> &data) :
-            VertexBuffer(data.data(), data.size()) {
-        
-        }
-        
+        VertexBuffer(const GAPI::Void* data,
+                     GAPI::Size count,
+                     GAPI::Size size,
+                     GAPI::BufferUsages bufferUsage = GAPI::BufferUsages::DynamicDraw);
+
         ~VertexBuffer();
-        
+
         [[nodiscard]] GAPI::UInt getBufferID() const { return vertexBufferID; }
-        
+
         void destroy();
-        
+
         void bind() const;
-        
+
         void unbind() const;
-    
+
     private:
         /**
          * @brief This method destroys the vertex buffer object once.
@@ -51,9 +41,9 @@ namespace GLESC {
          * Enables the destruction of this object from the destroy method.
          */
         void destroyOnce();
-        
+
         bool objectAlive = true;
         GAPI::UInt vertexBufferID{0};
-        
-    };
-}
+    }; // class VertexBuffer
+} // namespace GLESC
+

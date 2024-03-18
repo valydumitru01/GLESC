@@ -228,6 +228,7 @@ namespace GAPI {
     
     enum class Types {
         Float [[maybe_unused]] = GL_FLOAT,
+        Double [[maybe_unused]] = GL_DOUBLE,
         Int [[maybe_unused]] = GL_INT,
         UInt [[maybe_unused]] = GL_UNSIGNED_INT,
         Bool [[maybe_unused]] = GL_BOOL,
@@ -235,25 +236,40 @@ namespace GAPI {
         UByte [[maybe_unused]] = GL_UNSIGNED_BYTE,
         Short [[maybe_unused]] = GL_SHORT,
         UShort [[maybe_unused]] = GL_UNSIGNED_SHORT,
+
         Vec2F [[maybe_unused]] = GL_FLOAT_VEC2,
         Vec3F [[maybe_unused]] = GL_FLOAT_VEC3,
         Vec4F [[maybe_unused]] = GL_FLOAT_VEC4,
+
         Vec2I [[maybe_unused]] = GL_INT_VEC2,
         Vec3I [[maybe_unused]] = GL_INT_VEC3,
         Vec4I [[maybe_unused]] = GL_INT_VEC4,
+
         Vec2UI [[maybe_unused]] = GL_UNSIGNED_INT_VEC2,
         Vec3UI [[maybe_unused]] = GL_UNSIGNED_INT_VEC3,
         Vec4UI [[maybe_unused]] = GL_UNSIGNED_INT_VEC4,
+
         Vec2B [[maybe_unused]] = GL_BOOL_VEC2,
         Vec3B [[maybe_unused]] = GL_BOOL_VEC3,
         Vec4B [[maybe_unused]] = GL_BOOL_VEC4,
+
+        Vec2D [[maybe_unused]] = GL_DOUBLE_VEC2,
+        Vec3D [[maybe_unused]] = GL_DOUBLE_VEC3,
+        Vec4D [[maybe_unused]] = GL_DOUBLE_VEC4,
+
         Mat2F [[maybe_unused]] = GL_FLOAT_MAT2,
         Mat3F [[maybe_unused]] = GL_FLOAT_MAT3,
         Mat4F [[maybe_unused]] = GL_FLOAT_MAT4,
+
+        Mat2D [[maybe_unused]] = GL_DOUBLE_MAT2,
+        Mat3D [[maybe_unused]] = GL_DOUBLE_MAT3,
+        Mat4D [[maybe_unused]] = GL_DOUBLE_MAT4
+
     };
     enum class TypeSize {
         None [[maybe_unused]] = 0,
         Float [[maybe_unused]] = sizeof(GLfloat),
+        Double [[maybe_unused]] = sizeof(GLdouble),
         Int [[maybe_unused]] = sizeof(GLint),
         Bool [[maybe_unused]] = sizeof(GLboolean),
         UnsignedInt [[maybe_unused]] = sizeof(GLuint),
@@ -261,21 +277,35 @@ namespace GAPI {
         Byte [[maybe_unused]] = sizeof(GLbyte),
         Short [[maybe_unused]] = sizeof(GLshort),
         UnsignedShort [[maybe_unused]] = sizeof(GLushort),
+
         Vec2F [[maybe_unused]] = sizeof(GLfloat) * static_cast<GLsizei>(TypeCount::Vec2),
         Vec3F [[maybe_unused]] = sizeof(GLfloat) * static_cast<GLsizei>(TypeCount::Vec3),
         Vec4F [[maybe_unused]] = sizeof(GLfloat) * static_cast<GLsizei>(TypeCount::Vec4),
+
+        Vec2D [[maybe_unused]] = sizeof(GLdouble) * static_cast<GLsizei>(TypeCount::Vec2),
+        Vec3D [[maybe_unused]] = sizeof(GLdouble) * static_cast<GLsizei>(TypeCount::Vec3),
+        Vec4D [[maybe_unused]] = sizeof(GLdouble) * static_cast<GLsizei>(TypeCount::Vec4),
+
         Vec2I [[maybe_unused]] = sizeof(GLint) * static_cast<GLsizei>(TypeCount::Vec2),
         Vec3I [[maybe_unused]] = sizeof(GLint) * static_cast<GLsizei>(TypeCount::Vec3),
         Vec4I [[maybe_unused]] = sizeof(GLint) * static_cast<GLsizei>(TypeCount::Vec4),
+
         Vec2UI [[maybe_unused]] = sizeof(GLuint) * static_cast<GLsizei>(TypeCount::Vec2),
         Vec3UI [[maybe_unused]] = sizeof(GLuint) * static_cast<GLsizei>(TypeCount::Vec3),
         Vec4UI [[maybe_unused]] = sizeof(GLuint) * static_cast<GLsizei>(TypeCount::Vec4),
+
         Vec2B [[maybe_unused]] = sizeof(GLboolean) * static_cast<GLsizei>(TypeCount::Vec2),
         Vec3B [[maybe_unused]] = sizeof(GLboolean) * static_cast<GLsizei>(TypeCount::Vec3),
         Vec4B [[maybe_unused]] = sizeof(GLboolean) * static_cast<GLsizei>(TypeCount::Vec4),
+
         Mat2F [[maybe_unused]] = sizeof(GLfloat) * static_cast<GLsizei>(TypeCount::Mat2),
         Mat3F [[maybe_unused]] = sizeof(GLfloat) * static_cast<GLsizei>(TypeCount::Mat3),
         Mat4F [[maybe_unused]] = sizeof(GLfloat) * static_cast<GLsizei>(TypeCount::Mat4),
+
+        Mat2D [[maybe_unused]] = sizeof(GLdouble) * static_cast<GLsizei>(TypeCount::Mat2),
+        Mat3D [[maybe_unused]] = sizeof(GLdouble) * static_cast<GLsizei>(TypeCount::Mat3),
+        Mat4D [[maybe_unused]] = sizeof(GLdouble) * static_cast<GLsizei>(TypeCount::Mat4)
+
     };
     
     namespace Texture {
@@ -304,6 +334,7 @@ namespace GAPI {
     constexpr static TypeCount getTypeCount(Types type) {
         switch (type) {
             case Types::Float:
+            case Types::Double:
             case Types::Int:
             case Types::UInt:
             case Types::Bool:
@@ -312,10 +343,12 @@ namespace GAPI {
             case Types::Short:
             case Types::UShort:return TypeCount::Value;
             case Types::Vec2F:
+            case Types::Vec2D:
             case Types::Vec2I:
             case Types::Vec2UI:
             case Types::Vec2B:return TypeCount::Vec2;
             case Types::Vec3F:
+            case Types::Vec3D:
             case Types::Vec3I:
             case Types::Vec3UI:
             case Types::Vec3B:return TypeCount::Vec3;
@@ -323,8 +356,11 @@ namespace GAPI {
             case Types::Vec4I:
             case Types::Vec4UI:
             case Types::Vec4B:return TypeCount::Vec4;
+            case Types::Mat2D:
             case Types::Mat2F:return TypeCount::Mat2;
+            case Types::Mat3D:
             case Types::Mat3F:return TypeCount::Mat3;
+            case Types::Mat4D:
             case Types::Mat4F:return TypeCount::Mat4;
         }
     }
@@ -332,6 +368,7 @@ namespace GAPI {
     constexpr static TypeSize getTypeSize(Types type) {
         switch (type) {
             case Types::Float:return TypeSize::Float;
+            case Types::Double:return TypeSize::Double;
             case Types::Int:return TypeSize::Int;
             case Types::UInt:return TypeSize::UnsignedInt;
             case Types::Bool:return TypeSize::Bool;
@@ -339,21 +376,34 @@ namespace GAPI {
             case Types::Byte:return TypeSize::Byte;
             case Types::Short:return TypeSize::Short;
             case Types::UShort:return TypeSize::UnsignedShort;
+
             case Types::Vec2F:return TypeSize::Vec2F;
             case Types::Vec3F:return TypeSize::Vec3F;
             case Types::Vec4F:return TypeSize::Vec4F;
+
+            case Types::Vec2D:return TypeSize::Vec2D;
+            case Types::Vec3D:return TypeSize::Vec3D;
+            case Types::Vec4D:return TypeSize::Vec4D;
+
             case Types::Vec2I:return TypeSize::Vec2I;
             case Types::Vec3I:return TypeSize::Vec3I;
             case Types::Vec4I:return TypeSize::Vec4I;
+
             case Types::Vec2UI:return TypeSize::Vec2UI;
             case Types::Vec3UI:return TypeSize::Vec3UI;
             case Types::Vec4UI:return TypeSize::Vec4UI;
+
             case Types::Vec2B:return TypeSize::Vec2B;
             case Types::Vec3B:return TypeSize::Vec3B;
             case Types::Vec4B:return TypeSize::Vec4B;
+
             case Types::Mat2F:return TypeSize::Mat2F;
             case Types::Mat3F:return TypeSize::Mat3F;
             case Types::Mat4F:return TypeSize::Mat4F;
+
+            case Types::Mat2D:return TypeSize::Mat2D;
+            case Types::Mat3D:return TypeSize::Mat3D;
+            case Types::Mat4D:return TypeSize::Mat4D;
         }
     }
     
@@ -377,7 +427,65 @@ namespace GAPI {
             case Types::Vec2B:
             case Types::Vec3B:
             case Types::Vec4B:return Types::Bool;
+            case Types::Vec2D:
+            case Types::Vec3D:
+            case Types::Vec4D:
+            case Types::Mat2D:
+            case Types::Mat3D:
+            case Types::Mat4D:return Types::Double;
             default:return Types::Float;
         }
     }
-}
+
+    template<Types T>
+    struct PrimitiveType;
+
+    template<Types T>
+    using PrimitiveType_t = typename PrimitiveType<T>::Type;
+
+    template<Types T>
+    struct PrimitiveType {
+        static_assert(T != T, "Unsupported type specified");
+    };
+    #define MAP_TYPE(EnumValue, MappedType) \
+        template<> struct PrimitiveType<EnumValue> { using Type = MappedType; };
+
+    MAP_TYPE(Types::Float, GLfloat);
+    MAP_TYPE(Types::Double, GLdouble);
+    MAP_TYPE(Types::Int, GLint);
+    MAP_TYPE(Types::UInt, GLuint);
+    MAP_TYPE(Types::Bool, GLboolean);
+    MAP_TYPE(Types::Byte, GLbyte);
+    MAP_TYPE(Types::UByte, GLubyte);
+    MAP_TYPE(Types::Short, GLshort);
+    MAP_TYPE(Types::UShort, GLushort);
+
+    MAP_TYPE(Types::Vec2F, GLfloat);
+    MAP_TYPE(Types::Vec3F, GLfloat);
+    MAP_TYPE(Types::Vec4F, GLfloat);
+
+    MAP_TYPE(Types::Vec2D, GLdouble);
+    MAP_TYPE(Types::Vec3D, GLdouble);
+    MAP_TYPE(Types::Vec4D, GLdouble);
+
+    MAP_TYPE(Types::Vec2I, GLint);
+    MAP_TYPE(Types::Vec3I, GLint);
+    MAP_TYPE(Types::Vec4I, GLint);
+
+    MAP_TYPE(Types::Vec2UI, GLuint);
+    MAP_TYPE(Types::Vec3UI, GLuint);
+    MAP_TYPE(Types::Vec4UI, GLuint);
+
+    MAP_TYPE(Types::Vec2B, GLboolean);
+    MAP_TYPE(Types::Vec3B, GLboolean);
+    MAP_TYPE(Types::Vec4B, GLboolean);
+
+    MAP_TYPE(Types::Mat2F, GLfloat);
+    MAP_TYPE(Types::Mat3F, GLfloat);
+    MAP_TYPE(Types::Mat4F, GLfloat);
+
+    MAP_TYPE(Types::Mat2D, GLdouble);
+    MAP_TYPE(Types::Mat3D, GLdouble);
+    MAP_TYPE(Types::Mat4D, GLdouble);
+
+} // namespace GAPI

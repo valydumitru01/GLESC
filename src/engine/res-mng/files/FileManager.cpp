@@ -1,5 +1,5 @@
 /******************************************************************************
- * @file   Example.h
+ * @file   FileManager.cpp
  * @author Valentin Dumitru
  * @date   2023-09-26
  * @brief @todo

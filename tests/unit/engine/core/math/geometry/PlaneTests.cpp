@@ -8,6 +8,8 @@
  * See LICENSE.txt in the project root for license information.
  ******************************************************************************/
 
+#include "TestsConfig.cpp"
+#if MATH_GEOMETRY_UNIT_TESTING
 #include <gtest/gtest.h>
 #include "unit/engine/core/math/MathCustomTestingFramework.cpp"
 #include "engine/core/math/Math.h"
@@ -231,3 +233,5 @@ TEST(PlaneTests, IntersectsPlane) {
     Plane plane3(Direction(0, 0, 1), 1); // XY plane, shifted by 1 unit along Z
     EXPECT_FALSE(plane1.intersects(plane3));
 }
+
+#endif

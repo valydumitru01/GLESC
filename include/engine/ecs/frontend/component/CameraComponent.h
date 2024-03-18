@@ -11,20 +11,20 @@
 #include "engine/core/math/algebra/matrix/Matrix.h"
 
 struct CameraComponent : IComponent {
-public:
     Mat4D view{};
-    float fov{};
-    float viewWidth{};
-    float viewHeight{};
-    float nearPlane{};
-    float farPlane{};
+    float fovDegrees{45};
+    float viewWidth{800};
+    float viewHeight{600};
+    float nearPlane{0.1};
+    float farPlane{1000};
+    // TODO: Introduce dirty flag to avoid unnecessary recalculations of view and projection matrices
     
     std::string toString() override{
         return  "CameraComponent:"
-                + std::string("\n\tview: ")
+                + std::string("\n\tview: \n")
                 + view.toString()
                 + std::string("\n\tfov: ")
-                + std::to_string(fov)
+                + std::to_string(fovDegrees)
                 + std::string("\n\tviewWidth: ")
                 + std::to_string(viewWidth)
                 + std::string("\n\tviewHeight: ")

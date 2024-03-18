@@ -22,6 +22,9 @@ namespace GLESC::Math {
         void addVertex(const Point &vertex);
         
         void addFace(const FaceIndices &faceParam);
+
+        void clear();
+
         
         [[nodiscard]] const std::vector<PolyhedronFace> &getFaces() const;
         
@@ -42,18 +45,7 @@ namespace GLESC::Math {
         [[nodiscard]] bool intersects(const Point &point) const;
         
         [[nodiscard]] bool intersects(const Plane &plane) const;
-        
-        /**
-         * @brief Triangulates the polyhedron.
-         * @details This function triangulates the polyhedron by forming triangles from the faces.
-         * If the polyhedron is already triangulated, it will do nothing and return the same
-         * polyhedron.
-         * @attention This function only works for convex polyhedrons. Which is ok because the
-         * face class only works for convex polygons.
-         * @return The triangulated polyhedron.
-         */
-        Polyhedron triangulate() const;
-    
+
     private:
         [[nodiscard]] bool isOutOfBounds(const std::vector<FaceIndices>& faces) const;
         [[nodiscard]] bool isOutOfBounds(const FaceIndices& face) const;

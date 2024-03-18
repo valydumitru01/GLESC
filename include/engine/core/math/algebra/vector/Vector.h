@@ -619,6 +619,18 @@ namespace GLESC::Math {
             return VectorAlgorithms::isZero(this->data);
         }
 
+        [[nodiscard]] Vector clamp(Type min, Type max) const {
+            Vector result;
+            VectorAlgorithms::clampWithValues(this->data, min, max, result.data);
+            return result;
+        }
+
+        [[nodiscard]] Vector clamp(const Vector& min, const Vector& max) const {
+            Vector result;
+            VectorAlgorithms::clampWithVectors(this->data, min.data, max.data, result.data);
+            return result;
+        }
+
         [[nodiscard]]  Type sum() const {
             return VectorAlgorithms::sum(this->data);
         }
@@ -717,7 +729,6 @@ namespace GLESC::Math {
             std::vector<const VectorData<Type, 3>*> pointData;
 
             for (const auto& point : points) {
-                // Cast away const-ness with const_cast. Be very careful with this!
                 pointData.push_back(&point.data);
             }
 
@@ -784,6 +795,14 @@ using Vec2D = VectorT<double, 2>;
 using Vec3D = VectorT<double, 3>;
 using Vec4D = VectorT<double, 4>;
 
+template<typename T>
+struct is_vector : std::false_type {};
+
+template<typename T, std::size_t N>
+struct is_vector<GLESC::Math::Vector<T, N>> : std::true_type {};
+
+template<typename T>
+inline constexpr bool is_vector_v = is_vector<T>::value;
 
 template <typename T, size_t U>
 struct std::hash<VectorT<T, U>> {

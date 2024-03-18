@@ -57,7 +57,7 @@
 inline void
 printComparingValues(const std::string& value, const std::string& expected)
 {
-    GLESC::Logger::get().error("Checked Value : " + value + "\nExpected Value: " + expected);
+    Logger::get().error("Checked Value : " + value + "\nExpected Value: " + expected);
 }
 
 

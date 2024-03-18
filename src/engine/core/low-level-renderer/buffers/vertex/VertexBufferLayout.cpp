@@ -1,5 +1,5 @@
 /******************************************************************************
- * @file   BufferLayout.cpp
+ * @file   VertexBufferLayout.cpp
  * @author Valentin Dumitru
  * @date   2023-11-06
  * @brief  @todo Add description of this file if needed
@@ -13,7 +13,10 @@
 using namespace GLESC;
 
 
-[[nodiscard]] const std::vector<VertexBufferElement> &
-VertexBufferLayout::getElements() const { return elements; }
 
-[[nodiscard]] uint32_t VertexBufferLayout::getStride() const { return stride; }
+void VertexBufferLayout::push(GAPI::Types type, GAPI::Bool normalized)  {
+    auto typeSize = getTypeSize(type);
+    elements.push_back({type, normalized});
+
+    stride += static_cast<GAPI::UInt>(typeSize);
+}

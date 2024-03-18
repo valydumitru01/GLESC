@@ -9,6 +9,8 @@
  ******************************************************************************/
 
 
+#include "TestsConfig.cpp"
+#if MATH_GEOMETRY_UNIT_TESTING
 #include <gtest/gtest.h>
 #include "engine/core/math/Math.h"
 #include "engine/core/math/geometry/GeometryTypes.h"
@@ -169,3 +171,4 @@ TEST(FaceTests, IntersectsPlane) {
     Plane anotherNonIntersectingPlane({0, 5, 0}, Direction(0, 1, 0));
     EXPECT_FALSE(face.intersects(anotherNonIntersectingPlane));
 }
+#endif

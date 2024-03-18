@@ -17,7 +17,10 @@
 #include <cstdint>
 #include <utility>
 
+#include "engine/core/logger/concrete-loggers/FileLogger.h"
+
 namespace GLESC {
+#define DEFAULT_FLOAT_PRECISION 6
     template <typename T, typename = void>
     struct isIterable : std::false_type {};
 
@@ -44,8 +47,31 @@ namespace GLESC {
     constexpr bool hasToString_v = hasToString<T>::value;
 
     class Stringer {
+    public:
+        static void setFloatPrecision(int precision) {
+            floatPrecision = precision;
+        }
+
         template <typename Type>
-        static std::string nonIterableToString(const Type& value) {
+        [[nodiscard]] static std::string toString(const Type& value) {
+            if constexpr (isIterable_v<Type> && !std::is_same_v<Type, std::string>) {
+                return iterableToString(value);
+            }
+            else {
+                return nonIterableToString(value);
+            }
+            floatPrecision = DEFAULT_FLOAT_PRECISION;
+        }
+
+        [[nodiscard]] static std::string replace(const std::string& string, const std::string& stringToReplace,
+                                                 const std::string& replacement);
+
+        [[nodiscard]] static bool contains(const std::string& string, const std::string& substring);
+
+    private:
+        static int floatPrecision;
+        template <typename Type>
+        [[nodiscard]] static std::string nonIterableToString(const Type& value) {
             std::ostringstream oss;
 
             if constexpr (std::is_pointer_v<Type>) {
@@ -80,7 +106,7 @@ namespace GLESC {
             }
             else if constexpr (std::is_floating_point_v<Type>) {
                 // Handle floating points with more precision
-                oss << std::fixed << std::setprecision(std::numeric_limits<Type>::max_digits10)
+                oss << std::fixed << std::setprecision(floatPrecision)
                     << value;
             }
             else if constexpr (std::is_arithmetic_v<Type>) {
@@ -99,7 +125,7 @@ namespace GLESC {
         }
 
         template <typename Iterable>
-        static std::string iterableToString(const Iterable& iterable) {
+        [[nodiscard]] static std::string iterableToString(const Iterable& iterable) {
             std::ostringstream oss;
             oss << "{";
             for (auto it = iterable.begin(); it != iterable.end(); ++it) {
@@ -107,25 +133,12 @@ namespace GLESC {
                     oss << ", ";
                 }
                 oss << toString(*it);
-                if(isIterable_v<decltype(*it)>){
+                if (isIterable_v<decltype(*it)>) {
                     oss << "\n";
                 }
-
-
             }
             oss << "}";
             return oss.str();
-        }
-
-    public:
-        template <typename Type>
-        static std::string toString(const Type& value) {
-            if constexpr (isIterable_v<Type> && !std::is_same_v<Type, std::string>) {
-                return iterableToString(value);
-            }
-            else {
-                return nonIterableToString(value);
-            }
         }
     }; // class Stringer
 } // namespace GLESC

@@ -1,5 +1,5 @@
 /**************************************************************************************************
- * @file   MatrixBasicOperators.h
+ * @file   MatrixAlgorithms.h
  * @author Valentin Dumitru
  * @date   23/01/2024
  * @brief  @todo Add description of this file if needed
@@ -50,7 +50,7 @@ namespace GLESC::Math {
         // =============================================================================================================
 
         template <typename Type, size_t N, size_t M>
-        static void setMatrxZero(MatrixData<Type, N, M>& matrixObjective) {
+        static void setMatrixZero(MatrixData<Type, N, M>& matrixObjective) {
             for (size_t i = 0; i < N; ++i)
                 for (size_t j = 0; j < M; ++j)
                     matrixObjective[i][j] = 0;
@@ -63,9 +63,20 @@ namespace GLESC::Math {
                 matrixObjective[i][i] = value;
         }
 
-        template <typename Type, size_t N, size_t M>
-        static void setMatrix(MatrixData<Type, N, M>& matrixObjective, const MatrixData<Type, N, M>& values) {
-            copyMatrix(matrixObjective, values);
+        /**
+         * @brief Sets the values of a matrix using a raw array.
+         * @details Copies the values from the raw array into the matrix.
+         * Works something like this:
+         *      leftMat = rightMat;
+         * @tparam Type1 The data type of the matrix elements (e.g., float, double).
+         * @tparam N The number of rows in the matrix.
+         * @tparam M The number of columns in the matrix.
+         * @param leftMat The matrix to be set.
+         * @param rightMat The raw array containing the values to be copied into the matrix.
+         */
+        template <typename Type1, typename Type2, size_t N, size_t M>
+        static void setMatrix(MatrixData<Type1, N, M>& leftMat, const MatrixData<Type1, N, M>& rightMat) {
+            MatrixAlgorithms::copyMatrix(leftMat, rightMat);
         }
 
         template <typename Type, size_t N, size_t M>
@@ -75,13 +86,21 @@ namespace GLESC::Math {
                     matrixObjective[i][j] = values[i][j];
         }
 
-        template <typename Type, size_t N, size_t M>
-        static void copyMatrix(MatrixData<Type, N, M>& matrixObjective, const MatrixData<Type, N, M>& matrixToCopy) {
-            if (&matrixObjective == &matrixToCopy)
-                return;
+        template <typename Type1, typename Type2, size_t N, size_t M>
+        static void copyMatrix(MatrixData<Type1, N, M>& matrixObjective,
+                               const MatrixData<Type2, N, M>& matrixToCopy) {
+            S_ASSERT_TRUE(std::is_copy_assignable_v<Type2>, "Type1 must be copy assignable.");
+            S_ASSERT_TRUE((std::is_convertible_v<Type2, Type1>), "Type1 must be convertible from Type2.");
+
+            // If the types are the same and the matrices are the same, do nothing
+            if constexpr (std::is_same_v<Type1, Type2>) {
+                if (&matrixObjective == &matrixToCopy)
+                    return;
+            }
+
             for (size_t i = 0; i < N; ++i)
                 for (size_t j = 0; j < M; ++j)
-                    matrixObjective[i][j] = matrixToCopy[i][j];
+                    matrixObjective[i][j] = static_cast<Type1>(matrixToCopy[i][j]);
         }
 
         /**
@@ -139,8 +158,8 @@ namespace GLESC::Math {
          */
         template <typename Type, size_t N, size_t M>
         static void matrixAdd(const MatrixData<Type, N, M>& matrix1,
-                                     const MatrixData<Type, N, M>& matrix2,
-                                     MatrixData<Type, N, M>& result) {
+                              const MatrixData<Type, N, M>& matrix2,
+                              MatrixData<Type, N, M>& result) {
             for (size_t i = 0; i < N; ++i)
                 for (size_t j = 0; j < M; ++j)
                     result[i][j] = matrix1[i][j] + matrix2[i][j];
@@ -175,8 +194,8 @@ namespace GLESC::Math {
          */
         template <typename Type, size_t N, size_t M>
         static void matrixHadamardMul(const MatrixData<Type, N, M>& matrix1,
-                                             const MatrixData<Type, N, M>& matrix2,
-                                             MatrixData<Type, N, M>& result) {
+                                      const MatrixData<Type, N, M>& matrix2,
+                                      MatrixData<Type, N, M>& result) {
             for (size_t i = 0; i < N; ++i)
                 for (size_t j = 0; j < M; ++j)
                     result[i][j] = matrix1[i][j] * matrix2[i][j];
@@ -210,8 +229,8 @@ namespace GLESC::Math {
          */
         template <typename Type, size_t N, size_t M>
         static void matrixSub(const MatrixData<Type, N, M>& matrix1,
-                                     const MatrixData<Type, N, M>& matrix2,
-                                     MatrixData<Type, N, M>& result) {
+                              const MatrixData<Type, N, M>& matrix2,
+                              MatrixData<Type, N, M>& result) {
             for (size_t i = 0; i < N; ++i)
                 for (size_t j = 0; j < M; ++j)
                     result[i][j] = matrix1[i][j] - matrix2[i][j];
@@ -265,8 +284,8 @@ namespace GLESC::Math {
          */
         template <typename Type, size_t N, size_t M>
         static void matrixHadamardDiv(const MatrixData<Type, N, M>& matrix1,
-                                             const MatrixData<Type, N, M>& matrix2,
-                                             MatrixData<Type, N, M>& result) {
+                                      const MatrixData<Type, N, M>& matrix2,
+                                      MatrixData<Type, N, M>& result) {
             for (size_t i = 0; i < N; ++i)
                 for (size_t j = 0; j < M; ++j) {
                     if (matrix2[i][j] == 0)
@@ -287,7 +306,7 @@ namespace GLESC::Math {
         template <typename Type, size_t N, size_t M>
         static void
         matrixScalarDiv(const MatrixData<Type, N, M>& matrix, const Type& scalar, MatrixData<Type, N, M>& result) {
-            if(scalar == 0)
+            if (scalar == 0)
                 throw MathException("Division by zero is not allowed.");
             matrixScalarMul(matrix, Type(1) / scalar, result);
         }
@@ -305,8 +324,8 @@ namespace GLESC::Math {
          */
         template <typename Type, size_t N, size_t M, size_t X>
         static void matrixMulDot(const MatrixData<Type, N, M>& matrix1,
-                                        const MatrixData<Type, M, X>& matrix2,
-                                        MatrixData<Type, N, X>& result) {
+                                 const MatrixData<Type, M, X>& matrix2,
+                                 MatrixData<Type, N, X>& result) {
             for (size_t i = 0; i < N; ++i) {
                 for (size_t j = 0; j < X; ++j) {
                     // Set the value to zero before adding the products
@@ -317,6 +336,7 @@ namespace GLESC::Math {
                 }
             }
         }
+
         /**
          * @brief Dot product matrix multiplication in place.
          * @details An in place method is needed because the normal matrix multiplication doesn't allow it without
@@ -350,10 +370,10 @@ namespace GLESC::Math {
          */
         template <typename Type, size_t N, size_t M, size_t X>
         static void matrixDiv(const MatrixData<Type, N, M>& matrix1,
-                                     const MatrixData<Type, M, X>& matrix2,
-                                     MatrixData<Type, N, X>& result) {
+                              const MatrixData<Type, M, X>& matrix2,
+                              MatrixData<Type, N, X>& result) {
             Type det = laplaceExpansionDeterminant(matrix2);
-            if (eq(det , 0))
+            if (eq(det, 0))
                 throw MathException("Matrix is not invertible.");
             MatrixData<Type, M, X> inverse;
             matrixInverse(matrix2, inverse);
@@ -375,24 +395,43 @@ namespace GLESC::Math {
                     result[j][i] = matrix[i][j]; // j,i becomes i,j, the numbers are mirrored
         }
 
-
-        template <typename Type, size_t N>
+        /**
+         * @brief Sets the translation for a model matrix, can be used in place.
+         * @details Sets the translation for a model 4x4 matrix. The translation is set in the fourth column of the
+         * matrix. The translation vector must have N-1 components, where N is the number of rows of the matrix.
+         * @tparam Type1 The data type of the matrix elements (e.g., float, double).
+         * @tparam Type2 The data type of the translation vector elements (e.g., float, double).
+         * @tparam N The number of rows of the matrix.
+         * @param modelMatrix The model matrix.
+         * @param translation The translation vector.
+         * @param result The result matrix.
+         */
+        template <typename Type1, typename Type2, size_t N>
         static void
-        translate(const MatrixData<Type, N, N>& matrix, const VectorData<Type, N - 1>& translation,
-                  MatrixData<Type, N, N>& result) {
-            setMatrix(result, matrix);
+        setTranslate(const MatrixData<Type1, N, N>& modelMatrix, const VectorData<Type2, N - 1>& translation,
+                     MatrixData<Type1, N, N>& result) {
+            // Copy the matrix into result
+            MatrixAlgorithms::setMatrix<Type1, Type2, N, N>(result, modelMatrix);
+
+            // Directly set the translation components in the fourth column
+            // This overrides the existing values, correctly positioning the matrix
             for (size_t i = 0; i < N - 1; ++i) {
-                result[i][N - 1] += translation[i];
+                result[i][N - 1] = translation[i];
             }
+        }
+
+        template <typename Type>
+        static bool isValidViewMatrix(const MatrixData<Type, 4, 4>& viewMatrix) {
+            // The view matrix is valid if it is invertible
+            return MatrixAlgorithms::isInvertible(viewMatrix);
         }
 
         template <typename Type, size_t N>
         static void
         inverse2x2(const MatrixData<Type, N, N>& matrix, MatrixData<Type, N, N>& result) {
             Type determinant;
-            determinant2x2(matrix, determinant);
-            if(eq(determinant , 0))
-                throw MathException("Matrix is not invertible.");
+            MatrixAlgorithms::determinant2x2(matrix, determinant);
+            D_ASSERT_TRUE(MatrixAlgorithms::isInvertible(matrix), "Matrix is not invertible.");
             D_ASSERT_FALSE(&matrix == &result, "Cannot invert matrix in place.");
             result[0][0] = matrix[1][1] / determinant;
             result[0][1] = -matrix[0][1] / determinant;
@@ -400,13 +439,63 @@ namespace GLESC::Math {
             result[1][1] = matrix[0][0] / determinant;
         }
 
+        /**
+         * @brief Calculates the perspective projection matrix.
+         * @details Calculates the perspective projection matrix given the field of view, aspect ratio, near and far
+         * planes. The fov must be in radians, on the contrary the result will be incorrect.
+         * @tparam Type The data type of the matrix elements (e.g., float, double).
+         * @param fovRad The field of view in radians.
+         * @param nearPlane The near plane.
+         * @param farPlane The far plane.
+         * @param viewWidth The width of the view.
+         * @param viewHeight The height of the view.
+         * @param result The result matrix.
+         */
+        template <typename Type>
+        static void perspective(float fovRad, float nearPlane, float farPlane, float viewWidth, float viewHeight,
+                                MatrixData<Type, 4, 4>& result) {
+            S_ASSERT_TRUE(std::is_arithmetic_v<Type>, "Type must be arithmetic.");
+            D_ASSERT_TRUE(farPlane > nearPlane, "Far must be greater than near.");
+            D_ASSERT_TRUE(nearPlane > 0, "Near must be greater than 0.");
+            D_ASSERT_TRUE(viewWidth > 0, "View width must be greater than 0.");
+            D_ASSERT_TRUE(viewHeight > 0, "View height must be greater than 0.");
+            D_ASSERT_TRUE(fovRad > 0, "Field of view must be greater than 0.");
+            Type f = 1 / tan(fovRad / 2);
+            float aspect = viewWidth / viewHeight;
+            MatrixAlgorithms::setMatrixZero(result);
+
+            result[0][0] = f / aspect;
+            result[1][1] = f;
+            result[2][2] = (farPlane + nearPlane) / (nearPlane - farPlane);
+            result[2][3] = (2 * farPlane * nearPlane) / (nearPlane - farPlane);
+            result[3][2] = -1;
+        }
+
+        /**
+         * @brief Calculates the perspective projection matrix.
+         * @details Calculates the perspective projection matrix given the field of view, aspect ratio, near and far
+         * planes. The fov must be in degrees, on the contrary the result will be incorrect.
+         * @tparam Type The data type of the matrix elements (e.g., float, double).
+         * @param fovDegrees The field of view in degrees.
+         * @param nearPlane The near plane.
+         * @param farPlane The far plane.
+         * @param viewWidth The width of the view.
+         * @param viewHeight The height of the view.
+         * @param result The result matrix.
+         */
+        template <typename Type>
+        static void
+        calculateProjectionMatrix(float fovDegrees, float nearPlane, float farPlane,
+                                  float viewWidth, float viewHeight, MatrixData<Type, 4, 4>& projection) {
+            MatrixAlgorithms::perspective(radians(fovDegrees), nearPlane, farPlane, viewWidth, viewHeight, projection);
+        }
+
         template <typename Type, size_t N>
         static void
         inverse3x3(const MatrixData<Type, N, N>& matrix, MatrixData<Type, N, N>& result) {
             Type determinant;
-            determinant3x3(matrix, determinant);
-            if(eq(determinant , 0))
-                throw MathException("Matrix is not invertible.");
+            MatrixAlgorithms::determinant3x3(matrix, determinant);
+            D_ASSERT_TRUE(MatrixAlgorithms::isInvertible(matrix), "Matrix is not invertible.");
             D_ASSERT_FALSE(&matrix == &result, "Cannot invert matrix in place.");
             result[0][0] = (matrix[1][1] * matrix[2][2] - matrix[1][2] * matrix[2][1]) / determinant;
             result[0][1] = (matrix[0][2] * matrix[2][1] - matrix[0][1] * matrix[2][2]) / determinant;
@@ -419,13 +508,21 @@ namespace GLESC::Math {
             result[2][2] = (matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0]) / determinant;
         }
 
+        /**
+         * @brief Inverts a 4x4 matrix.
+         * @details Calcutes the inverse matrix of the left parameter and stores it in the result
+         * Can't be done in place, matrix and result must reference different objects.
+         * @tparam Type The data type of the matrix elements (e.g., float, double).
+         * @tparam N The number of rows of the matrix.
+         * @param matrix The matrix.
+         * @param result The result matrix.
+         */
         template <typename Type, size_t N>
         static void
         inverse4x4(const MatrixData<Type, N, N>& matrix, MatrixData<Type, N, N>& result) {
             Type determinant;
-            determinant4x4(matrix, determinant);
-            if(eq(determinant , 0))
-                throw MathException("Matrix is not invertible.");
+            MatrixAlgorithms::determinant4x4(matrix, determinant);
+            D_ASSERT_TRUE(MatrixAlgorithms::isInvertible(matrix), "Matrix is not invertible.");
             D_ASSERT_FALSE(&matrix == &result, "Cannot invert matrix in place.");
             Type A2323 = matrix[2][2] * matrix[3][3] - matrix[2][3] * matrix[3][2];
             Type A1323 = matrix[2][1] * matrix[3][3] - matrix[2][3] * matrix[3][1];
@@ -486,13 +583,9 @@ namespace GLESC::Math {
         }
 
         template <typename Type, size_t N>
-        static void scale(const MatrixData<Type, N, N>& matrix, const VectorData<Type, N - 1>& scale,
-              MatrixData<Type, N, N>& result) {
-            S_ASSERT_TRUE(N == 3 || N == 4, "Scaling only makes sense for 3x3 and 4x4 matrices.");
-            setMatrix(result, matrix);
-            for (size_t i = 0; i < N - 1; ++i) {
-                result[i][i] += scale[i];
-            }
+        static bool isInvertible(const MatrixData<Type, N, N>& matrix) {
+            Type determinant = MatrixAlgorithms::laplaceExpansionDeterminant(matrix);
+            return !Math::eq(determinant, 0);
         }
 
 
@@ -505,13 +598,11 @@ namespace GLESC::Math {
          * @brief Computes the determinant of a matrix 3x3.
          * @details Computes the determinant of a matrix using Laplace expansion.
          * @tparam Type The data type of the matrix elements (e.g., float, double).
-         * @tparam N The number of rows of the matrix.
-         * @tparam M The number of columns of the matrix.
          * @param matrix The matrix.
          * @param result The result determinant.
          */
         template <typename Type>
-        static inline void determinant3x3(const MatrixData<Type, 3, 3>& matrix, Type& result) {
+        static void determinant3x3(const MatrixData<Type, 3, 3>& matrix, Type& result) {
             result = matrix[0][0] * (matrix[1][1] * matrix[2][2] - matrix[1][2] * matrix[2][1]) -
                 matrix[0][1] * (matrix[1][0] * matrix[2][2] - matrix[1][2] * matrix[2][0]) +
                 matrix[0][2] * (matrix[1][0] * matrix[2][1] - matrix[1][1] * matrix[2][0]);
@@ -527,7 +618,7 @@ namespace GLESC::Math {
          * @param result The result determinant.
          */
         template <typename Type>
-        static inline void determinant4x4(const MatrixData<Type, 4, 4>& matrix, Type& result) {
+        static void determinant4x4(const MatrixData<Type, 4, 4>& matrix, Type& result) {
             result = matrix[0][0] * (matrix[1][1] * (matrix[2][2] * matrix[3][3] - matrix[2][3] * matrix[3][2]) -
                 matrix[1][2] * (matrix[2][1] * matrix[3][3] - matrix[2][3] * matrix[3][1]) +
                 matrix[1][3] * (matrix[2][1] * matrix[3][2] - matrix[2][2] * matrix[3][1]));
@@ -653,6 +744,18 @@ namespace GLESC::Math {
                     sign = -sign; // Alternate sign for cofactor expansion
                 }
                 return result;
+            }
+        }
+
+        template <typename Type1, typename Type2, size_t N>
+        static void setScale(const MatrixData<Type1, N, N>& matrix, const VectorData<Type2, N - 1>& scale,
+                             MatrixData<Type1, N, N>& result) {
+            S_ASSERT_TRUE(N == 3 || N == 4, "Scaling only makes sense for 3x3 and 4x4 matrices.");
+            // Preserve the original matrix's values except for the scale factors
+            MatrixAlgorithms::setMatrix<Type1, Type2, N, N>(result, matrix);
+            // Directly set the scale components on the matrix's diagonal
+            for (size_t i = 0; i < N - 1; ++i) {
+                result[i][i] = scale[i];
             }
         }
 

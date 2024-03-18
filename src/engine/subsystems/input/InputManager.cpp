@@ -1,5 +1,5 @@
 /******************************************************************************
- * @file   Example.h
+ * @file   InputManager.cpp
  * @author Valentin Dumitru
  * @date   2023-09-26
  * @brief @todo
@@ -9,44 +9,48 @@
  ******************************************************************************/
 
 #include "engine/subsystems/input/InputManager.h"
+
+#include <SDL2/SDL.h>
 #include <unordered_map>
 
-InputManager::InputManager() {
-}
 
-InputManager::~InputManager() {
-}
+InputManager::InputManager(HUDManager& hudManager) : hudManager(hudManager), mousePosition({0, 0}) {}
 
-void InputManager::update() {
+
+void InputManager::update(bool& running) {
     SDL_Event event;
     while (SDL_PollEvent(&event)) {
+        if (event.type == SDL_QUIT) {
+            running = false;
+        }
+        hudManager.processInput(event);
         handleEvent(event);
     }
 }
 
-void InputManager::handleEvent(const SDL_Event &event) {
+void InputManager::handleEvent(const SDL_Event& event) {
     switch (event.type) {
-        case SDL_KEYDOWN:
-        case SDL_KEYUP:
-            handleKeyEvent(event);
-            break;
-        case SDL_MOUSEBUTTONDOWN:
-        case SDL_MOUSEBUTTONUP:
-        case SDL_MOUSEMOTION:
-            handleMouseEvent(event);
-            break;
-        default:
-            break;
+    case SDL_KEYDOWN:
+    case SDL_KEYUP:
+        handleKeyEvent(event);
+        break;
+    case SDL_MOUSEBUTTONDOWN:
+    case SDL_MOUSEBUTTONUP:
+    case SDL_MOUSEMOTION:
+        handleMouseEvent(event);
+        break;
+    default:
+        break;
     }
 }
 
-void InputManager::handleKeyEvent(const SDL_Event &event) {
+void InputManager::handleKeyEvent(const SDL_Event& event) {
     auto keycode = static_cast<GLESC::Key>(event.key.keysym.sym);
     bool pressed = event.type == SDL_KEYDOWN;
     keyMap[keycode] = pressed;
 }
 
-void InputManager::handleMouseEvent(const SDL_Event &event) {
+void InputManager::handleMouseEvent(const SDL_Event& event) {
     auto mouseButton = static_cast<GLESC::Key>(event.button.button);
     bool pressed = event.type == SDL_MOUSEBUTTONDOWN;
     keyMap[mouseButton] = pressed;

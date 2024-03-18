@@ -1,5 +1,5 @@
 /******************************************************************************
- * @file   Example.h
+ * @file   GLESC.h
  * @author Valentin Dumitru
  * @date   2023-09-26
  * @brief @todo
@@ -14,7 +14,7 @@
 #include <memory>
 // Core
 #include "engine/core/window/WindowManager.h"
-#include "engine/core/counter/Counter.h"
+#include "engine/core/counter/FPSManager.h"
 #include "engine/core/low-level-renderer/graphic-api/concrete-apis/opengl/OpenGLAPI.h"
 // ECS
 #include "ecs/ECSTypes.h"
@@ -28,9 +28,12 @@
 #include "engine/ecs/frontend/system/systems/InputSystem.h"
 
 // Subsystems
+#include "engine/subsystems/hud/engine-hud/EngineDebugHUDManager.h"
+#include "engine/subsystems/hud/HUDManager.h"
 #include "engine/subsystems/renderer/Renderer.h"
 #include "engine/subsystems/input/InputManager.h"
 #include "engine/subsystems/physics/PhysicsManager.h"
+
 
 namespace GLESC {
     class Engine {
@@ -38,20 +41,20 @@ namespace GLESC {
          * @brief The engine can only be created by the main function,
          * where the game loop is defined
          */
-        friend int::main(int argc, char* argv[]);
-    
+        friend int ::main(int argc, char* argv[]);
+
     public:
         void initGame();
-        
+
         void loop();
-    
+
     private:
         /**
          * @brief The constructor is private,
          * the engine can only be created by the main function
          */
-        Engine();
-        
+        explicit Engine(FPSManager& fpsManager);
+
         /**
          * @brief Processes the logic of the game
          * Is called every frame, must be called at
@@ -59,50 +62,50 @@ namespace GLESC {
          * information https://www.gameprogrammingpatterns.com/game-loop.html
          */
         void update();
-        
+
         /**
          * @brief Processes the input of the game
          */
         void processInput();
-        
+
         /**
          * @brief Processes the rendering of the game
          * Can be called at variable intervals of time as it uses elapsed
          * @param timeOfFrame The time of the frame
          */
         void render(double timeOfFrame);
-        
+
         /**
          * @brief Get the Entity object with the given name, the entity must exist.
          * @param name
          * @return
          */
-        inline Entity getEntity(const EntityName& name);
-        
+        inline ECS::Entity getEntity(const ECS::EntityName& name);
+
         /**
          * @brief Get the Entity object with the given name, the entity can not exist.
          * @details If the entity does not exist, std::nullopt is returned.
          * @param name The name of the entity
          * @return The entity with the given name or std::nullopt if the entity does not exist
          */
-        inline std::optional<Entity> tryGetEntity(const EntityName& name);
-        
+        inline std::optional<ECS::Entity> tryGetEntity(const ECS::EntityName& name);
+
         /**
          * @brief Create an entity with the given name. The name must be unique.
          * @param name The name of the entity
          * @return The entity with the given name
          */
-        inline Entity createEntity(const EntityName& name);
-        
+        inline ECS::Entity createEntity(const ECS::EntityName& name);
+
         /**
          * @brief If true, the game is running. If false, the game is stopped.
          */
         bool running{true};
-        
+
         /**
          * @brief Handles the window of the game
          */
-        GLESC::WindowManager windowManager;
+        WindowManager windowManager;
         /**
          * @brief Handles the input of the game
          * @details Handles all the inputs of the game, and stores the state of the inputs.
@@ -113,30 +116,34 @@ namespace GLESC {
          * @details Handles all the rendering of the game, provides a high level interface to the graphics API.
          * Can be used to render 2D and 3D graphics, including generating meshes and textures.
          */
-        GLESC::Renderer renderer;
-        
+        Renderer renderer;
+
         PhysicsManager physicsManager;
-        
-        
-        ECS ecs;
-        InputSystem inputSystem;
-        PhysicsSystem physicsSystem;
-        RenderSystem renderSystem;
-        CameraSystem cameraSystem;
-        
+
+        HUDManager hudManager;
+        EngineDebugHUDManager engineHuds;
+
+
+        FPSManager& fpsManager;
+
+
+        ECS::ECSCoordinator ecs;
+        ECS::InputSystem inputSystem;
+        ECS::PhysicsSystem physicsSystem;
+        ECS::RenderSystem renderSystem;
+        ECS::CameraSystem cameraSystem;
     }; // class Engine
-    inline Entity GLESC::Engine::createEntity(const EntityName& name) {
-        return Entity(name, ecs);
+    inline ECS::Entity Engine::createEntity(const ECS::EntityName& name) {
+        return ECS::Entity(name, ecs);
     }
-    
-    inline std::optional<Entity> Engine::tryGetEntity(const EntityName& name) {
-        if (ecs.tryGetEntityID(name) == NULL_ENTITY)
+
+    inline std::optional<ECS::Entity> Engine::tryGetEntity(const ECS::EntityName& name) {
+        if (ecs.tryGetEntityID(name) == ECS::EntityManager::nullEntity)
             return std::nullopt;
-        return Entity(ecs.tryGetEntityID(name), ecs);
+        return ECS::Entity(ecs.tryGetEntityID(name), ecs);
     }
-    
-    inline GLESC::Entity Engine::getEntity(const EntityName& name) {
-        return Entity(ecs.getEntityID(name), ecs);
+
+    inline ECS::Entity Engine::getEntity(const ECS::EntityName& name) {
+        return ECS::Entity(ecs.getEntityID(name), ecs);
     }
 } // namespace GLESC
-

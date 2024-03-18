@@ -6,32 +6,31 @@
 
 #pragma once
 
-#include "engine/ecs/frontend/entity/Entity.h"
 #include "engine/ecs/backend/ECS.h"
-#include "engine/core/logger/Logger.h"
 #include <set>
-#include <memory>
 
-class System {
-    friend class Entity;
+namespace GLESC::ECS {
+    class System {
+        friend class Entity;
 
-public:
-    explicit System(GLESC::ECS& ecs, const SystemName& name);
-    
-    template<class Component>
-    void addComponentRequirement() {
-        ecs.addComponentRequirementToSystem<Component>(name);
-    }
-    
-    [[nodiscard]] std::set<EntityID> getAssociatedEntities() const;
+    public:
+        explicit System(ECSCoordinator& ecs, const SystemName& name);
 
+        template <class Component>
+        void addComponentRequirement() {
+            ecs.addComponentRequirementToSystem<Component>(name);
+        }
 
-protected:
-    template<class T>
-    inline T &getComponent(EntityID entityId) {
-        return ecs.getComponent<T>(entityId);
-    }
-private:
-    GLESC::ECS& ecs;
-    SystemName name;
-};
+        [[nodiscard]] std::set<EntityID> getAssociatedEntities() const;
+
+    protected:
+        template <class Component>
+        Component& getComponent(EntityID entityId) {
+            return ecs.getComponent<Component>(entityId);
+        }
+
+    private:
+        ECSCoordinator& ecs;
+        SystemName name;
+    };
+}
