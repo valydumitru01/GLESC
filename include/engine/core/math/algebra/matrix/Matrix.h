@@ -414,6 +414,7 @@ namespace GLESC::Math {
         }
 
 
+
         /**
           * @brief Applies a rotation to the model matrix.
           * @details The
@@ -421,9 +422,13 @@ namespace GLESC::Math {
           * @param degrees
           * @return
           */
-        template <typename VecType>
+        template <typename VecType, typename = std::enable_if_t<
+             N == 3 && M == 3 || N == 4 && M == 4 &&
+             is_vector_v<std::decay_t<VecType>> ||
+             std::is_arithmetic_v<std::decay_t<VecType>>
+        >>
         [[nodiscard]] Matrix rotate(const VecType& degrees) const {
-            static_assert(N != 3 && M != 3 || N != 4 && M != 4, "Rotation is only supported for 2D and 3D matrices");
+            S_ASSERT_TRUE(N != 3 && M != 3 || N != 4 && M != 4, "Rotation is only supported for 2D and 3D matrices");
             Matrix<Type, N, N> result;
             if constexpr (std::is_arithmetic<VecType>() && N == 3 && M == 3) {
                 MatrixMixedAlgorithms::rotate2D(this->data, degrees, result.data);
@@ -431,10 +436,6 @@ namespace GLESC::Math {
             else if constexpr (is_vector_v<std::decay_t<VecType>> && N == 4 && M == 4) {
                 MatrixMixedAlgorithms::rotate3D(this->data, degrees.data, result.data);
             }
-            else {
-                S_ASSERT_TRUE(false, "Vector type is not supported for rotation");
-            }
-
             return result;
         }
 

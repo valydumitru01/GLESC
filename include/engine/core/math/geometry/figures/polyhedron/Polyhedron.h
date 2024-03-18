@@ -46,6 +46,13 @@ namespace GLESC::Math {
         
         [[nodiscard]] bool intersects(const Plane &plane) const;
 
+        void operator=(const Polyhedron &other) {
+            vertices = other.vertices;
+            for (const PolyhedronFace &face : other.faces) {
+                this->addFace(face.getVertexIndices());
+            }
+        }
+
     private:
         [[nodiscard]] bool isOutOfBounds(const std::vector<FaceIndices>& faces) const;
         [[nodiscard]] bool isOutOfBounds(const FaceIndices& face) const;

@@ -118,6 +118,17 @@ namespace GLESC {
             return cachedHash;
         }
 
+        void operator=(const Mesh& other) {
+            vertices = other.vertices;
+            indices = other.indices;
+            vertexToIndexMap = other.vertexToIndexMap;
+            boudingVolume = other.boudingVolume;
+            vertexLayout = other.vertexLayout;
+            dirtyFlag = other.dirtyFlag;
+            renderType = other.renderType;
+            hashDirty = true;
+        }
+
     private:
         size_t calculateHash() const {
             size_t hashValue = 0;

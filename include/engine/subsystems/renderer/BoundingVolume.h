@@ -57,6 +57,10 @@ public:
         return topology;
     }
 
+    void operator=(const BoundingVolume& other) {
+        topology = other.topology;
+    }
+
 private:
     /**
      * @brief Builds the bounding volume from the given dimensions

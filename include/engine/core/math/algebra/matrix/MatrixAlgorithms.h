@@ -563,7 +563,7 @@ namespace GLESC::Math {
             result[3][3] = invDet * (matrix[0][0] * A1212 - matrix[0][1] * A0212 + matrix[0][2] * A0112);
         }
 
-        template <typename Type, size_t N>
+        template <typename Type, size_t N, typename = std::enable_if_t<N == 2 || N == 3 || N == 4>>
         static void
         matrixInverse(const MatrixData<Type, N, N>& matrix, MatrixData<Type, N, N>& result) {
             if constexpr (N == 2) {
@@ -578,7 +578,6 @@ namespace GLESC::Math {
             else {
                 // TODO: Implement general inverse
                 //result = MatrixAlgorithms::gaussianElimination(matrix).inverse;
-                S_ASSERT_TRUE(false, "Matrix inverse not implemented for this size.");
             }
         }
 

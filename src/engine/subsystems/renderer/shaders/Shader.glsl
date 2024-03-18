@@ -3,9 +3,9 @@
 out vec4 FragColor;
 
 #ifdef USE_COLOR
-in vec3 outColor;
+in vec3 vertexColor;
 #else
-in vec2 outTexCoord;
+in vec2 vertexTexCoord;
 #endif
 
 in vec3 Normal;
@@ -95,10 +95,10 @@ void main() {
     #ifdef USE_COLOR
     vec4 baseColor =  vec4(color, 1.0);
     #else
-    vec4 baseColor = texture(texture1, outTexCoord);
+    vec4 baseColor = texture(texture1, vertexTexCoord);
     #endif
 
-    vec3 norm = normalize(Normal);
+    vec3 norm = Normal; // Normal is expected to be already normalized
     vec3 viewDir = normalize(-FragPos);// Assuming the camera is at the origin
 
     vec4 ambient = calculateAmbient(uAmbientColor, uGlobalAmbientColor, uGlobalAmbientIntensity, uAmbientIntensity);
@@ -150,26 +150,32 @@ layout (location = 2) in vec3 normal;
 in vec3 instancePos;
 #endif
 
-out vec3 outColor;
-out vec2 outTexCoord;
+#ifdef USE_COLOR
+out vec3 vertexColor;
+#else
+out vec2 vertexTexCoord;
+#endif
 
+out vec3 Normal;
+out vec3 FragPos;
 uniform dmat4 uMVP;
 
 void main() {
 
 
     #ifdef USE_INSTANCING
-    gl_Position = gl_Position = vec4(uMVP * vec4(pos + instancePos, 1.0));
+    gl_Position  = vec4(uMVP * vec4(pos + instancePos, 1.0));
     #else
     gl_Position = vec4(uMVP * vec4(pos, 1.0));
     #endif
 
 
     #ifdef USE_COLOR
-    outColor = vec3(color.x, color.y, color.z);
+    vertexColor = vec3(color.x, color.y, color.z);
     #else
-    outTexCoord = vec2(texCoord.x, texCoord.y);
+    vertexTexCoord = vec2(texCoord.x, texCoord.y);
     #endif
 
-
+    Normal = normal;
+    FragPos = vec3(uMVP * vec4(pos, 1.0));
 }

@@ -223,7 +223,7 @@ namespace GLESC::Math {
      * @param max The maximum value of the random number
      * @return A random number of the given type in the range [min, max)
      */
-    template <typename Type>
+    template <typename Type, typename = std::enable_if_t<std::is_arithmetic_v<Type>>>
     Type generateRandomNumber(Type min, Type max) {
         S_ASSERT_TRUE(std::is_arithmetic_v<Type>, "Type must be arithmetic");
         D_ASSERT_TRUE(max >= min, "Max must be greater than min");
@@ -247,18 +247,14 @@ namespace GLESC::Math {
             std::uniform_real_distribution<Type> dist(min, max);
             return dist(mt);
         }
-        // If the type is not integral or floating point, we don't know how to generate a random number
-        else {
-            S_ASSERT_TRUE(false, "Unsupported type for generateRandomNumber");
-        }
     }
 
     /**
      * @brief Generates a compile time random number between min and max, specifically [min, max)
      * @details this uses the __TIME__ macro to generate a random number
-     * @tparam Type
-     * @param min
-     * @param max
+     * @tparam Type The type of the random number
+     * @tparam min The minimum value of the random number
+     * @tparam max The maximum value of the random number
      * @return
      */
     template <typename Type, Type min, Type max>

@@ -34,7 +34,7 @@ struct MeshInstanceData {
         return transform == other.transform;
     }
 
-    static constexpr std::vector<GAPI::Types> getDataLayout() {
+    static std::vector<GAPI::Types> getDataLayout() {
         return {GAPI::Types::Vec3D, GAPI::Types::Vec3F, GAPI::Types::Vec3F};
     }
 

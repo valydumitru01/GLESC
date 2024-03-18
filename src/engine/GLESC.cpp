@@ -58,14 +58,14 @@ void Engine::processInput() {
 }
 
 void Engine::render(double const timeOfFrame) {
-    Logger::get().importantInfoPurple("Engine update started");
+    Logger::get().importantInfoPurple("Engine render started");
     renderer.clear();
 
     renderer.renderMeshes(timeOfFrame);
     hudManager.render();
 
     renderer.swapBuffers();
-    Logger::get().importantInfoPurple("Engine update finished");
+    Logger::get().importantInfoPurple("Engine render finished");
 }
 
 void Engine::update() {
