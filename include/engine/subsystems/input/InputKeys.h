@@ -11,8 +11,11 @@
 
 namespace GLESC {
     
-    enum class KeyState {
-        PRESSED, RELEASED
+    enum class KeyAction {
+        ONCE_RELEASED,
+        ONCE_PRESSED,
+        ONGOING_PRESSED,
+        ONGOING_RELEASED,
     };
     enum class Key {
         ESCAPE = SDLK_ESCAPE,

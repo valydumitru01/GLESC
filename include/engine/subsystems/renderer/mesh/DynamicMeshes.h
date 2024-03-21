@@ -13,7 +13,7 @@
 #include "engine/subsystems/transform/Transform.h"
 
 struct DynamicMesh {
-    const GLESC::ColorMesh* mesh;
+    GLESC::ColorMesh* mesh;
     const GLESC::Material* material;
     const GLESC::Transform* transform;
     bool operator==(const DynamicMesh& other) const {
@@ -39,7 +39,7 @@ struct DynamicMesh {
 
 class DynamicMeshes {
 public:
-    void addDynamicMesh(const GLESC::ColorMesh& mesh, const GLESC::Material& material,
+    void addDynamicMesh(GLESC::ColorMesh& mesh, const GLESC::Material& material,
                         const GLESC::Transform& transform) {
         dynamicMeshes.insert({&mesh, &material, &transform});
     }

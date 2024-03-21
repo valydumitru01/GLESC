@@ -13,22 +13,24 @@
 
 using namespace GLESC::ECS;
 
-InputSystem::InputSystem(InputManager& inputManager, ECSCoordinator& ecs) :
+InputSystem::InputSystem(InputManager &inputManager, ECSCoordinator &ecs) :
     System(ecs, "InputSystem"), inputManager(inputManager) {
     addComponentRequirement<InputComponent>();
 }
 
 void InputSystem::update() {
-    for (auto& entity : getAssociatedEntities()) {
-        auto& input = getComponent<InputComponent>(entity);
-        for (std::pair<const Key, Command>& keyPressedPair : input.subscribedKeys) {
-            const Key& key = keyPressedPair.first;
-            Command& command = keyPressedPair.second;
+    for (auto &entity : getAssociatedEntities()) {
+        auto &input = getComponent<InputComponent>(entity);
 
-            if (inputManager.isKeyPressed(key)) {
+        for (std::pair<const KeyInput, KeyCommand> &keyPressedPair : input.subscribedKeys) {
+            const KeyInput &key = keyPressedPair.first;
+            KeyCommand &command = keyPressedPair.second;
+
+            if (inputManager.checkKeyAction(key)) {
                 command.execute();
             }
         }
-        input.mousePosition = inputManager.getMousePosition();
+
+        input.mouseCommand.execute(inputManager.getMousePosition());
     }
 }

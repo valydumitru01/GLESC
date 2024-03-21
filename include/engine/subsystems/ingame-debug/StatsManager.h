@@ -10,6 +10,7 @@
 #pragma once
 #include "engine/core/asserts/Asserts.h"
 #include <functional>
+#include <map>
 #include <string>
 
 class StatsManager {
@@ -26,5 +27,5 @@ public:
 
     static std::unordered_map<std::string, std::string> getStats();
 private:
-    static std::unordered_map<std::string, std::function<std::string()>> sources;
+    static std::map<std::string, std::function<std::string()>> sources;
 };

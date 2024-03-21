@@ -105,19 +105,7 @@ void WindowManager::setIcon(const std::string &iconFile) {
 }
 
 
-void WindowManager::setMouseRelative(bool enabled) {
-    if (SDL_SetRelativeMouseMode(static_cast<SDL_bool>(enabled)) != 0) {
-        
-        std::string action = enabled ? "enable" : "disable";
-        throw WindowException(
-                "Unable to " + action + " mouse relative mode: "+ std::string(SDL_GetError())
-                );
-    }
-}
 
-bool WindowManager::getMouseRelative() {
-    return SDL_GetRelativeMouseMode();
-}
 
 SDL_Window &WindowManager::getWindow() {
     return *window;

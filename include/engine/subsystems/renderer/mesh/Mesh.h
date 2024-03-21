@@ -48,6 +48,7 @@ namespace GLESC {
         [[nodiscard]] const std::vector<Index> getIndices() const { return indices; }
         [[nodiscard]] const std::vector<GAPI::Types> getVertexLayout() const { return vertexLayout; }
         [[nodiscard]] const BoundingVolume& getBoudingVolume() const { return boudingVolume; }
+        [[nodiscard]] BoundingVolume& getBoundingVolumeMutable() { return boudingVolume; }
         [[nodiscard]] bool isDirty() const { return dirtyFlag; }
         [[nodiscard]] RenderType getRenderType() const { return renderType; }
 

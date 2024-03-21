@@ -35,7 +35,6 @@ private:
     void initImGUI();
 
     SDL_Window& window;
-    HudLookAndFeel lookAndFeel;
     bool showDemoWindow = true;
     std::vector<GLESC::InGameWindow*> windows;
 };

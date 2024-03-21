@@ -7,7 +7,7 @@
 #pragma once
 
 #include "InputTypes.h"
-#include "InputKeys.h"
+#include "engine/core/window/WindowManager.h"
 #include "engine/subsystems/hud/HUDManager.h"
 
 /**
@@ -23,54 +23,88 @@ public:
      * @brief Constructs an instance of the InputManager class.
      */
     InputManager(HUDManager &hudManager);
-    
+
     /**
     * @brief Destructs an instance of the InputManager class.
     */
     ~InputManager() = default;
-    
+
     /**
     * @brief Updates the input manager by processing the current input state.
     */
-    void update(bool& running);
-    
+    void update(bool &running);
+
     /**
     * @brief Checks if a specific key is currently pressed.
-    * @param keycode - The key code to check.
+    * @param keyInput - The key to check.
     * @return true if the key is pressed, false otherwise.
     */
-    bool isKeyPressed(GLESC::Key keycode);
-    
+    bool checkKeyAction(const KeyInput &keyInput);
+
     /**
     * @brief Retrieves the current mouse position.
     * @return the current mouse position as a MousePosition object.
     */
-    MousePosition getMousePosition() { return mousePosition; };
+    const MousePosition getMousePosition() const { return mousePosition; } ;
+
+    const std::vector<GLESC::Key> getPressedKeys() const {
+        std::vector<GLESC::Key> pressedKeys;
+        for (auto &key : keyMap) {
+            if (key.second.pressed) {
+                pressedKeys.push_back(key.first);
+            }
+        }
+        return pressedKeys;
+    }
+    /**
+     * @brief Enables mouse
+     * If enabled mouse is visible and position is absolute (allows moving it across the window)
+     * If disabled mouse is hidden and position is relative (stays in center)
+     *
+     * @param enabled true to enable, false to disable
+     */
+    void setMouseRelative(bool enabled);
+
+    /**
+     * @brief Gets whether the mouse is relative or not
+     * @return true if mouse is relative, false otherwise
+     */
+    [[nodiscard]] bool isMouseRelative();
 private:
+    void updateKeyState(GLESC::Key key, bool pressed);
+
+
     /**
      * @brief Handles the SDL event by determining the type of event and calling the appropriate event handling function.
      * @param event - The SDL event to handle.
      */
     void handleEvent(const SDL_Event &event);
-    
+
     /**
     * @brief Handles the keyboard event by updating the key map with the current key state.
     * @param event - The keyboard event to handle.
     */
     void handleKeyEvent(const SDL_Event &event);
-    
+
     /**
     * @brief Handles the mouse event by updating the mouse position with the current mouse coordinates.
     * @param event - The mouse event to handle.
     */
     void handleMouseEvent(const SDL_Event &event);
-    
+
+    bool isAlreadyPressedOnce(const KeyInput &keyInput);
+
     /**
     * @struct MousePosition
     * @brief Represents the current mouse position.
     */
-    MousePosition mousePosition; /**< The current mouse position. */
-    KeyMap keyMap; /**< The key map that stores the current state of each key. */
+    MousePosition mousePosition; /* The current mouse position. */
+    KeyMap keyMap; /* The key map that stores the current state of each key. */
+    /**
+     * @brief A map of bools used to detect if a key was pressed once. Will be initialized dynamically, if a key is
+     * checked and its one time press is not initialized, it will be initialized with true (has been pressed once).
+     */
+    std::unordered_map<const KeyInput *, bool> pressedOnceDetection;
 
     /**
      * @brief The HUDManager instance used to handle HUD events.

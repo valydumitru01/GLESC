@@ -11,7 +11,6 @@
 #include "engine/Config.h"
 
 namespace GAPI {
-    
     enum class TypeCount {
         Value [[maybe_unused]] = 1,
         Vec2 [[maybe_unused]] = 2,
@@ -21,7 +20,6 @@ namespace GAPI {
         Mat3 [[maybe_unused]] = 9,
         Mat4 [[maybe_unused]] = 16,
     };
-
 }
 #ifdef GLESC_OPENGL
 
@@ -38,23 +36,23 @@ namespace GAPI {
                 NearestMipmapLinear [[maybe_unused]] = GL_NEAREST_MIPMAP_LINEAR,
                 LinearMipmapLinear [[maybe_unused]] = GL_LINEAR_MIPMAP_LINEAR
             };
-            
+
             enum class Mag {
                 Nearest [[maybe_unused]] = GL_NEAREST,
                 Linear [[maybe_unused]] = GL_LINEAR,
             };
-            
+
             enum class WrapMode {
                 Repeat [[maybe_unused]] = GL_REPEAT,
                 MirroredRepeat [[maybe_unused]] = GL_MIRRORED_REPEAT,
                 ClampToEdge [[maybe_unused]] = GL_CLAMP_TO_EDGE,
                 ClampToBorder [[maybe_unused]] = GL_CLAMP_TO_BORDER
             };
-            
         };
+
         // TODO: This is messy, we're copying the messy opengl enums, we should make our own
         //  enums and convert them to opengl enums
-        enum class GPUBufferFormat{
+        enum class GPUBufferFormat {
             R8 [[maybe_unused]] = GL_R8,
             R8_SNORM [[maybe_unused]] = GL_R8_SNORM,
             R16 [[maybe_unused]] = GL_R16,
@@ -125,7 +123,8 @@ namespace GAPI {
             DEPTH32F_STENCIL8 [[maybe_unused]] = GL_DEPTH32F_STENCIL8,
             STENCIL_INDEX8 [[maybe_unused]] = GL_STENCIL_INDEX8,
         };
-        enum class CPUBufferFormat{
+
+        enum class CPUBufferFormat {
             R [[maybe_unused]] = GL_R,
             RG [[maybe_unused]] = GL_RG,
             RGB [[maybe_unused]] = GL_RGB,
@@ -135,19 +134,20 @@ namespace GAPI {
             DepthComponent [[maybe_unused]] = GL_DEPTH_COMPONENT,
             DepthStencil [[maybe_unused]] = GL_DEPTH_STENCIL
         };
-        
-        enum class BitDepth{
+
+        enum class BitDepth {
             Bit8 [[maybe_unused]] = 8,
             Bit16 [[maybe_unused]] = 16,
             Bit24 [[maybe_unused]] = 24,
             Bit32 [[maybe_unused]] = 32
         };
     }
+
     enum class BufferTypes {
         Vertex [[maybe_unused]] = GL_ARRAY_BUFFER,
         Index [[maybe_unused]] = GL_ELEMENT_ARRAY_BUFFER
     };
-    
+
     enum class BufferUsages {
         StaticDraw [[maybe_unused]] = GL_STATIC_DRAW,
         DynamicDraw [[maybe_unused]] = GL_DYNAMIC_DRAW,
@@ -156,18 +156,18 @@ namespace GAPI {
         DynamicRead [[maybe_unused]] = GL_DYNAMIC_READ,
         StreamRead [[maybe_unused]] = GL_STREAM_READ
     };
-    
+
     enum class ClearBits {
         Color [[maybe_unused]] = GL_COLOR_BUFFER_BIT,
         Depth [[maybe_unused]] = GL_DEPTH_BUFFER_BIT,
         Stencil [[maybe_unused]] = GL_STENCIL_BUFFER_BIT
     };
-    
+
     enum class ShaderTypes {
         Vertex [[maybe_unused]] = GL_VERTEX_SHADER,
         Fragment [[maybe_unused]] = GL_FRAGMENT_SHADER
     };
-    
+
     enum class StencilParameters {
         StencilTest [[maybe_unused]] = GL_STENCIL_TEST,
         StencilFail [[maybe_unused]] = GL_STENCIL_FAIL,
@@ -186,12 +186,12 @@ namespace GAPI {
         StencilBackValueMask [[maybe_unused]] = GL_STENCIL_BACK_VALUE_MASK,
         StencilBackWriteMask [[maybe_unused]] = GL_STENCIL_BACK_WRITEMASK
     };
-    
+
     enum class DepthParameters {
         DepthTest [[maybe_unused]] = GL_DEPTH_TEST,
         DepthFunc [[maybe_unused]] = GL_DEPTH_FUNC
     };
-    
+
     enum class BlendingParameters {
         Blending [[maybe_unused]] = GL_BLEND,
         BlendEquationRGB [[maybe_unused]] = GL_BLEND_EQUATION_RGB,
@@ -202,30 +202,30 @@ namespace GAPI {
         BlendSrcAlpha [[maybe_unused]] = GL_BLEND_SRC_ALPHA,
         BlendColor [[maybe_unused]] = GL_BLEND_COLOR
     };
-    
+
     enum class CullingParameters {
         Culling [[maybe_unused]] = GL_CULL_FACE,
         CullFaceMode [[maybe_unused]] = GL_CULL_FACE_MODE,
         FrontFace [[maybe_unused]] = GL_FRONT_FACE
     };
-    
+
     enum class PolygonModeParameters {
         PolygonMode [[maybe_unused]] = GL_POLYGON_MODE
     };
-    
+
     enum class PrimitiveTypes {
         Triangles [[maybe_unused]] = GL_TRIANGLES,
         Lines [[maybe_unused]] = GL_LINES,
         Points [[maybe_unused]] = GL_POINTS
     };
-    
+
     enum class Capabilities {
         DepthTest [[maybe_unused]] = GL_DEPTH_TEST,
         StencilTest [[maybe_unused]] = GL_STENCIL_TEST,
         Blending [[maybe_unused]] = GL_BLEND,
         Culling [[maybe_unused]] = GL_CULL_FACE
     };
-    
+
     enum class Types {
         Float [[maybe_unused]] = GL_FLOAT,
         Double [[maybe_unused]] = GL_DOUBLE,
@@ -264,8 +264,8 @@ namespace GAPI {
         Mat2D [[maybe_unused]] = GL_DOUBLE_MAT2,
         Mat3D [[maybe_unused]] = GL_DOUBLE_MAT3,
         Mat4D [[maybe_unused]] = GL_DOUBLE_MAT4
-
     };
+
     enum class TypeSize {
         None [[maybe_unused]] = 0,
         Float [[maybe_unused]] = sizeof(GLfloat),
@@ -305,9 +305,8 @@ namespace GAPI {
         Mat2D [[maybe_unused]] = sizeof(GLdouble) * static_cast<GLsizei>(TypeCount::Mat2),
         Mat3D [[maybe_unused]] = sizeof(GLdouble) * static_cast<GLsizei>(TypeCount::Mat3),
         Mat4D [[maybe_unused]] = sizeof(GLdouble) * static_cast<GLsizei>(TypeCount::Mat4)
-
     };
-    
+
     namespace Texture {
         enum class Types {
             Texture2D [[maybe_unused]] = GL_TEXTURE_2D,
@@ -318,16 +317,11 @@ namespace GAPI {
             Texture2DMultisample [[maybe_unused]] = GL_TEXTURE_2D_MULTISAMPLE,
             Texture2DMultisampleArray [[maybe_unused]] = GL_TEXTURE_2D_MULTISAMPLE_ARRAY
         }; // enum class TextureTypes
-        
     } // namespace Texture
 }
 #else
 #error "No graphic API selected!"
 #endif
-
-
-
-
 
 
 namespace GAPI {
@@ -341,72 +335,72 @@ namespace GAPI {
             case Types::UByte:
             case Types::Byte:
             case Types::Short:
-            case Types::UShort:return TypeCount::Value;
+            case Types::UShort: return TypeCount::Value;
             case Types::Vec2F:
             case Types::Vec2D:
             case Types::Vec2I:
             case Types::Vec2UI:
-            case Types::Vec2B:return TypeCount::Vec2;
+            case Types::Vec2B: return TypeCount::Vec2;
             case Types::Vec3F:
             case Types::Vec3D:
             case Types::Vec3I:
             case Types::Vec3UI:
-            case Types::Vec3B:return TypeCount::Vec3;
+            case Types::Vec3B: return TypeCount::Vec3;
             case Types::Vec4F:
             case Types::Vec4I:
             case Types::Vec4UI:
-            case Types::Vec4B:return TypeCount::Vec4;
+            case Types::Vec4B: return TypeCount::Vec4;
             case Types::Mat2D:
-            case Types::Mat2F:return TypeCount::Mat2;
+            case Types::Mat2F: return TypeCount::Mat2;
             case Types::Mat3D:
-            case Types::Mat3F:return TypeCount::Mat3;
+            case Types::Mat3F: return TypeCount::Mat3;
             case Types::Mat4D:
-            case Types::Mat4F:return TypeCount::Mat4;
+            case Types::Mat4F: return TypeCount::Mat4;
         }
     }
-    
+
     constexpr static TypeSize getTypeSize(Types type) {
         switch (type) {
-            case Types::Float:return TypeSize::Float;
-            case Types::Double:return TypeSize::Double;
-            case Types::Int:return TypeSize::Int;
-            case Types::UInt:return TypeSize::UnsignedInt;
-            case Types::Bool:return TypeSize::Bool;
-            case Types::UByte:return TypeSize::UnsignedByte;
-            case Types::Byte:return TypeSize::Byte;
-            case Types::Short:return TypeSize::Short;
-            case Types::UShort:return TypeSize::UnsignedShort;
+            case Types::Float: return TypeSize::Float;
+            case Types::Double: return TypeSize::Double;
+            case Types::Int: return TypeSize::Int;
+            case Types::UInt: return TypeSize::UnsignedInt;
+            case Types::Bool: return TypeSize::Bool;
+            case Types::UByte: return TypeSize::UnsignedByte;
+            case Types::Byte: return TypeSize::Byte;
+            case Types::Short: return TypeSize::Short;
+            case Types::UShort: return TypeSize::UnsignedShort;
 
-            case Types::Vec2F:return TypeSize::Vec2F;
-            case Types::Vec3F:return TypeSize::Vec3F;
-            case Types::Vec4F:return TypeSize::Vec4F;
+            case Types::Vec2F: return TypeSize::Vec2F;
+            case Types::Vec3F: return TypeSize::Vec3F;
+            case Types::Vec4F: return TypeSize::Vec4F;
 
-            case Types::Vec2D:return TypeSize::Vec2D;
-            case Types::Vec3D:return TypeSize::Vec3D;
-            case Types::Vec4D:return TypeSize::Vec4D;
+            case Types::Vec2D: return TypeSize::Vec2D;
+            case Types::Vec3D: return TypeSize::Vec3D;
+            case Types::Vec4D: return TypeSize::Vec4D;
 
-            case Types::Vec2I:return TypeSize::Vec2I;
-            case Types::Vec3I:return TypeSize::Vec3I;
-            case Types::Vec4I:return TypeSize::Vec4I;
+            case Types::Vec2I: return TypeSize::Vec2I;
+            case Types::Vec3I: return TypeSize::Vec3I;
+            case Types::Vec4I: return TypeSize::Vec4I;
 
-            case Types::Vec2UI:return TypeSize::Vec2UI;
-            case Types::Vec3UI:return TypeSize::Vec3UI;
-            case Types::Vec4UI:return TypeSize::Vec4UI;
+            case Types::Vec2UI: return TypeSize::Vec2UI;
+            case Types::Vec3UI: return TypeSize::Vec3UI;
+            case Types::Vec4UI: return TypeSize::Vec4UI;
 
-            case Types::Vec2B:return TypeSize::Vec2B;
-            case Types::Vec3B:return TypeSize::Vec3B;
-            case Types::Vec4B:return TypeSize::Vec4B;
+            case Types::Vec2B: return TypeSize::Vec2B;
+            case Types::Vec3B: return TypeSize::Vec3B;
+            case Types::Vec4B: return TypeSize::Vec4B;
 
-            case Types::Mat2F:return TypeSize::Mat2F;
-            case Types::Mat3F:return TypeSize::Mat3F;
-            case Types::Mat4F:return TypeSize::Mat4F;
+            case Types::Mat2F: return TypeSize::Mat2F;
+            case Types::Mat3F: return TypeSize::Mat3F;
+            case Types::Mat4F: return TypeSize::Mat4F;
 
-            case Types::Mat2D:return TypeSize::Mat2D;
-            case Types::Mat3D:return TypeSize::Mat3D;
-            case Types::Mat4D:return TypeSize::Mat4D;
+            case Types::Mat2D: return TypeSize::Mat2D;
+            case Types::Mat3D: return TypeSize::Mat3D;
+            case Types::Mat4D: return TypeSize::Mat4D;
         }
     }
-    
+
     constexpr static Types getTypePrimitiveType(Types type) {
         if (getTypeCount(type) == TypeCount::Value) {
             return type;
@@ -417,23 +411,23 @@ namespace GAPI {
             case Types::Vec4F:
             case Types::Mat2F:
             case Types::Mat3F:
-            case Types::Mat4F:return Types::Float;
+            case Types::Mat4F: return Types::Float;
             case Types::Vec2I:
             case Types::Vec3I:
-            case Types::Vec4I:return Types::Int;
+            case Types::Vec4I: return Types::Int;
             case Types::Vec2UI:
             case Types::Vec3UI:
-            case Types::Vec4UI:return Types::UInt;
+            case Types::Vec4UI: return Types::UInt;
             case Types::Vec2B:
             case Types::Vec3B:
-            case Types::Vec4B:return Types::Bool;
+            case Types::Vec4B: return Types::Bool;
             case Types::Vec2D:
             case Types::Vec3D:
             case Types::Vec4D:
             case Types::Mat2D:
             case Types::Mat3D:
-            case Types::Mat4D:return Types::Double;
-            default:return Types::Float;
+            case Types::Mat4D: return Types::Double;
+            default: return Types::Float;
         }
     }
 
@@ -447,45 +441,67 @@ namespace GAPI {
     struct PrimitiveType {
         static_assert(T != T, "Unsupported type specified");
     };
-    #define MAP_TYPE(EnumValue, MappedType) \
+
+#define MAP_TYPE(EnumValue, MappedType) \
         template<> struct PrimitiveType<EnumValue> { using Type = MappedType; };
 
     MAP_TYPE(Types::Float, GLfloat);
+
     MAP_TYPE(Types::Double, GLdouble);
+
     MAP_TYPE(Types::Int, GLint);
+
     MAP_TYPE(Types::UInt, GLuint);
+
     MAP_TYPE(Types::Bool, GLboolean);
+
     MAP_TYPE(Types::Byte, GLbyte);
+
     MAP_TYPE(Types::UByte, GLubyte);
+
     MAP_TYPE(Types::Short, GLshort);
+
     MAP_TYPE(Types::UShort, GLushort);
 
     MAP_TYPE(Types::Vec2F, GLfloat);
+
     MAP_TYPE(Types::Vec3F, GLfloat);
+
     MAP_TYPE(Types::Vec4F, GLfloat);
 
     MAP_TYPE(Types::Vec2D, GLdouble);
+
     MAP_TYPE(Types::Vec3D, GLdouble);
+
     MAP_TYPE(Types::Vec4D, GLdouble);
 
     MAP_TYPE(Types::Vec2I, GLint);
+
     MAP_TYPE(Types::Vec3I, GLint);
+
     MAP_TYPE(Types::Vec4I, GLint);
 
     MAP_TYPE(Types::Vec2UI, GLuint);
+
     MAP_TYPE(Types::Vec3UI, GLuint);
+
     MAP_TYPE(Types::Vec4UI, GLuint);
 
     MAP_TYPE(Types::Vec2B, GLboolean);
+
     MAP_TYPE(Types::Vec3B, GLboolean);
+
     MAP_TYPE(Types::Vec4B, GLboolean);
 
     MAP_TYPE(Types::Mat2F, GLfloat);
+
     MAP_TYPE(Types::Mat3F, GLfloat);
+
     MAP_TYPE(Types::Mat4F, GLfloat);
 
     MAP_TYPE(Types::Mat2D, GLdouble);
-    MAP_TYPE(Types::Mat3D, GLdouble);
-    MAP_TYPE(Types::Mat4D, GLdouble);
 
+    MAP_TYPE(Types::Mat3D, GLdouble);
+
+    MAP_TYPE(Types::Mat4D, GLdouble);
 } // namespace GAPI

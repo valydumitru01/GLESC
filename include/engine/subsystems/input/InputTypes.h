@@ -5,11 +5,37 @@
  ******************************************************************************/
 
 #pragma once
-#include "glm/glm.hpp"
-#include "SDL2/SDL.h"
 #include <unordered_map>
 #include "InputKeys.h"
+#include "engine/core/math/algebra/vector/Vector.h"
+#include "engine/core/hash/Hasher.h"
 
-using MousePosition = glm::vec<2, Sint32, glm::packed>;
+using MousePosition = Vec2I;
 
-using KeyMap = std::unordered_map<GLESC::Key, bool>;
+struct KeyInput {
+    KeyInput() = default;
+    bool operator==(const KeyInput& other) const {
+        return key == other.key && action == other.action;
+    }
+
+    GLESC::Key key;
+    GLESC::KeyAction action;
+};
+
+template<>
+struct std::hash<KeyInput> {
+    size_t operator()(const KeyInput &keyInput) const noexcept {
+        size_t seed = 0;
+        GLESC::Hasher::hashCombine(seed, static_cast<size_t>(keyInput.key));
+        GLESC::Hasher::hashCombine(seed, static_cast<size_t>(keyInput.action));
+        return seed;
+    }
+};
+
+struct InputState {
+    bool pressed = false;
+    bool justPressed = false;
+    bool justReleased = false;
+};
+
+using KeyMap = std::unordered_map<GLESC::Key, InputState>;

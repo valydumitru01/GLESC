@@ -9,6 +9,8 @@
  **************************************************************************************************/
 
 #include "engine/subsystems/hud/engine-hud/DebugStatsHUD.h"
+
+#include "engine/subsystems/hud/HUDLookAndFeel.h"
 #include "engine/subsystems/ingame-debug/StatsManager.h"
 
 DebugStatsHUD::DebugStatsHUD() {
@@ -32,6 +34,9 @@ void DebugStatsHUD::windowContent() {
     for (const auto& entry : StatsManager::getStats()) {
         std::string statName = entry.first;
         std::string statValue = entry.second;
+
+        ImGui::PushFont(HudLookAndFeel::get().getFont(HudLookAndFeel::get().getDefaultFont(), 16));
         ImGui::TextColored(statsTextColor, "%s: %s", statName.c_str(), statValue.c_str());
+        ImGui::PopFont();
     }
 }

@@ -35,13 +35,9 @@ AdaptedMesh MeshAdapter::adaptMesh(const GLESC::ColorMesh& mesh) {
         layout.push(type);
     }
 
-    // Bind VertexArray to configure it
-    adaptedMesh.vertexArray->bind();
-    // Assumes addBuffer binds and configures the VBO appropriately
+
     adaptedMesh.vertexArray->addBuffer(*adaptedMesh.vertexBuffer, layout);
     adaptedMesh.indexBuffer->bind(); // Ensure the IndexBuffer is bound
-
-    // Note: Unbinding is not shown but may be done if needed
 
     return adaptedMesh;
 }

@@ -26,98 +26,69 @@
 #include "engine/subsystems/renderer/mesh/Mesh.h"
 #include "engine/subsystems/renderer/shaders/Shader.h"
 #include "engine/subsystems/transform/Transform.h"
+#include "math/Frustum.h"
 
 namespace GLESC {
- class Renderer {
- public:
-  explicit Renderer(WindowManager& windowManager);
+    class Renderer {
+    public:
+        explicit Renderer(WindowManager &windowManager);
 
-  ~Renderer();
+        ~Renderer();
 
-  Mat4D getProjection() const { return projection; }
-  /**
-   * @brief Sets the projection matrix
-   * @param projectionParam projection matrix
-   */
-  void setProjection(const Mat4D& projectionParam) { this->projection = projectionParam; }
+        Mat4D getView() const { return view; }
+        void setView(const Mat4D &viewParam) { this->view = viewParam; }
 
-  Mat4D getView() const { return view; }
-  /**
-   * @brief Sets the view matrix
-   * @param viewParam view matrix
-   */
-  void setView(const Mat4D& viewParam) { this->view = viewParam; }
+        Mat4D getProjection() const { return projection; }
+        void setProjection(const Mat4D &projectionParam) { this->projection = projectionParam; }
 
-  void clear() const;
-
-  void applyMaterial(const Material& material) const;
-
-  void applyTransform(const Transform& transform) const;
-
-  void transformMeshCPU(ColorMesh& mesh,
-                        const Transform& transform);
-
-  void renderMesh(const ColorMesh& mesh);
+        Shader &getDefaultShader() { return shader; }
+        Frustum &getFrustum() { return frustum; }
+        const Frustum &getFrustum() const { return frustum; }
 
 
-  void renderInstances(const ColorMesh& mesh,
-                       const std::vector<MeshInstanceData>& instances);
+        void clear() const;
 
-  Shader& getDefaultShader() { return shader; }
+        void applyMaterial(const Material &material) const;
+        void applyTransform(ColorMesh &mesh, const Transform &transform) const;
+        void transformMeshCPU(ColorMesh &mesh, const Transform &transform);
 
-
-  void setData(const Material& material,
-               ColorMesh& mesh,
-               const Transform& transform);
-
-  void renderMeshes(double timeOfFrame);
-
-  void swapBuffers() const;
+        void renderMesh(const ColorMesh &mesh);
 
 
-  /**
-   * @brief Get the Texture Manager object
-   * @return TextureManager& The Texture Manager object
-   */
-  //[[nodiscard]] TextureManager &getTextureManager() {
-  //    return textureManager;
-  //}
-
- private:
+        void renderInstances(const ColorMesh &mesh,
+                             const std::vector<MeshInstanceData> &instances);
 
 
 
+        void setData(const Material &material,
+                     ColorMesh &mesh,
+                     const Transform &transform);
 
+        void renderMeshes(double timeOfFrame);
 
-  void cacheMesh(const ColorMesh& mesh,
-                 AdaptedMesh adaptedMesh);
-  void cacheMesh(const ColorMesh& mesh,
-                 AdaptedInstances adaptedInstancesParam);
-  bool isMeshNotCached(const ColorMesh& mesh) const;
+        void swapBuffers() const;
 
-  GAPI::BufferUsages getBufferUsage(RenderType renderType);
+    private:
+        void cacheMesh(const ColorMesh &mesh,
+                       AdaptedMesh adaptedMesh);
 
+        void cacheMesh(const ColorMesh &mesh,
+                       AdaptedInstances adaptedInstancesParam);
 
-  std::unordered_map<const ColorMesh*, AdaptedMesh> adaptedMeshes;
+        bool isMeshNotCached(const ColorMesh &mesh) const;
 
-  std::unordered_map<const ColorMesh*, AdaptedInstances> adaptedInstances;
-  /**
-   * @brief Window manager
-   *
-   */
-  WindowManager& windowManager;
-  /**
-   * @brief Texture manager
-   *
-   */
-  // TextureManager textureManager;
+        WindowManager &windowManager;
 
-  Shader shader;
-  InstanceMeshes meshInstances;
-  MeshBatches meshBatches;
-  DynamicMeshes dynamicMeshes;
+        std::unordered_map<const ColorMesh *, AdaptedMesh> adaptedMeshes;
+        std::unordered_map<const ColorMesh *, AdaptedInstances> adaptedInstances;
 
-  Mat4D projection;
-  Mat4D view;
- }; // class Renderer
+        Shader shader;
+        InstanceMeshes meshInstances;
+        MeshBatches meshBatches;
+        DynamicMeshes dynamicMeshes;
+        Frustum frustum;
+
+        Mat4D projection;
+        Mat4D view;
+    }; // class Renderer
 } // namespace GLESC

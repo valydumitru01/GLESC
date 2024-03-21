@@ -644,6 +644,7 @@ namespace GLESC::Math {
                     result += vec[i].toString() + ", ";
                 }
             }
+
             result.pop_back();
             result.pop_back();
             result += "]";

@@ -1,5 +1,5 @@
 /**************************************************************************************************
- * @file   Command.cpp
+ * @file   KeyCommand.h
  * @author Valentin Dumitru
  * @date   10/03/2024
  * @brief  Add description of this file if needed @TODO
@@ -7,12 +7,19 @@
  * Copyright (c) 2024$ Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
  **************************************************************************************************/
-#include "engine/subsystems/input/Command.h"
+#pragma once
+#include <functional>
 
-Command::Command(Action action) : action(std::move(action)) {}
+class KeyCommand {
+public:
+    using Action = std::function<void()>;
 
-void Command::execute() {
-    if (action) {
-        action();
-    }
-}
+    KeyCommand() = default;
+
+    KeyCommand(Action action);
+
+    void execute();
+
+private:
+    Action action = []() {};
+};

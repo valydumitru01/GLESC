@@ -27,37 +27,68 @@ void GLESC::Engine::initGame() {
     ECS::Entity player = createEntity("player");
     ECS::Entity camera = createEntity("camera");
     player.addComponent(RenderComponent())
-          .addComponent(TransformComponent())
-          .addComponent(PhysicsComponent())
-          .addComponent(InputComponent());
+            .addComponent(TransformComponent())
+            .addComponent(PhysicsComponent())
+            .addComponent(InputComponent());
 
     camera.addComponent(CameraComponent())
-          .addComponent(TransformComponent())
-          .addComponent(InputComponent());
+            .addComponent(TransformComponent())
+            .addComponent(InputComponent());
 
     camera.getComponent<CameraComponent>().viewWidth = static_cast<float>(windowManager.getWindowSize().width);
     camera.getComponent<CameraComponent>().viewHeight = static_cast<float>(windowManager.getWindowSize().height);
-    Command moveForward = Command([&] {
-        camera.getComponent<TransformComponent>().transform.position += camera.getComponent<TransformComponent>().
-                                                                               transform.forward();
+    KeyCommand moveForward = KeyCommand([&] {
+        ECS::Entity cameraEntity = getEntity("camera");
+        cameraEntity.getComponent<TransformComponent>().transform.position += cameraEntity.getComponent<
+                    TransformComponent>().
+                transform.forward();
     });
-    Command moveBackward = Command([&] {
-        camera.getComponent<TransformComponent>().transform.position -= camera.getComponent<TransformComponent>().
-                                                                               transform.forward();
+    KeyCommand moveBackward = KeyCommand([&] {
+        ECS::Entity cameraEntity = getEntity("camera");
+        cameraEntity.getComponent<TransformComponent>().transform.position -= cameraEntity.getComponent<
+                    TransformComponent>().
+                transform.forward();
     });
-    Command moveLeft = Command([&] {
-        camera.getComponent<TransformComponent>().transform.position -= camera.getComponent<TransformComponent>().
-                                                                               transform.right();
+    KeyCommand moveLeft = KeyCommand([&] {
+        ECS::Entity cameraEntity = getEntity("camera");
+        cameraEntity.getComponent<TransformComponent>().transform.position -= cameraEntity.getComponent<
+                    TransformComponent>().
+                transform.right();
     });
-    Command moveRight = Command([&] {
-        camera.getComponent<TransformComponent>().transform.position += camera.getComponent<TransformComponent>().
-                                                                               transform.right();
+    KeyCommand moveRight = KeyCommand([&] {
+        ECS::Entity cameraEntity = getEntity("camera");
+        cameraEntity.getComponent<TransformComponent>().transform.position += cameraEntity.getComponent<
+                    TransformComponent>().
+                transform.right();
+    });
+
+    KeyCommand mouseRelativeMove = KeyCommand([&] {
+        inputManager.setMouseRelative(!inputManager.isMouseRelative());
+    });
+
+    MouseCommand rotate = MouseCommand([&](const MousePosition &deltaMouse) {
+        // We can assume the mouse will be in the center of the screen
+        // Rotate will only work if the mouse is in relative mode
+        if (!inputManager.isMouseRelative()) return;
+        ECS::Entity cameraEntity = getEntity("camera");
+        // A threshhold is needed because the mouse orbitates around 1 and -1, because it works in pixels (ints)
+        if (std::abs(deltaMouse.getX()) < 2 && std::abs(deltaMouse.getY()) < 2) return;
+        cameraEntity.getComponent<TransformComponent>().transform.rotation.y() +=
+            static_cast<float>(deltaMouse.getX()) * 0.1f;
+        cameraEntity.getComponent<TransformComponent>().transform.rotation.x() +=
+            static_cast<float>(deltaMouse.getY()) * 0.1f;
+
     });
 
     camera.getComponent<InputComponent>().subscribedKeys = {
-        {Key::W, moveForward},
+        {{Key::W, KeyAction::ONGOING_PRESSED}, moveForward},
+        {{Key::S, KeyAction::ONGOING_PRESSED}, moveBackward},
+        {{Key::A, KeyAction::ONGOING_PRESSED}, moveLeft},
+        {{Key::D, KeyAction::ONGOING_PRESSED}, moveRight},
+        {{Key::LEFT_SHIFT, KeyAction::ONCE_PRESSED}, mouseRelativeMove}
     };
-    // TODO: The issue lies here, we cannot copy faces because faces store a reference to the vertices
+    camera.getComponent<InputComponent>().mouseCommand = rotate;
+
     player.getComponent<RenderComponent>().mesh = MeshFactory::cube(RGBA(1, 0, 0, 1));
     ColorMesh cube = MeshFactory::cube(RGBA(1, 0, 0, 1));
     ColorMesh mesh = player.getComponent<RenderComponent>().mesh;
@@ -66,33 +97,7 @@ void GLESC::Engine::initGame() {
 
 
 void GLESC::Engine::loop() {
-    GLESC::ECS::Entity player = getEntity("player");
     GLESC::ECS::Entity camera = getEntity("camera");
-
     camera.getComponent<CameraComponent>().viewWidth = static_cast<float>(windowManager.getWindowSize().width);
     camera.getComponent<CameraComponent>().viewHeight = static_cast<float>(windowManager.getWindowSize().height);
-
-    if (inputManager.isKeyPressed(Key::LEFT_SHIFT)) {
-        windowManager.setMouseRelative(false);
-    }
-    else {
-        windowManager.setMouseRelative(true);
-    }
-
-    if (inputManager.isKeyPressed(Key::W)) {
-        player.getComponent<PhysicsComponent>().velocity.z(1);
-    }
-    else if (inputManager.isKeyPressed(Key::S)) {
-        player.getComponent<PhysicsComponent>().velocity.z(-1);
-    }
-    else {
-        player.getComponent<PhysicsComponent>().velocity.z(0);
-    }
-
-    if (inputManager.isKeyPressed(Key::A)) {
-        player.getComponent<TransformComponent>().transform.rotation += Vec3F(0, 0.1, 0);
-    }
-    else if (inputManager.isKeyPressed(Key::D)) {
-        player.getComponent<TransformComponent>().transform.rotation -= Vec3F(0, 0.1, 0);
-    }
 }

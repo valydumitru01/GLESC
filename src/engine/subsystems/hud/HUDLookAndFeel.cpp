@@ -12,22 +12,62 @@
 #include "engine/core/asserts/Asserts.h"
 
 
-void HudLookAndFeel::addFont(const std::string& fileName, float size) {
-    D_ASSERT_TRUE(!lookAndFeelApplied, "Cannot add fonts after look and feel has been applied");
-    D_ASSERT_TRUE(fonts.find(fileName) == fonts.end(), "Font already loaded");
+#define FONTS_PATH_FROM_ASSETS "/fonts/"
+#define FONTS_EXTENSION ".ttf"
 
-    ImGuiIO& io = ImGui::GetIO();
-    ImFont* font = io.Fonts->AddFontFromFileTTF(
-        (ASSETS_PATH + std::string("/fonts/") + fileName + FONTS_EXTENSION).c_str(), size);
-    fonts[fileName] = font;
+
+void HudLookAndFeel::addFont(const std::string &fileName, FontSize size) {
+    validateFontName(fileName);
+    validateFontSize(size);
+    ImGuiIO &io = ImGui::GetIO();
+    ImFont *font = io.Fonts->AddFontFromFileTTF(
+        (ASSETS_PATH + std::string("/fonts/") + fileName + FONTS_EXTENSION).c_str(), static_cast<float>(size));
+    fonts[fileName + std::to_string(size)] = font;
 }
 
-ImFont* HudLookAndFeel::getFont(const std::string& fileName) {
-    return fonts[fileName];
+void HudLookAndFeel::validateFontName(const std::string &fileName) {
+    D_ASSERT_TRUE(!fileName.empty(), "Font file name cannot be empty");
+    D_ASSERT_TRUE(!GLESC::Stringer::contains(fileName, FONTS_EXTENSION),
+                  "Font file should not contain the extension");
+    D_ASSERT_TRUE(!GLESC::Stringer::contains(fileName, FONTS_PATH_FROM_ASSETS),
+                  "Font file should not contain the path");
+}
+
+void HudLookAndFeel::validateFontSize(FontSize size) {
+    D_ASSERT_TRUE(size > 0, "Font size should be greater than 0");
+}
+
+void HudLookAndFeel::setDefaultFont(const std::string &fileName) {
+    validateFontName(fileName);
+    defaultFont = fileName;
+}
+
+void HudLookAndFeel::setDefaultFontSize(FontSize size) {
+    validateFontSize(size);
+    defaultFontSize = size;
+}
+
+std::string HudLookAndFeel::getDefaultFont() const {
+    D_ASSERT_TRUE(!defaultFont.empty(), "Default font not set");
+    return defaultFont;
+}
+
+HudLookAndFeel::FontSize HudLookAndFeel::getDefaultFontSize() const {
+    D_ASSERT_TRUE(defaultFontSize > 0, "Default font size not set");
+    return defaultFontSize;
+}
+
+ImFont *HudLookAndFeel::getFont(const std::string &fileName, FontSize size) {
+    validateFontName(fileName);
+    validateFontSize(size);
+    if (fonts.find(fileName + std::to_string(size)) == fonts.end()) {
+        addFont(fileName, size);
+    }
+    return fonts[fileName + std::to_string(size)];
 }
 
 void HudLookAndFeel::apply() {
-    ImGuiStyle& style = ImGui::GetStyle();
+    ImGuiStyle &style = ImGui::GetStyle();
 
 
     // Set roundness of elements
@@ -37,7 +77,7 @@ void HudLookAndFeel::apply() {
     style.GrabRounding = 3.0f; // Roundness of grabbable sliders/buttons
 
     // Apply the color palette to ImGui elements
-    ImVec4* colors = style.Colors;
+    ImVec4 *colors = style.Colors;
     colors[ImGuiCol_Text] = brightGreen;
     colors[ImGuiCol_WindowBg] = darkGreen;
     colors[ImGuiCol_Header] = green;
@@ -121,8 +161,9 @@ void HudLookAndFeel::apply() {
     style.FrameBorderSize = 1.0f;
     style.PopupBorderSize = 1.0f;
 
+
     // Make sure these changes take effect
     ImGui::GetIO().Fonts->Build();
-
+    ImGui::GetIO().FontDefault = getFont(defaultFont, defaultFontSize);
     lookAndFeelApplied = true;
 }

@@ -48,7 +48,7 @@ void Polyhedron::addFace(const FaceIndices& faceParam) {
     return faces;
 }
 
-[[nodiscard]] std::vector<Point>& Polyhedron::getVertices() {
+[[nodiscard]] std::vector<Point>& Polyhedron::getVerticesMutable() {
     return vertices;
 }
 

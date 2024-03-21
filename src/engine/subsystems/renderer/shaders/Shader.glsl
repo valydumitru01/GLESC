@@ -30,14 +30,14 @@ uniform vec3 uGlobalAmbientColor;// Color of the global ambient light
 uniform float uGlobalAmbientIntensity;// Intensity of the global ambient light
 
 // Material properties
-uniform vec3 uAmbientColor;// Color of the ambient reflectance of the material
-uniform float uAmbientIntensity;// Intensity of the ambient reflectance
-uniform vec3 uDiffuseColor;// Color of the diffuse reflectance of the material
-uniform float uDiffuseIntensity;// Intensity of the diffuse reflectance
-uniform vec3 uSpecularColor;// Color of the specular reflectance of the material
-uniform float uSpecularIntensity;// Intensity of the specular reflectance
-uniform vec3 uEmissionColor;// Color of the emission of the material
-uniform float uEmissionIntensity;// Intensity of the emission
+uniform vec3 uAmbientColor; // Color of the ambient reflectance of the material
+uniform float uAmbientIntensity; // Intensity of the ambient reflectance
+uniform vec3 uDiffuseColor; // Color of the diffuse reflectance of the material
+uniform float uDiffuseIntensity; // Intensity of the diffuse reflectance
+uniform vec3 uSpecularColor; // Color of the specular reflectance of the material
+uniform float uSpecularIntensity; // Intensity of the specular reflectance
+uniform vec3 uEmissionColor; // Color of the emission of the material
+uniform float uEmissionIntensity; // Intensity of the emission
 
 uniform float uShininess;// Shininess of the material
 
@@ -98,7 +98,7 @@ void main() {
     vec4 baseColor = texture(texture1, vertexTexCoord);
     #endif
 
-    vec3 norm = Normal; // Normal is expected to be already normalized
+    vec3 norm = Normal;// Normal is expected to be already normalized
     vec3 viewDir = normalize(-FragPos);// Assuming the camera is at the origin
 
     vec4 ambient = calculateAmbient(uAmbientColor, uGlobalAmbientColor, uGlobalAmbientIntensity, uAmbientIntensity);
@@ -127,6 +127,8 @@ void main() {
 
     // The final color includes ambient, diffuse, and specular components
     vec4 color = ambient + diffuse + specular + emission;
+
+    FragColor = color;
 }
 
 

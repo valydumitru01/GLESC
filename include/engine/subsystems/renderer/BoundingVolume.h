@@ -57,6 +57,10 @@ public:
         return topology;
     }
 
+    [[nodiscard]] GLESC::Math::Polyhedron& getTopologyMutable() {
+        return topology;
+    }
+
     void operator=(const BoundingVolume& other) {
         topology = other.topology;
     }

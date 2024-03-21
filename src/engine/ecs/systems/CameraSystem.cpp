@@ -14,86 +14,43 @@
 #include "engine/subsystems/ingame-debug/StatsManager.h"
 using namespace GLESC::ECS;
 
-CameraSystem::CameraSystem(Renderer& renderer, ECSCoordinator& ecs) :
+CameraSystem::CameraSystem(Renderer &renderer, ECSCoordinator &ecs) :
     System(ecs, "CameraSystem"), renderer(renderer) {
     addComponentRequirement<CameraComponent>();
     addComponentRequirement<TransformComponent>();
 
-    StatsManager::registerStatSource("Camera position", [&]() -> std::string {
-        for (auto& entity : getAssociatedEntities()) {
-            auto& transform = getComponent<TransformComponent>(entity);
-            Stringer::setFloatPrecision(2);
-            return Stringer::toString(transform.transform.position);
-        }
-        return "No camera found";
-    });
 
-    StatsManager::registerStatSource("Camera rotation", [&]() -> std::string {
-        for (auto& entity : getAssociatedEntities()) {
-            auto& transform = getComponent<TransformComponent>(entity);
-            Stringer::setFloatPrecision(2);
-            return Stringer::toString(transform.transform.rotation);
+    StatsManager::registerStatSource("Camera Data:", [&]() -> std::string {
+        std::stringstream ss;
+        for (auto &entity : getAssociatedEntities()) {
+            auto &camera = getComponent<CameraComponent>(entity);
+            // Position
+            ss << "\n - Position: " << Stringer::toString(camera.viewWidth);
+            // Rotation
+            ss << "\n - Rotation: " << Stringer::toString(camera.viewHeight);
+            // Scale
+            ss << "\n - Fov: " << Stringer::toString(camera.fovDegrees);
+            ss << "\n - Near plane: " << Stringer::toString(camera.nearPlane);
+            ss << "\n - Far plane: " << Stringer::toString(camera.farPlane);
+            ss << "\n - Aspect Ratio" << Stringer::toString(camera.viewWidth) << "\\" <<
+                    Stringer::toString(camera.viewHeight) << "=" << Stringer::toString(
+                        camera.viewWidth / camera.viewHeight);
         }
-        return "No camera found";
-    });
-
-    StatsManager::registerStatSource("Camera fov", [&]() -> std::string {
-        for (auto& entity : getAssociatedEntities()) {
-            auto& camera = getComponent<CameraComponent>(entity);
-            return Stringer::toString(camera.fovDegrees);
+        if (getAssociatedEntities().empty()) {
+            return "No camera found";
         }
-        return "No camera found";
-    });
-
-    StatsManager::registerStatSource("Camera near plane", [&]() -> std::string {
-        for (auto& entity : getAssociatedEntities()) {
-            auto& camera = getComponent<CameraComponent>(entity);
-            return Stringer::toString(camera.nearPlane);
-        }
-        return "No camera found";
-    });
-
-    StatsManager::registerStatSource("Camera far plane", [&]() -> std::string {
-        for (auto& entity : getAssociatedEntities()) {
-            auto& camera = getComponent<CameraComponent>(entity);
-            return Stringer::toString(camera.farPlane);
-        }
-        return "No camera found";
-    });
-
-    StatsManager::registerStatSource("Camera view width", [&]() -> std::string {
-        for (auto& entity : getAssociatedEntities()) {
-            auto& camera = getComponent<CameraComponent>(entity);
-            return Stringer::toString(camera.viewWidth);
-        }
-        return "No camera found";
-    });
-
-    StatsManager::registerStatSource("Camera view height", [&]() -> std::string {
-        for (auto& entity : getAssociatedEntities()) {
-            auto& camera = getComponent<CameraComponent>(entity);
-            return Stringer::toString(camera.viewHeight);
-        }
-        return "No camera found";
-    });
-
-    StatsManager::registerStatSource("Camera aspect ratio", [&]() -> std::string {
-        for (auto& entity : getAssociatedEntities()) {
-            auto& camera = getComponent<CameraComponent>(entity);
-            return Stringer::toString(camera.viewWidth / camera.viewHeight);
-        }
-        return "No camera found";
+        return ss.str();
     });
 }
 
 void CameraSystem::update() {
     // TODO: Add support for multiple cameras
-    for (auto& entity : getAssociatedEntities()) {
+    for (auto &entity : getAssociatedEntities()) {
         auto entityNumber = getAssociatedEntities().size();
         D_ASSERT_TRUE(entityNumber == 1,
                       "For now, only (and at least) one camera is supported.");
-        auto& transform = getComponent<TransformComponent>(entity);
-        auto& camera = getComponent<CameraComponent>(entity);
+        auto &transform = getComponent<TransformComponent>(entity);
+        auto &camera = getComponent<CameraComponent>(entity);
         Mat4D projection;
         projection.makeProjectionMatrix(Math::radians(camera.fovDegrees), camera.nearPlane,
                                         camera.farPlane,

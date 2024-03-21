@@ -12,26 +12,18 @@
 #include "engine/subsystems/input/InputKeys.h"
 
 namespace GLESC {
-    template <typename keyEnum>
-    std::string keyToString(const keyEnum& key) {
-        D_ASSERT_TRUE(false, "Key not supported to be converted to string");
-    }
 
-    template <>
-    inline std::string keyToString<KeyState>(const KeyState& keyState) {
+    inline std::string keyActionToString(const KeyAction& keyState) {
         switch (keyState) {
-        case KeyState::PRESSED: return "PRESSED";
-        case KeyState::RELEASED: return "RELEASED";
+        case KeyAction::ONCE_PRESSED: return "ONCE_PRESSED";
+        case KeyAction::ONCE_RELEASED: return "ONCE_RELEASED";
+        case KeyAction::ONGOING_PRESSED: return "ONGOING_PRESSED";
+        case KeyAction::ONGOING_RELEASED: return "ONGOING_RELEASED";
         default: D_ASSERT_TRUE(false, "KeyState not supported to be converted to string");
         }
     }
 
-    /**
-     * @brief Template specialization for GLESC::Key
-     * @param key The key to be converted to string
-     */
-    template <>
-    inline std::string keyToString<Key>(const Key& key) {
+    inline std::string keyToString(const Key& key) {
         switch (key) {
         case Key::ESCAPE: return "ESCAPE";
         case Key::SPACE: return "SPACE";
@@ -65,16 +57,16 @@ namespace GLESC {
         case Key::B: return "B";
         case Key::N: return "N";
         case Key::M: return "M";
-        case Key::ONE: return "ONE";
-        case Key::TWO: return "TWO";
-        case Key::THREE: return "THREE";
-        case Key::FOUR: return "FOUR";
-        case Key::FIVE: return "FIVE";
-        case Key::SIX: return "SIX";
-        case Key::SEVEN: return "SEVEN";
-        case Key::EIGHT: return "EIGHT";
-        case Key::NINE: return "NINE";
-        case Key::ZERO: return "ZERO";
+        case Key::ONE: return "1";
+        case Key::TWO: return "2";
+        case Key::THREE: return "3";
+        case Key::FOUR: return "4";
+        case Key::FIVE: return "5";
+        case Key::SIX: return "6";
+        case Key::SEVEN: return "7";
+        case Key::EIGHT: return "8";
+        case Key::NINE: return "9";
+        case Key::ZERO: return "0";
         case Key::F1: return "F1";
         case Key::F2: return "F2";
         case Key::F3: return "F3";
@@ -134,10 +126,10 @@ namespace GLESC {
         case Key::CLEAR: return "CLEAR";
         case Key::APPLICATION: return "APPLICATION";
         case Key::POWER: return "POWER";
-        case Key::MOUSE_BUTTON_LEFT: return "MOUSE_BUTTON_LEFT";
-        case Key::MOUSE_BUTTON_MIDDLE: return "MOUSE_BUTTON_MIDDLE";
-        case Key::MOUSE_BUTTON_RIGHT: return "MOUSE_BUTTON_RIGHT";
-        default: D_ASSERT_TRUE(false, "Key not supported to be converted to string");
+        case Key::MOUSE_BUTTON_LEFT: return "MOUSE_LEFT";
+        case Key::MOUSE_BUTTON_MIDDLE: return "MOUSE_MIDDLE";
+        case Key::MOUSE_BUTTON_RIGHT: return "MOUSE_RIGHT";
+        default: "UNKNOWN_KEY";
         }
     }
 } // namespace GLESC

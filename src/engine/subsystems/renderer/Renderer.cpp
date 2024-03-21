@@ -1,5 +1,6 @@
 #include "engine/subsystems/renderer/Renderer.h"
 
+#include "engine/subsystems/ingame-debug/Console.h"
 #include "engine/subsystems/renderer/math/Frustum.h"
 #include "engine/subsystems/renderer/mesh/Vertex.h"
 #include "engine/subsystems/ingame-debug/StatsManager.h"
@@ -12,7 +13,9 @@ Renderer::Renderer(WindowManager& windowManager) :
     float windowHeight = static_cast<float>(windowManager.getWindowSize().height);
     // Set the projection matrix
     projection.makeProjectionMatrix(45.0f, 0.1f, 100.0f, windowWidth, windowHeight);
-
+    // Set the view matrix
+    view.makeViewMatrix(Vec3D(0.0f, 0.0f, 0.0f), Vec3D(0.0f, 0.0f, 0.0f));
+    frustum = Frustum(getView(), getProjection());
 
 }
 
@@ -30,6 +33,12 @@ void Renderer::clear() const {
 
 void Renderer::applyMaterial(const Material& material) const {
     shader.bind(); // Activate the shader program
+
+    /*
+    for(const std::string& uniform: getGAPI().getAllUniforms()) {
+        std::cout << uniform << std::endl;
+    }
+    */
 
     // Set material properties as uniforms
     shader.setUniform("uAmbientColor").u3F(material.getAmbientColor());
@@ -51,11 +60,13 @@ Renderer::~Renderer() {
     getGAPI().deleteContext();
 }
 
-void Renderer::applyTransform(const Transform& transform) const {
+void Renderer::applyTransform(ColorMesh &mesh, const Transform& transform) const {
     Mat4D model;
     model.makeModelMatrix(transform.position, transform.rotation, transform.scale);
 
     Mat4D mvp = getProjection() * getView() * model;
+
+    Transformer::transformBoundingVolume(mesh.getBoundingVolumeMutable(), transform);
 
     shader.setUniform("uMVP").uMat4D(mvp);
 }
@@ -81,11 +92,8 @@ void Renderer::renderMesh(const ColorMesh& mesh) {
 }
 
 void Renderer::renderMeshes(double timeOfFrame) {
-    Mat4D view = getView();
     // Don't render anything if the view matrix is not valid
-    // TODO: Remove this check, it needs to be handled in a more efficient way
-    if (!view.isValidViewMatrix()) return;
-    Frustum frustum = Frustum(getView());
+    frustum.update(getView(), getProjection());
     /*
     for (const auto& batch : meshBatches.getBatches()) {
         const ColorMesh& batchedMesh = batch.second;
@@ -111,9 +119,9 @@ void Renderer::renderMeshes(double timeOfFrame) {
         applyMaterial(material);
         renderInstances(mesh, individualData);
     }*/
-    for (const auto& dynamicMesh : dynamicMeshes.getDynamicMeshes()) {
-        const ColorMesh& mesh = *dynamicMesh.mesh;
-        if (!frustum.intersects(mesh.getBoudingVolume())) continue;
+    for (auto& dynamicMesh : dynamicMeshes.getDynamicMeshes()) {
+        ColorMesh& mesh = *dynamicMesh.mesh;
+        //if (!frustum.intersects(mesh.getBoudingVolume())) continue;
         const Material& material = *dynamicMesh.material;
         const Transform& transform = *dynamicMesh.transform;
 
@@ -121,7 +129,8 @@ void Renderer::renderMeshes(double timeOfFrame) {
         if (isMeshNotCached(mesh))
             cacheMesh(mesh, MeshAdapter::adaptMesh(mesh));
         applyMaterial(material);
-        applyTransform(transform);
+        applyTransform(mesh, transform);
+        Console::log("Rendering dynamic mesh");
         renderMesh(mesh);
     }
 }

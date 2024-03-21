@@ -28,7 +28,7 @@ namespace GLESC::Math {
         
         [[nodiscard]] const std::vector<PolyhedronFace> &getFaces() const;
         
-        [[nodiscard]] std::vector<Point> &getVertices();
+        [[nodiscard]] std::vector<Point> &getVerticesMutable();
         
         [[nodiscard]] const std::vector<Point> &getVertices() const;
         

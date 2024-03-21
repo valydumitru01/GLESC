@@ -21,6 +21,7 @@ DebugConsoleHUD::DebugConsoleHUD() {
     this->setMinSize({600.0f, 150.0f});
     this->setSizeFraction({0.5f, 0.2f});
     isVisible = true;
+    this->setCenter(WindowCenter::BottomCenter);
     this->setLayoutPosition(LayoutPosition::BottomCenter);
     this->addFlag(ImGuiWindowFlags_NoResize);
     this->addFlag(ImGuiWindowFlags_NoMove);

@@ -269,34 +269,34 @@ public:
     // Single matrices
     // Floats
     void uMat2F(Mat2F mat) override {
-        GAPI_FUNCTION_IMPLEMENTATION_LOG("glUniformMatrix2fv", location, 1, GL_FALSE, &mat[0][0]);
+        GAPI_FUNCTION_IMPLEMENTATION_LOG("glUniformMatrix2fv", location, 1, GL_FALSE, mat);
         glUniformMatrix2fv(location, 1, GL_FALSE, &mat[0][0]);
     }
     
     void uMat3F(Mat3F mat) override {
-        GAPI_FUNCTION_IMPLEMENTATION_LOG("glUniformMatrix3fv", location, 1, GL_FALSE, &mat[0][0]);
+        GAPI_FUNCTION_IMPLEMENTATION_LOG("glUniformMatrix3fv", location, 1, GL_FALSE, mat);
         glUniformMatrix3fv(location, 1, GL_FALSE, &mat[0][0]);
     }
     
     void uMat4F(Mat4F mat) override {
-        GAPI_FUNCTION_IMPLEMENTATION_LOG("glUniformMatrix4fv", location, 1, GL_FALSE, &mat[0][0]);
+        GAPI_FUNCTION_IMPLEMENTATION_LOG("glUniformMatrix4fv", location, 1, GL_FALSE, mat);
         glUniformMatrix4fv(location, 1, GL_FALSE, &mat[0][0]);
     }
 
     // Single matrices
     // Doubles
     void uMat2D(Mat2D mat) override {
-        GAPI_FUNCTION_IMPLEMENTATION_LOG("glUniformMatrix2dv", location, 1, GL_FALSE, &mat[0][0]);
+        GAPI_FUNCTION_IMPLEMENTATION_LOG("glUniformMatrix2dv", location, 1, GL_FALSE, mat);
         glUniformMatrix2dv(location, 1, GL_FALSE, &mat[0][0]);
     }
 
     void uMat3D(Mat3D mat) override {
-        GAPI_FUNCTION_IMPLEMENTATION_LOG("glUniformMatrix3dv", location, 1, GL_FALSE, &mat[0][0]);
+        GAPI_FUNCTION_IMPLEMENTATION_LOG("glUniformMatrix3dv", location, 1, GL_FALSE, mat);
         glUniformMatrix3dv(location, 1, GL_FALSE, &mat[0][0]);
     }
 
     void uMat4D(Mat4D mat) override {
-        GAPI_FUNCTION_IMPLEMENTATION_LOG("glUniformMatrix4dv", location, 1, GL_FALSE, &mat[0][0]);
+        GAPI_FUNCTION_IMPLEMENTATION_LOG("glUniformMatrix4dv", location, 1, GL_FALSE, mat);
         glUniformMatrix4dv(location, 1, GL_FALSE, &mat[0][0]);
     }
     

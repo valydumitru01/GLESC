@@ -20,8 +20,7 @@
 #include "engine/core/low-level-renderer/graphic-api/Gapi.h"
 
 
-
-HUDManager::HUDManager(SDL_Window& window) :
+HUDManager::HUDManager(SDL_Window &window) :
     window(window) {
     initImGUI();
 }
@@ -34,11 +33,11 @@ HUDManager::~HUDManager() {
     ImGui::DestroyContext();
 }
 
-void HUDManager::processInput(SDL_Event& event) {
+void HUDManager::processInput(SDL_Event &event) {
     ImGui_ImplSDL2_ProcessEvent(&event);
 }
 
-void HUDManager::addWindow(GLESC::InGameWindow& window) {
+void HUDManager::addWindow(GLESC::InGameWindow &window) {
     windows.push_back(&window);
 }
 
@@ -47,7 +46,7 @@ void HUDManager::update() {
     if (showDemoWindow)
         ImGui::ShowDemoWindow(&showDemoWindow);
 
-    for (auto& window : windows) {
+    for (auto &window : windows) {
         if (window->isVisibile()) {
             window->update();
         }
@@ -84,13 +83,17 @@ void HUDManager::initImGUI() {
 
     std::string glslCoreStr = GLESC_GLSL_CORE_PROFILE ? "core" : "";
     std::string glslVersionStr = "#version " + std::to_string(GLESC_GL_MAJOR_VERSION) + "" +
-        std::to_string(GLESC_GL_MINOR_VERSION) + "0 " + glslCoreStr + "\n";
+                                 std::to_string(GLESC_GL_MINOR_VERSION) + "0 " + glslCoreStr + "\n";
 #ifdef GLESC_OPENGL
     // Setup Platform/Renderer bindings
     ImGui_ImplSDL2_InitForOpenGL(&window, getGAPI().getContext());
     ImGui_ImplOpenGL3_Init(glslVersionStr.c_str());
 #endif
+    HudLookAndFeel::get().setDefaultFont("PixelIntv");
+    HudLookAndFeel::get().setDefaultFontSize(20);
     // This must be called after all the inits
-    lookAndFeel.addFont("PixelIntv", 30);
-    lookAndFeel.apply();
+    for (int i = 1; i < 40; i++) {
+        HudLookAndFeel::get().addFont(HudLookAndFeel::get().getDefaultFont(), i);
+    }
+    HudLookAndFeel::get().apply();
 }

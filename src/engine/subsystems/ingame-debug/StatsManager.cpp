@@ -17,4 +17,4 @@ std::unordered_map<std::string, std::string> StatsManager::getStats() {
     return result;
 }
 
-std::unordered_map<std::string, std::function<std::string()>> StatsManager::sources = {};
+std::map<std::string, std::function<std::string()>> StatsManager::sources = {};

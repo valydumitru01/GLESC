@@ -13,9 +13,10 @@
 #include "engine/subsystems/ingame-debug/Console.h"
 #include "engine/subsystems/ingame-debug/StatsManager.h"
 #include "engine/subsystems/ingame-debug/EntityStatsManager.h"
+#include "engine/subsystems/input/debugger/InputDebugger.h"
 using namespace GLESC;
 
-Engine::Engine(FPSManager& fpsManager) :
+Engine::Engine(FPSManager &fpsManager) :
     fpsManager(fpsManager),
     windowManager(),
     renderer(windowManager),
@@ -27,31 +28,15 @@ Engine::Engine(FPSManager& fpsManager) :
     inputSystem(inputManager, ecs),
     physicsSystem(physicsManager, ecs),
     renderSystem(renderer, ecs),
-    cameraSystem(renderer, ecs) {
-
-    StatsManager::registerStatSource("Update FPS", [&]() -> float {
-        return fpsManager.getUpdateFPS();
-    });
-    StatsManager::registerStatSource("Update frame time", [&]() -> Uint32 {
-        return fpsManager.getUpdateTimeMillis();
-    });
-    StatsManager::registerStatSource("Render FPS", [&]() -> float {
-        return fpsManager.getRenderFPS();
-    });
-    StatsManager::registerStatSource("Render frame time", [&]() -> Uint32 {
-        return fpsManager.getAverageRenderTimeMillis();
-    });
-
-
-
+    cameraSystem(renderer, ecs),
+    transformSystem(ecs) {
+    this->registerStats();
 }
 
 
 void Engine::processInput() {
     Logger::get().importantInfoBlue("Engine processInput started");
     inputManager.update(running);
-    inputSystem.update();
-
 
 
     Logger::get().importantInfoBlue("Engine processInput finished");
@@ -73,9 +58,12 @@ void Engine::update() {
 
     loop();
     hudManager.update();
+
+    inputSystem.update();
     cameraSystem.update();
     physicsSystem.update();
     renderSystem.update();
+    transformSystem.update();
 
 
     Console::log("Debug log message");
@@ -83,4 +71,46 @@ void Engine::update() {
     Console::error("Debug error message");
 
     Logger::get().importantInfoWhite("Engine update finished");
+}
+
+void Engine::registerStats() const {
+    StatsManager::registerStatSource("Update FPS", [&]() -> float {
+        return fpsManager.getUpdateFPS();
+    });
+    StatsManager::registerStatSource("Update frame time", [&]() -> Uint32 {
+        return fpsManager.getUpdateTimeMillis();
+    });
+    StatsManager::registerStatSource("Render FPS", [&]() -> float {
+        return fpsManager.getRenderFPS();
+    });
+    StatsManager::registerStatSource("Render frame time", [&]() -> Uint32 {
+        return fpsManager.getAverageRenderTimeMillis();
+    });
+
+    StatsManager::registerStatSource("Pressed Keys: ", [&]() -> std::string {
+        std::string keys = "[";
+        for (const auto &key : inputManager.getPressedKeys()) {
+            keys += keyToString(key) + ", ";
+        }
+        // Remove last comma and space
+        if (!inputManager.getPressedKeys().empty()) {
+            keys.pop_back();
+            keys.pop_back();
+        }
+
+        keys += "]";
+        return keys;
+    });
+
+    StatsManager::registerStatSource("Mouse Position: ", [&]() -> std::string {
+        return inputManager.getMousePosition().toString();
+    });
+
+    StatsManager::registerStatSource("Fustum: ", [&]() -> std::string {
+        std::stringstream ss;
+        for (auto &plane : renderer.getFrustum().getPlanes()) {
+            ss << plane.toString() << "\n";
+        }
+        return ss.str();
+    });
 }

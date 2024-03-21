@@ -25,7 +25,7 @@ namespace GLESC::Math {
          * distance 0. Constructs a "zero plane".
          */
         Plane();
-        
+
         /**
          * @brief Construct a new Plane object from a normal vector and a distance.
          * @details The normal vector is normalized if its length is greater than 1.
@@ -36,13 +36,14 @@ namespace GLESC::Math {
          * @param distanceParam The distance from the origin to the plane.
          */
         Plane(const Direction &normalParam, double distanceParam);
-        
+
         /**
          * @brief
          * @param point
          * @param normalParam
          */
         Plane(const Point &point, const Direction &normalParam);
+
         /**
          * @brief Construct a new Plane object from three distinct points.
          * @details The normal vector of the plane is calculated from the three points.
@@ -53,6 +54,7 @@ namespace GLESC::Math {
          * @param point3 The third point.
          */
         Plane(const Point &point1, const Point &point2, const Point &point3);
+
         /**
          * @brief Construct a new Plane object from a point and a line.
          * @details The normal vector of the plane is calculated from the point and the line.
@@ -65,23 +67,23 @@ namespace GLESC::Math {
 
 
         Plane(const Plane &plane) = default;
-        
+
         Plane(Plane &&plane) = default;
-        
+
         Plane &operator=(const Plane &plane) = default;
-        
+
         Plane &operator=(Plane &&plane) = default;
-        
+
         ~Plane() = default;
-        
+
         void setNormal(const Direction &normalParam);
-        
+
         void setDistance(double distanceParam);
-        
+
         [[nodiscard]] const Direction &getNormal() const;
-        
+
         [[nodiscard]] double getDistance() const;
-        
+
         /**
          * @brief Calculate the distance from the plane to a point.
          * @details The formula for calculating the distance from a plane to a point is:
@@ -94,18 +96,18 @@ namespace GLESC::Math {
          * @return
          */
         [[nodiscard]] double distanceToPoint(const Point &point) const;
-        
+
         [[nodiscard]] bool intersects(const Point &point) const;
-        
+
         [[nodiscard]] bool intersects(const Plane &plane) const;
-        
+
         /**
          * @brief Checks if the plane intersects with a given line.
          * @param line The line to check for intersection with the plane.
          * @return True if the plane intersects with the line, false otherwise.
          */
         [[nodiscard]] bool intersects(const Line &line) const;
-        
+
         /**
          * @brief Checks if the plane intersects with a given line and sets the intersection point
          * if it exists. The parameter intersectionPoint is set to the intersection point.
@@ -114,16 +116,17 @@ namespace GLESC::Math {
          * @return True if the plane intersects with the line, false otherwise.
          */
         [[nodiscard]] bool intersects(const Line &line, Point &intersectionPoint) const;
-        
+
         /**
          * @brief Compare two planes for equality.
          * @param other The plane to compare with.
          * @return True if the planes are equal, false otherwise.
          */
         bool operator==(const Plane &other) const;
-    
+
+        std::string toString() const;
+
     private:
-        
         /**
          * @brief Calculate the normal vector of the plane defined by three distinct points.
          *
@@ -133,8 +136,10 @@ namespace GLESC::Math {
          * @return Direction The normal vector of the plane.
          */
         [[nodiscard]] static Direction calculateNormalFromPoints(
-                const Point &firstPoint, const Point &secondPoint, const Point &thirdPoint);
-        
+            const Point &firstPoint,
+            const Point &secondPoint,
+            const Point &thirdPoint);
+
         /**
          * @brief Calculate the normal vector of the plane defined by a point and a line.
          *
@@ -143,8 +148,9 @@ namespace GLESC::Math {
          * @return Direction The normal vector of the plane.
          */
         [[nodiscard]] static Direction calculateNormalFromPointAndLine(
-                const Point &point, const Line &line);
-        
+            const Point &point,
+            const Line &line);
+
         /**
          * @brief Calculate the distance from the origin to the plane defined by a point on the
          * plane and the plane's normal vector.
@@ -154,8 +160,9 @@ namespace GLESC::Math {
          * @return double The distance from the origin to the plane.
          */
         [[nodiscard]] static double calculateDistanceFromPointAndNormal(
-                const Point &point, const Direction &normal);
-        
+            const Point &point,
+            const Direction &normal);
+
         /**
          * @brief Calculate the distance from the origin to the plane defined by a point and a line.
          *
@@ -164,8 +171,9 @@ namespace GLESC::Math {
          * @return double The distance from the origin to the plane.
          */
         [[nodiscard]] static double calculateDistanceFromPointAndLine(
-                const Point &point, const Line &line);
-        
+            const Point &point,
+            const Line &line);
+
         /**
          * @brief Calculate the distance from the origin to the plane defined by three distinct
          * points.
@@ -176,7 +184,9 @@ namespace GLESC::Math {
          * @return double The distance from the origin to the plane.
          */
         [[nodiscard]] static double calculateDistanceFromPoints(
-                const Point &point1, const Point &point2, const Point &point3);
+            const Point &point1,
+            const Point &point2,
+            const Point &point3);
 
         /**
          * @brief The unit vector normal to the plane. Defines the orientation of the plane.
@@ -188,8 +198,5 @@ namespace GLESC::Math {
          * If the distance is negative, the plane is in the opposite direction of the normal.
          */
         double distance{};
-        
-        
     }; // class Plane
-    
 } // namespace GLESC::Math

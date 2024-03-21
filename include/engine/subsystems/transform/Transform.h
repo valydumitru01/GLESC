@@ -22,9 +22,9 @@ namespace GLESC {
     } // namespace Transform
 
     struct Transform {
-        TransformTypes::Position position;
-        TransformTypes::Rotation rotation;
-        TransformTypes::Scale scale;
+        TransformTypes::Position position = TransformTypes::Position(0.0f, 0.0f, 0.0f);
+        TransformTypes::Rotation rotation = TransformTypes::Rotation(0.0f, 0.0f, 0.0f);
+        TransformTypes::Scale scale = TransformTypes::Scale(1.0f, 1.0f, 1.0f);
 
         TransformTypes::Direction forward() const {
             double yaw = rotation.getY();
@@ -67,6 +67,18 @@ namespace GLESC {
 
             for (auto& vertex : mesh.getVertices()) {
                 GLESC::getVertexPositionAttr(vertex) = model * GLESC::getVertexPositionAttr(vertex);
+            }
+
+            transformBoundingVolume(mesh.getBoundingVolumeMutable(), transform);
+        }
+
+        static void transformBoundingVolume(BoundingVolume& boundingVolume,
+                                            const Transform& transform) {
+            Mat4D model;
+            model.makeModelMatrix(transform.position, transform.rotation, transform.scale);
+
+            for (Math::Point& vertex : boundingVolume.getTopologyMutable().getVerticesMutable()) {
+                vertex = model * vertex;
             }
         }
     }; // class Transformer
