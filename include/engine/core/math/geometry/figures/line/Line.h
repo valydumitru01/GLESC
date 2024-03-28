@@ -44,7 +44,9 @@ namespace GLESC::Math {
         
         [[nodiscard]] bool intersects(const Line &line) const;
         
-        [[nodiscard]] bool intersects(const Vec3D &pointParam) const;
+        [[nodiscard]] bool intersects(const Point &pointParam) const;
+
+        [[nodiscard]] Distance distance(const Point &pointParam) const;
     
     
     private:

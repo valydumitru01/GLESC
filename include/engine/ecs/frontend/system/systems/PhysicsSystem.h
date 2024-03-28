@@ -8,6 +8,7 @@
 #include "engine/ecs/frontend/system/System.h"
 #include "engine/ecs/frontend/component/TransformComponent.h"
 #include "engine/subsystems/physics/PhysicsManager.h"
+#include "engine/subsystems/physics/PhysicsTypes.h"
 
 namespace GLESC::ECS {
     class PhysicsSystem : public System {
@@ -16,7 +17,7 @@ namespace GLESC::ECS {
         void update();
 
     private:
-        Vec3D gravity;
+        Velocity gravity;
         PhysicsManager& physicsManager;
     };
 } // namespace GLESC::ECS

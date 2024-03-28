@@ -3,7 +3,7 @@
 out vec4 FragColor;
 
 #ifdef USE_COLOR
-in vec3 vertexColor;
+in vec4 vertexColor;
 #else
 in vec2 vertexTexCoord;
 #endif
@@ -24,25 +24,24 @@ uniform int numLights;// Actual number of lights to use
 uniform sampler2D shadowMap;// Shadow map texture
 uniform mat4 lightViewProjMatrix;// Light's view projection matrix
 
-
 // Global ambient light properties (could be set via uniforms)
 uniform vec3 uGlobalAmbientColor;// Color of the global ambient light
 uniform float uGlobalAmbientIntensity;// Intensity of the global ambient light
 
 // Material properties
-uniform vec3 uAmbientColor; // Color of the ambient reflectance of the material
-uniform float uAmbientIntensity; // Intensity of the ambient reflectance
-uniform vec3 uDiffuseColor; // Color of the diffuse reflectance of the material
-uniform float uDiffuseIntensity; // Intensity of the diffuse reflectance
-uniform vec3 uSpecularColor; // Color of the specular reflectance of the material
-uniform float uSpecularIntensity; // Intensity of the specular reflectance
-uniform vec3 uEmissionColor; // Color of the emission of the material
-uniform float uEmissionIntensity; // Intensity of the emission
+uniform vec3 uAmbientColor;// Color of the ambient reflectance of the material
+uniform float uAmbientIntensity;// Intensity of the ambient reflectance
+uniform vec3 uDiffuseColor;// Color of the diffuse reflectance of the material
+uniform float uDiffuseIntensity;// Intensity of the diffuse reflectance
+uniform vec3 uSpecularColor;// Color of the specular reflectance of the material
+uniform float uSpecularIntensity;// Intensity of the specular reflectance
+uniform vec3 uEmissionColor;// Color of the emission of the material
+uniform float uEmissionIntensity;// Intensity of the emission
 
 uniform float uShininess;// Shininess of the material
 
 #ifdef USE_COLOR
-uniform vec3 color;
+uniform vec4 color;
 #else
 uniform sampler2D texture1;
 #endif
@@ -74,7 +73,7 @@ float materialAmbientIntensity) {
 vec4 calculateDiffuse(vec3 diffuseColor, vec3 norm, Light light, float materialDiffuseIntensity) {
     float diff = max(dot(norm, normalize(light.position - FragPos)), 0.0);
     // Multiply the result by materialDiffuseIntensity to use the uniform
-    return vec4(diffuseColor * light.color, 1.0) * diff * light.intensity * materialDiffuseIntensity;
+    return vec4(diffuseColor * light.color.xyz, 1.0) * diff * light.intensity * materialDiffuseIntensity;
 }
 
 vec4 calculateSpecular(vec3 specularColor, vec3 norm, vec3 lightDir, vec3 viewDir, Light light,
@@ -93,7 +92,7 @@ vec4 calculateEmission(vec3 emissionColor, float materialEmissionIntensity) {
 void main() {
     // Base color
     #ifdef USE_COLOR
-    vec4 baseColor =  vec4(color, 1.0);
+    vec4 baseColor = color;
     #else
     vec4 baseColor = texture(texture1, vertexTexCoord);
     #endif
@@ -138,46 +137,60 @@ void main() {
 
 #shader vertex
 /* The glsl version is automatically set */
+// ==========================================
+// ============Vertex attributes=============
+// ==========================================
 layout (location = 0) in vec3 pos;
-
 #ifdef USE_COLOR
-layout (location = 1) in vec3 color;
+layout (location = 1) in vec4 color;
 #else
 layout (location = 1) in vec2 texCoord;
 #endif
-
 layout (location = 2) in vec3 normal;
+//#ifdef USE_INSTANCING
+//layout (location = 3) in vec3 instancePos;
+//#endif
+// ==========================================
 
-#ifdef USE_INSTANCING
-in vec3 instancePos;
-#endif
 
+
+// ==========================================
+// ============Output variables==============
+// ==========================================
 #ifdef USE_COLOR
-out vec3 vertexColor;
+out vec4 vertexColor;
 #else
 out vec2 vertexTexCoord;
 #endif
-
 out vec3 Normal;
 out vec3 FragPos;
-uniform dmat4 uMVP;
+// ==========================================
+
+
+
+// ==========================================
+// ============Uniform variables=============
+// ==========================================
+uniform mat4 uMVP;
+// ==========================================
 
 void main() {
-
+    vec4 transformedPosition;
 
     #ifdef USE_INSTANCING
-    gl_Position  = vec4(uMVP * vec4(pos + instancePos, 1.0));
+    transformedPosition = uMVP * vec4(pos + instancePos, 1.0);
     #else
-    gl_Position = vec4(uMVP * vec4(pos, 1.0));
+    transformedPosition = uMVP * vec4(pos, 1.0);
     #endif
 
+    gl_Position = transformedPosition;
 
     #ifdef USE_COLOR
-    vertexColor = vec3(color.x, color.y, color.z);
+    vertexColor = color;// Pass the color to the fragment shader.
     #else
-    vertexTexCoord = vec2(texCoord.x, texCoord.y);
+    vertexTexCoord = texCoord;// Pass the texture coordinate to the fragment shader.
     #endif
 
     Normal = normal;
-    FragPos = vec3(uMVP * vec4(pos, 1.0));
+    FragPos = vec3(transformedPosition.xyz);
 }

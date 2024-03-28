@@ -15,7 +15,7 @@
 #include "engine/subsystems/input/MouseCommand.h"
 #include "engine/subsystems/input/debugger/InputDebugger.h"
 
-struct InputComponent : public IComponent {
+struct InputComponent : IComponent {
     /**
      * @brief Vector of pairs, subscribed keys and bool,true if they are pressed
      * @details This vector is used to store the keys that are subscribed to the input system,
@@ -27,11 +27,15 @@ struct InputComponent : public IComponent {
      */
     MouseCommand mouseCommand;
 
-    std::string toString() override {
+    std::string toString() const override {
         std::ostringstream ss;
 
         ss << "Subscribed keys";
 
         return ss.str();
+    }
+
+    std::string getName() const override {
+        return "InputComponent";
     }
 };

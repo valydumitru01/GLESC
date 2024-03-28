@@ -18,37 +18,47 @@ class ComponentManagerTests : public testing::Test {
 protected:
     ComponentManagerTests() = default;
 
-    void SetUp() override {}
+    void SetUp() override {
+    }
 
-    void TearDown() override {}
+    void TearDown() override {
+    }
 
     struct TestComponent1 : IComponent {
         TestComponent1() = default;
+
         explicit TestComponent1(int x) : x(x) {}
+
         int x{};
-        std::string toString() override { return "x: " + std::to_string(x); }
+        [[nodiscard]] std::string toString() const override { return "x: " + std::to_string(x); }
+        [[nodiscard]] std::string getName() const override { return "TestComponent1"; }
     };
 
     struct TestComponent2 : IComponent {
         TestComponent2() = default;
+
         explicit TestComponent2(int y) : y(y) {}
+
         int y{};
-        std::string toString() override { return "y: " + std::to_string(y); }
+        [[nodiscard]] std::string toString() const override { return "y: " + std::to_string(y); }
+        [[nodiscard]] std::string getName() const override { return "TestComponent2"; }
     };
 
     struct TestComponent3 : IComponent {
         TestComponent3() = default;
+
         explicit TestComponent3(int z) : z(z) {}
+
         int z{};
-        std::string toString() override { return "z: " + std::to_string(z); }
+        [[nodiscard]] std::string toString() const override { return "z: " + std::to_string(z); }
+        [[nodiscard]] std::string getName() const override { return "TestComponent3"; }
     };
 
     TestComponent1 testComponent1{3};
     TestComponent2 testComponent2{4};
     TestComponent3 testComponent3{5};
-    GLESC::ECS::ComponentID firstComponentID{1};
 
-    GLESC::ECS::ComponentManager& getComponentManager() {
+    GLESC::ECS::ComponentManager &getComponentManager() {
         return componentManager;
     }
 
@@ -58,8 +68,7 @@ protected:
 TEST_F(ComponentManagerTests, EmptyState) {
     ASSERT_TRUE(getComponentManager().getComponentIDs().empty());
     ASSERT_TRUE(getComponentManager().getComponentArrays().empty());
-    ASSERT_TRUE(
-        getComponentManager().getNextComponentID() == firstComponentID);
+    ASSERT_EQ(getComponentManager().getNextComponentID(), getComponentManager().firstComponentID);
 }
 
 TEST_F(ComponentManagerTests, RegisterComponent) {
@@ -69,24 +78,25 @@ TEST_F(ComponentManagerTests, RegisterComponent) {
     // Component is registered inside the component manager
     ASSERT_TRUE(getComponentManager().isComponentRegistered<TestComponent1>());
     // Component has the correct ID
-    ASSERT_TRUE(getComponentManager().getComponentID<TestComponent1>() == firstComponentID);
+    ASSERT_EQ(getComponentManager().getComponentID<TestComponent1>(), getComponentManager().firstComponentID);
     // Component has the correct name
-    ASSERT_TRUE(GLESC::Stringer::contains(getComponentManager().getComponentName(firstComponentID), "TestComponent1"));
-
+    ASSERT_TRUE(
+        GLESC::Stringer::contains(getComponentManager().getComponentName(getComponentManager().firstComponentID),
+            "TestComponent1"));
 
 
     TEST_SECTION("Check manually data structures")
     // The size of the component arrays array is one
     ASSERT_TRUE(getComponentManager().getComponentArrays().size() == 1);
     // Check the content of the component arrays array
-    GLESC::ECS::IComponentArray& componentArray = *getComponentManager().getComponentArrays().at(
-        getComponentManager().getComponentName(firstComponentID));
+    GLESC::ECS::IComponentArray &componentArray = *getComponentManager().getComponentArrays().at(
+        getComponentManager().getComponentName(getComponentManager().firstComponentID));
     // It starts out empty
     ASSERT_TRUE(componentArray.getSize() == 0);
     // The size of the component IDs array is one, for the ID of the component we just registered
     ASSERT_TRUE(getComponentManager().getComponentIDs().size() == 1);
     // The next component ID is the one after the one we just registered
-    ASSERT_TRUE(getComponentManager().getNextComponentID() == firstComponentID + 1);
+    ASSERT_TRUE(getComponentManager().getNextComponentID() == getComponentManager().firstComponentID + 1);
 }
 
 TEST_F(ComponentManagerTests, RegisterAlreadyRegisteredComponent) {
@@ -134,11 +144,11 @@ TEST_F(ComponentManagerTests, AddComponentToEntity) {
     // The size of the component arrays array is three
     ASSERT_TRUE(getComponentManager().getComponentArrays().size() == 3);
     // Check the content of the component arrays array
-    GLESC::ECS::IComponentArray& componentArrayTestComponent1 = *getComponentManager().getComponentArrays().at(
+    GLESC::ECS::IComponentArray &componentArrayTestComponent1 = *getComponentManager().getComponentArrays().at(
         getComponentManager().getComponentName(getComponentManager().getComponentID<TestComponent1>()));
-    GLESC::ECS::IComponentArray& componentArrayTestComponent2 = *getComponentManager().getComponentArrays().at(
+    GLESC::ECS::IComponentArray &componentArrayTestComponent2 = *getComponentManager().getComponentArrays().at(
         getComponentManager().getComponentName(getComponentManager().getComponentID<TestComponent2>()));
-    GLESC::ECS::IComponentArray& componentArrayTestComponent3 = *getComponentManager().getComponentArrays().at(
+    GLESC::ECS::IComponentArray &componentArrayTestComponent3 = *getComponentManager().getComponentArrays().at(
         getComponentManager().getComponentName(getComponentManager().getComponentID<TestComponent3>()));
 
     ASSERT_TRUE(componentArrayTestComponent1.getSize() == 1);
@@ -177,11 +187,11 @@ TEST_F(ComponentManagerTests, RemoveComponentFromEntity) {
     // The size of the component arrays array is three
     ASSERT_TRUE(getComponentManager().getComponentArrays().size() == 3);
     // Check the content of the component arrays array
-    GLESC::ECS::IComponentArray& componentArrayTestComponent1 = *getComponentManager().getComponentArrays().at(
+    GLESC::ECS::IComponentArray &componentArrayTestComponent1 = *getComponentManager().getComponentArrays().at(
         getComponentManager().getComponentName(getComponentManager().getComponentID<TestComponent1>()));
-    GLESC::ECS::IComponentArray& componentArrayTestComponent2 = *getComponentManager().getComponentArrays().at(
+    GLESC::ECS::IComponentArray &componentArrayTestComponent2 = *getComponentManager().getComponentArrays().at(
         getComponentManager().getComponentName(getComponentManager().getComponentID<TestComponent2>()));
-    GLESC::ECS::IComponentArray& componentArrayTestComponent3 = *getComponentManager().getComponentArrays().at(
+    GLESC::ECS::IComponentArray &componentArrayTestComponent3 = *getComponentManager().getComponentArrays().at(
         getComponentManager().getComponentName(getComponentManager().getComponentID<TestComponent3>()));
 
     ASSERT_TRUE(componentArrayTestComponent1.getSize() == 0);

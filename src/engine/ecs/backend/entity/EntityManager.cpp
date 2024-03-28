@@ -57,7 +57,7 @@ bool EntityManager::doesEntityHaveComponent(EntityID entity, ComponentID compone
     return signatures[entity][componentID];
 }
 
-EntityName EntityManager::getEntityName(EntityID entity) const {
+const EntityName& EntityManager::getEntityName(EntityID entity) const {
     ASSERT_ENTITY_EXISTS(entity);
     return entityIDs.right.at(entity);
 }

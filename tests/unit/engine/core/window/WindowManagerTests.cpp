@@ -23,7 +23,6 @@ protected:
     
     void SetUp() override {
         windowManager.setFullscreen(false);
-        windowManager.setMouseRelative(false);
         windowManager.setPosition(0,0);
         windowManager.setResizable(true);
         windowManager.setSize(200, 200);
@@ -39,7 +38,7 @@ TEST_F(WindowManagerTest, Size) {
     windowManager.setSize(800, 600);
     GAPI::Viewport vp;
     GLESC::WindowDimensions windowDimensions;
-    windowDimensions= windowManager.getWindowSize();
+    windowDimensions= windowManager.getSize();
     EXPECT_EQ_CUSTOM(windowDimensions.width, 800);
     EXPECT_EQ_CUSTOM(windowDimensions.height, 600);
     
@@ -49,7 +48,7 @@ TEST_F(WindowManagerTest, Size) {
     EXPECT_EQ_CUSTOM(vp.height, 600);
     
     windowManager.setSize(200, 200);
-    windowDimensions = windowManager.getWindowSize();
+    windowDimensions = windowManager.getSize();
     EXPECT_EQ_CUSTOM(windowDimensions.width, 200);
     EXPECT_EQ_CUSTOM(windowDimensions.height, 200);
     
@@ -81,13 +80,6 @@ TEST_F(WindowManagerTest, Fullscreen) {
     EXPECT_FALSE(windowManager.isFullscreen());
 }
 
-TEST_F(WindowManagerTest, MouseRelativeMode) {
-    windowManager.setMouseRelative(true);
-    EXPECT_TRUE(windowManager.getMouseRelative());
-    
-    windowManager.setMouseRelative(false);
-    EXPECT_FALSE(windowManager.getMouseRelative());
-}
 
 TEST_F(WindowManagerTest, Borderless) {
     windowManager.setBorderlessWindow(true);

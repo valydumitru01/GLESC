@@ -12,18 +12,54 @@
 #include "engine/core/low-level-renderer/buffers/vertex/VertexBuffer.h"
 #include "engine/core/low-level-renderer/buffers/vertex/VertexBufferLayout.h"
 #include "engine/subsystems/renderer/RendererTypes.h"
+template<typename Type>
+void printRawBufferData(const Type* data, size_t size) {
+    size_t typeCount = size / sizeof(Type); // Calculate how many types are in the buffer
+    std::cout << "Raw Vertex Data:\n";
+    std::cout << std::fixed << std::setprecision(3); // Set precision for floating-point numbers
+    for (size_t i = 0; i < typeCount; ++i) {
+        if (i % 8 == 0 && i != 0) std::cout << "\n"; // New line every 8 types for readability
+        std::cout << data[i] << " ";
+    }
+    std::cout << std::endl;
+}
 
-AdaptedMesh MeshAdapter::adaptMesh(const GLESC::ColorMesh& mesh) {
+AdaptedMesh MeshAdapter::adaptMesh(const GLESC::ColorMesh &mesh) {
     AdaptedMesh adaptedMesh;
 
     adaptedMesh.vertexArray = std::make_unique<GLESC::VertexArray>();
 
-    // Assuming VertexBuffer's constructor appropriately allocates and manages buffer memory
+    const void* bufferData = mesh.getVertices().data();
+    size_t bufferCount = mesh.getVertices().size();
+    size_t vertexBytes = sizeof(GLESC::ColorMesh::Vertex);
+    size_t bufferBytes = bufferCount * vertexBytes;
+    GAPI::BufferUsages bufferUsage = getBufferUsage(mesh.getRenderType());
+
+    std::vector<float> adaptedData;
+    // TODO: This is ugly and inefficient, must be fixed
+    //    The solution is to have already the data inside the vertices in the correct format and order
+    //    For some reason if you try to pass mesh.getVertices().data() directly to the buffer it will not work
+    //    as the data gets sent to the GPU inverted (first noramls, then colors and then positions)
+    for (const GLESC::ColorMesh::Vertex &vertex : mesh.getVertices()) {
+        adaptedData.push_back(GLESC::getVertexPositionAttr(vertex).x());
+        adaptedData.push_back(GLESC::getVertexPositionAttr(vertex).y());
+        adaptedData.push_back(GLESC::getVertexPositionAttr(vertex).z());
+
+        adaptedData.push_back(GLESC::getVertexColorAttr(vertex).x());
+        adaptedData.push_back(GLESC::getVertexColorAttr(vertex).y());
+        adaptedData.push_back(GLESC::getVertexColorAttr(vertex).z());
+        adaptedData.push_back(GLESC::getVertexColorAttr(vertex).w());
+
+        adaptedData.push_back(GLESC::getVertexNormalAttr(vertex).x());
+        adaptedData.push_back(GLESC::getVertexNormalAttr(vertex).y());
+        adaptedData.push_back(GLESC::getVertexNormalAttr(vertex).z());
+    }
+
     adaptedMesh.vertexBuffer = std::make_unique<GLESC::VertexBuffer>(
-        mesh.getVertices().data(),
-        mesh.getVertices().size(),
-        mesh.getVertices().size() * sizeof(GLESC::ColorMesh::Vertex),
-        getBufferUsage(mesh.getRenderType())
+        adaptedData.data(),
+        bufferCount,
+        bufferBytes,
+        bufferUsage
     );
 
     adaptedMesh.indexBuffer = std::make_unique<GLESC::IndexBuffer>(
@@ -42,8 +78,8 @@ AdaptedMesh MeshAdapter::adaptMesh(const GLESC::ColorMesh& mesh) {
     return adaptedMesh;
 }
 
-AdaptedInstances MeshAdapter::adaptInstances(const GLESC::ColorMesh& mesh,
-                                             const std::vector<MeshInstanceData>& instances) {
+AdaptedInstances MeshAdapter::adaptInstances(const GLESC::ColorMesh &mesh,
+                                             const std::vector<MeshInstanceData> &instances) {
     // First, adapt the mesh to get a VAO and attached VBOs for vertex and index data.
     AdaptedMesh adapterMesh = adaptMesh(mesh);
     AdaptedInstances adaptedInstances;
@@ -59,7 +95,7 @@ AdaptedInstances MeshAdapter::adaptInstances(const GLESC::ColorMesh& mesh,
     instanceTransforms.reserve(instances.size());
 
     // Fill the buffer with transformation data from instances.
-    for (const auto& instance : instances) {
+    for (const auto &instance : instances) {
         InstanceTransform transform;
         // Assuming you have a function to convert position, rotation, and scale
         // into a 4x4 transformation matrix:

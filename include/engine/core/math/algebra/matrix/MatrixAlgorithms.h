@@ -460,17 +460,17 @@ namespace GLESC::Math {
             D_ASSERT_TRUE(viewWidth > 0, "View width must be greater than 0.");
             D_ASSERT_TRUE(viewHeight > 0, "View height must be greater than 0.");
             D_ASSERT_TRUE(fovRad > 0, "Field of view must be greater than 0.");
-            Type f = 1 / tan(fovRad / 2);
+            
+            Type f = static_cast<Type>(1) / tan(fovRad / static_cast<Type>(2));
             float aspect = viewWidth / viewHeight;
             MatrixAlgorithms::setMatrixZero(result);
 
             result[0][0] = f / aspect;
             result[1][1] = f;
             result[2][2] = (farPlane + nearPlane) / (nearPlane - farPlane);
-            result[2][3] = (2 * farPlane * nearPlane) / (nearPlane - farPlane);
-            result[3][2] = -1;
+            result[3][2] = (static_cast<Type>(2) * farPlane * nearPlane) / (nearPlane - farPlane);
+            result[2][3] = static_cast<Type>(-1);
         }
-
         /**
          * @brief Calculates the perspective projection matrix.
          * @details Calculates the perspective projection matrix given the field of view, aspect ratio, near and far
@@ -488,6 +488,7 @@ namespace GLESC::Math {
         calculateProjectionMatrix(float fovDegrees, float nearPlane, float farPlane,
                                   float viewWidth, float viewHeight, MatrixData<Type, 4, 4>& projection) {
             MatrixAlgorithms::perspective(radians(fovDegrees), nearPlane, farPlane, viewWidth, viewHeight, projection);
+
         }
 
         template <typename Type, size_t N>

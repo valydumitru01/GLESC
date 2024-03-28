@@ -7,17 +7,16 @@
 #pragma once
 
 #include "IComponent.h"
-#include "engine/core/math/debugger/MathDebugger.h"
+#include "engine/subsystems/physics/PhysicsTypes.h"
 
-struct PhysicsComponent : public IComponent {
-    float mass{1.0F};
-    Vec3D velocity{};
-    Vec3D force{};
-    Vec3D acceleration{};
+struct PhysicsComponent : IComponent {
+    Mass mass{1.0F};
+    Velocity velocity{};
+    Force force{};
+    Acceleration acceleration{};
     
-    std::string toString() override {
-        return "PhysicsComponent:"
-               + std::string("\n\tmass: ")
+    std::string toString() const override {
+        return std::string("\n\tmass: ")
                + std::to_string(mass)
                + std::string("\n\tvelocity: ")
                + velocity.toString()
@@ -25,6 +24,10 @@ struct PhysicsComponent : public IComponent {
                + force.toString()
                + std::string("\n\tacceleration: ")
                + acceleration.toString();
+    }
+
+    std::string getName() const override {
+        return "PhysicsComponent";
     }
 };
 

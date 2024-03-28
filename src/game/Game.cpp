@@ -26,17 +26,23 @@ void GLESC::Engine::initGame() {
     // TODO: Create a game class
     ECS::Entity player = createEntity("player");
     ECS::Entity camera = createEntity("camera");
+    ECS::Entity entity = createEntity("entity");
     player.addComponent(RenderComponent())
             .addComponent(TransformComponent())
             .addComponent(PhysicsComponent())
             .addComponent(InputComponent());
 
+    entity.addComponent(RenderComponent())
+            .addComponent(TransformComponent())
+            .addComponent(PhysicsComponent());
+
+
     camera.addComponent(CameraComponent())
             .addComponent(TransformComponent())
             .addComponent(InputComponent());
 
-    camera.getComponent<CameraComponent>().viewWidth = static_cast<float>(windowManager.getWindowSize().width);
-    camera.getComponent<CameraComponent>().viewHeight = static_cast<float>(windowManager.getWindowSize().height);
+    camera.getComponent<CameraComponent>().viewWidth = static_cast<float>(windowManager.getSize().width);
+    camera.getComponent<CameraComponent>().viewHeight = static_cast<float>(windowManager.getSize().height);
     KeyCommand moveForward = KeyCommand([&] {
         ECS::Entity cameraEntity = getEntity("camera");
         cameraEntity.getComponent<TransformComponent>().transform.position += cameraEntity.getComponent<
@@ -74,10 +80,9 @@ void GLESC::Engine::initGame() {
         // A threshhold is needed because the mouse orbitates around 1 and -1, because it works in pixels (ints)
         if (std::abs(deltaMouse.getX()) < 2 && std::abs(deltaMouse.getY()) < 2) return;
         cameraEntity.getComponent<TransformComponent>().transform.rotation.y() +=
-            static_cast<float>(deltaMouse.getX()) * 0.1f;
+                static_cast<float>(deltaMouse.getX()) * 0.1f;
         cameraEntity.getComponent<TransformComponent>().transform.rotation.x() +=
-            static_cast<float>(deltaMouse.getY()) * 0.1f;
-
+                static_cast<float>(deltaMouse.getY()) * 0.1f;
     });
 
     camera.getComponent<InputComponent>().subscribedKeys = {
@@ -90,14 +95,13 @@ void GLESC::Engine::initGame() {
     camera.getComponent<InputComponent>().mouseCommand = rotate;
 
     player.getComponent<RenderComponent>().mesh = MeshFactory::cube(RGBA(1, 0, 0, 1));
-    ColorMesh cube = MeshFactory::cube(RGBA(1, 0, 0, 1));
-    ColorMesh mesh = player.getComponent<RenderComponent>().mesh;
-    player.getComponent<PhysicsComponent>().velocity.z(1);
+    entity.getComponent<RenderComponent>().mesh = MeshFactory::cube(RGBA(0, 1, 0, 1));
+    entity.getComponent<TransformComponent>().transform.position = Vec3F(3, 2, 2);
 }
 
 
 void GLESC::Engine::loop() {
-    GLESC::ECS::Entity camera = getEntity("camera");
-    camera.getComponent<CameraComponent>().viewWidth = static_cast<float>(windowManager.getWindowSize().width);
-    camera.getComponent<CameraComponent>().viewHeight = static_cast<float>(windowManager.getWindowSize().height);
+    // Rotating entity
+    ECS::Entity entity = getEntity("entity");
+    entity.getComponent<TransformComponent>().transform.rotation.y() += 0.01f;
 }

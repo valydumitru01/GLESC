@@ -9,19 +9,20 @@
 #include "IComponent.h"
 #include "engine/core/math/debugger/MathDebugger.h"
 #include "engine/core/math/algebra/matrix/Matrix.h"
+#include "engine/core/math/geometry/GeometryTypes.h"
+#include "engine/subsystems/renderer/RendererTypes.h"
 
 struct CameraComponent : IComponent {
-    Mat4D view{};
-    float fovDegrees{45};
-    float viewWidth{800};
-    float viewHeight{600};
-    float nearPlane{0.1};
-    float farPlane{1000};
+    View view{};
+    GLESC::Math::Distance fovDegrees{45};
+    GLESC::Math::Distance viewWidth; // This will be set to the window width
+    GLESC::Math::Distance viewHeight; // This will be set to the window height
+    GLESC::Math::Distance nearPlane{0.1};
+    GLESC::Math::Distance farPlane{100};
     // TODO: Introduce dirty flag to avoid unnecessary recalculations of view and projection matrices
     
-    std::string toString() override{
-        return  "CameraComponent:"
-                + std::string("\n\tview: \n")
+    std::string toString() const override{
+        return  std::string("\n\tview: \n")
                 + view.toString()
                 + std::string("\n\tfov: ")
                 + std::to_string(fovDegrees)
@@ -33,6 +34,10 @@ struct CameraComponent : IComponent {
                 + std::to_string(nearPlane)
                 + std::string("\n\tfarPlane: ")
                 + std::to_string(farPlane);
+    }
+
+    std::string getName() const override {
+        return "CameraComponent";
     }
 };
 

@@ -35,15 +35,22 @@ namespace GLESC {
 
         ~Renderer();
 
-        Mat4D getView() const { return view; }
-        void setView(const Mat4D &viewParam) { this->view = viewParam; }
+        [[nodiscard]] View getView() const { return view; }
+        void setView(const View &viewParam) { this->view = viewParam; }
 
-        Mat4D getProjection() const { return projection; }
-        void setProjection(const Mat4D &projectionParam) { this->projection = projectionParam; }
+        [[nodiscard]] Projection getProjection() const { return projection; }
+        void setProjection(const Projection &projectionParam) { this->projection = projectionParam; }
 
-        Shader &getDefaultShader() { return shader; }
-        Frustum &getFrustum() { return frustum; }
-        const Frustum &getFrustum() const { return frustum; }
+        [[nodiscard]] Transform getCameraTrasnform() const {
+            return this->cameraTransform;
+        }
+        void setCameraTransform(Transform cameraTransformParam) {
+            this->cameraTransform = cameraTransformParam;
+        }
+
+        [[nodiscard]] Shader &getDefaultShader() { return shader; }
+        [[nodiscard]] Frustum &getFrustum() { return frustum; }
+        [[nodiscard]] const Frustum &getFrustum() const { return frustum; }
 
 
         void clear() const;
@@ -75,7 +82,7 @@ namespace GLESC {
         void cacheMesh(const ColorMesh &mesh,
                        AdaptedInstances adaptedInstancesParam);
 
-        bool isMeshNotCached(const ColorMesh &mesh) const;
+        [[nodiscard]] bool isMeshNotCached(const ColorMesh &mesh) const;
 
         WindowManager &windowManager;
 
@@ -88,7 +95,8 @@ namespace GLESC {
         DynamicMeshes dynamicMeshes;
         Frustum frustum;
 
-        Mat4D projection;
-        Mat4D view;
+        Projection projection;
+        View view;
+        Transform cameraTransform;
     }; // class Renderer
 } // namespace GLESC

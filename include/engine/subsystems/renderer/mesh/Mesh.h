@@ -175,39 +175,39 @@ namespace GLESC {
     }; // class Mesh
 
     using ColorMesh = Mesh<
-        GAPI::Types::Vec3D, // Position is always present
+        GAPI::Types::Vec3F, // Position is always present
         GAPI::Types::Vec4F, // RGBA color
         GAPI::Types::Vec3F // Normal
     >;
 
     using TextureMesh = Mesh<
-        GAPI::Types::Vec3D, // Position is always present
+        GAPI::Types::Vec3F, // Position is always present
         GAPI::Types::Vec2F, // UV
         GAPI::Types::Vec3F // Normal
     >;
 
-    constexpr std::size_t Position = 0;
-    constexpr std::size_t Color = 1;
-    constexpr std::size_t UV = 1;
-    constexpr std::size_t Normal = 2;
-
+    constexpr std::size_t LayoutPosition = 0;
+    constexpr std::size_t LayoutColor = 1;
+    constexpr std::size_t LayoutUV = 1;
+    constexpr std::size_t LayoutNormal = 2;
 
     template <typename... Attributes>
-    Vec3D getVertexPositionAttr(Vertex<Attributes...> v) {
-        return v.template getAttribute<Position>();
+    Position getVertexPositionAttr(Vertex<Attributes...> v) {
+        return v.template getAttribute<LayoutPosition>();
     }
 
-    inline Vec4F getVertexColorAttr(ColorMesh::Vertex v) {
-        return v.getAttribute<Color>();
+    inline Color getVertexColorAttr(ColorMesh::Vertex v) {
+        return v.getAttribute<LayoutColor>();
     }
 
-    inline Vec3F getVertexNormalAttr(ColorMesh::Vertex v) {
-        return v.getAttribute<Normal>();
+    inline UV getVertexUVAttr(TextureMesh::Vertex v) {
+        return v.getAttribute<LayoutUV>();
     }
 
-    inline Vec2F getVertexUVAttr(TextureMesh::Vertex v) {
-        return v.getAttribute<UV>();
+    inline Normal getVertexNormalAttr(ColorMesh::Vertex v) {
+        return v.getAttribute<LayoutNormal>();
     }
+
 } // namespace GLESC
 
 // Assuming the existence of a getAttributes() method that returns a tuple of all attributes.

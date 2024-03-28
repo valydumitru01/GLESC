@@ -9,35 +9,35 @@
  **************************************************************************************************/
 #pragma once
 #include <imgui/imgui.h>
+#include <string>
+#include <vector>
 
-#include "engine/core/math/Math.h"
-
-enum class LayoutPosition {
-    TopLeft,
-    CenterLeft,
-    BottomLeft,
-    TopCenter,
-    Center,
-    BottomCenter,
-    TopRight,
-    CenterRight,
-    BottomRight,
-    Custom
-};
-
-enum class WindowCenter {
-    TopLeft,
-    CenterLeft,
-    BottomLeft,
-    TopCenter,
-    Center,
-    BottomCenter,
-    TopRight,
-    CenterRight,
-    BottomRight
-};
 
 namespace GLESC {
+    enum class LayoutPos {
+        TopLeft,
+        CenterLeft,
+        BottomLeft,
+        TopCenter,
+        Center,
+        BottomCenter,
+        TopRight,
+        CenterRight,
+        BottomRight,
+        Custom
+    };
+
+    enum class WindowCenter {
+        TopLeft,
+        CenterLeft,
+        BottomLeft,
+        TopCenter,
+        Center,
+        BottomCenter,
+        TopRight,
+        CenterRight,
+        BottomRight
+    };
     class InGameWindow {
     public:
         InGameWindow();
@@ -49,6 +49,7 @@ namespace GLESC {
         void setSizeFraction(ImVec2 fraction);
         void setPositionFraction(ImVec2 fraction);
         void setCenter(WindowCenter center);
+        void setLayoutPosition(LayoutPos position);
 
 
         void addFlag(ImGuiWindowFlags_ flag) { windowFlags.push_back(flag); }
@@ -56,7 +57,6 @@ namespace GLESC {
         void toggleVisibility() { isVisible = !isVisible; }
 
         void update();
-        void setLayoutPosition(LayoutPosition position);
 
     protected:
         virtual void windowContent() = 0;

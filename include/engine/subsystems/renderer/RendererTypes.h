@@ -39,3 +39,13 @@ inline GAPI::BufferUsages getBufferUsage(RenderType renderType) {
  */
 using VertexArrayPtr = std::unique_ptr<GLESC::VertexArray>;
 
+using Color = Vec4F;
+using UV = Vec2F;
+using Normal = Vec3F;
+using Position = Vec3F;
+
+using Model = Mat4F;
+using View = Mat4F;
+using Projection = Mat4F;
+using VP = Mat4F;
+using MVP = Mat4F;

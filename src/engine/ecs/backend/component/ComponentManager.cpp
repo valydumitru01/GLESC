@@ -12,7 +12,7 @@
 using namespace GLESC::ECS;
 
 void ComponentManager::entityDestroyed(EntityID entity) {
-    for (auto const& [name, array] : componentArrays) {
+    for (auto const &[name, array] : componentArrays) {
         array->removeData(entity);
     }
 }
@@ -27,7 +27,6 @@ ComponentName ComponentManager::getComponentName(ComponentID componentID) const 
     return componentIDs.right.at(componentID);
 }
 
-IComponent& ComponentManager::getComponent(EntityID entity, ComponentID componentID) const {
+IComponent &ComponentManager::getComponent(EntityID entity, ComponentID componentID) const {
     return componentArrays.at(getComponentName(componentID))->getComponent(entity);
 }
-

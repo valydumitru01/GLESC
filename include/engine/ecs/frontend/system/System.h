@@ -14,23 +14,29 @@ namespace GLESC::ECS {
         friend class Entity;
 
     public:
-        explicit System(ECSCoordinator& ecs, const SystemName& name);
+        explicit System(ECSCoordinator &ecs, const SystemName &name);
 
-        template <class Component>
+        template<class Component>
         void addComponentRequirement() {
             ecs.addComponentRequirementToSystem<Component>(name);
         }
 
-        [[nodiscard]] std::set<EntityID> getAssociatedEntities() const;
+        [[nodiscard]] const std::set<EntityID> &getAssociatedEntities() const;
+
+        [[nodiscard]] boost::bimap<EntityName, EntityID> getAllEntities() const;
+
+        [[nodiscard]] std::vector<IComponent*> getComponents(EntityID entityId) const;
+
+        const EntityName& getEntityName(EntityID entityId) const;
 
     protected:
-        template <class Component>
-        Component& getComponent(EntityID entityId) {
+        template<class Component>
+        Component &getComponent(EntityID entityId) {
             return ecs.getComponent<Component>(entityId);
         }
 
     private:
-        ECSCoordinator& ecs;
+        ECSCoordinator &ecs;
         SystemName name;
     };
 }

@@ -460,6 +460,22 @@ namespace GLESC {
                           buferUsage);
         }
 
+        template <typename BufferType>
+        void printBufferData(const GAPI::Void* data, GAPI::Size size) {
+            const BufferType* typedData = static_cast<const BufferType*>(data);
+            size_t count = size / sizeof(BufferType); // Calculate how many elements are in the buffer
+
+            // Determine the maximum width needed for alignment
+            BufferType max_value = *std::max_element(typedData, typedData + count);
+            int max_width = std::to_string(max_value).length();
+
+            for (size_t i = 0; i < count; ++i) {
+                // Use std::setw to set the width and std::setfill to fill with spaces
+                std::cout << std::setw(max_width) << std::setfill(' ') << typedData[i] << " ";
+                if (i % 8 == 7) std::cout << std::endl; // Print 8 elements per line for readability
+            }
+            std::cout << std::endl;
+        }
         void setBufferData(const GAPI::Void *data,
                            GAPI::Size count,
                            GAPI::Size size,
@@ -467,7 +483,10 @@ namespace GLESC {
                            GAPI::BufferUsages bufferUsage) override {
             GAPI_FUNCTION_LOG("setBufferStaticData", "vectorData (is a pointer,can't be printed)",
                               count, bufferType, bufferUsage);
-
+            if(bufferType == GAPI::BufferTypes::Index)
+                printBufferData<GAPI::UInt>(data, size);
+            else
+                printBufferData<GAPI::Float>(data, size);
             GLenum type = static_cast<GLenum>(bufferType);
             GLenum usage = static_cast<GLenum>(bufferUsage);
 

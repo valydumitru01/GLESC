@@ -10,26 +10,28 @@
 
 
 #include "engine/subsystems/hud/InGameWindow.h"
+#include "engine/core/asserts/Asserts.h"
+using namespace GLESC;
 
-GLESC::InGameWindow::InGameWindow() : isVisible(false) {}
+InGameWindow::InGameWindow() : isVisible(false) {}
 
-void GLESC::InGameWindow::setTitle(const std::string& title) {
+void InGameWindow::setTitle(const std::string& title) {
     D_ASSERT_FALSE(title.empty(), "Title cannot be empty");
     D_ASSERT_FALSE(title.size() > 100, "Title is too long");
     this->title = title;
 }
 
-void GLESC::InGameWindow::setMinSize(ImVec2 minSize) {
+void InGameWindow::setMinSize(ImVec2 minSize) {
     D_ASSERT_TRUE(minSize.x >= 0.0f && minSize.y >= 0.0f, "Invalid min size");
     this->minSize = minSize;
 }
 
-void GLESC::InGameWindow::setMaxSize(ImVec2 maxSize) {
+void InGameWindow::setMaxSize(ImVec2 maxSize) {
     D_ASSERT_TRUE(maxSize.x >= 0.0f && maxSize.y >= 0.0f, "Invalid max size");
     this->maxSize = maxSize;
 }
 
-void GLESC::InGameWindow::setSizeFraction(ImVec2 fraction) {
+void InGameWindow::setSizeFraction(ImVec2 fraction) {
     D_ASSERT_TRUE(fraction.x >= 0.0f && fraction.x <= 1.0f, "Invalid fraction x");
     D_ASSERT_TRUE(fraction.y >= 0.0f && fraction.y <= 1.0f, "Invalid fraction y");
     // We need the min between 1.0f - margin and fraction to avoid the window going off margins
@@ -37,13 +39,13 @@ void GLESC::InGameWindow::setSizeFraction(ImVec2 fraction) {
     sizeFraction.y = std::min(fraction.y, 1.0f - windowMarginFraction * 2);
 }
 
-void GLESC::InGameWindow::setPositionFraction(ImVec2 fraction) {
+void InGameWindow::setPositionFraction(ImVec2 fraction) {
     D_ASSERT_TRUE(fraction.x >= 0.0f && fraction.x <= 1.0f, "Invalid fraction x");
     D_ASSERT_TRUE(fraction.y >= 0.0f && fraction.y <= 1.0f, "Invalid fraction y");
     positionFraction = fraction;
 }
 
-void GLESC::InGameWindow::setCenter(WindowCenter center) {
+void InGameWindow::setCenter(WindowCenter center) {
     if (center == WindowCenter::TopLeft) {
         this->center = ImVec2(0.0f, 0.0f);
     }
@@ -77,7 +79,7 @@ void GLESC::InGameWindow::setCenter(WindowCenter center) {
 }
 
 
-ImGuiWindowFlags GLESC::InGameWindow::getFlags() {
+ImGuiWindowFlags InGameWindow::getFlags() {
     ImGuiWindowFlags flags = 0;
     for (auto& flag : windowFlags) {
         flags |= flag;
@@ -85,44 +87,44 @@ ImGuiWindowFlags GLESC::InGameWindow::getFlags() {
     return flags;
 }
 
-void GLESC::InGameWindow::setLayoutPosition(LayoutPosition position) {
-    if (position == LayoutPosition::TopLeft) {
+void InGameWindow::setLayoutPosition(LayoutPos position) {
+    if (position == LayoutPos::TopLeft) {
         positionFraction.x = windowMarginFraction;
         positionFraction.y = windowMarginFraction;
     }
-    else if (position == LayoutPosition::TopCenter) {
+    else if (position == LayoutPos::TopCenter) {
         positionFraction.x = 0.5f;
         positionFraction.y = windowMarginFraction;
     }
-    else if (position == LayoutPosition::TopRight) {
+    else if (position == LayoutPos::TopRight) {
         positionFraction.x = 1.0f - windowMarginFraction;
         positionFraction.y = windowMarginFraction;
     }
-    else if (position == LayoutPosition::BottomLeft) {
+    else if (position == LayoutPos::BottomLeft) {
         positionFraction.x = windowMarginFraction;
         positionFraction.y = 1.0f - windowMarginFraction;
     }
-    else if (position == LayoutPosition::BottomCenter) {
+    else if (position == LayoutPos::BottomCenter) {
         positionFraction.x = 0.5f;
         positionFraction.y = 1.0f - windowMarginFraction;
     }
-    else if (position == LayoutPosition::BottomRight) {
+    else if (position == LayoutPos::BottomRight) {
         positionFraction.x = 1.0f - windowMarginFraction;
         positionFraction.y = 1.0f - windowMarginFraction;
     }
-    else if (position == LayoutPosition::CenterLeft) {
+    else if (position == LayoutPos::CenterLeft) {
         positionFraction.x = windowMarginFraction;
         positionFraction.y = 0.5f;
     }
-    else if (position == LayoutPosition::Center) {
+    else if (position == LayoutPos::Center) {
         positionFraction.x = 0.5f;
         positionFraction.y = 0.5f;
     }
-    else if (position == LayoutPosition::CenterRight) {
+    else if (position == LayoutPos::CenterRight) {
         positionFraction.x = 1.0f - windowMarginFraction;
         positionFraction.y = 0.5f;
     }
-    else if (position == LayoutPosition::Custom) {
+    else if (position == LayoutPos::Custom) {
         // Do nothing, use the already set position
     }
     else {
@@ -131,7 +133,7 @@ void GLESC::InGameWindow::setLayoutPosition(LayoutPosition position) {
 }
 
 
-ImVec2 GLESC::InGameWindow::calculatePosition(ImVec2 windowSize) {
+ImVec2 InGameWindow::calculatePosition(ImVec2 windowSize) {
     float screenWidth = ImGui::GetIO().DisplaySize.x;
     float screenHeight = ImGui::GetIO().DisplaySize.y;
 
@@ -142,7 +144,7 @@ ImVec2 GLESC::InGameWindow::calculatePosition(ImVec2 windowSize) {
     return {posX, posY};
 }
 
-ImVec2 GLESC::InGameWindow::calculateSize() {
+ImVec2 InGameWindow::calculateSize() {
     float screenWidth = ImGui::GetIO().DisplaySize.x;
     float screenHeight = ImGui::GetIO().DisplaySize.y;
 
@@ -160,7 +162,7 @@ ImVec2 GLESC::InGameWindow::calculateSize() {
 }
 
 
-void GLESC::InGameWindow::update() {
+void InGameWindow::update() {
     size = calculateSize();
     position = calculatePosition(size);
 

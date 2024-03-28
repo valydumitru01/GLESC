@@ -11,6 +11,9 @@
 #pragma once
 
 
+#include <glm/glm.hpp>
+#include <glm/ext/matrix_transform.hpp>
+
 #include "engine/core/asserts/Asserts.h"
 #include "engine/core/math/Math.h"
 #include "engine/core/math/algebra/matrix/MatrixAlgorithms.h"
@@ -25,9 +28,9 @@ namespace GLESC::Math {
         // =============================================================================================================
 
 
-        template <typename Type>
+        template<typename Type>
         static void
-        rotate2D(const MatrixData<Type, 3, 3>& matrix, const Type dgrs, MatrixData<Type, 3, 3>& resMatrix) {
+        rotate2D(const MatrixData<Type, 3, 3> &matrix, const Type dgrs, MatrixData<Type, 3, 3> &resMatrix) {
             MatrixData<Type, 3, 3> result =
             {
                 {
@@ -54,48 +57,66 @@ namespace GLESC::Math {
         /**
          * @brief Rotate a 3D matrix around the X, Y, and Z axis.
          * @details This function applies sequential rotations to the input matrix based on the given angles.
-         * The function assumes a specific order of rotations. It seems to be Z, then Y, then X
+         * The function assumes a specific order of rotations. It is Z, then Y, then X
          * TODO: Be cautious about gimbal lock when using Euler angles.
          *   It's recommended to use quaternions for robustness.
          *
-         * @tparam Type The data type of the matrix and vector elements (e.g., float, double).
          * @param matrix The input 4x4 matrix that needs to be rotated.
          * @param dgrs A 3D vector containing the rotation angles (in radians) around X, Y, and Z axes
          * respectively.
          * @return A 4x4 matrix which is the result of the input matrix after the rotations.
          */
-        template <typename TypeToRotate, typename TypeDgrs, typename TypeRes>
-        static void rotate3D(const MatrixData<TypeToRotate, 4, 4>& matrix,
-                             const VectorData<TypeDgrs, 3>& dgrs,
-                             MatrixData<TypeRes, 4, 4>& resMatrix) {
-            MatrixData<TypeToRotate, 4, 4> result;
-            MatrixAlgorithms::copyMatrix(result, matrix);
+        template<typename TypeToRotate, typename TypeDgrs, typename TypeRes>
+        static void rotate3D(const MatrixData<TypeToRotate, 4, 4> &matrix,
+                             const VectorData<TypeDgrs, 3> &dgrs,
+                             MatrixData<TypeRes, 4, 4> &resMatrix) {
+            VectorData<TypeDgrs, 3> rads = {Math::radians(dgrs[0]), Math::radians(dgrs[1]), Math::radians(dgrs[2])};
 
-            TypeToRotate cx = cos(dgrs[0]); // X component
-            TypeToRotate sx = sin(dgrs[0]); // X component
-            TypeToRotate cy = cos(dgrs[1]); // Y component
-            TypeToRotate sy = sin(dgrs[1]); // Y component
-            TypeToRotate cz = cos(dgrs[2]); // Z component
-            TypeToRotate sz = sin(dgrs[2]); // Z component
-
-
-            // Combine the three rotation matrices into a single matrix
-            MatrixData<TypeToRotate, 4, 4> rot = {
+            // Rotation matrices for X, Y, Z
+            MatrixData<TypeToRotate, 4, 4> rotX = {
                 {
-                    {cy * cz, -cy * sz, sy, TypeToRotate(0)},
-                    {sx * sy * cz + cx * sz, -sx * sy * sz + cx * cz, -sx * cy, TypeToRotate(0)},
-                    {-cx * sy * cz + sx * sz, cx * sy * sz + sx * cz, cx * cy, TypeToRotate(0)},
-                    {TypeToRotate(0), TypeToRotate(0), TypeToRotate(0), TypeToRotate(1)}
+                    {1, 0, 0, 0},
+                    {0, cos(rads[0]), sin(rads[0]), 0},
+                    {0, -sin(rads[0]), cos(rads[0]), 0},
+                    {0, 0, 0, 1}
                 }
             };
 
-            MatrixAlgorithms::matrixMulDot(rot, result, resMatrix);
+            MatrixData<TypeToRotate, 4, 4> rotY = {
+                {
+                    {cos(rads[1]), 0, -sin(rads[1]), 0},
+                    {0, 1, 0, 0},
+                    {sin(rads[1]), 0, cos(rads[1]), 0},
+                    {0, 0, 0, 1}
+                }
+            };
+
+            MatrixData<TypeToRotate, 4, 4> rotZ = {
+                {
+                    {cos(rads[2]), sin(rads[2]), 0, 0},
+                    {-sin(rads[2]), cos(rads[2]), 0, 0},
+                    {0, 0, 1, 0},
+                    {0, 0, 0, 1}
+                }
+            };
+
+            // Apply rotations in XYZ order
+            MatrixData<TypeToRotate, 4, 4> combinedRotation;
+            MatrixAlgorithms::setMatrixDiagonal(combinedRotation, TypeToRotate(1.0)); // Initialize with identity
+
+            // Multiply in order: combinedRotation = rotZ * rotY * rotX
+            MatrixAlgorithms::matrixMulDot(rotZ, combinedRotation, combinedRotation);
+            MatrixAlgorithms::matrixMulDot(rotY, combinedRotation, combinedRotation);
+            MatrixAlgorithms::matrixMulDot(rotX, combinedRotation, combinedRotation);
+
+            // Apply the combined rotation to the input matrix
+            MatrixAlgorithms::matrixMulDot(matrix, combinedRotation, resMatrix);
         }
 
-        template <typename Type>
-        static void lookAt2D(const MatrixData<Type, 3, 3>& matrix,
-                             const VectorData<Type, 2>& target,
-                             MatrixData<Type, 3, 3>& result) {
+        template<typename Type>
+        static void lookAt2D(const MatrixData<Type, 3, 3> &matrix,
+                             const VectorData<Type, 2> &target,
+                             MatrixData<Type, 3, 3> &result) {
             VectorData<Type, 2> eye = {matrix[0][2], matrix[1][2]};
             VectorData<Type, 2> direction = {target[0] - eye[0], target[1] - eye[1]};
 
@@ -111,20 +132,20 @@ namespace GLESC::Math {
             rotate2D(matrix, angle, result);
         }
 
-        template <typename Type>
-        static void lookAt3D(const MatrixData<Type, 4, 4>& transformMatrix,
-                             const VectorData<Type, 3>& targetPos,
-                             const VectorData<Type, 3>& upVector,
-                             MatrixData<Type, 4, 4>& resMatrix) {
+        template<typename Type>
+        static void lookAt3D(const MatrixData<Type, 4, 4> &transformMatrix,
+                             const VectorData<Type, 3> &targetPos,
+                             const VectorData<Type, 3> &upVector,
+                             MatrixData<Type, 4, 4> &resMatrix) {
             VectorData<Type, 3> eye = {transformMatrix[0][3], transformMatrix[1][3], transformMatrix[2][3]};
             MatrixMixedAlgorithms::lookAt3D(eye, targetPos, upVector, resMatrix);
         }
 
-        template <typename TypeMat, typename TypeEye, typename TypeTarget, typename TypeUp>
-        static void lookAt3D(const VectorData<TypeEye, 3>& eye,
-                             const VectorData<TypeTarget, 3>& target,
-                             const VectorData<TypeUp, 3>& up,
-                             MatrixData<TypeMat, 4, 4>& resMatrix) {
+        template<typename TypeMat, typename TypeEye, typename TypeTarget, typename TypeUp>
+        static void lookAt3D(const VectorData<TypeEye, 3> &eye,
+                             const VectorData<TypeTarget, 3> &target,
+                             const VectorData<TypeUp, 3> &up,
+                             MatrixData<TypeMat, 4, 4> &resMatrix) {
             VectorData<TypeMat, 3> forward;
             VectorAlgorithms::vectorSub(target, eye, forward);
             VectorAlgorithms::normalize(forward, forward);
@@ -168,49 +189,45 @@ namespace GLESC::Math {
          * @param scale A 3D vector containing the scale factors for the model.
          * @param model A 4x4 matrix which will contain the result of the model matrix.
          */
-        template <typename ModelType, typename TypePos, typename TypeRot, typename TypeScale>
+        template<typename ModelType, typename TypePos, typename TypeRot, typename TypeScale>
         static void
-        calculateModelMatrix(const VectorData<TypePos, 3>& position,
-                             const VectorData<TypeRot, 3>& rotationRads,
-                             const VectorData<TypeScale, 3>& scale, MatrixData<ModelType, 4, 4>& model) {
+        calculateModelMatrix(const VectorData<TypePos, 3> &position,
+                             const VectorData<TypeRot, 3> &rotationRads,
+                             const VectorData<TypeScale, 3> &scale,
+                             MatrixData<ModelType, 4, 4> &model) {
             // Reset the model matrix to an identity matrix
             MatrixAlgorithms::setMatrixZero(model);
             MatrixAlgorithms::setMatrixDiagonal(model, ModelType(1));
 
-            // First, apply scale to the model matrix
-            MatrixAlgorithms::setScale(model, scale, model);
+            // Finally, apply translation to the model matrix
+            MatrixAlgorithms::setTranslate(model, position, model);
 
             // Then, apply rotation to the model matrix
             MatrixMixedAlgorithms::rotate3D(model, rotationRads, model);
 
-            // Finally, apply translation to the model matrix
-            MatrixAlgorithms::setTranslate(model, position, model);
+            // First, apply scale to the model matrix
+            MatrixAlgorithms::setScale(model, scale, model);
         }
 
 
-        template <typename TypeRes, typename TypePos, typename TypeRot>
-        static void calculateViewMatrix(const VectorData<TypePos, 3>& position,
-                                        const VectorData<TypeRot, 3>& rotation,
-                                        MatrixData<TypeRes, 4, 4>& view) {
-            // Calculate the rotation matrix for camera's inverse orientation
-            MatrixData<TypeRes, 4, 4> rotationMatrix;
-            MatrixAlgorithms::setMatrixZero(rotationMatrix);
-            MatrixAlgorithms::setMatrixDiagonal(rotationMatrix, TypeRes(1));
-            MatrixMixedAlgorithms::rotate3D(rotationMatrix, rotation, rotationMatrix);
+        template<typename TypeRight, typename TypeUp, typename TypeForw, typename TypePos, typename TypeRes>
+        static void calculateViewMatrix(const VectorData<TypeRight, 3> &right,
+                                        const VectorData<TypeUp, 3> &worldUp,
+                                        const VectorData<TypeForw, 3> &forward,
+                                        const VectorData<TypePos, 3> &position,
+                                        MatrixData<TypeRes, 4, 4> &view) {
+            TypeRes dotPosRight = -VectorAlgorithms::dotProduct(position, right);
+            TypeRes dotPosUp = -VectorAlgorithms::dotProduct(position, worldUp);
+            TypeRes dotPosForward = -VectorAlgorithms::dotProduct(position, forward);
 
-            // Calculating the inverse position
-            VectorData<TypeRes, 3> inversePosition;
-            VectorAlgorithms::vectorNegate(position, inversePosition);
-
-            // Calculate the translation matrix for the inverse position
-            MatrixData<TypeRes, 4, 4> translationMatrix;
-            MatrixAlgorithms::setMatrixZero(translationMatrix);
-            MatrixAlgorithms::setMatrixDiagonal(translationMatrix, TypeRes(1));
-            MatrixAlgorithms::setTranslate(translationMatrix, inversePosition, translationMatrix);
-
-            // Combine the rotation and translation matrices
-            // Assuming matrixMulDot multiplies matrices correctly.
-            MatrixAlgorithms::matrixMulDot(rotationMatrix, translationMatrix, view);
+            view = {
+                {
+                    {right[0], right[1], right[2], dotPosRight},
+                    {worldUp[0], worldUp[1], worldUp[2], dotPosUp},
+                    {-forward[0], -forward[1], -forward[2], dotPosForward},
+                    {TypeRes(0), TypeRes(0), TypeRes(0), TypeRes(1)}
+                }
+            };
         }
     }; // class MatrixAlgorithms
 }; // namespace GLESC::Math

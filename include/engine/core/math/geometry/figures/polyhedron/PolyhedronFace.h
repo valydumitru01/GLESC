@@ -37,24 +37,17 @@ namespace GLESC::Math {
               plane(other.plane) {}
 
         /**
-        * @brief Custom copy assignment operator.
+        * @brief Deleted assignment operator.
         *
         * Assigns this PolyhedronFace to refer to the same set of vertices as the other face.
         * This operator is necessary because the default assignment operator is deleted due to
         * the presence of a reference member. Note that this operator doesn't allow reassignment
         * of the reference itself; it only ensures consistent copying of other assignable members.
         *
-        * @param other The PolyhedronFace to assign from.
-        * @return Reference to this PolyhedronFace.
         */
-        PolyhedronFace& operator=(const PolyhedronFace& other) {
-            // Note: The reference member cannot be reassigned.
-            // This operator does nothing but is required to exist.
-            D_ASSERT_TRUE(false, "PolyhedronFace assignment operator called");
-            return *this;
-        }
+        PolyhedronFace& operator=(const PolyhedronFace& other) = delete;
 
-        const Vec3D& getNormal() const { return plane.getNormal(); }
+        const Point &getNormal() const { return plane.getNormal(); }
 
         const std::vector<Point>& getPolyhedronVertices() const { return polyhedronVertices; }
 
@@ -81,7 +74,7 @@ namespace GLESC::Math {
         [[nodiscard]] bool intersects(const PolyhedronFace& face) const;
 
 
-        bool intersects(const Vec3D& point) const;
+        bool intersects(const Vec3F& point) const;
 
         bool intersects(const Line& line) const;
 

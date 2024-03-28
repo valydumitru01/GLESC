@@ -25,7 +25,7 @@ void Polyhedron::addVertex(const Point& vertex) {
 }
 
 void Polyhedron::clear() {
-    vertices = std::vector<Vec3D>();
+    vertices = std::vector<Point>();
     faces = std::vector<PolyhedronFace>();
 }
 
@@ -42,6 +42,15 @@ void Polyhedron::addFace(const FaceIndices& faceParam) {
 
     PolyhedronFace face(faceParam, vertices);
     faces.push_back(face);
+}
+
+Point Polyhedron::getCenter() const {
+    Point center;
+    for (const auto& vertex : vertices) {
+        center += vertex;
+    }
+    center /= static_cast<Distance>(vertices.size());
+    return center;
 }
 
 [[nodiscard]] const std::vector<PolyhedronFace>& Polyhedron::getFaces() const {

@@ -26,6 +26,8 @@ struct IComponent {
      * This is because we are using a vector of IComponents.
      * @return
      */
-    virtual std::string toString() = 0;
+    virtual std::string toString() const = 0;
+
+    virtual std::string getName() const = 0;
 };
 

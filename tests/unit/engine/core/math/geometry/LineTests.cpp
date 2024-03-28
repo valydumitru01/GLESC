@@ -50,11 +50,11 @@ TEST(LineTests, IntersectsAnotherLine) {
 TEST(LineTests, IntersectsPoint) {
     // Line and point intersect
     Line line(Point(0, 0, 0), Direction(1, 1, 1));
-    Vec3D pointOnLine(1, 1, 1);
+    Point pointOnLine(1, 1, 1);
     EXPECT_TRUE(line.intersects(pointOnLine));
     
     // Line and point do not intersect
-    Vec3D pointOffLine(1, 2, 3);
+    Point pointOffLine(1, 2, 3);
     EXPECT_FALSE(line.intersects(pointOffLine));
 }
 

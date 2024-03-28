@@ -108,6 +108,6 @@ namespace GLESC::ECS {
 
     template <typename Component>
     bool Entity::hasComponent() const {
-        return ecs.doesEntityHaveComponent(ID, ecs.getComponentID<Component>());
+        return ecs.hasComponent(ID, ecs.getComponentID<Component>());
     }
 } // namespace GLESC::ECS

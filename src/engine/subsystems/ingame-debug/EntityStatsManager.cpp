@@ -19,10 +19,8 @@ EntityData EntityStatsManager::generateEntityData() {
     ComponentData componentData;
     for (auto& component : entityDataFuncs.components) {
         componentData.name = component.name();
-        componentData.nameValuePairs["name"] = component.name();
-        for (auto& nameValuePair : component.nameValuePairs) {
-            componentData.nameValuePairs[nameValuePair.first] = nameValuePair.second();
-        }
+        componentData.nameValuePairs["Name"] = component.name();
+        componentData.nameValuePairs["Data"] = component.dataString();
     }
     return entityData;
 }

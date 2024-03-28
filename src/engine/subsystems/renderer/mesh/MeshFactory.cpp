@@ -12,19 +12,19 @@
 using namespace GLESC;
 ColorMesh MeshFactory::cube(const RGBA& color) {
     ColorMesh mesh;
-    Vec4F rgba = Vec4F(color.r, color.g, color.b, color.a);
+    Color rgba = Vec4F(color.r, color.g, color.b, color.a);
 
     // Define vertices with position, color, and normal
     // Front face
-    ColorMesh::Vertex v1(Vec3D(-1, -1, -1), rgba, Vec3F(0, 0, -1));
-    ColorMesh::Vertex v2(Vec3D(1, -1, -1), rgba, Vec3F(0, 0, -1));
-    ColorMesh::Vertex v3(Vec3D(1, 1, -1), rgba, Vec3F(0, 0, -1));
-    ColorMesh::Vertex v4(Vec3D(-1, 1, -1), rgba, Vec3F(0, 0, -1));
+    ColorMesh::Vertex v1(Position(-1, -1, -1), rgba, Normal(0, 0, -1));
+    ColorMesh::Vertex v2(Position(1, -1, -1), rgba, Normal(0, 0, -1));
+    ColorMesh::Vertex v3(Position(1, 1, -1), rgba, Normal(0, 0, -1));
+    ColorMesh::Vertex v4(Position(-1, 1, -1), rgba, Normal(0, 0, -1));
     // Back face
-    ColorMesh::Vertex v5(Vec3D(-1, -1, 1), rgba, Vec3F(0, 0, 1));
-    ColorMesh::Vertex v6(Vec3D(1, -1, 1), rgba, Vec3F(0, 0, 1));
-    ColorMesh::Vertex v7(Vec3D(1, 1, 1), rgba, Vec3F(0, 0, 1));
-    ColorMesh::Vertex v8(Vec3D(-1, 1, 1), rgba, Vec3F(0, 0, 1));
+    ColorMesh::Vertex v5(Position(-1, -1, 1), rgba, Normal(0, 0, 1));
+    ColorMesh::Vertex v6(Position(1, -1, 1), rgba, Normal(0, 0, 1));
+    ColorMesh::Vertex v7(Position(1, 1, 1), rgba, Normal(0, 0, 1));
+    ColorMesh::Vertex v8(Position(-1, 1, 1), rgba, Normal(0, 0, 1));
 
     // Front face
     mesh.addTris(v1, v2, v3);

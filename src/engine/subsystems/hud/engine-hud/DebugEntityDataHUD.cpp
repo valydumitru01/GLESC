@@ -15,8 +15,8 @@ DebugEntityDataHUD::DebugEntityDataHUD() {
     this->setTitle("Entity Data");
     this->setSizeFraction({0.2f, 1.0f});
     isVisible = true;
-    this->setLayoutPosition( LayoutPosition::CenterRight);
-    this->setCenter(WindowCenter::CenterRight);
+    this->setLayoutPosition(GLESC::LayoutPos::CenterRight);
+    this->setCenter(GLESC::WindowCenter::CenterRight);
     this->addFlag(ImGuiWindowFlags_NoResize);
     this->addFlag(ImGuiWindowFlags_NoMove);
     this->addFlag(ImGuiWindowFlags_NoCollapse);

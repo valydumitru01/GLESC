@@ -27,21 +27,23 @@ namespace GLESC::ECS {
         static constexpr EntityID firstEntity = EntityID(1);
 
         EntityManager();
+
         /**
          * @brief The default destructor is correct, no need to define it.
          */
         ~EntityManager() = default;
-        const boost::bimap<EntityName, EntityID>& getEntityIDs() { return entityIDs; }
-        const std::queue<EntityID>& getAvailableEntities() { return availableEntities; }
-        const std::array<Signature, maxEntities>& getSignatures() { return signatures; }
-        const EntityID& getLivingEntityCount() { return livingEntityCount; }
+
+        const boost::bimap<EntityName, EntityID> &getEntityIDs() const { return entityIDs; }
+        const std::queue<EntityID> &getAvailableEntities() const { return availableEntities; }
+        const std::array<Signature, maxEntities> &getSignatures() const { return signatures; }
+        const EntityID &getLivingEntityCount() const { return livingEntityCount; }
 
         /**
          * @brief Create an entity with the given name. The name must be unique.
          * @param name
          * @return
          */
-        EntityID createNextEntity(const EntityName& name);
+        EntityID createNextEntity(const EntityName &name);
 
         /**
          * @brief Tries to get the entity ID from the entity name
@@ -50,18 +52,21 @@ namespace GLESC::ECS {
          * @param name The name of the entity
          * @return The ID of the entity, or NULL_ENTITY if the entity does not exist
          */
-        [[nodiscard]] EntityID tryGetEntity(const EntityName& name) const;
+        [[nodiscard]] EntityID tryGetEntity(const EntityName &name) const;
+
         /**
          * @brief Destroy the entity with the given ID. The entity must exist.
          * @param entity The ID of the entity
          */
         void destroyEntity(EntityID entity);
+
         /**
          * @brief Add a component to the entity. The entity must exist.
          * @param entity The ID of the entity
          * @param componentID The ID of the component
          */
         void addComponentToEntity(EntityID entity, ComponentID componentID);
+
         /**
          * @brief Remove a component from the entity. The entity must exist.
          * @param entity The ID of the entity
@@ -82,7 +87,7 @@ namespace GLESC::ECS {
          * @param entity The ID of the entity
          * @return The name of the entity
          */
-        [[nodiscard]] EntityName getEntityName(EntityID entity) const;
+        [[nodiscard]] const EntityName& getEntityName(EntityID entity) const;
 
         /**
          * @brief Get the entity ID from the entity name
@@ -90,7 +95,7 @@ namespace GLESC::ECS {
          * @param name The name of the entity
          * @return The ID of the entity
          */
-        [[nodiscard]] EntityID getEntityID(const EntityName& name) const;
+        [[nodiscard]] EntityID getEntityID(const EntityName &name) const;
 
 
         /**
@@ -107,7 +112,7 @@ namespace GLESC::ECS {
          * @param name The name of the entity
          * @return True if the entity exists, false otherwise
          */
-        [[nodiscard]] bool doesEntityExist(const EntityName& name) const;
+        [[nodiscard]] bool doesEntityExist(const EntityName &name) const;
 
         /**
          * @brief Check if the entity with the given ID exists
@@ -115,18 +120,20 @@ namespace GLESC::ECS {
          * @return True if the entity exists, false otherwise
          */
         [[nodiscard]] bool doesEntityExist(EntityID entity) const;
+
         /**
          * @brief Check if the entity with the given ID is alive
          * @param entity The ID of the entity
          * @return True if the entity is alive, false otherwise
          */
         [[nodiscard]] bool isEntityAlive(EntityID entity) const;
+
         /**
          * @brief Check if the entity with the given name is alive
          * @param name The name of the entity
          * @return True if the entity is alive, false otherwise
          */
-        [[maybe_unused]] [[nodiscard]] bool isEntityAlive(const EntityName& name) const;
+        [[maybe_unused]] [[nodiscard]] bool isEntityAlive(const EntityName &name) const;
 
         /**
          * @brief Check if the component ID is in the range of the signature
@@ -139,7 +146,7 @@ namespace GLESC::ECS {
          * @param name The name of the entity
          * @return True if the entity can be created, false otherwise
          */
-        [[maybe_unused]] [[nodiscard]] bool canEntityBeCreated(const EntityName& name) const;
+        [[maybe_unused]] [[nodiscard]] bool canEntityBeCreated(const EntityName &name) const;
 
         [[maybe_unused]] [[nodiscard]] bool areThereLivingEntities() const;
 

@@ -7,16 +7,21 @@
 
 using namespace GLESC;
 
-Renderer::Renderer(WindowManager& windowManager) :
-    windowManager(windowManager), shader(Shader("Shader.glsl")) {
-    float windowWidth = static_cast<float>(windowManager.getWindowSize().width);
-    float windowHeight = static_cast<float>(windowManager.getWindowSize().height);
+Renderer::Renderer(WindowManager &windowManager) :
+    windowManager(windowManager), shader(Shader("Shader.glsl")),
+    cameraTransform(Transform(Position(0.0f, 0.0f, 3.0f),
+                              Rotation(0.0f, 0.0f, 0.0f),
+                              Scale(1.0f, 1.0f, 1.0f))) {
+    float windowWidth = static_cast<float>(windowManager.getSize().width);
+    float windowHeight = static_cast<float>(windowManager.getSize().height);
     // Set the projection matrix
     projection.makeProjectionMatrix(45.0f, 0.1f, 100.0f, windowWidth, windowHeight);
-    // Set the view matrix
-    view.makeViewMatrix(Vec3D(0.0f, 0.0f, 0.0f), Vec3D(0.0f, 0.0f, 0.0f));
-    frustum = Frustum(getView(), getProjection());
 
+    // Set the view matrix
+    view.makeViewMatrix(cameraTransform.right(), {0.0f, 0.0f, 1.0f},
+                        cameraTransform.forward(),
+                        cameraTransform.position);
+    frustum = Frustum(getView(), getProjection());
 }
 
 void Renderer::swapBuffers() const {
@@ -31,7 +36,7 @@ void Renderer::clear() const {
     getGAPI().clearColor(0.2f, 0.3f, 0.3f, 1.0f);
 }
 
-void Renderer::applyMaterial(const Material& material) const {
+void Renderer::applyMaterial(const Material &material) const {
     shader.bind(); // Activate the shader program
 
     /*
@@ -60,32 +65,32 @@ Renderer::~Renderer() {
     getGAPI().deleteContext();
 }
 
-void Renderer::applyTransform(ColorMesh &mesh, const Transform& transform) const {
-    Mat4D model;
+void Renderer::applyTransform(ColorMesh &mesh, const Transform &transform) const {
+    Model model;
     model.makeModelMatrix(transform.position, transform.rotation, transform.scale);
 
-    Mat4D mvp = getProjection() * getView() * model;
+    MVP mvp = getProjection() * getView() * model;
 
     Transformer::transformBoundingVolume(mesh.getBoundingVolumeMutable(), transform);
 
-    shader.setUniform("uMVP").uMat4D(mvp);
+    shader.setUniform("uMVP").uMat4F(mvp);
 }
 
-void Renderer::transformMeshCPU(ColorMesh& mesh,
-                                const Transform& transform) {
+void Renderer::transformMeshCPU(ColorMesh &mesh,
+                                const Transform &transform) {
     Transformer::transformMesh(mesh, transform);
 }
 
-void Renderer::renderInstances(const ColorMesh& mesh,
-                               const std::vector<MeshInstanceData>& instances) {
-    AdaptedInstances& adptInstcs = adaptedInstances[&mesh];
+void Renderer::renderInstances(const ColorMesh &mesh,
+                               const std::vector<MeshInstanceData> &instances) {
+    AdaptedInstances &adptInstcs = adaptedInstances[&mesh];
     // Bind the VAO before drawing
     adptInstcs.vertexArray->bind();
     getGAPI().drawTrianglesIndexedInstanced(mesh.getIndices().size(), instances.size());
 }
 
-void Renderer::renderMesh(const ColorMesh& mesh) {
-    AdaptedMesh& adaptedMesh = adaptedMeshes[&mesh];
+void Renderer::renderMesh(const ColorMesh &mesh) {
+    AdaptedMesh &adaptedMesh = adaptedMeshes[&mesh];
     // Bind the VAO before drawing
     adaptedMesh.vertexArray->bind();
     getGAPI().drawTrianglesIndexed(adaptedMesh.indexBuffer->getCount());
@@ -119,11 +124,11 @@ void Renderer::renderMeshes(double timeOfFrame) {
         applyMaterial(material);
         renderInstances(mesh, individualData);
     }*/
-    for (auto& dynamicMesh : dynamicMeshes.getDynamicMeshes()) {
-        ColorMesh& mesh = *dynamicMesh.mesh;
+    for (auto &dynamicMesh : dynamicMeshes.getDynamicMeshes()) {
+        ColorMesh &mesh = *dynamicMesh.mesh;
         //if (!frustum.intersects(mesh.getBoudingVolume())) continue;
-        const Material& material = *dynamicMesh.material;
-        const Transform& transform = *dynamicMesh.transform;
+        const Material &material = *dynamicMesh.material;
+        const Transform &transform = *dynamicMesh.transform;
 
 
         if (isMeshNotCached(mesh))
@@ -136,42 +141,43 @@ void Renderer::renderMeshes(double timeOfFrame) {
 }
 
 
-void Renderer::cacheMesh(const ColorMesh& mesh,
+void Renderer::cacheMesh(const ColorMesh &mesh,
                          AdaptedMesh adaptedMesh) {
     adaptedMeshes[&mesh] = std::move(adaptedMesh);
     mesh.setClean();
 }
 
-void Renderer::cacheMesh(const ColorMesh& mesh,
+void Renderer::cacheMesh(const ColorMesh &mesh,
                          AdaptedInstances adaptedInstancesParam) {
     adaptedInstances[&mesh] = std::move(adaptedInstancesParam);
     mesh.setClean();
 }
 
-bool Renderer::isMeshNotCached(const ColorMesh& mesh) const {
+bool Renderer::isMeshNotCached(const ColorMesh &mesh) const {
     return mesh.isDirty() || adaptedMeshes.find(&mesh) == adaptedMeshes.end();
 }
 
 
-void Renderer::setData(const Material& material, ColorMesh& mesh,
-                       const Transform& transform) {
+void Renderer::setData(const Material &material,
+                       ColorMesh &mesh,
+                       const Transform &transform) {
+    if (mesh.getVertices().empty()) {
+        Console::warn("Mesh has no vertices");
+        return;
+    }
     RenderType renderType = mesh.getRenderType();
     // We store the meshes in the appropriate data structure
     if (renderType == RenderType::Static) {
         transformMeshCPU(mesh, transform);
         meshBatches.attatchMesh(material, mesh);
-    }
-    else if (renderType == RenderType::InstancedStatic) {
+    } else if (renderType == RenderType::InstancedStatic) {
         meshInstances.addInstance(mesh, material, transform);
-    }
-    else if (renderType == RenderType::InstancedDynamic) {
+    } else if (renderType == RenderType::InstancedDynamic) {
         // TODO: Differentiate between static and dynamic instances
         meshInstances.addInstance(mesh, material, transform);
-    }
-    else if (renderType == RenderType::Dynamic) {
+    } else if (renderType == RenderType::Dynamic) {
         dynamicMeshes.addDynamicMesh(mesh, material, transform);
-    }
-    else {
+    } else {
         D_ASSERT_TRUE(false, "Unknown render type");
     }
 }

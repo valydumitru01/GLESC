@@ -28,21 +28,24 @@ protected:
         TestComponent1() = default;
         explicit TestComponent1(int x) : x(x) {}
         int x{};
-        std::string toString() override { return "x: " + std::to_string(x); }
+        [[nodiscard]] std::string toString() const override { return "x: " + std::to_string(x); }
+        [[nodiscard]] std::string getName() const override { return "TestComponent1"; }
     };
 
     struct TestComponent2 : IComponent {
         TestComponent2() = default;
         explicit TestComponent2(int y) : y(y) {}
         int y{};
-        std::string toString() override { return "y: " + std::to_string(y); }
+        [[nodiscard]] std::string toString() const override { return "y: " + std::to_string(y); }
+        [[nodiscard]] std::string getName() const override { return "TestComponent2"; }
     };
 
     struct TestComponent3 : IComponent {
         TestComponent3() = default;
         explicit TestComponent3(int z) : z(z) {}
         int z{};
-        std::string toString() override { return "z: " + std::to_string(z); }
+        [[nodiscard]] std::string toString() const override { return "z: " + std::to_string(z); }
+        [[nodiscard]] std::string getName() const override { return "TestComponent3"; }
     };
 
     TestComponent1 testComponent1{3};
@@ -135,8 +138,8 @@ TEST_F(ECSTests, DoesEntityHaveComponent) {
     ecs.registerSystem("TestSystem");
     ecs.addComponent<TestComponent1>(entityID, testComponent1);
     ecs.addComponent<TestComponent2>(entityID2, testComponent2);
-    ASSERT_TRUE(ecs.doesEntityHaveComponent<TestComponent1>(entityID));
-    ASSERT_FALSE(ecs.doesEntityHaveComponent<TestComponent2>(entityID));
+    ASSERT_TRUE(ecs.hasComponent<TestComponent1>(entityID));
+    ASSERT_FALSE(ecs.hasComponent<TestComponent2>(entityID));
 }
 
 

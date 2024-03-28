@@ -14,7 +14,7 @@
 #include "unit/engine/core/math/algebra/vector/VectorTestsHelper.cpp"
 #include "unit/engine/core/math/MathCustomTestingFramework.cpp"
 #ifdef MATH_ALGEBRA_UNIT_TESTING
-template <class Type>
+template<class Type>
 class VectorAlgorithmsTests : public testing::Test {
 protected:
     VectorAlgorithmsTests() = default;
@@ -24,10 +24,12 @@ protected:
         initVector2(this->vecB);
     }
 
-    void TearDown() override {}
+    void TearDown() override {
+    }
 
     GLESC::Math::VectorData<typename Type::ValueType, Type::Size> vecA{};
     GLESC::Math::VectorData<typename Type::ValueType, Type::Size> vecB{};
+    GLESC::Math::VectorData<typename Type::ValueType, Type::Size> vecC{};
     GLESC::Math::VectorData<typename Type::ValueType, Type::Size> expected{};
     GLESC::Math::VectorData<typename Type::ValueType, Type::Size> result{};
 };
@@ -276,6 +278,8 @@ TYPED_TEST(VectorAlgorithmsTests, VectorClamp) {
     TEST_SECTION("Vector clamp with values");
     Type min = Type(1);
     Type max = Type(5);
+    GLESC::Math::VectorAlgorithms::vectorFill(this->vecA, Type(10));
+
     GLESC::Math::VectorAlgorithms::clampWithValues(this->vecA, min, max, this->result);
     for (size_t i = 0; i < N; ++i) {
         this->expected[i] = GLESC::Math::clamp(this->vecA[i], min, max);
@@ -287,7 +291,7 @@ TYPED_TEST(VectorAlgorithmsTests, VectorClamp) {
     GLESC::Math::VectorAlgorithms::vectorFill(this->vecB, Type(5));
     GLESC::Math::VectorAlgorithms::clampWithVectors(this->vecA, this->vecB, this->vecB, this->result);
     for (size_t i = 0; i < N; ++i) {
-        this->expected[i] = GLESC::Math::clamp(this->vecA[i], this->vecA[i], this->vecB[i]);
+        this->expected[i] = GLESC::Math::clamp(this->vecA[i], this->vecB[i], this->vecB[i]);
     }
     EXPECT_EQ_VEC(this->result, this->expected);
 }
@@ -394,8 +398,7 @@ TYPED_TEST(VectorAlgorithmsTests, VectorNormalize) {
         for (size_t i = 0; i < N; ++i) {
             this->expected[i] = this->vecA[i] / len;
         }
-    }
-    else {
+    } else {
         this->expected = this->vecA;
     }
     EXPECT_EQ_VEC(this->result, this->expected);
@@ -418,7 +421,7 @@ TYPED_TEST(VectorAlgorithmsTests, VectorProjection) {
     GLESC::Math::VectorAlgorithms::project(this->vecA, this->vecB, this->result);
 
     Type scalarProjection = GLESC::Math::VectorAlgorithms::dotProduct(this->vecA, this->vecB) /
-        GLESC::Math::VectorAlgorithms::length(this->vecB);
+                            GLESC::Math::VectorAlgorithms::length(this->vecB);
     GLESC::Math::VectorAlgorithms::vectorScalarMul(this->vecB, scalarProjection, this->expected);
     EXPECT_EQ_VEC(this->result, this->expected);
 }
@@ -468,7 +471,8 @@ TYPED_TEST(VectorAlgorithmsTests, Homogenize) {
     GLESC::Math::VectorAlgorithms::homogenize(this->vecA, homogenized);
 
     GLESC::Math::VectorData<Type, N + 1> expectedHomogenized;
-    for (size_t i = 0; i < N; ++i) { // Iterate up to N
+    for (size_t i = 0; i < N; ++i) {
+        // Iterate up to N
         expectedHomogenized[i] = this->vecA[i];
     }
     expectedHomogenized[N] = Type(1); // Set index N to 1
@@ -535,7 +539,7 @@ TYPED_TEST(VectorAlgorithmsTests, VectorCollinearityArray) {
     PREPARE_TEST();
     if constexpr (N == 3) {
         // Two vectors are always collinear
-        std::vector<const VecData*> collinearVecs = {&this->vecA};
+        std::vector<const VecData *> collinearVecs = {&this->vecA};
         EXPECT_TRUE(GLESC::Math::VectorMixedAlgorithms::areCollinear(this->vecA, collinearVecs));
         // Collinear vectors with a scalar multiple
         collinearVecs.clear();
@@ -553,7 +557,7 @@ TYPED_TEST(VectorAlgorithmsTests, VectorCollinearityArray) {
         // Two vectors are the same, therefore they are collinear
         VecData nonCollinear = this->vecA;
         nonCollinear[0] += 555;
-        std::vector<const VecData*> nonCollinearVecs = {&nonCollinear, &this->vecA};
+        std::vector<const VecData *> nonCollinearVecs = {&nonCollinear, &this->vecA};
         EXPECT_TRUE(GLESC::Math::VectorMixedAlgorithms::areCollinear(this->vecA, nonCollinearVecs));
 
         // Non collinear vectors

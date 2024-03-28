@@ -15,7 +15,7 @@ Plane::Plane() : Plane(Direction(0, 0, 1), 0) {
 }
 
 
-Plane::Plane(const Direction &normalParam, double distanceParam) {
+Plane::Plane(const Direction &normalParam, Distance distanceParam) {
     setNormal(normalParam);
     setDistance(distanceParam);
 }
@@ -49,7 +49,7 @@ void Plane::setNormal(const Direction &normalParam) {
         normal = normalParam;
 }
 
-void Plane::setDistance(double distanceParam) {
+void Plane::setDistance(Distance distanceParam) {
     distance = distanceParam;
 }
 
@@ -61,7 +61,7 @@ std::string Plane::toString() const {
     return normal;
 }
 
-[[nodiscard]] double Plane::getDistance() const {
+[[nodiscard]] Distance Plane::getDistance() const {
     return distance;
 }
 
@@ -76,7 +76,7 @@ std::string Plane::toString() const {
  * @param point
  * @return
  */
-[[nodiscard]] double Plane::distanceToPoint(const Point &point) const {
+[[nodiscard]] Distance Plane::distanceToPoint(const Point &point) const {
     return normal.dot(point) + distance;
 }
 
@@ -115,7 +115,7 @@ std::string Plane::toString() const {
     if (!intersects(line)) {
         return false;
     }
-    double t = -(normal.dot(line.getPoint()) + distance) / normal.dot(line.getDirection());
+    Distance t = -(normal.dot(line.getPoint()) + distance) / normal.dot(line.getDirection());
     intersectionPoint = line.getPoint() + line.getDirection() * t;
     return true;
 }
@@ -140,18 +140,18 @@ Direction Plane::calculateNormalFromPointAndLine(const Point &point, const Line 
 }
 
 
-double Plane::calculateDistanceFromPointAndNormal(const Point &point, const Direction &normal) {
+Distance Plane::calculateDistanceFromPointAndNormal(const Point &point, const Direction &normal) {
     return -normal.dot(point);
 }
 
 
-double Plane::calculateDistanceFromPointAndLine(const Point &point, const Line &line) {
+Distance Plane::calculateDistanceFromPointAndLine(const Point &point, const Line &line) {
     Direction vectorFromLineToPoint = point - line.getPoint();
     Direction normal = line.getDirection().cross(vectorFromLineToPoint).normalize();
     return -normal.dot(point);
 }
 
-double
+Distance
 Plane::calculateDistanceFromPoints(const Point &point1, const Point &point2, const Point &point3) {
     Direction normal = calculateNormalFromPoints(point1, point2, point3);
     return -normal.dot(point1);

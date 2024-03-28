@@ -26,17 +26,17 @@ TEST(FaceTests, Constructor) {
     EXPECT_EQ(face.getNormal(), expectedNormal);
 
     // Test if face's vertices are set correctly
-    const auto& faceVertices = face.getPolyhedronVertices();
+    const auto &faceVertices = face.getPolyhedronVertices();
     EXPECT_EQ(faceVertices, vertices);
 
     vertices = {{0, 0, 0}, {1, 0, 0}, {2, 0, 0}}; // Collinear points
     EXPECT_THROW({
-                 face = PolyhedronFace({0, 1, 2}, vertices);
+                 PolyhedronFace({0, 1, 2}, vertices);
                  }, AssertFailedException);
 
     vertices = {{0, 0, 0}, {1, 0, 0}}; // Only 2 points
     EXPECT_THROW({
-                 face = PolyhedronFace({0, 1}, vertices);
+                 PolyhedronFace({0, 1}, vertices);
                  }, AssertFailedException);
 
     PolyhedronFace vertexTouchingFace({0, 1, 2}, {{1, 0, 0}, {2, -1, 0}, {2, 1, 0}});
@@ -53,9 +53,10 @@ TEST(FaceTests, Constructor) {
 
     // Attempt to create a face with non-adjacent vertices
     EXPECT_NO_THROW({
-        face = PolyhedronFace({0, 9, vertices.size()-1},
+        PolyhedronFace({0, 9, static_cast<unsigned int>(vertices.size())-1},
             vertices); // Non-adjacent but valid non-collinear points
         });
+
 }
 
 TEST(FaceTests, IntersectsPoint) {
@@ -66,11 +67,11 @@ TEST(FaceTests, IntersectsPoint) {
     PolyhedronFace face({0, 1, 2}, vertices);
 
     // Point inside the face
-    Vec3D pointInside(0.1, 0.1, 0);
+    Point pointInside(0.1, 0.1, 0);
     EXPECT_TRUE(face.intersects(pointInside));
 
     // Point outside the face
-    Vec3D pointOutside(1, 1, 0);
+    Point pointOutside(1, 1, 0);
     EXPECT_FALSE(face.intersects(pointOutside));
 
 
@@ -79,11 +80,11 @@ TEST(FaceTests, IntersectsPoint) {
     PolyhedronFace faceForDegenerateCases({0, 1, 2}, verticesForDegenerateCases);
 
     // Point on the edge of the face
-    Vec3D pointOnEdge(0.5, 0.5, 0);
+    Point pointOnEdge(0.5, 0.5, 0);
     EXPECT_TRUE(faceForDegenerateCases.intersects(pointOnEdge));
 
     // Point at a vertex of the face
-    Vec3D pointOnVertex(0, 0, 0);
+    Point pointOnVertex(0, 0, 0);
     EXPECT_TRUE(faceForDegenerateCases.intersects(pointOnVertex));
 }
 
@@ -95,11 +96,11 @@ TEST(FaceTests, IntersectsLine) {
     PolyhedronFace face({0, 1, 2}, vertices);
 
     // Line intersecting the face
-    Line lineIntersecting(Vec3D(0.5, 0.5, -1), Vec3D(0, 0, 1));
+    Line lineIntersecting(Point(0.5, 0.5, -1), Direction(0, 0, 1));
     EXPECT_TRUE(face.intersects(lineIntersecting));
 
     // Line not intersecting the face
-    Line lineNotIntersecting(Vec3D(2, 2, -1), Vec3D(0, 0, 1));
+    Line lineNotIntersecting(Point(2, 2, -1), Direction(0, 0, 1));
     EXPECT_FALSE(face.intersects(lineNotIntersecting));
 
     // Degenerate cases
@@ -107,11 +108,11 @@ TEST(FaceTests, IntersectsLine) {
     PolyhedronFace faceForDegenerateCases({0, 1, 2}, verticesForDegenerateCases);
 
     // Line parallel to an edge of the face
-    Line lineParallel(Vec3D(0, 0, -1), Vec3D(1, -1, 0));
+    Line lineParallel(Point(0, 0, -1), Direction(1, -1, 0));
     EXPECT_FALSE(faceForDegenerateCases.intersects(lineParallel));
 
     // Line coplanar with the face but not intersecting
-    Line lineCoplanar(Vec3D(2, 2, 0), Vec3D(1, 1, 0));
+    Line lineCoplanar(Point(2, 2, 0), Direction(1, 1, 0));
     EXPECT_FALSE(faceForDegenerateCases.intersects(lineCoplanar));
 }
 

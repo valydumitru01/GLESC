@@ -7,14 +7,16 @@
 #pragma once
 
 #include "IComponent.h"
-#include "engine/core/math/algebra/vector/Vector.h"
 #include "engine/subsystems/transform/Transform.h"
 
 struct TransformComponent : IComponent {
     GLESC::Transform transform;
     
-    std::string toString() override {
-        return "TransformComponent:\n"
-               + transform.toString();
+    std::string toString() const override {
+        return transform.toString();
+    }
+
+    std::string getName() const override {
+        return "TransformComponent";
     }
 };

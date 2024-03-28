@@ -11,7 +11,7 @@
 
 using namespace GLESC::Math;
 
-Sphere::Sphere(Vec3D centerParam, float radiusParam) :
+Sphere::Sphere(Point centerParam, Distance radiusParam) :
         center(std::move(centerParam)), radius(radiusParam) {}
 
 
@@ -21,7 +21,7 @@ bool Sphere::intersects(const Plane &plane) const {
 
 
 bool Sphere::intersects(const PolyhedronFace &face) const {
-    std::vector<Vec3D> vertices = face.getPolyhedronVertices();
+    std::vector<Point> vertices = face.getPolyhedronVertices();
     
     // Check if any vertex of the face is inside the sphere.
     for (const auto &index : face.getVertexIndices()) {
@@ -45,10 +45,10 @@ bool Sphere::intersects(const PolyhedronFace &face) const {
 
 bool Sphere::intersects(const Line& line) const {
     // Find the vector from the line's point to the sphere's center
-    Vec3D centerToLine = center - line.getPoint();
+    Point centerToLine = center - line.getPoint();
     
     // Project this vector onto the line's direction
-    Vec3D projection = centerToLine.project(line.getDirection());
+    Direction projection = centerToLine.project(line.getDirection());
     
     // Find the closest point on the line to the sphere's center
     Point closestPoint = line.getPoint() + projection;
@@ -72,11 +72,12 @@ bool Sphere::intersects(const Point &point) const {
 
 
 bool Sphere::intersects(const Point &startPoint, const Point &endPoint) const {
-    Vec3D edge = endPoint - startPoint;
-    Vec3D startToCenter = center - startPoint;
-    double edgeLengthSquared = edge.lengthSquared();
-    double t = startToCenter.dot(edge) / edgeLengthSquared;
-    t = std::max(0.0, std::min(1.0, t));  // Clamping t to be within [0, 1]
-    Vec3D closestPoint = startPoint + edge * t;
+    Direction edge = endPoint - startPoint;
+    Direction startToCenter = center - startPoint;
+    Distance edgeLengthSquared = edge.lengthSquared();
+    Distance t = startToCenter.dot(edge) / edgeLengthSquared;
+    // Clamping t to be within [0, 1]
+    t = clamp(t, 0, 1);
+    Point closestPoint = startPoint + edge * t;
     return (closestPoint - center).lengthSquared() <= radius * radius;
 }

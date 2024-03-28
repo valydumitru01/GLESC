@@ -15,7 +15,7 @@
 
 struct ComponentDataFunctions {
     std::function<std::string()> name;
-    std::unordered_map<std::string, std::function<std::string()>> nameValuePairs;
+    std::function<std::string()> dataString;
 };
 
 
@@ -36,7 +36,7 @@ struct EntityData {
 
 class EntityStatsManager {
 public:
-    void setEntityData(EntityDataFunctions data) { entityDataFuncs = data; }
+    static void setEntityData(EntityDataFunctions data) { entityDataFuncs = data; }
     static EntityData getEntityData();
 private:
     static EntityData generateEntityData();

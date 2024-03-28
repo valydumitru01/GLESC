@@ -47,11 +47,9 @@
     do {                                                              \
         call;                                                         \
         const char* error = SDL_GetError();                           \
-        if (*error != '\0') {                                         \
-            Logger::get().error("Error when calling SDL function: "   \
-                #call " " + std::string(error)); \
-            SDL_ClearError();                                         \
-        }                                                             \
+            D_ASSERT_TRUE(*error == '\0',                             \
+                "Error when calling SDL function: "                   \
+                #call " " + std::string(error));                      \
     } while (0)
 
 
@@ -71,13 +69,13 @@ std::string argsToString(const char *names, T value) {
     std::ostringstream arg;
     const char *nameEnd = std::strchr(names, ',');
     std::string name(names, nameEnd ? nameEnd - names : std::strlen(names));
-    
+
     arg << name << ": " << GLESC::Stringer::toString(value);
     std::string result = arg.str();
-    
+
     // Replace '\n' with a space (or any other character/string)
     std::replace(result.begin(), result.end(), '\n', ' ');
-    
+
     return result;
 }
 
@@ -100,9 +98,9 @@ std::string argsToString(const char *names, T value, Args... args) {
     std::ostringstream arg;
     const char *nameEnd = std::strchr(names, ',');
     std::string name(names, nameEnd ? nameEnd - names : std::strlen(names));
-    
+
     arg << name << ": " << GLESC::Stringer::toString(value);
-    
+
     // Proceed to the next argument, if any
     if (nameEnd && *nameEnd == ',') {
         nameEnd++; // Skip the comma

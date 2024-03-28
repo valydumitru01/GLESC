@@ -28,7 +28,7 @@ public:
      * @param viewMatrix The view matrix.
      * @param projMatrix The projection matrix.
      */
-    Frustum(const Mat4D &viewMatrix, const Mat4D &projMatrix) {
+    Frustum(const Mat4F &viewMatrix, const Mat4F &projMatrix) {
         D_ASSERT_TRUE(viewMatrix.isValidViewMatrix(), "Invalid view matrix");
         update(viewMatrix, projMatrix);
     }
@@ -39,7 +39,7 @@ public:
      * @param viewMatrix The view matrix.
      * @param projMatrix The projection matrix.
      */
-    void update(const Mat4D &viewMatrix, const Mat4D &projMatrix) {
+    void update(const Mat4F &viewMatrix, const Mat4F &projMatrix) {
         D_ASSERT_TRUE(viewMatrix.isValidViewMatrix(), "Invalid view matrix");
         extractPlanesFromMatrices(viewMatrix, projMatrix);
     }
@@ -61,34 +61,40 @@ public:
     }
 
 private:
-    void extractPlanesFromMatrices(const Mat4D &viewMatrix, const Mat4D &projMatrix) {
-        Mat4D vpMatrix = projMatrix * viewMatrix; // Combine view and projection matrices
+    void extractPlanesFromMatrices(const Mat4F &viewMatrix, const Mat4F &projMatrix) {
+        VP vpMatrix = projMatrix * viewMatrix; // Combine view and projection matrices
 
         // Extract frustum planes using the combined view-projection matrix (vpMatrix)
         // Left Plane
-        planes[0] = GLESC::Math::Plane(Vec3D(vpMatrix[0][3] + vpMatrix[0][0],
-                                             vpMatrix[1][3] + vpMatrix[1][0],
-                                             vpMatrix[2][3] + vpMatrix[2][0]), vpMatrix[3][3] + vpMatrix[3][0]);
+        planes[0] = GLESC::Math::Plane(GLESC::Math::Direction(vpMatrix[0][3] + vpMatrix[0][0],
+                                                              vpMatrix[1][3] + vpMatrix[1][0],
+                                                              vpMatrix[2][3] + vpMatrix[2][0]),
+                                       vpMatrix[3][3] + vpMatrix[3][0]);
         // Right Plane
-        planes[1] = GLESC::Math::Plane(Vec3D(vpMatrix[0][3] - vpMatrix[0][0],
-                                             vpMatrix[1][3] - vpMatrix[1][0],
-                                             vpMatrix[2][3] - vpMatrix[2][0]), vpMatrix[3][3] - vpMatrix[3][0]);
+        planes[1] = GLESC::Math::Plane(GLESC::Math::Direction(vpMatrix[0][3] - vpMatrix[0][0],
+                                                              vpMatrix[1][3] - vpMatrix[1][0],
+                                                              vpMatrix[2][3] - vpMatrix[2][0]),
+                                       vpMatrix[3][3] - vpMatrix[3][0]);
         // Bottom Plane
-        planes[2] = GLESC::Math::Plane(Vec3D(vpMatrix[0][3] + vpMatrix[0][1],
-                                             vpMatrix[1][3] + vpMatrix[1][1],
-                                             vpMatrix[2][3] + vpMatrix[2][1]), vpMatrix[3][3] + vpMatrix[3][1]);
+        planes[2] = GLESC::Math::Plane(GLESC::Math::Direction(vpMatrix[0][3] + vpMatrix[0][1],
+                                                              vpMatrix[1][3] + vpMatrix[1][1],
+                                                              vpMatrix[2][3] + vpMatrix[2][1]),
+                                       vpMatrix[3][3] + vpMatrix[3][1]);
         // Top Plane
-        planes[3] = GLESC::Math::Plane(Vec3D(vpMatrix[0][3] - vpMatrix[0][1],
-                                             vpMatrix[1][3] - vpMatrix[1][1],
-                                             vpMatrix[2][3] - vpMatrix[2][1]), vpMatrix[3][3] - vpMatrix[3][1]);
+        planes[3] = GLESC::Math::Plane(GLESC::Math::Direction(vpMatrix[0][3] - vpMatrix[0][1],
+                                                              vpMatrix[1][3] - vpMatrix[1][1],
+                                                              vpMatrix[2][3] - vpMatrix[2][1]),
+                                       vpMatrix[3][3] - vpMatrix[3][1]);
         // Near Plane
-        planes[4] = GLESC::Math::Plane(Vec3D(vpMatrix[0][3] + vpMatrix[0][2],
-                                             vpMatrix[1][3] + vpMatrix[1][2],
-                                             vpMatrix[2][3] + vpMatrix[2][2]), vpMatrix[3][3] + vpMatrix[3][2]);
+        planes[4] = GLESC::Math::Plane(GLESC::Math::Direction(vpMatrix[0][3] + vpMatrix[0][2],
+                                                              vpMatrix[1][3] + vpMatrix[1][2],
+                                                              vpMatrix[2][3] + vpMatrix[2][2]),
+                                       vpMatrix[3][3] + vpMatrix[3][2]);
         // Far Plane
-        planes[5] = GLESC::Math::Plane(Vec3D(vpMatrix[0][3] - vpMatrix[0][2],
-                                             vpMatrix[1][3] - vpMatrix[1][2],
-                                             vpMatrix[2][3] - vpMatrix[2][2]), vpMatrix[3][3] - vpMatrix[3][2]);
+        planes[5] = GLESC::Math::Plane(GLESC::Math::Direction(vpMatrix[0][3] - vpMatrix[0][2],
+                                                              vpMatrix[1][3] - vpMatrix[1][2],
+                                                              vpMatrix[2][3] - vpMatrix[2][2]),
+                                       vpMatrix[3][3] - vpMatrix[3][2]);
     }
 
     std::array<GLESC::Math::Plane, 6> planes{};

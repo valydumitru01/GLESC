@@ -408,8 +408,8 @@ TYPED_TEST(MatrixTests, MatrixTranslate) {
     if constexpr (N == M) {
         // Translate
         auto translateVec = VectorT<Type, N - 1>(1);
-        Mat matrixTranslateResult = this->matrix.setTranslate(translateVec);
-        Mat expectedTranslateResult = this->matrix;
+        Mat matrixTranslateResult = Mat(1).setTranslate(translateVec);
+        Mat expectedTranslateResult = Mat(1);
 
         for (size_t i = 0; i < N - 1; ++i) {
             expectedTranslateResult[i][N - 1] += translateVec[i];

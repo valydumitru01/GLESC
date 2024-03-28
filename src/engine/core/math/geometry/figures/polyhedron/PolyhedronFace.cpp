@@ -28,20 +28,20 @@ PolyhedronFace::PolyhedronFace(FaceIndices indicesParam, const Points &verticesP
 [[nodiscard]] bool PolyhedronFace::intersects(const PolyhedronFace &face) const {
     D_ASSERT_FALSE(polyhedronVertices.empty(), "Polyhedron vertices must not be empty.");
     // Get normals of both faces
-    const Vec3D& thisNormal = getNormal();
-    const Vec3D& otherNormal = face.getNormal();
+    const Direction& thisNormal = getNormal();
+    const Direction& otherNormal = face.getNormal();
 
     // Vector to store all axes to test
-    std::vector<Vec3D> axes;
+    std::vector<Direction> axes;
 
     // Add face normals to axes (to handle face-face parallel cases)
     axes.push_back(thisNormal);
     axes.push_back(otherNormal);
 
     // Function to add unique axes from edge cross products
-    auto addUniqueAxis = [&axes](const Vec3D &edgeNormal) {
+    auto addUniqueAxis = [&axes](const Direction &edgeNormal) {
         // Normalize the edge normal
-        Vec3D normalized = edgeNormal.normalize();
+        Direction normalized = edgeNormal.normalize();
         // Check if this normal is unique
         for (const auto &axis : axes) {
             if (axis.isParallel(normalized)) {
@@ -54,14 +54,14 @@ PolyhedronFace::PolyhedronFace(FaceIndices indicesParam, const Points &verticesP
     // Generate axes from edges of this face
     for (size_t i = 0; i < indices.size(); ++i) {
         size_t next = (i + 1) % indices.size();
-        Vec3D edge = polyhedronVertices.at(next) - polyhedronVertices.at(i);
+        Direction edge = polyhedronVertices.at(next) - polyhedronVertices.at(i);
         addUniqueAxis(thisNormal.cross(edge));
     }
 
     // Generate axes from edges of other face
     for (size_t i = 0; i < face.indices.size(); ++i) {
         size_t next = (i + 1) % face.indices.size();
-        Vec3D edge = face.polyhedronVertices.at(next) - face.polyhedronVertices.at(i);
+        Direction edge = face.polyhedronVertices.at(next) - face.polyhedronVertices.at(i);
         addUniqueAxis(otherNormal.cross(edge));
     }
 
@@ -75,13 +75,13 @@ PolyhedronFace::PolyhedronFace(FaceIndices indicesParam, const Points &verticesP
         // Project vertices of both faces onto the axis
         for (auto index : indices) {
             double projection = polyhedronVertices.at(index).dot(axis);
-            thisMin = std::min(thisMin, projection);
-            thisMax = std::max(thisMax, projection);
+            thisMin = min(thisMin, projection);
+            thisMax = max(thisMax, projection);
         }
         for (auto index : face.indices) {
             double projection = face.polyhedronVertices.at(index).dot(axis);
-            otherMin = std::min(otherMin, projection);
-            otherMax = std::max(otherMax, projection);
+            otherMin = min(otherMin, projection);
+            otherMax = max(otherMax, projection);
         }
 
         // Check for separation on this axis
@@ -94,11 +94,11 @@ PolyhedronFace::PolyhedronFace(FaceIndices indicesParam, const Points &verticesP
 }
 
 
-bool PolyhedronFace::intersects(const Vec3D &point) const {
+bool PolyhedronFace::intersects(const Point &point) const {
     D_ASSERT_FALSE(polyhedronVertices.empty(), "Polyhedron vertices must not be empty.");
     for (size_t i = 0; i < polyhedronVertices.size(); ++i) {
-        Vec3D edge = polyhedronVertices.at((i + 1) % polyhedronVertices.size()) - polyhedronVertices.at(i);
-        Vec3D toPoint = point - polyhedronVertices.at(i);
+        Direction edge = polyhedronVertices.at((i + 1) % polyhedronVertices.size()) - polyhedronVertices.at(i);
+        Direction toPoint = point - polyhedronVertices.at(i);
         if (getNormal().cross(edge).dot(toPoint) < 0) {
             return false; // Point is outside this edge
         }
@@ -109,14 +109,14 @@ bool PolyhedronFace::intersects(const Vec3D &point) const {
 bool PolyhedronFace::intersects(const Line &line) const {
     D_ASSERT_FALSE(polyhedronVertices.empty(), "Polyhedron vertices must not be empty.");
     // Check if the line is parallel to the plane
-    double dotProduct = getNormal().dot(line.getDirection());
-    if (GLESC::Math::abs(dotProduct) < std::numeric_limits<double>::epsilon()) {
+    Distance dotProduct = getNormal().dot(line.getDirection());
+    if (abs(dotProduct) < std::numeric_limits<double>::epsilon()) {
         return false; // Line is parallel to the plane, no intersection
     }
 
     // Find the intersection point with the plane
-    double t = -(getNormal().dot(line.getPoint() - polyhedronVertices.at(0)) + plane.getDistance() / dotProduct);
-    Vec3D intersectionPoint = line.getPoint() + line.getDirection() * t;
+    float t = -(getNormal().dot(line.getPoint() - polyhedronVertices.at(0)) + plane.getDistance() / dotProduct);
+    Direction intersectionPoint = line.getPoint() + line.getDirection() * t;
 
     // Check if the intersection point is inside the face
     return intersects(intersectionPoint);
@@ -129,9 +129,9 @@ bool PolyhedronFace::intersects(const Plane &planeParam) const {
 
     for (auto index : indices) {
         // Calculate the signed distance from the vertex to the plane
-        double distance = planeParam.distanceToPoint(polyhedronVertices.at(index));
+        Distance distance = planeParam.distanceToPoint(polyhedronVertices.at(index));
 
-        const double intersectsEpsilon = 0.0001;
+        const Distance intersectsEpsilon = 0.0001;
 
         // Count vertices on each side of the plane and on the plane
         if(eq(distance, 0, intersectsEpsilon)) onPlane++;

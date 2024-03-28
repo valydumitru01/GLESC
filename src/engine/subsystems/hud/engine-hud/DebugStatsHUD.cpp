@@ -17,8 +17,8 @@ DebugStatsHUD::DebugStatsHUD() {
     this->setTitle("Stats");
     this->setSizeFraction({1.f, 0.5f});
     isVisible = true;
-    this->setLayoutPosition(LayoutPosition::TopLeft);
-    this->setCenter(WindowCenter::TopLeft);
+    this->setLayoutPosition(GLESC::LayoutPos::TopLeft);
+    this->setCenter(GLESC::WindowCenter::TopLeft);
     this->addFlag(ImGuiWindowFlags_NoResize);
     this->addFlag(ImGuiWindowFlags_NoMove);
     this->addFlag(ImGuiWindowFlags_NoCollapse);

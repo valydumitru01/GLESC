@@ -20,44 +20,44 @@ namespace GLESC::ECS {
          * 'zeroth' bit, so std::bitset bitset[0] is the first bit.
          */
         static constexpr ComponentID firstComponentID = 0;
+
         ComponentManager() = default;
 
-        const std::unordered_map<ComponentName, IComponentArrayPtr>& getComponentArrays() const {
+        const std::unordered_map<ComponentName, IComponentArrayPtr> &getComponentArrays() const {
             return componentArrays;
         }
 
-        const boost::bimap<ComponentName, ComponentID>& getComponentIDs() const {
+        const boost::bimap<ComponentName, ComponentID> &getComponentIDs() const {
             return componentIDs;
         }
 
-        const ComponentID& getNextComponentID() const {
+        const ComponentID &getNextComponentID() const {
             return nextComponentID;
         }
 
-        template <typename Component>
+        template<typename Component>
         ComponentID getComponentID() const;
 
         ComponentName getComponentName(ComponentID componentID) const;
 
-        IComponent& getComponent(EntityID entity, ComponentID componentID) const;
+        IComponent &getComponent(EntityID entity, ComponentID componentID) const;
 
-        template <typename Component>
-        Component& getComponent(EntityID entity) const;
+        template<typename Component>
+        Component &getComponent(EntityID entity) const;
 
-
-        template <typename Component>
+        template<typename Component>
         void registerComponent();
 
-        template <typename Component>
+        template<typename Component>
         void registerComponentIfNotRegistered();
 
-        template <typename Component>
+        template<typename Component>
         void addComponentToEntity(EntityID entity, Component component);
 
-        template <typename Component>
+        template<typename Component>
         void removeComponent(EntityID entity);
 
-        template <typename Component>
+        template<typename Component>
         bool isComponentRegistered() const;
 
         bool isComponentRegistered(ComponentID componentID) const;
@@ -88,38 +88,38 @@ namespace GLESC::ECS {
          * @tparam Component The type of the component
          * @return A shared pointer to the component array of the component
          */
-        template <typename Component>
+        template<typename Component>
         std::shared_ptr<ComponentArray<Component>> getComponentArray() const;
     };
 
-    template <typename Component>
-    Component& ComponentManager::getComponent(EntityID entity) const{
+    template<typename Component>
+    Component &ComponentManager::getComponent(EntityID entity) const {
         ASSERT_IS_COMPONENT(Component);
         ASSERT_IS_COMPONENT_REGISTERED(Component);
         return getComponentArray<Component>()->getData(entity);
     }
 
-    template <typename Component>
+    template<typename Component>
     bool ComponentManager::isComponentRegistered() const {
         return componentArrays.find(typeid(Component).name()) !=
-            componentArrays.end();
+               componentArrays.end();
     }
 
-    template <typename Component>
+    template<typename Component>
     ComponentID ComponentManager::getComponentID() const {
         ASSERT_IS_COMPONENT(Component);
         ASSERT_IS_COMPONENT_REGISTERED(Component);
-        const char* typeName = typeid(Component).name();
+        const char *typeName = typeid(Component).name();
         return componentIDs.left.at(typeName);
     }
 
 
-    template <typename Component>
+    template<typename Component>
     void ComponentManager::registerComponent() {
         ASSERT_IS_COMPONENT(Component);
         ASSERT_IS_COMPONENT_NOT_REGISTERED(Component);
 
-        const char* typeName = typeid(Component).name();
+        const char *typeName = typeid(Component).name();
         componentArrays.try_emplace(typeName,
                                     std::make_shared<ComponentArray<Component>>());
         componentIDs.insert({typeName, nextComponentID});
@@ -127,7 +127,7 @@ namespace GLESC::ECS {
         ++nextComponentID;
     }
 
-    template <typename Component>
+    template<typename Component>
     void
     ComponentManager::addComponentToEntity(EntityID entity, Component component) {
         // No need for asserts or printing, they are already done in the functions called
@@ -135,14 +135,14 @@ namespace GLESC::ECS {
         getComponentArray<Component>()->insertData(entity, component);
     }
 
-    template <typename Component>
+    template<typename Component>
     void ComponentManager::removeComponent(EntityID entity) {
         ASSERT_IS_COMPONENT(Component);
         ASSERT_IS_COMPONENT_REGISTERED(Component);
         getComponentArray<Component>()->removeData(entity);
     }
 
-    template <typename Component>
+    template<typename Component>
     void ComponentManager::registerComponentIfNotRegistered() {
         // No need for asserts or printing,
         // they are already done in the functions called
@@ -151,14 +151,13 @@ namespace GLESC::ECS {
         }
     }
 
-    template <typename Component>
+    template<typename Component>
     std::shared_ptr<ComponentArray<Component>>
-    ComponentManager::getComponentArray() const{
+    ComponentManager::getComponentArray() const {
         ASSERT_IS_COMPONENT(Component);
         ASSERT_IS_COMPONENT_REGISTERED(Component);
 
-        const char* typeName = typeid(Component).name();
+        const char *typeName = typeid(Component).name();
         return std::static_pointer_cast<ComponentArray<Component>>(componentArrays.at(typeName));
-
     }
 }

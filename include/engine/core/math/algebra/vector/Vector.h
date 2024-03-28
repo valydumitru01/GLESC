@@ -24,6 +24,7 @@ namespace GLESC::Math {
     template <typename Type, size_t N>
     class Vector {
     public:
+        using ValueType = Type;
         // =========================================================================================
         // ====================================== Constructors =====================================
         // =========================================================================================
@@ -617,6 +618,10 @@ namespace GLESC::Math {
 
         [[nodiscard]] bool isZero() const {
             return VectorAlgorithms::isZero(this->data);
+        }
+
+        [[nodiscard]] Type distance(const Vector& other) const {
+            return VectorAlgorithms::distance(this->data, other.data);
         }
 
         [[nodiscard]] Vector clamp(Type min, Type max) const {

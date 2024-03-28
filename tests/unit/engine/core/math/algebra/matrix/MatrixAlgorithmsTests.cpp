@@ -20,14 +20,15 @@
 #include "unit/engine/core/math/algebra/matrix/MatrixTestsHelper.cpp"
 #include "unit/engine/core/math/MathCustomTestingFramework.cpp"
 #ifdef MATH_ALGEBRA_UNIT_TESTING
-template <class Type>
+template<class Type>
 class MatrixAlgorithmsTests : public testing::Test {
 protected:
     MatrixAlgorithmsTests() = default;
 
     void SetUp() override { initializeMatrixWithValues(this->matrix); }
 
-    void TearDown() override {}
+    void TearDown() override {
+    }
 
     GLESC::Math::MatrixData<typename Type::ValueType, Type::Rows, Type::Cols> matrix{};
 };
@@ -51,8 +52,7 @@ TYPED_TEST(MatrixAlgorithmsTests, InitAlgorithm) {
     PREPARE_TEST();
     std::cout << "Testing matrix initialization for type " << typeid(Type).name() << "\n";
 
-    TEST_SECTION("Testing matrix zero initialization")
-    {
+    TEST_SECTION("Testing matrix zero initialization") {
         // ------------ Zero initialization ------------
         GLESC::Math::MatrixData<Type, N, M> actualZeroMatrix = {};
         GLESC::Math::MatrixAlgorithms::setMatrixZero(actualZeroMatrix);
@@ -64,8 +64,7 @@ TYPED_TEST(MatrixAlgorithmsTests, InitAlgorithm) {
         }
         EXPECT_EQ_MAT(actualZeroMatrix, expectedZeroMatrix);
     }
-    TEST_SECTION("Testing matrix diagonal initialization")
-    {
+    TEST_SECTION("Testing matrix diagonal initialization") {
         // ------------ Diagonal initialization ------------
         if constexpr (N == M) {
             auto diagonal = Type(123123);
@@ -81,8 +80,7 @@ TYPED_TEST(MatrixAlgorithmsTests, InitAlgorithm) {
             EXPECT_EQ_MAT(actualDiagonalMatrix, expectedDiagonalMatrix);
         }
     }
-    TEST_SECTION("Testing matrix array initialization")
-    {
+    TEST_SECTION("Testing matrix array initialization") {
         // ------------ Array initialization ------------
         GLESC::Math::MatrixData<Type, N, M> actualArrayMatrix = {};
         GLESC::Math::MatrixAlgorithms::setMatrix<Type, Type, N, M>(actualArrayMatrix, this->matrix);
@@ -90,15 +88,13 @@ TYPED_TEST(MatrixAlgorithmsTests, InitAlgorithm) {
         GLESC::Math::MatrixAlgorithms::setMatrix<Type, Type, N, M>(expectedArrayMatrix, this->matrix);
         EXPECT_EQ_MAT(actualArrayMatrix, expectedArrayMatrix);
     }
-    TEST_SECTION("Testing matrix copy initialization")
-    {
+    TEST_SECTION("Testing matrix copy initialization") {
         // ------------ Copy initialization ------------
         GLESC::Math::MatrixData<Type, N, M> copy = {};
         GLESC::Math::MatrixAlgorithms::copyMatrix(copy, this->matrix);
         EXPECT_EQ_MAT(this->matrix, copy);
     }
-    TEST_SECTION("Testing matrix move initialization")
-    {
+    TEST_SECTION("Testing matrix move initialization") {
         // ------------ Move initialization ------------
         GLESC::Math::MatrixData<Type, N, M> matrixToMove;
         GLESC::Math::MatrixAlgorithms::copyMatrix(matrixToMove, this->matrix);
@@ -121,32 +117,28 @@ TEST(MatrixAlgorithmsTests, LaplaceExpansionDeterminantAlgorithm) {
     double expectedDeterminant;
     double actualDeterminant;
 
-    TEST_SECTION("Testing all elements are zero")
-    {
+    TEST_SECTION("Testing all elements are zero") {
         // Zero determinant - All elements of a row are zero
         matrix3x3 = {{{1, 2, 3}, {0, 0, 0}, {7, 8, 9}}};
         expectedDeterminant = 0;
         actualDeterminant = GLESC::Math::MatrixAlgorithms::laplaceExpansionDeterminant(matrix3x3);
         EXPECT_EQ_CUSTOM(actualDeterminant, expectedDeterminant);
     }
-    TEST_SECTION("Testing two rows are identical")
-    {
+    TEST_SECTION("Testing two rows are identical") {
         // 2. Zero determinant - Two rows are identical
         matrix3x3 = {{{1, 2, 3}, {1, 2, 3}, {7, 8, 9}}};
         expectedDeterminant = 0;
         actualDeterminant = GLESC::Math::MatrixAlgorithms::laplaceExpansionDeterminant(matrix3x3);
         EXPECT_EQ_CUSTOM(actualDeterminant, expectedDeterminant);
     }
-    TEST_SECTION("Testing two rows are proportional")
-    {
+    TEST_SECTION("Testing two rows are proportional") {
         // Zero determinant - Two rows are proportional
         matrix3x3 = {{{1, 2, 3}, {2, 4, 6}, {7, 8, 9}}};
         expectedDeterminant = 0;
         actualDeterminant = GLESC::Math::MatrixAlgorithms::laplaceExpansionDeterminant(matrix3x3);
         EXPECT_EQ_CUSTOM(actualDeterminant, expectedDeterminant);
     }
-    TEST_SECTION("Determinant of a 2x2 matrix")
-    {
+    TEST_SECTION("Determinant of a 2x2 matrix") {
         // Determinant of a 2x2 matrix
         matrix2x2 = {{{1, 2}, {3, 4}}};
         // https://www.wolframalpha.com/input?i2d=true&i=%7B%7B1%2C2%7D%2C%7B3%2C4%7D%7D
@@ -154,8 +146,7 @@ TEST(MatrixAlgorithmsTests, LaplaceExpansionDeterminantAlgorithm) {
         actualDeterminant = GLESC::Math::MatrixAlgorithms::laplaceExpansionDeterminant(matrix2x2);
         EXPECT_EQ_CUSTOM(actualDeterminant, expectedDeterminant);
     }
-    TEST_SECTION("Determinant of a 3x3 matrix")
-    {
+    TEST_SECTION("Determinant of a 3x3 matrix") {
         // Determinant of a 3x3 matrix
         matrix3x3 = {{{-1, 2, 3}, {4, 5, -6}, {7, -8, 9}}};
         // https://www.wolframalpha.com/input?i2d=true&i=%7B%7B-1%2C2%2C3%7D%2C%7B4%2C5%2C-6%7D%2C%7B7%2C-8%2C9%7D%7D
@@ -163,8 +154,7 @@ TEST(MatrixAlgorithmsTests, LaplaceExpansionDeterminantAlgorithm) {
         actualDeterminant = GLESC::Math::MatrixAlgorithms::laplaceExpansionDeterminant(matrix3x3);
         EXPECT_EQ_CUSTOM(actualDeterminant, expectedDeterminant);
     }
-    TEST_SECTION("Determinant of a 4x4 matrix")
-    {
+    TEST_SECTION("Determinant of a 4x4 matrix") {
         // Determinant of a 4x4 matrix
         matrix4x4 = {{{1, 2, 3, -4}, {-5, 6, 7, 8}, {9, 15, -1, 2}, {3, -4, 5, 6}}};
         // https://www.wolframalpha.com/
@@ -173,8 +163,7 @@ TEST(MatrixAlgorithmsTests, LaplaceExpansionDeterminantAlgorithm) {
         actualDeterminant = GLESC::Math::MatrixAlgorithms::laplaceExpansionDeterminant(matrix4x4);
         EXPECT_EQ_CUSTOM(actualDeterminant, expectedDeterminant);
     }
-    TEST_SECTION("Determinant of a 5x5 matrix")
-    {
+    TEST_SECTION("Determinant of a 5x5 matrix") {
         // Determinant of a 5x5 matrix
         matrix5x5 = {
             {
@@ -207,8 +196,7 @@ TEST(MatrixAlgorithmsTests, LaplaceExpansionDeterminantAlgorithm) {
 //}
 
 TEST(MatrixAlgorithmsTests, InverseAlgorithmExactSolution) {
-    TEST_SECTION("Testing Inverse of a 2x2 matrix")
-    {
+    TEST_SECTION("Testing Inverse of a 2x2 matrix") {
         // Test Inverse of a 2x2 matrix
         GLESC::Math::MatrixData<double, 2, 2> matrix2x2({{{1, 2}, {3, 4}}});
         GLESC::Math::MatrixData<double, 2, 2> expectedInverse2x2({{{-2, 1}, {1.5, -0.5}}});
@@ -216,18 +204,16 @@ TEST(MatrixAlgorithmsTests, InverseAlgorithmExactSolution) {
         GLESC::Math::MatrixAlgorithms::matrixInverse(matrix2x2, actualInverse2x2);
         EXPECT_EQ_MAT(actualInverse2x2, expectedInverse2x2);
     }
-    TEST_SECTION("Testing Inverse of a 3x3 matrix")
-    {
+    TEST_SECTION("Testing Inverse of a 3x3 matrix") {
         // Test Inverse of a 3x3 matrix
         GLESC::Math::MatrixData<double, 3, 3> matrix3x3({{{1, 2, -3}, {-3, 4, -5}, {7, -8, 9}}});
         GLESC::Math::MatrixData<double, 3, 3>
-            expectedInverse3x3({{{0.5, -0.75, -0.25}, {1, -3.75, -1.75}, {0.5, -2.75, -1.25}}});
+                expectedInverse3x3({{{0.5, -0.75, -0.25}, {1, -3.75, -1.75}, {0.5, -2.75, -1.25}}});
         GLESC::Math::MatrixData<double, 3, 3> actualInverse3x3;
         GLESC::Math::MatrixAlgorithms::matrixInverse(matrix3x3, actualInverse3x3);
         EXPECT_EQ_MAT(actualInverse3x3, expectedInverse3x3);
     }
-    TEST_SECTION("Testing Inverse of a 4x4 matrix")
-    {
+    TEST_SECTION("Testing Inverse of a 4x4 matrix") {
         // Test Inverse of a 4x4 matrix
         GLESC::Math::MatrixData<double, 4, 4> matrix4x4({
             {{1, 2, 3, -4}, {-5, 6, 7, 8}, {9, 15, -1, 2}, {3, -4, 5, 6}}
@@ -245,8 +231,7 @@ TEST(MatrixAlgorithmsTests, InverseAlgorithmExactSolution) {
         GLESC::Math::MatrixAlgorithms::matrixInverse(matrix4x4, actualInverse4x4);
         EXPECT_EQ_MAT(actualInverse4x4, expectedInverse4x4);
     }
-    TEST_SECTION("Testing Inverse of a 5x5 matrix")
-    {
+    TEST_SECTION("Testing Inverse of a 5x5 matrix") {
         // Test Inverse of a 5x5 matrix
         GLESC::Math::MatrixData<double, 5, 5> matrix5x5({
             {
@@ -277,8 +262,7 @@ TEST(MatrixAlgorithmsTests, InverseAlgorithmExactSolution) {
 }
 
 TEST(MatrixAlgorithmsTests, TranslateAlgorithm) {
-    TEST_SECTION("Testing translation of a 3x3 matrix")
-    {
+    TEST_SECTION("Testing translation of a 3x3 matrix") {
         // Translation of a 3x3 matrix
         GLESC::Math::MatrixData<double, 3, 3> transform2D({
             {
@@ -299,8 +283,7 @@ TEST(MatrixAlgorithmsTests, TranslateAlgorithm) {
         });
         EXPECT_EQ_MAT(actualTranslate2D, expectedTranslate2D);
     }
-    TEST_SECTION("Testing translation of a 4x4 matrix")
-    {
+    TEST_SECTION("Testing translation of a 4x4 matrix") {
         // Translation of a 4x4 matrix
         GLESC::Math::MatrixData<double, 4, 4> transform3D({
             {
@@ -327,8 +310,7 @@ TEST(MatrixAlgorithmsTests, TranslateAlgorithm) {
 
 
 TEST(MatrixAlgorithmsTests, ScaleAlgorithm) {
-    TEST_SECTION("Testing scale of a 3x3 matrix")
-    {
+    TEST_SECTION("Testing scale of a 3x3 matrix") {
         // Translation of a 3x3 matrix
         GLESC::Math::MatrixData<double, 3, 3> scale2D({
             {
@@ -350,8 +332,7 @@ TEST(MatrixAlgorithmsTests, ScaleAlgorithm) {
         });
         EXPECT_EQ_MAT(scale2D, expectedScale2D);
     }
-    TEST_SECTION("Testing scale of a 4x4 matrix")
-    {
+    TEST_SECTION("Testing scale of a 4x4 matrix") {
         // Translation of a 4x4 matrix
         GLESC::Math::MatrixData<double, 4, 4> scale3D({
             {
@@ -376,57 +357,35 @@ TEST(MatrixAlgorithmsTests, ScaleAlgorithm) {
 }
 
 TEST(MatrixAlgorithmsTests, RotateAlgorithm) {
-    TEST_SECTION("Testing rotation of a 3x3 matrix")
-    {
-        // Rotation of a 3x3 matrix
-        GLESC::Math::MatrixData<double, 3, 3> rotate2D({
-            {
-                {1, 2, 3},
-                {4, 5, 6},
-                {7, 8, 9}
-            }
-        });
-        double dgrs = GLESC::Math::PI / 4; // 45 degree rotation for instance
-        GLESC::Math::MatrixMixedAlgorithms::rotate2D(rotate2D, dgrs, rotate2D);
-        GLESC::Math::MatrixData<double, 3, 3> expectedRotate2D({
-            {
-                {-2.12132034, -2.12132034, -2.12132034},
-                {3.53553391, 4.94974747, 6.36396103},
-                {7, 8, 9}
-            }
-        });
-        EXPECT_EQ_MAT(rotate2D, expectedRotate2D);
-    }
-    TEST_SECTION("Testing rotation of a 4x4 matrix")
-    {
-        // Rotation of a 4x4 matrix
-        GLESC::Math::MatrixData<double, 4, 4> rotate3D({
-            {
-                {1, 2, 3, 4},
-                {5, 6, 7, 8},
-                {9, 10, 11, 12},
-                {13, 14, 15, 16}
-            }
-        });
-        double dgrs3D = GLESC::Math::PI / 4; // 45 degree rotation for instance
-        GLESC::Math::VectorData<double, 3> axis({0, 0, dgrs3D}); // Rotation about the z-axis
-        GLESC::Math::MatrixMixedAlgorithms::rotate3D(rotate3D, axis, rotate3D);
+    auto glmMatToRotate3D = glm::mat4(1.0f);
+    GLESC::Math::VectorData<float, 3> rotateVecDegrs3D({45.0f, 0.0f, 0.0f});
+    // Assuming you want to rotate 45 degrees around the X-axis.
+    GLESC::Math::MatrixData<float, 4, 4> rotate3D({});
+    GLESC::Math::MatrixAlgorithms::setMatrixDiagonal(rotate3D, 1.0f);
 
-        GLESC::Math::MatrixData<double, 4, 4> expectedRotate3D({
-            {
-                {-2.82842712, -2.82842712, -2.82842712, -2.82842712},
-                {4.24264069, 5.65685425, 7.07106781, 8.48528137},
-                {9, 10, 11, 12},
-                {13, 14, 15, 16}
-            }
-        });
-        EXPECT_EQ_MAT(rotate3D, expectedRotate3D);
+    GLESC::Math::MatrixMixedAlgorithms::rotate3D(rotate3D, rotateVecDegrs3D, rotate3D);
+
+
+    // Rotate around X-axis
+    glmMatToRotate3D = glm::rotate(glmMatToRotate3D, glm::radians(rotateVecDegrs3D[0]), glm::vec3(1, 0, 0));
+    // Rotate around Y-axis
+    glmMatToRotate3D = glm::rotate(glmMatToRotate3D, glm::radians(rotateVecDegrs3D[1]), glm::vec3(0, 1, 0));
+    // Rotate around Z-axis
+    glmMatToRotate3D = glm::rotate(glmMatToRotate3D, glm::radians(rotateVecDegrs3D[2]), glm::vec3(0, 0, 1));
+
+    GLESC::Math::MatrixData<float, 4, 4> expectedRotate3D({});
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 4; j++) {
+            expectedRotate3D[i][j] = glmMatToRotate3D[i][j];
+        }
     }
+
+    // Use your testing framework's method to compare matrices.
+    EXPECT_EQ_MAT(rotate3D, expectedRotate3D);
 }
 
 TEST(MatrixAlgorithmsTests, LookAtAlgorithm) {
-    TEST_SECTION("Testing lookAt2D matrix")
-    {
+    TEST_SECTION("Testing lookAt2D matrix") {
         // LookAt for a 3x3 matrix (2D transformation)
         GLESC::Math::MatrixData<double, 3, 3> matrix2D({
             {
@@ -467,16 +426,14 @@ TEST(MatrixAlgorithmsTests, LookAtAlgorithm) {
             {0, 0, 0, 1}
         }
     });
-    TEST_SECTION("Testing lookAt3D matrix with transform matrix")
-    {
+    TEST_SECTION("Testing lookAt3D matrix with transform matrix") {
         // Test the first lookAt3D method (using transformMatrix)
         GLESC::Math::MatrixData<double, 4, 4> resultMatrix1;
         GLESC::Math::MatrixMixedAlgorithms::lookAt3D(matrix3D, target3D, up, resultMatrix1);
         EXPECT_EQ_MAT(resultMatrix1, expectedLookAt3D);
     }
 
-    TEST_SECTION("Testing lookAt3D matrix with eye")
-    {
+    TEST_SECTION("Testing lookAt3D matrix with eye") {
         GLESC::Math::VectorData<double, 3> eyePos({matrix3D[0][3], matrix3D[1][3], matrix3D[2][3]});
         // Test the second lookAt3D method (using eye position)
         GLESC::Math::MatrixData<double, 4, 4> resultMatrix2;
@@ -486,57 +443,33 @@ TEST(MatrixAlgorithmsTests, LookAtAlgorithm) {
         // Compare results with expected matrix
         EXPECT_EQ_MAT(resultMatrix2, expectedLookAt3D);
     }
-
 }
 
 TEST(MatrixAlgorithmsTests, PerspectiveProjectionAlgorithm) {
-    TEST_SECTION("Testing perspective matrix")
-    {
-        // Perspective matrix
-        GLESC::Math::MatrixData<double, 4, 4> perspectiveMatrix;
-        float fovDegrees = 45.0;
-        float nearPlane = 1.0;
-        float farPlane = 10.1;
-        float viewWidth = 100.0;
-        float viewHeight = 100.0;
-        GLESC::Math::MatrixAlgorithms::calculateProjectionMatrix(fovDegrees, nearPlane, farPlane, viewWidth, viewHeight,
-                                                                 perspectiveMatrix);
-        GLESC::Math::MatrixData<double, 4, 4> expectedPerspectiveMatrix({
-            {
-                {2.41421356, 0, 0, 0},
-                {0, 2.41421356, 0, 0},
-                {0, 0, -1.21978022, -2.21978022},
-                {0, 0, -1, 0}
-            }
-        });
-
-        EXPECT_EQ_MAT(perspectiveMatrix, expectedPerspectiveMatrix);
-    }
-
-    TEST_SECTION("Testing calculate projection matrix")
-    {
-        GLESC::Math::MatrixData<double, 4, 4> perspectiveMatrix;
+    TEST_SECTION("Test against glm") {
+        // Convert your values to glm::vec3
         float fovRads = 0.3;
         float nearPlane = 10;
         float farPlane = 40.4;
         float viewWidth = 140.0;
         float viewHeight = 120.0;
+        glm::mat4 perspectiveMatrixGlm = glm::perspective(fovRads, viewWidth / viewHeight, nearPlane, farPlane);
+        // Convert to GLESC matrix
+        GLESC::Math::MatrixData<double, 4, 4> perspectiveGlmMatrix;
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                perspectiveGlmMatrix[i][j] = perspectiveMatrixGlm[i][j];
+            }
+        }
+
+        GLESC::Math::MatrixData<double, 4, 4> perspectiveMatrix;
         GLESC::Math::MatrixAlgorithms::perspective(fovRads, nearPlane, farPlane, viewWidth, viewHeight,
                                                    perspectiveMatrix);
 
-        GLESC::Math::MatrixData<double, 4, 4> expectedPerspectiveMatrix({
-            {
-                {5.67136415, 0, 0, 0},
-                {0, 6.61659151, 0, 0},
-                {0, 0, -1.65789474, -26.57894737},
-                {0, 0, -1, 0}
-            }
-        });
-        EXPECT_EQ_MAT(perspectiveMatrix, expectedPerspectiveMatrix);
+        EXPECT_EQ_MAT(perspectiveMatrix, perspectiveGlmMatrix);
     }
 
-    TEST_SECTION("Testing errors in projection matrix")
-    {
+    TEST_SECTION("Testing errors in projection matrix") {
         // Far plane is closer than the near plane
         float fovRads = 0.3;
         float nearPlane = 10;
@@ -585,50 +518,28 @@ TEST(MatrixAlgorithmsTests, PerspectiveProjectionAlgorithm) {
 
 TEST(MatrixAlgorithmsTests, CalculateModelMatrixAlgorithm) {
     // Model matrix
-    GLESC::Math::MatrixData<double, 4, 4> modelMatrix;
-    GLESC::Math::VectorData<double, 3> scale({1, 2, 3});
-    GLESC::Math::VectorData<double, 3> rotationRads({0.5, 0.5, 0.5});
-    GLESC::Math::VectorData<double, 3> position({1, 2, 3});
+    GLESC::Math::MatrixData<float, 4, 4> modelMatrix;
+    GLESC::Math::VectorData<float, 3> scale({1, 2, 3});
+    GLESC::Math::VectorData<float, 3> rotationRads({0.5, 0.5, 0.5});
+    GLESC::Math::VectorData<float, 3> position({1, 2, 3});
 
     GLESC::Math::MatrixMixedAlgorithms::calculateModelMatrix(position, rotationRads, scale, modelMatrix);
-    // TODO: Recheck this, I have no proof that this is correct
-    GLESC::Math::MatrixData<double, 4, 4> expectedModelMatrix({
-        {
-            {0.77015115293406988, -0.84147098480789650, 1.43827661581260902, 1.00000000000000000},
-            {0.62244683245961574, 1.31991149126386254, -1.26220647721184465, 2.00000000000000000},
-            {-0.13938128423613425, 1.24489366491923148, 2.31045345880220943, 3.00000000000000000},
-            {0.00000000000000000, 0.00000000000000000, 0.00000000000000000, 1.00000000000000000}
-        }
-    });
 
-    EXPECT_EQ_MAT(modelMatrix, expectedModelMatrix);
-
-
-    //Try the same thing with glm
-    // Convert your values to glm::vec3
-    using namespace glm;
-    vec3 scaleVec(scale[0], scale[1], scale[2]);
-    vec3 rotationVec(rotationRads[0], rotationRads[1], rotationRads[2]);
-    vec3 positionVec(position[0], position[1], position[2]);
-
-    // Create transformation matrices
-    mat4 scaleMatrix = glm::scale(mat4(1.0f), scaleVec);
-    mat4 rotationMatrix = glm::rotate(mat4(1.0f), rotationVec.x, vec3(1.0f, 0.0f, 0.0f)) *
-        glm::rotate(mat4(1.0f), rotationVec.y, vec3(0.0f, 1.0f, 0.0f)) *
-        glm::rotate(mat4(1.0f), rotationVec.z, vec3(0.0f, 0.0f, 1.0f));
-    mat4 translationMatrix = glm::translate(mat4(1.0f), positionVec);
-
-    // Correct order: scale * rotate * translate
-    mat4 modelMatrixGlm = translationMatrix * rotationMatrix * scaleMatrix;
-    //Print the glm matrix
-    std::cout << "Model matrix glm: \n";
+    // Check against glm
+    glm::mat4 glmMat = glm::mat4(1.0f);
+    glmMat = glm::translate(glmMat, glm::vec3(position[0], position[1], position[2]));
+    glmMat = glm::rotate(glmMat, rotationRads[0], glm::vec3(1, 0, 0));
+    glmMat = glm::rotate(glmMat, rotationRads[1], glm::vec3(0, 1, 0));
+    glmMat = glm::rotate(glmMat, rotationRads[2], glm::vec3(0, 0, 1));
+    glmMat = glm::scale(glmMat, glm::vec3(scale[0], scale[1], scale[2]));
+    GLESC::Math::MatrixData<float, 4, 4> modelGlmMatrix;
     for (int i = 0; i < 4; i++) {
         for (int j = 0; j < 4; j++) {
-            std::cout << modelMatrixGlm[i][j] << ", ";
+            modelGlmMatrix[i][j] = glmMat[i][j];
         }
-        std::cout << "\n";
     }
+    EXPECT_EQ_MAT(modelMatrix, modelGlmMatrix);
 }
 
 
-#endif // ALGEBRA_TESTING
+#endif // MATH_ALGEBRA_UNIT_TESTING

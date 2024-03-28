@@ -8,6 +8,7 @@
  * See LICENSE.txt in the project root for license information.
  **************************************************************************************************/
 #pragma once
+#include "RendererTypes.h"
 #include "engine/core/math/geometry/GeometryTypes.h"
 #include "engine/core/math/geometry/figures/polyhedron/Polyhedron.h"
 #include "engine/subsystems/renderer/mesh/Vertex.h"
@@ -27,8 +28,8 @@ public:
     template <typename... Attributes>
     void updateTopology(const std::vector<GLESC::Vertex<Attributes...>>& vertices) {
         // Ensure the first element of attributes is a Vec3D
-        S_ASSERT_TRUE((std::is_same_v<typename std::tuple_element<0, std::tuple<Attributes...>>::type, Vec3D>),
-                      "First attribute must be Vec3D");
+        S_ASSERT_TRUE((std::is_same_v<typename std::tuple_element<0, std::tuple<Attributes...>>::type, Position>),
+                      "First attribute must be render type: position");
         if (vertices.empty()) return;
 
         // Find bounds

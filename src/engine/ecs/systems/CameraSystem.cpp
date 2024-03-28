@@ -14,8 +14,8 @@
 #include "engine/subsystems/ingame-debug/StatsManager.h"
 using namespace GLESC::ECS;
 
-CameraSystem::CameraSystem(Renderer &renderer, ECSCoordinator &ecs) :
-    System(ecs, "CameraSystem"), renderer(renderer) {
+CameraSystem::CameraSystem(Renderer &renderer, WindowManager &windowManager, ECSCoordinator &ecs) :
+    System(ecs, "CameraSystem"), renderer(renderer), windowManager(windowManager) {
     addComponentRequirement<CameraComponent>();
     addComponentRequirement<TransformComponent>();
 
@@ -24,10 +24,11 @@ CameraSystem::CameraSystem(Renderer &renderer, ECSCoordinator &ecs) :
         std::stringstream ss;
         for (auto &entity : getAssociatedEntities()) {
             auto &camera = getComponent<CameraComponent>(entity);
+            auto &transform = getComponent<TransformComponent>(entity);
             // Position
-            ss << "\n - Position: " << Stringer::toString(camera.viewWidth);
+            ss << "\n - Position: " << Stringer::toString(transform.transform.position);
             // Rotation
-            ss << "\n - Rotation: " << Stringer::toString(camera.viewHeight);
+            ss << "\n - Rotation: " << Stringer::toString(transform.transform.rotation);
             // Scale
             ss << "\n - Fov: " << Stringer::toString(camera.fovDegrees);
             ss << "\n - Near plane: " << Stringer::toString(camera.nearPlane);
@@ -51,15 +52,22 @@ void CameraSystem::update() {
                       "For now, only (and at least) one camera is supported.");
         auto &transform = getComponent<TransformComponent>(entity);
         auto &camera = getComponent<CameraComponent>(entity);
-        Mat4D projection;
-        projection.makeProjectionMatrix(Math::radians(camera.fovDegrees), camera.nearPlane,
+        camera.viewWidth = static_cast<float>(windowManager.getSize().width);
+        camera.viewHeight = static_cast<float>(windowManager.getSize().height);
+        renderer.setCameraTransform(transform.transform);
+
+        Projection projection;
+        projection.makeProjectionMatrix(camera.fovDegrees, camera.nearPlane,
                                         camera.farPlane,
                                         camera.viewWidth,
                                         camera.viewHeight);
         // TODO: Enable the renderer to work with multiple projection and view matrices
         renderer.setProjection(projection);
-        Mat4D view;
-        view.makeViewMatrix(transform.transform.position, transform.transform.rotation);
+        View view;
+        view.makeViewMatrix(transform.transform.right(),
+                            {0.0f, 0.0f, 1.0f},
+                            transform.transform.forward(),
+                            transform.transform.position);
         renderer.setView(view);
     }
 }

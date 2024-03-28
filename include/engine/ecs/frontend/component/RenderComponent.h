@@ -7,7 +7,6 @@
 #pragma once
 #include <variant>
 #include "IComponent.h"
-#include "engine/subsystems/renderer/RendererTypes.h"
 #include "engine/subsystems/renderer/material/Material.h"
 #include "engine/subsystems/renderer/mesh/Mesh.h"
 
@@ -25,8 +24,12 @@ struct RenderComponent : IComponent {
      */
     GLESC::Material material;
 
-    std::string toString() override {
+    std::string toString() const override {
         return "RenderComponent:\n" + mesh.toString();
+    }
+
+    std::string getName() const override {
+        return "RenderComponent";
     }
 private:
 

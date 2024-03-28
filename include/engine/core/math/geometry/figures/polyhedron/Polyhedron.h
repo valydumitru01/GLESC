@@ -25,6 +25,7 @@ namespace GLESC::Math {
 
         void clear();
 
+        [[nodiscard]] Point getCenter() const;
         
         [[nodiscard]] const std::vector<PolyhedronFace> &getFaces() const;
         
@@ -56,7 +57,7 @@ namespace GLESC::Math {
     private:
         [[nodiscard]] bool isOutOfBounds(const std::vector<FaceIndices>& faces) const;
         [[nodiscard]] bool isOutOfBounds(const FaceIndices& face) const;
-        std::vector<Vec3D> vertices;
+        std::vector<Vec3F> vertices;
         std::vector<PolyhedronFace> faces;
     }; // class Polyhedron
 } // namespace GLESC::Math

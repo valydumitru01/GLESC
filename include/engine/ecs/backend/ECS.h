@@ -50,7 +50,7 @@ namespace GLESC::ECS {
          * @param entity The ID of the entity
          * @return The name of the entity or nullptr if the entity does not exist
          */
-        EntityName getEntityName(EntityID entity);
+        const EntityName& getEntityName(EntityID entity) const;
         /**
          * @brief Tries to get the entity ID from the entity name.
          * @details This will return the ID of the entity with the given name. If the entity does not exist,
@@ -64,17 +64,20 @@ namespace GLESC::ECS {
         template <class Component>
         void addComponent(EntityID entity, Component component);
 
+
         template <class Component>
         void removeComponent(EntityID entity);
 
         template <typename System>
-        bool doesEntityHaveComponent(EntityID entity);
+        bool hasComponent(EntityID entity) const;
 
         template <class Component>
-        ComponentID getComponentID();
+        ComponentID getComponentID() const;
 
         template <class Component>
-        Component& getComponent(EntityID entity);
+        Component& getComponent(EntityID entity) const;
+
+        std::vector<IComponent*> getComponents(EntityID entityId) const;
 
 
         /**
@@ -98,8 +101,10 @@ namespace GLESC::ECS {
          * @param name The name of the system
          * @return A set of entities associated with the system or an empty set if the system does not exist
          */
-        [[nodiscard]] std::set<EntityID>
+        [[nodiscard]] const std::set<EntityID>&
         getAssociatedEntities(const SystemName& name) const;
+
+        [[nodiscard]] const boost::bimap<EntityName, EntityID>& getAllEntities() const;
 
     protected:
         void printStatus(const std::string& contextMessage = "");
@@ -136,12 +141,12 @@ namespace GLESC::ECS {
     }
 
     template <class Component>
-    Component& ECSCoordinator::getComponent(EntityID entity) {
+    Component& ECSCoordinator::getComponent(EntityID entity) const {
         return componentManager.getComponent<Component>(entity);
     }
 
     template <class Component>
-    ComponentID ECSCoordinator::getComponentID() {
+    ComponentID ECSCoordinator::getComponentID() const{
         return componentManager.getComponentID<Component>();
     }
 
@@ -160,7 +165,7 @@ namespace GLESC::ECS {
     }
 
     template <typename Component>
-    bool ECSCoordinator::doesEntityHaveComponent(EntityID entity) {
+    bool ECSCoordinator::hasComponent(EntityID entity) const {
         if (componentManager.isComponentRegistered<Component>()) {
             return entityManager.doesEntityHaveComponent(entity,
                                                          componentManager.getComponentID<Component>());

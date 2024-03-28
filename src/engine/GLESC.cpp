@@ -25,10 +25,11 @@ Engine::Engine(FPSManager &fpsManager) :
     engineHuds(hudManager),
 
     ecs(),
+    debugInfoSystem(ecs, renderer),
     inputSystem(inputManager, ecs),
     physicsSystem(physicsManager, ecs),
     renderSystem(renderer, ecs),
-    cameraSystem(renderer, ecs),
+    cameraSystem(renderer, windowManager, ecs),
     transformSystem(ecs) {
     this->registerStats();
 }
@@ -64,6 +65,7 @@ void Engine::update() {
     physicsSystem.update();
     renderSystem.update();
     transformSystem.update();
+    debugInfoSystem.update();
 
 
     Console::log("Debug log message");
@@ -112,5 +114,28 @@ void Engine::registerStats() const {
             ss << plane.toString() << "\n";
         }
         return ss.str();
+    });
+
+    StatsManager::registerStatSource("Projection Matrix: ", [&]() -> std::string {
+        return renderer.getProjection().toString();
+    });
+
+    StatsManager::registerStatSource("View Matrix: ", [&]() -> std::string {
+        return renderer.getView().toString();
+    });
+
+    StatsManager::registerStatSource("All model matrices: ", [&]() -> std::string {
+        std::string matrices;
+        for (auto &entity : ecs.getAllEntities()) {
+            matrices += "Entity: " + entity.left + "\n";
+            if (ecs.hasComponent<TransformComponent>(entity.right)) {
+                Transform transform = ecs.getComponent<TransformComponent>(entity.right).transform;
+                Model model;
+                model.makeModelMatrix(transform.position, transform.rotation, transform.scale);
+                matrices += model.toString() + "\n";
+            }
+            matrices += "\n";
+        }
+        return matrices;
     });
 }

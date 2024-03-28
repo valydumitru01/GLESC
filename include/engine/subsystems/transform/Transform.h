@@ -14,70 +14,78 @@
 
 namespace GLESC {
     namespace TransformTypes {
-        using Position = Vec3D;
-        using Rotation = Vec3F;
-        using Scale = Vec3F;
+        using Position = Vec3F;
+        using PosComp = Position::ValueType;
 
-        using Direction = Vec3D;
+        using Rotation = Vec3F;
+        using RotComp = Rotation::ValueType;
+
+        using Scale = Vec3F;
+        using ScaleComp = Scale::ValueType;
     } // namespace Transform
+    using namespace TransformTypes;
 
     struct Transform {
-        TransformTypes::Position position = TransformTypes::Position(0.0f, 0.0f, 0.0f);
-        TransformTypes::Rotation rotation = TransformTypes::Rotation(0.0f, 0.0f, 0.0f);
-        TransformTypes::Scale scale = TransformTypes::Scale(1.0f, 1.0f, 1.0f);
-
-        TransformTypes::Direction forward() const {
-            double yaw = rotation.getY();
-            double pitch = rotation.getX();
-
-            double x = cos(yaw) * cos(pitch);
-            double y = sin(pitch);
-            double z = sin(yaw) * cos(pitch);
-
-            return TransformTypes::Direction(x, y, z);
+        Transform() = default;
+        Transform(Position position, Rotation rotation, Scale scale) : position(position), rotation(rotation),
+                                                                       scale(scale) {
         }
 
-        TransformTypes::Direction right() const {
-            double yaw = rotation.getY();
+        Position position = Position(0.0f, 0.0f, 0.0f);
+        Rotation rotation = Rotation(0.0f, 0.0f, 0.0f);
+        Scale scale = Scale(1.0f, 1.0f, 1.0f);
 
-            double x = cos(yaw + M_PI / 2);
-            double z = sin(yaw + M_PI / 2);
+        Math::Direction forward() const {
+            RotComp yaw = Math::radians(rotation.getY());
+            RotComp pitch = Math::radians(rotation.getX());
 
-            return TransformTypes::Direction(x, 0, z);
+            PosComp x = cos(yaw) * cos(pitch);
+            PosComp y = sin(pitch);
+            PosComp z = sin(yaw) * cos(pitch);
+
+            return Math::Direction(x, y, z).normalize();
         }
 
-        bool operator==(const Transform& other) const {
+        Math::Direction right() const {
+            return forward().cross(Math::Direction(0.0f, 1.0f, 0.0f)).normalize();
+        }
+
+        Math::Direction up() const {
+
+            return right().cross(forward()).normalize();
+        }
+
+        bool operator==(const Transform &other) const {
             return position == other.position && rotation == other.rotation && scale == other.scale;
         }
 
-        std::string toString() {
+        std::string toString() const {
             return "Position: " + position.toString() + "\n" +
-                "Rotation: " + rotation.toString() + "\n" +
-                "Scale: " + scale.toString();
-                toString();
+                   "Rotation: " + rotation.toString() + "\n" +
+                   "Scale: " + scale.toString();
         }
     };
 
     class Transformer {
     public:
-        static void transformMesh(ColorMesh& mesh,
-                                  const Transform& transform) {
-            Mat4D model;
+        static void transformMesh(ColorMesh &mesh,
+                                  const Transform &transform) {
+            Model model;
             model.makeModelMatrix(transform.position, transform.rotation, transform.scale);
 
-            for (auto& vertex : mesh.getVertices()) {
+            for (auto &vertex : mesh.getVertices()) {
                 GLESC::getVertexPositionAttr(vertex) = model * GLESC::getVertexPositionAttr(vertex);
             }
 
             transformBoundingVolume(mesh.getBoundingVolumeMutable(), transform);
         }
 
-        static void transformBoundingVolume(BoundingVolume& boundingVolume,
-                                            const Transform& transform) {
-            Mat4D model;
+        static void transformBoundingVolume(BoundingVolume &boundingVolume,
+                                            const Transform &transform) {
+            Model model;
             model.makeModelMatrix(transform.position, transform.rotation, transform.scale);
 
-            for (Math::Point& vertex : boundingVolume.getTopologyMutable().getVerticesMutable()) {
+            for (Math::Point &vertex : boundingVolume.getTopologyMutable().getVerticesMutable()) {
                 vertex = model * vertex;
             }
         }

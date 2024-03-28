@@ -40,7 +40,7 @@ namespace GLESC {
          * @return WindowDimensions -> width: width of the window,
          *                             height: height of the window
          */
-        [[nodiscard]] WindowDimensions getWindowSize() const;
+        [[nodiscard]] WindowDimensions getSize() const;
 
         /**
          * @brief Get the center of the window

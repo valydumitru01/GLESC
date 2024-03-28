@@ -12,9 +12,10 @@
 #include "engine/core/math/algebra/vector/Vector.h"
 
 namespace GLESC::Math{
-    using Point = Vec3D;
+    using Point = Vec3F;
     using Points = std::vector<Point>;
-    using Direction = Vec3D;
+    using Direction = Vec3F;
+    using Distance = float;
     using Index = unsigned int;
     using FaceIndices = std::array<Index, 3>;
 }

@@ -16,6 +16,18 @@ System::System(ECSCoordinator &ecs, const SystemName& name) : ecs(ecs), name(nam
     ecs.registerSystem(name);
 }
 
-std::set<EntityID> System::getAssociatedEntities() const {
+const std::set<EntityID>& System::getAssociatedEntities() const {
     return ecs.getAssociatedEntities(name);
+}
+
+ boost::bimap<EntityName, EntityID> System::getAllEntities() const {
+    return ecs.getAllEntities();
+}
+
+std::vector<IComponent*> System::getComponents(EntityID entityId) const {
+    return ecs.getComponents(entityId);
+}
+
+const EntityName& System::getEntityName(EntityID entityId) const {
+    return ecs.getEntityName(entityId);
 }

@@ -27,6 +27,7 @@
 #include "engine/ecs/frontend/system/systems/CameraSystem.h"
 #include "engine/ecs/frontend/system/systems/InputSystem.h"
 #include "engine/ecs/frontend/system/systems/TransformSystem.h"
+#include "engine/ecs/frontend/system/systems/DebugInfoSystem.h"
 
 // Subsystems
 #include "engine/subsystems/hud/engine-hud/EngineDebugHUDManager.h"
@@ -130,6 +131,7 @@ namespace GLESC {
 
 
         ECS::ECSCoordinator ecs;
+        ECS::DebugInfoSystem debugInfoSystem;
         ECS::InputSystem inputSystem;
         ECS::PhysicsSystem physicsSystem;
         ECS::RenderSystem renderSystem;

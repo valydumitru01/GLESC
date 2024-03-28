@@ -17,10 +17,10 @@ namespace GLESC::Math {
     public:
         /**
          * @brief Creates a sphere with the given center and radius
-         * @param center The center of the sphere
-         * @param radius The radius of the sphere
+         * @param centerParam The center of the sphere
+         * @param radiusParam The radius of the sphere
          */
-        Sphere(Vec3D centerParam, float radiusParam);
+        Sphere(Point centerParam, Distance radiusParam);
         
         /**
          * @brief Checks if the sphere intersects with the given plane
@@ -67,7 +67,7 @@ namespace GLESC::Math {
         /**
          * @brief The center of the sphere
          */
-        Vec3D center;
+        Point center;
         /**
          * @brief The radius of the sphere
          */

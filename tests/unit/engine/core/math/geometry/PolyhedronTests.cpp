@@ -125,7 +125,7 @@ TEST(GeometryTests, PolyhedronIntersectsPolyhedron) {
     auto tetrahedron = createTetrahedron();
     auto displacedTetrahedron = createTetrahedron();
     // Move the displacedTetrahedron so it doesn't intersect with the original
-    for (auto& vertex : displacedTetrahedron.getVertices()) {
+    for (auto& vertex : displacedTetrahedron.getVerticesMutable()) {
         vertex += Point{2, 2, 2}; // Displace by a vector
     }
 
