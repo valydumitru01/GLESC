@@ -10,6 +10,7 @@
 
 #include "engine/ecs/frontend/system/systems/PhysicsSystem.h"
 #include "engine/ecs/frontend/component/PhysicsComponent.h"
+#include "engine/ecs/frontend/component/TransformComponent.h"
 using namespace GLESC::ECS;
 
 PhysicsSystem::PhysicsSystem(PhysicsManager& physicsManager, ECSCoordinator& ecs) :

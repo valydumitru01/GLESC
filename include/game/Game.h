@@ -10,7 +10,7 @@
 
 #pragma once
 
-#include "engine/ecs/frontend/entity/Entity.h"
+#include "engine/ecs/frontend/entity/EntityFactory.h"
 #include "engine/subsystems/input/InputManager.h"
 #include "engine/subsystems/physics/PhysicsManager.h"
 #include "engine/core/window/WindowManager.h"

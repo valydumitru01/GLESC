@@ -18,7 +18,7 @@ namespace GLESC::ECS {
     class RenderSystem : public System {
     public:
         explicit RenderSystem(Renderer& renderer, ECSCoordinator& ecs);
-        void update();
+        void update() override;
 
     private:
         Renderer& renderer;

@@ -10,17 +10,17 @@
 #include "engine/ecs/frontend/entity/EntityFactory.h"
 
 namespace GLESC::ECS {
-    inline Entity EntityFactory::createEntity(const EntityName &name) {
+    Entity EntityFactory::createEntity(const EntityName &name) {
         return Entity(name, ecs);
     }
 
-    inline std::optional<Entity> EntityFactory::tryGetEntity(const EntityName &name) {
+    std::optional<Entity> EntityFactory::tryGetEntity(const EntityName &name) {
         if (ecs.tryGetEntityID(name) == EntityManager::nullEntity)
             return std::nullopt;
         return Entity(ecs.tryGetEntityID(name), ecs);
     }
 
-    inline Entity EntityFactory::getEntity(const EntityName &name) {
+    Entity EntityFactory::getEntity(const EntityName &name) {
         return Entity(ecs.getEntityID(name), ecs);
     }
 }

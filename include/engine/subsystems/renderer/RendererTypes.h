@@ -49,3 +49,106 @@ using View = Mat4F;
 using Projection = Mat4F;
 using VP = Mat4F;
 using MVP = Mat4F;
+
+namespace GLESC::Render {
+    struct Rgba;
+
+    struct Rgb {
+        Rgb() = default;
+
+        Rgb(const Rgb &other) = default;
+
+        Rgb(Rgba &other) noexcept;
+
+        Rgb &operator=(const Rgb &other) = default;
+
+        Rgb(Rgb &&other) noexcept = default;
+
+        Rgb &operator=(Rgb &&other) noexcept = default;
+
+        ~Rgb() = default;
+
+
+        Rgb(float r, float g, float b) : r(r), g(g), b(b) {
+        }
+
+
+        float getR() const {
+            return r;
+        }
+
+        float getG() const {
+            return g;
+        }
+
+        float getB() const {
+            return b;
+        }
+
+        void setR(float rParam) {
+            checkValue(rParam, "R");
+            r = rParam;
+        }
+
+        void setG(float gParam) {
+            checkValue(gParam, "G");
+            g = gParam;
+        }
+
+        void setB(float bParam) {
+            checkValue(bParam, "B");
+            b = bParam;
+        }
+
+        [[nodiscard]] std::string toString() const {
+            return "R:" + Stringer::toString(r) +
+                   " G:" + Stringer::toString(g) +
+                   " B:" + Stringer::toString(b);
+        }
+
+    protected:
+        void checkValue(float value, std::string valueName) {
+            D_ASSERT_LESS_OR_EQUAL(value, 255.0f, valueName + " must be between less or equal than 255");
+            D_ASSERT_GREATER_OR_EQUAL(value, 0.0f, valueName + " must be between greater or equal than 0");
+        }
+
+        float r = 0.0f;
+        float g = 0.0f;
+        float b = 0.0f;
+    };
+
+    struct Rgba : Rgb {
+        Rgba() = default;
+
+        Rgba(const Rgba &other) = default;
+
+        Rgba(Rgb &other) noexcept;
+
+        Rgba &operator=(const Rgba &other) = default;
+
+        Rgba(Rgba &&other) noexcept = default;
+
+        Rgba &operator=(Rgba &&other) noexcept = default;
+
+        ~Rgba() = default;
+
+        Rgba(float r, float g, float b, float a) : Rgb(r, g, b), a(a) {
+        }
+
+        float getA() const {
+            return a;
+        }
+
+        void setA(float aParam) {
+            checkValue(aParam, "A");
+            a = aParam;
+        }
+
+        [[nodiscard]] std::string toString() const {
+            return Rgb::toString() + " A:" + Stringer::toString(a);
+        }
+
+    private:
+        float a = 0.0f;
+    };
+} // namespace GLESC::Render

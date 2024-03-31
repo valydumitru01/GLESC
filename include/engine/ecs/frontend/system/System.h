@@ -16,10 +16,14 @@ namespace GLESC::ECS {
     public:
         explicit System(ECSCoordinator &ecs, const SystemName &name);
 
+        virtual ~System() = default;
+
         template<class Component>
         void addComponentRequirement() {
             ecs.addComponentRequirementToSystem<Component>(name);
         }
+
+        virtual void update() = 0;
 
         [[nodiscard]] const std::set<EntityID> &getAssociatedEntities() const;
 

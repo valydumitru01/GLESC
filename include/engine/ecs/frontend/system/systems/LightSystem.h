@@ -1,7 +1,7 @@
 /**************************************************************************************************
- * @file   DebugInfoSystem.h
+ * @file   LightSystem.h
  * @author Valentin Dumitru
- * @date   2024-03-24
+ * @date   2024-03-31
  * @brief  Add description of this file if needed @TODO 
  *
  * Copyright (c) 2024 Valentin Dumitru. Licensed under the MIT License.
@@ -12,18 +12,18 @@
 #include "engine/subsystems/renderer/Renderer.h"
 
 namespace GLESC::ECS {
-    class DebugInfoSystem : public System {
+    class LightSystem : public System {
     public:
         /**
          * @brief Default constructor.
          */
-        DebugInfoSystem(ECSCoordinator &ecs, Renderer &renderer);
-
+        LightSystem(ECSCoordinator& ecs, Renderer& renderer);
 
         void update() override;
 
+    protected:
+
     private:
-        void setEntityData(const EntityID &id);
-        Renderer &renderer;
-    }; // class DebugInfoSystem
-}
+        Renderer& renderer;
+    }; // class LightSystem
+} // namespace GLESC::ECS

@@ -18,28 +18,34 @@ struct Light {
     vec3 color;
     float intensity;
 };
+
 uniform Light lights[MAX_LIGHTS];
+
 uniform int numLights;// Actual number of lights to use
 
 uniform sampler2D shadowMap;// Shadow map texture
 uniform mat4 lightViewProjMatrix;// Light's view projection matrix
 
 // Global ambient light properties (could be set via uniforms)
-uniform vec3 uGlobalAmbientColor;// Color of the global ambient light
+
+// Color of the global ambient light (light that scatters everywhere, makes everything visible)
+// Not to be confused with sun light or global light, which is directional and casts shadows
+uniform vec3 uGlobalAmbientColor;
+// Intensity of the global ambient light, makes everything more or less colorful (aka less or more black)
 uniform float uGlobalAmbientIntensity;// Intensity of the global ambient light
 
 // Material properties
-uniform vec3 uAmbientColor;// Color of the ambient reflectance of the material
-uniform float uAmbientIntensity;// Intensity of the ambient reflectance
-uniform vec3 uDiffuseColor;// Color of the diffuse reflectance of the material
-uniform float uDiffuseIntensity;// Intensity of the diffuse reflectance
-uniform vec3 uSpecularColor;// Color of the specular reflectance of the material
-uniform float uSpecularIntensity;// Intensity of the specular reflectance
-uniform vec3 uEmissionColor;// Color of the emission of the material
-uniform float uEmissionIntensity;// Intensity of the emission
-
-uniform float uShininess;// Shininess of the material
-
+struct Material {
+    vec3 ambientColor;
+    float ambientIntensity;
+    vec3 diffuseColor;
+    float diffuseIntensity;
+    vec3 specularColor;
+    float specularIntensity;
+    vec3 emissionColor;
+    float emissionIntensity;
+    float shininess;
+};
 #ifdef USE_COLOR
 uniform vec4 color;
 #else

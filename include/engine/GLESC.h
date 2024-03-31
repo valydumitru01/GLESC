@@ -19,12 +19,7 @@
 
 // ECS
 #include "ecs/frontend/entity/EntityFactory.h"
-#include "engine/ecs/frontend/system/systems/PhysicsSystem.h"
-#include "engine/ecs/frontend/system/systems/RenderSystem.h"
-#include "engine/ecs/frontend/system/systems/CameraSystem.h"
-#include "engine/ecs/frontend/system/systems/InputSystem.h"
-#include "engine/ecs/frontend/system/systems/TransformSystem.h"
-#include "engine/ecs/frontend/system/systems/DebugInfoSystem.h"
+#include "ecs/frontend/system/System.h"
 
 // Subsystems
 #include "engine/subsystems/hud/engine-hud/EngineDebugHUDManager.h"
@@ -46,7 +41,7 @@ namespace GLESC {
         friend int ::main(int argc, char *argv[]);
 
     private:
-        ECS::Entity createCameraEntity();
+        ECS::Entity createEngineCamera();
 
         void registerStats() const;
 
@@ -107,12 +102,9 @@ namespace GLESC {
 
         ECS::ECSCoordinator ecs;
         ECS::EntityFactory entityFactory;
-        ECS::DebugInfoSystem debugInfoSystem;
-        ECS::InputSystem inputSystem;
-        ECS::PhysicsSystem physicsSystem;
-        ECS::RenderSystem renderSystem;
-        ECS::CameraSystem cameraSystem;
-        ECS::TransformSystem transformSystem;
+
+        std::vector<std::unique_ptr<ECS::System>> systems;
+
         ECS::Entity engineCamera;
 
         Game game;

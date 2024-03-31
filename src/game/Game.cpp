@@ -23,7 +23,6 @@ using namespace GLESC;
 
 void Game::init() {
     Entity player = entityFactory.createEntity("player");
-    Entity camera = entityFactory.createEntity("camera");
     Entity entity = entityFactory.createEntity("entity");
     player.addComponent(RenderComponent())
             .addComponent(TransformComponent())
@@ -33,19 +32,6 @@ void Game::init() {
     entity.addComponent(RenderComponent())
             .addComponent(TransformComponent())
             .addComponent(PhysicsComponent());
-
-
-    camera.addComponent(CameraComponent())
-            .addComponent(TransformComponent())
-            .addComponent(InputComponent());
-
-    camera.getComponent<CameraComponent>().viewWidth = static_cast<float>(windowManager.getSize().width);
-    camera.getComponent<CameraComponent>().viewHeight = static_cast<float>(windowManager.getSize().height);
-
-
-
-
-
 
     player.getComponent<RenderComponent>().mesh = MeshFactory::cube(RGBA(1, 0, 0, 1));
     entity.getComponent<RenderComponent>().mesh = MeshFactory::cube(RGBA(0, 1, 0, 1));

@@ -10,12 +10,22 @@
 #include "engine/GLESC.h"
 #include "engine/ecs/backend/ECS.h"
 // In-Game debug
+#include "engine/ecs/frontend/component/CameraComponent.h"
 #include "engine/ecs/frontend/component/InputComponent.h"
+#include "engine/ecs/frontend/component/TransformComponent.h"
+#include "engine/ecs/frontend/system/systems/LightSystem.h"
 #include "engine/subsystems/ingame-debug/Console.h"
 #include "engine/subsystems/ingame-debug/StatsManager.h"
 #include "engine/subsystems/ingame-debug/EntityStatsManager.h"
 #include "engine/subsystems/input/KeyCommand.h"
 #include "engine/subsystems/input/debugger/InputDebugger.h"
+
+#include "engine/ecs/frontend/system/systems/PhysicsSystem.h"
+#include "engine/ecs/frontend/system/systems/RenderSystem.h"
+#include "engine/ecs/frontend/system/systems/CameraSystem.h"
+#include "engine/ecs/frontend/system/systems/InputSystem.h"
+#include "engine/ecs/frontend/system/systems/TransformSystem.h"
+#include "engine/ecs/frontend/system/systems/DebugInfoSystem.h"
 using namespace GLESC;
 
 Engine::Engine(FPSManager &fpsManager) :
@@ -28,13 +38,18 @@ Engine::Engine(FPSManager &fpsManager) :
 
     ecs(),
     entityFactory(ecs),
-    debugInfoSystem(ecs, renderer),
-    inputSystem(inputManager, ecs),
-    physicsSystem(physicsManager, ecs),
-    renderSystem(renderer, ecs),
-    cameraSystem(renderer, windowManager, ecs),
-    transformSystem(ecs),
-    engineCamera(entityFactory.createEntity("camera")),
+    systems({
+        std::make_unique<ECS::DebugInfoSystem>(ecs, renderer),
+        std::make_unique<ECS::InputSystem>(inputManager, ecs),
+        std::make_unique<ECS::PhysicsSystem>(physicsManager, ecs),
+        std::make_unique<ECS::RenderSystem>(renderer, ecs),
+        std::make_unique<ECS::CameraSystem>(renderer, windowManager, ecs),
+        std::make_unique<ECS::TransformSystem>(ecs),
+        std::make_unique<ECS::LightSystem>(ecs, renderer)
+    }),
+
+    engineCamera(createEngineCamera()),
+
     game(ecs, physicsManager, inputManager, windowManager, entityFactory) {
     this->registerStats();
     game.init();
@@ -66,13 +81,9 @@ void Engine::update() {
     game.update();
     hudManager.update();
 
-    inputSystem.update();
-    cameraSystem.update();
-    physicsSystem.update();
-    renderSystem.update();
-    transformSystem.update();
-    debugInfoSystem.update();
-
+    for (auto &system : systems) {
+        system->update();
+    }
 
     Console::log("Debug log message");
     Console::warn("Debug warning message");
@@ -81,9 +92,20 @@ void Engine::update() {
     Logger::get().importantInfoWhite("Engine update finished");
 }
 
-ECS::Entity Engine::createCameraEntity() {
+static auto targetRotationX = 0.0f;
+static auto targetRotationY = 0.0f;
+
+ECS::Entity Engine::createEngineCamera() {
     using namespace GLESC::ECS;
     Entity camera = entityFactory.createEntity("camera");
+
+    camera.addComponent(CameraComponent())
+            .addComponent(TransformComponent())
+            .addComponent(InputComponent());
+
+    camera.getComponent<CameraComponent>().viewWidth = static_cast<float>(windowManager.getSize().width);
+    camera.getComponent<CameraComponent>().viewHeight = static_cast<float>(windowManager.getSize().height);
+
     KeyCommand moveForward = KeyCommand([&] {
         Entity cameraEntity = entityFactory.getEntity("camera");
         cameraEntity.getComponent<TransformComponent>().transform.position +=
@@ -108,8 +130,6 @@ ECS::Entity Engine::createCameraEntity() {
                 cameraEntity.getComponent<TransformComponent>().transform.right();
     });
 
-    auto *targetRotationX = new float(0.0f);
-    auto *targetRotationY = new float(0.0f);
     MouseCommand rotate = MouseCommand([&](const MousePosition &deltaMouse) {
         if (!inputManager.isMouseRelative()) return;
         Entity cameraEntity = entityFactory.getEntity("camera");
@@ -117,19 +137,21 @@ ECS::Entity Engine::createCameraEntity() {
         if (Math::abs(deltaMouse.getX()) < 2 && Math::abs(deltaMouse.getY()) < 2) return;
 
         // Adjust the target rotation based on mouse input
-        *targetRotationX = cameraEntity.getComponent<TransformComponent>().transform.rotation.x() +
-                          static_cast<float>(deltaMouse.getY()) * sensitivity;
-        *targetRotationY = cameraEntity.getComponent<TransformComponent>().transform.rotation.y() +
-                          static_cast<float>(deltaMouse.getX()) * sensitivity;
+        targetRotationX = cameraEntity.getComponent<TransformComponent>().transform.rotation.x() +
+                          static_cast<float>(deltaMouse.getY()) * cameraEntity.getComponent<CameraComponent>().
+                          sensitivity;
+        targetRotationY = cameraEntity.getComponent<TransformComponent>().transform.rotation.y() +
+                          static_cast<float>(deltaMouse.getX()) * cameraEntity.getComponent<CameraComponent>().
+                          sensitivity;
 
         // Smoothly interpolate current rotation towards the target rotation
         cameraEntity.getComponent<TransformComponent>().transform.rotation.x() = Math::lerp(
             cameraEntity.getComponent<TransformComponent>().transform.rotation.x(),
-            *targetRotationX, 0.1f); // 0.1f is an example smoothing factor
+            targetRotationX, 0.1f); // 0.1f is an example smoothing factor
 
         cameraEntity.getComponent<TransformComponent>().transform.rotation.y() = Math::lerp(
             cameraEntity.getComponent<TransformComponent>().transform.rotation.y(),
-            *targetRotationY, 0.1f);
+            targetRotationY, 0.1f);
     });
     KeyCommand mouseRelativeMove = KeyCommand([&] {
         inputManager.setMouseRelative(!inputManager.isMouseRelative());
@@ -143,6 +165,8 @@ ECS::Entity Engine::createCameraEntity() {
         {{Key::LEFT_SHIFT, KeyAction::ONCE_PRESSED}, mouseRelativeMove}
     };
     camera.getComponent<InputComponent>().mouseCommand = rotate;
+
+    return camera;
 }
 
 

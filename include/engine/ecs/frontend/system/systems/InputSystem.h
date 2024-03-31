@@ -17,7 +17,7 @@ namespace GLESC::ECS {
     class InputSystem : public System {
     public:
         explicit InputSystem(InputManager& inputManager, ECSCoordinator& ecs);
-        void update();
+        void update() override;
 
     private:
         InputManager& inputManager;

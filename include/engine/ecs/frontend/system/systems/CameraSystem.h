@@ -17,7 +17,7 @@ namespace GLESC::ECS {
     public:
         explicit CameraSystem(Renderer& renderer, WindowManager& windowManager, ECSCoordinator& ecs);
 
-        void update();
+        void update() override;
 
     private:
         Renderer& renderer;
