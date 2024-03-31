@@ -22,7 +22,17 @@ namespace GLESC {
          * @details This is needed to be able to use the material in a map and to construct the render component which is also
          * stored in a map
          */
-        Material() = default;
+     Material()
+         : ambientColor(Vec3F(0.1f, 0.1f, 0.1f)), // Slightly visible in ambient light
+           ambientIntensity(1.0f), // Full intensity of ambient color
+           diffuseColor(Vec3F(0.8f, 0.8f, 0.8f)), // Neutral, slightly bright diffuse reflection
+           diffuseIntensity(1.0f), // Full intensity of diffuse reflection
+           specularColor(Vec3F(1.0f, 1.0f, 1.0f)), // Bright specular highlights
+           specularIntensity(0.5f), // Moderate intensity for specular highlights
+           emissionColor(Vec3F(0.0f, 0.0f, 0.0f)), // No emission by default
+           emmisionIntensity(0.0f), // No intensity for emission
+           shininess(32.0f) // Moderately shiny;
+        {}
 
         Material(const Vec3F& ambientColor, float ambientIntensity, const Vec3F& diffuseColor, float diffuseIntensity,
                  const Vec3F& specularColor, float specularIntensity, const Vec3F& emissionColor,

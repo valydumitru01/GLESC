@@ -18,9 +18,9 @@ Renderer::Renderer(WindowManager &windowManager) :
     projection.makeProjectionMatrix(45.0f, 0.1f, 100.0f, windowWidth, windowHeight);
 
     // Set the view matrix
-    view.makeViewMatrix(cameraTransform.right(), {0.0f, 0.0f, 1.0f},
+    view.makeViewMatrixEye(cameraTransform.position,
                         cameraTransform.forward(),
-                        cameraTransform.position);
+                        Transform::worldUp);
     frustum = Frustum(getView(), getProjection());
 }
 
@@ -69,7 +69,7 @@ void Renderer::applyTransform(ColorMesh &mesh, const Transform &transform) const
     Model model;
     model.makeModelMatrix(transform.position, transform.rotation, transform.scale);
 
-    MVP mvp = getProjection() * getView() * model;
+    MVP mvp = model * getView() * getProjection();
 
     Transformer::transformBoundingVolume(mesh.getBoundingVolumeMutable(), transform);
 

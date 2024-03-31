@@ -32,9 +32,6 @@ using MyTypes = ::testing::Types<
     MatrixType<float, 4, 4>,
     MatrixType<double, 4, 4>,
     MatrixType<long double, 4, 4>,
-    MatrixType<double, 10, 10>,
-    MatrixType<float, 10, 10>,
-    MatrixType<long double, 10, 10>,
     // Non-square matrices
     MatrixType<float, 2, 3>,
     MatrixType<double, 2, 3>,

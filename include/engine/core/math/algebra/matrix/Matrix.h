@@ -397,7 +397,7 @@ namespace GLESC::Math {
          * @param translation
          * @return
          */
-        [[nodiscard]] Matrix<Type, N, M> setTranslate(const Vector<Type, N - 1> &translation) const {
+        [[nodiscard]] Matrix setTranslate(const Vector<Type, 3> &translation) const {
             S_ASSERT_MAT_IS_SQUARE(N, M);
             Matrix result;
             MatrixAlgorithms::setTranslate(this->data, translation.data, result.data);
@@ -462,36 +462,27 @@ namespace GLESC::Math {
         /**
          * @brief Creates a view matrix from the given position, rotation and scale vectors.
          * @details This operation will overwrite the current matrix with the result of the view matrix
-         * @param right The right vector
-         * @param worldUp The up vector
-         * @param forward The forward vector
-         * @param position The position vector
+         * @param eye The position of the camera
+         * @param target The target of the camera
+         * @param up The up vector of the camera
          */
-        void makeViewMatrix(const Vector<Type, 3> &right,
-                            const Vector<Type, 3> &worldUp,
-                            const Vector<Type, 3> &forward,
-                            const Vector<Type, 3> &position) {
+        void makeViewMatrixEye(const Vector<Type, 3> &eye,
+                            const Vector<Type, 3> &target,
+                            const Vector<Type, 3> &up) {
             S_ASSERT_TRUE(N == 4 && M == 4, "View matrix can only be created for 4x4 matrices");
-            //MatrixMixedAlgorithms::calculateViewMatrix<Type, Type, Type, Type, Type>
-            //        (right.data, worldUp.data, forward.data, position.data, data);
-            glm::mat4 glmView = glm::lookAt(
-                glm::vec3(position[0], position[1], position[2]),
-                glm::vec3(position[0], position[1], position[2]) + glm::vec3(forward[0], forward[1], forward[2]),
-                glm::vec3(worldUp[0], worldUp[1], worldUp[2])
-            );
+            MatrixMixedAlgorithms::calculateViewMatrixEye(eye.data, target.data, up.data, data);
+        }
 
-            data = {
-                {
-                    {Type(glmView[0][0]), Type(glmView[0][1]), Type(glmView[0][2]), Type(glmView[0][3])},
-                    {Type(glmView[1][0]), Type(glmView[1][1]), Type(glmView[1][2]), Type(glmView[1][3])},
-                    {Type(glmView[2][0]), Type(glmView[2][1]), Type(glmView[2][2]), Type(glmView[2][3])},
-                    {Type(glmView[3][0]), Type(glmView[3][1]), Type(glmView[3][2]), Type(glmView[3][3])}
-                }
-            };
+        void makeViewMatrixPosRot(const Vector<Type, 3> &position,
+                                  const Vector<Type, 3> &rotation) {
+            S_ASSERT_TRUE(N == 4 && M == 4, "View matrix can only be created for 4x4 matrices");
+            MatrixMixedAlgorithms::calculateViewMatrixPosRot(position.data, rotation.data, data);
         }
 
 
-        bool isValidViewMatrix() const {
+
+
+        [[nodiscard]] bool isValidViewMatrix() const {
             S_ASSERT_TRUE(N == 4 && M == 4, "View matrix can only be created for 4x4 matrices");
             return MatrixAlgorithms::isValidViewMatrix(this->data);
         }
@@ -505,15 +496,14 @@ namespace GLESC::Math {
          * @param viewWidth The width of the view
          * @param viewHeight The height of the view
          */
-        void makeProjectionMatrix(float fovDegrees, float nearPlane, float farPlane, float viewWidth, float viewHeight) {
+        void makeProjectionMatrix(float fovDegrees,
+                                  float nearPlane,
+                                  float farPlane,
+                                  float viewWidth,
+                                  float viewHeight) {
             S_ASSERT_TRUE(N == 4 && M == 4, "Projection matrix can only be created for 4x4 matrices");
-            // MatrixAlgorithms::perspective<Type>(fovRad, nearPlane, farPlane, viewWidth, viewHeight, this->data);
-            auto proj = glm::perspective(glm::radians(fovDegrees), viewWidth / viewHeight, nearPlane, farPlane);
-            for (size_t i = 0; i < N; ++i) {
-                for (size_t j = 0; j < M; ++j) {
-                    this->data[i][j] = proj[i][j];
-                }
-            }
+            MatrixAlgorithms::perspective<Type>(Math::radians(fovDegrees), nearPlane, farPlane, viewWidth, viewHeight,
+                                                this->data);
         }
 
         /**

@@ -12,10 +12,10 @@
 
 #include <SDL2/SDL.h>
 #include <unordered_map>
-
+using namespace GLESC;
 
 InputManager::InputManager(HUDManager &hudManagerm): hudManager(hudManager),
-    keyMap(), mousePosition({0, 0}) {
+                                                     keyMap(), mousePosition({0, 0}) {
 }
 
 
@@ -46,6 +46,35 @@ void InputManager::handleEvent(const SDL_Event &event) {
     }
 }
 
+void InputManager::addToBuffer(int dx, int dy) {
+    if (deltaBuffer.size() >= bufferSize) {
+        deltaBuffer.pop_front();
+    }
+    deltaBuffer.emplace_back(SDL_Point{dx, dy});
+}
+
+
+MousePosition InputManager::getSmoothedMousePos() {
+    int sumX = 0, sumY = 0;
+    for (const auto &delta : deltaBuffer) {
+        sumX += delta.x;
+        sumY += delta.y;
+    }
+    if (!deltaBuffer.empty()) {
+        int avgX = sumX / static_cast<int>(deltaBuffer.size());
+        int avgY = sumY / static_cast<int>(deltaBuffer.size());
+
+        if (std::abs(avgX) <= deadzone) avgX = 0;
+        if (std::abs(avgY) <= deadzone) avgY = 0;
+
+        return MousePosition{
+            avgX,
+            avgY
+        };
+    }
+    return MousePosition{0, 0};
+}
+
 void InputManager::handleKeyEvent(const SDL_Event &event) {
     auto keycode = static_cast<GLESC::Key>(event.key.keysym.sym);
     bool pressed = event.type == SDL_KEYDOWN;
@@ -53,18 +82,22 @@ void InputManager::handleKeyEvent(const SDL_Event &event) {
 }
 
 void InputManager::handleMouseEvent(const SDL_Event &event) {
-    if (event.type == SDL_MOUSEMOTION) {
-        if (SDL_GetRelativeMouseMode() == SDL_TRUE){
-            mousePosition.x() = event.motion.xrel;
-            mousePosition.y() = event.motion.yrel;
-        } else {
-            mousePosition.x() = event.motion.x;
-            mousePosition.y() = event.motion.y;
-        }
-    } else {
+    // Handle mouse button events
+    if (event.type == SDL_MOUSEBUTTONDOWN || event.type == SDL_MOUSEBUTTONUP) {
         auto mouseButton = static_cast<GLESC::Key>(event.button.button);
         bool pressed = event.type == SDL_MOUSEBUTTONDOWN;
         updateKeyState(mouseButton, pressed);
+    }
+
+    // Poll and handle relative mouse movement if in relative mode
+    if (SDL_GetRelativeMouseMode() == SDL_TRUE) {
+        addToBuffer(event.motion.xrel, event.motion.yrel);
+        mousePosition = getSmoothedMousePos();
+    } else {
+        if (event.type == SDL_MOUSEMOTION) {
+            mousePosition.x() = event.motion.x;
+            mousePosition.y() = event.motion.y;
+        }
     }
 }
 
@@ -87,17 +120,19 @@ bool InputManager::checkKeyAction(const KeyInput &keyInput) {
                     return true;
                 }
                 break;
+            default:
+                break;
         }
     }
     return false;
 }
+
 void InputManager::setMouseRelative(bool enabled) {
     if (SDL_SetRelativeMouseMode(static_cast<SDL_bool>(enabled)) != 0) {
-
         std::string action = enabled ? "enable" : "disable";
         throw EngineException(
-                "Unable to " + action + " mouse relative mode: "+ std::string(SDL_GetError())
-                );
+            "Unable to " + action + " mouse relative mode: " + std::string(SDL_GetError())
+        );
     }
     // Reset the mouse position, looks like it's not done by SDL
     mousePosition.x() = 0;

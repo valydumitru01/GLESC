@@ -60,16 +60,20 @@ namespace GLESC::Math {
         return epsilon<Type>() * value;
     }
 
+    template<typename Type, typename TypeFactor>
+    constexpr Type lerp(const Type& start, const Type& end, const TypeFactor& factor) {
+        return start + (end - start) * factor;
+    }
 
     template <typename Type>
     Type radians(const Type& degrees) noexcept {
-        return degrees * PI / Type(180);
+        return degrees * Type(PI) / Type(180);
     }
 
     template <typename Type>
     Type degrees(const Type& radians) noexcept {
         S_ASSERT_TRUE(std::is_floating_point_v<Type>, "Type must be floating point");
-        return radians * Type(180) / PI;
+        return radians * Type(180) / Type(PI);
     }
 
 

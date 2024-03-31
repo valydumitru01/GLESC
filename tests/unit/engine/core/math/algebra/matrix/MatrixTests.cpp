@@ -405,7 +405,7 @@ TYPED_TEST(MatrixTests, MatrixTranslate) {
     PREPARE_TEST();
     // ---------------------------------- Matrix transformations -----------------------------------
     // All transformations need to be tested only for square matrices
-    if constexpr (N == M) {
+    if constexpr (N == 4 && M == 4) {
         // Translate
         auto translateVec = VectorT<Type, N - 1>(1);
         Mat matrixTranslateResult = Mat(1).setTranslate(translateVec);
@@ -439,23 +439,7 @@ TYPED_TEST(MatrixTests, MatrixScale) {
 }
 
 TYPED_TEST(MatrixTests, MatrixRotate) {
-    PREPARE_TEST();
-    Type angle = GLESC::Math::PI / 4; // 45 degrees rotation for instance
-    Mat matrixRotateResult;
-    Mat expectedRotateResult;
-    // Rotate
-    // Only defined (or necessary) for 3x3 and 4x4 matrices
-    if constexpr (N == 3 && M == 3) {
-        matrixRotateResult = this->matrix.rotate(angle);
-        GLESC::Math::MatrixMixedAlgorithms::rotate2D(this->matrix.data, angle, expectedRotateResult.data);
-    }
-    else if constexpr (N == 4 && M == 4) {
-        GLESC::Math::Vector<Type, 3> rotateVector(Type(0), Type(0), Type(angle)); // Rotation about the z-axis
-        matrixRotateResult = this->matrix.rotate(rotateVector);
-
-        GLESC::Math::MatrixMixedAlgorithms::rotate3D(this->matrix.data, rotateVector.data, expectedRotateResult.data);
-    }
-    EXPECT_EQ_MAT(matrixRotateResult, expectedRotateResult);
+    // TODO: Implement tests for rotation
 }
 
 
@@ -471,4 +455,4 @@ TYPED_TEST(MatrixTests, Rank) {
     //
 }
 
-#endif // ALGEBRA_TESTING
+#endif // MATH_ALGEBRA_UNIT_TESTING

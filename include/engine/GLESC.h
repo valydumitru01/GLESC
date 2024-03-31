@@ -16,12 +16,9 @@
 #include "engine/core/window/WindowManager.h"
 #include "engine/core/counter/FPSManager.h"
 #include "engine/core/low-level-renderer/graphic-api/concrete-apis/opengl/OpenGLAPI.h"
+
 // ECS
-#include "ecs/ECSTypes.h"
-// Entity
-#include "engine/ecs/frontend/entity/Entity.h"
-// Systems
-#include "engine/ecs/frontend/system/System.h"
+#include "ecs/frontend/entity/EntityFactory.h"
 #include "engine/ecs/frontend/system/systems/PhysicsSystem.h"
 #include "engine/ecs/frontend/system/systems/RenderSystem.h"
 #include "engine/ecs/frontend/system/systems/CameraSystem.h"
@@ -36,6 +33,9 @@
 #include "engine/subsystems/input/InputManager.h"
 #include "engine/subsystems/physics/PhysicsManager.h"
 
+// Game
+#include "game/Game.h"
+
 
 namespace GLESC {
     class Engine {
@@ -45,13 +45,11 @@ namespace GLESC {
          */
         friend int ::main(int argc, char *argv[]);
 
-    public:
-        void initGame();
-
-        void loop();
-
     private:
+        ECS::Entity createCameraEntity();
+
         void registerStats() const;
+
         /**
          * @brief The constructor is private,
          * the engine can only be created by the main function
@@ -78,27 +76,6 @@ namespace GLESC {
          */
         void render(double timeOfFrame);
 
-        /**
-         * @brief Get the Entity object with the given name, the entity must exist.
-         * @param name
-         * @return
-         */
-        inline ECS::Entity getEntity(const ECS::EntityName &name);
-
-        /**
-         * @brief Get the Entity object with the given name, the entity can not exist.
-         * @details If the entity does not exist, std::nullopt is returned.
-         * @param name The name of the entity
-         * @return The entity with the given name or std::nullopt if the entity does not exist
-         */
-        inline std::optional<ECS::Entity> tryGetEntity(const ECS::EntityName &name);
-
-        /**
-         * @brief Create an entity with the given name. The name must be unique.
-         * @param name The name of the entity
-         * @return The entity with the given name
-         */
-        inline ECS::Entity createEntity(const ECS::EntityName &name);
 
         /**
          * @brief If true, the game is running. If false, the game is stopped.
@@ -122,33 +99,22 @@ namespace GLESC {
         Renderer renderer;
 
         PhysicsManager physicsManager;
-
         HUDManager hudManager;
-        EngineDebugHUDManager engineHuds;
-
 
         FPSManager &fpsManager;
 
+        EngineDebugHUDManager engineHuds;
 
         ECS::ECSCoordinator ecs;
+        ECS::EntityFactory entityFactory;
         ECS::DebugInfoSystem debugInfoSystem;
         ECS::InputSystem inputSystem;
         ECS::PhysicsSystem physicsSystem;
         ECS::RenderSystem renderSystem;
         ECS::CameraSystem cameraSystem;
         ECS::TransformSystem transformSystem;
+        ECS::Entity engineCamera;
+
+        Game game;
     }; // class Engine
-    inline ECS::Entity Engine::createEntity(const ECS::EntityName &name) {
-        return ECS::Entity(name, ecs);
-    }
-
-    inline std::optional<ECS::Entity> Engine::tryGetEntity(const ECS::EntityName &name) {
-        if (ecs.tryGetEntityID(name) == ECS::EntityManager::nullEntity)
-            return std::nullopt;
-        return ECS::Entity(ecs.tryGetEntityID(name), ecs);
-    }
-
-    inline ECS::Entity Engine::getEntity(const ECS::EntityName &name) {
-        return ECS::Entity(ecs.getEntityID(name), ecs);
-    }
 } // namespace GLESC

@@ -6,7 +6,9 @@
 
 #pragma once
 
-class PhysicsManager {
-public:
-private:
-};
+namespace GLESC {
+    class PhysicsManager {
+    public:
+    private:
+    };
+}

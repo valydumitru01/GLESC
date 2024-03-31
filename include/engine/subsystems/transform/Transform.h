@@ -26,68 +26,35 @@ namespace GLESC {
     using namespace TransformTypes;
 
     struct Transform {
+        static Math::Direction worldUp;
+        static Math::Direction worldRight;
+        static Math::Direction worldForward;
+
         Transform() = default;
-        Transform(Position position, Rotation rotation, Scale scale) : position(position), rotation(rotation),
-                                                                       scale(scale) {
-        }
+
+        Transform(Position position, Rotation rotation, Scale scale);
 
         Position position = Position(0.0f, 0.0f, 0.0f);
         Rotation rotation = Rotation(0.0f, 0.0f, 0.0f);
         Scale scale = Scale(1.0f, 1.0f, 1.0f);
 
-        Math::Direction forward() const {
-            RotComp yaw = Math::radians(rotation.getY());
-            RotComp pitch = Math::radians(rotation.getX());
+        [[nodiscard]] Math::Direction forward() const;
 
-            PosComp x = cos(yaw) * cos(pitch);
-            PosComp y = sin(pitch);
-            PosComp z = sin(yaw) * cos(pitch);
+        [[nodiscard]] Math::Direction right() const;
 
-            return Math::Direction(x, y, z).normalize();
-        }
+        [[nodiscard]] Math::Direction up() const;
 
-        Math::Direction right() const {
-            return forward().cross(Math::Direction(0.0f, 1.0f, 0.0f)).normalize();
-        }
+        [[nodiscard]] bool operator==(const Transform &other) const;
 
-        Math::Direction up() const {
-
-            return right().cross(forward()).normalize();
-        }
-
-        bool operator==(const Transform &other) const {
-            return position == other.position && rotation == other.rotation && scale == other.scale;
-        }
-
-        std::string toString() const {
-            return "Position: " + position.toString() + "\n" +
-                   "Rotation: " + rotation.toString() + "\n" +
-                   "Scale: " + scale.toString();
-        }
+        [[nodiscard]] std::string toString() const;
     };
 
     class Transformer {
     public:
         static void transformMesh(ColorMesh &mesh,
-                                  const Transform &transform) {
-            Model model;
-            model.makeModelMatrix(transform.position, transform.rotation, transform.scale);
-
-            for (auto &vertex : mesh.getVertices()) {
-                GLESC::getVertexPositionAttr(vertex) = model * GLESC::getVertexPositionAttr(vertex);
-            }
-
-            transformBoundingVolume(mesh.getBoundingVolumeMutable(), transform);
-        }
+                                  const Transform &transform);
 
         static void transformBoundingVolume(BoundingVolume &boundingVolume,
-                                            const Transform &transform) {
-            Model model;
-            model.makeModelMatrix(transform.position, transform.rotation, transform.scale);
-
-            for (Math::Point &vertex : boundingVolume.getTopologyMutable().getVerticesMutable()) {
-                vertex = model * vertex;
-            }
-        }
+                                            const Transform &transform) ;
     }; // class Transformer
 } // namespace GLESC

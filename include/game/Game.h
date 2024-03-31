@@ -1,5 +1,5 @@
 /******************************************************************************
- * @file   Example.h
+ * @file   Game.h
  * @author Valentin Dumitru
  * @date   2023-09-26
  * @brief @todo
@@ -10,13 +10,36 @@
 
 #pragma once
 
-#include "engine/GLESC.h"
+#include "engine/ecs/frontend/entity/Entity.h"
+#include "engine/subsystems/input/InputManager.h"
+#include "engine/subsystems/physics/PhysicsManager.h"
+#include "engine/core/window/WindowManager.h"
 
 class Game {
 public:
-    Game(GLESC::Engine& engine);
-    void update();
-private:
-    GLESC::Engine& engine;
-}; // class Game
+    using Entity = GLESC::ECS::Entity;
 
+    Game(GLESC::ECS::ECSCoordinator &ecs,
+         GLESC::PhysicsManager &physicsManager,
+         GLESC::InputManager &inputManager,
+         GLESC::WindowManager &windowManager,
+         GLESC::ECS::EntityFactory &entityFactory) :
+        ecs(ecs), physicsManager(physicsManager), inputManager(inputManager), windowManager(windowManager),
+        entityFactory(entityFactory) {}
+
+    void init();
+
+    void update();
+
+private:
+    float targetRotationX = 0.0f;
+    float targetRotationY = 0.0f;
+    float sensitivity = 3.f;
+
+
+    GLESC::ECS::ECSCoordinator &ecs;
+    GLESC::ECS::EntityFactory &entityFactory;
+    GLESC::PhysicsManager &physicsManager;
+    GLESC::InputManager &inputManager;
+    GLESC::WindowManager &windowManager;
+}; // class Game

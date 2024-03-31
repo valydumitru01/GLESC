@@ -18,7 +18,6 @@ int main(int argc, char* argv[]) {
 #endif
     FPSManager counter(Fps90);
     GLESC::Engine glesc(counter);
-    glesc.initGame();
     while (glesc.running) {
         counter.startFrame();
 

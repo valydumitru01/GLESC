@@ -8,8 +8,6 @@
  * See LICENSE.txt in the project root for license information.
  ******************************************************************************/
 
-#include "engine/GLESC.h"
-#include "engine/ecs/frontend/entity/Entity.h"
 
 // Components
 #include "game/Game.h"
@@ -21,12 +19,12 @@
 #include "engine/ecs/frontend/component/InputComponent.h"
 #include "engine/subsystems/renderer/mesh/MeshFactory.h"
 
+using namespace GLESC;
 
-void GLESC::Engine::initGame() {
-    // TODO: Create a game class
-    ECS::Entity player = createEntity("player");
-    ECS::Entity camera = createEntity("camera");
-    ECS::Entity entity = createEntity("entity");
+void Game::init() {
+    Entity player = entityFactory.createEntity("player");
+    Entity camera = entityFactory.createEntity("camera");
+    Entity entity = entityFactory.createEntity("entity");
     player.addComponent(RenderComponent())
             .addComponent(TransformComponent())
             .addComponent(PhysicsComponent())
@@ -43,65 +41,19 @@ void GLESC::Engine::initGame() {
 
     camera.getComponent<CameraComponent>().viewWidth = static_cast<float>(windowManager.getSize().width);
     camera.getComponent<CameraComponent>().viewHeight = static_cast<float>(windowManager.getSize().height);
-    KeyCommand moveForward = KeyCommand([&] {
-        ECS::Entity cameraEntity = getEntity("camera");
-        cameraEntity.getComponent<TransformComponent>().transform.position += cameraEntity.getComponent<
-                    TransformComponent>().
-                transform.forward();
-    });
-    KeyCommand moveBackward = KeyCommand([&] {
-        ECS::Entity cameraEntity = getEntity("camera");
-        cameraEntity.getComponent<TransformComponent>().transform.position -= cameraEntity.getComponent<
-                    TransformComponent>().
-                transform.forward();
-    });
-    KeyCommand moveLeft = KeyCommand([&] {
-        ECS::Entity cameraEntity = getEntity("camera");
-        cameraEntity.getComponent<TransformComponent>().transform.position -= cameraEntity.getComponent<
-                    TransformComponent>().
-                transform.right();
-    });
-    KeyCommand moveRight = KeyCommand([&] {
-        ECS::Entity cameraEntity = getEntity("camera");
-        cameraEntity.getComponent<TransformComponent>().transform.position += cameraEntity.getComponent<
-                    TransformComponent>().
-                transform.right();
-    });
 
-    KeyCommand mouseRelativeMove = KeyCommand([&] {
-        inputManager.setMouseRelative(!inputManager.isMouseRelative());
-    });
 
-    MouseCommand rotate = MouseCommand([&](const MousePosition &deltaMouse) {
-        // We can assume the mouse will be in the center of the screen
-        // Rotate will only work if the mouse is in relative mode
-        if (!inputManager.isMouseRelative()) return;
-        ECS::Entity cameraEntity = getEntity("camera");
-        // A threshhold is needed because the mouse orbitates around 1 and -1, because it works in pixels (ints)
-        if (std::abs(deltaMouse.getX()) < 2 && std::abs(deltaMouse.getY()) < 2) return;
-        cameraEntity.getComponent<TransformComponent>().transform.rotation.y() +=
-                static_cast<float>(deltaMouse.getX()) * 0.1f;
-        cameraEntity.getComponent<TransformComponent>().transform.rotation.x() +=
-                static_cast<float>(deltaMouse.getY()) * 0.1f;
-    });
 
-    camera.getComponent<InputComponent>().subscribedKeys = {
-        {{Key::W, KeyAction::ONGOING_PRESSED}, moveForward},
-        {{Key::S, KeyAction::ONGOING_PRESSED}, moveBackward},
-        {{Key::A, KeyAction::ONGOING_PRESSED}, moveLeft},
-        {{Key::D, KeyAction::ONGOING_PRESSED}, moveRight},
-        {{Key::LEFT_SHIFT, KeyAction::ONCE_PRESSED}, mouseRelativeMove}
-    };
-    camera.getComponent<InputComponent>().mouseCommand = rotate;
+
+
 
     player.getComponent<RenderComponent>().mesh = MeshFactory::cube(RGBA(1, 0, 0, 1));
     entity.getComponent<RenderComponent>().mesh = MeshFactory::cube(RGBA(0, 1, 0, 1));
     entity.getComponent<TransformComponent>().transform.position = Vec3F(3, 2, 2);
 }
 
-
-void GLESC::Engine::loop() {
+void Game::update() {
     // Rotating entity
-    ECS::Entity entity = getEntity("entity");
-    entity.getComponent<TransformComponent>().transform.rotation.y() += 0.01f;
+    ECS::Entity entity = entityFactory.getEntity("entity");
+    entity.getComponent<TransformComponent>().transform.rotation.y() += 1.f;
 }

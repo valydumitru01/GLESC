@@ -122,7 +122,7 @@ void main() {
         specular += currentSpecular;
     }
 
-    vec4 emission = calculateEmission(uEmissionColor, uEmissionIntensity);
+    vec4 emission = calculateEmission(uEmissionColor, uEmissionIntensity) ;
 
     // The final color includes ambient, diffuse, and specular components
     vec4 color = ambient + diffuse + specular + emission;
@@ -153,7 +153,6 @@ layout (location = 2) in vec3 normal;
 // ==========================================
 
 
-
 // ==========================================
 // ============Output variables==============
 // ==========================================
@@ -165,7 +164,6 @@ out vec2 vertexTexCoord;
 out vec3 Normal;
 out vec3 FragPos;
 // ==========================================
-
 
 
 // ==========================================

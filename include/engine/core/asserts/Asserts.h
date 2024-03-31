@@ -74,14 +74,12 @@ bool assertEqualsEq(const Type1& value, const Type2& expected)
                                           std::fabs(static_cast<CommonType>(expected)))
             || diff < epsilon;
     }
-    // Pointer comparison
-    else if constexpr (std::is_pointer_v<Type1> && std::is_pointer_v<Type2>)
-    {
-        return value == expected;
+    // Pointer value comparison
+    else if constexpr (std::is_pointer_v<Type1> && std::is_pointer_v<Type2>) {
+        return reinterpret_cast<const void*>(value) == reinterpret_cast<const void*>(expected);
     }
     // General comparison
-    else
-    {
+    else {
         return value == expected;
     }
 }

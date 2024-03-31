@@ -64,10 +64,8 @@ void CameraSystem::update() {
         // TODO: Enable the renderer to work with multiple projection and view matrices
         renderer.setProjection(projection);
         View view;
-        view.makeViewMatrix(transform.transform.right(),
-                            {0.0f, 0.0f, 1.0f},
-                            transform.transform.forward(),
-                            transform.transform.position);
+        view.makeViewMatrixPosRot(transform.transform.position,
+                            transform.transform.rotation);
         renderer.setView(view);
     }
 }

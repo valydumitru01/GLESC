@@ -19,7 +19,9 @@ struct CameraComponent : IComponent {
     GLESC::Math::Distance viewHeight; // This will be set to the window height
     GLESC::Math::Distance nearPlane{0.1};
     GLESC::Math::Distance farPlane{100};
-    // TODO: Introduce dirty flag to avoid unnecessary recalculations of view and projection matrices
+
+    float sensitivity{3.f};
+
     
     std::string toString() const override{
         return  std::string("\n\tview: \n")

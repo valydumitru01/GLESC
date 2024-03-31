@@ -10,9 +10,11 @@
 #include "engine/GLESC.h"
 #include "engine/ecs/backend/ECS.h"
 // In-Game debug
+#include "engine/ecs/frontend/component/InputComponent.h"
 #include "engine/subsystems/ingame-debug/Console.h"
 #include "engine/subsystems/ingame-debug/StatsManager.h"
 #include "engine/subsystems/ingame-debug/EntityStatsManager.h"
+#include "engine/subsystems/input/KeyCommand.h"
 #include "engine/subsystems/input/debugger/InputDebugger.h"
 using namespace GLESC;
 
@@ -25,13 +27,17 @@ Engine::Engine(FPSManager &fpsManager) :
     engineHuds(hudManager),
 
     ecs(),
+    entityFactory(ecs),
     debugInfoSystem(ecs, renderer),
     inputSystem(inputManager, ecs),
     physicsSystem(physicsManager, ecs),
     renderSystem(renderer, ecs),
     cameraSystem(renderer, windowManager, ecs),
-    transformSystem(ecs) {
+    transformSystem(ecs),
+    engineCamera(entityFactory.createEntity("camera")),
+    game(ecs, physicsManager, inputManager, windowManager, entityFactory) {
     this->registerStats();
+    game.init();
 }
 
 
@@ -57,7 +63,7 @@ void Engine::render(double const timeOfFrame) {
 void Engine::update() {
     Logger::get().importantInfoWhite("Engine update started");
 
-    loop();
+    game.update();
     hudManager.update();
 
     inputSystem.update();
@@ -74,6 +80,71 @@ void Engine::update() {
 
     Logger::get().importantInfoWhite("Engine update finished");
 }
+
+ECS::Entity Engine::createCameraEntity() {
+    using namespace GLESC::ECS;
+    Entity camera = entityFactory.createEntity("camera");
+    KeyCommand moveForward = KeyCommand([&] {
+        Entity cameraEntity = entityFactory.getEntity("camera");
+        cameraEntity.getComponent<TransformComponent>().transform.position +=
+                cameraEntity.getComponent<TransformComponent>().transform.forward();
+    });
+
+    KeyCommand moveBackward = KeyCommand([&] {
+        Entity cameraEntity = entityFactory.getEntity("camera");
+        cameraEntity.getComponent<TransformComponent>().transform.position -=
+                cameraEntity.getComponent<TransformComponent>().transform.forward();
+    });
+
+    KeyCommand moveLeft = KeyCommand([&] {
+        Entity cameraEntity = entityFactory.getEntity("camera");
+        cameraEntity.getComponent<TransformComponent>().transform.position -=
+                cameraEntity.getComponent<TransformComponent>().transform.right();
+    });
+
+    KeyCommand moveRight = KeyCommand([&] {
+        Entity cameraEntity = entityFactory.getEntity("camera");
+        cameraEntity.getComponent<TransformComponent>().transform.position +=
+                cameraEntity.getComponent<TransformComponent>().transform.right();
+    });
+
+    auto *targetRotationX = new float(0.0f);
+    auto *targetRotationY = new float(0.0f);
+    MouseCommand rotate = MouseCommand([&](const MousePosition &deltaMouse) {
+        if (!inputManager.isMouseRelative()) return;
+        Entity cameraEntity = entityFactory.getEntity("camera");
+
+        if (Math::abs(deltaMouse.getX()) < 2 && Math::abs(deltaMouse.getY()) < 2) return;
+
+        // Adjust the target rotation based on mouse input
+        *targetRotationX = cameraEntity.getComponent<TransformComponent>().transform.rotation.x() +
+                          static_cast<float>(deltaMouse.getY()) * sensitivity;
+        *targetRotationY = cameraEntity.getComponent<TransformComponent>().transform.rotation.y() +
+                          static_cast<float>(deltaMouse.getX()) * sensitivity;
+
+        // Smoothly interpolate current rotation towards the target rotation
+        cameraEntity.getComponent<TransformComponent>().transform.rotation.x() = Math::lerp(
+            cameraEntity.getComponent<TransformComponent>().transform.rotation.x(),
+            *targetRotationX, 0.1f); // 0.1f is an example smoothing factor
+
+        cameraEntity.getComponent<TransformComponent>().transform.rotation.y() = Math::lerp(
+            cameraEntity.getComponent<TransformComponent>().transform.rotation.y(),
+            *targetRotationY, 0.1f);
+    });
+    KeyCommand mouseRelativeMove = KeyCommand([&] {
+        inputManager.setMouseRelative(!inputManager.isMouseRelative());
+    });
+
+    camera.getComponent<InputComponent>().subscribedKeys = {
+        {{Key::W, KeyAction::ONGOING_PRESSED}, moveForward},
+        {{Key::S, KeyAction::ONGOING_PRESSED}, moveBackward},
+        {{Key::A, KeyAction::ONGOING_PRESSED}, moveLeft},
+        {{Key::D, KeyAction::ONGOING_PRESSED}, moveRight},
+        {{Key::LEFT_SHIFT, KeyAction::ONCE_PRESSED}, mouseRelativeMove}
+    };
+    camera.getComponent<InputComponent>().mouseCommand = rotate;
+}
+
 
 void Engine::registerStats() const {
     StatsManager::registerStatSource("Update FPS", [&]() -> float {
