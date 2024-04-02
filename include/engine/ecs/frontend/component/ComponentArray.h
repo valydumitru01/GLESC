@@ -7,10 +7,8 @@
 #pragma once
 
 #include <cassert>
-#include <unordered_map>
 #include <boost/bimap.hpp>
 #include "engine/ecs/ECSTypes.h"
-#include "engine/core/exceptions/ecs/ECSException.h"
 #include "engine/core/logger/Logger.h"
 #include "IComponent.h"
 #include "engine/ecs/backend/asserts/component/ComponentArrayAsserts.h"

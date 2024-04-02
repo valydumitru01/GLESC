@@ -11,21 +11,22 @@
 #include "engine/subsystems/renderer/material/Material.h"
 #include "engine/subsystems/renderer/mesh/Mesh.h"
 
-class MeshBatches {
+namespace GLESC::Render {
+    class MeshBatches {
+    public:
+        MeshBatches() = default;
 
-public:
-    MeshBatches() = default;
-
-    void attatchMesh(const GLESC::Material& material, const GLESC::ColorMesh& mesh) {
-        for (const auto& vertex : mesh.getVertices()) {
-            this->batches[&material].addVertex(vertex);
+        void attatchMesh(const Material &material, const ColorMesh &mesh) {
+            for (const auto &vertex : mesh.getVertices()) {
+                this->batches[&material].addVertex(vertex);
+            }
         }
-    }
 
-    auto getBatches() const {
-        return batches;
-    }
+        auto getBatches() const {
+            return batches;
+        }
 
-private:
-    std::map<const GLESC::Material*, GLESC::ColorMesh> batches{};
-}; // class MeshBatch
+    private:
+        std::map<const Material *, ColorMesh> batches{};
+    }; // class MeshBatch
+} // namespace GLESC::Render

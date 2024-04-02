@@ -13,6 +13,7 @@
 #include <SDL2/SDL.h>
 #include "engine/core/low-level-renderer/graphic-api/concrete-apis/opengl/debugger/OpenGLDebugger.h"
 #include "engine/core/low-level-renderer/asserts/GAPIAsserts.h"
+using namespace GLESC::GAPI;
 
 void OpenGLDebugger::glDebugCallback(GLenum source, GLenum type, GLuint errorCode,
                                      GLenum severity, GLsizei length,

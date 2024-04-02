@@ -15,12 +15,12 @@
 namespace GLESC::ECS {
     class CameraSystem : public System {
     public:
-        explicit CameraSystem(Renderer& renderer, WindowManager& windowManager, ECSCoordinator& ecs);
+        explicit CameraSystem(Render::Renderer& renderer, WindowManager& windowManager, ECSCoordinator& ecs);
 
         void update() override;
 
     private:
-        Renderer& renderer;
+        Render::Renderer& renderer;
         WindowManager& windowManager;
     };
 }

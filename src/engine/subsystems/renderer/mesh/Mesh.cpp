@@ -9,4 +9,4 @@
  **************************************************************************************************/
 #include "engine/subsystems/renderer/mesh/Mesh.h"
 
-using namespace GLESC;
+using namespace GLESC::Render;

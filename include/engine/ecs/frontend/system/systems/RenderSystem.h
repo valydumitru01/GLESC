@@ -17,10 +17,10 @@
 namespace GLESC::ECS {
     class RenderSystem : public System {
     public:
-        explicit RenderSystem(Renderer& renderer, ECSCoordinator& ecs);
+        explicit RenderSystem(Render::Renderer& renderer, ECSCoordinator& ecs);
         void update() override;
 
     private:
-        Renderer& renderer;
+        Render::Renderer& renderer;
     };
 }

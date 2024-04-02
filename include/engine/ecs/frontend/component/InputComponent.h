@@ -15,27 +15,29 @@
 #include "engine/subsystems/input/MouseCommand.h"
 #include "engine/subsystems/input/debugger/InputDebugger.h"
 
-struct InputComponent : IComponent {
-    /**
-     * @brief Vector of pairs, subscribed keys and bool,true if they are pressed
-     * @details This vector is used to store the keys that are subscribed to the input system,
-     * this it saves memory as each only stores the keys that are subscribed to it.
-     */
-    std::unordered_map<KeyInput, KeyCommand> subscribedKeys;
-    /**
-     * @brief A command that is executed when the mouse is moved
-     */
-    MouseCommand mouseCommand;
+namespace GLESC::ECS {
+    struct InputComponent : IComponent {
+        /**
+         * @brief Vector of pairs, subscribed keys and bool,true if they are pressed
+         * @details This vector is used to store the keys that are subscribed to the input system,
+         * this it saves memory as each only stores the keys that are subscribed to it.
+         */
+        std::unordered_map<KeyInput, KeyCommand> subscribedKeys;
+        /**
+         * @brief A command that is executed when the mouse is moved
+         */
+        MouseCommand mouseCommand;
 
-    std::string toString() const override {
-        std::ostringstream ss;
+        std::string toString() const override {
+            std::ostringstream ss;
 
-        ss << "Subscribed keys";
+            ss << "Subscribed keys";
 
-        return ss.str();
-    }
+            return ss.str();
+        }
 
-    std::string getName() const override {
-        return "InputComponent";
-    }
-};
+        std::string getName() const override {
+            return "InputComponent";
+        }
+    };
+} // namespace GLESC::ECS

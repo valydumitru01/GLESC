@@ -9,24 +9,35 @@
  **************************************************************************************************/
 
 #include "engine/subsystems/renderer/mesh/MeshFactory.h"
-using namespace GLESC;
-ColorMesh MeshFactory::cube(const RGBA& color) {
+
+using namespace GLESC::Render;
+
+ColorMesh MeshFactory::cube(const Rgba &color) {
+    return cuboid(1, 1, 1, color);
+}
+
+ColorMesh MeshFactory::sphere(int subdivisions, const Rgba &color) {
     ColorMesh mesh;
-    Color rgba = Vec4F(color.r, color.g, color.b, color.a);
+    Color rgba = Vec4F(color.getR(), color.getG(), color.getB(), color.getA());
 
-    // Define vertices with position, color, and normal
-    // Front face
-    ColorMesh::Vertex v1(Position(-1, -1, -1), rgba, Normal(0, 0, -1));
-    ColorMesh::Vertex v2(Position(1, -1, -1), rgba, Normal(0, 0, -1));
-    ColorMesh::Vertex v3(Position(1, 1, -1), rgba, Normal(0, 0, -1));
-    ColorMesh::Vertex v4(Position(-1, 1, -1), rgba, Normal(0, 0, -1));
-    // Back face
-    ColorMesh::Vertex v5(Position(-1, -1, 1), rgba, Normal(0, 0, 1));
-    ColorMesh::Vertex v6(Position(1, -1, 1), rgba, Normal(0, 0, 1));
-    ColorMesh::Vertex v7(Position(1, 1, 1), rgba, Normal(0, 0, 1));
-    ColorMesh::Vertex v8(Position(-1, 1, 1), rgba, Normal(0, 0, 1));
+    return mesh;
+}
 
-    // Front face
+ColorMesh MeshFactory::cuboid(const double width, const double height, const double depth, const Rgba &color) {
+    ColorMesh mesh;
+    Color rgba = Vec4F(color.getR(), color.getG(), color.getB(), color.getA());
+
+    double w = width / 2.0, h = height / 2.0, d = depth / 2.0;
+    ColorMesh::Vertex v1(Position(-w, -h, -d), rgba, Normal(0, 0, -1));
+    ColorMesh::Vertex v2(Position(w, -h, -d), rgba, Normal(0, 0, -1));
+    ColorMesh::Vertex v3(Position(w, h, -d), rgba, Normal(0, 0, -1));
+    ColorMesh::Vertex v4(Position(-w, h, -d), rgba, Normal(0, 0, -1));
+
+    ColorMesh::Vertex v5(Position(-w, -h, d), rgba, Normal(0, 0, 1));
+    ColorMesh::Vertex v6(Position(w, -h, d), rgba, Normal(0, 0, 1));
+    ColorMesh::Vertex v7(Position(w, h, d), rgba, Normal(0, 0, 1));
+    ColorMesh::Vertex v8(Position(-w, h, d), rgba, Normal(0, 0, 1));
+
     mesh.addTris(v1, v2, v3);
     mesh.addTris(v3, v4, v1);
     // Back face
@@ -47,23 +58,13 @@ ColorMesh MeshFactory::cube(const RGBA& color) {
 
     return mesh;
 }
-ColorMesh MeshFactory::sphere(int subdivisions) {
-    
-}
 
-ColorMesh MeshFactory::cuboid(const double width, const double height, const double depth) {
-    
-}
-
-ColorMesh MeshFactory::pyramid(const double width, const double height, const double depth) {
-    
+ColorMesh MeshFactory::pyramid(const double width, const double height, const double depth, const Rgba &color) {
 }
 
 
-ColorMesh MeshFactory::tris(const Vec3D &v1, const Vec3D &v2, const Vec3D &v3) {
-    
+ColorMesh MeshFactory::tris(const Vec3D &v1, const Vec3D &v2, const Vec3D &v3, const Rgba &color) {
 }
 
-ColorMesh MeshFactory::quad(const Vec3D &v1, const Vec3D &v2, const Vec3D &v3, const Vec3D &v4) {
-    
+ColorMesh MeshFactory::quad(const Vec3D &v1, const Vec3D &v2, const Vec3D &v3, const Vec3D &v4, const Rgba &color) {
 }

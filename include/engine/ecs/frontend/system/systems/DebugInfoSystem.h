@@ -17,13 +17,13 @@ namespace GLESC::ECS {
         /**
          * @brief Default constructor.
          */
-        DebugInfoSystem(ECSCoordinator &ecs, Renderer &renderer);
+        DebugInfoSystem(ECSCoordinator& ecs, Render::Renderer& renderer);
 
 
         void update() override;
 
     private:
-        void setEntityData(const EntityID &id);
-        Renderer &renderer;
+        void setEntityData(const EntityID& id);
+        Render::Renderer& renderer;
     }; // class DebugInfoSystem
 }

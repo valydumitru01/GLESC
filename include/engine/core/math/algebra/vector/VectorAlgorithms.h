@@ -402,6 +402,12 @@ namespace GLESC::Math {
             return dotProduct(vec, vec);
         }
 
+
+        template <typename Type, size_t N>
+        static bool isNormalized(const VectorData<Type, N>& vec) {
+            return Math::eq(length(vec), Type(1));
+        }
+
         /**
          * @brief Computes the distance between two vectors.
          *

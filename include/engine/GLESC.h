@@ -38,9 +38,10 @@ namespace GLESC {
          * @brief The engine can only be created by the main function,
          * where the game loop is defined
          */
-        friend int ::main(int argc, char *argv[]);
+        friend int ::main(int argc, char* argv[]);
 
     private:
+        std::vector<std::unique_ptr<ECS::System>> createSystems();
         ECS::Entity createEngineCamera();
 
         void registerStats() const;
@@ -49,7 +50,7 @@ namespace GLESC {
          * @brief The constructor is private,
          * the engine can only be created by the main function
          */
-        explicit Engine(FPSManager &fpsManager);
+        explicit Engine(FPSManager& fpsManager);
 
         /**
          * @brief Processes the logic of the game
@@ -91,12 +92,12 @@ namespace GLESC {
          * @details Handles all the rendering of the game, provides a high level interface to the graphics API.
          * Can be used to render 2D and 3D graphics, including generating meshes and textures.
          */
-        Renderer renderer;
+        Render::Renderer renderer;
 
         PhysicsManager physicsManager;
         HUDManager hudManager;
 
-        FPSManager &fpsManager;
+        FPSManager& fpsManager;
 
         EngineDebugHUDManager engineHuds;
 

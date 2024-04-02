@@ -658,6 +658,10 @@ namespace GLESC::Math {
             return VectorAlgorithms::length(this->data);
         }
 
+        [[nodiscard]] bool isNormalized() const {
+            return VectorAlgorithms::isNormalized(this->data);
+        }
+
         [[nodiscard]] Type lengthSquared() const {
             return VectorAlgorithms::lengthSquared(this->data);
         }

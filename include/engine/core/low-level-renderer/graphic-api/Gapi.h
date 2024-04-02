@@ -13,24 +13,24 @@
 
 #ifdef GLESC_OPENGL
 #include "engine/core/low-level-renderer/graphic-api/concrete-apis/opengl/OpenGLAPI.h"
-inline GLESC::OpenGLAPI& getGAPI() {
-    static GLESC::OpenGLAPI gapi;
+inline GLESC::GAPI::OpenGLAPI& getGAPI() {
+    static GLESC::GAPI::OpenGLAPI gapi;
     return gapi;
 }
 #endif
 
 #ifdef GLESC_VULKAN
 #include "engine/core/low-level-renderer/graphic-api/concrete-apis/vulkan/VulkanAPI.h"
-inline GLESC::VulkanAPI& GetGAPI() {
-    static GLESC::VulkanAPI gapi;
+inline GLESC::GAPI::VulkanAPI& GetGAPI() {
+    static GLESC::GAPI::VulkanAPI gapi;
     return gapi;
 }
 #endif
 
 #ifdef GLESC_DIRECTX
 #include "engine/core/low-level-renderer/graphic-api/concrete-apis/directx/DirectXAPI.h"
-inline GLESC::DirectXAPI& GetGAPI() {
-    static GLESC::DirectXAPI gapi;
+inline GLESC::GAPI::DirectXAPI& GetGAPI() {
+    static GLESC::GAPI::DirectXAPI gapi;
     return gapi;
 }
 #endif

@@ -12,7 +12,7 @@
 #include "engine/core/low-level-renderer/graphic-api/GapiTypes.h"
 #include "TextureStructs.h"
 
-namespace GLESC {
+namespace GLESC::GAPI {
     class Texture {
     public:
         Texture(std::string pathParam);
@@ -29,19 +29,19 @@ namespace GLESC {
         
         void unbind() const;
         
-        [[nodiscard]] inline GAPI::UInt getWidth() const { return width; }
+        [[nodiscard]] UInt getWidth() const { return width; }
         
-        [[nodiscard]] inline GAPI::UInt getHeight() const { return height; }
+        [[nodiscard]] UInt getHeight() const { return height; }
         
-        [[nodiscard]] inline GAPI::Size getTotalOfPixels() const { return width * height; }
+        [[nodiscard]] Size getTotalOfPixels() const { return width * height; }
         
-        [[nodiscard]] inline const std::string &getPath() const { return path; }
+        [[nodiscard]] const std::string &getPath() const { return path; }
         
-        [[nodiscard]] inline GAPI::UInt getTextureID() const { return textureID; }
+        [[nodiscard]] UInt getTextureID() const { return textureID; }
         
-        [[nodiscard]] Pixel getPixel(GAPI::UInt x, GAPI::UInt y) const;
+        [[nodiscard]] Pixel getPixel(UInt x, UInt y) const;
         
-        [[nodiscard]] const std::vector<GAPI::UByte> &getPixelsInBytes() const{ return pixels;}
+        [[nodiscard]] const std::vector<UByte> &getPixelsInBytes() const{ return pixels;}
         
         [[nodiscard]] const Format &getFormat() const;
         
@@ -50,9 +50,9 @@ namespace GLESC {
     
     private:
         
-        GAPI::UInt textureID;
-        GAPI::UInt width, height;
-        std::vector<GAPI::UByte> pixels;
+        UInt textureID;
+        UInt width, height;
+        std::vector<UByte> pixels;
         std::shared_ptr<Format> format;
         std::string path;
         

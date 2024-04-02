@@ -12,42 +12,46 @@
 #include "engine/subsystems/renderer/mesh/Mesh.h"
 #include "engine/subsystems/transform/Transform.h"
 
-struct DynamicMesh {
-    GLESC::ColorMesh* mesh;
-    const GLESC::Material* material;
-    const GLESC::Transform* transform;
-    bool operator==(const DynamicMesh& other) const {
-        return mesh == other.mesh && material == other.material && transform == other.transform;
-    }
+namespace GLESC::Render {
+    struct DynamicMesh {
+        ColorMesh *mesh;
+        const Material *material;
+        const Transform::Transform *transform;
 
-    bool operator<(const DynamicMesh& other) const {
-        if (mesh < other.mesh) {
-            return true;
+        bool operator==(const DynamicMesh &other) const {
+            return mesh == other.mesh && material == other.material && transform == other.transform;
         }
-        if (mesh > other.mesh) {
-            return false;
-        }
-        if (material < other.material) {
-            return true;
-        }
-        if (material > other.material) {
-            return false;
-        }
-        return transform < other.transform;
-    }
-};
 
-class DynamicMeshes {
-public:
-    void addDynamicMesh(GLESC::ColorMesh& mesh, const GLESC::Material& material,
-                        const GLESC::Transform& transform) {
-        dynamicMeshes.insert({&mesh, &material, &transform});
-    }
+        bool operator<(const DynamicMesh &other) const {
+            if (mesh < other.mesh) {
+                return true;
+            }
+            if (mesh > other.mesh) {
+                return false;
+            }
+            if (material < other.material) {
+                return true;
+            }
+            if (material > other.material) {
+                return false;
+            }
+            return transform < other.transform;
+        }
+    }; // struct DynamicMesh
 
-    std::set<DynamicMesh>& getDynamicMeshes() {
-        return dynamicMeshes;
-    }
+    class DynamicMeshes {
+    public:
+        void addDynamicMesh(ColorMesh &mesh,
+                            const Material &material,
+                            const Transform::Transform &transform) {
+            dynamicMeshes.insert({&mesh, &material, &transform});
+        }
 
-private:
-    std::set<DynamicMesh> dynamicMeshes;
-}; // class DynamicMeshes
+        std::set<DynamicMesh> &getDynamicMeshes() {
+            return dynamicMeshes;
+        }
+
+    private:
+        std::set<DynamicMesh> dynamicMeshes;
+    }; // class DynamicMeshes
+} // namespace GLESC::Render

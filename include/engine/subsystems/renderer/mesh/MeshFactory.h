@@ -1,5 +1,5 @@
 /**************************************************************************************************
- * @file   ColorMeshFactory.h
+ * @file   MeshFactory.h
  * @author Valentin Dumitru
  * @date   10/12/2023
  * @brief  Add description of this file if needed @TODO
@@ -11,14 +11,19 @@
 
 #include "Mesh.h"
 
-namespace GLESC {
+namespace GLESC::Render {
     class MeshFactory {
     public:
-        static ColorMesh cube(const RGBA& color);
-        static ColorMesh sphere(int subdivisions);
-        static ColorMesh cuboid(const double width, const double height, const double depth);
-        static ColorMesh pyramid(const double width, const double height, const double depth);
-        static ColorMesh tris(const Vec3D& v1, const Vec3D& v2, const Vec3D& v3);
-        static ColorMesh quad(const Vec3D& v1, const Vec3D& v2, const Vec3D& v3, const Vec3D& v4);
+        static ColorMesh cube(const Rgba &color);
+
+        static ColorMesh sphere(int subdivisions, const Rgba &color);
+
+        static ColorMesh cuboid(double width, double height, double depth, const Rgba &color);
+
+        static ColorMesh pyramid(double width, double height, double depth, const Rgba &color);
+
+        static ColorMesh tris(const Vec3D &v1, const Vec3D &v2, const Vec3D &v3, const Rgba &color);
+
+        static ColorMesh quad(const Vec3D &v1, const Vec3D &v2, const Vec3D &v3, const Vec3D &v4, const Rgba &color);
     }; // class ColorMeshFactory
 } // namespace GLESC

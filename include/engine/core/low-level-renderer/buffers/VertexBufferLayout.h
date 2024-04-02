@@ -9,12 +9,12 @@
  ******************************************************************************/
 #pragma once
 
-#include "engine/core/low-level-renderer/graphic-api/Gapi.h"
+#include "../graphic-api/Gapi.h"
 
-namespace GLESC {
+namespace GLESC::GAPI {
     struct VertexBufferElement {
-        GAPI::Types type;
-        GAPI::Bool normalized;
+        Enums::Types type;
+        Bool normalized;
     };
     
     class VertexBufferLayout {
@@ -25,11 +25,11 @@ namespace GLESC {
         [[nodiscard]] const std::vector<VertexBufferElement> &getElements() const { return elements; }
         [[nodiscard]] uint32_t getStride() const { return stride; }
         
-        void push(GAPI::Types type, GAPI::Bool normalized = GAPI::Bool::False);
+        void push(Enums::Types type, Bool normalized = Bool::False);
     
     private:
         std::vector<VertexBufferElement> elements;
-        GAPI::UInt stride;
+        UInt stride;
         
     }; // class VertexBufferLayout
 } // namespace GLESC

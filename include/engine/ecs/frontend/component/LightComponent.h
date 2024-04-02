@@ -8,13 +8,12 @@
  * See LICENSE.txt in the project root for license information.
  **************************************************************************************************/
 #pragma once
-#include "engine/core/debugger/Stringer.h"
 #include "engine/ecs/frontend/component/IComponent.h"
-#include "engine/subsystems/renderer/lighting/Light.h"
+#include "engine/subsystems/renderer/lighting/LightSpot.h"
 
 namespace GLESC::ECS {
     struct LightComponent : public IComponent {
-        Light light;
+        Render::LightSpot light;
 
         [[nodiscard]] std::string getName() const override {
             return "LightComponent";

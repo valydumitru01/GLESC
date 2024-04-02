@@ -9,14 +9,16 @@
 #include "IComponent.h"
 #include "engine/subsystems/transform/Transform.h"
 
-struct TransformComponent : IComponent {
-    GLESC::Transform transform;
-    
-    std::string toString() const override {
-        return transform.toString();
-    }
+namespace GLESC::ECS {
+    struct TransformComponent : IComponent {
+        Transform::Transform transform;
 
-    std::string getName() const override {
-        return "TransformComponent";
-    }
-};
+        std::string toString() const override {
+            return transform.toString();
+        }
+
+        std::string getName() const override {
+            return "TransformComponent";
+        }
+    };
+} // namespace GLESC::ECS

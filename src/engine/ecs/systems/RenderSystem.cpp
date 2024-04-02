@@ -13,7 +13,7 @@
 #include "engine/ecs/frontend/system/systems/RenderSystem.h"
 using namespace GLESC::ECS;
 
-RenderSystem::RenderSystem(Renderer& renderer, ECSCoordinator& ecs) :
+RenderSystem::RenderSystem(Render::Renderer& renderer, ECSCoordinator& ecs) :
     System(ecs, "RenderSystem"), renderer(renderer) {
     addComponentRequirement<TransformComponent>();
     addComponentRequirement<RenderComponent>();
@@ -26,6 +26,6 @@ void RenderSystem::update() {
 
         auto& transform = getComponent<TransformComponent>(entity);
 
-        renderer.setData(render.material, render.mesh, transform.transform);
+        renderer.addData(render.material, render.mesh, transform.transform);
     }
 }

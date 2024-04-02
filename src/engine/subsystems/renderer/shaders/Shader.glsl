@@ -1,44 +1,53 @@
 #shader fragment
-/* The glsl version is automatically set */
+/* The GLSL version is automatically set */
 out vec4 FragColor;
 
 #ifdef USE_COLOR
-in vec4 vertexColor;
+in vec4 VertexColor;
 #else
-in vec2 vertexTexCoord;
+in vec2 VertexTexCoord;
 #endif
-
 in vec3 Normal;
 in vec3 FragPos;
 
 // Assuming a maximum of N lights
 #define MAX_LIGHTS 50
+
+struct GlobalAmbientLight {
+    vec3 color;
+    float intensity;
+};
+
+struct LightContribution {
+    vec3 Diffuse;
+    vec3 Specular;
+};
+
 struct Light {
     vec3 position;
     vec3 color;
     float intensity;
 };
 
-uniform Light lights[MAX_LIGHTS];
+struct GlobalSun {
+    Light lightProperties;
+    vec3 direction;
 
-uniform int numLights;// Actual number of lights to use
+    sampler2D shadowMap;
+    mat4 viewProjMatrix;
+};
 
-uniform sampler2D shadowMap;// Shadow map texture
-uniform mat4 lightViewProjMatrix;// Light's view projection matrix
+struct LightSpot {
+    Light lightProperties;
+    float radius;
+};
 
-// Global ambient light properties (could be set via uniforms)
+struct LightSpots {
+    LightSpot lights[MAX_LIGHTS];
+    int size; // Actual number of lights to use
+};
 
-// Color of the global ambient light (light that scatters everywhere, makes everything visible)
-// Not to be confused with sun light or global light, which is directional and casts shadows
-uniform vec3 uGlobalAmbientColor;
-// Intensity of the global ambient light, makes everything more or less colorful (aka less or more black)
-uniform float uGlobalAmbientIntensity;// Intensity of the global ambient light
-
-// Material properties
 struct Material {
-    vec3 ambientColor;
-    float ambientIntensity;
-    vec3 diffuseColor;
     float diffuseIntensity;
     vec3 specularColor;
     float specularIntensity;
@@ -46,99 +55,77 @@ struct Material {
     float emissionIntensity;
     float shininess;
 };
+
+uniform GlobalSun uGlobalSunLight;
+uniform GlobalAmbientLight uGlobalAmbient;
+uniform LightSpots uSpotLights;
+uniform Material uMaterial;
+
 #ifdef USE_COLOR
-uniform vec4 color;
+uniform vec4 Color;
 #else
-uniform sampler2D texture1;
+uniform sampler2D Texture1;
 #endif
 
-float calculateShadowFactor(vec3 fragPos, vec4 lightSpacePos) {
-    // Transform fragment position to light space
+float calculateShadowFactor(GlobalSun sun, vec3 fragPos) {
+    vec4 lightSpacePos = sun.viewProjMatrix * vec4(fragPos, 1.0);
     vec3 projCoords = lightSpacePos.xyz / lightSpacePos.w;
-    projCoords = projCoords * 0.5 + 0.5;// Transform to [0,1] space
+    projCoords = projCoords * 0.5 + 0.5; // Transform to [0,1] space
 
-    // Get closest depth value from light's perspective (from shadow map)
-    float closestDepth = texture(shadowMap, projCoords.xy).r;
-
-    // Get depth of current fragment from light's perspective
+    float closestDepth = texture(sun.shadowMap, projCoords.xy).r;
     float currentDepth = projCoords.z;
-
-    // Check whether current fragPos is in shadow
-    float shadow = currentDepth > closestDepth  ? 1.0 : 0.0;
+    float shadow = currentDepth > closestDepth ? 1.0 : 0.0;
     return shadow;
 }
 
-vec4 calculateAmbient(vec3 materialAmbientColor, vec3 globalAmbientColor, float globalAmbientIntensity,
-float materialAmbientIntensity) {
-    // Combine the material's ambient color with the global ambient light
-    // settings and include materialAmbientIntensity in the calculation
-    vec3 effectiveAmbientColor = materialAmbientColor * globalAmbientColor *
-    globalAmbientIntensity * materialAmbientIntensity;
-    return vec4(effectiveAmbientColor, 1.0);
-}
-vec4 calculateDiffuse(vec3 diffuseColor, vec3 norm, Light light, float materialDiffuseIntensity) {
-    float diff = max(dot(norm, normalize(light.position - FragPos)), 0.0);
-    // Multiply the result by materialDiffuseIntensity to use the uniform
-    return vec4(diffuseColor * light.color.xyz, 1.0) * diff * light.intensity * materialDiffuseIntensity;
+vec3 calculateAmbient(GlobalAmbientLight globalAmbient, vec3 baseColor) {
+    return baseColor * globalAmbient.color * globalAmbient.intensity;
 }
 
-vec4 calculateSpecular(vec3 specularColor, vec3 norm, vec3 lightDir, vec3 viewDir, Light light,
-float materialSpecularIntensity) {
+LightContribution calculateLightContribution(vec3 fragPos, vec3 norm, vec3 viewDir, Light light) {
+    vec3 lightDir = normalize(light.position - fragPos);
+    float diff = max(dot(norm, lightDir), 0.0);
+    vec3 diffuse = diff * light.color * light.intensity;
+
     vec3 reflectDir = reflect(-lightDir, norm);
-    float spec = pow(max(dot(viewDir, reflectDir), 0.0), uShininess);
-    // Multiply the result by materialSpecularIntensity to use the uniform
-    return vec4(specularColor * light.color, 1.0) * spec * materialSpecularIntensity * light.intensity;
-}
+    float spec = pow(max(dot(viewDir, reflectDir), 0.0), uMaterial.shininess);
+    vec3 specular = spec * light.color * uMaterial.specularIntensity;
 
-vec4 calculateEmission(vec3 emissionColor, float materialEmissionIntensity) {
-    return vec4(emissionColor * materialEmissionIntensity, 1.0);
+    return LightContribution(diffuse, specular);
 }
-
 
 void main() {
-    // Base color
     #ifdef USE_COLOR
-    vec4 baseColor = color;
+    vec3 baseColor = VertexColor.rgb;
     #else
-    vec4 baseColor = texture(texture1, vertexTexCoord);
+    vec3 baseColor = texture(Texture1, VertexTexCoord).rgb;
     #endif
 
-    vec3 norm = Normal;// Normal is expected to be already normalized
-    vec3 viewDir = normalize(-FragPos);// Assuming the camera is at the origin
+    vec3 norm = normalize(Normal);
+    vec3 viewDir = normalize(-FragPos);
+    vec3 ambientColor = calculateAmbient(uGlobalAmbient, baseColor);
 
-    vec4 ambient = calculateAmbient(uAmbientColor, uGlobalAmbientColor, uGlobalAmbientIntensity, uAmbientIntensity);
+    vec3 diffuse = vec3(0.0);
+    vec3 specular = vec3(0.0);
 
-
-    vec4 diffuse = vec4(0.0);
-    vec4 specular = vec4(0.0);
-    for (int i = 0; i < numLights; ++i) {
-        vec3 lightDir = normalize(lights[i].position - FragPos);
-        // Calculate shadow factor for the current light
-        float shadowFactor = calculateShadowFactor(FragPos, lightViewProjMatrix * vec4(FragPos, 1.0));
-        // Dimming factor for shadows
-        float shadowDimming = 1.0 - shadowFactor;// Assuming shadowFactor is 1.0 if in shadow, 0.0 if not
-
-        // Adjust diffuse and specular contributions based on shadow
-        vec4 currentDiffuse = calculateDiffuse(uDiffuseColor, norm, lights[i], uDiffuseIntensity) * shadowDimming;
-        vec4 currentSpecular = calculateSpecular(uSpecularColor, norm, lightDir, viewDir, lights[i], uSpecularIntensity)
-        * shadowDimming;
-
-
-        diffuse += currentDiffuse * baseColor;
-        specular += currentSpecular;
+    for (int i = 0; i < uSpotLights.size; ++i) {
+        LightContribution contribution = calculateLightContribution(FragPos, norm, viewDir, uSpotLights.lights[i].lightProperties);
+        diffuse += contribution.Diffuse * uMaterial.diffuseIntensity;
+        specular += contribution.Specular;
     }
 
-    vec4 emission = calculateEmission(uEmissionColor, uEmissionIntensity) ;
+    // Calculate contribution from the global sun light
+    float shadowFactor = calculateShadowFactor(uGlobalSunLight, FragPos);
+    float shadowDimming = 1.0 - shadowFactor;
+    LightContribution sunContribution = calculateLightContribution(FragPos, norm, viewDir, uGlobalSunLight.lightProperties);
+    diffuse += sunContribution.Diffuse * shadowDimming * uMaterial.diffuseIntensity;
+    specular += sunContribution.Specular * shadowDimming;
 
-    // The final color includes ambient, diffuse, and specular components
-    vec4 color = ambient + diffuse + specular + emission;
+    vec3 emission = uMaterial.emissionColor * uMaterial.emissionIntensity;
 
-    FragColor = color;
+    vec3 finalColor = ambientColor + diffuse + specular + emission;
+    FragColor = vec4(finalColor, 1.0);
 }
-
-
-
-
 
 
 #shader vertex
@@ -163,9 +150,9 @@ layout (location = 2) in vec3 normal;
 // ============Output variables==============
 // ==========================================
 #ifdef USE_COLOR
-out vec4 vertexColor;
+out vec4 VertexColor;
 #else
-out vec2 vertexTexCoord;
+out vec2 VertexTexCoord;
 #endif
 out vec3 Normal;
 out vec3 FragPos;
@@ -190,9 +177,9 @@ void main() {
     gl_Position = transformedPosition;
 
     #ifdef USE_COLOR
-    vertexColor = color;// Pass the color to the fragment shader.
+    VertexColor = color;// Pass the color to the fragment shader.
     #else
-    vertexTexCoord = texCoord;// Pass the texture coordinate to the fragment shader.
+    VertexTexCoord = texCoord;// Pass the texture coordinate to the fragment shader.
     #endif
 
     Normal = normal;

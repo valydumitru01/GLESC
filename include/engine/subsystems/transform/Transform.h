@@ -9,22 +9,12 @@
  **************************************************************************************************/
 #pragma once
 #include <cmath>
-#include "engine/core/math/algebra/vector/Vector.h"
+
+#include "TransformTypes.h"
+#include "engine/core/math/geometry/GeometryTypes.h"
 #include "engine/subsystems/renderer/mesh/Mesh.h"
 
-namespace GLESC {
-    namespace TransformTypes {
-        using Position = Vec3F;
-        using PosComp = Position::ValueType;
-
-        using Rotation = Vec3F;
-        using RotComp = Rotation::ValueType;
-
-        using Scale = Vec3F;
-        using ScaleComp = Scale::ValueType;
-    } // namespace Transform
-    using namespace TransformTypes;
-
+namespace GLESC::Transform {
     struct Transform {
         static Math::Direction worldUp;
         static Math::Direction worldRight;
@@ -51,10 +41,10 @@ namespace GLESC {
 
     class Transformer {
     public:
-        static void transformMesh(ColorMesh &mesh,
+        static void transformMesh(Render::ColorMesh &mesh,
                                   const Transform &transform);
 
-        static void transformBoundingVolume(BoundingVolume &boundingVolume,
+        static void transformBoundingVolume(Render::BoundingVolume &boundingVolume,
                                             const Transform &transform) ;
     }; // class Transformer
 } // namespace GLESC

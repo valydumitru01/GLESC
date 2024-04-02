@@ -14,7 +14,7 @@
 #include "engine/subsystems/renderer/Renderer.h"
 #include "engine/subsystems/renderer/mesh/Mesh.h"
 #include "engine/subsystems/renderer/mesh/MeshFactory.h"
-#include "engine/subsystems/renderer/shaders/Shader.h"
+#include "../../../include/engine/core/low-level-renderer/shader/Shader.h"
 #include "integration/rendering/RenderingTestHelper.h"
 #include "LoopHelper.cpp"
 

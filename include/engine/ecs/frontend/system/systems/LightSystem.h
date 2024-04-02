@@ -17,13 +17,10 @@ namespace GLESC::ECS {
         /**
          * @brief Default constructor.
          */
-        LightSystem(ECSCoordinator& ecs, Renderer& renderer);
+        LightSystem(ECSCoordinator& ecs, Render::Renderer& renderer);
 
         void update() override;
-
-    protected:
-
     private:
-        Renderer& renderer;
+        Render::Renderer& renderer;
     }; // class LightSystem
 } // namespace GLESC::ECS

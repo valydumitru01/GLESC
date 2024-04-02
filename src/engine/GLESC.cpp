@@ -28,7 +28,7 @@
 #include "engine/ecs/frontend/system/systems/DebugInfoSystem.h"
 using namespace GLESC;
 
-Engine::Engine(FPSManager &fpsManager) :
+Engine::Engine(FPSManager& fpsManager) :
     fpsManager(fpsManager),
     windowManager(),
     renderer(windowManager),
@@ -38,15 +38,8 @@ Engine::Engine(FPSManager &fpsManager) :
 
     ecs(),
     entityFactory(ecs),
-    systems({
-        std::make_unique<ECS::DebugInfoSystem>(ecs, renderer),
-        std::make_unique<ECS::InputSystem>(inputManager, ecs),
-        std::make_unique<ECS::PhysicsSystem>(physicsManager, ecs),
-        std::make_unique<ECS::RenderSystem>(renderer, ecs),
-        std::make_unique<ECS::CameraSystem>(renderer, windowManager, ecs),
-        std::make_unique<ECS::TransformSystem>(ecs),
-        std::make_unique<ECS::LightSystem>(ecs, renderer)
-    }),
+    systems(createSystems()),
+
 
     engineCamera(createEngineCamera()),
 
@@ -81,7 +74,7 @@ void Engine::update() {
     game.update();
     hudManager.update();
 
-    for (auto &system : systems) {
+    for (auto& system : systems) {
         system->update();
     }
 
@@ -95,13 +88,25 @@ void Engine::update() {
 static auto targetRotationX = 0.0f;
 static auto targetRotationY = 0.0f;
 
+std::vector<std::unique_ptr<ECS::System>> Engine::createSystems() {
+    std::vector<std::unique_ptr<ECS::System>> systems;
+    systems.push_back(std::make_unique<ECS::DebugInfoSystem>(ecs, renderer));
+    systems.push_back(std::make_unique<ECS::InputSystem>(inputManager, ecs));
+    systems.push_back(std::make_unique<ECS::PhysicsSystem>(physicsManager, ecs));
+    systems.push_back(std::make_unique<ECS::RenderSystem>(renderer, ecs));
+    systems.push_back(std::make_unique<ECS::CameraSystem>(renderer, windowManager, ecs));
+    systems.push_back(std::make_unique<ECS::TransformSystem>(ecs));
+    systems.push_back(std::make_unique<ECS::LightSystem>(ecs, renderer));
+    return systems;
+}
+
 ECS::Entity Engine::createEngineCamera() {
     using namespace GLESC::ECS;
     Entity camera = entityFactory.createEntity("camera");
 
     camera.addComponent(CameraComponent())
-            .addComponent(TransformComponent())
-            .addComponent(InputComponent());
+          .addComponent(TransformComponent())
+          .addComponent(InputComponent());
 
     camera.getComponent<CameraComponent>().viewWidth = static_cast<float>(windowManager.getSize().width);
     camera.getComponent<CameraComponent>().viewHeight = static_cast<float>(windowManager.getSize().height);
@@ -109,28 +114,28 @@ ECS::Entity Engine::createEngineCamera() {
     KeyCommand moveForward = KeyCommand([&] {
         Entity cameraEntity = entityFactory.getEntity("camera");
         cameraEntity.getComponent<TransformComponent>().transform.position +=
-                cameraEntity.getComponent<TransformComponent>().transform.forward();
+            cameraEntity.getComponent<TransformComponent>().transform.forward();
     });
 
     KeyCommand moveBackward = KeyCommand([&] {
         Entity cameraEntity = entityFactory.getEntity("camera");
         cameraEntity.getComponent<TransformComponent>().transform.position -=
-                cameraEntity.getComponent<TransformComponent>().transform.forward();
+            cameraEntity.getComponent<TransformComponent>().transform.forward();
     });
 
     KeyCommand moveLeft = KeyCommand([&] {
         Entity cameraEntity = entityFactory.getEntity("camera");
         cameraEntity.getComponent<TransformComponent>().transform.position -=
-                cameraEntity.getComponent<TransformComponent>().transform.right();
+            cameraEntity.getComponent<TransformComponent>().transform.right();
     });
 
     KeyCommand moveRight = KeyCommand([&] {
         Entity cameraEntity = entityFactory.getEntity("camera");
         cameraEntity.getComponent<TransformComponent>().transform.position +=
-                cameraEntity.getComponent<TransformComponent>().transform.right();
+            cameraEntity.getComponent<TransformComponent>().transform.right();
     });
 
-    MouseCommand rotate = MouseCommand([&](const MousePosition &deltaMouse) {
+    MouseCommand rotate = MouseCommand([&](const MousePosition& deltaMouse) {
         if (!inputManager.isMouseRelative()) return;
         Entity cameraEntity = entityFactory.getEntity("camera");
 
@@ -138,11 +143,11 @@ ECS::Entity Engine::createEngineCamera() {
 
         // Adjust the target rotation based on mouse input
         targetRotationX = cameraEntity.getComponent<TransformComponent>().transform.rotation.x() +
-                          static_cast<float>(deltaMouse.getY()) * cameraEntity.getComponent<CameraComponent>().
-                          sensitivity;
+            static_cast<float>(deltaMouse.getY()) * cameraEntity.getComponent<CameraComponent>().
+                                                                 sensitivity;
         targetRotationY = cameraEntity.getComponent<TransformComponent>().transform.rotation.y() +
-                          static_cast<float>(deltaMouse.getX()) * cameraEntity.getComponent<CameraComponent>().
-                          sensitivity;
+            static_cast<float>(deltaMouse.getX()) * cameraEntity.getComponent<CameraComponent>().
+                                                                 sensitivity;
 
         // Smoothly interpolate current rotation towards the target rotation
         cameraEntity.getComponent<TransformComponent>().transform.rotation.x() = Math::lerp(
@@ -186,7 +191,7 @@ void Engine::registerStats() const {
 
     StatsManager::registerStatSource("Pressed Keys: ", [&]() -> std::string {
         std::string keys = "[";
-        for (const auto &key : inputManager.getPressedKeys()) {
+        for (const auto& key : inputManager.getPressedKeys()) {
             keys += keyToString(key) + ", ";
         }
         // Remove last comma and space
@@ -205,7 +210,7 @@ void Engine::registerStats() const {
 
     StatsManager::registerStatSource("Fustum: ", [&]() -> std::string {
         std::stringstream ss;
-        for (auto &plane : renderer.getFrustum().getPlanes()) {
+        for (auto& plane : renderer.getFrustum().getPlanes()) {
             ss << plane.toString() << "\n";
         }
         return ss.str();
@@ -221,11 +226,11 @@ void Engine::registerStats() const {
 
     StatsManager::registerStatSource("All model matrices: ", [&]() -> std::string {
         std::string matrices;
-        for (auto &entity : ecs.getAllEntities()) {
+        for (auto& entity : ecs.getAllEntities()) {
             matrices += "Entity: " + entity.left + "\n";
-            if (ecs.hasComponent<TransformComponent>(entity.right)) {
-                Transform transform = ecs.getComponent<TransformComponent>(entity.right).transform;
-                Model model;
+            if (ecs.hasComponent<ECS::TransformComponent>(entity.right)) {
+                Transform::Transform transform = ecs.getComponent<ECS::TransformComponent>(entity.right).transform;
+                Render::Model model;
                 model.makeModelMatrix(transform.position, transform.rotation, transform.scale);
                 matrices += model.toString() + "\n";
             }

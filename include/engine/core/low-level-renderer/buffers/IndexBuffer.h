@@ -13,22 +13,22 @@
 
 #include <vector>
 #include "engine/core/low-level-renderer/graphic-api/GapiTypes.h"
-#include "engine/core/low-level-renderer/graphic-api/Gapi.h"
+#include "engine/core/low-level-renderer/graphic-api/GapiEnums.h"
 
-namespace GLESC {
+namespace GLESC::GAPI {
     class IndexBuffer {
     public:
-        IndexBuffer(const GAPI::UInt* data, GAPI::Size count,
-                    GAPI::BufferUsages bufferUsage = GAPI::BufferUsages::DynamicDraw);
+        IndexBuffer(const UInt* data, Size count,
+                    Enums::BufferUsages bufferUsage = Enums::BufferUsages::DynamicDraw);
 
-        IndexBuffer(const std::vector<GAPI::UInt>& data,
-                    GAPI::BufferUsages bufferUsage = GAPI::BufferUsages::DynamicDraw);
+        IndexBuffer(const std::vector<UInt>& data,
+                    Enums::BufferUsages bufferUsage = Enums::BufferUsages::DynamicDraw);
 
         ~IndexBuffer();
 
-        [[nodiscard]] GAPI::Size getCount() const { return count; }
+        [[nodiscard]] Size getCount() const { return count; }
 
-        [[nodiscard]] GAPI::UInt getBufferID() const { return indexBufferID; }
+        [[nodiscard]] UInt getBufferID() const { return indexBufferID; }
 
         void destroy();
 
@@ -40,8 +40,8 @@ namespace GLESC {
         void destroyOnce();
 
         bool objectAlive = true;
-        GAPI::Size count{0};
-        GAPI::UInt indexBufferID{0};
+        Size count{0};
+        UInt indexBufferID{0};
     }; // class IndexBuffer
 } // namespace GLESC
 

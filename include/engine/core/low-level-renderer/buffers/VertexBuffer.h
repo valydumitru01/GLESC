@@ -14,17 +14,17 @@
 
 #include "engine/core/low-level-renderer/graphic-api/GapiTypes.h"
 
-namespace GLESC {
+namespace GLESC::GAPI {
     class VertexBuffer {
     public:
-        VertexBuffer(const GAPI::Void* data,
-                     GAPI::Size count,
-                     GAPI::Size size,
-                     GAPI::BufferUsages bufferUsage = GAPI::BufferUsages::DynamicDraw);
+        VertexBuffer(const Void *data,
+                     Size count,
+                     Size size,
+                     Enums::BufferUsages bufferUsage = Enums::BufferUsages::DynamicDraw);
 
         ~VertexBuffer();
 
-        [[nodiscard]] GAPI::UInt getBufferID() const { return vertexBufferID; }
+        [[nodiscard]] UInt getBufferID() const { return vertexBufferID; }
 
         void destroy();
 
@@ -43,7 +43,6 @@ namespace GLESC {
         void destroyOnce();
 
         bool objectAlive = true;
-        GAPI::UInt vertexBufferID{0};
+        UInt vertexBufferID{0};
     }; // class VertexBuffer
 } // namespace GLESC
-

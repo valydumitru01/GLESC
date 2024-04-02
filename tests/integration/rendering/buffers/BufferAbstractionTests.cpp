@@ -11,8 +11,8 @@
 #include <SDL2/SDL.h>
 
 #include "LoopHelper.cpp"
-#include "engine/core/low-level-renderer/buffers/index/IndexBuffer.h"
-#include "engine/core/low-level-renderer/buffers/vertex/VertexArray.h"
+#include "../../../../include/engine/core/low-level-renderer/buffers/IndexBuffer.h"
+#include "../../../../include/engine/core/low-level-renderer/buffers/VertexArray.h"
 #include "engine/core/low-level-renderer/buffers/vertex/VertexBuffer.h"
 #include "engine/core/low-level-renderer/graphic-api/Gapi.h"
 #include "engine/core/low-level-renderer/shader/ShaderLoader.h"

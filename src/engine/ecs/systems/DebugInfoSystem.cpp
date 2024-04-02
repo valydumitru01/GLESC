@@ -13,8 +13,8 @@
 #include "engine/subsystems/ingame-debug/EntityStatsManager.h"
 using namespace GLESC::ECS;
 
-DebugInfoSystem::DebugInfoSystem(ECSCoordinator &ecs, Renderer &renderer) : System(ecs, "DebugInfoSystem"),
-                                                                            renderer(renderer) {
+DebugInfoSystem::DebugInfoSystem(ECSCoordinator &ecs, Render::Renderer &renderer) : System(ecs, "DebugInfoSystem"),
+                                                                                    renderer(renderer) {
     addComponentRequirement<TransformComponent>();
 }
 
@@ -45,7 +45,7 @@ void DebugInfoSystem::update() {
         // Skip if the forward line of the camera does not intersect with the bounding volume of the entity
         if (!intersects(cameraForwardLine, entityPos)) continue;
 
-        const Transform &cameraTransform = renderer.getCameraTrasnform();
+        const Transform::Transform &cameraTransform = renderer.getCameraTrasnform();
         double entityDistanceFromCam = entityPos.distance(cameraTransform.position);
 
         // Skip if the entity is the camera itself

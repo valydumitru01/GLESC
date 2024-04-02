@@ -14,7 +14,7 @@
 #ifdef GLESC_OPENGL
 #include <GL/glew.h>
 
-namespace GAPI{
+namespace GLESC::GAPI{
     enum class Bool{
         False = GL_FALSE,
         True = GL_TRUE
@@ -32,7 +32,7 @@ namespace GAPI{
     using Void = GLvoid;
     using Bitfield = GLbitfield;
     using Byte = GLbyte;
-    
+
     using TextureID = UInt;
     using ShaderProgramID = UInt;
 
@@ -53,32 +53,39 @@ namespace GAPI{
 #endif
 
 
-template<typename T>
-struct isGraphicsType : std::false_type {};
+namespace GLESC::GAPI {
+    template<typename T>
+    struct isGraphicsType : std::false_type {};
 
-// Specialize for expected types
-template<> struct isGraphicsType<GAPI::Float> : std::true_type {};
-template<> struct isGraphicsType<GAPI::Int> : std::true_type {};
-template<> struct isGraphicsType<GAPI::UInt> : std::true_type {};
-template<> struct isGraphicsType<GAPI::UShort> : std::true_type {};
-template<> struct isGraphicsType<GAPI::UChar> : std::true_type {};
-
+    // Specialize for expected types
+    template<> struct isGraphicsType<GAPI::Float> : std::true_type {};
+    template<> struct isGraphicsType<GAPI::Int> : std::true_type {};
+    template<> struct isGraphicsType<GAPI::UInt> : std::true_type {};
+    template<> struct isGraphicsType<GAPI::UShort> : std::true_type {};
+    template<> struct isGraphicsType<GAPI::UChar> : std::true_type {};
+}
 
 #include "engine/core/math/algebra/vector/Vector.h"
 
-// GLM vector types
-template<> struct isGraphicsType<Vec2F> : std::true_type {};
-template<> struct isGraphicsType<Vec3F> : std::true_type {};
-template<> struct isGraphicsType<Vec4F> : std::true_type {};
-
+namespace GLESC::GAPI {
+    // GLM vector types
+    template<> struct isGraphicsType<Vec2F> : std::true_type {};
+    template<> struct isGraphicsType<Vec3F> : std::true_type {};
+    template<> struct isGraphicsType<Vec4F> : std::true_type {};
+}
 #include "engine/core/math/algebra/matrix/Matrix.h"
-// GLM matrix types
-template<> struct isGraphicsType<Mat2F> : std::true_type {};
-template<> struct isGraphicsType<Mat3F> : std::true_type {};
-template<> struct isGraphicsType<Mat4F> : std::true_type {};
 
+
+namespace GLESC::GAPI {
+    // GLM matrix types
+    template<> struct isGraphicsType<Mat2F> : std::true_type {};
+    template<> struct isGraphicsType<Mat3F> : std::true_type {};
+    template<> struct isGraphicsType<Mat4F> : std::true_type {};
+}
 // GLM quaternion type
 //template<> struct is_graphics_type<QuatF> : std::true_type {};
 
-template<typename T>
-bool constexpr isGraphicsType_v = isGraphicsType<T>::value;
+namespace GLESC::GAPI {
+    template<typename T>
+    bool constexpr isGraphicsType_v = isGraphicsType<T>::value;
+}

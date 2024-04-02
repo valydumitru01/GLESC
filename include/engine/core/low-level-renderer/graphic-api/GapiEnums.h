@@ -10,7 +10,7 @@
 #pragma once
 #include "engine/Config.h"
 
-namespace GAPI {
+namespace GLESC::GAPI::Enums {
     enum class TypeCount {
         Value [[maybe_unused]] = 1,
         Vec2 [[maybe_unused]] = 2,
@@ -25,7 +25,7 @@ namespace GAPI {
 
 #include <GL/glew.h>
 
-namespace GAPI {
+namespace GLESC::GAPI::Enums {
     namespace Texture {
         namespace Filters {
             enum class Min {
@@ -324,7 +324,7 @@ namespace GAPI {
 #endif
 
 
-namespace GAPI {
+namespace GLESC::GAPI::Enums {
     constexpr static TypeCount getTypeCount(Types type) {
         switch (type) {
             case Types::Float:

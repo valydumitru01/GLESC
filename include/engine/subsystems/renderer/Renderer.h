@@ -6,97 +6,105 @@
 
 #pragma once
 
-#include <memory>
 
-#include "engine/core/asserts/Asserts.h"
-#include "engine/core/low-level-renderer/buffers/index/IndexBuffer.h"
-#include "engine/core/low-level-renderer/buffers/vertex/VertexArray.h"
-#include "engine/core/low-level-renderer/graphic-api/Gapi.h"
-#include "engine/core/low-level-renderer/texture/TextureManager.h"
 #include "engine/core/window/WindowManager.h"
-#include "engine/res-mng/textures/TextureLoader.h"
-#include "engine/subsystems/renderer/MeshAdapter.h"
+#include "mesh/MeshAdapter.h"
 #include "engine/subsystems/renderer/RendererTypes.h"
 #include "engine/subsystems/renderer/material/Material.h"
-#include "engine/subsystems/renderer/mesh/BatchMeshes.h"
-#include "engine/subsystems/renderer/mesh/BatchMeshes.h"
+#include "../../core/low-level-renderer/shader/Shader.h"
+
+#include "engine/subsystems/renderer/mesh/Mesh.h"
+#include "engine/subsystems/transform/Transform.h"
+
 #include "engine/subsystems/renderer/mesh/BatchMeshes.h"
 #include "engine/subsystems/renderer/mesh/DynamicMeshes.h"
 #include "engine/subsystems/renderer/mesh/InstanceMeshes.h"
-#include "engine/subsystems/renderer/mesh/Mesh.h"
-#include "engine/subsystems/renderer/shaders/Shader.h"
-#include "engine/subsystems/transform/Transform.h"
-#include "math/Frustum.h"
+#include "engine/subsystems/renderer/lighting/LightSpots.h"
 
-namespace GLESC {
+#include "engine/subsystems/renderer/math/Frustum.h"
+#include "lighting/GlobalAmbienLight.h"
+#include "lighting/GlobalSun.h"
+
+namespace GLESC::Render {
     class Renderer {
     public:
-        explicit Renderer(WindowManager &windowManager);
+        explicit Renderer(WindowManager& windowManager);
 
         ~Renderer();
 
         [[nodiscard]] View getView() const { return view; }
-        void setView(const View &viewParam) { this->view = viewParam; }
+        void setView(const View& viewParam) { this->view = viewParam; }
 
         [[nodiscard]] Projection getProjection() const { return projection; }
-        void setProjection(const Projection &projectionParam) { this->projection = projectionParam; }
+        void setProjection(const Projection& projectionParam) { this->projection = projectionParam; }
 
-        [[nodiscard]] Transform getCameraTrasnform() const {
+        [[nodiscard]] Transform::Transform getCameraTrasnform() const {
             return this->cameraTransform;
         }
-        void setCameraTransform(Transform cameraTransformParam) {
+
+        void setCameraTransform(Transform::Transform cameraTransformParam) {
             this->cameraTransform = cameraTransformParam;
         }
 
-        [[nodiscard]] Shader &getDefaultShader() { return shader; }
-        [[nodiscard]] Frustum &getFrustum() { return frustum; }
-        [[nodiscard]] const Frustum &getFrustum() const { return frustum; }
+        void addLightSpot(const LightSpot& lightSpot, const Transform::Transform& transform) {
+            lightSpots.addLight(lightSpot, transform);
+        }
 
+        [[nodiscard]] GAPI::Shader& getDefaultShader() { return shader; }
+        [[nodiscard]] Frustum& getFrustum() { return frustum; }
+        [[nodiscard]] const Frustum& getFrustum() const { return frustum; }
 
         void clear() const;
 
-        void applyMaterial(const Material &material) const;
-        void applyTransform(ColorMesh &mesh, const Transform &transform) const;
-        void transformMeshCPU(ColorMesh &mesh, const Transform &transform);
-
-        void renderMesh(const ColorMesh &mesh);
+        void renderMesh(const ColorMesh& mesh);
 
 
-        void renderInstances(const ColorMesh &mesh,
-                             const std::vector<MeshInstanceData> &instances);
+        void renderInstances(const ColorMesh& mesh,
+                             const std::vector<MeshInstanceData>& instances);
 
 
+        void addData(const Material& material,
+                     ColorMesh& mesh,
+                     const Transform::Transform& transform);
 
-        void setData(const Material &material,
-                     ColorMesh &mesh,
-                     const Transform &transform);
+        void addLight(const LightSpot& light, const Transform::Transform& transform);
 
         void renderMeshes(double timeOfFrame);
 
         void swapBuffers() const;
 
     private:
-        void cacheMesh(const ColorMesh &mesh,
+        void applyTransform(ColorMesh& mesh, const Transform::Transform& transform) const;
+        void transformMeshCPU(ColorMesh& mesh, const Transform::Transform& transform);
+
+        void applyLighting(LightSpots& lightSpots, GlobalSun& sun, GlobalAmbienLight ambientLight) const;
+        void applyMaterial(const Material& material) const;
+        void cacheMesh(const ColorMesh& mesh,
                        AdaptedMesh adaptedMesh);
 
-        void cacheMesh(const ColorMesh &mesh,
+        void cacheMesh(const ColorMesh& mesh,
                        AdaptedInstances adaptedInstancesParam);
 
-        [[nodiscard]] bool isMeshNotCached(const ColorMesh &mesh) const;
+        [[nodiscard]] bool isMeshNotCached(const ColorMesh& mesh) const;
 
-        WindowManager &windowManager;
+        WindowManager& windowManager;
 
-        std::unordered_map<const ColorMesh *, AdaptedMesh> adaptedMeshes;
-        std::unordered_map<const ColorMesh *, AdaptedInstances> adaptedInstances;
+        std::unordered_map<const ColorMesh*, AdaptedMesh> adaptedMeshes;
+        std::unordered_map<const ColorMesh*, AdaptedInstances> adaptedInstances;
 
-        Shader shader;
+        GAPI::Shader shader;
+        Frustum frustum;
+
         InstanceMeshes meshInstances;
         MeshBatches meshBatches;
         DynamicMeshes dynamicMeshes;
-        Frustum frustum;
+
+        LightSpots lightSpots;
+        GlobalSun globalSun;
+        GlobalAmbienLight globalAmbienLight;
 
         Projection projection;
         View view;
-        Transform cameraTransform;
+        Transform::Transform cameraTransform;
     }; // class Renderer
 } // namespace GLESC

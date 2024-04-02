@@ -12,13 +12,15 @@
 
 #include "engine/subsystems/renderer/RendererTypes.h"
 
-struct Light {
-    float intensity{1.0f};
-    GLESC::Render::Rgb color{1.0f, 1.0f, 1.0f};
+namespace GLESC::Render {
+    struct LightSpot {
+        float intensity{1.0f};
+        Rgb color{1.0f, 1.0f, 1.0f};
 
-    Light() = default;
+        LightSpot() = default;
 
-    [[nodiscard]] std::string toString() const {
-        return "Intensity:" + std::to_string(intensity) + " Color:" + color.toString();
-    }
-}; // class Light
+        [[nodiscard]] std::string toString() const {
+            return "Intensity:" + std::to_string(intensity) + " Color:" + color.toString();
+        }
+    }; // class Light
+} // namespace GLESC::Render

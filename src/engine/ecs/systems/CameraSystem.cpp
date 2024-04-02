@@ -14,7 +14,7 @@
 #include "engine/subsystems/ingame-debug/StatsManager.h"
 using namespace GLESC::ECS;
 
-CameraSystem::CameraSystem(Renderer &renderer, WindowManager &windowManager, ECSCoordinator &ecs) :
+CameraSystem::CameraSystem(Render::Renderer &renderer, WindowManager &windowManager, ECSCoordinator &ecs) :
     System(ecs, "CameraSystem"), renderer(renderer), windowManager(windowManager) {
     addComponentRequirement<CameraComponent>();
     addComponentRequirement<TransformComponent>();
@@ -56,14 +56,14 @@ void CameraSystem::update() {
         camera.viewHeight = static_cast<float>(windowManager.getSize().height);
         renderer.setCameraTransform(transform.transform);
 
-        Projection projection;
+        Render::Projection projection;
         projection.makeProjectionMatrix(camera.fovDegrees, camera.nearPlane,
                                         camera.farPlane,
                                         camera.viewWidth,
                                         camera.viewHeight);
         // TODO: Enable the renderer to work with multiple projection and view matrices
         renderer.setProjection(projection);
-        View view;
+        Render::View view;
         view.makeViewMatrixPosRot(transform.transform.position,
                             transform.transform.rotation);
         renderer.setView(view);

@@ -9,10 +9,11 @@
  **************************************************************************************************/
 
 #include "engine/core/low-level-renderer/graphic-api/Gapi.h"
-#include "engine/subsystems/renderer/shaders/Shader.h"
+#include "engine/core/low-level-renderer/shader/Shader.h"
 #include "engine/core/low-level-renderer/shader/ShaderLoader.h"
 
-using namespace GLESC;
+using namespace GLESC::GAPI;
+
 inline std::vector<std::string> macrosToString(const std::vector<Shader::ShaderMacros>& macros) {
     std::vector<std::string> result;
     for (auto macro : macros) {
@@ -29,15 +30,15 @@ inline std::vector<std::string> macrosToString(const std::vector<Shader::ShaderM
 }
 
 
-
-
 Shader::Shader(const std::string& vertexShaderSource, const std::string& fragmentShaderSource,
                const std::vector<ShaderMacros>& macros) :
-    shaderProgram(ShaderLoader::loadShader(vertexShaderSource, fragmentShaderSource, macrosToString(macros))) {}
+    shaderProgram(ShaderLoader::loadShader(vertexShaderSource, fragmentShaderSource, macrosToString(macros))) {
+}
 
 
 Shader::Shader(const std::string& fileName, const std::vector<ShaderMacros>& macros) :
-    shaderProgram(ShaderLoader::loadShader(fileName, macrosToString(macros))) {}
+    shaderProgram(ShaderLoader::loadShader(fileName, macrosToString(macros))) {
+}
 
 Shader::~Shader() {
     getGAPI().deleteShaderProgram(shaderProgram);
@@ -59,4 +60,3 @@ UniformSetter Shader::setUniform(const std::string& name) const {
     }
     return uniformCache[name];
 }
-

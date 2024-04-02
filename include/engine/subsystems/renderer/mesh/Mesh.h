@@ -19,7 +19,8 @@
 #include "engine/subsystems/renderer/mesh/Vertex.h"
 #include "engine/subsystems/renderer/RendererTypes.h"
 
-namespace GLESC {
+namespace GLESC::Render
+{
     /**
      * @brief A class that represents a mesh.
      * @details This is the mesh class for the engine. Is a template class that needs to be instantiated with the
@@ -28,25 +29,28 @@ namespace GLESC {
      * @warning mesh does NOT need to be instantiated with the position attribute, as it is always present, Doing so
      * might lead to unexpected behavior. Position is inside the topology and is always present.
      */
-    template <GAPI::Types... Data>
-    class Mesh {
+    template <GAPI::Enums::Types... Data>
+    class Mesh
+    {
     public:
         using Index = unsigned int;
         using Vertex = Vertex<
-            VectorT<GAPI::PrimitiveType_t<Data>, static_cast<unsigned int>(GAPI::getTypeCount(Data))>...
+            VectorT<GAPI::Enums::PrimitiveType_t<Data>, static_cast<unsigned int>(GAPI::Enums::getTypeCount(Data))>...
         >;
 
 
         Mesh():
             dirtyFlag(false),
             vertexLayout({Data...}),
-            renderType(RenderType::Dynamic) {}
+            renderType(RenderType::Dynamic)
+        {
+        }
 
         ~Mesh() = default;
 
         [[nodiscard]] const std::vector<Vertex> getVertices() const { return vertices; }
         [[nodiscard]] const std::vector<Index> getIndices() const { return indices; }
-        [[nodiscard]] const std::vector<GAPI::Types> getVertexLayout() const { return vertexLayout; }
+        [[nodiscard]] const std::vector<GAPI::Enums::Types> getVertexLayout() const { return vertexLayout; }
         [[nodiscard]] const BoundingVolume& getBoudingVolume() const { return boudingVolume; }
         [[nodiscard]] BoundingVolume& getBoundingVolumeMutable() { return boudingVolume; }
         [[nodiscard]] bool isDirty() const { return dirtyFlag; }
@@ -56,13 +60,16 @@ namespace GLESC {
         void setClean() const { dirtyFlag = false; }
 
 
-        void addTris(const Vertex& a, const Vertex& b, const Vertex& c) {
+        void addTris(const Vertex& a, const Vertex& b, const Vertex& c)
+        {
             this->addVertex(a);
             this->addVertex(b);
             this->addVertex(c);
             this->dirtyFlag = true;
         }
-        void addVertex(const Vertex& vertexParam) {
+
+        void addVertex(const Vertex& vertexParam)
+        {
             // Attempt to insert the vertex with its index into the map.
             // The insert operation does not overwrite existing entries and returns a pair.
             // The first element of the pair is an iterator to the existing or inserted element,
@@ -72,7 +79,8 @@ namespace GLESC {
 
             // If the vertex was not already in the map (i.e., insertion was successful),
             // then add the vertex to the vertices vector.
-            if (result.second) {
+            if (result.second)
+            {
                 vertices.push_back(vertexParam);
             }
 
@@ -83,15 +91,21 @@ namespace GLESC {
 
             boudingVolume.updateTopology(vertices);
         }
-        [[nodiscard]] bool operator==(const Mesh& other) const {
-            for (size_t i = 0; i < vertices.size(); ++i) {
-                if (vertices[i] != other.vertices[i]) {
+
+        [[nodiscard]] bool operator==(const Mesh& other) const
+        {
+            for (size_t i = 0; i < vertices.size(); ++i)
+            {
+                if (vertices[i] != other.vertices[i])
+                {
                     return false;
                 }
             }
 
-            for (size_t i = 0; i < indices.size(); ++i) {
-                if (indices[i] != other.indices[i]) {
+            for (size_t i = 0; i < indices.size(); ++i)
+            {
+                if (indices[i] != other.indices[i])
+                {
                     return false;
                 }
             }
@@ -99,27 +113,34 @@ namespace GLESC {
             return true;
         }
 
-        [[nodiscard]] std::string toString() const {
+        [[nodiscard]] std::string toString() const
+        {
             std::string result = "Mesh\n";
             result += "Vertices (first 10):\n";
-            for (size_t i = 0; i < 10 && i < vertices.size(); ++i) {
+            for (size_t i = 0; i < 10 && i < vertices.size(); ++i)
+            {
                 result += vertices[i].toString() + "\n";
             }
             result += "Indices (first 10):\n";
-            for (size_t i = 0; i < 10 && i < indices.size(); ++i) {
+            for (size_t i = 0; i < 10 && i < indices.size(); ++i)
+            {
                 result += std::to_string(indices[i]) + "\n";
             }
             return result;
         }
-        size_t hash() const {
-            if (hashDirty) {
+
+        size_t hash() const
+        {
+            if (hashDirty)
+            {
                 cachedHash = this->calculateHash();
                 hashDirty = false;
             }
             return cachedHash;
         }
 
-        void operator=(const Mesh& other) {
+        void operator=(const Mesh& other)
+        {
             vertices = other.vertices;
             indices = other.indices;
             vertexToIndexMap = other.vertexToIndexMap;
@@ -131,20 +152,24 @@ namespace GLESC {
         }
 
     private:
-        size_t calculateHash() const {
+        size_t calculateHash() const
+        {
             size_t hashValue = 0;
 
             // Hash vertex data
-            for (const auto& vertex : vertices) {
+            for (const auto& vertex : vertices)
+            {
                 Hasher::hashCombine(hashValue, std::hash<Vertex>{}(vertex));
             }
             // Hash index data
-            for (const auto& index : indices) {
+            for (const auto& index : indices)
+            {
                 Hasher::hashCombine(hashValue, std::hash<Index>{}(index));
             }
 
             return hashValue;
         }
+
         RenderType renderType;
         // This is redundant, but it is used to avoid searching the vertices vector for the index of a vertex.
         std::unordered_map<Vertex, Index> vertexToIndexMap{};
@@ -161,7 +186,7 @@ namespace GLESC {
          * vertex data in the vertices vector. The layout is used to create the vertex buffer layout
          * for the vertex array object.
          */
-        std::vector<GAPI::Types> vertexLayout;
+        std::vector<GAPI::Enums::Types> vertexLayout;
         /**
          * @brief A flag that indicates whether the mesh is dirty.
          * @details The flag is set to true when the mesh is modified. It is used to avoid unnecessary
@@ -175,15 +200,15 @@ namespace GLESC {
     }; // class Mesh
 
     using ColorMesh = Mesh<
-        GAPI::Types::Vec3F, // Position is always present
-        GAPI::Types::Vec4F, // RGBA color
-        GAPI::Types::Vec3F // Normal
+        GAPI::Enums::Types::Vec3F, // Position is always present
+        GAPI::Enums::Types::Vec4F, // RGBA color
+        GAPI::Enums::Types::Vec3F // Normal
     >;
 
     using TextureMesh = Mesh<
-        GAPI::Types::Vec3F, // Position is always present
-        GAPI::Types::Vec2F, // UV
-        GAPI::Types::Vec3F // Normal
+        GAPI::Enums::Types::Vec3F, // Position is always present
+        GAPI::Enums::Types::Vec2F, // UV
+        GAPI::Enums::Types::Vec3F // Normal
     >;
 
     constexpr std::size_t LayoutPosition = 0;
@@ -192,30 +217,35 @@ namespace GLESC {
     constexpr std::size_t LayoutNormal = 2;
 
     template <typename... Attributes>
-    Position getVertexPositionAttr(Vertex<Attributes...> v) {
+    Position getVertexPositionAttr(Vertex<Attributes...> v)
+    {
         return v.template getAttribute<LayoutPosition>();
     }
 
-    inline Color getVertexColorAttr(ColorMesh::Vertex v) {
+    inline Color getVertexColorAttr(ColorMesh::Vertex v)
+    {
         return v.getAttribute<LayoutColor>();
     }
 
-    inline UV getVertexUVAttr(TextureMesh::Vertex v) {
+    inline UV getVertexUVAttr(TextureMesh::Vertex v)
+    {
         return v.getAttribute<LayoutUV>();
     }
 
-    inline Normal getVertexNormalAttr(ColorMesh::Vertex v) {
+    inline Normal getVertexNormalAttr(ColorMesh::Vertex v)
+    {
         return v.getAttribute<LayoutNormal>();
     }
-
 } // namespace GLESC
 
 // Assuming the existence of a getAttributes() method that returns a tuple of all attributes.
 
 
-template <GAPI::Types... Data>
-struct std::hash<GLESC::Mesh<Data...>> {
-    size_t operator()(const GLESC::Mesh<Data...>& mesh) const {
+template <GLESC::GAPI::Enums::Types... Data>
+struct std::hash<GLESC::Render::Mesh<Data...>>
+{
+    size_t operator()(const GLESC::Render::Mesh<Data...>& mesh) const
+    {
         return mesh.hash();
     }
 };

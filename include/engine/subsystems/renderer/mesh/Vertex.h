@@ -5,13 +5,13 @@
 #include <string>
 #include "engine/core/low-level-renderer/graphic-api/GapiStructs.h"
 
-namespace GLESC {
+namespace GLESC::Render {
     template <std::size_t Size, typename Type>
     class VertexAttrib {
     public:
         std::size_t size;
         Type data[Size];
-    };
+    }; // class VertexAttrib
 
     template <typename... Attributes>
     class Vertex {
@@ -54,12 +54,12 @@ namespace GLESC {
 
     private:
         std::tuple<Attributes...> attributes;
-    };
+    }; // class Vertex
 } // namespace GLESC
 
 template <typename... Attributes>
-struct std::hash<GLESC::Vertex<Attributes...>> {
-    std::size_t operator()(const GLESC::Vertex<Attributes...>& vertex) const {
+struct std::hash<GLESC::Render::Vertex<Attributes...>> {
+    std::size_t operator()(const GLESC::Render::Vertex<Attributes...>& vertex) const {
         std::size_t hash = 0;
         std::apply([&hash](const auto&... args) {
             // Directly call hashCombine without attempting to assign its result.

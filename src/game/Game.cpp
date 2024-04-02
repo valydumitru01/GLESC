@@ -24,22 +24,22 @@ using namespace GLESC;
 void Game::init() {
     Entity player = entityFactory.createEntity("player");
     Entity entity = entityFactory.createEntity("entity");
-    player.addComponent(RenderComponent())
-            .addComponent(TransformComponent())
-            .addComponent(PhysicsComponent())
-            .addComponent(InputComponent());
+    player.addComponent(ECS::RenderComponent())
+          .addComponent(ECS::TransformComponent())
+          .addComponent(ECS::PhysicsComponent())
+          .addComponent(ECS::InputComponent());
 
-    entity.addComponent(RenderComponent())
-            .addComponent(TransformComponent())
-            .addComponent(PhysicsComponent());
+    entity.addComponent(ECS::RenderComponent())
+          .addComponent(ECS::TransformComponent())
+          .addComponent(ECS::PhysicsComponent());
 
-    player.getComponent<RenderComponent>().mesh = MeshFactory::cube(RGBA(1, 0, 0, 1));
-    entity.getComponent<RenderComponent>().mesh = MeshFactory::cube(RGBA(0, 1, 0, 1));
-    entity.getComponent<TransformComponent>().transform.position = Vec3F(3, 2, 2);
+    player.getComponent<ECS::RenderComponent>().mesh = Render::MeshFactory::cube(Render::Rgba(1, 0, 0, 1));
+    entity.getComponent<ECS::RenderComponent>().mesh = Render::MeshFactory::cube(Render::Rgba(0, 1, 0, 1));
+    entity.getComponent<ECS::TransformComponent>().transform.position = Vec3F(3, 2, 2);
 }
 
 void Game::update() {
     // Rotating entity
     ECS::Entity entity = entityFactory.getEntity("entity");
-    entity.getComponent<TransformComponent>().transform.rotation.y() += 1.f;
+    entity.getComponent<ECS::TransformComponent>().transform.rotation.y() += 1.f;
 }

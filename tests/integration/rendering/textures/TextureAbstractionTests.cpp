@@ -13,13 +13,13 @@
 #include <gtest/gtest.h>
 
 #include "LoopHelper.cpp"
-#include "engine/core/low-level-renderer/buffers/index/IndexBuffer.h"
-#include "engine/core/low-level-renderer/buffers/vertex/VertexArray.h"
+#include "../../../../include/engine/core/low-level-renderer/buffers/IndexBuffer.h"
+#include "../../../../include/engine/core/low-level-renderer/buffers/VertexArray.h"
 #include "engine/core/low-level-renderer/buffers/vertex/VertexBuffer.h"
 #include "engine/core/low-level-renderer/graphic-api/Gapi.h"
 #include "engine/core/low-level-renderer/texture/Texture.h"
 #include "engine/core/window/WindowManager.h"
-#include "engine/subsystems/renderer/shaders/Shader.h"
+#include "../../../../include/engine/core/low-level-renderer/shader/Shader.h"
 #include "integration/rendering/RenderingTestHelper.h"
 
 class TextureAbstractionTests : public ::testing::Test{

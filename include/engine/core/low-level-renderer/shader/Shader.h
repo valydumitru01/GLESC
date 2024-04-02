@@ -10,14 +10,8 @@
 #pragma once
 
 #include <string>
-#include "engine/core/low-level-renderer/graphic-api/IGraphicInterface.h"
-#include "engine/core/low-level-renderer/graphic-api/GapiTypes.h"
-#include "engine/subsystems/renderer/RendererConfig.h"
-#include "engine/core/math/algebra/matrix/Matrix.h"
-#include "engine/core/math/algebra/vector/Vector.h"
-#define getFunc get
-#define CONCAT(a, b) a ## b
-namespace GLESC {
+
+namespace GLESC::GAPI {
     class Shader {
     public:
         enum ShaderMacros {
@@ -51,8 +45,6 @@ namespace GLESC {
 
 
     private:
-
-        float GLESC_UNIFORM_AMBIENT_INTENSITY= 0.0f;
         /**
          * @brief The shader program
          */

@@ -9,16 +9,15 @@
  **************************************************************************************************/
 #pragma once
 
-#include "VertexBuffer.h"
-#include "VertexBufferLayout.h"
-#include "engine/core/low-level-renderer/graphic-api/GapiTypes.h"
+#include "engine/core/low-level-renderer/buffers/VertexBuffer.h"
+#include "engine/core/low-level-renderer/buffers/VertexBufferLayout.h"
 
-namespace GLESC {
- class VertexInstanceBuffer : public VertexBuffer {
- public:
-  using VertexBuffer::VertexBuffer; // Inherit constructors
+namespace GLESC::GAPI {
+    class VertexInstanceBuffer : public VertexBuffer {
+    public:
+        using VertexBuffer::VertexBuffer; // Inherit constructors
 
-  // Method to setup instance attributes based on a layout
-  void setupInstanceAttributes(const VertexBufferLayout& layout, GAPI::UInt startingIndex = 0);
- };
+        // Method to setup instance attributes based on a layout
+        void setupInstanceAttributes(const VertexBufferLayout &layout, GAPI::UInt startingIndex = 0);
+    };
 }

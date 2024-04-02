@@ -8,15 +8,13 @@
  * See LICENSE.txt in the project root for license information.
  ******************************************************************************/
 
-#include "engine/core/low-level-renderer/buffers/vertex/VertexBufferLayout.h"
+#include "engine/core/low-level-renderer/buffers/VertexBufferLayout.h"
 
-using namespace GLESC;
+using namespace GLESC::GAPI;
 
-
-
-void VertexBufferLayout::push(GAPI::Types type, GAPI::Bool normalized)  {
+void VertexBufferLayout::push(Enums::Types type, Bool normalized) {
     auto typeSize = getTypeSize(type);
     elements.push_back({type, normalized});
 
-    stride += static_cast<GAPI::UInt>(typeSize);
+    stride += static_cast<UInt>(typeSize);
 }

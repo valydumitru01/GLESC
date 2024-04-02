@@ -13,15 +13,16 @@
 #include "engine/core/low-level-renderer/texture/debugger/TextureDebugger.h"
 #include "TextureEnums.h"
 
+using namespace GLESC::GAPI;
 struct Pixel {
-    GAPI::UByte r, g, b, a;
+    UByte r, g, b, a;
     
     Pixel() : r(0), g(0), b(0), a(0) {}
     
-    Pixel(GAPI::UByte rParam, GAPI::UByte gParam, GAPI::UByte bParam, GAPI::UByte aParam)
+    Pixel(UByte rParam, UByte gParam, UByte bParam, UByte aParam)
             : r(rParam), g(gParam), b(bParam), a(aParam) {}
     
-    GAPI::RGBAColorNormalized getColorNormalized() const {
+    RGBAColorNormalized getColorNormalized() const {
         return {r / 255.0f, g / 255.0f, b / 255.0f, a / 255.0f};
     }
     
@@ -34,7 +35,7 @@ struct Pixel {
         return ss.str();
     }
     
-    GAPI::RGBAColor getColor() const { return {r, g, b, a}; }
+    RGBAColor getColor() const { return {r, g, b, a}; }
 };
 
 

@@ -9,18 +9,17 @@
  ******************************************************************************/
 #pragma once
 
-#include "VertexBuffer.h"
-#include "VertexBufferLayout.h"
-#include "engine/core/low-level-renderer/buffers/index/IndexBuffer.h"
+#include "engine/core/low-level-renderer/buffers/VertexBuffer.h"
+#include "engine/core/low-level-renderer/buffers/VertexBufferLayout.h"
 
-namespace GLESC {
+namespace GLESC::GAPI {
     class VertexArray {
     public:
         VertexArray();
 
         ~VertexArray();
 
-        [[nodiscard]] GAPI::UInt getRendererID() const { return vertexArrayID; }
+        [[nodiscard]] UInt getRendererID() const { return vertexArrayID; }
 
         void destroy();
 
@@ -40,6 +39,6 @@ namespace GLESC {
         void destroyOnce();
 
         bool objectAlive = true;
-        GAPI::UInt vertexArrayID{0};
+        UInt vertexArrayID{0};
     }; // class VertexArray
 } // namespace GLESC

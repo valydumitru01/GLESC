@@ -8,19 +8,19 @@
  * See LICENSE.txt in the project root for license information.
  ******************************************************************************/
 #pragma once
-#include "engine/core/low-level-renderer/buffers/index/IndexBuffer.h"
+#include "engine/core/low-level-renderer/buffers/IndexBuffer.h"
 #include "engine/core/low-level-renderer/graphic-api/Gapi.h"
-using namespace GLESC;
+using namespace GLESC::GAPI;
 
-IndexBuffer::IndexBuffer(const GAPI::UInt* data, const GAPI::Size count, GAPI::BufferUsages bufferUsage) :
+IndexBuffer::IndexBuffer(const UInt* data, const Size count, Enums::BufferUsages bufferUsage) :
     count(count) {
     getGAPI().genBuffers(1, indexBufferID);
     this->bind();
     getGAPI().setIndexBufferData(data, count, bufferUsage);
 }
 
-IndexBuffer::IndexBuffer(const std::vector<GAPI::UInt>& data, GAPI::BufferUsages bufferUsage) :
-    IndexBuffer(data.data(), static_cast<GAPI::Size>(data.size()), bufferUsage) {}
+IndexBuffer::IndexBuffer(const std::vector<UInt>& data, Enums::BufferUsages bufferUsage) :
+    IndexBuffer(data.data(), static_cast<Size>(data.size()), bufferUsage) {}
 
 IndexBuffer::~IndexBuffer() {
     destroyOnce();
@@ -32,11 +32,11 @@ void IndexBuffer::destroy() {
 
 
 void IndexBuffer::bind() const {
-    getGAPI().bindBuffer(GAPI::BufferTypes::Index, indexBufferID);
+    getGAPI().bindBuffer(Enums::BufferTypes::Index, indexBufferID);
 }
 
 void IndexBuffer::unbind() const {
-    getGAPI().unbindBuffer(GAPI::BufferTypes::Index);
+    getGAPI().unbindBuffer(Enums::BufferTypes::Index);
 }
 
 
