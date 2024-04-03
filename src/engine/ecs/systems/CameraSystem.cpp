@@ -26,9 +26,9 @@ CameraSystem::CameraSystem(Render::Renderer &renderer, WindowManager &windowMana
             auto &camera = getComponent<CameraComponent>(entity);
             auto &transform = getComponent<TransformComponent>(entity);
             // Position
-            ss << "\n - Position: " << Stringer::toString(transform.transform.position);
+            ss << "\n - Position: " << Stringer::toString(transform.transform.getPosition());
             // Rotation
-            ss << "\n - Rotation: " << Stringer::toString(transform.transform.rotation);
+            ss << "\n - Rotation: " << Stringer::toString(transform.transform.getRotation());
             // Scale
             ss << "\n - Fov: " << Stringer::toString(camera.fovDegrees);
             ss << "\n - Near plane: " << Stringer::toString(camera.nearPlane);
@@ -64,8 +64,8 @@ void CameraSystem::update() {
         // TODO: Enable the renderer to work with multiple projection and view matrices
         renderer.setProjection(projection);
         Render::View view;
-        view.makeViewMatrixPosRot(transform.transform.position,
-                            transform.transform.rotation);
+        view.makeViewMatrixPosRot(transform.transform.getPosition(),
+                            transform.transform.getRotation());
         renderer.setView(view);
     }
 }

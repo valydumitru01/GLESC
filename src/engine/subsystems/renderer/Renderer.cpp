@@ -15,13 +15,12 @@ Renderer::Renderer(WindowManager& windowManager) :
                                          Transform::Scale(1.0f, 1.0f, 1.0f))),
     view(View()), projection(Projection()),
     lightSpots(LightSpots()), globalSun(GlobalSun()), globalAmbienLight(GlobalAmbienLight()) {
-
     float windowWidth = static_cast<float>(windowManager.getSize().width);
     float windowHeight = static_cast<float>(windowManager.getSize().height);
     // Set the projection matrix
     projection.makeProjectionMatrix(45.0f, 0.1f, 100.0f, windowWidth, windowHeight);
     // Set the view matrix
-    view.makeViewMatrixEye(cameraTransform.position,
+    view.makeViewMatrixEye(cameraTransform.getPosition(),
                            cameraTransform.forward(),
                            Transform::Transform::worldUp);
     frustum = Frustum(view, projection);
@@ -46,19 +45,19 @@ void Renderer::applyLighting(LightSpots& lightSpots, GlobalSun& sun, GlobalAmbie
         const Transform::Transform& transform = *lightSpots.getLights()[i].transform;
         std::string lightUniform = "uLightSpots.lights[" + std::to_string(i) + "]";
 
-        shader.setUniform(lightUniform + ".lightProperties.position").u3F(transform.position);
+        shader.setUniform(lightUniform + ".lightProperties.position").u3F(transform.getPosition());
         shader.setUniform(lightUniform + ".lightProperties.color").u3F(light.color.toVec3F());
         shader.setUniform(lightUniform + ".lightProperties.intensity").u1F(light.intensity);
 
-        shader.setUniform(lightUniform + ".radius").u1F(transform.scale.getX());
+        shader.setUniform(lightUniform + ".radius").u1F(transform.getScale().length());
     }
 
-    shader.setUniform("uGlobalLight.color").u3F(sun.getColor().toVec3F());
-    shader.setUniform("uGlobalLight.intensity").u1F(sun.getIntensity());
-    shader.setUniform("uGlobalLight.direction").u3F(sun.getDirection());
+    shader.setUniform("uGlobalSunLight.lightProperties.color").u3F(sun.getColor().toVec3F());
+    shader.setUniform("uGlobalSunLight.lightProperties.intensity").u1F(sun.getIntensity());
+    shader.setUniform("uGlobalSunLight.direction").u3F(sun.getTransform().forward());
 
-    shader.setUniform("uGlobalAmbientLight.color").u3F(ambientLight.getColor().toVec3F());
-    shader.setUniform("uGlobalAmbientLight.intensity").u1F(ambientLight.getIntensity());
+    shader.setUniform("uGlobalAmbient.color").u3F(ambientLight.getColor().toVec3F());
+    shader.setUniform("uGlobalAmbient.intensity").u1F(ambientLight.getIntensity());
 }
 
 void Renderer::applyMaterial(const Material& material) const {
@@ -70,15 +69,15 @@ void Renderer::applyMaterial(const Material& material) const {
     }
     */
 
-    shader.setUniform("uMateria.diffuseIntensity").u1F(material.getDiffuseIntensity());
+    shader.setUniform("uMaterial.diffuseIntensity").u1F(material.getDiffuseIntensity());
 
-    shader.setUniform("uMateria.specularColor").u3F(material.getSpecularColor());
-    shader.setUniform("uMateria.specularIntensity").u1F(material.getSpecularIntensity());
+    shader.setUniform("uMaterial.specularColor").u3F(material.getSpecularColor());
+    shader.setUniform("uMaterial.specularIntensity").u1F(material.getSpecularIntensity());
 
-    shader.setUniform("uMateria.emissionColor").u3F(material.getEmissionColor());
-    shader.setUniform("uMateria.emissionIntensity").u1F(material.getEmmisionIntensity());
+    shader.setUniform("uMaterial.emissionColor").u3F(material.getEmissionColor());
+    shader.setUniform("uMaterial.emissionIntensity").u1F(material.getEmmisionIntensity());
 
-    shader.setUniform("uMateria.shininess").u1F(material.getShininess());
+    shader.setUniform("uMaterial.shininess").u1F(material.getShininess());
 }
 
 Renderer::~Renderer() {
@@ -87,7 +86,7 @@ Renderer::~Renderer() {
 
 void Renderer::applyTransform(ColorMesh& mesh, const Transform::Transform& transform) const {
     Model model;
-    model.makeModelMatrix(transform.position, transform.rotation, transform.scale);
+    model.makeModelMatrix(transform.getPosition(), transform.getRotation(), transform.getScale());
 
     MVP mvp = model * getView() * getProjection();
 

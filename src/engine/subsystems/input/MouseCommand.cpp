@@ -8,7 +8,7 @@
  * See LICENSE.txt in the project root for license information.
  **************************************************************************************************/
 #include "engine/subsystems/input/MouseCommand.h"
-
+using namespace GLESC::Input;
 MouseCommand::MouseCommand(Action action) : action(std::move(action)) {}
 
 void MouseCommand::execute(const MousePosition& position) {

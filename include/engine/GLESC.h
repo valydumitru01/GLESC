@@ -86,7 +86,7 @@ namespace GLESC {
          * @brief Handles the input of the game
          * @details Handles all the inputs of the game, and stores the state of the inputs.
          */
-        InputManager inputManager;
+        Input::InputManager inputManager;
         /**
          * @brief Handles the rendering of the game
          * @details Handles all the rendering of the game, provides a high level interface to the graphics API.

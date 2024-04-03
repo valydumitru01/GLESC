@@ -33,7 +33,7 @@ Engine::Engine(FPSManager& fpsManager) :
     windowManager(),
     renderer(windowManager),
     hudManager(windowManager.getWindow()),
-    inputManager(hudManager),
+    inputManager(hudManager, windowManager),
     engineHuds(hudManager),
 
     ecs(),
@@ -85,9 +85,6 @@ void Engine::update() {
     Logger::get().importantInfoWhite("Engine update finished");
 }
 
-static auto targetRotationX = 0.0f;
-static auto targetRotationY = 0.0f;
-
 std::vector<std::unique_ptr<ECS::System>> Engine::createSystems() {
     std::vector<std::unique_ptr<ECS::System>> systems;
     systems.push_back(std::make_unique<ECS::DebugInfoSystem>(ecs, renderer));
@@ -111,63 +108,56 @@ ECS::Entity Engine::createEngineCamera() {
     camera.getComponent<CameraComponent>().viewWidth = static_cast<float>(windowManager.getSize().width);
     camera.getComponent<CameraComponent>().viewHeight = static_cast<float>(windowManager.getSize().height);
 
-    KeyCommand moveForward = KeyCommand([&] {
+    Input::KeyCommand moveForward = Input::KeyCommand([&] {
         Entity cameraEntity = entityFactory.getEntity("camera");
-        cameraEntity.getComponent<TransformComponent>().transform.position +=
-            cameraEntity.getComponent<TransformComponent>().transform.forward();
+        cameraEntity.getComponent<TransformComponent>().transform.addPosition(
+            cameraEntity.getComponent<TransformComponent>().transform.forward());
     });
 
-    KeyCommand moveBackward = KeyCommand([&] {
+    Input::KeyCommand moveBackward = Input::KeyCommand([&] {
         Entity cameraEntity = entityFactory.getEntity("camera");
-        cameraEntity.getComponent<TransformComponent>().transform.position -=
-            cameraEntity.getComponent<TransformComponent>().transform.forward();
+        cameraEntity.getComponent<TransformComponent>().transform.addPosition(
+            -cameraEntity.getComponent<TransformComponent>().transform.forward());
     });
 
-    KeyCommand moveLeft = KeyCommand([&] {
+    Input::KeyCommand moveLeft = Input::KeyCommand([&] {
         Entity cameraEntity = entityFactory.getEntity("camera");
-        cameraEntity.getComponent<TransformComponent>().transform.position -=
-            cameraEntity.getComponent<TransformComponent>().transform.right();
+        cameraEntity.getComponent<TransformComponent>().transform.addPosition(
+            -cameraEntity.getComponent<TransformComponent>().transform.right());
     });
 
-    KeyCommand moveRight = KeyCommand([&] {
+    Input::KeyCommand moveRight = Input::KeyCommand([&] {
         Entity cameraEntity = entityFactory.getEntity("camera");
-        cameraEntity.getComponent<TransformComponent>().transform.position +=
-            cameraEntity.getComponent<TransformComponent>().transform.right();
+        cameraEntity.getComponent<TransformComponent>().transform.addPosition(
+            cameraEntity.getComponent<TransformComponent>().transform.right());
     });
 
-    MouseCommand rotate = MouseCommand([&](const MousePosition& deltaMouse) {
+    Input::MouseCommand rotate = Input::MouseCommand([&](const MousePosition& deltaMouse) {
         if (!inputManager.isMouseRelative()) return;
         Entity cameraEntity = entityFactory.getEntity("camera");
 
-        if (Math::abs(deltaMouse.getX()) < 2 && Math::abs(deltaMouse.getY()) < 2) return;
+        auto& transformComp = cameraEntity.getComponent<TransformComponent>().transform;
+        auto& cameraComp = cameraEntity.getComponent<CameraComponent>();
 
         // Adjust the target rotation based on mouse input
-        targetRotationX = cameraEntity.getComponent<TransformComponent>().transform.rotation.x() +
-            static_cast<float>(deltaMouse.getY()) * cameraEntity.getComponent<CameraComponent>().
-                                                                 sensitivity;
-        targetRotationY = cameraEntity.getComponent<TransformComponent>().transform.rotation.y() +
-            static_cast<float>(deltaMouse.getX()) * cameraEntity.getComponent<CameraComponent>().
-                                                                 sensitivity;
+        transformComp.addRotation(Transform::Axis::X,
+                                  static_cast<float>(deltaMouse.getY()) * cameraComp.sensitivity);
+        transformComp.addRotation(Transform::Axis::Y,
+                                  static_cast<float>(deltaMouse.getX()) * cameraComp.sensitivity);
 
-        // Smoothly interpolate current rotation towards the target rotation
-        cameraEntity.getComponent<TransformComponent>().transform.rotation.x() = Math::lerp(
-            cameraEntity.getComponent<TransformComponent>().transform.rotation.x(),
-            targetRotationX, 0.1f); // 0.1f is an example smoothing factor
-
-        cameraEntity.getComponent<TransformComponent>().transform.rotation.y() = Math::lerp(
-            cameraEntity.getComponent<TransformComponent>().transform.rotation.y(),
-            targetRotationY, 0.1f);
+        // Ensure we avoid gimbal lock, restrict the X rotation to 90 degrees
     });
-    KeyCommand mouseRelativeMove = KeyCommand([&] {
+
+    Input::KeyCommand mouseRelativeMove = Input::KeyCommand([&] {
         inputManager.setMouseRelative(!inputManager.isMouseRelative());
     });
 
     camera.getComponent<InputComponent>().subscribedKeys = {
-        {{Key::W, KeyAction::ONGOING_PRESSED}, moveForward},
-        {{Key::S, KeyAction::ONGOING_PRESSED}, moveBackward},
-        {{Key::A, KeyAction::ONGOING_PRESSED}, moveLeft},
-        {{Key::D, KeyAction::ONGOING_PRESSED}, moveRight},
-        {{Key::LEFT_SHIFT, KeyAction::ONCE_PRESSED}, mouseRelativeMove}
+        {{Input::Key::W, Input::KeyAction::ONGOING_PRESSED}, moveForward},
+        {{Input::Key::S, Input::KeyAction::ONGOING_PRESSED}, moveBackward},
+        {{Input::Key::A, Input::KeyAction::ONGOING_PRESSED}, moveLeft},
+        {{Input::Key::D, Input::KeyAction::ONGOING_PRESSED}, moveRight},
+        {{Input::Key::LEFT_SHIFT, Input::KeyAction::ONCE_PRESSED}, mouseRelativeMove}
     };
     camera.getComponent<InputComponent>().mouseCommand = rotate;
 
@@ -208,13 +198,6 @@ void Engine::registerStats() const {
         return inputManager.getMousePosition().toString();
     });
 
-    StatsManager::registerStatSource("Fustum: ", [&]() -> std::string {
-        std::stringstream ss;
-        for (auto& plane : renderer.getFrustum().getPlanes()) {
-            ss << plane.toString() << "\n";
-        }
-        return ss.str();
-    });
 
     StatsManager::registerStatSource("Projection Matrix: ", [&]() -> std::string {
         return renderer.getProjection().toString();
@@ -231,7 +214,7 @@ void Engine::registerStats() const {
             if (ecs.hasComponent<ECS::TransformComponent>(entity.right)) {
                 Transform::Transform transform = ecs.getComponent<ECS::TransformComponent>(entity.right).transform;
                 Render::Model model;
-                model.makeModelMatrix(transform.position, transform.rotation, transform.scale);
+                model.makeModelMatrix(transform.getPosition(), transform.getRotation(), transform.getScale());
                 matrices += model.toString() + "\n";
             }
             matrices += "\n";

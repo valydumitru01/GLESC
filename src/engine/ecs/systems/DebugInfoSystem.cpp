@@ -39,14 +39,14 @@ void DebugInfoSystem::update() {
     double minDistanceFromCam = std::numeric_limits<double>::max();
     EntityID closestEntity = 0;
     for (EntityID id : getAssociatedEntities()) {
-        Math::Line cameraForwardLine = Math::Line(renderer.getCameraTrasnform().position,
+        Math::Line cameraForwardLine = Math::Line(renderer.getCameraTrasnform().getPosition(),
                                                   renderer.getCameraTrasnform().forward());
-        const Math::Point entityPos = getComponent<TransformComponent>(id).transform.position;
+        const Math::Point entityPos = getComponent<TransformComponent>(id).transform.getPosition();
         // Skip if the forward line of the camera does not intersect with the bounding volume of the entity
         if (!intersects(cameraForwardLine, entityPos)) continue;
 
         const Transform::Transform &cameraTransform = renderer.getCameraTrasnform();
-        double entityDistanceFromCam = entityPos.distance(cameraTransform.position);
+        double entityDistanceFromCam = entityPos.distance(cameraTransform.getPosition());
 
         // Skip if the entity is the camera itself
         if (entityDistanceFromCam == 0) continue;

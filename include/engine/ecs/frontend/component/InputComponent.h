@@ -11,9 +11,7 @@
 #include "IComponent.h"
 #include "engine/subsystems/input/KeyCommand.h"
 #include "engine/subsystems/input/InputTypes.h"
-#include "engine/subsystems/input/InputKeys.h"
 #include "engine/subsystems/input/MouseCommand.h"
-#include "engine/subsystems/input/debugger/InputDebugger.h"
 
 namespace GLESC::ECS {
     struct InputComponent : IComponent {
@@ -22,11 +20,11 @@ namespace GLESC::ECS {
          * @details This vector is used to store the keys that are subscribed to the input system,
          * this it saves memory as each only stores the keys that are subscribed to it.
          */
-        std::unordered_map<KeyInput, KeyCommand> subscribedKeys;
+        std::unordered_map<Input::KeyInput, Input::KeyCommand> subscribedKeys;
         /**
          * @brief A command that is executed when the mouse is moved
          */
-        MouseCommand mouseCommand;
+        Input::MouseCommand mouseCommand;
 
         std::string toString() const override {
             std::ostringstream ss;

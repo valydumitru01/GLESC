@@ -19,10 +19,10 @@ namespace GLESC::Render {
          */
         GlobalSun() = default;
 
-        GlobalSun(float intensity, const Rgb& color, const Math::Direction& direction){
+        GlobalSun(float intensity, const Rgb& color, const Transform::Transform& transform){
             setIntensity(intensity);
             setColor(color);
-            setDirection(direction);
+            setTransform(transform);
         }
 
         float getIntensity() const {
@@ -33,8 +33,12 @@ namespace GLESC::Render {
             return color;
         }
 
-        Math::Direction getDirection() const {
-            return direction;
+        void setTransform(const Transform::Transform& transform) {
+            this->transform = transform;
+        }
+
+        Transform::Transform getTransform() const {
+            return transform;
         }
 
         void setIntensity(float intensity) {
@@ -47,16 +51,10 @@ namespace GLESC::Render {
             this->color = color;
         }
 
-        void setDirection(const Math::Direction& direction) {
-            D_ASSERT_TRUE(direction.isNormalized(), "Direction must be normalized");
-            this->direction = direction;
-        }
-
-    protected:
 
     private:
         float intensity{1.0f};
         Rgb color{255, 255, 255};
-        Math::Direction direction{0.0f, 0.0f, 1.0f};
+        Transform::Transform transform;
     }; // class GlobalSun
 }

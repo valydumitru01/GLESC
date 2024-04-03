@@ -9,7 +9,7 @@
 #include "SDL2/SDL_keycode.h"
 #include "SDL2/SDL_mouse.h"
 
-namespace GLESC {
+namespace GLESC::Input {
     
     enum class KeyAction {
         ONCE_RELEASED,

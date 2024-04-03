@@ -11,18 +11,19 @@
 #include <functional>
 #include "InputTypes.h"
 
+namespace GLESC::Input {
+    class MouseCommand {
+    public:
+        using Action = std::function<void(const MousePosition&)>;
 
-class MouseCommand {
-public:
-    using Action = std::function<void(const MousePosition&)>;
+        MouseCommand() = default;
 
-    MouseCommand() = default;
+        MouseCommand(Action action);
 
-    MouseCommand(Action action);
+        void execute(const MousePosition& position);
 
-    void execute(const MousePosition& position);
-
-private:
-    // Default: does nothing
-    Action action = [](const MousePosition& position) {};
-};
+    private:
+        // Default: does nothing
+        Action action = [](const MousePosition& position) {};
+    };
+} // namespace GLESC::Input

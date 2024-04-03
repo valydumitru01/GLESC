@@ -76,6 +76,18 @@ namespace GLESC::Math {
         return radians * Type(180) / Type(PI);
     }
 
+    template <typename Type>
+    Type mod(const Type& value, const Type& divisor) {
+        static_assert(std::is_arithmetic_v<Type>, "Type must be arithmetic");
+
+        if constexpr (std::is_integral_v<Type>) {
+            // For integer types, use the modulo operator %
+            return value % divisor;
+        } else {
+            // For floating-point types, use std::fmod
+            return std::fmod(value, divisor);
+        }
+    }
 
     template <typename Type>
     constexpr Type abs(const Type& value) {

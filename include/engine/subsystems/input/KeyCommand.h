@@ -10,16 +10,19 @@
 #pragma once
 #include <functional>
 
-class KeyCommand {
-public:
-    using Action = std::function<void()>;
+namespace GLESC::Input {
+    class KeyCommand {
+    public:
+        using Action = std::function<void()>;
 
-    KeyCommand() = default;
+        KeyCommand() = default;
 
-    KeyCommand(Action action);
+        KeyCommand(Action action);
 
-    void execute();
+        void execute();
 
-private:
-    Action action = []() {};
-};
+    private:
+        Action action = []() {
+        };
+    };
+} // namespace GLESC::Input

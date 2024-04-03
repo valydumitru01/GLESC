@@ -296,6 +296,21 @@ namespace GLESC::Math {
             }
         }
 
+        template <typename Type, size_t N>
+        static void modWithValue(const VectorData<Type, N>& vec, const Type& mod, VectorData<Type, N>& result) {
+            for (size_t i = 0; i < N; ++i) {
+                result[i] = Math::mod(vec[i], mod);
+            }
+        }
+
+        template <typename Type, size_t N>
+        static void modWithVector(const VectorData<Type, N>& vec, const VectorData<Type, N>& mod,
+                                  VectorData<Type, N>& result) {
+            for (size_t i = 0; i < N; ++i) {
+                result[i] = Math::mod(vec[i], mod[i]);
+            }
+        }
+
         /**
          * @brief Computes the sum of all elements inside the vector
          * @tparam Type Data type of the vector (e.g., double, float).

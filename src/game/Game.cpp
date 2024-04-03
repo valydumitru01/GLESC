@@ -35,11 +35,11 @@ void Game::init() {
 
     player.getComponent<ECS::RenderComponent>().mesh = Render::MeshFactory::cube(Render::Rgba(1, 0, 0, 1));
     entity.getComponent<ECS::RenderComponent>().mesh = Render::MeshFactory::cube(Render::Rgba(0, 1, 0, 1));
-    entity.getComponent<ECS::TransformComponent>().transform.position = Vec3F(3, 2, 2);
+    entity.getComponent<ECS::TransformComponent>().transform.setPosition(Transform::Position(1, 2, 3));
 }
 
 void Game::update() {
     // Rotating entity
     ECS::Entity entity = entityFactory.getEntity("entity");
-    entity.getComponent<ECS::TransformComponent>().transform.rotation.y() += 1.f;
+    entity.getComponent<ECS::TransformComponent>().transform.addRotation(Transform::Rotation(0.01f, 0.01f, 0.01f));
 }

@@ -21,7 +21,7 @@ public:
 
     Game(GLESC::ECS::ECSCoordinator &ecs,
          GLESC::PhysicsManager &physicsManager,
-         GLESC::InputManager &inputManager,
+         GLESC::Input::InputManager &inputManager,
          GLESC::WindowManager &windowManager,
          GLESC::ECS::EntityFactory &entityFactory) :
         ecs(ecs), physicsManager(physicsManager), inputManager(inputManager), windowManager(windowManager),
@@ -40,6 +40,6 @@ private:
     GLESC::ECS::ECSCoordinator &ecs;
     GLESC::ECS::EntityFactory &entityFactory;
     GLESC::PhysicsManager &physicsManager;
-    GLESC::InputManager &inputManager;
+    GLESC::Input::InputManager &inputManager;
     GLESC::WindowManager &windowManager;
 }; // class Game

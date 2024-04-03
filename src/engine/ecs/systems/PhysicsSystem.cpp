@@ -30,6 +30,6 @@ void PhysicsSystem::update() {
         auto& rigidBody = getComponent<PhysicsComponent>(entity);
         auto& transform = getComponent<TransformComponent>(entity);
 
-        transform.transform.position += rigidBody.velocity;
+        transform.transform.addPosition(rigidBody.velocity);
     }
 }

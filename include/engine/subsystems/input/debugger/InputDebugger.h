@@ -11,8 +11,7 @@
 #include "engine/core/asserts/Asserts.h"
 #include "engine/subsystems/input/InputKeys.h"
 
-namespace GLESC {
-
+namespace GLESC::Input {
     inline std::string keyActionToString(const KeyAction& keyState) {
         switch (keyState) {
         case KeyAction::ONCE_PRESSED: return "ONCE_PRESSED";
@@ -129,7 +128,7 @@ namespace GLESC {
         case Key::MOUSE_BUTTON_LEFT: return "MOUSE_LEFT";
         case Key::MOUSE_BUTTON_MIDDLE: return "MOUSE_MIDDLE";
         case Key::MOUSE_BUTTON_RIGHT: return "MOUSE_RIGHT";
-        default: "UNKNOWN_KEY";
+        default: return "UNKNOWN_KEY";
         }
     }
 } // namespace GLESC

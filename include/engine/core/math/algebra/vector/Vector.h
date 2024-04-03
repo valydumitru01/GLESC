@@ -646,6 +646,18 @@ namespace GLESC::Math {
             return result;
         }
 
+        [[nodiscard]] Vector mod(Type divisor) const {
+            Vector result;
+            VectorAlgorithms::modWithValue(this->data, divisor, result.data);
+            return result;
+        }
+
+        [[nodiscard]] Vector mod(Vector divisors) const {
+            Vector result;
+            VectorAlgorithms::modWithVector(this->data, divisors.data, result.data);
+            return result;
+        }
+
         void swap(Vector& other) noexcept {
             std::swap(data, other.data);
         }

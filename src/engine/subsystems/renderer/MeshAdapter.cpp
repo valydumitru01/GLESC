@@ -102,8 +102,8 @@ namespace GLESC::Render {
             InstanceTransform transform;
             // Assuming you have a function to convert position, rotation, and scale
             // into a 4x4 transformation matrix:
-            transform.makeModelMatrix(instance.transform->position, instance.transform->rotation,
-                                      instance.transform->scale);
+            transform.makeModelMatrix(instance.transform->getPosition(), instance.transform->getRotation(),
+                                      instance.transform->getScale());
             instanceTransforms.push_back(transform);
         }
 

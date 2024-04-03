@@ -12,31 +12,24 @@
 #include "engine/ecs/frontend/component/TransformComponent.h"
 
 namespace GLESC::ECS {
-    TransformSystem::TransformSystem(ECSCoordinator &ecs) : System(ecs, "TransformSystem") {
+    TransformSystem::TransformSystem(ECSCoordinator& ecs) : System(ecs, "TransformSystem") {
         addComponentRequirement<TransformComponent>();
     }
 
     void TransformSystem::update() {
-        for (auto &entity : getAssociatedEntities()) {
-            auto &transform = getComponent<TransformComponent>(entity);
-            if (transform.transform.rotation.x() > 360.0f) {
-                transform.transform.rotation.x() = 0.0f;
+        for (auto& entity : getAssociatedEntities()) {
+            auto& transform = getComponent<TransformComponent>(entity);
+            Transform::Rotation rotation = transform.transform.getRotation();
+            // Use of fmod to avoid floating point errors
+            transform.transform.setRotation(rotation.mod(360.0f));
+            if (rotation.getX() < 0) {
+                transform.transform.addRotation(Transform::Axis::X, 360.0f);
             }
-            if (transform.transform.rotation.y() > 360.0f) {
-                transform.transform.rotation.y() = 0.0f;
+            if (rotation.getY() < 0) {
+                transform.transform.addRotation(Transform::Axis::Y, 360.0f);
             }
-            if (transform.transform.rotation.z() > 360.0f) {
-                transform.transform.rotation.z() = 0.0f;
-            }
-
-            if (transform.transform.rotation.x() < 0.0f) {
-                transform.transform.rotation.x() = 360.0f;
-            }
-            if (transform.transform.rotation.y() < 0.0f) {
-                transform.transform.rotation.y() = 360.0f;
-            }
-            if (transform.transform.rotation.z() < 0.0f) {
-                transform.transform.rotation.z() = 360.0f;
+            if (rotation.getZ() < 0) {
+                transform.transform.addRotation(Transform::Axis::Z, 360.0f);
             }
         }
     }

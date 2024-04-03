@@ -22,23 +22,44 @@ Transform::Transform(Position position, Rotation rotation, Scale scale) :
 
 
 GLESC::Math::Direction Transform::forward() const {
-    RotComp yaw = Math::radians(rotation.getX()); // Rotation around Y-axis (yaw)
-    RotComp pitch = Math::radians(rotation.getY()); // Rotation around X-axis (pitch)
-
-    PosComp x = cosf(yaw) * cosf(pitch);
-    PosComp y = sinf(pitch);
-    PosComp z = -sinf(yaw) * cosf(pitch);
-
-    return Math::Direction(x, y, z).normalize();
+    if (dirtyRotation)
+        return calculateForward();
+    return forwardDirection;
 }
 
 GLESC::Math::Direction Transform::right() const {
-    return forward().cross(worldUp).normalize();
+    if (dirtyRotation)
+        return calculateRight();
+    return rightDirection;
 }
 
 GLESC::Math::Direction Transform::up() const {
-    return right().cross(forward()).normalize();
+    if (dirtyRotation)
+        return calculateUp();
+    return forwardDirection;
 }
+
+GLESC::Math::Direction Transform::calculateForward() const {
+    RotComp pitch = Math::radians(rotation.getX()); // Rotation around X-axis (pitch)
+    RotComp yaw = Math::radians(rotation.getY()); // Rotation around Y-axis (yaw)
+
+    // TODO: Find why adding 90 degrees to yaw is necessary, it shouldn't be
+    //       but if not done, the forward vector is incorrect (is to the left)
+    PosComp x = cosf(pitch) * cosf(yaw + Math::pi<float>() / 2.0f);
+    PosComp y = sinf(pitch);
+    PosComp z = cosf(pitch) * sinf(yaw + Math::pi<float>() / 2.0f);
+
+    return {x, y, z};
+}
+
+GLESC::Math::Direction Transform::calculateRight() const {
+    return calculateForward().cross(worldUp).normalize();
+}
+
+GLESC::Math::Direction Transform::calculateUp() const {
+    return calculateRight().cross(calculateForward()).normalize();
+}
+
 
 bool Transform::operator==(const Transform &other) const {
     return position == other.position && rotation == other.rotation && scale == other.scale;
@@ -58,7 +79,7 @@ GLESC::Math::Direction Transform::worldForward = Math::Direction(0.0f, 0.0f, 1.0
 
 void Transformer::transformMesh(Render::ColorMesh &mesh, const Transform &transform) {
     Render::Model model;
-    model.makeModelMatrix(transform.position, transform.rotation, transform.scale);
+    model.makeModelMatrix(transform.getPosition(), transform.getRotation(), transform.getScale());
 
     for (auto &vertex : mesh.getVertices()) {
         Render::getVertexPositionAttr(vertex) = model * Render::getVertexPositionAttr(vertex);
@@ -69,7 +90,7 @@ void Transformer::transformMesh(Render::ColorMesh &mesh, const Transform &transf
 
 void Transformer::transformBoundingVolume(Render::BoundingVolume &boundingVolume, const Transform &transform) {
     Render::Model model;
-    model.makeModelMatrix(transform.position, transform.rotation, transform.scale);
+    model.makeModelMatrix(transform.getPosition(), transform.getRotation(), transform.getScale());
 
     for (Math::Point &vertex : boundingVolume.getTopologyMutable().getVerticesMutable()) {
         vertex = model * vertex;
