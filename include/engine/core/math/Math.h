@@ -9,10 +9,10 @@
  ******************************************************************************/
 #pragma once
 
-#include <cmath>
 #include <type_traits>
 #include <random>
 #include <cstring>
+#include <cmath>
 #include "engine/core/asserts/Asserts.h"
 
 
@@ -60,7 +60,7 @@ namespace GLESC::Math {
         return epsilon<Type>() * value;
     }
 
-    template<typename Type, typename TypeFactor>
+    template <typename Type, typename TypeFactor>
     constexpr Type lerp(const Type& start, const Type& end, const TypeFactor& factor) {
         return start + (end - start) * factor;
     }
@@ -83,7 +83,8 @@ namespace GLESC::Math {
         if constexpr (std::is_integral_v<Type>) {
             // For integer types, use the modulo operator %
             return value % divisor;
-        } else {
+        }
+        else {
             // For floating-point types, use std::fmod
             return std::fmod(value, divisor);
         }
@@ -221,6 +222,21 @@ namespace GLESC::Math {
         return result;
     }
 
+    template <typename Type>
+    auto cos(const Type& value) {
+        return std::cos(value);
+    }
+
+    template <typename Type>
+    auto sin(const Type& value) {
+        return std::sin(value);
+    }
+
+    template <typename Type>
+    auto tan(const Type& value) {
+        return std::tan(value);
+    }
+
 
     template <typename Type>
     constexpr const int getMantissaBytes() {
@@ -315,4 +331,3 @@ namespace GLESC::Math {
                                     std::numeric_limits<Type>::max() / 4);
     }
 }
-

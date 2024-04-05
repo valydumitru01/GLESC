@@ -16,7 +16,7 @@ namespace GLESC::Render {
     public:
         static ColorMesh cube(const Rgba &color);
 
-        static ColorMesh sphere(int subdivisions, const Rgba &color);
+        static ColorMesh sphere(int longitudeSubdivisions, int latitudeSubdivisions, const Rgba &color);
 
         static ColorMesh cuboid(double width, double height, double depth, const Rgba &color);
 

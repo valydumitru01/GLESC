@@ -40,24 +40,25 @@ void Renderer::clear() const {
 
 void Renderer::applyLighting(LightSpots& lightSpots, GlobalSun& sun, GlobalAmbienLight ambientLight) const {
     // Apply lighting
+    shader.setUniform("uSpotLights.count").u1I(static_cast<int>(lightSpots.getLights().size()));
     for (int i = 0; i < lightSpots.getLights().size(); i++) {
         const LightSpot& light = *lightSpots.getLights()[i].light;
         const Transform::Transform& transform = *lightSpots.getLights()[i].transform;
-        std::string lightUniform = "uLightSpots.lights[" + std::to_string(i) + "]";
+        std::string lightUniform = "uSpotLights.lights[" + std::to_string(i) + "]";
 
         shader.setUniform(lightUniform + ".lightProperties.position").u3F(transform.getPosition());
-        shader.setUniform(lightUniform + ".lightProperties.color").u3F(light.color.toVec3F());
+        shader.setUniform(lightUniform + ".lightProperties.color").u3F(light.color.getRGBVec3FNormalized());
         shader.setUniform(lightUniform + ".lightProperties.intensity").u1F(light.intensity);
 
-        shader.setUniform(lightUniform + ".radius").u1F(transform.getScale().length());
+        //shader.setUniform(lightUniform + ".radius").u1F(transform.getScale().length());
     }
 
-    shader.setUniform("uGlobalSunLight.lightProperties.color").u3F(sun.getColor().toVec3F());
-    shader.setUniform("uGlobalSunLight.lightProperties.intensity").u1F(sun.getIntensity());
-    shader.setUniform("uGlobalSunLight.direction").u3F(sun.getTransform().forward());
+    //shader.setUniform("uGlobalSunLight.lightProperties.color").u3F(sun.getColor().toVec3F());
+    //shader.setUniform("uGlobalSunLight.lightProperties.intensity").u1F(sun.getIntensity());
+    //shader.setUniform("uGlobalSunLight.direction").u3F(sun.getTransform().forward());
 
-    shader.setUniform("uGlobalAmbient.color").u3F(ambientLight.getColor().toVec3F());
-    shader.setUniform("uGlobalAmbient.intensity").u1F(ambientLight.getIntensity());
+    shader.setUniform("uAmbient.color").u3F(ambientLight.getColor().getRGBVec3FNormalized());
+    shader.setUniform("uAmbient.intensity").u1F(ambientLight.getIntensity());
 }
 
 void Renderer::applyMaterial(const Material& material) const {
@@ -69,19 +70,15 @@ void Renderer::applyMaterial(const Material& material) const {
     }
     */
 
-    shader.setUniform("uMaterial.diffuseIntensity").u1F(material.getDiffuseIntensity());
-
-    shader.setUniform("uMaterial.specularColor").u3F(material.getSpecularColor());
-    shader.setUniform("uMaterial.specularIntensity").u1F(material.getSpecularIntensity());
-
-    shader.setUniform("uMaterial.emissionColor").u3F(material.getEmissionColor());
-    shader.setUniform("uMaterial.emissionIntensity").u1F(material.getEmmisionIntensity());
-
-    shader.setUniform("uMaterial.shininess").u1F(material.getShininess());
-}
-
-Renderer::~Renderer() {
-    getGAPI().deleteContext();
+    //shader.setUniform("uMaterial.diffuseIntensity").u1F(material.getDiffuseIntensity());
+    //
+    //shader.setUniform("uMaterial.specularColor").u3F(material.getSpecularColor());
+    //shader.setUniform("uMaterial.specularIntensity").u1F(material.getSpecularIntensity());
+    //
+    //shader.setUniform("uMaterial.emissionColor").u3F(material.getEmissionColor());
+    //shader.setUniform("uMaterial.emissionIntensity").u1F(material.getEmmisionIntensity());
+    //
+    //shader.setUniform("uMaterial.shininess").u1F(material.getShininess());
 }
 
 void Renderer::applyTransform(ColorMesh& mesh, const Transform::Transform& transform) const {
@@ -93,7 +90,13 @@ void Renderer::applyTransform(ColorMesh& mesh, const Transform::Transform& trans
     Transform::Transformer::transformBoundingVolume(mesh.getBoundingVolumeMutable(), transform);
 
     shader.setUniform("uMVP").uMat4F(mvp);
+    shader.setUniform("uModel").uMat4F(model);
 }
+
+Renderer::~Renderer() {
+    getGAPI().deleteContext();
+}
+
 
 void Renderer::transformMeshCPU(ColorMesh& mesh,
                                 const Transform::Transform& transform) {

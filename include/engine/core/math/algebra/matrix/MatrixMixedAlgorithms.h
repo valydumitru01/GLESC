@@ -39,8 +39,8 @@ namespace GLESC::Math {
                     {matrix[2][0], matrix[2][1], matrix[2][2]}
                 }
             };
-            Type c = cos(dgrs);
-            Type s = sin(dgrs);
+            Type c = Math::cos(dgrs);
+            Type s = Math::sin(dgrs);
 
             MatrixData<Type, 3, 3> rotation =
             {
@@ -73,8 +73,8 @@ namespace GLESC::Math {
                              const VectorData<TypeDgrs, 3> &axisVec,
                              MatrixData<TypeRes, 4, 4> &resMatrix) {
             TypeDgrs angleRadians = Math::radians(angleDegrees);
-            TypeToRotate c = cos(angleRadians);
-            TypeToRotate s = sin(angleRadians);
+            TypeToRotate c = Math::cos(angleRadians);
+            TypeToRotate s = Math::sin(angleRadians);
 
             // Normalized axis vector
             VectorData<TypeToRotate, 3> axis;

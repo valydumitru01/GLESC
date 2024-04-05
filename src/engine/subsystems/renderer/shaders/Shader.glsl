@@ -12,7 +12,7 @@ in vec3 FragPos;
 
 #define MAX_LIGHTS 50
 
-struct GlobalAmbientLight {
+struct AmbientLight {
     vec3 color;
     float intensity;
 };
@@ -35,9 +35,9 @@ struct LightSpot {
     float radius;
 };
 
-struct LightSpots {
+struct SpotLights {
     LightSpot lights[MAX_LIGHTS];
-    int size; // Actual number of lights to use
+    int count;// Actual number of lights to use
 };
 
 struct Material {
@@ -50,8 +50,8 @@ struct Material {
 };
 
 uniform GlobalSun uGlobalSunLight;
-uniform GlobalAmbientLight uGlobalAmbient;
-uniform LightSpots uSpotLights;
+uniform AmbientLight uAmbient;
+uniform SpotLights uSpotLights;
 uniform Material uMaterial;
 
 #ifdef USE_COLOR
@@ -60,47 +60,13 @@ uniform vec4 Color;
 uniform sampler2D Texture1;
 #endif
 
-float calculateShadowFactor(GlobalSun sun, vec3 fragPos) {
-    vec4 lightSpacePos = sun.viewProjMatrix * vec4(fragPos, 1.0);
-    vec3 projCoords = lightSpacePos.xyz / lightSpacePos.w;
-    projCoords = projCoords * 0.5 + 0.5; // Transform to [0,1] space
-    float closestDepth = texture(sun.shadowMap, projCoords.xy).r;
-    float currentDepth = projCoords.z;
-    float shadow = currentDepth > closestDepth ? 1.0 : 0.0;
-    return shadow;
-}
-
-vec3 calculateAmbient(GlobalAmbientLight globalAmbient, vec3 baseColor) {
-    return baseColor * globalAmbient.color * globalAmbient.intensity;
-}
 
 struct LightContribution {
     vec3 diffuse;
     vec3 specular;
 };
 
-LightContribution calculateLightContribution(vec3 fragPos, vec3 norm, vec3 viewDir, Light light, float shadowDimming) {
-    vec3 lightDir = normalize(light.position - fragPos);
-    float diff = max(dot(norm, lightDir), 0.0);
-    vec3 diffuse = diff * light.color * light.intensity * uMaterial.diffuseIntensity * shadowDimming;
 
-    vec3 halfwayDir = normalize(lightDir + viewDir);
-    float spec = pow(max(dot(norm, halfwayDir), 0.0), uMaterial.shininess);
-    vec3 specular = spec * uMaterial.specularColor * light.color * uMaterial.specularIntensity * shadowDimming;
-
-    return LightContribution(diffuse, specular);
-}
-LightContribution calculateSunLightContribution(vec3 norm, vec3 viewDir, GlobalSun sun, float shadowDimming) {
-    vec3 lightDir = normalize(-sun.direction); // Use the negative sun direction
-    float diff = max(dot(norm, lightDir), 0.0);
-    vec3 diffuse = diff * sun.lightProperties.color * sun.lightProperties.intensity * uMaterial.diffuseIntensity * shadowDimming;
-
-    vec3 halfwayDir = normalize(lightDir + viewDir);
-    float spec = pow(max(dot(norm, halfwayDir), 0.0), uMaterial.shininess);
-    vec3 specular = spec * uMaterial.specularColor * sun.lightProperties.color * uMaterial.specularIntensity * shadowDimming;
-
-    return LightContribution(diffuse, specular);
-}
 void main() {
     vec3 norm = normalize(Normal);
     vec3 viewDir = normalize(-FragPos);
@@ -109,28 +75,27 @@ void main() {
     #else
     vec3 baseColor = texture(Texture1, VertexTexCoord).rgb;
     #endif
-    vec3 ambientColor = calculateAmbient(uGlobalAmbient, baseColor);
+
+    // Ambient light
+    vec3 ambient = uAmbient.color * uAmbient.intensity;
 
     vec3 totalDiffuse = vec3(0.0);
-    vec3 totalSpecular = vec3(0.0);
-
     // Spotlights
-    for (int i = 0; i < uSpotLights.size; ++i) {
-        float shadowDimming = 1.0; // Assume no shadowing for spotlights for simplicity
-        LightContribution lc = calculateLightContribution(FragPos, norm, viewDir, uSpotLights.lights[i].lightProperties, shadowDimming);
-        totalDiffuse += lc.diffuse;
-        totalSpecular += lc.specular;
+    for (int i = 0; i < uSpotLights.count; ++i) {
+        vec3 position = uSpotLights.lights[i].lightProperties.position;
+        float intensity = uSpotLights.lights[i].lightProperties.intensity;
+        vec3 color = uSpotLights.lights[i].lightProperties.color;
+
+        vec3 lightDir = normalize(position - FragPos);
+        float diff = max(dot(norm, lightDir), 0.0);
+
+        vec3 diffuse = diff * color * intensity;
+        totalDiffuse += diffuse;
     }
 
-    // Global Sun Light
-    float shadowFactor = calculateShadowFactor(uGlobalSunLight, FragPos);
-    float shadowDimming = 1.0 - shadowFactor;
-    LightContribution sunLC = calculateSunLightContribution(norm, viewDir, uGlobalSunLight, shadowDimming);
-    totalDiffuse += sunLC.diffuse;
-    totalSpecular += sunLC.specular;
 
-    vec3 emission = uMaterial.emissionColor * uMaterial.emissionIntensity;
-    vec3 finalColor = ambientColor + totalDiffuse + totalSpecular + emission;
+
+    vec3 finalColor = (ambient + totalDiffuse) * baseColor;
 
     FragColor = vec4(finalColor, 1.0);
 }
@@ -171,6 +136,7 @@ out vec3 FragPos;
 // ============Uniform variables=============
 // ==========================================
 uniform mat4 uMVP;
+uniform mat4 uModel;
 // ==========================================
 
 void main() {
@@ -191,5 +157,5 @@ void main() {
     #endif
 
     Normal = normal;
-    FragPos = vec3(transformedPosition.xyz);
+    FragPos = vec3(uModel * vec4(pos, 1.0));
 }

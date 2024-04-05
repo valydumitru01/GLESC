@@ -22,6 +22,32 @@
 // ------------------------ Runtime asserts ---------------------------
 // Runtime asserts are used to check conditions at runtime
 
+inline std::string comparingValuesToString(const std::string& value, const std::string& expected) {
+    return "Left Value : " + value + " Right Value: " + expected + "\n";
+}
+
+
+template <typename Type1, typename Type2>
+bool assertEqualsEq(const Type1& value, const Type2& expected) {
+    // Floating point comparison
+    if constexpr (std::is_floating_point_v<Type1> || std::is_floating_point_v<Type2>) {
+        using CommonType = std::common_type_t<Type1, Type2>;
+        const CommonType epsilon = std::numeric_limits<CommonType>::epsilon();
+        const CommonType diff = std::fabs(static_cast<CommonType>(value) - static_cast<CommonType>(expected));
+        return diff <= epsilon * std::max(std::fabs(static_cast<CommonType>(value)),
+                                          std::fabs(static_cast<CommonType>(expected)))
+            || diff < epsilon;
+    }
+    // Pointer value comparison
+    else if constexpr (std::is_pointer_v<Type1> && std::is_pointer_v<Type2>) {
+        return reinterpret_cast<const void*>(value) == reinterpret_cast<const void*>(expected);
+    }
+    // General comparison
+    else {
+        return value == expected;
+    }
+}
+
 
 #define ASSERT_CONTENT(failureCondition, message) \
         if (!(static_cast<bool>(failureCondition))) { \
@@ -54,65 +80,46 @@
             ASSERT_CONTENT((value) == nullptr, message) \
         } while (false)
 
-inline void
-printComparingValues(const std::string& value, const std::string& expected)
-{
-    Logger::get().error("Checked Value : " + value + "\nExpected Value: " + expected);
-}
-
-
-template <typename Type1, typename Type2>
-bool assertEqualsEq(const Type1& value, const Type2& expected)
-{
-    // Floating point comparison
-    if constexpr (std::is_floating_point_v<Type1> || std::is_floating_point_v<Type2>)
-    {
-        using CommonType = std::common_type_t<Type1, Type2>;
-        const CommonType epsilon = std::numeric_limits<CommonType>::epsilon();
-        const CommonType diff = std::fabs(static_cast<CommonType>(value) - static_cast<CommonType>(expected));
-        return diff <= epsilon * std::max(std::fabs(static_cast<CommonType>(value)),
-                                          std::fabs(static_cast<CommonType>(expected)))
-            || diff < epsilon;
-    }
-    // Pointer value comparison
-    else if constexpr (std::is_pointer_v<Type1> && std::is_pointer_v<Type2>) {
-        return reinterpret_cast<const void*>(value) == reinterpret_cast<const void*>(expected);
-    }
-    // General comparison
-    else {
-        return value == expected;
-    }
-}
-
 #define D_ASSERT_EQUAL(value, expected, message) \
-        printComparingValues(GLESC::Stringer::toString(value), GLESC::Stringer::toString(expected)); \
         do { \
-            ASSERT_CONTENT(assertEqualsEq((value), (expected)), message) \
+        std::string valuesString = comparingValuesToString(GLESC::Stringer::toString(value), \
+                   GLESC::Stringer::toString(expected)); \
+            ASSERT_CONTENT(assertEqualsEq((value), (expected)), (valuesString + message)) \
         } while (false)
 
 #define D_ASSERT_GREATER(value, expected, message) \
         do { \
-            ASSERT_CONTENT((value) > (expected), message) \
+        std::string valuesString = comparingValuesToString(GLESC::Stringer::toString(value), \
+                   GLESC::Stringer::toString(expected)); \
+            ASSERT_CONTENT((value) > (expected), (valuesString + message)) \
         } while (false)
 
 #define D_ASSERT_GREATER_OR_EQUAL(value, expected, message) \
         do { \
-            ASSERT_CONTENT((value) >= (expected), message) \
+        std::string valuesString = comparingValuesToString(GLESC::Stringer::toString(value), \
+                   GLESC::Stringer::toString(expected)); \
+            ASSERT_CONTENT((value) >= (expected), (valuesString + message)) \
         } while (false)
 
 #define D_ASSERT_LESS(value, expected, message) \
         do { \
-            ASSERT_CONTENT((value) < (expected), message) \
+        std::string valuesString = comparingValuesToString(GLESC::Stringer::toString(value), \
+                   GLESC::Stringer::toString(expected)); \
+            ASSERT_CONTENT((value) < (expected), (valuesString + message)) \
         } while (false)
 
 #define D_ASSERT_LESS_OR_EQUAL(value, expected, message) \
         do { \
-            ASSERT_CONTENT((value) <= (expected), message) \
+        std::string valuesString = comparingValuesToString(GLESC::Stringer::toString(value), \
+                   GLESC::Stringer::toString(expected)); \
+            ASSERT_CONTENT((value) <= (expected), (valuesString + message)) \
         } while (false)
 
 #define D_ASSERT_NOT_EQUAL(value, expected, message) \
         do { \
-            ASSERT_CONTENT(!assertEqualsEq((value), (expected)), message) \
+        std::string valuesString = comparingValuesToString(GLESC::Stringer::toString(value), \
+                   GLESC::Stringer::toString(expected)); \
+            ASSERT_CONTENT(!assertEqualsEq((value), (expected)), (valuesString + message)) \
         } while (false)
 
 

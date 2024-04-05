@@ -16,16 +16,54 @@ ColorMesh MeshFactory::cube(const Rgba &color) {
     return cuboid(1, 1, 1, color);
 }
 
-ColorMesh MeshFactory::sphere(int subdivisions, const Rgba &color) {
+ColorMesh MeshFactory::sphere(int longitudeSubdivisions, int latitudeSubdivisions, const Rgba &color) {
     ColorMesh mesh;
-    Color rgba = Vec4F(color.getR(), color.getG(), color.getB(), color.getA());
+    Color rgba = color.getRGBAVec4FNormalized();
+
+    for (int latitude = 0; latitude <= latitudeSubdivisions; ++latitude) {
+        auto lat = static_cast<float>(latitude);
+        float theta = lat * Math::pi<float>() / static_cast<float>(latitudeSubdivisions);
+        float sinTheta = Math::sin(theta);
+        float cosTheta = Math::cos(theta);
+
+        for (int longitude = 0; longitude <= longitudeSubdivisions; ++longitude) {
+            auto lon = static_cast<float>(longitude);
+            float phi = lon * 2 * Math::pi<float>() / static_cast<float>(latitudeSubdivisions);
+            float sinPhi = Math::sin(phi);
+            float cosPhi = Math::cos(phi);
+
+            Position pos;
+            Normal normal;
+            normal.x() = pos.x() = cosPhi * sinTheta;
+            normal.y() = pos.y() = cosTheta;
+            normal.z() = pos.z() = sinPhi * sinTheta;
+
+            // Normalize normal
+            normal = normal.normalize();
+
+            mesh.addVertex(ColorMesh::Vertex(pos, rgba, normal));
+        }
+
+    }
+    // Generate the indices for the sphere's triangles
+    for (int lat = 0; lat <= latitudeSubdivisions; ++lat) {
+        for (int lon = 0; lon <= longitudeSubdivisions; ++lon) {
+            int first = (lat * (longitudeSubdivisions + 1)) + lon;
+            int second = first + longitudeSubdivisions + 1;
+            first %= static_cast<int>(mesh.getVertices().size()-1);
+            second %= static_cast<int>(mesh.getVertices().size()-1);
+
+            mesh.addFace(first, second, first + 1);
+            mesh.addFace(second, second + 1, first + 1);
+        }
+    }
 
     return mesh;
 }
 
 ColorMesh MeshFactory::cuboid(const double width, const double height, const double depth, const Rgba &color) {
     ColorMesh mesh;
-    Color rgba = Vec4F(color.getR(), color.getG(), color.getB(), color.getA());
+    Color rgba = color.getRGBAVec4FNormalized();
 
     double w = width / 2.0, h = height / 2.0, d = depth / 2.0;
     ColorMesh::Vertex v1(Position(-w, -h, -d), rgba, Normal(0, 0, -1));

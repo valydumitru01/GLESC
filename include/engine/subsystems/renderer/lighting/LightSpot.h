@@ -15,7 +15,7 @@
 namespace GLESC::Render {
     struct LightSpot {
         float intensity{1.0f};
-        Rgb color{1.0f, 1.0f, 1.0f};
+        Rgb color{255.f, 255.f, 255.f};
 
         LightSpot() = default;
 

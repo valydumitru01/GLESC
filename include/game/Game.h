@@ -10,6 +10,7 @@
 
 #pragma once
 
+#include "engine/core/counter/Timer.h"
 #include "engine/ecs/frontend/entity/EntityFactory.h"
 #include "engine/subsystems/input/InputManager.h"
 #include "engine/subsystems/physics/PhysicsManager.h"

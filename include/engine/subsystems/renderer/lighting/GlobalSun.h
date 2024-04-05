@@ -17,7 +17,7 @@ namespace GLESC::Render {
         /**
          * @brief Default constructor.
          */
-        GlobalSun() = default;
+        GlobalSun() : transform({0,0,0}, {0,90,0}, {1,1,1}) {}
 
         GlobalSun(float intensity, const Rgb& color, const Transform::Transform& transform){
             setIntensity(intensity);

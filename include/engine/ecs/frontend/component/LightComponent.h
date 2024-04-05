@@ -12,7 +12,7 @@
 #include "engine/subsystems/renderer/lighting/LightSpot.h"
 
 namespace GLESC::ECS {
-    struct LightComponent : public IComponent {
+    struct LightComponent : IComponent {
         Render::LightSpot light;
 
         [[nodiscard]] std::string getName() const override {

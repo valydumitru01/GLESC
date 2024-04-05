@@ -38,6 +38,11 @@ namespace GLESC::Render {
 
     private:
         Rgb color{255, 255, 255};
-        float intensity{1.0f};
+        /**
+         * @brief Intensity of the light.
+         * @details It should be between 0 and 1. The standard is to set it somewhat low, because its the light when
+         * there is no other light source, so the player can see something.
+         */
+        float intensity{0.1f};
     }; // class GlobalAmbienLight
 }

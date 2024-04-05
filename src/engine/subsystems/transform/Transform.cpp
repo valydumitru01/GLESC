@@ -45,9 +45,9 @@ GLESC::Math::Direction Transform::calculateForward() const {
 
     // TODO: Find why adding 90 degrees to yaw is necessary, it shouldn't be
     //       but if not done, the forward vector is incorrect (is to the left)
-    PosComp x = cosf(pitch) * cosf(yaw + Math::pi<float>() / 2.0f);
-    PosComp y = sinf(pitch);
-    PosComp z = cosf(pitch) * sinf(yaw + Math::pi<float>() / 2.0f);
+    PosComp x = Math::cos(pitch) * Math::cos(yaw + Math::radians(90.0f));
+    PosComp y = Math::sin(pitch);
+    PosComp z = Math::cos(pitch) * Math::sin(yaw + Math::radians(90.0f));
 
     return {x, y, z};
 }

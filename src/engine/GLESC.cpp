@@ -132,6 +132,18 @@ ECS::Entity Engine::createEngineCamera() {
             cameraEntity.getComponent<TransformComponent>().transform.right());
     });
 
+    Input::KeyCommand moveUp = Input::KeyCommand([&] {
+        Entity cameraEntity = entityFactory.getEntity("camera");
+        cameraEntity.getComponent<TransformComponent>().transform.addPosition(
+            Transform::Transform::worldUp);
+    });
+
+    Input::KeyCommand moveDown = Input::KeyCommand([&] {
+        Entity cameraEntity = entityFactory.getEntity("camera");
+        cameraEntity.getComponent<TransformComponent>().transform.addPosition(
+            -Transform::Transform::worldUp);
+    });
+
     Input::MouseCommand rotate = Input::MouseCommand([&](const MousePosition& deltaMouse) {
         if (!inputManager.isMouseRelative()) return;
         Entity cameraEntity = entityFactory.getEntity("camera");
@@ -157,7 +169,9 @@ ECS::Entity Engine::createEngineCamera() {
         {{Input::Key::S, Input::KeyAction::ONGOING_PRESSED}, moveBackward},
         {{Input::Key::A, Input::KeyAction::ONGOING_PRESSED}, moveLeft},
         {{Input::Key::D, Input::KeyAction::ONGOING_PRESSED}, moveRight},
-        {{Input::Key::LEFT_SHIFT, Input::KeyAction::ONCE_PRESSED}, mouseRelativeMove}
+        {{Input::Key::SPACE, Input::KeyAction::ONGOING_PRESSED}, moveUp},
+        {{Input::Key::LEFT_SHIFT, Input::KeyAction::ONGOING_PRESSED}, moveDown},
+        {{Input::Key::LEFT_CTRL, Input::KeyAction::ONCE_PRESSED}, mouseRelativeMove}
     };
     camera.getComponent<InputComponent>().mouseCommand = rotate;
 

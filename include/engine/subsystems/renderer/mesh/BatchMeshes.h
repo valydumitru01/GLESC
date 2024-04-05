@@ -18,7 +18,7 @@ namespace GLESC::Render {
 
         void attatchMesh(const Material &material, const ColorMesh &mesh) {
             for (const auto &vertex : mesh.getVertices()) {
-                this->batches[&material].addVertex(vertex);
+                this->batches[&material].addAutoFaceVertex(vertex);
             }
         }
 

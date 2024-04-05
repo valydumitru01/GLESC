@@ -56,20 +56,21 @@ namespace GLESC::Render {
     struct Rgb {
         Rgb() = default;
 
-        Rgb(const Rgb &other) = default;
+        Rgb(const Rgb& other) = default;
 
-        Rgb(Rgba &other) noexcept;
+        Rgb(Rgba& other) noexcept;
 
-        Rgb &operator=(const Rgb &other) = default;
+        Rgb& operator=(const Rgb& other) = default;
 
-        Rgb(Rgb &&other) noexcept = default;
+        Rgb(Rgb&& other) noexcept = default;
 
-        Rgb &operator=(Rgb &&other) noexcept = default;
+        Rgb& operator=(Rgb&& other) noexcept = default;
 
         ~Rgb() = default;
 
 
-        Rgb(float r, float g, float b) : r(r), g(g), b(b) {
+        Rgb(float r, float g, float b) : r(r), g(g), b(b),
+                                         rNorm(normalize(r)), gNorm(normalize(g)), bNorm(normalize(b)) {
         }
 
 
@@ -85,29 +86,48 @@ namespace GLESC::Render {
             return b;
         }
 
+        float getRNormalized() const {
+            return rNorm;
+        }
+
+        float getGNormalized() const {
+            return gNorm;
+        }
+
+        float getBNormalized() const {
+            return bNorm;
+        }
+
         void setR(float rParam) {
             checkValue(rParam, "R");
             r = rParam;
+            gNorm = normalize(r);
         }
 
         void setG(float gParam) {
             checkValue(gParam, "G");
             g = gParam;
+            gNorm = normalize(g);
         }
 
         void setB(float bParam) {
             checkValue(bParam, "B");
             b = bParam;
+            bNorm = normalize(b);
         }
 
-        Vec3F toVec3F() const {
+        Vec3F getRGBVec3F() const {
             return Vec3F(r, g, b);
+        }
+
+        Vec3F getRGBVec3FNormalized() const {
+            return Vec3F(rNorm, gNorm, bNorm);
         }
 
         [[nodiscard]] std::string toString() const {
             return "R:" + Stringer::toString(r) +
-                   " G:" + Stringer::toString(g) +
-                   " B:" + Stringer::toString(b);
+                " G:" + Stringer::toString(g) +
+                " B:" + Stringer::toString(b);
         }
 
     protected:
@@ -116,36 +136,58 @@ namespace GLESC::Render {
             D_ASSERT_GREATER_OR_EQUAL(value, 0.0f, valueName + " must be between greater or equal than 0");
         }
 
-        float r = 0.0f;
-        float g = 0.0f;
-        float b = 0.0f;
+        float normalize(float value) {
+            return value / 255.0f;
+        }
+
+        float r{0.0f};
+        float g{0.0f};
+        float b{0.0f};
+
+        float rNorm{0.0f};
+        float gNorm{0.0f};
+        float bNorm{0.0f};
     };
 
     struct Rgba : Rgb {
         Rgba() = default;
 
-        Rgba(const Rgba &other) = default;
+        Rgba(const Rgba& other) = default;
 
-        Rgba(Rgb &other) noexcept;
+        Rgba(Rgb& other) noexcept;
 
-        Rgba &operator=(const Rgba &other) = default;
+        Rgba& operator=(const Rgba& other) = default;
 
-        Rgba(Rgba &&other) noexcept = default;
+        Rgba(Rgba&& other) noexcept = default;
 
-        Rgba &operator=(Rgba &&other) noexcept = default;
+        Rgba& operator=(Rgba&& other) noexcept = default;
 
         ~Rgba() = default;
 
-        Rgba(float r, float g, float b, float a) : Rgb(r, g, b), a(a) {
+        Rgba(float r, float g, float b, float a) : Rgb(r, g, b), a(a), aNorm(normalize(a)) {
+        }
+
+        Vec4F getRGBAVec4F() const {
+            return Vec4F(r, g, b, a);
+        }
+
+        Vec4F getRGBAVec4FNormalized() const {
+            return Vec4F(rNorm, gNorm, bNorm, aNorm);
         }
 
         float getA() const {
             return a;
         }
 
+        float getANormalized() const {
+            return aNorm;
+        }
+
+
         void setA(float aParam) {
             checkValue(aParam, "A");
             a = aParam;
+            aNorm = normalize(a);
         }
 
         [[nodiscard]] std::string toString() const {
@@ -154,5 +196,7 @@ namespace GLESC::Render {
 
     private:
         float a = 0.0f;
+
+        float aNorm = 0.0f;
     };
 } // namespace GLESC::Render
