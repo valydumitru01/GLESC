@@ -77,7 +77,7 @@ namespace GLESC::Render {
         void applyTransform(ColorMesh& mesh, const Transform::Transform& transform) const;
         void transformMeshCPU(ColorMesh& mesh, const Transform::Transform& transform);
 
-        void applyLighting(LightSpots& lightSpots, GlobalSun& sun, GlobalAmbienLight ambientLight) const;
+        void applyLighting(LightSpots& lightSpotsParam, GlobalSun& sun, GlobalAmbienLight ambientLight) const;
         void applyMaterial(const Material& material) const;
         void cacheMesh(const ColorMesh& mesh,
                        AdaptedMesh adaptedMesh);

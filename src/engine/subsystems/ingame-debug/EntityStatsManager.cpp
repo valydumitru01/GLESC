@@ -15,12 +15,17 @@ EntityDataFunctions EntityStatsManager::entityDataFuncs = {};
 
 EntityData EntityStatsManager::generateEntityData() {
     EntityData entityData;
-    entityData.name = "Entity";
-    ComponentData componentData;
+    if (entityDataFuncs.name) {
+        entityData.name = entityDataFuncs.name();
+    } else {
+        entityData.name = "Entity not selected...";
+    }
     for (auto& component : entityDataFuncs.components) {
+        ComponentData componentData;
         componentData.name = component.name();
         componentData.nameValuePairs["Name"] = component.name();
         componentData.nameValuePairs["Data"] = component.dataString();
+        entityData.components.push_back(componentData);
     }
     return entityData;
 }

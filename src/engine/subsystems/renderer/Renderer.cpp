@@ -8,13 +8,14 @@
 
 using namespace GLESC::Render;
 
-Renderer::Renderer(WindowManager& windowManager) :
-    windowManager(windowManager), shader(GAPI::Shader("Shader.glsl")),
-    cameraTransform(Transform::Transform(Position(0.0f, 0.0f, 3.0f),
-                                         Transform::Rotation(0.0f, 0.0f, 0.0f),
-                                         Transform::Scale(1.0f, 1.0f, 1.0f))),
-    view(View()), projection(Projection()),
-    lightSpots(LightSpots()), globalSun(GlobalSun()), globalAmbienLight(GlobalAmbienLight()) {
+Renderer::Renderer(WindowManager &windowManager) :
+        windowManager(windowManager), shader(GAPI::Shader("Shader.glsl")),
+        lightSpots(LightSpots()),
+        globalSun(GlobalSun()), globalAmbienLight(GlobalAmbienLight()),
+        projection(Projection()), view(View()), cameraTransform(
+        Transform::Transform(Position(0.0f, 0.0f, 3.0f),
+                             Transform::Rotation(0.0f, 0.0f, 0.0f),
+                             Transform::Scale(1.0f, 1.0f, 1.0f))) {
     float windowWidth = static_cast<float>(windowManager.getSize().width);
     float windowHeight = static_cast<float>(windowManager.getSize().height);
     // Set the projection matrix
@@ -32,44 +33,44 @@ void Renderer::swapBuffers() const {
 
 void Renderer::clear() const {
     getGAPI().clear({
-        GAPI::Enums::ClearBits::Color, GAPI::Enums::ClearBits::Depth,
-        GAPI::Enums::ClearBits::Stencil
-    });
+                            GAPI::Enums::ClearBits::Color, GAPI::Enums::ClearBits::Depth,
+                            GAPI::Enums::ClearBits::Stencil
+                    });
     getGAPI().clearColor(0.2f, 0.3f, 0.3f, 1.0f);
 }
 
-void Renderer::applyLighting(LightSpots& lightSpots, GlobalSun& sun, GlobalAmbienLight ambientLight) const {
+void Renderer::applyLighting(LightSpots &lightSpotsParam, GlobalSun &sun, GlobalAmbienLight ambientLight) const {
     // Apply lighting
-    shader.setUniform("uSpotLights.count").u1I(static_cast<int>(lightSpots.getLights().size()));
-    for (int i = 0; i < lightSpots.getLights().size(); i++) {
-        const LightSpot& light = *lightSpots.getLights()[i].light;
-        const Transform::Transform& transform = *lightSpots.getLights()[i].transform;
+    shader.setUniform("uSpotLights.count").u1I(static_cast<int>(lightSpotsParam.getLights().size()));
+    for (size_t i = 0; i < lightSpotsParam.getLights().size(); i++) {
+        const LightSpot &light = *lightSpotsParam.getLights()[i].light;
+        const Transform::Transform &transform = *lightSpotsParam.getLights()[i].transform;
         std::string lightUniform = "uSpotLights.lights[" + std::to_string(i) + "]";
-
+        
         shader.setUniform(lightUniform + ".lightProperties.position").u3F(transform.getPosition());
         shader.setUniform(lightUniform + ".lightProperties.color").u3F(light.color.getRGBVec3FNormalized());
         shader.setUniform(lightUniform + ".lightProperties.intensity").u1F(light.intensity);
-
+        
         //shader.setUniform(lightUniform + ".radius").u1F(transform.getScale().length());
     }
-
+    
     //shader.setUniform("uGlobalSunLight.lightProperties.color").u3F(sun.getColor().toVec3F());
     //shader.setUniform("uGlobalSunLight.lightProperties.intensity").u1F(sun.getIntensity());
     //shader.setUniform("uGlobalSunLight.direction").u3F(sun.getTransform().forward());
-
+    
     shader.setUniform("uAmbient.color").u3F(ambientLight.getColor().getRGBVec3FNormalized());
     shader.setUniform("uAmbient.intensity").u1F(ambientLight.getIntensity());
 }
 
-void Renderer::applyMaterial(const Material& material) const {
+void Renderer::applyMaterial(const Material &material) const {
     shader.bind(); // Activate the shader program
-
+    
     /*
     for(const std::string& uniform: getGAPI().getAllUniforms()) {
         std::cout << uniform << std::endl;
     }
     */
-
+    
     //shader.setUniform("uMaterial.diffuseIntensity").u1F(material.getDiffuseIntensity());
     //
     //shader.setUniform("uMaterial.specularColor").u3F(material.getSpecularColor());
@@ -81,14 +82,14 @@ void Renderer::applyMaterial(const Material& material) const {
     //shader.setUniform("uMaterial.shininess").u1F(material.getShininess());
 }
 
-void Renderer::applyTransform(ColorMesh& mesh, const Transform::Transform& transform) const {
+void Renderer::applyTransform(ColorMesh &mesh, const Transform::Transform &transform) const {
     Model model;
     model.makeModelMatrix(transform.getPosition(), transform.getRotation(), transform.getScale());
-
+    
     MVP mvp = model * getView() * getProjection();
-
+    
     Transform::Transformer::transformBoundingVolume(mesh.getBoundingVolumeMutable(), transform);
-
+    
     shader.setUniform("uMVP").uMat4F(mvp);
     shader.setUniform("uModel").uMat4F(model);
 }
@@ -98,21 +99,21 @@ Renderer::~Renderer() {
 }
 
 
-void Renderer::transformMeshCPU(ColorMesh& mesh,
-                                const Transform::Transform& transform) {
+void Renderer::transformMeshCPU(ColorMesh &mesh,
+                                const Transform::Transform &transform) {
     Transform::Transformer::transformMesh(mesh, transform);
 }
 
-void Renderer::renderInstances(const ColorMesh& mesh,
-                               const std::vector<MeshInstanceData>& instances) {
-    AdaptedInstances& adptInstcs = adaptedInstances[&mesh];
+void Renderer::renderInstances(const ColorMesh &mesh,
+                               const std::vector<MeshInstanceData> &instances) {
+    AdaptedInstances &adptInstcs = adaptedInstances[&mesh];
     // Bind the VAO before drawing
     adptInstcs.vertexArray->bind();
     getGAPI().drawTrianglesIndexedInstanced(mesh.getIndices().size(), instances.size());
 }
 
-void Renderer::renderMesh(const ColorMesh& mesh) {
-    AdaptedMesh& adaptedMesh = adaptedMeshes[&mesh];
+void Renderer::renderMesh(const ColorMesh &mesh) {
+    AdaptedMesh &adaptedMesh = adaptedMeshes[&mesh];
     // Bind the VAO before drawing
     adaptedMesh.vertexArray->bind();
     getGAPI().drawTrianglesIndexed(adaptedMesh.indexBuffer->getCount());
@@ -146,13 +147,13 @@ void Renderer::renderMeshes(double timeOfFrame) {
         applyMaterial(material);
         renderInstances(mesh, individualData);
     }*/
-    for (auto& dynamicMesh : dynamicMeshes.getDynamicMeshes()) {
-        ColorMesh& mesh = *dynamicMesh.mesh;
+    for (auto &dynamicMesh : dynamicMeshes.getDynamicMeshes()) {
+        ColorMesh &mesh = *dynamicMesh.mesh;
         //if (!frustum.intersects(mesh.getBoudingVolume())) continue;
-        const Material& material = *dynamicMesh.material;
-        const Transform::Transform& transform = *dynamicMesh.transform;
-
-
+        const Material &material = *dynamicMesh.material;
+        const Transform::Transform &transform = *dynamicMesh.transform;
+        
+        
         if (isMeshNotCached(mesh))
             cacheMesh(mesh, MeshAdapter::adaptMesh(mesh));
         applyMaterial(material);
@@ -164,26 +165,26 @@ void Renderer::renderMeshes(double timeOfFrame) {
 }
 
 
-void Renderer::cacheMesh(const ColorMesh& mesh,
+void Renderer::cacheMesh(const ColorMesh &mesh,
                          AdaptedMesh adaptedMesh) {
     adaptedMeshes[&mesh] = std::move(adaptedMesh);
     mesh.setClean();
 }
 
-void Renderer::cacheMesh(const ColorMesh& mesh,
+void Renderer::cacheMesh(const ColorMesh &mesh,
                          AdaptedInstances adaptedInstancesParam) {
     adaptedInstances[&mesh] = std::move(adaptedInstancesParam);
     mesh.setClean();
 }
 
-bool Renderer::isMeshNotCached(const ColorMesh& mesh) const {
+bool Renderer::isMeshNotCached(const ColorMesh &mesh) const {
     return mesh.isDirty() || adaptedMeshes.find(&mesh) == adaptedMeshes.end();
 }
 
 
-void Renderer::addData(const Render::Material& material,
-                       ColorMesh& mesh,
-                       const Transform::Transform& transform) {
+void Renderer::addData(const Render::Material &material,
+                       ColorMesh &mesh,
+                       const Transform::Transform &transform) {
     if (mesh.getVertices().empty()) {
         Console::warn("Mesh has no vertices");
         return;
@@ -193,22 +194,18 @@ void Renderer::addData(const Render::Material& material,
     if (renderType == RenderType::Static) {
         transformMeshCPU(mesh, transform);
         meshBatches.attatchMesh(material, mesh);
-    }
-    else if (renderType == RenderType::InstancedStatic) {
+    } else if (renderType == RenderType::InstancedStatic) {
         meshInstances.addInstance(mesh, material, transform);
-    }
-    else if (renderType == RenderType::InstancedDynamic) {
+    } else if (renderType == RenderType::InstancedDynamic) {
         // TODO: Differentiate between static and dynamic instances
         meshInstances.addInstance(mesh, material, transform);
-    }
-    else if (renderType == RenderType::Dynamic) {
+    } else if (renderType == RenderType::Dynamic) {
         dynamicMeshes.addDynamicMesh(mesh, material, transform);
-    }
-    else {
+    } else {
         D_ASSERT_TRUE(false, "Unknown render type");
     }
 }
 
-void Renderer::addLight(const LightSpot& light, const Transform::Transform& transform) {
+void Renderer::addLight(const LightSpot &light, const Transform::Transform &transform) {
     lightSpots.addLight(light, transform);
 }

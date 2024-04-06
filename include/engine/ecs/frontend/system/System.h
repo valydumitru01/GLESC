@@ -38,6 +38,7 @@ namespace GLESC::ECS {
         Component &getComponent(EntityID entityId) {
             return ecs.getComponent<Component>(entityId);
         }
+        EntityID nullEntity = EntityManager::nullEntity;
 
     private:
         ECSCoordinator &ecs;

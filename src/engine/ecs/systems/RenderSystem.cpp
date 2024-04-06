@@ -14,7 +14,7 @@
 using namespace GLESC::ECS;
 
 RenderSystem::RenderSystem(Render::Renderer& renderer, ECSCoordinator& ecs) :
-    System(ecs, "RenderSystem"), renderer(renderer) {
+        System(ecs, "RenderSystem"), renderer(renderer) {
     addComponentRequirement<TransformComponent>();
     addComponentRequirement<RenderComponent>();
 };
@@ -23,9 +23,9 @@ RenderSystem::RenderSystem(Render::Renderer& renderer, ECSCoordinator& ecs) :
 void RenderSystem::update() {
     for (auto& entity : getAssociatedEntities()) {
         auto& render = getComponent<RenderComponent>(entity);
-
+        
         auto& transform = getComponent<TransformComponent>(entity);
-
+        
         renderer.addData(render.material, render.mesh, transform.transform);
     }
 }
