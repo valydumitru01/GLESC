@@ -110,7 +110,7 @@ bool PolyhedronFace::intersects(const Line &line) const {
     D_ASSERT_FALSE(polyhedronVertices.empty(), "Polyhedron vertices must not be empty.");
     // Check if the line is parallel to the plane
     Distance dotProduct = getNormal().dot(line.getDirection());
-    if (abs(dotProduct) < std::numeric_limits<double>::epsilon()) {
+    if (Math::eq(Math::abs(dotProduct),0)) {
         return false; // Line is parallel to the plane, no intersection
     }
 

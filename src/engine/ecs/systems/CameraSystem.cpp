@@ -30,12 +30,12 @@ CameraSystem::CameraSystem(Render::Renderer &renderer, WindowManager &windowMana
             // Rotation
             ss << "\n - Rotation: " << Stringer::toString(transform.transform.getRotation());
             // Scale
-            ss << "\n - Fov: " << Stringer::toString(camera.fovDegrees);
-            ss << "\n - Near plane: " << Stringer::toString(camera.nearPlane);
-            ss << "\n - Far plane: " << Stringer::toString(camera.farPlane);
-            ss << "\n - Aspect Ratio" << Stringer::toString(camera.viewWidth) << "\\" <<
-                    Stringer::toString(camera.viewHeight) << "=" << Stringer::toString(
-                        camera.viewWidth / camera.viewHeight);
+            ss << "\n - Fov: " << Stringer::toString(camera.perspective.fovDegrees);
+            ss << "\n - Near plane: " << Stringer::toString(camera.perspective.nearPlane);
+            ss << "\n - Far plane: " << Stringer::toString(camera.perspective.farPlane);
+            ss << "\n - Aspect Ratio" << Stringer::toString(camera.perspective.viewWidth) << "\\" <<
+                    Stringer::toString(camera.perspective.viewHeight) << "=" << Stringer::toString(
+                        camera.perspective.viewWidth / camera.perspective.viewHeight);
         }
         if (getAssociatedEntities().empty()) {
             return "No camera found";
@@ -52,15 +52,16 @@ void CameraSystem::update() {
                       "For now, only (and at least) one camera is supported.");
         auto &transform = getComponent<TransformComponent>(entity);
         auto &camera = getComponent<CameraComponent>(entity);
-        camera.viewWidth = static_cast<float>(windowManager.getSize().width);
-        camera.viewHeight = static_cast<float>(windowManager.getSize().height);
+        camera.perspective.viewWidth = static_cast<float>(windowManager.getSize().width);
+        camera.perspective.viewHeight = static_cast<float>(windowManager.getSize().height);
         renderer.setCameraTransform(transform.transform);
+        renderer.setCameraPerspective(camera.perspective);
 
         Render::Projection projection;
-        projection.makeProjectionMatrix(camera.fovDegrees, camera.nearPlane,
-                                        camera.farPlane,
-                                        camera.viewWidth,
-                                        camera.viewHeight);
+        projection.makeProjectionMatrix(camera.perspective.fovDegrees, camera.perspective.nearPlane,
+                                        camera.perspective.farPlane,
+                                        camera.perspective.viewWidth,
+                                        camera.perspective.viewHeight);
         // TODO: Enable the renderer to work with multiple projection and view matrices
         renderer.setProjection(projection);
         Render::View view;

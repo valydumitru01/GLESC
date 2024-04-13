@@ -25,7 +25,7 @@ namespace GLESC::ECS {
          */
         static constexpr EntityID nullEntity = EntityID(0);
         static constexpr EntityID firstEntity = EntityID(1);
-        const EntityName nullEntityName = EntityName{""};
+        const EntityName nullEntityName = EntityName{"NULL_ENTITY"};
 
         EntityManager();
 

@@ -19,7 +19,7 @@ namespace GLESC::Render {
          */
         GlobalSun() : transform({0,0,0}, {0,90,0}, {1,1,1}) {}
 
-        GlobalSun(float intensity, const Rgb& color, const Transform::Transform& transform){
+        GlobalSun(float intensity, const ColorRgb& color, const Transform::Transform& transform){
             setIntensity(intensity);
             setColor(color);
             setTransform(transform);
@@ -29,7 +29,7 @@ namespace GLESC::Render {
             return intensity;
         }
 
-        Rgb getColor() const {
+        ColorRgb getColor() const {
             return color;
         }
 
@@ -47,14 +47,14 @@ namespace GLESC::Render {
             this->intensity = intensity;
         }
 
-        void setColor(const Rgb& color) {
+        void setColor(const ColorRgb& color) {
             this->color = color;
         }
 
 
     private:
         float intensity{1.0f};
-        Rgb color{255, 255, 255};
+        ColorRgb color{255, 255, 255};
         Transform::Transform transform;
     }; // class GlobalSun
 }

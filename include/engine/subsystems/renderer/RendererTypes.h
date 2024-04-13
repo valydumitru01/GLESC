@@ -9,6 +9,7 @@
  **************************************************************************************************/
 #pragma once
 #include "engine/core/low-level-renderer/buffers/VertexArray.h"
+#include "engine/core/hash/Hasher.h"
 
 namespace GLESC::Render {
     enum class RenderType {
@@ -46,31 +47,85 @@ namespace GLESC::Render {
     using Position = Vec3F;
 
     using Model = Mat4F;
+    using NormalMat = Mat3F;
     using View = Mat4F;
     using Projection = Mat4F;
+    using MV = Mat4F;
     using VP = Mat4F;
     using MVP = Mat4F;
 
-    struct Rgba;
+    template<typename IntensityType>
+    class Intensity {
+    public:
+        Intensity() = default;
 
-    struct Rgb {
-        Rgb() = default;
+        Intensity(const Intensity &other) = default;
 
-        Rgb(const Rgb& other) = default;
+        Intensity &operator=(const Intensity &other) = default;
 
-        Rgb(Rgba& other) noexcept;
+        Intensity(Intensity &&other) noexcept = default;
 
-        Rgb& operator=(const Rgb& other) = default;
+        Intensity &operator=(Intensity &&other) noexcept = default;
 
-        Rgb(Rgb&& other) noexcept = default;
+        bool operator==(const Intensity &other) const {
+            return intensity == other.intensity;
+        }
+        bool operator<(const Intensity &other) const {
+            return intensity < other.intensity;
+        }
 
-        Rgb& operator=(Rgb&& other) noexcept = default;
+        ~Intensity() = default;
 
-        ~Rgb() = default;
+        explicit Intensity(IntensityType intensity) {
+            set(intensity);
+        }
+
+        [[nodiscard]] IntensityType get() const {
+            return intensity;
+        }
+
+        void set(IntensityType intensityParam) {
+            D_ASSERT_GREATER_OR_EQUAL(intensityParam, IntensityType(0), "Intensity must be greater or equal than 0");
+            D_ASSERT_LESS_OR_EQUAL(intensityParam, IntensityType(1), "Intensity must be less or equal than 1");
+            intensity = intensityParam;
+        }
+
+        [[nodiscard]] std::string toString() const {
+            return Stringer::toString(intensity);
+        }
+
+    private:
+        IntensityType intensity = IntensityType(0);
+    };
+
+    struct ColorRgba;
+
+    struct ColorRgb {
+        ColorRgb() = default;
+
+        ColorRgb(const ColorRgb &other) = default;
+
+        ColorRgb(ColorRgba &other) noexcept;
+
+        ColorRgb &operator=(const ColorRgb &other) = default;
+
+        ColorRgb(ColorRgb &&other) noexcept = default;
+
+        ColorRgb &operator=(ColorRgb &&other) noexcept = default;
+
+        ~ColorRgb() = default;
 
 
-        Rgb(float r, float g, float b) : r(r), g(g), b(b),
-                                         rNorm(normalize(r)), gNorm(normalize(g)), bNorm(normalize(b)) {
+        ColorRgb(float r, float g, float b) : r(r), g(g), b(b),
+                                              rNorm(normalize(r)), gNorm(normalize(g)), bNorm(normalize(b)) {
+        }
+
+        bool operator==(const ColorRgb &other) const {
+            return r == other.r && g == other.g && b == other.b;
+        }
+
+        bool operator<(const ColorRgb &other) const {
+            return std::tie(r, g, b) < std::tie(other.r, other.g, other.b);
         }
 
 
@@ -126,8 +181,8 @@ namespace GLESC::Render {
 
         [[nodiscard]] std::string toString() const {
             return "R:" + Stringer::toString(r) +
-                " G:" + Stringer::toString(g) +
-                " B:" + Stringer::toString(b);
+                   " G:" + Stringer::toString(g) +
+                   " B:" + Stringer::toString(b);
         }
 
     protected:
@@ -149,22 +204,22 @@ namespace GLESC::Render {
         float bNorm{0.0f};
     };
 
-    struct Rgba : Rgb {
-        Rgba() = default;
+    struct ColorRgba : ColorRgb {
+        ColorRgba() = default;
 
-        Rgba(const Rgba& other) = default;
+        ColorRgba(const ColorRgba &other) = default;
 
-        Rgba(Rgb& other) noexcept;
+        ColorRgba(ColorRgb &other) noexcept;
 
-        Rgba& operator=(const Rgba& other) = default;
+        ColorRgba &operator=(const ColorRgba &other) = default;
 
-        Rgba(Rgba&& other) noexcept = default;
+        ColorRgba(ColorRgba &&other) noexcept = default;
 
-        Rgba& operator=(Rgba&& other) noexcept = default;
+        ColorRgba &operator=(ColorRgba &&other) noexcept = default;
 
-        ~Rgba() = default;
+        ~ColorRgba() = default;
 
-        Rgba(float r, float g, float b, float a) : Rgb(r, g, b), a(a), aNorm(normalize(a)) {
+        ColorRgba(float r, float g, float b, float a) : ColorRgb(r, g, b), a(a), aNorm(normalize(a)) {
         }
 
         Vec4F getRGBAVec4F() const {
@@ -191,7 +246,7 @@ namespace GLESC::Render {
         }
 
         [[nodiscard]] std::string toString() const {
-            return Rgb::toString() + " A:" + Stringer::toString(a);
+            return ColorRgb::toString() + " A:" + Stringer::toString(a);
         }
 
     private:
@@ -200,3 +255,24 @@ namespace GLESC::Render {
         float aNorm = 0.0f;
     };
 } // namespace GLESC::Render
+// Hash
+template<>
+struct std::hash<GLESC::Render::ColorRgb> {
+    std::size_t operator()(const GLESC::Render::ColorRgb &rgb) const noexcept {
+        std::size_t hash = 0;
+        GLESC::Hasher::hashCombine(hash, std::hash<float>{}(rgb.getR()));
+        GLESC::Hasher::hashCombine(hash, std::hash<float>{}(rgb.getG()));
+        GLESC::Hasher::hashCombine(hash, std::hash<float>{}(rgb.getB()));
+        return hash;
+    }
+};
+
+template<>
+struct std::hash<GLESC::Render::ColorRgba> {
+    std::size_t operator()(const GLESC::Render::ColorRgba &rgba) const noexcept {
+        std::size_t hash = 0;
+        GLESC::Hasher::hashCombine(hash, std::hash<GLESC::Render::ColorRgb>{}(rgba));
+        GLESC::Hasher::hashCombine(hash, std::hash<float>{}(rgba.getA()));
+        return hash;
+    }
+};

@@ -7,8 +7,8 @@ in vec4 VertexColor;
 #else
 in vec2 VertexTexCoord;
 #endif
-in vec3 Normal;
-in vec3 FragPos;
+in vec3 NormalViewSpace;
+in vec3 FragPosViewSpace;
 
 #define MAX_LIGHTS 50
 
@@ -18,7 +18,7 @@ struct AmbientLight {
 };
 
 struct Light {
-    vec3 position;
+    vec3 posInViewSpace;
     vec3 color;
     float intensity;
 };
@@ -68,8 +68,8 @@ struct LightContribution {
 
 
 void main() {
-    vec3 norm = normalize(Normal);
-    vec3 viewDir = normalize(-FragPos);
+    vec3 viewDir = normalize(-FragPosViewSpace);
+    vec3 norm = normalize(NormalViewSpace);
     #ifdef USE_COLOR
     vec3 baseColor = VertexColor.rgb;
     #else
@@ -80,22 +80,30 @@ void main() {
     vec3 ambient = uAmbient.color * uAmbient.intensity;
 
     vec3 totalDiffuse = vec3(0.0);
+    vec3 totalSpecular = vec3(0.0);
     // Spotlights
     for (int i = 0; i < uSpotLights.count; ++i) {
-        vec3 position = uSpotLights.lights[i].lightProperties.position;
+        vec3 lightPosViewSpace = uSpotLights.lights[i].lightProperties.posInViewSpace;
         float intensity = uSpotLights.lights[i].lightProperties.intensity;
         vec3 color = uSpotLights.lights[i].lightProperties.color;
 
-        vec3 lightDir = normalize(position - FragPos);
+        // Diffuse
+        vec3 lightDir = normalize(lightPosViewSpace - FragPosViewSpace);
         float diff = max(dot(norm, lightDir), 0.0);
-
         vec3 diffuse = diff * color * intensity;
         totalDiffuse += diffuse;
+
+        // Specular
+        float materialShininessMapped = uMaterial.shininess * 256.0;
+        vec3 reflectDir = reflect(lightDir, norm);
+        float spec = pow(max(dot(viewDir, reflectDir), 0.0), materialShininessMapped);
+        vec3 specular = uMaterial.specularIntensity * spec * uMaterial.specularColor * intensity;
+        totalSpecular += specular;
     }
 
 
 
-    vec3 finalColor = (ambient + totalDiffuse) * baseColor;
+    vec3 finalColor = (ambient + totalDiffuse + totalSpecular) * baseColor;
 
     FragColor = vec4(finalColor, 1.0);
 }
@@ -127,8 +135,8 @@ out vec4 VertexColor;
 #else
 out vec2 VertexTexCoord;
 #endif
-out vec3 Normal;
-out vec3 FragPos;
+out vec3 NormalViewSpace;
+out vec3 FragPosViewSpace;
 // ==========================================
 
 
@@ -136,7 +144,8 @@ out vec3 FragPos;
 // ============Uniform variables=============
 // ==========================================
 uniform mat4 uMVP;
-uniform mat4 uModel;
+uniform mat4 uMV;
+uniform mat3 uNormalMat;
 // ==========================================
 
 void main() {
@@ -156,6 +165,6 @@ void main() {
     VertexTexCoord = texCoord;// Pass the texture coordinate to the fragment shader.
     #endif
 
-    Normal = normal;
-    FragPos = vec3(uModel * vec4(pos, 1.0));
+    NormalViewSpace = uNormalMat * normal;
+    FragPosViewSpace = vec3(uMV * vec4(pos, 1.0));
 }

@@ -28,7 +28,7 @@ namespace GLESC::Render {
      * @warning mesh does NOT need to be instantiated with the position attribute, as it is always present, Doing so
      * might lead to unexpected behavior. Position is inside the topology and is always present.
      */
-    template <GAPI::Enums::Types... Data>
+    template<GAPI::Enums::Types... Data>
     class Mesh {
     public:
         using Index = unsigned int;
@@ -48,8 +48,9 @@ namespace GLESC::Render {
         [[nodiscard]] const std::vector<Vertex> getVertices() const { return vertices; }
         [[nodiscard]] const std::vector<Index> getIndices() const { return indices; }
         [[nodiscard]] const std::vector<GAPI::Enums::Types> getVertexLayout() const { return vertexLayout; }
-        [[nodiscard]] const BoundingVolume& getBoudingVolume() const { return boundingVolume; }
-        [[nodiscard]] BoundingVolume& getBoundingVolumeMutable() { return boundingVolume; }
+        [[nodiscard]] const std::vector<Math::FaceIndices> getFaces() const { return faces; }
+        [[nodiscard]] const BoundingVolume &getBoundingVolume() const { return boundingVolume; }
+        [[nodiscard]] BoundingVolume &getBoundingVolumeMutable() { return boundingVolume; }
         [[nodiscard]] bool isDirty() const { return dirtyFlag; }
         [[nodiscard]] RenderType getRenderType() const { return renderType; }
 
@@ -57,40 +58,53 @@ namespace GLESC::Render {
         void setClean() const { dirtyFlag = false; }
 
 
-        void addTris(const Vertex& a, const Vertex& b, const Vertex& c) {
-            this->addAutoFaceVertex(a);
-            this->addAutoFaceVertex(b);
-            this->addAutoFaceVertex(c);
+        void addTris(const Vertex &a, const Vertex &b, const Vertex &c) {
+            auto v1 =this->addVertex(a);
+            auto v2 =this->addVertex(b);
+            auto v3 =this->addVertex(c);
+
+            this->addTris(v1, v2, v3);
             this->dirtyFlag = true;
         }
 
-        void addAutoFaceVertex(const Vertex& vertexParam) {
-            auto index = addVertex(vertexParam); // This now returns the index of the vertex
-            if (index >= 0) {
-                // Assuming addVertex returns -1 for already-existing vertices
-                indices.push_back(index);
-            }
+        void addQuad(const Vertex &a, const Vertex &b, const Vertex &c, const Vertex &d) {
+            auto v1 = addVertex(a);
+            auto v2 = addVertex(b);
+            auto v3 = addVertex(c);
+            auto v4 = addVertex(d);
+
+            addQuad(v1, v2, v3, v4);
+            this->dirtyFlag = true;
+        }
+
+        void addQuad(Index index1, Index index2, Index index3, Index index4) {
+            addTris(index1, index2, index3);
+            addTris(index1, index3, index4);
         }
 
         // Modify addVertex to return the index of the vertex, whether newly added or already existing
-        Index addVertex(const Vertex& vertexParam) {
-            auto posAttr = getVertexPositionAttr(vertexParam);
-            auto it = vertexToIndexMap.find(posAttr);
-
-            if (it != vertexToIndexMap.end()) {
-                // Vertex already exists, return existing index
-                return it->second;
+        Index addVertex(const Vertex &vertexParam) {
+            // Check if the vertex already exists
+            for (Index i = 0; i < vertices.size(); ++i) {
+                if (vertices[i] == vertexParam) {
+                    return i;
+                }
             }
 
             // Insert new vertex
             Index newIndex = static_cast<Index>(vertices.size());
             vertices.push_back(vertexParam);
-            vertexToIndexMap[posAttr] = newIndex;
             boundingVolume.updateTopology(vertices);
             return newIndex;
         }
 
-        void addFace(Index index1, Index index2, Index index3) {
+        void addVertices(const std::vector<Vertex> &verticesParam) {
+            for (const auto &vertex : verticesParam) {
+                addVertex(vertex);
+            }
+        }
+
+        void addTris(Index index1, Index index2, Index index3) {
             D_ASSERT_NOT_EQUAL(index1, index2, "Index 1 and 2 are equal");
             D_ASSERT_NOT_EQUAL(index1, index3, "Index 1 and 3 are equal");
             D_ASSERT_NOT_EQUAL(index2, index3, "Index 2 and 3 are equal");
@@ -100,10 +114,11 @@ namespace GLESC::Render {
             indices.push_back(index1);
             indices.push_back(index2);
             indices.push_back(index3);
+            faces.push_back({index1, index2, index3});
             this->dirtyFlag = true;
         }
 
-        [[nodiscard]] bool operator==(const Mesh& other) const {
+        [[nodiscard]] bool operator==(const Mesh &other) const {
             for (size_t i = 0; i < vertices.size(); ++i) {
                 if (vertices[i] != other.vertices[i]) {
                     return false;
@@ -140,10 +155,9 @@ namespace GLESC::Render {
             return cachedHash;
         }
 
-        void operator=(const Mesh& other) {
+        void operator=(const Mesh &other) {
             vertices = other.vertices;
             indices = other.indices;
-            vertexToIndexMap = other.vertexToIndexMap;
             boundingVolume = other.boundingVolume;
             vertexLayout = other.vertexLayout;
             dirtyFlag = other.dirtyFlag;
@@ -156,11 +170,11 @@ namespace GLESC::Render {
             size_t hashValue = 0;
 
             // Hash vertex data
-            for (const auto& vertex : vertices) {
+            for (const auto &vertex : vertices) {
                 Hasher::hashCombine(hashValue, std::hash<Vertex>{}(vertex));
             }
             // Hash index data
-            for (const auto& index : indices) {
+            for (const auto &index : indices) {
                 Hasher::hashCombine(hashValue, std::hash<Index>{}(index));
             }
 
@@ -168,15 +182,10 @@ namespace GLESC::Render {
         }
 
         RenderType renderType;
-        /**
-         * @brief A map that maps vertices' position to their indices in the vertices vector, necessary for indexing and
-         * avoiding duplicate vertices.
-         * @details The map contains the position as a value. This is useful to avoid vertices that are equal in
-         * value (not having two vertices in the same spot).
-         */
-        std::unordered_map<Position, Index> vertexToIndexMap{};
+
         std::vector<Vertex> vertices{};
         std::vector<Index> indices{};
+        std::vector<Math::FaceIndices> faces{};
         /**
          * @brief The bounding volume of the mesh.
          * @details The bounding volume is a polyhedron cuboid that encloses the mesh. It is used for culling.
@@ -218,7 +227,7 @@ namespace GLESC::Render {
     constexpr std::size_t LayoutUV = 1;
     constexpr std::size_t LayoutNormal = 2;
 
-    template <typename... Attributes>
+    template<typename... Attributes>
     Position getVertexPositionAttr(Vertex<Attributes...> v) {
         return v.template getAttribute<LayoutPosition>();
     }
@@ -239,9 +248,9 @@ namespace GLESC::Render {
 // Assuming the existence of a getAttributes() method that returns a tuple of all attributes.
 
 
-template <GLESC::GAPI::Enums::Types... Data>
+template<GLESC::GAPI::Enums::Types... Data>
 struct std::hash<GLESC::Render::Mesh<Data...>> {
-    size_t operator()(const GLESC::Render::Mesh<Data...>& mesh) const {
+    size_t operator()(const GLESC::Render::Mesh<Data...> &mesh) const {
         return mesh.hash();
     }
 };

@@ -11,9 +11,9 @@
 #include <SDL2/SDL.h>
 
 #include "LoopHelper.cpp"
-#include "../../../../include/engine/core/low-level-renderer/buffers/IndexBuffer.h"
-#include "../../../../include/engine/core/low-level-renderer/buffers/VertexArray.h"
-#include "engine/core/low-level-renderer/buffers/vertex/VertexBuffer.h"
+#include "engine/core/low-level-renderer/buffers/IndexBuffer.h"
+#include "engine/core/low-level-renderer/buffers/VertexArray.h"
+#include "engine/core/low-level-renderer/buffers/VertexBuffer.h"
 #include "engine/core/low-level-renderer/graphic-api/Gapi.h"
 #include "engine/core/low-level-renderer/shader/ShaderLoader.h"
 #include "engine/core/window/WindowManager.h"
@@ -24,10 +24,11 @@ class BufferAbstractionTests : public ::testing::Test {
 protected:
     GLESC::WindowManager windowManager;
     // These are pointers because we don't want to call the constructor
-    GLESC::VertexArray* vao{};
-    GLESC::VertexBuffer* vbo{};
-    GLESC::IndexBuffer* ibo{};
-    GAPI::UInt shaderProgram{};
+    VertexArray *vao{};
+    VertexBuffer *vbo{};
+    IndexBuffer *ibo{};
+    UInt shaderProgram{};
+
     BufferAbstractionTests() = default;
 
     void prepareShaders() {
@@ -35,15 +36,15 @@ protected:
     }
 
     void prepareBuffers() {
-        vao = new GLESC::VertexArray();
+        vao = new VertexArray();
         vao->bind();
-        vbo = new GLESC::VertexBuffer(positionOnlyVertices.data(), positionOnlyVertices.size(),
-                                      positionOnlyVertices.size() * sizeof(GAPI::Float),
-                                      GAPI::BufferUsages::StaticDraw);
-        ibo = new GLESC::IndexBuffer(indices);
+        vbo = new VertexBuffer(positionOnlyVertices.data(), positionOnlyVertices.size(),
+                                            positionOnlyVertices.size() * sizeof(Float),
+                                            Enums::BufferUsages::StaticDraw);
+        ibo = new IndexBuffer(indices);
 
-        GLESC::VertexBufferLayout layout;
-        layout.push(GAPI::Types::Vec2F);
+        VertexBufferLayout layout;
+        layout.push(Enums::Types::Vec2F);
 
         vao->addBuffer(*vbo, layout);
 
@@ -55,8 +56,8 @@ protected:
         getGAPI().clearColor(backgroundColor.r, backgroundColor.g, backgroundColor.b,
                              backgroundColor.a);
         getGAPI().clear({
-            GAPI::ClearBits::Color, GAPI::ClearBits::Depth,
-            GAPI::ClearBits::Stencil
+            Enums::ClearBits::Color, Enums::ClearBits::Depth,
+            Enums::ClearBits::Stencil
         });
         vao->bind();
         getGAPI().useShaderProgram(shaderProgram);

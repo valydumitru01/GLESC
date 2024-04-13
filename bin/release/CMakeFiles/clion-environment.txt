@@ -1,5 +1,5 @@
-ToolSet: 11.0 w64 (local)@C:\MinGW\mingw64
-Ninja: 1.11.1@C:\Users\valyd\AppData\Local\Programs\CLion 2\bin\ninja\win\x64\ninja.exe
+ToolSet: 11.0 w64 (local)@C:\Program Files\mingw\mingw64
+Ninja: 1.11.1@C:\Users\Lenovo\AppData\Local\Programs\CLion\bin\ninja\win\x64\ninja.exe
 Options: 
 
-Options:-DCMAKE_MAKE_PROGRAM=C:/Users/valyd/AppData/Local/Programs/CLion 2/bin/ninja/win/x64/ninja.exe
+Options:-DCMAKE_MAKE_PROGRAM=C:/Users/Lenovo/AppData/Local/Programs/CLion/bin/ninja/win/x64/ninja.exe

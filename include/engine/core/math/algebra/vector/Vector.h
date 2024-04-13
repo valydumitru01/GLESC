@@ -616,6 +616,14 @@ namespace GLESC::Math {
         // ==================================== Vector Methods =====================================
         // =========================================================================================
 
+        [[nodiscard]] MatrixData<Type, N, 1> toMatrix() const {
+            MatrixData<Type, N, 1> result;
+            VectorMixedAlgorithms::vectorToMatrix(this->data, result);
+            return result;
+        }
+
+
+
         [[nodiscard]] bool isZero() const {
             return VectorAlgorithms::isZero(this->data);
         }

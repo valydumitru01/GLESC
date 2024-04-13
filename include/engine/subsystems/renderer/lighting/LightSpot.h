@@ -1,5 +1,5 @@
 /**************************************************************************************************
- * @file   Light.h
+ * @file   LightSpot.h
  * @author Valentin Dumitru
  * @date   2024-03-31
  * @brief  Add description of this file if needed @TODO 
@@ -15,7 +15,7 @@
 namespace GLESC::Render {
     struct LightSpot {
         float intensity{1.0f};
-        Rgb color{255.f, 255.f, 255.f};
+        ColorRgb color{255.f, 255.f, 255.f};
 
         LightSpot() = default;
 

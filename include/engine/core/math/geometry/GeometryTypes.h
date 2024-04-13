@@ -18,4 +18,5 @@ namespace GLESC::Math{
     using Distance = float;
     using Index = unsigned int;
     using FaceIndices = std::array<Index, 3>;
+    using QuadIndices = std::array<Index, 4>;
 }

@@ -9,13 +9,14 @@
  **************************************************************************************************/
 #pragma once
 
-#include "engine/core/math/algebra/vector/Vector.h"
+#include "engine/subsystems/renderer/RendererTypes.h"
 
 namespace GLESC::Render {
     /**
      * @brief Class inspired by the material class from open3D
      */
     class Material {
+        using Intensity = Intensity<float>;
     public:
         /**
          * @brief Default constructor
@@ -23,25 +24,23 @@ namespace GLESC::Render {
          * is also stored in a map
          */
         Material() :
-            diffuseColor(Vec3F(0.8f, 0.8f, 0.8f)), // Neutral, slightly bright diffuse reflection
+            diffuseColor(ColorRgb(255, 255, 255)), // Neutral, slightly bright diffuse reflection
             diffuseIntensity(1.0f), // Full intensity of diffuse reflection
-            specularColor(Vec3F(1.0f, 1.0f, 1.0f)), // Bright specular highlights
+            specularColor(ColorRgb(255, 255, 255)), // Bright specular highlights
             specularIntensity(0.5f), // Moderate intensity for specular highlights
-            emissionColor(Vec3F(0.0f, 0.0f, 0.0f)), // No emission by default
+            emissionColor(ColorRgb(0, 0, 0)), // No emission by default
             emmisionIntensity(0.0f), // No intensity for emission
-            shininess(32.0f) // Moderately shiny;
+            shininess(1) // Moderately shiny;
         {
         }
 
-        Material(const Vec3F &ambientColor,
-                 float ambientIntensity,
-                 const Vec3F &diffuseColor,
-                 float diffuseIntensity,
-                 const Vec3F &specularColor,
-                 float specularIntensity,
-                 const Vec3F &emissionColor,
-                 float emmisionIntensity,
-                 float shininess) :
+        Material(const ColorRgb &diffuseColor,
+                 const Intensity &diffuseIntensity,
+                 const ColorRgb &specularColor,
+                 const Intensity &specularIntensity,
+                 const ColorRgb &emissionColor,
+                 const Intensity &emmisionIntensity,
+                 const Intensity &shininess) :
             diffuseColor{diffuseColor},
             diffuseIntensity{diffuseIntensity},
             specularColor{specularColor},
@@ -51,27 +50,26 @@ namespace GLESC::Render {
             shininess{shininess} {
         }
 
-        [[nodiscard]] Vec3F getDiffuseColor() const { return diffuseColor; }
-        [[nodiscard]] float getDiffuseIntensity() const { return diffuseIntensity; }
-        [[nodiscard]] Vec3F getSpecularColor() const { return specularColor; }
-        [[nodiscard]] float getSpecularIntensity() const { return specularIntensity; }
-        [[nodiscard]] Vec3F getEmissionColor() const { return emissionColor; }
-        [[nodiscard]] float getEmmisionIntensity() const { return emmisionIntensity; }
-        [[nodiscard]] float getShininess() const { return shininess; }
+        [[nodiscard]] ColorRgb getDiffuseColor() const { return diffuseColor; }
+        [[nodiscard]] float getDiffuseIntensity() const { return diffuseIntensity.get(); }
+        [[nodiscard]] ColorRgb getSpecularColor() const { return specularColor; }
+        [[nodiscard]] float getSpecularIntensity() const { return specularIntensity.get(); }
+        [[nodiscard]] ColorRgb getEmissionColor() const { return emissionColor; }
+        [[nodiscard]] float getEmmisionIntensity() const { return emmisionIntensity.get(); }
+        [[nodiscard]] float getShininess() const { return shininess.get(); }
 
-        void setDiffuseColor(const Vec3F &diffuseColor) { this->diffuseColor = diffuseColor; }
-        void setDiffuseIntensity(const float diffuseIntensity) { this->diffuseIntensity = diffuseIntensity; }
-        void setSpecularColor(const Vec3F &specularColor) { this->specularColor = specularColor; }
-        void setSpecularIntensity(const float specularIntensity) { this->specularIntensity = specularIntensity; }
-        void setEmissionColor(const Vec3F &emissionColor) { this->emissionColor = emissionColor; }
-        void setEmmisionIntensity(const float emmisionIntensity) { this->emmisionIntensity = emmisionIntensity; }
-        void setShininess(const float shininess) { this->shininess = shininess; }
+        void setDiffuseColor(const ColorRgb &diffuseColor) { this->diffuseColor = diffuseColor; }
+        void setDiffuseIntensity(const float diffuseIntensity) { this->diffuseIntensity.set(diffuseIntensity); }
+        void setSpecularColor(const ColorRgb &specularColor) { this->specularColor = specularColor; }
+        void setSpecularIntensity(const float specularIntensity) { this->specularIntensity.set(specularIntensity); }
+        void setEmissionColor(const ColorRgb &emissionColor) { this->emissionColor = emissionColor; }
+        void setEmmisionIntensity(const float emmisionIntensity) { this->emmisionIntensity.set(emmisionIntensity); }
+        void setShininess(const float shininess) { this->shininess.set(shininess); }
 
         bool operator<(const Material &other) const {
             return std::tie(diffuseColor, specularColor, emissionColor, specularIntensity, shininess) <
                    std::tie(other.diffuseColor, other.specularColor, other.emissionColor,
-                            other.specularIntensity,
-                            other.shininess);
+                            other.specularIntensity, other.shininess);
         }
 
 
@@ -90,32 +88,32 @@ namespace GLESC::Render {
         /**
          * @brief The diffuse color of the material
          */
-        Vec3F diffuseColor;
+        ColorRgb diffuseColor;
         /**
          * @brief The diffuse intensity of the material
          */
-        float diffuseIntensity;
+        Intensity diffuseIntensity;
         /**
          * @brief The specular color of the material
          */
-        Vec3F specularColor;
+        ColorRgb specularColor;
         /**
          * @brief The specular intensity of the material
          */
-        float specularIntensity;
+        Intensity specularIntensity;
         /**
          * @brief The emission color of the material
          */
-        Vec3F emissionColor;
+        ColorRgb emissionColor;
         /**
          * @brief The emission intensity of the material
          */
-        float emmisionIntensity;
+        Intensity emmisionIntensity;
 
         /**
          * @brief The shininess of the material
          */
-        float shininess;
+        Intensity shininess;
     }; // class Material
 } // namespace GLESC
 
@@ -123,10 +121,14 @@ namespace GLESC::Render {
 template<>
 struct std::hash<GLESC::Render::Material> {
     std::size_t operator()(const GLESC::Render::Material &material) const noexcept {
-        return std::hash<Vec3F>()(material.getDiffuseColor()) ^
-               std::hash<Vec3F>()(material.getSpecularColor()) ^
-               std::hash<Vec3F>()(material.getEmissionColor()) ^
-               std::hash<float>()(material.getSpecularIntensity()) ^
-               std::hash<float>()(material.getShininess());
+        std::size_t hash = 0;
+        GLESC::Hasher::hashCombine(hash, std::hash<GLESC::Render::ColorRgb>{}(material.getDiffuseColor()));
+        GLESC::Hasher::hashCombine(hash, std::hash<float>{}(material.getDiffuseIntensity()));
+        GLESC::Hasher::hashCombine(hash, std::hash<GLESC::Render::ColorRgb>{}(material.getSpecularColor()));
+        GLESC::Hasher::hashCombine(hash, std::hash<float>{}(material.getSpecularIntensity()));
+        GLESC::Hasher::hashCombine(hash, std::hash<GLESC::Render::ColorRgb>{}(material.getEmissionColor()));
+        GLESC::Hasher::hashCombine(hash, std::hash<float>{}(material.getEmmisionIntensity()));
+        GLESC::Hasher::hashCombine(hash, std::hash<float>{}(material.getShininess()));
+        return hash;
     }
 };

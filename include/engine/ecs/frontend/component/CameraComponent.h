@@ -11,15 +11,18 @@
 #include "engine/core/math/algebra/matrix/Matrix.h"
 #include "engine/core/math/geometry/GeometryTypes.h"
 #include "engine/subsystems/renderer/RendererTypes.h"
+#include "engine/subsystems/renderer/camera/CameraPerspective.h"
 
 namespace GLESC::ECS {
     struct CameraComponent : IComponent {
+        CameraComponent() {
+            perspective.fovDegrees = 45;
+            perspective.nearPlane = 0.1;
+            perspective.farPlane = 1000;
+        }
+
         Render::View view{};
-        Math::Distance fovDegrees{45};
-        Math::Distance viewWidth; // This will be set to the window width
-        Math::Distance viewHeight; // This will be set to the window height
-        Math::Distance nearPlane{0.1};
-        Math::Distance farPlane{100};
+        Render::CameraPerspective perspective;
 
         float sensitivity{3.f};
 
@@ -27,16 +30,7 @@ namespace GLESC::ECS {
         std::string toString() const override {
             return std::string("\n\tview: \n")
                 + view.toString()
-                + std::string("\n\tfov: ")
-                + std::to_string(fovDegrees)
-                + std::string("\n\tviewWidth: ")
-                + std::to_string(viewWidth)
-                + std::string("\n\tviewHeight: ")
-                + std::to_string(viewHeight)
-                + std::string("\n\tnearPlane: ")
-                + std::to_string(nearPlane)
-                + std::string("\n\tfarPlane: ")
-                + std::to_string(farPlane);
+                + perspective.toString();
         }
 
         std::string getName() const override {

@@ -61,38 +61,41 @@ GLESC::Math::Direction Transform::calculateUp() const {
 }
 
 
-bool Transform::operator==(const Transform &other) const {
+bool Transform::operator==(const Transform& other) const {
     return position == other.position && rotation == other.rotation && scale == other.scale;
 }
 
 std::string Transform::toString() const {
     return "Position: " + position.toString() + "\n" +
-           "Rotation: " + rotation.toString() + "\n" +
-           "Scale: " + scale.toString();
+        "Rotation: " + rotation.toString() + "\n" +
+        "Scale: " + scale.toString();
 }
 
 
-GLESC::Math::Direction Transform::worldUp = Math::Direction(0.0f, 1.0f, 0.0f);
-GLESC::Math::Direction Transform::worldRight = Math::Direction(1.0f, 0.0f, 0.0f);
-GLESC::Math::Direction Transform::worldForward = Math::Direction(0.0f, 0.0f, 1.0f);
+GLESC::Math::Direction Transform::worldUp{Math::Direction(0.0f, 1.0f, 0.0f)};
+GLESC::Math::Direction Transform::worldRight{Math::Direction(1.0f, 0.0f, 0.0f)};
+GLESC::Math::Direction Transform::worldForward{Math::Direction(0.0f, 0.0f, 1.0f)};
 
 
-void Transformer::transformMesh(Render::ColorMesh &mesh, const Transform &transform) {
-    Render::Model model;
-    model.makeModelMatrix(transform.getPosition(), transform.getRotation(), transform.getScale());
+void Transformer::transformMesh(Render::ColorMesh& mesh, const Render::Model& modelMat) {
 
-    for (auto &vertex : mesh.getVertices()) {
-        Render::getVertexPositionAttr(vertex) = model * Render::getVertexPositionAttr(vertex);
+    for (auto& vertex : mesh.getVertices()) {
+        Render::getVertexPositionAttr(vertex) = modelMat * Render::getVertexPositionAttr(vertex);
     }
 
-    transformBoundingVolume(mesh.getBoundingVolumeMutable(), transform);
+    transformBoundingVolume(mesh.getBoundingVolumeMutable(), modelMat);
 }
 
-void Transformer::transformBoundingVolume(Render::BoundingVolume &boundingVolume, const Transform &transform) {
-    Render::Model model;
-    model.makeModelMatrix(transform.getPosition(), transform.getRotation(), transform.getScale());
+GLESC::Render::BoundingVolume Transformer::transformBoundingVolume(const Render::BoundingVolume& boundingVolume,
+                                                                   const Render::Model& modelMat) {
+    Render::BoundingVolume transformedBoundingVolume;
+    for (const Math::Point & topologyVertice : boundingVolume.getTopology().getVertices()) {
 
-    for (Math::Point &vertex : boundingVolume.getTopologyMutable().getVerticesMutable()) {
-        vertex = model * vertex;
+        Vec4F homogenousVertice =  topologyVertice.homogenize();
+        Vec4F transformedVertice =  modelMat * homogenousVertice;
+        Vec3F transformedVertice3D = transformedVertice.dehomogenize();
+        transformedBoundingVolume.topology.addVertex(transformedVertice);
     }
+    return transformedBoundingVolume;
 }
+

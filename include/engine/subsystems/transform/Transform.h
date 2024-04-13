@@ -20,6 +20,7 @@ namespace GLESC::Transform {
         Y = 1,
         Z = 2
     };
+
     struct Transform {
         static Math::Direction worldUp;
         static Math::Direction worldRight;
@@ -32,9 +33,11 @@ namespace GLESC::Transform {
         const Position& getPosition() const {
             return position;
         }
+
         const Rotation& getRotation() const {
             return rotation;
         }
+
         const Scale& getScale() const {
             return scale;
         }
@@ -42,10 +45,12 @@ namespace GLESC::Transform {
         void setPosition(const Position& position) {
             this->position = position;
         }
+
         void setRotation(const Rotation& rotation) {
             dirtyRotation = true;
             this->rotation = rotation;
         }
+
         void setScale(const Scale& scale) {
             this->scale = scale;
         }
@@ -53,25 +58,28 @@ namespace GLESC::Transform {
         void addPosition(const Position& position) {
             this->position += position;
         }
+
         void addRotation(const Rotation& rotation) {
             dirtyRotation = true;
             this->rotation += rotation;
         }
+
         void addScale(const Scale& scale) {
             this->scale += scale;
         }
-
 
 
         void setPosition(Axis axis, PosComp value) {
             int index = static_cast<int>(axis);
             position.set(index, value);
         }
+
         void setRotation(Axis axis, RotComp value) {
             int index = static_cast<int>(axis);
             dirtyRotation = true;
             rotation.set(index, value);
         }
+
         void setScale(Axis axis, ScaleComp value) {
             int index = static_cast<int>(axis);
             scale.set(index, value);
@@ -81,17 +89,17 @@ namespace GLESC::Transform {
             int index = static_cast<int>(axis);
             position.set(index, position.get(index) + value);
         }
+
         void addRotation(Axis axis, RotComp value) {
             int index = static_cast<int>(axis);
             dirtyRotation = true;
             rotation.set(index, rotation.get(index) + value);
         }
+
         void addScale(Axis axis, ScaleComp value) {
             int index = static_cast<int>(axis);
             scale.set(index, scale.get(index) + value);
         }
-
-
 
 
         [[nodiscard]] Math::Direction forward() const;
@@ -100,11 +108,9 @@ namespace GLESC::Transform {
 
         [[nodiscard]] Math::Direction up() const;
 
-        [[nodiscard]] bool operator==(const Transform &other) const;
+        [[nodiscard]] bool operator==(const Transform& other) const;
 
         [[nodiscard]] std::string toString() const;
-
-
 
     private:
         Math::Direction calculateForward() const;
@@ -124,10 +130,10 @@ namespace GLESC::Transform {
 
     class Transformer {
     public:
-        static void transformMesh(Render::ColorMesh &mesh,
-                                  const Transform &transform);
+        static void transformMesh(Render::ColorMesh& mesh, const Render::Model& modelMat);
 
-        static void transformBoundingVolume(Render::BoundingVolume &boundingVolume,
-                                            const Transform &transform) ;
+        static Render::BoundingVolume transformBoundingVolume(const Render::BoundingVolume& boundingVolume,
+                                                              const Render::Model& modelMat);
+        static std::unordered_map<Render::BoundingVolume*, Render::Model> modelCache;
     }; // class Transformer
 } // namespace GLESC

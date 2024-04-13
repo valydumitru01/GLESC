@@ -1,5 +1,5 @@
 /**************************************************************************************************
- * @file   MeshBatches.h
+ * @file   BatchMeshes.h
  * @author Valentin Dumitru
  * @date   16/02/2024
  * @brief  Add description of this file if needed @TODO
@@ -18,7 +18,10 @@ namespace GLESC::Render {
 
         void attatchMesh(const Material &material, const ColorMesh &mesh) {
             for (const auto &vertex : mesh.getVertices()) {
-                this->batches[&material].addAutoFaceVertex(vertex);
+                this->batches[&material].addVertex(vertex);
+            }
+            for (const auto &faceIndices : mesh.getFaces()) {
+                this->batches[&material].addTris(faceIndices[0], faceIndices[1], faceIndices[2]);
             }
         }
 

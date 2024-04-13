@@ -33,14 +33,15 @@ namespace GLESC::Math {
          * @param normalParam The normal vector of the plane.
          * @param distanceParam The distance from the origin to the plane.
          */
-        Plane(const Direction &normalParam, float distanceParam);
+        Plane(const Direction& normalParam, float distanceParam);
 
         /**
-         * @brief
+         * @brief Construct a new Plane object from a point and a normal vector.
+         * @details The normal vector is normalized if its length is greater than 1. The normal cannot be a zero vector.
          * @param point
          * @param normalParam
          */
-        Plane(const Point &point, const Direction &normalParam);
+        Plane(const Point& point, const Direction& normalParam);
 
         /**
          * @brief Construct a new Plane object from three distinct points.
@@ -51,7 +52,7 @@ namespace GLESC::Math {
          * @param point2 The second point.
          * @param point3 The third point.
          */
-        Plane(const Point &point1, const Point &point2, const Point &point3);
+        Plane(const Point& point1, const Point& point2, const Point& point3);
 
         /**
          * @brief Construct a new Plane object from a point and a line.
@@ -61,24 +62,26 @@ namespace GLESC::Math {
          * @param point A point not on the line.
          * @param line A line not containing the point.
          */
-        Plane(const Point &point, const Line &line);
+        Plane(const Point& point, const Line& line);
 
 
-        Plane(const Plane &plane) = default;
+        Plane(const Plane& plane) = default;
 
-        Plane(Plane &&plane) = default;
+        Plane(Plane&& plane) = default;
 
-        Plane &operator=(const Plane &plane) = default;
+        Plane& operator=(const Plane& plane) = default;
 
-        Plane &operator=(Plane &&plane) = default;
+        Plane& operator=(Plane&& plane) = default;
 
         ~Plane() = default;
 
-        void setNormal(const Direction &normalParam);
+        void setNormal(const Direction& normalParam);
+
+        void normalize();
 
         void setDistance(Distance distanceParam);
 
-        [[nodiscard]] const Direction &getNormal() const;
+        [[nodiscard]] const Direction& getNormal() const;
 
         [[nodiscard]] Distance getDistance() const;
 
@@ -93,18 +96,26 @@ namespace GLESC::Math {
          * @param point
          * @return
          */
-        [[nodiscard]] Distance distanceToPoint(const Point &point) const;
+        [[nodiscard]] Distance distanceToPoint(const Point& point) const;
 
-        [[nodiscard]] bool intersects(const Point &point) const;
+        /**
+         * @brief Check if a point is inside the plane.
+         * @details A point is inside the plane if it's on the side of the plane where the normal points.
+         * @param point The point to check.
+         * @return True if the point is inside the plane, false otherwise.
+         */
+        [[nodiscard]] bool hasInside(const Point& point) const;
 
-        [[nodiscard]] bool intersects(const Plane &plane) const;
+        [[nodiscard]] bool intersects(const Point& point) const;
+
+        [[nodiscard]] bool intersects(const Plane& plane) const;
 
         /**
          * @brief Checks if the plane intersects with a given line.
          * @param line The line to check for intersection with the plane.
          * @return True if the plane intersects with the line, false otherwise.
          */
-        [[nodiscard]] bool intersects(const Line &line) const;
+        [[nodiscard]] bool intersects(const Line& line) const;
 
         /**
          * @brief Checks if the plane intersects with a given line and sets the intersection point
@@ -113,14 +124,14 @@ namespace GLESC::Math {
          * @param intersectionPoint The intersection point that is overwritten if it exists.
          * @return True if the plane intersects with the line, false otherwise.
          */
-        [[nodiscard]] bool intersects(const Line &line, Point &intersectionPoint) const;
+        [[nodiscard]] bool intersects(const Line& line, Point& intersectionPoint) const;
 
         /**
          * @brief Compare two planes for equality.
          * @param other The plane to compare with.
          * @return True if the planes are equal, false otherwise.
          */
-        bool operator==(const Plane &other) const;
+        bool operator==(const Plane& other) const;
 
         std::string toString() const;
 
@@ -134,9 +145,9 @@ namespace GLESC::Math {
          * @return Direction The normal vector of the plane.
          */
         [[nodiscard]] static Direction calculateNormalFromPoints(
-            const Point &firstPoint,
-            const Point &secondPoint,
-            const Point &thirdPoint);
+            const Point& firstPoint,
+            const Point& secondPoint,
+            const Point& thirdPoint);
 
         /**
          * @brief Calculate the normal vector of the plane defined by a point and a line.
@@ -146,8 +157,8 @@ namespace GLESC::Math {
          * @return Direction The normal vector of the plane.
          */
         [[nodiscard]] static Direction calculateNormalFromPointAndLine(
-            const Point &point,
-            const Line &line);
+            const Point& point,
+            const Line& line);
 
         /**
          * @brief Calculate the distance from the origin to the plane defined by a point on the
@@ -158,8 +169,8 @@ namespace GLESC::Math {
          * @return double The distance from the origin to the plane.
          */
         [[nodiscard]] static Distance calculateDistanceFromPointAndNormal(
-         const Point &point,
-         const Direction &normal);
+            const Point& point,
+            const Direction& normal);
 
         /**
          * @brief Calculate the distance from the origin to the plane defined by a point and a line.
@@ -169,8 +180,8 @@ namespace GLESC::Math {
          * @return double The distance from the origin to the plane.
          */
         [[nodiscard]] static Distance calculateDistanceFromPointAndLine(
-            const Point &point,
-            const Line &line);
+            const Point& point,
+            const Line& line);
 
         /**
          * @brief Calculate the distance from the origin to the plane defined by three distinct
@@ -182,9 +193,9 @@ namespace GLESC::Math {
          * @return double The distance from the origin to the plane.
          */
         [[nodiscard]] static Distance calculateDistanceFromPoints(
-         const Point &point1,
-         const Point &point2,
-         const Point &point3);
+            const Point& point1,
+            const Point& point2,
+            const Point& point3);
 
         /**
          * @brief The unit vector normal to the plane. Defines the orientation of the plane.

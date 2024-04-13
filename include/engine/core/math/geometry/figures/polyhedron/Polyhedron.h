@@ -23,23 +23,25 @@ namespace GLESC::Math {
         
         void addFace(const FaceIndices &faceParam);
 
+        void addQuad(const QuadIndices &faceParam);
+
         void clear();
 
         [[nodiscard]] Point getCenter() const;
         
         [[nodiscard]] const std::vector<PolyhedronFace> &getFaces() const;
-        
-        [[nodiscard]] std::vector<Point> &getVerticesMutable();
-        
+
         [[nodiscard]] const std::vector<Point> &getVertices() const;
         
         [[nodiscard]] bool intersects(const Polyhedron &other) const;
+
+        [[nodiscard]] bool hasAnyVertexInside(const Polyhedron &other) const;
         
-        [[nodiscard]] bool isInside(const Point &point) const;
+        [[nodiscard]] bool hasInside(const Point &point) const;
         
-        [[nodiscard]] bool isInside(const PolyhedronFace &face);
+        [[nodiscard]] bool hasInside(const PolyhedronFace &face);
         
-        [[nodiscard]] bool isInside(const Polyhedron &polyhedron) const;
+        [[nodiscard]] bool hasInside(const Polyhedron &polyhedron) const;
         
         [[nodiscard]] bool intersects(const Line &line) const;
         

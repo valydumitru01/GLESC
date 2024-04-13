@@ -16,19 +16,19 @@ int main(int argc, char* argv[]) {
 #ifndef NDEBUG
     Logger::get().warning("DEBUG MODE IS ON");
 #endif
-    FPSManager counter(Fps90);
-    GLESC::Engine glesc(counter);
+    FPSManager fps(Fps90);
+    GLESC::Engine glesc(fps);
     while (glesc.running) {
-        counter.startFrame();
+        fps.startFrame();
 
         glesc.processInput();
-        while (counter.isUpdateLagged()) // Update executes in constant intervals no matter how much time it takes
+        while (fps.isUpdateLagged()) // Update executes in constant intervals no matter how much time it takes
         {
             glesc.update();
-            counter.refreshUpdateLag();
+            fps.refreshUpdateLag();
         }
         //Render execute arbitrarily, depending on how much time update() takes
-        glesc.render(counter.getTimeOfFrameAfterUpdate());
+        glesc.render(fps.getTimeOfFrameAfterUpdate());
     }
     return 0;
 }

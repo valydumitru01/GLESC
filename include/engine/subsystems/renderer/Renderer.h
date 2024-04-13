@@ -12,6 +12,8 @@
 #include "engine/subsystems/renderer/RendererTypes.h"
 #include "engine/subsystems/renderer/material/Material.h"
 #include "../../core/low-level-renderer/shader/Shader.h"
+#include "camera/CameraPerspective.h"
+#include "engine/core/counter/Counter.h"
 
 #include "engine/subsystems/renderer/mesh/Mesh.h"
 #include "engine/subsystems/transform/Transform.h"
@@ -45,6 +47,9 @@ namespace GLESC::Render {
         void setCameraTransform(Transform::Transform cameraTransformParam) {
             this->cameraTransform = cameraTransformParam;
         }
+        void setCameraPerspective(const CameraPerspective& cameraPerspective) {
+            this->cameraPerspective = cameraPerspective;
+        }
 
         void addLightSpot(const LightSpot& lightSpot, const Transform::Transform& transform) {
             lightSpots.addLight(lightSpot, transform);
@@ -53,6 +58,7 @@ namespace GLESC::Render {
         [[nodiscard]] GAPI::Shader& getDefaultShader() { return shader; }
         [[nodiscard]] Frustum& getFrustum() { return frustum; }
         [[nodiscard]] const Frustum& getFrustum() const { return frustum; }
+        [[nodiscard]] const float getMeshRenderCount() const { return meshRenderCounter.getCount(); }
 
         void clear() const;
 
@@ -74,8 +80,8 @@ namespace GLESC::Render {
         void swapBuffers() const;
 
     private:
-        void applyTransform(ColorMesh& mesh, const Transform::Transform& transform) const;
-        void transformMeshCPU(ColorMesh& mesh, const Transform::Transform& transform);
+        void applyTransform(const MV& modelView, const MVP& mvp, const NormalMat& normalMat) const;
+        void transformMeshCPU(ColorMesh& mesh, const Model& modelMat);
 
         void applyLighting(LightSpots& lightSpotsParam, GlobalSun& sun, GlobalAmbienLight ambientLight) const;
         void applyMaterial(const Material& material) const;
@@ -103,8 +109,12 @@ namespace GLESC::Render {
         GlobalSun globalSun;
         GlobalAmbienLight globalAmbienLight;
 
+        Counter meshRenderCounter;
+
         Projection projection;
         View view;
+        VP viewProjection;
         Transform::Transform cameraTransform;
+        CameraPerspective cameraPerspective;
     }; // class Renderer
 } // namespace GLESC

@@ -24,18 +24,19 @@ public:
          GLESC::PhysicsManager &physicsManager,
          GLESC::Input::InputManager &inputManager,
          GLESC::WindowManager &windowManager,
-         GLESC::ECS::EntityFactory &entityFactory) :
+         GLESC::ECS::EntityFactory &entityFactory, Entity& camera) :
         ecs(ecs), physicsManager(physicsManager), inputManager(inputManager), windowManager(windowManager),
-        entityFactory(entityFactory) {}
+        entityFactory(entityFactory), camera(camera) {}
 
     void init();
 
     void update();
 
+    Entity& getCamera(){ return camera;}
+
 private:
-    float targetRotationX = 0.0f;
-    float targetRotationY = 0.0f;
-    float sensitivity = 3.f;
+
+    Entity& camera;
 
 
     GLESC::ECS::ECSCoordinator &ecs;

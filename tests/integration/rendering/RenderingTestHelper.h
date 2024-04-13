@@ -13,11 +13,11 @@
 #include "engine/core/low-level-renderer/graphic-api/Gapi.h"
 #include "engine/core/low-level-renderer/graphic-api/GapiStructs.h"
 #include "engine/Config.h"
-
+using namespace GLESC::GAPI;
 static constexpr auto colorEpsilon = 0.05f;
 static constexpr auto dataEpsilon = 0.001f;
-static GAPI::RGBAColorNormalized backgroundColor = {0.2f, 0.3f, 0.3f, 1.0f};
-static GAPI::RGBAColorNormalized expectedFigureColor = {1.0f, 0.0f, 0.0f, 1.0f};
+static RGBAColorNormalized backgroundColor = {0.2f, 0.3f, 0.3f, 1.0f};
+static RGBAColorNormalized expectedFigureColor = {1.0f, 0.0f, 0.0f, 1.0f};
 static std::string vertexShaderSourceColor = R"glsl(
         layout (location = 0) in vec3 position;
         void main() {
@@ -33,7 +33,7 @@ static std::string fragmentShaderSourceColor = R"glsl(
         }
     )glsl";
 
-static std::vector<GAPI::Float> positionOnlyVertices = {
+static std::vector positionOnlyVertices = {
         /* x      y   */
         -0.5f, -0.5f, // bottom left
         0.5f, -0.5f,  // bottom right
@@ -61,7 +61,7 @@ static std::string fragmentShaderSourceTexture = R"glsl(
         }
         
         )glsl";
-static std::vector<GAPI::Float> positionAndUVVertices = {
+static std::vector positionAndUVVertices = {
         /* x      y      u     v */
         -0.5f, -0.5f, 0.0f, 0.0f, // bottom left
         0.5f, -0.5f, 1.0f, 0.0f,  // bottom right
@@ -69,7 +69,7 @@ static std::vector<GAPI::Float> positionAndUVVertices = {
         -0.5f, 0.5f, 0.0f, 1.0f  // top left
 };
 
-static std::vector<GAPI::UInt> indices = {0, 1, 2, 2, 3, 0};
+static std::vector<UInt> indices = {0, 1, 2, 2, 3, 0};
 
 template<typename Type>
 inline void printExpectNear(const std::string &message, Type expected, Type actual) {
@@ -80,10 +80,10 @@ inline void printExpectNear(const std::string &message, Type expected, Type actu
 
 
 inline void
-checkPixelColor(GAPI::RGBAColorNormalized expected, GAPI::UInt xCoord, GAPI::UInt yCoord,
+checkPixelColor(RGBAColorNormalized expected, UInt xCoord, UInt yCoord,
                 std::string message) {
     Logger::get().info("============" + message + "=============");
-    GAPI::RGBAColorNormalized readTriangleColor =
+    RGBAColorNormalized readTriangleColor =
             getGAPI().readPixelColorNormalized(xCoord, yCoord);
     EXPECT_NEAR(expected.r, readTriangleColor.r, colorEpsilon);
     printExpectNear("color red", expected.r, readTriangleColor.r);
@@ -99,12 +99,12 @@ inline void checkBackgroundColor() {
     checkPixelColor(backgroundColor, 0, 0, "Checking Background color");
 }
 
-inline void checkCenterColor(GAPI::RGBAColorNormalized expected) {
+inline void checkCenterColor(RGBAColorNormalized expected) {
     checkPixelColor(expected, GLESC_WINDOW_WIDTH / 2, GLESC_WINDOW_HEIGHT / 2,
                     "Checking Center color");
 }
 
-inline void checkVertices(GAPI::UInt bufferID, std::vector<GAPI::Float> &expectedVertices) {
+inline void checkVertices(UInt bufferID, std::vector<Float> &expectedVertices) {
     Logger::get().info("============Checking vertices=============");
     auto actualVertices = getGAPI().getBufferDataF(bufferID);
     EXPECT_EQ(expectedVertices.size(), actualVertices.size());
@@ -115,7 +115,7 @@ inline void checkVertices(GAPI::UInt bufferID, std::vector<GAPI::Float> &expecte
     }
 }
 
-inline void checkIndices(GAPI::UInt bufferID, std::vector<GAPI::UInt> &expectedIndices) {
+inline void checkIndices(UInt bufferID, std::vector<UInt> &expectedIndices) {
     Logger::get().info("============Checking indices=============");
     auto actualIndices = getGAPI().getBufferDataUI(bufferID);
     EXPECT_EQ(expectedIndices.size(), actualIndices.size());
@@ -126,7 +126,7 @@ inline void checkIndices(GAPI::UInt bufferID, std::vector<GAPI::UInt> &expectedI
     }
 }
 
-inline void checkTextureData(GAPI::UInt textureID, const std::vector<GAPI::UByte> &expectedData) {
+inline void checkTextureData(UInt textureID, const std::vector<UByte> &expectedData) {
     Logger::get().info("============Checking texture data=============");
     auto actualData = getGAPI().getTextureData(textureID);
     EXPECT_EQ(expectedData.size(), actualData.size());

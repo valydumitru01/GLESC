@@ -29,6 +29,8 @@ namespace GLESC::Math {
         Line(const Point &pointParam,
              const Direction &directionParam,
              Construct construct = Construct::PointDirection);
+
+        Line() = default;
         
         void setPoint(const Point &pointParam);
         /**
@@ -56,12 +58,12 @@ namespace GLESC::Math {
         /**
         * @brief A point in the line
         */
-        Point point;
+        Point point{{0,0}};
         /**
          * @brief The direction of the line
          * @details This is normalized when calculated, set or modified. This way the direction can be get with the
          * getter without having to normalize it every time.
          */
-        Direction direction;
+        Direction direction{{0,1}};
     };
 }

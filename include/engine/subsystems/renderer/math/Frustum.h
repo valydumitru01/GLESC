@@ -10,91 +10,114 @@
 #pragma once
 
 #include "engine/core/math/geometry/figures/polyhedron/Polyhedron.h"
-#include "engine/core/math/algebra/matrix/Matrix.h"
-#include "engine/core/math/geometry/figures/plane/Plane.h"
 
 namespace GLESC::Render {
     class Frustum {
     public:
         Frustum() = default;
 
-        [[nodiscard]] const std::array<Math::Plane, 6> getPlanes() const {
+        [[nodiscard]] const std::array<Math::Plane, 6>& getPlanes() const {
             return planes;
         }
 
         /**
-         * @brief Construct a new Frustum object from view and projection matrices.
+         * @brief Constructs a frustum from a camera transform and perspective.
          *
-         * @param viewMatrix The view matrix.
-         * @param projMatrix The projection matrix.
+         * @param PVMatrix The combined view-projection matrix.
          */
-        Frustum(const Mat4F& viewMatrix, const Mat4F& projMatrix) {
-            D_ASSERT_TRUE(viewMatrix.isValidViewMatrix(), "Invalid view matrix");
-            update(viewMatrix, projMatrix);
+        Frustum(const Mat4F& PVMatrix) {
+            extractPlanes(PVMatrix);
         }
 
         /**
          * @brief Updates the frustum planes based on new view and projection matrices.
          *
-         * @param viewMatrix The view matrix.
-         * @param projMatrix The projection matrix.
+         * @param PVMatrix The combined view-projection matrix.
          */
-        void update(const Mat4F& viewMatrix, const Mat4F& projMatrix) {
-            D_ASSERT_TRUE(viewMatrix.isValidViewMatrix(), "Invalid view matrix");
-            extractPlanesFromMatrices(viewMatrix, projMatrix);
+        void update(const Mat4F& PVMatrix) {
+            extractPlanes(PVMatrix);
         }
 
         /**
          * @brief Checks if the frustum intersects with a given bounding volume.
+         * @details Returns true if any point is inside all the planes
          *
          * @param volume The bounding volume to test for intersection.
          * @return true If the frustum intersects the volume.
          * @return false If the frustum does not intersect the volume.
          */
-        [[nodiscard]] bool intersects(const BoundingVolume& volume) const {
-            for (const auto& plane : planes) {
-                if (!volume.getTopology().intersects(plane)) {
-                    return false;
+        [[nodiscard]] bool contains(const BoundingVolume& volume) const {
+            // Initially assume no point is inside all planes
+            bool anyPointInsideAllPlanes = false;
+
+            for (const Math::Point& point : volume.getTopology().getVertices()) {
+                int insideCount = 0;
+                for (const Math::Plane& plane : planes) {
+                    if (plane.hasInside(point)) {
+                        insideCount++;
+                    }
+                }
+                // If the point is inside all planes, mark and break the loop as we found a point inside the frustum
+                if (insideCount == planes.size()) {
+                    anyPointInsideAllPlanes = true;
+                    break; // Found a point inside all planes, no need to check further
                 }
             }
-            return true;
+
+            // Return true if at least one point is inside all planes, indicating intersection
+            return anyPointInsideAllPlanes;
         }
 
     private:
-        void extractPlanesFromMatrices(const Mat4F& viewMatrix, const Mat4F& projMatrix) {
-            VP vpMatrix = projMatrix * viewMatrix; // Combine view and projection matrices
+        /**
+         * @brief Extracts the frustum planes from a combined view-projection matrix. Uses Hartmann & Gribbs method.
+         * It's done with row-major matrices.
+         * @see https://web.archive.org/web/20210226045225/http://www.cs.otago.ac.nz/postgrads/alexis/planeExtraction.pdf
+         *
+         * @param PVMatrix The combined view-projection matrix.
+         */
+        void extractPlanes(const Mat4F& PVMatrix) {
+            // Left clipping plane
+            planes[0].setNormal(Math::Direction(PVMatrix[0][3] + PVMatrix[0][0],
+                                                PVMatrix[1][3] + PVMatrix[1][0],
+                                                PVMatrix[2][3] + PVMatrix[2][0]));
+            planes[0].setDistance(PVMatrix[3][3] + PVMatrix[3][0]);
+            planes[0].normalize();
 
-            // Extract frustum planes using the combined view-projection matrix (vpMatrix)
-            // Left Plane
-            planes[0] = Math::Plane(Math::Direction(vpMatrix[0][3] + vpMatrix[0][0],
-                                                    vpMatrix[1][3] + vpMatrix[1][0],
-                                                    vpMatrix[2][3] + vpMatrix[2][0]),
-                                    vpMatrix[3][3] + vpMatrix[3][0]);
-            // Right Plane
-            planes[1] = Math::Plane(Math::Direction(vpMatrix[0][3] - vpMatrix[0][0],
-                                                    vpMatrix[1][3] - vpMatrix[1][0],
-                                                    vpMatrix[2][3] - vpMatrix[2][0]),
-                                    vpMatrix[3][3] - vpMatrix[3][0]);
-            // Bottom Plane
-            planes[2] = Math::Plane(Math::Direction(vpMatrix[0][3] + vpMatrix[0][1],
-                                                    vpMatrix[1][3] + vpMatrix[1][1],
-                                                    vpMatrix[2][3] + vpMatrix[2][1]),
-                                    vpMatrix[3][3] + vpMatrix[3][1]);
-            // Top Plane
-            planes[3] = Math::Plane(Math::Direction(vpMatrix[0][3] - vpMatrix[0][1],
-                                                    vpMatrix[1][3] - vpMatrix[1][1],
-                                                    vpMatrix[2][3] - vpMatrix[2][1]),
-                                    vpMatrix[3][3] - vpMatrix[3][1]);
-            // Near Plane
-            planes[4] = Math::Plane(Math::Direction(vpMatrix[0][3] + vpMatrix[0][2],
-                                                    vpMatrix[1][3] + vpMatrix[1][2],
-                                                    vpMatrix[2][3] + vpMatrix[2][2]),
-                                    vpMatrix[3][3] + vpMatrix[3][2]);
-            // Far Plane
-            planes[5] = Math::Plane(Math::Direction(vpMatrix[0][3] - vpMatrix[0][2],
-                                                    vpMatrix[1][3] - vpMatrix[1][2],
-                                                    vpMatrix[2][3] - vpMatrix[2][2]),
-                                    vpMatrix[3][3] - vpMatrix[3][2]);
+            // Right clipping plane
+            planes[1].setNormal(Math::Direction(PVMatrix[0][3] - PVMatrix[0][0],
+                                                PVMatrix[1][3] - PVMatrix[1][0],
+                                                PVMatrix[2][3] - PVMatrix[2][0]));
+            planes[1].setDistance(PVMatrix[3][3] - PVMatrix[3][0]);
+            planes[1].normalize();
+
+            // Top clipping plane
+            planes[2].setNormal(Math::Direction(PVMatrix[0][3] - PVMatrix[0][1],
+                                                PVMatrix[1][3] - PVMatrix[1][1],
+                                                PVMatrix[2][3] - PVMatrix[2][1]));
+            planes[2].setDistance(PVMatrix[3][3] - PVMatrix[3][1]);
+            planes[2].normalize();
+
+            // Bottom clipping plane
+            planes[3].setNormal(Math::Direction(PVMatrix[0][3] + PVMatrix[0][1],
+                                                PVMatrix[1][3] + PVMatrix[1][1],
+                                                PVMatrix[2][3] + PVMatrix[2][1]));
+            planes[3].setDistance(PVMatrix[3][3] + PVMatrix[3][1]);
+            planes[3].normalize();
+
+            // Near clipping plane
+            planes[4].setNormal(Math::Direction(PVMatrix[0][3] + PVMatrix[0][2],
+                                                PVMatrix[1][3] + PVMatrix[1][2],
+                                                PVMatrix[2][3] + PVMatrix[2][2]));
+            planes[4].setDistance(PVMatrix[3][3] + PVMatrix[3][2]);
+            planes[4].normalize();
+
+            // Far clipping plane
+            planes[5].setNormal(Math::Direction(PVMatrix[0][3] - PVMatrix[0][2],
+                                                PVMatrix[1][3] - PVMatrix[1][2],
+                                                PVMatrix[2][3] - PVMatrix[2][2]));
+            planes[5].setDistance(PVMatrix[3][3] - PVMatrix[3][2]);
+            planes[5].normalize();
         }
 
         std::array<Math::Plane, 6> planes{};

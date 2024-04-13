@@ -12,97 +12,125 @@
 
 using namespace GLESC::Render;
 
-ColorMesh MeshFactory::cube(const Rgba &color) {
+ColorMesh MeshFactory::cube(const ColorRgba &color) {
     return cuboid(1, 1, 1, color);
 }
 
-ColorMesh MeshFactory::sphere(int longitudeSubdivisions, int latitudeSubdivisions, const Rgba &color) {
+ColorMesh MeshFactory::sphere(int numSlices, int numStacks, const ColorRgba &color) {
     ColorMesh mesh;
     Color rgba = color.getRGBAVec4FNormalized();
 
-    for (int latitude = 0; latitude <= latitudeSubdivisions; ++latitude) {
-        auto lat = static_cast<float>(latitude);
-        float theta = lat * Math::pi<float>() / static_cast<float>(latitudeSubdivisions);
-        float sinTheta = Math::sin(theta);
-        float cosTheta = Math::cos(theta);
+    auto pi_f = Math::pi<float>();
+    // Create the top and bottom cap
+    for (int i = 0; i < numSlices; ++i) {
+        float theta1 = 2 * pi_f * float(i) / float(numSlices);
+        float theta2 = 2 * pi_f * float(i + 1) / float(numSlices);
+        auto stacks = static_cast<float>(numStacks);
 
-        for (int longitude = 0; longitude <= longitudeSubdivisions; ++longitude) {
-            auto lon = static_cast<float>(longitude);
-            float phi = lon * 2 * Math::pi<float>() / static_cast<float>(latitudeSubdivisions);
-            float sinPhi = Math::sin(phi);
-            float cosPhi = Math::cos(phi);
+        Position topP1(Math::cos(theta2) * Math::sin(pi_f / stacks),
+                       Math::cos(pi_f / stacks),
+                       Math::sin(theta2) * Math::sin(pi_f / stacks));
+        Position topP2(Math::cos(theta1) * Math::sin(pi_f / stacks),
+                       Math::cos(pi_f / stacks),
+                       Math::sin(theta1) * Math::sin(pi_f / stacks));
 
-            Position pos;
-            Normal normal;
-            normal.x() = pos.x() = cosPhi * sinTheta;
-            normal.y() = pos.y() = cosTheta;
-            normal.z() = pos.z() = sinPhi * sinTheta;
+        Position bottomP1(Math::cos(theta2) * Math::sin(pi_f - pi_f / stacks),
+                          Math::cos(pi_f - pi_f / stacks),
+                          Math::sin(theta2) * Math::sin(pi_f - pi_f / stacks));
+        Position bottomP2(Math::cos(theta1) * Math::sin(pi_f - pi_f / stacks),
+                          Math::cos(pi_f - pi_f / stacks),
+                          Math::sin(theta1) * Math::sin(pi_f - pi_f / stacks));
 
-            // Normalize normal
-            normal = normal.normalize();
+        Normal topTrisNormal = (Normal(0, 1, 0) + topP1.normalize() + topP2.normalize()) / 3.0f;
+        // Top cap triangles
+        mesh.addTris(
+            ColorMesh::Vertex(Position(0, 1, 0), rgba, topTrisNormal),
+            ColorMesh::Vertex(topP1, rgba, topTrisNormal),
+            ColorMesh::Vertex(topP2, rgba, topTrisNormal)
+        );
 
-            mesh.addVertex(ColorMesh::Vertex(pos, rgba, normal));
-        }
+        Normal bottomTrisNormal = (Normal(0, -1, 0) + bottomP1.normalize() + bottomP2.normalize()) / 3.0f;
 
+        // Bottom cap triangles
+        mesh.addTris(
+            ColorMesh::Vertex(Position(0, -1, 0), rgba, bottomTrisNormal),
+            ColorMesh::Vertex(bottomP2, rgba, bottomTrisNormal),
+            ColorMesh::Vertex(bottomP1, rgba, bottomTrisNormal)
+        );
     }
-    // Generate the indices for the sphere's triangles
-    for (int lat = 0; lat <= latitudeSubdivisions; ++lat) {
-        for (int lon = 0; lon <= longitudeSubdivisions; ++lon) {
-            int first = (lat * (longitudeSubdivisions + 1)) + lon;
-            int second = first + longitudeSubdivisions + 1;
-            first %= static_cast<int>(mesh.getVertices().size()-1);
-            second %= static_cast<int>(mesh.getVertices().size()-1);
 
-            mesh.addFace(first, second, first + 1);
-            mesh.addFace(second, second + 1, first + 1);
+    // Create the middle quads
+    for (int j = 1; j < numStacks - 1; ++j) {
+        for (int i = 0; i < numSlices; ++i) {
+            float theta1 = 2 * pi_f * float(i) / float(numSlices);
+            float theta2 = 2 * pi_f * float(i + 1) / float(numSlices);
+            float phi1 = pi_f * float(j) / float(numStacks);
+            float phi2 = pi_f * float(j + 1) / float(numStacks);
+
+            Position p1(Math::cos(theta1) * Math::sin(phi1), Math::cos(phi1), Math::sin(theta1) * Math::sin(phi1));
+            Position p2(Math::cos(theta2) * Math::sin(phi1), Math::cos(phi1), Math::sin(theta2) * Math::sin(phi1));
+            Position p3(Math::cos(theta2) * Math::sin(phi2), Math::cos(phi2), Math::sin(theta2) * Math::sin(phi2));
+            Position p4(Math::cos(theta1) * Math::sin(phi2), Math::cos(phi2), Math::sin(theta1) * Math::sin(phi2));
+
+            Normal faceNormal = (p1.normalize() + p2.normalize() + p3.normalize() + p4.normalize()) / 4.0f;
+
+            mesh.addQuad(
+                ColorMesh::Vertex(p1, rgba, faceNormal),
+                ColorMesh::Vertex(p2, rgba, faceNormal),
+                ColorMesh::Vertex(p3, rgba, faceNormal),
+                ColorMesh::Vertex(p4, rgba, faceNormal)
+            );
         }
     }
 
     return mesh;
 }
 
-ColorMesh MeshFactory::cuboid(const double width, const double height, const double depth, const Rgba &color) {
+ColorMesh MeshFactory::cuboid(const double width, const double height, const double depth, const ColorRgba &color) {
     ColorMesh mesh;
     Color rgba = color.getRGBAVec4FNormalized();
 
     double w = width / 2.0, h = height / 2.0, d = depth / 2.0;
-    ColorMesh::Vertex v1(Position(-w, -h, -d), rgba, Normal(0, 0, -1));
-    ColorMesh::Vertex v2(Position(w, -h, -d), rgba, Normal(0, 0, -1));
-    ColorMesh::Vertex v3(Position(w, h, -d), rgba, Normal(0, 0, -1));
-    ColorMesh::Vertex v4(Position(-w, h, -d), rgba, Normal(0, 0, -1));
 
-    ColorMesh::Vertex v5(Position(-w, -h, d), rgba, Normal(0, 0, 1));
-    ColorMesh::Vertex v6(Position(w, -h, d), rgba, Normal(0, 0, 1));
-    ColorMesh::Vertex v7(Position(w, h, d), rgba, Normal(0, 0, 1));
-    ColorMesh::Vertex v8(Position(-w, h, d), rgba, Normal(0, 0, 1));
+    mesh.addQuad(ColorMesh::Vertex(Position(-w, -h, -d), rgba, Normal(0, -1, 0)),
+                 ColorMesh::Vertex(Position(w, -h, -d), rgba, Normal(0, -1, 0)),
+                 ColorMesh::Vertex(Position(w, -h, d), rgba, Normal(0, -1, 0)),
+                 ColorMesh::Vertex(Position(-w, -h, d), rgba, Normal(0, -1, 0)));
 
-    mesh.addTris(v1, v2, v3);
-    mesh.addTris(v3, v4, v1);
-    // Back face
-    mesh.addTris(v6, v5, v8);
-    mesh.addTris(v8, v7, v6);
-    // Right face
-    mesh.addTris(v2, v6, v7);
-    mesh.addTris(v7, v3, v2);
-    // Left face
-    mesh.addTris(v5, v1, v4);
-    mesh.addTris(v4, v8, v5);
-    // Top face
-    mesh.addTris(v4, v3, v7);
-    mesh.addTris(v7, v8, v4);
-    // Bottom face
-    mesh.addTris(v5, v6, v2);
-    mesh.addTris(v2, v1, v5);
+    mesh.addQuad(ColorMesh::Vertex(Position(-w, h, -d), rgba, Normal(0, 1, 0)),
+                 ColorMesh::Vertex(Position(-w, h, d), rgba, Normal(0, 1, 0)),
+                 ColorMesh::Vertex(Position(w, h, d), rgba, Normal(0, 1, 0)),
+                 ColorMesh::Vertex(Position(w, h, -d), rgba, Normal(0, 1, 0)));
+
+    mesh.addQuad(ColorMesh::Vertex(Position(-w, -h, d), rgba, Normal(0, 0, 1)),
+                 ColorMesh::Vertex(Position(w, -h, d), rgba, Normal(0, 0, 1)),
+                 ColorMesh::Vertex(Position(w, h, d), rgba, Normal(0, 0, 1)),
+                 ColorMesh::Vertex(Position(-w, h, d), rgba, Normal(0, 0, 1)));
+
+    mesh.addQuad(ColorMesh::Vertex(Position(-w, -h, -d), rgba, Normal(0, 0, -1)),
+                 ColorMesh::Vertex(Position(-w, h, -d), rgba, Normal(0, 0, -1)),
+                 ColorMesh::Vertex(Position(w, h, -d), rgba, Normal(0, 0, -1)),
+                 ColorMesh::Vertex(Position(w, -h, -d), rgba, Normal(0, 0, -1)));
+
+    mesh.addQuad(ColorMesh::Vertex(Position(-w, -h, -d), rgba, Normal(-1, 0, 0)),
+                 ColorMesh::Vertex(Position(-w, -h, d), rgba, Normal(-1, 0, 0)),
+                 ColorMesh::Vertex(Position(-w, h, d), rgba, Normal(-1, 0, 0)),
+                 ColorMesh::Vertex(Position(-w, h, -d), rgba, Normal(-1, 0, 0)));
+
+    mesh.addQuad(ColorMesh::Vertex(Position(w, -h, -d), rgba, Normal(1, 0, 0)),
+                 ColorMesh::Vertex(Position(w, h, -d), rgba, Normal(1, 0, 0)),
+                 ColorMesh::Vertex(Position(w, h, d), rgba, Normal(1, 0, 0)),
+                 ColorMesh::Vertex(Position(w, -h, d), rgba, Normal(1, 0, 0)));
 
     return mesh;
 }
 
-ColorMesh MeshFactory::pyramid(const double width, const double height, const double depth, const Rgba &color) {
+ColorMesh MeshFactory::pyramid(const double width, const double height, const double depth, const ColorRgba &color) {
 }
 
 
-ColorMesh MeshFactory::tris(const Vec3D &v1, const Vec3D &v2, const Vec3D &v3, const Rgba &color) {
+ColorMesh MeshFactory::tris(const Vec3D &v1, const Vec3D &v2, const Vec3D &v3, const ColorRgba &color) {
 }
 
-ColorMesh MeshFactory::quad(const Vec3D &v1, const Vec3D &v2, const Vec3D &v3, const Vec3D &v4, const Rgba &color) {
+ColorMesh MeshFactory::quad(const Vec3D &v1, const Vec3D &v2, const Vec3D &v3, const Vec3D &v4, const ColorRgba &color) {
 }

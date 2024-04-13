@@ -14,16 +14,16 @@
 namespace GLESC::Render {
     class MeshFactory {
     public:
-        static ColorMesh cube(const Rgba &color);
+        static ColorMesh cube(const ColorRgba &color);
 
-        static ColorMesh sphere(int longitudeSubdivisions, int latitudeSubdivisions, const Rgba &color);
+        static ColorMesh sphere(int numSlices, int numStacks, const ColorRgba &color);
 
-        static ColorMesh cuboid(double width, double height, double depth, const Rgba &color);
+        static ColorMesh cuboid(double width, double height, double depth, const ColorRgba &color);
 
-        static ColorMesh pyramid(double width, double height, double depth, const Rgba &color);
+        static ColorMesh pyramid(double width, double height, double depth, const ColorRgba &color);
 
-        static ColorMesh tris(const Vec3D &v1, const Vec3D &v2, const Vec3D &v3, const Rgba &color);
+        static ColorMesh tris(const Vec3D &v1, const Vec3D &v2, const Vec3D &v3, const ColorRgba &color);
 
-        static ColorMesh quad(const Vec3D &v1, const Vec3D &v2, const Vec3D &v3, const Vec3D &v4, const Rgba &color);
+        static ColorMesh quad(const Vec3D &v1, const Vec3D &v2, const Vec3D &v3, const Vec3D &v4, const ColorRgba &color);
     }; // class ColorMeshFactory
 } // namespace GLESC

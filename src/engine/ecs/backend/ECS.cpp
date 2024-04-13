@@ -124,8 +124,6 @@ EntityID ECSCoordinator::getEntityID(const EntityName &name) const {
 }
 
 const EntityName& ECSCoordinator::getEntityName(EntityID entity) const {
-    if (entityManager.doesEntityExist(entity))
-        return entityManager.nullEntityName;
     return entityManager.getEntityName(entity);
 }
 

@@ -14,22 +14,22 @@
 #include "engine/subsystems/renderer/Renderer.h"
 #include "engine/subsystems/renderer/mesh/Mesh.h"
 #include "engine/subsystems/renderer/mesh/MeshFactory.h"
-#include "../../../include/engine/core/low-level-renderer/shader/Shader.h"
+#include "engine/core/low-level-renderer/shader/Shader.h"
 #include "integration/rendering/RenderingTestHelper.h"
 #include "LoopHelper.cpp"
 
-
+using namespace GLESC::Render;
 class MeshRenderingTest : public ::testing::Test {
 protected:
     GLESC::WindowManager windowManager;
-    GLESC::Renderer renderer;
-    GLESC::ColorMesh mesh;
-    GLESC::Material material;
-    GLESC::Transform transform;
+    Renderer renderer;
+    ColorMesh mesh;
+    Material material;
+    GLESC::Transform::Transform transform;
     // These are pointers because we don't want to call the constructor
     MeshRenderingTest() : windowManager(), renderer(windowManager) {
-        mesh = GLESC::MeshFactory::cube(RGBA(1,0,0,1));
-        renderer.setData(material,mesh, transform);
+        mesh = MeshFactory::cube(ColorRgba(1,0,0,1));
+        renderer.addData(material,mesh, transform);
     }
 
 
@@ -42,8 +42,6 @@ protected:
     void render() {
         renderer.clear();
         renderer.renderMeshes(0.01);
-        renderer.applyMaterial(material);
-        renderer.applyTransform(mesh, GLESC::Transform());
         renderer.swapBuffers();
     }
 

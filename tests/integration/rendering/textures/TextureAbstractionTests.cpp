@@ -13,24 +13,24 @@
 #include <gtest/gtest.h>
 
 #include "LoopHelper.cpp"
-#include "../../../../include/engine/core/low-level-renderer/buffers/IndexBuffer.h"
-#include "../../../../include/engine/core/low-level-renderer/buffers/VertexArray.h"
-#include "engine/core/low-level-renderer/buffers/vertex/VertexBuffer.h"
+#include "engine/core/low-level-renderer/buffers/IndexBuffer.h"
+#include "engine/core/low-level-renderer/buffers/VertexArray.h"
+#include "engine/core/low-level-renderer/buffers/VertexBuffer.h"
 #include "engine/core/low-level-renderer/graphic-api/Gapi.h"
 #include "engine/core/low-level-renderer/texture/Texture.h"
 #include "engine/core/window/WindowManager.h"
-#include "../../../../include/engine/core/low-level-renderer/shader/Shader.h"
+#include "engine/core/low-level-renderer/shader/Shader.h"
 #include "integration/rendering/RenderingTestHelper.h"
 
 class TextureAbstractionTests : public ::testing::Test{
 protected:
     GLESC::WindowManager windowManager;
     // These are pointers because we don't want to call the constructor
-    GLESC::VertexArray* vao;
-    GLESC::VertexBuffer* vbo;
-    GLESC::IndexBuffer* ibo;
-    GLESC::Shader* shader;
-    GLESC::Texture* texture;
+    VertexArray* vao;
+    VertexBuffer* vbo;
+    IndexBuffer* ibo;
+    Shader* shader;
+    Texture* texture;
     std::vector<std::string> texturePaths{
             "assets/textures/Debug1.png",
             "assets/textures/Debug2.png",
@@ -39,28 +39,28 @@ protected:
     };
     
     
-    GAPI::RGBAColorNormalized backgroundColor = {0.2f, 0.3f, 0.3f, 1.0f};
+    RGBAColorNormalized backgroundColor = {0.2f, 0.3f, 0.3f, 1.0f};
     
     TextureAbstractionTests() {
     }
     
     void prepareShaders() {
         
-        shader = new GLESC::Shader(vertexShaderSourceTexture, fragmentShaderSourceTexture);
+        shader = new Shader(vertexShaderSourceTexture, fragmentShaderSourceTexture);
     }
     
     void prepareBuffers() {
 
         
-        vao = new GLESC::VertexArray();
+        vao = new VertexArray();
         vao->bind();
-        vbo = new GLESC::VertexBuffer(positionAndUVVertices.data(), positionAndUVVertices.size(),
-            positionAndUVVertices.size() * sizeof(float) * 2, GAPI::BufferUsages::StaticDraw);
-        ibo = new GLESC::IndexBuffer(indices);
+        vbo = new VertexBuffer(positionAndUVVertices.data(), positionAndUVVertices.size(),
+            positionAndUVVertices.size() * sizeof(float) * 2, Enums::BufferUsages::StaticDraw);
+        ibo = new IndexBuffer(indices);
         
-        GLESC::VertexBufferLayout layout;
-        layout.push(GAPI::Types::Vec2F); // Position
-        layout.push(GAPI::Types::Vec2F); // Texture coordinates
+        VertexBufferLayout layout;
+        layout.push(Enums::Types::Vec2F); // Position
+        layout.push(Enums::Types::Vec2F); // Texture coordinates
         
         vao->addBuffer(*vbo, layout);
         
@@ -72,8 +72,8 @@ protected:
         Logger::get().info("====================== Rendering ======================");
         getGAPI().clearColor(backgroundColor.r, backgroundColor.g, backgroundColor.b,
                         backgroundColor.a);
-        getGAPI().clear({GAPI::ClearBits::Color, GAPI::ClearBits::Depth,
-                    GAPI::ClearBits::Stencil});
+        getGAPI().clear({Enums::ClearBits::Color, Enums::ClearBits::Depth,
+                    Enums::ClearBits::Stencil});
         vao->bind();
         shader->bind();
         
@@ -84,7 +84,7 @@ protected:
     }
     
     void drawAndCheckTexture(std::string texturePath){
-        texture= new GLESC::Texture(texturePath);
+        texture= new Texture(texturePath);
         
         shader->bind();
         texture->bind(Tex::Slot::Slot0); // Bind the texture to slot 0

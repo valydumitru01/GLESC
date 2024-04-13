@@ -11,41 +11,41 @@
 #include <gtest/gtest.h>
 
 #include "LoopHelper.cpp"
-#include "../../../../include/engine/core/low-level-renderer/buffers/IndexBuffer.h"
-#include "../../../../include/engine/core/low-level-renderer/buffers/VertexArray.h"
-#include "engine/core/low-level-renderer/buffers/vertex/VertexBuffer.h"
+#include "engine/core/low-level-renderer/buffers/IndexBuffer.h"
+#include "engine/core/low-level-renderer/buffers/VertexArray.h"
+#include "engine/core/low-level-renderer/buffers/VertexBuffer.h"
 #include "engine/core/low-level-renderer/graphic-api/Gapi.h"
 #include "engine/core/window/WindowManager.h"
-#include "../../../../include/engine/core/low-level-renderer/shader/Shader.h"
+#include "engine/core/low-level-renderer/shader/Shader.h"
 #include "integration/rendering/RenderingTestHelper.h"
 
-
+using namespace GLESC::GAPI;
 class ShaderAbstractionTests : public ::testing::Test {
 protected:
     GLESC::WindowManager windowManager;
     // These are pointers because we don't want to call the constructor
-    GLESC::VertexArray* vao;
-    GLESC::VertexBuffer* vbo;
-    GLESC::IndexBuffer* ibo;
-    GLESC::Shader* shader;
+    VertexArray* vao;
+    VertexBuffer* vbo;
+    IndexBuffer* ibo;
+    Shader* shader;
     
     ShaderAbstractionTests(){
     }
     
     void prepareShaders() {
         
-        shader = new GLESC::Shader(vertexShaderSourceColor, fragmentShaderSourceColor);
+        shader = new Shader(vertexShaderSourceColor, fragmentShaderSourceColor);
     }
     
     void prepareBuffers() {
-        vao = new GLESC::VertexArray();
+        vao = new VertexArray();
         vao->bind();
-        vbo = new GLESC::VertexBuffer(positionOnlyVertices.data(), positionOnlyVertices.size(),
-            positionOnlyVertices.size() * sizeof(float), GAPI::BufferUsages::StaticDraw);
-        ibo = new GLESC::IndexBuffer(indices);
+        vbo = new VertexBuffer(positionOnlyVertices.data(), positionOnlyVertices.size(),
+            positionOnlyVertices.size() * sizeof(float), Enums::BufferUsages::StaticDraw);
+        ibo = new IndexBuffer(indices);
         
-        GLESC::VertexBufferLayout layout;
-        layout.push(GAPI::Types::Vec2F);
+        VertexBufferLayout layout;
+        layout.push(Enums::Types::Vec2F);
         
         vao->addBuffer(*vbo, layout);
         
@@ -57,8 +57,9 @@ protected:
     void render() {
         getGAPI().clearColor(backgroundColor.r, backgroundColor.g, backgroundColor.b,
                         backgroundColor.a);
-        getGAPI().clear({GAPI::ClearBits::Color, GAPI::ClearBits::Depth,
-                    GAPI::ClearBits::Stencil});
+        getGAPI().clear({
+            Enums::ClearBits::Color, Enums::ClearBits::Depth,
+            Enums::ClearBits::Stencil});
         vao->bind();
         shader->bind();
         shader->setUniform("uColor").u4F(expectedFigureColor.r, expectedFigureColor.g,

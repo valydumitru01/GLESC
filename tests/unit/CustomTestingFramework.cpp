@@ -9,19 +9,21 @@
  **************************************************************************************************/
 #pragma once
 
-#include "engine/core/debugger/Stringer.h"
-#include "engine/core/math/Math.h"
+
 #include <cmath>
 #include <gtest/gtest.h>
 #include <iostream>
 #include <type_traits>
+#include "engine/core/debugger/Stringer.h"
+#include "engine/core/math/Math.h"
 
 
 template <typename Type1, typename Type2>
 void expectEqCustom(const Type1& a, const Type2& b) {
     std::cout << "Comparing values: " << GLESC::Stringer::toString(a) << " and " << GLESC::Stringer::toString(b);
     if constexpr (std::is_floating_point_v<Type1> || std::is_floating_point_v<Type2>) {
-        auto epsilon = pow(10, -5); // A high epsilon to account for the precission loss from operations
+        // * 1000 to account for multiple operations
+        auto epsilon = GLESC::Math::max(GLESC::Math::epsilon(a), GLESC::Math::epsilon(b)) * 1000;
         std::cout << " with epsilon: " << GLESC::Stringer::toString(epsilon) << "\n";
         EXPECT_NEAR(a, b, epsilon);
     }

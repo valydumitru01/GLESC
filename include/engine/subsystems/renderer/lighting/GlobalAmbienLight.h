@@ -18,7 +18,7 @@ namespace GLESC::Render {
          */
         GlobalAmbienLight() = default;
 
-        void setColor(const Rgb &color) {
+        void setColor(const ColorRgb &color) {
             GlobalAmbienLight::color = color;
         }
 
@@ -30,14 +30,14 @@ namespace GLESC::Render {
             return intensity;
         }
 
-        [[nodiscard]] Rgb getColor() const {
+        [[nodiscard]] ColorRgb getColor() const {
             return color;
         }
 
     protected:
 
     private:
-        Rgb color{255, 255, 255};
+        ColorRgb color{255, 255, 255};
         /**
          * @brief Intensity of the light.
          * @details It should be between 0 and 1. The standard is to set it somewhat low, because its the light when

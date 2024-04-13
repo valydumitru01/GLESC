@@ -43,7 +43,7 @@ Engine::Engine(FPSManager& fpsManager) :
 
     engineCamera(createEngineCamera()),
 
-    game(ecs, physicsManager, inputManager, windowManager, entityFactory) {
+    game(ecs, physicsManager, inputManager, windowManager, entityFactory, engineCamera) {
     this->registerStats();
     game.init();
 }
@@ -87,16 +87,16 @@ void Engine::update() {
 
 std::vector<std::unique_ptr<ECS::System>> Engine::createSystems() {
     std::vector<std::unique_ptr<ECS::System>> systems;
-    systems.push_back(std::make_unique<ECS::DebugInfoSystem>(ecs, renderer));
     systems.push_back(std::make_unique<ECS::InputSystem>(inputManager, ecs));
     systems.push_back(std::make_unique<ECS::PhysicsSystem>(physicsManager, ecs));
     systems.push_back(std::make_unique<ECS::RenderSystem>(renderer, ecs));
     systems.push_back(std::make_unique<ECS::CameraSystem>(renderer, windowManager, ecs));
     systems.push_back(std::make_unique<ECS::TransformSystem>(ecs));
     systems.push_back(std::make_unique<ECS::LightSystem>(ecs, renderer));
+    systems.push_back(std::make_unique<ECS::DebugInfoSystem>(ecs, renderer));
     return systems;
 }
-
+#define CAMERA_SPEED 0.3f
 ECS::Entity Engine::createEngineCamera() {
     using namespace GLESC::ECS;
     Entity camera = entityFactory.createEntity("camera");
@@ -105,43 +105,48 @@ ECS::Entity Engine::createEngineCamera() {
           .addComponent(TransformComponent())
           .addComponent(InputComponent());
 
-    camera.getComponent<CameraComponent>().viewWidth = static_cast<float>(windowManager.getSize().width);
-    camera.getComponent<CameraComponent>().viewHeight = static_cast<float>(windowManager.getSize().height);
+
+    camera.getComponent<CameraComponent>().perspective.farPlane = 1000.0f;
+    camera.getComponent<CameraComponent>().perspective.nearPlane = 0.1f;
+    camera.getComponent<CameraComponent>().sensitivity = 1.5;
+    camera.getComponent<CameraComponent>().perspective.fovDegrees = 60.0f;
+    camera.getComponent<CameraComponent>().perspective.viewWidth = static_cast<float>(windowManager.getSize().width);
+    camera.getComponent<CameraComponent>().perspective.viewHeight = static_cast<float>(windowManager.getSize().height);
 
     Input::KeyCommand moveForward = Input::KeyCommand([&] {
         Entity cameraEntity = entityFactory.getEntity("camera");
         cameraEntity.getComponent<TransformComponent>().transform.addPosition(
-            cameraEntity.getComponent<TransformComponent>().transform.forward());
+            cameraEntity.getComponent<TransformComponent>().transform.forward() * CAMERA_SPEED);
     });
 
     Input::KeyCommand moveBackward = Input::KeyCommand([&] {
         Entity cameraEntity = entityFactory.getEntity("camera");
         cameraEntity.getComponent<TransformComponent>().transform.addPosition(
-            -cameraEntity.getComponent<TransformComponent>().transform.forward());
+            -cameraEntity.getComponent<TransformComponent>().transform.forward()* CAMERA_SPEED);
     });
 
     Input::KeyCommand moveLeft = Input::KeyCommand([&] {
         Entity cameraEntity = entityFactory.getEntity("camera");
         cameraEntity.getComponent<TransformComponent>().transform.addPosition(
-            -cameraEntity.getComponent<TransformComponent>().transform.right());
+            -cameraEntity.getComponent<TransformComponent>().transform.right() * CAMERA_SPEED);
     });
 
     Input::KeyCommand moveRight = Input::KeyCommand([&] {
         Entity cameraEntity = entityFactory.getEntity("camera");
         cameraEntity.getComponent<TransformComponent>().transform.addPosition(
-            cameraEntity.getComponent<TransformComponent>().transform.right());
+            cameraEntity.getComponent<TransformComponent>().transform.right() * CAMERA_SPEED);
     });
 
     Input::KeyCommand moveUp = Input::KeyCommand([&] {
         Entity cameraEntity = entityFactory.getEntity("camera");
         cameraEntity.getComponent<TransformComponent>().transform.addPosition(
-            Transform::Transform::worldUp);
+            Transform::Transform::worldUp * CAMERA_SPEED);
     });
 
     Input::KeyCommand moveDown = Input::KeyCommand([&] {
         Entity cameraEntity = entityFactory.getEntity("camera");
         cameraEntity.getComponent<TransformComponent>().transform.addPosition(
-            -Transform::Transform::worldUp);
+            -Transform::Transform::worldUp * CAMERA_SPEED);
     });
 
     Input::MouseCommand rotate = Input::MouseCommand([&](const MousePosition& deltaMouse) {
@@ -183,16 +188,19 @@ void Engine::registerStats() const {
     StatsManager::registerStatSource("Update FPS", [&]() -> float {
         return fpsManager.getUpdateFPS();
     });
-    StatsManager::registerStatSource("Update frame time", [&]() -> Uint32 {
-        return fpsManager.getUpdateTimeMillis();
-    });
     StatsManager::registerStatSource("Render FPS", [&]() -> float {
         return fpsManager.getRenderFPS();
+    });
+
+    StatsManager::registerStatSource("Update frame time", [&]() -> Uint32 {
+        return fpsManager.getUpdateTimeMillis();
     });
     StatsManager::registerStatSource("Render frame time", [&]() -> Uint32 {
         return fpsManager.getAverageRenderTimeMillis();
     });
-
+    StatsManager::registerStatSource("Mesh Render Counter", [&]() -> std::string {
+        return Stringer::toString(renderer.getMeshRenderCount());
+    });
     StatsManager::registerStatSource("Pressed Keys: ", [&]() -> std::string {
         std::string keys = "[";
         for (const auto& key : inputManager.getPressedKeys()) {
@@ -221,18 +229,5 @@ void Engine::registerStats() const {
         return renderer.getView().toString();
     });
 
-    StatsManager::registerStatSource("All model matrices: ", [&]() -> std::string {
-        std::string matrices;
-        for (auto& entity : ecs.getAllEntities()) {
-            matrices += "Entity: " + entity.left + "\n";
-            if (ecs.hasComponent<ECS::TransformComponent>(entity.right)) {
-                Transform::Transform transform = ecs.getComponent<ECS::TransformComponent>(entity.right).transform;
-                Render::Model model;
-                model.makeModelMatrix(transform.getPosition(), transform.getRotation(), transform.getScale());
-                matrices += model.toString() + "\n";
-            }
-            matrices += "\n";
-        }
-        return matrices;
-    });
+
 }

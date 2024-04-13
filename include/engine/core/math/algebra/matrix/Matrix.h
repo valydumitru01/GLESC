@@ -13,8 +13,6 @@
 #include <memory>
 #include <algorithm>
 #include <engine/core/asserts/Asserts.h>
-#include <glm/ext/matrix_clip_space.hpp>
-#include <glm/ext/matrix_projection.hpp>
 
 #include "engine/core/exceptions/core/math/MathException.h"
 #include "engine/core/math/asserts/MatrixAsserts.h"
@@ -23,6 +21,15 @@
 #include "MatrixAlgorithms.h"
 
 namespace GLESC::Math {
+    /**
+     * @brief Matrix class. It's a row-major matrix.
+     * @details This matrix is row-major, but is compatible with OpenGL's column-major matrices. This is because
+     * the matrix is accessed in the same way as OpenGL's matrices, but the data is stored in a row-major format.
+     * All the operations leave the data in the same format, so it can be directly passed to OpenGL.
+     * @tparam Type The type of the elements in the matrix
+     * @tparam N The number of rows in the matrix
+     * @tparam M The number of columns in the matrix
+     */
     template<typename Type, size_t N, size_t M>
     class Matrix {
         S_ASSERT_TRUE(N > 0 && M > 0, "Matrix must have at least one row and one column.");
@@ -130,7 +137,7 @@ namespace GLESC::Math {
          */
         Matrix &operator*=(const Matrix &rhs) {
             S_ASSERT_TRUE(N == M, "Matrix must be square for in-place multiplication");
-            MatrixAlgorithms::matrixMulDotInPlace(this->data, rhs.data, this->data);
+            MatrixAlgorithms::matrixMatrixMulInPlace(this->data, rhs.data, this->data);
             return *this;
         }
 
@@ -202,7 +209,7 @@ namespace GLESC::Math {
          * @throws MathException if division by zero
          */
         Matrix &operator/=(const Matrix &rhs) {
-            MatrixAlgorithms::matrixDiv(this->data, rhs.data, this->data);
+            MatrixAlgorithms::matrixMatrixDiv(this->data, rhs.data, this->data);
             return *this;
         }
 
@@ -253,7 +260,7 @@ namespace GLESC::Math {
         template<size_t X>
         [[nodiscard]] Matrix<Type, N, X> operator*(const Matrix<Type, M, X> &other) const {
             Matrix<Type, N, X> result;
-            MatrixAlgorithms::matrixMulDot(this->data, other.data, result.data);
+            MatrixAlgorithms::matrixMatrixMul(this->data, other.data, result.data);
             return result;
         }
 
@@ -272,15 +279,9 @@ namespace GLESC::Math {
          */
         [[nodiscard]] Vector<Type, M> operator*(const Vector<Type, M> &vector) const {
             Matrix<Type, N, 1> result;
-            MatrixData<Type, N, 1> vectorDataMatrixified;
-            for (size_t i = 0; i < N; ++i) {
-                vectorDataMatrixified[i][0] = vector[i];
-            }
-            MatrixAlgorithms::matrixMulDot(this->data, vectorDataMatrixified, result.data);
-            VectorT<Type, N> resultVector;
-            for (size_t i = 0; i < N; ++i) {
-                resultVector[i] = result[i][0];
-            }
+            MatrixData<Type, N, 1> vectorMatrix = vector.toMatrix();
+            MatrixAlgorithms::matrixMatrixMul(this->data, vectorMatrix, result.data);
+            Vector<Type, N> resultVector = result.toVector();
             return resultVector;
         }
 
@@ -308,7 +309,7 @@ namespace GLESC::Math {
         template<size_t X>
         [[nodiscard]] Matrix operator/(const Matrix<Type, M, X> &rhs) const {
             Matrix result;
-            MatrixAlgorithms::matrixDiv(this->data, rhs.data, result.data);
+            MatrixAlgorithms::matrixMatrixDiv(this->data, rhs.data, result.data);
             return result;
         }
 
@@ -373,6 +374,13 @@ namespace GLESC::Math {
         // =============================================================================================================
         // ============================================= Matrix Functions ==============================================
         // =============================================================================================================
+
+        [[nodiscard]] Vector<Type, N> toVector() const {
+            S_ASSERT_EQUAL(M, 1, "Matrix must have one column to be converted to a vector");
+            Vector<Type, N> result;
+            MatrixMixedAlgorithms::matrixToVector(this->data, result.data);
+            return result;
+        }
 
         [[nodiscard]] Matrix<Type, M, N> transpose() const {
             Matrix<Type, M, N> result;
@@ -457,6 +465,13 @@ namespace GLESC::Math {
             S_ASSERT_TRUE(N == 4 && M == 4, "Model matrix can only be created for 4x4 matrices");
             MatrixMixedAlgorithms::calculateModelMatrix<Type, PosType, RotType, ScaleType>
                     (position.data, rotation.data, scale.data, this->data);
+        }
+
+
+        template<typename ModelType>
+        void makeNormalMatrix(const Matrix<ModelType, 4, 4> &modelMatrix) {
+            S_ASSERT_TRUE(N == 3 && M == 3, "Normal matrix can only be created for 4x4 matrices");
+            MatrixMixedAlgorithms::calculateNormalMatrix(modelMatrix.data, this->data);
         }
 
         /**

@@ -36,24 +36,25 @@ void DebugInfoSystem::setEntityData(const EntityID &id) {
 }
 
 bool intersects(const GLESC::Math::Line &line, const GLESC::Math::Point &point) {
-    return line.distance(point) < 2;
+    return line.distance(point) < 1;
 }
 
 void DebugInfoSystem::update() {
     double minDistanceFromCam = std::numeric_limits<double>::max();
     EntityID closestEntity = nullEntity;
+    Math::Line cameraForwardLine;
+    const Math::Point cameraPos = renderer.getCameraTrasnform().getPosition();
+    const Math::Direction cameraForward = renderer.getCameraTrasnform().forward();
     for (EntityID id : getAssociatedEntities()) {
-        Math::Line cameraForwardLine = Math::Line(renderer.getCameraTrasnform().getPosition(),
-                                                  renderer.getCameraTrasnform().forward());
         const Math::Point entityPos = getComponent<TransformComponent>(id).transform.getPosition();
+        // Skip if the entity position is the same as the camera's
+        if(entityPos == cameraPos) continue;
+         cameraForwardLine = Math::Line(cameraPos, cameraForward);
         // Skip if the forward line of the camera does not intersect with the bounding volume of the entity
         if (!intersects(cameraForwardLine, entityPos)) continue;
-        
-        const Transform::Transform &cameraTransform = renderer.getCameraTrasnform();
-        double entityDistanceFromCam = entityPos.distance(cameraTransform.getPosition());
-        
-        // Skip if the entity is the camera itself
-        if (entityDistanceFromCam == 0) continue;
+
+        double entityDistanceFromCam = entityPos.distance(cameraPos);
+
         if (entityDistanceFromCam < minDistanceFromCam) {
             minDistanceFromCam = entityDistanceFromCam;
             closestEntity = id;

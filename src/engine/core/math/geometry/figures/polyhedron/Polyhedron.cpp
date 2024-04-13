@@ -44,6 +44,24 @@ void Polyhedron::addFace(const FaceIndices& faceParam) {
     faces.push_back(face);
 }
 
+void Polyhedron::addQuad(const QuadIndices& faceParam) {
+    FaceIndices face1;
+    FaceIndices face2;
+
+    // First triangle
+    face1[0] = faceParam[0];
+    face1[1] = faceParam[1];
+    face1[2] = faceParam[2];
+
+    // Second triangle
+    face2[0] = faceParam[0];
+    face2[1] = faceParam[2];
+    face2[2] = faceParam[3];
+
+    addFace(face1);
+    addFace(face2);
+}
+
 Point Polyhedron::getCenter() const {
     Point center;
     for (const auto& vertex : vertices) {
@@ -57,9 +75,6 @@ Point Polyhedron::getCenter() const {
     return faces;
 }
 
-[[nodiscard]] std::vector<Point>& Polyhedron::getVerticesMutable() {
-    return vertices;
-}
 
 [[nodiscard]] const std::vector<Point>& Polyhedron::getVertices() const {
     return vertices;
@@ -76,31 +91,31 @@ Point Polyhedron::getCenter() const {
     return false;
 }
 
-[[nodiscard]] bool Polyhedron::isInside(const Point& point) const {
-    int intersections = 0;
-    Line ray(point, Direction(1, 0, 0)); // Arbitrary ray direction
+[[nodiscard]] bool Polyhedron::hasInside(const Point& point) const {
 
-    for (const auto& face : faces) {
-        if (face.intersects(ray)) {
-            intersections++;
-        }
-    }
-
-    return (intersections % 2) == 1; // Odd number of intersections means inside
 }
 
-[[nodiscard]] bool Polyhedron::isInside(const PolyhedronFace& face) {
+[[nodiscard]] bool Polyhedron::hasInside(const PolyhedronFace& face) {
     for (const auto& vertex : face.getPolyhedronVertices()) {
-        if (!isInside(vertex)) {
+        if (!hasInside(vertex)) {
             return false;
         }
     }
     return true;
 }
 
-[[nodiscard]] bool Polyhedron::isInside(const Polyhedron& polyhedron) const {
+[[nodiscard]] bool Polyhedron::hasAnyVertexInside(const Polyhedron& polyhedron) const {
     for (const auto& vertex : polyhedron.getVertices()) {
-        if (!isInside(vertex)) {
+        if (hasInside(vertex)) {
+            return true;
+        }
+    }
+    return false;
+}
+
+[[nodiscard]] bool Polyhedron::hasInside(const Polyhedron& polyhedron) const {
+    for (const auto& vertex : polyhedron.getVertices()) {
+        if (!hasInside(vertex)) {
             return false;
         }
     }

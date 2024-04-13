@@ -204,7 +204,7 @@ TYPED_TEST(MatrixTests, MultAssignment) {
 
         //
         auto expectedMultAssign = this->matrix;
-        GLESC::Math::MatrixAlgorithms::matrixMulDotInPlace(expectedMultAssign.data, matrixToMultiplyWith.data,
+        GLESC::Math::MatrixAlgorithms::matrixMatrixMulInPlace(expectedMultAssign.data, matrixToMultiplyWith.data,
                                                            expectedMultAssign.data);
         EXPECT_EQ_MAT(matrixMultAssign, expectedMultAssign);
     }
@@ -229,7 +229,7 @@ TYPED_TEST(MatrixTests, DivAssignment) {
         matrixDivEquals /= this->matrix;
 
         Mat expectedDivEquals = this->matrix2;
-        GLESC::Math::MatrixAlgorithms::matrixDiv(expectedDivEquals.data, this->matrix.data, expectedDivEquals.data);
+        GLESC::Math::MatrixAlgorithms::matrixMatrixDiv(expectedDivEquals.data, this->matrix.data, expectedDivEquals.data);
         EXPECT_EQ_MAT(matrixDivEquals, expectedDivEquals);
 
         // Dividing by zero
@@ -320,7 +320,7 @@ TYPED_TEST(MatrixTests, MulOperator) {
     GLESC::Math::Matrix<Type, N, X> actualMultResult;
 
     actualMultResult = this->matrix * matrixToMultiply;
-    GLESC::Math::MatrixAlgorithms::matrixMulDot(this->matrix.data, matrixToMultiply.data,
+    GLESC::Math::MatrixAlgorithms::matrixMatrixMul(this->matrix.data, matrixToMultiply.data,
                                                 expectedMultResult.data);
     EXPECT_EQ_MAT(actualMultResult, expectedMultResult);
 }

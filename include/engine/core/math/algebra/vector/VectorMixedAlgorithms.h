@@ -26,7 +26,13 @@ namespace GLESC::Math {
         // =============================================================================================================
         // ========================================= Vector operations =================================================
         // =============================================================================================================
-
+        template<typename Type, size_t N>
+        static void
+        vectorToMatrix(const VectorData<Type, N> &vector, MatrixData<Type, N, 1> &matrix) {
+            for (size_t i = 0; i < N; ++i) {
+                matrix[i][0] = vector[i];
+            }
+        }
         /**
          * @brief Checks if points are collinear.
          * @details This function checks if a set of points are collinear.

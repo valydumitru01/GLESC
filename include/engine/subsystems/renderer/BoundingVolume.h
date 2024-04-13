@@ -13,15 +13,17 @@
 #include "engine/core/math/geometry/figures/polyhedron/Polyhedron.h"
 #include "engine/subsystems/renderer/mesh/Vertex.h"
 
+namespace GLESC::Transform {
+    class Transformer;
+}
 
-namespace GLESC::Render
-{
+namespace GLESC::Render {
     /**
      * @brief A bounding volume is a geometric shape that encloses a set of points.
      * @details This class updates the bounding cuboid to fit the points it encloses.
      */
-    class BoundingVolume
-    {
+    class BoundingVolume {
+        friend class GLESC::Transform::Transformer;
     public:
         BoundingVolume() = default;
 
@@ -30,8 +32,7 @@ namespace GLESC::Render
          * @param vertices The points to enclose
          */
         template <typename... Attributes>
-        void updateTopology(const std::vector<Vertex<Attributes...>>& vertices)
-        {
+        void updateTopology(const std::vector<Vertex<Attributes...>>& vertices) {
             // Ensure the first element of attributes is a Vec3D
             S_ASSERT_TRUE(
                 (std::is_same_v<typename std::tuple_element<0, std::tuple<Attributes...>>::type, Position>),
@@ -43,8 +44,7 @@ namespace GLESC::Render
             minX = minY = minZ = std::numeric_limits<float>::max();
             maxX = maxY = maxZ = std::numeric_limits<float>::lowest();
 
-            for (const auto& point : vertices)
-            {
+            for (const auto& point : vertices) {
                 minX = Math::min(minX, getVertexPositionAttr(point).getX());
                 maxX = Math::max(maxX, getVertexPositionAttr(point).getX());
                 minY = Math::min(minY, getVertexPositionAttr(point).getY());
@@ -54,26 +54,42 @@ namespace GLESC::Render
             }
 
             // Check if the bounding volume valid (not empty)
-            if (minX == maxX || minY == maxY || minZ == maxZ)
-            {
+            if (minX == maxX || minY == maxY || minZ == maxZ) {
+                return;
+            }
+            buildBoundingVolume(maxX, minX, maxY, minY, maxZ, minZ);
+        }
+
+        void updateTopology(const std::vector<Math::Point>& points) {
+            if (points.empty()) return;
+
+            // Find bounds
+            float minX, maxX, minY, maxY, minZ, maxZ;
+            minX = minY = minZ = std::numeric_limits<float>::max();
+            maxX = maxY = maxZ = std::numeric_limits<float>::lowest();
+
+            for (const auto& point : points) {
+                minX = Math::min(minX, point.getX());
+                maxX = Math::max(maxX, point.getX());
+                minY = Math::min(minY, point.getY());
+                maxY = Math::max(maxY, point.getY());
+                minZ = Math::min(minZ, point.getZ());
+                maxZ = Math::max(maxZ, point.getZ());
+            }
+
+            // Check if the bounding volume valid (not empty)
+            if (minX == maxX || minY == maxY || minZ == maxZ) {
                 return;
             }
             buildBoundingVolume(maxX, minX, maxY, minY, maxZ, minZ);
         }
 
 
-        [[nodiscard]] const Math::Polyhedron& getTopology() const
-        {
+        [[nodiscard]] const Math::Polyhedron& getTopology() const {
             return topology;
         }
 
-        [[nodiscard]] Math::Polyhedron& getTopologyMutable()
-        {
-            return topology;
-        }
-
-        void operator=(const BoundingVolume& other)
-        {
+        void operator=(const BoundingVolume& other) {
             topology = other.topology;
         }
 
@@ -88,8 +104,7 @@ namespace GLESC::Render
          * @param maxZ The maximum z value
          */
         void buildBoundingVolume(float maxX, float minX, float maxY, float minY, float maxZ,
-                                 float minZ)
-        {
+                                 float minZ) {
             topology.clear();
 
             // Calculate Vertices (assuming origin-centered)
