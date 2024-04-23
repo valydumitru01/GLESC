@@ -42,6 +42,19 @@ namespace GLESC::Transform {
             return scale;
         }
 
+        Scale& getModifiableScale() {
+            return scale;
+        }
+
+        Rotation& getModifiableRotation() {
+            dirtyRotation = true;
+            return rotation;
+        }
+
+        Position& getModifiablePosition() {
+            return position;
+        }
+
         void setPosition(const Position& position) {
             this->position = position;
         }
@@ -135,5 +148,14 @@ namespace GLESC::Transform {
         static Render::BoundingVolume transformBoundingVolume(const Render::BoundingVolume& boundingVolume,
                                                               const Render::Model& modelMat);
         static std::unordered_map<Render::BoundingVolume*, Render::Model> modelCache;
+        static HomogeneousPosition modelToWorld(const HomogeneousPosition& modelPos, const Render::Model& modelMat);
+        static HomogeneousPosition worldToCamera(const HomogeneousPosition& worldPos, const Render::Model& viewMat);
+        static HomogeneousPosition cameraToClip(const HomogeneousPosition& cameraPos, const Render::Model& projMat);
+        static Position clipToNDC(const HomogeneousPosition& clipPos);
+
+        static Position NDCToViewport(const Position& clipPos, float vpWidth, float vpHeight);
+
+        static Position worldToViewport(const Position& worldPos, const Render::Model& viewMat, const Render::Model& projMat,
+                                 float vpWidth, float vpHeight);
     }; // class Transformer
 } // namespace GLESC

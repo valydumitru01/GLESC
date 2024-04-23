@@ -75,6 +75,7 @@ namespace GLESC::Math {
          */
         template <size_t N2>
         constexpr Vector(const Vector<Type, N2>& other) noexcept {
+            VectorAlgorithms::vectorFill(data, Type{0});
             VectorAlgorithms::vectorCopy(data, other.data);
         }
 

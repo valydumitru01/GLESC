@@ -34,7 +34,7 @@ Engine::Engine(FPSManager& fpsManager) :
     renderer(windowManager),
     hudManager(windowManager.getWindow()),
     inputManager(hudManager, windowManager),
-    engineHuds(hudManager),
+    engineHuds(hudManager, renderer, textureFactory),
 
     ecs(),
     entityFactory(ecs),
@@ -96,7 +96,10 @@ std::vector<std::unique_ptr<ECS::System>> Engine::createSystems() {
     systems.push_back(std::make_unique<ECS::DebugInfoSystem>(ecs, renderer));
     return systems;
 }
+
 #define CAMERA_SPEED 0.3f
+#define CAMERA_X_ROTATION_LIMIT 45.0f
+
 ECS::Entity Engine::createEngineCamera() {
     using namespace GLESC::ECS;
     Entity camera = entityFactory.createEntity("camera");
@@ -112,29 +115,30 @@ ECS::Entity Engine::createEngineCamera() {
     camera.getComponent<CameraComponent>().perspective.fovDegrees = 60.0f;
     camera.getComponent<CameraComponent>().perspective.viewWidth = static_cast<float>(windowManager.getSize().width);
     camera.getComponent<CameraComponent>().perspective.viewHeight = static_cast<float>(windowManager.getSize().height);
-
+    // IMPORTANT! Camera movement needs to be done with inverse directions, because it looks at the
+    // opposite direction of the forward vector
     Input::KeyCommand moveForward = Input::KeyCommand([&] {
         Entity cameraEntity = entityFactory.getEntity("camera");
         cameraEntity.getComponent<TransformComponent>().transform.addPosition(
-            cameraEntity.getComponent<TransformComponent>().transform.forward() * CAMERA_SPEED);
+            -cameraEntity.getComponent<TransformComponent>().transform.forward() * CAMERA_SPEED);
     });
 
     Input::KeyCommand moveBackward = Input::KeyCommand([&] {
         Entity cameraEntity = entityFactory.getEntity("camera");
         cameraEntity.getComponent<TransformComponent>().transform.addPosition(
-            -cameraEntity.getComponent<TransformComponent>().transform.forward()* CAMERA_SPEED);
+            cameraEntity.getComponent<TransformComponent>().transform.forward() * CAMERA_SPEED);
     });
 
     Input::KeyCommand moveLeft = Input::KeyCommand([&] {
         Entity cameraEntity = entityFactory.getEntity("camera");
         cameraEntity.getComponent<TransformComponent>().transform.addPosition(
-            -cameraEntity.getComponent<TransformComponent>().transform.right() * CAMERA_SPEED);
+            cameraEntity.getComponent<TransformComponent>().transform.right() * CAMERA_SPEED);
     });
 
     Input::KeyCommand moveRight = Input::KeyCommand([&] {
         Entity cameraEntity = entityFactory.getEntity("camera");
         cameraEntity.getComponent<TransformComponent>().transform.addPosition(
-            cameraEntity.getComponent<TransformComponent>().transform.right() * CAMERA_SPEED);
+            -cameraEntity.getComponent<TransformComponent>().transform.right() * CAMERA_SPEED);
     });
 
     Input::KeyCommand moveUp = Input::KeyCommand([&] {
@@ -157,8 +161,12 @@ ECS::Entity Engine::createEngineCamera() {
         auto& cameraComp = cameraEntity.getComponent<CameraComponent>();
 
         // Adjust the target rotation based on mouse input
-        transformComp.addRotation(Transform::Axis::X,
-                                  static_cast<float>(deltaMouse.getY()) * cameraComp.sensitivity);
+        // Only rotate if rotation is between -90 and 90 degrees
+        float mouseAdditionX = static_cast<float>(deltaMouse.getY()) * cameraComp.sensitivity;
+        float nextMouseX = transformComp.getRotation().getX() + mouseAdditionX;
+        if (nextMouseX < CAMERA_X_ROTATION_LIMIT &&
+            nextMouseX > -CAMERA_X_ROTATION_LIMIT)
+            transformComp.addRotation(Transform::Axis::X, mouseAdditionX);
         transformComp.addRotation(Transform::Axis::Y,
                                   static_cast<float>(deltaMouse.getX()) * cameraComp.sensitivity);
 
@@ -228,6 +236,4 @@ void Engine::registerStats() const {
     StatsManager::registerStatSource("View Matrix: ", [&]() -> std::string {
         return renderer.getView().toString();
     });
-
-
 }

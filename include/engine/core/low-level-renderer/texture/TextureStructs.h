@@ -10,8 +10,11 @@
 #pragma once
 #include <iomanip>
 #include <sstream>
+#include <SDL2/SDL.h>
 #include "engine/core/low-level-renderer/texture/debugger/TextureDebugger.h"
 #include "TextureEnums.h"
+#include "engine/core/low-level-renderer/graphic-api/GapiTypes.h"
+#include "engine/core/low-level-renderer/graphic-api/GapiStructs.h"
 
 using namespace GLESC::GAPI;
 struct Pixel {

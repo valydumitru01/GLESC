@@ -30,7 +30,7 @@ namespace GLESC::Math {
      * @tparam N The number of rows in the matrix
      * @tparam M The number of columns in the matrix
      */
-    template<typename Type, size_t N, size_t M>
+    template <typename Type, size_t N, size_t M>
     class Matrix {
         S_ASSERT_TRUE(N > 0 && M > 0, "Matrix must have at least one row and one column.");
 
@@ -60,7 +60,7 @@ namespace GLESC::Math {
          * @brief Copy constructor
          * @param other
          */
-        Matrix(const Matrix &other) {
+        Matrix(const Matrix& other) {
             MatrixAlgorithms::copyMatrix(this->data, other.data);
         }
 
@@ -68,11 +68,11 @@ namespace GLESC::Math {
          * @brief Move constructor
          * @param list
          */
-        Matrix(Matrix &&other) noexcept {
+        Matrix(Matrix&& other) noexcept {
             MatrixAlgorithms::moveMatrix(this->data, std::move(other.data));
         }
 
-        Matrix(const MatrixData<Type, N, M> &other) {
+        Matrix(const MatrixData<Type, N, M>& other) {
             MatrixAlgorithms::copyMatrix(this->data, other);
         }
 
@@ -89,23 +89,23 @@ namespace GLESC::Math {
          * @param other The matrix to copy from.
          * @return Reference to the modified instance.
          */
-        template<typename OtherType>
-        constexpr Matrix &operator=(const Matrix<OtherType, N, M> &other) noexcept {
+        template <typename OtherType>
+        constexpr Matrix& operator=(const Matrix<OtherType, N, M>& other) noexcept {
             MatrixAlgorithms::copyMatrix(this->data, other.data);
             return *this;
         }
 
-        Matrix &operator=(const Matrix &other) noexcept {
+        Matrix& operator=(const Matrix& other) noexcept {
             MatrixAlgorithms::copyMatrix(this->data, other.data);
             return *this;
         }
 
-        constexpr Matrix &operator=(MatrixData<Type, N, M> &other) noexcept {
+        constexpr Matrix& operator=(MatrixData<Type, N, M>& other) noexcept {
             MatrixAlgorithms::moveMatrix(this->data, other);
             return *this;
         }
 
-        constexpr Matrix &operator=(MatrixData<Type, N, M> &&other) noexcept {
+        constexpr Matrix& operator=(MatrixData<Type, N, M>&& other) noexcept {
             MatrixAlgorithms::moveMatrix(this->data, std::move(other));
             return *this;
         }
@@ -115,7 +115,7 @@ namespace GLESC::Math {
          * @param rhs The matrix to move from.
          * @return Reference to the modified instance.
          */
-        constexpr Matrix &operator=(Matrix &&rhs) noexcept {
+        constexpr Matrix& operator=(Matrix&& rhs) noexcept {
             MatrixAlgorithms::moveMatrix(this->data, std::move(rhs.data));
             return *this;
         }
@@ -125,7 +125,7 @@ namespace GLESC::Math {
          * @param data 2D array to assign from.
          * @return Reference to the modified instance.
          */
-        constexpr Matrix &operator=(Type (&data)[N][M]) {
+        constexpr Matrix& operator=(Type (&data)[N][M]) {
             MatrixAlgorithms::setMatrix(this->data, data);
             return *this;
         }
@@ -135,7 +135,7 @@ namespace GLESC::Math {
          * @param rhs The matrix to multiply with.
          * @return Reference to the modified instance.
          */
-        Matrix &operator*=(const Matrix &rhs) {
+        Matrix& operator*=(const Matrix& rhs) {
             S_ASSERT_TRUE(N == M, "Matrix must be square for in-place multiplication");
             MatrixAlgorithms::matrixMatrixMulInPlace(this->data, rhs.data, this->data);
             return *this;
@@ -146,7 +146,7 @@ namespace GLESC::Math {
          * @param scalar The scalar to multiply with.
          * @return Reference to the modified instance.
          */
-        Matrix &operator*=(Type scalar) {
+        Matrix& operator*=(Type scalar) {
             MatrixAlgorithms::matrixScalarMul(this->data, scalar, data);
             return *this;
         }
@@ -156,7 +156,7 @@ namespace GLESC::Math {
          * @param rhs The scalar to add.
          * @return Reference to the modified instance.
          */
-        Matrix &operator+=(Type rhs) {
+        Matrix& operator+=(Type rhs) {
             MatrixAlgorithms::matrixScalarAdd(this->data, rhs, data);
             return *this;
         }
@@ -166,7 +166,7 @@ namespace GLESC::Math {
          * @param rhs The matrix to add with.
          * @return Reference to the modified instance.
          */
-        Matrix &operator+=(const Matrix &rhs) {
+        Matrix& operator+=(const Matrix& rhs) {
             MatrixAlgorithms::matrixAdd(this->data, rhs.data, data);
             return *this;
         }
@@ -176,7 +176,7 @@ namespace GLESC::Math {
          * @param rhs The matrix to subtract with.
          * @return Reference to the modified instance.
          */
-        Matrix &operator-=(const Matrix &rhs) {
+        Matrix& operator-=(const Matrix& rhs) {
             MatrixAlgorithms::matrixSub(this->data, rhs.data, data);
             return *this;
         }
@@ -186,7 +186,7 @@ namespace GLESC::Math {
          * @param rhs The scalar to subtract.
          * @return Reference to the modified instance.
          */
-        Matrix &operator-=(Type rhs) {
+        Matrix& operator-=(Type rhs) {
             MatrixAlgorithms::matrixScalarSub(this->data, rhs, data);
             return *this;
         }
@@ -197,7 +197,7 @@ namespace GLESC::Math {
          * @return Reference to the modified instance.
          * @throws MathException if division by zero
          */
-        Matrix &operator/=(Type scalar) {
+        Matrix& operator/=(Type scalar) {
             MatrixAlgorithms::matrixScalarDiv(this->data, scalar, data);
             return *this;
         }
@@ -208,14 +208,14 @@ namespace GLESC::Math {
          * @return Reference to the modified instance.
          * @throws MathException if division by zero
          */
-        Matrix &operator/=(const Matrix &rhs) {
+        Matrix& operator/=(const Matrix& rhs) {
             MatrixAlgorithms::matrixMatrixDiv(this->data, rhs.data, this->data);
             return *this;
         }
 
         // ================================== Arithmetic Operators =================================
 
-        [[nodiscard]] Matrix operator+(const Matrix &rhs) const {
+        [[nodiscard]] Matrix operator+(const Matrix& rhs) const {
             Matrix result;
             MatrixAlgorithms::matrixAdd(this->data, rhs.data, result.data);
             return result;
@@ -227,7 +227,7 @@ namespace GLESC::Math {
             return result;
         }
 
-        [[nodiscard]] Matrix operator-(const Matrix &rhs) const {
+        [[nodiscard]] Matrix operator-(const Matrix& rhs) const {
             Matrix result;
             MatrixAlgorithms::matrixSub(this->data, rhs.data, result.data);
             return result;
@@ -257,8 +257,8 @@ namespace GLESC::Math {
          * @param other
          * @return
          */
-        template<size_t X>
-        [[nodiscard]] Matrix<Type, N, X> operator*(const Matrix<Type, M, X> &other) const {
+        template <size_t X>
+        [[nodiscard]] Matrix<Type, N, X> operator*(const Matrix<Type, M, X>& other) const {
             Matrix<Type, N, X> result;
             MatrixAlgorithms::matrixMatrixMul(this->data, other.data, result.data);
             return result;
@@ -277,7 +277,7 @@ namespace GLESC::Math {
          * @param vector The vector to multiply with
          * @return The result of the multiplication
          */
-        [[nodiscard]] Vector<Type, M> operator*(const Vector<Type, M> &vector) const {
+        [[nodiscard]] Vector<Type, M> operator*(const Vector<Type, M>& vector) const {
             Matrix<Type, N, 1> result;
             MatrixData<Type, N, 1> vectorMatrix = vector.toMatrix();
             MatrixAlgorithms::matrixMatrixMul(this->data, vectorMatrix, result.data);
@@ -306,8 +306,8 @@ namespace GLESC::Math {
          * @param rhs
          * @return
          */
-        template<size_t X>
-        [[nodiscard]] Matrix operator/(const Matrix<Type, M, X> &rhs) const {
+        template <size_t X>
+        [[nodiscard]] Matrix operator/(const Matrix<Type, M, X>& rhs) const {
             Matrix result;
             MatrixAlgorithms::matrixMatrixDiv(this->data, rhs.data, result.data);
             return result;
@@ -317,11 +317,11 @@ namespace GLESC::Math {
         // ============================================== Access Operators =============================================
         // =============================================================================================================
 
-        [[nodiscard]] const std::array<Type, M> &operator[](size_t index) const {
+        [[nodiscard]] const std::array<Type, M>& operator[](size_t index) const {
             return data[index];
         }
 
-        [[nodiscard]] std::array<Type, M> &operator[](size_t index) {
+        [[nodiscard]] std::array<Type, M>& operator[](size_t index) {
             return data[index];
         }
 
@@ -331,7 +331,7 @@ namespace GLESC::Math {
          * @param j The column index
          * @return The value at the given row and column
          */
-        [[nodiscard]] const Type &get(size_t i, size_t j) const {
+        [[nodiscard]] const Type& get(size_t i, size_t j) const {
             return data[i][j];
         }
 
@@ -340,15 +340,15 @@ namespace GLESC::Math {
          * @param i The row index
          * @return The const row at the given index
          */
-        [[nodiscard]] const MatrixRow<Type, M> &get(size_t i) const {
+        [[nodiscard]] const MatrixRow<Type, M>& get(size_t i) const {
             return data[i];
         }
 
-        [[nodiscard]] size_t rows() const {
+        [[nodiscard]] static size_t rows() {
             return N;
         }
 
-        [[nodiscard]] size_t cols() const {
+        [[nodiscard]] static size_t cols() {
             return M;
         }
 
@@ -356,7 +356,7 @@ namespace GLESC::Math {
         // =========================================== Comparison Operators ============================================
         // =============================================================================================================
 
-        [[nodiscard]] bool operator==(const Matrix &rhs) const {
+        [[nodiscard]] bool operator==(const Matrix& rhs) const {
             for (size_t i = 0; i < N; ++i) {
                 for (size_t k = 0; k < M; ++k) {
                     if (!eq(this->data[i][k], rhs.data[i][k])) {
@@ -367,7 +367,7 @@ namespace GLESC::Math {
             return true;
         }
 
-        [[nodiscard]] bool operator!=(const Matrix &rhs) const {
+        [[nodiscard]] bool operator!=(const Matrix& rhs) const {
             return !(*this == rhs);
         }
 
@@ -405,7 +405,7 @@ namespace GLESC::Math {
          * @param translation
          * @return
          */
-        [[nodiscard]] Matrix setTranslate(const Vector<Type, 3> &translation) const {
+        [[nodiscard]] Matrix setTranslate(const Vector<Type, 3>& translation) const {
             S_ASSERT_MAT_IS_SQUARE(N, M);
             Matrix result;
             MatrixAlgorithms::setTranslate(this->data, translation.data, result.data);
@@ -417,8 +417,8 @@ namespace GLESC::Math {
          * @param scale
          * @return
          */
-        template<typename OtherType>
-        [[nodiscard]] Matrix<Type, N, N> setScale(const Vector<OtherType, N - 1> &scale) const {
+        template <typename OtherType>
+        [[nodiscard]] Matrix<Type, N, N> setScale(const Vector<OtherType, N - 1>& scale) const {
             Matrix<Type, N, N> result;
             MatrixAlgorithms::setScale(this->data, scale.data, result.data);
             return result;
@@ -432,17 +432,18 @@ namespace GLESC::Math {
           * @param degrees
           * @return
           */
-        template<typename VecType, typename = std::enable_if_t<
-                     N == 3 && M == 3 || N == 4 && M == 4 &&
-                     is_vector_v<std::decay_t<VecType>> ||
-                     std::is_arithmetic_v<std::decay_t<VecType>>
-                 >>
-        [[nodiscard]] Matrix rotate(const VecType &degrees) const {
+        template <typename VecType, typename = std::enable_if_t<
+                      N == 3 && M == 3 || N == 4 && M == 4 &&
+                      is_vector_v<std::decay_t<VecType>> ||
+                      std::is_arithmetic_v<std::decay_t<VecType>>
+                  >>
+        [[nodiscard]] Matrix rotate(const VecType& degrees) const {
             S_ASSERT_TRUE(N != 3 && M != 3 || N != 4 && M != 4, "Rotation is only supported for 2D and 3D matrices");
             Matrix<Type, N, N> result;
             if constexpr (std::is_arithmetic<VecType>() && N == 3 && M == 3) {
                 MatrixMixedAlgorithms::rotate2D(this->data, degrees, result.data);
-            } else if constexpr (is_vector_v<std::decay_t<VecType>> && N == 4 && M == 4) {
+            }
+            else if constexpr (is_vector_v<std::decay_t<VecType>> && N == 4 && M == 4) {
                 MatrixMixedAlgorithms::rotate3D(this->data, degrees.data, result.data);
             }
             return result;
@@ -458,18 +459,18 @@ namespace GLESC::Math {
          * @param rotation The rotation vector
          * @param scale The scale vector
          */
-        template<typename PosType, typename RotType, typename ScaleType>
-        void makeModelMatrix(const Vector<PosType, 3> &position,
-                             const Vector<RotType, 3> &rotation,
-                             const Vector<ScaleType, 3> &scale) {
+        template <typename PosType, typename RotType, typename ScaleType>
+        void makeModelMatrix(const Vector<PosType, 3>& position,
+                             const Vector<RotType, 3>& rotation,
+                             const Vector<ScaleType, 3>& scale) {
             S_ASSERT_TRUE(N == 4 && M == 4, "Model matrix can only be created for 4x4 matrices");
             MatrixMixedAlgorithms::calculateModelMatrix<Type, PosType, RotType, ScaleType>
-                    (position.data, rotation.data, scale.data, this->data);
+                (position.data, rotation.data, scale.data, this->data);
         }
 
 
-        template<typename ModelType>
-        void makeNormalMatrix(const Matrix<ModelType, 4, 4> &modelMatrix) {
+        template <typename ModelType>
+        void makeNormalMatrix(const Matrix<ModelType, 4, 4>& modelMatrix) {
             S_ASSERT_TRUE(N == 3 && M == 3, "Normal matrix can only be created for 4x4 matrices");
             MatrixMixedAlgorithms::calculateNormalMatrix(modelMatrix.data, this->data);
         }
@@ -481,20 +482,18 @@ namespace GLESC::Math {
          * @param target The target of the camera
          * @param up The up vector of the camera
          */
-        void makeViewMatrixEye(const Vector<Type, 3> &eye,
-                            const Vector<Type, 3> &target,
-                            const Vector<Type, 3> &up) {
+        void makeViewMatrixEye(const Vector<Type, 3>& eye,
+                               const Vector<Type, 3>& target,
+                               const Vector<Type, 3>& up) {
             S_ASSERT_TRUE(N == 4 && M == 4, "View matrix can only be created for 4x4 matrices");
             MatrixMixedAlgorithms::calculateViewMatrixEye(eye.data, target.data, up.data, data);
         }
 
-        void makeViewMatrixPosRot(const Vector<Type, 3> &position,
-                                  const Vector<Type, 3> &rotation) {
+        void makeViewMatrixPosRot(const Vector<Type, 3>& position,
+                                  const Vector<Type, 3>& rotation) {
             S_ASSERT_TRUE(N == 4 && M == 4, "View matrix can only be created for 4x4 matrices");
             MatrixMixedAlgorithms::calculateViewMatrixPosRot(position.data, rotation.data, data);
         }
-
-
 
 
         [[nodiscard]] bool isValidViewMatrix() const {
@@ -532,13 +531,13 @@ namespace GLESC::Math {
         }
 
 
-        [[nodiscard]] Matrix<Type, 3, 3> lookAt(const Vector<Type, 2> &target) const {
+        [[nodiscard]] Matrix<Type, 3, 3> lookAt(const Vector<Type, 2>& target) const {
             Matrix<Type, 3, 3> result;
             MatrixMixedAlgorithms::lookAt2D(this->data, target.data, result.data);
             return result;
         }
 
-        [[nodiscard]] Matrix<Type, 4, 4> lookAt(const Vector<Type, 3> &target, const Vector<Type, 3> &up) const {
+        [[nodiscard]] Matrix<Type, 4, 4> lookAt(const Vector<Type, 3>& target, const Vector<Type, 3>& up) const {
             Matrix<Type, 4, 4> result;
             MatrixMixedAlgorithms::lookAt3D(this->data, target.data, up.data, result.data);
             return result;
@@ -570,11 +569,11 @@ namespace GLESC::Math {
          * @tparam MatrixType The matrix, we use this to allow reusing the iterator for const and non-const matrices
          * @tparam ValueType
          */
-        template<typename MatrixType,
-                 typename MatrixRowType,
-                 typename ValueType>
+        template <typename MatrixType,
+                  typename MatrixRowType,
+                  typename ValueType>
         class MatrixIterator : std::iterator<std::forward_iterator_tag, MatrixRowType> {
-            MatrixType *matrix;
+            MatrixType* matrix;
             size_t row;
             // Also, we need to assert that the type inside the matrix has the same constness as the matrix itself
             static_assert(std::is_const<MatrixType>::value == std::is_const<ValueType>::value,
@@ -582,11 +581,11 @@ namespace GLESC::Math {
 
         public:
             // Use a constructor that takes a matrix and an initial row index
-            MatrixIterator(MatrixType *m, size_t initialRow) : matrix(m), row(initialRow) {
+            MatrixIterator(MatrixType* m, size_t initialRow) : matrix(m), row(initialRow) {
             }
 
             // Increment the row index
-            MatrixIterator &operator++() {
+            MatrixIterator& operator++() {
                 ++row;
                 return *this;
             }
@@ -599,19 +598,19 @@ namespace GLESC::Math {
             }
 
             // Dereference operator
-            MatrixRowType &operator*() const {
+            MatrixRowType& operator*() const {
                 return (*matrix)[row];
             }
 
             // Comparison for equality
-            bool operator!=(const MatrixIterator &other) const {
+            bool operator!=(const MatrixIterator& other) const {
                 return row != other.row;
             }
         };
 
         using Iterator = MatrixIterator<GLESC::Math::Matrix<Type, N, M>, MatrixRow<Type, M>, Type>;
         using ConstIterator = MatrixIterator<const GLESC::Math::Matrix<Type, N, M>, const MatrixRow<Type, M>,
-            const Type>;
+                                             const Type>;
 
         // And the begin/end functions would return Iterator/ConstIterator appropriately
         Iterator begin() { return Iterator(this, 0); }

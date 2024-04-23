@@ -96,10 +96,11 @@ namespace GLESC {
 
         PhysicsManager physicsManager;
         HUDManager hudManager;
+        TextureFactory textureFactory;
 
         FPSManager& fpsManager;
 
-        EngineDebugHUDManager engineHuds;
+        HUD::EngineDebugHUDManager engineHuds;
 
         ECS::ECSCoordinator ecs;
         ECS::EntityFactory entityFactory;

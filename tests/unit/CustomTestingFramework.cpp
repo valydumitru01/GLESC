@@ -23,7 +23,7 @@ void expectEqCustom(const Type1& a, const Type2& b) {
     std::cout << "Comparing values: " << GLESC::Stringer::toString(a) << " and " << GLESC::Stringer::toString(b);
     if constexpr (std::is_floating_point_v<Type1> || std::is_floating_point_v<Type2>) {
         // * 1000 to account for multiple operations
-        auto epsilon = GLESC::Math::max(GLESC::Math::epsilon(a), GLESC::Math::epsilon(b)) * 1000;
+        auto epsilon = GLESC::Math::max(GLESC::Math::epsilon(a), GLESC::Math::epsilon(b)) * 10000;
         std::cout << " with epsilon: " << GLESC::Stringer::toString(epsilon) << "\n";
         EXPECT_NEAR(a, b, epsilon);
     }

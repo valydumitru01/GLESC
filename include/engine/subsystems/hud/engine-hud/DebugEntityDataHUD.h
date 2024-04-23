@@ -10,10 +10,12 @@
 #pragma once
 #include "engine/subsystems/hud/InGameWindow.h"
 
-class DebugEntityDataHUD : public GLESC::InGameWindow {
-public:
-    DebugEntityDataHUD();
+namespace GLESC::HUD {
+    class DebugEntityData : public InGameWindow {
+    public:
+        DebugEntityData();
 
-private:
-    void windowContent() override;
-}; // class EntityDebugDataInterface
+    private:
+        void windowContent() override;
+    }; // class EntityDebugDataInterface
+} // namespace GLESC::HUD

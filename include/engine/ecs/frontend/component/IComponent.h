@@ -11,6 +11,8 @@
 #pragma once
 #include <string>
 
+#include "engine/subsystems/ingame-debug/EntityStatsManager.h"
+
 namespace GLESC::ECS {
     /**
      * @brief Base class for all components
@@ -31,5 +33,15 @@ namespace GLESC::ECS {
         virtual std::string toString() const = 0;
 
         virtual std::string getName() const = 0;
+
+        std::vector<EntityStatsManager::Value>& getDebuggingValues() {
+            if (!values.empty()) return values;
+            setDebuggingValues();
+            return values;
+        }
+
+    protected:
+        virtual void setDebuggingValues() = 0;
+        std::vector<EntityStatsManager::Value> values;
     };
 } // namespace GLESC::ECS

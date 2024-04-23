@@ -1,5 +1,5 @@
 /**************************************************************************************************
- * @file   EntityDataManager.h
+ * @file   EntityStatsManager.h
  * @author Valentin Dumitru
  * @date   08/03/2024
  * @brief  Add description of this file if needed @TODO
@@ -13,33 +13,57 @@
 #include <unordered_map>
 #include <vector>
 
-struct ComponentDataFunctions {
-    std::function<std::string()> name;
-    std::function<std::string()> dataString;
-};
-
-
-struct EntityDataFunctions {
-    std::function<std::string()> name;
-    std::vector<ComponentDataFunctions> components;
-};
-
-struct ComponentData {
-    std::string name;
-    std::unordered_map<std::string, std::string> nameValuePairs;
-};
-
-struct EntityData {
-    std::string name;
-    std::vector<ComponentData> components;
-};
 
 class EntityStatsManager {
 public:
-    static void setEntityData(EntityDataFunctions data) { entityDataFuncs = data; }
+
+    enum class ValueType {
+        INT,
+        FLOAT,
+        STRING,
+        BOOL,
+        VEC2F,
+        VEC3F,
+        VEC4F,
+        VEC2I,
+        VEC3I,
+        VEC4I,
+        MAT2F,
+        MAT3F,
+        MAT4F
+    };
+    struct Value {
+        std::string name;
+        std::string stringData;
+        bool isString = false;
+
+        void* data;
+        ValueType type;
+
+        float min = 0.0f;
+        float max = 1.0f;
+        /**
+         * @brief It only affects number values, including vectors
+         */
+        bool usesSlider = false;
+        bool isModifiable = true;
+
+    };
+
+
+    struct ComponentData {
+        std::string name;
+        std::vector<Value>* values;
+    };
+
+    struct EntityData {
+        std::string name;
+        std::vector<ComponentData> components;
+    };
+
+    static void setEntityData(EntityData data) { entityData = data; }
     static EntityData getEntityData();
 private:
-    static EntityData generateEntityData();
-    static EntityDataFunctions entityDataFuncs;
+    static EntityData entityData;
 }; // class EntityStatsManager
 

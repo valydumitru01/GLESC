@@ -7,60 +7,67 @@
 #include "engine/core/low-level-renderer/texture/debugger/TextureDebugger.h"
 
 using namespace GLESC::GAPI;
+#define TEXTURE_EXTENSION ".png"
 
 inline Enums::Texture::CPUBufferFormat getTextureInputFormat(Tex::Format format) {
     switch (format) {
-        case Tex::Format::RGB:
-            return Enums::Texture::CPUBufferFormat::RGB;
-        case Tex::Format::RGBA:
-            return Enums::Texture::CPUBufferFormat::RGBA;
-        default:
-            D_ASSERT_TRUE(false, "Invalid texture format");
+    case Tex::Format::RGB:
+        return Enums::Texture::CPUBufferFormat::RGB;
+    case Tex::Format::RGBA:
+        return Enums::Texture::CPUBufferFormat::RGBA;
+    default:
+        D_ASSERT_TRUE(false, "Invalid texture format");
     }
 }
 
 inline Enums::Texture::BitDepth getTextureBitDepth(Tex::BitDepth bitDepth) {
     switch (bitDepth) {
-        case Tex::BitDepth::Bit8:
-            return Enums::Texture::BitDepth::Bit8;
-        case Tex::BitDepth::Bit16:
-            return Enums::Texture::BitDepth::Bit16;
-        case Tex::BitDepth::Bit24:
-            return Enums::Texture::BitDepth::Bit24;
-        case Tex::BitDepth::Bit32:
-            return Enums::Texture::BitDepth::Bit32;
-        default:
-            D_ASSERT_TRUE(false, "Invalid texture bit depth");
+    case Tex::BitDepth::Bit8:
+        return Enums::Texture::BitDepth::Bit8;
+    case Tex::BitDepth::Bit16:
+        return Enums::Texture::BitDepth::Bit16;
+    case Tex::BitDepth::Bit24:
+        return Enums::Texture::BitDepth::Bit24;
+    case Tex::BitDepth::Bit32:
+        return Enums::Texture::BitDepth::Bit32;
+    default:
+        D_ASSERT_TRUE(false, "Invalid texture bit depth");
     }
 }
 
-Texture::Texture(std::string pathParam) :
-    textureID(),
-    width(0),
-    height(0),
-    path(std::move(pathParam)) {
+Texture::Texture(const std::string& pathParam) {
+    load(pathParam);
+}
+
+void Texture::load(const std::string& pathParam) {
     textureID = getGAPI().createTexture(Enums::Texture::Filters::Min::Linear,
                                         Enums::Texture::Filters::Mag::Linear,
                                         Enums::Texture::Filters::WrapMode::ClampToEdge,
                                         Enums::Texture::Filters::WrapMode::ClampToEdge);
-    this->bind();
-    SDL_SurfacePtr sdlSurface = TextureLoader::loadTexture(path);
+    SDL_SurfacePtr sdlSurface = TextureLoader::loadTexture(
+        ASSETS_PATH + std::string("/") + pathParam + TEXTURE_EXTENSION);
     initializeData(*sdlSurface);
+    // Texture is now loaded, must be set to true right after the texture is loaded
+    // the above functions will throw an error if the texture is not loaded
+    hasLoaded = true;
+
     PRINT_TEXTURE_DATA(*this);
     Enums::Texture::CPUBufferFormat inputFormat = getTextureInputFormat(format->colorFormat);
     Enums::Texture::BitDepth bitDepth = getTextureBitDepth(format->bitDepth);
 
+    this->bind();
     getGAPI().setTextureData(0, width, height, inputFormat, bitDepth, pixels.data());
-
-
-    this->unbind();
 }
 
 Texture::~Texture() {
-    getGAPI().deleteTexture(textureID);
+
+    if (hasLoaded){
+        getGAPI().deleteTexture(textureID);
+    }
 }
 
 void Texture::bind(Tex::Slot slot/*= Tex::Slot::Slot0*/) const {
+    D_ASSERT_TRUE(hasLoaded, "Texture not loaded");
     getGAPI().bindTextureOnSlot(textureID, static_cast<UInt>(slot));
 }
 
@@ -68,7 +75,7 @@ void Texture::unbind() const {
     getGAPI().unbindTexture();
 }
 
-void Texture::initializeData(SDL_Surface &sdlSurface) {
+void Texture::initializeData(SDL_Surface& sdlSurface) {
     // TODO: Is all this copying really necessary? Maybe use the SDL_Surface directly?
     //    But having our own format is useful
 
@@ -115,6 +122,7 @@ void Texture::initializeData(SDL_Surface &sdlSurface) {
 
 
 Pixel Texture::getPixel(unsigned int x, unsigned int y) const {
+    D_ASSERT_TRUE(hasLoaded, "Texture not loaded");
     D_ASSERT_TRUE(x < width && y < height, "Pixel coordinates out of bounds");
     auto baseUBytePixelPtr = pixels.data();
 
@@ -149,9 +157,9 @@ Pixel Texture::getPixel(unsigned int x, unsigned int y) const {
 }
 
 std::string Texture::toString() const {
+    D_ASSERT_TRUE(hasLoaded, "Texture not loaded");
     std::stringstream ss;
     ss << "Texture:\n";
-    ss << "\tPath: " << path << "\n";
     ss << "\tWidth: " << width << "\n";
     ss << "\tHeight: " << height << "\n";
     ss << "\tTotal of pixels: " << getTotalOfPixels() << "\n";
@@ -167,12 +175,12 @@ std::string Texture::toString() const {
             auto pixel = getPixel(x, y);
 
             Logger::get().info("\t\tPixel at (" + std::to_string(x) + ", " + std::to_string(y) +
-                               "): " + pixel.toString());
+                "): " + pixel.toString());
         }
     }
     return ss.str();
 }
 
-const Format &Texture::getFormat() const {
+const Format& Texture::getFormat() const {
     return *format;
 }

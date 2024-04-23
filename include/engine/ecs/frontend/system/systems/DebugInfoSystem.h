@@ -24,6 +24,9 @@ namespace GLESC::ECS {
 
     private:
         void setEntityData(const EntityID& id);
+        EntityID selectedEntity{nullEntity};
         Render::Renderer& renderer;
+
+        float maxDetectionValue = 20.0f;
     }; // class DebugInfoSystem
 }

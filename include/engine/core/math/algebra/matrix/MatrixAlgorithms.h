@@ -13,6 +13,7 @@
 #include <cstddef>
 #include <iostream>
 #include <map>
+#include <map>
 #include <tuple>
 #include <vector>
 #include "engine/core/asserts/Asserts.h"
@@ -358,9 +359,7 @@ namespace GLESC::Math {
                     // Set the value to zero before adding the products
                     result[i][j] = 0;
                     for (size_t k = 0; k < M; ++k) {
-                        Type mat_i_k = matrix1[i][k];
-                        Type mat_k_j = matrix2[k][j];
-                        result[i][j] += mat_i_k * mat_k_j;
+                        result[i][j] += matrix1[i][k] * matrix2[k][j];
                     }
                 }
             }
@@ -488,6 +487,7 @@ namespace GLESC::Math {
          * @brief Calculates the perspective projection matrix.
          * @details Calculates the perspective projection matrix given the field of view, aspect ratio, near and far
          * planes. The fov must be in radians, on the contrary the result will be incorrect.
+         * @cite https://www.songho.ca/opengl/gl_projectionmatrix.html
          * @tparam Type The data type of the matrix elements (e.g., float, double).
          * @param fovRad The field of view in radians.
          * @param nearPlane The near plane.
@@ -509,16 +509,19 @@ namespace GLESC::Math {
             D_ASSERT_TRUE(viewWidth > 0, "View width must be greater than 0.");
             D_ASSERT_TRUE(viewHeight > 0, "View height must be greater than 0.");
             D_ASSERT_TRUE(fovRad > 0, "Field of view must be greater than 0.");
+            Type aspect = viewWidth / viewHeight;
 
-            Type f = static_cast<Type>(1) / tan(fovRad / static_cast<Type>(2));
-            float aspect = viewWidth / viewHeight;
+            Type tangent = Math::tan(fovRad / Type(2));
+            Type right = nearPlane * tangent;
+            Type top = right / aspect;
+
             MatrixAlgorithms::setMatrixZero(result);
-
-            result[0][0] = f / aspect;
-            result[1][1] = f;
-            result[2][2] = (farPlane + nearPlane) / (nearPlane - farPlane);
-            result[3][2] = (static_cast<Type>(2) * farPlane * nearPlane) / (nearPlane - farPlane);
-            result[2][3] = static_cast<Type>(-1);
+            result[0][0] = nearPlane / right;
+            result[1][1] = nearPlane / top;
+            result[2][2] = -(farPlane + nearPlane) / (farPlane - nearPlane);
+            result[2][3] = Type(-1);
+            result[3][2] = -(Type(2) * farPlane * nearPlane) / (farPlane - nearPlane);
+            // result[3][3] = 0; // Already set to 0
         }
 
         /**
@@ -531,7 +534,7 @@ namespace GLESC::Math {
          * @param farPlane The far plane.
          * @param viewWidth The width of the view.
          * @param viewHeight The height of the view.
-         * @param result The result matrix.
+         * @param projection The result matrix.
          */
         template <typename Type>
         static void

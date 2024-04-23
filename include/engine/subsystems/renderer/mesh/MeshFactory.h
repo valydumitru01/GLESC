@@ -22,8 +22,8 @@ namespace GLESC::Render {
 
         static ColorMesh pyramid(double width, double height, double depth, const ColorRgba &color);
 
-        static ColorMesh tris(const Vec3D &v1, const Vec3D &v2, const Vec3D &v3, const ColorRgba &color);
+        static ColorMesh tris(const ColorRgba &color);
 
-        static ColorMesh quad(const Vec3D &v1, const Vec3D &v2, const Vec3D &v3, const Vec3D &v4, const ColorRgba &color);
+        static ColorMesh plane(const ColorRgba &color);
     }; // class ColorMeshFactory
 } // namespace GLESC

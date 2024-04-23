@@ -13,7 +13,6 @@
 
 #include <string>
 #include "engine/core/low-level-renderer/texture/TextureEnums.h"
-#include "engine/core/logger/Logger.h"
 #define PRINT_TEXTURE_DATA(texture) Logger::get().info(toString());
 
 namespace Tex{

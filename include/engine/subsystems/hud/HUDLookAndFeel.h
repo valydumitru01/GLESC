@@ -44,6 +44,7 @@ private:
     static void validateFontSize(FontSize size);
 
     // Define the color palette
+    ImVec4 veryDarkGreen = ImVec4(0.00f, 0.10f, 0.07f, 1.00f);
     ImVec4 darkGreen = ImVec4(0.00f, 0.20f, 0.13f, 1.00f);
     ImVec4 green = ImVec4(0.00f, 0.50f, 0.33f, 1.00f);
     ImVec4 brightGreen = ImVec4(0.20f, 0.75f, 0.40f, 1.00f);

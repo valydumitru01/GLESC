@@ -10,8 +10,15 @@
 
 #include "engine/subsystems/hud/engine-hud/EngineDebugHUDManager.h"
 
-EngineDebugHUDManager::EngineDebugHUDManager(HUDManager& hudManager) {
+using namespace GLESC::HUD;
+
+EngineDebugHUDManager::EngineDebugHUDManager(HUDManager& hudManager, Render::Renderer& renderer,
+                                             TextureFactory& textureManager) :
+    debugConsoleHud(), debugStatsHud(), debugEntityDataHud(), crosshairHud(),
+    debugItemHud(renderer, textureManager) {
     hudManager.addWindow(debugConsoleHud);
     hudManager.addWindow(debugStatsHud);
     hudManager.addWindow(debugEntityDataHud);
+    hudManager.addWindow(crosshairHud);
+    hudManager.addWindow(debugItemHud);
 }

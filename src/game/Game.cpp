@@ -21,60 +21,73 @@
 #include "engine/subsystems/renderer/mesh/MeshFactory.h"
 
 using namespace GLESC;
+static std::vector<ECS::Entity> entities;
 
 void Game::init() {
-    int numOfCubes = 5;
-    for (int i = 0; i < numOfCubes; i++) {
+    int numOfEntities = 15;
+    for (int i = 0; i < numOfEntities; i++) {
         ECS::Entity entity = entityFactory.createEntity("entity" + std::to_string(i))
                                           .addComponent(ECS::TransformComponent())
                                           .addComponent(ECS::RenderComponent());
-        entity.getComponent<ECS::TransformComponent>().transform.setPosition(Transform::Position(i, 2, 0));
-        Render::ColorMesh& mesh = entity.getComponent<ECS::RenderComponent>().mesh;
-        mesh = Render::MeshFactory::cube(Render::ColorRgba(255, 0, 0, 255));
-        if (i < numOfCubes / 2)
-            entity.getComponent<ECS::RenderComponent>().material.setShininess(1);
+        float increment = Math::clamp(0.1f * static_cast<float>(i), 0.0f, 1.0f);
+
+        // Setting position
+        entity.getComponent<ECS::TransformComponent>().transform.setPosition(Transform::Position(i * 3, 0, 0));
+
+        // Setting scale
+        entity.getComponent<ECS::TransformComponent>().transform.setScale(
+            Transform::Scale(1 + i * 0.1, 1 + i * 0.1, 1 + i * 0.1));
+
+        // Choosing a color
+        Render::ColorRgba color = Render::ColorRgba(increment * 255, 255 - 255 * increment, 255 - 255 * increment, 255);
+
+
+        // Setting mesh, cube, sphere, pyramid, in this order
+        if (i % 3 == 0)
+            entity.getComponent<ECS::RenderComponent>().mesh =
+                Render::MeshFactory::cube(color);
+        else if (i % 3 == 1)
+            entity.getComponent<ECS::RenderComponent>().mesh =
+                Render::MeshFactory::sphere(4 + i, 4 + i, color);
         else
-            entity.getComponent<ECS::RenderComponent>().material.setShininess(0);
-        entity.getComponent<ECS::RenderComponent>().material.setSpecularColor(Render::ColorRgb(255, 255, 255));
-        if (i == numOfCubes - 1)
-            i = numOfCubes - 1;
+            entity.getComponent<ECS::RenderComponent>().mesh =
+                Render::MeshFactory::cube(color);
+
+
+        // Setting material
+        entity.getComponent<ECS::RenderComponent>().material.setShininess(increment);
+        entity.getComponent<ECS::RenderComponent>().material.setSpecularColor(
+            Render::ColorRgb(increment * 255, increment * 255, increment * 255));
+
+
+        entities.push_back(entity);
     }
 
-    entityFactory.getEntity("entity1").getComponent<ECS::TransformComponent>().transform.setPosition(
-        Transform::Position(10, 10, 0));
+    // Add a light
+    entityFactory.createEntity("light")
+                 .addComponent(ECS::TransformComponent())
+                 .addComponent(ECS::LightComponent());
+    entityFactory.getEntity("light").getComponent<ECS::TransformComponent>().transform.setPosition(
+        Transform::Position(1, 1, 0));
 
-    // Creating a sphere to always be on the camera position
-    entityFactory.createEntity("CameraBulb")
+    // Add a entity that is a big plane
+    entityFactory.createEntity("plane")
                  .addComponent(ECS::TransformComponent())
                  .addComponent(ECS::RenderComponent());
-    entityFactory.getEntity("CameraBulb").getComponent<ECS::RenderComponent>().mesh =
-        Render::MeshFactory::sphere(5, 5, Render::ColorRgba(255, 255, 255, 255));
+    entityFactory.getEntity("plane").getComponent<ECS::TransformComponent>().transform.setPosition(
+        Transform::Position(0, -1, 0));
 
+    entityFactory.getEntity("plane").getComponent<ECS::RenderComponent>().mesh = Render::MeshFactory::cuboid(10, 1, 10, Render::ColorRgba(255, 255, 255, 255));
 
-    entityFactory.createEntity("light1")
-                 .addComponent(ECS::TransformComponent())
-                 .addComponent(ECS::RenderComponent())
-                 .addComponent(ECS::LightComponent())
-                 .getComponent<ECS::TransformComponent>().transform.setPosition(Transform::Position(20, 30, 0));
+    entityFactory.getEntity("plane").getComponent<ECS::RenderComponent>().material.setShininess(0.5);
 
-    entityFactory.getEntity("light1").getComponent<ECS::RenderComponent>().mesh =
-        Render::MeshFactory::sphere(10, 10, Render::ColorRgba(255, 255, 255, 255));
+    entityFactory.getEntity("plane").getComponent<ECS::TransformComponent>().transform.setScale(
+        Transform::Scale(1, 1, 1));
 }
 
 void Game::update() {
-    // Rotating entity
-    ECS::Entity entity = entityFactory.getEntity("entity1");
-    entity.getComponent<ECS::TransformComponent>().transform.addRotation(Transform::Rotation(0.01f, 0.01f, 0.01f));
-    if(entity.getComponent<ECS::TransformComponent>().transform.getScale().getX() < 4)
-        entity.getComponent<ECS::TransformComponent>().transform.addScale(Transform::Scale(0.001f, 0.001f, 0));
-
-    ECS::Entity light = entityFactory.getEntity("light1");
-    light.getComponent<ECS::TransformComponent>().transform.addRotation(Transform::Rotation(0, 1, 0));
-    // Move light
-    light.getComponent<ECS::TransformComponent>().transform.addPosition(
-        light.getComponent<ECS::TransformComponent>().transform.forward() * 0.01f);
-
-    entityFactory.getEntity("CameraBulb").getComponent<ECS::TransformComponent>()
-                 .transform.setPosition(entityFactory.getEntity("entity1").
-                     getComponent<ECS::TransformComponent>().transform.getPosition());
+    for (auto& entity : entities) {
+        auto& transform = entity.getComponent<ECS::TransformComponent>().transform;
+        transform.addRotation(Transform::Rotation(0.01, 0.01, 0.1));
+    }
 }

@@ -68,6 +68,15 @@ namespace GLESC::Render {
             return anyPointInsideAllPlanes;
         }
 
+        [[nodiscard]] bool contains(Position position) const {
+            for (const Math::Plane& plane : planes) {
+                if (!plane.hasInside(position)) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
     private:
         /**
          * @brief Extracts the frustum planes from a combined view-projection matrix. Uses Hartmann & Gribbs method.

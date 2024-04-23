@@ -8,22 +8,30 @@
  * See LICENSE.txt in the project root for license information.
  **************************************************************************************************/
 #pragma once
+#include "DebugItemsHUD.h"
 #include "engine/subsystems/hud/HUDManager.h"
 
-#include "engine/subsystems/hud/engine-hud/DebugConsoleHUD.h"
 #include "engine/subsystems/hud/engine-hud/DebugEntityDataHUD.h"
+#include "engine/subsystems/hud/engine-hud/DebugConsoleHUD.h"
 #include "engine/subsystems/hud/engine-hud/DebugStatsHUD.h"
+#include "engine/subsystems/hud/engine-hud/CrosshairHUD.h"
 
-class EngineDebugHUDManager {
-public:
-    explicit EngineDebugHUDManager(HUDManager& hudManager);
+namespace GLESC::HUD {
+    class EngineDebugHUDManager {
+    public:
+        explicit EngineDebugHUDManager(HUDManager& hudManager, Render::Renderer& renderer,
+                                       TextureFactory& textureManager);
 
-    DebugConsoleHUD& getConsole() { return debugConsoleHud; }
-    DebugStatsHUD& getDebugStats() { return debugStatsHud; }
-    DebugEntityDataHUD& getEntityData() { return debugEntityDataHud; }
+        DebugConsoleHUD& getConsole() { return debugConsoleHud; }
+        DebugStatsHUD& getDebugStats() { return debugStatsHud; }
+        DebugEntityData& getEntityData() { return debugEntityDataHud; }
+        CrosshairHUD& getCrosshair() { return crosshairHud; }
 
-private:
-    DebugConsoleHUD debugConsoleHud;
-    DebugStatsHUD debugStatsHud;
-    DebugEntityDataHUD debugEntityDataHud;
-}; // class EngineDebugHUDManager
+    private:
+        DebugConsoleHUD debugConsoleHud;
+        DebugStatsHUD debugStatsHud;
+        DebugEntityData debugEntityDataHud;
+        CrosshairHUD crosshairHud;
+        DebugItems debugItemHud;
+    }; // class EngineDebugHUDManager
+} // namespace GLESC::HUD

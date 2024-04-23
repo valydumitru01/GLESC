@@ -9,9 +9,7 @@
  ******************************************************************************/
 #pragma once
 
-#include <utility>
-#include <any>
-
+#include "engine/core/low-level-renderer/graphic-api/GapiEnums.h"
 #include "engine/core/low-level-renderer/graphic-api/GapiTypes.h"
 
 namespace GLESC::GAPI {

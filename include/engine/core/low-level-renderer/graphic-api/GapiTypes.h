@@ -8,8 +8,9 @@
  * See LICENSE.txt in the project root for license information.
  ******************************************************************************/
 #pragma once
+#include <type_traits>
+
 #include "engine/Config.h"
-#include "GapiEnums.h"
 
 #ifdef GLESC_OPENGL
 #include <GL/glew.h>

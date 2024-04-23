@@ -110,7 +110,19 @@ namespace GLESC::Math {
             return value.abs();
         }
     }
-
+    /**
+     * @brief Clamps a value between a minimum and maximum value
+     * @details Clamp is a function that limits a value to a specific range. If the value is less than the minimum,
+     * it returns the minimum. If the value is greater than the maximum, it returns the maximum. Otherwise, it returns
+     * the value.
+     * @tparam Type1 The type of the value to clamp
+     * @tparam Type2 The type of the minimum value
+     * @tparam Type3 The type of the maximum value
+     * @param value The value to clamp
+     * @param min The minimum value
+     * @param max The maximum value
+     * @return The clamped value
+     */
     template <typename Type1, typename Type2, typename Type3>
     constexpr Type1 clamp(const Type1& value, const Type2& min, const Type3& max) {
         if (value < min) {

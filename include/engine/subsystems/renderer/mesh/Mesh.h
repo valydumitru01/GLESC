@@ -52,7 +52,7 @@ namespace GLESC::Render {
         [[nodiscard]] const BoundingVolume &getBoundingVolume() const { return boundingVolume; }
         [[nodiscard]] BoundingVolume &getBoundingVolumeMutable() { return boundingVolume; }
         [[nodiscard]] bool isDirty() const { return dirtyFlag; }
-        [[nodiscard]] RenderType getRenderType() const { return renderType; }
+        [[nodiscard]] const RenderType& getRenderType() const { return renderType; }
 
         void setRenderType(RenderType renderTypeParam) { renderType = renderTypeParam; }
         void setClean() const { dirtyFlag = false; }

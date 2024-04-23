@@ -833,7 +833,30 @@ TEST(MatrixAlgorithmsTests, PerspectiveProjectionAlgorithm) {
                          perspectiveMatrix), AssertFailedException);
     }
 }
+glm::mat4 calculateGlmViewMatrix(const GLESC::Math::VectorData<float, 3>& cameraPosition,
+                                 const GLESC::Math::VectorData<float, 3>& cameraRotationDegrees) {
+    glm::mat4 glmView = glm::mat4(1.0f);
+    glmView = glm::rotate(glmView, glm::radians(cameraRotationDegrees[0]), glm::vec3(1, 0, 0));
+    glmView = glm::rotate(glmView, glm::radians(cameraRotationDegrees[1]), glm::vec3(0, 1, 0));
+    glmView = glm::rotate(glmView, glm::radians(cameraRotationDegrees[2]), glm::vec3(0, 0, 1));
+    glmView = glm::translate(glmView, glm::vec3(cameraPosition[0], cameraPosition[1], cameraPosition[2]));
+    return glmView;
+}
 
+glm::mat4 calculateGlmModelMatrix(const GLESC::Math::VectorData<float, 3>& position,
+                                  const GLESC::Math::VectorData<float, 3>& rotationDegrees,
+                                  const GLESC::Math::VectorData<float, 3>& scale) {
+    glm::mat4 glmModel = glm::mat4(1.0f);
+    glmModel = glm::translate(glmModel, glm::vec3(position[0], position[1], position[2]));
+    glmModel = glm::rotate(glmModel, glm::radians(rotationDegrees[0]), glm::vec3(1, 0, 0));
+    glmModel = glm::rotate(glmModel, glm::radians(rotationDegrees[1]), glm::vec3(0, 1, 0));
+    glmModel = glm::rotate(glmModel, glm::radians(rotationDegrees[2]), glm::vec3(0, 0, 1));
+    glmModel = glm::scale(glmModel, glm::vec3(scale[0], scale[1], scale[2]));
+    return glmModel;
+}
+glm::mat4 calculateGlmNormalMatrix(const glm::mat4& modelViewMatrix) {
+    return glm::transpose(glm::inverse(glm::mat3(modelViewMatrix)));
+}
 TEST(MatrixAlgorithmsTests, CalculateNormalMatrix) {
     GLESC::Math::VectorData<float, 3> position({1, 2, 3});
     GLESC::Math::VectorData<float, 3> scale({1, 2, 3});
@@ -843,26 +866,13 @@ TEST(MatrixAlgorithmsTests, CalculateNormalMatrix) {
     GLESC::Math::VectorData<float, 3> cameraRotationDegrees({13, 10, 222});
 
     // Calculate model matrix using glm
-    glm::mat4 glmModel = glm::mat4(1.0f);
-    glmModel = glm::translate(glmModel, glm::vec3(position[0], position[1], position[2]));
-    glmModel = glm::rotate(glmModel, glm::radians(rotationDegrees[0]), glm::vec3(1, 0, 0));
-    glmModel = glm::rotate(glmModel, glm::radians(rotationDegrees[1]), glm::vec3(0, 1, 0));
-    glmModel = glm::rotate(glmModel, glm::radians(rotationDegrees[2]), glm::vec3(0, 0, 1));
-    glmModel = glm::scale(glmModel, glm::vec3(scale[0], scale[1], scale[2]));
-
+    glm::mat4 glmModel = calculateGlmModelMatrix(position, rotationDegrees, scale);
     // Calculate view matrix using glm
-    glm::mat4 glmView = glm::mat4(1.0f);
-    glmView = glm::rotate(glmView, glm::radians(cameraRotationDegrees[0]), glm::vec3(1, 0, 0));
-    glmView = glm::rotate(glmView, glm::radians(cameraRotationDegrees[1]), glm::vec3(0, 1, 0));
-    glmView = glm::rotate(glmView, glm::radians(cameraRotationDegrees[2]), glm::vec3(0, 0, 1));
-    glmView = glm::translate(glmView, glm::vec3(cameraPosition[0], cameraPosition[1], cameraPosition[2]));
-
-
+    glm::mat4 glmView = calculateGlmViewMatrix(cameraPosition, cameraRotationDegrees);
     // Combine model and view matrices
     glm::mat4 glmMV = glmModel * glmView;
-
     // Calculate the normal matrix using glm, row major
-    glm::mat3 glmNormalMatrix = glm::transpose(glm::inverse(glm::mat3(glmMV)));
+    glm::mat3 glmNormalMatrix = calculateGlmNormalMatrix(glmMV);
 
     // Convert glmMV to our MatrixData format
     GLESC::Math::MatrixData<float, 4, 4> ourMV;
@@ -905,12 +915,7 @@ TEST(MatrixAlgorithmsTests, CalculateModelMatrixAlgorithm) {
         GLESC::Math::MatrixMixedAlgorithms::calculateModelMatrix(position, rotationDegrees, scale, modelMatrix);
 
         // Check against glm
-        glm::mat4 glmMat = glm::mat4(1.0f);
-        glmMat = glm::translate(glmMat, glm::vec3(position[0], position[1], position[2]));
-        glmMat = glm::rotate(glmMat, glm::radians(rotationDegrees[0]), glm::vec3(1, 0, 0));
-        glmMat = glm::rotate(glmMat, glm::radians(rotationDegrees[1]), glm::vec3(0, 1, 0));
-        glmMat = glm::rotate(glmMat, glm::radians(rotationDegrees[2]), glm::vec3(0, 0, 1));
-        glmMat = glm::scale(glmMat, glm::vec3(scale[0], scale[1], scale[2]));
+        glm::mat4 glmMat = calculateGlmModelMatrix(position, rotationDegrees, scale);
 
         GLESC::Math::MatrixData<float, 4, 4> modelGlmMatrix;
         for (int i = 0; i < 4; i++) {
@@ -931,11 +936,7 @@ TEST(MatrixAlgorithmsTests, CalculateViewMatrixPosRot) {
     GLESC::Math::MatrixMixedAlgorithms::calculateViewMatrixPosRot(position, rotationDegrees, viewMatrix);
 
     // Check against glm
-    glm::mat4 glmMat = glm::mat4(1.0f);
-    glmMat = glm::rotate(glmMat, glm::radians(rotationDegrees[0]), glm::vec3(1, 0, 0));
-    glmMat = glm::rotate(glmMat, glm::radians(rotationDegrees[1]), glm::vec3(0, 1, 0));
-    glmMat = glm::rotate(glmMat, glm::radians(rotationDegrees[2]), glm::vec3(0, 0, 1));
-    glmMat = glm::translate(glmMat, glm::vec3(position[0], position[1], position[2]));
+    glm::mat4 glmMat = calculateGlmViewMatrix(position, rotationDegrees);
 
     GLESC::Math::MatrixData<float, 4, 4> viewGlmMatrix;
     for (int i = 0; i < 4; i++) {

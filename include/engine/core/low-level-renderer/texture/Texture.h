@@ -9,13 +9,13 @@
  **************************************************************************************************/
 #pragma once
 
-#include "engine/core/low-level-renderer/graphic-api/GapiTypes.h"
 #include "TextureStructs.h"
 
 namespace GLESC::GAPI {
     class Texture {
     public:
-        Texture(std::string pathParam);
+        Texture() = default;
+        Texture(const std::string& pathParam);
         
         ~Texture();
         
@@ -28,14 +28,14 @@ namespace GLESC::GAPI {
         void bind(Tex::Slot slot = Tex::Slot::Slot0) const;
         
         void unbind() const;
-        
+
+        void load(const std::string& pathParam);
+
         [[nodiscard]] UInt getWidth() const { return width; }
         
         [[nodiscard]] UInt getHeight() const { return height; }
         
         [[nodiscard]] Size getTotalOfPixels() const { return width * height; }
-        
-        [[nodiscard]] const std::string &getPath() const { return path; }
         
         [[nodiscard]] UInt getTextureID() const { return textureID; }
         
@@ -50,11 +50,12 @@ namespace GLESC::GAPI {
     
     private:
         
-        UInt textureID;
-        UInt width, height;
-        std::vector<UByte> pixels;
+        TextureID textureID{0};
+        UInt width{0};
+        UInt height{0};
+        std::vector<UByte> pixels{};
         std::shared_ptr<Format> format;
-        std::string path;
+        bool hasLoaded = false;
         
         
         void initializeData(SDL_Surface &sdlSurface);

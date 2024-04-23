@@ -219,7 +219,7 @@ namespace GLESC::GAPI {
             TextureID textureID = 0;
             GAPI_FUNCTION_IMPLEMENTATION_LOG("glGenTextures", numTextures, &textureID);
             glGenTextures(numTextures, &textureID);
-            textureCache.emplace(textureID);
+            textureCache.insert(textureID);
             this->bindTexture(textureID);
 
             GAPI_FUNCTION_IMPLEMENTATION_LOG("glTexParameteri", GL_TEXTURE_2D,

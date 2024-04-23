@@ -12,11 +12,11 @@
 
 using namespace GLESC::Render;
 
-ColorMesh MeshFactory::cube(const ColorRgba &color) {
+ColorMesh MeshFactory::cube(const ColorRgba& color) {
     return cuboid(1, 1, 1, color);
 }
 
-ColorMesh MeshFactory::sphere(int numSlices, int numStacks, const ColorRgba &color) {
+ColorMesh MeshFactory::sphere(int numSlices, int numStacks, const ColorRgba& color) {
     ColorMesh mesh;
     Color rgba = color.getRGBAVec4FNormalized();
 
@@ -86,7 +86,7 @@ ColorMesh MeshFactory::sphere(int numSlices, int numStacks, const ColorRgba &col
     return mesh;
 }
 
-ColorMesh MeshFactory::cuboid(const double width, const double height, const double depth, const ColorRgba &color) {
+ColorMesh MeshFactory::cuboid(const double width, const double height, const double depth, const ColorRgba& color) {
     ColorMesh mesh;
     Color rgba = color.getRGBAVec4FNormalized();
 
@@ -125,12 +125,61 @@ ColorMesh MeshFactory::cuboid(const double width, const double height, const dou
     return mesh;
 }
 
-ColorMesh MeshFactory::pyramid(const double width, const double height, const double depth, const ColorRgba &color) {
+ColorMesh MeshFactory::pyramid(const double width, const double height, const double depth, const ColorRgba& color) {
+    ColorMesh mesh;
+    Color rgba = color.getRGBAVec4FNormalized();
+
+    double w = width / 2.0, h = height, d = depth / 2.0;
+
+    // Base
+    mesh.addQuad(
+        ColorMesh::Vertex(Position(-w, 0, -d), rgba, Normal(0, -1, 0)),
+        ColorMesh::Vertex(Position(w, 0, -d), rgba, Normal(0, -1, 0)),
+        ColorMesh::Vertex(Position(w, 0, d), rgba, Normal(0, -1, 0)),
+        ColorMesh::Vertex(Position(-w, 0, d), rgba, Normal(0, -1, 0))
+    );
+
+    // Sides
+    Position top(0, h, 0);
+    Position corners[4] = {
+        Position(-w, 0, -d),
+        Position(w, 0, -d),
+        Position(w, 0, d),
+        Position(-w, 0, d)
+    };
+
+    for (int i = 0; i < 4; ++i) {
+        Normal normal = (corners[(i + 1) % 4] - top).cross(corners[i] - top).normalize();
+        mesh.addTris(
+            ColorMesh::Vertex(top, rgba, normal),
+            ColorMesh::Vertex(corners[i], rgba, normal),
+            ColorMesh::Vertex(corners[(i + 1) % 4], rgba, normal)
+        );
+    }
+
+    return mesh;
 }
 
 
-ColorMesh MeshFactory::tris(const Vec3D &v1, const Vec3D &v2, const Vec3D &v3, const ColorRgba &color) {
+ColorMesh MeshFactory::tris(const ColorRgba& color) {
+    ColorMesh mesh;
+    Color rgba = color.getRGBAVec4FNormalized();
+    mesh.addTris(
+        ColorMesh::Vertex(Position(0, 1, 0), rgba, Normal(0, 1, 0)),
+        ColorMesh::Vertex(Position(1, -1, 0), rgba, Normal(1, -1, 0)),
+        ColorMesh::Vertex(Position(-1, -1, 0), rgba, Normal(-1, -1, 0))
+    );
+    return mesh;
 }
 
-ColorMesh MeshFactory::quad(const Vec3D &v1, const Vec3D &v2, const Vec3D &v3, const Vec3D &v4, const ColorRgba &color) {
+ColorMesh MeshFactory::plane(const ColorRgba& color) {
+    ColorMesh mesh;
+    Color rgba = color.getRGBAVec4FNormalized();
+    mesh.addQuad(
+        ColorMesh::Vertex(Position(-1, -1, 0), rgba, Normal(0, 0, 1)),
+        ColorMesh::Vertex(Position(1, -1, 0), rgba, Normal(0, 0, 1)),
+        ColorMesh::Vertex(Position(1, 1, 0), rgba, Normal(0, 0, 1)),
+        ColorMesh::Vertex(Position(-1, 1, 0), rgba, Normal(0, 0, 1))
+    );
+    return mesh;
 }

@@ -13,6 +13,7 @@
 #include "engine/subsystems/hud/HUDLookAndFeel.h"
 #include "engine/subsystems/ingame-debug/StatsManager.h"
 
+using namespace GLESC::HUD;
 DebugStatsHUD::DebugStatsHUD() {
     this->setTitle("Stats");
     this->setSizeFraction({1.f, 0.5f});
@@ -27,6 +28,7 @@ DebugStatsHUD::DebugStatsHUD() {
     this->addFlag(ImGuiWindowFlags_NoSavedSettings);
     this->addFlag(ImGuiWindowFlags_NoBringToFrontOnFocus);
     this->addFlag(ImGuiWindowFlags_NoFocusOnAppearing);
+    this->addFlag(ImGuiWindowFlags_NoInputs);
     this->addFlag(ImGuiWindowFlags_NoBackground);
 }
 

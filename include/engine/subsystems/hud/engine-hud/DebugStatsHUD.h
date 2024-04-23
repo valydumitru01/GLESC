@@ -11,12 +11,13 @@
 #include <imgui/imgui.h>
 #include "engine/subsystems/hud/InGameWindow.h"
 
+namespace GLESC::HUD {
+    class DebugStatsHUD : public InGameWindow {
+    public:
+        DebugStatsHUD();
 
-class DebugStatsHUD : public GLESC::InGameWindow {
-public:
-    DebugStatsHUD();
-
-private:
-    void windowContent() override;
-    ImVec4 statsTextColor = ImVec4(1.0f, 1.0f, 1.0f, 1.0f);
-}; // class EngineDataInterface
+    private:
+        void windowContent() override;
+        ImVec4 statsTextColor = ImVec4(1.0f, 1.0f, 1.0f, 1.0f);
+    }; // class EngineDataInterface
+} // namespace GLESC::HUD

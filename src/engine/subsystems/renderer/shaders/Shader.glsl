@@ -1,7 +1,28 @@
+
+//██████████████████████████████████████████
+//██████    ██     █████  ██████   █████████
+//██████ █████ ███ ███ ███ ███ █████████████
+//██████   ███    ████     ███ ██  █████████
+//██████ █████ ██ ████ ███ ███ ████ ████████
+//██████ █████ ███ ███ ███ █████   █████████
+//██████████████████████████████████████████
 #shader fragment
 /* The GLSL version is automatically set */
-out vec4 FragColor;
 
+// ==========================================
+// ------------ Output variables ------------
+// ------------------------------------------
+// The output of the fragment shader (the color of the pixel).
+// It is stored in the variable FragColor.
+out vec4 FragColor;
+// ==========================================
+
+
+
+
+// ==========================================
+// ------------- Input variables ------------
+// ------------------------------------------
 #ifdef USE_COLOR
 in vec4 VertexColor;
 #else
@@ -9,7 +30,14 @@ in vec2 VertexTexCoord;
 #endif
 in vec3 NormalViewSpace;
 in vec3 FragPosViewSpace;
+// ==========================================
 
+
+
+
+// ==========================================
+// --------------- Light Data ---------------
+// ------------------------------------------
 #define MAX_LIGHTS 50
 
 struct AmbientLight {
@@ -37,9 +65,21 @@ struct LightSpot {
 
 struct SpotLights {
     LightSpot lights[MAX_LIGHTS];
-    int count;// Actual number of lights to use
+    int count; // Actual number of lights to use
 };
 
+struct LightContribution {
+    vec3 diffuse;
+    vec3 specular;
+};
+// ==========================================
+
+
+
+
+// ==========================================
+// ------------ Material Data ---------------
+// ------------------------------------------
 struct Material {
     float diffuseIntensity;
     vec3 specularColor;
@@ -48,23 +88,24 @@ struct Material {
     float emissionIntensity;
     float shininess;
 };
+// ==========================================
 
+
+
+// ==========================================
+// ---------------- Unforms -----------------
+// ------------------------------------------
 uniform GlobalSun uGlobalSunLight;
 uniform AmbientLight uAmbient;
 uniform SpotLights uSpotLights;
 uniform Material uMaterial;
-
 #ifdef USE_COLOR
 uniform vec4 Color;
 #else
 uniform sampler2D Texture1;
 #endif
+// ==========================================
 
-
-struct LightContribution {
-    vec3 diffuse;
-    vec3 specular;
-};
 
 
 void main() {
@@ -83,7 +124,7 @@ void main() {
     vec3 totalSpecular = vec3(0.0);
     // Spotlights
     for (int i = 0; i < uSpotLights.count; ++i) {
-        vec3 lightPosViewSpace = uSpotLights.lights[i].lightProperties.posInViewSpace;
+        vec3 lightPosViewSpace =  uSpotLights.lights[i].lightProperties.posInViewSpace;
         float intensity = uSpotLights.lights[i].lightProperties.intensity;
         vec3 color = uSpotLights.lights[i].lightProperties.color;
 
@@ -95,7 +136,7 @@ void main() {
 
         // Specular
         float materialShininessMapped = uMaterial.shininess * 256.0;
-        vec3 reflectDir = reflect(lightDir, norm);
+        vec3 reflectDir = reflect(-lightDir, norm);
         float spec = pow(max(dot(viewDir, reflectDir), 0.0), materialShininessMapped);
         vec3 specular = uMaterial.specularIntensity * spec * uMaterial.specularColor * intensity;
         totalSpecular += specular;
@@ -109,11 +150,21 @@ void main() {
 }
 
 
+
+
+
+//██████████████████████████████████████████
+//█████ ██████ ███     ███     ███     █████
+//█████ ██████ ███ ███████ ███ █████ ███████
+//█████ ██████ ███    ████   ███████ ███████
+//███████ ██ █████ ███████ ██ ██████ ███████
+//█████████ ██████     ███ ███ █████ ███████
+//██████████████████████████████████████████
 #shader vertex
 /* The glsl version is automatically set */
 // ==========================================
-// ============Vertex attributes=============
-// ==========================================
+// ----------- Vertex attributes ------------
+// ------------------------------------------
 layout (location = 0) in vec3 pos;
 #ifdef USE_COLOR
 layout (location = 1) in vec4 color;
@@ -128,8 +179,8 @@ layout (location = 2) in vec3 normal;
 
 
 // ==========================================
-// ============Output variables==============
-// ==========================================
+// ------------ Output variables ------------
+// ------------------------------------------
 #ifdef USE_COLOR
 out vec4 VertexColor;
 #else
@@ -141,8 +192,8 @@ out vec3 FragPosViewSpace;
 
 
 // ==========================================
-// ============Uniform variables=============
-// ==========================================
+// ------------ Uniform variables -----------
+// ------------------------------------------
 uniform mat4 uMVP;
 uniform mat4 uMV;
 uniform mat3 uNormalMat;
@@ -164,7 +215,6 @@ void main() {
     #else
     VertexTexCoord = texCoord;// Pass the texture coordinate to the fragment shader.
     #endif
-
     NormalViewSpace = uNormalMat * normal;
     FragPosViewSpace = vec3(uMV * vec4(pos, 1.0));
 }

@@ -85,26 +85,26 @@ namespace GLESC::Math {
             VectorAlgorithms::vectorScalarMul(axis, (TypeToRotate(1) - c), temp);
 
             MatrixData<TypeToRotate, 4, 4> rotate;
+
             rotate[0][0] = c + temp[0] * axis[0];
-            rotate[0][1] = temp[0] * axis[1] + s * axis[2];
-            rotate[0][2] = temp[0] * axis[2] - s * axis[1];
-            rotate[0][3] = 0;
-
-            rotate[1][0] = temp[1] * axis[0] - s * axis[2];
-            rotate[1][1] = c + temp[1] * axis[1];
-            rotate[1][2] = temp[1] * axis[2] + s * axis[0];
-            rotate[1][3] = 0;
-
-            rotate[2][0] = temp[2] * axis[0] + s * axis[1];
-            rotate[2][1] = temp[2] * axis[1] - s * axis[0];
-            rotate[2][2] = c + temp[2] * axis[2];
-            rotate[2][3] = 0;
-
+            rotate[1][0] = temp[0] * axis[1] + s * axis[2];
+            rotate[2][0] = temp[0] * axis[2] - s * axis[1];
             rotate[3][0] = 0;
-            rotate[3][1] = 0;
-            rotate[3][2] = 0;
-            rotate[3][3] = 1;
 
+            rotate[0][1] = temp[1] * axis[0] - s * axis[2];
+            rotate[1][1] = c + temp[1] * axis[1];
+            rotate[2][1] = temp[1] * axis[2] + s * axis[0];
+            rotate[3][1] = 0;
+
+            rotate[0][2] = temp[2] * axis[0] + s * axis[1];
+            rotate[1][2] = temp[2] * axis[1] - s * axis[0];
+            rotate[2][2] = c + temp[2] * axis[2];
+            rotate[3][2] = 0;
+
+            rotate[0][3] = 0;
+            rotate[1][3] = 0;
+            rotate[2][3] = 0;
+            rotate[3][3] = 1;
             // To ensure it can be done in place
             MatrixAlgorithms::matrixMatrixMulInPlace(rotate, matrix, resMatrix);
         }
@@ -211,25 +211,27 @@ namespace GLESC::Math {
             // First, apply translation to the model matrix
             MatrixAlgorithms::setTranslate(model, position, model);
 
-            // Then, apply rotation to the model matrix
-            MatrixMixedAlgorithms::rotate3D(model, rotationDegrees[0], {1, 0, 0}, model);
-            MatrixMixedAlgorithms::rotate3D(model, rotationDegrees[1], {0, 1, 0}, model);
-            MatrixMixedAlgorithms::rotate3D(model, rotationDegrees[2], {0, 0, 1}, model);
 
             // Finally, apply scale to the model matrix
             MatrixAlgorithms::setScale(model, scale, model);
+
+            // Then, apply rotation to the model matrix
+            MatrixMixedAlgorithms::rotate3D(model, rotationDegrees[2], {0, 0, 1}, model);
+            MatrixMixedAlgorithms::rotate3D(model, rotationDegrees[1], {0, 1, 0}, model);
+            MatrixMixedAlgorithms::rotate3D(model, rotationDegrees[0], {1, 0, 0}, model);
         }
 
         template <typename ModelType, typename NormalMatType>
         static void calculateNormalMatrix(const MatrixData<ModelType, 4, 4>& MVMat,
                                           MatrixData<NormalMatType, 3, 3>& normalMat) {
             // Transpose the 4x4 matrix first
-            MatrixData<ModelType, 4, 4> transposedMVMat;
-            MatrixAlgorithms::transpose(MVMat, transposedMVMat);
+            //MatrixData<ModelType, 4, 4> transposedMVMat;
+            //MatrixAlgorithms::transpose(MVMat, transposedMVMat);
+            // IMPORTANT! No need to transpose as we're working with row-major matrices
 
             // Now extract the upper-left 3x3 part from the transposed matrix
             MatrixData<ModelType, 3, 3> resizedMVMat;
-            MatrixAlgorithms::resizeMatrix(transposedMVMat, resizedMVMat);
+            MatrixAlgorithms::resizeMatrix(MVMat, resizedMVMat);
 
             // Calculate the inverse of the 3x3 matrix
             MatrixData<ModelType, 3, 3> inverseMat;
@@ -256,16 +258,17 @@ namespace GLESC::Math {
             MatrixAlgorithms::setMatrixZero(resMatrix);
             MatrixAlgorithms::setMatrixDiagonal(resMatrix, TypeRes(1));
 
-            VectorData<TypePos, 3> positionNeg;
-            VectorAlgorithms::vectorNegate(position, positionNeg);
+            // Negate position
+            VectorData<TypePos, 3> negatedPos;
+            VectorAlgorithms::vectorNegate(position, negatedPos);
 
             // Apply rotation first
-            MatrixMixedAlgorithms::rotate3D(resMatrix, rotationDegrees[0], {1, 0, 0}, resMatrix);
-            MatrixMixedAlgorithms::rotate3D(resMatrix, rotationDegrees[1], {0, 1, 0}, resMatrix);
-            MatrixMixedAlgorithms::rotate3D(resMatrix, rotationDegrees[2], {0, 0, 1}, resMatrix);
+            MatrixMixedAlgorithms::rotate3D(resMatrix, -rotationDegrees[0], {1, 0, 0}, resMatrix);
+            MatrixMixedAlgorithms::rotate3D(resMatrix, -rotationDegrees[1], {0, 1, 0}, resMatrix);
+            MatrixMixedAlgorithms::rotate3D(resMatrix, -rotationDegrees[2], {0, 0, 1}, resMatrix);
 
             // Then apply translation
-            MatrixAlgorithms::setTranslate(resMatrix, position, resMatrix);
+            MatrixAlgorithms::setTranslate(resMatrix, negatedPos, resMatrix);
         }
     }; // class MatrixAlgorithms
 }; // namespace GLESC::Math

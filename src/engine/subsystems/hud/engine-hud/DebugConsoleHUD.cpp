@@ -14,15 +14,15 @@
 #include "engine/core/math/Math.h"
 #include "engine/subsystems/ingame-debug/Console.h"
 
-
+using namespace GLESC::HUD;
 DebugConsoleHUD::DebugConsoleHUD() {
     this->setTitle("Console");
     this->setMaxSize({1200.0f, 300.0f});
     this->setMinSize({600.0f, 150.0f});
     this->setSizeFraction({0.5f, 0.2f});
     isVisible = true;
-    this->setCenter(GLESC::WindowCenter::BottomCenter);
-    this->setLayoutPosition(GLESC::LayoutPos::BottomCenter);
+    this->setCenter(WindowCenter::BottomLeft);
+    this->setLayoutPosition(LayoutPos::BottomLeft);
     this->addFlag(ImGuiWindowFlags_NoResize);
     this->addFlag(ImGuiWindowFlags_NoMove);
     this->addFlag(ImGuiWindowFlags_NoCollapse);
@@ -59,5 +59,6 @@ void DebugConsoleHUD::windowContent() {
 
 
         ImGui::TextColored(color, "( %d ) %s: %s", entry.count, level.c_str(), entry.message.c_str());
+        ImGui::Separator();
     }
 }

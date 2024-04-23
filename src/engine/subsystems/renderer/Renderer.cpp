@@ -8,14 +8,26 @@
 
 using namespace GLESC::Render;
 
+Projection makeDefaultProjection() {
+    Projection proj;
+    proj.makeProjectionMatrix(45.0f, 0.1f, 1000.0f, 800.0f, 600.0f);
+    return proj;
+}
+
+View makeDefaultView() {
+    View view;
+    view.makeViewMatrixPosRot(GLESC::Transform::Position(0.0f, 0.0f, 3.0f),
+                              GLESC::Transform::Rotation(0.0f, 0.0f, 0.0f));
+    return view;
+}
+
 Renderer::Renderer(WindowManager& windowManager) :
     windowManager(windowManager), shader(GAPI::Shader("Shader.glsl")),
     lightSpots(LightSpots()), globalSun(GlobalSun()), globalAmbienLight(GlobalAmbienLight()),
-    projection(Projection()), view(View()),
+    projection(makeDefaultProjection()), view(makeDefaultView()),
     cameraTransform(Transform::Transform(Position(0.0f, 0.0f, 3.0f),
                                          Transform::Rotation(0.0f, 0.0f, 0.0f),
                                          Transform::Scale(1.0f, 1.0f, 1.0f))) {
-
 }
 
 void Renderer::swapBuffers() const {
@@ -28,83 +40,6 @@ void Renderer::clear() const {
         GAPI::Enums::ClearBits::Stencil
     });
     getGAPI().clearColor(0.2f, 0.3f, 0.3f, 1.0f);
-}
-
-void Renderer::applyLighting(LightSpots& lightSpotsParam, GlobalSun& sun, GlobalAmbienLight ambientLight) const {
-    // Apply lighting
-    shader.setUniform("uSpotLights.count").u1I(static_cast<int>(lightSpotsParam.getLights().size()));
-    for (size_t i = 0; i < lightSpotsParam.getLights().size(); i++) {
-        const LightSpot& light = *lightSpotsParam.getLights()[i].light;
-        const Transform::Transform& transform = *lightSpotsParam.getLights()[i].transform;
-        std::string lightUniform = "uSpotLights.lights[" + std::to_string(i) + "]";
-
-        Vec4F lightPosViewSpace = getView() * transform.getPosition().homogenize();
-        Vec3F lightPosViewSpace3 = lightPosViewSpace.dehomogenize();
-        Vec3F lightColor = light.color.getRGBVec3FNormalized();
-        float lightIntensity = light.intensity;
-        shader.setUniform(lightUniform + ".lightProperties.posInViewSpace").u3F(lightPosViewSpace3);
-        shader.setUniform(lightUniform + ".lightProperties.color").u3F(lightColor);
-        shader.setUniform(lightUniform + ".lightProperties.intensity").u1F(lightIntensity);
-
-        //shader.setUniform(lightUniform + ".radius").u1F(transform.getScale().length());
-    }
-
-    //shader.setUniform("uGlobalSunLight.lightProperties.color").u3F(sun.getColor().toVec3F());
-    //shader.setUniform("uGlobalSunLight.lightProperties.intensity").u1F(sun.getIntensity());
-    //shader.setUniform("uGlobalSunLight.direction").u3F(sun.getTransform().forward());
-
-    shader.setUniform("uAmbient.color").u3F(ambientLight.getColor().getRGBVec3FNormalized());
-    shader.setUniform("uAmbient.intensity").u1F(ambientLight.getIntensity());
-}
-
-void Renderer::applyMaterial(const Material& material) const {
-    /*
-    for(const std::string& uniform: getGAPI().getAllUniforms()) {
-        std::cout << uniform << std::endl;
-    }
-    */
-
-    //shader.setUniform("uMaterial.diffuseIntensity").u1F(material.getDiffuseIntensity());
-    //
-    shader.setUniform("uMaterial.specularColor").u3F(material.getSpecularColor().getRGBVec3FNormalized());
-    shader.setUniform("uMaterial.specularIntensity").u1F(material.getSpecularIntensity());
-    //
-    //shader.setUniform("uMaterial.emissionColor").u3F(material.getEmissionColor());
-    //shader.setUniform("uMaterial.emissionIntensity").u1F(material.getEmmisionIntensity());
-    //
-    shader.setUniform("uMaterial.shininess").u1F(material.getShininess());
-}
-
-void Renderer::applyTransform(const MV& modelView, const MVP& mvp, const NormalMat& normalMat) const {
-    shader.setUniform("uMVP").uMat4F(mvp);
-    shader.setUniform("uMV").uMat4F(modelView);
-    shader.setUniform("uNormalMat").uMat3F(normalMat);
-}
-
-Renderer::~Renderer() {
-    getGAPI().deleteContext();
-}
-
-
-void Renderer::transformMeshCPU(ColorMesh& mesh,
-                                const Model& modelMat) {
-    Transform::Transformer::transformMesh(mesh, modelMat);
-}
-
-void Renderer::renderInstances(const ColorMesh& mesh,
-                               const std::vector<MeshInstanceData>& instances) {
-    AdaptedInstances& adptInstcs = adaptedInstances[&mesh];
-    // Bind the VAO before drawing
-    adptInstcs.vertexArray->bind();
-    getGAPI().drawTrianglesIndexedInstanced(mesh.getIndices().size(), instances.size());
-}
-
-void Renderer::renderMesh(const ColorMesh& mesh) {
-    AdaptedMesh& adaptedMesh = adaptedMeshes[&mesh];
-    // Bind the VAO before drawing
-    adaptedMesh.vertexArray->bind();
-    getGAPI().drawTrianglesIndexed(adaptedMesh.indexBuffer->getCount());
-    meshRenderCounter.addToCounter(1);
 }
 
 void Renderer::renderMeshes(double timeOfFrame) {
@@ -151,10 +86,10 @@ void Renderer::renderMeshes(double timeOfFrame) {
         MVP modelViewProj = modelView * projMat;
         NormalMat normalMat;
         normalMat.makeNormalMatrix(modelView);
-        // IMPORTANT! We need to transpose the matrix for in-cpu transformation.
-        // In the cpu we're using row-major matrices while in gpu we're using column-major matrices
+
+
         BoundingVolume transformedBoundingVol =
-            Transform::Transformer::transformBoundingVolume(mesh.getBoundingVolumeMutable(), modelMat.transpose());
+            Transform::Transformer::transformBoundingVolume(mesh.getBoundingVolume(), modelMat);
 
         if (!frustum.contains(transformedBoundingVol)) continue;
         const Material& material = *dynamicMesh.material;
@@ -168,6 +103,77 @@ void Renderer::renderMeshes(double timeOfFrame) {
         applyLighting(lightSpots, globalSun, globalAmbienLight);
         renderMesh(mesh);
     }
+}
+
+void Renderer::applyLighting(LightSpots& lightSpotsParam, GlobalSun& sun, GlobalAmbienLight ambientLight) const {
+    // Apply lighting
+    shader.setUniform("uSpotLights.count").u1I(static_cast<int>(lightSpotsParam.getLights().size()));
+    for (size_t i = 0; i < lightSpotsParam.getLights().size(); i++) {
+        const LightSpot& light = *lightSpotsParam.getLights()[i].light;
+        const Transform::Transform& transform = *lightSpotsParam.getLights()[i].transform;
+        std::string lightUniform = "uSpotLights.lights[" + std::to_string(i) + "]";
+
+        Vec4F lightPosViewSpace = getView() * transform.getPosition().homogenize();
+        Vec3F lightPosViewSpace3 = lightPosViewSpace.dehomogenize();
+        Vec3F lightColor = light.color.getRGBVec3FNormalized();
+        float lightIntensity = light.intensity.get();
+        shader.setUniform(lightUniform + ".lightProperties.posInViewSpace").u3F(lightPosViewSpace3);
+        shader.setUniform(lightUniform + ".lightProperties.color").u3F(lightColor);
+        shader.setUniform(lightUniform + ".lightProperties.intensity").u1F(lightIntensity);
+
+        //shader.setUniform(lightUniform + ".radius").u1F(transform.getScale().length());
+    }
+
+    //shader.setUniform("uGlobalSunLight.lightProperties.color").u3F(sun.getColor().toVec3F());
+    //shader.setUniform("uGlobalSunLight.lightProperties.intensity").u1F(sun.getIntensity());
+    //shader.setUniform("uGlobalSunLight.direction").u3F(sun.getTransform().forward());
+
+    shader.setUniform("uAmbient.color").u3F(ambientLight.getColor().getRGBVec3FNormalized());
+    shader.setUniform("uAmbient.intensity").u1F(ambientLight.getIntensity());
+}
+
+void Renderer::applyMaterial(const Material& material) const {
+    //shader.setUniform("uMaterial.diffuseIntensity").u1F(material.getDiffuseIntensity());
+    //
+    shader.setUniform("uMaterial.specularColor").u3F(material.getSpecularColor().getRGBVec3FNormalized());
+    shader.setUniform("uMaterial.specularIntensity").u1F(material.getSpecularIntensity());
+    //
+    //shader.setUniform("uMaterial.emissionColor").u3F(material.getEmissionColor());
+    //shader.setUniform("uMaterial.emissionIntensity").u1F(material.getEmmisionIntensity());
+    //
+    shader.setUniform("uMaterial.shininess").u1F(material.getShininess());
+}
+
+void Renderer::applyTransform(const MV& modelView, const MVP& mvp, const NormalMat& normalMat) const {
+    shader.setUniform("uMVP").uMat4F(mvp);
+    shader.setUniform("uMV").uMat4F(modelView);
+    shader.setUniform("uNormalMat").uMat3F(normalMat);
+}
+
+Renderer::~Renderer() {
+    getGAPI().deleteContext();
+}
+
+
+void Renderer::transformMeshCPU(ColorMesh& mesh,
+                                const Model& modelMat) {
+    Transform::Transformer::transformMesh(mesh, modelMat);
+}
+
+void Renderer::renderInstances(const ColorMesh& mesh,
+                               const std::vector<MeshInstanceData>& instances) {
+    AdaptedInstances& adptInstcs = adaptedInstances[&mesh];
+    // Bind the VAO before drawing
+    adptInstcs.vertexArray->bind();
+    getGAPI().drawTrianglesIndexedInstanced(mesh.getIndices().size(), instances.size());
+}
+
+void Renderer::renderMesh(const ColorMesh& mesh) {
+    AdaptedMesh& adaptedMesh = adaptedMeshes[&mesh];
+    // Bind the VAO before drawing
+    adaptedMesh.vertexArray->bind();
+    getGAPI().drawTrianglesIndexed(adaptedMesh.indexBuffer->getCount());
+    meshRenderCounter.addToCounter(1);
 }
 
 

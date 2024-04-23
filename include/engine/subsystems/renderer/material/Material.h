@@ -50,13 +50,21 @@ namespace GLESC::Render {
             shininess{shininess} {
         }
 
-        [[nodiscard]] ColorRgb getDiffuseColor() const { return diffuseColor; }
+        [[nodiscard]] const ColorRgb& getDiffuseColor() const { return diffuseColor; }
         [[nodiscard]] float getDiffuseIntensity() const { return diffuseIntensity.get(); }
-        [[nodiscard]] ColorRgb getSpecularColor() const { return specularColor; }
+        [[nodiscard]] const ColorRgb& getSpecularColor() const { return specularColor; }
         [[nodiscard]] float getSpecularIntensity() const { return specularIntensity.get(); }
-        [[nodiscard]] ColorRgb getEmissionColor() const { return emissionColor; }
+        [[nodiscard]] const ColorRgb& getEmissionColor() const { return emissionColor; }
         [[nodiscard]] float getEmmisionIntensity() const { return emmisionIntensity.get(); }
         [[nodiscard]] float getShininess() const { return shininess.get(); }
+
+        [[nodiscard]] ColorRgb& getDiffuseColor() { return diffuseColor; }
+        [[nodiscard]] float& getDiffuseIntensity() { return diffuseIntensity.getModifiable(); }
+        [[nodiscard]] ColorRgb& getSpecularColor() { return specularColor; }
+        [[nodiscard]] float& getSpecularIntensity() { return specularIntensity.getModifiable(); }
+        [[nodiscard]] ColorRgb& getEmissionColor() { return emissionColor; }
+        [[nodiscard]] float& getEmmisionIntensity() { return emmisionIntensity.getModifiable(); }
+        [[nodiscard]] float& getShininess() { return shininess.getModifiable(); }
 
         void setDiffuseColor(const ColorRgb &diffuseColor) { this->diffuseColor = diffuseColor; }
         void setDiffuseIntensity(const float diffuseIntensity) { this->diffuseIntensity.set(diffuseIntensity); }

@@ -40,6 +40,8 @@ namespace GLESC::Render {
         [[nodiscard]] Projection getProjection() const { return projection; }
         void setProjection(const Projection& projectionParam) { this->projection = projectionParam; }
 
+        [[nodiscard]] WindowDimensions getViewportSize() const { return windowManager.getSize(); }
+
         [[nodiscard]] Transform::Transform getCameraTrasnform() const {
             return this->cameraTransform;
         }

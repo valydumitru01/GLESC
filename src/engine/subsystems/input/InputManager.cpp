@@ -51,8 +51,10 @@ void InputManager::update(bool& running) {
             break;
         case SDL_MOUSEBUTTONDOWN:
         case SDL_MOUSEBUTTONUP:
+            handleMouseButton(event);
+            break;
         case SDL_MOUSEMOTION:
-            handleMouseEvent(event);
+            handleMouseMotion(event);
             if (SDL_GetRelativeMouseMode() == SDL_TRUE) {
                 sdlMousePos = {event.motion.xrel, event.motion.yrel};
             }
@@ -75,13 +77,14 @@ void InputManager::handleKeyEvent(const SDL_Event& event) {
     updateKeyState(keycode, pressed);
 }
 
-void InputManager::handleMouseEvent(const SDL_Event& event) {
-    // Handle mouse button events
-    if (event.type == SDL_MOUSEBUTTONDOWN || event.type == SDL_MOUSEBUTTONUP) {
-        auto mouseButton = static_cast<Key>(event.button.button);
-        bool pressed = event.type == SDL_MOUSEBUTTONDOWN;
-        updateKeyState(mouseButton, pressed);
-    }
+void InputManager::handleMouseButton(const SDL_Event& event) {
+    D_ASSERT_TRUE(event.type == SDL_MOUSEBUTTONDOWN || event.type == SDL_MOUSEBUTTONUP, "Invalid event type");
+    auto mouseButton = static_cast<Key>(event.button.button);
+    bool pressed = event.type == SDL_MOUSEBUTTONDOWN;
+    updateKeyState(mouseButton, pressed);
+}
+
+void InputManager::handleMouseMotion(const SDL_Event& event) {
     if (SDL_GetRelativeMouseMode() == SDL_FALSE) {
         if (event.type == SDL_MOUSEMOTION) {
             mousePos.x() = static_cast<float>(event.motion.x);

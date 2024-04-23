@@ -92,10 +92,15 @@ namespace GLESC::Input {
          */
         void lerpMousePos(MousePosition& oldMousePos, const MousePosition& targetMousePos) const;
         /**
-         * @brief Handles the mouse event by updating the mouse position with the current mouse coordinates.
+         * @brief Handles the mouse motion event by updating the mouse position.
          * @param event - The mouse event to handle.
          */
-        void handleMouseEvent(const SDL_Event& event);
+        void handleMouseMotion(const SDL_Event& event);
+        /**
+         * @brief Handles the mouse button event by updating the key map with the current key state.
+         * @param event - The mouse button event to handle.
+         */
+        void handleMouseButton(const SDL_Event& event);
 
         /**
          * @brief The buffer used to store the delta values of the mouse position.

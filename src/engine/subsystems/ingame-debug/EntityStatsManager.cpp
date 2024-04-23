@@ -11,27 +11,10 @@
 
 
 // Define the static members
-EntityDataFunctions EntityStatsManager::entityDataFuncs = {};
+EntityStatsManager::EntityData EntityStatsManager::entityData{};
 
-EntityData EntityStatsManager::generateEntityData() {
-    EntityData entityData;
-    if (entityDataFuncs.name) {
-        entityData.name = entityDataFuncs.name();
-    } else {
-        entityData.name = "Entity not selected...";
-    }
-    for (auto& component : entityDataFuncs.components) {
-        ComponentData componentData;
-        componentData.name = component.name();
-        componentData.nameValuePairs[component.name()] = component.dataString();
-        entityData.components.push_back(componentData);
-    }
+
+
+EntityStatsManager::EntityData EntityStatsManager::getEntityData() {
     return entityData;
-}
-
-EntityData EntityStatsManager::getEntityData() {
-    EntityData entityDataResult;
-    entityDataResult = generateEntityData();
-
-    return entityDataResult;
 }

@@ -19,29 +19,6 @@ CameraSystem::CameraSystem(Render::Renderer &renderer, WindowManager &windowMana
     addComponentRequirement<CameraComponent>();
     addComponentRequirement<TransformComponent>();
 
-
-    StatsManager::registerStatSource("Camera Data:", [&]() -> std::string {
-        std::stringstream ss;
-        for (auto &entity : getAssociatedEntities()) {
-            auto &camera = getComponent<CameraComponent>(entity);
-            auto &transform = getComponent<TransformComponent>(entity);
-            // Position
-            ss << "\n - Position: " << Stringer::toString(transform.transform.getPosition());
-            // Rotation
-            ss << "\n - Rotation: " << Stringer::toString(transform.transform.getRotation());
-            // Scale
-            ss << "\n - Fov: " << Stringer::toString(camera.perspective.fovDegrees);
-            ss << "\n - Near plane: " << Stringer::toString(camera.perspective.nearPlane);
-            ss << "\n - Far plane: " << Stringer::toString(camera.perspective.farPlane);
-            ss << "\n - Aspect Ratio" << Stringer::toString(camera.perspective.viewWidth) << "\\" <<
-                    Stringer::toString(camera.perspective.viewHeight) << "=" << Stringer::toString(
-                        camera.perspective.viewWidth / camera.perspective.viewHeight);
-        }
-        if (getAssociatedEntities().empty()) {
-            return "No camera found";
-        }
-        return ss.str();
-    });
 }
 
 void CameraSystem::update() {

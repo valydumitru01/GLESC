@@ -1,26 +1,24 @@
 /**************************************************************************************************
- * @file   LightSpot.h
+ * @file   CrosshairHUD.h
  * @author Valentin Dumitru
- * @date   2024-03-31
+ * @date   2024-04-13
  * @brief  Add description of this file if needed @TODO 
  *
  * Copyright (c) 2024 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
  **************************************************************************************************/
 #pragma once
-#include <string>
-
+#include "engine/subsystems/hud/InGameWindow.h"
 #include "engine/subsystems/renderer/RendererTypes.h"
 
-namespace GLESC::Render {
-    struct LightSpot {
-        Intensity<float> intensity{1.0f};
-        ColorRgb color{255.f, 255.f, 255.f};
+namespace GLESC::HUD {
+    class CrosshairHUD : public GLESC::InGameWindow {
+    public:
+        CrosshairHUD();
 
-        LightSpot() = default;
-
-        [[nodiscard]] std::string toString() const {
-            return "Intensity:" + intensity.toString() + " Color:" + color.toString();
-        }
-    }; // class Light
-} // namespace GLESC::Render
+    private:
+        float linesLength = 10.0f;
+        GLESC::Render::ColorRgba linesColor = GLESC::Render::ColorRgba(255, 255, 255, 255);
+        void windowContent() override;
+    }; // class Crosshair
+} // namespace GLESC::HUD

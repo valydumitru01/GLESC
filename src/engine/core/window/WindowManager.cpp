@@ -42,7 +42,7 @@ WindowManager::WindowManager() {
 void WindowManager::setSize(uint16_t windowWidth, uint16_t windowHeight) {
     if (isResizable()) {
         SDLCall(SDL_SetWindowSize(window, windowWidth, windowHeight));
-        getGAPI().setViewport(getPosition().x(), getPosition().y(), windowWidth, windowHeight);
+        getGAPI().setViewport(0, 0, windowWidth, windowHeight);
     }
 }
 

@@ -11,14 +11,15 @@
 #include <imgui/imgui.h>
 #include "engine/subsystems/hud/InGameWindow.h"
 
+namespace GLESC::HUD {
+    class DebugConsoleHUD : public InGameWindow {
+    public:
+        DebugConsoleHUD();
 
-class DebugConsoleHUD : public GLESC::InGameWindow {
-public:
-    DebugConsoleHUD();
-
-private:
-    void windowContent() override;
-    ImVec4 errorColor = ImVec4(1.0f, 0.0f, 0.0f, 1.0f);
-    ImVec4 warningColor = ImVec4(1.0f, 1.0f, 0.0f, 1.0f);
-    ImVec4 infoColor = ImVec4(0.0f, 1.0f, 0.0f, 1.0f);
-};
+    private:
+        void windowContent() override;
+        ImVec4 errorColor = ImVec4(1.0f, 0.0f, 0.0f, 1.0f);
+        ImVec4 warningColor = ImVec4(1.0f, 1.0f, 0.0f, 1.0f);
+        ImVec4 infoColor = ImVec4(0.0f, 1.0f, 0.0f, 1.0f);
+    }; // class DebugConsoleHUD
+} // namespace GLESC::HUD

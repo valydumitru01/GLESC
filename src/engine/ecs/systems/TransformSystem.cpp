@@ -22,14 +22,14 @@ namespace GLESC::ECS {
             Transform::Rotation rotation = transform.transform.getRotation();
             // Use of fmod to avoid floating point errors
             transform.transform.setRotation(rotation.mod(360.0f));
-            if (rotation.getX() < 0) {
-                transform.transform.addRotation(Transform::Axis::X, 360.0f);
+            if (rotation.getX() < -360.0f) {
+                transform.transform.addRotation(Transform::Axis::X, 720.0f);
             }
-            if (rotation.getY() < 0) {
-                transform.transform.addRotation(Transform::Axis::Y, 360.0f);
+            if (rotation.getY() < -360.0f) {
+                transform.transform.addRotation(Transform::Axis::Y, 720.0f);
             }
-            if (rotation.getZ() < 0) {
-                transform.transform.addRotation(Transform::Axis::Z, 360.0f);
+            if (rotation.getZ() < -360.0f) {
+                transform.transform.addRotation(Transform::Axis::Z, 720.0f);
             }
         }
     }
