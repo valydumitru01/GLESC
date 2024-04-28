@@ -10,6 +10,7 @@
 
 #include "engine/core/low-level-renderer/graphic-api/Gapi.h"
 #include "engine/core/low-level-renderer/shader/Shader.h"
+
 #include "engine/core/low-level-renderer/shader/ShaderLoader.h"
 
 using namespace GLESC::GAPI;
@@ -50,13 +51,4 @@ void Shader::bind() const {
 
 void Shader::unbind() const {
     getGAPI().useShaderProgram(0);
-}
-
-std::unordered_map<std::string, UniformSetter> uniformCache;
-
-UniformSetter Shader::setUniform(const std::string& name) const {
-    if (uniformCache.find(name) == uniformCache.end()) {
-        uniformCache[name] = getGAPI().setUniform(name);
-    }
-    return uniformCache[name];
 }

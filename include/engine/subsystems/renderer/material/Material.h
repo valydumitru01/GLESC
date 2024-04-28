@@ -92,6 +92,8 @@ namespace GLESC::Render {
                    specularIntensity == other.specularIntensity && shininess == other.shininess;
         }
 
+        bool& isDirty() const { return dirty; }
+        void setClean() const { dirty = false; }
     private:
         /**
          * @brief The diffuse color of the material
@@ -122,6 +124,10 @@ namespace GLESC::Render {
          * @brief The shininess of the material
          */
         Intensity shininess;
+        /**
+         * @brief Dirty flag, used to check if we need to resend the data to the GPU
+         */
+        mutable bool dirty;
     }; // class Material
 } // namespace GLESC
 

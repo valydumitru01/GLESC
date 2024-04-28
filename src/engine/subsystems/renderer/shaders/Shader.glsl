@@ -45,27 +45,20 @@ struct AmbientLight {
     float intensity;
 };
 
-struct Light {
-    vec3 posInViewSpace;
+struct GlobalSun {
     vec3 color;
     float intensity;
-};
-
-struct GlobalSun {
-    Light lightProperties;
     vec3 direction;
     sampler2D shadowMap;
     mat4 viewProjMatrix;
 };
 
-struct LightSpot {
-    Light lightProperties;
-    float radius;
-};
-
-struct SpotLights {
-    LightSpot lights[MAX_LIGHTS];
-    int count; // Actual number of lights to use
+struct LightSpots {
+    vec3 posInViewSpace[MAX_LIGHTS];
+    vec3 color[MAX_LIGHTS];
+    float intensity[MAX_LIGHTS];
+    float radius[MAX_LIGHTS];
+    uint count;
 };
 
 struct LightContribution {
@@ -92,12 +85,13 @@ struct Material {
 
 
 
+
 // ==========================================
 // ---------------- Unforms -----------------
 // ------------------------------------------
 uniform GlobalSun uGlobalSunLight;
 uniform AmbientLight uAmbient;
-uniform SpotLights uSpotLights;
+uniform LightSpots uLights;
 uniform Material uMaterial;
 #ifdef USE_COLOR
 uniform vec4 Color;
@@ -116,22 +110,37 @@ void main() {
     #else
     vec3 baseColor = texture(Texture1, VertexTexCoord).rgb;
     #endif
-
     // Ambient light
     vec3 ambient = uAmbient.color * uAmbient.intensity;
 
     vec3 totalDiffuse = vec3(0.0);
     vec3 totalSpecular = vec3(0.0);
-    // Spotlights
-    for (int i = 0; i < uSpotLights.count; ++i) {
-        vec3 lightPosViewSpace =  uSpotLights.lights[i].lightProperties.posInViewSpace;
-        float intensity = uSpotLights.lights[i].lightProperties.intensity;
-        vec3 color = uSpotLights.lights[i].lightProperties.color;
+
+    for (uint i = 0; i < uLights.count; ++i) {
+        vec3 lightPosViewSpace =  uLights.posInViewSpace[i];
+        float intensity = uLights.intensity[i];
+        vec3 color = uLights.color[i];
+        float radius = uLights.radius[i];
+
+        vec3 fragmentLightVec = lightPosViewSpace - FragPosViewSpace;
+        float distanceToFrag = length(fragmentLightVec);
+
+        // Skip if distance is greater than the radius of the light.
+        if (distanceToFrag > uLights.radius[i]) continue;
+
+        // Formula obtained from
+        // https://gamedev.stackexchange.com/questions/56897/glsl-light-attenuation-color-and-intensity-formula
+        float minLight = 0.01;
+        float a = 0.1;
+        float b = 1.0 / (radius*radius * minLight);
+        float att = 1.0 / (1.0 + a*distanceToFrag + b*distanceToFrag*distanceToFrag);
+
 
         // Diffuse
-        vec3 lightDir = normalize(lightPosViewSpace - FragPosViewSpace);
+        vec3 lightDir = normalize(fragmentLightVec);
         float diff = max(dot(norm, lightDir), 0.0);
-        vec3 diffuse = diff * color * intensity;
+        vec3 diffuse = diff * color * intensity * att;
+
         totalDiffuse += diffuse;
 
         // Specular
@@ -141,8 +150,6 @@ void main() {
         vec3 specular = uMaterial.specularIntensity * spec * uMaterial.specularColor * intensity;
         totalSpecular += specular;
     }
-
-
 
     vec3 finalColor = (ambient + totalDiffuse + totalSpecular) * baseColor;
 
@@ -165,13 +172,13 @@ void main() {
 // ==========================================
 // ----------- Vertex attributes ------------
 // ------------------------------------------
-layout (location = 0) in vec3 pos;
+layout (location = 0) in vec3 aPos;
 #ifdef USE_COLOR
-layout (location = 1) in vec4 color;
+layout (location = 1) in vec4 aColor;
 #else
-layout (location = 1) in vec2 texCoord;
+layout (location = 1) in vec2 aTexCoord;
 #endif
-layout (location = 2) in vec3 normal;
+layout (location = 2) in vec3 aNormal;
 //#ifdef USE_INSTANCING
 //layout (location = 3) in vec3 instancePos;
 //#endif
@@ -203,18 +210,18 @@ void main() {
     vec4 transformedPosition;
 
     #ifdef USE_INSTANCING
-    transformedPosition = uMVP * vec4(pos + instancePos, 1.0);
+    transformedPosition = uMVP * vec4(aPos + instancePos, 1.0);
     #else
-    transformedPosition = uMVP * vec4(pos, 1.0);
+    transformedPosition = uMVP * vec4(aPos, 1.0);
     #endif
 
     gl_Position = transformedPosition;
 
     #ifdef USE_COLOR
-    VertexColor = color;// Pass the color to the fragment shader.
+    VertexColor = aColor;// Pass the color to the fragment shader.
     #else
-    VertexTexCoord = texCoord;// Pass the texture coordinate to the fragment shader.
+    VertexTexCoord = aTexCoord; // Pass the texture coordinate to the fragment shader.
     #endif
-    NormalViewSpace = uNormalMat * normal;
-    FragPosViewSpace = vec3(uMV * vec4(pos, 1.0));
+    NormalViewSpace = uNormalMat * aNormal;
+    FragPosViewSpace = vec3(uMV * vec4(aPos, 1.0));
 }

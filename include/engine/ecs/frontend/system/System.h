@@ -27,7 +27,7 @@ namespace GLESC::ECS {
 
         [[nodiscard]] const std::set<EntityID> &getAssociatedEntities() const;
 
-        [[nodiscard]] boost::bimap<EntityName, EntityID> getAllEntities() const;
+        [[nodiscard]] std::unordered_map<EntityName, EntityID> getAllEntities() const;
 
         [[nodiscard]] std::vector<IComponent*> getComponents(EntityID entityId) const;
 

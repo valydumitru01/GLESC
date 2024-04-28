@@ -10,7 +10,6 @@
 
 #pragma once
 
-#ifndef NDEBUG
 #include "engine/core/debugger/StackTrace.h"
 #include "engine/core/exceptions/core/AssertFailedException.h"
 #include "engine/core/debugger/Stringer.h"
@@ -19,6 +18,38 @@
 #include <limits>
 #include <string>
 #include <type_traits>
+
+
+
+// ------------------------ Empty asserts ---------------------------
+// Empty asserts are used to substitute asserts in release mode,
+// this way the compiler will optimize them out (remove them)
+
+#define D_ASSERT_TRUE(condition, message) do {} while (false)
+#define D_ASSERT_FALSE(condition, message) do {} while (false)
+#define D_ASSERT_NOT_NULL(condition, message) do {} while (false)
+#define D_ASSERT_NOT_NULLPTR(condition, message) do {} while (false)
+#define D_ASSERT_NULL(condition, message) do {} while (false)
+#define D_ASSERT_EQUAL(condition, expected, message) do {} while (false)
+#define D_ASSERT_GREATER(condition, expected, message) do {} while (false)
+#define D_ASSERT_GREATER_OR_EQUAL(condition, expected, message) do {} while (false)
+#define D_ASSERT_LESS(condition, expected, message) do {} while (false)
+#define D_ASSERT_LESS_OR_EQUAL(condition, expected, message) do {} while (false)
+#define D_ASSERT_NOT_EQUAL(condition, expected, message) do {} while (false)
+
+#define S_ASSERT_TRUE(condition, message)
+#define S_ASSERT_FALSE(condition, message) do {} while (false)
+#define S_ASSERT_EQUAL(condition, expected, message) do {} while (false)
+#define S_ASSERT_GREATER(condition, expected, message) do {} while (false)
+#define S_ASSERT_GREATER_OR_EQUAL(condition, expected, message) do {} while (false)
+#define S_ASSERT_LESS(condition, expected, message) do {} while (false)
+#define S_ASSERT_LESS_OR_EQUAL(condition, expected, message) do {} while (false)
+#define S_ASSERT_NOT_EQUAL(condition, expected, message) do {} while (false)
+
+
+
+
+#ifndef NDEBUG
 // ------------------------ Runtime asserts ---------------------------
 // Runtime asserts are used to check conditions at runtime
 
@@ -149,31 +180,5 @@ bool assertEqualsEq(const Type1& value, const Type2& expected) {
 
 #define S_ASSERT_NOT_EQUAL(condition, expected, message) \
         static_assert(condition != expected, message)
-
-#else
-// ------------------------ Empty asserts ---------------------------
-// Empty asserts are used to substitute asserts in release mode,
-// this way the compiler will optimize them out (remove them)
-
-#define D_ASSERT_TRUE(condition, message) do {} while (false)
-#define D_ASSERT_FALSE(condition, message) do {} while (false)
-#define D_ASSERT_NOT_NULL(condition, message) do {} while (false)
-#define D_ASSERT_NULL(condition, message) do {} while (false)
-#define D_ASSERT_EQUAL(condition, expected, message) do {} while (false)
-#define D_ASSERT_GREATER(condition, expected, message) do {} while (false)
-#define D_ASSERT_GREATER_OR_EQUAL(condition, expected, message) do {} while (false)
-#define D_ASSERT_LESS(condition, expected, message) do {} while (false)
-#define D_ASSERT_LESS_OR_EQUAL(condition, expected, message) do {} while (false)
-#define D_ASSERT_NOT_EQUAL(condition, expected, message) do {} while (false)
-
-#define S_ASSERT_TRUE(condition, message) static_assert(true, message)
-#define S_ASSERT_FALSE(condition, message) static_assert(true, message)
-#define S_ASSERT_EQUAL(condition, expected, message) static_assert(true, message)
-#define S_ASSERT_GREATER(condition, expected, message) static_assert(true, message)
-#define S_ASSERT_GREATER_OR_EQUAL(condition, expected, message) static_assert(true, message)
-#define S_ASSERT_LESS(condition, expected, message) static_assert(true, message)
-#define S_ASSERT_LESS_OR_EQUAL(condition, expected, message) static_assert(true, message)
-#define S_ASSERT_NOT_EQUAL(condition, expected, message) static_assert(true, message)
-
 
 #endif

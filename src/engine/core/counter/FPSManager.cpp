@@ -11,7 +11,7 @@
 #include "engine/core/counter/FPSManager.h"
 
 
-FPSManager::FPSManager(FpsRates maxFPS) : msPerUpdate(30), fpsMs(MILLIS_IN_A_SECOND / static_cast<double>(maxFPS)),
+FPSManager::FPSManager(FpsRates maxFPS) : msPerUpdate(15), fpsMs(MILLIS_IN_A_SECOND / static_cast<double>(maxFPS)),
                                           current(0), previous(0), elapsed(0), lag(0) {}
 
 void FPSManager::startFrame() {
@@ -20,7 +20,7 @@ void FPSManager::startFrame() {
     previous = current; // Updates the previous frame-time
     lag += elapsed; // Accumulate the elapsed time inside lag
     fpsAverager.addFrame(elapsed);
-    delay();
+    //delay();
 }
 
 bool FPSManager::isUpdateLagged() const {

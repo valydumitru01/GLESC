@@ -24,7 +24,7 @@ protected:
     void TearDown() override {
     }
 
-    struct TestComponent1 : IComponent {
+    struct TestComponent1 : GLESC::ECS::IComponent {
         TestComponent1() = default;
 
         explicit TestComponent1(int x) : x(x) {}
@@ -32,9 +32,10 @@ protected:
         int x{};
         [[nodiscard]] std::string toString() const override { return "x: " + std::to_string(x); }
         [[nodiscard]] std::string getName() const override { return "TestComponent1"; }
+        void setDebuggingValues() override {}
     };
 
-    struct TestComponent2 : IComponent {
+    struct TestComponent2 : GLESC::ECS::IComponent {
         TestComponent2() = default;
 
         explicit TestComponent2(int y) : y(y) {}
@@ -42,9 +43,10 @@ protected:
         int y{};
         [[nodiscard]] std::string toString() const override { return "y: " + std::to_string(y); }
         [[nodiscard]] std::string getName() const override { return "TestComponent2"; }
+        void setDebuggingValues() override {}
     };
 
-    struct TestComponent3 : IComponent {
+    struct TestComponent3 : GLESC::ECS::IComponent {
         TestComponent3() = default;
 
         explicit TestComponent3(int z) : z(z) {}
@@ -52,6 +54,7 @@ protected:
         int z{};
         [[nodiscard]] std::string toString() const override { return "z: " + std::to_string(z); }
         [[nodiscard]] std::string getName() const override { return "TestComponent3"; }
+        void setDebuggingValues() override {}
     };
 
     TestComponent1 testComponent1{3};

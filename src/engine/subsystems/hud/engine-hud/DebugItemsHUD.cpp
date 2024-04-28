@@ -1,5 +1,5 @@
 /**************************************************************************************************
- * @file   DebugItems.cpp
+ * @file   DebugItemsHUD.cpp
  * @author Valentin Dumitru
  * @date   2024-04-17
  * @brief  Add description of this file if needed @TODO 
@@ -36,8 +36,6 @@ DebugItems::DebugItems(Render::Renderer& renderer, TextureFactory& textureFactor
 }
 
 void DebugItems::windowContent() {
-    // Iterate through all HUD items
-    // TODO: There are too many lights in the same spot, fix light system
     for (Item& item : HudItemsManager::getItems()) {
         if (!renderer.getFrustum().contains(*item.worldPosition)) continue;
         Render::Position screenPos = Transform::Transformer::worldToViewport(*item.worldPosition,
@@ -45,11 +43,13 @@ void DebugItems::windowContent() {
                                                                              renderer.getProjection(),
                                                                              renderer.getViewportSize().width,
                                                                              renderer.getViewportSize().height);
+        float imageScale = screenPos.z() * 4;
+        float vpWidth = static_cast<float>(renderer.getViewportSize().height);
+        float vpHeight = static_cast<float>(renderer.getViewportSize().height);
 
-        ImVec2 size = ImVec2(2 * screenPos.z() * renderer.getViewportSize().height,
-                             2* screenPos.z() * renderer.getViewportSize().height);
+        ImVec2 size = ImVec2(imageScale * vpWidth, imageScale * vpHeight);
 
-        ImGui::SetCursorPos(ImVec2(screenPos.x() - size.x ,   screenPos.y() - size.y));
+        ImGui::SetCursorPos(ImVec2(screenPos.x() + size.x , screenPos.y() - size.y ));
 
         // Get texture ID from the item's type
         auto textureId = (void*)(intptr_t)items[item.type]->getTextureID();

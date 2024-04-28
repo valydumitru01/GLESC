@@ -56,6 +56,8 @@ namespace GLESC::Render {
             adaptedData.push_back(getVertexNormalAttr(vertex).y());
             adaptedData.push_back(getVertexNormalAttr(vertex).z());
         }
+        // This is needed to bind the vbo and ibo to the vao, so when we call draw we can draw the mesh
+        adaptedMesh.vertexArray->bind();
 
         adaptedMesh.vertexBuffer = std::make_unique<GAPI::VertexBuffer>(
             adaptedData.data(),
@@ -75,7 +77,6 @@ namespace GLESC::Render {
 
 
         adaptedMesh.vertexArray->addBuffer(*adaptedMesh.vertexBuffer, layout);
-        adaptedMesh.indexBuffer->bind(); // Ensure the IndexBuffer is bound
 
         return adaptedMesh;
     }

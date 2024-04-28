@@ -27,7 +27,7 @@ namespace GLESC::ECS {
             return componentArrays;
         }
 
-        const boost::bimap<ComponentName, ComponentID> &getComponentIDs() const {
+        const std::unordered_map<ComponentName, ComponentID> &getComponentIDs() const {
             return componentIDs;
         }
 
@@ -75,7 +75,8 @@ namespace GLESC::ECS {
         /**
          * @brief Map from the name of a component to the ID of that component.
          */
-        boost::bimap<ComponentName, ComponentID> componentIDs{};
+        std::unordered_map<ComponentName, ComponentID> componentIDs{};
+        std::unordered_map<ComponentID, ComponentName> componentNames{};
         /**
          * @brief ID of the next component to be registered. It is incremented after each component is registered.
          * @details It starts as 1, because it is needed for defining signatures and having it as as zero wouldn't
@@ -96,6 +97,7 @@ namespace GLESC::ECS {
     Component &ComponentManager::getComponent(EntityID entity) const {
         ASSERT_IS_COMPONENT(Component);
         ASSERT_IS_COMPONENT_REGISTERED(Component);
+        ASSERT_ENTITY_HAS_COMPONENT(entity, Component);
         return getComponentArray<Component>()->getData(entity);
     }
 
@@ -110,7 +112,7 @@ namespace GLESC::ECS {
         ASSERT_IS_COMPONENT(Component);
         ASSERT_IS_COMPONENT_REGISTERED(Component);
         const char *typeName = typeid(Component).name();
-        return componentIDs.left.at(typeName);
+        return componentIDs.at(typeName);
     }
 
 
@@ -123,6 +125,7 @@ namespace GLESC::ECS {
         componentArrays.try_emplace(typeName,
                                     std::make_shared<ComponentArray<Component>>());
         componentIDs.insert({typeName, nextComponentID});
+        componentNames.insert({nextComponentID, typeName});
 
         ++nextComponentID;
     }

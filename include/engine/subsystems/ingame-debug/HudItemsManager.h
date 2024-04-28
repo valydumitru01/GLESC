@@ -9,7 +9,7 @@
  **************************************************************************************************/
 #pragma once
 
-#include "engine/core/low-level-renderer/texture/Texture.h"
+#include "../renderer/texture/Texture.h"
 #include "engine/subsystems/transform/TransformTypes.h"
 
 

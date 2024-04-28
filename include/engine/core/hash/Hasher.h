@@ -11,8 +11,8 @@
 #include <cstddef>
 
 namespace GLESC {
-    class Hasher {
-    public:
+    namespace Hasher {
+        using Hash = std::size_t;
         static void hashCombine(std::size_t seed, std::size_t hash) {
             seed = seed ^ (hash + 0x9e3779b9 + (seed << 6) + (seed >> 2));
         }

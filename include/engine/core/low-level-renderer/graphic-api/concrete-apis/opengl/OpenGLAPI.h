@@ -17,11 +17,11 @@
 #include <engine/core/low-level-renderer/graphic-api/debugger/GapiDebugger.h>
 
 #include "engine/Config.h"
+#include "engine/core/exceptions/core/low-level-renderer/GAPIException.h"
 #include "engine/core/logger/Logger.h"
 #include "engine/core/low-level-renderer/asserts/GAPIAsserts.h"
 #include "engine/core/low-level-renderer/graphic-api/IGraphicInterface.h"
 #include "engine/core/low-level-renderer/graphic-api/concrete-apis/debugger/GAPIDebugger.h"
-#include "engine/core/low-level-renderer/graphic-api/concrete-apis/opengl/GLUniformSetter.h"
 #include "engine/core/low-level-renderer/graphic-api/concrete-apis/opengl/debugger/OpenGLDebugger.h"
 #include "engine/core/math/algebra/vector/Vector.h"
 
@@ -58,7 +58,7 @@ namespace GLESC::GAPI {
         }
 
 
-        void swapBuffers(SDL_Window &window) override {
+        void swapBuffers(SDL_Window& window) override {
             GAPI_FUNCTION_LOG("swapBuffers", "SDL_Window");
             GAPI_FUNCTION_IMPLEMENTATION_LOG("SDL_GL_SwapWindow", "SDL_Window");
             SDL_GL_SwapWindow(&window);
@@ -148,7 +148,7 @@ namespace GLESC::GAPI {
             GAPI_FUNCTION_IMPLEMENTATION_LOG("SDL_GL_SetSwapInterval", 1);
             if (SDL_GL_SetSwapInterval(1) == -1)
                 throw EngineException(std::string("Unable activate v-sync (swap interval): ") +
-                                      std::string(SDL_GetError()));
+                    std::string(SDL_GetError()));
         }
 
         void drawTriangles(UInt start, UInt count) override {
@@ -204,43 +204,55 @@ namespace GLESC::GAPI {
         // -------------------------------------------------------------------------
         // ------------------------------ Texture ----------------------------------
 
-        TextureID createTexture(Enums::Texture::Filters::Min minFilter,
+        [[nodiscard]] TextureID createTexture(Enums::Texture::Types textureType,
+                                Enums::Texture::Filters::Min minFilter,
                                 Enums::Texture::Filters::Mag magFilter,
                                 Enums::Texture::Filters::WrapMode wrapS,
-                                Enums::Texture::Filters::WrapMode wrapT) override {
+                                Enums::Texture::Filters::WrapMode wrapT,
+                                Enums::Texture::Filters::WrapMode wrapR =
+                                    Enums::Texture::Filters::WrapMode::ClampToEdge) override {
             GAPI_FUNCTION_LOG("createTexture", "SDL_Surface", minFilter, magFilter, wrapS, wrapT);
 
+            auto textureTypeGL = static_cast<GLenum>(textureType);
             auto minFilterGL = static_cast<GLenum>(minFilter);
             auto magFilterGL = static_cast<GLenum>(magFilter);
             auto wrapSGL = static_cast<GLenum>(wrapS);
             auto wrapTGL = static_cast<GLenum>(wrapT);
+            auto wrapRGL = static_cast<GLenum>(wrapR);
 
             int numTextures = 1;
             TextureID textureID = 0;
             GAPI_FUNCTION_IMPLEMENTATION_LOG("glGenTextures", numTextures, &textureID);
             glGenTextures(numTextures, &textureID);
             textureCache.insert(textureID);
-            this->bindTexture(textureID);
+            this->bindTexture(textureID, textureType);
 
-            GAPI_FUNCTION_IMPLEMENTATION_LOG("glTexParameteri", GL_TEXTURE_2D,
+            GAPI_FUNCTION_IMPLEMENTATION_LOG("glTexParameteri", textureTypeGL,
                                              GL_TEXTURE_MIN_FILTER,
                                              minFilterGL);
-            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, minFilterGL);
+            glTexParameteri(textureTypeGL, GL_TEXTURE_MIN_FILTER, minFilterGL);
 
-            GAPI_FUNCTION_IMPLEMENTATION_LOG("glTexParameteri", GL_TEXTURE_2D,
+            GAPI_FUNCTION_IMPLEMENTATION_LOG("glTexParameteri", textureTypeGL,
                                              GL_TEXTURE_MAG_FILTER,
                                              magFilterGL);
-            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, magFilterGL);
+            glTexParameteri(textureTypeGL, GL_TEXTURE_MAG_FILTER, magFilterGL);
 
-            GAPI_FUNCTION_IMPLEMENTATION_LOG("glTexParameteri", GL_TEXTURE_2D,
+            GAPI_FUNCTION_IMPLEMENTATION_LOG("glTexParameteri", textureTypeGL,
                                              GL_TEXTURE_WRAP_S,
                                              wrapSGL);
-            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, wrapSGL);
+            glTexParameteri(textureTypeGL, GL_TEXTURE_WRAP_S, wrapSGL);
 
-            GAPI_FUNCTION_IMPLEMENTATION_LOG("glTexParameteri", GL_TEXTURE_2D,
+            GAPI_FUNCTION_IMPLEMENTATION_LOG("glTexParameteri", textureTypeGL,
                                              GL_TEXTURE_WRAP_T,
                                              wrapTGL);
-            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, wrapTGL);
+            glTexParameteri(textureTypeGL, GL_TEXTURE_WRAP_T, wrapTGL);
+
+            if (textureType != Enums::Texture::Types::Texture2D) {
+                GAPI_FUNCTION_IMPLEMENTATION_LOG("glTexParameteri", textureTypeGL,
+                                                 GL_TEXTURE_WRAP_R,
+                                                 wrapTGL);
+                glTexParameteri(textureTypeGL, GL_TEXTURE_WRAP_R, wrapRGL);
+            }
 
             return textureID;
         }
@@ -256,28 +268,33 @@ namespace GLESC::GAPI {
             this->textureCache.erase(textureID);
         }
 
-        Void setTextureData(Int level,
+        Void setTextureData(Enums::Texture::Types textureType,
+                            Int level,
                             UInt width,
                             UInt height,
                             Enums::Texture::CPUBufferFormat inputFormat,
                             Enums::Texture::BitDepth bitsPerPixel,
-                            UByte *texelBuffer) override {
+                            const UByte* texelBuffer) override {
             GAPI_FUNCTION_LOG("setTextureData", level, height, width, "texelBuffer");
             D_ASSERT_TRUE(anyTextureBound(), "No texture bound.");
 
             GLenum GLinternalFormat;
             GLenum inputFormatGL = static_cast<GLenum>(inputFormat);
-
+            GLenum textureTypeGL = static_cast<GLenum>(textureType);
             GLuint padding;
+
+
             if (inputFormat == Enums::Texture::CPUBufferFormat::RGB &&
                 bitsPerPixel == Enums::Texture::BitDepth::Bit24) {
                 GLinternalFormat = GL_RGB8;
                 padding = 1;
-            } else if (inputFormat == Enums::Texture::CPUBufferFormat::RGBA &&
-                       bitsPerPixel == Enums::Texture::BitDepth::Bit32) {
+            }
+            else if (inputFormat == Enums::Texture::CPUBufferFormat::RGBA &&
+                bitsPerPixel == Enums::Texture::BitDepth::Bit32) {
                 GLinternalFormat = GL_RGBA8;
                 padding = 4;
-            } else
+            }
+            else
                 throw GAPIException("Invalid texture format.");
 
             GAPI_FUNCTION_IMPLEMENTATION_LOG("glPixelStorei", GL_UNPACK_ALIGNMENT, padding);
@@ -286,7 +303,7 @@ namespace GLESC::GAPI {
             GAPI_FUNCTION_IMPLEMENTATION_LOG("glTexImage2D", GL_TEXTURE_2D, level, GLinternalFormat,
                                              width, height, 0, inputFormatGL,
                                              GL_UNSIGNED_BYTE, texelBuffer);
-            glTexImage2D(GL_TEXTURE_2D, level, GLinternalFormat, width, height, 0, inputFormatGL,
+            glTexImage2D(textureTypeGL, level, GLinternalFormat, width, height, 0, inputFormatGL,
                          GL_UNSIGNED_BYTE, texelBuffer);
 
             GAPI_FUNCTION_IMPLEMENTATION_LOG("glPixelStorei", GL_UNPACK_ALIGNMENT, 4);
@@ -305,7 +322,7 @@ namespace GLESC::GAPI {
 
 
             Enums::Texture::GPUBufferFormat externalFormatEnum =
-                    static_cast<Enums::Texture::GPUBufferFormat>(internalFormat);
+                static_cast<Enums::Texture::GPUBufferFormat>(internalFormat);
             Logger::get().info("\t\tInternal format: " + Enums::toString(externalFormatEnum));
             return externalFormatEnum;
         }
@@ -340,12 +357,13 @@ namespace GLESC::GAPI {
             return static_cast<UInt>(textureWidth);
         }
 
-        std::vector<UByte> getTextureData(TextureID textureID) override {
+        std::vector<UByte> getTextureData(TextureID textureID,
+                                          Enums::Texture::Types textureType) override {
             GAPI_FUNCTION_LOG("getTextureData", textureID);
             D_ASSERT_TRUE(isTexture(textureID), "Object is not a texture");
             D_ASSERT_TRUE(isTextureBound(textureID), "Passed texture is not bound.");
 
-            bindTexture(textureID);
+            bindTexture(textureID, textureType);
 
             GLint textureWidth = getTextureWidth(textureID);
             GLint textureHeight = getTextureHeight(textureID);
@@ -360,12 +378,14 @@ namespace GLESC::GAPI {
                 numBytes = textureWidth * textureHeight * 3;
                 extractedFormat = Enums::Texture::CPUBufferFormat::RGB;
                 padding = 1;
-            } else if (internalBufferFormat == Enums::Texture::GPUBufferFormat::RGBA ||
-                       internalBufferFormat == Enums::Texture::GPUBufferFormat::RGBA8) {
+            }
+            else if (internalBufferFormat == Enums::Texture::GPUBufferFormat::RGBA ||
+                internalBufferFormat == Enums::Texture::GPUBufferFormat::RGBA8) {
                 numBytes = textureWidth * textureHeight * 4;
                 extractedFormat = Enums::Texture::CPUBufferFormat::RGBA;
                 padding = 4;
-            } else
+            }
+            else
                 throw GAPIException("Invalid texture format.");
 
             std::vector<UByte> data(numBytes);
@@ -384,17 +404,17 @@ namespace GLESC::GAPI {
         }
 
 
-        Void bindTexture(TextureID textureID) override {
+        Void bindTexture(TextureID textureID, Enums::Texture::Types textureType) override {
             GAPI_FUNCTION_LOG("bindTexture", textureID);
             D_ASSERT_TRUE(isTexture(textureID), "Object is not a texture");
 
             GAPI_FUNCTION_IMPLEMENTATION_LOG("glBindTexture", GL_TEXTURE_2D, textureID);
-            glBindTexture(GL_TEXTURE_2D, textureID);
+            glBindTexture(static_cast<GLenum>(textureType), textureID);
 
             boundTexture = textureID;
         }
 
-        Void bindTextureOnSlot(TextureID textureID, UInt slot) override {
+        Void bindTextureOnSlot(TextureID textureID, Enums::Texture::Types textureType, UInt slot) override {
             GAPI_FUNCTION_LOG("bindTextureOnSlot", textureID, slot);
             D_ASSERT_TRUE(isTexture(textureID), "Object is not a texture");
 
@@ -402,10 +422,10 @@ namespace GLESC::GAPI {
             glActiveTexture(GL_TEXTURE0 + slot);
             GAPI_FUNCTION_IMPLEMENTATION_LOG("glBindTexture", GL_TEXTURE_2D, textureID);
 
-            bindTexture(textureID);
+            bindTexture(textureID, textureType);
         }
 
-        Void unbindTexture() override {
+        Void unbindTexture(Enums::Texture::Types textureType) override {
             GAPI_FUNCTION_NO_ARGS_LOG("unbindTexture");
             GAPI_FUNCTION_IMPLEMENTATION_LOG("glBindTexture", GL_TEXTURE_2D, 0);
             glBindTexture(GL_TEXTURE_2D, 0);
@@ -417,7 +437,7 @@ namespace GLESC::GAPI {
         // -------------------------------------------------------------------------
         // ------------------------------ Buffers ----------------------------------
 
-        void genBuffers(UInt amount, UInt &bufferID) override {
+        void genBuffers(UInt amount, UInt& bufferID) override {
             GAPI_FUNCTION_LOG("genBuffers", amount);
             GAPI_FUNCTION_IMPLEMENTATION_LOG("glGenBuffers", amount, &bufferID);
             glGenBuffers(amount, &bufferID);
@@ -451,7 +471,7 @@ namespace GLESC::GAPI {
             glBufferData(bufferTypeGL, size, nullptr, GL_DYNAMIC_DRAW);
         }
 
-        void setIndexBufferData(const UInt *data, Size count, Enums::BufferUsages buferUsage) override {
+        void setIndexBufferData(const UInt* data, Size count, Enums::BufferUsages buferUsage) override {
             GAPI_FUNCTION_LOG("setIndexBufferData", "vectorData (is a pointer,can't be printed)",
                               count);
             GAPI_FUNCTION_IMPLEMENTATION_LOG("glBufferData", data, count, sizeof(UInt),
@@ -460,24 +480,7 @@ namespace GLESC::GAPI {
                           buferUsage);
         }
 
-        template<typename BufferType>
-        void printBufferData(const Void *data, Size size) {
-            const BufferType *typedData = static_cast<const BufferType *>(data);
-            size_t count = size / sizeof(BufferType); // Calculate how many elements are in the buffer
-
-            // Determine the maximum width needed for alignment
-            BufferType max_value = *std::max_element(typedData, typedData + count);
-            int max_width = std::to_string(max_value).length();
-
-            for (size_t i = 0; i < count; ++i) {
-                // Use std::setw to set the width and std::setfill to fill with spaces
-                std::cout << std::setw(max_width) << std::setfill(' ') << typedData[i] << " ";
-                if (i % 8 == 7) std::cout << std::endl; // Print 8 elements per line for readability
-            }
-            std::cout << std::endl;
-        }
-
-        void setBufferData(const Void *data,
+        void setBufferData(const Void* data,
                            Size count,
                            Size size,
                            Enums::BufferTypes bufferType,
@@ -485,9 +488,9 @@ namespace GLESC::GAPI {
             GAPI_FUNCTION_LOG("setBufferStaticData", "vectorData (is a pointer,can't be printed)",
                               count, bufferType, bufferUsage);
             if (bufferType == Enums::BufferTypes::Index)
-                printBufferData<UInt>(data, size);
+                GAPI_PRINT_BUFFER_DATA(UInt, data, size);
             else
-                printBufferData<Float>(data, size);
+                GAPI_PRINT_BUFFER_DATA(Float, data, size);
             GLenum type = static_cast<GLenum>(bufferType);
             GLenum usage = static_cast<GLenum>(bufferUsage);
 
@@ -511,7 +514,7 @@ namespace GLESC::GAPI {
             return getBufferDataGL<int>(bufferId);
         }
 
-        template<typename T>
+        template <typename T>
         std::vector<T> getBufferDataGL(GLuint bufferId) {
             GAPI_FUNCTION_LOG("getBufferDataGL", bufferId);
             GAPI_FUNCTION_IMPLEMENTATION_LOG("glBindBuffer", GL_ARRAY_BUFFER, bufferId);
@@ -538,7 +541,7 @@ namespace GLESC::GAPI {
             return data;
         }
 
-        void genVertexArray(UInt &vertexArrayID) override {
+        void genVertexArray(UInt& vertexArrayID) override {
             GAPI_FUNCTION_LOG("genVertexArray", vertexArrayID);
             GAPI_FUNCTION_IMPLEMENTATION_LOG("glGenVertexArrays", 1, &vertexArrayID);
             glGenVertexArrays(1, &vertexArrayID);
@@ -620,7 +623,7 @@ namespace GLESC::GAPI {
                                   glType, // Converts the GAPITypes enum to GLenum.
                                   glNormalized, // Specifies whether to normalize the data.
                                   stride, // Byte offset between consecutive vertex attributes.
-                                  (GLvoid *)
+                                  (GLvoid*)
                                   (offset)); // Offset of the first component in the buffer.
         }
 
@@ -631,13 +634,13 @@ namespace GLESC::GAPI {
 
         UInt
         loadAndCompileShader(Enums::ShaderTypes shaderType,
-                             const std::string &shaderSource) override {
+                             const std::string& shaderSource) override {
             GAPI_FUNCTION_LOG("loadAndCompileShader", shaderType, shaderSource);
             auto shaderTypeGL = static_cast<GLenum>(shaderType);
 
             GAPI_FUNCTION_IMPLEMENTATION_LOG("glCreateShader", shaderTypeGL);
             GLuint vertexShader = glCreateShader(shaderTypeGL);
-            const Char *source = shaderSource.c_str();
+            const Char* source = shaderSource.c_str();
 
             GAPI_FUNCTION_IMPLEMENTATION_LOG("glShaderSource", vertexShader, 1, &source, nullptr);
             glShaderSource(vertexShader, 1, &source, nullptr);
@@ -669,7 +672,7 @@ namespace GLESC::GAPI {
             glDeleteProgram(shaderProgram);
         }
 
-        [[nodiscard]] bool compilationOK(UInt shaderID, Char *message) override {
+        [[nodiscard]] bool compilationOK(UInt shaderID, Char* message) override {
             GAPI_FUNCTION_LOG("compilationOK", shaderID, message);
             GLint success;
             GAPI_FUNCTION_IMPLEMENTATION_LOG("glGetShaderiv", shaderID, GL_COMPILE_STATUS,
@@ -684,7 +687,7 @@ namespace GLESC::GAPI {
             return true;
         }
 
-        [[nodiscard]] bool linkOK(UInt shaderProgram, Char *message) override {
+        [[nodiscard]] bool linkOK(UInt shaderProgram, Char* message) override {
             GAPI_FUNCTION_LOG("linkOK", shaderProgram, message);
             GLint success;
             GAPI_FUNCTION_IMPLEMENTATION_LOG("glGetProgramiv", shaderProgram, GL_LINK_STATUS,
@@ -732,9 +735,239 @@ namespace GLESC::GAPI {
 
         // -------------------------------- Uniforms ------------------------------------
 
-        UniformSetter setUniform(const std::string &uName) override {
-            // TODO: Even if the design is cool, is definitely not efficient.
-            return GLUniformSetter(static_cast<UInt>(getUniformLocation(uName)));
+        template <typename Type>
+        void setUniform(Int location, Type value) {
+            GAPI_FUNCTION_LOG("setUniformValue", location, value);
+            GAPI_FUNCTION_IMPLEMENTATION_LOG("glUniform1i", location, value);
+            // Floats
+            if constexpr (std::is_floating_point_v<Type>) {
+                GAPI_FUNCTION_IMPLEMENTATION_LOG("glUniform1f", location, value);
+                glUniform1f(location, value);
+            }
+            else if constexpr (std::is_same_v<Type, Vec2F>) {
+                GAPI_FUNCTION_IMPLEMENTATION_LOG("glUniform2f", location, value.x(), value.y());
+                glUniform2f(location, value.x(), value.y());
+            }
+            else if constexpr (std::is_same_v<Type, Vec3F>) {
+                GAPI_FUNCTION_IMPLEMENTATION_LOG("glUniform3f", location, value.x(), value.y(), value.z());
+                glUniform3f(location, value.x(), value.y(), value.z());
+            }
+            else if constexpr (std::is_same_v<Type, Vec4F>) {
+                GAPI_FUNCTION_IMPLEMENTATION_LOG("glUniform4f", location, value.x(), value.y(), value.z(),
+                                                 value.w());
+                glUniform4f(location, value.x(), value.y(), value.z(), value.w());
+            }
+            else if constexpr (std::is_same_v<Type, Mat2F>) {
+                GAPI_FUNCTION_IMPLEMENTATION_LOG("glUniformMatrix2fv", location, 1, GL_FALSE,
+                                                 &value[0][0]);
+                glUniformMatrix2fv(location, 1, GL_FALSE, &value[0][0]);
+            }
+            else if constexpr (std::is_same_v<Type, Mat3F>) {
+                glUniformMatrix3fv(location, 1, GL_FALSE, &value[0][0]);
+                GAPI_FUNCTION_IMPLEMENTATION_LOG("glUniformMatrix3fv", location, 1, GL_FALSE,
+                                                 &value[0][0]);
+            }
+            else if constexpr (std::is_same_v<Type, Mat4F>) {
+                GAPI_FUNCTION_IMPLEMENTATION_LOG("glUniformMatrix4fv", location, 1, GL_FALSE,
+                                                 &value[0][0]);
+                glUniformMatrix4fv(location, 1, GL_FALSE, &value[0][0]);
+            }
+            // Integers
+            else if constexpr (std::is_same_v<Type, Int>) {
+                GAPI_FUNCTION_IMPLEMENTATION_LOG("glUniform1i", location, value);
+                glUniform1i(location, value);
+            }
+            else if constexpr (std::is_same_v<Type, Vec2I>) {
+                GAPI_FUNCTION_IMPLEMENTATION_LOG("glUniform2i", location, value.x(), value.y());
+                glUniform2i(location, value.x(), value.y());
+            }
+            else if constexpr (std::is_same_v<Type, Vec3I>) {
+                GAPI_FUNCTION_IMPLEMENTATION_LOG("glUniform3i", location, value.x(), value.y(), value.z());
+                glUniform3i(location, value.x(), value.y(), value.z());
+            }
+            else if constexpr (std::is_same_v<Type, Vec4I>) {
+                GAPI_FUNCTION_IMPLEMENTATION_LOG("glUniform4i", location, value.x(), value.y(), value.z(),
+                                                 value.w());
+                glUniform4i(location, value.x(), value.y(), value.z(), value.w());
+            }
+            // Unsigned Integers
+            else if constexpr (std::is_unsigned_v<Type>) {
+                GAPI_FUNCTION_IMPLEMENTATION_LOG("glUniform1ui", location, value);
+                glUniform1ui(location, value);
+            }
+            else if constexpr (std::is_same_v<Type, Vec2UI>) {
+                GAPI_FUNCTION_IMPLEMENTATION_LOG("glUniform2ui", location, value.x(), value.y());
+                glUniform2ui(location, value.x(), value.y());
+            }
+            else if constexpr (std::is_same_v<Type, Vec3UI>) {
+                GAPI_FUNCTION_IMPLEMENTATION_LOG("glUniform3ui", location, value.x(), value.y(), value.z());
+                glUniform3ui(location, value.x(), value.y(), value.z());
+            }
+            else if constexpr (std::is_same_v<Type, Vec4UI>) {
+                GAPI_FUNCTION_IMPLEMENTATION_LOG("glUniform4ui", location, value.x(), value.y(), value.z(),
+                                                 value.w());
+                glUniform4ui(location, value.x(), value.y(), value.z(), value.w());
+            }
+            // Boolean
+            else if constexpr (std::is_same_v<Type, Bool>) {
+                GAPI_FUNCTION_IMPLEMENTATION_LOG("glUniform1i", location, value);
+                glUniform1i(location, value);
+            }
+            else if constexpr (std::is_same_v<Type, Vec2B>) {
+                GAPI_FUNCTION_IMPLEMENTATION_LOG("glUniform2i", location, value.x(), value.y());
+                glUniform2i(location, value.x(), value.y());
+            }
+            else if constexpr (std::is_same_v<Type, Vec3B>) {
+                GAPI_FUNCTION_IMPLEMENTATION_LOG("glUniform3i", location, value.x(), value.y(), value.z());
+                glUniform3i(location, value.x(), value.y(), value.z());
+            }
+            else if constexpr (std::is_same_v<Type, Vec4B>) {
+                GAPI_FUNCTION_IMPLEMENTATION_LOG("glUniform4i", location, value.x(), value.y(), value.z(),
+                                                 value.w());
+                glUniform4i(location, value.x(), value.y(), value.z(), value.w());
+            }
+        }
+
+        template <typename Type>
+        auto getUniformValue(Int location) {
+            GAPI_FUNCTION_LOG("getUniformValue", location);
+            Type value{};
+            // Floats
+            if constexpr (std::is_floating_point_v<Type>) {
+                GAPI_FUNCTION_IMPLEMENTATION_LOG("glGetUniformfv", boundShaderProgram, location,
+                                                 &value);
+                glGetUniformfv(boundShaderProgram, location, &value);
+            }
+            else if constexpr (std::is_same_v<Type, Vec2F>) {
+                GAPI_FUNCTION_IMPLEMENTATION_LOG("glGetUniformfv", boundShaderProgram, location,
+                                                 value.data.data());
+                glGetUniformfv(boundShaderProgram, location, value.data.data());
+            }
+            else if constexpr (std::is_same_v<Type, Vec3F>) {
+                GAPI_FUNCTION_IMPLEMENTATION_LOG("glGetUniformfv", boundShaderProgram, location,
+                                                 value.data.data());
+                glGetUniformfv(boundShaderProgram, location, value.data.data());
+            }
+            else if constexpr (std::is_same_v<Type, Vec4F>) {
+                GAPI_FUNCTION_IMPLEMENTATION_LOG("glGetUniformfv", boundShaderProgram, location,
+                                                 value.data.data());
+                glGetUniformfv(boundShaderProgram, location, value.data.data());
+            }
+            else if constexpr (std::is_same_v<Type, Mat2F>) {
+                GAPI_FUNCTION_IMPLEMENTATION_LOG("glGetUniformfv", boundShaderProgram, location,
+                                                 &value[0][0]);
+                glGetUniformfv(boundShaderProgram, location, &value[0][0]);
+            }
+            else if constexpr (std::is_same_v<Type, Mat3F>) {
+                GAPI_FUNCTION_IMPLEMENTATION_LOG("glGetUniformfv", boundShaderProgram, location,
+                                                 &value[0][0]);
+                glGetUniformfv(boundShaderProgram, location, &value[0][0]);
+            }
+            else if constexpr (std::is_same_v<Type, Mat4F>) {
+                GAPI_FUNCTION_IMPLEMENTATION_LOG("glGetUniformfv", boundShaderProgram, location,
+                                                 &value[0][0]);
+                glGetUniformfv(boundShaderProgram, location, &value[0][0]);
+            }
+            // Integers
+            else if constexpr (std::is_same_v<Type, Int>) {
+                GAPI_FUNCTION_IMPLEMENTATION_LOG("glGetUniformiv", boundShaderProgram, location,
+                                                 &value);
+                glGetUniformiv(boundShaderProgram, location, &value);
+            }
+            else if constexpr (std::is_same_v<Type, Vec2I>) {
+                GAPI_FUNCTION_IMPLEMENTATION_LOG("glGetUniformiv", boundShaderProgram, location,
+                                                 value.data.data());
+                glGetUniformiv(boundShaderProgram, location, value.data.data());
+            }
+            else if constexpr (std::is_same_v<Type, Vec3I>) {
+                GAPI_FUNCTION_IMPLEMENTATION_LOG("glGetUniformiv", boundShaderProgram, location,
+                                                 value.data.data());
+                glGetUniformiv(boundShaderProgram, location, value.data.data());
+            }
+            else if constexpr (std::is_same_v<Type, Vec4I>) {
+                GAPI_FUNCTION_IMPLEMENTATION_LOG("glGetUniformiv", boundShaderProgram, location,
+                                                 value.data.data());
+                glGetUniformiv(boundShaderProgram, location, value.data.data());
+            }
+            // Unsigned Integers
+            else if constexpr (std::is_unsigned_v<Type>) {
+                unsigned int temp = static_cast<unsigned int>(value);
+                GAPI_FUNCTION_IMPLEMENTATION_LOG("glGetUniformuiv", boundShaderProgram, location,
+                                                 &value);
+                glGetUniformuiv(boundShaderProgram, location, &temp);
+                value = static_cast<Type>(temp);
+            }
+            else if constexpr (std::is_same_v<Type, Vec2UI>) {
+                GAPI_FUNCTION_IMPLEMENTATION_LOG("glGetUniformuiv", boundShaderProgram, location,
+                                                 value.data.data());
+                glGetUniformuiv(boundShaderProgram, location, value.data.data());
+            }
+            else if constexpr (std::is_same_v<Type, Vec3UI>) {
+                GAPI_FUNCTION_IMPLEMENTATION_LOG("glGetUniformuiv", boundShaderProgram, location,
+                                                 value.data.data());
+                glGetUniformuiv(boundShaderProgram, location, value.data.data());
+            }
+            else if constexpr (std::is_same_v<Type, Vec4UI>) {
+                GAPI_FUNCTION_IMPLEMENTATION_LOG("glGetUniformuiv", boundShaderProgram, location,
+                                                 value.data.data());
+                glGetUniformuiv(boundShaderProgram, location, value.data.data());
+            }
+            // Boolean
+            else if constexpr (std::is_same_v<Type, Bool>) {
+                GAPI_FUNCTION_IMPLEMENTATION_LOG("glGetUniformiv", boundShaderProgram, location,
+                                                 &value);
+                glGetUniformiv(boundShaderProgram, location, &value);
+                return static_cast<bool>(value);
+            }
+            else if constexpr (std::is_same_v<Type, Vec2B>) {
+                Vec2I temp;
+                GAPI_FUNCTION_IMPLEMENTATION_LOG("glGetUniformiv", boundShaderProgram, location,
+                                                 temp.data.data());
+                glGetUniformiv(boundShaderProgram, location, temp.data.data());
+                value.x() = static_cast<bool>(temp.x());
+                value.y() = static_cast<bool>(temp.y());
+            }
+            else if constexpr (std::is_same_v<Type, Vec3B>) {
+                Vec3I temp;
+                GAPI_FUNCTION_IMPLEMENTATION_LOG("glGetUniformiv", boundShaderProgram, location,
+                                                 temp.data.data());
+                glGetUniformiv(boundShaderProgram, location, temp.data.data());
+                value.x() = static_cast<bool>(temp.x());
+                value.y() = static_cast<bool>(temp.y());
+                value.z() = static_cast<bool>(temp.z());
+            }
+            else if constexpr (std::is_same_v<Type, Vec4B>) {
+                Vec4I temp;
+                GAPI_FUNCTION_IMPLEMENTATION_LOG("glGetUniformiv", boundShaderProgram, location,
+                                                 temp.data.data());
+                glGetUniformiv(boundShaderProgram, location, temp.data.data());
+                value.x() = static_cast<bool>(temp.x());
+                value.y() = static_cast<bool>(temp.y());
+                value.z() = static_cast<bool>(temp.z());
+                value.w() = static_cast<bool>(temp.w());
+            }
+            else {
+                S_ASSERT_TRUE(false, "Invalid uniform type.");
+            }
+            return value;
+        }
+
+        Int getUniformLocation(const std::string& uName) const override {
+            GAPI_FUNCTION_LOG("getUniformLocation", uName);
+            auto it = uniformLocationsCache.find(uName);
+            if (it != uniformLocationsCache.end()) {
+                // If the uniform is found, return the location.
+                GAPI_FUNCTION_IMPLEMENTATION_LOG("cacheing uniform location...", uName);
+                return it->second;
+            }
+            // If the uniform is not found, get the location and cache it.
+            GAPI_FUNCTION_IMPLEMENTATION_LOG("glGetUniformLocation", boundShaderProgram,
+                                             uName);
+            GLint location = glGetUniformLocation(boundShaderProgram, uName.c_str());
+            if (location == -1)
+                throw GAPIException("Uniform " + uName + " not found.");
+            uniformLocationsCache[uName] = location;
+            return location;
         }
 
         std::vector<std::string> getAllUniforms() const override {
@@ -754,13 +987,13 @@ namespace GLESC::GAPI {
                                                  256, &length, &size, &type, name);
                 glGetActiveUniform(boundShaderProgram, i, 256, &length, &size, &type, name);
                 std::string uniform = std::string(name) + "(type:" + std::to_string(type) + " size:" +
-                                      std::to_string(size) + ")";
+                    std::to_string(size) + ")";
                 uniforms.emplace_back(uniform);
             }
             return uniforms;
         }
 
-        void clear(const std::initializer_list<Enums::ClearBits> &values) override {
+        void clear(const std::initializer_list<Enums::ClearBits>& values) override {
             GAPI_FUNCTION_LOG("clear", values);
             GLuint mask = 0;
             for (auto value : values) {
@@ -777,7 +1010,7 @@ namespace GLESC::GAPI {
         }
 
 
-        void createContext(SDL_Window &window) override {
+        void createContext(SDL_Window& window) override {
             GAPI_FUNCTION_NO_ARGS_LOG("createContext");
             // OpenGL context initialization over the SDL windowManager,
             // needed for using OpenGL functions
@@ -808,7 +1041,7 @@ namespace GLESC::GAPI {
             GAPI_FUNCTION_IMPLEMENTATION_LOG("glewInit", 0);
             GLuint err = glewInit();
             std::string
-                    errStr = std::string(reinterpret_cast<const char *>(glewGetErrorString(err)));
+                errStr = std::string(reinterpret_cast<const char*>(glewGetErrorString(err)));
             D_ASSERT_GLEW_OK((err == GLEW_OK), errStr);
         }
 
@@ -816,40 +1049,22 @@ namespace GLESC::GAPI {
         Bool isTexture(TextureID textureID) {
             GAPI_FUNCTION_LOG("isTexture", textureID);
             Bool isTextureBool =
-                    static_cast<Bool>(textureCache.find(textureID) != textureCache.end());
+                static_cast<Bool>(textureCache.find(textureID) != textureCache.end());
             return isTextureBool;
         }
 
         Bool isTextureBound(TextureID textureID) override {
             GAPI_FUNCTION_LOG("isTextureBound", textureID);
             Bool isTextureBoundBool =
-                    static_cast<Bool>(textureID == boundTexture);
+                static_cast<Bool>(textureID == boundTexture);
             return isTextureBoundBool;
         }
 
         Bool anyTextureBound() override {
             GAPI_FUNCTION_NO_ARGS_LOG("anyTextureBound");
             Bool anyTextureBoundBool =
-                    static_cast<Bool>(boundTexture != 0);
+                static_cast<Bool>(boundTexture != 0);
             return anyTextureBoundBool;
-        }
-
-        Int getUniformLocation(const std::string &uName) const override {
-            GAPI_FUNCTION_LOG("getUniformLocation", uName);
-            auto it = uniformLocationsCache.find(uName);
-            if (it != uniformLocationsCache.end()) {
-                // If the uniform is found, return the location.
-                GAPI_FUNCTION_IMPLEMENTATION_LOG("cacheing uniform location...", uName);
-                return it->second;
-            }
-            // If the uniform is not found, get the location and cache it.
-            GAPI_FUNCTION_IMPLEMENTATION_LOG("glGetUniformLocation", boundShaderProgram,
-                                             uName);
-            GLint location = glGetUniformLocation(boundShaderProgram, uName.c_str());
-            if (location == -1)
-                throw GAPIException("Uniform " + uName + " not found.");
-            uniformLocationsCache[uName] = location;
-            return location;
         }
 
 

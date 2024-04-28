@@ -8,8 +8,6 @@
 #   be called in the CMakeLists.txt file of the project.
 
 
-
-
 # **********************************************************
 # ~~~~~~~~~~~~~~~~~~ Module initialization ~~~~~~~~~~~~~~~~~
 # **********************************************************
@@ -24,10 +22,10 @@
 #   target: The target to link the libraries to.
 # ----------------------------------------------------------
 function(set_new_dir dir_var dir_name)
-  assert_not_empty(${dir_var})
-  assert_not_empty(${dir_name})
-  set(${dir_var} ${dir_name} CACHE INTERNAL "" FORCE)
-  verbose_info("Created variable ${dir_var} for directory: ${dir_name}")
+    assert_not_empty(${dir_var})
+    assert_not_empty(${dir_name})
+    set(${dir_var} ${dir_name} CACHE INTERNAL "" FORCE)
+    verbose_info("Created variable ${dir_var} for directory: ${dir_name}")
 endfunction()
 # ----------------------------------------------------------
 # Function: set_all_files_of_type
@@ -40,17 +38,16 @@ endfunction()
 #   dir: The directory to search in
 # ----------------------------------------------------------
 function(set_all_files_of_type var_name dir ext)
-  assert_not_empty(${var_name})
-  assert_not_empty(${dir})
-  assert_not_empty(${ext})
+    assert_not_empty(${var_name})
+    assert_not_empty(${dir})
+    assert_not_empty(${ext})
 
-  verbose_info("Finding all files of type ${ext} in directory ${dir}")
-  file(GLOB_RECURSE temp_var ${dir}/*.${ext})
-  set(${var_name} ${temp_var} CACHE INTERNAL "" FORCE)
-  verbose_info("Variable created ${var_name} for files with extension ${ext} in directory ${dir}
+    verbose_info("Finding all files of type ${ext} in directory ${dir}")
+    file(GLOB_RECURSE temp_var ${dir}/*.${ext})
+    set(${var_name} ${temp_var} CACHE INTERNAL "" FORCE)
+    verbose_info("Variable created ${var_name} for files with extension ${ext} in directory ${dir}
 \t\tFiles found: ${temp_var}")
 endfunction()
-
 
 
 verbose_info("----Defining directories and files----")
@@ -77,7 +74,11 @@ set_new_dir(LIB_INCLUDE_DIR lib/include)
 set_new_dir(LIB_SRC_DIR ${LIB_INCLUDE_DIR})
 # Set the static library directory, this is where the static
 # library files (.a extension) are located.
-set_new_dir(LIB_STATIC_DIR lib/lib)
+if (CMAKE_BUILD_TYPE STREQUAL "Release")
+    set_new_dir(LIB_STATIC_DIR lib/lib)
+else ()
+    set_new_dir(LIB_STATIC_DIR lib/lib)
+endif ()
 # Set the test directory, this is where the test files are
 # located
 # ..........................................................
@@ -88,15 +89,15 @@ set_new_dir(TEST_DIR tests)
 
 # ...................... Binary Dirs .......................
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY
-    ${CMAKE_SOURCE_DIR}/bin)
+        ${CMAKE_SOURCE_DIR}/bin)
 set_new_dir(BIN_DIR
-    ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
+        ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
 if (CMAKE_BUILD_TYPE STREQUAL "Debug")
-  set_new_dir(BIN_DIR
-      ${BIN_DIR}/debug)
+    set_new_dir(BIN_DIR
+            ${BIN_DIR}/debug)
 else ()
-set_new_dir(BIN_DIR
-    ${BIN_DIR}/release)
+    set_new_dir(BIN_DIR
+            ${BIN_DIR}/release)
 endif ()
 
 # ..........................................................
@@ -117,7 +118,6 @@ set_all_files_of_type(TEST_SOURCE_FILES ${TEST_DIR} cpp)
 # **********************************************************
 
 
-
 # ----------------------------------------------------------
 # Function: set_common_include_dirs
 # Description:
@@ -127,17 +127,17 @@ set_all_files_of_type(TEST_SOURCE_FILES ${TEST_DIR} cpp)
 #   target: The target to add the include directories to.
 # ----------------------------------------------------------
 function(set_common_include_dirs target)
-  important_info("Adding include directories of the project to target ${target}")
-  assert_not_empty(${target})
-  assert_not_empty(${INCLUDE_DIR})
-  assert_not_empty(${LIB_INCLUDE_DIR})
-  assert_not_empty(${Boost_INCLUDE_DIRS})
-  assert_not_empty(${TEST_DIR})
-  target_include_directories(${target} SYSTEM PRIVATE
-      ${INCLUDE_DIR} ${LIB_INCLUDE_DIR}
-      ${Boost_INCLUDE_DIRS} ${TEST_DIR})
+    important_info("Adding include directories of the project to target ${target}")
+    assert_not_empty(${target})
+    assert_not_empty(${INCLUDE_DIR})
+    assert_not_empty(${LIB_INCLUDE_DIR})
+    assert_not_empty(${Boost_INCLUDE_DIRS})
+    assert_not_empty(${TEST_DIR})
+    target_include_directories(${target} SYSTEM PRIVATE
+            ${INCLUDE_DIR} ${LIB_INCLUDE_DIR}
+            ${Boost_INCLUDE_DIRS} ${TEST_DIR})
 
-  success("Added include directories to ${target}:
+    success("Added include directories to ${target}:
 \t\tProject Include Directory: ${INCLUDE_DIR}
 \t\tLibrary Include Directory: ${LIB_INCLUDE_DIR}
 \t\tBoost Include Directories: ${Boost_INCLUDE_DIRS}")
@@ -155,18 +155,16 @@ endfunction()
 #  dirs: The directories to add to the target.
 # ----------------------------------------------------------
 function(add_extra_include_dirs target dirs)
-  assert_not_empty(${target})
-  assert_not_empty(${dirs})
+    assert_not_empty(${target})
+    assert_not_empty(${dirs})
 
-  important_info("Adding extra include directories to target ${target}")
+    important_info("Adding extra include directories to target ${target}")
 
-  target_include_directories(${target} PRIVATE ${dirs})
+    target_include_directories(${target} PRIVATE ${dirs})
 
-  success("Added include directories to target ${target}:
+    success("Added include directories to target ${target}:
 \t\t ${dirs}")
 endfunction()
-
-
 
 
 # ----------------------------------------------------------
@@ -179,11 +177,11 @@ endfunction()
 #   target: The target to add the static library directories.
 # ----------------------------------------------------------
 function(set_common_link_lib_dirs target)
-  important_info("Adding static library directories of the project to target ${target}")
-  assert_not_empty(${target})
-  target_link_directories(${target} PRIVATE ${LIB_STATIC_DIR})
+    important_info("Adding static library directories of the project to target ${target}")
+    assert_not_empty(${target})
+    target_link_directories(${target} PRIVATE ${LIB_STATIC_DIR})
 
-  success("Added static library directories to target ${target}: ${LIB_STATIC_DIR}")
+    success("Added static library directories to target ${target}: ${LIB_STATIC_DIR}")
 endfunction()
 # ----------------------------------------------------------
 # Function: add_extra_static_lib_dirs
@@ -195,15 +193,13 @@ endfunction()
 #   target: The target to add the static library directories.
 # ----------------------------------------------------------
 function(add_extra_link_lib_dirs target dirs)
-  assert_not_empty(${target})
-  assert_not_empty(${dirs})
-  info("Adding extra static library directories to target ${target}")
-  target_link_directories(${target} PRIVATE ${dirs})
-  verbose_info("Added static library directories to target ${target}:
+    assert_not_empty(${target})
+    assert_not_empty(${dirs})
+    info("Adding extra static library directories to target ${target}")
+    target_link_directories(${target} PRIVATE ${dirs})
+    verbose_info("Added static library directories to target ${target}:
 \t\t${dirs}")
 endfunction()
-
-
 
 
 # ----------------------------------------------------------
@@ -215,17 +211,17 @@ endfunction()
 #   target: The target to add the static library directories.
 # ----------------------------------------------------------
 function(set_common_sources target)
-  assert_not_empty(${target})
-  assert_not_empty(${SOURCE_FILES})
-  assert_not_empty(${LIB_SOURCE_FILES})
-  important_info("Adding common sources to target ${target}")
-  target_sources(${target} PRIVATE
-      # These are the source files for the project
-      ${SOURCE_FILES}
-      # These are the source files for the libraries
-      ${LIB_SOURCE_FILES}
-  )
-  success("Added common sources to target ${target}:
+    assert_not_empty(${target})
+    assert_not_empty(${SOURCE_FILES})
+    assert_not_empty(${LIB_SOURCE_FILES})
+    important_info("Adding common sources to target ${target}")
+    target_sources(${target} PRIVATE
+            # These are the source files for the project
+            ${SOURCE_FILES}
+            # These are the source files for the libraries
+            ${LIB_SOURCE_FILES}
+    )
+    success("Added common sources to target ${target}:
 \t\tSource Files: ${SOURCE_FILES}
 \t\tLibrary Source Files: ${LIB_SOURCE_FILES}")
 endfunction()
@@ -240,11 +236,11 @@ endfunction()
 #   srcs: The sources to add to the target.
 # ----------------------------------------------------------
 function(add_extra_sources target srcs)
-  assert_not_empty(${target})
-  assert_not_empty(${srcs})
+    assert_not_empty(${target})
+    assert_not_empty(${srcs})
 
-  important_info("Adding extra sources to ${target}")
-  target_sources(${target} PRIVATE ${srcs})
-  success("Added extra sources to target ${target}:
+    important_info("Adding extra sources to ${target}")
+    target_sources(${target} PRIVATE ${srcs})
+    success("Added extra sources to target ${target}:
 \t\tExtra sources: ${srcs}")
 endfunction()

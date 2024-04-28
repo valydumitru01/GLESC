@@ -74,9 +74,11 @@ protected:
 
         // Use the shader
         getGAPI().useShaderProgram(shaderProgram);
-        getGAPI().setUniform("uColor")
-                .u4F(expectedFigureColor.r, expectedFigureColor.g,
-                     expectedFigureColor.b, expectedFigureColor.a);
+        getGAPI().setUniform(getGAPI().getUniformLocation("uColor"),
+                             Vec4F{
+                                 expectedFigureColor.r, expectedFigureColor.g,
+                                 expectedFigureColor.b, expectedFigureColor.a
+                             });
         // Draw the triangle
         getGAPI().bindVertexArray(VAO);
 

@@ -37,7 +37,8 @@ public:
         std::string stringData;
         bool isString = false;
 
-        void* data;
+        void* data = nullptr;
+        bool* valueDirty = nullptr;
         ValueType type;
 
         float min = 0.0f;

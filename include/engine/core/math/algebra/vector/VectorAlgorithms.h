@@ -311,6 +311,14 @@ namespace GLESC::Math {
             }
         }
 
+        template <typename Type, size_t N>
+        static void lerp(const VectorData<Type, N>& start, const VectorData<Type, N>& end, const Type& factor,
+                         VectorData<Type, N>& result) {
+            for (size_t i = 0; i < N; ++i) {
+                result[i] = Math::lerp(start[i], end[i], factor);
+            }
+        }
+
         /**
          * @brief Computes the sum of all elements inside the vector
          * @tparam Type Data type of the vector (e.g., double, float).

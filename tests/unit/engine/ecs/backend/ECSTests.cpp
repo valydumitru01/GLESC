@@ -24,28 +24,31 @@ protected:
 
     GLESC::ECS::ECSCoordinator ecs;
 
-    struct TestComponent1 : IComponent {
+    struct TestComponent1 : GLESC::ECS::IComponent {
         TestComponent1() = default;
         explicit TestComponent1(int x) : x(x) {}
         int x{};
         [[nodiscard]] std::string toString() const override { return "x: " + std::to_string(x); }
         [[nodiscard]] std::string getName() const override { return "TestComponent1"; }
+        void setDebuggingValues() override {}
     };
 
-    struct TestComponent2 : IComponent {
+    struct TestComponent2 : GLESC::ECS::IComponent {
         TestComponent2() = default;
         explicit TestComponent2(int y) : y(y) {}
         int y{};
         [[nodiscard]] std::string toString() const override { return "y: " + std::to_string(y); }
         [[nodiscard]] std::string getName() const override { return "TestComponent2"; }
+        void setDebuggingValues() override {}
     };
 
-    struct TestComponent3 : IComponent {
+    struct TestComponent3 : GLESC::ECS::IComponent {
         TestComponent3() = default;
         explicit TestComponent3(int z) : z(z) {}
         int z{};
         [[nodiscard]] std::string toString() const override { return "z: " + std::to_string(z); }
         [[nodiscard]] std::string getName() const override { return "TestComponent3"; }
+        void setDebuggingValues() override {}
     };
 
     TestComponent1 testComponent1{3};
@@ -58,7 +61,8 @@ protected:
 
 TEST_F(ECSTests, EmptyState) {
     TEST_SECTION("Checking Entity Manager state");
-    ASSERT_TRUE(getEntityManager().getEntityIDs().empty());
+    ASSERT_TRUE(getEntityManager().getEntityNameToID().empty());
+    ASSERT_TRUE(getEntityManager().getEntityIDToName().empty());
     ASSERT_EQ(getEntityManager().getSignatures().size(), GLESC::ECS::maxEntities);
     ASSERT_EQ(getEntityManager().getAvailableEntities().size(), GLESC::ECS::maxEntities);
     ASSERT_EQ(getEntityManager().getLivingEntityCount(), 0);
@@ -76,7 +80,8 @@ TEST_F(ECSTests, EmptyState) {
 TEST_F(ECSTests, CreateEntity) {
     GLESC::ECS::EntityID entityID = ecs.createEntity("TestEntity");
     ASSERT_EQ(getEntityManager().getLivingEntityCount(), 1);
-    ASSERT_EQ(getEntityManager().getEntityIDs().size(), 1);
+    ASSERT_EQ(getEntityManager().getEntityNameToID().size(), 1);
+    ASSERT_EQ(getEntityManager().getEntityIDToName().size(), 1);
     ASSERT_EQ(getEntityManager().getAvailableEntities().size(), GLESC::ECS::maxEntities -1);
     ASSERT_EQ(getEntityManager().getSignatures().size(), GLESC::ECS::maxEntities);
     ASSERT_EQ(getEntityManager().getSignatures().at(entityID).to_ullong(), 0);
@@ -86,7 +91,8 @@ TEST_F(ECSTests, DestroyEntity) {
     GLESC::ECS::EntityID entityID = ecs.createEntity("TestEntity");
     ecs.destroyEntity(entityID);
     ASSERT_EQ(getEntityManager().getLivingEntityCount(), 0);
-    ASSERT_TRUE(getEntityManager().getEntityIDs().empty());
+    ASSERT_TRUE(getEntityManager().getEntityNameToID().empty());
+    ASSERT_TRUE(getEntityManager().getEntityIDToName().empty());
     ASSERT_EQ(getEntityManager().getAvailableEntities().size(), GLESC::ECS::maxEntities);
     ASSERT_EQ(getEntityManager().getSignatures().size(), GLESC::ECS::maxEntities);
     ASSERT_EQ(getEntityManager().getSignatures().at(entityID).to_ullong(), 0);
@@ -94,7 +100,8 @@ TEST_F(ECSTests, DestroyEntity) {
 
 TEST_F(ECSTests, GetEntityID) {
     GLESC::ECS::EntityID entityID = ecs.createEntity("TestEntity");
-    ASSERT_EQ(getEntityManager().getEntityIDs().left.at("TestEntity"), entityID);
+    ASSERT_EQ(getEntityManager().getEntityNameToID().at("TestEntity"), entityID);
+    ASSERT_EQ(getEntityManager().getEntityIDToName().at(entityID), "TestEntity");
 }
 
 TEST_F(ECSTests, TryGetEntityID) {
@@ -155,6 +162,56 @@ TEST_F(ECSTests, GetComponent) {
     ecs.registerSystem("TestSystem");
     ecs.addComponent<TestComponent1>(entityID, testComponent1);
     ASSERT_EQ(ecs.getComponent<TestComponent1>(entityID).x, testComponent1.x);
+}
+
+TEST_F(ECSTests, GetComponents) {
+    GLESC::ECS::EntityID entityID = ecs.createEntity("TestEntity");
+    ecs.registerSystem("TestSystem");
+    ecs.addComponent<TestComponent1>(entityID, TestComponent1(1));
+    ecs.addComponent<TestComponent2>(entityID, TestComponent2(2));
+    ecs.addComponent<TestComponent3>(entityID, TestComponent3(3));
+    std::vector<GLESC::ECS::IComponent*> components = ecs.getComponents(entityID);
+    ASSERT_EQ(components.size(), 3);
+    for (auto component : components) {
+        if (component->getName() == "TestComponent1") {
+            ASSERT_EQ(dynamic_cast<TestComponent1*>(component)->x, TestComponent1(1).x);
+        } else if (component->getName() == "TestComponent2") {
+            ASSERT_EQ(dynamic_cast<TestComponent2*>(component)->y, TestComponent2(2).y);
+        } else if (component->getName() == "TestComponent3") {
+            ASSERT_EQ(dynamic_cast<TestComponent3*>(component)->z, TestComponent3(3).z);
+        }
+    }
+
+    GLESC::ECS::EntityID entityID2 = ecs.createEntity("TestEntity2");
+    ecs.addComponent<TestComponent1>(entityID2, TestComponent1(4));
+    ecs.addComponent<TestComponent2>(entityID2, TestComponent2(5));
+    std::vector<GLESC::ECS::IComponent*> components2 = ecs.getComponents(entityID2);
+    ASSERT_EQ(components2.size(), 2);
+    for (auto component : components2) {
+        if (component->getName() == "TestComponent1") {
+            ASSERT_EQ(dynamic_cast<TestComponent1*>(component)->x, TestComponent1(4).x);
+        } else if (component->getName() == "TestComponent2") {
+            ASSERT_EQ(dynamic_cast<TestComponent2*>(component)->y, TestComponent2(5).y);
+        }
+    }
+
+    GLESC::ECS::EntityID entityID3 = ecs.createEntity("TestEntity3");
+    ecs.addComponent<TestComponent1>(entityID3, TestComponent1(6));
+    ecs.addComponent<TestComponent2>(entityID3, TestComponent2(7));
+    ecs.addComponent<TestComponent3>(entityID3, TestComponent3(8));
+    std::vector<GLESC::ECS::IComponent*> components3 = ecs.getComponents(entityID3);
+    ASSERT_EQ(components3.size(), 3);
+    for (auto component : components3) {
+        if (component->getName() == "TestComponent1") {
+            ASSERT_EQ(dynamic_cast<TestComponent1*>(component)->x, TestComponent1(6).x);
+        } else if (component->getName() == "TestComponent2") {
+            ASSERT_EQ(dynamic_cast<TestComponent2*>(component)->y, TestComponent2(7).y);
+        } else if (component->getName() == "TestComponent3") {
+            ASSERT_EQ(dynamic_cast<TestComponent3*>(component)->z, TestComponent3(8).z);
+        }
+    }
+
+
 }
 
 

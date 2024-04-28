@@ -16,7 +16,7 @@ int main(int argc, char* argv[]) {
 #ifndef NDEBUG
     Logger::get().warning("DEBUG MODE IS ON");
 #endif
-    FPSManager fps(Fps90);
+    FPSManager fps(FpsUnlimited);
     GLESC::Engine glesc(fps);
     while (glesc.running) {
         fps.startFrame();

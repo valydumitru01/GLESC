@@ -15,7 +15,9 @@
 #include "engine/core/logger/concrete-loggers/FileLogger.h"
 using namespace GLESC;
 Logger::Logger() {
+#ifndef NLOGGING
     addLogger(std::make_unique<TerminalLogger>());
+#endif
     addLogger(std::make_unique<FileLogger>());
 }
 

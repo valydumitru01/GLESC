@@ -93,31 +93,31 @@ GLESC::Render::BoundingVolume Transformer::transformBoundingVolume(const Render:
     Render::BoundingVolume transformedBoundingVolume;
     Vec3F transformedVertice3D;
     for (const Math::Point& topologyVertice : boundingVolume.getTopology().getVertices()) {
-        transformedVertice3D = modelToWorld(topologyVertice.homogenize(), modelMat).dehomogenize();
+        transformedVertice3D = modelToWorld(topologyVertice, modelMat);
         transformedBoundingVolume.topology.addVertex(transformedVertice3D);
     }
     return transformedBoundingVolume;
 }
 
-HomogeneousPosition Transformer::modelToWorld(const HomogeneousPosition& modelPos, const Render::Model& modelMat) {
+Position Transformer::modelToWorld(const Position& modelPos, const Render::Model& modelMat) {
     // IMPORTANT! We use row major matrices but the data distribution is prepared to be column major for in GPU
     // operations. So for the CPU we need to transpose the matrices.
-    Vec4F transformedToWorldVertex = modelMat.transpose() * modelPos;
-    return transformedToWorldVertex;
+    Vec4F transformedToWorldVertex = modelMat.transpose() * modelPos.homogenize();
+    return transformedToWorldVertex.dehomogenize();
 }
 
-HomogeneousPosition Transformer::worldToCamera(const HomogeneousPosition& worldPos, const Render::View& viewMat) {
+Position Transformer::worldToCamera(const Position& worldPos, const Render::View& viewMat) {
     // IMPORTANT! We use row major matrices but the data distribution is prepared to be column major for in GPU
     // operations. So for the CPU we need to transpose the matrices.
-    Vec4F transformedToCameraVertex = viewMat.transpose() * worldPos;
-    return transformedToCameraVertex;
+    Vec4F transformedToCameraVertex = viewMat.transpose() * worldPos.homogenize();
+    return transformedToCameraVertex.dehomogenize();
 }
 
-HomogeneousPosition Transformer::cameraToClip(const HomogeneousPosition& cameraPos, const Render::Model& projMat) {
+Position Transformer::cameraToClip(const Position& cameraPos, const Render::Projection& projMat) {
     // IMPORTANT! We use row major matrices but the data distribution is prepared to be column major for in GPU
     // operations. So for the CPU we need to transpose the matrices.
-    Vec4F transformedToClipVertex = projMat.transpose() * cameraPos;
-    return transformedToClipVertex;
+    Vec4F transformedToClipVertex = projMat.transpose() * cameraPos.homogenize();
+    return transformedToClipVertex.dehomogenize();
 }
 
 Position Transformer::clipToNDC(const HomogeneousPosition& clipPos) {
@@ -129,7 +129,7 @@ Position Transformer::NDCToViewport(const Position& ndcPos, float vpWidth, float
     // Map NDC to screen coordinates for x and y
     float screenX = (ndcPos.getX() + 1.0f) * vpWidth / 2.0f;
     float screenY = (1.0f - ndcPos.getY() ) * vpHeight / 2.0f;
-    float screenZ = (1.0f - ndcPos.getZ() )/2;
+    float screenZ = (1.0f - ndcPos.getZ() ) / 2;
 
     return {screenX, screenY, screenZ};
 }
@@ -138,6 +138,8 @@ Position Transformer::NDCToViewport(const Position& ndcPos, float vpWidth, float
 Position Transformer::worldToViewport(const Position& worldPos, const Render::View& viewMat,
                                       const Render::Projection& projMat, float vpWidth, float vpHeight) {
     Render::VP viewProj = viewMat * projMat;
+    // IMPORTANT! We use row major matrices but the data distribution is prepared to be column major for in GPU
+    // operations. So for the CPU we need to transpose the matrices.
     HomogeneousPosition clipPos = viewProj.transpose() * worldPos.homogenize();
     Position ndcPos = clipToNDC(clipPos);
     return NDCToViewport(ndcPos, vpWidth, vpHeight);

@@ -17,7 +17,7 @@
 #include "engine/core/low-level-renderer/buffers/VertexArray.h"
 #include "engine/core/low-level-renderer/buffers/VertexBuffer.h"
 #include "engine/core/low-level-renderer/graphic-api/Gapi.h"
-#include "engine/core/low-level-renderer/texture/Texture.h"
+#include "../../../../include/engine/subsystems/renderer/texture/Texture.h"
 #include "engine/core/window/WindowManager.h"
 #include "engine/core/low-level-renderer/shader/Shader.h"
 #include "integration/rendering/RenderingTestHelper.h"
@@ -30,7 +30,7 @@ protected:
     VertexBuffer* vbo;
     IndexBuffer* ibo;
     Shader* shader;
-    Texture* texture;
+    GAPITexture* texture;
     std::vector<std::string> texturePaths{
             "assets/textures/Debug1.png",
             "assets/textures/Debug2.png",
@@ -84,12 +84,12 @@ protected:
     }
     
     void drawAndCheckTexture(std::string texturePath){
-        texture= new Texture(texturePath);
+        texture= new GAPITexture(texturePath);
         
         shader->bind();
-        texture->bind(Tex::Slot::Slot0); // Bind the texture to slot 0
+        texture->bind(GAPITexture::Slot::Slot0); // Bind the texture to slot 0
         // The texture is bound to slot 0, so we need to set the uniform to 0
-        shader->setUniform("uTexture").u1I(0);
+        shader->setUniform("uTexture",0);
         render();
         // checkTextureData(texture->getTextureID(), texture->getPixelsInBytes());
         Logger::get().info("============Checking texture data=============");

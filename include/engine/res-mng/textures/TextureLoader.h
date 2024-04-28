@@ -20,13 +20,5 @@ public:
 private:
     
     static SDL_SurfacePtr flipSurface(SDL_Surface &surface);
-    
-    
     static SDL_SurfacePtr createSurface(const std::string &filePath);
-    
-    /**
-     * @brief Hasher used to hash the file path.
-     * @details This is used to hash the file path so it can be used as a key in the cache.
-     */
-    static std::hash<std::string> hasher;
 };

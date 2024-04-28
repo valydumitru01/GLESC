@@ -12,6 +12,7 @@ cmake_minimum_required(VERSION 3.20)
 cmake_policy(SET CMP0074 NEW)
 cmake_policy(SET CMP0135 NEW)
 
+
 # Enforces that the specified C++ standard is required.
 # If the compiler can't support it, CMake config will fail.
 # Prevents fallback to older standards, ensuring consistent
@@ -42,6 +43,24 @@ include_cmake_once(modules/LinkLibraries.cmake)
 include_cmake_once(modules/CompilerDefinitions.cmake)
 include_cmake_once(modules/CompilerFlags.cmake)
 include_cmake_once(modules/Testing.cmake)
+
+if (CMAKE_BUILD_TYPE STREQUAL "Debug")
+    # Defining all the targets of the project
+    set(targets
+            # The main target
+            game
+            # The test target
+            game_test
+    )
+else ()
+    set(targets
+            # The main target
+            game
+    )
+endif ()
+
+
+
 # ----------------------------------------------------------
 # Function: include_cmake_once
 # Description:
@@ -50,18 +69,11 @@ include_cmake_once(modules/Testing.cmake)
 #   name: The name of the executable target
 # ----------------------------------------------------------
 function(create_executable name)
-  important_info("Adding executable target ${name}")
-  add_executable(${name})
-  success("Added executable target ${name}")
+    important_info("Adding executable target ${name}")
+    add_executable(${name})
+    success("Added executable target ${name}")
 endfunction()
 
-# Defining all the targets of the project
-set(targets
-    # The main target
-    game
-    # The test target
-    game_test
-)
 
 # And here we apply the compiler flags to the files
 # which are common to all targets (and cannot be specific
@@ -70,14 +82,14 @@ set_compile_flags_to_common_files()
 
 # Here we apply those flags to extra files
 if (TARGET game_test)
-  # Cache variables need to be passed as strings
-  set_compile_flags_to_extra_files("${TEST_SOURCE_FILES}")
+    # Cache variables need to be passed as strings
+    set_compile_flags_to_extra_files("${TEST_SOURCE_FILES}")
 endif ()
 
 # ----------------------------------------------------------
 # Creating the targets
 foreach (target ${targets})
-  create_executable(${target})
+    create_executable(${target})
 endforeach ()
 # ----------------------------------------------------------
 
@@ -90,7 +102,7 @@ find_common_packages()
 # ----------------------------------------------------------
 # Setting testing
 if (TARGET game_test)
-  prepare_tests(game_test)
+    prepare_tests(game_test)
 endif ()
 # ----------------------------------------------------------
 
@@ -101,7 +113,7 @@ endif ()
 # Here we set the compiler flags that are applied to all
 # files and can be specific to the target
 foreach (target ${targets})
-  set_common_compiler_flags_to_build_type(${target})
+    set_common_compiler_flags_to_build_type(${target})
 endforeach ()
 
 # ----------------------------------------------------------
@@ -109,11 +121,11 @@ endforeach ()
 # ----------------------------------------------------------
 # Setting the source files
 foreach (target ${targets})
-  set_common_sources(${target})
+    set_common_sources(${target})
 endforeach ()
 
 if (TARGET game_test)
-  add_extra_sources(game_test "${TEST_SOURCE_FILES}")
+    add_extra_sources(game_test "${TEST_SOURCE_FILES}")
 endif ()
 
 
@@ -122,11 +134,11 @@ endif ()
 # ----------------------------------------------------------
 # Setting compiler definitions
 foreach (target ${targets})
-  set_common_definitions(${target})
+    set_common_definitions(${target})
 endforeach ()
 
 if (TARGET game_test)
-  add_extra_definitions(game_test "GTEST_HAS_DEATH_TEST")
+    add_extra_definitions(game_test "GTEST_HAS_DEATH_TEST")
 endif ()
 
 # ----------------------------------------------------------
@@ -134,7 +146,7 @@ endif ()
 # ----------------------------------------------------------
 # Setting include directories
 foreach (target ${targets})
-  set_common_include_dirs(${target})
+    set_common_include_dirs(${target})
 endforeach ()
 # ----------------------------------------------------------
 
@@ -142,14 +154,14 @@ endforeach ()
 # Setting the static libraries directories before linking
 # and then linking the static libraries
 foreach (target ${targets})
-  set_common_link_lib_dirs(${target})
+    set_common_link_lib_dirs(${target})
 endforeach ()
 
 foreach (target ${targets})
-  set_common_link_libs(${target})
+    set_common_link_libs(${target})
 endforeach ()
 if (TARGET game_test)
-  add_extra_link_libs(game_test gtest gtest_main)
+    add_extra_link_libs(game_test gtest gtest_main)
 endif ()
 # ----------------------------------------------------------
 

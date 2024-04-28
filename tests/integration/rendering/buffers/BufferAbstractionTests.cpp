@@ -61,8 +61,8 @@ protected:
         });
         vao->bind();
         getGAPI().useShaderProgram(shaderProgram);
-        getGAPI().setUniform("uColor").u4F(expectedFigureColor.r, expectedFigureColor.g,
-                                           expectedFigureColor.b, expectedFigureColor.a);
+        getGAPI().setUniform(getGAPI().getUniformLocation("uColor"),
+            Vec4F{expectedFigureColor.r, expectedFigureColor.g,expectedFigureColor.b, expectedFigureColor.a});
         getGAPI().drawTrianglesIndexed(indices.size());
 
         getGAPI().swapBuffers(windowManager.getWindow());

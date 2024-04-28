@@ -68,16 +68,12 @@ void DebugInfoSystem::update() {
             closestEntity = id;
         }
     }
-    if (closestEntity != nullEntity) {
-        if (selectedEntity != closestEntity) {
-            selectedEntity = closestEntity;
-            setEntityData(closestEntity);
-        }
+    if (closestEntity == nullEntity) {
+        closestEntity = cameraID;
     }
-    else {
-        if (cameraID != nullEntity) {
-            selectedEntity = cameraID;
-            setEntityData(cameraID);
-        }
-    }
+
+    if (closestEntity == selectedEntity) return;
+
+    selectedEntity = closestEntity;
+    setEntityData(closestEntity);
 }

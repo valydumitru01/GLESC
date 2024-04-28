@@ -9,9 +9,11 @@
  **************************************************************************************************/
 #include "engine/subsystems/renderer/texture/TextureFactory.h"
 
-Texture& TextureFactory::loadTexture(const std::string& path) {
+#include "engine/core/hash/Hasher.h"
+
+GLESC::Render::Texture& TextureFactory::loadTexture(const std::string& path) {
     D_ASSERT_FALSE(path.empty(), "Path is empty");
-    PathHash hash = std::hash<std::string>{}(path);
+    GLESC::Hasher::Hash hash = std::hash<std::string>{}(path);
     if (textures.find(hash) != textures.end()) {
         return textures[hash];
     }
@@ -21,5 +23,26 @@ Texture& TextureFactory::loadTexture(const std::string& path) {
                                               std::forward_as_tuple(hash),
                                               std::forward_as_tuple());
     newIt->second.load(path);
+    return newIt->second;
+}
+
+Cubemap& TextureFactory::loadCubemap(const std::array<std::string, 6>& facePaths) {
+    D_ASSERT_FALSE(facePaths.empty(), "Face paths are empty");
+    GLESC::Hasher::Hash hash = 0;
+    for (const auto& path : facePaths) {
+        GLESC::Hasher::hashCombine(hash, std::hash<std::string>{}(path));
+    }
+
+    if (cubemaps.find(hash) != cubemaps.end()) {
+        return cubemaps[hash];
+    }
+
+    // Use emplace to construct the Cubemap in-place
+    auto [newIt, inserted] = cubemaps.emplace(std::piecewise_construct,
+                                              std::forward_as_tuple(hash),
+                                              std::forward_as_tuple());
+    for (size_t i = 0; i < facePaths.size(); ++i) {
+        newIt->second.cubemapTextures[i].load(facePaths[i]);
+    }
     return newIt->second;
 }

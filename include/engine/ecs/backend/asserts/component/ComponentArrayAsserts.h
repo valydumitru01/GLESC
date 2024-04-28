@@ -12,4 +12,4 @@
 #include "engine/core/asserts/Asserts.h"
 
 #define ASSERT_ENTITY_EXISTS(entity)\
-    D_ASSERT_NOT_EQUAL(entityToIndexMap.left.find(entity), entityToIndexMap.left.end(), "Entity does not exist");
+    D_ASSERT_NOT_EQUAL(indexToEntityMap.find(entity), indexToEntityMap.end(), "Entity does not exist");

@@ -24,15 +24,16 @@ using namespace GLESC;
 static std::vector<ECS::Entity> entities;
 
 void Game::init() {
-    int numOfEntities = 15;
+    int numOfEntities = 20;
     for (int i = 0; i < numOfEntities; i++) {
         ECS::Entity entity = entityFactory.createEntity("entity" + std::to_string(i))
                                           .addComponent(ECS::TransformComponent())
                                           .addComponent(ECS::RenderComponent());
         float increment = Math::clamp(0.1f * static_cast<float>(i), 0.0f, 1.0f);
+        Transform::Position position = Transform::Position(i * 3, 0, 0);
 
         // Setting position
-        entity.getComponent<ECS::TransformComponent>().transform.setPosition(Transform::Position(i * 3, 0, 0));
+        entity.getComponent<ECS::TransformComponent>().transform.setPosition(position);
 
         // Setting scale
         entity.getComponent<ECS::TransformComponent>().transform.setScale(
@@ -53,6 +54,15 @@ void Game::init() {
             entity.getComponent<ECS::RenderComponent>().mesh =
                 Render::MeshFactory::cube(color);
 
+        // Put a light every 3 entities
+        if (i % 3 == 0) {
+            ECS::Entity light = entityFactory.createEntity("light" + std::to_string(i))
+                         .addComponent(ECS::TransformComponent())
+                         .addComponent(ECS::LightComponent());
+            light.getComponent<ECS::TransformComponent>().transform.setPosition(
+                Transform::Position(position + Transform::Position(0 , 0, 1 + increment)));
+        }
+
 
         // Setting material
         entity.getComponent<ECS::RenderComponent>().material.setShininess(increment);
@@ -63,13 +73,7 @@ void Game::init() {
         entities.push_back(entity);
     }
 
-    // Add a light
-    entityFactory.createEntity("light")
-                 .addComponent(ECS::TransformComponent())
-                 .addComponent(ECS::LightComponent());
-    entityFactory.getEntity("light").getComponent<ECS::TransformComponent>().transform.setPosition(
-        Transform::Position(1, 1, 0));
-
+/*
     // Add a entity that is a big plane
     entityFactory.createEntity("plane")
                  .addComponent(ECS::TransformComponent())
@@ -77,12 +81,13 @@ void Game::init() {
     entityFactory.getEntity("plane").getComponent<ECS::TransformComponent>().transform.setPosition(
         Transform::Position(0, -1, 0));
 
-    entityFactory.getEntity("plane").getComponent<ECS::RenderComponent>().mesh = Render::MeshFactory::cuboid(10, 1, 10, Render::ColorRgba(255, 255, 255, 255));
+    entityFactory.getEntity("plane").getComponent<ECS::RenderComponent>().mesh =
+        Render::MeshFactory::cuboid(10, 1, 10, Render::ColorRgba(255, 255, 255, 255));
 
     entityFactory.getEntity("plane").getComponent<ECS::RenderComponent>().material.setShininess(0.5);
 
     entityFactory.getEntity("plane").getComponent<ECS::TransformComponent>().transform.setScale(
-        Transform::Scale(1, 1, 1));
+        Transform::Scale(1, 1, 1));*/
 }
 
 void Game::update() {

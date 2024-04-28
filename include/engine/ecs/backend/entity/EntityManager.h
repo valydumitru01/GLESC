@@ -11,7 +11,8 @@
 #pragma once
 
 #include <queue>
-#include <boost/bimap.hpp>
+#include <unordered_map>
+#include <array>
 
 #include "engine/core/asserts/Asserts.h"
 #include "engine/ecs/ECSTypes.h"
@@ -28,7 +29,7 @@ namespace GLESC::ECS {
         static constexpr EntityID nullEntity = EntityID(999999999);
         static constexpr EntityID firstEntity = EntityID(0);
         S_ASSERT_TRUE(firstEntity == 0, "First entity must be 0, ComponentArray uses the entity ID as index, "
-                                        "if edited this, it needs ComponentArray to be updated as well");
+                      "if edited this, it needs ComponentArray to be updated as well");
         const EntityName nullEntityName = EntityName{"NULL_ENTITY"};
 
         EntityManager();
@@ -38,17 +39,18 @@ namespace GLESC::ECS {
          */
         ~EntityManager() = default;
 
-        const boost::bimap<EntityName, EntityID> &getEntityIDs() const { return entityIDs; }
-        const std::queue<EntityID> &getAvailableEntities() const { return availableEntities; }
-        const std::array<Signature, maxEntities> &getSignatures() const { return signatures; }
-        const EntityID &getLivingEntityCount() const { return livingEntityCount; }
+        const std::unordered_map<EntityName, EntityID>& getEntityNameToID() const { return entityNameToID; }
+        const std::unordered_map<EntityID, EntityName>& getEntityIDToName() const { return entityIDToName; }
+        const std::queue<EntityID>& getAvailableEntities() const { return availableEntities; }
+        const std::array<Signature, maxEntities>& getSignatures() const { return signatures; }
+        const EntityID& getLivingEntityCount() const { return livingEntityCount; }
 
         /**
          * @brief Create an entity with the given name. The name must be unique.
          * @param name
          * @return
          */
-        EntityID createNextEntity(const EntityName &name);
+        EntityID createNextEntity(const EntityName& name);
 
         /**
          * @brief Tries to get the entity ID from the entity name
@@ -57,7 +59,7 @@ namespace GLESC::ECS {
          * @param name The name of the entity
          * @return The ID of the entity, or NULL_ENTITY if the entity does not exist
          */
-        [[nodiscard]] EntityID tryGetEntity(const EntityName &name) const;
+        [[nodiscard]] EntityID tryGetEntity(const EntityName& name) const;
 
         /**
          * @brief Destroy the entity with the given ID. The entity must exist.
@@ -100,7 +102,7 @@ namespace GLESC::ECS {
          * @param name The name of the entity
          * @return The ID of the entity
          */
-        [[nodiscard]] EntityID getEntityID(const EntityName &name) const;
+        [[nodiscard]] EntityID getEntityID(const EntityName& name) const;
 
 
         /**
@@ -117,7 +119,7 @@ namespace GLESC::ECS {
          * @param name The name of the entity
          * @return True if the entity exists, false otherwise
          */
-        [[nodiscard]] bool doesEntityExist(const EntityName &name) const;
+        [[nodiscard]] bool doesEntityExist(const EntityName& name) const;
 
         /**
          * @brief Check if the entity with the given ID exists
@@ -138,7 +140,7 @@ namespace GLESC::ECS {
          * @param name The name of the entity
          * @return True if the entity is alive, false otherwise
          */
-        [[maybe_unused]] [[nodiscard]] bool isEntityAlive(const EntityName &name) const;
+        [[maybe_unused]] [[nodiscard]] bool isEntityAlive(const EntityName& name) const;
 
         /**
          * @brief Check if the component ID is in the range of the signature
@@ -151,7 +153,7 @@ namespace GLESC::ECS {
          * @param name The name of the entity
          * @return True if the entity can be created, false otherwise
          */
-        [[maybe_unused]] [[nodiscard]] bool canEntityBeCreated(const EntityName &name) const;
+        [[maybe_unused]] [[nodiscard]] bool canEntityBeCreated(const EntityName& name) const;
 
         [[maybe_unused]] [[nodiscard]] bool areThereLivingEntities() const;
 
@@ -168,7 +170,8 @@ namespace GLESC::ECS {
         std::array<Signature, maxEntities> signatures;
         // TODO: Don't store the name of the entity in the entity manager
         //  It's a waste of memory, hash the name and store the hash instead
-        boost::bimap<EntityName, EntityID> entityIDs;
+        std::unordered_map<EntityName, EntityID> entityNameToID;
+        std::unordered_map<EntityID, EntityName> entityIDToName;
         /**
          * @brief The number of living entities
          */

@@ -315,7 +315,13 @@ namespace GLESC::GAPI::Enums {
             Texture2DArray [[maybe_unused]] = GL_TEXTURE_2D_ARRAY,
             TextureCubeMapArray [[maybe_unused]] = GL_TEXTURE_CUBE_MAP_ARRAY,
             Texture2DMultisample [[maybe_unused]] = GL_TEXTURE_2D_MULTISAMPLE,
-            Texture2DMultisampleArray [[maybe_unused]] = GL_TEXTURE_2D_MULTISAMPLE_ARRAY
+            Texture2DMultisampleArray [[maybe_unused]] = GL_TEXTURE_2D_MULTISAMPLE_ARRAY,
+            TextureCubeMapPositiveX [[maybe_unused]] = GL_TEXTURE_CUBE_MAP_POSITIVE_X,
+            TextureCubeMapNegativeX [[maybe_unused]] = GL_TEXTURE_CUBE_MAP_NEGATIVE_X,
+            TextureCubeMapPositiveY [[maybe_unused]] = GL_TEXTURE_CUBE_MAP_POSITIVE_Y,
+            TextureCubeMapNegativeY [[maybe_unused]] = GL_TEXTURE_CUBE_MAP_NEGATIVE_Y,
+            TextureCubeMapPositiveZ [[maybe_unused]] = GL_TEXTURE_CUBE_MAP_POSITIVE_Z,
+            TextureCubeMapNegativeZ [[maybe_unused]] = GL_TEXTURE_CUBE_MAP_NEGATIVE_Z
         }; // enum class TextureTypes
     } // namespace Texture
 }

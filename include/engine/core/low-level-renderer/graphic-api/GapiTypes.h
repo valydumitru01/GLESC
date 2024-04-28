@@ -36,6 +36,7 @@ namespace GLESC::GAPI{
 
     using TextureID = UInt;
     using ShaderProgramID = UInt;
+    using TextureSlot = UInt;
 
 } // namespace GAPI
 

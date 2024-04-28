@@ -62,6 +62,9 @@ set(DEBUG_FLAGS
         "-O0"
         # Produce debugging information
         "-g"
+        # This disables debugging for graphics API, avoiding
+        # the overhead
+        "-DDEBUG_GAPI"
         # Produce debugging information for gdb
         "-ggdb"
         # Verbose output, enabled only for specific problems

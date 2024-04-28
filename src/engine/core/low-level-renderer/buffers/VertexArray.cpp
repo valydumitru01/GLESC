@@ -37,8 +37,8 @@ void VertexArray::addBuffer(const VertexBuffer &vb, const VertexBufferLayout &la
     auto const &stride = layout.getStride();
     UInt offset = 0;
 
-    vb.bind();
     this->bind();
+    vb.bind();
 
     for (size_t i = 0; i < elements.size(); ++i) {
         auto const &element = elements[i];

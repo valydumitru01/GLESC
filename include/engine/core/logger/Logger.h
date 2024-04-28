@@ -17,7 +17,7 @@ namespace GLESC {
         /**
          * @brief Copy constructor is deleted
          * @details Copy constructor is deleted because we don't want to have multiple instances of Logger
-         * @param Logger&
+         * @param logger
          */
         Logger(const Logger &) = delete;
         

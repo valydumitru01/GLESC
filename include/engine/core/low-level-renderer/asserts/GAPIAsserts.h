@@ -14,6 +14,11 @@
 #include "engine/Config.h"
 
 
+#define D_ASSERT_GL_CORRECT_VERSION() do {} while (false)
+#define D_ASSERT_GL_CALL_IS_CORRECT(isCorrect, message) do {} while (false)
+#define D_ASSERT_GLEW_OK(isGlewOk, message) do {} while (false)
+
+#ifndef NDEBUG
 #define D_ASSERT_GL_CORRECT_VERSION() \
     D_ASSERT_TRUE(isGLCorrectVersion(GLESC_GL_MAJOR_VERSION, GLESC_GL_MINOR_VERSION), \
     "OpenGL version is not supported")
@@ -30,3 +35,4 @@
     return glslMajorVersion >= GLESC_MINIMUM_MAJOR_VERSION
     && glslMinorVersion >= GLESC_MINIMUM_MINOR_VERSION;
 }
+#endif

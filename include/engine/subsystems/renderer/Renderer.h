@@ -26,6 +26,7 @@
 #include "engine/subsystems/renderer/math/Frustum.h"
 #include "lighting/GlobalAmbienLight.h"
 #include "lighting/GlobalSun.h"
+#include "texture/Cubemap.h"
 
 namespace GLESC::Render {
     class Renderer {
@@ -49,6 +50,7 @@ namespace GLESC::Render {
         void setCameraTransform(Transform::Transform cameraTransformParam) {
             this->cameraTransform = cameraTransformParam;
         }
+
         void setCameraPerspective(const CameraPerspective& cameraPerspective) {
             this->cameraPerspective = cameraPerspective;
         }
@@ -56,6 +58,8 @@ namespace GLESC::Render {
         void addLightSpot(const LightSpot& lightSpot, const Transform::Transform& transform) {
             lightSpots.addLight(lightSpot, transform);
         }
+
+
 
         [[nodiscard]] GAPI::Shader& getDefaultShader() { return shader; }
         [[nodiscard]] Frustum& getFrustum() { return frustum; }
@@ -85,7 +89,8 @@ namespace GLESC::Render {
         void applyTransform(const MV& modelView, const MVP& mvp, const NormalMat& normalMat) const;
         void transformMeshCPU(ColorMesh& mesh, const Model& modelMat);
 
-        void applyLighting(LightSpots& lightSpotsParam, GlobalSun& sun, GlobalAmbienLight ambientLight) const;
+        void applyLighting(const LightSpots& lightSpotsParam, const GlobalSun& sun,
+                           const GlobalAmbienLight& ambientLight, double timeOfFrame) const;
         void applyMaterial(const Material& material) const;
         void cacheMesh(const ColorMesh& mesh,
                        AdaptedMesh adaptedMesh);
@@ -99,9 +104,31 @@ namespace GLESC::Render {
 
         std::unordered_map<const ColorMesh*, AdaptedMesh> adaptedMeshes;
         std::unordered_map<const ColorMesh*, AdaptedInstances> adaptedInstances;
+        struct TransformInterpolator {
+            TransformInterpolator() = default;
+            void pushTransform(const Transform::Transform& transform) {
+                previousOfLastTransform = lastTransform;
+                lastTransform = transform;
+            }
+            Transform::Transform interpolateTransform(double alpha) const {
+                Transform::Transform interpolatedTransform;
+                interpolatedTransform.setPosition(
+                    previousOfLastTransform.getPosition().lerp(lastTransform.getPosition(), alpha));
+                interpolatedTransform.setRotation(
+                    previousOfLastTransform.getRotation().lerp(lastTransform.getRotation(), alpha));
+                interpolatedTransform.setScale(
+                    previousOfLastTransform.getScale().lerp(lastTransform.getScale(), alpha));
+                return interpolatedTransform;
+            }
+        private:
+            Transform::Transform lastTransform = Transform::Transform();
+            Transform::Transform previousOfLastTransform = Transform::Transform();
+        };
+        mutable std::unordered_map<const Transform::Transform*, TransformInterpolator> interpolationTransforms;
 
-        GAPI::Shader shader;
+        Shader shader;
         Frustum frustum;
+        Cubemap skybox;
 
         InstanceMeshes meshInstances;
         MeshBatches meshBatches;

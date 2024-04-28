@@ -229,16 +229,20 @@ namespace GLESC::Math {
             //MatrixAlgorithms::transpose(MVMat, transposedMVMat);
             // IMPORTANT! No need to transpose as we're working with row-major matrices
 
+            // Calculate the inverse of the 3x3 matrix
+            MatrixData<ModelType, 4, 4> inverseMat;
+            MatrixAlgorithms::inverse4x4(MVMat, inverseMat);
+
+            MatrixData<ModelType, 4, 4> transposedMVMat;
+            MatrixAlgorithms::transpose(inverseMat, transposedMVMat);
+
             // Now extract the upper-left 3x3 part from the transposed matrix
             MatrixData<ModelType, 3, 3> resizedMVMat;
-            MatrixAlgorithms::resizeMatrix(MVMat, resizedMVMat);
+            MatrixAlgorithms::resizeMatrix(transposedMVMat, resizedMVMat);
 
-            // Calculate the inverse of the 3x3 matrix
-            MatrixData<ModelType, 3, 3> inverseMat;
-            MatrixAlgorithms::inverse3x3(resizedMVMat, inverseMat);
 
             // Assign the result to normalMat, no further transpose needed as we already transposed the whole matrix
-            normalMat = inverseMat;
+            normalMat = resizedMVMat;
         }
 
 

@@ -667,6 +667,12 @@ namespace GLESC::Math {
             return result;
         }
 
+        [[nodiscard]] Vector lerp(const Vector& other, Type factor) const {
+            Vector result;
+            VectorAlgorithms::lerp(this->data, other.data, factor, result.data);
+            return result;
+        }
+
         void swap(Vector& other) noexcept {
             std::swap(data, other.data);
         }
@@ -801,17 +807,17 @@ using Vec2B = VectorT<bool, 2>;
 using Vec3B = VectorT<bool, 3>;
 using Vec4B = VectorT<bool, 4>;
 
-using Vec2Ui = VectorT<unsigned int, 2>;
-using Vec3Ui = VectorT<unsigned int, 3>;
-using Vec4Ui = VectorT<unsigned int, 4>;
+using Vec2UI = VectorT<unsigned int, 2>;
+using Vec3UI = VectorT<unsigned int, 3>;
+using Vec4UI = VectorT<unsigned int, 4>;
 
 using Vec2I = VectorT<int, 2>;
 using Vec3I = VectorT<int, 3>;
 using Vec4I = VectorT<int, 4>;
 
-using Vec2Ul = VectorT<unsigned long, 2>;
-using Vec3Ul = VectorT<unsigned long, 3>;
-using Vec4Ul = VectorT<unsigned long, 4>;
+using Vec2UL = VectorT<unsigned long, 2>;
+using Vec3UL = VectorT<unsigned long, 3>;
+using Vec4UL = VectorT<unsigned long, 4>;
 
 using Vec2L = VectorT<long, 2>;
 using Vec3L = VectorT<long, 3>;

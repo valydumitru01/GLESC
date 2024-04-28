@@ -26,7 +26,8 @@ EntityID EntityManager::createNextEntity(const EntityName& name) {
     
     EntityID id = availableEntities.front();
     availableEntities.pop();
-    entityIDs.insert({name, id});
+    entityIDToName.insert({id, name});
+    entityNameToID.insert({name, id});
     ++livingEntityCount;
 
     ASSERT_ENTITY_EXISTS(id);
@@ -39,7 +40,8 @@ void EntityManager::destroyEntity(EntityID entity) {
     
     signatures[entity].reset();
     availableEntities.push(entity);
-    entityIDs.right.erase(entity);
+    entityNameToID.erase(entityIDToName[entity]);
+    entityIDToName.erase(entity);
     --livingEntityCount;
 
     ASSERT_ENTITY_DOESNT_EXIST(entity);
@@ -59,16 +61,16 @@ bool EntityManager::doesEntityHaveComponent(EntityID entity, ComponentID compone
 
 const EntityName& EntityManager::getEntityName(EntityID entity) const {
     ASSERT_ENTITY_EXISTS(entity);
-    return entityIDs.right.at(entity);
+    return entityIDToName.at(entity);
 }
 
 EntityID EntityManager::getEntityID(const EntityName& name) const {
-    return entityIDs.left.at(name);
+    return entityNameToID.at(name);
 }
 EntityID EntityManager::tryGetEntity(const EntityName& name) const {
     if(!doesEntityExist(name))
         return nullEntity;
-    return entityIDs.left.at(name);
+    return entityNameToID.at(name);
 }
 
 void EntityManager::removeComponentFromEntity(EntityID entity, ComponentID componentID) {
@@ -86,11 +88,11 @@ void EntityManager::addComponentToEntity(EntityID entity, ComponentID componentI
 }
 
 bool EntityManager::doesEntityExist(const EntityName& name) const {
-    return entityIDs.left.find(name) != entityIDs.left.end();
+    return entityNameToID.find(name) != entityNameToID.end();
 }
 
 bool EntityManager::doesEntityExist(EntityID entity) const {
-    return entityIDs.right.find(entity) != entityIDs.right.end();
+    return entityIDToName.find(entity) != entityIDToName.end();
 }
 
 bool EntityManager::isEntityAlive(EntityID entity) const {
@@ -110,7 +112,7 @@ bool EntityManager::isEntityAlive(const EntityName& name) const {
 bool EntityManager:: canEntityBeCreated(const EntityName& name) const {
     return livingEntityCount < maxEntities
     && !availableEntities.empty()
-    && entityIDs.left.find(name) == entityIDs.left.end();
+    && entityNameToID.find(name) == entityNameToID.end();
 }
 bool EntityManager::areThereLivingEntities() const {
     return livingEntityCount > 0;

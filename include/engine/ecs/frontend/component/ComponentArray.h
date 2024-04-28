@@ -7,7 +7,6 @@
 #pragma once
 
 #include <cassert>
-#include <boost/bimap.hpp>
 #include "engine/ecs/ECSTypes.h"
 #include "engine/core/logger/Logger.h"
 #include "IComponent.h"
@@ -20,7 +19,7 @@ namespace GLESC::ECS {
 
         virtual bool hasComponent(EntityID entity) = 0;
 
-        virtual IComponent& getComponent(std::size_t index) = 0;
+        virtual IComponent& getComponent(EntityID entity) = 0;
 
         virtual void removeData(EntityID entity) = 0;
 
@@ -32,8 +31,8 @@ namespace GLESC::ECS {
     public:
         ComponentArray() = default;
 
-        IComponent& getComponent(std::size_t index) override {
-            return componentArray[index];
+        IComponent& getComponent(EntityID entity) override {
+            return componentArray[entityToIndexMap.at(entity)];
         }
 
         void insertData(EntityID entity, Component component) {
@@ -46,6 +45,7 @@ namespace GLESC::ECS {
             // Put new entry at end and update the maps
             size_t newIndex = size;
             entityToIndexMap.insert({entity, newIndex});
+            indexToEntityMap.insert({newIndex, entity});
             componentArray[newIndex] = component;
             ++size;
 
@@ -67,26 +67,28 @@ namespace GLESC::ECS {
             this->printStatus("Before removing data from entity " + std::to_string(entity));
 
             // Copy element at end into deleted element's place to maintain density
-            size_t indexOfRemovedEntity = entityToIndexMap.left.at(entity);
+            size_t indexOfRemovedEntity = entityToIndexMap.at(entity);
             size_t indexOfLastElement = size - 1;
             componentArray[indexOfRemovedEntity] = componentArray[indexOfLastElement];
 
             // Update map to point to moved spot
-            EntityID entityOfLastElement = entityToIndexMap.right.at(indexOfLastElement);
+            EntityID entityOfLastElement = entityToIndexMap.at(indexOfLastElement);
             entityToIndexMap.insert({entityOfLastElement, indexOfRemovedEntity});
+            indexToEntityMap.insert({indexOfRemovedEntity, entityOfLastElement});
 
             // Erase the entity from both maps
-            entityToIndexMap.left.erase(entity);
+            entityToIndexMap.erase(entity);
+            indexToEntityMap.erase(indexOfLastElement);
             --size;
 
             this->printStatus("After removing data from entity " + std::to_string(entity));
         }
 
         Component& getData(EntityID entity) {
-            ASSERT_ENTITY_EXISTS(entity);
+            D_ASSERT_TRUE(entityExists(entity), "Entity does not exist");
 
             // Return a reference to the entity's component
-            return componentArray[entityToIndexMap.left.at(entity)];
+            return componentArray[entityToIndexMap.at(entity)];
         }
 
         /**
@@ -97,13 +99,17 @@ namespace GLESC::ECS {
          * @return
          */
         bool hasComponent(EntityID entity) override {
-            return entityToIndexMap.left.find(entity) != entityToIndexMap.left.end();
+            return entityToIndexMap.find(entity) != entityToIndexMap.end();
         }
 
         void entityDestroyed(EntityID entity) {
             if (entityToIndexMap.find(entity) != entityToIndexMap.end()) {
                 removeData(entity);
             }
+        }
+
+        bool entityExists(EntityID entity) {
+            return entityToIndexMap.find(entity) != entityToIndexMap.end();
         }
 
     private:
@@ -116,7 +122,7 @@ namespace GLESC::ECS {
             Logger::get().infoBlue("\tEntityToIndexMap size: " + std::to_string(entityToIndexMap.size()));
             for (const auto& entry : entityToIndexMap) {
                 Logger::get().infoBlue(
-                    "\tEntity ID: " + std::to_string(entry.left) + ", Array Index: " + std::to_string(entry.right));
+                    "\tEntity ID: " + std::to_string(entry.first) + ", Array Index: " + std::to_string(entry.second));
             }
 
             Logger::get().infoBlue("\tcomponent array with size " + std::to_string(size) + ":");
@@ -138,7 +144,8 @@ namespace GLESC::ECS {
          * @brief Map from an entity ID to an array index.
          *
          */
-        boost::bimap<EntityID, size_t> entityToIndexMap;
+        std::unordered_map<EntityID, size_t> entityToIndexMap;
+        std::unordered_map<size_t, EntityID> indexToEntityMap;
 
         /**
          * @brief Total size of valid entries in the array.

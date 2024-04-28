@@ -33,7 +33,8 @@ protected:
 
 TEST_F(EntityManagerTests, EmptyState) {
     // Assert that the entity manager is empty
-    ASSERT_TRUE(getEntityManager().getEntityIDs().empty());
+    ASSERT_TRUE(getEntityManager().getEntityNameToID().empty());
+    ASSERT_TRUE(getEntityManager().getEntityIDToName().empty());
     ASSERT_TRUE(getEntityManager().getSignatures().size() == GLESC::ECS::maxEntities);
     ASSERT_TRUE(getEntityManager().getAvailableEntities().size() == GLESC::ECS::maxEntities);
     ASSERT_TRUE(getEntityManager().getLivingEntityCount() == 0);
@@ -50,9 +51,11 @@ TEST_F(EntityManagerTests, CreateEntity) {
     // The available entities queue size is the maximum minus one, as we just created an entity
     ASSERT_EQ(getEntityManager().getAvailableEntities().size(), GLESC::ECS::maxEntities - 1);
     // The entity IDs size is one
-    ASSERT_TRUE(getEntityManager().getEntityIDs().size() == 1);
+    ASSERT_TRUE(getEntityManager().getEntityNameToID().size() == 1);
+    ASSERT_TRUE(getEntityManager().getEntityIDToName().size() == 1);
     // The entity IDs map contains the name of the entity we just created with the ID of the entity
-    ASSERT_TRUE(getEntityManager().getEntityIDs().left.at("TestEntity") == entity);
+    ASSERT_TRUE(getEntityManager().getEntityNameToID().at("TestEntity") == entity);
+    ASSERT_TRUE(getEntityManager().getEntityIDToName().at(entity) == "TestEntity");
     // The signature of the entity we just created is empty, as it has no components
     ASSERT_TRUE(getEntityManager().getSignature(entity).to_ulong() == 0);
 }
@@ -127,7 +130,8 @@ TEST_F(EntityManagerTests, DestroyEntityFromOneToZero) {
     // The available entities queue size is the maximum, as we just destroyed an entity
     ASSERT_TRUE(getEntityManager().getAvailableEntities().size() == GLESC::ECS::maxEntities);
     // The entity IDs size is zero
-    ASSERT_TRUE(getEntityManager().getEntityIDs().empty());
+    ASSERT_TRUE(getEntityManager().getEntityNameToID().empty());
+    ASSERT_TRUE(getEntityManager().getEntityIDToName().empty());
     // The living entity count is zero
     ASSERT_TRUE(getEntityManager().getLivingEntityCount() == 0);
 }
@@ -166,13 +170,15 @@ TEST_F(EntityManagerTests, DestroyEntityMany) {
     ASSERT_EQ(getEntityManager().getAvailableEntities().size(),
               GLESC::ECS::maxEntities - (createdEntities - destroyedEntities));
     // The entity IDs size is createdEntities - destroyedEntities
-    ASSERT_EQ(getEntityManager().getEntityIDs().size(), createdEntities - destroyedEntities);
+    ASSERT_EQ(getEntityManager().getEntityNameToID().size(), createdEntities - destroyedEntities);
+    ASSERT_EQ(getEntityManager().getEntityIDToName().size(), createdEntities - destroyedEntities);
     // The living entity count is createdEntities - destroyedEntities
     ASSERT_EQ(getEntityManager().getLivingEntityCount(), createdEntities - destroyedEntities);
     // Checking the the entity IDs contain the same entities we created
     for (EntityID entityId = firstEntityID; entityId < createdEntities + firstEntityID; ++entityId) {
         if (destroyedEntitiesList.find(entityId) != destroyedEntitiesList.end()) continue;
-        ASSERT_TRUE(getEntityManager().getEntityIDs().left.at("TestEntity" + std::to_string(entityId)) == entityId);
+        ASSERT_TRUE(getEntityManager().getEntityNameToID().at("TestEntity" + std::to_string(entityId)) == entityId);
+        ASSERT_TRUE(getEntityManager().getEntityIDToName().at(entityId) == "TestEntity" + std::to_string(entityId));
         ASSERT_TRUE(getEntityManager().getSignatures().at(entityId).to_ulong() == 0);
     }
 }

@@ -1,5 +1,5 @@
 /******************************************************************************
- * @file   Example.h
+ * @file   TextureLoader.cpp
  * @author Valentin Dumitru
  * @date   2023-09-26
  * @brief @todo
@@ -11,10 +11,10 @@
 #include "engine/core/exceptions/resources/ResourceException.h"
 #include "engine/core/logger/Logger.h"
 #include "engine/res-mng/textures/TextureLoader.h"
-#include "engine/res-mng/textures/debugger/TextureLoaderDebugger.h"
 
 
 SDL_SurfacePtr TextureLoader::createSurface(const std::string &filePath) {
+    S_ASSERT_TRUE(!filePath.empty(), "File path is empty.");
     Logger::get().info("Loading image: " + filePath);
     // Load the image
     SDL_SurfacePtr surfacePtr(IMG_Load(filePath.c_str()), &SDL_FreeSurface);
@@ -32,8 +32,9 @@ SDL_SurfacePtr TextureLoader::createSurface(const std::string &filePath) {
  * @return The image data of the loaded image.
  */
 SDL_SurfacePtr TextureLoader::loadTexture(const std::string &filePath) {
+    S_ASSERT_TRUE(!filePath.empty(), "File path is empty.");
+
     SDL_SurfacePtr surface = createSurface(filePath);
-    
     SDL_SurfacePtr flippedSurface = flipSurface(*surface.get());
     
     

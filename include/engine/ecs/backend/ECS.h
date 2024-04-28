@@ -104,7 +104,7 @@ namespace GLESC::ECS {
         [[nodiscard]] const std::set<EntityID>&
         getAssociatedEntities(const SystemName& name) const;
 
-        [[nodiscard]] const boost::bimap<EntityName, EntityID>& getAllEntities() const;
+        [[nodiscard]] const std::unordered_map<EntityName, EntityID>& getAllEntities() const;
 
     protected:
         void printStatus(const std::string& contextMessage = "");
@@ -146,7 +146,7 @@ namespace GLESC::ECS {
     }
 
     template <class Component>
-    ComponentID ECSCoordinator::getComponentID() const{
+    ComponentID ECSCoordinator::getComponentID() const {
         return componentManager.getComponentID<Component>();
     }
 

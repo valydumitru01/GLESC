@@ -17,7 +17,6 @@
 #include "engine/core/low-level-renderer/graphic-api/GapiEnums.h"
 #include "engine/core/low-level-renderer/graphic-api/GapiStructs.h"
 #include "engine/core/low-level-renderer/graphic-api/GapiTypes.h"
-#include "engine/core/low-level-renderer/graphic-api/IUniformSetter.h"
 
 
 namespace GLESC::GAPI {
@@ -31,7 +30,7 @@ namespace GLESC::GAPI {
 
         virtual Void postWindowCreationInit() = 0;
 
-        virtual Void clear(const std::initializer_list<Enums::ClearBits> &values) = 0;
+        virtual Void clear(const std::initializer_list<Enums::ClearBits>& values) = 0;
 
         virtual Void clearColor(Float r, Float g, Float b, Float a) = 0;
 
@@ -41,9 +40,9 @@ namespace GLESC::GAPI {
 
         virtual Viewport getViewport() = 0;
 
-        virtual Void swapBuffers(SDL_Window &window) = 0;
+        virtual Void swapBuffers(SDL_Window& window) = 0;
 
-        virtual Void createContext(SDL_Window &window) = 0;
+        virtual Void createContext(SDL_Window& window) = 0;
 
         virtual Void deleteContext() = 0;
 
@@ -61,7 +60,7 @@ namespace GLESC::GAPI {
         // ------------------------------------------------------------------------------
         // -------------------------------- Buffers -------------------------------------
 
-        virtual Void genBuffers(UInt amount, UInt &bufferID) = 0;
+        virtual Void genBuffers(UInt amount, UInt& bufferID) = 0;
 
         virtual Void bindBuffer(Enums::BufferTypes bufferType, UInt buffer) = 0;
 
@@ -77,17 +76,17 @@ namespace GLESC::GAPI {
 
         virtual Void setDynamicBufferData(UInt size, Enums::BufferTypes bufferType) = 0;
 
-        virtual Void setIndexBufferData(const UInt *data, Size count, Enums::BufferUsages buferUsage) =
+        virtual Void setIndexBufferData(const UInt* data, Size count, Enums::BufferUsages buferUsage) =
         0;
 
         virtual Void
-        setBufferData(const Void *data,
+        setBufferData(const Void* data,
                       Size count,
                       Size size,
                       Enums::BufferTypes bufferType,
                       Enums::BufferUsages bufferUsage) = 0;
 
-        virtual Void genVertexArray(UInt &vertexArrayID) = 0;
+        virtual Void genVertexArray(UInt& vertexArrayID) = 0;
 
         virtual Void setVertexAttribDivisor(UInt index, UInt divisor) = 0;
 
@@ -100,30 +99,35 @@ namespace GLESC::GAPI {
         virtual Void enableVertexData(UInt index) = 0;
 
         virtual Void createVertexData(UInt vertexArray,
-                                            UInt count,
-                                            Enums::Types type,
-                                            Bool isNormalized,
-                                            UInt stride,
-                                            UInt offset) = 0;
+                                      UInt count,
+                                      Enums::Types type,
+                                      Bool isNormalized,
+                                      UInt stride,
+                                      UInt offset) = 0;
 
         // ------------------------------------------------------------------------------
         // -------------------------------- Texture -------------------------------------
 
 
-        virtual TextureID createTexture(Enums::Texture::Filters::Min minFilter,
-                                              Enums::Texture::Filters::Mag magFilter,
-                                              Enums::Texture::Filters::WrapMode wrapS,
-                                              Enums::Texture::Filters::WrapMode wrapT) = 0;
+        virtual TextureID createTexture(Enums::Texture::Types textureType,
+                                        Enums::Texture::Filters::Min minFilter,
+                                        Enums::Texture::Filters::Mag magFilter,
+                                        Enums::Texture::Filters::WrapMode wrapS,
+                                        Enums::Texture::Filters::WrapMode wrapT,
+                                        Enums::Texture::Filters::WrapMode wrapR =
+                                            Enums::Texture::Filters::WrapMode::ClampToEdge) = 0;
 
         virtual Void
-        setTextureData(Int level,
+        setTextureData(Enums::Texture::Types textureType,
+                       Int level,
                        UInt width,
                        UInt height,
                        Enums::Texture::CPUBufferFormat inputFormat,
                        Enums::Texture::BitDepth bitsPerPixel,
-                       UByte *texelBuffer) = 0;
+                       const UByte* texelBuffer) = 0;
 
-        [[nodiscard]] virtual std::vector<UByte> getTextureData(TextureID textureID) = 0;
+        [[nodiscard]] virtual std::vector<UByte> getTextureData(TextureID textureID,
+                                                                Enums::Texture::Types textureType) = 0;
 
         virtual Enums::Texture::GPUBufferFormat getTextureColorFormat(TextureID textureID) = 0;
 
@@ -131,11 +135,11 @@ namespace GLESC::GAPI {
 
         virtual UInt getTextureHeight(TextureID textureID) = 0;
 
-        virtual Void bindTexture(TextureID textureID) = 0;
+        virtual Void bindTexture(TextureID textureID, Enums::Texture::Types textureType) = 0;
 
-        virtual Void bindTextureOnSlot(TextureID textureID, UInt slot) = 0;
+        virtual Void bindTextureOnSlot(TextureID textureID, Enums::Texture::Types textureType, UInt slot) = 0;
 
-        virtual Void unbindTexture() = 0;
+        virtual Void unbindTexture(Enums::Texture::Types textureType) = 0;
 
         virtual Void deleteTexture(TextureID textureID) = 0;
 
@@ -148,24 +152,35 @@ namespace GLESC::GAPI {
         virtual Void deleteShaderProgram(UInt shaderProgram) = 0;
 
         virtual UInt
-        loadAndCompileShader(Enums::ShaderTypes shaderType, const std::string &shaderSource) = 0;
+        loadAndCompileShader(Enums::ShaderTypes shaderType, const std::string& shaderSource) = 0;
 
-        virtual bool compilationOK(UInt shaderID, Char *message) = 0;
+        virtual bool compilationOK(UInt shaderID, Char* message) = 0;
 
         virtual UInt
         createShaderProgram(UInt vertexShaderID, UInt fragmentShaderID) = 0;
 
         virtual Void destroyShaderProgram(UInt shaderProgram) = 0;
 
-        [[nodiscard]] virtual bool linkOK(UInt programID, Char *message) = 0;
+        [[nodiscard]] virtual bool linkOK(UInt programID, Char* message) = 0;
 
         virtual Void deleteShader(UInt shaderID) = 0;
 
 
         // Uniforms
-        virtual UniformSetter setUniform(const std::string &name) = 0;
-
         [[nodiscard]] virtual std::vector<std::string> getAllUniforms() const = 0;
+        /**
+         * @brief Check if the uniform location is cached
+         * @param uName The name of the uniform
+         * @return -1 if the uniform location is not cached, otherwise the uniform location
+         */
+        virtual Int getUniformLocation(const std::string& uName) const = 0;
+
+        // getters and setters of uniforms must be defined in the concrete GAPIs, as these are more fit to be
+        // implemented as templates
+        // template <typename Type>
+        // virtual void setUniform(const std::string& uName, const Type& value) = 0;
+        // template <typename Type>
+        // virtual Type getUniform(const std::string& uName) = 0;
 
     protected:
         [[nodiscard]] virtual Bool isTexture(UInt textureID) = 0;
@@ -173,13 +188,6 @@ namespace GLESC::GAPI {
         [[nodiscard]] virtual Bool isTextureBound(UInt textureID) = 0;
 
         [[nodiscard]] virtual Bool anyTextureBound() = 0;
-
-        /**
-         * @brief Check if the uniform location is cached
-         * @param uName The name of the uniform
-         * @return -1 if the uniform location is not cached, otherwise the uniform location
-         */
-        [[nodiscard]] virtual Int getUniformLocation(const std::string &uName) const = 0;
 
         std::set<TextureID> textureCache{};
 

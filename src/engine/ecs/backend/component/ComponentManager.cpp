@@ -18,15 +18,18 @@ void ComponentManager::entityDestroyed(EntityID entity) {
 }
 
 bool ComponentManager::isComponentRegistered(ComponentID componentID) const {
-    return componentIDs.right.find(componentID) != componentIDs.right.end();
+    return componentNames.find(componentID) != componentNames.end();
 }
 
 ComponentName ComponentManager::getComponentName(ComponentID componentID) const {
     ASSERT_IS_COMPONENT_REGISTERED_BY_ID(componentID);
 
-    return componentIDs.right.at(componentID);
+    return componentNames.at(componentID);
 }
 
 IComponent &ComponentManager::getComponent(EntityID entity, ComponentID componentID) const {
-    return componentArrays.at(getComponentName(componentID))->getComponent(entity);
+    ComponentName componentName = getComponentName(componentID);
+    IComponentArrayPtr componentArray = componentArrays.at(componentName);
+    IComponent& component = componentArray->getComponent(entity);
+    return component;
 }

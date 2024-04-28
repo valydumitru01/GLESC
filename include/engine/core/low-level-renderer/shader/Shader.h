@@ -41,13 +41,22 @@ namespace GLESC::GAPI {
 
         void unbind() const;
 
-        UniformSetter setUniform(const std::string& name) const;
+        template <typename Type>
+        const void setUniform(const std::string& name, const Type& value) const {
+            Int location= getGAPI().getUniformLocation(name);
+            getGAPI().setUniform(location, value);
+            D_ASSERT_EQUAL(getGAPI().getUniformValue<Type>(location), value, "Uniform was not set correctly");
+        }
 
+        template<typename Type>
+        const auto getUniform(const std::string& name) const {
+            return getGAPI().getUniformValue<Type>(getGAPI().getUniformLocation(name));
+        }
 
     private:
         /**
          * @brief The shader program
          */
-        GAPI::UInt shaderProgram;
+        UInt shaderProgram;
     }; // class Shader
 }

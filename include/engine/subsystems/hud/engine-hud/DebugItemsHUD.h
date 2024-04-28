@@ -10,7 +10,7 @@
 #pragma once
 #include <unordered_map>
 
-#include "engine/core/low-level-renderer/texture/Texture.h"
+#include "../../renderer/texture/Texture.h"
 #include "engine/subsystems/hud/InGameWindow.h"
 #include "engine/subsystems/ingame-debug/HudItemsManager.h"
 #include "engine/subsystems/renderer/Renderer.h"
@@ -27,6 +27,6 @@ namespace GLESC::HUD {
         void windowContent() override;
         TextureFactory& textureFactory;
         Render::Renderer& renderer;
-        std::unordered_map<HudItemType, Texture*> items;
+        std::unordered_map<HudItemType, GAPITexture*> items;
     }; // class DebugItemsHUD
 } // namespace GLESC::HUD

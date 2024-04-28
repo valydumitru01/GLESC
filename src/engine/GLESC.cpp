@@ -62,6 +62,7 @@ void Engine::render(double const timeOfFrame) {
     renderer.clear();
 
     renderer.renderMeshes(timeOfFrame);
+    hudManager.update();
     hudManager.render();
 
     renderer.swapBuffers();
@@ -72,7 +73,6 @@ void Engine::update() {
     Logger::get().importantInfoWhite("Engine update started");
 
     game.update();
-    hudManager.update();
 
     for (auto& system : systems) {
         system->update();

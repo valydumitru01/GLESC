@@ -12,6 +12,7 @@
 #include "engine/core/exceptions/core/window/WindowException.h"
 #include "engine/core/logger/Logger.h"
 #include "engine/core/low-level-renderer/graphic-api/Gapi.h"
+#include "engine/core/asserts/Asserts.h"
 #include "engine/core/window/WindowManager.h"
 
 using namespace GLESC;
@@ -119,7 +120,7 @@ GLESC::WindowDimensions WindowManager::getSize() const {
     return dimensions;
 }
 
-Vec2Ui WindowManager::getWindowCenter() const {
+Vec2UI WindowManager::getWindowCenter() const {
     auto dimensions = getSize();
     return {dimensions.width / 2, dimensions.height / 2};
 }

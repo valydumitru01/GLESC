@@ -178,6 +178,9 @@ void DebugEntityData::windowContent() {
 
         // Display each attribute of the component
         for (EntityStatsManager::Value& value : *stat.values) {
+            // While visible the panel of the data, the value is dirty as we want to update it
+            if(value.valueDirty != nullptr)
+                *value.valueDirty = true;
             switch (value.type) {
             case EntityStatsManager::ValueType::FLOAT:
                 input<float>(value);

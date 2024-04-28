@@ -79,9 +79,13 @@ void Renderer::renderMeshes(double timeOfFrame) {
     for (auto& dynamicMesh : dynamicMeshes.getDynamicMeshes()) {
         ColorMesh& mesh = *dynamicMesh.mesh;
         const Transform::Transform& transform = *dynamicMesh.transform;
+        interpolationTransforms[&transform].pushTransform(transform);
+        const Transform::Transform& interpolatedTransform =
+            interpolationTransforms[&transform].interpolateTransform(timeOfFrame);
 
         Model modelMat;
-        modelMat.makeModelMatrix(transform.getPosition(), transform.getRotation(), transform.getScale());
+        modelMat.makeModelMatrix(
+            interpolatedTransform.getPosition(), interpolatedTransform.getRotation(), interpolatedTransform.getScale());
         MV modelView = modelMat * viewMat;
         MVP modelViewProj = modelView * projMat;
         NormalMat normalMat;
@@ -100,54 +104,66 @@ void Renderer::renderMeshes(double timeOfFrame) {
         shader.bind(); // Activate the shader program before transform, material and lighting
         applyTransform(modelView, modelViewProj, normalMat);
         applyMaterial(material);
-        applyLighting(lightSpots, globalSun, globalAmbienLight);
+        applyLighting(lightSpots, globalSun, globalAmbienLight, timeOfFrame);
         renderMesh(mesh);
     }
 }
 
-void Renderer::applyLighting(LightSpots& lightSpotsParam, GlobalSun& sun, GlobalAmbienLight ambientLight) const {
+void Renderer::applyLighting(const LightSpots& lightSpotsParam, const GlobalSun& sun,
+                             const GlobalAmbienLight& ambientLight, double timeOfFrame) const {
     // Apply lighting
-    shader.setUniform("uSpotLights.count").u1I(static_cast<int>(lightSpotsParam.getLights().size()));
-    for (size_t i = 0; i < lightSpotsParam.getLights().size(); i++) {
+    size_t lightCount = static_cast<int>(lightSpotsParam.getLights().size());
+    shader.setUniform("uLights.count", lightCount);
+    for (size_t i = 0; i < lightCount; i++) {
         const LightSpot& light = *lightSpotsParam.getLights()[i].light;
+        std::string iStr = std::to_string(i);
         const Transform::Transform& transform = *lightSpotsParam.getLights()[i].transform;
-        std::string lightUniform = "uSpotLights.lights[" + std::to_string(i) + "]";
+        interpolationTransforms[&transform].pushTransform(transform);
+        const Transform::Transform& interpolatedTransform =
+            interpolationTransforms[&transform].interpolateTransform(timeOfFrame);
 
-        Vec4F lightPosViewSpace = getView() * transform.getPosition().homogenize();
-        Vec3F lightPosViewSpace3 = lightPosViewSpace.dehomogenize();
-        Vec3F lightColor = light.color.getRGBVec3FNormalized();
-        float lightIntensity = light.intensity.get();
-        shader.setUniform(lightUniform + ".lightProperties.posInViewSpace").u3F(lightPosViewSpace3);
-        shader.setUniform(lightUniform + ".lightProperties.color").u3F(lightColor);
-        shader.setUniform(lightUniform + ".lightProperties.intensity").u1F(lightIntensity);
+        Position lightPosViewSpace =
+            Transform::Transformer::worldToCamera(interpolatedTransform.getPosition(), getView());
+        shader.setUniform("uLights.posInViewSpace[" + iStr + "]", lightPosViewSpace);
 
-        //shader.setUniform(lightUniform + ".radius").u1F(transform.getScale().length());
+        if (!light.isDirty()) continue;
+
+        Vec3F lightColor = light.getColor().getRGBVec3FNormalized();
+        float lightIntensity = light.getIntensity();
+        float lightRadius = light.getRadius();
+        shader.setUniform("uLights.color[" + iStr + "]", lightColor);
+        shader.setUniform("uLights.intensity[" + iStr + "]", lightIntensity);
+
+        shader.setUniform("uLights.radius[" + iStr + "]", lightRadius);
+        light.setClean();
     }
 
-    //shader.setUniform("uGlobalSunLight.lightProperties.color").u3F(sun.getColor().toVec3F());
-    //shader.setUniform("uGlobalSunLight.lightProperties.intensity").u1F(sun.getIntensity());
-    //shader.setUniform("uGlobalSunLight.direction").u3F(sun.getTransform().forward());
-
-    shader.setUniform("uAmbient.color").u3F(ambientLight.getColor().getRGBVec3FNormalized());
-    shader.setUniform("uAmbient.intensity").u1F(ambientLight.getIntensity());
+    //shader.setUniform("uGlobalSunLight.lightProperties.color",sun.getColor().toVec3F());
+    //shader.setUniform("uGlobalSunLight.lightProperties.intensity",sun.getIntensity());
+    //shader.setUniform("uGlobalSunLight.direction",sun.getTransform().forward());
+    if (ambientLight.isDirty()) {
+        shader.setUniform("uAmbient.color", ambientLight.getColor().getRGBVec3FNormalized());
+        shader.setUniform("uAmbient.intensity", ambientLight.getIntensity());
+        ambientLight.setClean();
+    }
 }
 
 void Renderer::applyMaterial(const Material& material) const {
-    //shader.setUniform("uMaterial.diffuseIntensity").u1F(material.getDiffuseIntensity());
+    //shader.setUniform("uMaterial.diffuseIntensity",material.getDiffuseIntensity());
     //
-    shader.setUniform("uMaterial.specularColor").u3F(material.getSpecularColor().getRGBVec3FNormalized());
-    shader.setUniform("uMaterial.specularIntensity").u1F(material.getSpecularIntensity());
+    shader.setUniform("uMaterial.specularColor", material.getSpecularColor().getRGBVec3FNormalized());
+    shader.setUniform("uMaterial.specularIntensity", material.getSpecularIntensity());
     //
-    //shader.setUniform("uMaterial.emissionColor").u3F(material.getEmissionColor());
-    //shader.setUniform("uMaterial.emissionIntensity").u1F(material.getEmmisionIntensity());
+    //shader.setUniform("uMaterial.emissionColor",material.getEmissionColor());
+    //shader.setUniform("uMaterial.emissionIntensity",material.getEmmisionIntensity());
     //
-    shader.setUniform("uMaterial.shininess").u1F(material.getShininess());
+    shader.setUniform("uMaterial.shininess", material.getShininess());
 }
 
 void Renderer::applyTransform(const MV& modelView, const MVP& mvp, const NormalMat& normalMat) const {
-    shader.setUniform("uMVP").uMat4F(mvp);
-    shader.setUniform("uMV").uMat4F(modelView);
-    shader.setUniform("uNormalMat").uMat3F(normalMat);
+    shader.setUniform("uMVP", mvp);
+    shader.setUniform("uMV", modelView);
+    shader.setUniform("uNormalMat", normalMat);
 }
 
 Renderer::~Renderer() {

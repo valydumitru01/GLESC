@@ -20,21 +20,39 @@ namespace GLESC::Render {
 
         void setColor(const ColorRgb &color) {
             GlobalAmbienLight::color = color;
+            dirty = true;
         }
 
         void setIntensity(float intensity) {
             GlobalAmbienLight::intensity = intensity;
+            dirty = true;
         }
 
         [[nodiscard]] float getIntensity() const {
             return intensity;
         }
 
-        [[nodiscard]] ColorRgb getColor() const {
+        [[nodiscard]] float& getModifiableIntensity() {
+            dirty = true;
+            return intensity;
+        }
+
+        [[nodiscard]] ColorRgb& getModifiableColor() {
+            dirty = true;
             return color;
         }
 
-    protected:
+        [[nodiscard]] const ColorRgb& getColor() const {
+            return color;
+        }
+
+        void setClean() const {
+            dirty = false;
+        }
+
+        [[nodiscard]] bool isDirty() const {
+            return dirty;
+        }
 
     private:
         ColorRgb color{255, 255, 255};
@@ -44,5 +62,9 @@ namespace GLESC::Render {
          * there is no other light source, so the player can see something.
          */
         float intensity{0.1f};
+        /**
+         * @brief If the light is dirty, it should be resend to the shader.
+         */
+        mutable bool dirty{true};
     }; // class GlobalAmbienLight
 }

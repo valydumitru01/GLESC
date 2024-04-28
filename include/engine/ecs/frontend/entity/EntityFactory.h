@@ -9,6 +9,8 @@
  */
 
 #pragma once
+#include <optional>
+
 #include "Entity.h"
 
 namespace GLESC::ECS {

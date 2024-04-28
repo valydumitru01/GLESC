@@ -8,19 +8,24 @@
  * See LICENSE.txt in the project root for license information.
  **************************************************************************************************/
 #pragma once
+#include <string>
 #include <unordered_map>
 
-#include "engine/core/low-level-renderer/texture/Texture.h"
-using PathHash = std::size_t;
+#include "Cubemap.h"
+#include "Texture.h"
+#include "engine/core/hash/Hasher.h"
+
 class TextureFactory {
 public:
     /**
      * @brief Default constructor.
      */
     TextureFactory() = default;
-    Texture& loadTexture(const std::string& path);
+    GLESC::Render::Texture& loadTexture(const std::string& path);
+    Cubemap& loadCubemap(const std::array<std::string, 6>& facePaths);
 protected:
 
 private:
-    std::unordered_map<PathHash, Texture> textures;
+    std::unordered_map<GLESC::Hasher::Hash, GLESC::Render::Texture> textures;
+    std::unordered_map<GLESC::Hasher::Hash, Cubemap> cubemaps;
 }; // class TextureFactory

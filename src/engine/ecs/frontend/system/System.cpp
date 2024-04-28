@@ -20,7 +20,7 @@ const std::set<EntityID>& System::getAssociatedEntities() const {
     return ecs.getAssociatedEntities(name);
 }
 
- boost::bimap<EntityName, EntityID> System::getAllEntities() const {
+ std::unordered_map<EntityName, EntityID> System::getAllEntities() const {
     return ecs.getAllEntities();
 }
 
