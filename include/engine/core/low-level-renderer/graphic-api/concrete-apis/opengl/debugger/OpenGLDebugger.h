@@ -12,9 +12,9 @@
 #include "engine/core/debugger/Debugger.h"
 
 #define GL_ENABLE_DEBUG_CALLBACK() \
-GLESC::GAPI::OpenGLDebugger::enableGlDebugCallback()
+ GLESC::GAPI::OpenGLDebugger::enableGlDebugCallback()
 #define GL_SET_DEBUG_CONTEXT_ATTRIBUTE() \
-GLESC::GAPI::OpenGLDebugger::setSdlGlDebugContextAttribute()
+ GLESC::GAPI::OpenGLDebugger::setSdlGlDebugContextAttribute()
 
 
 namespace GLESC::GAPI {
@@ -96,5 +96,8 @@ namespace GLESC::GAPI {
                         const GLchar *message,
                         const void *userParam);
     }; // class OpenGLDebugger
-#endif // NDEBUG_GAPI
 } // namespace GLESC::Render
+#else
+#define GL_ENABLE_DEBUG_CALLBACK() do {} while (false)
+#define GL_SET_DEBUG_CONTEXT_ATTRIBUTE() do {} while (false)
+#endif

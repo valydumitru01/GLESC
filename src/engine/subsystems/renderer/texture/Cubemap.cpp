@@ -28,28 +28,28 @@ void Cubemap::load(const std::array<std::string, 6>& facePaths) {
                                         Enums::Texture::Filters::WrapMode::ClampToEdge,
                                         Enums::Texture::Filters::WrapMode::ClampToEdge,
                                         Enums::Texture::Filters::WrapMode::ClampToEdge);
-
     for (size_t i = 0; i < facePaths.size(); ++i) {
-        cubemapTextures[i].load(facePaths[i]);
-
-        getGAPI().setTextureData(Enums::Texture::Types::TextureCubeMap, 0,
+        cubemapTextures[i].load(facePaths[i], false);
+        auto nextFaceEnumInt = static_cast<int>(Enums::Texture::Types::TextureCubeMapPositiveX) + i;
+        auto nextFaceEnum = static_cast<Enums::Texture::Types>(nextFaceEnumInt);
+        getGAPI().setTextureData(nextFaceEnum,
+                                 0,
                                  cubemapTextures[i].getWidth(),
                                  cubemapTextures[i].getHeight(),
                                  getTextureInputFormat(cubemapTextures[i].getFormat().colorFormat),
                                  getTextureBitDepth(cubemapTextures[i].getFormat().bitDepth),
                                  cubemapTextures[i].getPixels().data());
     }
-
     hasLoaded = true;
 }
 
 
 void Cubemap::bind() const {
     D_ASSERT_TRUE(hasLoaded, "Cubemap not loaded");
-    getGAPI().bindTexture(textureID, Enums::Texture::Types::TextureCubeMap);
+    getGAPI().bindTextureOnSlot(textureID, Enums::Texture::Types::TextureCubeMap, 0);
 }
 
 void Cubemap::unbind() const {
     D_ASSERT_TRUE(hasLoaded, "Cubemap not loaded");
-    getGAPI().bindTexture(0, Enums::Texture::Types::TextureCubeMap);
+    getGAPI().unbindTexture(Enums::Texture::Types::TextureCubeMap);
 }

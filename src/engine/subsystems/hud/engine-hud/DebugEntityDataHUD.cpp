@@ -178,6 +178,11 @@ void DebugEntityData::windowContent() {
 
         // Display each attribute of the component
         for (EntityStatsManager::Value& value : *stat.values) {
+            if (value.isString) {
+                ImGui::Text(value.name.c_str());
+                ImGui::Text(value.stringData.c_str());
+                break;
+            }
             // While visible the panel of the data, the value is dirty as we want to update it
             if(value.valueDirty != nullptr)
                 *value.valueDirty = true;
@@ -234,11 +239,7 @@ void DebugEntityData::windowContent() {
                 input<Mat4F>(value);
                 break;
             default: {
-                if (value.isString) {
-                    ImGui::Text(value.name.c_str());
-                    ImGui::Text(value.stringData.c_str());
-                    break;
-                }
+
                 D_ASSERT_TRUE(false, "Unknown value type");
             }
             }

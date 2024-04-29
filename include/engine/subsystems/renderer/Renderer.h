@@ -7,6 +7,7 @@
 #pragma once
 
 
+#include "Skybox.h"
 #include "engine/core/window/WindowManager.h"
 #include "mesh/MeshAdapter.h"
 #include "engine/subsystems/renderer/RendererTypes.h"
@@ -104,31 +105,12 @@ namespace GLESC::Render {
 
         std::unordered_map<const ColorMesh*, AdaptedMesh> adaptedMeshes;
         std::unordered_map<const ColorMesh*, AdaptedInstances> adaptedInstances;
-        struct TransformInterpolator {
-            TransformInterpolator() = default;
-            void pushTransform(const Transform::Transform& transform) {
-                previousOfLastTransform = lastTransform;
-                lastTransform = transform;
-            }
-            Transform::Transform interpolateTransform(double alpha) const {
-                Transform::Transform interpolatedTransform;
-                interpolatedTransform.setPosition(
-                    previousOfLastTransform.getPosition().lerp(lastTransform.getPosition(), alpha));
-                interpolatedTransform.setRotation(
-                    previousOfLastTransform.getRotation().lerp(lastTransform.getRotation(), alpha));
-                interpolatedTransform.setScale(
-                    previousOfLastTransform.getScale().lerp(lastTransform.getScale(), alpha));
-                return interpolatedTransform;
-            }
-        private:
-            Transform::Transform lastTransform = Transform::Transform();
-            Transform::Transform previousOfLastTransform = Transform::Transform();
-        };
-        mutable std::unordered_map<const Transform::Transform*, TransformInterpolator> interpolationTransforms;
+
+        mutable std::unordered_map<const Transform::Transform*, Transform::Interpolator> interpolationTransforms;
 
         Shader shader;
         Frustum frustum;
-        Cubemap skybox;
+        Skybox skybox;
 
         InstanceMeshes meshInstances;
         MeshBatches meshBatches;

@@ -56,6 +56,12 @@ namespace GLESC::Math {
         }
 
 
+        template<typename OtherType, size_t OtherN, size_t OtherM>
+        explicit Matrix(const Matrix<OtherType, OtherN, OtherM>& other) {
+            MatrixAlgorithms::resizeMatrix(other.data, this->data);
+        }
+
+
         /**
          * @brief Copy constructor
          * @param other
@@ -92,6 +98,17 @@ namespace GLESC::Math {
         template <typename OtherType>
         constexpr Matrix& operator=(const Matrix<OtherType, N, M>& other) noexcept {
             MatrixAlgorithms::copyMatrix(this->data, other.data);
+            return *this;
+        }
+
+        template<typename OtherType, size_t OtherN, size_t OtherM>
+        constexpr Matrix& operator=(const Matrix<OtherType, OtherN, OtherM>& other) noexcept {
+            MatrixAlgorithms::resizeMatrix(this->data, other.data);
+            return *this;
+        }
+        template<typename OtherType, size_t OtherN, size_t OtherM>
+        constexpr Matrix& operator=(const MatrixData<OtherType, OtherN, OtherM>&& other) noexcept {
+            MatrixAlgorithms::resizeMatrix(this->data, other);
             return *this;
         }
 

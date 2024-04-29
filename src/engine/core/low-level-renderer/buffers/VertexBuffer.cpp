@@ -16,15 +16,14 @@ using namespace GLESC::GAPI;
 
 VertexBuffer::VertexBuffer(const Void *data,
                            Size count,
-                           Size size,
+                           Size elementSize,
                            Enums::BufferUsages bufferUsage) {
     D_ASSERT_NOT_NULLPTR(data, "Data is null in VertexBuffer constructor");
-    D_ASSERT_TRUE(size > 0, "Size is 0 in VertexBuffer constructor");
+    D_ASSERT_TRUE(elementSize > 0, "Size is 0 in VertexBuffer constructor");
     D_ASSERT_TRUE(count > 0, "Count is 0 in VertexBuffer constructor");
-    D_ASSERT_TRUE(size >= count, "Size is smaller than count in VertexBuffer constructor");
     getGAPI().genBuffers(1, vertexBufferID);
     this->bind();
-    getGAPI().setBufferData(data, count, size, Enums::BufferTypes::Vertex, bufferUsage);
+    getGAPI().setBufferData(data, count, elementSize, Enums::BufferTypes::Vertex, bufferUsage);
 }
 
 VertexBuffer::~VertexBuffer() {

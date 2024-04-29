@@ -12,6 +12,13 @@
 #include "IComponent.h"
 #include "engine/ecs/backend/asserts/component/ComponentArrayAsserts.h"
 
+#ifndef NDEBUG_ECS
+#define PRINT_COMPONENT_ARRAY_STATUS(contextMessage) printStatus(contextMessage)
+#else
+#define PRINT_COMPONENT_ARRAY_STATUS(contextMessage)
+#endif
+
+
 namespace GLESC::ECS {
     class IComponentArray {
     public:
@@ -36,7 +43,7 @@ namespace GLESC::ECS {
         }
 
         void insertData(EntityID entity, Component component) {
-            this->printStatus(
+            PRINT_COMPONENT_ARRAY_STATUS(
                 "Before inserting component:\n"
                 "\t" + component.toString() + "\n"
                 "\tfrom entity " + std::to_string(entity));
@@ -50,7 +57,7 @@ namespace GLESC::ECS {
             ++size;
 
 
-            this->printStatus(
+            PRINT_COMPONENT_ARRAY_STATUS(
                 "After inserting component:\n"
                 "\t" + component.toString() + "\n"
                 "\tfrom entity " + std::to_string(entity));
@@ -64,7 +71,7 @@ namespace GLESC::ECS {
          * @param entity The entity to remove
          */
         void removeData(EntityID entity) override {
-            this->printStatus("Before removing data from entity " + std::to_string(entity));
+            PRINT_COMPONENT_ARRAY_STATUS("Before removing data from entity " + std::to_string(entity));
 
             // Copy element at end into deleted element's place to maintain density
             size_t indexOfRemovedEntity = entityToIndexMap.at(entity);
@@ -81,7 +88,7 @@ namespace GLESC::ECS {
             indexToEntityMap.erase(indexOfLastElement);
             --size;
 
-            this->printStatus("After removing data from entity " + std::to_string(entity));
+            PRINT_COMPONENT_ARRAY_STATUS("After removing data from entity " + std::to_string(entity));
         }
 
         Component& getData(EntityID entity) {

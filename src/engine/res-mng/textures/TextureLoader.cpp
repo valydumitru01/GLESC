@@ -12,12 +12,16 @@
 #include "engine/core/logger/Logger.h"
 #include "engine/res-mng/textures/TextureLoader.h"
 
+#include "engine/core/debugger/Debugger.h"
+
 
 SDL_SurfacePtr TextureLoader::createSurface(const std::string &filePath) {
-    S_ASSERT_TRUE(!filePath.empty(), "File path is empty.");
+    D_ASSERT_FALSE(filePath.empty(), "File path is empty.");
     Logger::get().info("Loading image: " + filePath);
     // Load the image
     SDL_SurfacePtr surfacePtr(IMG_Load(filePath.c_str()), &SDL_FreeSurface);
+    //postSDLCall
+    SDL_ClearError();
     // Check if the image was loaded
     D_ASSERT_NOT_NULLPTR(surfacePtr, "Image couldn't be loaded. Image path: " + filePath +
                                      ", SDL error: " + SDL_GetError());
@@ -29,16 +33,18 @@ SDL_SurfacePtr TextureLoader::createSurface(const std::string &filePath) {
 /**
  * @brief Takes the path of an image and loads it into a texture.
  * @param filePath The path of the image.
+ * @param flipTexture
  * @return The image data of the loaded image.
  */
-SDL_SurfacePtr TextureLoader::loadTexture(const std::string &filePath) {
-    S_ASSERT_TRUE(!filePath.empty(), "File path is empty.");
+SDL_SurfacePtr TextureLoader::loadTexture(const std::string &filePath, bool flipTexture) {
+    D_ASSERT_FALSE(filePath.empty(), "File path is empty.");
 
     SDL_SurfacePtr surface = createSurface(filePath);
-    SDL_SurfacePtr flippedSurface = flipSurface(*surface.get());
+    if (flipTexture)
+        surface = flipSurface(*surface.get());
     
     
-    return flippedSurface;
+    return surface;
 }
 
 SDL_SurfacePtr TextureLoader::flipSurface(SDL_Surface &surface) {

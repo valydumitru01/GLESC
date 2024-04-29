@@ -23,6 +23,10 @@ public:
         return cubemapTextures;
     }
 
+    [[nodiscard]] std::array<GLESC::ResMng::Texture::TextureSurface, 6>& getCubemapTextures() {
+        return cubemapTextures;
+    }
+
     void bind() const;
     void unbind() const;
     void load(const std::array<std::string, 6>& facePaths);

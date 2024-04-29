@@ -9,13 +9,8 @@ using namespace GLESC::Render;
 
 
 
-Texture::Texture(const std::string& path) {
-    textureID = textureID = getGAPI().createTexture(Enums::Texture::Types::Texture2D,
-                                                    Enums::Texture::Filters::Min::Linear,
-                                                    Enums::Texture::Filters::Mag::Linear,
-                                                    Enums::Texture::Filters::WrapMode::ClampToEdge,
-                                                    Enums::Texture::Filters::WrapMode::ClampToEdge);
-    load(path);
+Texture::Texture(const std::string& path, bool flipTexture/*= true*/) {
+    load(path, flipTexture);
 }
 
 Texture::~Texture() {
@@ -24,14 +19,19 @@ Texture::~Texture() {
     }
 }
 
-void Texture::load(const std::string& path) {
+void Texture::load(const std::string& path, bool flipTexture) {
     D_ASSERT_TRUE(!path.empty(), "File path is empty.");
-    textureSurface.load(path);
-    load(textureSurface);
+    textureID = textureID = getGAPI().createTexture(Enums::Texture::Types::Texture2D,
+                                                Enums::Texture::Filters::Min::Linear,
+                                                Enums::Texture::Filters::Mag::Linear,
+                                                Enums::Texture::Filters::WrapMode::ClampToEdge,
+                                                Enums::Texture::Filters::WrapMode::ClampToEdge);
+    textureSurface.load(path, flipTexture);
+    loadGPU(textureSurface);
+    hasLoaded = true;
 }
 
-void Texture::load(const ResMng::Texture::TextureSurface& textureSurfaceParam) {
-    hasLoaded = true;
+void Texture::loadGPU(const ResMng::Texture::TextureSurface& textureSurfaceParam) {
     textureSurface = textureSurfaceParam;
     Enums::Texture::CPUBufferFormat inputFormat = getTextureInputFormat(textureSurface.getFormat().colorFormat);
     Enums::Texture::BitDepth bitDepth = getTextureBitDepth(textureSurface.getFormat().bitDepth);

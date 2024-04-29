@@ -151,6 +151,18 @@ namespace GLESC::GAPI {
                     std::string(SDL_GetError()));
         }
 
+        void enableDepthBuffer(Bool enabled) override {
+            GAPI_FUNCTION_NO_ARGS_LOG("enableDepthBuffer");
+            GAPI_FUNCTION_IMPLEMENTATION_LOG("glEnable", GL_DEPTH_TEST);
+            glDepthMask(static_cast<GLboolean>(enabled));
+        }
+
+        void setDepthFunction(Enums::DepthFuncs depthFunction) override {
+            GAPI_FUNCTION_LOG("setDepthFunction", depthFunction);
+            GAPI_FUNCTION_IMPLEMENTATION_LOG("glDepthFunc", depthFunction);
+            glDepthFunc(static_cast<GLenum>(depthFunction));
+        }
+
         void drawTriangles(UInt start, UInt count) override {
             GAPI_FUNCTION_LOG("drawTriangles", start, count);
             GAPI_FUNCTION_IMPLEMENTATION_LOG("glDrawArrays", GL_TRIANGLES, start, count);
@@ -205,12 +217,12 @@ namespace GLESC::GAPI {
         // ------------------------------ Texture ----------------------------------
 
         [[nodiscard]] TextureID createTexture(Enums::Texture::Types textureType,
-                                Enums::Texture::Filters::Min minFilter,
-                                Enums::Texture::Filters::Mag magFilter,
-                                Enums::Texture::Filters::WrapMode wrapS,
-                                Enums::Texture::Filters::WrapMode wrapT,
-                                Enums::Texture::Filters::WrapMode wrapR =
-                                    Enums::Texture::Filters::WrapMode::ClampToEdge) override {
+                                              Enums::Texture::Filters::Min minFilter,
+                                              Enums::Texture::Filters::Mag magFilter,
+                                              Enums::Texture::Filters::WrapMode wrapS,
+                                              Enums::Texture::Filters::WrapMode wrapT,
+                                              Enums::Texture::Filters::WrapMode wrapR =
+                                                  Enums::Texture::Filters::WrapMode::ClampToEdge) override {
             GAPI_FUNCTION_LOG("createTexture", "SDL_Surface", minFilter, magFilter, wrapS, wrapT);
 
             auto textureTypeGL = static_cast<GLenum>(textureType);
@@ -300,7 +312,7 @@ namespace GLESC::GAPI {
             GAPI_FUNCTION_IMPLEMENTATION_LOG("glPixelStorei", GL_UNPACK_ALIGNMENT, padding);
             glPixelStorei(GL_UNPACK_ALIGNMENT, padding);
 
-            GAPI_FUNCTION_IMPLEMENTATION_LOG("glTexImage2D", GL_TEXTURE_2D, level, GLinternalFormat,
+            GAPI_FUNCTION_IMPLEMENTATION_LOG("glTexImage2D", textureTypeGL, level, GLinternalFormat,
                                              width, height, 0, inputFormatGL,
                                              GL_UNSIGNED_BYTE, texelBuffer);
             glTexImage2D(textureTypeGL, level, GLinternalFormat, width, height, 0, inputFormatGL,
@@ -476,26 +488,25 @@ namespace GLESC::GAPI {
                               count);
             GAPI_FUNCTION_IMPLEMENTATION_LOG("glBufferData", data, count, sizeof(UInt),
                                              Enums::BufferTypes::Index, buferUsage);
-            setBufferData(data, count, count * sizeof(UInt), Enums::BufferTypes::Index,
-                          buferUsage);
+            setBufferData(data, count, sizeof(UInt), Enums::BufferTypes::Index,  buferUsage);
         }
 
         void setBufferData(const Void* data,
-                           Size count,
-                           Size size,
+                           Size elementCount,
+                           Size elementSize,
                            Enums::BufferTypes bufferType,
                            Enums::BufferUsages bufferUsage) override {
             GAPI_FUNCTION_LOG("setBufferStaticData", "vectorData (is a pointer,can't be printed)",
-                              count, bufferType, bufferUsage);
+                              elementCount, elementSize, bufferType, bufferUsage);
             if (bufferType == Enums::BufferTypes::Index)
-                GAPI_PRINT_BUFFER_DATA(UInt, data, size);
+                GAPI_PRINT_BUFFER_DATA(UInt, data, elementCount*elementSize);
             else
-                GAPI_PRINT_BUFFER_DATA(Float, data, size);
+                GAPI_PRINT_BUFFER_DATA(Float, data, elementCount*elementSize);
             GLenum type = static_cast<GLenum>(bufferType);
             GLenum usage = static_cast<GLenum>(bufferUsage);
 
-            GAPI_FUNCTION_IMPLEMENTATION_LOG("glBufferData", type, size, data, usage);
-            glBufferData(type, size, data, usage);
+            GAPI_FUNCTION_IMPLEMENTATION_LOG("glBufferData", type, elementCount * elementSize, data, usage);
+            glBufferData(type, elementCount * elementSize, data, usage);
         }
 
 
@@ -571,7 +582,13 @@ namespace GLESC::GAPI {
             GAPI_FUNCTION_IMPLEMENTATION_LOG("glDeleteVertexArrays", 1, &vertexArrayID);
             glDeleteVertexArrays(1, &vertexArrayID);
         }
-
+        /**
+         * @brief Enables the vertex data.
+         *
+         * @details This method enables the generic vertex attribute array specified by the index.
+         *
+         * @param index The index of the vertex attribute to be enabled.
+         */
         void enableVertexData(UInt index) override {
             GAPI_FUNCTION_LOG("enableVertexData", index);
             GAPI_FUNCTION_IMPLEMENTATION_LOG("glEnableVertexAttribArray", index);
@@ -613,9 +630,12 @@ namespace GLESC::GAPI {
             // Calls glVertexAttribPointer to define an array of generic vertex attribute data.
             // The parameters are set according to the function arguments, allowing for flexible
             // configuration of vertex data.
-            GAPI_FUNCTION_IMPLEMENTATION_LOG("glVertexAttribPointer", index, count,
+            GAPI_FUNCTION_IMPLEMENTATION_LOG("glVertexAttribPointer",
+                                             index,
+                                             count,
                                              glType,
-                                             glNormalized, stride,
+                                             glNormalized,
+                                             stride,
                                              offset);
 
             glVertexAttribPointer(index, // Specifies the index of the generic vertex attribute.
@@ -623,8 +643,7 @@ namespace GLESC::GAPI {
                                   glType, // Converts the GAPITypes enum to GLenum.
                                   glNormalized, // Specifies whether to normalize the data.
                                   stride, // Byte offset between consecutive vertex attributes.
-                                  (GLvoid*)
-                                  (offset)); // Offset of the first component in the buffer.
+                                  (GLvoid*)offset); // Offset of the first component in the buffer.
         }
 
 
@@ -947,7 +966,7 @@ namespace GLESC::GAPI {
                 value.w() = static_cast<bool>(temp.w());
             }
             else {
-                S_ASSERT_TRUE(false, "Invalid uniform type.");
+                D_ASSERT_TRUE(false, "Invalid uniform type.");
             }
             return value;
         }
@@ -1047,21 +1066,18 @@ namespace GLESC::GAPI {
 
 
         Bool isTexture(TextureID textureID) {
-            GAPI_FUNCTION_LOG("isTexture", textureID);
             Bool isTextureBool =
                 static_cast<Bool>(textureCache.find(textureID) != textureCache.end());
             return isTextureBool;
         }
 
         Bool isTextureBound(TextureID textureID) override {
-            GAPI_FUNCTION_LOG("isTextureBound", textureID);
             Bool isTextureBoundBool =
                 static_cast<Bool>(textureID == boundTexture);
             return isTextureBoundBool;
         }
 
         Bool anyTextureBound() override {
-            GAPI_FUNCTION_NO_ARGS_LOG("anyTextureBound");
             Bool anyTextureBoundBool =
                 static_cast<Bool>(boundTexture != 0);
             return anyTextureBoundBool;

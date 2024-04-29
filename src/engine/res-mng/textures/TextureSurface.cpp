@@ -13,8 +13,8 @@
 #include "engine/res-mng/textures/TextureLoader.h"
 using namespace GLESC::ResMng::Texture;
 
-TextureSurface::TextureSurface(const std::string& pathParam) {
-    load(pathParam);
+TextureSurface::TextureSurface(const std::string& pathParam, bool flipTexture) {
+    load(pathParam, flipTexture);
 }
 
 void TextureSurface::initializeData(SDL_Surface& sdlSurface) {
@@ -99,10 +99,10 @@ Pixel TextureSurface::getPixel(unsigned int x, unsigned int y) const {
 }
 
 
-void TextureSurface::load(const std::string& pathParam) {
-    S_ASSERT_TRUE(!pathParam.empty(), "File path is empty.");
+void TextureSurface::load(const std::string& pathParam, bool flipTexture) {
+    D_ASSERT_FALSE(pathParam.empty(), "File path is empty.");
     SDL_SurfacePtr sdlSurface = TextureLoader::loadTexture(
-        ASSETS_PATH + std::string("/") + pathParam + TEXTURE_EXTENSION);
+        ASSETS_PATH + std::string("/") + pathParam, flipTexture);
     initializeData(*sdlSurface);
     // Texture is now loaded, must be set to true right after the texture is loaded
     // the above functions will throw an error if the texture is not loaded

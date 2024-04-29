@@ -15,7 +15,7 @@ using SDL_SurfacePtr = std::unique_ptr<SDL_Surface, decltype(&SDL_FreeSurface)>;
 
 class TextureLoader {
 public:
-    static SDL_SurfacePtr loadTexture(const std::string &path);
+    static SDL_SurfacePtr loadTexture(const std::string &path, bool flipTexture);
 
 private:
     

@@ -192,6 +192,19 @@ namespace GLESC::GAPI::Enums {
         DepthFunc [[maybe_unused]] = GL_DEPTH_FUNC
     };
 
+    enum class DepthFuncs {
+        Never [[maybe_unused]] = GL_NEVER,
+        Less [[maybe_unused]] = GL_LESS,
+        Equal [[maybe_unused]] = GL_EQUAL,
+        LessEqual [[maybe_unused]] = GL_LEQUAL,
+        Greater [[maybe_unused]] = GL_GREATER,
+        NotEqual [[maybe_unused]] = GL_NOTEQUAL,
+        GreaterEqual [[maybe_unused]] = GL_GEQUAL,
+        Always [[maybe_unused]] = GL_ALWAYS
+    };
+
+
+
     enum class BlendingParameters {
         Blending [[maybe_unused]] = GL_BLEND,
         BlendEquationRGB [[maybe_unused]] = GL_BLEND_EQUATION_RGB,

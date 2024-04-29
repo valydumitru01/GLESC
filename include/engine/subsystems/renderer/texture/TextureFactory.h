@@ -21,7 +21,10 @@ public:
      * @brief Default constructor.
      */
     TextureFactory() = default;
-    GLESC::Render::Texture& loadTexture(const std::string& path);
+    /**
+     * @brief Factory for GPU textures, its flipped by default as OpenGL expects the texture to be flipped
+     */
+    GLESC::Render::Texture& loadTexture(const std::string& path, bool flipTexture = true);
     Cubemap& loadCubemap(const std::array<std::string, 6>& facePaths);
 protected:
 

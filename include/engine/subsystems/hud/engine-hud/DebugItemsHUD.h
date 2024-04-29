@@ -27,6 +27,6 @@ namespace GLESC::HUD {
         void windowContent() override;
         TextureFactory& textureFactory;
         Render::Renderer& renderer;
-        std::unordered_map<HudItemType, GAPITexture*> items;
+        std::unordered_map<HudItemType, Render::Texture*> items;
     }; // class DebugItemsHUD
 } // namespace GLESC::HUD

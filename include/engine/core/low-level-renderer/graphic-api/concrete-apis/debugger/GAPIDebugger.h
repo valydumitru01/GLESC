@@ -20,7 +20,7 @@
 #define GAPI_FUNCTION_IMPLEMENTATION_LOG(FUNCTION_NAME, ...) do {} while (false)
 #define GAPI_PRINT_BUFFER_DATA(TYPE, DATA, SIZE) do {} while (false)
 
-#ifndef DEBUG_GAPI
+#ifndef NDEBUG_GAPI
 
 #define GAPI_PRINT_CODE(CONTENT) \
     LOG_BASIC(Logger::get().info("GAPI status:"); \
@@ -36,7 +36,7 @@
             FUNCTION_CALL_STR(FUNCTION_NAME, __VA_ARGS__));
 
 #define GAPI_FUNCTION_NO_ARGS_LOG(FUNCTION_NAME) \
-    Logger::get().info("Entering " + std::string(FUNCTION_NAME));
+    Logger::get().infoBlue("Entering " + std::string(FUNCTION_NAME));
 
 #define GAPI_FUNCTION_IMPLEMENTATION_LOG(FUNCTION_NAME, ...) \
     Logger::get().infoBlue("\tExecuting " +           \
@@ -45,7 +45,7 @@
 #define GAPI_PRINT_BUFFER_DATA(TYPE, DATA, SIZE) \
     printBufferData<TYPE>(DATA, SIZE)
 template<typename BufferType>
-void printBufferData(const Void *data, Size size) {
+void printBufferData(const GLESC::GAPI::Void *data, GLESC::GAPI::Size size) {
     const BufferType *typedData = static_cast<const BufferType *>(data);
     size_t count = size / sizeof(BufferType); // Calculate how many elements are in the buffer
 

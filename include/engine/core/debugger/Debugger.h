@@ -43,16 +43,29 @@
 #include <cstring>
 #include <algorithm>
 
+#ifndef NDEBUG
+#define postSDLCall                                                  \
+    const char* error = SDL_GetError();                              \
+    D_ASSERT_TRUE(*error == '\0',                                    \
+         "Error post SDL function" + std::string(error));            \
+
+
 #define SDLCall(call)                                                 \
     do {                                                              \
         call;                                                         \
         const char* error = SDL_GetError();                           \
-            D_ASSERT_TRUE(*error == '\0',                             \
-                "Error when calling SDL function: "                   \
-                #call " " + std::string(error));                      \
+        D_ASSERT_TRUE(*error == '\0',                                 \
+           "Error when calling SDL function: "                        \
+           #call " " + std::string(error));                           \
     } while (0)
 
 
+
+
+#else
+#define SDLCall(call) call
+#define postSDLCall
+#endif
 /**
 * @brief Converts the last argument of a variadic template into a string.
 *

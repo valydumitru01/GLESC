@@ -14,6 +14,14 @@
 #include "engine/ecs/backend/system/SystemManager.h"
 #include "engine/ecs/backend/entity/EntityManager.h"
 #include "engine/ecs/backend/component/ComponentManager.h"
+
+#ifndef NDEBUG_ECS
+#define PRINT_ECS_STATUS(contextMessage) printStatus(contextMessage)
+#else
+#define PRINT_ECS_STATUS(contextMessage)
+#endif
+
+
 class ECSTests;
 
 namespace GLESC::ECS {
@@ -114,7 +122,6 @@ namespace GLESC::ECS {
         EntityManager entityManager{};
     }; // class ECS
 
-#define PRINT_ECS_STATUS(contextMessage) printStatus(contextMessage)
 
     template <typename Component>
     void ECSCoordinator::addComponent(EntityID entity, Component component) {

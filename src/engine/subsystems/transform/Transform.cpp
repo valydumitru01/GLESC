@@ -144,3 +144,20 @@ Position Transformer::worldToViewport(const Position& worldPos, const Render::Vi
     Position ndcPos = clipToNDC(clipPos);
     return NDCToViewport(ndcPos, vpWidth, vpHeight);
 }
+
+
+void Interpolator::pushTransform(const Transform& transform) {
+    previousOfLastTransform = lastTransform;
+    lastTransform = transform;
+}
+
+Transform Interpolator::interpolate(double alpha) const  {
+    Transform interpolatedTransform;
+    interpolatedTransform.setPosition(
+        previousOfLastTransform.getPosition().lerp(lastTransform.getPosition(), alpha));
+    interpolatedTransform.setRotation(
+        previousOfLastTransform.getRotation().lerp(lastTransform.getRotation(), alpha));
+    interpolatedTransform.setScale(
+        previousOfLastTransform.getScale().lerp(lastTransform.getScale(), alpha));
+    return interpolatedTransform;
+}

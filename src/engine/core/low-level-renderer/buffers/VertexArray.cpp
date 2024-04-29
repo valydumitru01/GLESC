@@ -46,10 +46,10 @@ void VertexArray::addBuffer(const VertexBuffer &vb, const VertexBufferLayout &la
         auto const type = getTypePrimitiveType(element.type);
         auto const typeSize = static_cast<UInt>(getTypeSize(type));
 
-        // Set up the vertex attribute pointers
-        getGAPI().createVertexData(static_cast<UInt>(i), typeCount, type, element.normalized, stride, offset);
         // Enable the vertex attribute array
         getGAPI().enableVertexData(static_cast<UInt>(i));
+        // Set up the vertex attribute pointers
+        getGAPI().createVertexData(static_cast<UInt>(i), typeCount, type, element.normalized, stride, offset);
         // Calculate the offset for the next attribute
         offset += typeCount * typeSize;
     }

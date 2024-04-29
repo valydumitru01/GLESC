@@ -21,14 +21,15 @@ View makeDefaultView() {
     return view;
 }
 
+
 Renderer::Renderer(WindowManager& windowManager) :
     windowManager(windowManager), shader(GAPI::Shader("Shader.glsl")),
     lightSpots(LightSpots()), globalSun(GlobalSun()), globalAmbienLight(GlobalAmbienLight()),
     projection(makeDefaultProjection()), view(makeDefaultView()),
     cameraTransform(Transform::Transform(Position(0.0f, 0.0f, 3.0f),
                                          Transform::Rotation(0.0f, 0.0f, 0.0f),
-                                         Transform::Scale(1.0f, 1.0f, 1.0f))) {
-}
+                                         Transform::Scale(1.0f, 1.0f, 1.0f))) {}
+
 
 void Renderer::swapBuffers() const {
     getGAPI().swapBuffers(windowManager.getWindow());
@@ -36,8 +37,9 @@ void Renderer::swapBuffers() const {
 
 void Renderer::clear() const {
     getGAPI().clear({
-        GAPI::Enums::ClearBits::Color, GAPI::Enums::ClearBits::Depth,
-        GAPI::Enums::ClearBits::Stencil
+        Enums::ClearBits::Color,
+        Enums::ClearBits::Depth,
+        Enums::ClearBits::Stencil
     });
     getGAPI().clearColor(0.2f, 0.3f, 0.3f, 1.0f);
 }
@@ -47,9 +49,10 @@ void Renderer::renderMeshes(double timeOfFrame) {
 
     View viewMat = getView();
     Projection projMat = getProjection();
+    VP viewProj = viewMat * projMat;
 
     // Don't render anything if the view matrix is not valid
-    frustum.update(viewMat * projMat);
+    frustum.update(viewProj);
 
     /*
     for (const auto& batch : meshBatches.getBatches()) {
@@ -81,7 +84,7 @@ void Renderer::renderMeshes(double timeOfFrame) {
         const Transform::Transform& transform = *dynamicMesh.transform;
         interpolationTransforms[&transform].pushTransform(transform);
         const Transform::Transform& interpolatedTransform =
-            interpolationTransforms[&transform].interpolateTransform(timeOfFrame);
+            interpolationTransforms[&transform].interpolate(timeOfFrame);
 
         Model modelMat;
         modelMat.makeModelMatrix(
@@ -107,6 +110,9 @@ void Renderer::renderMeshes(double timeOfFrame) {
         applyLighting(lightSpots, globalSun, globalAmbienLight, timeOfFrame);
         renderMesh(mesh);
     }
+
+
+    skybox.draw(view, projMat);
 }
 
 void Renderer::applyLighting(const LightSpots& lightSpotsParam, const GlobalSun& sun,
@@ -120,7 +126,7 @@ void Renderer::applyLighting(const LightSpots& lightSpotsParam, const GlobalSun&
         const Transform::Transform& transform = *lightSpotsParam.getLights()[i].transform;
         interpolationTransforms[&transform].pushTransform(transform);
         const Transform::Transform& interpolatedTransform =
-            interpolationTransforms[&transform].interpolateTransform(timeOfFrame);
+            interpolationTransforms[&transform].interpolate(timeOfFrame);
 
         Position lightPosViewSpace =
             Transform::Transformer::worldToCamera(interpolatedTransform.getPosition(), getView());

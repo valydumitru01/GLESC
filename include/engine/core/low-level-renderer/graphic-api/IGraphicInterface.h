@@ -46,6 +46,10 @@ namespace GLESC::GAPI {
 
         virtual Void deleteContext() = 0;
 
+        virtual void enableDepthBuffer(Bool enabled) = 0;
+
+        virtual void setDepthFunction(Enums::DepthFuncs depthFunction) = 0;
+
         virtual Void drawTriangles(UInt start, UInt count) = 0;
 
         virtual Void drawTrianglesIndexed(UInt count) = 0;

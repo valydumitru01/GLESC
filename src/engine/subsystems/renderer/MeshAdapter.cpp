@@ -34,7 +34,6 @@ namespace GLESC::Render {
         const void *bufferData = mesh.getVertices().data();
         size_t bufferCount = mesh.getVertices().size();
         size_t vertexBytes = sizeof(ColorMesh::Vertex);
-        size_t bufferBytes = bufferCount * vertexBytes;
         GAPI::Enums::BufferUsages bufferUsage = getBufferUsage(mesh.getRenderType());
 
         std::vector<float> adaptedData;
@@ -62,7 +61,7 @@ namespace GLESC::Render {
         adaptedMesh.vertexBuffer = std::make_unique<GAPI::VertexBuffer>(
             adaptedData.data(),
             bufferCount,
-            bufferBytes,
+            vertexBytes,
             bufferUsage
         );
 

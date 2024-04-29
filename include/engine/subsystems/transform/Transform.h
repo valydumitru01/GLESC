@@ -158,4 +158,13 @@ namespace GLESC::Transform {
                                         const Render::Model& projMat,
                                         float vpWidth, float vpHeight);
     }; // class Transformer
+
+    struct Interpolator {
+        Interpolator() = default;
+        void pushTransform(const Transform& transform);
+        Transform interpolate(double alpha) const;
+    private:
+        Transform lastTransform = Transform();
+        Transform previousOfLastTransform = Transform();
+    }; // struct Interpolator
 } // namespace GLESC

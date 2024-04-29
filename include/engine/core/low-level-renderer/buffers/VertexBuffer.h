@@ -17,7 +17,7 @@ namespace GLESC::GAPI {
     public:
         VertexBuffer(const Void *data,
                      Size count,
-                     Size size,
+                     Size elementSize,
                      Enums::BufferUsages bufferUsage = Enums::BufferUsages::DynamicDraw);
 
         ~VertexBuffer();

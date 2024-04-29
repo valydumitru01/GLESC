@@ -13,7 +13,6 @@
 #include "engine/core/low-level-renderer/graphic-api/Gapi.h"
 #include "TextureStructs.h"
 
-#define TEXTURE_EXTENSION ".png"
 
 namespace GLESC::ResMng::Texture {
     class TextureSurface {
@@ -21,7 +20,7 @@ namespace GLESC::ResMng::Texture {
         /**
          * @brief Loader constructor. This constructor will initialize the texture with the data from the file.
          */
-        TextureSurface(const std::string& pathParam);
+        TextureSurface(const std::string& pathParam, bool flipTexture);
 
         /**
          * @brief Default constructor. This will not initialize the texture, therefore you will need to call load() to load
@@ -30,7 +29,7 @@ namespace GLESC::ResMng::Texture {
         TextureSurface() = default;
 
         ~TextureSurface() = default;
-        void load(const std::string& pathParam);
+        void load(const std::string& pathParam, bool flipTexture);
         [[nodiscard]] unsigned int getHeight() const {
             return height;
         }

@@ -11,7 +11,7 @@
 
 #include "engine/core/hash/Hasher.h"
 
-GLESC::Render::Texture& TextureFactory::loadTexture(const std::string& path) {
+GLESC::Render::Texture& TextureFactory::loadTexture(const std::string& path, bool flipTexture) {
     D_ASSERT_FALSE(path.empty(), "Path is empty");
     GLESC::Hasher::Hash hash = std::hash<std::string>{}(path);
     if (textures.find(hash) != textures.end()) {
@@ -22,7 +22,7 @@ GLESC::Render::Texture& TextureFactory::loadTexture(const std::string& path) {
     auto [newIt, inserted] = textures.emplace(std::piecewise_construct,
                                               std::forward_as_tuple(hash),
                                               std::forward_as_tuple());
-    newIt->second.load(path);
+    newIt->second.load(path, flipTexture);
     return newIt->second;
 }
 
@@ -42,7 +42,7 @@ Cubemap& TextureFactory::loadCubemap(const std::array<std::string, 6>& facePaths
                                               std::forward_as_tuple(hash),
                                               std::forward_as_tuple());
     for (size_t i = 0; i < facePaths.size(); ++i) {
-        newIt->second.cubemapTextures[i].load(facePaths[i]);
+        newIt->second.getCubemapTextures()[i].load(facePaths[i], false);
     }
     return newIt->second;
 }

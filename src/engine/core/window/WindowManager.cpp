@@ -36,7 +36,7 @@ WindowManager::WindowManager() {
     // Enable mouse relative mode
     // This will make the mouse cursor invisible and locked in the middle of the screen
     //setMouseRelative(true);
-    setIcon("textures/TinyLogo.bmp");
+    setIcon("images/icons/TinyLogo.bmp");
 }
 
 
@@ -99,12 +99,10 @@ Vec2I WindowManager::getPosition() {
 void WindowManager::setIcon(const std::string &iconFile) {
     std::string iconPath = std::string(ASSETS_PATH) + "/" + iconFile;
     Logger::get().info("Loading icon: " + iconPath);
-    
+
     SDL_Surface *iconSurface = SDL_LoadBMP(iconPath.c_str());
-    if (!iconSurface) {
-        throw WindowException("Unable to load icon: " + iconPath + ". Error: " + SDL_GetError());
-    }
-    
+    D_ASSERT_NOT_NULL(iconSurface, "Unable to load icon: " + std::string(SDL_GetError()));
+
     SDLCall(SDL_SetWindowIcon(window, iconSurface));
     SDLCall(SDL_FreeSurface(iconSurface));
 }
@@ -152,6 +150,7 @@ uint32_t WindowManager::getRaisedFlags() {
 
 void WindowManager::initSDL() {
     int result = SDL_Init(SDL_INIT_EVERYTHING);
+    postSDLCall;
     D_ASSERT_EQUAL(result, 0, "Unable to initialize SDL: " + std::string(SDL_GetError()));
     Logger::get().success("SDL Initialized!");
 }
@@ -161,6 +160,7 @@ SDL_Window *WindowManager::createWindow(const char *title) {
     uint32_t flags = getRaisedFlags();
     SDL_Window *tempWindow = SDL_CreateWindow(title, GLESC_WINDOW_X, GLESC_WINDOW_Y,
                                               GLESC_WINDOW_WIDTH, GLESC_WINDOW_HEIGHT, flags);
+    postSDLCall;
     D_ASSERT_NOT_NULLPTR(tempWindow, "Unable to create windowManager: " + std::string(SDL_GetError()));
     Logger::get().success("Window created!");
     SDLCall(SDL_SetWindowMinimumSize(tempWindow, windowMinWidth, windowMinHeight));

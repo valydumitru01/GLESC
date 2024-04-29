@@ -64,7 +64,9 @@ set(DEBUG_FLAGS
         "-g"
         # This disables debugging for graphics API, avoiding
         # the overhead
-        "-DDEBUG_GAPI"
+        "-DNDEBUG_GAPI"
+        # This disables debugging for ECS, avoiding the overhead
+        "-DNDEBUG_ECS"
         # Produce debugging information for gdb
         "-ggdb"
         # Verbose output, enabled only for specific problems
@@ -87,7 +89,7 @@ set(RELEASE_FLAGS
         "-DNLOGGING"
         # This disables debugging for graphics API, avoiding
         # the overhead
-        "-DDEBUG_GAPI"
+        "-DNDEBUG_GAPI"
         # Link time optimization, optimizes code at link time
         # but increases compilation time
         # "-flto"

@@ -32,10 +32,10 @@ namespace GLESC::Render {
         /**
          * @brief Updates the frustum planes based on new view and projection matrices.
          *
-         * @param PVMatrix The combined view-projection matrix.
+         * @param VPMat The combined view-projection matrix.
          */
-        void update(const Mat4F& PVMatrix) {
-            extractPlanes(PVMatrix);
+        void update(const VP& VPMat) {
+            extractPlanes(VPMat);
         }
 
         /**
