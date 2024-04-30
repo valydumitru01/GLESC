@@ -17,44 +17,82 @@ namespace GLESC::Render {
         /**
          * @brief Default constructor.
          */
-        GlobalSun() : transform({0,0,0}, {0,90,0}, {1,1,1}) {}
+        GlobalSun() = default;
 
-        GlobalSun(float intensity, const ColorRgb& color, const Transform::Transform& transform){
-            setIntensity(intensity);
-            setColor(color);
-            setTransform(transform);
+        GlobalSun(float intensity, const ColorRgb& color, const Math::Direction& direction) :
+            intensity(intensity), color(color), direction(direction) {
         }
 
+        float& getModifiableIntensity() {
+            return intensity.getModifiable();
+        }
+
+        ColorRgb& getModifiableColor() {
+            return color;
+        }
+
+        Math::Direction& getModifiableDirection() {
+            return direction;
+        }
+
+
         float getIntensity() const {
-            return intensity;
+            return intensity.get();
         }
 
         ColorRgb getColor() const {
             return color;
         }
 
-        void setTransform(const Transform::Transform& transform) {
-            this->transform = transform;
+        Math::Direction getDirection() const {
+            return direction;
         }
 
-        Transform::Transform getTransform() const {
-            return transform;
-        }
 
         void setIntensity(float intensity) {
             D_ASSERT_LESS_OR_EQUAL(intensity, 1.0f, "Intensity must be less or equal to 1.0f");
             D_ASSERT_GREATER_OR_EQUAL(intensity, 0.0f, "Intensity must be greater or equal to 0.0f");
-            this->intensity = intensity;
+            this->intensity = Intensity(intensity);
+            setDirty();
         }
 
         void setColor(const ColorRgb& color) {
             this->color = color;
+            setDirty();
+        }
+
+        void setDirection(const Math::Direction& direction) {
+            this->direction = direction;
+            setDirty();
+        }
+
+        void setDirty() const {
+            dirty = true;
+        }
+
+        void setClean() const {
+            dirty = false;
         }
 
 
+        bool& isDirty() const {
+            return dirty;
+        }
+
+        std::string toString() const {
+            return "Intensity: " + std::to_string(intensity.get()) +
+                " Color: " + color.toString() +
+                " Direction: " + direction.toString();
+        }
+
     private:
-        float intensity{1.0f};
+        Intensity<float> intensity{1.0f};
+        Math::Direction direction{0.f, -1.0f, 0.f};
         ColorRgb color{255, 255, 255};
-        Transform::Transform transform;
+        /**
+         * @brief Dirty flag for the sun
+         * @details If the sun is dirty, it will be updated in the shader
+         */
+        mutable bool dirty = true;
     }; // class GlobalSun
 }

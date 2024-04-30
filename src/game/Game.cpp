@@ -18,12 +18,20 @@
 #include "engine/ecs/frontend/component/TransformComponent.h"
 #include "engine/ecs/frontend/component/InputComponent.h"
 #include "engine/ecs/frontend/component/LightComponent.h"
+#include "engine/ecs/frontend/component/SunComponent.h"
 #include "engine/subsystems/renderer/mesh/MeshFactory.h"
 
 using namespace GLESC;
 static std::vector<ECS::Entity> entities;
 
 void Game::init() {
+
+    ECS::Entity sun = entityFactory.createEntity("sun")
+                                   .addComponent(ECS::TransformComponent())
+                                   .addComponent(ECS::SunComponent());
+    sun.getComponent<ECS::TransformComponent>().transform.setPosition(
+        Transform::Position(0, 10, 0));
+
     int numOfEntities = 20;
     for (int i = 0; i < numOfEntities; i++) {
         ECS::Entity entity = entityFactory.createEntity("entity" + std::to_string(i))

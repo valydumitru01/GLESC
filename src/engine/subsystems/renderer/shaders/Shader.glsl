@@ -39,6 +39,7 @@ in vec3 FragPosViewSpace;
 // --------------- Light Data ---------------
 // ------------------------------------------
 #define MAX_LIGHTS 50
+#define MAX_SUNS 10
 
 struct AmbientLight {
     vec3 color;
@@ -51,6 +52,13 @@ struct GlobalSun {
     vec3 direction;
     sampler2D shadowMap;
     mat4 viewProjMatrix;
+};
+
+struct GlobalSuns {
+    vec3 color[MAX_SUNS];
+    float intensity[MAX_SUNS];
+    vec3 direction[MAX_SUNS];
+    uint count;
 };
 
 struct LightSpots {
@@ -89,7 +97,7 @@ struct Material {
 // ==========================================
 // ---------------- Unforms -----------------
 // ------------------------------------------
-uniform GlobalSun uGlobalSunLight;
+uniform GlobalSuns uGlobalSuns;
 uniform AmbientLight uAmbient;
 uniform LightSpots uLights;
 uniform Material uMaterial;
@@ -115,6 +123,25 @@ void main() {
 
     vec3 totalDiffuse = vec3(0.0);
     vec3 totalSpecular = vec3(0.0);
+
+    for (uint i = 0; i < uGlobalSuns.count; ++i) {
+        vec3 sunDir = -uGlobalSuns.direction[i];
+        float sunIntensity = uGlobalSuns.intensity[i];
+        vec3 sunColor = uGlobalSuns.color[i];
+
+        // Diffuse
+        float diff = max(dot(norm, sunDir), 0.0);
+        vec3 diffuse = diff * sunColor * sunIntensity;
+
+        totalDiffuse += diffuse;
+
+        // Specular
+        float materialShininessMapped = uMaterial.shininess * 256.0;
+        vec3 reflectDir = reflect(-sunDir, norm);
+        float spec = pow(max(dot(viewDir, reflectDir), 0.0), materialShininessMapped);
+        vec3 specular = uMaterial.specularIntensity * spec * uMaterial.specularColor * sunIntensity;
+        totalSpecular += specular;
+    }
 
     for (uint i = 0; i < uLights.count; ++i) {
         vec3 lightPosViewSpace =  uLights.posInViewSpace[i];

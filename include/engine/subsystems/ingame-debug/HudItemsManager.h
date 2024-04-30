@@ -14,13 +14,17 @@
 
 
 enum class HudItemType {
-    LIGHT
+    LIGHT_SPOT,
+    SUN
 };
 
 [[nodiscard]] inline std::string itemToString(HudItemType type) {
     switch (type) {
-    case HudItemType::LIGHT:
+    case HudItemType::LIGHT_SPOT:
         return "LIGHT";
+    case HudItemType::SUN:
+        return "SUN";
+
     }
     return "UNKNOWN";
 }

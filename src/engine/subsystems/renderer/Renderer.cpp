@@ -24,7 +24,7 @@ View makeDefaultView() {
 
 Renderer::Renderer(WindowManager& windowManager) :
     windowManager(windowManager), shader(GAPI::Shader("Shader.glsl")),
-    lightSpots(LightSpots()), globalSun(GlobalSun()), globalAmbienLight(GlobalAmbienLight()),
+    lightSpots(LightSpots()), globalSuns(GlobalSuns()), globalAmbienLight(GlobalAmbienLight()),
     projection(makeDefaultProjection()), view(makeDefaultView()),
     cameraTransform(Transform::Transform(Position(0.0f, 0.0f, 3.0f),
                                          Transform::Rotation(0.0f, 0.0f, 0.0f),
@@ -107,7 +107,7 @@ void Renderer::renderMeshes(double timeOfFrame) {
         shader.bind(); // Activate the shader program before transform, material and lighting
         applyTransform(modelView, modelViewProj, normalMat);
         applyMaterial(material);
-        applyLighting(lightSpots, globalSun, globalAmbienLight, timeOfFrame);
+        applyLighting(lightSpots, globalSuns, globalAmbienLight, timeOfFrame);
         renderMesh(mesh);
     }
 
@@ -115,9 +115,25 @@ void Renderer::renderMeshes(double timeOfFrame) {
     skybox.draw(view, projMat);
 }
 
-void Renderer::applyLighting(const LightSpots& lightSpotsParam, const GlobalSun& sun,
+
+void Renderer::applyLighting(const LightSpots& lightSpotsParam, const GlobalSuns& suns,
                              const GlobalAmbienLight& ambientLight, double timeOfFrame) const {
-    // Apply lighting
+
+    // Apply global suns
+    size_t sunCount = suns.getSuns().size();
+    shader.setUniform("uGlobalSuns.count", sunCount);
+    for (size_t i = 0; i < sunCount; i++) {
+        const GlobalSunData& sunData = suns.getSuns()[i];
+        std::string iStr = std::to_string(i);
+
+        if (!sunData.sun->isDirty()) continue;
+        shader.setUniform("uGlobalSuns.color["+iStr+"]", sunData.sun->getColor());
+        shader.setUniform("uGlobalSuns.intensity["+iStr+"]", sunData.sun->getIntensity());
+        shader.setUniform("uGlobalSuns.direction["+iStr+"]", sunData.sun->getDirection());
+        sunData.sun->setClean();
+    }
+
+    // Apply spot lights
     size_t lightCount = static_cast<int>(lightSpotsParam.getLights().size());
     shader.setUniform("uLights.count", lightCount);
     for (size_t i = 0; i < lightCount; i++) {
@@ -248,4 +264,8 @@ void Renderer::addData(const Render::Material& material,
 
 void Renderer::addLight(const LightSpot& light, const Transform::Transform& transform) {
     lightSpots.addLight(light, transform);
+}
+
+void Renderer::addSun(const GlobalSun& sun, const Transform::Transform& transform) {
+    globalSuns.addSun(sun, transform);
 }

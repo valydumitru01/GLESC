@@ -26,7 +26,7 @@ namespace GLESC::ECS {
             auto& transform = getComponent<TransformComponent>(entity);
             renderer.addLight(light.light, transform.transform);
 
-            HudItemsManager::addItem(HudItemType::LIGHT, transform.transform.getPosition());
+            HudItemsManager::addItem(HudItemType::LIGHT_SPOT, transform.transform.getPosition());
         }
     }
 } // namespace GLESC::ECS

@@ -34,6 +34,9 @@ set(MAIN_LIBS
     # This is the image component of the SDL library
     SDL2_image
 
+    # The assimp library, used to load 3D models
+    assimp
+
     # This is the glew library, OpenGL Extension Wrangler,
     # used to load OpenGL functions
     glew32s

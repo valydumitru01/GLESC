@@ -41,10 +41,6 @@ W
 'src/engine/ecs/systems/CameraSystem.cpp,5\a\5a6d8e5cf6473a464d43587adf5a5d79508c2520
 _
 /src/engine/ecs/backend/entity/EntityManager.cpp,2\b\2bd1f1606331b1b72ba288e702f5ea3cf447a9d2
-m
-=src/engine/core/low-level-renderer/texture/TextureManager.cpp,4\d\4df485364b5dab1de26a5228c39f00d634b1930e
-o
-?include/engine/core/low-level-renderer/texture/TextureManager.h,b\4\b42e51a6e7090d4f8cd7dc9daeb756d89f9a77bf
 ]
 -include/engine/subsystems/renderer/Renderer.h,0\9\097ce921e22a23623497de371caf756c423d0499
 i

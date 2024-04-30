@@ -27,6 +27,7 @@
 #include "engine/subsystems/renderer/math/Frustum.h"
 #include "lighting/GlobalAmbienLight.h"
 #include "lighting/GlobalSun.h"
+#include "lighting/GlobalSuns.h"
 #include "texture/Cubemap.h"
 
 namespace GLESC::Render {
@@ -82,6 +83,7 @@ namespace GLESC::Render {
 
         void addLight(const LightSpot& light, const Transform::Transform& transform);
 
+        void addSun(const GlobalSun& sun, const Transform::Transform& transform);
         void renderMeshes(double timeOfFrame);
 
         void swapBuffers() const;
@@ -90,8 +92,8 @@ namespace GLESC::Render {
         void applyTransform(const MV& modelView, const MVP& mvp, const NormalMat& normalMat) const;
         void transformMeshCPU(ColorMesh& mesh, const Model& modelMat);
 
-        void applyLighting(const LightSpots& lightSpotsParam, const GlobalSun& sun,
-                           const GlobalAmbienLight& ambientLight, double timeOfFrame) const;
+        void applyLighting(const LightSpots& lightSpotsParam, const GlobalSuns& suns,
+                             const GlobalAmbienLight& ambientLight, double timeOfFrame) const;
         void applyMaterial(const Material& material) const;
         void cacheMesh(const ColorMesh& mesh,
                        AdaptedMesh adaptedMesh);
@@ -117,7 +119,7 @@ namespace GLESC::Render {
         DynamicMeshes dynamicMeshes;
 
         LightSpots lightSpots;
-        GlobalSun globalSun;
+        GlobalSuns globalSuns;
         GlobalAmbienLight globalAmbienLight;
 
         Counter meshRenderCounter;

@@ -41,14 +41,10 @@ W
 'include/engine/core/debugger/Debugger.h,d\0\d0c0a520391af322d0292a638913289e86dfcd33
 `
 0include/engine/core/math/debugger/MathDebugger.h,6\2\6290e267af2680f6decff9eb6621017485d38e27
-m
-=src/engine/core/low-level-renderer/texture/TextureManager.cpp,4\d\4df485364b5dab1de26a5228c39f00d634b1930e
 l
 <include/engine/core/low-level-renderer/asserts/GAPIAsserts.h,b\3\b395799a207004d63ea22ce19d5d9d1efc2e88e1
 C
 src/engine/main.cpp,7\d\7d330072c74588e15cb1c12eb3d6fa72edca2ca2
-o
-?include/engine/core/low-level-renderer/texture/TextureManager.h,b\4\b42e51a6e7090d4f8cd7dc9daeb756d89f9a77bf
 ƒ
 Sinclude/engine/core/low-level-renderer/graphic-api/concrete-apis/opengl/OpenGLAPI.h,e\d\ed487cad1cbe3d3541302187160579744d9b05a5
 v
