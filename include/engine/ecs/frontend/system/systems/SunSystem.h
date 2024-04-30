@@ -14,7 +14,7 @@
 namespace GLESC::ECS {
     class SunSystem : public System {
     public:
-        explicit SunSystem(Render::Renderer& renderer, ECSCoordinator& ecs);
+        explicit SunSystem(ECSCoordinator& ecs,Render::Renderer& renderer);
         void update() override;
 
     private:

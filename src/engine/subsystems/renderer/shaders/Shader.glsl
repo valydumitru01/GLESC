@@ -1,4 +1,3 @@
-
 //██████████████████████████████████████████
 //██████    ██     █████  ██████   █████████
 //██████ █████ ███ ███ ███ ███ █████████████
@@ -18,8 +17,6 @@ out vec4 FragColor;
 // ==========================================
 
 
-
-
 // ==========================================
 // ------------- Input variables ------------
 // ------------------------------------------
@@ -31,8 +28,6 @@ in vec2 VertexTexCoord;
 in vec3 NormalViewSpace;
 in vec3 FragPosViewSpace;
 // ==========================================
-
-
 
 
 // ==========================================
@@ -76,8 +71,6 @@ struct LightContribution {
 // ==========================================
 
 
-
-
 // ==========================================
 // ------------ Material Data ---------------
 // ------------------------------------------
@@ -90,8 +83,6 @@ struct Material {
     float shininess;
 };
 // ==========================================
-
-
 
 
 // ==========================================
@@ -108,7 +99,30 @@ uniform sampler2D Texture1;
 #endif
 // ==========================================
 
+float calculateAttenuation(float distance, float radius) {
+    // Formula obtained from
+    // https://gamedev.stackexchange.com/questions/56897/glsl-light-attenuation-color-and-intensity-formula
+    float minLight = 0.01;
+    float a = 0.1;
+    float b = 1.0 / (radius*radius * minLight);
+    return 1.0 / (1.0 + a*distance + b*distance*distance);
+}
 
+vec3 calculateSpecular(vec3 lightDir, vec3 norm, vec3 viewDir, float shininess,
+                       vec3 specularColor, float materialSpecularIntensity, float att, float intensity) {
+    if (shininess < 0.01) {
+        return vec3(0.0); // No specular highlight if shininess is close to zero
+    }
+    float materialShininessMapped = shininess * 256.0;
+    vec3 reflectDir = reflect(-lightDir, norm);
+    float spec = pow(max(dot(viewDir, reflectDir), 0.0), materialShininessMapped);
+    return intensity * spec * specularColor * materialSpecularIntensity;
+}
+
+vec3 calculateDiffuse(vec3 lightDir, vec3 norm, vec3 color, float intensity, float att) {
+    float diff = max(dot(norm, lightDir), 0.0);
+    return diff * color * intensity * att;
+}
 
 void main() {
     vec3 viewDir = normalize(-FragPosViewSpace);
@@ -130,17 +144,11 @@ void main() {
         vec3 sunColor = uGlobalSuns.color[i];
 
         // Diffuse
-        float diff = max(dot(norm, sunDir), 0.0);
-        vec3 diffuse = diff * sunColor * sunIntensity;
-
-        totalDiffuse += diffuse;
+        totalDiffuse += calculateDiffuse(sunDir, norm, sunColor, sunIntensity, 1.0);
 
         // Specular
-        float materialShininessMapped = uMaterial.shininess * 256.0;
-        vec3 reflectDir = reflect(-sunDir, norm);
-        float spec = pow(max(dot(viewDir, reflectDir), 0.0), materialShininessMapped);
-        vec3 specular = uMaterial.specularIntensity * spec * uMaterial.specularColor * sunIntensity;
-        totalSpecular += specular;
+        totalSpecular +=0.1* calculateSpecular(sunDir, norm, viewDir, uMaterial.shininess,
+                                           uMaterial.specularColor, uMaterial.specularIntensity, 1.0, sunIntensity);
     }
 
     for (uint i = 0; i < uLights.count; ++i) {
@@ -149,42 +157,31 @@ void main() {
         vec3 color = uLights.color[i];
         float radius = uLights.radius[i];
 
-        vec3 fragmentLightVec = lightPosViewSpace - FragPosViewSpace;
-        float distanceToFrag = length(fragmentLightVec);
+        vec3 lightDir = lightPosViewSpace - FragPosViewSpace;
+        float distanceToFrag = length(lightDir);
+        vec3 lightDirNormalized = normalize(lightDir);
 
         // Skip if distance is greater than the radius of the light.
         if (distanceToFrag > uLights.radius[i]) continue;
 
-        // Formula obtained from
-        // https://gamedev.stackexchange.com/questions/56897/glsl-light-attenuation-color-and-intensity-formula
-        float minLight = 0.01;
-        float a = 0.1;
-        float b = 1.0 / (radius*radius * minLight);
-        float att = 1.0 / (1.0 + a*distanceToFrag + b*distanceToFrag*distanceToFrag);
 
+        float att = calculateAttenuation(distanceToFrag, radius);
 
         // Diffuse
-        vec3 lightDir = normalize(fragmentLightVec);
-        float diff = max(dot(norm, lightDir), 0.0);
-        vec3 diffuse = diff * color * intensity * att;
-
-        totalDiffuse += diffuse;
+        totalDiffuse += calculateDiffuse(lightDirNormalized, norm, color, intensity, att);
 
         // Specular
-        float materialShininessMapped = uMaterial.shininess * 256.0;
-        vec3 reflectDir = reflect(-lightDir, norm);
-        float spec = pow(max(dot(viewDir, reflectDir), 0.0), materialShininessMapped);
-        vec3 specular = uMaterial.specularIntensity * spec * uMaterial.specularColor * intensity;
-        totalSpecular += specular;
+        totalSpecular += calculateSpecular(lightDirNormalized, norm, viewDir, uMaterial.shininess,
+                                           uMaterial.specularColor, uMaterial.specularIntensity, att, intensity);
+
+
     }
+
 
     vec3 finalColor = (ambient + totalDiffuse + totalSpecular) * baseColor;
 
     FragColor = vec4(finalColor, 1.0);
 }
-
-
-
 
 
 //██████████████████████████████████████████
@@ -247,7 +244,7 @@ void main() {
     #ifdef USE_COLOR
     VertexColor = aColor;// Pass the color to the fragment shader.
     #else
-    VertexTexCoord = aTexCoord; // Pass the texture coordinate to the fragment shader.
+    VertexTexCoord = aTexCoord;// Pass the texture coordinate to the fragment shader.
     #endif
     NormalViewSpace = uNormalMat * aNormal;
     FragPosViewSpace = vec3(uMV * vec4(aPos, 1.0));

@@ -26,6 +26,7 @@
 #include "engine/ecs/frontend/system/systems/InputSystem.h"
 #include "engine/ecs/frontend/system/systems/TransformSystem.h"
 #include "engine/ecs/frontend/system/systems/DebugInfoSystem.h"
+#include "engine/ecs/frontend/system/systems/SunSystem.h"
 using namespace GLESC;
 
 Engine::Engine(FPSManager& fpsManager) :
@@ -94,6 +95,7 @@ std::vector<std::unique_ptr<ECS::System>> Engine::createSystems() {
     systems.push_back(std::make_unique<ECS::TransformSystem>(ecs));
     systems.push_back(std::make_unique<ECS::LightSystem>(ecs, renderer));
     systems.push_back(std::make_unique<ECS::DebugInfoSystem>(ecs, renderer));
+    systems.push_back(std::make_unique<ECS::SunSystem>(ecs, renderer));
     return systems;
 }
 

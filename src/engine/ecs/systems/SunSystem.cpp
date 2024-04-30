@@ -14,7 +14,7 @@
 #include "engine/subsystems/ingame-debug/HudItemsManager.h"
 
 namespace GLESC::ECS {
-    SunSystem::SunSystem(Render::Renderer& renderer, ECSCoordinator& ecs) :
+    SunSystem::SunSystem(ECSCoordinator& ecs,Render::Renderer& renderer) :
             System(ecs, "SunSystem"), renderer(renderer) {
         addComponentRequirement<SunComponent>();
         addComponentRequirement<TransformComponent>();

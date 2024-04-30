@@ -125,11 +125,14 @@ void Renderer::applyLighting(const LightSpots& lightSpotsParam, const GlobalSuns
     for (size_t i = 0; i < sunCount; i++) {
         const GlobalSunData& sunData = suns.getSuns()[i];
         std::string iStr = std::to_string(i);
+        Vec3F sunColor = sunData.sun->getColor().getRGBVec3FNormalized();
+        float sunIntensity = sunData.sun->getIntensity();
+        Math::Direction sunDirection = sunData.sun->getDirection();
 
         if (!sunData.sun->isDirty()) continue;
-        shader.setUniform("uGlobalSuns.color["+iStr+"]", sunData.sun->getColor());
-        shader.setUniform("uGlobalSuns.intensity["+iStr+"]", sunData.sun->getIntensity());
-        shader.setUniform("uGlobalSuns.direction["+iStr+"]", sunData.sun->getDirection());
+        shader.setUniform("uGlobalSuns.color["+iStr+"]", sunColor);
+        shader.setUniform("uGlobalSuns.intensity["+iStr+"]", sunIntensity);
+        shader.setUniform("uGlobalSuns.direction["+iStr+"]", sunDirection);
         sunData.sun->setClean();
     }
 

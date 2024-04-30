@@ -57,6 +57,7 @@ namespace GLESC::Render {
             if (minX == maxX || minY == maxY || minZ == maxZ) {
                 return;
             }
+
             buildBoundingVolume(maxX, minX, maxY, minY, maxZ, minZ);
         }
 
