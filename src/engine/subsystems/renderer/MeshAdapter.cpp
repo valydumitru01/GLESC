@@ -35,37 +35,11 @@ namespace GLESC::Render {
         size_t bufferCount = mesh.getVertices().size();
         size_t vertexBytes = sizeof(ColorVertex);
         GAPI::Enums::BufferUsages bufferUsage = getBufferUsage(mesh.getRenderType());
-
-        std::vector<float> adaptedData;
-        // TODO: This is ugly and inefficient, must be fixed
-        //    The solution is to have already the data inside the vertices in the correct format and order
-        //    For some reason if you try to pass mesh.getVertices().data() directly to the buffer it will not work
-        //    as the data gets sent to the GPU inverted (first noramls, then colors and then positions)
-        for (const ColorVertex& vertex : mesh.getVertices()) {
-            adaptedData.push_back(vertex.getPosition().getX());
-            adaptedData.push_back(vertex.getPosition().getY());
-            adaptedData.push_back(vertex.getPosition().getZ());
-
-            adaptedData.push_back(vertex.getColor().getR());
-            adaptedData.push_back(vertex.getColor().getG());
-            adaptedData.push_back(vertex.getColor().getB());
-            adaptedData.push_back(vertex.getColor().getA());
-
-            adaptedData.push_back(vertex.getNormal().getX());
-            adaptedData.push_back(vertex.getNormal().getY());
-            adaptedData.push_back(vertex.getNormal().getZ());
-        }
-        auto adaptedDataPtr = adaptedData.data();
-        // Print all the bytes between the buffer data of the pointer and the new adapted one to see the difference
-        printRawBufferData(static_cast<const float*>(bufferData + vertexBytes)
-                           , bufferCount * vertexBytes);
-        printRawBufferData(adaptedData.data(), bufferCount * vertexBytes);
-
         // This is needed to bind the vbo and ibo to the vao, so when we call draw we can draw the mesh
         adaptedMesh.vertexArray->bind();
 
         adaptedMesh.vertexBuffer = std::make_unique<GAPI::VertexBuffer>(
-            adaptedData.data(),
+            bufferData,
             bufferCount,
             vertexBytes,
             bufferUsage

@@ -41,6 +41,7 @@ namespace GLESC::Render {
 
     class ColorVertex : public BaseVertex {
     public:
+        [[nodisacrd]] static const std::vector<GAPI::Enums::Types>& getLayout() { return layout; }
         ColorVertex(const Position& position, const Normal& normal, const ColorRgba& color)
             : BaseVertex(position, normal), color(color) {
         }
@@ -49,18 +50,19 @@ namespace GLESC::Render {
             return BaseVertex::operator==(other) && color == other.color;
         }
 
-        [[nodiscard]] const ColorRgba& getColor() const { return color; }
+        [[nodiscard]] const ColorRgbaNorm& getColor() const { return color; }
         void setColor(const ColorRgba& colorParam) { color = colorParam; }
         [[nodiscard]] std::string toString() const {
             return BaseVertex::toString() + " Color: " + color.toString();
         }
     private:
-        ColorRgba color;
+        ColorRgbaNorm color;
         static std::vector<GAPI::Enums::Types> layout;
     };
 
     class TextureVertex : public BaseVertex {
     public:
+        [[nodisacrd]] static const std::vector<GAPI::Enums::Types>& getLayout() { return layout; }
         TextureVertex(Position position, Normal normal, UV textureCoordinate)
             : BaseVertex(position, normal), textureCoordinate(textureCoordinate) {
         }
@@ -93,7 +95,7 @@ namespace std {
     struct hash<GLESC::Render::ColorVertex> {
         size_t operator()(const GLESC::Render::ColorVertex& vertex) const noexcept {
             GLESC::Hasher::Hash hash = std::hash<GLESC::Render::BaseVertex>()(vertex);
-            GLESC::Hasher::hashCombine(hash, std::hash<GLESC::Render::ColorRgba>()(vertex.getColor()));
+            GLESC::Hasher::hashCombine(hash, std::hash<GLESC::Render::ColorRgbaNorm>()(vertex.getColor()));
             return hash;
         }
     };

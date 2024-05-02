@@ -15,11 +15,11 @@
 #include "engine/subsystems/renderer/RendererTypes.h"
 #include "engine/subsystems/renderer/mesh/Mesh.h"
 #define CHUNK_SIZE 16
-#define MAP_SIZE_IN_CHUNKS 1
+#define MAP_SIZE_IN_CHUNKS 5
 #define CHUNK_HEIGHT 20
 #define DIRT_HEIGHT 3
 
-#define SURFACE_NOISE_SCALE 0.05  // Lower scale for smoother large features
+#define SURFACE_NOISE_SCALE 0.01  // Lower scale for smoother large features
 #define CAVE_START_HEIGHT 5        // Height from which caves start
 #define CAVE_NOISE_SCALE 0.1       // Scale for cave generation
 
@@ -83,7 +83,11 @@ private:
                     wy * SURFACE_NOISE_SCALE, 8) * CHUNK_HEIGHT;
                 // Fill the surface layer with the appropriate tile type
                 chunk[x][static_cast<int>(surfaceHeight)][z] = Tile{getSurfaceTileType(surfaceHeight)};
-
+                // Fill the rest of the column with air
+                for (int y = static_cast<int>(surfaceHeight) + 1; y < CHUNK_HEIGHT; y++) {
+                    chunk[x][y][z] = Tile{TileType::AIR};
+                }
+        /*
                 // Fill up to surface height with potentially cave-filled terrain
                 for (int y = surfaceHeight-1; y < 0; y--) {
                     double caveNoise = noiseGenerator.octave3D_01(
@@ -104,12 +108,12 @@ private:
                     } else {
                         chunk[x][y][z] = Tile{TileType::AIR}; // Create caves
                     }
-                }
+                }*/
 
                 // Fill the remaining heights with air
-                for (int y = static_cast<int>(surfaceHeight + 1); y < CHUNK_HEIGHT; y++) {
+                /*for (int y = static_cast<int>(surfaceHeight + 1); y < CHUNK_HEIGHT; y++) {
                     chunk[x][y][z] = Tile{TileType::AIR};
-                }
+                }*/
 
             }
         }
@@ -164,17 +168,17 @@ private:
     static GLESC::Render::ColorRgb getColorForTileType(TileType type) {
         switch (type) {
         case TileType::GRASS:
-            return {0.15, 0.8, 0.1}; // Green
+            return {255*0.15, 255*0.8, 255*0.1}; // Green
         case TileType::WATER:
-            return {0.1, 0.1, 0.8}; // Blue
+            return {255*0.1, 255*0.1, 255*0.8}; // Blue
         case TileType::SAND:
-            return {1, 0.9, 0.2}; // Yellow
+            return {255*1, 255*0.9, 255*0.2}; // Yellow
         case TileType::ROCK:
-            return {0.5, 0.5, 0.5}; // Gray
+            return {255*0.5, 255*0.5, 255*0.5}; // Gray
         case TileType::DIRT:
-            return {0.6, 0.3, 0.1}; // Brown
+            return {255*0.6, 255*0.3, 255*0.1}; // Brown
         default: // Pink for debugging
-            return {1, 0, 1};
+            return {255*1, 255*0, 255*1};
 
         }
 
@@ -184,21 +188,20 @@ private:
                         const GLESC::Render::ColorRgb& color, const GLESC::Render::Position& p1,
                         const GLESC::Render::Position& p2, const GLESC::Render::Position& p3,
                         const GLESC::Render::Position& p4, bool isTopFace) {
-        GLESC::Render::Normal faceNormal = (p1.normalize() + p2.normalize() + p3.normalize() + p4.normalize()) / 4.0f;
         if (isTopFace) {
             mesh.addQuad(
-                GLESC::Render::ColorMesh::Vertex(p1, faceNormal, color),
-                GLESC::Render::ColorMesh::Vertex(p2, faceNormal, color),
-                GLESC::Render::ColorMesh::Vertex(p3, faceNormal, color),
-                GLESC::Render::ColorMesh::Vertex(p4, faceNormal, color)
+                {p1, color},
+                {p2, color},
+                {p3, color},
+                {p4, color}
             );
         }
         else {
             mesh.addQuad(
-                GLESC::Render::ColorMesh::Vertex(p4, faceNormal, color),
-                GLESC::Render::ColorMesh::Vertex(p3, faceNormal, color),
-                GLESC::Render::ColorMesh::Vertex(p2, faceNormal, color),
-                GLESC::Render::ColorMesh::Vertex(p1, faceNormal, color)
+                {p4, color},
+                {p3, color},
+                {p2, color},
+                {p1, color}
             );
         }
     }

@@ -197,12 +197,12 @@ void main() {
 // ----------- Vertex attributes ------------
 // ------------------------------------------
 layout (location = 0) in vec3 aPos;
+layout (location = 1) in vec3 aNormal;
 #ifdef USE_COLOR
-layout (location = 1) in vec4 aColor;
+layout (location = 2) in vec4 aColor;
 #else
-layout (location = 1) in vec2 aTexCoord;
+layout (location = 2) in vec2 aTexCoord;
 #endif
-layout (location = 2) in vec3 aNormal;
 //#ifdef USE_INSTANCING
 //layout (location = 3) in vec3 instancePos;
 //#endif

@@ -28,11 +28,11 @@ namespace GLESC::Render {
      * @warning mesh does NOT need to be instantiated with the position attribute, as it is always present, Doing so
      * might lead to unexpected behavior. Position is inside the topology and is always present.
      */
-    template<typename VertexT>
+    template <typename VertexT>
     class Mesh {
     public:
         S_ASSERT_TRUE((std::is_base_of_v<ColorVertex, VertexT> ||std::is_base_of_v<TextureVertex, VertexT>),
-            "Vertex must be a ColorVertex or TextureVertex");
+                      "Vertex must be a ColorVertex or TextureVertex");
 
         using Index = unsigned int;
         using Vertex = VertexT;
@@ -61,12 +61,12 @@ namespace GLESC::Render {
         }
 
         [[nodiscard]] const std::vector<Vertex>& getVertices() const { return vertices; }
-        [[nodiscard]] std::vector<Vertex> &getModifiableVertices() { return vertices; }
+        [[nodiscard]] std::vector<Vertex>& getModifiableVertices() { return vertices; }
         [[nodiscard]] const std::vector<Index> getIndices() const { return indices; }
         [[nodiscard]] const std::vector<GAPI::Enums::Types> getVertexLayout() const { return vertexLayout; }
         [[nodiscard]] const std::vector<Math::FaceIndices> getFaces() const { return faces; }
-        [[nodiscard]] const BoundingVolume &getBoundingVolume() const { return boundingVolume; }
-        [[nodiscard]] BoundingVolume &getBoundingVolumeMutable() { return boundingVolume; }
+        [[nodiscard]] const BoundingVolume& getBoundingVolume() const { return boundingVolume; }
+        [[nodiscard]] BoundingVolume& getBoundingVolumeMutable() { return boundingVolume; }
         [[nodiscard]] bool isDirty() const { return dirtyFlag; }
         [[nodiscard]] const RenderType& getRenderType() const { return renderType; }
         [[nodiscard]] bool isBeingBuilt() const { return isBuilding; }
@@ -74,25 +74,66 @@ namespace GLESC::Render {
         void setRenderType(RenderType renderTypeParam) { renderType = renderTypeParam; }
         void setClean() const { dirtyFlag = false; }
 
+        struct VertexColorParam {
+            VertexColorParam(const Position& positionParam, const ColorRgba& colorParam)
+                : position(positionParam), color(colorParam) {
+            }
 
+            Position position;
+            ColorRgba color;
+        };
 
-        void addTris(const Vertex &a, const Vertex &b, const Vertex &c) {
+        struct VertexTexParam {
+            VertexTexParam(const Position& positionParam, const UV& textureCoordinateParam)
+                : position(positionParam), textureCoordinate(textureCoordinateParam) {
+            }
+
+            Position position;
+            UV textureCoordinate;
+        };
+
+        void addTris(const VertexColorParam& a, const VertexColorParam& b, const VertexColorParam& c) {
             D_ASSERT_TRUE(isBuilding, "Mesh is not being built");
-            auto v1 =this->addVertex(a);
-            auto v2 =this->addVertex(b);
-            auto v3 =this->addVertex(c);
-
-            this->addTris(v1, v2, v3);
+            Normal normal = calculateNormal(a.position, b.position, c.position);
+            unsigned int v1Index;
+            unsigned int v2Index;
+            unsigned int v3Index;
+            if constexpr (std::is_same_v<Vertex, ColorVertex>) {
+                v1Index = this->addVertex({a.position, normal, a.color});
+                v2Index = this->addVertex({b.position, normal, b.color});
+                v3Index = this->addVertex({c.position, normal, c.color});
+            }
+            else {
+                v1Index = this->addVertex({a.position, normal, a.textureCoordinate});
+                v2Index = this->addVertex({b.position, normal, b.textureCoordinate});
+                v3Index = this->addVertex({c.position, normal, c.textureCoordinate});
+            }
+            this->addTris(v1Index, v2Index, v3Index);
         }
 
-        void addQuad(const Vertex &a, const Vertex &b, const Vertex &c, const Vertex &d) {
+        void addQuad(const VertexColorParam& a,
+                     const VertexColorParam& b,
+                     const VertexColorParam& c,
+                     const VertexColorParam& d) {
             D_ASSERT_TRUE(isBuilding, "Mesh is not being built");
-            auto v1 = addVertex(a);
-            auto v2 = addVertex(b);
-            auto v3 = addVertex(c);
-            auto v4 = addVertex(d);
-
-            addQuad(v1, v2, v3, v4);
+            Normal normal = calculateNormal(a.position, b.position, c.position);
+            unsigned int v1Index;
+            unsigned int v2Index;
+            unsigned int v3Index;
+            unsigned int v4Index;
+            if constexpr (std::is_same_v<Vertex, ColorVertex>) {
+                v1Index = this->addVertex({a.position, normal, a.color});
+                v2Index = this->addVertex({b.position, normal, b.color});
+                v3Index = this->addVertex({c.position, normal, c.color});
+                v4Index = this->addVertex({d.position, normal, d.color});
+            }
+            else {
+                v1Index = this->addVertex({a.position, normal, a.textureCoordinate});
+                v2Index = this->addVertex({b.position, normal, b.textureCoordinate});
+                v3Index = this->addVertex({c.position, normal, c.textureCoordinate});
+                v4Index = this->addVertex({d.position, normal, d.textureCoordinate});
+            }
+            this->addQuad(v1Index, v2Index, v3Index, v4Index);
         }
 
         void addQuad(Index index1, Index index2, Index index3, Index index4) {
@@ -102,7 +143,7 @@ namespace GLESC::Render {
         }
 
         // Modify addVertex to return the index of the vertex, whether newly added or already existing
-        Index addVertex(const Vertex &vertexParam) {
+        Index addVertex(const Vertex& vertexParam) {
             D_ASSERT_TRUE(isBuilding, "Mesh is not being built");
             // Check if the vertex already exists
             for (Index i = 0; i < vertices.size(); ++i) {
@@ -117,9 +158,9 @@ namespace GLESC::Render {
             return newIndex;
         }
 
-        void addVertices(const std::vector<Vertex> &verticesParam) {
+        void addVertices(const std::vector<Vertex>& verticesParam) {
             D_ASSERT_TRUE(isBuilding, "Mesh is not being built");
-            for (const auto &vertex : verticesParam) {
+            for (const auto& vertex : verticesParam) {
                 addVertex(vertex);
             }
         }
@@ -139,7 +180,7 @@ namespace GLESC::Render {
             this->dirtyFlag = true;
         }
 
-        [[nodiscard]] bool operator==(const Mesh &other) const {
+        [[nodiscard]] bool operator==(const Mesh& other) const {
             for (size_t i = 0; i < vertices.size(); ++i) {
                 if (vertices[i] != other.vertices[i]) {
                     return false;
@@ -176,7 +217,7 @@ namespace GLESC::Render {
             return cachedHash;
         }
 
-        void operator=(const Mesh &other) {
+        void operator=(const Mesh& other) {
             vertices = other.vertices;
             indices = other.indices;
             boundingVolume = other.boundingVolume;
@@ -187,15 +228,19 @@ namespace GLESC::Render {
         }
 
     private:
+        Normal calculateNormal(const Position& a, const Position& b, const Position& c) const {
+            return (b - a).cross(c - a).normalize();
+        }
+
         size_t calculateHash() const {
             size_t hashValue = 0;
 
             // Hash vertex data
-            for (const auto &vertex : vertices) {
+            for (const auto& vertex : vertices) {
                 Hasher::hashCombine(hashValue, std::hash<Vertex>{}(vertex));
             }
             // Hash index data
-            for (const auto &index : indices) {
+            for (const auto& index : indices) {
                 Hasher::hashCombine(hashValue, std::hash<Index>{}(index));
             }
 
@@ -219,13 +264,14 @@ namespace GLESC::Render {
          * for the vertex array object.
          */
         std::vector<GAPI::Enums::Types> vertexLayout;
+
         /**
          * @brief A flag that indicates whether the mesh is dirty.
          * @details The flag is set to true when the mesh is modified. It is used to avoid unnecessary
          * updates to the vertex array object. It is mutable because it is modified by const methods, specifically
          * after rendering the mesh, we want to set the flag to false and nothing else.
          */
-        mutable bool dirtyFlag;
+        mutable bool dirtyFlag = false;
         mutable bool isBuilding = false;
 
         mutable size_t cachedHash = 0;
@@ -239,9 +285,9 @@ namespace GLESC::Render {
 // Assuming the existence of a getAttributes() method that returns a tuple of all attributes.
 
 
-template<typename Vertex>
+template <typename Vertex>
 struct std::hash<GLESC::Render::Mesh<Vertex>> {
-    std::size_t operator()(const GLESC::Render::Mesh<Vertex> &mesh) const noexcept {
+    std::size_t operator()(const GLESC::Render::Mesh<Vertex>& mesh) const noexcept {
         return mesh.hash();
     }
 };

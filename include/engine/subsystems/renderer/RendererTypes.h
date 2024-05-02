@@ -191,6 +191,7 @@ namespace GLESC::Render {
         }
     };
 
+
     struct ColorRgba : Vec4F {
         ColorRgba() = default;
 
@@ -293,6 +294,110 @@ namespace GLESC::Render {
                 Stringer::toString(getB()) + " A:" + Stringer::toString(getA());
         }
     };
+
+
+#pragma pack(push, 1)
+    /**
+     * @brief Color in normalized values
+     * @details This cannot be constructed on its own, must be constructed from a ColorRgb
+     */
+    struct ColorRgbNorm : Vec3F {
+        ColorRgbNorm() = delete;
+
+        float getR() const {
+            return data[0];
+        }
+
+        float getG() const {
+            return data[1];
+        }
+
+        float getB() const {
+            return data[2];
+        }
+
+
+        ColorRgbNorm(const ColorRgb& colorRgb) {
+            data[0] = colorRgb.getRNormalized();
+            data[1] = colorRgb.getGNormalized();
+            data[2] = colorRgb.getBNormalized();
+        }
+
+        bool operator==(const ColorRgbNorm& other) const {
+            return Vec3F::operator==(other);
+        }
+
+        void operator=(const ColorRgb& colorRgb) {
+            data[0] = colorRgb.getRNormalized();
+            data[1] = colorRgb.getGNormalized();
+            data[2] = colorRgb.getBNormalized();
+        }
+
+        void operator=(const ColorRgbNorm& other) {
+            Vec3F::operator=(other);
+        }
+
+        [[nodiscard]] std::string toString() const {
+            return "R:" + Stringer::toString(getR()) +
+                " G:" + Stringer::toString(getG()) +
+                " B:" + Stringer::toString(getB());
+        }
+    };
+
+    /**
+     * @brief Color in normalized values
+     * @details This cannot be constructed on its own, must be constructed from a ColorRgb
+     */
+    struct ColorRgbaNorm : Vec4F {
+        ColorRgbaNorm() = delete;
+
+        float getR() const {
+            return data[0];
+        }
+
+        float getG() const {
+            return data[1];
+        }
+
+        float getB() const {
+            return data[2];
+        }
+
+        float getA() const {
+            return data[3];
+        }
+
+        ColorRgbaNorm(const ColorRgba& colorRgba) {
+            data[0] = colorRgba.getRNormalized();
+            data[1] = colorRgba.getGNormalized();
+            data[2] = colorRgba.getBNormalized();
+            data[3] = colorRgba.getANormalized();
+        }
+
+
+        bool operator==(const ColorRgbaNorm& other) const {
+            return Vec4F::operator==(other);
+        }
+
+        void operator=(const ColorRgba& colorRgba) {
+            data[0] = colorRgba.getRNormalized();
+            data[1] = colorRgba.getGNormalized();
+            data[2] = colorRgba.getBNormalized();
+            data[3] = colorRgba.getANormalized();
+        }
+
+        void operator=(const ColorRgbaNorm& other) {
+            Vec4F::operator=(other);
+        }
+
+        [[nodiscard]] std::string toString() const {
+            return "R:" + Stringer::toString(getR()) +
+                " G:" + Stringer::toString(getG()) +
+                " B:" + Stringer::toString(getB()) +
+                " A:" + Stringer::toString(getA());
+        }
+    };
+#pragma pack(pop)
 } // namespace GLESC::Render
 
 // Hash definition for rgb values
@@ -309,6 +414,29 @@ namespace std {
     struct hash<GLESC::Render::ColorRgba> {
         std::size_t operator()(const GLESC::Render::ColorRgba& color) const noexcept {
             return std::hash<Vec4F>()(color);
+        }
+    };
+
+    template <>
+    struct hash<GLESC::Render::ColorRgbNorm> {
+        std::size_t operator()(const GLESC::Render::ColorRgbNorm& color) const noexcept {
+            GLESC::Hasher::Hash seed = 0;
+            GLESC::Hasher::hashCombine(seed, color.getR());
+            GLESC::Hasher::hashCombine(seed, color.getG());
+            GLESC::Hasher::hashCombine(seed, color.getB());
+            return seed;
+        }
+    };
+
+    template <>
+    struct hash<GLESC::Render::ColorRgbaNorm> {
+        std::size_t operator()(const GLESC::Render::ColorRgbaNorm& color) const noexcept {
+            GLESC::Hasher::Hash seed = 0;
+            GLESC::Hasher::hashCombine(seed, color.getR());
+            GLESC::Hasher::hashCombine(seed, color.getG());
+            GLESC::Hasher::hashCombine(seed, color.getB());
+            GLESC::Hasher::hashCombine(seed, color.getA());
+            return seed;
         }
     };
 } // namespace std
