@@ -14,8 +14,8 @@
 #include "engine/subsystems/renderer/RendererTypes.h"
 
 namespace GLESC::Render {
-    template<typename Type>
-    void printRawBufferData(const Type *data, size_t size) {
+    template <typename Type>
+    void printRawBufferData(const Type* data, size_t size) {
         size_t typeCount = size / sizeof(Type); // Calculate how many types are in the buffer
         std::cout << "Raw Vertex Data:\n";
         std::cout << std::fixed << std::setprecision(3); // Set precision for floating-point numbers
@@ -26,14 +26,14 @@ namespace GLESC::Render {
         std::cout << std::endl;
     }
 
-    AdaptedMesh MeshAdapter::adaptMesh(const ColorMesh &mesh) {
+    AdaptedMesh MeshAdapter::adaptMesh(const ColorMesh& mesh) {
         AdaptedMesh adaptedMesh;
 
         adaptedMesh.vertexArray = std::make_unique<GAPI::VertexArray>();
 
-        const void *bufferData = mesh.getVertices().data();
+        const void* bufferData = mesh.getVertices().data();
         size_t bufferCount = mesh.getVertices().size();
-        size_t vertexBytes = sizeof(ColorMesh::Vertex);
+        size_t vertexBytes = sizeof(ColorVertex);
         GAPI::Enums::BufferUsages bufferUsage = getBufferUsage(mesh.getRenderType());
 
         std::vector<float> adaptedData;
@@ -41,20 +41,26 @@ namespace GLESC::Render {
         //    The solution is to have already the data inside the vertices in the correct format and order
         //    For some reason if you try to pass mesh.getVertices().data() directly to the buffer it will not work
         //    as the data gets sent to the GPU inverted (first noramls, then colors and then positions)
-        for (const ColorMesh::Vertex &vertex : mesh.getVertices()) {
-            adaptedData.push_back(getVertexPositionAttr(vertex).x());
-            adaptedData.push_back(getVertexPositionAttr(vertex).y());
-            adaptedData.push_back(getVertexPositionAttr(vertex).z());
+        for (const ColorVertex& vertex : mesh.getVertices()) {
+            adaptedData.push_back(vertex.getPosition().getX());
+            adaptedData.push_back(vertex.getPosition().getY());
+            adaptedData.push_back(vertex.getPosition().getZ());
 
-            adaptedData.push_back(getVertexColorAttr(vertex).x());
-            adaptedData.push_back(getVertexColorAttr(vertex).y());
-            adaptedData.push_back(getVertexColorAttr(vertex).z());
-            adaptedData.push_back(getVertexColorAttr(vertex).w());
+            adaptedData.push_back(vertex.getColor().getR());
+            adaptedData.push_back(vertex.getColor().getG());
+            adaptedData.push_back(vertex.getColor().getB());
+            adaptedData.push_back(vertex.getColor().getA());
 
-            adaptedData.push_back(getVertexNormalAttr(vertex).x());
-            adaptedData.push_back(getVertexNormalAttr(vertex).y());
-            adaptedData.push_back(getVertexNormalAttr(vertex).z());
+            adaptedData.push_back(vertex.getNormal().getX());
+            adaptedData.push_back(vertex.getNormal().getY());
+            adaptedData.push_back(vertex.getNormal().getZ());
         }
+        auto adaptedDataPtr = adaptedData.data();
+        // Print all the bytes between the buffer data of the pointer and the new adapted one to see the difference
+        printRawBufferData(static_cast<const float*>(bufferData + vertexBytes)
+                           , bufferCount * vertexBytes);
+        printRawBufferData(adaptedData.data(), bufferCount * vertexBytes);
+
         // This is needed to bind the vbo and ibo to the vao, so when we call draw we can draw the mesh
         adaptedMesh.vertexArray->bind();
 
@@ -80,8 +86,8 @@ namespace GLESC::Render {
         return adaptedMesh;
     }
 
-    AdaptedInstances MeshAdapter::adaptInstances(const ColorMesh &mesh,
-                                                 const std::vector<MeshInstanceData> &instances) {
+    AdaptedInstances MeshAdapter::adaptInstances(const ColorMesh& mesh,
+                                                 const std::vector<MeshInstanceData>& instances) {
         // First, adapt the mesh to get a VAO and attached VBOs for vertex and index data.
         AdaptedMesh adapterMesh = adaptMesh(mesh);
         AdaptedInstances adaptedInstances;
@@ -98,7 +104,7 @@ namespace GLESC::Render {
         instanceTransforms.reserve(instances.size());
 
         // Fill the buffer with transformation data from instances.
-        for (const auto &instance : instances) {
+        for (const auto& instance : instances) {
             InstanceTransform transform;
             // Assuming you have a function to convert position, rotation, and scale
             // into a 4x4 transformation matrix:

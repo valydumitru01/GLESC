@@ -28,24 +28,40 @@ namespace GLESC::Render {
      * @warning mesh does NOT need to be instantiated with the position attribute, as it is always present, Doing so
      * might lead to unexpected behavior. Position is inside the topology and is always present.
      */
-    template<GAPI::Enums::Types... Data>
+    template<typename VertexT>
     class Mesh {
     public:
+        S_ASSERT_TRUE((std::is_base_of_v<ColorVertex, VertexT> ||std::is_base_of_v<TextureVertex, VertexT>),
+            "Vertex must be a ColorVertex or TextureVertex");
+
         using Index = unsigned int;
-        using Vertex = Vertex<
-            VectorT<GAPI::Enums::PrimitiveType_t<Data>, static_cast<unsigned int>(GAPI::Enums::getTypeCount(Data))>...
-        >;
+        using Vertex = VertexT;
 
 
         Mesh():
             dirtyFlag(false),
-            vertexLayout({Data...}),
+            vertexLayout({Vertex::getLayout()}),
             renderType(RenderType::Dynamic) {
         }
 
         ~Mesh() = default;
 
-        [[nodiscard]] const std::vector<Vertex> getVertices() const { return vertices; }
+        void startBuilding() {
+            vertices.clear();
+            indices.clear();
+            faces.clear();
+            dirtyFlag = true;
+            isBuilding = true;
+        }
+
+        void finishBuilding() {
+            D_ASSERT_TRUE(isBuilding, "Mesh is not being built");
+            boundingVolume.updateTopology(vertices.data(), vertices.size() * sizeof(Vertex), sizeof(Vertex), 0);
+            isBuilding = false;
+        }
+
+        [[nodiscard]] const std::vector<Vertex>& getVertices() const { return vertices; }
+        [[nodiscard]] std::vector<Vertex> &getModifiableVertices() { return vertices; }
         [[nodiscard]] const std::vector<Index> getIndices() const { return indices; }
         [[nodiscard]] const std::vector<GAPI::Enums::Types> getVertexLayout() const { return vertexLayout; }
         [[nodiscard]] const std::vector<Math::FaceIndices> getFaces() const { return faces; }
@@ -53,37 +69,41 @@ namespace GLESC::Render {
         [[nodiscard]] BoundingVolume &getBoundingVolumeMutable() { return boundingVolume; }
         [[nodiscard]] bool isDirty() const { return dirtyFlag; }
         [[nodiscard]] const RenderType& getRenderType() const { return renderType; }
+        [[nodiscard]] bool isBeingBuilt() const { return isBuilding; }
 
         void setRenderType(RenderType renderTypeParam) { renderType = renderTypeParam; }
         void setClean() const { dirtyFlag = false; }
 
 
+
         void addTris(const Vertex &a, const Vertex &b, const Vertex &c) {
+            D_ASSERT_TRUE(isBuilding, "Mesh is not being built");
             auto v1 =this->addVertex(a);
             auto v2 =this->addVertex(b);
             auto v3 =this->addVertex(c);
 
             this->addTris(v1, v2, v3);
-            this->dirtyFlag = true;
         }
 
         void addQuad(const Vertex &a, const Vertex &b, const Vertex &c, const Vertex &d) {
+            D_ASSERT_TRUE(isBuilding, "Mesh is not being built");
             auto v1 = addVertex(a);
             auto v2 = addVertex(b);
             auto v3 = addVertex(c);
             auto v4 = addVertex(d);
 
             addQuad(v1, v2, v3, v4);
-            this->dirtyFlag = true;
         }
 
         void addQuad(Index index1, Index index2, Index index3, Index index4) {
+            D_ASSERT_TRUE(isBuilding, "Mesh is not being built");
             addTris(index1, index2, index3);
             addTris(index1, index3, index4);
         }
 
         // Modify addVertex to return the index of the vertex, whether newly added or already existing
         Index addVertex(const Vertex &vertexParam) {
+            D_ASSERT_TRUE(isBuilding, "Mesh is not being built");
             // Check if the vertex already exists
             for (Index i = 0; i < vertices.size(); ++i) {
                 if (vertices[i] == vertexParam) {
@@ -94,17 +114,18 @@ namespace GLESC::Render {
             // Insert new vertex
             Index newIndex = static_cast<Index>(vertices.size());
             vertices.push_back(vertexParam);
-            boundingVolume.updateTopology(vertices);
             return newIndex;
         }
 
         void addVertices(const std::vector<Vertex> &verticesParam) {
+            D_ASSERT_TRUE(isBuilding, "Mesh is not being built");
             for (const auto &vertex : verticesParam) {
                 addVertex(vertex);
             }
         }
 
         void addTris(Index index1, Index index2, Index index3) {
+            D_ASSERT_TRUE(isBuilding, "Mesh is not being built");
             D_ASSERT_NOT_EQUAL(index1, index2, "Index 1 and 2 are equal");
             D_ASSERT_NOT_EQUAL(index1, index3, "Index 1 and 3 are equal");
             D_ASSERT_NOT_EQUAL(index2, index3, "Index 2 and 3 are equal");
@@ -205,52 +226,22 @@ namespace GLESC::Render {
          * after rendering the mesh, we want to set the flag to false and nothing else.
          */
         mutable bool dirtyFlag;
+        mutable bool isBuilding = false;
 
         mutable size_t cachedHash = 0;
         mutable bool hashDirty = true;
     }; // class Mesh
 
-    using ColorMesh = Mesh<
-        GAPI::Enums::Types::Vec3F, // Position is always present
-        GAPI::Enums::Types::Vec4F, // RGBA color
-        GAPI::Enums::Types::Vec3F // Normal
-    >;
-
-    using TextureMesh = Mesh<
-        GAPI::Enums::Types::Vec3F, // Position is always present
-        GAPI::Enums::Types::Vec2F, // UV
-        GAPI::Enums::Types::Vec3F // Normal
-    >;
-
-    constexpr std::size_t LayoutPosition = 0;
-    constexpr std::size_t LayoutColor = 1;
-    constexpr std::size_t LayoutUV = 1;
-    constexpr std::size_t LayoutNormal = 2;
-
-    template<typename... Attributes>
-    Position getVertexPositionAttr(Vertex<Attributes...> v) {
-        return v.template getAttribute<LayoutPosition>();
-    }
-
-    inline Color getVertexColorAttr(ColorMesh::Vertex v) {
-        return v.getAttribute<LayoutColor>();
-    }
-
-    inline UV getVertexUVAttr(TextureMesh::Vertex v) {
-        return v.getAttribute<LayoutUV>();
-    }
-
-    inline Normal getVertexNormalAttr(ColorMesh::Vertex v) {
-        return v.getAttribute<LayoutNormal>();
-    }
+    using ColorMesh = Mesh<ColorVertex>;
+    using TextureMesh = Mesh<TextureVertex>;
 } // namespace GLESC
 
 // Assuming the existence of a getAttributes() method that returns a tuple of all attributes.
 
 
-template<GLESC::GAPI::Enums::Types... Data>
-struct std::hash<GLESC::Render::Mesh<Data...>> {
-    size_t operator()(const GLESC::Render::Mesh<Data...> &mesh) const {
+template<typename Vertex>
+struct std::hash<GLESC::Render::Mesh<Vertex>> {
+    std::size_t operator()(const GLESC::Render::Mesh<Vertex> &mesh) const noexcept {
         return mesh.hash();
     }
 };

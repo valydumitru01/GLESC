@@ -238,6 +238,7 @@ bool Renderer::isMeshNotCached(const ColorMesh& mesh) const {
 void Renderer::addData(const Render::Material& material,
                        ColorMesh& mesh,
                        const Transform::Transform& transform) {
+    D_ASSERT_TRUE(!mesh.isBeingBuilt(), "Mesh is being built");
     if (mesh.getVertices().empty()) {
         Console::warn("Mesh has no vertices");
         return;

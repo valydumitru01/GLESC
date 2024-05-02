@@ -81,8 +81,8 @@ void Transformer::transformMesh(Render::ColorMesh& mesh, const Render::Model& mo
     // TODO: Implement this function
     D_ASSERT_TRUE(false, "Not implemented");
     Vec3F transformedVertice3D;
-    for (auto& vertex : mesh.getVertices()) {
-        Render::getVertexPositionAttr(vertex) = modelMat * Render::getVertexPositionAttr(vertex);
+    for (auto& vertex : mesh.getModifiableVertices()) {
+        vertex.setPosition(modelMat * vertex.getPosition());
     }
 
     transformBoundingVolume(mesh.getBoundingVolumeMutable(), modelMat);

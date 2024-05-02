@@ -1,70 +1,109 @@
 #pragma once
 
 
-#include <tuple>
+#include <functional>
 #include <string>
 #include "engine/core/low-level-renderer/graphic-api/GapiStructs.h"
+#include "engine/subsystems/renderer/RendererTypes.h"
 
 namespace GLESC::Render {
-    template <std::size_t Size, typename Type>
-    class VertexAttrib {
+#pragma pack(push, 1)
+    /**
+     * @brief Represents a Vertex in the mesh
+     * @details This vertex must be tightly packed, and so does all of its members
+     */
+    class BaseVertex {
     public:
-        std::size_t size;
-        Type data[Size];
-    }; // class VertexAttrib
-
-    template <typename... Attributes>
-    class Vertex {
-    public:
-        Vertex(Attributes... args) : attributes(args...) {}
-
-        [[nodiscard]] size_t size() const {
-            return sizeof...(Attributes);
+        [[nodisacrd]] static const std::vector<GAPI::Enums::Types>& getLayout() { return layout; }
+        BaseVertex(const Position& position, const Normal& normal)
+            : position(position), normal(normal) {
         }
 
-        /**
-         * @brief Get the attributes of the vertex, compile time
-         * @return A tuple with the attributes of the vertex
-         */
-        template<std::size_t index>
-        [[nodiscard]] constexpr decltype(auto) getAttribute() const {
-            return std::get<index>(attributes);
+        [[nodisacrd]] bool operator==(const BaseVertex& other) const {
+            return position == other.position && normal == other.normal;
         }
 
+        [[nodiscard]] const Position& getPosition() const { return position; }
+        [[nodiscard]] const Normal& getNormal() const { return normal; }
 
-        [[nodiscard]] std::tuple<Attributes...> getAttributes() const {
-            return attributes;
-        }
+        void setPosition(const Position& positionParam) { position = positionParam; }
+        void setNormal(const Normal& normalParam) { normal = normalParam; }
+        static std::vector<GAPI::Enums::Types> layout;
 
         [[nodiscard]] std::string toString() const {
-            std::string result = "Vertex: ";
-            std::apply([&result](auto&&... args) {
-                ((result += args.toString() + " "), ...);
-            }, attributes);
-            return result;
-        }
-
-        [[nodiscard]] bool operator==(const Vertex& other) const {
-            return attributes == other.attributes;
-        }
-
-        [[nodiscard]] bool operator!=(const Vertex& other) const {
-            return !(*this == other);
+            return "Position: " + position.toString() + " Normal: " + normal.toString();
         }
 
     private:
-        std::tuple<Attributes...> attributes;
-    }; // class Vertex
-} // namespace GLESC
+        Position position;
+        Normal normal;
+    };
 
-template <typename... Attributes>
-struct std::hash<GLESC::Render::Vertex<Attributes...>> {
-    std::size_t operator()(const GLESC::Render::Vertex<Attributes...>& vertex) const {
-        std::size_t hash = 0;
-        std::apply([&hash](const auto&... args) {
-            // Directly call hashCombine without attempting to assign its result.
-            (..., (GLESC::Hasher::hashCombine(hash, std::hash<std::decay_t<decltype(args)>>{}(args)), void()));
-        }, vertex.getAttributes());
-        return hash;
-    }
-};
+    class ColorVertex : public BaseVertex {
+    public:
+        ColorVertex(const Position& position, const Normal& normal, const ColorRgba& color)
+            : BaseVertex(position, normal), color(color) {
+        }
+
+        bool operator==(const ColorVertex& other) const {
+            return BaseVertex::operator==(other) && color == other.color;
+        }
+
+        [[nodiscard]] const ColorRgba& getColor() const { return color; }
+        void setColor(const ColorRgba& colorParam) { color = colorParam; }
+        [[nodiscard]] std::string toString() const {
+            return BaseVertex::toString() + " Color: " + color.toString();
+        }
+    private:
+        ColorRgba color;
+        static std::vector<GAPI::Enums::Types> layout;
+    };
+
+    class TextureVertex : public BaseVertex {
+    public:
+        TextureVertex(Position position, Normal normal, UV textureCoordinate)
+            : BaseVertex(position, normal), textureCoordinate(textureCoordinate) {
+        }
+
+        bool operator==(const TextureVertex& other) const {
+            return BaseVertex::operator==(other) && textureCoordinate == other.textureCoordinate;
+        }
+
+        [[nodiscard]] const UV& getTextureCoordinate() const { return textureCoordinate; }
+        void setTextureCoordinate(const UV& textureCoordinateParam) { textureCoordinate = textureCoordinateParam; }
+        [[nodiscard]] std::string toString() const {
+            return BaseVertex::toString() + " Texture Coordinate: " + textureCoordinate.toString();
+        }
+    private:
+        UV textureCoordinate;
+        static std::vector<GAPI::Enums::Types> layout;
+    };
+#pragma pack(pop)
+} // namespace GLESC
+namespace std {
+    template <>
+    struct hash<GLESC::Render::BaseVertex> {
+        size_t operator()(const GLESC::Render::BaseVertex& vertex) const noexcept {
+            return std::hash<GLESC::Render::Position>()(vertex.getPosition()) ^
+                std::hash<GLESC::Render::Normal>()(vertex.getNormal());
+        }
+    };
+
+    template <>
+    struct hash<GLESC::Render::ColorVertex> {
+        size_t operator()(const GLESC::Render::ColorVertex& vertex) const noexcept {
+            GLESC::Hasher::Hash hash = std::hash<GLESC::Render::BaseVertex>()(vertex);
+            GLESC::Hasher::hashCombine(hash, std::hash<GLESC::Render::ColorRgba>()(vertex.getColor()));
+            return hash;
+        }
+    };
+
+    template <>
+    struct hash<GLESC::Render::TextureVertex> {
+        size_t operator()(const GLESC::Render::TextureVertex& vertex) const noexcept {
+            GLESC::Hasher::Hash hash = std::hash<GLESC::Render::BaseVertex>()(vertex);
+            GLESC::Hasher::hashCombine(hash, std::hash<GLESC::Render::UV>()(vertex.getTextureCoordinate()));
+            return hash;
+        }
+    };
+} // namespace std

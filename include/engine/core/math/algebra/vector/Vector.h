@@ -21,6 +21,7 @@
 
 
 namespace GLESC::Math {
+#pragma pack(push, 1)  // Push the current alignment to the stack and set new alignment to 1 byte
     template <typename Type, size_t N>
     class Vector {
     public:
@@ -794,7 +795,7 @@ namespace GLESC::Math {
         VectorData<Type, N> data;
     };
 }
-
+#pragma pack(pop)  // Restore the previous alignment from the stack
 
 template <typename Type, size_t N>
 using VectorT = GLESC::Math::Vector<Type, N>;

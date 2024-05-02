@@ -24,33 +24,38 @@ namespace GLESC::Render {
      */
     class BoundingVolume {
         friend class GLESC::Transform::Transformer;
+
     public:
         BoundingVolume() = default;
 
         /**
          * @brief Updates the bounding volume to fit the points it encloses.
-         * @param vertices The points to enclose
+         * @param data The data to update the bounding volume with
+         * @param size The size of the data
+         * @param stride The stride (size of each vertex) of the data
+         * @param offset The offset (position of the position attribute) of the data
          */
-        template <typename... Attributes>
-        void updateTopology(const std::vector<Vertex<Attributes...>>& vertices) {
-            // Ensure the first element of attributes is a Vec3D
-            S_ASSERT_TRUE(
-                (std::is_same_v<typename std::tuple_element<0, std::tuple<Attributes...>>::type, Position>),
-                "First attribute must be render type: position");
-            if (vertices.empty()) return;
-
+        void updateTopology(const void* data, unsigned int size, unsigned int stride, unsigned int offset) {
             // Find bounds
             float minX, maxX, minY, maxY, minZ, maxZ;
             minX = minY = minZ = std::numeric_limits<float>::max();
             maxX = maxY = maxZ = std::numeric_limits<float>::lowest();
 
-            for (const auto& point : vertices) {
-                minX = Math::min(minX, getVertexPositionAttr(point).getX());
-                maxX = Math::max(maxX, getVertexPositionAttr(point).getX());
-                minY = Math::min(minY, getVertexPositionAttr(point).getY());
-                maxY = Math::max(maxY, getVertexPositionAttr(point).getY());
-                minZ = Math::min(minZ, getVertexPositionAttr(point).getZ());
-                maxZ = Math::max(maxZ, getVertexPositionAttr(point).getZ());
+            for (unsigned int i = 0; i < size; i += stride) {
+                Position::ValueType x =
+                    *reinterpret_cast<const Position::ValueType*>(reinterpret_cast<const char*>(data) + i + offset);
+                Position::ValueType y =
+                    *reinterpret_cast<const Position::ValueType*>
+                    (reinterpret_cast<const char*>(data) + i + offset + sizeof(Position::ValueType));
+                Position::ValueType z =
+                    *reinterpret_cast<const Position::ValueType*>
+                    (reinterpret_cast<const char*>(data) + i + offset + 2 * sizeof(Position::ValueType));
+                minX = Math::min(minX, x);
+                maxX = Math::max(maxX, x);
+                minY = Math::min(minY, y);
+                maxY = Math::max(maxY, y);
+                minZ = Math::min(minZ, z);
+                maxZ = Math::max(maxZ, z);
             }
 
             // Check if the bounding volume valid (not empty)
@@ -58,30 +63,6 @@ namespace GLESC::Render {
                 return;
             }
 
-            buildBoundingVolume(maxX, minX, maxY, minY, maxZ, minZ);
-        }
-
-        void updateTopology(const std::vector<Math::Point>& points) {
-            if (points.empty()) return;
-
-            // Find bounds
-            float minX, maxX, minY, maxY, minZ, maxZ;
-            minX = minY = minZ = std::numeric_limits<float>::max();
-            maxX = maxY = maxZ = std::numeric_limits<float>::lowest();
-
-            for (const auto& point : points) {
-                minX = Math::min(minX, point.getX());
-                maxX = Math::max(maxX, point.getX());
-                minY = Math::min(minY, point.getY());
-                maxY = Math::max(maxY, point.getY());
-                minZ = Math::min(minZ, point.getZ());
-                maxZ = Math::max(maxZ, point.getZ());
-            }
-
-            // Check if the bounding volume valid (not empty)
-            if (minX == maxX || minY == maxY || minZ == maxZ) {
-                return;
-            }
             buildBoundingVolume(maxX, minX, maxY, minY, maxZ, minZ);
         }
 

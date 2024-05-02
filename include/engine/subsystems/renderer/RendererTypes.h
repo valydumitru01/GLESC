@@ -124,6 +124,8 @@ namespace GLESC::Render {
 
         ColorRgb(ColorRgba& other) noexcept;
 
+        ColorRgb(const ColorRgba& other) noexcept;
+
         ColorRgb& operator=(const ColorRgb& other) = default;
 
         ColorRgb(ColorRgb&& other) noexcept = default;
@@ -196,6 +198,8 @@ namespace GLESC::Render {
 
         ColorRgba(ColorRgb& other) noexcept;
 
+        ColorRgba(const ColorRgb& other) noexcept;
+
         ColorRgba& operator=(const ColorRgba& other) = default;
 
         ColorRgba(ColorRgba&& other) noexcept = default;
@@ -246,6 +250,7 @@ namespace GLESC::Render {
         Vec4F getRGBAVec4FNormalized() const {
             return Vec4F(getRNormalized(), getGNormalized(), getBNormalized(), getANormalized());
         }
+
 
         float& getRModifiable() {
             return data[0];
