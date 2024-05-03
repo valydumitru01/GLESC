@@ -16,7 +16,9 @@ namespace GLESC::Render {
         Static,
         Dynamic,
         InstancedStatic,
-        InstancedDynamic
+        InstancedDynamic,
+        BatchedStatic,
+        BatchedDynamic
     };
 
     inline GAPI::Enums::BufferUsages getBufferUsage(RenderType renderType) {
@@ -31,6 +33,12 @@ namespace GLESC::Render {
         }
         if (renderType == RenderType::InstancedDynamic) {
             return GAPI::Enums::BufferUsages::DynamicDraw;
+        }
+        if (renderType == RenderType::BatchedDynamic) {
+            return GAPI::Enums::BufferUsages::DynamicDraw;
+        }
+        if (renderType == RenderType::BatchedStatic) {
+            return GAPI::Enums::BufferUsages::StaticDraw;
         }
         D_ASSERT_TRUE(false, "Unknown render type");
     }
@@ -302,7 +310,7 @@ namespace GLESC::Render {
      * @details This cannot be constructed on its own, must be constructed from a ColorRgb
      */
     struct ColorRgbNorm : Vec3F {
-        ColorRgbNorm() = delete;
+        ColorRgbNorm() : Vec3F(0) {}
 
         float getR() const {
             return data[0];

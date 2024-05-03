@@ -28,7 +28,10 @@ Renderer::Renderer(WindowManager& windowManager) :
     projection(makeDefaultProjection()), view(makeDefaultView()),
     cameraTransform(Transform::Transform(Position(0.0f, 0.0f, 3.0f),
                                          Transform::Rotation(0.0f, 0.0f, 0.0f),
-                                         Transform::Scale(1.0f, 1.0f, 1.0f))) {}
+                                         Transform::Scale(1.0f, 1.0f, 1.0f))),
+    fog(0.5, cameraPerspective.nearPlane, cameraPerspective.farPlane,
+        skybox.getAverageColor()) {
+}
 
 
 void Renderer::swapBuffers() const {
@@ -53,6 +56,7 @@ void Renderer::renderMeshes(double timeOfFrame) {
 
     // Don't render anything if the view matrix is not valid
     frustum.update(viewProj);
+
 
     /*
     for (const auto& batch : meshBatches.getBatches()) {
@@ -118,7 +122,6 @@ void Renderer::renderMeshes(double timeOfFrame) {
 
 void Renderer::applyLighting(const LightSpots& lightSpotsParam, const GlobalSuns& suns,
                              const GlobalAmbienLight& ambientLight, double timeOfFrame) const {
-
     // Apply global suns
     size_t sunCount = suns.getSuns().size();
     shader.setUniform("uGlobalSuns.count", sunCount);
@@ -130,9 +133,9 @@ void Renderer::applyLighting(const LightSpots& lightSpotsParam, const GlobalSuns
         Math::Direction sunDirection = sunData.sun->getDirection();
 
         if (!sunData.sun->isDirty()) continue;
-        shader.setUniform("uGlobalSuns.color["+iStr+"]", sunColor);
-        shader.setUniform("uGlobalSuns.intensity["+iStr+"]", sunIntensity);
-        shader.setUniform("uGlobalSuns.direction["+iStr+"]", sunDirection);
+        shader.setUniform("uGlobalSuns.color[" + iStr + "]", sunColor);
+        shader.setUniform("uGlobalSuns.intensity[" + iStr + "]", sunIntensity);
+        shader.setUniform("uGlobalSuns.direction[" + iStr + "]", sunDirection);
         sunData.sun->setClean();
     }
 
@@ -162,6 +165,10 @@ void Renderer::applyLighting(const LightSpots& lightSpotsParam, const GlobalSuns
         shader.setUniform("uLights.radius[" + iStr + "]", lightRadius);
         light.setClean();
     }
+    shader.setUniform("uFog.color", Vec3F(fog.getColor()));
+    shader.setUniform("uFog.density", fog.getDensity());
+    shader.setUniform("uFog.near", fog.getStart());
+    shader.setUniform("uFog.far", fog.getEnd());
 
     //shader.setUniform("uGlobalSunLight.lightProperties.color",sun.getColor().toVec3F());
     //shader.setUniform("uGlobalSunLight.lightProperties.intensity",sun.getIntensity());

@@ -27,6 +27,14 @@ public:
         return cubemapTextures;
     }
 
+    std::array<Pixel, 6> getPixelsAtCoords(int x, int y) {
+        std::array<Pixel, 6> pixels{};
+        for (int i = 0; i < 6; i++) {
+            pixels[i] = cubemapTextures[i].getPixel(x, y);
+        }
+        return pixels;
+    }
+
     void bind() const;
     void unbind() const;
     void load(const std::array<std::string, 6>& facePaths);

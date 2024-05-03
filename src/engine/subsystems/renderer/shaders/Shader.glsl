@@ -72,6 +72,20 @@ struct LightContribution {
 
 
 // ==========================================
+// ---------------- Fog Data ----------------
+// ------------------------------------------
+
+struct Fog {
+    vec3 color;
+    float near;
+    float far;
+    float density;
+};
+
+// ==========================================
+
+
+// ==========================================
 // ------------ Material Data ---------------
 // ------------------------------------------
 struct Material {
@@ -88,6 +102,7 @@ struct Material {
 // ==========================================
 // ---------------- Unforms -----------------
 // ------------------------------------------
+uniform Fog uFog;
 uniform GlobalSuns uGlobalSuns;
 uniform AmbientLight uAmbient;
 uniform LightSpots uLights;
@@ -139,7 +154,7 @@ void main() {
     vec3 totalSpecular = vec3(0.0);
 
     for (uint i = 0; i < uGlobalSuns.count; ++i) {
-        vec3 sunDir = -uGlobalSuns.direction[i];
+        vec3 sunDir = -normalize(uGlobalSuns.direction[i]);
         float sunIntensity = uGlobalSuns.intensity[i];
         vec3 sunColor = uGlobalSuns.color[i];
 
@@ -147,7 +162,7 @@ void main() {
         totalDiffuse += calculateDiffuse(sunDir, norm, sunColor, sunIntensity, 1.0);
 
         // Specular
-        totalSpecular +=0.1* calculateSpecular(sunDir, norm, viewDir, uMaterial.shininess,
+        totalSpecular += 0.1 * calculateSpecular(sunDir, norm, viewDir, uMaterial.shininess,
                                            uMaterial.specularColor, uMaterial.specularIntensity, 1.0, sunIntensity);
     }
 
@@ -177,8 +192,14 @@ void main() {
 
     }
 
+    // Calculate fog factor based on depth
+    float depth = gl_FragCoord.z / gl_FragCoord.w;  // Linearize depth if necessary
+    float fogFactor = smoothstep(uFog.near, uFog.far, depth) * uFog.density;
 
-    vec3 finalColor = (ambient + totalDiffuse + totalSpecular) * baseColor;
+    // Calculate the final color with fog
+    vec3 colorWithFog = mix(baseColor, uFog.color, fogFactor);
+
+    vec3 finalColor = (ambient + totalDiffuse + totalSpecular) * colorWithFog;
 
     FragColor = vec4(finalColor, 1.0);
 }

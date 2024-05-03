@@ -29,8 +29,9 @@ static std::vector<ECS::Entity> entities;
 
 void generateEntitiesForMap(ECS::EntityFactory& entityFactory) {
     TerrainGenerator terrainGenerator;
-    for (const auto& [chunkPosition, chunk] : terrainGenerator.generateMap()) {
-        Render::ColorMesh chunkMesh = MeshTerrain::generateChunkMeshFromMap(chunk);
+    auto map = terrainGenerator.generateMap();
+    for (const auto& [chunkPosition, chunk] : map) {
+        Render::ColorMesh chunkMesh = MeshTerrain::generateChunkMeshFromMap(chunk, chunkPosition, map);
         ECS::Entity entity = entityFactory.createEntity(
                                               "chunk" + std::to_string(chunkPosition.getX()) + "_" + std::to_string(
                                                   chunkPosition.getY()))
@@ -40,6 +41,7 @@ void generateEntitiesForMap(ECS::EntityFactory& entityFactory) {
             chunkPosition.getX() * CHUNK_SIZE, 0, chunkPosition.getY() * CHUNK_SIZE
         });
         entity.getComponent<ECS::RenderComponent>().mesh = chunkMesh;
+        //entity.getComponent<ECS::RenderComponent>().material.setShininess(0);
         std::cout << "Created entity for chunk at position " << chunkPosition.toString() << std::endl;
     }
 }

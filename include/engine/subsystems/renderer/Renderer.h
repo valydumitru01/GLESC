@@ -7,6 +7,7 @@
 #pragma once
 
 
+#include "Fog.h"
 #include "Skybox.h"
 #include "engine/core/window/WindowManager.h"
 #include "mesh/MeshAdapter.h"
@@ -113,6 +114,7 @@ namespace GLESC::Render {
         Shader shader;
         Frustum frustum;
         Skybox skybox;
+        Fog fog;
 
         InstanceMeshes meshInstances;
         MeshBatches meshBatches;

@@ -56,6 +56,8 @@ namespace GLESC::Render {
 
         void finishBuilding() {
             D_ASSERT_TRUE(isBuilding, "Mesh is not being built");
+            D_ASSERT_TRUE(vertices.size() > 0, "No vertices in mesh");
+            D_ASSERT_TRUE(indices.size() > 0, "No indices in mesh");
             boundingVolume.updateTopology(vertices.data(), vertices.size() * sizeof(Vertex), sizeof(Vertex), 0);
             isBuilding = false;
         }

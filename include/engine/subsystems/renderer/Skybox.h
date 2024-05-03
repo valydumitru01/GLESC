@@ -29,10 +29,10 @@ public:
                    SKYBOX_PATH + std::string("bottom.png"),
                    SKYBOX_PATH + std::string("front.png"),
                    SKYBOX_PATH + std::string("back.png")
-               })), skyboxShader("SkyboxShader.glsl"){
+               })), skyboxShader("SkyboxShader.glsl") {
         size_t skyboxVerticesCount = sizeof(skyboxVertices) / sizeof(float);
         size_t skyboxVerticesSize = sizeof(float);
-
+        calculateAverageColor();
         skyboxVAO = std::make_unique<VertexArray>();
         skyboxVAO->bind();
         skyboxVBO = std::make_unique<VertexBuffer>(
@@ -44,7 +44,33 @@ public:
         VertexBufferLayout skyboxLayout;
         skyboxLayout.push(Enums::Types::Vec3F);
         skyboxVAO->addBuffer(*skyboxVBO.get(), skyboxLayout);
+    }
 
+    GLESC::Render::ColorRgb getAverageColor() const {
+        return averageColor;
+    }
+#define PIXEL_SAMPLE_COUNT 100
+
+    void calculateAverageColor() {
+        // To calculate the average color of the skybox we'll get 100 pixels at random
+        // and calculate the average color of those pixels
+        // (technicall its gonna be 600 as we get 6 pixels per sample)
+        for (int i = 0; i < PIXEL_SAMPLE_COUNT; i++) {
+            // Its a cube, with the width is enough, no need more checking
+            Size pixelWidth = skyboxCubemap.getCubemapTextures()[0].getWidth();
+            Size x = GLESC::Math::generateRandomNumber(Size(0), pixelWidth);
+            Size y = GLESC::Math::generateRandomNumber(Size(0), pixelWidth);
+            std::array<Pixel, 6> pixels = skyboxCubemap.getPixelsAtCoords(x, y);
+            GLESC::Render::ColorRgbNorm finalColor;
+            for (int pix = 0; pix < 6; pix++) {
+                GLESC::Render::ColorRgbNorm colorNorm =
+                    GLESC::Render::ColorRgb(pixels[pix].r, pixels[pix].g, pixels[pix].b);
+                finalColor += colorNorm;
+            }
+            finalColor /= pixels.size();
+            averageColor += finalColor;
+        }
+        averageColor /= PIXEL_SAMPLE_COUNT;
     }
 
 
@@ -60,11 +86,10 @@ public:
         skyboxCubemap.bind();
         getGAPI().drawTriangles(0, 36);
         getGAPI().setDepthFunction(Enums::DepthFuncs::Less);
-
-
     }
 
 private:
+    GLESC::Render::ColorRgb averageColor;
     UInt skyboxVAOID;
     UInt skyboxVBOID;
     Shader skyboxShader;
