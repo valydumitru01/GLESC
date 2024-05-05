@@ -37,6 +37,8 @@ set(MAIN_LIBS
     # The assimp library, used to load 3D models
     assimp
 
+    # This is the library that allows us to use OpenMP
+    OpenMP::OpenMP_CXX
     # This is the glew library, OpenGL Extension Wrangler,
     # used to load OpenGL functions
     glew32s

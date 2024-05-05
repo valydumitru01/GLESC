@@ -194,7 +194,7 @@ void main() {
 
     // Calculate fog factor based on depth
     float depth = gl_FragCoord.z / gl_FragCoord.w;  // Linearize depth if necessary
-    float fogFactor = smoothstep(uFog.near, uFog.far, depth) * uFog.density;
+    float fogFactor = smoothstep(uFog.near, uFog.far / 2, depth) * uFog.density;
 
     // Calculate the final color with fog
     vec3 colorWithFog = mix(baseColor, uFog.color, fogFactor);

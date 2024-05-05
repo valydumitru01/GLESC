@@ -9,12 +9,14 @@
  **************************************************************************************************/
 #pragma once
 #include "IComponent.h"
+#include "engine/subsystems/renderer/lighting/GlobalAmbienLight.h"
 #include "engine/subsystems/renderer/lighting/GlobalSun.h"
 
 namespace GLESC::ECS {
     class SunComponent : public IComponent {
     public:
-        GLESC::Render::GlobalSun sun;
+        Render::GlobalAmbienLight globalAmbienLight;
+        Render::GlobalSun sun;
 
         std::string toString() const override {
             return sun.toString();
@@ -57,6 +59,29 @@ namespace GLESC::ECS {
             directionValue.min = -1.0f;
             directionValue.max = 1.0f;
             values.push_back(directionValue);
+
+            EntityStatsManager::Value globalAmbientColor;
+            globalAmbientColor.name = "Global Ambient Color";
+            globalAmbientColor.data = reinterpret_cast<void*>(&globalAmbienLight.getModifiableColor());
+            globalAmbientColor.type = EntityStatsManager::ValueType::VEC3F;
+            globalAmbientColor.isModifiable = true;
+            globalAmbientColor.usesSlider = true;
+            globalAmbientColor.valueDirty = &globalAmbienLight.isDirty();
+            globalAmbientColor.min = 0.0f;
+            globalAmbientColor.max = 255.0f;
+            values.push_back(globalAmbientColor);
+
+            EntityStatsManager::Value globalAmbientIntensity;
+            globalAmbientIntensity.name = "Global Ambient Intensity";
+            globalAmbientIntensity.data =
+                reinterpret_cast<void*>(&globalAmbienLight.getModifiableIntensity());
+            globalAmbientIntensity.type = EntityStatsManager::ValueType::FLOAT;
+            globalAmbientIntensity.isModifiable = true;
+            globalAmbientIntensity.usesSlider = true;
+            globalAmbientIntensity.valueDirty = &globalAmbienLight.isDirty();
+            globalAmbientIntensity.min = 0.0f;
+            globalAmbientIntensity.max = 1.0f;
+            values.push_back(globalAmbientIntensity);
         }
     }; // class SunComponent
 } // namespace GLESC::ECS

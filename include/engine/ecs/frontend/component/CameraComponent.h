@@ -18,7 +18,7 @@ namespace GLESC::ECS {
         CameraComponent() {
             perspective.fovDegrees = 45;
             perspective.nearPlane = 0.1;
-            perspective.farPlane = 1000;
+            perspective.farPlane = 300;
         }
         Render::CameraPerspective perspective;
 

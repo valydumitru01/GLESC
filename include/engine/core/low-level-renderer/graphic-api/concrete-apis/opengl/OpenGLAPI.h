@@ -755,7 +755,7 @@ namespace GLESC::GAPI {
         // -------------------------------- Uniforms ------------------------------------
 
         template <typename Type>
-        void setUniform(Int location, Type value) {
+        static void setUniform(Int location, Type value) {
             GAPI_FUNCTION_LOG("setUniformValue", location, value);
             GAPI_FUNCTION_IMPLEMENTATION_LOG("glUniform1i", location, value);
             // Floats

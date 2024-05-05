@@ -21,11 +21,30 @@ namespace GLESC::ECS {
     };
 
     void SunSystem::update() {
-        for (auto& entity : getAssociatedEntities()) {
+        float globalIntensities = 0.0f;
+        float globalColorR = 0.0f;
+        float globalColorG = 0.0f;
+        float globalColorB = 0.0f;
+        const std::set<EntityID>& entities = getAssociatedEntities();
+        for (auto& entity : entities) {
             auto& sun = getComponent<SunComponent>(entity);
             auto& transform = getComponent<TransformComponent>(entity);
             renderer.addSun(sun.sun, transform.transform);
+            globalIntensities += sun.sun.getIntensity();
+            globalColorR += sun.sun.getColor().getR();
+            globalColorG += sun.sun.getColor().getG();
+            globalColorB += sun.sun.getColor().getB();
             HudItemsManager::addItem(HudItemType::SUN, transform.transform.getPosition());
         }
+        auto entitiesCount = static_cast<float>(entities.size());
+        globalIntensities /= entitiesCount;
+        globalColorR /= entitiesCount;
+        globalColorG /= entitiesCount;
+        globalColorB /= entitiesCount;
+        Render::GlobalAmbienLight globalAmbienLight;
+        globalAmbienLight.setIntensity(globalIntensities);
+        globalAmbienLight.setColor({globalColorR, globalColorG, globalColorB});
+
+        renderer.setGlobalAmbientLight(globalAmbienLight);
     }
 } // namespace GLESC::ECS

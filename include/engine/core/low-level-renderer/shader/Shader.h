@@ -42,7 +42,7 @@ namespace GLESC::GAPI {
         void unbind() const;
 
         template <typename Type>
-        const void setUniform(const std::string& name, const Type& value) const {
+        static const void setUniform(const std::string& name, const Type& value) {
             Int location= getGAPI().getUniformLocation(name);
             getGAPI().setUniform(location, value);
             D_ASSERT_EQUAL(getGAPI().getUniformValue<Type>(location), value, "Uniform was not set correctly");

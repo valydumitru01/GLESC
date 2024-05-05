@@ -8,6 +8,7 @@
  * See LICENSE.txt in the project root for license information.
  ******************************************************************************/
 
+#include <omp.h>
 
 // Components
 #include "game/Game.h"
@@ -20,8 +21,8 @@
 #include "engine/ecs/frontend/component/LightComponent.h"
 #include "engine/ecs/frontend/component/SunComponent.h"
 #include "engine/subsystems/renderer/mesh/MeshFactory.h"
-#include "game/PerlinNoise.hpp"
 #include "game/TerrainGenerator.h"
+
 
 using namespace GLESC;
 static std::vector<ECS::Entity> entities;
@@ -30,18 +31,29 @@ static std::vector<ECS::Entity> entities;
 void generateEntitiesForMap(ECS::EntityFactory& entityFactory) {
     TerrainGenerator terrainGenerator;
     auto map = terrainGenerator.generateMap();
-    for (const auto& [chunkPosition, chunk] : map) {
+
+    std::vector<Vec2I> keys;
+    std::vector<ECS::Entity> entities;
+    keys.reserve(map.size());
+    for (const auto& item : map) {
+        keys.push_back(item.first);
+        entities.push_back(entityFactory.createEntity("chunk" + item.first.toString()));
+    }
+
+#pragma omp parallel for schedule(dynamic)
+    for (int i = 0; i < keys.size(); ++i) {
+        auto& chunkPosition = keys[i];
+        auto& chunk = map[chunkPosition];
         Render::ColorMesh chunkMesh = MeshTerrain::generateChunkMeshFromMap(chunk, chunkPosition, map);
-        ECS::Entity entity = entityFactory.createEntity(
-                                              "chunk" + std::to_string(chunkPosition.getX()) + "_" + std::to_string(
-                                                  chunkPosition.getY()))
-                                          .addComponent(ECS::TransformComponent())
-                                          .addComponent(ECS::RenderComponent());
+        ECS::Entity entity = entities.at(i);
+        entity.addComponent(ECS::TransformComponent())
+              .addComponent(ECS::RenderComponent());
         entity.getComponent<ECS::TransformComponent>().transform.setPosition({
             chunkPosition.getX() * CHUNK_SIZE, 0, chunkPosition.getY() * CHUNK_SIZE
         });
         entity.getComponent<ECS::RenderComponent>().mesh = chunkMesh;
-        //entity.getComponent<ECS::RenderComponent>().material.setShininess(0);
+
+
         std::cout << "Created entity for chunk at position " << chunkPosition.toString() << std::endl;
     }
 }
@@ -69,7 +81,8 @@ void Game::init() {
             Transform::Scale(1 + i * 0.1, 1 + i * 0.1, 1 + i * 0.1));
 
         // Choosing a color
-        Render::ColorRgba color = Render::ColorRgba(increment * 255, 255 - 255 * increment, 255 - 255 * increment, 255);
+        Render::ColorRgba color = Render::ColorRgba(increment * 255, 255 - 255 * increment, 255 - 255 * increment,
+                                                    255);
 
 
         // Setting mesh, cube, sphere, pyramid, in this order

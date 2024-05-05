@@ -50,7 +50,7 @@ namespace GLESC::Render {
             dirty = false;
         }
 
-        [[nodiscard]] bool isDirty() const {
+        [[nodiscard]] bool& isDirty() const {
             return dirty;
         }
 

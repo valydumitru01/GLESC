@@ -62,6 +62,21 @@ namespace GLESC::Render {
             isBuilding = false;
         }
 
+        void reserveVertices(size_t size) {
+            D_ASSERT_TRUE(isBuilding, "Mesh is not being built");
+            vertices.reserve(size);
+        }
+
+        void reserveIndices(size_t size) {
+            D_ASSERT_TRUE(isBuilding, "Mesh is not being built");
+            indices.reserve(size);
+        }
+
+        void reserveFaces(size_t size) {
+            D_ASSERT_TRUE(isBuilding, "Mesh is not being built");
+            faces.reserve(size);
+        }
+
         [[nodiscard]] const std::vector<Vertex>& getVertices() const { return vertices; }
         [[nodiscard]] std::vector<Vertex>& getModifiableVertices() { return vertices; }
         [[nodiscard]] const std::vector<Index> getIndices() const { return indices; }

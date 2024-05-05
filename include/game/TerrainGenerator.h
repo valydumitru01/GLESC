@@ -8,6 +8,7 @@
 
 #include <vector>
 #include <array>
+#include <omp.h>
 #include <unordered_map>
 
 #include "PerlinNoise.hpp"
@@ -15,7 +16,7 @@
 #include "engine/subsystems/renderer/RendererTypes.h"
 #include "engine/subsystems/renderer/mesh/Mesh.h"
 #define CHUNK_SIZE 16
-#define MAP_SIZE_IN_CHUNKS 5
+#define MAP_SIZE_IN_CHUNKS 20
 #define CHUNK_HEIGHT 20
 #define DIRT_HEIGHT 3
 
@@ -96,52 +97,8 @@ private:
                 for (int y = 0; y < ySurface; y++) {
                     chunk[x][z][y] = Tile{TileType::ROCK};
                 }
-
-                /*
-                        // Fill up to surface height with potentially cave-filled terrain
-                        for (int y = surfaceHeight-1; y < 0; y--) {
-                            double caveNoise = noiseGenerator.octave3D_01(
-                                wx * CAVE_NOISE_SCALE,
-                                wy * CAVE_NOISE_SCALE,
-                                y * CAVE_NOISE_SCALE, 4);
-
-
-
-                            // Fill up below the surface with caves
-                            if (caveNoise < 0.1) {
-                                // Fill up the surface crust with dirt
-                                if (surfaceHeight - y < DIRT_HEIGHT) {
-                                    chunk[x][y][z] = Tile{TileType::DIRT};
-                                } else {
-                                    chunk[x][y][z] = Tile{getCaveTileType(caveNoise)};
-                                }
-                            } else {
-                                chunk[x][y][z] = Tile{TileType::AIR}; // Create caves
-                            }
-                        }*/
-
-                // Fill the remaining heights with air
-                /*for (int y = static_cast<int>(surfaceHeight + 1); y < CHUNK_HEIGHT; y++) {
-                    chunk[x][y][z] = Tile{TileType::AIR};
-                }*/
             }
         }
-
-        /*
-        // Print chunk
-        for (int x = 0; x < CHUNK_SIZE; x++) {
-            std::cout << "Layer " << x << std::endl;
-            for (int y = 0; y < CHUNK_HEIGHT; y++) {
-                for (int z = 0; z < CHUNK_SIZE; z++) {
-                    std::cout << (chunk[x][z][y].isEmpty()
-                                      ? "·"
-                                      : std::to_string(static_cast<int>(chunk[x][z][y].type)).c_str());
-                }
-                std::cout << std::endl;
-            }
-            std::cout << std::endl;
-        }
-        */
 
         return chunk;
     }
@@ -149,7 +106,8 @@ private:
 
 class MeshTerrain {
 public:
-    static GLESC::Render::ColorMesh generateChunkMeshFromMap(const Chunk& chunk, Vec2I chunkPosition, const Map& map) {
+    static GLESC::Render::ColorMesh generateChunkMeshFromMap(const Chunk& chunk, Vec2I chunkPosition,
+                                                             const Map& map) {
         GLESC::Render::ColorMesh mesh;
         mesh.startBuilding();
         const Chunk& leftChunk = chunkPosition.getX() > 0
@@ -179,7 +137,6 @@ public:
                     GLESC::Render::ColorRgb color = getColorForTileType(currentTile.type);
 
                     // Also, if the block is on the edge of the chunk, we need to check the neighboring chunks
-
 
 
                     bool isThereAirOnTop = y < CHUNK_HEIGHT - 1 ? chunk[x][z][y + 1].isEmpty() : true;

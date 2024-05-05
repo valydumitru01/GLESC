@@ -1,3 +1,13 @@
+/******************************************************************************
+ * @file   Renderer.cpp
+ * @author Valentin Dumitru
+ * @date   2023-09-26
+ * @brief @todo
+ *
+ * Copyright (c) 2023 Valentin Dumitru. Licensed under the MIT License.
+ * See LICENSE.txt in the project root for license information.
+ ******************************************************************************/
+#include <omp.h>
 #include "engine/subsystems/renderer/Renderer.h"
 
 #include "engine/subsystems/transform/Transform.h"
@@ -29,8 +39,8 @@ Renderer::Renderer(WindowManager& windowManager) :
     cameraTransform(Transform::Transform(Position(0.0f, 0.0f, 3.0f),
                                          Transform::Rotation(0.0f, 0.0f, 0.0f),
                                          Transform::Scale(1.0f, 1.0f, 1.0f))),
-    fog(0.5, cameraPerspective.nearPlane, cameraPerspective.farPlane,
-        skybox.getAverageColor()) {
+    fog(1.0, cameraPerspective.nearPlane, cameraPerspective.farPlane,
+        ColorRgb(200, 200, 255)) {
 }
 
 
@@ -46,6 +56,7 @@ void Renderer::clear() const {
     });
     getGAPI().clearColor(0.2f, 0.3f, 0.3f, 1.0f);
 }
+
 
 void Renderer::renderMeshes(double timeOfFrame) {
     meshRenderCounter.startFrame();
@@ -83,6 +94,8 @@ void Renderer::renderMeshes(double timeOfFrame) {
         applyMaterial(material);
         renderInstances(mesh, individualData);
     }*/
+
+
     for (auto& dynamicMesh : dynamicMeshes.getDynamicMeshes()) {
         ColorMesh& mesh = *dynamicMesh.mesh;
         const Transform::Transform& transform = *dynamicMesh.transform;
@@ -124,7 +137,7 @@ void Renderer::applyLighting(const LightSpots& lightSpotsParam, const GlobalSuns
                              const GlobalAmbienLight& ambientLight, double timeOfFrame) const {
     // Apply global suns
     size_t sunCount = suns.getSuns().size();
-    shader.setUniform("uGlobalSuns.count", sunCount);
+    Shader::setUniform("uGlobalSuns.count", sunCount);
     for (size_t i = 0; i < sunCount; i++) {
         const GlobalSunData& sunData = suns.getSuns()[i];
         std::string iStr = std::to_string(i);
@@ -133,15 +146,15 @@ void Renderer::applyLighting(const LightSpots& lightSpotsParam, const GlobalSuns
         Math::Direction sunDirection = sunData.sun->getDirection();
 
         if (!sunData.sun->isDirty()) continue;
-        shader.setUniform("uGlobalSuns.color[" + iStr + "]", sunColor);
-        shader.setUniform("uGlobalSuns.intensity[" + iStr + "]", sunIntensity);
-        shader.setUniform("uGlobalSuns.direction[" + iStr + "]", sunDirection);
+        Shader::setUniform("uGlobalSuns.color[" + iStr + "]", sunColor);
+        Shader::setUniform("uGlobalSuns.intensity[" + iStr + "]", sunIntensity);
+        Shader::setUniform("uGlobalSuns.direction[" + iStr + "]", sunDirection);
         sunData.sun->setClean();
     }
 
     // Apply spot lights
     size_t lightCount = static_cast<int>(lightSpotsParam.getLights().size());
-    shader.setUniform("uLights.count", lightCount);
+    Shader::setUniform("uLights.count", lightCount);
     for (size_t i = 0; i < lightCount; i++) {
         const LightSpot& light = *lightSpotsParam.getLights()[i].light;
         std::string iStr = std::to_string(i);
@@ -152,50 +165,50 @@ void Renderer::applyLighting(const LightSpots& lightSpotsParam, const GlobalSuns
 
         Position lightPosViewSpace =
             Transform::Transformer::worldToCamera(interpolatedTransform.getPosition(), getView());
-        shader.setUniform("uLights.posInViewSpace[" + iStr + "]", lightPosViewSpace);
+        Shader::setUniform("uLights.posInViewSpace[" + iStr + "]", lightPosViewSpace);
 
         if (!light.isDirty()) continue;
 
         Vec3F lightColor = light.getColor().getRGBVec3FNormalized();
         float lightIntensity = light.getIntensity();
         float lightRadius = light.getRadius();
-        shader.setUniform("uLights.color[" + iStr + "]", lightColor);
-        shader.setUniform("uLights.intensity[" + iStr + "]", lightIntensity);
+        Shader::setUniform("uLights.color[" + iStr + "]", lightColor);
+        Shader::setUniform("uLights.intensity[" + iStr + "]", lightIntensity);
 
-        shader.setUniform("uLights.radius[" + iStr + "]", lightRadius);
+        Shader::setUniform("uLights.radius[" + iStr + "]", lightRadius);
         light.setClean();
     }
-    shader.setUniform("uFog.color", Vec3F(fog.getColor()));
-    shader.setUniform("uFog.density", fog.getDensity());
-    shader.setUniform("uFog.near", fog.getStart());
-    shader.setUniform("uFog.far", fog.getEnd());
+    Shader::setUniform("uFog.color", Vec3F(fog.getColor()));
+    Shader::setUniform("uFog.density", fog.getDensity());
+    Shader::setUniform("uFog.near", fog.getStart());
+    Shader::setUniform("uFog.far", fog.getEnd());
 
-    //shader.setUniform("uGlobalSunLight.lightProperties.color",sun.getColor().toVec3F());
-    //shader.setUniform("uGlobalSunLight.lightProperties.intensity",sun.getIntensity());
-    //shader.setUniform("uGlobalSunLight.direction",sun.getTransform().forward());
+    //Shader::setUniform("uGlobalSunLight.lightProperties.color",sun.getColor().toVec3F());
+    //Shader::setUniform("uGlobalSunLight.lightProperties.intensity",sun.getIntensity());
+    //Shader::setUniform("uGlobalSunLight.direction",sun.getTransform().forward());
     if (ambientLight.isDirty()) {
-        shader.setUniform("uAmbient.color", ambientLight.getColor().getRGBVec3FNormalized());
-        shader.setUniform("uAmbient.intensity", ambientLight.getIntensity());
+        Shader::setUniform("uAmbient.color", ambientLight.getColor().getRGBVec3FNormalized());
+        Shader::setUniform("uAmbient.intensity", ambientLight.getIntensity());
         ambientLight.setClean();
     }
 }
 
 void Renderer::applyMaterial(const Material& material) const {
-    //shader.setUniform("uMaterial.diffuseIntensity",material.getDiffuseIntensity());
+    //Shader::setUniform("uMaterial.diffuseIntensity",material.getDiffuseIntensity());
     //
-    shader.setUniform("uMaterial.specularColor", material.getSpecularColor().getRGBVec3FNormalized());
-    shader.setUniform("uMaterial.specularIntensity", material.getSpecularIntensity());
+    Shader::setUniform("uMaterial.specularColor", material.getSpecularColor().getRGBVec3FNormalized());
+    Shader::setUniform("uMaterial.specularIntensity", material.getSpecularIntensity());
     //
-    //shader.setUniform("uMaterial.emissionColor",material.getEmissionColor());
-    //shader.setUniform("uMaterial.emissionIntensity",material.getEmmisionIntensity());
+    //Shader::setUniform("uMaterial.emissionColor",material.getEmissionColor());
+    //Shader::setUniform("uMaterial.emissionIntensity",material.getEmmisionIntensity());
     //
-    shader.setUniform("uMaterial.shininess", material.getShininess());
+    Shader::setUniform("uMaterial.shininess", material.getShininess());
 }
 
 void Renderer::applyTransform(const MV& modelView, const MVP& mvp, const NormalMat& normalMat) const {
-    shader.setUniform("uMVP", mvp);
-    shader.setUniform("uMV", modelView);
-    shader.setUniform("uNormalMat", normalMat);
+    Shader::setUniform("uMVP", mvp);
+    Shader::setUniform("uMV", modelView);
+    Shader::setUniform("uNormalMat", normalMat);
 }
 
 Renderer::~Renderer() {

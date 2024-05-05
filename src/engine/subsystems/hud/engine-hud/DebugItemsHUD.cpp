@@ -16,8 +16,8 @@ using namespace GLESC::HUD;
 DebugItems::DebugItems(Render::Renderer& renderer, TextureFactory& textureFactory):
     renderer(renderer),
     textureFactory(textureFactory) {
-    items[HudItemType::LIGHT_SPOT] = &textureFactory.loadTexture("images/sprites/GLESC_Light.png");
-    items[HudItemType::SUN] = &textureFactory.loadTexture("images/sprites/GLESC_Sun.png");
+    items[HudItemType::LIGHT_SPOT] = &textureFactory.loadTexture("images/sprites/engine-debug/GLESC_Light.png");
+    items[HudItemType::SUN] = &textureFactory.loadTexture("images/sprites/engine-debug/GLESC_Sun.png");
 
     this->setTitle("Items");
     this->setSizeFraction({1.0f, 1.0f});

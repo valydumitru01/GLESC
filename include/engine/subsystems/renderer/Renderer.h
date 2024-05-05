@@ -82,6 +82,10 @@ namespace GLESC::Render {
                      ColorMesh& mesh,
                      const Transform::Transform& transform);
 
+        void setGlobalAmbientLight(const GlobalAmbienLight& globalAmbientLightParam) {
+            globalAmbienLight = globalAmbientLightParam;
+        }
+
         void addLight(const LightSpot& light, const Transform::Transform& transform);
 
         void addSun(const GlobalSun& sun, const Transform::Transform& transform);

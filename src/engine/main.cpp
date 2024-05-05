@@ -18,21 +18,22 @@ int main(int argc, char* argv[]) {
 #endif
     FPSManager fps(FpsUnlimited);
     GLESC::Engine glesc(fps);
-    // First render and update outside the loop to initialize rendering
-    // And not wait for the catch up with lag time
-    glesc.update();
-    glesc.render(0);
-    glesc.update();
-    glesc.render(0);
 
+    int updateCounter = 0;
     while (glesc.running) {
         fps.startFrame();
 
         glesc.processInput();
+
         while (fps.isUpdateLagged()) // Update executes in constant intervals no matter how much time it takes
         {
             glesc.update();
             fps.refreshUpdateLag();
+
+            // Break if we get in spiral of death
+            if (updateCounter > 500)
+                break;
+            updateCounter++;
         }
         //Render execute arbitrarily, depending on how much time update() takes
         glesc.render(fps.getTimeOfFrameAfterUpdate());
