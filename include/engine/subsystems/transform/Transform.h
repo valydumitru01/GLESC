@@ -12,7 +12,8 @@
 
 #include "TransformTypes.h"
 #include "engine/core/math/geometry/GeometryTypes.h"
-#include "engine/subsystems/renderer/mesh/Mesh.h"
+#include "engine/subsystems/ingame-debug/EntityStatsManager.h"
+#include "engine/subsystems/renderer/mesh/MeshTypes.h"
 
 namespace GLESC::Transform {
     enum class Axis {
@@ -26,7 +27,9 @@ namespace GLESC::Transform {
         static Math::Direction worldRight;
         static Math::Direction worldForward;
 
-        Transform() = default;
+        Transform() {
+            modelMat.makeModelMatrix(position, rotation, scale);
+        };
 
         Transform(Position position, Rotation rotation, Scale scale);
 
@@ -42,76 +45,104 @@ namespace GLESC::Transform {
             return scale;
         }
 
-        Scale& getModifiableScale() {
-            return scale;
-        }
-
-        Rotation& getModifiableRotation() {
-            dirtyRotation = true;
-            return rotation;
-        }
-
-        Position& getModifiablePosition() {
-            return position;
-        }
-
         void setPosition(const Position& position) {
+            dirty = true;
             this->position = position;
         }
 
         void setRotation(const Rotation& rotation) {
-            dirtyRotation = true;
+            dirty = true;
             this->rotation = rotation;
         }
 
         void setScale(const Scale& scale) {
+            dirty = true;
             this->scale = scale;
         }
 
-        void addPosition(const Position& position) {
-            this->position += position;
-        }
-
-        void addRotation(const Rotation& rotation) {
-            dirtyRotation = true;
-            this->rotation += rotation;
-        }
-
-        void addScale(const Scale& scale) {
-            this->scale += scale;
-        }
-
-
         void setPosition(Axis axis, PosComp value) {
+            dirty = true;
             int index = static_cast<int>(axis);
             position.set(index, value);
         }
 
         void setRotation(Axis axis, RotComp value) {
+            dirty = true;
             int index = static_cast<int>(axis);
-            dirtyRotation = true;
             rotation.set(index, value);
         }
 
         void setScale(Axis axis, ScaleComp value) {
+            dirty = true;
             int index = static_cast<int>(axis);
             scale.set(index, value);
         }
 
+
+        void addPosition(const Position& position) {
+            setPosition(this->position + position);
+        }
+
+        void addRotation(const Rotation& rotation) {
+            setRotation(this->rotation + rotation);
+        }
+
+        void addScale(const Scale& scale) {
+            setScale(this->scale + scale);
+
+        }
+
         void addPosition(Axis axis, PosComp value) {
-            int index = static_cast<int>(axis);
-            position.set(index, position.get(index) + value);
+            setPosition(axis, position.get(static_cast<int>(axis)) + value);
         }
 
         void addRotation(Axis axis, RotComp value) {
-            int index = static_cast<int>(axis);
-            dirtyRotation = true;
-            rotation.set(index, rotation.get(index) + value);
+            setRotation(axis, rotation.get(static_cast<int>(axis)) + value);
         }
 
         void addScale(Axis axis, ScaleComp value) {
-            int index = static_cast<int>(axis);
-            scale.set(index, scale.get(index) + value);
+            setScale(axis, scale.get(static_cast<int>(axis)) + value);
+        }
+
+        Render::Model getModelMatrix() const {
+            if (dirty) {
+                modelMat.makeModelMatrix(position, rotation, scale);
+            }
+            return modelMat;
+        }
+
+        [[nodiscard]] std::vector<EntityStatsManager::Value> getDebuggingValues() {
+            std::vector<EntityStatsManager::Value> values;
+
+            EntityStatsManager::Value positionValue;
+            positionValue.name = "Position";
+            positionValue.data = reinterpret_cast<void*>(&position);
+            positionValue.type = EntityStatsManager::ValueType::VEC3F;
+            positionValue.isModifiable = true;
+            positionValue.usesSlider = false;
+            values.push_back(positionValue);
+
+            EntityStatsManager::Value rotationValue;
+            rotationValue.name = "Rotation";
+            rotationValue.data = reinterpret_cast<void*>(&rotation);
+            rotationValue.type = EntityStatsManager::ValueType::VEC3F;
+            rotationValue.isModifiable = true;
+            rotationValue.usesSlider = true;
+            rotationValue.min = -360.0f;
+            rotationValue.max = 360.0f;
+            values.push_back(rotationValue);
+
+            EntityStatsManager::Value scaleValue;
+            scaleValue.name = "Scale";
+            scaleValue.data = reinterpret_cast<void*>(&scale);
+            scaleValue.type = EntityStatsManager::ValueType::VEC3F;
+            scaleValue.isModifiable = true;
+            scaleValue.usesSlider = true;
+            scaleValue.min = -10.0f;
+            scaleValue.max = 10.0f;
+            values.push_back(scaleValue);
+
+            return values;
         }
 
 
@@ -134,11 +165,13 @@ namespace GLESC::Transform {
         Rotation rotation = Rotation(0.0f, 0.0f, 0.0f);
         Scale scale = Scale(1.0f, 1.0f, 1.0f);
 
-        bool dirtyRotation = true;
+        bool dirty = true;
 
         Math::Direction forwardDirection;
         Math::Direction rightDirection;
         Math::Direction upDirection;
+        // Mutable because we want to return it lazily
+        mutable Render::Model modelMat;
     };
 
     class Transformer {

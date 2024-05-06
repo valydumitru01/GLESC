@@ -18,6 +18,7 @@
 
 using namespace GLESC::Render;
 
+
 Projection makeDefaultProjection() {
     Projection proj;
     proj.makeProjectionMatrix(45.0f, 0.1f, 1000.0f, 800.0f, 600.0f);
@@ -33,14 +34,8 @@ View makeDefaultView() {
 
 
 Renderer::Renderer(WindowManager& windowManager) :
-    windowManager(windowManager), shader(GAPI::Shader("Shader.glsl")),
-    lightSpots(LightSpots()), globalSuns(GlobalSuns()), globalAmbienLight(GlobalAmbienLight()),
-    projection(makeDefaultProjection()), view(makeDefaultView()),
-    cameraTransform(Transform::Transform(Position(0.0f, 0.0f, 3.0f),
-                                         Transform::Rotation(0.0f, 0.0f, 0.0f),
-                                         Transform::Scale(1.0f, 1.0f, 1.0f))),
-    fog(1.0, cameraPerspective.nearPlane, cameraPerspective.farPlane,
-        ColorRgb(200, 200, 255)) {
+    windowManager(windowManager), shader(Shader("Shader.glsl")),
+    projection(makeDefaultProjection()), view(makeDefaultView()), frustum(projection * view) {
 }
 
 
@@ -48,7 +43,7 @@ void Renderer::swapBuffers() const {
     getGAPI().swapBuffers(windowManager.getWindow());
 }
 
-void Renderer::clear() const {
+void Renderer::clear() {
     getGAPI().clear({
         Enums::ClearBits::Color,
         Enums::ClearBits::Depth,
@@ -59,7 +54,7 @@ void Renderer::clear() const {
 
 
 void Renderer::renderMeshes(double timeOfFrame) {
-    meshRenderCounter.startFrame();
+    drawCounter.startFrame();
 
     View viewMat = getView();
     Projection projMat = getProjection();
@@ -69,96 +64,30 @@ void Renderer::renderMeshes(double timeOfFrame) {
     frustum.update(viewProj);
 
 
-    /*
-    for (const auto& batch : meshBatches.getBatches()) {
-        const ColorMesh& batchedMesh = batch.second;
-        if (!frustum.intersects(batchedMesh.getBoudingVolume())) continue;
-        const Material& material = *batch.first;
-
-
-        if (isMeshNotCached(batchedMesh))
-            cacheMesh(batchedMesh, MeshAdapter::adaptMesh(batchedMesh));
-        applyMaterial(material);
-        renderMesh(batchedMesh);
-    }
-    for (const auto& instances : meshInstances.getInstances()) {
-        const MeshInstanceSharedData& sharedData = instances.first;
-        const ColorMesh& mesh = *sharedData.mesh;
-        if (!frustum.intersects(mesh.getBoudingVolume())) continue;
-        const Material& material = *sharedData.material;
-        const std::vector<MeshInstanceData>& individualData = instances.second;
-
-
-        if (isMeshNotCached(mesh))
-            cacheMesh(mesh, MeshAdapter::adaptInstances(mesh, individualData));
-        applyMaterial(material);
-        renderInstances(mesh, individualData);
-    }*/
-
-
-    for (auto& dynamicMesh : dynamicMeshes.getDynamicMeshes()) {
-        ColorMesh& mesh = *dynamicMesh.mesh;
-        const Transform::Transform& transform = *dynamicMesh.transform;
-        interpolationTransforms[&transform].pushTransform(transform);
-        const Transform::Transform& interpolatedTransform =
-            interpolationTransforms[&transform].interpolate(timeOfFrame);
-
-        Model modelMat;
-        modelMat.makeModelMatrix(
-            interpolatedTransform.getPosition(), interpolatedTransform.getRotation(), interpolatedTransform.getScale());
-        MV modelView = modelMat * viewMat;
-        MVP modelViewProj = modelView * projMat;
+    for (auto& dynamicMesh : adaptedBatches) {
         NormalMat normalMat;
         normalMat.makeNormalMatrix(modelView);
 
 
-        BoundingVolume transformedBoundingVol =
-            Transform::Transformer::transformBoundingVolume(mesh.getBoundingVolume(), modelMat);
-
-        if (!frustum.contains(transformedBoundingVol)) continue;
+        if (!frustum.contains(*dynamicMesh.boundingVolume)) continue;
         const Material& material = *dynamicMesh.material;
 
-        if (isMeshNotCached(mesh))
-            cacheMesh(mesh, MeshAdapter::adaptMesh(mesh));
-
         shader.bind(); // Activate the shader program before transform, material and lighting
-        applyTransform(modelView, modelViewProj, normalMat);
+        applyTransform(view, viewProj, normalMat);
         applyMaterial(material);
-        applyLighting(lightSpots, globalSuns, globalAmbienLight, timeOfFrame);
-        renderMesh(mesh);
+        applyLighSpots(lights, timeOfFrame);
+        renderMesh(dynamicMesh);
     }
-
-
-    skybox.draw(view, projMat);
 }
 
 
-void Renderer::applyLighting(const LightSpots& lightSpotsParam, const GlobalSuns& suns,
-                             const GlobalAmbienLight& ambientLight, double timeOfFrame) const {
-    // Apply global suns
-    size_t sunCount = suns.getSuns().size();
-    Shader::setUniform("uGlobalSuns.count", sunCount);
-    for (size_t i = 0; i < sunCount; i++) {
-        const GlobalSunData& sunData = suns.getSuns()[i];
-        std::string iStr = std::to_string(i);
-        Vec3F sunColor = sunData.sun->getColor().getRGBVec3FNormalized();
-        float sunIntensity = sunData.sun->getIntensity();
-        Math::Direction sunDirection = sunData.sun->getDirection();
-
-        if (!sunData.sun->isDirty()) continue;
-        Shader::setUniform("uGlobalSuns.color[" + iStr + "]", sunColor);
-        Shader::setUniform("uGlobalSuns.intensity[" + iStr + "]", sunIntensity);
-        Shader::setUniform("uGlobalSuns.direction[" + iStr + "]", sunDirection);
-        sunData.sun->setClean();
-    }
-
-    // Apply spot lights
-    size_t lightCount = static_cast<int>(lightSpotsParam.getLights().size());
+void Renderer::applyLighSpots(const std::vector<Light>& lights, double timeOfFrame) const {
+    size_t lightCount = static_cast<int>(lights.size());
     Shader::setUniform("uLights.count", lightCount);
     for (size_t i = 0; i < lightCount; i++) {
-        const LightSpot& light = *lightSpotsParam.getLights()[i].light;
+        const LightSpot& light = *lights[i].light;
         std::string iStr = std::to_string(i);
-        const Transform::Transform& transform = *lightSpotsParam.getLights()[i].transform;
+        const Transform::Transform& transform = *lights[i].transform;
         interpolationTransforms[&transform].pushTransform(transform);
         const Transform::Transform& interpolatedTransform =
             interpolationTransforms[&transform].interpolate(timeOfFrame);
@@ -178,22 +107,41 @@ void Renderer::applyLighting(const LightSpots& lightSpotsParam, const GlobalSuns
         Shader::setUniform("uLights.radius[" + iStr + "]", lightRadius);
         light.setClean();
     }
-    Shader::setUniform("uFog.color", Vec3F(fog.getColor()));
-    Shader::setUniform("uFog.density", fog.getDensity());
-    Shader::setUniform("uFog.near", fog.getStart());
-    Shader::setUniform("uFog.far", fog.getEnd());
-
-    //Shader::setUniform("uGlobalSunLight.lightProperties.color",sun.getColor().toVec3F());
-    //Shader::setUniform("uGlobalSunLight.lightProperties.intensity",sun.getIntensity());
-    //Shader::setUniform("uGlobalSunLight.direction",sun.getTransform().forward());
-    if (ambientLight.isDirty()) {
-        Shader::setUniform("uAmbient.color", ambientLight.getColor().getRGBVec3FNormalized());
-        Shader::setUniform("uAmbient.intensity", ambientLight.getIntensity());
-        ambientLight.setClean();
-    }
 }
 
-void Renderer::applyMaterial(const Material& material) const {
+void Renderer::applySun(const GlobalSun& sun) {
+    if (!sun.isDirty()) return;
+    Vec3F sunColor = sun.getColor().getRGBVec3FNormalized();
+    float sunIntensity = sun.getIntensity();
+    Math::Direction sunDirection = sun.getDirection();
+    Shader::setUniform("uGlobalSuns.color", sunColor);
+    Shader::setUniform("uGlobalSuns.intensity", sunIntensity);
+    Shader::setUniform("uGlobalSuns.direction", sunDirection);
+    sun.setClean();
+}
+
+void Renderer::applyAmbientLight(const GlobalAmbienLight& ambientLight) {
+    if (!ambientLight.isDirty()) return;
+    Vec3F ambientColor = ambientLight.getColor().getRGBVec3FNormalized();
+    float ambientIntensity = ambientLight.getIntensity();
+    Shader::setUniform("uAmbient.color", ambientColor);
+    Shader::setUniform("uAmbient.intensity", ambientIntensity);
+    ambientLight.setClean();
+}
+
+
+void Renderer::applySkybox(const Skybox& skyboxParam, const View& view, const Projection& projection) {
+    skyboxParam.draw(view, projection);
+}
+
+void Renderer::applyFog(const FogData& fogParam) {
+    Shader::setUniform("uFog.color", Vec3F(fogParam.fog->getColor()));
+    Shader::setUniform("uFog.density", fogParam.fog->getDensity());
+    Shader::setUniform("uFog.near", fogParam.fog->getStart());
+    Shader::setUniform("uFog.far", fogParam.fog->getEnd());
+}
+
+void Renderer::applyMaterial(const Material& material) {
     //Shader::setUniform("uMaterial.diffuseIntensity",material.getDiffuseIntensity());
     //
     Shader::setUniform("uMaterial.specularColor", material.getSpecularColor().getRGBVec3FNormalized());
@@ -205,9 +153,10 @@ void Renderer::applyMaterial(const Material& material) const {
     Shader::setUniform("uMaterial.shininess", material.getShininess());
 }
 
-void Renderer::applyTransform(const MV& modelView, const MVP& mvp, const NormalMat& normalMat) const {
-    Shader::setUniform("uMVP", mvp);
-    Shader::setUniform("uMV", modelView);
+
+void Renderer::applyTransform(const View& view, const VP& vp, const NormalMat& normalMat) {
+    Shader::setUniform("uVP", vp);
+    Shader::setUniform("uView", view);
     Shader::setUniform("uNormalMat", normalMat);
 }
 
@@ -215,81 +164,84 @@ Renderer::~Renderer() {
     getGAPI().deleteContext();
 }
 
+void Renderer::attatchMeshToBatch(ColorMesh& batch, ColorMesh& mesh, const Transform::Transform& transform) {
+    Transform::Transformer::transformMesh(mesh, transform.getModelMatrix());
+    BoundingVolume transformedBoundingVol =
+            Transform::Transformer::transformBoundingVolume(mesh.getBoundingVolume(), transform.getModelMatrix());
 
-void Renderer::transformMeshCPU(ColorMesh& mesh,
-                                const Model& modelMat) {
-    Transform::Transformer::transformMesh(mesh, modelMat);
+    if (!frustum.contains(transformedBoundingVol)) return;
+    batch.attatchMesh(mesh);
 }
 
-void Renderer::renderInstances(const ColorMesh& mesh,
-                               const std::vector<MeshInstanceData>& instances) {
-    AdaptedInstances& adptInstcs = adaptedInstances[&mesh];
+
+
+
+void Renderer::renderInstances(const AdaptedInstances& adaptedInstances) {
     // Bind the VAO before drawing
-    adptInstcs.vertexArray->bind();
-    getGAPI().drawTrianglesIndexedInstanced(mesh.getIndices().size(), instances.size());
+    adaptedInstances.vertexArray->bind();
+    getGAPI().drawTrianglesIndexedInstanced(adaptedInstances.indexBuffer->getCount(),
+                                            adaptedInstances.instanceCount);
 }
 
-void Renderer::renderMesh(const ColorMesh& mesh) {
-    AdaptedMesh& adaptedMesh = adaptedMeshes[&mesh];
+void Renderer::renderMesh(const AdaptedMesh& mesh) {
     // Bind the VAO before drawing
-    adaptedMesh.vertexArray->bind();
-    getGAPI().drawTrianglesIndexed(adaptedMesh.indexBuffer->getCount());
-    meshRenderCounter.addToCounter(1);
+    mesh.vertexArray->bind();
+    getGAPI().drawTrianglesIndexed(mesh.indexBuffer->getCount());
+    drawCounter.addToCounter(1);
 }
 
 
-void Renderer::cacheMesh(const ColorMesh& mesh,
-                         AdaptedMesh adaptedMesh) {
-    adaptedMeshes[&mesh] = std::move(adaptedMesh);
-    mesh.setClean();
-}
-
-void Renderer::cacheMesh(const ColorMesh& mesh,
-                         AdaptedInstances adaptedInstancesParam) {
-    adaptedInstances[&mesh] = std::move(adaptedInstancesParam);
-    mesh.setClean();
-}
-
-bool Renderer::isMeshNotCached(const ColorMesh& mesh) const {
-    return mesh.isDirty() || adaptedMeshes.find(&mesh) == adaptedMeshes.end();
-}
-
-
-void Renderer::addData(const Render::Material& material,
-                       ColorMesh& mesh,
-                       const Transform::Transform& transform) {
+void Renderer::sendMeshData(const Material& material,
+                        ColorMesh& mesh) {
     D_ASSERT_TRUE(!mesh.isBeingBuilt(), "Mesh is being built");
+
     if (mesh.getVertices().empty()) {
-        Console::warn("Mesh has no vertices");
+        Console::error("Mesh has no vertices");
         return;
     }
+
     RenderType renderType = mesh.getRenderType();
-    // We store the meshes in the appropriate data structure
+
     if (renderType == RenderType::Static) {
-        Model modelMat;
-        modelMat.makeModelMatrix(transform.getPosition(), transform.getRotation(), transform.getScale());
-        transformMeshCPU(mesh, modelMat);
-        meshBatches.attatchMesh(material, mesh);
+        D_ASSERT_TRUE(false, "Static meshes are not supported");
+        return;
     }
-    else if (renderType == RenderType::InstancedStatic) {
-        meshInstances.addInstance(mesh, material, transform);
+    if (renderType == RenderType::InstancedStatic) {
+        D_ASSERT_TRUE(false, "Instanced static meshes are not supported");
+        return;
     }
-    else if (renderType == RenderType::InstancedDynamic) {
-        // TODO: Differentiate between static and dynamic instances
-        meshInstances.addInstance(mesh, material, transform);
+    if (renderType == RenderType::InstancedDynamic) {
+        D_ASSERT_TRUE(false, "Instanced dynamic meshes are not supported");
+        return;
     }
-    else if (renderType == RenderType::Dynamic) {
-        dynamicMeshes.addDynamicMesh(mesh, material, transform);
+    if (renderType == RenderType::Dynamic) {
+        adaptedBatches.push_back(MeshAdapter::adaptMesh(mesh, mesh.getBoundingVolume(), material));
+        return;
     }
-    else {
-        D_ASSERT_TRUE(false, "Unknown render type");
-    }
+    D_ASSERT_TRUE(false, "Unknown render type");
+
 }
 
-void Renderer::addLight(const LightSpot& light, const Transform::Transform& transform) {
-    lightSpots.addLight(light, transform);
+void Renderer::addLightSpot(const LightSpot& light, const Transform::Transform& transform) {
+    Light lightData{};
+    lightData.light = &light;
+    lightData.transform = &transform;
+    lights.push_back(lightData);
 }
 
-void Renderer::addSun(const GlobalSun& sun, const Transform::Transform& transform) {
-    globalSuns.addSun(sun, transform);
+void Renderer::setSun(const GlobalSun& sun, const GlobalAmbienLight& ambientLight,
+                      const Transform::Transform& transform) {
+    this->sun.sun = &sun;
+    this->sun.ambientLight = &ambientLight;
+    this->sun.transform = &transform;
+}
+
+void Renderer::setFog(const Fog& fogParam, const Transform::Transform& transform) {
+    this->fog.fog = &fogParam;
+    this->fog.transform = &transform;
+}
+
+void Renderer::setCamera(const CameraPerspective& cameraPerspective, const Transform::Transform& transform) {
+    this->camera.camera = &cameraPerspective;
+    this->camera.transform = &transform;
 }

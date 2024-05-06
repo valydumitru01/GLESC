@@ -12,6 +12,8 @@
 #include "engine/core/low-level-renderer/buffers/VertexBuffer.h"
 #include "engine/core/low-level-renderer/buffers/VertexBufferLayout.h"
 #include "engine/subsystems/renderer/RendererTypes.h"
+#include "engine/subsystems/renderer/material/Material.h"
+#include "engine/subsystems/transform/Transform.h"
 
 namespace GLESC::Render {
     template <typename Type>
@@ -26,8 +28,11 @@ namespace GLESC::Render {
         std::cout << std::endl;
     }
 
-    AdaptedMesh MeshAdapter::adaptMesh(const ColorMesh& mesh) {
+    AdaptedMesh MeshAdapter::adaptMesh(const ColorMesh& mesh, const BoundingVolume& boundingVolume,
+                                       const Material& material) {
         AdaptedMesh adaptedMesh;
+        adaptedMesh.material = &material;
+        adaptedMesh.boundingVolume = &boundingVolume;
 
         adaptedMesh.vertexArray = std::make_unique<GAPI::VertexArray>();
 
@@ -59,7 +64,7 @@ namespace GLESC::Render {
 
         return adaptedMesh;
     }
-
+    /*
     AdaptedInstances MeshAdapter::adaptInstances(const ColorMesh& mesh,
                                                  const std::vector<MeshInstanceData>& instances) {
         // First, adapt the mesh to get a VAO and attached VBOs for vertex and index data.
@@ -107,4 +112,5 @@ namespace GLESC::Render {
 
         return adaptedInstances;
     }
+    */
 }

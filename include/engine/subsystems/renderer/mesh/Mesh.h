@@ -128,6 +128,16 @@ namespace GLESC::Render {
             this->addTris(v1Index, v2Index, v3Index);
         }
 
+        void attatchMesh(const Mesh& mesh) {
+            D_ASSERT_TRUE(isBuilding, "Mesh is not being built");
+            for (const auto& vertex : mesh.getVertices()) {
+                addVertex(vertex);
+            }
+            for (const auto& index : mesh.getIndices()) {
+                indices.push_back(index);
+            }
+        }
+
         void addQuad(const VertexColorParam& a,
                      const VertexColorParam& b,
                      const VertexColorParam& c,

@@ -29,7 +29,7 @@ protected:
     // These are pointers because we don't want to call the constructor
     MeshRenderingTest() : windowManager(), renderer(windowManager) {
         mesh = MeshFactory::cube(ColorRgba(1,0,0,1));
-        renderer.addData(material,mesh, transform);
+        renderer.sendMeshData(material,mesh, transform);
     }
 
 

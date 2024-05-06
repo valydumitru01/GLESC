@@ -23,19 +23,6 @@ namespace GLESC::Render {
             intensity(intensity), color(color), direction(direction) {
         }
 
-        float& getModifiableIntensity() {
-            return intensity.getModifiable();
-        }
-
-        ColorRgb& getModifiableColor() {
-            return color;
-        }
-
-        Math::Direction& getModifiableDirection() {
-            return direction;
-        }
-
-
         float getIntensity() const {
             return intensity.get();
         }
@@ -50,8 +37,6 @@ namespace GLESC::Render {
 
 
         void setIntensity(float intensity) {
-            D_ASSERT_LESS_OR_EQUAL(intensity, 1.0f, "Intensity must be less or equal to 1.0f");
-            D_ASSERT_GREATER_OR_EQUAL(intensity, 0.0f, "Intensity must be greater or equal to 0.0f");
             this->intensity = Intensity(intensity);
             setDirty();
         }
@@ -77,6 +62,44 @@ namespace GLESC::Render {
 
         bool& isDirty() const {
             return dirty;
+        }
+
+        [[nodiscard]] std::vector<EntityStatsManager::Value> getDebuggingValues() {
+            std::vector<EntityStatsManager::Value> values;
+            EntityStatsManager::Value intensityValue;
+            intensityValue.name = "Intensity";
+            intensityValue.data = reinterpret_cast<void*>(&intensity.get());
+            intensityValue.type = EntityStatsManager::ValueType::FLOAT;
+            intensityValue.isModifiable = true;
+            intensityValue.usesSlider = true;
+            intensityValue.valueDirty = &dirty;
+            intensityValue.min = 0.0f;
+            intensityValue.max = 1.0f;
+            values.push_back(intensityValue);
+
+            EntityStatsManager::Value colorValue;
+            colorValue.name = "Color";
+            colorValue.data = reinterpret_cast<void*>(&color);
+            colorValue.type = EntityStatsManager::ValueType::VEC3F;
+            colorValue.isModifiable = true;
+            colorValue.valueDirty = &dirty;
+            colorValue.usesSlider = true;
+            colorValue.min = 0.0f;
+            colorValue.max = 255.0f;
+            values.push_back(colorValue);
+
+            EntityStatsManager::Value directionValue;
+            directionValue.name = "Direction";
+            directionValue.data = reinterpret_cast<void*>(&direction);
+            directionValue.type = EntityStatsManager::ValueType::VEC3F;
+            directionValue.isModifiable = true;
+            directionValue.usesSlider = true;
+            directionValue.valueDirty = &dirty;
+            directionValue.min = -1.0f;
+            directionValue.max = 1.0f;
+            values.push_back(directionValue);
+
+            return values;
         }
 
         std::string toString() const {

@@ -324,6 +324,18 @@ namespace GLESC::Render {
             return data[2];
         }
 
+        ColorRgbNorm(float r, float g, float b) {
+            D_ASSERT_LESS_OR_EQUAL(r, 1.0f, "R must be less or equal than 1");
+            D_ASSERT_GREATER_OR_EQUAL(r, 0.0f, "R must be greater or equal than 0");
+            D_ASSERT_LESS_OR_EQUAL(g, 1.0f, "G must be less or equal than 1");
+            D_ASSERT_GREATER_OR_EQUAL(g, 0.0f, "G must be greater or equal than 0");
+            D_ASSERT_LESS_OR_EQUAL(b, 1.0f, "B must be less or equal than 1");
+            D_ASSERT_GREATER_OR_EQUAL(b, 0.0f, "B must be greater or equal than 0");
+            data[0] = r;
+            data[1] = g;
+            data[2] = b;
+        }
+
 
         ColorRgbNorm(const ColorRgb& colorRgb) {
             data[0] = colorRgb.getRNormalized();

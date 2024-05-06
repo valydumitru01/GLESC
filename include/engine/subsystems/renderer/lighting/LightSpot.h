@@ -37,23 +37,41 @@ namespace GLESC::Render {
         const ColorRgb& getColor() const { return color; }
         [[nodiscard]] float getRadius() const { return radius; }
 
+        [[nodiscard]] std::vector<EntityStatsManager::Value> getDebuggingValues() {
+            std::vector<EntityStatsManager::Value> values;
+            EntityStatsManager::Value intensityValue;
+            intensityValue.name = "Intensity";
+            intensityValue.data = reinterpret_cast<void*>(&intensity.getModifiable());
+            intensityValue.type = EntityStatsManager::ValueType::FLOAT;
+            intensityValue.isModifiable = true;
+            intensityValue.valueDirty = &dirty;
+            intensityValue.usesSlider = true;
+            values.push_back(intensityValue);
 
+            EntityStatsManager::Value colorValue;
+            colorValue.name = "Color";
+            colorValue.data = reinterpret_cast<void*>(&color);
+            colorValue.type = EntityStatsManager::ValueType::VEC3F;
+            colorValue.isModifiable = true;
+            colorValue.valueDirty = &dirty;
+            colorValue.usesSlider = true;
+            colorValue.min = 0.0f;
+            colorValue.max = 255.0f;
+            values.push_back(colorValue);
 
-        float& getModifiableIntensity() {
-            return intensity.getModifiable();
-            dirty = true;
+            EntityStatsManager::Value radiusValue;
+            radiusValue.name = "Radius";
+            radiusValue.data = reinterpret_cast<void*>(&radius);
+            radiusValue.type = EntityStatsManager::ValueType::FLOAT;
+            radiusValue.isModifiable = true;
+            radiusValue.valueDirty = &dirty;
+            radiusValue.usesSlider = true;
+            radiusValue.min = 0.0f;
+            radiusValue.max = 100.0f;
+            values.push_back(radiusValue);
+
+            return values;
         }
-
-        ColorRgb& getModifiableColor() {
-            dirty = true;
-            return color;
-        }
-
-        [[nodiscard]] float& getModifiableRadius() {
-            dirty = true;
-            return radius;
-        }
-
 
 
         [[nodiscard]] bool& isDirty() const { return dirty; }

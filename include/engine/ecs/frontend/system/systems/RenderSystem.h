@@ -21,6 +21,8 @@ namespace GLESC::ECS {
         void update() override;
 
     private:
+        std::unordered_map<Render::Material, std::vector<Render::Mesh*>> batches;
+        std::vector<Render::ColorMesh> meshBatches;
         Render::Renderer& renderer;
     };
 }

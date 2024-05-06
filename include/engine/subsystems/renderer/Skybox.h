@@ -75,7 +75,7 @@ public:
     }
 
 
-    void draw(const GLESC::Render::View& view, const GLESC::Render::Projection& projection) {
+    void draw(const GLESC::Render::View& view, const GLESC::Render::Projection& projection) const {
         Mat3F resizedView(view);
         GLESC::Render::VP viewTranslationless(resizedView);
 

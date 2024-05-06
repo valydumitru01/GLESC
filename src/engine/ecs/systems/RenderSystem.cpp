@@ -21,11 +21,19 @@ RenderSystem::RenderSystem(Render::Renderer& renderer, ECSCoordinator& ecs) :
 
 
 void RenderSystem::update() {
+    Render::ColorMesh batch;
     for (auto& entity : getAssociatedEntities()) {
         auto& render = getComponent<RenderComponent>(entity);
         
         auto& transform = getComponent<TransformComponent>(entity);
-        
-        renderer.addData(render.material, render.mesh, transform.transform);
+
+        batches[render.material].push_back(&render.mesh);
     }
+
+    // For each different material, create a batch and attatch all the meshes with that material to it
+    for (auto& [material, meshes] : batches) {
+        meshBatches.push_back(Render::ColorMesh());
+        renderer.attatchMeshToBatch(meshBatches, meshes);
+    }
+
 }

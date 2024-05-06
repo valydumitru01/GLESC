@@ -22,19 +22,19 @@ Transform::Transform(Position position, Rotation rotation, Scale scale) :
 
 
 GLESC::Math::Direction Transform::forward() const {
-    if (dirtyRotation)
+    if (dirty)
         return calculateForward();
     return forwardDirection;
 }
 
 GLESC::Math::Direction Transform::right() const {
-    if (dirtyRotation)
+    if (dirty)
         return calculateRight();
     return rightDirection;
 }
 
 GLESC::Math::Direction Transform::up() const {
-    if (dirtyRotation)
+    if (dirty)
         return calculateUp();
     return forwardDirection;
 }
@@ -78,9 +78,6 @@ GLESC::Math::Direction Transform::worldForward{Math::Direction(0.0f, 0.0f, 1.0f)
 
 
 void Transformer::transformMesh(Render::ColorMesh& mesh, const Render::Model& modelMat) {
-    // TODO: Implement this function
-    D_ASSERT_TRUE(false, "Not implemented");
-    Vec3F transformedVertice3D;
     for (auto& vertex : mesh.getModifiableVertices()) {
         vertex.setPosition(modelMat * vertex.getPosition());
     }

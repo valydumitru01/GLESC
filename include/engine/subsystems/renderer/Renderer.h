@@ -20,19 +20,37 @@
 #include "engine/subsystems/renderer/mesh/Mesh.h"
 #include "engine/subsystems/transform/Transform.h"
 
-#include "engine/subsystems/renderer/mesh/BatchMeshes.h"
-#include "engine/subsystems/renderer/mesh/DynamicMeshes.h"
-#include "engine/subsystems/renderer/mesh/InstanceMeshes.h"
-#include "engine/subsystems/renderer/lighting/LightSpots.h"
-
 #include "engine/subsystems/renderer/math/Frustum.h"
+#include "fog/Fog.h"
 #include "lighting/GlobalAmbienLight.h"
 #include "lighting/GlobalSun.h"
-#include "lighting/GlobalSuns.h"
-#include "texture/Cubemap.h"
+#include "lighting/LightSpot.h"
 
 namespace GLESC::Render {
     class Renderer {
+
+        struct Light {
+            const LightSpot* light = nullptr;
+            const Transform::Transform* transform = nullptr;
+        };
+
+        struct Camera {
+            const CameraPerspective* camera = nullptr;
+            const Transform::Transform* transform = nullptr;
+        };
+
+        struct Sun {
+            const GlobalSun* sun = nullptr;
+            const GlobalAmbienLight* ambientLight = nullptr;
+            const Transform::Transform* transform = nullptr;
+        };
+
+        struct FogData {
+            const Fog* fog = nullptr;
+            const Transform::Transform* transform = nullptr;
+        };
+
+
     public:
         explicit Renderer(WindowManager& windowManager);
 
@@ -45,95 +63,63 @@ namespace GLESC::Render {
         void setProjection(const Projection& projectionParam) { this->projection = projectionParam; }
 
         [[nodiscard]] WindowDimensions getViewportSize() const { return windowManager.getSize(); }
-
-        [[nodiscard]] Transform::Transform getCameraTrasnform() const {
-            return this->cameraTransform;
-        }
-
-        void setCameraTransform(Transform::Transform cameraTransformParam) {
-            this->cameraTransform = cameraTransformParam;
-        }
-
-        void setCameraPerspective(const CameraPerspective& cameraPerspective) {
-            this->cameraPerspective = cameraPerspective;
-        }
-
-        void addLightSpot(const LightSpot& lightSpot, const Transform::Transform& transform) {
-            lightSpots.addLight(lightSpot, transform);
-        }
+        [[nodiscard]] Camera getCamer() const { return this->camera; }
 
 
 
-        [[nodiscard]] GAPI::Shader& getDefaultShader() { return shader; }
+        [[nodiscard]] Shader& getDefaultShader() { return shader; }
         [[nodiscard]] Frustum& getFrustum() { return frustum; }
         [[nodiscard]] const Frustum& getFrustum() const { return frustum; }
-        [[nodiscard]] const float getMeshRenderCount() const { return meshRenderCounter.getCount(); }
-
-        void clear() const;
-
-        void renderMesh(const ColorMesh& mesh);
+        [[nodiscard]] const float getMeshRenderCount() const { return drawCounter.getCount(); }
 
 
-        void renderInstances(const ColorMesh& mesh,
-                             const std::vector<MeshInstanceData>& instances);
 
+        void sendMeshData(const Material& material, ColorMesh& mesh);
+        void setCamera(const CameraPerspective& cameraPerspective, const Transform::Transform& transform);
+        void setSun(const GlobalSun& sun, const GlobalAmbienLight& ambientLight, const Transform::Transform& transform);
+        void setFog(const Fog& fogParam, const Transform::Transform& transform);
+        void addLightSpot(const LightSpot& lightSpot, const Transform::Transform& transform);
 
-        void addData(const Material& material,
-                     ColorMesh& mesh,
-                     const Transform::Transform& transform);
+        void attatchMeshToBatch(ColorMesh& batch, ColorMesh& mesh, const Transform::Transform& transform);
 
-        void setGlobalAmbientLight(const GlobalAmbienLight& globalAmbientLightParam) {
-            globalAmbienLight = globalAmbientLightParam;
-        }
-
-        void addLight(const LightSpot& light, const Transform::Transform& transform);
-
-        void addSun(const GlobalSun& sun, const Transform::Transform& transform);
-        void renderMeshes(double timeOfFrame);
-
-        void swapBuffers() const;
 
     private:
-        void applyTransform(const MV& modelView, const MVP& mvp, const NormalMat& normalMat) const;
-        void transformMeshCPU(ColorMesh& mesh, const Model& modelMat);
+        void renderMeshes(double timeOfFrame);
+        static void clear();
+        void swapBuffers() const;
 
-        void applyLighting(const LightSpots& lightSpotsParam, const GlobalSuns& suns,
-                             const GlobalAmbienLight& ambientLight, double timeOfFrame) const;
-        void applyMaterial(const Material& material) const;
-        void cacheMesh(const ColorMesh& mesh,
-                       AdaptedMesh adaptedMesh);
+        void applyLighSpots(const std::vector<Light>& lights, double timeOfFrame) const;
+        static void applyTransform(const MV& modelView, const MVP& mvp, const NormalMat& normalMat);
+        static void applyAmbientLight(const GlobalAmbienLight& ambientLight);
+        static void applyFog(const FogData& fogParam);
+        static void applySkybox(const Skybox& skyboxParam, const View& view, const Projection& projection);
+        static void applySun(const GlobalSun& sun);
+        static void applyMaterial(const Material& material);
 
-        void cacheMesh(const ColorMesh& mesh,
-                       AdaptedInstances adaptedInstancesParam);
-
-        [[nodiscard]] bool isMeshNotCached(const ColorMesh& mesh) const;
+        static void renderMesh(const AdaptedMesh& mesh);
+        static void renderInstances(const AdaptedInstances& adaptedInstances);
 
         WindowManager& windowManager;
 
-        std::unordered_map<const ColorMesh*, AdaptedMesh> adaptedMeshes;
-        std::unordered_map<const ColorMesh*, AdaptedInstances> adaptedInstances;
-
         mutable std::unordered_map<const Transform::Transform*, Transform::Interpolator> interpolationTransforms;
 
+        std::vector<AdaptedMesh> adaptedBatches;
+
         Shader shader;
+
+        Camera camera;
         Frustum frustum;
         Skybox skybox;
-        Fog fog;
+        FogData fog;
+        Sun sun;
+        GlobalAmbienLight ambientLight;
 
-        InstanceMeshes meshInstances;
-        MeshBatches meshBatches;
-        DynamicMeshes dynamicMeshes;
+        std::vector<Light> lights;
 
-        LightSpots lightSpots;
-        GlobalSuns globalSuns;
-        GlobalAmbienLight globalAmbienLight;
-
-        Counter meshRenderCounter;
+        static Counter drawCounter;
 
         Projection projection;
         View view;
         VP viewProjection;
-        Transform::Transform cameraTransform;
-        CameraPerspective cameraPerspective;
     }; // class Renderer
 } // namespace GLESC

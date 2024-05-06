@@ -11,7 +11,7 @@
 #pragma once
 
 #include "engine/core/asserts/Asserts.h"
-#include "engine/ecs/frontend/component/IComponent.h"
+#include "../../component/IComponent.h"
 
 #define ASSERT_IS_COMPONENT(component) \
     static_assert(std::is_base_of<IComponent, component>::value, \

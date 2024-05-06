@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include "IComponent.h"
+#include "../../backend/component/IComponent.h"
 #include "engine/subsystems/physics/PhysicsTypes.h"
 
 namespace GLESC::ECS {

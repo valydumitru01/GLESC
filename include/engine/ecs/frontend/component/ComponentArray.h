@@ -9,7 +9,7 @@
 #include <cassert>
 #include "engine/ecs/ECSTypes.h"
 #include "engine/core/logger/Logger.h"
-#include "IComponent.h"
+#include "../../backend/component/IComponent.h"
 #include "engine/ecs/backend/asserts/component/ComponentArrayAsserts.h"
 
 #ifndef NDEBUG_ECS

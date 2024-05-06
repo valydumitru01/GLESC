@@ -11,15 +11,18 @@
 #include "engine/core/low-level-renderer/buffers/IndexBuffer.h"
 #include "engine/core/low-level-renderer/buffers/VertexArray.h"
 #include "engine/core/low-level-renderer/buffers/VertexInstanceBuffer.h"
+#include "engine/subsystems/renderer/material/Material.h"
 
-#include "engine/subsystems/renderer/mesh/InstanceMeshes.h"
 #include "engine/subsystems/renderer/mesh/Mesh.h"
+#include "engine/subsystems/transform/Transform.h"
 
 namespace GLESC::Render {
     struct AdaptedMesh {
         std::unique_ptr<GAPI::VertexArray> vertexArray; // For mesh vertex data
         std::unique_ptr<GAPI::IndexBuffer> indexBuffer;
         std::unique_ptr<GAPI::VertexBuffer> vertexBuffer;
+        const Material* material;
+        const BoundingVolume* boundingVolume;
     };
 
     struct AdaptedInstances {
@@ -32,9 +35,11 @@ namespace GLESC::Render {
 
     class MeshAdapter {
     public:
-        [[nodiscard]] static AdaptedMesh adaptMesh(const ColorMesh &mesh);
-
-        [[nodiscard]] static AdaptedInstances adaptInstances(const ColorMesh &mesh,
-                                                             const std::vector<MeshInstanceData> &instances);
+        [[nodiscard]] static AdaptedMesh adaptMesh(const ColorMesh& mesh,
+                                                   const BoundingVolume& boundingVolume,
+                                                   const Material& material);
+        /*
+                [[nodiscard]] static AdaptedInstances adaptInstances(const ColorMesh& mesh,
+                                                                     const std::vector<MeshInstanceData>& instances);*/
     }; // class MeshAdapter
 } // namespace Render

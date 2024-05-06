@@ -8,7 +8,7 @@
 
 #include <unordered_map>
 
-#include "IComponent.h"
+#include "../../backend/component/IComponent.h"
 #include "engine/subsystems/input/KeyCommand.h"
 #include "engine/subsystems/input/InputTypes.h"
 #include "engine/subsystems/input/MouseCommand.h"
