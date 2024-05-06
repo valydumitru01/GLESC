@@ -15,7 +15,7 @@
 
 
 namespace GLESC::ECS {
-    class RenderComponent;
+    struct RenderComponent;
     class RenderSystem : public System {
     public:
         explicit RenderSystem(Render::Renderer& renderer, ECSCoordinator& ecs);

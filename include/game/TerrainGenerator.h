@@ -15,9 +15,9 @@
 #include "engine/core/math/algebra/vector/Vector.h"
 #include "engine/subsystems/renderer/RendererTypes.h"
 #include "engine/subsystems/renderer/mesh/Mesh.h"
-#define CHUNK_SIZE 16
-#define MAP_SIZE_IN_CHUNKS 50
-#define CHUNK_HEIGHT 20
+#define CHUNK_SIZE 50
+#define MAP_SIZE_IN_CHUNKS 3
+#define CHUNK_HEIGHT 100
 #define DIRT_HEIGHT 3
 
 #define SURFACE_NOISE_SCALE 0.01  // Lower scale for smoother large features
@@ -61,8 +61,8 @@ public:
 
 private:
     TileType getSurfaceTileType(double value) {
-        if (value < 0.1 * CHUNK_HEIGHT) return TileType::WATER;
-        if (value < 0.3 * CHUNK_HEIGHT) return TileType::SAND;
+        if (value < 0.3 * CHUNK_HEIGHT) return TileType::WATER;
+        if (value < 0.4 * CHUNK_HEIGHT) return TileType::SAND;
         if (value < 0.8 * CHUNK_HEIGHT) return TileType::GRASS;
         return TileType::ROCK;
     }
@@ -81,9 +81,14 @@ private:
                 // Surface generation
                 double wx = chunkX + x;
                 double wy = chunkZ + z;
-                double surfaceHeight = noiseGenerator.octave2D_01(
+                double baseLayer = noiseGenerator.octave2D_01(
                     wx * SURFACE_NOISE_SCALE,
-                    wy * SURFACE_NOISE_SCALE, 8) * CHUNK_HEIGHT / 2;
+                    wy * SURFACE_NOISE_SCALE, 4) * CHUNK_HEIGHT * 0.8; // Large, smooth hills
+                double detailLayer = noiseGenerator.octave2D_01(
+                    wx * SURFACE_NOISE_SCALE * 5,
+                    wy * SURFACE_NOISE_SCALE * 5,
+                    6) * CHUNK_HEIGHT * 0.2; // Detailed features
+                double surfaceHeight = baseLayer + detailLayer;
                 int ySurface = static_cast<int>(surfaceHeight);
 
                 // Fill the whole chunk with air
@@ -95,7 +100,7 @@ private:
 
                 // Fill terrain with blocks
                 for (int y = 0; y < ySurface; y++) {
-                    chunk[x][z][y] = Tile{TileType::ROCK};
+                    chunk[x][z][y] = chunk[x][z][ySurface];
                 }
             }
         }
@@ -122,15 +127,14 @@ public:
         const Chunk& backChunk = chunkPosition.getY() > 0
                                      ? map.at({chunkPosition.getX(), chunkPosition.getY() - 1})
                                      : chunk;
+#pragma omp parallel for collapse(3) schedule(dynamic)
         for (int x = 0; x < CHUNK_SIZE; x++) {
-            bool isBlockOnChunkLeftEdge = x == 0;
-            bool isBlockOnChunkRightEdge = x == CHUNK_SIZE - 1;
-
             for (int z = 0; z < CHUNK_SIZE; z++) {
-                bool isBlockOnChunkFrontEdge = z == CHUNK_SIZE - 1;
-                bool isBlockOnChunkBackEdge = z == 0;
-
                 for (int y = 0; y < CHUNK_HEIGHT; y++) {
+                    bool isBlockOnChunkLeftEdge = x == 0;
+                    bool isBlockOnChunkRightEdge = x == CHUNK_SIZE - 1;
+                    bool isBlockOnChunkFrontEdge = z == CHUNK_SIZE - 1;
+                    bool isBlockOnChunkBackEdge = z == 0;
                     Tile currentTile = chunk[x][z][y];
                     if (currentTile.isEmpty()) continue; // Skip air blocks
 

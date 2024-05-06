@@ -27,11 +27,11 @@ void Texture::load(const std::string& path, bool flipTexture) {
                                                 Enums::Texture::Filters::WrapMode::ClampToEdge,
                                                 Enums::Texture::Filters::WrapMode::ClampToEdge);
     textureSurface.load(path, flipTexture);
-    loadGPU(textureSurface);
+    load(textureSurface);
     hasLoaded = true;
 }
 
-void Texture::loadGPU(const ResMng::Texture::TextureSurface& textureSurfaceParam) {
+void Texture::load(const ResMng::Texture::TextureSurface& textureSurfaceParam) {
     textureSurface = textureSurfaceParam;
     Enums::Texture::CPUBufferFormat inputFormat = getTextureInputFormat(textureSurface.getFormat().colorFormat);
     Enums::Texture::BitDepth bitDepth = getTextureBitDepth(textureSurface.getFormat().bitDepth);
@@ -51,3 +51,8 @@ void Texture::unbind() const {
     D_ASSERT_TRUE(hasLoaded, "Texture not loaded");
     getGAPI().unbindTexture(Enums::Texture::Types::Texture2D);
 }
+
+void Texture::release() {
+    textureSurface.release();
+}
+

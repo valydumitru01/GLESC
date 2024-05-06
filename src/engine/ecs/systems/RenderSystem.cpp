@@ -23,12 +23,10 @@ RenderSystem::RenderSystem(Render::Renderer& renderer, ECSCoordinator& ecs) :
 void RenderSystem::update() {
     for (auto& entity : getAssociatedEntities()) {
         auto& render = getComponent<RenderComponent>(entity);
-
         auto& transform = getComponent<TransformComponent>(entity);
+
         if(renderCache.find(&render) != renderCache.end()) continue;
         renderer.sendMeshData(render.mesh, render.material, transform.transform);
         renderCache.insert(&render);
     }
-
-
 }

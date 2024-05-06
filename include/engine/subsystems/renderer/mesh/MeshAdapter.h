@@ -37,7 +37,7 @@ namespace GLESC::Render {
     class MeshAdapter {
     public:
         [[nodiscard]] static AdaptedMesh adaptMesh(const ColorMesh& mesh,
-                                       const Material& material, Transform::Transform& transform);
+                                                   const Material& material, const Transform::Transform& transform);
         /*
                 [[nodiscard]] static AdaptedInstances adaptInstances(const ColorMesh& mesh,
                                                                      const std::vector<MeshInstanceData>& instances);*/

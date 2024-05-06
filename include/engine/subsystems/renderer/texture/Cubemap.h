@@ -38,6 +38,7 @@ public:
     void bind() const;
     void unbind() const;
     void load(const std::array<std::string, 6>& facePaths);
+    void release();
 
 
 private:

@@ -60,21 +60,20 @@ void Engine::processInput() {
 
 void Engine::render(double const timeOfFrame) {
     Logger::get().importantInfoPurple("Engine render started");
-    renderer.start();
 
+    renderer.start();
     renderer.renderMeshes(timeOfFrame);
     hudManager.update();
     hudManager.render();
-
     renderer.swapBuffers();
     Logger::get().importantInfoPurple("Engine render finished");
 }
 
 void Engine::update() {
     Logger::get().importantInfoWhite("Engine update started");
-
     game.update();
 
+#pragma omp parallel for schedule(static, 1)
     for (auto& system : systems) {
         system->update();
     }
@@ -90,7 +89,6 @@ std::vector<std::unique_ptr<ECS::System>> Engine::createSystems() {
     std::vector<std::unique_ptr<ECS::System>> systems;
     systems.push_back(std::make_unique<ECS::InputSystem>(inputManager, ecs));
     systems.push_back(std::make_unique<ECS::PhysicsSystem>(physicsManager, ecs));
-    // Camera needs to be updated before rendering
     systems.push_back(std::make_unique<ECS::CameraSystem>(renderer, windowManager, ecs));
     systems.push_back(std::make_unique<ECS::RenderSystem>(renderer, ecs));
     systems.push_back(std::make_unique<ECS::TransformSystem>(ecs));
@@ -117,7 +115,8 @@ ECS::Entity Engine::createEngineCamera() {
     camera.getComponent<CameraComponent>().perspective.setNearPlane(0.1f);
     camera.getComponent<CameraComponent>().perspective.setFovDegrees(60.0f);
     camera.getComponent<CameraComponent>().perspective.setViewWidth(static_cast<float>(windowManager.getSize().width));
-    camera.getComponent<CameraComponent>().perspective.setViewHeight(static_cast<float>(windowManager.getSize().height));
+    camera.getComponent<CameraComponent>().perspective.
+           setViewHeight(static_cast<float>(windowManager.getSize().height));
     // IMPORTANT! Camera movement needs to be done with inverse directions, because it looks at the
     // opposite direction of the forward vector
     Input::KeyCommand moveForward = Input::KeyCommand([&] {

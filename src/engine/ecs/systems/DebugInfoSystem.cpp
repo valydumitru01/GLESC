@@ -41,8 +41,8 @@ void DebugInfoSystem::update() {
     double minDistanceFromCam = std::numeric_limits<double>::max();
     EntityID closestEntity{nullEntity};
     Math::Line cameraForwardLine;
-    const Math::Point cameraPos = renderer.getCamer().transform->getPosition();
-    const Math::Direction cameraForward = renderer.getCamer().transform->forward();
+    const Math::Point cameraPos = renderer.getCamera().transform->getPosition();
+    const Math::Direction cameraForward = renderer.getCamera().transform->forward();
     EntityID cameraID{nullEntity};
     for (EntityID id : getAssociatedEntities()) {
         const Math::Point entityPos = getComponent<TransformComponent>(id).transform.getPosition();

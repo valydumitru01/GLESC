@@ -29,7 +29,7 @@ namespace GLESC::Render {
     }
 
     AdaptedMesh MeshAdapter::adaptMesh(const ColorMesh& mesh,
-                                       const Material& material, Transform::Transform& transform) {
+                                       const Material& material, const Transform::Transform& transform) {
         AdaptedMesh adaptedMesh;
         adaptedMesh.material = &material;
         adaptedMesh.boundingVolume = &mesh.getBoundingVolume();

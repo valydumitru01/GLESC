@@ -28,6 +28,8 @@ void CameraSystem::update() {
     for (auto& entity : entities) {
         auto& transform = getComponent<TransformComponent>(entity);
         auto& camera = getComponent<CameraComponent>(entity);
+        camera.perspective.setViewWidth(static_cast<float>(windowManager.getSize().width));
+        camera.perspective.setViewHeight(static_cast<float>(windowManager.getSize().height));
         if (cameraCache.find(&camera) != cameraCache.end()) continue;
         renderer.setCamera(camera.perspective, transform.transform);
         cameraCache.insert(&camera);

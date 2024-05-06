@@ -67,7 +67,7 @@ namespace GLESC::Render {
         [[nodiscard]] std::vector<EntityStatsManager::Value> getDebuggingValues() {
             std::vector<EntityStatsManager::Value> values;
             EntityStatsManager::Value intensityValue;
-            intensityValue.name = "Intensity";
+            intensityValue.name = "Sun Intensity";
             intensityValue.data = reinterpret_cast<void*>(&intensity.getModifiable());
             intensityValue.type = EntityStatsManager::ValueType::FLOAT;
             intensityValue.isModifiable = true;
@@ -78,7 +78,7 @@ namespace GLESC::Render {
             values.push_back(intensityValue);
 
             EntityStatsManager::Value colorValue;
-            colorValue.name = "Color";
+            colorValue.name = "Sun Color";
             colorValue.data = reinterpret_cast<void*>(&color);
             colorValue.type = EntityStatsManager::ValueType::VEC3F;
             colorValue.isModifiable = true;
@@ -89,7 +89,7 @@ namespace GLESC::Render {
             values.push_back(colorValue);
 
             EntityStatsManager::Value directionValue;
-            directionValue.name = "Direction";
+            directionValue.name = "Sun Direction";
             directionValue.data = reinterpret_cast<void*>(&direction);
             directionValue.type = EntityStatsManager::ValueType::VEC3F;
             directionValue.isModifiable = true;

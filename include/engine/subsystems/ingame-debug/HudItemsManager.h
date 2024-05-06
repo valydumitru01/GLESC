@@ -9,6 +9,8 @@
  **************************************************************************************************/
 #pragma once
 
+#include <mutex>
+
 #include "../renderer/texture/Texture.h"
 #include "engine/subsystems/transform/TransformTypes.h"
 
@@ -41,4 +43,5 @@ public:
 
 private:
     static std::vector<Item> items;
+    static std::mutex itemsMutex;
 }; // class HudItemsManager

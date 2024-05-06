@@ -17,7 +17,9 @@ DebugItems::DebugItems(Render::Renderer& renderer, TextureFactory& textureFactor
     renderer(renderer),
     textureFactory(textureFactory) {
     items[HudItemType::LIGHT_SPOT] = &textureFactory.loadTexture("images/sprites/engine-debug/GLESC_Light.png");
+    items[HudItemType::LIGHT_SPOT]->release();
     items[HudItemType::SUN] = &textureFactory.loadTexture("images/sprites/engine-debug/GLESC_Sun.png");
+    items[HudItemType::SUN]->release();
 
     this->setTitle("Items");
     this->setSizeFraction({1.0f, 1.0f});

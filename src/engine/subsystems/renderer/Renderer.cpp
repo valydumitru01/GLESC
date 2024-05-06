@@ -27,6 +27,8 @@ Renderer::Renderer(WindowManager& windowManager) :
     projection(createProjectionMatrix(CameraPerspective())),
     view(createViewMatrix(Transform::Transform())),
     frustum(view * projection) {
+    camera.camera = &defaultCameraPerspective;
+    camera.transform = &defaultCameraTransform;
 }
 
 Projection Renderer::createProjectionMatrix(const CameraPerspective& camera) {
@@ -73,6 +75,70 @@ void Renderer::start() {
 
 void Renderer::renderMeshes(double timeOfFrame) {
     drawCounter.startFrame();
+    View viewMat = getView();
+    Projection projMat = getProjection();
+    VP viewProj = viewMat * projMat;
+    shader.bind(); // Activate the shader program before transform, material and lighting setup
+    // Don't render anything if the view matrix is not valid
+    frustum.update(viewProj);
+
+#pragma omp parallel default(none) \
+shared(adaptedMeshes, lights, sun, fog, skybox, timeOfFrame, view, projection, frustum, \
+    viewMat, projMat, viewProj, mvMutex, normalMatMutex, mvpMutex, frustumMutex, \
+    interpolationMutex, mvs, mvps, normalMats, isContainedInFrustum)
+    {
+
+#pragma omp for schedule(dynamic)
+        for (auto& dynamicMesh : adaptedMeshes) {
+            {
+                std::lock_guard lockInterpolation(interpolationMutex);
+                interpolationTransforms[dynamicMesh.transform].pushTransform(*dynamicMesh.transform);
+            }
+            Transform::Transform interpolatedTransform =
+                interpolationTransforms[dynamicMesh.transform].interpolate(timeOfFrame);
+            Model model = interpolatedTransform.getModelMatrix();
+
+            BoundingVolume transformedBoundingVol =
+                Transform::Transformer::transformBoundingVolume(*dynamicMesh.boundingVolume, model);
+            {
+                std::lock_guard lockMutex(frustumMutex);
+                isContainedInFrustum[&dynamicMesh] = frustum.contains(transformedBoundingVol);
+            }
+            MVP MVPMat = model * viewProj;
+            MV MV = viewMat * model;
+            NormalMat normalMat;
+            normalMat.makeNormalMatrix(MV);
+            {
+                std::lock_guard lockMVP(mvpMutex);
+                mvs[&dynamicMesh] = MV;
+            }
+            {
+                std::lock_guard lockMV(mvMutex);
+                mvps[&dynamicMesh] = MVPMat;
+            }
+            {
+                std::lock_guard lockNormalMat(normalMatMutex);
+                normalMats[&dynamicMesh] = normalMat;
+            }
+        }
+    }
+    for (auto& dynamicMesh : adaptedMeshes) {
+        if (!isContainedInFrustum[&dynamicMesh]) continue;
+        const Material& material = *dynamicMesh.material;
+        applyTransform(mvs[&dynamicMesh], mvps[&dynamicMesh], normalMats[&dynamicMesh]);
+        applyMaterial(material);
+        // TODO: CHeck with nsight why we are not rendering anything when parallelizing the ecs systems
+        renderMesh(dynamicMesh);
+    }
+    applyLighSpots(lights, timeOfFrame);
+    applySun(sun);
+    applyFog(fog);
+    applySkybox(skybox, viewMat, projMat);
+}
+
+/* 10FPS gain from doing it parallely
+void Renderer::renderMeshes(double timeOfFrame) {
+    drawCounter.startFrame();
 
     View viewMat = getView();
     Projection projMat = getProjection();
@@ -109,8 +175,7 @@ void Renderer::renderMeshes(double timeOfFrame) {
     }
 
     applySkybox(skybox, viewMat, projMat);
-}
-
+}*/
 
 void Renderer::applyLighSpots(const std::vector<Light>& lights, double timeOfFrame) const {
     size_t lightCount = static_cast<int>(lights.size());
@@ -143,13 +208,15 @@ void Renderer::applyLighSpots(const std::vector<Light>& lights, double timeOfFra
 void Renderer::applySun(const Sun& sunParam) {
     if (sunParam.sun == nullptr) return;
     GlobalSun sun = *sunParam.sun;
-    if (!sun.isDirty()) return;
+
+    if (!sun.isDirty()) applyAmbientLight(*sunParam.ambientLight);
+
     Vec3F sunColor = sun.getColor().getRGBVec3FNormalized();
     float sunIntensity = sun.getIntensity();
     Math::Direction sunDirection = sun.getDirection();
-    Shader::setUniform("uGlobalSuns.color", sunColor);
-    Shader::setUniform("uGlobalSuns.intensity", sunIntensity);
-    Shader::setUniform("uGlobalSuns.direction", sunDirection);
+    Shader::setUniform("uGlobalSun.color", sunColor);
+    Shader::setUniform("uGlobalSun.intensity", sunIntensity);
+    Shader::setUniform("uGlobalSun.direction", sunDirection);
     sun.setClean();
 
     applyAmbientLight(*sunParam.ambientLight);
@@ -216,7 +283,7 @@ void Renderer::renderMesh(const AdaptedMesh& mesh) {
 }
 
 
-void Renderer::sendMeshData(ColorMesh& mesh, const Material& material, Transform::Transform& transform) {
+void Renderer::sendMeshData(const ColorMesh& mesh, const Material& material, const Transform::Transform& transform) {
     D_ASSERT_TRUE(!mesh.isBeingBuilt(), "Mesh is being built");
 
     if (mesh.getVertices().empty()) {

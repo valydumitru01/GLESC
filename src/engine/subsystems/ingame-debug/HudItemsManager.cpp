@@ -10,11 +10,15 @@
 #include "engine/subsystems/ingame-debug/HudItemsManager.h"
 
 std::vector<Item> HudItemsManager::items = {};
+std::mutex HudItemsManager::itemsMutex{};
 
 
 void HudItemsManager::addItem(HudItemType type, const GLESC::Transform::Position& worldPosition) {
     Item item;
     item.worldPosition = &worldPosition;
     item.type = type;
-    items.push_back(item);
+    {
+        std::lock_guard lock(itemsMutex);
+        items.push_back(item);
+    }
 }

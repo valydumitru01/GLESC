@@ -17,6 +17,7 @@ Cubemap::Cubemap(const std::array<std::string, 6>& facePaths) {
 
 Cubemap::~Cubemap() {
     if (hasLoaded) {
+        release();
         getGAPI().deleteTexture(textureID);
     }
 }
@@ -44,6 +45,13 @@ void Cubemap::load(const std::array<std::string, 6>& facePaths) {
 }
 
 
+void Cubemap::release() {
+    if (hasLoaded) {
+        for (auto& texture : cubemapTextures) {
+            texture.release();
+        }
+    }
+}
 void Cubemap::bind() const {
     D_ASSERT_TRUE(hasLoaded, "Cubemap not loaded");
     getGAPI().bindTextureOnSlot(textureID, Enums::Texture::Types::TextureCubeMap, 0);

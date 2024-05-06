@@ -30,6 +30,7 @@ namespace GLESC::Render {
         void unbind() const;
 
         void load(const std::string& pathParam, bool flipTexture);
+        void release();
         
         [[nodiscard]] UInt getTextureID() const { return textureID; }
 
@@ -40,7 +41,7 @@ namespace GLESC::Render {
     
     private:
 
-        void loadGPU(const ResMng::Texture::TextureSurface& textureSurfaceParam);
+        void load(const ResMng::Texture::TextureSurface& textureSurfaceParam);
         bool hasLoaded{false};
         TextureID textureID{0};
         ResMng::Texture::TextureSurface textureSurface;

@@ -49,13 +49,6 @@ struct GlobalSun {
     mat4 viewProjMatrix;
 };
 
-struct GlobalSuns {
-    vec3 color[MAX_SUNS];
-    float intensity[MAX_SUNS];
-    vec3 direction[MAX_SUNS];
-    uint count;
-};
-
 struct LightSpots {
     vec3 posInViewSpace[MAX_LIGHTS];
     vec3 color[MAX_LIGHTS];
@@ -103,7 +96,7 @@ struct Material {
 // ---------------- Unforms -----------------
 // ------------------------------------------
 uniform Fog uFog;
-uniform GlobalSuns uGlobalSuns;
+uniform GlobalSun uGlobalSun;
 uniform AmbientLight uAmbient;
 uniform LightSpots uLights;
 uniform Material uMaterial;
@@ -153,18 +146,18 @@ void main() {
     vec3 totalDiffuse = vec3(0.0);
     vec3 totalSpecular = vec3(0.0);
 
-    for (uint i = 0; i < uGlobalSuns.count; ++i) {
-        vec3 sunDir = -normalize(uGlobalSuns.direction[i]);
-        float sunIntensity = uGlobalSuns.intensity[i];
-        vec3 sunColor = uGlobalSuns.color[i];
+    // Applying the sun light
+    vec3 sunDir = -normalize(uGlobalSun.direction);
+    float sunIntensity = uGlobalSun.intensity;
+    vec3 sunColor = uGlobalSun.color;
 
-        // Diffuse
-        totalDiffuse += calculateDiffuse(sunDir, norm, sunColor, sunIntensity, 1.0);
+    // Diffuse
+    totalDiffuse += calculateDiffuse(sunDir, norm, sunColor, sunIntensity, 1.0);
 
-        // Specular
-        totalSpecular += 0.1 * calculateSpecular(sunDir, norm, viewDir, uMaterial.shininess,
-                                           uMaterial.specularColor, uMaterial.specularIntensity, 1.0, sunIntensity);
-    }
+    // Specular
+    totalSpecular += 0.1 * calculateSpecular(sunDir, norm, viewDir, uMaterial.shininess,
+                                       uMaterial.specularColor, uMaterial.specularIntensity, 1.0, sunIntensity);
+
 
     for (uint i = 0; i < uLights.count; ++i) {
         vec3 lightPosViewSpace =  uLights.posInViewSpace[i];

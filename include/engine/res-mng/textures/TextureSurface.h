@@ -23,13 +23,15 @@ namespace GLESC::ResMng::Texture {
         TextureSurface(const std::string& pathParam, bool flipTexture);
 
         /**
-         * @brief Default constructor. This will not initialize the texture, therefore you will need to call load() to load
+         * @brief Default constructor. This will not initialize the texture, therefore you will need to call
+         * load() to load
          * the the data from the desired file.
          */
         TextureSurface() = default;
 
         ~TextureSurface() = default;
         void load(const std::string& pathParam, bool flipTexture);
+        void release();
         [[nodiscard]] unsigned int getHeight() const {
             return height;
         }

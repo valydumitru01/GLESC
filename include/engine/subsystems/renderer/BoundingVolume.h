@@ -99,6 +99,43 @@ namespace GLESC::Render {
             topology.addVertex({maxX, maxY, maxZ}); // 6
             topology.addVertex({minX, maxY, maxZ}); // 7
 
+            // If the max - min of any axis is larger than step, put another vertex in the middle. Do this for each
+            // times the axis is larger than step (e.g. if the difference is 11 and step is 5, add 2 vertices)
+            // This is so when we do frustum culling, we can check if the frustum intersects with the bounding volume
+            // by checking if any point is inside all the planes.
+            // If its too big, we need extra points to check for intersection
+            int step = 5;
+            auto xAddVertices = static_cast<int>((maxX - minX) / step);
+            auto yAddVertices = static_cast<int>((maxY - minY) / step);
+            auto zAddVertices = static_cast<int>((maxZ - minZ) / step);
+
+            // X-axis
+            for (int i = 1; i <= xAddVertices - 1; i++) {
+                float stepX = minX + i * (maxX - minX) / (xAddVertices + 1);
+                topology.addVertex({stepX, minY, minZ});
+                topology.addVertex({stepX, maxY, minZ});
+                topology.addVertex({stepX, minY, maxZ});
+                topology.addVertex({stepX, maxY, maxZ});
+            }
+
+            // Y-axis
+            for (int i = 1; i <= yAddVertices - 1; i++) {
+                float stepY = minY + i * (maxY - minY) / (yAddVertices + 1);
+                topology.addVertex({minX, stepY, minZ});
+                topology.addVertex({maxX, stepY, minZ});
+                topology.addVertex({minX, stepY, maxZ});
+                topology.addVertex({maxX, stepY, maxZ});
+            }
+
+            // Z-axis
+            for (int i = 1; i <= zAddVertices - 1; i++) {
+                float stepZ = minZ + i * (maxZ - minZ) / (zAddVertices + 1);
+                topology.addVertex({minX, minY, stepZ});
+                topology.addVertex({maxX, minY, stepZ});
+                topology.addVertex({minX, maxY, stepZ});
+                topology.addVertex({maxX, maxY, stepZ});
+            }
+
             // Define Faces (adjustments here to maintain winding order)
             topology.addFace({0, 1, 2}); // Front
             topology.addFace({0, 2, 3});

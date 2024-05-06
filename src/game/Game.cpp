@@ -64,6 +64,11 @@ void Game::init() {
                                    .addComponent(ECS::SunComponent());
     sun.getComponent<ECS::TransformComponent>().transform.setPosition(
         Transform::Position(0, 10, 0));
+    sun.getComponent<ECS::SunComponent>().sun.setDirection({-0.4, -1, -0.4});
+    sun.getComponent<ECS::SunComponent>().sun.setIntensity(0.7);
+    sun.getComponent<ECS::SunComponent>().sun.setColor({255,255,150});
+    sun.getComponent<ECS::SunComponent>().globalAmbienLight.setIntensity(0.3);
+    sun.getComponent<ECS::SunComponent>().globalAmbienLight.setColor({255,255,150});
 
     int numOfEntities = 20;
     for (int i = 0; i < numOfEntities; i++) {

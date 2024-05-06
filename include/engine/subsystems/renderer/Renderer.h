@@ -7,6 +7,8 @@
 #pragma once
 
 
+#include <mutex>
+
 #include "engine/core/counter/Counter.h"
 #include "engine/core/low-level-renderer/shader/Shader.h"
 #include "engine/core/window/WindowManager.h"
@@ -65,7 +67,7 @@ namespace GLESC::Render {
         void setProjection(const Projection& projectionParam) { this->projection = projectionParam; }
 
         [[nodiscard]] WindowDimensions getViewportSize() const { return windowManager.getSize(); }
-        [[nodiscard]] Camera getCamer() const { return this->camera; }
+        [[nodiscard]] Camera getCamera() const { return this->camera; }
 
 
         [[nodiscard]] Shader& getDefaultShader() { return shader; }
@@ -74,7 +76,7 @@ namespace GLESC::Render {
         [[nodiscard]] const float getMeshRenderCount() const { return drawCounter.getCount(); }
 
 
-        void sendMeshData(ColorMesh& mesh, const Material& material, Transform::Transform& transform);
+        void sendMeshData(const ColorMesh& mesh, const Material& material, const Transform::Transform& transform);
         void setCamera(const CameraPerspective& cameraPerspective, const Transform::Transform& transform);
         void setSun(const GlobalSun& sun, const GlobalAmbienLight& ambientLight, const Transform::Transform& transform);
         void setFog(const Fog& fogParam, const Transform::Transform& transform);
@@ -99,12 +101,24 @@ namespace GLESC::Render {
         WindowManager& windowManager;
 
         mutable std::unordered_map<const Transform::Transform*, Transform::Interpolator> interpolationTransforms;
+        mutable std::mutex interpolationMutex{};
+
+        std::unordered_map<AdaptedMesh*, MVP> mvps;
+        std::mutex mvpMutex{};
+        std::unordered_map<AdaptedMesh*, MV> mvs;
+        std::mutex mvMutex{};
+        std::unordered_map<AdaptedMesh*, NormalMat> normalMats;
+        std::mutex normalMatMutex{};
+        std::unordered_map<AdaptedMesh*, bool> isContainedInFrustum;
+        std::mutex frustumMutex{};
 
         std::vector<AdaptedMesh> adaptedMeshes;
 
         Shader shader;
 
         Camera camera;
+        CameraPerspective defaultCameraPerspective;
+        Transform::Transform defaultCameraTransform;
         Skybox skybox;
         FogData fog;
         Sun sun;

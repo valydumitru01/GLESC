@@ -56,8 +56,6 @@ build CMakeFiles/game.dir/src/engine/GLESC.cpp.obj: CXX_COMPILER__game_unscanned
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/core/counter/FPSManager.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/counter/FPSManager.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -66,8 +64,6 @@ build CMakeFiles/game.dir/src/engine/core/counter/FPSManager.cpp.obj: CXX_COMPIL
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\core\counter
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/core/counter/Timer.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/counter/Timer.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -76,8 +72,6 @@ build CMakeFiles/game.dir/src/engine/core/counter/Timer.cpp.obj: CXX_COMPILER__g
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\core\counter
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/core/debugger/Stacktrace.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/debugger/Stacktrace.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -86,8 +80,6 @@ build CMakeFiles/game.dir/src/engine/core/debugger/Stacktrace.cpp.obj: CXX_COMPI
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\core\debugger
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/core/debugger/Stringer.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/debugger/Stringer.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -96,8 +88,6 @@ build CMakeFiles/game.dir/src/engine/core/debugger/Stringer.cpp.obj: CXX_COMPILE
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\core\debugger
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/core/exceptions/BaseException.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/exceptions/BaseException.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -106,8 +96,6 @@ build CMakeFiles/game.dir/src/engine/core/exceptions/BaseException.cpp.obj: CXX_
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\core\exceptions
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/core/file-system/FileSystemPath.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/file-system/FileSystemPath.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -116,8 +104,6 @@ build CMakeFiles/game.dir/src/engine/core/file-system/FileSystemPath.cpp.obj: CX
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\core\file-system
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/core/logger/Logger.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/logger/Logger.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -126,8 +112,6 @@ build CMakeFiles/game.dir/src/engine/core/logger/Logger.cpp.obj: CXX_COMPILER__g
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\core\logger
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/core/logger/outputs/FileLogger.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/logger/outputs/FileLogger.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -136,8 +120,6 @@ build CMakeFiles/game.dir/src/engine/core/logger/outputs/FileLogger.cpp.obj: CXX
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\core\logger\outputs
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/core/logger/outputs/TerminalLogger.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/logger/outputs/TerminalLogger.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -146,8 +128,6 @@ build CMakeFiles/game.dir/src/engine/core/logger/outputs/TerminalLogger.cpp.obj:
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\core\logger\outputs
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/core/low-level-renderer/buffers/IndexBuffer.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/low-level-renderer/buffers/IndexBuffer.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -156,8 +136,6 @@ build CMakeFiles/game.dir/src/engine/core/low-level-renderer/buffers/IndexBuffer
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\core\low-level-renderer\buffers
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/core/low-level-renderer/buffers/VertexArray.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/low-level-renderer/buffers/VertexArray.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -166,8 +144,6 @@ build CMakeFiles/game.dir/src/engine/core/low-level-renderer/buffers/VertexArray
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\core\low-level-renderer\buffers
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/core/low-level-renderer/buffers/VertexBuffer.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/low-level-renderer/buffers/VertexBuffer.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -176,8 +152,6 @@ build CMakeFiles/game.dir/src/engine/core/low-level-renderer/buffers/VertexBuffe
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\core\low-level-renderer\buffers
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/core/low-level-renderer/buffers/VertexBufferLayout.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/low-level-renderer/buffers/VertexBufferLayout.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -186,8 +160,6 @@ build CMakeFiles/game.dir/src/engine/core/low-level-renderer/buffers/VertexBuffe
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\core\low-level-renderer\buffers
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/core/low-level-renderer/buffers/VertexInstanceBuffer.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/low-level-renderer/buffers/VertexInstanceBuffer.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -196,8 +168,6 @@ build CMakeFiles/game.dir/src/engine/core/low-level-renderer/buffers/VertexInsta
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\core\low-level-renderer\buffers
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/core/low-level-renderer/graphic-api/Gapi.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/low-level-renderer/graphic-api/Gapi.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -206,8 +176,6 @@ build CMakeFiles/game.dir/src/engine/core/low-level-renderer/graphic-api/Gapi.cp
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\core\low-level-renderer\graphic-api
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/core/low-level-renderer/graphic-api/concrete-apis/opengl/OpenGLDebugger.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/low-level-renderer/graphic-api/concrete-apis/opengl/OpenGLDebugger.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -216,8 +184,6 @@ build CMakeFiles/game.dir/src/engine/core/low-level-renderer/graphic-api/concret
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\core\low-level-renderer\graphic-api\concrete-apis\opengl
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/core/low-level-renderer/graphic-api/concrete-apis/vulkan/VulkanGDI.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/low-level-renderer/graphic-api/concrete-apis/vulkan/VulkanGDI.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -226,8 +192,6 @@ build CMakeFiles/game.dir/src/engine/core/low-level-renderer/graphic-api/concret
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\core\low-level-renderer\graphic-api\concrete-apis\vulkan
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/core/low-level-renderer/shader/Shader.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/low-level-renderer/shader/Shader.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -236,8 +200,6 @@ build CMakeFiles/game.dir/src/engine/core/low-level-renderer/shader/Shader.cpp.o
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\core\low-level-renderer\shader
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/core/low-level-renderer/shader/ShaderLoader.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/low-level-renderer/shader/ShaderLoader.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -246,8 +208,6 @@ build CMakeFiles/game.dir/src/engine/core/low-level-renderer/shader/ShaderLoader
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\core\low-level-renderer\shader
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/core/math/geometry/figures/line/Line.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/math/geometry/figures/line/Line.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -256,8 +216,6 @@ build CMakeFiles/game.dir/src/engine/core/math/geometry/figures/line/Line.cpp.ob
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\core\math\geometry\figures\line
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/core/math/geometry/figures/plane/Plane.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/math/geometry/figures/plane/Plane.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -266,8 +224,6 @@ build CMakeFiles/game.dir/src/engine/core/math/geometry/figures/plane/Plane.cpp.
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\core\math\geometry\figures\plane
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/core/math/geometry/figures/polyhedron/Polyhedron.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/math/geometry/figures/polyhedron/Polyhedron.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -276,8 +232,6 @@ build CMakeFiles/game.dir/src/engine/core/math/geometry/figures/polyhedron/Polyh
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\core\math\geometry\figures\polyhedron
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/core/math/geometry/figures/polyhedron/PolyhedronFace.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/math/geometry/figures/polyhedron/PolyhedronFace.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -286,8 +240,6 @@ build CMakeFiles/game.dir/src/engine/core/math/geometry/figures/polyhedron/Polyh
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\core\math\geometry\figures\polyhedron
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/core/math/geometry/figures/polyhedron/PolyhedronFactory.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/math/geometry/figures/polyhedron/PolyhedronFactory.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -296,8 +248,6 @@ build CMakeFiles/game.dir/src/engine/core/math/geometry/figures/polyhedron/Polyh
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\core\math\geometry\figures\polyhedron
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/core/math/geometry/figures/sphere/Sphere.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/math/geometry/figures/sphere/Sphere.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -306,8 +256,6 @@ build CMakeFiles/game.dir/src/engine/core/math/geometry/figures/sphere/Sphere.cp
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\core\math\geometry\figures\sphere
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/core/window/WindowManager.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/window/WindowManager.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -316,8 +264,6 @@ build CMakeFiles/game.dir/src/engine/core/window/WindowManager.cpp.obj: CXX_COMP
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\core\window
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/ecs/backend/ECS.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/ecs/backend/ECS.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -326,8 +272,6 @@ build CMakeFiles/game.dir/src/engine/ecs/backend/ECS.cpp.obj: CXX_COMPILER__game
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\ecs\backend
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/ecs/backend/component/ComponentManager.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/ecs/backend/component/ComponentManager.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -336,8 +280,6 @@ build CMakeFiles/game.dir/src/engine/ecs/backend/component/ComponentManager.cpp.
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\ecs\backend\component
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/ecs/backend/entity/EntityManager.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/ecs/backend/entity/EntityManager.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -346,8 +288,6 @@ build CMakeFiles/game.dir/src/engine/ecs/backend/entity/EntityManager.cpp.obj: C
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\ecs\backend\entity
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/ecs/backend/system/SystemManager.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/ecs/backend/system/SystemManager.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -356,8 +296,6 @@ build CMakeFiles/game.dir/src/engine/ecs/backend/system/SystemManager.cpp.obj: C
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\ecs\backend\system
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/ecs/frontend/entity/Entity.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/ecs/frontend/entity/Entity.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -366,8 +304,6 @@ build CMakeFiles/game.dir/src/engine/ecs/frontend/entity/Entity.cpp.obj: CXX_COM
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\ecs\frontend\entity
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/ecs/frontend/entity/EntityFactory.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/ecs/frontend/entity/EntityFactory.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -376,8 +312,6 @@ build CMakeFiles/game.dir/src/engine/ecs/frontend/entity/EntityFactory.cpp.obj: 
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\ecs\frontend\entity
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/ecs/frontend/system/System.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/ecs/frontend/system/System.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -386,8 +320,6 @@ build CMakeFiles/game.dir/src/engine/ecs/frontend/system/System.cpp.obj: CXX_COM
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\ecs\frontend\system
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/ecs/systems/CameraSystem.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/ecs/systems/CameraSystem.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -396,8 +328,6 @@ build CMakeFiles/game.dir/src/engine/ecs/systems/CameraSystem.cpp.obj: CXX_COMPI
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\ecs\systems
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/ecs/systems/DebugInfoSystem.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/ecs/systems/DebugInfoSystem.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -406,8 +336,14 @@ build CMakeFiles/game.dir/src/engine/ecs/systems/DebugInfoSystem.cpp.obj: CXX_CO
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\ecs\systems
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
+
+build CMakeFiles/game.dir/src/engine/ecs/systems/FogSystem.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/ecs/systems/FogSystem.cpp || cmake_object_order_depends_target_game
+  DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
+  DEP_FILE = CMakeFiles\game.dir\src\engine\ecs\systems\FogSystem.cpp.obj.d
+  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DNDEBUG_GAPI -s -static -Wa,-mbig-obj -fopenmp -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
+  INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
+  OBJECT_DIR = CMakeFiles\game.dir
+  OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\ecs\systems
 
 build CMakeFiles/game.dir/src/engine/ecs/systems/InputSystem.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/ecs/systems/InputSystem.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -416,8 +352,6 @@ build CMakeFiles/game.dir/src/engine/ecs/systems/InputSystem.cpp.obj: CXX_COMPIL
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\ecs\systems
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/ecs/systems/LightSystem.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/ecs/systems/LightSystem.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -426,8 +360,6 @@ build CMakeFiles/game.dir/src/engine/ecs/systems/LightSystem.cpp.obj: CXX_COMPIL
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\ecs\systems
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/ecs/systems/PhysicsSystem.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/ecs/systems/PhysicsSystem.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -436,8 +368,6 @@ build CMakeFiles/game.dir/src/engine/ecs/systems/PhysicsSystem.cpp.obj: CXX_COMP
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\ecs\systems
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/ecs/systems/RenderSystem.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/ecs/systems/RenderSystem.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -446,8 +376,6 @@ build CMakeFiles/game.dir/src/engine/ecs/systems/RenderSystem.cpp.obj: CXX_COMPI
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\ecs\systems
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/ecs/systems/SunSystem.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/ecs/systems/SunSystem.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -456,8 +384,6 @@ build CMakeFiles/game.dir/src/engine/ecs/systems/SunSystem.cpp.obj: CXX_COMPILER
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\ecs\systems
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/ecs/systems/TransformSystem.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/ecs/systems/TransformSystem.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -466,8 +392,6 @@ build CMakeFiles/game.dir/src/engine/ecs/systems/TransformSystem.cpp.obj: CXX_CO
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\ecs\systems
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/main.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/main.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -476,8 +400,6 @@ build CMakeFiles/game.dir/src/engine/main.cpp.obj: CXX_COMPILER__game_unscanned_
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/res-mng/files/FileManager.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/res-mng/files/FileManager.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -486,8 +408,6 @@ build CMakeFiles/game.dir/src/engine/res-mng/files/FileManager.cpp.obj: CXX_COMP
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\res-mng\files
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/res-mng/textures/TextureLoader.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/res-mng/textures/TextureLoader.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -496,8 +416,6 @@ build CMakeFiles/game.dir/src/engine/res-mng/textures/TextureLoader.cpp.obj: CXX
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\res-mng\textures
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/res-mng/textures/TextureSurface.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/res-mng/textures/TextureSurface.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -506,8 +424,6 @@ build CMakeFiles/game.dir/src/engine/res-mng/textures/TextureSurface.cpp.obj: CX
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\res-mng\textures
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/subsystems/hud/HUDLookAndFeel.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/hud/HUDLookAndFeel.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -516,8 +432,6 @@ build CMakeFiles/game.dir/src/engine/subsystems/hud/HUDLookAndFeel.cpp.obj: CXX_
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\subsystems\hud
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/subsystems/hud/HUDManager.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/hud/HUDManager.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -526,8 +440,6 @@ build CMakeFiles/game.dir/src/engine/subsystems/hud/HUDManager.cpp.obj: CXX_COMP
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\subsystems\hud
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/subsystems/hud/InGameWindow.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/hud/InGameWindow.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -536,8 +448,6 @@ build CMakeFiles/game.dir/src/engine/subsystems/hud/InGameWindow.cpp.obj: CXX_CO
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\subsystems\hud
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/subsystems/hud/engine-hud/CrosshairHUD.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/hud/engine-hud/CrosshairHUD.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -546,8 +456,6 @@ build CMakeFiles/game.dir/src/engine/subsystems/hud/engine-hud/CrosshairHUD.cpp.
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\subsystems\hud\engine-hud
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/subsystems/hud/engine-hud/DebugConsoleHUD.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/hud/engine-hud/DebugConsoleHUD.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -556,8 +464,6 @@ build CMakeFiles/game.dir/src/engine/subsystems/hud/engine-hud/DebugConsoleHUD.c
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\subsystems\hud\engine-hud
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/subsystems/hud/engine-hud/DebugEntityDataHUD.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/hud/engine-hud/DebugEntityDataHUD.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -566,8 +472,6 @@ build CMakeFiles/game.dir/src/engine/subsystems/hud/engine-hud/DebugEntityDataHU
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\subsystems\hud\engine-hud
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/subsystems/hud/engine-hud/DebugItemsHUD.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/hud/engine-hud/DebugItemsHUD.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -576,8 +480,6 @@ build CMakeFiles/game.dir/src/engine/subsystems/hud/engine-hud/DebugItemsHUD.cpp
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\subsystems\hud\engine-hud
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/subsystems/hud/engine-hud/DebugStatsHUD.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/hud/engine-hud/DebugStatsHUD.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -586,8 +488,6 @@ build CMakeFiles/game.dir/src/engine/subsystems/hud/engine-hud/DebugStatsHUD.cpp
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\subsystems\hud\engine-hud
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/subsystems/hud/engine-hud/EngineDebugHUDManager.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/hud/engine-hud/EngineDebugHUDManager.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -596,8 +496,6 @@ build CMakeFiles/game.dir/src/engine/subsystems/hud/engine-hud/EngineDebugHUDMan
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\subsystems\hud\engine-hud
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/subsystems/ingame-debug/Console.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/ingame-debug/Console.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -606,8 +504,6 @@ build CMakeFiles/game.dir/src/engine/subsystems/ingame-debug/Console.cpp.obj: CX
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\subsystems\ingame-debug
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/subsystems/ingame-debug/EntityStatsManager.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/ingame-debug/EntityStatsManager.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -616,8 +512,6 @@ build CMakeFiles/game.dir/src/engine/subsystems/ingame-debug/EntityStatsManager.
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\subsystems\ingame-debug
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/subsystems/ingame-debug/HudItemsManager.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/ingame-debug/HudItemsManager.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -626,8 +520,6 @@ build CMakeFiles/game.dir/src/engine/subsystems/ingame-debug/HudItemsManager.cpp
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\subsystems\ingame-debug
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/subsystems/ingame-debug/StatsManager.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/ingame-debug/StatsManager.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -636,8 +528,6 @@ build CMakeFiles/game.dir/src/engine/subsystems/ingame-debug/StatsManager.cpp.ob
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\subsystems\ingame-debug
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/subsystems/input/InputManager.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/input/InputManager.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -646,8 +536,6 @@ build CMakeFiles/game.dir/src/engine/subsystems/input/InputManager.cpp.obj: CXX_
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\subsystems\input
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/subsystems/input/KeyCommand.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/input/KeyCommand.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -656,8 +544,6 @@ build CMakeFiles/game.dir/src/engine/subsystems/input/KeyCommand.cpp.obj: CXX_CO
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\subsystems\input
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/subsystems/input/MouseCommand.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/input/MouseCommand.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -666,8 +552,6 @@ build CMakeFiles/game.dir/src/engine/subsystems/input/MouseCommand.cpp.obj: CXX_
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\subsystems\input
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/subsystems/physics/PhysicsManager.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/physics/PhysicsManager.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -676,8 +560,6 @@ build CMakeFiles/game.dir/src/engine/subsystems/physics/PhysicsManager.cpp.obj: 
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\subsystems\physics
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/subsystems/renderer/MeshAdapter.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/MeshAdapter.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -686,8 +568,6 @@ build CMakeFiles/game.dir/src/engine/subsystems/renderer/MeshAdapter.cpp.obj: CX
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\subsystems\renderer
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/subsystems/renderer/Renderer.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/Renderer.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -696,8 +576,6 @@ build CMakeFiles/game.dir/src/engine/subsystems/renderer/Renderer.cpp.obj: CXX_C
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\subsystems\renderer
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/subsystems/renderer/RendererTypes.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/RendererTypes.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -706,18 +584,6 @@ build CMakeFiles/game.dir/src/engine/subsystems/renderer/RendererTypes.cpp.obj: 
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\subsystems\renderer
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
-
-build CMakeFiles/game.dir/src/engine/subsystems/renderer/mesh/Mesh.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/mesh/Mesh.cpp || cmake_object_order_depends_target_game
-  DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
-  DEP_FILE = CMakeFiles\game.dir\src\engine\subsystems\renderer\mesh\Mesh.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always -O3 -DRELEASE -DNDEBUG -DNLOGGING -DNDEBUG_GAPI -s -static -Wa,-mbig-obj -fopenmp -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wuninitialized -Wold-style-cast -Wfloat-equal -Wcast-qual -Wcast-align
-  INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
-  OBJECT_DIR = CMakeFiles\game.dir
-  OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\subsystems\renderer\mesh
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/subsystems/renderer/mesh/MeshFactory.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/mesh/MeshFactory.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -726,8 +592,6 @@ build CMakeFiles/game.dir/src/engine/subsystems/renderer/mesh/MeshFactory.cpp.ob
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\subsystems\renderer\mesh
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/subsystems/renderer/mesh/Vertex.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/mesh/Vertex.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -736,8 +600,6 @@ build CMakeFiles/game.dir/src/engine/subsystems/renderer/mesh/Vertex.cpp.obj: CX
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\subsystems\renderer\mesh
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/subsystems/renderer/texture/Cubemap.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/texture/Cubemap.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -746,8 +608,6 @@ build CMakeFiles/game.dir/src/engine/subsystems/renderer/texture/Cubemap.cpp.obj
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\subsystems\renderer\texture
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/subsystems/renderer/texture/Texture.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/texture/Texture.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -756,8 +616,6 @@ build CMakeFiles/game.dir/src/engine/subsystems/renderer/texture/Texture.cpp.obj
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\subsystems\renderer\texture
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/subsystems/renderer/texture/TextureFactory.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/texture/TextureFactory.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -766,8 +624,6 @@ build CMakeFiles/game.dir/src/engine/subsystems/renderer/texture/TextureFactory.
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\subsystems\renderer\texture
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/engine/subsystems/transform/Transform.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/transform/Transform.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -776,8 +632,6 @@ build CMakeFiles/game.dir/src/engine/subsystems/transform/Transform.cpp.obj: CXX
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\engine\subsystems\transform
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/src/game/Game.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/game/Game.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -786,8 +640,6 @@ build CMakeFiles/game.dir/src/game/Game.cpp.obj: CXX_COMPILER__game_unscanned_Re
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\src\game
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/lib/include/glm/detail/glm.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include/glm/detail/glm.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -796,8 +648,6 @@ build CMakeFiles/game.dir/lib/include/glm/detail/glm.cpp.obj: CXX_COMPILER__game
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\lib\include\glm\detail
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/lib/include/imgui/example.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include/imgui/example.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -806,8 +656,6 @@ build CMakeFiles/game.dir/lib/include/imgui/example.cpp.obj: CXX_COMPILER__game_
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\lib\include\imgui
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/lib/include/imgui/imgui.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include/imgui/imgui.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -816,8 +664,6 @@ build CMakeFiles/game.dir/lib/include/imgui/imgui.cpp.obj: CXX_COMPILER__game_un
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\lib\include\imgui
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/lib/include/imgui/imgui_demo.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include/imgui/imgui_demo.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -826,8 +672,6 @@ build CMakeFiles/game.dir/lib/include/imgui/imgui_demo.cpp.obj: CXX_COMPILER__ga
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\lib\include\imgui
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/lib/include/imgui/imgui_draw.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include/imgui/imgui_draw.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -836,8 +680,6 @@ build CMakeFiles/game.dir/lib/include/imgui/imgui_draw.cpp.obj: CXX_COMPILER__ga
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\lib\include\imgui
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/lib/include/imgui/imgui_impl_opengl3.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include/imgui/imgui_impl_opengl3.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -846,8 +688,6 @@ build CMakeFiles/game.dir/lib/include/imgui/imgui_impl_opengl3.cpp.obj: CXX_COMP
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\lib\include\imgui
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/lib/include/imgui/imgui_impl_sdl2.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include/imgui/imgui_impl_sdl2.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -856,8 +696,6 @@ build CMakeFiles/game.dir/lib/include/imgui/imgui_impl_sdl2.cpp.obj: CXX_COMPILE
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\lib\include\imgui
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/lib/include/imgui/imgui_tables.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include/imgui/imgui_tables.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -866,8 +704,6 @@ build CMakeFiles/game.dir/lib/include/imgui/imgui_tables.cpp.obj: CXX_COMPILER__
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\lib\include\imgui
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 build CMakeFiles/game.dir/lib/include/imgui/imgui_widgets.cpp.obj: CXX_COMPILER__game_unscanned_Release C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include/imgui/imgui_widgets.cpp || cmake_object_order_depends_target_game
   DEFINES = -DASSETS_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/assets\" -DGLEW_STATIC -DPROJECT_BINARY_DIR=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/bin/release\" -DPROJECT_NAME=\"game\" -DSHADER_PATH=\"C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/renderer/shaders\" -D__WINDOWS__
@@ -876,8 +712,6 @@ build CMakeFiles/game.dir/lib/include/imgui/imgui_widgets.cpp.obj: CXX_COMPILER_
   INCLUDES = -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/include -isystem C:/boost -isystem C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests
   OBJECT_DIR = CMakeFiles\game.dir
   OBJECT_FILE_DIR = CMakeFiles\game.dir\lib\include\imgui
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
-  TARGET_PDB = game.pdb
 
 
 # =============================================================================
@@ -887,17 +721,16 @@ build CMakeFiles/game.dir/lib/include/imgui/imgui_widgets.cpp.obj: CXX_COMPILER_
 #############################################
 # Link the executable game.exe
 
-build game.exe: CXX_EXECUTABLE_LINKER__game_Release CMakeFiles/game.dir/src/engine/GLESC.cpp.obj CMakeFiles/game.dir/src/engine/core/counter/FPSManager.cpp.obj CMakeFiles/game.dir/src/engine/core/counter/Timer.cpp.obj CMakeFiles/game.dir/src/engine/core/debugger/Stacktrace.cpp.obj CMakeFiles/game.dir/src/engine/core/debugger/Stringer.cpp.obj CMakeFiles/game.dir/src/engine/core/exceptions/BaseException.cpp.obj CMakeFiles/game.dir/src/engine/core/file-system/FileSystemPath.cpp.obj CMakeFiles/game.dir/src/engine/core/logger/Logger.cpp.obj CMakeFiles/game.dir/src/engine/core/logger/outputs/FileLogger.cpp.obj CMakeFiles/game.dir/src/engine/core/logger/outputs/TerminalLogger.cpp.obj CMakeFiles/game.dir/src/engine/core/low-level-renderer/buffers/IndexBuffer.cpp.obj CMakeFiles/game.dir/src/engine/core/low-level-renderer/buffers/VertexArray.cpp.obj CMakeFiles/game.dir/src/engine/core/low-level-renderer/buffers/VertexBuffer.cpp.obj CMakeFiles/game.dir/src/engine/core/low-level-renderer/buffers/VertexBufferLayout.cpp.obj CMakeFiles/game.dir/src/engine/core/low-level-renderer/buffers/VertexInstanceBuffer.cpp.obj CMakeFiles/game.dir/src/engine/core/low-level-renderer/graphic-api/Gapi.cpp.obj CMakeFiles/game.dir/src/engine/core/low-level-renderer/graphic-api/concrete-apis/opengl/OpenGLDebugger.cpp.obj CMakeFiles/game.dir/src/engine/core/low-level-renderer/graphic-api/concrete-apis/vulkan/VulkanGDI.cpp.obj CMakeFiles/game.dir/src/engine/core/low-level-renderer/shader/Shader.cpp.obj CMakeFiles/game.dir/src/engine/core/low-level-renderer/shader/ShaderLoader.cpp.obj CMakeFiles/game.dir/src/engine/core/math/geometry/figures/line/Line.cpp.obj CMakeFiles/game.dir/src/engine/core/math/geometry/figures/plane/Plane.cpp.obj CMakeFiles/game.dir/src/engine/core/math/geometry/figures/polyhedron/Polyhedron.cpp.obj CMakeFiles/game.dir/src/engine/core/math/geometry/figures/polyhedron/PolyhedronFace.cpp.obj CMakeFiles/game.dir/src/engine/core/math/geometry/figures/polyhedron/PolyhedronFactory.cpp.obj CMakeFiles/game.dir/src/engine/core/math/geometry/figures/sphere/Sphere.cpp.obj CMakeFiles/game.dir/src/engine/core/window/WindowManager.cpp.obj CMakeFiles/game.dir/src/engine/ecs/backend/ECS.cpp.obj CMakeFiles/game.dir/src/engine/ecs/backend/component/ComponentManager.cpp.obj CMakeFiles/game.dir/src/engine/ecs/backend/entity/EntityManager.cpp.obj CMakeFiles/game.dir/src/engine/ecs/backend/system/SystemManager.cpp.obj CMakeFiles/game.dir/src/engine/ecs/frontend/entity/Entity.cpp.obj CMakeFiles/game.dir/src/engine/ecs/frontend/entity/EntityFactory.cpp.obj CMakeFiles/game.dir/src/engine/ecs/frontend/system/System.cpp.obj CMakeFiles/game.dir/src/engine/ecs/systems/CameraSystem.cpp.obj CMakeFiles/game.dir/src/engine/ecs/systems/DebugInfoSystem.cpp.obj CMakeFiles/game.dir/src/engine/ecs/systems/InputSystem.cpp.obj CMakeFiles/game.dir/src/engine/ecs/systems/LightSystem.cpp.obj CMakeFiles/game.dir/src/engine/ecs/systems/PhysicsSystem.cpp.obj CMakeFiles/game.dir/src/engine/ecs/systems/RenderSystem.cpp.obj CMakeFiles/game.dir/src/engine/ecs/systems/SunSystem.cpp.obj CMakeFiles/game.dir/src/engine/ecs/systems/TransformSystem.cpp.obj CMakeFiles/game.dir/src/engine/main.cpp.obj CMakeFiles/game.dir/src/engine/res-mng/files/FileManager.cpp.obj CMakeFiles/game.dir/src/engine/res-mng/textures/TextureLoader.cpp.obj CMakeFiles/game.dir/src/engine/res-mng/textures/TextureSurface.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/hud/HUDLookAndFeel.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/hud/HUDManager.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/hud/InGameWindow.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/hud/engine-hud/CrosshairHUD.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/hud/engine-hud/DebugConsoleHUD.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/hud/engine-hud/DebugEntityDataHUD.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/hud/engine-hud/DebugItemsHUD.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/hud/engine-hud/DebugStatsHUD.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/hud/engine-hud/EngineDebugHUDManager.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/ingame-debug/Console.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/ingame-debug/EntityStatsManager.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/ingame-debug/HudItemsManager.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/ingame-debug/StatsManager.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/input/InputManager.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/input/KeyCommand.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/input/MouseCommand.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/physics/PhysicsManager.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/renderer/MeshAdapter.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/renderer/Renderer.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/renderer/RendererTypes.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/renderer/mesh/Mesh.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/renderer/mesh/MeshFactory.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/renderer/mesh/Vertex.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/renderer/texture/Cubemap.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/renderer/texture/Texture.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/renderer/texture/TextureFactory.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/transform/Transform.cpp.obj CMakeFiles/game.dir/src/game/Game.cpp.obj CMakeFiles/game.dir/lib/include/glm/detail/glm.cpp.obj CMakeFiles/game.dir/lib/include/imgui/example.cpp.obj CMakeFiles/game.dir/lib/include/imgui/imgui.cpp.obj CMakeFiles/game.dir/lib/include/imgui/imgui_demo.cpp.obj CMakeFiles/game.dir/lib/include/imgui/imgui_draw.cpp.obj CMakeFiles/game.dir/lib/include/imgui/imgui_impl_opengl3.cpp.obj CMakeFiles/game.dir/lib/include/imgui/imgui_impl_sdl2.cpp.obj CMakeFiles/game.dir/lib/include/imgui/imgui_tables.cpp.obj CMakeFiles/game.dir/lib/include/imgui/imgui_widgets.cpp.obj | C$:/MinGW/mingw64/lib/libgomp.dll.a C$:/MinGW/mingw64/x86_64-w64-mingw32/lib/libmingwthrd.a C$:/MinGW/mingw64/x86_64-w64-mingw32/lib/libpthread.dll.a C$:/MinGW/mingw64/x86_64-w64-mingw32/lib/libmingwthrd.a C$:/MinGW/mingw64/x86_64-w64-mingw32/lib/libpthread.dll.a
+build game.exe: CXX_EXECUTABLE_LINKER__game_Release CMakeFiles/game.dir/src/engine/GLESC.cpp.obj CMakeFiles/game.dir/src/engine/core/counter/FPSManager.cpp.obj CMakeFiles/game.dir/src/engine/core/counter/Timer.cpp.obj CMakeFiles/game.dir/src/engine/core/debugger/Stacktrace.cpp.obj CMakeFiles/game.dir/src/engine/core/debugger/Stringer.cpp.obj CMakeFiles/game.dir/src/engine/core/exceptions/BaseException.cpp.obj CMakeFiles/game.dir/src/engine/core/file-system/FileSystemPath.cpp.obj CMakeFiles/game.dir/src/engine/core/logger/Logger.cpp.obj CMakeFiles/game.dir/src/engine/core/logger/outputs/FileLogger.cpp.obj CMakeFiles/game.dir/src/engine/core/logger/outputs/TerminalLogger.cpp.obj CMakeFiles/game.dir/src/engine/core/low-level-renderer/buffers/IndexBuffer.cpp.obj CMakeFiles/game.dir/src/engine/core/low-level-renderer/buffers/VertexArray.cpp.obj CMakeFiles/game.dir/src/engine/core/low-level-renderer/buffers/VertexBuffer.cpp.obj CMakeFiles/game.dir/src/engine/core/low-level-renderer/buffers/VertexBufferLayout.cpp.obj CMakeFiles/game.dir/src/engine/core/low-level-renderer/buffers/VertexInstanceBuffer.cpp.obj CMakeFiles/game.dir/src/engine/core/low-level-renderer/graphic-api/Gapi.cpp.obj CMakeFiles/game.dir/src/engine/core/low-level-renderer/graphic-api/concrete-apis/opengl/OpenGLDebugger.cpp.obj CMakeFiles/game.dir/src/engine/core/low-level-renderer/graphic-api/concrete-apis/vulkan/VulkanGDI.cpp.obj CMakeFiles/game.dir/src/engine/core/low-level-renderer/shader/Shader.cpp.obj CMakeFiles/game.dir/src/engine/core/low-level-renderer/shader/ShaderLoader.cpp.obj CMakeFiles/game.dir/src/engine/core/math/geometry/figures/line/Line.cpp.obj CMakeFiles/game.dir/src/engine/core/math/geometry/figures/plane/Plane.cpp.obj CMakeFiles/game.dir/src/engine/core/math/geometry/figures/polyhedron/Polyhedron.cpp.obj CMakeFiles/game.dir/src/engine/core/math/geometry/figures/polyhedron/PolyhedronFace.cpp.obj CMakeFiles/game.dir/src/engine/core/math/geometry/figures/polyhedron/PolyhedronFactory.cpp.obj CMakeFiles/game.dir/src/engine/core/math/geometry/figures/sphere/Sphere.cpp.obj CMakeFiles/game.dir/src/engine/core/window/WindowManager.cpp.obj CMakeFiles/game.dir/src/engine/ecs/backend/ECS.cpp.obj CMakeFiles/game.dir/src/engine/ecs/backend/component/ComponentManager.cpp.obj CMakeFiles/game.dir/src/engine/ecs/backend/entity/EntityManager.cpp.obj CMakeFiles/game.dir/src/engine/ecs/backend/system/SystemManager.cpp.obj CMakeFiles/game.dir/src/engine/ecs/frontend/entity/Entity.cpp.obj CMakeFiles/game.dir/src/engine/ecs/frontend/entity/EntityFactory.cpp.obj CMakeFiles/game.dir/src/engine/ecs/frontend/system/System.cpp.obj CMakeFiles/game.dir/src/engine/ecs/systems/CameraSystem.cpp.obj CMakeFiles/game.dir/src/engine/ecs/systems/DebugInfoSystem.cpp.obj CMakeFiles/game.dir/src/engine/ecs/systems/FogSystem.cpp.obj CMakeFiles/game.dir/src/engine/ecs/systems/InputSystem.cpp.obj CMakeFiles/game.dir/src/engine/ecs/systems/LightSystem.cpp.obj CMakeFiles/game.dir/src/engine/ecs/systems/PhysicsSystem.cpp.obj CMakeFiles/game.dir/src/engine/ecs/systems/RenderSystem.cpp.obj CMakeFiles/game.dir/src/engine/ecs/systems/SunSystem.cpp.obj CMakeFiles/game.dir/src/engine/ecs/systems/TransformSystem.cpp.obj CMakeFiles/game.dir/src/engine/main.cpp.obj CMakeFiles/game.dir/src/engine/res-mng/files/FileManager.cpp.obj CMakeFiles/game.dir/src/engine/res-mng/textures/TextureLoader.cpp.obj CMakeFiles/game.dir/src/engine/res-mng/textures/TextureSurface.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/hud/HUDLookAndFeel.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/hud/HUDManager.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/hud/InGameWindow.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/hud/engine-hud/CrosshairHUD.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/hud/engine-hud/DebugConsoleHUD.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/hud/engine-hud/DebugEntityDataHUD.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/hud/engine-hud/DebugItemsHUD.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/hud/engine-hud/DebugStatsHUD.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/hud/engine-hud/EngineDebugHUDManager.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/ingame-debug/Console.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/ingame-debug/EntityStatsManager.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/ingame-debug/HudItemsManager.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/ingame-debug/StatsManager.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/input/InputManager.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/input/KeyCommand.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/input/MouseCommand.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/physics/PhysicsManager.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/renderer/MeshAdapter.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/renderer/Renderer.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/renderer/RendererTypes.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/renderer/mesh/MeshFactory.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/renderer/mesh/Vertex.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/renderer/texture/Cubemap.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/renderer/texture/Texture.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/renderer/texture/TextureFactory.cpp.obj CMakeFiles/game.dir/src/engine/subsystems/transform/Transform.cpp.obj CMakeFiles/game.dir/src/game/Game.cpp.obj CMakeFiles/game.dir/lib/include/glm/detail/glm.cpp.obj CMakeFiles/game.dir/lib/include/imgui/example.cpp.obj CMakeFiles/game.dir/lib/include/imgui/imgui.cpp.obj CMakeFiles/game.dir/lib/include/imgui/imgui_demo.cpp.obj CMakeFiles/game.dir/lib/include/imgui/imgui_draw.cpp.obj CMakeFiles/game.dir/lib/include/imgui/imgui_impl_opengl3.cpp.obj CMakeFiles/game.dir/lib/include/imgui/imgui_impl_sdl2.cpp.obj CMakeFiles/game.dir/lib/include/imgui/imgui_tables.cpp.obj CMakeFiles/game.dir/lib/include/imgui/imgui_widgets.cpp.obj | C$:/MinGW/mingw64/lib/libgomp.dll.a C$:/MinGW/mingw64/x86_64-w64-mingw32/lib/libmingwthrd.a C$:/MinGW/mingw64/x86_64-w64-mingw32/lib/libpthread.dll.a C$:/MinGW/mingw64/x86_64-w64-mingw32/lib/libmingwthrd.a C$:/MinGW/mingw64/x86_64-w64-mingw32/lib/libpthread.dll.a
   FLAGS = -O3 -DNDEBUG
   LINK_LIBRARIES = -lmingw32  -lSDL2  -lSDL2main  -lSDL2_net  -lSDL2_mixer  -lSDL2_image  -lassimp  -lglew32s  -lopengl32  -limm32  -lversion  -lsetupapi  -lwinmm  -ldbghelp  C:/MinGW/mingw64/lib/libgomp.dll.a  C:/MinGW/mingw64/x86_64-w64-mingw32/lib/libmingwthrd.a  C:/MinGW/mingw64/x86_64-w64-mingw32/lib/libpthread.dll.a  C:/MinGW/mingw64/x86_64-w64-mingw32/lib/libmingwthrd.a  C:/MinGW/mingw64/x86_64-w64-mingw32/lib/libpthread.dll.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   LINK_PATH = -LC:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/lib/lib
   OBJECT_DIR = CMakeFiles\game.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_COMPILE_PDB = CMakeFiles\game.dir\
   TARGET_FILE = game.exe
   TARGET_IMPLIB = libgame.dll.a
-  TARGET_PDB = game.pdb
+  TARGET_PDB = game.exe.dbg
 
 
 #############################################
@@ -944,14 +777,14 @@ build all: phony game.exe
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeCCompiler.cmake.in C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeCCompilerABI.c C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeCInformation.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeCXXCompiler.cmake.in C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeCXXInformation.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeCompilerIdDetection.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeDetermineCCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeDetermineCXXCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeDetermineCompileFeatures.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeDetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeDetermineCompilerABI.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeDetermineCompilerId.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeDetermineRCCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeDetermineSystem.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeFindBinUtils.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeGenericSystem.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeParseImplicitIncludeInfo.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeParseImplicitLinkInfo.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeParseLibraryArchitecture.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeRCCompiler.cmake.in C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeRCInformation.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeSystem.cmake.in C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeTestCCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeTestCXXCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeTestCompilerCommon.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeTestRCCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/ADSP-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/ARMCC-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/ARMClang-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/AppleClang-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/Borland-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/Bruce-C-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/Clang-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/Clang-DetermineCompilerInternal.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/Comeau-CXX-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/Compaq-C-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/Cray-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/CrayClang-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/Embarcadero-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/Fujitsu-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/GHS-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/GNU-C-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/GNU-C.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/GNU-CXX.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/GNU-FindBinUtils.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/GNU.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/HP-C-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/HP-CXX-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/IAR-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/IBMClang-C-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/Intel-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/LCC-C-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/MSVC-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/NVHPC-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/NVIDIA-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/OrangeC-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/PGI-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/PathScale-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/SCO-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/SDCC-C-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/SunPro-C-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/TI-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/Tasking-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/Watcom-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/XL-C-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/XL-CXX-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/XLClang-C-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/zOS-C-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/ExternalProject/shared_internal_commands.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/FetchContent.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/FindBoost.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/FindOpenMP.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/FindPackageMessage.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Internal/FeatureTesting.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-Determine-CXX.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-GNU-C.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-GNU-CXX.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-GNU.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-Initialize.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-windres.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/WindowsPaths.cmake C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/CMakeLists.txt C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/cmake/core/ErrorChecking.cmake C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/cmake/core/Including.cmake C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/cmake/core/PlatformDetection.cmake C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/cmake/core/Printing.cmake C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/cmake/modules/CompilerDefinitions.cmake C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/cmake/modules/CompilerFlags.cmake C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/cmake/modules/FileLocations.cmake C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/cmake/modules/FindPackages.cmake C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/cmake/modules/LinkLibraries.cmake C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/cmake/modules/Testing.cmake CMakeCache.txt CMakeFiles/3.28.1/CMakeCCompiler.cmake CMakeFiles/3.28.1/CMakeCXXCompiler.cmake CMakeFiles/3.28.1/CMakeRCCompiler.cmake CMakeFiles/3.28.1/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeCInformation.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeCXXInformation.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeGenericSystem.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeParseImplicitLinkInfo.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeRCInformation.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/GNU-C.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/GNU-CXX.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/GNU.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/ExternalProject/shared_internal_commands.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/FetchContent.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/FindBoost.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/FindOpenMP.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/FindPackageMessage.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-GNU-C.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-GNU-CXX.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-GNU.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-Initialize.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-windres.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/WindowsPaths.cmake C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/CMakeLists.txt C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/cmake/core/ErrorChecking.cmake C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/cmake/core/Including.cmake C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/cmake/core/PlatformDetection.cmake C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/cmake/core/Printing.cmake C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/cmake/modules/CompilerDefinitions.cmake C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/cmake/modules/CompilerFlags.cmake C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/cmake/modules/FileLocations.cmake C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/cmake/modules/FindPackages.cmake C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/cmake/modules/LinkLibraries.cmake C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/cmake/modules/Testing.cmake CMakeCache.txt CMakeFiles/3.28.1/CMakeCCompiler.cmake CMakeFiles/3.28.1/CMakeCXXCompiler.cmake CMakeFiles/3.28.1/CMakeRCCompiler.cmake CMakeFiles/3.28.1/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeCCompiler.cmake.in C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeCCompilerABI.c C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeCInformation.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeCXXCompiler.cmake.in C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeCXXInformation.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeCompilerIdDetection.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeDetermineCCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeDetermineCXXCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeDetermineCompileFeatures.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeDetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeDetermineCompilerABI.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeDetermineCompilerId.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeDetermineRCCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeDetermineSystem.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeFindBinUtils.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeGenericSystem.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeParseImplicitIncludeInfo.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeParseImplicitLinkInfo.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeParseLibraryArchitecture.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeRCCompiler.cmake.in C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeRCInformation.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeSystem.cmake.in C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeTestCCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeTestCXXCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeTestCompilerCommon.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeTestRCCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/ADSP-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/ARMCC-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/ARMClang-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/AppleClang-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/Borland-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/Bruce-C-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/Clang-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/Clang-DetermineCompilerInternal.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/Comeau-CXX-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/Compaq-C-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/Cray-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/CrayClang-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/Embarcadero-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/Fujitsu-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/GHS-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/GNU-C-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/GNU-C.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/GNU-CXX.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/GNU-FindBinUtils.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/GNU.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/HP-C-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/HP-CXX-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/IAR-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/IBMClang-C-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/Intel-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/LCC-C-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/MSVC-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/NVHPC-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/NVIDIA-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/OrangeC-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/PGI-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/PathScale-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/SCO-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/SDCC-C-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/SunPro-C-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/TI-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/Tasking-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/Watcom-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/XL-C-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/XL-CXX-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/XLClang-C-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/zOS-C-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/ExternalProject/shared_internal_commands.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/FetchContent.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/FindBoost.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/FindOpenMP.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/FindPackageMessage.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Internal/FeatureTesting.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-Determine-CXX.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-GNU-C.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-GNU-CXX.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-GNU.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-Initialize.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-windres.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/WindowsPaths.cmake C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/CMakeLists.txt C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/cmake/core/ErrorChecking.cmake C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/cmake/core/Including.cmake C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/cmake/core/PlatformDetection.cmake C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/cmake/core/Printing.cmake C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/cmake/modules/CompilerDefinitions.cmake C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/cmake/modules/CompilerFlags.cmake C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/cmake/modules/FileLocations.cmake C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/cmake/modules/FindPackages.cmake C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/cmake/modules/LinkLibraries.cmake C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/cmake/modules/Testing.cmake CMakeCache.txt CMakeFiles/3.28.1/CMakeCCompiler.cmake CMakeFiles/3.28.1/CMakeCXXCompiler.cmake CMakeFiles/3.28.1/CMakeRCCompiler.cmake CMakeFiles/3.28.1/CMakeSystem.cmake: phony
+build C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeCInformation.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeCXXInformation.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeGenericSystem.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeParseImplicitLinkInfo.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeRCInformation.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/GNU-C.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/GNU-CXX.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/GNU.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/ExternalProject/shared_internal_commands.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/FetchContent.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/FindBoost.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/FindOpenMP.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/FindPackageMessage.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-GNU-C.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-GNU-CXX.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-GNU.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-Initialize.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-windres.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows.cmake C$:/Users/valyd/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/WindowsPaths.cmake C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/CMakeLists.txt C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/cmake/core/ErrorChecking.cmake C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/cmake/core/Including.cmake C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/cmake/core/PlatformDetection.cmake C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/cmake/core/Printing.cmake C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/cmake/modules/CompilerDefinitions.cmake C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/cmake/modules/CompilerFlags.cmake C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/cmake/modules/FileLocations.cmake C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/cmake/modules/FindPackages.cmake C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/cmake/modules/LinkLibraries.cmake C$:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/cmake/modules/Testing.cmake CMakeCache.txt CMakeFiles/3.28.1/CMakeCCompiler.cmake CMakeFiles/3.28.1/CMakeCXXCompiler.cmake CMakeFiles/3.28.1/CMakeRCCompiler.cmake CMakeFiles/3.28.1/CMakeSystem.cmake: phony
 
 
 #############################################

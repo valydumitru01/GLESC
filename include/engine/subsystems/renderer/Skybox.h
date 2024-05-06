@@ -33,6 +33,7 @@ public:
         size_t skyboxVerticesCount = sizeof(skyboxVertices) / sizeof(float);
         size_t skyboxVerticesSize = sizeof(float);
         calculateAverageColor();
+        skyboxCubemap.release();
         skyboxVAO = std::make_unique<VertexArray>();
         skyboxVAO->bind();
         skyboxVBO = std::make_unique<VertexBuffer>(

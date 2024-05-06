@@ -12,6 +12,7 @@
 
 #include <string>
 #include <memory>
+#include <mutex>
 #include <unordered_map>
 
 #include "engine/core/hash/Hasher.h"
@@ -45,6 +46,10 @@ namespace GLESC::Render {
         }
 
         ~Mesh() = default;
+
+        Mesh(const Mesh& other) {
+            *this = other;
+        }
 
         void startBuilding() {
             dirtyFlag = true;
@@ -137,8 +142,11 @@ namespace GLESC::Render {
             for (const auto& vertex : mesh.getVertices()) {
                 addVertex(vertex);
             }
-            for (const auto& index : mesh.getIndices()) {
-                indices.push_back(index);
+            std::lock_guard<std::mutex> lock(verticesMutex);
+            {
+                for (const auto& index : mesh.getIndices()) {
+                        indices.push_back(index);
+                }
             }
         }
 
@@ -185,7 +193,10 @@ namespace GLESC::Render {
 
             // Insert new vertex
             Index newIndex = static_cast<Index>(vertices.size());
-            vertices.push_back(vertexParam);
+            {
+                std::lock_guard<std::mutex> lock(verticesMutex);
+                vertices.push_back(vertexParam);
+            }
             return newIndex;
         }
 
@@ -204,10 +215,13 @@ namespace GLESC::Render {
             D_ASSERT_LESS(index1, vertices.size(), "Index 1 out of bounds");
             D_ASSERT_LESS(index2, vertices.size(), "Index 2 out of bounds");
             D_ASSERT_LESS(index3, vertices.size(), "Index 3 out of bounds");
-            indices.push_back(index1);
-            indices.push_back(index2);
-            indices.push_back(index3);
-            faces.push_back({index1, index2, index3});
+            {
+                std::lock_guard<std::mutex> lock(indicesMutex);
+                indices.push_back(index1);
+                indices.push_back(index2);
+                indices.push_back(index3);
+                faces.push_back({index1, index2, index3});
+            }
             this->dirtyFlag = true;
         }
 
@@ -281,8 +295,11 @@ namespace GLESC::Render {
         RenderType renderType;
 
         std::vector<Vertex> vertices{};
+        std::mutex verticesMutex{};
         std::vector<Index> indices{};
+        std::mutex indicesMutex{};
         std::vector<Math::FaceIndices> faces{};
+        std::mutex facesMutex{};
         /**
          * @brief The bounding volume of the mesh.
          * @details The bounding volume is a polyhedron cuboid that encloses the mesh. It is used for culling.

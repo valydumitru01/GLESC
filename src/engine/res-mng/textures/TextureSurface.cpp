@@ -109,6 +109,12 @@ void TextureSurface::load(const std::string& pathParam, bool flipTexture) {
     hasLoaded = true;
 }
 
+void TextureSurface::release() {
+    pixels.clear();
+    hasLoaded = false;
+}
+
+
 
 std::string TextureSurface::toString() const {
     D_ASSERT_TRUE(hasLoaded, "Texture not loaded");
