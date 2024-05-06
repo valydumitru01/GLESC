@@ -47,11 +47,15 @@ namespace GLESC::Render {
         ~Mesh() = default;
 
         void startBuilding() {
+            dirtyFlag = true;
+            isBuilding = true;
+        }
+
+        void clear() {
             vertices.clear();
             indices.clear();
             faces.clear();
             dirtyFlag = true;
-            isBuilding = true;
         }
 
         void finishBuilding() {

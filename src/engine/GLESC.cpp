@@ -60,7 +60,7 @@ void Engine::processInput() {
 
 void Engine::render(double const timeOfFrame) {
     Logger::get().importantInfoPurple("Engine render started");
-    renderer.clear();
+    renderer.start();
 
     renderer.renderMeshes(timeOfFrame);
     hudManager.update();
@@ -90,8 +90,9 @@ std::vector<std::unique_ptr<ECS::System>> Engine::createSystems() {
     std::vector<std::unique_ptr<ECS::System>> systems;
     systems.push_back(std::make_unique<ECS::InputSystem>(inputManager, ecs));
     systems.push_back(std::make_unique<ECS::PhysicsSystem>(physicsManager, ecs));
-    systems.push_back(std::make_unique<ECS::RenderSystem>(renderer, ecs));
+    // Camera needs to be updated before rendering
     systems.push_back(std::make_unique<ECS::CameraSystem>(renderer, windowManager, ecs));
+    systems.push_back(std::make_unique<ECS::RenderSystem>(renderer, ecs));
     systems.push_back(std::make_unique<ECS::TransformSystem>(ecs));
     systems.push_back(std::make_unique<ECS::LightSystem>(ecs, renderer));
     systems.push_back(std::make_unique<ECS::DebugInfoSystem>(ecs, renderer));
@@ -101,6 +102,7 @@ std::vector<std::unique_ptr<ECS::System>> Engine::createSystems() {
 
 #define CAMERA_SPEED 0.3f
 #define CAMERA_X_ROTATION_LIMIT 45.0f
+#define CAMERA_SENSITIVITY 1.f
 
 ECS::Entity Engine::createEngineCamera() {
     using namespace GLESC::ECS;
@@ -111,12 +113,11 @@ ECS::Entity Engine::createEngineCamera() {
           .addComponent(InputComponent());
 
 
-    camera.getComponent<CameraComponent>().perspective.farPlane = 1000.0f;
-    camera.getComponent<CameraComponent>().perspective.nearPlane = 0.1f;
-    camera.getComponent<CameraComponent>().sensitivity = 1.5;
-    camera.getComponent<CameraComponent>().perspective.fovDegrees = 60.0f;
-    camera.getComponent<CameraComponent>().perspective.viewWidth = static_cast<float>(windowManager.getSize().width);
-    camera.getComponent<CameraComponent>().perspective.viewHeight = static_cast<float>(windowManager.getSize().height);
+    camera.getComponent<CameraComponent>().perspective.setFarPlane(1000.0f);
+    camera.getComponent<CameraComponent>().perspective.setNearPlane(0.1f);
+    camera.getComponent<CameraComponent>().perspective.setFovDegrees(60.0f);
+    camera.getComponent<CameraComponent>().perspective.setViewWidth(static_cast<float>(windowManager.getSize().width));
+    camera.getComponent<CameraComponent>().perspective.setViewHeight(static_cast<float>(windowManager.getSize().height));
     // IMPORTANT! Camera movement needs to be done with inverse directions, because it looks at the
     // opposite direction of the forward vector
     Input::KeyCommand moveForward = Input::KeyCommand([&] {
@@ -164,13 +165,13 @@ ECS::Entity Engine::createEngineCamera() {
 
         // Adjust the target rotation based on mouse input
         // Only rotate if rotation is between -90 and 90 degrees
-        float mouseAdditionX = static_cast<float>(deltaMouse.getY()) * cameraComp.sensitivity;
+        float mouseAdditionX = static_cast<float>(deltaMouse.getY()) * CAMERA_SENSITIVITY;
         float nextMouseX = transformComp.getRotation().getX() + mouseAdditionX;
         if (nextMouseX < CAMERA_X_ROTATION_LIMIT &&
             nextMouseX > -CAMERA_X_ROTATION_LIMIT)
             transformComp.addRotation(Transform::Axis::X, mouseAdditionX);
         transformComp.addRotation(Transform::Axis::Y,
-                                  static_cast<float>(deltaMouse.getX()) * cameraComp.sensitivity);
+                                  static_cast<float>(deltaMouse.getX()) * CAMERA_SENSITIVITY);
 
         // Ensure we avoid gimbal lock, restrict the X rotation to 90 degrees
     });

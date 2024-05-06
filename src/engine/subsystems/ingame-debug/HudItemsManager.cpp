@@ -13,12 +13,6 @@ std::vector<Item> HudItemsManager::items = {};
 
 
 void HudItemsManager::addItem(HudItemType type, const GLESC::Transform::Position& worldPosition) {
-    bool found = std::any_of(items.begin(), items.end(), [&](const Item& item) {
-        return item.worldPosition == &worldPosition;
-    });
-    if (found) {
-        return;
-    }
     Item item;
     item.worldPosition = &worldPosition;
     item.type = type;

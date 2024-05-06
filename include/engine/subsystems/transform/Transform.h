@@ -107,6 +107,7 @@ namespace GLESC::Transform {
         Render::Model getModelMatrix() const {
             if (dirty) {
                 modelMat.makeModelMatrix(position, rotation, scale);
+                dirty = false;
             }
             return modelMat;
         }
@@ -117,6 +118,7 @@ namespace GLESC::Transform {
             EntityStatsManager::Value positionValue;
             positionValue.name = "Position";
             positionValue.data = reinterpret_cast<void*>(&position);
+            positionValue.valueDirty = &dirty;
             positionValue.type = EntityStatsManager::ValueType::VEC3F;
             positionValue.isModifiable = true;
             positionValue.usesSlider = false;
@@ -125,6 +127,7 @@ namespace GLESC::Transform {
             EntityStatsManager::Value rotationValue;
             rotationValue.name = "Rotation";
             rotationValue.data = reinterpret_cast<void*>(&rotation);
+            positionValue.valueDirty = &dirty;
             rotationValue.type = EntityStatsManager::ValueType::VEC3F;
             rotationValue.isModifiable = true;
             rotationValue.usesSlider = true;
@@ -135,6 +138,7 @@ namespace GLESC::Transform {
             EntityStatsManager::Value scaleValue;
             scaleValue.name = "Scale";
             scaleValue.data = reinterpret_cast<void*>(&scale);
+            positionValue.valueDirty = &dirty;
             scaleValue.type = EntityStatsManager::ValueType::VEC3F;
             scaleValue.isModifiable = true;
             scaleValue.usesSlider = true;
@@ -165,7 +169,7 @@ namespace GLESC::Transform {
         Rotation rotation = Rotation(0.0f, 0.0f, 0.0f);
         Scale scale = Scale(1.0f, 1.0f, 1.0f);
 
-        bool dirty = true;
+        mutable bool dirty = true;
 
         Math::Direction forwardDirection;
         Math::Direction rightDirection;
@@ -176,7 +180,7 @@ namespace GLESC::Transform {
 
     class Transformer {
     public:
-        static void transformMesh(Render::ColorMesh& mesh, const Render::Model& modelMat);
+        static void transformMesh(Render::ColorMesh& mesh, const Render::Model& modelMat, const Render::View& viewMat);
 
         static Render::BoundingVolume transformBoundingVolume(const Render::BoundingVolume& boundingVolume,
                                                               const Render::Model& modelMat);

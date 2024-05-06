@@ -22,6 +22,7 @@ namespace GLESC::Render {
         std::unique_ptr<GAPI::IndexBuffer> indexBuffer;
         std::unique_ptr<GAPI::VertexBuffer> vertexBuffer;
         const Material* material;
+        const Transform::Transform* transform;
         const BoundingVolume* boundingVolume;
     };
 
@@ -36,8 +37,7 @@ namespace GLESC::Render {
     class MeshAdapter {
     public:
         [[nodiscard]] static AdaptedMesh adaptMesh(const ColorMesh& mesh,
-                                                   const BoundingVolume& boundingVolume,
-                                                   const Material& material);
+                                       const Material& material, Transform::Transform& transform);
         /*
                 [[nodiscard]] static AdaptedInstances adaptInstances(const ColorMesh& mesh,
                                                                      const std::vector<MeshInstanceData>& instances);*/

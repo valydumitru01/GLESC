@@ -487,9 +487,9 @@ namespace GLESC::Math {
 
 
         template <typename ModelType>
-        void makeNormalMatrix(const Matrix<ModelType, 4, 4>& modelMatrix) {
+        void makeNormalMatrix(const Matrix<ModelType, 4, 4>& MVMat) {
             S_ASSERT_TRUE(N == 3 && M == 3, "Normal matrix can only be created for 4x4 matrices");
-            MatrixMixedAlgorithms::calculateNormalMatrix(modelMatrix.data, this->data);
+            MatrixMixedAlgorithms::calculateNormalMatrix(MVMat.data, this->data);
         }
 
         /**

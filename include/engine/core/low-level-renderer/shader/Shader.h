@@ -10,6 +10,9 @@
 #pragma once
 
 #include <string>
+#include <vector>
+#include "engine/core/low-level-renderer/graphic-api/Gapi.h"
+#include "engine/core/low-level-renderer/graphic-api/GapiTypes.h"
 
 namespace GLESC::GAPI {
     class Shader {

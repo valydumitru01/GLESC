@@ -9,7 +9,6 @@
  ******************************************************************************/
 
 #include "engine/ecs/backend/entity/EntityManager.h"
-#include "engine/ecs/backend/asserts/entity/EntityAsserts.h"
 
 using namespace GLESC::ECS;
 
@@ -22,7 +21,7 @@ EntityManager::EntityManager() {
 }
 
 EntityID EntityManager::createNextEntity(const EntityName& name) {
-    ASSERT_ENTITY_CAN_BE_CREATED(name);
+    D_ASSERT_TRUE(canEntityBeCreated(name), "Entity must be able to be created");
     
     EntityID id = availableEntities.front();
     availableEntities.pop();
@@ -30,13 +29,13 @@ EntityID EntityManager::createNextEntity(const EntityName& name) {
     entityNameToID.insert({name, id});
     ++livingEntityCount;
 
-    ASSERT_ENTITY_EXISTS(id);
+    D_ASSERT_TRUE(doesEntityExist(id), "Entity must exist after creation");
     return id;
 }
 
 void EntityManager::destroyEntity(EntityID entity) {
-    ASSERT_THERE_ARE_LIVING_ENTITIES();
-    ASSERT_ENTITY_EXISTS(entity);
+    D_ASSERT_TRUE(areThereLivingEntities(), "There must be living entities to destroy one");
+    D_ASSERT_TRUE(doesEntityExist(entity), "Entity must exist before destruction");
     
     signatures[entity].reset();
     availableEntities.push(entity);
@@ -44,23 +43,23 @@ void EntityManager::destroyEntity(EntityID entity) {
     entityIDToName.erase(entity);
     --livingEntityCount;
 
-    ASSERT_ENTITY_DOESNT_EXIST(entity);
-    ASSERT_ENTITY_IS_NOT_ALIVE(entity);
+    D_ASSERT_FALSE(doesEntityExist(entity), "Entity must not exist after destruction");
+    D_ASSERT_FALSE(isEntityAlive(entity), "Entity must not be alive after destruction");
 }
 
 Signature EntityManager::getSignature(EntityID entity) const {
-    ASSERT_ENTITY_EXISTS(entity);
+    D_ASSERT_TRUE(doesEntityExist(entity), "Entity must exist to get its signature");
     return signatures[entity];
 }
 
 bool EntityManager::doesEntityHaveComponent(EntityID entity, ComponentID componentID) const {
-    ASSERT_ENTITY_EXISTS(entity);
-    ASSERT_COMPONENT_IS_IN_RANGE(componentID);
+    D_ASSERT_TRUE(doesEntityExist(entity), "Entity must exist to check if it has a component");
+    D_ASSERT_TRUE(isComponentInRange(componentID), "Component must be in range to check if entity has it");
     return signatures[entity][componentID];
 }
 
 const EntityName& EntityManager::getEntityName(EntityID entity) const {
-    ASSERT_ENTITY_EXISTS(entity);
+    D_ASSERT_TRUE(doesEntityExist(entity), "Entity must exist to get its name");
     return entityIDToName.at(entity);
 }
 
@@ -74,16 +73,16 @@ EntityID EntityManager::tryGetEntity(const EntityName& name) const {
 }
 
 void EntityManager::removeComponentFromEntity(EntityID entity, ComponentID componentID) {
-    ASSERT_ENTITY_IS_ALIVE(entity);
-    ASSERT_COMPONENT_IS_IN_RANGE(componentID);
-    ASSERT_ENTITY_HAS_COMPONENT(entity, componentID);
+    D_ASSERT_TRUE(isEntityAlive(entity), "Entity must be alive to remove a component");
+    D_ASSERT_TRUE(isComponentInRange(componentID), "Component must be in range to be removed");
+    D_ASSERT_TRUE(doesEntityHaveComponent(entity, componentID), "Entity must have the component to remove it");
     signatures[entity].reset(componentID);
 }
 
 void EntityManager::addComponentToEntity(EntityID entity, ComponentID componentID) {
-    ASSERT_ENTITY_EXISTS(entity);
-    ASSERT_COMPONENT_IS_IN_RANGE(componentID);
-    ASSERT_ENTITY_DOESNT_HAVE_COMPONENT(entity, componentID);
+    D_ASSERT_TRUE(doesEntityExist(entity), "Entity must exist to add a component");
+    D_ASSERT_TRUE(isComponentInRange(componentID), "Component must be in range to be added");
+    D_ASSERT_FALSE(doesEntityHaveComponent(entity, componentID), "Entity must not have the component to add it");
     signatures[entity].set(componentID);
 }
 

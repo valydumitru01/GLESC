@@ -13,21 +13,20 @@
 
 #include "engine/core/logger/Logger.h"
 #include "engine/core/asserts/Asserts.h"
-#include "engine/ecs/backend/asserts/system/SystemAsserts.h"
 
 using namespace GLESC::ECS;
 
 const std::set<EntityID>&
 SystemManager::getAssociatedEntitiesOfSystem(const SystemName& name) const {
-    ASSERT_SYSTEM_IS_REGISTERED(name);
+    D_ASSERT_TRUE(isSystemRegistered(name), "System must be registered before getting associated entities");
     return associatedEntities.at(name);
 }
 
 void SystemManager::registerSystem(const SystemName& name) {
-    ASSERT_SYSTEM_IS_NOT_REGISTERED(name);
+    D_ASSERT_FALSE(isSystemRegistered(name), "System must not be registered");
     systemSignatures.try_emplace(name, Signature{});
     associatedEntities.try_emplace(name);
-    ASSERT_SYSTEM_IS_REGISTERED(name);
+    D_ASSERT_TRUE(isSystemRegistered(name), "System must be registered after calling registerSystem");
 }
 
 void SystemManager::entitySignatureChanged(EntityID entity, Signature entitySignature) {
@@ -49,7 +48,7 @@ void SystemManager::entityDestroyed(EntityID entity) {
     // Erase a destroyed entity from all system lists
     for (auto& [name, entitySet] : associatedEntities) {
         entitySet.erase(entity);
-        ASSERT_ENTITY_IS_NOT_ASSOCIATED_WITH_SYSTEM(name, entity);
+        D_ASSERT_TRUE(!isEntityAssociatedWithSystem(name, entity), "Entity must not be associated with system");
     }
 }
 
@@ -60,10 +59,10 @@ bool SystemManager::isSystemRegistered(const SystemName& name) const {
 
 void SystemManager::addComponentRequirementToSystem(const SystemName& name,
                                                     ComponentID componentID) {
-    ASSERT_SYSTEM_IS_REGISTERED(name);
-    ASSERT_COMPONENT_IS_NOT_REQUIRED_BY_SYSTEM(name, componentID);
+    D_ASSERT_TRUE(isSystemRegistered(name), "System must be registered before adding component requirement");
+    D_ASSERT_FALSE(isComponentRequiredBySystem(name, componentID), "Component must not be required by system already");
     systemSignatures.find(name)->second.set(componentID);
-    ASSERT_COMPONENT_IS_REQUIRED_BY_SYSTEM(name, componentID);
+    D_ASSERT_TRUE(isComponentRequiredBySystem(name, componentID), "Component must be required by system");
 }
 
 [[maybe_unused]] bool SystemManager::isEntityAssociatedWithSystem(const SystemName& name, EntityID entity) const {

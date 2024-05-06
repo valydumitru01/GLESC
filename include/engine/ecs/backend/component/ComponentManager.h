@@ -7,8 +7,8 @@
 #pragma once
 
 #include "engine/ecs/ECSTypes.h"
-#include "engine/ecs/frontend/component/ComponentArray.h"
-#include "engine/ecs/backend/asserts/component/ComponentAsserts.h"
+#include "ComponentArray.h"
+#include "engine/core/asserts/Asserts.h"
 
 namespace GLESC::ECS {
     class ComponentManager {
@@ -95,9 +95,9 @@ namespace GLESC::ECS {
 
     template<typename Component>
     Component &ComponentManager::getComponent(EntityID entity) const {
-        ASSERT_IS_COMPONENT(Component);
-        ASSERT_IS_COMPONENT_REGISTERED(Component);
-        ASSERT_ENTITY_HAS_COMPONENT(entity, Component);
+        S_ASSERT_TRUE((std::is_base_of_v<IComponent, Component>), "Component must inherit from IComponent");
+        D_ASSERT_TRUE(isComponentRegistered<Component>(), "Component is not registered");
+        D_ASSERT_TRUE(getComponentArray<Component>()->hasComponent(entity), "Entity does not have component");
         return getComponentArray<Component>()->getData(entity);
     }
 
@@ -109,8 +109,8 @@ namespace GLESC::ECS {
 
     template<typename Component>
     ComponentID ComponentManager::getComponentID() const {
-        ASSERT_IS_COMPONENT(Component);
-        ASSERT_IS_COMPONENT_REGISTERED(Component);
+        S_ASSERT_TRUE((std::is_base_of_v<IComponent, Component>), "Component must inherit from IComponent");
+        D_ASSERT_TRUE(isComponentRegistered<Component>(), "Component is not registered");
         const char *typeName = typeid(Component).name();
         return componentIDs.at(typeName);
     }
@@ -118,8 +118,8 @@ namespace GLESC::ECS {
 
     template<typename Component>
     void ComponentManager::registerComponent() {
-        ASSERT_IS_COMPONENT(Component);
-        ASSERT_IS_COMPONENT_NOT_REGISTERED(Component);
+        S_ASSERT_TRUE((std::is_base_of_v<IComponent, Component>), "Component must inherit from IComponent");
+        D_ASSERT_TRUE(!isComponentRegistered<Component>(), "Component is already registered");
 
         const char *typeName = typeid(Component).name();
         componentArrays.try_emplace(typeName,
@@ -140,8 +140,9 @@ namespace GLESC::ECS {
 
     template<typename Component>
     void ComponentManager::removeComponent(EntityID entity) {
-        ASSERT_IS_COMPONENT(Component);
-        ASSERT_IS_COMPONENT_REGISTERED(Component);
+        S_ASSERT_TRUE((std::is_base_of_v<IComponent, Component>), "Component must inherit from IComponent");
+        D_ASSERT_TRUE(isComponentRegistered<Component>(), "Component is not registered");
+        D_ASSERT_TRUE(getComponentArray<Component>()->hasComponent(entity), "Entity does not have component");
         getComponentArray<Component>()->removeData(entity);
     }
 
@@ -157,8 +158,8 @@ namespace GLESC::ECS {
     template<typename Component>
     std::shared_ptr<ComponentArray<Component>>
     ComponentManager::getComponentArray() const {
-        ASSERT_IS_COMPONENT(Component);
-        ASSERT_IS_COMPONENT_REGISTERED(Component);
+        S_ASSERT_TRUE((std::is_base_of_v<IComponent, Component>), "Component must inherit from IComponent");
+        D_ASSERT_TRUE(isComponentRegistered<Component>(), "Component is not registered");
 
         const char *typeName = typeid(Component).name();
         return std::static_pointer_cast<ComponentArray<Component>>(componentArrays.at(typeName));

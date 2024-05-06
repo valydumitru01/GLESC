@@ -40,7 +40,7 @@ protected:
     }
 
     void render() {
-        renderer.clear();
+        renderer.start();
         renderer.renderMeshes(0.01);
         renderer.swapBuffers();
     }

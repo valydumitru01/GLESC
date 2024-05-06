@@ -8,7 +8,6 @@
  * See LICENSE.txt in the project root for license information.
  **************************************************************************************************/
 #pragma once
-#include "RendererTypes.h"
 #include "engine/subsystems/ingame-debug/EntityStatsManager.h"
 
 class Fog {

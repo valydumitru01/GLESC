@@ -10,11 +10,12 @@
 #pragma once
 
 #include "engine/core/math/geometry/figures/polyhedron/Polyhedron.h"
+#include "engine/subsystems/renderer/BoundingVolume.h"
 
 namespace GLESC::Render {
     class Frustum {
     public:
-        Frustum() = default;
+        Frustum() = delete;
 
         [[nodiscard]] const std::array<Math::Plane, 6>& getPlanes() const {
             return planes;
@@ -23,10 +24,10 @@ namespace GLESC::Render {
         /**
          * @brief Constructs a frustum from a camera transform and perspective.
          *
-         * @param PVMatrix The combined view-projection matrix.
+         * @param VPMatrix The combined view-projection matrix.
          */
-        Frustum(const Mat4F& PVMatrix) {
-            extractPlanes(PVMatrix);
+        Frustum(const VP& VPMatrix) {
+            extractPlanes(VPMatrix);
         }
 
         /**
@@ -83,49 +84,49 @@ namespace GLESC::Render {
          * It's done with row-major matrices.
          * @see https://web.archive.org/web/20210226045225/http://www.cs.otago.ac.nz/postgrads/alexis/planeExtraction.pdf
          *
-         * @param PVMatrix The combined view-projection matrix.
+         * @param VPMatrix The combined view-projection matrix.
          */
-        void extractPlanes(const Mat4F& PVMatrix) {
+        void extractPlanes(const VP& VPMatrix) {
             // Left clipping plane
-            planes[0].setNormal(Math::Direction(PVMatrix[0][3] + PVMatrix[0][0],
-                                                PVMatrix[1][3] + PVMatrix[1][0],
-                                                PVMatrix[2][3] + PVMatrix[2][0]));
-            planes[0].setDistance(PVMatrix[3][3] + PVMatrix[3][0]);
+            planes[0].setNormal(Math::Direction(VPMatrix[0][3] + VPMatrix[0][0],
+                                                VPMatrix[1][3] + VPMatrix[1][0],
+                                                VPMatrix[2][3] + VPMatrix[2][0]));
+            planes[0].setDistance(VPMatrix[3][3] + VPMatrix[3][0]);
             planes[0].normalize();
 
             // Right clipping plane
-            planes[1].setNormal(Math::Direction(PVMatrix[0][3] - PVMatrix[0][0],
-                                                PVMatrix[1][3] - PVMatrix[1][0],
-                                                PVMatrix[2][3] - PVMatrix[2][0]));
-            planes[1].setDistance(PVMatrix[3][3] - PVMatrix[3][0]);
+            planes[1].setNormal(Math::Direction(VPMatrix[0][3] - VPMatrix[0][0],
+                                                VPMatrix[1][3] - VPMatrix[1][0],
+                                                VPMatrix[2][3] - VPMatrix[2][0]));
+            planes[1].setDistance(VPMatrix[3][3] - VPMatrix[3][0]);
             planes[1].normalize();
 
             // Top clipping plane
-            planes[2].setNormal(Math::Direction(PVMatrix[0][3] - PVMatrix[0][1],
-                                                PVMatrix[1][3] - PVMatrix[1][1],
-                                                PVMatrix[2][3] - PVMatrix[2][1]));
-            planes[2].setDistance(PVMatrix[3][3] - PVMatrix[3][1]);
+            planes[2].setNormal(Math::Direction(VPMatrix[0][3] - VPMatrix[0][1],
+                                                VPMatrix[1][3] - VPMatrix[1][1],
+                                                VPMatrix[2][3] - VPMatrix[2][1]));
+            planes[2].setDistance(VPMatrix[3][3] - VPMatrix[3][1]);
             planes[2].normalize();
 
             // Bottom clipping plane
-            planes[3].setNormal(Math::Direction(PVMatrix[0][3] + PVMatrix[0][1],
-                                                PVMatrix[1][3] + PVMatrix[1][1],
-                                                PVMatrix[2][3] + PVMatrix[2][1]));
-            planes[3].setDistance(PVMatrix[3][3] + PVMatrix[3][1]);
+            planes[3].setNormal(Math::Direction(VPMatrix[0][3] + VPMatrix[0][1],
+                                                VPMatrix[1][3] + VPMatrix[1][1],
+                                                VPMatrix[2][3] + VPMatrix[2][1]));
+            planes[3].setDistance(VPMatrix[3][3] + VPMatrix[3][1]);
             planes[3].normalize();
 
             // Near clipping plane
-            planes[4].setNormal(Math::Direction(PVMatrix[0][3] + PVMatrix[0][2],
-                                                PVMatrix[1][3] + PVMatrix[1][2],
-                                                PVMatrix[2][3] + PVMatrix[2][2]));
-            planes[4].setDistance(PVMatrix[3][3] + PVMatrix[3][2]);
+            planes[4].setNormal(Math::Direction(VPMatrix[0][3] + VPMatrix[0][2],
+                                                VPMatrix[1][3] + VPMatrix[1][2],
+                                                VPMatrix[2][3] + VPMatrix[2][2]));
+            planes[4].setDistance(VPMatrix[3][3] + VPMatrix[3][2]);
             planes[4].normalize();
 
             // Far clipping plane
-            planes[5].setNormal(Math::Direction(PVMatrix[0][3] - PVMatrix[0][2],
-                                                PVMatrix[1][3] - PVMatrix[1][2],
-                                                PVMatrix[2][3] - PVMatrix[2][2]));
-            planes[5].setDistance(PVMatrix[3][3] - PVMatrix[3][2]);
+            planes[5].setNormal(Math::Direction(VPMatrix[0][3] - VPMatrix[0][2],
+                                                VPMatrix[1][3] - VPMatrix[1][2],
+                                                VPMatrix[2][3] - VPMatrix[2][2]));
+            planes[5].setDistance(VPMatrix[3][3] - VPMatrix[3][2]);
             planes[5].normalize();
         }
 

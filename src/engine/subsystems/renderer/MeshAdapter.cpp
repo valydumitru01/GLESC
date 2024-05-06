@@ -28,12 +28,12 @@ namespace GLESC::Render {
         std::cout << std::endl;
     }
 
-    AdaptedMesh MeshAdapter::adaptMesh(const ColorMesh& mesh, const BoundingVolume& boundingVolume,
-                                       const Material& material) {
+    AdaptedMesh MeshAdapter::adaptMesh(const ColorMesh& mesh,
+                                       const Material& material, Transform::Transform& transform) {
         AdaptedMesh adaptedMesh;
         adaptedMesh.material = &material;
-        adaptedMesh.boundingVolume = &boundingVolume;
-
+        adaptedMesh.boundingVolume = &mesh.getBoundingVolume();
+        adaptedMesh.transform = &transform;
         adaptedMesh.vertexArray = std::make_unique<GAPI::VertexArray>();
 
         const void* bufferData = mesh.getVertices().data();
@@ -64,53 +64,5 @@ namespace GLESC::Render {
 
         return adaptedMesh;
     }
-    /*
-    AdaptedInstances MeshAdapter::adaptInstances(const ColorMesh& mesh,
-                                                 const std::vector<MeshInstanceData>& instances) {
-        // First, adapt the mesh to get a VAO and attached VBOs for vertex and index data.
-        AdaptedMesh adapterMesh = adaptMesh(mesh);
-        AdaptedInstances adaptedInstances;
 
-
-        using InstanceTransform = Mat4F;
-
-        // Calculate the total size needed for all instance transformations.
-        size_t instanceDataSize = instances.size() * sizeof(InstanceTransform);
-        // Assuming InstanceTransform is a struct
-
-        // Create a buffer for instance data.
-        std::vector<InstanceTransform> instanceTransforms;
-        instanceTransforms.reserve(instances.size());
-
-        // Fill the buffer with transformation data from instances.
-        for (const auto& instance : instances) {
-            InstanceTransform transform;
-            // Assuming you have a function to convert position, rotation, and scale
-            // into a 4x4 transformation matrix:
-            transform.makeModelMatrix(instance.transform->getPosition(), instance.transform->getRotation(),
-                                      instance.transform->getScale());
-            instanceTransforms.push_back(transform);
-        }
-
-        adaptedInstances.instanceBuffer = std::make_unique<GAPI::VertexInstanceBuffer>(
-            instanceTransforms.data(), instances.size(), instanceDataSize,
-            // We will update the instance data frequently.
-            GAPI::Enums::BufferUsages::DynamicDraw);
-
-
-        GAPI::VertexBufferLayout instanceLayout;
-        for (GAPI::Enums::Types type : MeshInstanceData::getDataLayout()) {
-            instanceLayout.push(type);
-        }
-        // TODO: This is probably wrong, must be fixed
-        adaptedInstances.instanceBuffer->setupInstanceAttributes(instanceLayout, mesh.getVertexLayout().size());
-
-
-        adaptedInstances.instanceCount = instances.size();
-        // Add the instance buffer to the VAO with the correct layout.
-        //vertexArrayPtr->addBuffer(instanceBuffer, instanceLayout);
-
-        return adaptedInstances;
-    }
-    */
 }

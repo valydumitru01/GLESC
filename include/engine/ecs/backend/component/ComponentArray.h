@@ -9,8 +9,7 @@
 #include <cassert>
 #include "engine/ecs/ECSTypes.h"
 #include "engine/core/logger/Logger.h"
-#include "../../backend/component/IComponent.h"
-#include "engine/ecs/backend/asserts/component/ComponentArrayAsserts.h"
+#include "IComponent.h"
 
 #ifndef NDEBUG_ECS
 #define PRINT_COMPONENT_ARRAY_STATUS(contextMessage) printStatus(contextMessage)

@@ -5,11 +5,10 @@
  ******************************************************************************/
 
 #pragma once
-#include <variant>
-#include "IComponent.h"
 #include "engine/ecs/frontend/entity/Entity.h"
 #include "engine/subsystems/renderer/material/Material.h"
 #include "engine/subsystems/renderer/mesh/Mesh.h"
+#include "engine/ecs/backend/component/IComponent.h"
 
 namespace GLESC::ECS {
     struct RenderComponent : IComponent {

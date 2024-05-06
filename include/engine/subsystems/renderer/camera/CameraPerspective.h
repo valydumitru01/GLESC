@@ -1,5 +1,5 @@
 /**************************************************************************************************
- * @file   Camera.h
+ * @file   CameraPerspective.h
  * @author Valentin Dumitru
  * @date   2024-04-10
  * @brief  Add description of this file if needed @TODO 
@@ -9,7 +9,7 @@
  **************************************************************************************************/
 #pragma once
 #include "engine/core/math/geometry/GeometryTypes.h"
-#include "engine/subsystems/renderer/RendererTypes.h"
+#include "engine/subsystems/ingame-debug/EntityStatsManager.h"
 
 namespace GLESC::Render {
     class CameraPerspective {
@@ -155,11 +155,11 @@ namespace GLESC::Render {
         }
 
     private:
-        Math::Distance fovDegrees{0};
-        Math::Distance viewWidth{0};
-        Math::Distance viewHeight{0};
-        Math::Distance nearPlane{0};
-        Math::Distance farPlane{0};
+        Math::Distance fovDegrees{60.0f};
+        Math::Distance viewWidth{1000};
+        Math::Distance viewHeight{600};
+        Math::Distance nearPlane{0.1f};
+        Math::Distance farPlane{300};
         mutable bool dirty{true};
 
     }; // class CameraPerspective

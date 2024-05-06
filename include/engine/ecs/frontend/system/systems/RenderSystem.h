@@ -15,14 +15,14 @@
 
 
 namespace GLESC::ECS {
+    class RenderComponent;
     class RenderSystem : public System {
     public:
         explicit RenderSystem(Render::Renderer& renderer, ECSCoordinator& ecs);
         void update() override;
 
     private:
-        std::unordered_map<Render::Material, std::vector<Render::Mesh*>> batches;
-        std::vector<Render::ColorMesh> meshBatches;
+        std::set<RenderComponent*> renderCache;
         Render::Renderer& renderer;
     };
 }

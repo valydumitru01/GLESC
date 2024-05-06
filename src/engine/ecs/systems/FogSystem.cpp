@@ -20,11 +20,14 @@ namespace GLESC::ECS {
     }
 
     void FogSystem::update() {
-        for (auto& entity : getAssociatedEntities()) {
+        auto entities = getAssociatedEntities();
+        D_ASSERT_TRUE(entities.size() <= 1, "For now, only one fog is supported.");
+        for (auto& entity : entities) {
             auto& fog = getComponent<FogComponent>(entity);
             auto& transform = getComponent<TransformComponent>(entity);
-
+            if (fogCache.find(&fog) != fogCache.end()) continue;
             renderer.setFog(fog.fog, transform.transform);
+            fogCache.insert(&fog);
         }
     }
 } // namespace GLESC::ECS

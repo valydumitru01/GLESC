@@ -22,7 +22,7 @@ bool ComponentManager::isComponentRegistered(ComponentID componentID) const {
 }
 
 ComponentName ComponentManager::getComponentName(ComponentID componentID) const {
-    ASSERT_IS_COMPONENT_REGISTERED_BY_ID(componentID);
+    D_ASSERT_TRUE(isComponentRegistered(componentID), "Component must be registered to get its name");
 
     return componentNames.at(componentID);
 }

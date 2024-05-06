@@ -20,6 +20,7 @@ namespace GLESC::ECS {
         void update() override;
 
     private:
+        std::set<CameraComponent*> cameraCache;
         Render::Renderer& renderer;
         WindowManager& windowManager;
     };

@@ -77,9 +77,12 @@ GLESC::Math::Direction Transform::worldRight{Math::Direction(1.0f, 0.0f, 0.0f)};
 GLESC::Math::Direction Transform::worldForward{Math::Direction(0.0f, 0.0f, 1.0f)};
 
 
-void Transformer::transformMesh(Render::ColorMesh& mesh, const Render::Model& modelMat) {
+void Transformer::transformMesh(Render::ColorMesh& mesh, const Render::Model& modelMat, const Render::View& viewMat) {
+    Render::NormalMat normalMat;
+    normalMat.makeNormalMatrix(modelMat * viewMat);
     for (auto& vertex : mesh.getModifiableVertices()) {
         vertex.setPosition(modelMat * vertex.getPosition());
+        vertex.setNormal(normalMat * vertex.getNormal());
     }
 
     transformBoundingVolume(mesh.getBoundingVolumeMutable(), modelMat);

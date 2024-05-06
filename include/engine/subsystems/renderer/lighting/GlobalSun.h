@@ -68,7 +68,7 @@ namespace GLESC::Render {
             std::vector<EntityStatsManager::Value> values;
             EntityStatsManager::Value intensityValue;
             intensityValue.name = "Intensity";
-            intensityValue.data = reinterpret_cast<void*>(&intensity.get());
+            intensityValue.data = reinterpret_cast<void*>(&intensity.getModifiable());
             intensityValue.type = EntityStatsManager::ValueType::FLOAT;
             intensityValue.isModifiable = true;
             intensityValue.usesSlider = true;

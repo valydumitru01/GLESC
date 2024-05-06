@@ -8,10 +8,10 @@
  * See LICENSE.txt in the project root for license information.
  **************************************************************************************************/
 #pragma once
-#include "engine/subsystems/renderer/Fog.h"
+#include "engine/subsystems/renderer/fog/Fog.h"
 
 namespace GLESC::ECS {
-    class FogComponent : IComponent {
+    class FogComponent : public IComponent {
     public:
         [[nodiscard]] std::string toString() const override {
             return fog.toString();

@@ -9,6 +9,7 @@
  **************************************************************************************************/
 #pragma once
 
+#include "engine/subsystems/ingame-debug/EntityStatsManager.h"
 #include "engine/subsystems/renderer/RendererTypes.h"
 
 namespace GLESC::Render {
@@ -206,7 +207,7 @@ namespace GLESC::Render {
         /**
          * @brief Dirty flag, used to check if we need to resend the data to the GPU
          */
-        mutable bool dirty;
+        mutable bool dirty{false};
     }; // class Material
 } // namespace GLESC
 

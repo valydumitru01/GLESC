@@ -14,26 +14,21 @@
 using namespace GLESC::ECS;
 
 RenderSystem::RenderSystem(Render::Renderer& renderer, ECSCoordinator& ecs) :
-        System(ecs, "RenderSystem"), renderer(renderer) {
+    System(ecs, "RenderSystem"), renderer(renderer) {
     addComponentRequirement<TransformComponent>();
     addComponentRequirement<RenderComponent>();
 };
 
 
 void RenderSystem::update() {
-    Render::ColorMesh batch;
     for (auto& entity : getAssociatedEntities()) {
         auto& render = getComponent<RenderComponent>(entity);
-        
+
         auto& transform = getComponent<TransformComponent>(entity);
-
-        batches[render.material].push_back(&render.mesh);
+        if(renderCache.find(&render) != renderCache.end()) continue;
+        renderer.sendMeshData(render.mesh, render.material, transform.transform);
+        renderCache.insert(&render);
     }
 
-    // For each different material, create a batch and attatch all the meshes with that material to it
-    for (auto& [material, meshes] : batches) {
-        meshBatches.push_back(Render::ColorMesh());
-        renderer.attatchMeshToBatch(meshBatches, meshes);
-    }
 
 }

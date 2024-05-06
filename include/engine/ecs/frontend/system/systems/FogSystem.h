@@ -12,11 +12,14 @@
 #include "engine/subsystems/renderer/Renderer.h"
 
 namespace GLESC::ECS {
+    class FogComponent;
+
     class FogSystem : public System {
     public:
         explicit FogSystem(Render::Renderer& renderer, ECSCoordinator& ecs);
         void update() override;
     private:
+        std::set<FogComponent*> fogCache;
         Render::Renderer& renderer;
     }; // class FogSystem
 } // namespace GLESC::ECS

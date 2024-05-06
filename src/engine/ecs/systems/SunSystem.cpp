@@ -9,42 +9,27 @@
  **************************************************************************************************/
 #include "engine/ecs/frontend/system/systems/SunSystem.h"
 
-#include "engine/ecs/frontend/component/SunComponent.h"
 #include "engine/ecs/frontend/component/TransformComponent.h"
+#include "engine/ecs/frontend/component/SunComponent.h"
 #include "engine/subsystems/ingame-debug/HudItemsManager.h"
 
 namespace GLESC::ECS {
-    SunSystem::SunSystem(ECSCoordinator& ecs,Render::Renderer& renderer) :
-            System(ecs, "SunSystem"), renderer(renderer) {
+    SunSystem::SunSystem(ECSCoordinator& ecs, Render::Renderer& renderer) :
+        System(ecs, "SunSystem"), renderer(renderer) {
         addComponentRequirement<SunComponent>();
         addComponentRequirement<TransformComponent>();
     };
 
     void SunSystem::update() {
-        float globalIntensities = 0.0f;
-        float globalColorR = 0.0f;
-        float globalColorG = 0.0f;
-        float globalColorB = 0.0f;
         const std::set<EntityID>& entities = getAssociatedEntities();
+        D_ASSERT_TRUE(entities.size() <= 1, "For now, only one sun is supported.");
         for (auto& entity : entities) {
             auto& sun = getComponent<SunComponent>(entity);
             auto& transform = getComponent<TransformComponent>(entity);
-            renderer.addSun(sun.sun, transform.transform);
-            globalIntensities += sun.sun.getIntensity();
-            globalColorR += sun.sun.getColor().getR();
-            globalColorG += sun.sun.getColor().getG();
-            globalColorB += sun.sun.getColor().getB();
+            if (sunCache.find(&sun) != sunCache.end()) continue;
+            renderer.setSun(sun.sun, sun.globalAmbienLight, transform.transform);
             HudItemsManager::addItem(HudItemType::SUN, transform.transform.getPosition());
+            sunCache.insert(&sun);
         }
-        auto entitiesCount = static_cast<float>(entities.size());
-        globalIntensities /= entitiesCount;
-        globalColorR /= entitiesCount;
-        globalColorG /= entitiesCount;
-        globalColorB /= entitiesCount;
-        Render::GlobalAmbienLight globalAmbienLight;
-        globalAmbienLight.setIntensity(globalIntensities);
-        globalAmbienLight.setColor({globalColorR, globalColorG, globalColorB});
-
-        renderer.setGlobalAmbientLight(globalAmbienLight);
     }
 } // namespace GLESC::ECS

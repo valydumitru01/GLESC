@@ -12,12 +12,14 @@
 #include "engine/subsystems/renderer/Renderer.h"
 
 namespace GLESC::ECS {
+    class SunComponent;
     class SunSystem : public System {
     public:
         explicit SunSystem(ECSCoordinator& ecs,Render::Renderer& renderer);
         void update() override;
 
     private:
+        std::set<SunComponent*> sunCache;
         Render::Renderer& renderer;
     }; // class SunSystem
 }

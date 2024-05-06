@@ -19,23 +19,29 @@
 using namespace GLESC::Render;
 
 
-Projection makeDefaultProjection() {
-    Projection proj;
-    proj.makeProjectionMatrix(45.0f, 0.1f, 1000.0f, 800.0f, 600.0f);
-    return proj;
-}
-
-View makeDefaultView() {
-    View view;
-    view.makeViewMatrixPosRot(GLESC::Transform::Position(0.0f, 0.0f, 3.0f),
-                              GLESC::Transform::Rotation(0.0f, 0.0f, 0.0f));
-    return view;
-}
-
+Counter Renderer::drawCounter{};
 
 Renderer::Renderer(WindowManager& windowManager) :
     windowManager(windowManager), shader(Shader("Shader.glsl")),
-    projection(makeDefaultProjection()), view(makeDefaultView()), frustum(projection * view) {
+    camera(),
+    projection(createProjectionMatrix(CameraPerspective())),
+    view(createViewMatrix(Transform::Transform())),
+    frustum(view * projection) {
+}
+
+Projection Renderer::createProjectionMatrix(const CameraPerspective& camera) {
+    Projection projection;
+    projection.makeProjectionMatrix(camera.getFovDegrees(), camera.getNearPlane(),
+                                    camera.getFarPlane(),
+                                    camera.getViewWidth(),
+                                    camera.getViewHeight());
+    return projection;
+}
+
+View Renderer::createViewMatrix(const Transform::Transform& transform) {
+    View view;
+    view.makeViewMatrixPosRot(transform.getPosition(), transform.getRotation());
+    return view;
 }
 
 
@@ -43,13 +49,25 @@ void Renderer::swapBuffers() const {
     getGAPI().swapBuffers(windowManager.getWindow());
 }
 
-void Renderer::clear() {
+void Renderer::start() {
     getGAPI().clear({
         Enums::ClearBits::Color,
         Enums::ClearBits::Depth,
         Enums::ClearBits::Stencil
     });
     getGAPI().clearColor(0.2f, 0.3f, 0.3f, 1.0f);
+
+    // TODO: Enable the renderer to work with multiple projection and view matrices (multiple cameras)
+    Projection projection;
+    projection.makeProjectionMatrix(camera.camera->getFovDegrees(), camera.camera->getNearPlane(),
+                                    camera.camera->getFarPlane(),
+                                    camera.camera->getViewWidth(),
+                                    camera.camera->getViewHeight());
+    this->setProjection(projection);
+    View view;
+    view.makeViewMatrixPosRot(camera.transform->getPosition(),
+                              camera.transform->getRotation());
+    this->setView(view);
 }
 
 
@@ -64,20 +82,33 @@ void Renderer::renderMeshes(double timeOfFrame) {
     frustum.update(viewProj);
 
 
-    for (auto& dynamicMesh : adaptedBatches) {
-        NormalMat normalMat;
-        normalMat.makeNormalMatrix(modelView);
+    shader.bind(); // Activate the shader program before transform, material and lighting
+    applyLighSpots(lights, timeOfFrame);
+    applySun(sun);
+    applyFog(fog);
+    for (auto& dynamicMesh : adaptedMeshes) {
+        interpolationTransforms[dynamicMesh.transform].pushTransform(*dynamicMesh.transform);
+        Transform::Transform interpolatedTransform =
+            interpolationTransforms[dynamicMesh.transform].interpolate(timeOfFrame);
 
+        Model model = interpolatedTransform.getModelMatrix();
 
-        if (!frustum.contains(*dynamicMesh.boundingVolume)) continue;
+        BoundingVolume transformedBoundingVol =
+            Transform::Transformer::transformBoundingVolume(*dynamicMesh.boundingVolume, model);
+        if (!frustum.contains(transformedBoundingVol)) continue;
         const Material& material = *dynamicMesh.material;
 
-        shader.bind(); // Activate the shader program before transform, material and lighting
-        applyTransform(view, viewProj, normalMat);
+        MVP MVPMat =model* viewProj ;
+        MV MV = viewMat * model;
+        NormalMat normalMat;
+        normalMat.makeNormalMatrix(MV);
+
+        applyTransform(MV, MVPMat, normalMat);
         applyMaterial(material);
-        applyLighSpots(lights, timeOfFrame);
         renderMesh(dynamicMesh);
     }
+
+    applySkybox(skybox, viewMat, projMat);
 }
 
 
@@ -109,7 +140,9 @@ void Renderer::applyLighSpots(const std::vector<Light>& lights, double timeOfFra
     }
 }
 
-void Renderer::applySun(const GlobalSun& sun) {
+void Renderer::applySun(const Sun& sunParam) {
+    if (sunParam.sun == nullptr) return;
+    GlobalSun sun = *sunParam.sun;
     if (!sun.isDirty()) return;
     Vec3F sunColor = sun.getColor().getRGBVec3FNormalized();
     float sunIntensity = sun.getIntensity();
@@ -118,6 +151,8 @@ void Renderer::applySun(const GlobalSun& sun) {
     Shader::setUniform("uGlobalSuns.intensity", sunIntensity);
     Shader::setUniform("uGlobalSuns.direction", sunDirection);
     sun.setClean();
+
+    applyAmbientLight(*sunParam.ambientLight);
 }
 
 void Renderer::applyAmbientLight(const GlobalAmbienLight& ambientLight) {
@@ -135,6 +170,7 @@ void Renderer::applySkybox(const Skybox& skyboxParam, const View& view, const Pr
 }
 
 void Renderer::applyFog(const FogData& fogParam) {
+    if (fogParam.fog == nullptr) return;
     Shader::setUniform("uFog.color", Vec3F(fogParam.fog->getColor()));
     Shader::setUniform("uFog.density", fogParam.fog->getDensity());
     Shader::setUniform("uFog.near", fogParam.fog->getStart());
@@ -154,26 +190,15 @@ void Renderer::applyMaterial(const Material& material) {
 }
 
 
-void Renderer::applyTransform(const View& view, const VP& vp, const NormalMat& normalMat) {
-    Shader::setUniform("uVP", vp);
-    Shader::setUniform("uView", view);
+void Renderer::applyTransform(const MV& MVMat, const MVP& MVPMat, const NormalMat& normalMat) {
+    Shader::setUniform("uMVP", MVPMat);
+    Shader::setUniform("uMV", MVMat);
     Shader::setUniform("uNormalMat", normalMat);
 }
 
 Renderer::~Renderer() {
     getGAPI().deleteContext();
 }
-
-void Renderer::attatchMeshToBatch(ColorMesh& batch, ColorMesh& mesh, const Transform::Transform& transform) {
-    Transform::Transformer::transformMesh(mesh, transform.getModelMatrix());
-    BoundingVolume transformedBoundingVol =
-            Transform::Transformer::transformBoundingVolume(mesh.getBoundingVolume(), transform.getModelMatrix());
-
-    if (!frustum.contains(transformedBoundingVol)) return;
-    batch.attatchMesh(mesh);
-}
-
-
 
 
 void Renderer::renderInstances(const AdaptedInstances& adaptedInstances) {
@@ -191,8 +216,7 @@ void Renderer::renderMesh(const AdaptedMesh& mesh) {
 }
 
 
-void Renderer::sendMeshData(const Material& material,
-                        ColorMesh& mesh) {
+void Renderer::sendMeshData(ColorMesh& mesh, const Material& material, Transform::Transform& transform) {
     D_ASSERT_TRUE(!mesh.isBeingBuilt(), "Mesh is being built");
 
     if (mesh.getVertices().empty()) {
@@ -215,11 +239,10 @@ void Renderer::sendMeshData(const Material& material,
         return;
     }
     if (renderType == RenderType::Dynamic) {
-        adaptedBatches.push_back(MeshAdapter::adaptMesh(mesh, mesh.getBoundingVolume(), material));
+        adaptedMeshes.push_back(MeshAdapter::adaptMesh(mesh, material, transform));
         return;
     }
     D_ASSERT_TRUE(false, "Unknown render type");
-
 }
 
 void Renderer::addLightSpot(const LightSpot& light, const Transform::Transform& transform) {
