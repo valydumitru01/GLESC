@@ -41,7 +41,8 @@ namespace GLESC {
         friend int ::main(int argc, char* argv[]);
 
     private:
-        std::vector<std::unique_ptr<ECS::System>> createSystems();
+        std::vector<std::unique_ptr<ECS::System>> createUpdateSystems();
+        std::vector<std::unique_ptr<ECS::System>> createRenderSystems();
         ECS::Entity createEngineCamera();
 
         void registerStats() const;
@@ -105,7 +106,8 @@ namespace GLESC {
         ECS::ECSCoordinator ecs;
         ECS::EntityFactory entityFactory;
 
-        std::vector<std::unique_ptr<ECS::System>> systems;
+        std::vector<std::unique_ptr<ECS::System>> updateSystems;
+        std::vector<std::unique_ptr<ECS::System>> renderSystems;
 
         ECS::Entity engineCamera;
 

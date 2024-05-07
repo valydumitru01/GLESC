@@ -39,7 +39,8 @@ Engine::Engine(FPSManager& fpsManager) :
 
     ecs(),
     entityFactory(ecs),
-    systems(createSystems()),
+    updateSystems(createUpdateSystems()),
+    renderSystems(createRenderSystems()),
 
 
     engineCamera(createEngineCamera()),
@@ -60,12 +61,21 @@ void Engine::processInput() {
 
 void Engine::render(double const timeOfFrame) {
     Logger::get().importantInfoPurple("Engine render started");
-
-    renderer.start();
-    renderer.renderMeshes(timeOfFrame);
-    hudManager.update();
-    hudManager.render();
-    renderer.swapBuffers();
+#pragma omp sections
+    {
+#pragma omp section
+        {
+            for (auto& system : renderSystems) {
+                system->update();
+            }
+            renderer.start();
+            renderer.renderMeshes(timeOfFrame);
+            hudManager.update();
+            hudManager.render();
+        }
+#pragma omp section
+        renderer.swapBuffers();
+    }
     Logger::get().importantInfoPurple("Engine render finished");
 }
 
@@ -73,8 +83,10 @@ void Engine::update() {
     Logger::get().importantInfoWhite("Engine update started");
     game.update();
 
-#pragma omp parallel for schedule(static, 1)
-    for (auto& system : systems) {
+#pragma omp parallel for \
+    shared(renderer, windowManager, ecs, updateSystems) \
+    schedule(static, 1)
+    for (auto& system : updateSystems) {
         system->update();
     }
 
@@ -85,16 +97,21 @@ void Engine::update() {
     Logger::get().importantInfoWhite("Engine update finished");
 }
 
-std::vector<std::unique_ptr<ECS::System>> Engine::createSystems() {
+std::vector<std::unique_ptr<ECS::System>> Engine::createUpdateSystems() {
     std::vector<std::unique_ptr<ECS::System>> systems;
     systems.push_back(std::make_unique<ECS::InputSystem>(inputManager, ecs));
     systems.push_back(std::make_unique<ECS::PhysicsSystem>(physicsManager, ecs));
     systems.push_back(std::make_unique<ECS::CameraSystem>(renderer, windowManager, ecs));
-    systems.push_back(std::make_unique<ECS::RenderSystem>(renderer, ecs));
     systems.push_back(std::make_unique<ECS::TransformSystem>(ecs));
     systems.push_back(std::make_unique<ECS::LightSystem>(ecs, renderer));
     systems.push_back(std::make_unique<ECS::DebugInfoSystem>(ecs, renderer));
     systems.push_back(std::make_unique<ECS::SunSystem>(ecs, renderer));
+    return systems;
+}
+
+std::vector<std::unique_ptr<ECS::System>> Engine::createRenderSystems() {
+    std::vector<std::unique_ptr<ECS::System>> systems;
+    systems.push_back(std::make_unique<ECS::RenderSystem>(renderer, ecs));
     return systems;
 }
 
