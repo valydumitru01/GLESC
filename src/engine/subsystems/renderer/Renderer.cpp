@@ -127,7 +127,6 @@ shared(adaptedMeshes, lights, sun, fog, skybox, timeOfFrame, view, projection, f
         const Material& material = *dynamicMesh.material;
         applyTransform(mvs[&dynamicMesh], mvps[&dynamicMesh], normalMats[&dynamicMesh]);
         applyMaterial(material);
-        // TODO: CHeck with nsight why we are not rendering anything when parallelizing the ecs systems
         renderMesh(dynamicMesh);
     }
     applyLighSpots(lights, timeOfFrame);

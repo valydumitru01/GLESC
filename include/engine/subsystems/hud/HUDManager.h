@@ -34,6 +34,5 @@ private:
     void initImGUI();
 
     SDL_Window& window;
-    bool showDemoWindow = true;
     std::vector<GLESC::InGameWindow*> windows;
 };

@@ -43,15 +43,11 @@ void HUDManager::addWindow(GLESC::InGameWindow &window) {
 
 void HUDManager::update() {
     updateNewFrame();
-    if (showDemoWindow)
-        ImGui::ShowDemoWindow(&showDemoWindow);
-
     for (auto &window : windows) {
         if (window->isVisibile()) {
             window->update();
         }
     }
-
     updateEndFrame();
 }
 
