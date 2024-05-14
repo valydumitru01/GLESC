@@ -17,7 +17,8 @@
 
 enum class HudItemType {
     LIGHT_SPOT,
-    SUN
+    SUN,
+    FOG
 };
 
 [[nodiscard]] inline std::string itemToString(HudItemType type) {
@@ -26,9 +27,11 @@ enum class HudItemType {
         return "LIGHT";
     case HudItemType::SUN:
         return "SUN";
-
+    case HudItemType::FOG:
+        return "FOG";
+    default:
+        return "UNKNOWN";
     }
-    return "UNKNOWN";
 }
 
 struct Item {

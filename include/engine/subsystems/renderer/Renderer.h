@@ -90,7 +90,7 @@ namespace GLESC::Render {
         void applyLighSpots(const std::vector<Light>& lights, double timeOfFrame) const;
         static void applyTransform(const MV& MVMat, const MVP& MVPMat, const NormalMat& normalMat);
         static void applyAmbientLight(const GlobalAmbienLight& ambientLight);
-        static void applyFog(const FogData& fogParam);
+        static void applyFog(const FogData& fogParam, const Position& cameraPosition);
         static void applySkybox(const Skybox& skyboxParam, const View& view, const Projection& projection);
         static void applySun(const Sun& sunParam);
         static void applyMaterial(const Material& material);

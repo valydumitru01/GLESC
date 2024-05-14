@@ -288,8 +288,14 @@ OpenMP_mingwthrd_LIBRARY:FILEPATH=C:/MinGW/mingw64/x86_64-w64-mingw32/lib/libmin
 //Path to the pthread library for OpenMP
 OpenMP_pthread_LIBRARY:FILEPATH=C:/MinGW/mingw64/x86_64-w64-mingw32/lib/libpthread.dll.a
 
+//No help, variable specified on the command line.
+Python3_EXECUTABLE:UNINITIALIZED=C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/venv/Scripts/python.exe
+
+//No help, variable specified on the command line.
+Python_EXECUTABLE:UNINITIALIZED=C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/venv/Scripts/python.exe
+
 //Flags used by the compiler during release builds.
-RELEASE_FLAGS:STRING=-O3;-DRELEASE;-DNDEBUG;-DNLOGGING;-DNDEBUG_GAPI;-s
+RELEASE_FLAGS:STRING=-O3;-DRELEASE;-DNDEBUG;-DNLOGGING;-DNDEBUG_GAPI;-DNDEBUG_GLESC;-s
 
 //Flags that are applied only to project sources.
 SOURCE_COMPILE_FLAGS:STRING=-Wall;-Wextra;-Wpedantic;-Wshadow;-Wconversion;-Wuninitialized;-Wold-style-cast;-Wfloat-equal;-Wcast-qual;-Wcast-align

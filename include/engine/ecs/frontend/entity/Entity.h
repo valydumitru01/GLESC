@@ -27,6 +27,7 @@ namespace GLESC::ECS {
          */
         ~Entity() = default;
 
+
         /**
          * @brief Adds a component to the entity and returns a reference to it
          * The components is registered to the ECSManager

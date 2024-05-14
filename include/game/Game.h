@@ -10,38 +10,25 @@
 
 #pragma once
 
-#include "engine/core/counter/Timer.h"
 #include "engine/ecs/frontend/entity/EntityFactory.h"
-#include "engine/subsystems/input/InputManager.h"
-#include "engine/subsystems/physics/PhysicsManager.h"
 #include "engine/core/window/WindowManager.h"
+#include "engine/scene/SceneManager.h"
 
 class Game {
 public:
-    using Entity = GLESC::ECS::Entity;
-
-    Game(GLESC::ECS::ECSCoordinator &ecs,
-         GLESC::PhysicsManager &physicsManager,
-         GLESC::Input::InputManager &inputManager,
-         GLESC::WindowManager &windowManager,
-         GLESC::ECS::EntityFactory &entityFactory, Entity& camera) :
-        ecs(ecs), physicsManager(physicsManager), inputManager(inputManager), windowManager(windowManager),
-        entityFactory(entityFactory), camera(camera) {}
+    Game(GLESC::WindowManager& windowManager,
+         GLESC::ECS::EntityFactory& entityFactory,
+         GLESC::Scene::SceneManager& sceneManager) :
+        windowManager(windowManager),
+        entityFactory(entityFactory),
+        sceneManager(sceneManager) {
+    }
 
     void init();
-
     void update();
 
-    Entity& getCamera(){ return camera;}
-
 private:
-
-    Entity& camera;
-
-
-    GLESC::ECS::ECSCoordinator &ecs;
-    GLESC::ECS::EntityFactory &entityFactory;
-    GLESC::PhysicsManager &physicsManager;
-    GLESC::Input::InputManager &inputManager;
-    GLESC::WindowManager &windowManager;
+    GLESC::ECS::EntityFactory& entityFactory;
+    GLESC::WindowManager& windowManager;
+    GLESC::Scene::SceneManager& sceneManager;
 }; // class Game

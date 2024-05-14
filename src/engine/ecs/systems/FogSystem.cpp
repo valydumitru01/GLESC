@@ -11,6 +11,7 @@
 
 #include "engine/ecs/frontend/component/FogComponent.h"
 #include "engine/ecs/frontend/component/TransformComponent.h"
+#include "engine/subsystems/ingame-debug/HudItemsManager.h"
 
 namespace GLESC::ECS {
     FogSystem::FogSystem(Render::Renderer& renderer, ECSCoordinator& ecs) : System(ecs, "FogSystem"),
@@ -27,6 +28,7 @@ namespace GLESC::ECS {
             auto& transform = getComponent<TransformComponent>(entity);
             if (fogCache.find(&fog) != fogCache.end()) continue;
             renderer.setFog(fog.fog, transform.transform);
+            HudItemsManager::addItem(HudItemType::FOG, transform.transform.getPosition());
             fogCache.insert(&fog);
         }
     }

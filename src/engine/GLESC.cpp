@@ -11,7 +11,9 @@
 #include "engine/ecs/backend/ECS.h"
 // In-Game debug
 #include "engine/ecs/frontend/component/CameraComponent.h"
+#include "engine/ecs/frontend/component/FogComponent.h"
 #include "engine/ecs/frontend/component/InputComponent.h"
+#include "engine/ecs/frontend/component/SunComponent.h"
 #include "engine/ecs/frontend/component/TransformComponent.h"
 #include "engine/ecs/frontend/system/systems/LightSystem.h"
 #include "engine/subsystems/ingame-debug/Console.h"
@@ -26,7 +28,9 @@
 #include "engine/ecs/frontend/system/systems/InputSystem.h"
 #include "engine/ecs/frontend/system/systems/TransformSystem.h"
 #include "engine/ecs/frontend/system/systems/DebugInfoSystem.h"
+#include "engine/ecs/frontend/system/systems/FogSystem.h"
 #include "engine/ecs/frontend/system/systems/SunSystem.h"
+#include "engine/scene/Scene.h"
 using namespace GLESC;
 
 Engine::Engine(FPSManager& fpsManager) :
@@ -35,27 +39,25 @@ Engine::Engine(FPSManager& fpsManager) :
     renderer(windowManager),
     hudManager(windowManager.getWindow()),
     inputManager(hudManager, windowManager),
+#ifndef NDEBUG_GLESC
     engineHuds(hudManager, renderer, textureFactory),
-
+#endif
     ecs(),
     entityFactory(ecs),
     updateSystems(createUpdateSystems()),
     renderSystems(createRenderSystems()),
-
-
-    engineCamera(createEngineCamera()),
-
-    game(ecs, physicsManager, inputManager, windowManager, entityFactory, engineCamera) {
+    engineCamera(entityFactory, inputManager, windowManager),
+    sceneManager(entityFactory, windowManager),
+    game(windowManager, entityFactory, sceneManager) {
+    engineCamera.setupCamera();
     this->registerStats();
-    game.init();
+    createEngineEntities();
 }
 
 
 void Engine::processInput() {
     Logger::get().importantInfoBlue("Engine processInput started");
     inputManager.update(running);
-
-
     Logger::get().importantInfoBlue("Engine processInput finished");
 }
 
@@ -81,6 +83,7 @@ void Engine::render(double const timeOfFrame) {
 
 void Engine::update() {
     Logger::get().importantInfoWhite("Engine update started");
+    sceneManager.getCurrentScene().update();
     game.update();
 
 #pragma omp parallel for \
@@ -106,108 +109,35 @@ std::vector<std::unique_ptr<ECS::System>> Engine::createUpdateSystems() {
     systems.push_back(std::make_unique<ECS::LightSystem>(ecs, renderer));
     systems.push_back(std::make_unique<ECS::DebugInfoSystem>(ecs, renderer));
     systems.push_back(std::make_unique<ECS::SunSystem>(ecs, renderer));
+    systems.push_back(std::make_unique<ECS::FogSystem>(renderer, ecs));
     return systems;
+}
+
+void Engine::createEngineEntities() {
+    ECS::Entity sun = entityFactory.createEntity("sun")
+                                   .addComponent(ECS::TransformComponent())
+                                   .addComponent(ECS::SunComponent());
+    sun.getComponent<ECS::TransformComponent>().transform.setPosition(
+        Transform::Position(0, 10, 0));
+    sun.getComponent<ECS::SunComponent>().sun.setDirection({-0.4, -1, -0.4});
+    sun.getComponent<ECS::SunComponent>().sun.setIntensity(0.7);
+    sun.getComponent<ECS::SunComponent>().sun.setColor({255, 255, 150});
+    sun.getComponent<ECS::SunComponent>().globalAmbienLight.setIntensity(0.3);
+    sun.getComponent<ECS::SunComponent>().globalAmbienLight.setColor({255, 255, 150});
+
+
+    ECS::Entity fog = entityFactory.createEntity("fog")
+                                   .addComponent(ECS::TransformComponent())
+                                   .addComponent(ECS::FogComponent());
+    fog.getComponent<ECS::TransformComponent>().transform.setPosition({1, 0, 0});
+    fog.getComponent<ECS::FogComponent>().fog.setDensity(1);
+    fog.getComponent<ECS::FogComponent>().fog.setColor({255, 255, 255});
 }
 
 std::vector<std::unique_ptr<ECS::System>> Engine::createRenderSystems() {
     std::vector<std::unique_ptr<ECS::System>> systems;
     systems.push_back(std::make_unique<ECS::RenderSystem>(renderer, ecs));
     return systems;
-}
-
-#define CAMERA_SPEED 0.3f
-#define CAMERA_X_ROTATION_LIMIT 45.0f
-#define CAMERA_SENSITIVITY 1.f
-
-ECS::Entity Engine::createEngineCamera() {
-    using namespace GLESC::ECS;
-    Entity camera = entityFactory.createEntity("camera");
-
-    camera.addComponent(CameraComponent())
-          .addComponent(TransformComponent())
-          .addComponent(InputComponent());
-
-
-    camera.getComponent<CameraComponent>().perspective.setFarPlane(1000.0f);
-    camera.getComponent<CameraComponent>().perspective.setNearPlane(0.1f);
-    camera.getComponent<CameraComponent>().perspective.setFovDegrees(60.0f);
-    camera.getComponent<CameraComponent>().perspective.setViewWidth(static_cast<float>(windowManager.getSize().width));
-    camera.getComponent<CameraComponent>().perspective.
-           setViewHeight(static_cast<float>(windowManager.getSize().height));
-    // IMPORTANT! Camera movement needs to be done with inverse directions, because it looks at the
-    // opposite direction of the forward vector
-    Input::KeyCommand moveForward = Input::KeyCommand([&] {
-        Entity cameraEntity = entityFactory.getEntity("camera");
-        cameraEntity.getComponent<TransformComponent>().transform.addPosition(
-            -cameraEntity.getComponent<TransformComponent>().transform.forward() * CAMERA_SPEED);
-    });
-
-    Input::KeyCommand moveBackward = Input::KeyCommand([&] {
-        Entity cameraEntity = entityFactory.getEntity("camera");
-        cameraEntity.getComponent<TransformComponent>().transform.addPosition(
-            cameraEntity.getComponent<TransformComponent>().transform.forward() * CAMERA_SPEED);
-    });
-
-    Input::KeyCommand moveLeft = Input::KeyCommand([&] {
-        Entity cameraEntity = entityFactory.getEntity("camera");
-        cameraEntity.getComponent<TransformComponent>().transform.addPosition(
-            cameraEntity.getComponent<TransformComponent>().transform.right() * CAMERA_SPEED);
-    });
-
-    Input::KeyCommand moveRight = Input::KeyCommand([&] {
-        Entity cameraEntity = entityFactory.getEntity("camera");
-        cameraEntity.getComponent<TransformComponent>().transform.addPosition(
-            -cameraEntity.getComponent<TransformComponent>().transform.right() * CAMERA_SPEED);
-    });
-
-    Input::KeyCommand moveUp = Input::KeyCommand([&] {
-        Entity cameraEntity = entityFactory.getEntity("camera");
-        cameraEntity.getComponent<TransformComponent>().transform.addPosition(
-            Transform::Transform::worldUp * CAMERA_SPEED);
-    });
-
-    Input::KeyCommand moveDown = Input::KeyCommand([&] {
-        Entity cameraEntity = entityFactory.getEntity("camera");
-        cameraEntity.getComponent<TransformComponent>().transform.addPosition(
-            -Transform::Transform::worldUp * CAMERA_SPEED);
-    });
-
-    Input::MouseCommand rotate = Input::MouseCommand([&](const MousePosition& deltaMouse) {
-        if (!inputManager.isMouseRelative()) return;
-        Entity cameraEntity = entityFactory.getEntity("camera");
-
-        auto& transformComp = cameraEntity.getComponent<TransformComponent>().transform;
-        auto& cameraComp = cameraEntity.getComponent<CameraComponent>();
-
-        // Adjust the target rotation based on mouse input
-        // Only rotate if rotation is between -90 and 90 degrees
-        float mouseAdditionX = static_cast<float>(deltaMouse.getY()) * CAMERA_SENSITIVITY;
-        float nextMouseX = transformComp.getRotation().getX() + mouseAdditionX;
-        if (nextMouseX < CAMERA_X_ROTATION_LIMIT &&
-            nextMouseX > -CAMERA_X_ROTATION_LIMIT)
-            transformComp.addRotation(Transform::Axis::X, mouseAdditionX);
-        transformComp.addRotation(Transform::Axis::Y,
-                                  static_cast<float>(deltaMouse.getX()) * CAMERA_SENSITIVITY);
-
-        // Ensure we avoid gimbal lock, restrict the X rotation to 90 degrees
-    });
-
-    Input::KeyCommand mouseRelativeMove = Input::KeyCommand([&] {
-        inputManager.setMouseRelative(!inputManager.isMouseRelative());
-    });
-
-    camera.getComponent<InputComponent>().subscribedKeys = {
-        {{Input::Key::W, Input::KeyAction::ONGOING_PRESSED}, moveForward},
-        {{Input::Key::S, Input::KeyAction::ONGOING_PRESSED}, moveBackward},
-        {{Input::Key::A, Input::KeyAction::ONGOING_PRESSED}, moveLeft},
-        {{Input::Key::D, Input::KeyAction::ONGOING_PRESSED}, moveRight},
-        {{Input::Key::SPACE, Input::KeyAction::ONGOING_PRESSED}, moveUp},
-        {{Input::Key::LEFT_SHIFT, Input::KeyAction::ONGOING_PRESSED}, moveDown},
-        {{Input::Key::LEFT_CTRL, Input::KeyAction::ONCE_PRESSED}, mouseRelativeMove}
-    };
-    camera.getComponent<InputComponent>().mouseCommand = rotate;
-
-    return camera;
 }
 
 

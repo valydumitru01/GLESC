@@ -10,7 +10,7 @@
 #pragma once
 #include <unordered_map>
 
-#include "../../renderer/texture/Texture.h"
+#include "engine/subsystems/renderer/texture/Texture.h"
 #include "engine/subsystems/hud/InGameWindow.h"
 #include "engine/subsystems/ingame-debug/HudItemsManager.h"
 #include "engine/subsystems/renderer/Renderer.h"

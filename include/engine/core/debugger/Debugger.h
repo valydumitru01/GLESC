@@ -13,10 +13,13 @@
 #include "engine/core/logger/Logger.h"
 
 
-#ifdef NLOGGING
+#define SDLCall(call) call
+#define postSDLCall
+
 #define DEBUG_CODE(initialMessage, CONTENT) \
-            do { } while (0)
-#else
+do { } while (0)
+
+#ifndef NLOGGING
 #define LOG(initialMessage, CODE) \
             do{                                     \
            Logger::get().info(initialMessage);     \
@@ -43,7 +46,6 @@
 #include <cstring>
 #include <algorithm>
 
-#ifndef NDEBUG
 #define postSDLCall                                                  \
     const char* error = SDL_GetError();                              \
     D_ASSERT_TRUE(*error == '\0',                                    \
@@ -58,14 +60,6 @@
            "Error when calling SDL function: "                        \
            #call " " + std::string(error));                           \
     } while (0)
-
-
-
-
-#else
-#define SDLCall(call) call
-#define postSDLCall
-#endif
 /**
 * @brief Converts the last argument of a variadic template into a string.
 *
@@ -131,6 +125,4 @@ std::string argsToString(const char *names, T value, Args... args) {
         std::string("(")+                     \
             argsToString(#__VA_ARGS__, __VA_ARGS__)                     \
         +std::string(")")
-#else
-#define SDLCall(call) call
 #endif

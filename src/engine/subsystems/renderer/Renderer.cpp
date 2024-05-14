@@ -105,7 +105,7 @@ shared(adaptedMeshes, lights, sun, fog, skybox, timeOfFrame, view, projection, f
                 isContainedInFrustum[&dynamicMesh] = frustum.contains(transformedBoundingVol);
             }
             MVP MVPMat = model * viewProj;
-            MV MV = viewMat * model;
+            MV MV = model * viewMat;
             NormalMat normalMat;
             normalMat.makeNormalMatrix(MV);
             {
@@ -131,7 +131,7 @@ shared(adaptedMeshes, lights, sun, fog, skybox, timeOfFrame, view, projection, f
     }
     applyLighSpots(lights, timeOfFrame);
     applySun(sun);
-    applyFog(fog);
+    applyFog(fog, camera.transform->getPosition());
     applySkybox(skybox, viewMat, projMat);
 }
 
@@ -235,12 +235,12 @@ void Renderer::applySkybox(const Skybox& skyboxParam, const View& view, const Pr
     skyboxParam.draw(view, projection);
 }
 
-void Renderer::applyFog(const FogData& fogParam) {
+void Renderer::applyFog(const FogData& fogParam, const Position& cameraPosition) {
     if (fogParam.fog == nullptr) return;
-    Shader::setUniform("uFog.color", Vec3F(fogParam.fog->getColor()));
+    Shader::setUniform("uFog.color", fogParam.fog->getColor().getRGBVec3FNormalized());
     Shader::setUniform("uFog.density", fogParam.fog->getDensity());
-    Shader::setUniform("uFog.near", fogParam.fog->getStart());
-    Shader::setUniform("uFog.far", fogParam.fog->getEnd());
+    Shader::setUniform("uFog.start", fogParam.fog->getStart() + cameraPosition.length());
+    Shader::setUniform("uFog.end", fogParam.fog->getEnd()+ cameraPosition.length());
 }
 
 void Renderer::applyMaterial(const Material& material) {

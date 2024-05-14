@@ -20,6 +20,8 @@ DebugItems::DebugItems(Render::Renderer& renderer, TextureFactory& textureFactor
     items[HudItemType::LIGHT_SPOT]->release();
     items[HudItemType::SUN] = &textureFactory.loadTexture("images/sprites/engine-debug/GLESC_Sun.png");
     items[HudItemType::SUN]->release();
+    items[HudItemType::FOG] = &textureFactory.loadTexture("images/sprites/engine-debug/GLESC_Fog.png");
+    items[HudItemType::FOG]->release();
 
     this->setTitle("Items");
     this->setSizeFraction({1.0f, 1.0f});
@@ -39,20 +41,21 @@ DebugItems::DebugItems(Render::Renderer& renderer, TextureFactory& textureFactor
 }
 
 void DebugItems::windowContent() {
+    float width = static_cast<float>(renderer.getViewportSize().width);
+    float height = static_cast<float>(renderer.getViewportSize().height);
+    auto viewMatrix = renderer.getView();
+    auto projMatrix = renderer.getProjection();
     for (Item& item : HudItemsManager::getItems()) {
         if (!renderer.getFrustum().contains(*item.worldPosition)) continue;
-        Render::Position screenPos = Transform::Transformer::worldToViewport(*item.worldPosition,
-                                                                             renderer.getView(),
-                                                                             renderer.getProjection(),
-                                                                             renderer.getViewportSize().width,
-                                                                             renderer.getViewportSize().height);
+        Render::Position screenPos =
+            Transform::Transformer::worldToViewport(*item.worldPosition, viewMatrix, projMatrix, width, height);
         float imageScale = screenPos.z() * 4;
         float vpWidth = static_cast<float>(renderer.getViewportSize().height);
         float vpHeight = static_cast<float>(renderer.getViewportSize().height);
 
         ImVec2 size = ImVec2(imageScale * vpWidth, imageScale * vpHeight);
 
-        ImGui::SetCursorPos(ImVec2(screenPos.x() + size.x , screenPos.y() - size.y ));
+        ImGui::SetCursorPos(ImVec2(screenPos.x() + size.x, screenPos.y() - size.y));
 
         // Get texture ID from the item's type
         auto textureId = (void*)(intptr_t)items[item.type]->getTextureID();

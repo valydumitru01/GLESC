@@ -18,18 +18,17 @@ public:
         this->density.set(density);
     }
 
-    void setStart(float& start) {
-        this->start = start;
-    }
-
-    void setEnd(float& end) {
-        this->end = end;
-    }
-
     void setColor(const GLESC::Render::ColorRgb& color) {
         this->color = color;
     }
 
+    void setStart(float start) {
+        this->start = start;
+    }
+
+    void setEnd(float end) {
+        this->end = end;
+    }
 
     [[nodiscard]] const float getDensity() const {
         return density.get();
@@ -43,11 +42,7 @@ public:
         return end;
     }
 
-    [[nodiscard]] float& getModifiableDensity() {
-        return density.getModifiable();
-    }
-
-    [[nodiscard]] const GLESC::Render::ColorRgbNorm& getColor() const {
+    [[nodiscard]] const GLESC::Render::ColorRgb& getColor() const {
         return color;
     }
 
@@ -59,6 +54,9 @@ public:
         densityValue.data = reinterpret_cast<void*>(&density.getModifiable());
         densityValue.type = EntityStatsManager::ValueType::FLOAT;
         densityValue.isModifiable = true;
+        densityValue.usesSlider = true;
+        densityValue.min = 0.0f;
+        densityValue.max = 1.0f;
         values.push_back(densityValue);
 
         EntityStatsManager::Value startValue;
@@ -66,6 +64,9 @@ public:
         startValue.data = reinterpret_cast<void*>(&start);
         startValue.type = EntityStatsManager::ValueType::FLOAT;
         startValue.isModifiable = true;
+        startValue.usesSlider = true;
+        startValue.min = 0.0f;
+        startValue.max = 100.0f;
         values.push_back(startValue);
 
         EntityStatsManager::Value endValue;
@@ -73,6 +74,9 @@ public:
         endValue.data = reinterpret_cast<void*>(&end);
         endValue.type = EntityStatsManager::ValueType::FLOAT;
         endValue.isModifiable = true;
+        endValue.usesSlider = true;
+        endValue.min = 0.0f;
+        endValue.max = 1000.0f;
         values.push_back(endValue);
 
         EntityStatsManager::Value colorValue;
@@ -80,6 +84,9 @@ public:
         colorValue.data = reinterpret_cast<void*>(&color);
         colorValue.type = EntityStatsManager::ValueType::VEC3F;
         colorValue.isModifiable = true;
+        colorValue.usesSlider = true;
+        colorValue.min = 0.0f;
+        colorValue.max = 255.0f;
         values.push_back(colorValue);
 
 
@@ -87,13 +94,15 @@ public:
     }
 
     [[nodiscard]] std::string toString() const {
-        return "Fog: density=" + std::to_string(density.get()) + ", start=" + std::to_string(start) + ", end=" +
-            std::to_string(end) + ", color=" + color.toString();
+        std::string str = "Density: " + std::to_string(density.get()) + "\n";
+        str += "Color: " + color.toString() + "\n";
+
+        return str;
     }
 
 private:
     GLESC::Render::Intensity<float> density{1.0f};
-    float start{0.0f};
-    float end{50.0f};
-    GLESC::Render::ColorRgbNorm color{0.5f, 0.5f, 0.5f};
+    float start = 0.0f;
+    float end = 300.0f;
+    GLESC::Render::ColorRgb color{255.f, 255.f, 255.f};
 }; // class Fog

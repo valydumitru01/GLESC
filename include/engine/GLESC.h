@@ -29,7 +29,10 @@
 #include "engine/subsystems/physics/PhysicsManager.h"
 
 // Game
+#include "EngineCamera.h"
+#include "SceneManager.h"
 #include "game/Game.h"
+#include "scene/SceneManager.h"
 
 
 namespace GLESC {
@@ -43,7 +46,8 @@ namespace GLESC {
     private:
         std::vector<std::unique_ptr<ECS::System>> createUpdateSystems();
         std::vector<std::unique_ptr<ECS::System>> createRenderSystems();
-        ECS::Entity createEngineCamera();
+        void createEngineEntities();
+
 
         void registerStats() const;
 
@@ -101,16 +105,18 @@ namespace GLESC {
 
         FPSManager& fpsManager;
 
+#ifndef NDEBUG_GLESC
         HUD::EngineDebugHUDManager engineHuds;
-
+#endif
         ECS::ECSCoordinator ecs;
         ECS::EntityFactory entityFactory;
+
+        EngineCamera engineCamera;
 
         std::vector<std::unique_ptr<ECS::System>> updateSystems;
         std::vector<std::unique_ptr<ECS::System>> renderSystems;
 
-        ECS::Entity engineCamera;
-
+        Scene::SceneManager sceneManager;
         Game game;
     }; // class Engine
 } // namespace GLESC

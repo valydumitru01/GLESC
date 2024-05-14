@@ -69,10 +69,10 @@ struct LightContribution {
 // ------------------------------------------
 
 struct Fog {
-    vec3 color;
-    float near;
-    float far;
     float density;
+    float start;
+    float end;
+    vec3 color;
 };
 
 // ==========================================
@@ -117,9 +117,9 @@ float calculateAttenuation(float distance, float radius) {
 }
 
 vec3 calculateSpecular(vec3 lightDir, vec3 norm, vec3 viewDir, float shininess,
-                       vec3 specularColor, float materialSpecularIntensity, float att, float intensity) {
+vec3 specularColor, float materialSpecularIntensity, float att, float intensity) {
     if (shininess < 0.01) {
-        return vec3(0.0); // No specular highlight if shininess is close to zero
+        return vec3(0.0);// No specular highlight if shininess is close to zero
     }
     float materialShininessMapped = shininess * 256.0;
     vec3 reflectDir = reflect(-lightDir, norm);
@@ -130,6 +130,12 @@ vec3 calculateSpecular(vec3 lightDir, vec3 norm, vec3 viewDir, float shininess,
 vec3 calculateDiffuse(vec3 lightDir, vec3 norm, vec3 color, float intensity, float att) {
     float diff = max(dot(norm, lightDir), 0.0);
     return diff * color * intensity * att;
+}
+
+float calculateFogFactor(float distanceToPixel, float fogStart, float fogEnd, float density) {
+    float distRatio = 4.0 * distanceToPixel / fogEnd;
+    float fogFactor = exp(-distRatio * density * distRatio * density);
+    return fogFactor;
 }
 
 void main() {
@@ -156,7 +162,7 @@ void main() {
 
     // Specular
     totalSpecular += 0.1 * calculateSpecular(sunDir, norm, viewDir, uMaterial.shininess,
-                                       uMaterial.specularColor, uMaterial.specularIntensity, 1.0, sunIntensity);
+    uMaterial.specularColor, uMaterial.specularIntensity, 1.0, sunIntensity);
 
 
     for (uint i = 0; i < uLights.count; ++i) {
@@ -167,11 +173,10 @@ void main() {
 
         vec3 lightDir = lightPosViewSpace - FragPosViewSpace;
         float distanceToFrag = length(lightDir);
-        vec3 lightDirNormalized = normalize(lightDir);
-
         // Skip if distance is greater than the radius of the light.
         if (distanceToFrag > uLights.radius[i]) continue;
 
+        vec3 lightDirNormalized = normalize(lightDir);
 
         float att = calculateAttenuation(distanceToFrag, radius);
 
@@ -180,21 +185,17 @@ void main() {
 
         // Specular
         totalSpecular += calculateSpecular(lightDirNormalized, norm, viewDir, uMaterial.shininess,
-                                           uMaterial.specularColor, uMaterial.specularIntensity, att, intensity);
+        uMaterial.specularColor, uMaterial.specularIntensity, att, intensity);
 
 
     }
 
-    // Calculate fog factor based on depth
-    float depth = gl_FragCoord.z / gl_FragCoord.w;  // Linearize depth if necessary
-    float fogFactor = smoothstep(uFog.near, uFog.far / 2, depth) * uFog.density;
+    vec3 finalColor = (ambient + totalDiffuse + totalSpecular) * baseColor;
 
-    // Calculate the final color with fog
-    vec3 colorWithFog = mix(baseColor, uFog.color, fogFactor);
+    float fogFactor = calculateFogFactor(length(FragPosViewSpace), uFog.start, uFog.end, uFog.density);
+    vec3 foggedColor = mix(uFog.color, finalColor, fogFactor);
 
-    vec3 finalColor = (ambient + totalDiffuse + totalSpecular) * colorWithFog;
-
-    FragColor = vec4(finalColor, 1.0);
+    FragColor = vec4(foggedColor, 1.0);
 }
 
 

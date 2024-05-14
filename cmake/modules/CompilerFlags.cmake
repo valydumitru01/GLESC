@@ -90,6 +90,8 @@ set(RELEASE_FLAGS
         # This disables debugging for graphics API, avoiding
         # the overhead
         "-DNDEBUG_GAPI"
+        # This disables GLESC debug HUD and hides default stats, also disables default camera
+        "-DNDEBUG_GLESC"
         # Link time optimization, optimizes code at link time
         # but increases compilation time
         # "-flto"

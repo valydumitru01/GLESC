@@ -64,6 +64,7 @@ const EntityName& EntityManager::getEntityName(EntityID entity) const {
 }
 
 EntityID EntityManager::getEntityID(const EntityName& name) const {
+    D_ASSERT_TRUE(doesEntityExist(name), "Entity must exist to get its ID");
     return entityNameToID.at(name);
 }
 EntityID EntityManager::tryGetEntity(const EntityName& name) const {

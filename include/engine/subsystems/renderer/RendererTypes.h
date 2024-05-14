@@ -63,7 +63,7 @@ namespace GLESC::Render {
     using MVP = Mat4F;
 
     template <typename IntensityType>
-    class Intensity {
+    class Intensity{
     public:
         Intensity() = default;
 
@@ -81,6 +81,30 @@ namespace GLESC::Render {
 
         bool operator<(const Intensity& other) const {
             return intensity < other.intensity;
+        }
+
+        bool operator>(const Intensity& other) const {
+            return intensity > other.intensity;
+        }
+
+        bool operator<=(const Intensity& other) const {
+            return intensity <= other.intensity;
+        }
+
+        IntensityType operator+(const Intensity& other) const {
+            return intensity + other.intensity;
+        }
+
+        IntensityType operator-(const Intensity& other) const {
+            return intensity - other.intensity;
+        }
+
+        IntensityType operator*(const Intensity& other) const {
+            return intensity * other.intensity;
+        }
+
+        IntensityType operator/(const Intensity& other) const {
+            return intensity / other.intensity;
         }
 
         ~Intensity() = default;
