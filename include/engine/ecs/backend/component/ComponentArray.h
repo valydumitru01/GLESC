@@ -27,7 +27,7 @@ namespace GLESC::ECS {
 
         virtual IComponent& getComponent(EntityID entity) = 0;
 
-        virtual void removeData(EntityID entity) = 0;
+        virtual void entityDestroyed(EntityID entity) = 0;
 
         virtual size_t getSize() = 0;
     };
@@ -50,8 +50,8 @@ namespace GLESC::ECS {
 
             // Put new entry at end and update the maps
             size_t newIndex = size;
-            entityToIndexMap.insert({entity, newIndex});
-            indexToEntityMap.insert({newIndex, entity});
+            entityToIndexMap[entity] = newIndex;
+            indexToEntityMap[newIndex] = entity;
             componentArray[newIndex] = component;
             ++size;
 
@@ -69,18 +69,19 @@ namespace GLESC::ECS {
          * The maps are updated to reflect the changes
          * @param entity The entity to remove
          */
-        void removeData(EntityID entity) override {
+        void removeData(EntityID entity) {
             PRINT_COMPONENT_ARRAY_STATUS("Before removing data from entity " + std::to_string(entity));
+            D_ASSERT_TRUE(hasComponent(entity), "Entity does not have component");
 
             // Copy element at end into deleted element's place to maintain density
-            size_t indexOfRemovedEntity = entityToIndexMap.at(entity);
+            size_t indexOfRemovedEntity = entityToIndexMap[entity];
             size_t indexOfLastElement = size - 1;
             componentArray[indexOfRemovedEntity] = componentArray[indexOfLastElement];
 
             // Update map to point to moved spot
-            EntityID entityOfLastElement = entityToIndexMap.at(indexOfLastElement);
-            entityToIndexMap.insert({entityOfLastElement, indexOfRemovedEntity});
-            indexToEntityMap.insert({indexOfRemovedEntity, entityOfLastElement});
+            EntityID entityOfLastElement = indexToEntityMap[indexOfLastElement];
+            entityToIndexMap[entityOfLastElement] = indexOfRemovedEntity;
+            indexToEntityMap[indexOfRemovedEntity] = entityOfLastElement;
 
             // Erase the entity from both maps
             entityToIndexMap.erase(entity);
@@ -91,7 +92,7 @@ namespace GLESC::ECS {
         }
 
         Component& getData(EntityID entity) {
-            D_ASSERT_TRUE(entityExists(entity), "Entity does not exist");
+            D_ASSERT_TRUE(hasComponent(entity), "Entity does not have component");
 
             // Return a reference to the entity's component
             return componentArray[entityToIndexMap.at(entity)];
@@ -112,10 +113,6 @@ namespace GLESC::ECS {
             if (entityToIndexMap.find(entity) != entityToIndexMap.end()) {
                 removeData(entity);
             }
-        }
-
-        bool entityExists(EntityID entity) {
-            return entityToIndexMap.find(entity) != entityToIndexMap.end();
         }
 
     private:

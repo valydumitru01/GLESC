@@ -14,7 +14,7 @@
 namespace GLESC::Render {
     class MeshFactory {
     public:
-        static ColorMesh cube(const ColorRgba &color);
+        static ColorMesh cube(const ColorRgba &color, const Math::Distance& radius = 1.0);
 
         static ColorMesh sphere(int numSlices, int numStacks, const ColorRgba &color);
 

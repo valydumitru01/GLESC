@@ -150,6 +150,22 @@ namespace GLESC::Render {
     struct ColorRgba;
 
     struct ColorRgb : Vec3F {
+        static const ColorRgb RED;
+        static const ColorRgb GREEN;
+        static const ColorRgb BLUE;
+        static const ColorRgb WHITE;
+        static const ColorRgb BLACK;
+        static const ColorRgb YELLOW;
+        static const ColorRgb CYAN;
+        static const ColorRgb MAGENTA;
+        static const ColorRgb ORANGE;
+        static const ColorRgb PURPLE;
+        static const ColorRgb PINK;
+        static const ColorRgb BROWN;
+        static const ColorRgb GREY;
+        static const ColorRgb LIGHT_GREY;
+        static const ColorRgb DARK_GREY;
+
         ColorRgb() = default;
 
         ColorRgb(const ColorRgb& other) = default;
@@ -222,6 +238,7 @@ namespace GLESC::Render {
                 Stringer::toString(getB());
         }
     };
+
 
 
     struct ColorRgba : Vec4F {

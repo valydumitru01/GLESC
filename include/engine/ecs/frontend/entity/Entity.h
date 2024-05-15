@@ -34,8 +34,8 @@ namespace GLESC::ECS {
          * The entity signature is updated to reflect the new component
          * @tparam Component The type of the component
          */
-        template<typename Component>
-        Entity &addComponent(Component &&component);
+        template<typename Component, typename... Args>
+        Entity &addComponent(Args&&... args);
 
 
         /**
@@ -93,9 +93,10 @@ namespace GLESC::ECS {
     }; // class Entity
 
 
-    template<typename Component>
-    Entity &Entity::addComponent(Component &&component) {
-        ecs.addComponent<Component>(ID, std::forward<Component>(component));
+    template<typename Component, typename... Args>
+    Entity& Entity::addComponent(Args&&... args) {
+        S_ASSERT_EQUAL(sizeof...(Args), 0, "Only one component can be passed to addComponent");
+        ecs.addComponent<Component>(ID, Component(std::forward<Args>(args)...));
         return *this;
     }
 

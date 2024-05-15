@@ -12,23 +12,37 @@
 
 #include "engine/ecs/frontend/entity/EntityFactory.h"
 #include "engine/core/window/WindowManager.h"
+#include "engine/scene/SceneContainer.h"
 #include "engine/scene/SceneManager.h"
 
 class Game {
 public:
     Game(GLESC::WindowManager& windowManager,
          GLESC::ECS::EntityFactory& entityFactory,
-         GLESC::Scene::SceneManager& sceneManager) :
+         GLESC::Scene::SceneManager& sceneManager,
+         GLESC::Scene::SceneContainer& sceneContainer) :
         windowManager(windowManager),
         entityFactory(entityFactory),
-        sceneManager(sceneManager) {
+        sceneManager(sceneManager), sceneContainer(sceneContainer) {
     }
 
     void init();
     void update();
 
 private:
+    template <typename SceneType>
+    void registerScene(const std::string& sceneName) {
+        GLESC::Scene::SceneID id = sceneContainer.registerScene<SceneType>();
+        sceneManager.addScene(sceneName, id);
+    }
+
+    void switchScene(const std::string& sceneName) {
+        sceneManager.switchScene(sceneName);
+        sceneContainer.getScene(sceneManager.getCurrentScene()).init();
+    }
+
     GLESC::ECS::EntityFactory& entityFactory;
     GLESC::WindowManager& windowManager;
     GLESC::Scene::SceneManager& sceneManager;
+    GLESC::Scene::SceneContainer& sceneContainer;
 }; // class Game

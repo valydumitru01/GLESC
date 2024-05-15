@@ -9,6 +9,7 @@
  **************************************************************************************************/
 #pragma once
 #include "SceneDependecies.h"
+#include "SceneTypes.h"
 
 namespace GLESC::Scene {
     class Scene;
@@ -16,31 +17,26 @@ namespace GLESC::Scene {
     class SceneManager : public SceneDependecies {
     public:
         SceneManager(ECS::EntityFactory& entityFactory,
-                     WindowManager& windowManager) :
-            SceneDependecies(entityFactory, windowManager) {
+                     WindowManager& windowManager) :  SceneDependecies(entityFactory, windowManager) {
         }
 
-        template <typename SceneType>
-        void registerScene(const std::string& sceneName) {
-            S_ASSERT_TRUE(std::is_base_of_v<Scene, SceneType>, "SceneType must inherit from Scene");
-            D_ASSERT_TRUE(scenes.find(sceneName) == scenes.end(), "Scene already registered");
-            scenes[sceneName] =
-                std::make_unique<SceneType>(entityFactory, windowManager);
+        void addScene(const std::string& sceneName, SceneID sceneID) {
+            scenes[sceneName] = sceneID;
         }
 
         void switchScene(const std::string& sceneName) {
             auto it = scenes.find(sceneName);
             D_ASSERT_TRUE(it != scenes.end(), "Scene not found");
-            currentScene = std::move(it->second);
+            currentScene = it->second;
+            windowManager.setWindowTitle(sceneName);
         }
 
-        Scene& getCurrentScene() {
-            S_ASSERT_TRUE(currentScene, "No scene set");
-            return *currentScene;
+        SceneID& getCurrentScene() {
+            return currentScene;
         }
 
     private:
-        std::unique_ptr<Scene> currentScene{};
-        std::unordered_map<std::string, std::unique_ptr<Scene>> scenes{};
+        SceneID currentScene{-1};
+        std::unordered_map<std::string, SceneID> scenes{};
     }; // class SceneManager
 }; // namespace GLESC::Scene

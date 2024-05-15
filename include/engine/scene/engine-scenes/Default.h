@@ -19,5 +19,5 @@ public:
     void update() override;
     void destroy() override;
 
-    const std::string getSceneName() override { return "default"; }
+    const std::string getSceneName() { return "default"; }
 }; // class Default

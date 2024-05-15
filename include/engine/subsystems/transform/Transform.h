@@ -180,13 +180,15 @@ namespace GLESC::Transform {
 
     class Transformer {
     public:
-        static void transformMesh(Render::ColorMesh& mesh, const Render::Model& modelMat, const Render::View& viewMat);
+        static void transformMesh(Render::ColorMesh& mesh, const Mat4F& matrix);
+
+        static void translateModelMesh(Render::ColorMesh& mesh, const Position& translation);
+
+        static void transformMesh(Render::ColorMesh& mesh, const Transform& transform);
 
         static Render::BoundingVolume transformBoundingVolume(const Render::BoundingVolume& boundingVolume,
-                                                              const Render::Model& modelMat);
-        static Position modelToWorld(const Position& modelPos, const Render::Model& modelMat);
-        static Position worldToCamera(const Position& worldPos, const Render::View& viewMat);
-        static Position cameraToClip(const Position& cameraPos, const Render::Projection& projMat);
+                                                              const Render::Model& matrix);
+        static Position transformPosition(const Position& position, const Render::Model& matrix);
         static Position clipToNDC(const HomogeneousPosition& clipPos);
 
         static Position NDCToViewport(const Position& clipPos, float vpWidth, float vpHeight);

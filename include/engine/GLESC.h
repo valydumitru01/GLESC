@@ -30,8 +30,8 @@
 
 // Game
 #include "EngineCamera.h"
-#include "SceneManager.h"
 #include "game/Game.h"
+#include "scene/SceneContainer.h"
 #include "scene/SceneManager.h"
 
 
@@ -99,7 +99,7 @@ namespace GLESC {
          */
         Render::Renderer renderer;
 
-        PhysicsManager physicsManager;
+        Physics::PhysicsManager physicsManager;
         HUDManager hudManager;
         TextureFactory textureFactory;
 
@@ -117,6 +117,7 @@ namespace GLESC {
         std::vector<std::unique_ptr<ECS::System>> renderSystems;
 
         Scene::SceneManager sceneManager;
+        Scene::SceneContainer sceneContainer;
         Game game;
     }; // class Engine
 } // namespace GLESC

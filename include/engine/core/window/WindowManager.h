@@ -33,7 +33,7 @@ namespace GLESC {
          *
          * @return SDL_Window* the windowManager object
          */
-        SDL_Window &getWindow();
+        SDL_Window& getWindow();
 
         /**
          * @brief Get the width and height of the window
@@ -53,6 +53,13 @@ namespace GLESC {
          *
          */
         void setSize(uint16_t windowWidth, uint16_t windowHeight);
+        /**
+         * @brief Set the window title.
+         * Changes the title of the window.
+         *
+         * @param title New title.
+         */
+        void setWindowTitle(const std::string& title);
 
         /**
          * @brief Set the position of the window.
@@ -76,7 +83,7 @@ namespace GLESC {
          *
          * @param iconFile Path to the icon file.
          */
-        void setIcon(const std::string &iconFile);
+        void setIcon(const std::string& iconFile);
 
 
         /**
@@ -158,13 +165,13 @@ namespace GLESC {
          * @brief Initialize the windowManager with its title, setting its flags
          * Checks if there is any error while doing it.
          */
-        [[nodiscard]] SDL_Window *createWindow(const char *title);
+        [[nodiscard]] SDL_Window* createWindow(const char* title);
 
 
         /**
          * @brief The SDL window struct pointer
          *
          */
-        SDL_Window *window;
+        SDL_Window* window;
     }; // class WindowManager
 } // namespace GLESC

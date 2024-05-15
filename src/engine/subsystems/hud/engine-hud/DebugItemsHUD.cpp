@@ -49,7 +49,7 @@ void DebugItems::windowContent() {
         if (!renderer.getFrustum().contains(*item.worldPosition)) continue;
         Render::Position screenPos =
             Transform::Transformer::worldToViewport(*item.worldPosition, viewMatrix, projMatrix, width, height);
-        float imageScale = screenPos.z() * 4;
+        float imageScale = screenPos.z() * 20;
         float vpWidth = static_cast<float>(renderer.getViewportSize().height);
         float vpHeight = static_cast<float>(renderer.getViewportSize().height);
 

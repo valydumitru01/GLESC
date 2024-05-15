@@ -13,7 +13,7 @@ using namespace GLESC::ECS;
 
 void ComponentManager::entityDestroyed(EntityID entity) {
     for (auto const &[name, array] : componentArrays) {
-        array->removeData(entity);
+        array->entityDestroyed(entity);
     }
 }
 

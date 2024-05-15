@@ -48,10 +48,12 @@ Engine::Engine(FPSManager& fpsManager) :
     renderSystems(createRenderSystems()),
     engineCamera(entityFactory, inputManager, windowManager),
     sceneManager(entityFactory, windowManager),
-    game(windowManager, entityFactory, sceneManager) {
+    sceneContainer(windowManager, entityFactory, sceneManager),
+    game(windowManager, entityFactory, sceneManager, sceneContainer) {
     engineCamera.setupCamera();
     this->registerStats();
     createEngineEntities();
+    game.init();
 }
 
 
@@ -83,7 +85,7 @@ void Engine::render(double const timeOfFrame) {
 
 void Engine::update() {
     Logger::get().importantInfoWhite("Engine update started");
-    sceneManager.getCurrentScene().update();
+
     game.update();
 
 #pragma omp parallel for \
@@ -115,8 +117,8 @@ std::vector<std::unique_ptr<ECS::System>> Engine::createUpdateSystems() {
 
 void Engine::createEngineEntities() {
     ECS::Entity sun = entityFactory.createEntity("sun")
-                                   .addComponent(ECS::TransformComponent())
-                                   .addComponent(ECS::SunComponent());
+                                   .addComponent<ECS::TransformComponent>()
+                                   .addComponent<ECS::SunComponent>();
     sun.getComponent<ECS::TransformComponent>().transform.setPosition(
         Transform::Position(0, 10, 0));
     sun.getComponent<ECS::SunComponent>().sun.setDirection({-0.4, -1, -0.4});
@@ -127,8 +129,8 @@ void Engine::createEngineEntities() {
 
 
     ECS::Entity fog = entityFactory.createEntity("fog")
-                                   .addComponent(ECS::TransformComponent())
-                                   .addComponent(ECS::FogComponent());
+                                   .addComponent<ECS::TransformComponent>()
+                                   .addComponent<ECS::FogComponent>();
     fog.getComponent<ECS::TransformComponent>().transform.setPosition({1, 0, 0});
     fog.getComponent<ECS::FogComponent>().fog.setDensity(1);
     fog.getComponent<ECS::FogComponent>().fog.setColor({255, 255, 255});

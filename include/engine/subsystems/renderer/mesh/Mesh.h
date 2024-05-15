@@ -50,6 +50,30 @@ namespace GLESC::Render {
         Mesh(const Mesh& other) {
             *this = other;
         }
+        Mesh(Mesh&& other) noexcept {
+            *this = std::move(other);
+        }
+
+        void operator=(Mesh&& other) noexcept {
+            vertices = std::move(other.vertices);
+            indices = std::move(other.indices);
+            boundingVolume = std::move(other.boundingVolume);
+            vertexLayout = std::move(other.vertexLayout);
+            dirtyFlag = other.dirtyFlag;
+            renderType = other.renderType;
+            hashDirty = other.hashDirty;
+            cachedHash = other.cachedHash;
+        }
+        void operator=(const Mesh& other) {
+            vertices = other.vertices;
+            indices = other.indices;
+            boundingVolume = other.boundingVolume;
+            vertexLayout = other.vertexLayout;
+            dirtyFlag = other.dirtyFlag;
+            renderType = other.renderType;
+            hashDirty = other.hashDirty;
+            cachedHash = other.cachedHash;
+        }
 
         void startBuilding() {
             dirtyFlag = true;
@@ -137,16 +161,26 @@ namespace GLESC::Render {
             this->addTris(v1Index, v2Index, v3Index);
         }
 
+        void addTris(const Vertex& a, const Vertex& b, const Vertex& c) {
+            D_ASSERT_TRUE(isBuilding, "Mesh is not being built");
+            unsigned int v1Index = this->addVertex(a);
+            unsigned int v2Index = this->addVertex(b);
+            unsigned int v3Index = this->addVertex(c);
+            this->addTris(v1Index, v2Index, v3Index);
+        }
+
         void attatchMesh(const Mesh& mesh) {
             D_ASSERT_TRUE(isBuilding, "Mesh is not being built");
-            for (const auto& vertex : mesh.getVertices()) {
-                addVertex(vertex);
-            }
-            std::lock_guard<std::mutex> lock(verticesMutex);
-            {
-                for (const auto& index : mesh.getIndices()) {
-                        indices.push_back(index);
-                }
+
+
+            for (Math::FaceIndices face : mesh.getFaces()) {
+                Index v1Index = face[0];
+                Index v2Index = face[1];
+                Index v3Index = face[2];
+                const Vertex& v1 = mesh.getVertices()[v1Index];
+                const Vertex& v2 = mesh.getVertices()[v2Index];
+                const Vertex& v3 = mesh.getVertices()[v3Index];
+                addTris(v1, v2, v3);
             }
         }
 
@@ -184,13 +218,6 @@ namespace GLESC::Render {
         // Modify addVertex to return the index of the vertex, whether newly added or already existing
         Index addVertex(const Vertex& vertexParam) {
             D_ASSERT_TRUE(isBuilding, "Mesh is not being built");
-            // Check if the vertex already exists
-            for (Index i = 0; i < vertices.size(); ++i) {
-                if (vertices[i] == vertexParam) {
-                    return i;
-                }
-            }
-
             // Insert new vertex
             Index newIndex = static_cast<Index>(vertices.size());
             {
@@ -262,15 +289,7 @@ namespace GLESC::Render {
             return cachedHash;
         }
 
-        void operator=(const Mesh& other) {
-            vertices = other.vertices;
-            indices = other.indices;
-            boundingVolume = other.boundingVolume;
-            vertexLayout = other.vertexLayout;
-            dirtyFlag = other.dirtyFlag;
-            renderType = other.renderType;
-            hashDirty = true;
-        }
+
 
     private:
         Normal calculateNormal(const Position& a, const Position& b, const Position& c) const {

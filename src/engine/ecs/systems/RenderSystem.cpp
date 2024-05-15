@@ -26,7 +26,7 @@ void RenderSystem::update() {
         auto& transform = getComponent<TransformComponent>(entity);
 
         if(renderCache.find(&render) != renderCache.end()) continue;
-        renderer.sendMeshData(render.mesh, render.material, transform.transform);
+        renderer.sendMeshData(render.getMesh(), render.getMaterial(), transform.transform);
         renderCache.insert(&render);
     }
 }

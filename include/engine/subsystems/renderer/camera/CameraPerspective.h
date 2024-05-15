@@ -123,7 +123,7 @@ namespace GLESC::Render {
             nearPlaneValue.isModifiable = true;
             nearPlaneValue.usesSlider = true;
             nearPlaneValue.valueDirty = &dirty;
-            nearPlaneValue.min = 0.0f;
+            nearPlaneValue.min = 0.0001f;
             nearPlaneValue.max = 1000.0f;
             values.push_back(nearPlaneValue);
 

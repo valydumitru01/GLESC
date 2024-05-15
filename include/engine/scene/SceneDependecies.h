@@ -15,6 +15,7 @@
 
 namespace GLESC::Scene {
     class SceneDependecies {
+    public:
         SceneDependecies(ECS::EntityFactory& entityFactory,
                          WindowManager& windowManager) :
             entityFactory(entityFactory), windowManager(windowManager) {

@@ -10,11 +10,14 @@
 #pragma once
 #include "SceneDependecies.h"
 #include "SceneManager.h"
+#include "SceneTypes.h"
 
 namespace GLESC::Scene {
     class Scene : public SceneDependecies {
     public:
-        virtual ~Scene() = default;
+        virtual ~Scene() {
+            destroyEntities();
+        };
 
         Scene(WindowManager& windowManager,
               ECS::EntityFactory& entityFactory,
@@ -30,7 +33,23 @@ namespace GLESC::Scene {
         ECS::Entity getCamera() { return entityFactory.getEntity("camera"); }
         void switchScene(const std::string& sceneName) { sceneManager.switchScene(sceneName); }
 
+    protected:
+        std::vector<ECS::Entity>& getSceneEntities() { return sceneEntities; }
+
+        ECS::Entity& createEntity(const std::string& entityName) {
+            ECS::Entity entity = entityFactory.createEntity(entityName);
+            sceneEntities.push_back(entity);
+            return sceneEntities.back();
+        }
+        void destroyEntities() {
+            for (auto& entity : getSceneEntities()) {
+                entity.destroy();
+            }
+            sceneEntities.clear();
+        }
     private:
+        std::vector<ECS::Entity> sceneEntities;
         SceneManager& sceneManager;
+        SceneID sceneID{};
     }; // class Scene
 } // namespace GLESC::Scene

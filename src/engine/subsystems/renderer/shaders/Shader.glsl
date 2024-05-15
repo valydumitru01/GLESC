@@ -70,7 +70,6 @@ struct LightContribution {
 
 struct Fog {
     float density;
-    float start;
     float end;
     vec3 color;
 };
@@ -132,7 +131,7 @@ vec3 calculateDiffuse(vec3 lightDir, vec3 norm, vec3 color, float intensity, flo
     return diff * color * intensity * att;
 }
 
-float calculateFogFactor(float distanceToPixel, float fogStart, float fogEnd, float density) {
+float calculateFogFactor(float distanceToPixel, float fogEnd, float density) {
     float distRatio = 4.0 * distanceToPixel / fogEnd;
     float fogFactor = exp(-distRatio * density * distRatio * density);
     return fogFactor;
@@ -192,7 +191,7 @@ void main() {
 
     vec3 finalColor = (ambient + totalDiffuse + totalSpecular) * baseColor;
 
-    float fogFactor = calculateFogFactor(length(FragPosViewSpace), uFog.start, uFog.end, uFog.density);
+    float fogFactor = calculateFogFactor(length(FragPosViewSpace), uFog.end, uFog.density);
     vec3 foggedColor = mix(uFog.color, finalColor, fogFactor);
 
     FragColor = vec4(foggedColor, 1.0);

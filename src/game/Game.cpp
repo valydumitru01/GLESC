@@ -8,8 +8,6 @@
  * See LICENSE.txt in the project root for license information.
  ******************************************************************************/
 
-#include <omp.h>
-
 // Components
 #include "game/Game.h"
 
@@ -21,11 +19,13 @@
 using namespace GLESC;
 
 void Game::init() {
-    sceneManager.registerScene<ShootTheChickenGame>(ShootTheChickenGame::getSceneName());
-    sceneManager.registerScene<TerrainGeneratorGame>(TerrainGeneratorGame::getSceneName());
-    sceneManager.switchScene(ShootTheChickenGame::getSceneName());
+    registerScene<TerrainGeneratorGame>(TerrainGeneratorGame::getSceneName());
+    registerScene<ShootTheChickenGame>(ShootTheChickenGame::getSceneName());
+    switchScene(ShootTheChickenGame::getSceneName());
 }
 
 void Game::update() {
-
+    if (sceneManager.getCurrentScene() != -1) {
+        sceneContainer.getScene(sceneManager.getCurrentScene()).update();
+    }
 }

@@ -13,23 +13,18 @@
 #include "engine/ecs/frontend/component/TransformComponent.h"
 using namespace GLESC::ECS;
 
-PhysicsSystem::PhysicsSystem(PhysicsManager& physicsManager, ECSCoordinator& ecs) :
-    System(ecs, "PhysicsSystem"), gravity(0.f, 8.91f, 0.f),
+PhysicsSystem::PhysicsSystem(Physics::PhysicsManager& physicsManager, ECSCoordinator& ecs) :
+    System(ecs, "PhysicsSystem"),
     physicsManager(physicsManager) {
     addComponentRequirement<PhysicsComponent>();
     addComponentRequirement<TransformComponent>();
-
-    for (auto const& entity : getAssociatedEntities()) {
-        auto& rigidBody = getComponent<PhysicsComponent>(entity);
-        rigidBody.velocity = gravity;
-    }
 }
 
 void PhysicsSystem::update() {
     for (auto const& entity : getAssociatedEntities()) {
-        auto& rigidBody = getComponent<PhysicsComponent>(entity);
+        auto& physics = getComponent<PhysicsComponent>(entity);
         auto& transform = getComponent<TransformComponent>(entity);
 
-        transform.transform.addPosition(rigidBody.velocity);
+        physicsManager.updatePhysics(physics.physics, transform.transform);
     }
 }

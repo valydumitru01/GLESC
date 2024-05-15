@@ -22,10 +22,6 @@ public:
         this->color = color;
     }
 
-    void setStart(float start) {
-        this->start = start;
-    }
-
     void setEnd(float end) {
         this->end = end;
     }
@@ -34,9 +30,6 @@ public:
         return density.get();
     }
 
-    [[nodiscard]] float getStart() const {
-        return start;
-    }
 
     [[nodiscard]] float getEnd() const {
         return end;
@@ -58,16 +51,6 @@ public:
         densityValue.min = 0.0f;
         densityValue.max = 1.0f;
         values.push_back(densityValue);
-
-        EntityStatsManager::Value startValue;
-        startValue.name = "Start";
-        startValue.data = reinterpret_cast<void*>(&start);
-        startValue.type = EntityStatsManager::ValueType::FLOAT;
-        startValue.isModifiable = true;
-        startValue.usesSlider = true;
-        startValue.min = 0.0f;
-        startValue.max = 100.0f;
-        values.push_back(startValue);
 
         EntityStatsManager::Value endValue;
         endValue.name = "End";
@@ -102,7 +85,6 @@ public:
 
 private:
     GLESC::Render::Intensity<float> density{1.0f};
-    float start = 0.0f;
     float end = 300.0f;
     GLESC::Render::ColorRgb color{255.f, 255.f, 255.f};
 }; // class Fog

@@ -12,11 +12,10 @@
 namespace GLESC::ECS {
     class PhysicsSystem : public System {
     public:
-        explicit PhysicsSystem(PhysicsManager& physicsManager, ECSCoordinator& ecs);
+        explicit PhysicsSystem(Physics::PhysicsManager& physicsManager, ECSCoordinator& ecs);
         void update() override;
 
     private:
-        Velocity gravity;
-        PhysicsManager& physicsManager;
+        Physics::PhysicsManager& physicsManager;
     };
 } // namespace GLESC::ECS

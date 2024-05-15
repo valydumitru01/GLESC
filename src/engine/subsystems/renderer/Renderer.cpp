@@ -188,7 +188,7 @@ void Renderer::applyLighSpots(const std::vector<Light>& lights, double timeOfFra
             interpolationTransforms[&transform].interpolate(timeOfFrame);
 
         Position lightPosViewSpace =
-            Transform::Transformer::worldToCamera(interpolatedTransform.getPosition(), getView());
+            Transform::Transformer::transformPosition(interpolatedTransform.getPosition(), getView());
         Shader::setUniform("uLights.posInViewSpace[" + iStr + "]", lightPosViewSpace);
 
         if (!light.isDirty()) continue;
@@ -239,7 +239,6 @@ void Renderer::applyFog(const FogData& fogParam, const Position& cameraPosition)
     if (fogParam.fog == nullptr) return;
     Shader::setUniform("uFog.color", fogParam.fog->getColor().getRGBVec3FNormalized());
     Shader::setUniform("uFog.density", fogParam.fog->getDensity());
-    Shader::setUniform("uFog.start", fogParam.fog->getStart() + cameraPosition.length());
     Shader::setUniform("uFog.end", fogParam.fog->getEnd()+ cameraPosition.length());
 }
 

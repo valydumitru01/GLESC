@@ -77,47 +77,46 @@ GLESC::Math::Direction Transform::worldRight{Math::Direction(1.0f, 0.0f, 0.0f)};
 GLESC::Math::Direction Transform::worldForward{Math::Direction(0.0f, 0.0f, 1.0f)};
 
 
-void Transformer::transformMesh(Render::ColorMesh& mesh, const Render::Model& modelMat, const Render::View& viewMat) {
-    Render::NormalMat normalMat;
-    normalMat.makeNormalMatrix(modelMat * viewMat);
+void Transformer::transformMesh(Render::ColorMesh& mesh, const Mat4F& matrix) {
     for (auto& vertex : mesh.getModifiableVertices()) {
-        vertex.setPosition(modelMat * vertex.getPosition());
-        vertex.setNormal(normalMat * vertex.getNormal());
+        vertex.setPosition(transformPosition(vertex.getPosition(), matrix));
     }
 
-    transformBoundingVolume(mesh.getBoundingVolumeMutable(), modelMat);
+    transformBoundingVolume(mesh.getBoundingVolumeMutable(), matrix);
+}
+
+void Transformer::translateModelMesh(Render::ColorMesh& mesh, const Position& translation) {
+    for (auto& vertex : mesh.getModifiableVertices()) {
+        vertex.setPosition({
+            vertex.getPosition().getX() + translation.getX(),
+            vertex.getPosition().getY() + translation.getY(),
+            vertex.getPosition().getZ() + translation.getZ()
+        });
+    }
+}
+
+
+void Transformer::transformMesh(Render::ColorMesh& mesh, const Transform& transform) {
+    Render::Model modelMat = transform.getModelMatrix();
+    transformMesh(mesh, modelMat);
 }
 
 GLESC::Render::BoundingVolume Transformer::transformBoundingVolume(const Render::BoundingVolume& boundingVolume,
-                                                                   const Render::Model& modelMat) {
+                                                                   const Render::Model& matrix) {
     Render::BoundingVolume transformedBoundingVolume;
-    Vec3F transformedVertice3D;
+    Vec3F transformedVertex;
     for (const Math::Point& topologyVertice : boundingVolume.getTopology().getVertices()) {
-        transformedVertice3D = modelToWorld(topologyVertice, modelMat);
-        transformedBoundingVolume.topology.addVertex(transformedVertice3D);
+        transformedVertex = transformPosition(topologyVertice, matrix);
+        transformedBoundingVolume.topology.addVertex(transformedVertex);
     }
     return transformedBoundingVolume;
 }
 
-Position Transformer::modelToWorld(const Position& modelPos, const Render::Model& modelMat) {
+Position Transformer::transformPosition(const Position& position, const Render::Model& matrix) {
     // IMPORTANT! We use row major matrices but the data distribution is prepared to be column major for in GPU
     // operations. So for the CPU we need to transpose the matrices.
-    Vec4F transformedToWorldVertex = modelMat.transpose() * modelPos.homogenize();
+    Vec4F transformedToWorldVertex = matrix.transpose() * position.homogenize();
     return transformedToWorldVertex.dehomogenize();
-}
-
-Position Transformer::worldToCamera(const Position& worldPos, const Render::View& viewMat) {
-    // IMPORTANT! We use row major matrices but the data distribution is prepared to be column major for in GPU
-    // operations. So for the CPU we need to transpose the matrices.
-    Vec4F transformedToCameraVertex = viewMat.transpose() * worldPos.homogenize();
-    return transformedToCameraVertex.dehomogenize();
-}
-
-Position Transformer::cameraToClip(const Position& cameraPos, const Render::Projection& projMat) {
-    // IMPORTANT! We use row major matrices but the data distribution is prepared to be column major for in GPU
-    // operations. So for the CPU we need to transpose the matrices.
-    Vec4F transformedToClipVertex = projMat.transpose() * cameraPos.homogenize();
-    return transformedToClipVertex.dehomogenize();
 }
 
 Position Transformer::clipToNDC(const HomogeneousPosition& clipPos) {
@@ -128,8 +127,8 @@ Position Transformer::clipToNDC(const HomogeneousPosition& clipPos) {
 Position Transformer::NDCToViewport(const Position& ndcPos, float vpWidth, float vpHeight) {
     // Map NDC to screen coordinates for x and y
     float screenX = (ndcPos.getX() + 1.0f) * vpWidth / 2.0f;
-    float screenY = (1.0f - ndcPos.getY() ) * vpHeight / 2.0f;
-    float screenZ = (1.0f - ndcPos.getZ() ) / 2;
+    float screenY = (1.0f - ndcPos.getY()) * vpHeight / 2.0f;
+    float screenZ = (1.0f - ndcPos.getZ()) / 2;
 
     return {screenX, screenY, screenZ};
 }
@@ -151,7 +150,7 @@ void Interpolator::pushTransform(const Transform& transform) {
     lastTransform = transform;
 }
 
-Transform Interpolator::interpolate(double alpha) const  {
+Transform Interpolator::interpolate(double alpha) const {
     Transform interpolatedTransform;
     interpolatedTransform.setPosition(
         previousOfLastTransform.getPosition().lerp(lastTransform.getPosition(), alpha));

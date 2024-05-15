@@ -47,6 +47,11 @@ void WindowManager::setSize(uint16_t windowWidth, uint16_t windowHeight) {
     }
 }
 
+void WindowManager::setWindowTitle(const std::string& title) {
+    SDLCall(SDL_SetWindowTitle(window, title.c_str()));
+}
+
+
 void WindowManager::setFullscreen(bool isFullScreen) {
     Uint32 flag = isFullScreen ? SDL_WINDOW_FULLSCREEN : 0;
     SDLCall(SDL_SetWindowFullscreen(window, flag));

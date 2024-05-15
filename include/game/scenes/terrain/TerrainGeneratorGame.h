@@ -22,45 +22,13 @@ public:
                          GLESC::Scene::SceneManager& sceneManager) : Scene(windowManager, entityFactory, sceneManager) {
     }
 
-    static void generateEntitiesForMap(GLESC::ECS::EntityFactory& entityFactory) {
-        TerrainGenerator terrainGenerator;
-        auto map = terrainGenerator.generateMap();
+    void generateEntitiesForMap(GLESC::ECS::EntityFactory& entityFactory);
 
-        std::vector<Vec2I> keys;
-        std::vector<GLESC::ECS::Entity> entities;
-        keys.reserve(map.size());
-        for (const auto& item : map) {
-            keys.push_back(item.first);
-            entities.push_back(entityFactory.createEntity("chunk" + item.first.toString()));
-        }
+    void init() override;
 
-#pragma omp parallel for schedule(static, 1)
-        for (int i = 0; i < keys.size(); ++i) {
-            auto& chunkPosition = keys[i];
-            auto& chunk = map[chunkPosition];
-            GLESC::Render::ColorMesh chunkMesh = MeshTerrain::generateChunkMeshFromMap(chunk, chunkPosition, map);
-            GLESC::ECS::Entity entity = entities.at(i);
-            entity.addComponent(GLESC::ECS::TransformComponent())
-                  .addComponent(GLESC::ECS::RenderComponent());
-            entity.getComponent<GLESC::ECS::TransformComponent>().transform.setPosition({
-                chunkPosition.getX() * CHUNK_SIZE, 0, chunkPosition.getY() * CHUNK_SIZE
-            });
-            entity.getComponent<GLESC::ECS::RenderComponent>().mesh = chunkMesh;
+    void update() override;
 
-
-            std::cout << "Created entity for chunk at position " << chunkPosition.toString() << std::endl;
-        }
-    }
-
-    void init() override {
-        generateEntitiesForMap(entityFactory);
-    }
-
-    void update() override {
-    }
-
-    void destroy() override {
-    }
+    void destroy() override;
 
     static const std::string getSceneName() { return "terrain-generator"; }
 

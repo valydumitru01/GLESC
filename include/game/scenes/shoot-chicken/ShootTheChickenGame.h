@@ -12,6 +12,8 @@
 #include "engine/ecs/frontend/entity/EntityFactory.h"
 #include "engine/scene/Scene.h"
 #include "engine/scene/SceneManager.h"
+#include "engine/subsystems/renderer/mesh/Mesh.h"
+#include "engine/subsystems/transform/TransformTypes.h"
 
 class ShootTheChickenGame : public GLESC::Scene::Scene {
 public:
@@ -20,9 +22,17 @@ public:
                         GLESC::Scene::SceneManager& sceneManager) : Scene(windowManager, entityFactory, sceneManager) {
     }
 
+    ~ShootTheChickenGame() override {
+        destroyEntities();
+    }
+
+    void createChickenMesh();
     void init() override;
     void update() override;
     void destroy() override;
     static const std::string getSceneName() { return "shoot-the-chicken"; }
+
 private:
+    GLESC::Render::ColorMesh chickenMesh;
+    std::vector<GLESC::ECS::Entity> chickens;
 }; // class ShootTheChickenGame

@@ -30,9 +30,9 @@ namespace GLESC {
                                                      camera(entityFactory.createEntity("camera")) {
         }
         void setupCamera() {
-            camera.addComponent(ECS::CameraComponent())
-                  .addComponent(ECS::TransformComponent())
-                  .addComponent(ECS::InputComponent());
+            camera.addComponent<ECS::CameraComponent>()
+                  .addComponent<ECS::TransformComponent>()
+                  .addComponent<ECS::InputComponent>();
 
 
             camera.getComponent<ECS::CameraComponent>().perspective.setFarPlane(1000.0f);

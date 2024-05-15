@@ -12,8 +12,8 @@
 
 using namespace GLESC::Render;
 
-ColorMesh MeshFactory::cube(const ColorRgba& color) {
-    return cuboid(1, 1, 1, color);
+ColorMesh MeshFactory::cube(const ColorRgba &color, const Math::Distance& radius) {
+    return cuboid(radius, radius, radius, color);
 }
 
 ColorMesh MeshFactory::sphere(int numSlices, int numStacks, const ColorRgba& color) {

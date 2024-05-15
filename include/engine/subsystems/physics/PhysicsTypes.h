@@ -10,7 +10,17 @@
 #pragma once
 #include "engine/core/math/algebra/vector/Vector.h"
 
-using Mass = float;
-using Velocity = Vec3F;
-using Force = Vec3F;
-using Acceleration = Vec3F;
+namespace GLESC::Physics {
+    using Mass = float;
+    using Velocity = Vec3F;
+    using Force = Vec3F;
+    using Acceleration = Vec3F;
+
+    using AngularVelocity = Vec3F;
+    using AngularForce = Vec3F;
+    using AngularAcceleration = Vec3F;
+
+    using ForwardVelocity = float;
+    using ForwardForce = float;
+    using ForwardAcceleration = float;
+} // namespace Physics

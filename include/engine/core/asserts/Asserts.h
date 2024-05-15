@@ -10,14 +10,6 @@
 
 #pragma once
 
-#include "engine/core/debugger/StackTrace.h"
-#include "engine/core/exceptions/core/AssertFailedException.h"
-#include "engine/core/debugger/Stringer.h"
-#include "engine/core/logger/Logger.h"
-#include <cmath>
-#include <limits>
-#include <string>
-#include <type_traits>
 
 
 
@@ -50,6 +42,15 @@
 
 
 #ifndef NDEBUG
+#include "engine/core/debugger/StackTrace.h"
+#include "engine/core/exceptions/core/AssertFailedException.h"
+#include "engine/core/debugger/Stringer.h"
+#include "engine/core/logger/Logger.h"
+#include <cmath>
+#include <limits>
+#include <string>
+#include <type_traits>
+
 // ------------------------ Runtime asserts ---------------------------
 // Runtime asserts are used to check conditions at runtime
 
@@ -164,7 +165,7 @@ bool assertEqualsEq(const Type1& value, const Type2& expected) {
         static_assert(!(condition), message)
 
 #define S_ASSERT_EQUAL(condition, expected, message) \
-        static_assert(GLESC::Math::eq(condition, expected), message)
+        static_assert((condition) == (expected), message)
 
 #define S_ASSERT_GREATER(condition, expected, message) \
         static_assert(condition > expected, message)
