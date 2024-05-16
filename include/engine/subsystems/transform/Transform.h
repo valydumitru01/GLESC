@@ -180,22 +180,23 @@ namespace GLESC::Transform {
 
     class Transformer {
     public:
-        static void transformMesh(Render::ColorMesh& mesh, const Mat4F& matrix);
 
-        static void translateModelMesh(Render::ColorMesh& mesh, const Position& translation);
-
+        static void translateMesh(Render::ColorMesh& mesh, const Position& translation);
         static void transformMesh(Render::ColorMesh& mesh, const Transform& transform);
-
         static Math::BoundingVolume transformBoundingVolume(const Math::BoundingVolume& boundingVolume,
-                                                              const Render::Model& matrix);
+                                                              const Transform& transform);
+
         static Position transformPosition(const Position& position, const Render::Model& matrix);
         static Position clipToNDC(const HomogeneousPosition& clipPos);
-
         static Position NDCToViewport(const Position& clipPos, float vpWidth, float vpHeight);
-
         static Position worldToViewport(const Position& worldPos, const Render::Model& viewMat,
                                         const Render::Model& projMat,
                                         float vpWidth, float vpHeight);
+    private:
+        static Math::BoundingVolume transformBoundingVolume(const Math::BoundingVolume& boundingVolume,
+                                                              const Render::Model& matrix);
+        static void transformMesh(Render::ColorMesh& mesh, const Mat4F& matrix);
+
     }; // class Transformer
 
     struct Interpolator {

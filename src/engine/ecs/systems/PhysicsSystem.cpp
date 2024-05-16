@@ -25,6 +25,6 @@ void PhysicsSystem::update() {
         auto& physics = getComponent<PhysicsComponent>(entity);
         auto& transform = getComponent<TransformComponent>(entity);
 
-        physicsManager.updatePhysics(physics.physics, transform.transform);
+        physicsManager.updatePhysics(physics.physics,physics.collider, transform.transform);
     }
 }

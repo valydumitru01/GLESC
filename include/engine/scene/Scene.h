@@ -11,6 +11,7 @@
 #include "SceneDependecies.h"
 #include "SceneManager.h"
 #include "SceneTypes.h"
+#include "engine/core/counter/Timer.h"
 
 namespace GLESC::Scene {
     class Scene : public SceneDependecies {
@@ -24,6 +25,7 @@ namespace GLESC::Scene {
               SceneManager& sceneManager) :
             SceneDependecies(entityFactory, windowManager),
             sceneManager(sceneManager) {
+            sceneTimer.start();
         }
 
         virtual void init() = 0;
@@ -32,6 +34,7 @@ namespace GLESC::Scene {
 
         ECS::Entity getCamera() { return entityFactory.getEntity("camera"); }
         void switchScene(const std::string& sceneName) { sceneManager.switchScene(sceneName); }
+        Time getSceneTime() { return sceneTimer.getCurrentTime(); }
 
     protected:
         std::vector<ECS::Entity>& getSceneEntities() { return sceneEntities; }
@@ -51,5 +54,6 @@ namespace GLESC::Scene {
         std::vector<ECS::Entity> sceneEntities;
         SceneManager& sceneManager;
         SceneID sceneID{};
+        Timer sceneTimer;
     }; // class Scene
 } // namespace GLESC::Scene

@@ -85,7 +85,7 @@ void Transformer::transformMesh(Render::ColorMesh& mesh, const Mat4F& matrix) {
     transformBoundingVolume(mesh.getBoundingVolumeMutable(), matrix);
 }
 
-void Transformer::translateModelMesh(Render::ColorMesh& mesh, const Position& translation) {
+void Transformer::translateMesh(Render::ColorMesh& mesh, const Position& translation) {
     for (auto& vertex : mesh.getModifiableVertices()) {
         vertex.setPosition({
             vertex.getPosition().getX() + translation.getX(),
@@ -107,6 +107,12 @@ GLESC::Math::BoundingVolume Transformer::transformBoundingVolume(const Math::Bou
         transformPosition(boundingVolume.getVolume().min, matrix),
         transformPosition(boundingVolume.getVolume().max, matrix)
     };
+}
+
+GLESC::Math::BoundingVolume Transformer::transformBoundingVolume(const Math::BoundingVolume& boundingVolume,
+                                                                 const Transform& transform) {
+    Render::Model modelMat = transform.getModelMatrix();
+    return transformBoundingVolume(boundingVolume, modelMat);
 }
 
 Position Transformer::transformPosition(const Position& position, const Render::Model& matrix) {

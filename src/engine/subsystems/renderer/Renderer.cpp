@@ -99,7 +99,7 @@ shared(adaptedMeshes, lights, sun, fog, skybox, timeOfFrame, view, projection, f
             Model model = interpolatedTransform.getModelMatrix();
 
             Math::BoundingVolume transformedBoundingVol =
-                Transform::Transformer::transformBoundingVolume(*dynamicMesh.boundingVolume, model);
+                Transform::Transformer::transformBoundingVolume(*dynamicMesh.boundingVolume, interpolatedTransform);
             {
                 std::lock_guard lockMutex(frustumMutex);
                 isContainedInFrustum[&dynamicMesh] = frustum.contains(transformedBoundingVol);

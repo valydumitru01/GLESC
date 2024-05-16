@@ -13,6 +13,7 @@
 namespace GLESC::ECS {
     struct PhysicsComponent : IComponent {
         Physics::Physics physics;
+        Physics::Collider collider;
 
         std::string toString() const override {
             return physics.toString();

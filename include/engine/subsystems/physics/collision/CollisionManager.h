@@ -8,15 +8,15 @@
  * See LICENSE.txt in the project root for license information.
  **************************************************************************************************/
 #pragma once
-#include "Collider.h"
+#include "../Collider.h"
 #include "engine/core/math/geometry/figures/BoundingVolume.h"
+#include "engine/subsystems/physics/Physics.h"
+#include "engine/subsystems/transform/Transform.h"
 
 class CollisionManager {
-
 public:
-    void checkCollision(const Collider& collider) {
 
-    }
+
 private:
-    std::vector<Collider*> colliders;
+
 }; // class CollisionManager

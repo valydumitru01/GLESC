@@ -9,6 +9,15 @@
  **************************************************************************************************/
 #include "engine/core/counter/Timer.h"
 #include <SDL2/SDL.h>
-unsigned long long  GLESC::Timer::getCurrentTime() {
-    return SDL_GetPerformanceCounter();
+
+void GLESC::Timer::start() {
+    startTime = SDL_GetTicks();
+}
+
+GLESC::Time  GLESC::Timer::getCurrentTime() {
+    return SDL_GetTicks() - startTime;
+}
+
+GLESC::Time GLESC::AbsoluteTimer::getCurrentTime() {
+    return SDL_GetTicks();
 }

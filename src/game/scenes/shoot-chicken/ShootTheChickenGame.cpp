@@ -13,6 +13,7 @@
 #include "engine/ecs/frontend/component/PhysicsComponent.h"
 #include "engine/ecs/frontend/component/RenderComponent.h"
 #include "engine/ecs/frontend/component/TransformComponent.h"
+#include "engine/subsystems/ingame-debug/Console.h"
 #include "engine/subsystems/renderer/mesh/MeshFactory.h"
 
 void ShootTheChickenGame::createChickenMesh() {
@@ -20,28 +21,28 @@ void ShootTheChickenGame::createChickenMesh() {
     Render::ColorMesh chickenBody = Render::MeshFactory::cube(Render::ColorRgb::WHITE);
 
     Render::ColorMesh chickenHead = Render::MeshFactory::cube(Render::ColorRgb::WHITE, 0.5f);
-    Transform::Transformer::translateModelMesh(chickenHead, {0, 0.5, 0.5});
+    Transform::Transformer::translateMesh(chickenHead, {0, 0.5, 0.5});
 
     Render::ColorMesh chickenPeak = Render::MeshFactory::cube(Render::ColorRgb::RED, 0.1f);
-    Transform::Transformer::translateModelMesh(chickenPeak, {0, 0.5, 0.5 + 0.5 / 2});
+    Transform::Transformer::translateMesh(chickenPeak, {0, 0.5, 0.5 + 0.5 / 2});
 
     Render::ColorMesh chickenEye1 = Render::MeshFactory::cube(Render::ColorRgb::BLACK, 0.1f);
-    Transform::Transformer::translateModelMesh(chickenEye1, {0.5 / 2, 0.6, 0.6});
+    Transform::Transformer::translateMesh(chickenEye1, {0.5 / 2, 0.6, 0.6});
 
     Render::ColorMesh chickenEye2 = Render::MeshFactory::cube(Render::ColorRgb::BLACK, 0.1f);
-    Transform::Transformer::translateModelMesh(chickenEye2, {-0.5 / 2, 0.6, 0.6});
+    Transform::Transformer::translateMesh(chickenEye2, {-0.5 / 2, 0.6, 0.6});
 
     Render::ColorMesh chickenLeg1 = Render::MeshFactory::cuboid(0.1f, 1, 0.1f, Render::ColorRgb::YELLOW);
-    Transform::Transformer::translateModelMesh(chickenLeg1, {0.25, -0.5, 0});
+    Transform::Transformer::translateMesh(chickenLeg1, {0.25, -0.5, 0});
 
     Render::ColorMesh chickenLeg2 = Render::MeshFactory::cuboid(0.1f, 1, 0.1f, Render::ColorRgb::YELLOW);
-    Transform::Transformer::translateModelMesh(chickenLeg2, {-0.25, -0.5, 0});
+    Transform::Transformer::translateMesh(chickenLeg2, {-0.25, -0.5, 0});
 
     Render::ColorMesh chickenFoot1 = Render::MeshFactory::cuboid(0.2f, 0.1f, 0.2f, Render::ColorRgb::YELLOW);
-    Transform::Transformer::translateModelMesh(chickenFoot1, {0.25, -1, 0.1f});
+    Transform::Transformer::translateMesh(chickenFoot1, {0.25, -1, 0.1f});
 
     Render::ColorMesh chickenFoot2 = Render::MeshFactory::cuboid(0.2f, 0.1f, 0.2f, Render::ColorRgb::YELLOW);
-    Transform::Transformer::translateModelMesh(chickenFoot2, {-0.25, -1, 0.1f});
+    Transform::Transformer::translateMesh(chickenFoot2, {-0.25, -1, 0.1f});
 
 
     chickenMesh.startBuilding();
@@ -74,10 +75,11 @@ void ShootTheChickenGame::init() {
     // Rotate once by a random amount
     for (auto& chicken : chickens) {
         auto& transform = chicken.getComponent<GLESC::ECS::TransformComponent>().transform;
-        transform.addRotation(GLESC::Transform::Rotation(Math::generateRandomNumber(0, 360),
+        /*transform.addRotation(GLESC::Transform::Rotation(Math::generateRandomNumber(0, 360),
                                                          Math::generateRandomNumber(0, 360),
-                                                         Math::generateRandomNumber(0, 360)));
-        chicken.getComponent<GLESC::ECS::PhysicsComponent>().physics.setAffectedByGravity(false);
+                                                         Math::generateRandomNumber(0, 360)));*/
+        chicken.getComponent<GLESC::ECS::PhysicsComponent>().physics.setAffectedByGravity(true);
+        //chicken.getComponent<GLESC::ECS::PhysicsComponent>().physics.setForwardAcceleration(0.1f);
     }
 
     Input::KeyCommand shootBullet = Input::KeyCommand([&]() {
@@ -87,6 +89,10 @@ void ShootTheChickenGame::init() {
         bullet.addComponent<ECS::TransformComponent>(bullet.getComponent<ECS::TransformComponent>());
         bullet.addComponent<ECS::RenderComponent>();
         bullet.addComponent<ECS::PhysicsComponent>();
+        bullet.getComponent<ECS::PhysicsComponent>().collider.setCollisionCallback(
+            [&]() {
+                Console::log("Collide!");
+            });
         bullet.getComponent<ECS::RenderComponent>().copyMesh(Render::MeshFactory::cube(Render::ColorRgb::WHITE, 0.1f));
         bullet.getComponent<ECS::PhysicsComponent>().physics.giveForwardForce(0.1f);
         bullets.push_back(bullet);
@@ -104,11 +110,17 @@ void ShootTheChickenGame::init() {
     floor.getComponent<ECS::RenderComponent>().copyMesh(
         Render::MeshFactory::cuboid(1000, 0.1f, 1000, Render::ColorRgb::GREEN));
     floor.getComponent<ECS::PhysicsComponent>().physics.setAffectedByGravity(false);
+
+
 }
 
 void ShootTheChickenGame::update() {
-    for (auto& chicken : chickens) {
-        chicken.getComponent<GLESC::ECS::PhysicsComponent>().physics.giveForwardForce(0.01f);
+    // Every 2 seconds, give upword force to all chickens
+    if ((getSceneTime() / 1000) % 20 == 0) {
+        for (auto& chicken : chickens) {
+            auto transform = chicken.getComponent<GLESC::ECS::TransformComponent>().transform;
+            chicken.getComponent<GLESC::ECS::PhysicsComponent>().physics.addForce(transform.up() * 0.1f);
+        }
     }
 }
 

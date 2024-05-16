@@ -74,7 +74,24 @@ namespace GLESC::Math {
             buildBoundingVolume(minVec, maxVec);
         }
 
-        const AABB& getBoundingBox() const {
+        bool isInside(const Vec3F& point) const {
+            return point.getX() >= boundingBox.min.getX() && point.getX() <= boundingBox.max.getX() &&
+                   point.getY() >= boundingBox.min.getY() && point.getY() <= boundingBox.max.getY() &&
+                   point.getZ() >= boundingBox.min.getZ() && point.getZ() <= boundingBox.max.getZ();
+        }
+
+        bool intersects(const BoundingVolume& other) const {
+            return boundingBox.min.getX() <= other.boundingBox.max.getX() &&
+                   boundingBox.max.getX() >= other.boundingBox.min.getX() &&
+                   boundingBox.min.getY() <= other.boundingBox.max.getY() &&
+                   boundingBox.max.getY() >= other.boundingBox.min.getY() &&
+                   boundingBox.min.getZ() <= other.boundingBox.max.getZ() &&
+                   boundingBox.max.getZ() >= other.boundingBox.min.getZ();
+        }
+
+
+
+        [[nodiscard]] const AABB& getBoundingBox() const {
             return boundingBox;
         }
 
