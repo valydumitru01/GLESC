@@ -186,7 +186,7 @@ namespace GLESC::Transform {
 
         static void transformMesh(Render::ColorMesh& mesh, const Transform& transform);
 
-        static Render::BoundingVolume transformBoundingVolume(const Render::BoundingVolume& boundingVolume,
+        static Math::BoundingVolume transformBoundingVolume(const Math::BoundingVolume& boundingVolume,
                                                               const Render::Model& matrix);
         static Position transformPosition(const Position& position, const Render::Model& matrix);
         static Position clipToNDC(const HomogeneousPosition& clipPos);

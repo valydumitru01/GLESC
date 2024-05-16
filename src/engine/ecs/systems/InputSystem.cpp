@@ -22,7 +22,7 @@ void InputSystem::update() {
     for (auto &entity : getAssociatedEntities()) {
         auto &input = getComponent<InputComponent>(entity);
 
-        for (std::pair<const Input::KeyInput, Input::KeyCommand> &keyPressedPair : input.subscribedKeys) {
+        for (std::pair<const Input::KeyInput, Input::KeyCommand> &keyPressedPair : input.input.getSubscribedKeys()) {
             const Input::KeyInput &key = keyPressedPair.first;
             Input::KeyCommand &command = keyPressedPair.second;
 
@@ -31,6 +31,6 @@ void InputSystem::update() {
             }
         }
 
-        input.mouseCommand.execute(inputManager.getMousePosition());
+        input.input.getMouseCommand().execute(inputManager.getMousePosition());
     }
 }

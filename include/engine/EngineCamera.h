@@ -29,6 +29,7 @@ namespace GLESC {
                                                      camerXRotationConstraint(CAMERA_X_ROTATION_LIMIT),
                                                      camera(entityFactory.createEntity("camera")) {
         }
+
         void setupCamera() {
             camera.addComponent<ECS::CameraComponent>()
                   .addComponent<ECS::TransformComponent>()
@@ -112,18 +113,26 @@ namespace GLESC {
                 inputManager.setMouseRelative(!inputManager.isMouseRelative());
             });
 
-            camera.getComponent<ECS::InputComponent>().subscribedKeys = {
-                {{Input::Key::W, Input::KeyAction::ONGOING_PRESSED}, moveForward},
-                {{Input::Key::S, Input::KeyAction::ONGOING_PRESSED}, moveBackward},
-                {{Input::Key::A, Input::KeyAction::ONGOING_PRESSED}, moveLeft},
-                {{Input::Key::D, Input::KeyAction::ONGOING_PRESSED}, moveRight},
-                {{Input::Key::SPACE, Input::KeyAction::ONGOING_PRESSED}, moveUp},
-                {{Input::Key::LEFT_SHIFT, Input::KeyAction::ONGOING_PRESSED}, moveDown},
-                {{Input::Key::LEFT_CTRL, Input::KeyAction::ONCE_PRESSED}, mouseRelativeMove},
-                {{Input::Key::LEFT_ALT, Input::KeyAction::ONCE_PRESSED}, accelerate},
-                {{Input::Key::LEFT_ALT, Input::KeyAction::ONCE_RELEASED}, decelerate},
-            };
-            camera.getComponent<ECS::InputComponent>().mouseCommand = rotate;
+            camera.getComponent<ECS::InputComponent>().input.subscribeKey(
+                {Input::Key::W, Input::KeyAction::ONGOING_PRESSED}, moveForward);
+            camera.getComponent<ECS::InputComponent>().input.subscribeKey(
+                {Input::Key::S, Input::KeyAction::ONGOING_PRESSED}, moveBackward);
+            camera.getComponent<ECS::InputComponent>().input.subscribeKey(
+                {Input::Key::A, Input::KeyAction::ONGOING_PRESSED}, moveLeft);
+            camera.getComponent<ECS::InputComponent>().input.subscribeKey(
+                {Input::Key::D, Input::KeyAction::ONGOING_PRESSED}, moveRight);
+            camera.getComponent<ECS::InputComponent>().input.subscribeKey(
+                {Input::Key::SPACE, Input::KeyAction::ONGOING_PRESSED}, moveUp);
+            camera.getComponent<ECS::InputComponent>().input.subscribeKey(
+                {Input::Key::LEFT_SHIFT, Input::KeyAction::ONGOING_PRESSED}, moveDown);
+            camera.getComponent<ECS::InputComponent>().input.subscribeKey(
+                {Input::Key::LEFT_CTRL, Input::KeyAction::ONCE_PRESSED}, mouseRelativeMove);
+            camera.getComponent<ECS::InputComponent>().input.subscribeKey(
+                {Input::Key::LEFT_ALT, Input::KeyAction::ONCE_PRESSED}, accelerate);
+            camera.getComponent<ECS::InputComponent>().input.subscribeKey(
+                {Input::Key::LEFT_ALT, Input::KeyAction::ONCE_RELEASED}, decelerate);
+
+            camera.getComponent<ECS::InputComponent>().input.setMouseCommand(rotate);
         }
 
         ~EngineCamera() = default;
@@ -131,9 +140,6 @@ namespace GLESC {
         ECS::Entity& getCamera() { return camera; }
 
     private:
-
-
-
         ECS::EntityFactory& entityFactory;
         Input::InputManager& inputManager;
         WindowManager& windowManager;

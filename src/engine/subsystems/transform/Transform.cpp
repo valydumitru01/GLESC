@@ -101,15 +101,12 @@ void Transformer::transformMesh(Render::ColorMesh& mesh, const Transform& transf
     transformMesh(mesh, modelMat);
 }
 
-GLESC::Render::BoundingVolume Transformer::transformBoundingVolume(const Render::BoundingVolume& boundingVolume,
-                                                                   const Render::Model& matrix) {
-    Render::BoundingVolume transformedBoundingVolume;
-    Vec3F transformedVertex;
-    for (const Math::Point& topologyVertice : boundingVolume.getTopology().getVertices()) {
-        transformedVertex = transformPosition(topologyVertice, matrix);
-        transformedBoundingVolume.topology.addVertex(transformedVertex);
-    }
-    return transformedBoundingVolume;
+GLESC::Math::BoundingVolume Transformer::transformBoundingVolume(const Math::BoundingVolume& boundingVolume,
+                                                                 const Render::Model& matrix) {
+    return {
+        transformPosition(boundingVolume.getVolume().min, matrix),
+        transformPosition(boundingVolume.getVolume().max, matrix)
+    };
 }
 
 Position Transformer::transformPosition(const Position& position, const Render::Model& matrix) {

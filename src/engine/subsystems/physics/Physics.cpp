@@ -10,71 +10,6 @@
 #include "engine/subsystems/physics/Physics.h"
 using namespace GLESC::Physics;
 
-void Physics::setMass(const Mass& mass) {
-    D_ASSERT_TRUE(mass > 0.0F, "Mass must be greater than 0");
-    this->mass = mass;
-}
-
-void Physics::setVelocity(const Velocity& velocity) {
-    this->velocity = velocity;
-}
-
-void Physics::setForce(const Force& force) {
-    this->force = force;
-}
-
-void Physics::setAcceleration(const Acceleration& acceleration) {
-    this->acceleration = acceleration;
-}
-
-void Physics::setForwardVelocity(const ForwardVelocity& forwardVelocity) {
-    this->forwardVelocity = forwardVelocity;
-}
-
-void Physics::addForwardForce(const ForwardForce& forwardForce) {
-    this->forwardForce = forwardForce;
-}
-
-void Physics::setForwardAcceleration(const ForwardAcceleration& forwardAcceleration) {
-    this->forwardAcceleration = forwardAcceleration;
-}
-
-void Physics::setAffectedByGravity(bool affectedByGravity) {
-    this->affectedByGravity = affectedByGravity;
-}
-
-
-[[nodiscard]] Mass Physics::getMass() const {
-    return mass;
-}
-
-[[nodiscard]] Velocity Physics::getVelocity() const {
-    return velocity;
-}
-
-[[nodiscard]] Force Physics::getForce() const {
-    return force;
-}
-
-[[nodiscard]] Acceleration Physics::getAcceleration() const {
-    return acceleration;
-}
-
-[[nodiscard]] ForwardVelocity Physics::getForwardVelocity() const {
-    return forwardVelocity;
-}
-
-[[nodiscard]] ForwardForce Physics::getForwardForce() const {
-    return forwardForce;
-}
-
-[[nodiscard]] ForwardAcceleration Physics::getForwardAcceleration() const {
-    return forwardAcceleration;
-}
-
-bool Physics::isAffectedByGravity() const {
-    return affectedByGravity;
-}
 
 [[nodiscard]] std::string Physics::toString() const {
     return "Physics: " +
@@ -87,7 +22,6 @@ bool Physics::isAffectedByGravity() const {
         std::to_string(forwardAcceleration) + " " +
         std::to_string(affectedByGravity);
 }
-
 
 [[nodiscard]] std::vector<EntityStatsManager::Value> Physics::getDebuggingValues() {
     std::vector<EntityStatsManager::Value> values;

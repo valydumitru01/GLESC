@@ -98,7 +98,7 @@ shared(adaptedMeshes, lights, sun, fog, skybox, timeOfFrame, view, projection, f
                 interpolationTransforms[dynamicMesh.transform].interpolate(timeOfFrame);
             Model model = interpolatedTransform.getModelMatrix();
 
-            BoundingVolume transformedBoundingVol =
+            Math::BoundingVolume transformedBoundingVol =
                 Transform::Transformer::transformBoundingVolume(*dynamicMesh.boundingVolume, model);
             {
                 std::lock_guard lockMutex(frustumMutex);

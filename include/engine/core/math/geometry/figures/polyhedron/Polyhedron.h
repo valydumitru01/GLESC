@@ -51,9 +51,6 @@ namespace GLESC::Math {
 
         void operator=(const Polyhedron &other) {
             vertices = other.vertices;
-            for (const PolyhedronFace &face : other.faces) {
-                this->addFace(face.getVertexIndices());
-            }
         }
 
     private:

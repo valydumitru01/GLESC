@@ -74,6 +74,7 @@ const std::unordered_map<EntityName, EntityID>& ECSCoordinator::getAllEntities()
 }
 
 void ECSCoordinator::registerSystem(const SystemName& name) {
+    std::lock_guard<std::mutex> lock(ecsMutex);
     if (systemManager.isSystemRegistered(name)) {
         Logger::get().info("System already registered");
         return;
@@ -95,6 +96,7 @@ std::vector<IComponent*> ECSCoordinator::getComponents(EntityID entity) const {
 }
 
 EntityID ECSCoordinator::createEntity(const EntityName& name) {
+    std::lock_guard<std::mutex> lock(ecsMutex);
     if (entityManager.doesEntityExist(name)) {
         Logger::get().warning("Cannot create entity with name " + name + " because it already exists");
         return EntityManager::nullEntity;
@@ -106,6 +108,7 @@ EntityID ECSCoordinator::createEntity(const EntityName& name) {
 }
 
 bool ECSCoordinator::destroyEntity(EntityID entity) {
+    std::lock_guard<std::mutex> lock(ecsMutex);
     if (!entityManager.doesEntityExist(entity)) {
         Logger::get().warning(
             "Cannot destroy entity with ID " + std::to_string(entity) + " because it already does not exist");

@@ -95,7 +95,7 @@ namespace GLESC::ECS {
             D_ASSERT_TRUE(hasComponent(entity), "Entity does not have component");
 
             // Return a reference to the entity's component
-            return componentArray[entityToIndexMap.at(entity)];
+            return componentArray[entityToIndexMap[entity]];
         }
 
         /**

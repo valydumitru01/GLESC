@@ -23,7 +23,7 @@ namespace GLESC::Render {
         std::unique_ptr<GAPI::VertexBuffer> vertexBuffer;
         const Material* material;
         const Transform::Transform* transform;
-        const BoundingVolume* boundingVolume;
+        const Math::BoundingVolume* boundingVolume;
     };
 
     struct AdaptedInstances {

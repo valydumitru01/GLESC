@@ -10,6 +10,8 @@
 
 #pragma once
 
+#include <mutex>
+
 #include "engine/ecs/ECSTypes.h"
 #include "engine/ecs/backend/system/SystemManager.h"
 #include "engine/ecs/backend/entity/EntityManager.h"
@@ -120,11 +122,13 @@ namespace GLESC::ECS {
         ComponentManager componentManager{};
         SystemManager systemManager{};
         EntityManager entityManager{};
+        std::mutex ecsMutex{};
     }; // class ECS
 
 
     template <typename Component>
     void ECSCoordinator::addComponent(EntityID entity, Component component) {
+        std::lock_guard<std::mutex> lock(ecsMutex);
         PRINT_ECS_STATUS("Before adding component " + std::string(typeid(Component).name()) +
             "to entity with ID " + std::to_string(entity));
         componentManager.addComponentToEntity<Component>(entity, component);
@@ -137,6 +141,7 @@ namespace GLESC::ECS {
 
     template <class Component>
     void ECSCoordinator::removeComponent(EntityID entity) {
+        std::lock_guard<std::mutex> lock(ecsMutex);
         PRINT_ECS_STATUS("Before removing component " + std::string(typeid(Component).name()) +
             " from entity with ID " + std::to_string(entity));
         componentManager.removeComponent<Component>(entity);
@@ -159,6 +164,7 @@ namespace GLESC::ECS {
 
     template <typename Component>
     void ECSCoordinator::addComponentRequirementToSystem(const SystemName& name) {
+        std::lock_guard<std::mutex> lock(ecsMutex);
         if (!systemManager.isSystemRegistered(name)) {
             Logger::get().warning("System " + name + " is not registered. Cannot add component requirement.");
             return;

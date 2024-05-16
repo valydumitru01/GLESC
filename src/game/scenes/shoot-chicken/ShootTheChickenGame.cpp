@@ -9,6 +9,7 @@
  **************************************************************************************************/
 #include "game/scenes/shoot-chicken/ShootTheChickenGame.h"
 
+#include "engine/ecs/frontend/component/InputComponent.h"
 #include "engine/ecs/frontend/component/PhysicsComponent.h"
 #include "engine/ecs/frontend/component/RenderComponent.h"
 #include "engine/ecs/frontend/component/TransformComponent.h"
@@ -78,12 +79,36 @@ void ShootTheChickenGame::init() {
                                                          Math::generateRandomNumber(0, 360)));
         chicken.getComponent<GLESC::ECS::PhysicsComponent>().physics.setAffectedByGravity(false);
     }
+
+    Input::KeyCommand shootBullet = Input::KeyCommand([&]() {
+        // Create a bullet
+        ECS::Entity bullet = createEntity("bullet" + std::to_string(bullets.size()));
+        // Copy the camera transform
+        bullet.addComponent<ECS::TransformComponent>(bullet.getComponent<ECS::TransformComponent>());
+        bullet.addComponent<ECS::RenderComponent>();
+        bullet.addComponent<ECS::PhysicsComponent>();
+        bullet.getComponent<ECS::RenderComponent>().copyMesh(Render::MeshFactory::cube(Render::ColorRgb::WHITE, 0.1f));
+        bullet.getComponent<ECS::PhysicsComponent>().physics.giveForwardForce(0.1f);
+        bullets.push_back(bullet);
+    });
+
+    //getCamera().getComponent<ECS::InputComponent>().input.subscribeKey(
+    //    {Input::Key::SPACE, Input::KeyAction::ONCE_PRESSED}, shootBullet);
+
+    // Create a floor
+    ECS::Entity floor = createEntity("floor");
+    floor.addComponent<ECS::TransformComponent>();
+    floor.addComponent<ECS::RenderComponent>();
+    floor.addComponent<ECS::PhysicsComponent>();
+    floor.getComponent<ECS::TransformComponent>().transform.setPosition({0, -1, 0});
+    floor.getComponent<ECS::RenderComponent>().copyMesh(
+        Render::MeshFactory::cuboid(1000, 0.1f, 1000, Render::ColorRgb::GREEN));
+    floor.getComponent<ECS::PhysicsComponent>().physics.setAffectedByGravity(false);
 }
 
 void ShootTheChickenGame::update() {
     for (auto& chicken : chickens) {
-        chicken.getComponent<GLESC::ECS::PhysicsComponent>().physics.addForwardForce(0.01f);
-
+        chicken.getComponent<GLESC::ECS::PhysicsComponent>().physics.giveForwardForce(0.01f);
     }
 }
 

@@ -10,7 +10,7 @@
 #pragma once
 
 #include "engine/core/math/geometry/figures/polyhedron/Polyhedron.h"
-#include "engine/subsystems/renderer/BoundingVolume.h"
+#include "../../../core/math/geometry/figures/BoundingVolume.h"
 
 namespace GLESC::Render {
     class Frustum {
@@ -47,26 +47,22 @@ namespace GLESC::Render {
          * @return true If the frustum intersects the volume.
          * @return false If the frustum does not intersect the volume.
          */
-        [[nodiscard]] bool contains(const BoundingVolume& volume) const {
-            // Initially assume no point is inside all planes
-            bool anyPointInsideAllPlanes = false;
-
-            for (const Math::Point& point : volume.getTopology().getVertices()) {
-                int insideCount = 0;
-                for (const Math::Plane& plane : planes) {
-                    if (plane.hasInside(point)) {
-                        insideCount++;
-                    }
-                }
-                // If the point is inside all planes, mark and break the loop as we found a point inside the frustum
-                if (insideCount == planes.size()) {
-                    anyPointInsideAllPlanes = true;
-                    break; // Found a point inside all planes, no need to check further
+        [[nodiscard]] bool contains(const Math::BoundingVolume& volume) const {
+            const auto& bbox = volume.getBoundingBox();
+            for (const auto& plane : planes) {
+                // Check if all points of the AABB are outside a plane
+                if (!plane.hasInside({bbox.min.getX(), bbox.min.getY(), bbox.min.getZ()}) &&
+                    !plane.hasInside({bbox.max.getX(), bbox.min.getY(), bbox.min.getZ()}) &&
+                    !plane.hasInside({bbox.min.getX(), bbox.max.getY(), bbox.min.getZ()}) &&
+                    !plane.hasInside({bbox.max.getX(), bbox.max.getY(), bbox.min.getZ()}) &&
+                    !plane.hasInside({bbox.min.getX(), bbox.min.getY(), bbox.max.getZ()}) &&
+                    !plane.hasInside({bbox.max.getX(), bbox.min.getY(), bbox.max.getZ()}) &&
+                    !plane.hasInside({bbox.min.getX(), bbox.max.getY(), bbox.max.getZ()}) &&
+                    !plane.hasInside({bbox.max.getX(), bbox.max.getY(), bbox.max.getZ()})) {
+                    return false;
                 }
             }
-
-            // Return true if at least one point is inside all planes, indicating intersection
-            return anyPointInsideAllPlanes;
+            return true;
         }
 
         [[nodiscard]] bool contains(Position position) const {

@@ -95,7 +95,7 @@ namespace GLESC::ECS {
 
     template<typename Component, typename... Args>
     Entity& Entity::addComponent(Args&&... args) {
-        S_ASSERT_EQUAL(sizeof...(Args), 0, "Only one component can be passed to addComponent");
+        S_ASSERT_LESS_OR_EQUAL(sizeof...(Args), 1, "Only one component can be passed to addComponent");
         ecs.addComponent<Component>(ID, Component(std::forward<Args>(args)...));
         return *this;
     }

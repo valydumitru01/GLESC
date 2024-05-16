@@ -13,10 +13,9 @@
 #include <string>
 #include <memory>
 #include <mutex>
-#include <unordered_map>
-
+#include "engine/core/math/geometry/GeometryTypes.h"
 #include "engine/core/hash/Hasher.h"
-#include "engine/subsystems/renderer/BoundingVolume.h"
+#include "engine/core/math/geometry/figures/BoundingVolume.h"
 #include "engine/subsystems/renderer/mesh/Vertex.h"
 #include "engine/subsystems/renderer/RendererTypes.h"
 
@@ -50,6 +49,7 @@ namespace GLESC::Render {
         Mesh(const Mesh& other) {
             *this = other;
         }
+
         Mesh(Mesh&& other) noexcept {
             *this = std::move(other);
         }
@@ -64,6 +64,7 @@ namespace GLESC::Render {
             hashDirty = other.hashDirty;
             cachedHash = other.cachedHash;
         }
+
         void operator=(const Mesh& other) {
             vertices = other.vertices;
             indices = other.indices;
@@ -91,7 +92,7 @@ namespace GLESC::Render {
             D_ASSERT_TRUE(isBuilding, "Mesh is not being built");
             D_ASSERT_TRUE(vertices.size() > 0, "No vertices in mesh");
             D_ASSERT_TRUE(indices.size() > 0, "No indices in mesh");
-            boundingVolume.updateTopology(vertices.data(), vertices.size() * sizeof(Vertex), sizeof(Vertex), 0);
+            boundingVolume.updateBoundingBox(vertices.data(), vertices.size() * sizeof(Vertex), sizeof(Vertex), 0);
             isBuilding = false;
         }
 
@@ -115,8 +116,8 @@ namespace GLESC::Render {
         [[nodiscard]] const std::vector<Index> getIndices() const { return indices; }
         [[nodiscard]] const std::vector<GAPI::Enums::Types> getVertexLayout() const { return vertexLayout; }
         [[nodiscard]] const std::vector<Math::FaceIndices> getFaces() const { return faces; }
-        [[nodiscard]] const BoundingVolume& getBoundingVolume() const { return boundingVolume; }
-        [[nodiscard]] BoundingVolume& getBoundingVolumeMutable() { return boundingVolume; }
+        [[nodiscard]] const Math::BoundingVolume& getBoundingVolume() const { return boundingVolume; }
+        [[nodiscard]] Math::BoundingVolume& getBoundingVolumeMutable() { return boundingVolume; }
         [[nodiscard]] bool isDirty() const { return dirtyFlag; }
         [[nodiscard]] const RenderType& getRenderType() const { return renderType; }
         [[nodiscard]] bool isBeingBuilt() const { return isBuilding; }
@@ -289,8 +290,6 @@ namespace GLESC::Render {
             return cachedHash;
         }
 
-
-
     private:
         Normal calculateNormal(const Position& a, const Position& b, const Position& c) const {
             return (b - a).cross(c - a).normalize();
@@ -323,7 +322,7 @@ namespace GLESC::Render {
          * @brief The bounding volume of the mesh.
          * @details The bounding volume is a polyhedron cuboid that encloses the mesh. It is used for culling.
          */
-        BoundingVolume boundingVolume;
+        Math::BoundingVolume boundingVolume;
         /**
          * @brief The vertex layout of the mesh.
          * @details The vertex layout is a vector of GAPI::Types that describes the layout of the

@@ -103,7 +103,8 @@ namespace GLESC::ECS {
 
     template<typename Component>
     bool ComponentManager::isComponentRegistered() const {
-        return componentArrays.find(typeid(Component).name()) !=
+        auto name = typeid(Component).name();
+        return componentArrays.find(name) !=
                componentArrays.end();
     }
 
