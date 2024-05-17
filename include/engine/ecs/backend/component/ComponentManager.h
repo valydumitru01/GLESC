@@ -95,10 +95,11 @@ namespace GLESC::ECS {
 
     template<typename Component>
     Component &ComponentManager::getComponent(EntityID entity) const {
+        auto componentArray = getComponentArray<Component>();
         S_ASSERT_TRUE((std::is_base_of_v<IComponent, Component>), "Component must inherit from IComponent");
         D_ASSERT_TRUE(isComponentRegistered<Component>(), "Component is not registered");
-        D_ASSERT_TRUE(getComponentArray<Component>()->hasComponent(entity), "Entity does not have component");
-        return getComponentArray<Component>()->getData(entity);
+        D_ASSERT_TRUE(componentArray->hasComponent(entity), "Entity does not have component");
+        return componentArray->getData(entity);
     }
 
     template<typename Component>

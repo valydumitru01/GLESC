@@ -1,5 +1,5 @@
 /******************************************************************************
- * @file   BufferLayout.h
+ * @file   Config.h
  * @author Valentin Dumitru
  * @date   2023-11-06
  * @brief  This file contains the configuration of the engine.

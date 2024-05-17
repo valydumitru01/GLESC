@@ -86,7 +86,9 @@ void ShootTheChickenGame::init() {
         // Create a bullet
         ECS::Entity bullet = createEntity("bullet" + std::to_string(bullets.size()));
         // Copy the camera transform
-        bullet.addComponent<ECS::TransformComponent>(bullet.getComponent<ECS::TransformComponent>());
+        bullet.addComponent<ECS::TransformComponent>(getCamera().getComponent<ECS::TransformComponent>());
+        bullet.getComponent<ECS::TransformComponent>().transform.setRotation(
+            -getCamera().getComponent<ECS::TransformComponent>().transform.getRotation());
         bullet.addComponent<ECS::RenderComponent>();
         bullet.addComponent<ECS::PhysicsComponent>();
         bullet.getComponent<ECS::PhysicsComponent>().collider.setCollisionCallback(
@@ -94,12 +96,12 @@ void ShootTheChickenGame::init() {
                 Console::log("Collide!");
             });
         bullet.getComponent<ECS::RenderComponent>().copyMesh(Render::MeshFactory::cube(Render::ColorRgb::WHITE, 0.1f));
-        bullet.getComponent<ECS::PhysicsComponent>().physics.giveForwardForce(0.1f);
+        bullet.getComponent<ECS::PhysicsComponent>().physics.giveForwardForce(1000.f);
         bullets.push_back(bullet);
     });
 
-    //getCamera().getComponent<ECS::InputComponent>().input.subscribeKey(
-    //    {Input::Key::SPACE, Input::KeyAction::ONCE_PRESSED}, shootBullet);
+    getCamera().getComponent<ECS::InputComponent>().input.subscribeKey(
+        {Input::Key::LEFT_CLICK, Input::KeyAction::ONCE_PRESSED}, shootBullet);
 
     // Create a floor
     ECS::Entity floor = createEntity("floor");

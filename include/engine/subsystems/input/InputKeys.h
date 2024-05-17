@@ -18,6 +18,9 @@ namespace GLESC::Input {
         ONGOING_RELEASED,
     };
     enum class Key {
+        LEFT_CLICK = SDL_BUTTON_LEFT,
+        RIGHT_CLICK = SDL_BUTTON_RIGHT,
+        MIDDLE_CLICK = SDL_BUTTON_MIDDLE,
         ESCAPE = SDLK_ESCAPE,
         SPACE = SDLK_SPACE,
         LEFT = SDLK_LEFT,
