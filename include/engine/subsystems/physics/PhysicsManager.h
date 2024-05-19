@@ -18,13 +18,57 @@ namespace GLESC::Physics {
 
             physics = getNextPhysics(physics, transform);
             Transform::Transform nextTransform = getNextTransform(transform, physics);
-            Collider nextCollider = getNextCollider(collider, nextTransform);
-
-            // If the new bounding volume intersects with another bounding volume that is solid, we must stop the object
-            if (collidesOnNextFrame(nextCollider) && nextCollider.isSolid()) {
-                physics.setVelocity({0.0f, 0.0f, 0.0f});
+            if (!collider.isSolid()) {
+                transform = nextTransform;
                 return;
             }
+            Transform::Transform oldTransform = transform;
+
+            // Check if the X translation in the next frame will cause a collision
+            Transform::Transform nextTransformX = nextTransform;
+            nextTransformX.setPosition({
+                nextTransformX.getPosition().getX(),
+                oldTransform.getPosition().getY(),
+                oldTransform.getPosition().getZ()
+            });
+            Collider nextColliderX = getNextCollider(collider, nextTransformX);
+
+
+            // Check if the Y translation in the next frame will cause a collision
+            Transform::Transform nextTransformY = nextTransform;
+            nextTransformY.setPosition({
+                oldTransform.getPosition().getX(),
+                nextTransformY.getPosition().getY(),
+                oldTransform.getPosition().getZ()
+            });
+            Collider nextColliderY = getNextCollider(collider, nextTransformY);
+
+
+            // Check if the Z translation in the next frame will cause a collision
+            Transform::Transform nextTransformZ = nextTransform;
+            nextTransformY.setPosition({
+                oldTransform.getPosition().getX(),
+                nextTransformY.getPosition().getY(),
+                oldTransform.getPosition().getZ()
+            });
+            Collider nextColliderZ = getNextCollider(collider, nextTransformZ);
+
+            // Cancel the component that causes the collision
+            Vec3B bools = collidesOnNextFrame(collider, nextColliderX, nextColliderY, nextColliderZ);
+
+            // Cancel the components that cause the collision
+            if (bools.getX()) {
+                physics.setVelocity({0.0F, physics.getVelocity().getY(), physics.getVelocity().getZ()});
+            }
+            if (bools.getY()) {
+                physics.setVelocity({physics.getVelocity().getX(), 0.0F, physics.getVelocity().getZ()});
+            }
+            if (bools.getZ()) {
+                physics.setVelocity({physics.getVelocity().getX(), physics.getVelocity().getY(), 0.0F});
+            }
+
+            nextTransform = getNextTransform(transform, physics);
+
             transform = nextTransform;
         }
 
@@ -67,23 +111,39 @@ namespace GLESC::Physics {
         Collider getNextCollider(const Collider& oldCollider, const Transform::Transform& nextTransform) const {
             Collider nextCollider = oldCollider;
             nextCollider.boundingVolume = Transform::Transformer::transformBoundingVolume(oldCollider.boundingVolume,
-                                                                                           nextTransform);
+                nextTransform);
             return nextCollider;
         }
 
 
-        bool collidesOnNextFrame(const Collider& nextCollider) const {
-
+        Vec3B collidesOnNextFrame(const Collider& originalCollider,
+                                  const Collider& nextColliderX,
+                                  const Collider& nextColliderY,
+                                  const Collider& nextColliderZ) {
+            Vec3B finalBools;
             for (const auto& otherCollider : colliders) {
-                if (otherCollider == &nextCollider) continue;
-                if (nextCollider.boundingVolume.intersects(otherCollider->boundingVolume)) {
-                    nextCollider.collisionCallback();
-                    auto it = nextCollider.collisionCallbacksForSpecificColliders.find(otherCollider);
-                    if (it != nextCollider.collisionCallbacksForSpecificColliders.end()) {
-                        it->second();
-                    }
-                    return true;
+                if (otherCollider == &originalCollider) continue;
+                Vec3B boolsForCollider{
+                    collidesWithCollider(nextColliderX, *otherCollider),
+                    collidesWithCollider(nextColliderY, *otherCollider),
+                    collidesWithCollider(nextColliderZ, *otherCollider)
+                };
+                finalBools.setX(finalBools.getX() || boolsForCollider.getX());
+                finalBools.setY(finalBools.getY() || boolsForCollider.getY());
+                finalBools.setZ(finalBools.getZ() || boolsForCollider.getZ());
+            }
+            return finalBools;
+        }
+
+        bool collidesWithCollider(const Collider& collider, const Collider& otherCollider) {
+            if (collider.boundingVolume.intersects(otherCollider.boundingVolume)) {
+                if (collider.collisionCallback)
+                    collider.collisionCallback();
+                auto it = collider.collisionCallbacksForSpecificColliders.find(&otherCollider);
+                if (it != collider.collisionCallbacksForSpecificColliders.end()) {
+                    it->second();
                 }
+                return true;
             }
             return false;
         }
@@ -94,6 +154,7 @@ namespace GLESC::Physics {
                 colliders.push_back(&collider);
             }
         }
+
     private:
         std::vector<const Collider*> colliders;
 
@@ -105,6 +166,6 @@ namespace GLESC::Physics {
          * and the object would move too fast. Using a scalar makes the used be able to handle
          * more realistic numbers.
          */
-        Scalar velocityScalar{0.01f};
+        Scalar velocityScalar{0.001f};
     };
 } // namespace GLESC

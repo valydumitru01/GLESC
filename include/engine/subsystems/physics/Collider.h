@@ -32,6 +32,14 @@ namespace GLESC::Physics {
 
         bool isSolid() const { return solid; }
 
+        void setBoundingVolume(const Vec3F corner1, const Vec3F corner2) {
+            boundingVolume = GLESC::Math::BoundingVolume(corner1, corner2);
+        }
+
+        void setBoundingVolume(const GLESC::Math::BoundingVolume& boundingVolume) {
+            this->boundingVolume = boundingVolume;
+        }
+
     private:
         std::function<void()> collisionCallback;
         std::unordered_map<const Collider*, std::function<void()>> collisionCallbacksForSpecificColliders;

@@ -246,5 +246,47 @@ TEST_F(ECSTests, GetAssociatedEntities) {
     ASSERT_EQ(ecs.getAssociatedEntities(systemName).size(), 2);
 }
 
+TEST_F(ECSTests, CreateAndDeleteManyEntities) {
+    int entities = 100;
+    for (int i = 0; i < entities; ++i) {
+        ecs.createEntity("TestEntity" + std::to_string(i));
+    }
+
+    ASSERT_EQ(getEntityManager().getLivingEntityCount(), entities);
+    ASSERT_EQ(getEntityManager().getEntityNameToID().size(), entities);
+    ASSERT_EQ(getEntityManager().getEntityIDToName().size(), entities);
+    ASSERT_EQ(getEntityManager().getAvailableEntities().size(), GLESC::ECS::maxEntities - entities);
+
+    ASSERT_TRUE(getSystemManager().getAllAssociatedEntities().empty());
+    ASSERT_TRUE(getSystemManager().getSystemSignatures().empty());
+
+    for (int i = 0; i < entities; ++i) {
+        ecs.destroyEntity(i);
+    }
+    ASSERT_EQ(getEntityManager().getLivingEntityCount(), 0);
+    ASSERT_EQ(getEntityManager().getEntityNameToID().size(), 0);
+    ASSERT_EQ(getEntityManager().getEntityIDToName().size(), 0);
+    ASSERT_EQ(getEntityManager().getAvailableEntities().size(), GLESC::ECS::maxEntities);
+}
+
+TEST_F(ECSTests, CreateAndDeleteManyEntitiesAlternating) {
+    int entities = 100;
+    // First creating half of maxEntities
+    for (int i = 0; i < entities / 2; ++i) {
+        ecs.createEntity("TestEntity" + std::to_string(i));
+    }
+    // Destroying one third of the entities, leaving 1/2 - 1/3 = 1/6 of the entities
+    for (int i = 0; i < entities / 3; ++i) {
+        ecs.destroyEntity(i);
+    }
+    // Creating 1/3 of the entities, leaving 1/6 + 1/3 = 1/2 of the entities
+    for (int i = 0; i < entities / 3; ++i) {
+        ecs.createEntity("TestEntity" + std::to_string(i + entities / 2));  // Ensure unique names
+    }
+    // Destroying the rest of the entities
+    for (int i = 0; i < entities / 2; ++i) {
+        ecs.destroyEntity(i + entities / 2);
+    }
+}
 
 #endif

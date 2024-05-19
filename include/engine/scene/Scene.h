@@ -37,21 +37,46 @@ namespace GLESC::Scene {
         Time getSceneTime() { return sceneTimer.getCurrentTime(); }
 
     protected:
-        std::vector<ECS::Entity>& getSceneEntities() { return sceneEntities; }
+        std::vector<ECS::EntityID>& getSceneEntities() { return sceneEntities; }
 
-        ECS::Entity& createEntity(const std::string& entityName) {
+        ECS::Entity createEntity(const std::string& entityName) {
             ECS::Entity entity = entityFactory.createEntity(entityName);
-            sceneEntities.push_back(entity);
-            return sceneEntities.back();
+            sceneEntities.push_back(entity.getID());
+            return entityFactory.getEntity(sceneEntities.back());
         }
+
+        ECS::Entity getEntity(const std::string& entityName) {
+            return entityFactory.getEntity(entityName);
+        }
+
+        ECS::Entity getEntity(const ECS::EntityID& entityID) {
+            return entityFactory.getEntity(entityID);
+        }
+
+        void destroyEntity(const std::string& entityName) {
+            auto entity = entityFactory.getEntity(entityName);
+            entity.destroy();
+            sceneEntities.erase(std::remove(sceneEntities.begin(), sceneEntities.end(), entity.getID()),
+                                sceneEntities.end());
+        }
+
+        void destroyEntity(const ECS::EntityID& entityID) {
+            auto entity = entityFactory.getEntity(entityID);
+            entity.destroy();
+            sceneEntities.erase(std::remove(sceneEntities.begin(), sceneEntities.end(), entityID),
+                                sceneEntities.end());
+        }
+
+
         void destroyEntities() {
             for (auto& entity : getSceneEntities()) {
-                entity.destroy();
+                entityFactory.getEntity(entity).destroy();
             }
             sceneEntities.clear();
         }
+
     private:
-        std::vector<ECS::Entity> sceneEntities;
+        std::vector<ECS::EntityID> sceneEntities;
         SceneManager& sceneManager;
         SceneID sceneID{};
         Timer sceneTimer;

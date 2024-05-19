@@ -88,9 +88,9 @@ void Engine::update() {
 
     game.update();
 
-#pragma omp parallel for \
-    shared(renderer, windowManager, ecs, updateSystems) \
-    schedule(static, 1)
+//#pragma omp parallel for \
+//    shared(renderer, windowManager, ecs, updateSystems) \
+//    schedule(static, 1)
     for (auto& system : updateSystems) {
         system->update();
     }

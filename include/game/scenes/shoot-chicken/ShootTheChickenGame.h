@@ -34,7 +34,7 @@ public:
 
 private:
     GLESC::Render::ColorMesh chickenMesh;
-    std::vector<GLESC::ECS::Entity> chickens;
+    std::vector<GLESC::ECS::EntityID> chickens;
     // This will lead to memory leak
-    std::vector<GLESC::ECS::Entity> bullets;
+    std::vector<GLESC::ECS::EntityID> bullets;
 }; // class ShootTheChickenGame

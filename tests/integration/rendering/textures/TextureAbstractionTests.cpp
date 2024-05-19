@@ -30,7 +30,7 @@ protected:
     VertexBuffer* vbo;
     IndexBuffer* ibo;
     Shader* shader;
-    GAPITexture* texture;
+    GLESC::Render::Texture* texture;
     std::vector<std::string> texturePaths{
             "assets/textures/Debug1.png",
             "assets/textures/Debug2.png",
@@ -84,19 +84,19 @@ protected:
     }
     
     void drawAndCheckTexture(std::string texturePath){
-        texture= new GAPITexture(texturePath);
+        texture= new GLESC::Render::Texture(texturePath);
         
         shader->bind();
-        texture->bind(GAPITexture::Slot::Slot0); // Bind the texture to slot 0
+        texture->bind(0); // Bind the texture to slot 0
         // The texture is bound to slot 0, so we need to set the uniform to 0
-        shader->setUniform("uTexture",0);
+        GLESC::GAPI::Shader::setUniform("uTexture",0);
         render();
         // checkTextureData(texture->getTextureID(), texture->getPixelsInBytes());
         Logger::get().info("============Checking texture data=============");
-        auto actualData = getGAPI().getTextureData(texture->getTextureID());
-        EXPECT_EQ(texture->getPixelsInBytes().size(), actualData.size());
-        for (size_t i = 0; i < texture->getPixelsInBytes().size(); ++i) {
-            EXPECT_EQ(texture->getPixelsInBytes()[i], actualData[i])
+        auto actualData = getGAPI().getTextureData(texture->getTextureID(), Enums::Texture::Types::Texture2D);
+        EXPECT_EQ(texture->getTextureSurface().getPixels().size(), actualData.size());
+        for (size_t i = 0; i < texture->getTextureSurface().getPixels().size(); ++i) {
+            EXPECT_EQ(texture->getTextureSurface().getPixels()[i], actualData[i])
                                 << "Texture data mismatch at index " << i;
         }
         Logger ::get().success("Texture data is correct");

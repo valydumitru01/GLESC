@@ -21,7 +21,9 @@ PhysicsSystem::PhysicsSystem(Physics::PhysicsManager& physicsManager, ECSCoordin
 }
 
 void PhysicsSystem::update() {
-    for (auto const& entity : getAssociatedEntities()) {
+    auto& entities = getAssociatedEntities();
+
+    for (auto const& entity : entities) {
         auto& physics = getComponent<PhysicsComponent>(entity);
         auto& transform = getComponent<TransformComponent>(entity);
 

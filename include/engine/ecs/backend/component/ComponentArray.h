@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include <cassert>
+#include "engine/core/asserts/Asserts.h"
 #include "engine/ecs/ECSTypes.h"
 #include "engine/core/logger/Logger.h"
 #include "IComponent.h"

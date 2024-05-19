@@ -23,6 +23,7 @@ namespace GLESC::ECS {
         std::optional<Entity> tryGetEntity(const EntityName &name);
 
         Entity getEntity(const EntityName &name);
+        Entity getEntity(const EntityID &id);
 
     private:
         ECSCoordinator &ecs;

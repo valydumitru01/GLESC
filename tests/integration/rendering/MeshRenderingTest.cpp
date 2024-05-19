@@ -19,6 +19,7 @@
 #include "LoopHelper.cpp"
 
 using namespace GLESC::Render;
+
 class MeshRenderingTest : public ::testing::Test {
 protected:
     GLESC::WindowManager windowManager;
@@ -28,8 +29,8 @@ protected:
     GLESC::Transform::Transform transform;
     // These are pointers because we don't want to call the constructor
     MeshRenderingTest() : windowManager(), renderer(windowManager) {
-        mesh = MeshFactory::cube(ColorRgba(1,0,0,1));
-        renderer.sendMeshData(material,mesh, transform);
+        mesh = MeshFactory::cube(ColorRgba(1, 0, 0, 1));
+        renderer.sendMeshData(mesh,material, transform);
     }
 
 

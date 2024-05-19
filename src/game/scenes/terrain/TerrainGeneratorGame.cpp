@@ -26,7 +26,8 @@ void TerrainGeneratorGame::generateEntitiesForMap(GLESC::ECS::EntityFactory& ent
         auto& chunkPosition = keys[i];
         auto& chunk = map[chunkPosition];
         GLESC::Render::ColorMesh chunkMesh = MeshTerrain::generateChunkMeshFromMap(chunk, chunkPosition, map);
-        GLESC::ECS::Entity entity = getSceneEntities().at(i);
+        GLESC::ECS::EntityID entityID = getSceneEntities().at(i);
+        GLESC::ECS::Entity entity = getEntity(entityID);
         entity.addComponent<GLESC::ECS::TransformComponent>()
               .addComponent<GLESC::ECS::RenderComponent>();
         entity.getComponent<GLESC::ECS::TransformComponent>().transform.setPosition({

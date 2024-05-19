@@ -12,6 +12,8 @@
 
 #include "engine/ecs/backend/ECS.h"
 
+#include <shared_mutex>
+
 using namespace GLESC::ECS;
 
 void ECSCoordinator::printStatus(const std::string& contextMessage) {
@@ -66,7 +68,13 @@ void ECSCoordinator::printEntity(EntityID entity) {
 const std::set<EntityID>& ECSCoordinator::getAssociatedEntities(const SystemName& name) const {
     if (!systemManager.isSystemRegistered(name))
         return {};
-    return systemManager.getAssociatedEntitiesOfSystem(name);
+    const auto& set = systemManager.getAssociatedEntitiesOfSystem(name);
+    for (const auto& entity : set) {
+        D_ASSERT_TRUE(entityManager.doesEntityExist(entity), "Entity must exist");
+        D_ASSERT_TRUE(systemManager.isEntityAssociatedWithSystem(name, entity),
+                      "Entity must be associated with system");
+    }
+    return set;
 }
 
 const std::unordered_map<EntityName, EntityID>& ECSCoordinator::getAllEntities() const {
@@ -74,7 +82,7 @@ const std::unordered_map<EntityName, EntityID>& ECSCoordinator::getAllEntities()
 }
 
 void ECSCoordinator::registerSystem(const SystemName& name) {
-    std::lock_guard<std::mutex> lock(ecsMutex);
+    std::lock_guard lock(ecsMutex);
     if (systemManager.isSystemRegistered(name)) {
         Logger::get().info("System already registered");
         return;
@@ -96,7 +104,7 @@ std::vector<IComponent*> ECSCoordinator::getComponents(EntityID entity) const {
 }
 
 EntityID ECSCoordinator::createEntity(const EntityName& name) {
-    std::lock_guard<std::mutex> lock(ecsMutex);
+    std::lock_guard lock(ecsMutex);
     if (entityManager.doesEntityExist(name)) {
         Logger::get().warning("Cannot create entity with name " + name + " because it already exists");
         return EntityManager::nullEntity;
@@ -108,7 +116,7 @@ EntityID ECSCoordinator::createEntity(const EntityName& name) {
 }
 
 bool ECSCoordinator::destroyEntity(EntityID entity) {
-    std::lock_guard<std::mutex> lock(ecsMutex);
+    std::lock_guard lock(ecsMutex);
     if (!entityManager.doesEntityExist(entity)) {
         Logger::get().warning(
             "Cannot destroy entity with ID " + std::to_string(entity) + " because it already does not exist");
@@ -131,5 +139,5 @@ const EntityName& ECSCoordinator::getEntityName(EntityID entity) const {
 }
 
 EntityID ECSCoordinator::tryGetEntityID(const EntityName& name) const {
-    return entityManager.tryGetEntity(std::move(name));
+    return entityManager.tryGetEntity(name);
 }

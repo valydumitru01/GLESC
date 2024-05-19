@@ -26,6 +26,8 @@
 #include "engine/subsystems/renderer/mesh/MeshAdapter.h"
 #include "engine/subsystems/transform/Transform.h"
 
+class MeshRenderingTest;
+
 namespace GLESC {
     class Engine;
 }
@@ -33,6 +35,7 @@ namespace GLESC {
 namespace GLESC::Render {
     class Renderer {
         friend class GLESC::Engine;
+        friend class ::MeshRenderingTest;
 
         struct Light {
             const LightSpot* light = nullptr;

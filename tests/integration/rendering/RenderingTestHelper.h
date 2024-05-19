@@ -128,7 +128,7 @@ inline void checkIndices(UInt bufferID, std::vector<UInt> &expectedIndices) {
 
 inline void checkTextureData(UInt textureID, const std::vector<UByte> &expectedData) {
     Logger::get().info("============Checking texture data=============");
-    auto actualData = getGAPI().getTextureData(textureID);
+    auto actualData = getGAPI().getTextureData(textureID, Enums::Texture::Types::Texture2D);
     EXPECT_EQ(expectedData.size(), actualData.size());
     for (size_t i = 0; i < expectedData.size(); ++i) {
         printExpectNear("texture data", expectedData[i], actualData[i]);
