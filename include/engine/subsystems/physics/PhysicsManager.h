@@ -11,11 +11,13 @@
 #include "engine/subsystems/transform/Transform.h"
 
 namespace GLESC::Physics {
+    struct CollisionInformation {
+        Vec3B collisionAxis;
+        std::vector<Collider*> colliders;
+    };
     class PhysicsManager {
     public:
         void updatePhysics(Physics& physics, Collider& collider, Transform::Transform& transform) {
-            addCollider(collider);
-
             physics = getNextPhysics(physics, transform);
             Transform::Transform nextTransform = getNextTransform(transform, physics);
             if (!collider.isSolid()) {
@@ -56,6 +58,15 @@ namespace GLESC::Physics {
             // Cancel the component that causes the collision
             Vec3B bools = collidesOnNextFrame(collider, nextColliderX, nextColliderY, nextColliderZ);
 
+
+            if(bools.getX() || bools.getY() || bools.getZ()){
+                if (collider.collisionCallback)
+                    collider.collisionCallback();
+                auto it = collider.collisionCallbacksForSpecificColliders.find(&otherCollider);
+                if (it != collider.collisionCallbacksForSpecificColliders.end()) {
+                    it->second();
+                }
+            }
             // Cancel the components that cause the collision
             if (bools.getX()) {
                 physics.setVelocity({0.0F, physics.getVelocity().getY(), physics.getVelocity().getZ()});
@@ -116,7 +127,7 @@ namespace GLESC::Physics {
         }
 
 
-        Vec3B collidesOnNextFrame(const Collider& originalCollider,
+        CollisionInformation collidesOnNextFrame(const Collider& originalCollider,
                                   const Collider& nextColliderX,
                                   const Collider& nextColliderY,
                                   const Collider& nextColliderZ) {
@@ -137,22 +148,17 @@ namespace GLESC::Physics {
 
         bool collidesWithCollider(const Collider& collider, const Collider& otherCollider) {
             if (collider.boundingVolume.intersects(otherCollider.boundingVolume)) {
-                if (collider.collisionCallback)
-                    collider.collisionCallback();
-                auto it = collider.collisionCallbacksForSpecificColliders.find(&otherCollider);
-                if (it != collider.collisionCallbacksForSpecificColliders.end()) {
-                    it->second();
-                }
-                return true;
+                return {true, &otherCollider};
             }
-            return false;
+            return {false, nullptr};
         }
 
         void addCollider(const Collider& collider) {
-            // Check if it is in the vector, if not add it
-            if (std::find(colliders.begin(), colliders.end(), &collider) == colliders.end()) {
-                colliders.push_back(&collider);
-            }
+            colliders.push_back(&collider);
+        }
+
+        void clearColliders() {
+            colliders.clear();
         }
 
     private:

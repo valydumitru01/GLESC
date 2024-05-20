@@ -83,10 +83,7 @@ const std::unordered_map<EntityName, EntityID>& ECSCoordinator::getAllEntities()
 
 void ECSCoordinator::registerSystem(const SystemName& name) {
     std::lock_guard lock(ecsMutex);
-    if (systemManager.isSystemRegistered(name)) {
-        Logger::get().info("System already registered");
-        return;
-    }
+    D_ASSERT_TRUE(!systemManager.isSystemRegistered(name), "System must not be registered");
     PRINT_ECS_STATUS("Before registering system: " + name);
     systemManager.registerSystem(name);
     PRINT_ECS_STATUS("After registering system: " + name);
@@ -105,10 +102,9 @@ std::vector<IComponent*> ECSCoordinator::getComponents(EntityID entity) const {
 
 EntityID ECSCoordinator::createEntity(const EntityName& name) {
     std::lock_guard lock(ecsMutex);
-    if (entityManager.doesEntityExist(name)) {
-        Logger::get().warning("Cannot create entity with name " + name + " because it already exists");
-        return EntityManager::nullEntity;
-    }
+    D_ASSERT_FALSE(entityManager.doesEntityExist(name),
+                   "Cannot create entity with name " + name + " because it already exists");
+
     PRINT_ECS_STATUS("Before creating entity: " + name);
     EntityID id = entityManager.createNextEntity(name);
     PRINT_ECS_STATUS("After entity created: " + name);
@@ -117,11 +113,7 @@ EntityID ECSCoordinator::createEntity(const EntityName& name) {
 
 bool ECSCoordinator::destroyEntity(EntityID entity) {
     std::lock_guard lock(ecsMutex);
-    if (!entityManager.doesEntityExist(entity)) {
-        Logger::get().warning(
-            "Cannot destroy entity with ID " + std::to_string(entity) + " because it already does not exist");
-        return false;
-    }
+    D_ASSERT_TRUE(entityManager.doesEntityExist(entity), "Entity must exist");
     PRINT_ECS_STATUS("Before destroying entity: " + std::to_string(entity));
     entityManager.destroyEntity(entity);
     componentManager.entityDestroyed(entity);

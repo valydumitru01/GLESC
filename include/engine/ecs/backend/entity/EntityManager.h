@@ -26,7 +26,7 @@ namespace GLESC::ECS {
         /**
          * @brief Null entity with ID 0. This is used to indicate that an entity does not exist.
          */
-        static constexpr EntityID nullEntity = EntityID(999999999);
+        static constexpr EntityID nullEntity = EntityID(99999);
         static constexpr EntityID firstEntity = EntityID(0);
         S_ASSERT_TRUE(firstEntity == 0, "First entity must be 0, ComponentArray uses the entity ID as index, "
                       "if edited this, it needs ComponentArray to be updated as well");

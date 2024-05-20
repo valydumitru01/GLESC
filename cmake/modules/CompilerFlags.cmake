@@ -66,7 +66,7 @@ set(DEBUG_FLAGS
         # the overhead
         "-DNDEBUG_GAPI"
         # This disables debugging for ECS, avoiding the overhead
-        #"-DNDEBUG_ECS"
+        "-DNDEBUG_ECS"
         # Produce debugging information for gdb
         "-ggdb"
         # Verbose output, enabled only for specific problems

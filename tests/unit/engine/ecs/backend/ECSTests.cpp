@@ -18,37 +18,54 @@ class ECSTests : public testing::Test {
 protected:
     ECSTests() = default;
 
-    void SetUp() override {}
+    void SetUp() override {
+    }
 
-    void TearDown() override {}
+    void TearDown() override {
+    }
 
     GLESC::ECS::ECSCoordinator ecs;
 
     struct TestComponent1 : GLESC::ECS::IComponent {
         TestComponent1() = default;
-        explicit TestComponent1(int x) : x(x) {}
+
+        explicit TestComponent1(int x) : x(x) {
+        }
+
         int x{};
         [[nodiscard]] std::string toString() const override { return "x: " + std::to_string(x); }
         [[nodiscard]] std::string getName() const override { return "TestComponent1"; }
-        void setDebuggingValues() override {}
+
+        void setDebuggingValues() override {
+        }
     };
 
     struct TestComponent2 : GLESC::ECS::IComponent {
         TestComponent2() = default;
-        explicit TestComponent2(int y) : y(y) {}
+
+        explicit TestComponent2(int y) : y(y) {
+        }
+
         int y{};
         [[nodiscard]] std::string toString() const override { return "y: " + std::to_string(y); }
         [[nodiscard]] std::string getName() const override { return "TestComponent2"; }
-        void setDebuggingValues() override {}
+
+        void setDebuggingValues() override {
+        }
     };
 
     struct TestComponent3 : GLESC::ECS::IComponent {
         TestComponent3() = default;
-        explicit TestComponent3(int z) : z(z) {}
+
+        explicit TestComponent3(int z) : z(z) {
+        }
+
         int z{};
         [[nodiscard]] std::string toString() const override { return "z: " + std::to_string(z); }
         [[nodiscard]] std::string getName() const override { return "TestComponent3"; }
-        void setDebuggingValues() override {}
+
+        void setDebuggingValues() override {
+        }
     };
 
     TestComponent1 testComponent1{3};
@@ -175,9 +192,11 @@ TEST_F(ECSTests, GetComponents) {
     for (auto component : components) {
         if (component->getName() == "TestComponent1") {
             ASSERT_EQ(dynamic_cast<TestComponent1*>(component)->x, TestComponent1(1).x);
-        } else if (component->getName() == "TestComponent2") {
+        }
+        else if (component->getName() == "TestComponent2") {
             ASSERT_EQ(dynamic_cast<TestComponent2*>(component)->y, TestComponent2(2).y);
-        } else if (component->getName() == "TestComponent3") {
+        }
+        else if (component->getName() == "TestComponent3") {
             ASSERT_EQ(dynamic_cast<TestComponent3*>(component)->z, TestComponent3(3).z);
         }
     }
@@ -190,7 +209,8 @@ TEST_F(ECSTests, GetComponents) {
     for (auto component : components2) {
         if (component->getName() == "TestComponent1") {
             ASSERT_EQ(dynamic_cast<TestComponent1*>(component)->x, TestComponent1(4).x);
-        } else if (component->getName() == "TestComponent2") {
+        }
+        else if (component->getName() == "TestComponent2") {
             ASSERT_EQ(dynamic_cast<TestComponent2*>(component)->y, TestComponent2(5).y);
         }
     }
@@ -204,14 +224,14 @@ TEST_F(ECSTests, GetComponents) {
     for (auto component : components3) {
         if (component->getName() == "TestComponent1") {
             ASSERT_EQ(dynamic_cast<TestComponent1*>(component)->x, TestComponent1(6).x);
-        } else if (component->getName() == "TestComponent2") {
+        }
+        else if (component->getName() == "TestComponent2") {
             ASSERT_EQ(dynamic_cast<TestComponent2*>(component)->y, TestComponent2(7).y);
-        } else if (component->getName() == "TestComponent3") {
+        }
+        else if (component->getName() == "TestComponent3") {
             ASSERT_EQ(dynamic_cast<TestComponent3*>(component)->z, TestComponent3(8).z);
         }
     }
-
-
 }
 
 
@@ -271,22 +291,153 @@ TEST_F(ECSTests, CreateAndDeleteManyEntities) {
 
 TEST_F(ECSTests, CreateAndDeleteManyEntitiesAlternating) {
     int entities = 100;
+    std::vector<GLESC::ECS::EntityID> createdEntities;
     // First creating half of maxEntities
     for (int i = 0; i < entities / 2; ++i) {
         ecs.createEntity("TestEntity" + std::to_string(i));
+        createdEntities.push_back(i);
     }
+    ASSERT_EQ(getEntityManager().getLivingEntityCount(), entities / 2);
+    ASSERT_EQ(getEntityManager().getEntityNameToID().size(), entities / 2);
+    ASSERT_EQ(getEntityManager().getEntityIDToName().size(), entities / 2);
+    ASSERT_EQ(getEntityManager().getAvailableEntities().size(), GLESC::ECS::maxEntities - entities / 2);
+
     // Destroying one third of the entities, leaving 1/2 - 1/3 = 1/6 of the entities
     for (int i = 0; i < entities / 3; ++i) {
-        ecs.destroyEntity(i);
+        ecs.destroyEntity(createdEntities.front());
+        createdEntities.erase(createdEntities.begin());
     }
+    ASSERT_EQ(getEntityManager().getLivingEntityCount(), entities / 2 - entities / 3);
+    ASSERT_EQ(getEntityManager().getEntityNameToID().size(), entities / 2 - entities / 3);
+    ASSERT_EQ(getEntityManager().getEntityIDToName().size(), entities / 2 - entities / 3);
+    ASSERT_EQ(getEntityManager().getAvailableEntities().size(), GLESC::ECS::maxEntities - entities / 2 + entities / 3);
+
     // Creating 1/3 of the entities, leaving 1/6 + 1/3 = 1/2 of the entities
     for (int i = 0; i < entities / 3; ++i) {
-        ecs.createEntity("TestEntity" + std::to_string(i + entities / 2));  // Ensure unique names
+        ecs.createEntity("TestEntity" + std::to_string(i + entities / 2)); // Ensure unique names
+        createdEntities.push_back(i + entities / 2);
     }
+    ASSERT_EQ(getEntityManager().getLivingEntityCount(), entities / 2);
+    ASSERT_EQ(getEntityManager().getEntityNameToID().size(), entities / 2);
+    ASSERT_EQ(getEntityManager().getEntityIDToName().size(), entities / 2);
+    ASSERT_EQ(getEntityManager().getAvailableEntities().size(), GLESC::ECS::maxEntities - entities / 2);
+
     // Destroying the rest of the entities
     for (int i = 0; i < entities / 2; ++i) {
-        ecs.destroyEntity(i + entities / 2);
+        ecs.destroyEntity(createdEntities.front());
+        createdEntities.erase(createdEntities.begin());
     }
+    ASSERT_EQ(getEntityManager().getLivingEntityCount(), 0);
+    ASSERT_EQ(getEntityManager().getEntityNameToID().size(), 0);
+    ASSERT_EQ(getEntityManager().getEntityIDToName().size(), 0);
+    ASSERT_EQ(getEntityManager().getAvailableEntities().size(), GLESC::ECS::maxEntities);
 }
 
+TEST_F(ECSTests, CreateAndDestroyEntitiesWithComponentsAndSystems) {
+    // One component system
+    GLESC::ECS::SystemName oneCompSystem{"OneCompTestSystem"};
+    ecs.registerSystem(oneCompSystem);
+    ecs.addComponentRequirementToSystem<TestComponent1>(oneCompSystem);
+    // Two component system
+    GLESC::ECS::SystemName twoCompSystem{"TwoCompTestSystem"};
+    ecs.registerSystem(twoCompSystem);
+    ecs.addComponentRequirementToSystem<TestComponent1>(twoCompSystem);
+    ecs.addComponentRequirementToSystem<TestComponent2>(twoCompSystem);
+    // Three component system
+    GLESC::ECS::SystemName threeCompSystem{"ThreeCompTestSystem"};
+    ecs.registerSystem(threeCompSystem);
+    ecs.addComponentRequirementToSystem<TestComponent1>(threeCompSystem);
+    ecs.addComponentRequirementToSystem<TestComponent2>(threeCompSystem);
+    ecs.addComponentRequirementToSystem<TestComponent3>(threeCompSystem);
+
+    // Creating entities with just one component
+    int oneComponentEntities = 10;
+    std::set<GLESC::ECS::EntityID> oneComponentEntityIDs;
+    for (int i = 0; i < oneComponentEntities; ++i) {
+        GLESC::ECS::EntityID entityID = ecs.createEntity("OneCompTestEntity" + std::to_string(i));
+        ecs.addComponent<TestComponent1>(entityID, TestComponent1(i));
+        oneComponentEntityIDs.insert(entityID);
+    }
+    ASSERT_EQ(ecs.getAssociatedEntities(oneCompSystem).size(), 10);
+    ASSERT_EQ(getSystemManager().getAssociatedEntitiesOfSystem(oneCompSystem).size(), 10);
+    for (auto entity : getSystemManager().getAssociatedEntitiesOfSystem(oneCompSystem)) {
+        ASSERT_TRUE(ecs.hasComponent<TestComponent1>(entity));
+        ASSERT_TRUE(oneComponentEntityIDs.find(entity) != oneComponentEntityIDs.end());
+    }
+
+    // Creating entities with two componenets
+    int twoComponentEntities = 10;
+    std::set<GLESC::ECS::EntityID> twoComponentEntityIDs;
+    for (int i = 0; i < twoComponentEntities; ++i) {
+        GLESC::ECS::EntityID entityID = ecs.createEntity("TwoCompTestEntity" + std::to_string(i));
+        ecs.addComponent<TestComponent1>(entityID, TestComponent1(i));
+        ecs.addComponent<TestComponent2>(entityID, TestComponent2(i));
+        twoComponentEntityIDs.insert(entityID);
+    }
+
+    // Check that the content of associated entities is correct
+    for (auto entity : getSystemManager().getAssociatedEntitiesOfSystem(twoCompSystem)) {
+        ASSERT_TRUE(ecs.hasComponent<TestComponent1>(entity));
+        ASSERT_TRUE(ecs.hasComponent<TestComponent2>(entity));
+        ASSERT_TRUE(twoComponentEntityIDs.find(entity) != twoComponentEntityIDs.end());
+    }
+
+    // Creating entities with three components
+    int threeComponentEntities = 10;
+    std::set<GLESC::ECS::EntityID> threeComponentEntityIDs;
+    for (int i = 0; i < threeComponentEntities; ++i) {
+        GLESC::ECS::EntityID entityID = ecs.createEntity("ThreeCompTestEntity" + std::to_string(i));
+        ecs.addComponent<TestComponent1>(entityID, TestComponent1(i));
+        ecs.addComponent<TestComponent2>(entityID, TestComponent2(i));
+        ecs.addComponent<TestComponent3>(entityID, TestComponent3(i));
+        threeComponentEntityIDs.insert(entityID);
+    }
+
+    // Check that the content of associated entities is correct
+    for (auto entity : getSystemManager().getAssociatedEntitiesOfSystem(threeCompSystem)) {
+        ASSERT_TRUE(ecs.hasComponent<TestComponent1>(entity));
+        ASSERT_TRUE(ecs.hasComponent<TestComponent2>(entity));
+        ASSERT_TRUE(ecs.hasComponent<TestComponent3>(entity));
+        ASSERT_TRUE(threeComponentEntityIDs.find(entity) != threeComponentEntityIDs.end());
+    }
+
+    // Erase some components in each system
+
+    // First one component system
+    for (int i = 0; i < oneComponentEntities / 2; ++i) {
+        GLESC::ECS::EntityID entity = *oneComponentEntityIDs.begin();
+        oneComponentEntityIDs.erase(oneComponentEntityIDs.begin());
+        ecs.destroyEntity(entity);
+    }
+    ASSERT_EQ(ecs.getAssociatedEntities(oneCompSystem).size(),
+              oneComponentEntities+twoComponentEntities+threeComponentEntities- 5);
+    for (auto entity : getSystemManager().getAssociatedEntitiesOfSystem(oneCompSystem)) {
+        ASSERT_TRUE(ecs.hasComponent<TestComponent1>(entity));
+    }
+
+    // Second two component system
+    for (int i = 0; i < twoComponentEntities / 2; ++i) {
+        GLESC::ECS::EntityID entity = *twoComponentEntityIDs.begin();
+        twoComponentEntityIDs.erase(twoComponentEntityIDs.begin());
+        ecs.destroyEntity(entity);
+    }
+    ASSERT_EQ(ecs.getAssociatedEntities(twoCompSystem).size(), twoComponentEntities + threeComponentEntities - 5);
+    for (auto entity : getSystemManager().getAssociatedEntitiesOfSystem(twoCompSystem)) {
+        ASSERT_TRUE(ecs.hasComponent<TestComponent1>(entity));
+        ASSERT_TRUE(ecs.hasComponent<TestComponent2>(entity));
+    }
+
+    // Third three component system
+    for (int i = 0; i < threeComponentEntities / 2; ++i) {
+        GLESC::ECS::EntityID entity = *threeComponentEntityIDs.begin();
+        threeComponentEntityIDs.erase(threeComponentEntityIDs.begin());
+        ecs.destroyEntity(entity);
+    }
+    ASSERT_EQ(ecs.getAssociatedEntities(threeCompSystem).size(), threeComponentEntities - 5);
+    for (auto entity : getSystemManager().getAssociatedEntitiesOfSystem(threeCompSystem)) {
+        ASSERT_TRUE(ecs.hasComponent<TestComponent1>(entity));
+        ASSERT_TRUE(ecs.hasComponent<TestComponent2>(entity));
+        ASSERT_TRUE(ecs.hasComponent<TestComponent3>(entity));
+    }
+}
 #endif

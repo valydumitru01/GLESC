@@ -93,7 +93,6 @@ void ShootTheChickenGame::init() {
         // Copy the camera transform
         auto& cameraTransform = getCamera().getComponent<ECS::TransformComponent>();
         bullet.addComponent<ECS::TransformComponent>(cameraTransform);
-        bullet.getComponent<ECS::TransformComponent>().transform.addRotation({0, 0, 0});
         bullet.addComponent<ECS::RenderComponent>();
         bullet.addComponent<ECS::PhysicsComponent>();
 
