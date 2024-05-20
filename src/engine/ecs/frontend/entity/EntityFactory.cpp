@@ -14,6 +14,10 @@ namespace GLESC::ECS {
         return Entity(name, ecs);
     }
 
+    Entity EntityFactory::createEntity() {
+        return Entity(ecs);
+    }
+
     std::optional<Entity> EntityFactory::tryGetEntity(const EntityName& name) {
         if (ecs.tryGetEntityID(name) == EntityManager::nullEntity)
             return std::nullopt;

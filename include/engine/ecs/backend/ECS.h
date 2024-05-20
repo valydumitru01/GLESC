@@ -45,6 +45,12 @@ namespace GLESC::ECS {
         EntityID createEntity(const EntityName& name);
 
         /**
+         * @brief Create an entity with a default name
+         * @return The ID of the entity
+         */
+        EntityID createEntity();
+
+        /**
          * @brief Destroy an entity
          * @param entity The ID of the entity
          * @return True if the entity was destroyed, false if the entity does not exist

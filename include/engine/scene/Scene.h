@@ -45,6 +45,12 @@ namespace GLESC::Scene {
             return entityFactory.getEntity(sceneEntities.back());
         }
 
+        ECS::Entity createEntity() {
+            ECS::Entity entity = entityFactory.createEntity();
+            sceneEntities.push_back(entity.getID());
+            return entityFactory.getEntity(sceneEntities.back());
+        }
+
         ECS::Entity getEntity(const std::string& entityName) {
             return entityFactory.getEntity(entityName);
         }

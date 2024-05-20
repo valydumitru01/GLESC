@@ -13,6 +13,8 @@ using namespace GLESC::ECS;
 
 Entity::Entity(const EntityName& name, ECSCoordinator& ecs) : ID(ecs.createEntity(name)), ecs(ecs) {}
 
+Entity::Entity(ECSCoordinator& ecs) : ID(ecs.createEntity()), ecs(ecs) {}
+
 Entity::Entity(EntityID id, ECSCoordinator& ecs) : ID(id), ecs(ecs) {}
 
 void Entity::destroy() {

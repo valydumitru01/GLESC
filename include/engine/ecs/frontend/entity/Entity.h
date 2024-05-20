@@ -79,6 +79,12 @@ namespace GLESC::ECS {
         explicit Entity(const EntityName& name, ECSCoordinator& ecs);
 
         /**
+         * @brief This constructor is internal to the ECS, it is used to create a new without a name
+         * @param name The name of the entity
+         */
+        explicit Entity(ECSCoordinator& ecs);
+
+        /**
          * @brief This constructor is internal to the ECS, it is used to cast an EntityID to an Entity
          * @param id
          */

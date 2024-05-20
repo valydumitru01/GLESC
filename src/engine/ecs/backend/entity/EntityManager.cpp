@@ -28,7 +28,7 @@ EntityID EntityManager::createNextEntity(const EntityName& name) {
     entityIDToName.insert({id, name});
     entityNameToID.insert({name, id});
     ++livingEntityCount;
-
+    ++entityCounter;
     D_ASSERT_TRUE(doesEntityExist(id), "Entity must exist after creation");
     return id;
 }

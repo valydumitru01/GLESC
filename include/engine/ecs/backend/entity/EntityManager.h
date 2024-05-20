@@ -44,6 +44,7 @@ namespace GLESC::ECS {
         const std::queue<EntityID>& getAvailableEntities() const { return availableEntities; }
         const std::array<Signature, maxEntities>& getSignatures() const { return signatures; }
         const EntityID& getLivingEntityCount() const { return livingEntityCount; }
+        const unsigned long long& getEntityCounter() const { return entityCounter; }
 
         /**
          * @brief Create an entity with the given name. The name must be unique.
@@ -176,5 +177,11 @@ namespace GLESC::ECS {
          * @brief The number of living entities
          */
         EntityID livingEntityCount{};
+        /**
+         * @brief Counter that counts all the entities that have ever been created.
+         * It's useful to be able to create entities without names, so we never
+         * create entities with the same name.
+         */
+        unsigned long long entityCounter{};
     }; // class EntityManager
 } // namespace GLESC

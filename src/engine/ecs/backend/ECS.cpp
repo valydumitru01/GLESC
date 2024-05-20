@@ -111,6 +111,19 @@ EntityID ECSCoordinator::createEntity(const EntityName& name) {
     return id;
 }
 
+EntityID ECSCoordinator::createEntity() {
+    std::lock_guard lock(ecsMutex);
+    std::string name = "Entity" + std::to_string(entityManager.getEntityCounter());
+    D_ASSERT_FALSE(entityManager.doesEntityExist(name),
+                   "Cannot create entity with name " + name + " because it already exists");
+
+    PRINT_ECS_STATUS("Before creating entity: " + name);
+    EntityID id = entityManager.createNextEntity(name);
+    PRINT_ECS_STATUS("After entity created: " + name);
+    return id;
+}
+
+
 bool ECSCoordinator::destroyEntity(EntityID entity) {
     std::lock_guard lock(ecsMutex);
     D_ASSERT_TRUE(entityManager.doesEntityExist(entity), "Entity must exist");

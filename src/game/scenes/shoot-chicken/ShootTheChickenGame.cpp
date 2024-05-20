@@ -89,10 +89,10 @@ void ShootTheChickenGame::init() {
 
     Input::KeyCommand shootBullet = Input::KeyCommand([&]() {
         // Create a bullet
-        ECS::Entity bullet = createEntity("bullet" + std::to_string(bullets.size()));
+        ECS::Entity bullet = createEntity();
         // Copy the camera transform
-        auto& cameraTransform = getCamera().getComponent<ECS::TransformComponent>();
-        bullet.addComponent<ECS::TransformComponent>(cameraTransform);
+        auto cameraTransformCopy = getCamera().getComponent<ECS::TransformComponent>();
+        bullet.addComponent<ECS::TransformComponent>(cameraTransformCopy);
         bullet.addComponent<ECS::RenderComponent>();
         bullet.addComponent<ECS::PhysicsComponent>();
 
@@ -106,7 +106,8 @@ void ShootTheChickenGame::init() {
             });
 
         bullet.getComponent<ECS::RenderComponent>().copyMesh(Render::MeshFactory::cube(Render::ColorRgb::WHITE, 0.1f));
-        bullet.getComponent<ECS::PhysicsComponent>().physics.giveForwardForce(10000.f);
+        bullet.getComponent<ECS::PhysicsComponent>().physics.giveForwardForce(100.f);
+        bullet.getComponent<ECS::PhysicsComponent>().physics.setAffectedByGravity(false);
         bullets.push_back(bulletID);
     });
 

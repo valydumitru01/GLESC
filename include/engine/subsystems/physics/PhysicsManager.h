@@ -13,8 +13,9 @@
 namespace GLESC::Physics {
     struct CollisionInformation {
         Vec3B collisionAxis;
-        std::vector<Collider*> colliders;
+        std::vector<const Collider*> colliders;
     };
+
     class PhysicsManager {
     public:
         void updatePhysics(Physics& physics, Collider& collider, Transform::Transform& transform) {
@@ -56,25 +57,31 @@ namespace GLESC::Physics {
             Collider nextColliderZ = getNextCollider(collider, nextTransformZ);
 
             // Cancel the component that causes the collision
-            Vec3B bools = collidesOnNextFrame(collider, nextColliderX, nextColliderY, nextColliderZ);
+            CollisionInformation information = collidesOnNextFrame(collider, nextColliderX, nextColliderY,
+                                                                   nextColliderZ);
 
 
-            if(bools.getX() || bools.getY() || bools.getZ()){
+            if (information.collisionAxis.getX() ||
+                information.collisionAxis.getY() ||
+                information.collisionAxis.getZ()) {
                 if (collider.collisionCallback)
                     collider.collisionCallback();
-                auto it = collider.collisionCallbacksForSpecificColliders.find(&otherCollider);
-                if (it != collider.collisionCallbacksForSpecificColliders.end()) {
-                    it->second();
+                for(auto& otherCollider : information.colliders) {
+                    // Check if there is a specific callback for this collider (otherCollider
+                    auto it = collider.collisionCallbacksForSpecificColliders.find(otherCollider);
+                    if (it != collider.collisionCallbacksForSpecificColliders.end()) {
+                        it->second();
+                    }
                 }
             }
             // Cancel the components that cause the collision
-            if (bools.getX()) {
+            if (information.collisionAxis.getX()) {
                 physics.setVelocity({0.0F, physics.getVelocity().getY(), physics.getVelocity().getZ()});
             }
-            if (bools.getY()) {
+            if (information.collisionAxis.getY()) {
                 physics.setVelocity({physics.getVelocity().getX(), 0.0F, physics.getVelocity().getZ()});
             }
-            if (bools.getZ()) {
+            if (information.collisionAxis.getZ()) {
                 physics.setVelocity({physics.getVelocity().getX(), physics.getVelocity().getY(), 0.0F});
             }
 
@@ -128,10 +135,10 @@ namespace GLESC::Physics {
 
 
         CollisionInformation collidesOnNextFrame(const Collider& originalCollider,
-                                  const Collider& nextColliderX,
-                                  const Collider& nextColliderY,
-                                  const Collider& nextColliderZ) {
-            Vec3B finalBools;
+                                                 const Collider& nextColliderX,
+                                                 const Collider& nextColliderY,
+                                                 const Collider& nextColliderZ) {
+            CollisionInformation information;
             for (const auto& otherCollider : colliders) {
                 if (otherCollider == &originalCollider) continue;
                 Vec3B boolsForCollider{
@@ -139,18 +146,21 @@ namespace GLESC::Physics {
                     collidesWithCollider(nextColliderY, *otherCollider),
                     collidesWithCollider(nextColliderZ, *otherCollider)
                 };
-                finalBools.setX(finalBools.getX() || boolsForCollider.getX());
-                finalBools.setY(finalBools.getY() || boolsForCollider.getY());
-                finalBools.setZ(finalBools.getZ() || boolsForCollider.getZ());
+                if (boolsForCollider.getX() || boolsForCollider.getY() || boolsForCollider.getZ()) {
+                    information.colliders.push_back(otherCollider);
+                }
+                information.collisionAxis.setX(information.collisionAxis.getX() || boolsForCollider.getX());
+                information.collisionAxis.setY(information.collisionAxis.getY() || boolsForCollider.getY());
+                information.collisionAxis.setZ(information.collisionAxis.getZ() || boolsForCollider.getZ());
             }
-            return finalBools;
+            return information;
         }
 
         bool collidesWithCollider(const Collider& collider, const Collider& otherCollider) {
             if (collider.boundingVolume.intersects(otherCollider.boundingVolume)) {
-                return {true, &otherCollider};
+                return true;
             }
-            return {false, nullptr};
+            return false;
         }
 
         void addCollider(const Collider& collider) {
@@ -165,7 +175,7 @@ namespace GLESC::Physics {
         std::vector<const Collider*> colliders;
 
         Acceleration gravity{0.f, -8.91f, 0.f};
-        Friction airFriction{0.1f};
+        Friction airFriction{0.01f};
         /**
          * @brief This scalar is used to scale the velocity of the object
          * @details We need this because using fixed update time steps makes normal values too bit,

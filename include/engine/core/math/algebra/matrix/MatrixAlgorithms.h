@@ -352,8 +352,8 @@ namespace GLESC::Math {
         static void matrixMatrixMul(const MatrixData<Type, N, M>& matrix1,
                                     const MatrixData<Type, M, X>& matrix2,
                                     MatrixData<Type, N, X>& result) {
-            D_ASSERT_NOT_EQUAL(&matrix1, &result, "Cannot multiply matrix in place.");
-            D_ASSERT_NOT_EQUAL(&matrix2, &result, "Cannot multiply matrix in place.");
+            D_ASSERT_NOT_EQUAL(&matrix1, &result, "Cannot multiply matrix in place. Use matrixMatrixMulInPlace.");
+            D_ASSERT_NOT_EQUAL(&matrix2, &result, "Cannot multiply matrix in place. Use matrixMatrixMulInPlace.");
             for (size_t i = 0; i < N; ++i) {
                 for (size_t j = 0; j < X; ++j) {
                     // Set the value to zero before adding the products
@@ -427,41 +427,48 @@ namespace GLESC::Math {
 
         /**
          * @brief Applies the translation to a model matrix.
-         * @details The translation matrix is applied taking into account the matrix is in row-major order.
+         * @details The translation matrix is applied taking into account the matrix is in column-major order.
          * @tparam TypeMat The data type of the matrix elements (e.g., float, double).
          * @tparam TypePos The data type of the translation vector elements (e.g., float, double).
-         * @param modelMatrix The model matrix.
+         * @param model The model matrix.
          * @param translation The translation vector.
          * @param result The result matrix.
          */
         template <typename TypeMat, typename TypePos>
-        static void setTranslate(const MatrixData<TypeMat, 4, 4>& modelMatrix,
+        static void setTranslate(const MatrixData<TypeMat, 4, 4>& model,
                                  const VectorData<TypePos, 3>& translation,
                                  MatrixData<TypeMat, 4, 4>& result) {
-            if (&modelMatrix != &result)
-                // Copy the input matrix to the result.
-                for (size_t i = 0; i < 4; ++i) {
-                    for (size_t j = 0; j < 4; ++j) {
-                        result[i][j] = modelMatrix[i][j];
-                    }
-                }
+            // Create the translation matrix
+            MatrixData<TypeMat, 4, 4> translationMatrix;
+            MatrixAlgorithms::setMatrixZero(translationMatrix);
+            MatrixAlgorithms::setMatrixDiagonal(translationMatrix, TypeMat(1));
 
-            // Apply translation to the last row of the matrix.
-            // This is assuming a column-major matrix format used by OpenGL
-            // where the translation components are added to the last row.
-            result[3][0] = modelMatrix[0][0] * translation[0] +
-                modelMatrix[1][0] * translation[1] +
-                modelMatrix[2][0] * translation[2] +
-                modelMatrix[3][0];
-            result[3][1] = modelMatrix[0][1] * translation[0] +
-                modelMatrix[1][1] * translation[1] +
-                modelMatrix[2][1] * translation[2] +
-                modelMatrix[3][1];
-            result[3][2] = modelMatrix[0][2] * translation[0] +
-                modelMatrix[1][2] * translation[1] +
-                modelMatrix[2][2] * translation[2] +
-                modelMatrix[3][2];
-            // No change to result[3][3] as it's the homogeneous coordinate.
+            translationMatrix[0][3] = translation[0];
+            translationMatrix[1][3] = translation[1];
+            translationMatrix[2][3] = translation[2];
+
+            // Multiply the model matrix by the translation matrix
+            MatrixAlgorithms::matrixMatrixMulInPlace(model, translationMatrix, result);
+        }
+
+        template <typename Type1, typename Type2, size_t N>
+        static void setScale(const MatrixData<Type1, N, N>& model,
+                             const VectorData<Type2, N - 1>& scale,
+                             MatrixData<Type1, N, N>& result) {
+            static_assert(N == 3 || N == 4, "Scaling only makes sense for 3x3 and 4x4 matrices.");
+
+            // Create the scale matrix
+            MatrixData<Type1, N, N> scaleMatrix;
+            MatrixAlgorithms::setMatrixZero(scaleMatrix);
+            MatrixAlgorithms::setMatrixDiagonal(scaleMatrix, Type1(1));
+
+            // Set the scale components on the matrix's diagonal
+            for (size_t i = 0; i < N - 1; ++i) {
+                scaleMatrix[i][i] = scale[i];
+            }
+            // TODO: Make row major
+            // Multiply the original matrix by the scale matrix
+            MatrixAlgorithms::matrixMatrixMulInPlace(scaleMatrix, model, result);
         }
 
         template <typename Type>
@@ -801,19 +808,6 @@ namespace GLESC::Math {
                     sign = -sign; // Alternate sign for cofactor expansion
                 }
                 return result;
-            }
-        }
-
-        template <typename Type1, typename Type2, size_t N>
-        static void setScale(const MatrixData<Type1, N, N>& matrix,
-                             const VectorData<Type2, N - 1>& scale,
-                             MatrixData<Type1, N, N>& result) {
-            S_ASSERT_TRUE(N == 3 || N == 4, "Scaling only makes sense for 3x3 and 4x4 matrices.");
-            // Preserve the original matrix's values except for the scale factors
-            MatrixAlgorithms::setMatrix<Type1, Type2, N, N>(result, matrix);
-            // Directly set the scale components on the matrix's diagonal
-            for (size_t i = 0; i < N - 1; ++i) {
-                result[i][i] = scale[i];
             }
         }
 

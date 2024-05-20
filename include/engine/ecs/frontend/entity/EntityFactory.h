@@ -20,6 +20,8 @@ namespace GLESC::ECS {
 
         Entity createEntity(const EntityName &name);
 
+        Entity createEntity();
+
         std::optional<Entity> tryGetEntity(const EntityName &name);
 
         Entity getEntity(const EntityName &name);

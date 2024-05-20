@@ -64,12 +64,12 @@ namespace GLESC::Math {
          * @tparam TypeToRotate The data type of the input matrix elements (e.g., float, double).
          * @tparam TypeDgrs The data type of the rotation angles (e.g., float, double).
          * @tparam TypeRes The data type of the result matrix elements (e.g., float, double).
-         * @param matrix A 4x4 matrix to rotate.
+         * @param model A 4x4 matrix to rotate.
          * @param angleDegrees A 3D vector containing the rotation angles around the X, Y, and Z axes respectively.
          * @param resMatrix A 4x4 matrix which will contain the result of the rotation.
          */
         template <typename TypeToRotate, typename TypeDgrs, typename TypeRes>
-        static void rotate3D(const MatrixData<TypeToRotate, 4, 4>& matrix,
+        static void rotate3D(const MatrixData<TypeToRotate, 4, 4>& model,
                              TypeDgrs angleDegrees,
                              const VectorData<TypeDgrs, 3>& axisVec,
                              MatrixData<TypeRes, 4, 4>& resMatrix) {
@@ -87,26 +87,26 @@ namespace GLESC::Math {
             MatrixData<TypeToRotate, 4, 4> rotate;
 
             rotate[0][0] = c + temp[0] * axis[0];
-            rotate[1][0] = temp[0] * axis[1] + s * axis[2];
-            rotate[2][0] = temp[0] * axis[2] - s * axis[1];
-            rotate[3][0] = 0;
-
-            rotate[0][1] = temp[1] * axis[0] - s * axis[2];
-            rotate[1][1] = c + temp[1] * axis[1];
-            rotate[2][1] = temp[1] * axis[2] + s * axis[0];
-            rotate[3][1] = 0;
-
-            rotate[0][2] = temp[2] * axis[0] + s * axis[1];
-            rotate[1][2] = temp[2] * axis[1] - s * axis[0];
-            rotate[2][2] = c + temp[2] * axis[2];
-            rotate[3][2] = 0;
-
+            rotate[0][1] = temp[0] * axis[1] + s * axis[2];
+            rotate[0][2] = temp[0] * axis[2] - s * axis[1];
             rotate[0][3] = 0;
+
+            rotate[1][0] = temp[1] * axis[0] - s * axis[2];
+            rotate[1][1] = c + temp[1] * axis[1];
+            rotate[1][2] = temp[1] * axis[2] + s * axis[0];
             rotate[1][3] = 0;
+
+            rotate[2][0] = temp[2] * axis[0] + s * axis[1];
+            rotate[2][1] = temp[2] * axis[1] - s * axis[0];
+            rotate[2][2] = c + temp[2] * axis[2];
             rotate[2][3] = 0;
+
+            rotate[3][0] = 0;
+            rotate[3][1] = 0;
+            rotate[3][2] = 0;
             rotate[3][3] = 1;
             // To ensure it can be done in place
-            MatrixAlgorithms::matrixMatrixMulInPlace(rotate, matrix, resMatrix);
+            MatrixAlgorithms::matrixMatrixMulInPlace(model, rotate, resMatrix);
         }
 
         template <typename Type>
@@ -211,7 +211,6 @@ namespace GLESC::Math {
             // First, apply translation to the model matrix
             MatrixAlgorithms::setTranslate(model, position, model);
 
-
             // Finally, apply scale to the model matrix
             MatrixAlgorithms::setScale(model, scale, model);
 
@@ -266,6 +265,7 @@ namespace GLESC::Math {
             VectorData<TypePos, 3> negatedPos;
             VectorAlgorithms::vectorNegate(position, negatedPos);
 
+
             // Apply rotation first
             MatrixMixedAlgorithms::rotate3D(resMatrix, -rotationDegrees[0], {1, 0, 0}, resMatrix);
             MatrixMixedAlgorithms::rotate3D(resMatrix, -rotationDegrees[1], {0, 1, 0}, resMatrix);
@@ -273,6 +273,7 @@ namespace GLESC::Math {
 
             // Then apply translation
             MatrixAlgorithms::setTranslate(resMatrix, negatedPos, resMatrix);
+
         }
     }; // class MatrixAlgorithms
 }; // namespace GLESC::Math
