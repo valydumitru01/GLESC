@@ -42,7 +42,6 @@ void preMatCheckPrint(const GLESC::Math::MatrixData<T, N, M> &a, const GLESC::Ma
 
 inline void postMatCheckPrint() {
     std::cout << "----------------------------------------------------------------\n";
-    std::cout << "Matrices are equal\n";
 }
 
 
@@ -99,7 +98,6 @@ void expectEqVec(const GLESC::Math::VectorData<T, N> &a, const GLESC::Math::Vect
         expectEqCustom(a[i], b[i]);
     }
     std::cout << "----------------------------------------------------------------\n";
-    std::cout << "Vectors are equal\n";
 }
 
 template<typename T, size_t N>

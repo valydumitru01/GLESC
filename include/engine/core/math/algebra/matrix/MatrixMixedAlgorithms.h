@@ -98,32 +98,31 @@ namespace GLESC::Math {
         static void getRotate3DMatrix(TypeDgrs angleDegrees,
                                       const VectorData<TypeDgrs, 3>& axisVec,
                                       MatrixData<TypeRes, 4, 4>& result) {
-            TypeDgrs angleRadians = Math::radians(angleDegrees);
-            TypeRes c = Math::cos(angleRadians);
-            TypeRes s = Math::sin(angleRadians);
-            TypeRes t = 1 - c;
+            const TypeDgrs angleRadians = Math::radians(angleDegrees);
+            const TypeRes c = Math::cos(angleRadians);
+            const TypeRes s = Math::sin(angleRadians);
+            const TypeRes t = TypeRes(1) - c;
 
             // Normalized axis vector
             VectorData<TypeDgrs, 3> axis;
             VectorAlgorithms::normalize(axisVec, axis);
 
-            TypeRes ux = axis[0];
-            TypeRes uy = axis[1];
-            TypeRes uz = axis[2];
+            VectorData<TypeRes, 3> temp;
+            VectorAlgorithms::vectorScalarMul(axis, t, temp);
 
-            result[0][0] = t * ux * ux + c;
-            result[0][1] = t * ux * uy - s * uz;
-            result[0][2] = t * ux * uz + s * uy;
+            result[0][0] = c + temp[0] * axis[0];
+            result[0][1] = temp[0] * axis[1] + s * axis[2];
+            result[0][2] = temp[0] * axis[2] - s * axis[1];
             result[0][3] = 0;
 
-            result[1][0] = t * ux * uy + s * uz;
-            result[1][1] = t * uy * uy + c;
-            result[1][2] = t * uy * uz - s * ux;
+            result[1][0] = temp[1] * axis[0] - s * axis[2];
+            result[1][1] = c + temp[1] * axis[1];
+            result[1][2] = temp[1] * axis[2] + s * axis[0];
             result[1][3] = 0;
 
-            result[2][0] = t * ux * uz - s * uy;
-            result[2][1] = t * uy * uz + s * ux;
-            result[2][2] = t * uz * uz + c;
+            result[2][0] = temp[2] * axis[0] + s * axis[1];
+            result[2][1] = temp[2] * axis[1] - s * axis[0];
+            result[2][2] = c + temp[2] * axis[2];
             result[2][3] = 0;
 
             result[3][0] = 0;
