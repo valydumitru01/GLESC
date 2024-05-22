@@ -200,5 +200,7 @@ namespace GLESC::GAPI {
         TextureID boundTexture{};
 
         ShaderProgramID boundShaderProgram{};
+
+        static constexpr bool columnMajorMatrix{true};
     };
 } // namespace GLESC

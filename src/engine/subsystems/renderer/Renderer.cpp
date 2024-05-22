@@ -77,7 +77,7 @@ void Renderer::renderMeshes(double timeOfFrame) {
     drawCounter.startFrame();
     View viewMat = getView();
     Projection projMat = getProjection();
-    VP viewProj = viewMat * projMat;
+    VP viewProj = projMat * viewMat;
     shader.bind(); // Activate the shader program before transform, material and lighting setup
     // Don't render anything if the view matrix is not valid
     frustum.update(viewProj);
@@ -87,7 +87,6 @@ shared(adaptedMeshes, lights, sun, fog, skybox, timeOfFrame, view, projection, f
     viewMat, projMat, viewProj, mvMutex, normalMatMutex, mvpMutex, frustumMutex, \
     interpolationMutex, mvs, mvps, normalMats, isContainedInFrustum)
     {
-
 #pragma omp for schedule(dynamic)
         for (auto& dynamicMesh : adaptedMeshes) {
             {
@@ -104,8 +103,8 @@ shared(adaptedMeshes, lights, sun, fog, skybox, timeOfFrame, view, projection, f
                 std::lock_guard lockMutex(frustumMutex);
                 isContainedInFrustum[&dynamicMesh] = frustum.contains(transformedBoundingVol);
             }
-            MVP MVPMat = model * viewProj;
-            MV MV = model * viewMat;
+            MVP MVPMat = viewProj * model;
+            MV MV = viewMat * model;
             NormalMat normalMat;
             normalMat.makeNormalMatrix(MV);
             {
@@ -239,7 +238,7 @@ void Renderer::applyFog(const FogData& fogParam, const Position& cameraPosition)
     if (fogParam.fog == nullptr) return;
     Shader::setUniform("uFog.color", fogParam.fog->getColor().getRGBVec3FNormalized());
     Shader::setUniform("uFog.density", fogParam.fog->getDensity());
-    Shader::setUniform("uFog.end", fogParam.fog->getEnd()+ cameraPosition.length());
+    Shader::setUniform("uFog.end", fogParam.fog->getEnd() + cameraPosition.length());
 }
 
 void Renderer::applyMaterial(const Material& material) {

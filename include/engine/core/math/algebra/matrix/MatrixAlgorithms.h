@@ -101,7 +101,7 @@ namespace GLESC::Math {
          * @param rightMat The raw array containing the values to be copied into the matrix.
          */
         template <typename Type1, typename Type2, size_t N, size_t M>
-        static void setMatrix(MatrixData<Type1, N, M>& leftMat, const MatrixData<Type1, N, M>& rightMat) {
+        static void setMatrix(MatrixData<Type1, N, M>& leftMat, const MatrixData<Type2, N, M>& rightMat) {
             MatrixAlgorithms::copyMatrix(leftMat, rightMat);
         }
 
@@ -420,9 +420,25 @@ namespace GLESC::Math {
          */
         template <typename Type, size_t N, size_t M>
         static void transpose(const MatrixData<Type, N, M>& matrix, MatrixData<Type, M, N>& result) {
+            if constexpr(M==N)
+                D_ASSERT_FALSE(&matrix == &result, "Cannot transpose matrix in place.");
             for (size_t i = 0; i < N; ++i)
                 for (size_t j = 0; j < M; ++j)
                     result[j][i] = matrix[i][j]; // j,i becomes i,j, the numbers are mirrored
+        }
+
+        /**
+         * @brief Transposes a matrix in place
+         * @tparam Type The data type of the matrix elements (e.g., float, double).
+         * @tparam N The number of rows of the matrix.
+         * @tparam M The number of columns of the matrix.
+         * @param matrix The matrix.
+         */
+        template <typename Type, size_t N>
+        static void transposeInPlace(MatrixData<Type, N, N>& matrix) {
+            for (size_t i = 0; i < N; ++i)
+                for (size_t j = i + 1; j < N; ++j)
+                    std::swap(matrix[i][j], matrix[j][i]);
         }
 
         /**
@@ -460,9 +476,6 @@ namespace GLESC::Math {
 
             result[N - 1][N - 1] = Type1(1);
         }
-
-
-
 
 
         template <typename ModelType, typename NormalMatType>
@@ -534,6 +547,7 @@ namespace GLESC::Math {
             D_ASSERT_TRUE(viewWidth > 0, "View width must be greater than 0.");
             D_ASSERT_TRUE(viewHeight > 0, "View height must be greater than 0.");
             D_ASSERT_TRUE(fovRad > 0, "Field of view must be greater than 0.");
+            /*
             Type aspect = viewWidth / viewHeight;
 
             Type tangent = Math::tan(fovRad / Type(2));
@@ -544,9 +558,17 @@ namespace GLESC::Math {
             result[0][0] = nearPlane / right;
             result[1][1] = nearPlane / top;
             result[2][2] = -(farPlane + nearPlane) / (farPlane - nearPlane);
-            result[2][3] = Type(-1);
+            result[2][3] = -Type(1);
             result[3][2] = -(Type(2) * farPlane * nearPlane) / (farPlane - nearPlane);
-            // result[3][3] = 0; // Already set to 0
+            // result[3][3] = 0; // Already set to 0*/
+            MatrixAlgorithms::setMatrixZero(result);
+            Type const tanHalfFovy = Math::tan(fovRad / static_cast<Type>(2));
+            Type aspect = viewWidth / viewHeight;
+            result[0][0] = static_cast<Type>(1) / (aspect * tanHalfFovy);
+            result[1][1] = static_cast<Type>(1) / (tanHalfFovy);
+            result[2][2] = - (farPlane + nearPlane) / (farPlane - nearPlane);
+            result[2][3] = - static_cast<Type>(1);
+            result[3][2] = - (static_cast<Type>(2) * farPlane * nearPlane) / (farPlane - nearPlane);
         }
 
         /**

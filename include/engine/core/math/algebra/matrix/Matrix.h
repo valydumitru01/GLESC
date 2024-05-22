@@ -22,10 +22,8 @@
 
 namespace GLESC::Math {
     /**
-     * @brief Matrix class. It's a row-major matrix.
-     * @details This matrix is row-major, but is compatible with OpenGL's column-major matrices. This is because
-     * the matrix is accessed in the same way as OpenGL's matrices, but the data is stored in a row-major format.
-     * All the operations leave the data in the same format, so it can be directly passed to OpenGL.
+     * @brief Matrix class. Represents a matrix of N rows and M columns.
+     * @details This matrix is row-major.
      * @tparam Type The type of the elements in the matrix
      * @tparam N The number of rows in the matrix
      * @tparam M The number of columns in the matrix
@@ -56,10 +54,19 @@ namespace GLESC::Math {
         }
 
 
+        explicit Matrix(const MatrixData<Type, N, M>& other) {
+            MatrixAlgorithms::setMatrix(this->data, other);
+        }
+
+        explicit Matrix(const MatrixData<Type, N, M>&& other) {
+            MatrixAlgorithms::setMatrix(this->data, other);
+        }
+
         template<typename OtherType, size_t OtherN, size_t OtherM>
         explicit Matrix(const Matrix<OtherType, OtherN, OtherM>& other) {
             MatrixAlgorithms::resizeMatrix(other.data, this->data);
         }
+
 
 
         /**
@@ -72,15 +79,13 @@ namespace GLESC::Math {
 
         /**
          * @brief Move constructor
-         * @param list
+         * @param other
          */
         Matrix(Matrix&& other) noexcept {
             MatrixAlgorithms::moveMatrix(this->data, std::move(other.data));
         }
 
-        Matrix(const MatrixData<Type, N, M>& other) {
-            MatrixAlgorithms::copyMatrix(this->data, other);
-        }
+
 
 
         // =========================================================================================

@@ -178,8 +178,8 @@ namespace GLESC::Math {
             // Combine all transformations into the model matrix
             // Note: Multiplication order is: Translation * Rotation * Scale
             MatrixData<ModelType, 4, 4> tempMatrix;
-            MatrixAlgorithms::matrixMatrixMul(rotationMatrix, scaleMatrix, tempMatrix); // Rotation * Scale
-            MatrixAlgorithms::matrixMatrixMul(translationMatrix, tempMatrix, model); // Translation * (Rotation * Scale)
+            MatrixAlgorithms::matrixMatrixMul(scaleMatrix, rotationMatrix, tempMatrix); // Rotation * Scale
+            MatrixAlgorithms::matrixMatrixMul(tempMatrix, translationMatrix, model); // Translation * (Rotation * Scale)
         }
 
         template <typename TypePos, typename TypeRot, typename TypeRes>
@@ -209,12 +209,12 @@ namespace GLESC::Math {
             MatrixMixedAlgorithms::getRotate3DMatrix(-rotationDegrees[2], {0, 0, 1}, rotateZMatrix);
 
             // Combine rotation matrices (note the order: X * Y * Z for inverse rotation)
-            MatrixAlgorithms::matrixMatrixMul(rotateXMatrix, rotateYMatrix, rotationMatrix);
-            MatrixAlgorithms::matrixMatrixMulInPlace(rotationMatrix, rotateZMatrix, rotationMatrix);
+            MatrixAlgorithms::matrixMatrixMul(rotateZMatrix, rotateYMatrix, rotationMatrix);
+            MatrixAlgorithms::matrixMatrixMulInPlace(rotationMatrix, rotateXMatrix, rotationMatrix);
 
             // Combine all transformations into the view matrix
             // Note: Multiplication order is: Translation * Rotation
-            MatrixAlgorithms::matrixMatrixMul(translationMatrix, rotationMatrix, viewMat);
+            MatrixAlgorithms::matrixMatrixMul(rotationMatrix, translationMatrix, viewMat);
         }
 
         template <typename Type>

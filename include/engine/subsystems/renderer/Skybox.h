@@ -83,7 +83,7 @@ public:
         // change depth function so depth test passes when values are equal to depth buffer's content
         getGAPI().setDepthFunction(Enums::DepthFuncs::LessEqual);
         skyboxShader.bind();
-        skyboxShader.setUniform("uVPTranslationless", viewTranslationless * projection);
+        skyboxShader.setUniform("uVPTranslationless",  projection * viewTranslationless);
         skyboxVAO->bind();
         skyboxCubemap.bind();
         getGAPI().drawTriangles(0, 36);
