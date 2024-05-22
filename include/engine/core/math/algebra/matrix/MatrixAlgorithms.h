@@ -427,48 +427,66 @@ namespace GLESC::Math {
 
         /**
          * @brief Applies the translation to a model matrix.
-         * @details The translation matrix is applied taking into account the matrix is in column-major order.
+         * @details The translation matrix is applied taking into account the matrix is in row major order.
          * @tparam TypeMat The data type of the matrix elements (e.g., float, double).
          * @tparam TypePos The data type of the translation vector elements (e.g., float, double).
-         * @param model The model matrix.
          * @param translation The translation vector.
          * @param result The result matrix.
          */
         template <typename TypeMat, typename TypePos>
-        static void setTranslate(const MatrixData<TypeMat, 4, 4>& model,
-                                 const VectorData<TypePos, 3>& translation,
-                                 MatrixData<TypeMat, 4, 4>& result) {
+        static void getTranslationMatrix(const VectorData<TypePos, 3>& translation,
+                                         MatrixData<TypeMat, 4, 4>& result) {
             // Create the translation matrix
-            MatrixData<TypeMat, 4, 4> translationMatrix;
-            MatrixAlgorithms::setMatrixZero(translationMatrix);
-            MatrixAlgorithms::setMatrixDiagonal(translationMatrix, TypeMat(1));
+            MatrixAlgorithms::setMatrixZero(result);
+            MatrixAlgorithms::setMatrixDiagonal(result, TypeMat(1));
 
-            translationMatrix[0][3] = translation[0];
-            translationMatrix[1][3] = translation[1];
-            translationMatrix[2][3] = translation[2];
-
-            // Multiply the model matrix by the translation matrix
-            MatrixAlgorithms::matrixMatrixMulInPlace(model, translationMatrix, result);
+            result[3][0] = translation[0];
+            result[3][1] = translation[1];
+            result[3][2] = translation[2];
         }
 
         template <typename Type1, typename Type2, size_t N>
-        static void setScale(const MatrixData<Type1, N, N>& model,
-                             const VectorData<Type2, N - 1>& scale,
-                             MatrixData<Type1, N, N>& result) {
+        static void getScaleMatrix(const VectorData<Type2, N - 1>& scale,
+                                   MatrixData<Type1, N, N>& result) {
             static_assert(N == 3 || N == 4, "Scaling only makes sense for 3x3 and 4x4 matrices.");
 
             // Create the scale matrix
-            MatrixData<Type1, N, N> scaleMatrix;
-            MatrixAlgorithms::setMatrixZero(scaleMatrix);
-            MatrixAlgorithms::setMatrixDiagonal(scaleMatrix, Type1(1));
+            MatrixAlgorithms::setMatrixZero(result);
 
             // Set the scale components on the matrix's diagonal
             for (size_t i = 0; i < N - 1; ++i) {
-                scaleMatrix[i][i] = scale[i];
+                result[i][i] = scale[i];
             }
-            // TODO: Make row major
-            // Multiply the original matrix by the scale matrix
-            MatrixAlgorithms::matrixMatrixMulInPlace(scaleMatrix, model, result);
+
+            result[N - 1][N - 1] = Type1(1);
+        }
+
+
+
+
+
+        template <typename ModelType, typename NormalMatType>
+        static void calculateNormalMatrix(const MatrixData<ModelType, 4, 4>& MVMat,
+                                          MatrixData<NormalMatType, 3, 3>& normalMat) {
+            // Transpose the 4x4 matrix first
+            //MatrixData<ModelType, 4, 4> transposedMVMat;
+            //MatrixAlgorithms::transpose(MVMat, transposedMVMat);
+            // IMPORTANT! No need to transpose as we're working with row-major matrices
+
+            // Calculate the inverse of the 3x3 matrix
+            MatrixData<ModelType, 4, 4> inverseMat;
+            MatrixAlgorithms::inverse4x4(MVMat, inverseMat);
+
+            MatrixData<ModelType, 4, 4> transposedMVMat;
+            MatrixAlgorithms::transpose(inverseMat, transposedMVMat);
+
+            // Now extract the upper-left 3x3 part from the transposed matrix
+            MatrixData<ModelType, 3, 3> resizedMVMat;
+            MatrixAlgorithms::resizeMatrix(transposedMVMat, resizedMVMat);
+
+
+            // Assign the result to normalMat, no further transpose needed as we already transposed the whole matrix
+            normalMat = resizedMVMat;
         }
 
         template <typename Type>
@@ -675,8 +693,6 @@ namespace GLESC::Math {
          * @brief Computes the determinant of a matrix 4x4.
          * @details Computes the determinant of a matrix using Laplace expansion.
          * @tparam Type The data type of the matrix elements (e.g., float, double).
-         * @tparam N The number of rows of the matrix.
-         * @tparam M The number of columns of the matrix.
          * @param matrix The matrix.
          * @param result The result determinant.
          */
@@ -780,7 +796,7 @@ namespace GLESC::Math {
 
 
         template <class Type, size_t N>
-        static inline Type laplaceExpansionDeterminant(const MatrixData<Type, N, N>& matrix) {
+        static Type laplaceExpansionDeterminant(const MatrixData<Type, N, N>& matrix) {
             if constexpr (N == 1) {
                 return matrix[0][0];
             }

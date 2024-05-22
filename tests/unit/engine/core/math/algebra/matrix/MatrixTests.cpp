@@ -401,46 +401,6 @@ TYPED_TEST(MatrixTests, Inverse) {
     }
 }
 
-TYPED_TEST(MatrixTests, MatrixTranslate) {
-    PREPARE_TEST();
-    // ---------------------------------- Matrix transformations -----------------------------------
-    // All transformations need to be tested only for square matrices
-    if constexpr (N == 4 && M == 4) {
-        // Translate
-        auto translateVec = VectorT<Type, N - 1>(1);
-        Mat matrixTranslateResult = Mat(1).setTranslate(translateVec);
-        Mat expectedTranslateResult = Mat(1);
-
-        for (size_t i = 0; i < N - 1; ++i) {
-            expectedTranslateResult[i][N - 1] += translateVec[i];
-        }
-
-        for (size_t i = 0; i < expectedTranslateResult.rows(); ++i) {
-            for (size_t j = 0; j < expectedTranslateResult.cols(); ++j) {
-                EXPECT_EQ_CUSTOM(matrixTranslateResult[i][j], expectedTranslateResult[i][j]);
-            }
-        }
-    }
-}
-
-TYPED_TEST(MatrixTests, MatrixScale) {
-    PREPARE_TEST();
-    if constexpr ((N == 3 || N == 4) && N == M) {
-        // Scale
-        auto scaleVec = VectorT<Type, N - 1>(2);
-        Mat matrixTransform = this->matrix;
-        Mat matrixScaleResult = this->matrix.setScale(scaleVec);
-        Mat expectedScaleResult;
-        GLESC::Math::MatrixAlgorithms::setScale(matrixTransform.data, scaleVec.data, expectedScaleResult.data);
-
-
-        EXPECT_EQ_MAT(matrixScaleResult, expectedScaleResult);
-    }
-}
-
-TYPED_TEST(MatrixTests, MatrixRotate) {
-    // TODO: Implement tests for rotation
-}
 
 
 TYPED_TEST(MatrixTests, Rank) {

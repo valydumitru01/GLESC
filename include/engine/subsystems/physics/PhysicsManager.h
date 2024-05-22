@@ -66,7 +66,7 @@ namespace GLESC::Physics {
                 information.collisionAxis.getZ()) {
                 if (collider.collisionCallback)
                     collider.collisionCallback();
-                for(auto& otherCollider : information.colliders) {
+                for (auto& otherCollider : information.colliders) {
                     // Check if there is a specific callback for this collider (otherCollider
                     auto it = collider.collisionCallbacksForSpecificColliders.find(otherCollider);
                     if (it != collider.collisionCallbacksForSpecificColliders.end()) {
@@ -128,8 +128,8 @@ namespace GLESC::Physics {
 
         Collider getNextCollider(const Collider& oldCollider, const Transform::Transform& nextTransform) const {
             Collider nextCollider = oldCollider;
-            nextCollider.boundingVolume = Transform::Transformer::transformBoundingVolume(oldCollider.boundingVolume,
-                nextTransform);
+            nextCollider.boundingVolume =
+                Transform::Transformer::transformBoundingVolume(oldCollider.boundingVolume, nextTransform);
             return nextCollider;
         }
 

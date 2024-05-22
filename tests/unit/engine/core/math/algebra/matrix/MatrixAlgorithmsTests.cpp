@@ -657,11 +657,11 @@ TEST(MatrixAlgorithmsTests, InverseAlgorithmExactSolution) {
 
 TEST(MatrixAlgorithmsTests, TranslateAlgorithm) {
     GLESC::Math::VectorData<float, 3> translateVec2D({2.0f, 3.0f, 1.0f});
-    GLESC::Math::MatrixData<float, 4, 4> matrixToTranslate;
-    GLESC::Math::MatrixAlgorithms::setMatrixZero(matrixToTranslate);
-    GLESC::Math::MatrixAlgorithms::setMatrixDiagonal(matrixToTranslate, 1.0f);
+    GLESC::Math::MatrixData<float, 4, 4> translateMat;
+    GLESC::Math::MatrixAlgorithms::setMatrixZero(translateMat);
+    GLESC::Math::MatrixAlgorithms::setMatrixDiagonal(translateMat, 1.0f);
 
-    GLESC::Math::MatrixAlgorithms::setTranslate(matrixToTranslate, translateVec2D, matrixToTranslate);
+    GLESC::Math::MatrixAlgorithms::getTranslationMatrix(translateVec2D, translateMat);
 
     // Do the same with glm
     auto glmMatToTranslate = glm::mat4(1.0f);
@@ -675,17 +675,17 @@ TEST(MatrixAlgorithmsTests, TranslateAlgorithm) {
             expectedTranslateMatrix[i][j] = glmMatToTranslate[i][j];
         }
     }
-    EXPECT_EQ_MAT(matrixToTranslate, expectedTranslateMatrix);
+    EXPECT_EQ_MAT(translateMat, expectedTranslateMatrix);
 }
 
 
 TEST(MatrixAlgorithmsTests, ScaleAlgorithm) {
     GLESC::Math::VectorData<float, 3> scaleVec2D({2.0f, 3.0f, 1.0f});
-    GLESC::Math::MatrixData<float, 4, 4> matrixToScale;
-    GLESC::Math::MatrixAlgorithms::setMatrixZero(matrixToScale);
-    GLESC::Math::MatrixAlgorithms::setMatrixDiagonal(matrixToScale, 1.0f);
+    GLESC::Math::MatrixData<float, 4, 4> scaleMat;
+    GLESC::Math::MatrixAlgorithms::setMatrixZero(scaleMat);
+    GLESC::Math::MatrixAlgorithms::setMatrixDiagonal(scaleMat, 1.0f);
 
-    GLESC::Math::MatrixAlgorithms::setScale(matrixToScale, scaleVec2D, matrixToScale);
+    GLESC::Math::MatrixAlgorithms::getScaleMatrix(scaleVec2D, scaleMat);
 
     // Do the same with glm
     auto glmMatToScale = glm::mat4(1.0f);
@@ -698,7 +698,7 @@ TEST(MatrixAlgorithmsTests, ScaleAlgorithm) {
             expectedScaleMatrix[i][j] = glmMatToScale[i][j];
         }
     }
-    EXPECT_EQ_MAT(matrixToScale, expectedScaleMatrix);
+    EXPECT_EQ_MAT(scaleMat, expectedScaleMatrix);
 }
 
 TEST(MatrixAlgorithmsTests, RotateAlgorithm) {
@@ -711,14 +711,19 @@ TEST(MatrixAlgorithmsTests, RotateAlgorithm) {
     };
 
     for (const auto& vecDegrs : rotateVecDegrs) {
-        auto glmMatToRotate3D = glm::mat4(1.0f);
+        GLESC::Math::MatrixData<float, 4, 4> rotate3Dx({});
+        GLESC::Math::MatrixData<float, 4, 4> rotate3Dy({});
+        GLESC::Math::MatrixData<float, 4, 4> rotate3Dz({});
         GLESC::Math::MatrixData<float, 4, 4> rotate3D({});
-        GLESC::Math::MatrixAlgorithms::setMatrixDiagonal(rotate3D, 1.0f);
 
-        GLESC::Math::MatrixMixedAlgorithms::rotate3D(rotate3D, vecDegrs[0], {1, 0, 0}, rotate3D);
-        GLESC::Math::MatrixMixedAlgorithms::rotate3D(rotate3D, vecDegrs[1], {0, 1, 0}, rotate3D);
-        GLESC::Math::MatrixMixedAlgorithms::rotate3D(rotate3D, vecDegrs[2], {0, 0, 1}, rotate3D);
+        GLESC::Math::MatrixMixedAlgorithms::getRotate3DMatrix(vecDegrs[0], {1, 0, 0}, rotate3Dx);
+        GLESC::Math::MatrixMixedAlgorithms::getRotate3DMatrix(vecDegrs[1], {0, 1, 0}, rotate3Dy);
+        GLESC::Math::MatrixMixedAlgorithms::getRotate3DMatrix(vecDegrs[2], {0, 0, 1}, rotate3Dz);
 
+        GLESC::Math::MatrixAlgorithms::matrixMatrixMul(rotate3Dx, rotate3Dy, rotate3D);
+        GLESC::Math::MatrixAlgorithms::matrixMatrixMulInPlace(rotate3D, rotate3Dz, rotate3D);
+
+        auto glmMatToRotate3D = glm::mat4(1.0f);
         // Rotate around X-axis
         glmMatToRotate3D = glm::rotate(glmMatToRotate3D, glm::radians(vecDegrs[0]), glm::vec3(1, 0, 0));
         // Rotate around Y-axis
@@ -734,6 +739,9 @@ TEST(MatrixAlgorithmsTests, RotateAlgorithm) {
         }
         std::cout << "Degrees: " << vecDegrs[0] << " " << vecDegrs[1] << " " << vecDegrs[2] << "\n";
         // Use your testing framework's method to compare matrices.
+
+        // Rotate as we are using row-major matrices and glm uses column-major matrices
+        GLESC::Math::MatrixAlgorithms::transpose(rotate3D, rotate3D);
         EXPECT_EQ_MAT(rotate3D, expectedRotate3D);
     }
 }
@@ -783,6 +791,8 @@ TEST(MatrixAlgorithmsTests, PerspectiveProjectionAlgorithm) {
         GLESC::Math::MatrixAlgorithms::perspective(fovRads, nearPlane, farPlane, viewWidth, viewHeight,
                                                    perspectiveMatrix);
 
+        // Rotate as we are using row-major matrices and glm uses column-major matrices
+        GLESC::Math::MatrixAlgorithms::transpose(perspectiveMatrix, perspectiveMatrix);
         EXPECT_EQ_MAT(perspectiveMatrix, perspectiveGlmMatrix);
     }
 
@@ -884,7 +894,7 @@ TEST(MatrixAlgorithmsTests, CalculateNormalMatrix) {
 
     // Calculate the normal matrix using our implementation
     GLESC::Math::MatrixData<float, 3, 3> ourNormalMatrix;
-    GLESC::Math::MatrixMixedAlgorithms::calculateNormalMatrix(ourMV, ourNormalMatrix);
+    GLESC::Math::MatrixAlgorithms::calculateNormalMatrix(ourMV, ourNormalMatrix);
 
     // Convert glmNormalMatrix to our MatrixData format for comparison
     GLESC::Math::MatrixData<float, 3, 3> glmNormalMatrixConverted;
@@ -893,6 +903,9 @@ TEST(MatrixAlgorithmsTests, CalculateNormalMatrix) {
             glmNormalMatrixConverted[i][j] = glmNormalMatrix[i][j];
         }
     }
+
+    // Rotate as we are using row-major matrices and glm uses column-major matrices
+    GLESC::Math::MatrixAlgorithms::transpose(ourNormalMatrix, ourNormalMatrix);
 
     // Finally, compare our normal matrix to glm's normal matrix
     EXPECT_EQ_MAT(ourNormalMatrix, glmNormalMatrixConverted);
@@ -923,6 +936,8 @@ TEST(MatrixAlgorithmsTests, CalculateModelMatrixAlgorithm) {
                 modelGlmMatrix[i][j] = glmMat[i][j];
             }
         }
+        // Rotate as we are using row-major matrices and glm uses column-major matrices
+        GLESC::Math::MatrixAlgorithms::transpose(modelMatrix, modelMatrix);
         EXPECT_EQ_MAT(modelMatrix, modelGlmMatrix);
     }
 }

@@ -418,55 +418,6 @@ namespace GLESC::Math {
         }
 
         /**
-         * @brief Applies a rotation to the model matrix with a vector
-         * @param translation
-         * @return
-         */
-        [[nodiscard]] Matrix setTranslate(const Vector<Type, 3>& translation) const {
-            S_ASSERT_MAT_IS_SQUARE(N, M);
-            Matrix result;
-            MatrixAlgorithms::setTranslate(this->data, translation.data, result.data);
-            return result;
-        }
-
-        /**
-         * @brief Applies a scale to the model matrix with a vector
-         * @param scale
-         * @return
-         */
-        template <typename OtherType>
-        [[nodiscard]] Matrix<Type, N, N> setScale(const Vector<OtherType, N - 1>& scale) const {
-            Matrix<Type, N, N> result;
-            MatrixAlgorithms::setScale(this->data, scale.data, result.data);
-            return result;
-        }
-
-
-        /**
-          * @brief Applies a rotation to the model matrix.
-          * @details The
-          * @tparam VecType
-          * @param degrees
-          * @return
-          */
-        template <typename VecType, typename = std::enable_if_t<
-                      N == 3 && M == 3 || N == 4 && M == 4 &&
-                      is_vector_v<std::decay_t<VecType>> ||
-                      std::is_arithmetic_v<std::decay_t<VecType>>
-                  >>
-        [[nodiscard]] Matrix rotate(const VecType& degrees) const {
-            S_ASSERT_TRUE(N != 3 && M != 3 || N != 4 && M != 4, "Rotation is only supported for 2D and 3D matrices");
-            Matrix<Type, N, N> result;
-            if constexpr (std::is_arithmetic<VecType>() && N == 3 && M == 3) {
-                MatrixMixedAlgorithms::rotate2D(this->data, degrees, result.data);
-            }
-            else if constexpr (is_vector_v<std::decay_t<VecType>> && N == 4 && M == 4) {
-                MatrixMixedAlgorithms::rotate3D(this->data, degrees.data, result.data);
-            }
-            return result;
-        }
-
-        /**
          * @brief Creates a model matrix from the given position, rotation and scale vectors.
          * @details This operation will overwrite the current matrix with the result of the model matrix
          * @tparam PosType The type of the position vector
@@ -489,7 +440,7 @@ namespace GLESC::Math {
         template <typename ModelType>
         void makeNormalMatrix(const Matrix<ModelType, 4, 4>& MVMat) {
             S_ASSERT_TRUE(N == 3 && M == 3, "Normal matrix can only be created for 4x4 matrices");
-            MatrixMixedAlgorithms::calculateNormalMatrix(MVMat.data, this->data);
+            MatrixAlgorithms::calculateNormalMatrix(MVMat.data, this->data);
         }
 
         /**
@@ -545,13 +496,6 @@ namespace GLESC::Math {
          */
         [[nodiscard]] size_t rank() {
             return MatrixAlgorithms::gaussianElimination(this->data).rank;
-        }
-
-
-        [[nodiscard]] Matrix<Type, 3, 3> lookAt(const Vector<Type, 2>& target) const {
-            Matrix<Type, 3, 3> result;
-            MatrixMixedAlgorithms::lookAt2D(this->data, target.data, result.data);
-            return result;
         }
 
         [[nodiscard]] Matrix<Type, 4, 4> lookAt(const Vector<Type, 3>& target, const Vector<Type, 3>& up) const {

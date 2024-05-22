@@ -118,7 +118,7 @@ GLESC::Math::BoundingVolume Transformer::transformBoundingVolume(const Math::Bou
 Position Transformer::transformPosition(const Position& position, const Render::Model& matrix) {
     // IMPORTANT! We use row major matrices but the data distribution is prepared to be column major for in GPU
     // operations. So for the CPU we need to transpose the matrices.
-    Vec4F transformedToWorldVertex = matrix.transpose() * position.homogenize();
+    Vec4F transformedToWorldVertex = matrix * position.homogenize();
     return transformedToWorldVertex.dehomogenize();
 }
 
@@ -142,7 +142,7 @@ Position Transformer::worldToViewport(const Position& worldPos, const Render::Vi
     Render::VP viewProj = viewMat * projMat;
     // IMPORTANT! We use row major matrices but the data distribution is prepared to be column major for in GPU
     // operations. So for the CPU we need to transpose the matrices.
-    HomogeneousPosition clipPos = viewProj.transpose() * worldPos.homogenize();
+    HomogeneousPosition clipPos = viewProj * worldPos.homogenize();
     Position ndcPos = clipToNDC(clipPos);
     return NDCToViewport(ndcPos, vpWidth, vpHeight);
 }

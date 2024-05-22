@@ -777,19 +777,19 @@ namespace GLESC::GAPI {
                 glUniform4f(location, value.x(), value.y(), value.z(), value.w());
             }
             else if constexpr (std::is_same_v<Type, Mat2F>) {
-                GAPI_FUNCTION_IMPLEMENTATION_LOG("glUniformMatrix2fv", location, 1, GL_FALSE,
+                GAPI_FUNCTION_IMPLEMENTATION_LOG("glUniformMatrix2fv", location, 1, GL_TRUE,
                                                  &value[0][0]);
-                glUniformMatrix2fv(location, 1, GL_FALSE, &value[0][0]);
+                glUniformMatrix2fv(location, 1, GL_TRUE, &value[0][0]);
             }
             else if constexpr (std::is_same_v<Type, Mat3F>) {
-                glUniformMatrix3fv(location, 1, GL_FALSE, &value[0][0]);
-                GAPI_FUNCTION_IMPLEMENTATION_LOG("glUniformMatrix3fv", location, 1, GL_FALSE,
+                glUniformMatrix3fv(location, 1, GL_TRUE, &value[0][0]);
+                GAPI_FUNCTION_IMPLEMENTATION_LOG("glUniformMatrix3fv", location, 1, GL_TRUE,
                                                  &value[0][0]);
             }
             else if constexpr (std::is_same_v<Type, Mat4F>) {
-                GAPI_FUNCTION_IMPLEMENTATION_LOG("glUniformMatrix4fv", location, 1, GL_FALSE,
+                GAPI_FUNCTION_IMPLEMENTATION_LOG("glUniformMatrix4fv", location, 1, GL_TRUE,
                                                  &value[0][0]);
-                glUniformMatrix4fv(location, 1, GL_FALSE, &value[0][0]);
+                glUniformMatrix4fv(location, 1, GL_TRUE, &value[0][0]);
             }
             // Integers
             else if constexpr (std::is_same_v<Type, Int>) {
@@ -876,16 +876,19 @@ namespace GLESC::GAPI {
                 GAPI_FUNCTION_IMPLEMENTATION_LOG("glGetUniformfv", boundShaderProgram, location,
                                                  &value[0][0]);
                 glGetUniformfv(boundShaderProgram, location, &value[0][0]);
+                value=value.transpose();
             }
             else if constexpr (std::is_same_v<Type, Mat3F>) {
                 GAPI_FUNCTION_IMPLEMENTATION_LOG("glGetUniformfv", boundShaderProgram, location,
                                                  &value[0][0]);
                 glGetUniformfv(boundShaderProgram, location, &value[0][0]);
+                value=value.transpose();
             }
             else if constexpr (std::is_same_v<Type, Mat4F>) {
                 GAPI_FUNCTION_IMPLEMENTATION_LOG("glGetUniformfv", boundShaderProgram, location,
                                                  &value[0][0]);
                 glGetUniformfv(boundShaderProgram, location, &value[0][0]);
+                value=value.transpose();
             }
             // Integers
             else if constexpr (std::is_same_v<Type, Int>) {
