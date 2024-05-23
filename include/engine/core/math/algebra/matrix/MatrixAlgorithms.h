@@ -337,9 +337,15 @@ namespace GLESC::Math {
             matrixScalarMul(matrix, Type(1) / scalar, result);
         }
 
-
+        template <typename Type>
+        static void kahanSum(Type addend, Type& sum, Type& compensation) {
+            Type y = addend - compensation;
+            Type t = sum + y;
+            compensation = (t - sum) - y;
+            sum = t;
+        }
         /**
-         * @brief Dot product matrix multiplication.
+         * @brief Dot product matrix multiplication. Uses Kahan summation algorithm.
          * @tparam Type The data type of the matrix and vector elements (e.g., float, double).
          * @tparam N The number of rows of the first matrix.
          * @tparam M The number of columns of the first matrix.
@@ -354,16 +360,20 @@ namespace GLESC::Math {
                                     MatrixData<Type, N, X>& result) {
             D_ASSERT_NOT_EQUAL(&matrix1, &result, "Cannot multiply matrix in place. Use matrixMatrixMulInPlace.");
             D_ASSERT_NOT_EQUAL(&matrix2, &result, "Cannot multiply matrix in place. Use matrixMatrixMulInPlace.");
-            for (size_t i = 0; i < N; ++i) {
-                for (size_t j = 0; j < X; ++j) {
-                    // Set the value to zero before adding the products
-                    result[i][j] = 0;
+
+            for (size_t j = 0; j < X; ++j) {
+                for (size_t i = 0; i < N; ++i) {
+                    Type sum = 0;
+                    Type compensation = 0; // Error compensation
                     for (size_t k = 0; k < M; ++k) {
-                        result[i][j] += matrix1[i][k] * matrix2[k][j];
+                        Type product = matrix1[i][k] * matrix2[k][j];
+                        kahanSum(product, sum, compensation);
                     }
+                    result[i][j] = sum;
                 }
             }
         }
+
 
         /**
          * @brief Dot product matrix multiplication in place.
@@ -481,11 +491,6 @@ namespace GLESC::Math {
         template <typename ModelType, typename NormalMatType>
         static void calculateNormalMatrix(const MatrixData<ModelType, 4, 4>& MVMat,
                                           MatrixData<NormalMatType, 3, 3>& normalMat) {
-            // Transpose the 4x4 matrix first
-            //MatrixData<ModelType, 4, 4> transposedMVMat;
-            //MatrixAlgorithms::transpose(MVMat, transposedMVMat);
-            // IMPORTANT! No need to transpose as we're working with row-major matrices
-
             // Calculate the inverse of the 3x3 matrix
             MatrixData<ModelType, 4, 4> inverseMat;
             MatrixAlgorithms::inverse4x4(MVMat, inverseMat);

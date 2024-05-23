@@ -53,23 +53,11 @@ using MyTypes = ::testing::Types<
  */
 template <class MyType>
 MyType generateNextValue(size_t i, size_t j) {
-    // Ensure MyType can handle floating-point arithmetic
-    // The formula slightly modifies the identity matrix elements
-    if (i == j) {
-        // Diagonal elements, making them slightly larger than 1
-        return 1 + (2 * i * i * 7 / (j + 1) + 7 * i * j + 5) / 10000.0;
-    } else {
-        // Off-diagonal elements, ensuring they are small to maintain a non-zero determinant
-        return (2 * i * i * 7 / (j + 1) + 7 * i * j + 5) / 10000.0;
-    }
-}
-
-
-template <class MyType, size_t N, size_t M>
-void initializeMatrixWithValues(GLESC::Math::Matrix<MyType, N, M>& matrix) {
-    for (size_t i = 0; i < N; ++i)
-        for (size_t j = 0; j < M; ++j)
-            matrix[i][j] = generateNextValue<MyType>(i, j);
+    if (i == j)
+        return static_cast<MyType>(i + 1);
+    if (i < j)
+        return static_cast<MyType>(j + 1);
+    return static_cast<MyType>(i + 1);
 }
 
 template <class MyType, size_t N, size_t M>
@@ -80,11 +68,23 @@ void initializeMatrixWithValues(GLESC::Math::MatrixData<MyType, N, M>& matrix) {
 }
 
 template <class MyType, size_t N, size_t M>
-void initializeMatrixWithDifferentValues(GLESC::Math::Matrix<MyType, N, M>& matrix) {
+void initializeMatrixWithValues(GLESC::Math::Matrix<MyType, N, M>& matrix) {
+    initializeMatrixWithValues(matrix.data);
+}
+
+
+template <class MyType, size_t N, size_t M>
+void initializeMatrixWithDifferentValues(GLESC::Math::MatrixData<MyType, N, M>& matrix) {
     for (size_t i = 0; i < N; ++i)
         for (size_t j = 0; j < M; ++j)
             matrix[i][j] = generateNextValue<MyType>(i + 10, j + 10);
 }
+
+template <class MyType, size_t N, size_t M>
+void initializeMatrixWithDifferentValues(GLESC::Math::Matrix<MyType, N, M>& matrix) {
+    initializeMatrixWithDifferentValues(matrix.data);
+}
+
 
 #define PREPARE_TEST()\
     using Type = typename TypeParam::ValueType; \

@@ -122,7 +122,7 @@ shared(adaptedMeshes, lights, sun, fog, skybox, timeOfFrame, view, projection, f
         }
     }
     for (auto& dynamicMesh : adaptedMeshes) {
-        if (!isContainedInFrustum[&dynamicMesh]) continue;
+        //if (!isContainedInFrustum[&dynamicMesh]) continue;
         const Material& material = *dynamicMesh.material;
         applyTransform(mvs[&dynamicMesh], mvps[&dynamicMesh], normalMats[&dynamicMesh]);
         applyMaterial(material);
@@ -134,46 +134,6 @@ shared(adaptedMeshes, lights, sun, fog, skybox, timeOfFrame, view, projection, f
     applySkybox(skybox, viewMat, projMat);
 }
 
-/* 10FPS gain from doing it parallely
-void Renderer::renderMeshes(double timeOfFrame) {
-    drawCounter.startFrame();
-
-    View viewMat = getView();
-    Projection projMat = getProjection();
-    VP viewProj = viewMat * projMat;
-
-    // Don't render anything if the view matrix is not valid
-    frustum.update(viewProj);
-
-
-    shader.bind(); // Activate the shader program before transform, material and lighting
-    applyLighSpots(lights, timeOfFrame);
-    applySun(sun);
-    applyFog(fog);
-    for (auto& dynamicMesh : adaptedMeshes) {
-        interpolationTransforms[dynamicMesh.transform].pushTransform(*dynamicMesh.transform);
-        Transform::Transform interpolatedTransform =
-            interpolationTransforms[dynamicMesh.transform].interpolate(timeOfFrame);
-
-        Model model = interpolatedTransform.getModelMatrix();
-
-        BoundingVolume transformedBoundingVol =
-            Transform::Transformer::transformBoundingVolume(*dynamicMesh.boundingVolume, model);
-        if (!frustum.contains(transformedBoundingVol)) continue;
-        const Material& material = *dynamicMesh.material;
-
-        MVP MVPMat =model* viewProj ;
-        MV MV = viewMat * model;
-        NormalMat normalMat;
-        normalMat.makeNormalMatrix(MV);
-
-        applyTransform(MV, MVPMat, normalMat);
-        applyMaterial(material);
-        renderMesh(dynamicMesh);
-    }
-
-    applySkybox(skybox, viewMat, projMat);
-}*/
 
 void Renderer::applyLighSpots(const std::vector<Light>& lights, double timeOfFrame) const {
     size_t lightCount = static_cast<int>(lights.size());

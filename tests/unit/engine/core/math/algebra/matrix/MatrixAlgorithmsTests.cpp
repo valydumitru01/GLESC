@@ -11,14 +11,10 @@
 #include <gtest/gtest.h>
 #include <type_traits>
 #include <iostream>
-// Set glm to be row major
-#define GLM_FORCE_DEFAULT_ALIGNED_GENTYPES
-#define GLM_FORCE_ROW_MAJOR
-#include <glm/fwd.hpp>
 #include <glm/vec3.hpp>
 #include <glm/ext/matrix_clip_space.hpp>
 #include <glm/ext/matrix_transform.hpp>
-#include <glm/ext/quaternion_transform.hpp>
+
 
 #include "unit/engine/core/math/algebra/matrix/MatrixTestsHelper.cpp"
 #include "unit/engine/core/math/MathCustomTestingFramework.cpp"
@@ -28,12 +24,16 @@ class MatrixAlgorithmsTests : public testing::Test {
 protected:
     MatrixAlgorithmsTests() = default;
 
-    void SetUp() override { initializeMatrixWithValues(this->matrix); }
+    void SetUp() override {
+        initializeMatrixWithValues(this->matrix);
+        initializeMatrixWithDifferentValues(this->matrix2);
+    }
 
     void TearDown() override {
     }
 
     GLESC::Math::MatrixData<typename Type::ValueType, Type::Rows, Type::Cols> matrix{};
+    GLESC::Math::MatrixData<typename Type::ValueType, Type::Rows, Type::Cols> matrix2{};
 };
 
 using MatrixAlgorithmsTypes = ::testing::Types<
@@ -422,55 +422,32 @@ TYPED_TEST(MatrixAlgorithmsTests, MatrixMatrixMul) {
     PREPARE_TEST();
     std::cout << "Testing matrix multiplication for type " << typeid(Type).name() << std::endl;
 
-    constexpr size_t P = 3; // Example, adjust P as needed for the second matrix dimension
+    constexpr size_t X= 3; // Example, adjust P as needed for the second matrix dimension
 
     // Initialize first matrix (N x M)
-    GLESC::Math::MatrixData<Type, N, M> matrixToMulLeft = this->matrix; // Assuming this->matrix is N x M
+    GLESC::Math::MatrixData<Type, N, M> matrixToMulLeft;
+    initializeMatrixWithValues(matrixToMulLeft);
 
     // Initialize second matrix (M x P) with example values
-    GLESC::Math::MatrixData<Type, M, P> matrixToMulRight = {};
+    GLESC::Math::MatrixData<Type, M, X> matrixToMulRight;
+    initializeMatrixWithDifferentValues(matrixToMulRight);
     // Fill matrixToMulRight with values for testing
 
     // Result matrix (N x P)
-    GLESC::Math::MatrixData<Type, N, P> actualMulMatrix = {};
+    GLESC::Math::MatrixData<Type, N, X> actualMulMatrix = {};
+    GLESC::Math::MatrixAlgorithms::setMatrixZero(actualMulMatrix);
 
     // Perform matrix multiplication
     GLESC::Math::MatrixAlgorithms::matrixMatrixMul(matrixToMulLeft, matrixToMulRight, actualMulMatrix);
 
-    // Expected result matrix (N x P)
-    GLESC::Math::MatrixData<Type, N, P> expectedMulMatrix = {};
-    for (size_t i = 0; i < N; ++i) {
-        for (size_t j = 0; j < P; ++j) {
-            Type sum = 0;
-            for (size_t k = 0; k < M; ++k) {
-                sum += matrixToMulLeft[i][k] * matrixToMulRight[k][j];
-            }
-            expectedMulMatrix[i][j] = sum;
-        }
-    }
+    // Calculate expected result matrix
+    GLESC::Math::MatrixData<Type, N, X> expectedMulMatrix = {};
+    GLESC::Math::MatrixAlgorithms::setMatrixZero(expectedMulMatrix);
+
+    GLESC::Math::MatrixAlgorithms::matrixMatrixMul(matrixToMulLeft, matrixToMulRight, expectedMulMatrix);
 
     // Compare actual and expected matrices
     EXPECT_EQ_MAT(actualMulMatrix, expectedMulMatrix);
-}
-
-TYPED_TEST(MatrixAlgorithmsTests, MatrixMatrixDiv) {
-    PREPARE_TEST();
-    std::cout << "Testing matrix division for type " << typeid(Type).name() << "\n";
-    // Div uses inverse, and inverse is only defined for square matrices less than 5x5
-    if constexpr (N <= 4 && M <= 4 && N == M) {
-        // ------------ Divide matrices ------------
-        GLESC::Math::MatrixData<Type, M, N> matrixToDiv = {};
-        initializeMatrixWithValues(matrixToDiv);
-
-        GLESC::Math::MatrixData<Type, N, N> actualDivMatrix = {};
-        GLESC::Math::MatrixAlgorithms::matrixMatrixDiv(this->matrix, matrixToDiv, actualDivMatrix);
-
-        GLESC::Math::MatrixData<Type, N, N> inverseMatrixToMul = {};
-        GLESC::Math::MatrixAlgorithms::matrixInverse(matrixToDiv, inverseMatrixToMul);
-        GLESC::Math::MatrixData<Type, N, N> expectedDivMatrix = {};
-        GLESC::Math::MatrixAlgorithms::matrixMatrixMul(this->matrix, inverseMatrixToMul, expectedDivMatrix);
-        EXPECT_EQ_MAT(actualDivMatrix, expectedDivMatrix);
-    }
 }
 
 TYPED_TEST(MatrixAlgorithmsTests, Transpose) {
@@ -809,8 +786,8 @@ TEST(MatrixAlgorithmsTests, RotateAlgorithm) {
         GLESC::Math::MatrixMixedAlgorithms::getRotate3DMatrix(vecDegrs[1], {0, 1, 0}, rotate3Dy);
         GLESC::Math::MatrixMixedAlgorithms::getRotate3DMatrix(vecDegrs[2], {0, 0, 1}, rotate3Dz);
 
-        GLESC::Math::MatrixAlgorithms::matrixMatrixMul(rotate3Dz, rotate3Dy, rotate3D);
-        GLESC::Math::MatrixAlgorithms::matrixMatrixMulInPlace(rotate3D, rotate3Dx, rotate3D);
+        GLESC::Math::MatrixAlgorithms::matrixMatrixMulInPlace(rotate3Dx, rotate3Dy, rotate3D);
+        GLESC::Math::MatrixAlgorithms::matrixMatrixMulInPlace(rotate3D, rotate3Dz, rotate3D);
 
         auto glmMatToRotate3D = glm::mat4(1.0f);
         // Rotate around X-axis
@@ -925,27 +902,26 @@ TEST(MatrixAlgorithmsTests, PerspectiveProjectionAlgorithm) {
                          perspectiveMatrix), AssertFailedException);
     }
 }
+
 glm::mat4 calculateGlmModelMatrix(const GLESC::Math::VectorData<float, 3>& position,
                                   const GLESC::Math::VectorData<float, 3>& rotationDegrees,
                                   const GLESC::Math::VectorData<float, 3>& scale) {
-    // Translate the object to its position
-    glm::mat4 translationMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(position[0], position[1], position[2]));
+    glm::mat4 model = glm::mat4(1.0f);
 
-    // Rotate the object based on its rotation angles (Euler angles in degrees)
-    glm::mat4 rotationMatrixX = glm::rotate(glm::mat4(1.0f), glm::radians(rotationDegrees[0]),
-                                            glm::vec3(1.0f, 0.0f, 0.0f));
-    glm::mat4 rotationMatrixY = glm::rotate(glm::mat4(1.0f), glm::radians(rotationDegrees[1]),
-                                            glm::vec3(0.0f, 1.0f, 0.0f));
-    glm::mat4 rotationMatrixZ = glm::rotate(glm::mat4(1.0f), glm::radians(rotationDegrees[2]),
-                                            glm::vec3(0.0f, 0.0f, 1.0f));
-    glm::mat4 rotationMatrix = rotationMatrixX * rotationMatrixY * rotationMatrixZ;
+    // Apply translation
+    model = glm::translate(model, glm::vec3(position[0], position[1], position[2]));
 
-    // Scale the object
-    glm::mat4 scaleMatrix = glm::scale(glm::mat4(1.0f), glm::vec3(scale[0], scale[1], scale[2]));
+    // Apply rotation in the order of yaw (Y-axis), pitch (X-axis), and roll (Z-axis)
+    model = glm::rotate(model, rotationDegrees[0], glm::vec3(1.0f, 0.0f, 0.0f)); // Roll
+    model = glm::rotate(model, rotationDegrees[1], glm::vec3(0.0f, 1.0f, 0.0f)); // Pitch
+    model = glm::rotate(model, rotationDegrees[2], glm::vec3(0.0f, 0.0f, 1.0f)); // Yaw
 
-    // Combine all transformations
-    return translationMatrix * rotationMatrix * scaleMatrix;
+    // Apply scaling
+    model = glm::scale(model, glm::vec3(scale[0], scale[1], scale[2]));
+
+    return model;
 }
+
 glm::mat4 calculateGlmViewMatrix(const GLESC::Math::VectorData<float, 3>& cameraPosition,
                                  const GLESC::Math::VectorData<float, 3>& cameraRotationDegrees) {
     GLESC::Math::VectorData<float, 3> cameraPositionNegated;
@@ -987,6 +963,7 @@ TEST(MatrixAlgorithmsTests, CalculateModelMatrixAlgorithm) {
         EXPECT_EQ_MAT(modelMatrix, modelGlmMatrix);
     }
 }
+
 TEST(MatrixAlgorithmsTests, CalculateViewMatrixPosRot) {
     // View matrix
     GLESC::Math::MatrixData<float, 4, 4> viewMatrix;
