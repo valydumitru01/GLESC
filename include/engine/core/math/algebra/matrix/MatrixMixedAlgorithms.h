@@ -168,9 +168,10 @@ namespace GLESC::Math {
             MatrixMixedAlgorithms::getRotate3DMatrix(rotationDegrees[1], {0, 1, 0}, rotateYMatrix);
             MatrixMixedAlgorithms::getRotate3DMatrix(rotationDegrees[2], {0, 0, 1}, rotateZMatrix);
 
-            // Combine rotation matrices (note the order: Z * Y * X)
-            MatrixAlgorithms::matrixMatrixMul(rotateXMatrix, rotateYMatrix, rotationMatrix);
-            MatrixAlgorithms::matrixMatrixMulInPlace(rotateZMatrix,rotationMatrix , rotationMatrix);
+            // Combine rotation matrices
+            MatrixAlgorithms::matrixMatrixMulInPlace(rotateZMatrix, rotationMatrix, rotationMatrix);
+            MatrixAlgorithms::matrixMatrixMulInPlace(rotateYMatrix, rotationMatrix, rotationMatrix);
+            MatrixAlgorithms::matrixMatrixMulInPlace(rotateXMatrix, rotationMatrix, rotationMatrix);
 
             // Create the translation matrix
             MatrixAlgorithms::getTranslationMatrix(position, translationMatrix);
@@ -178,43 +179,28 @@ namespace GLESC::Math {
             // Combine all transformations into the model matrix
             // Note: Multiplication order is: Translation * Rotation * Scale
             MatrixData<ModelType, 4, 4> tempMatrix;
-            MatrixAlgorithms::matrixMatrixMul(translationMatrix, rotationMatrix, tempMatrix); // Rotation * Scale
-            MatrixAlgorithms::matrixMatrixMul(scaleMatrix, tempMatrix, model); // Translation * (Rotation * Scale)
+            MatrixAlgorithms::matrixMatrixMul(scaleMatrix, rotationMatrix, tempMatrix); // Rotation * Scale
+            MatrixAlgorithms::matrixMatrixMul(tempMatrix, translationMatrix, model); // Translation * (Rotation * Scale)
         }
 
         template <typename TypePos, typename TypeRot, typename TypeRes>
         static void calculateViewMatrixPosRot(const VectorData<TypePos, 3>& position,
                                               const VectorData<TypeRot, 3>& rotationDegrees,
                                               MatrixData<TypeRes, 4, 4>& viewMat) {
-            // Initialize matrices
-            MatrixData<TypeRes, 4, 4> rotationMatrix;
-            MatrixData<TypeRes, 4, 4> translationMatrix;
-            MatrixData<TypeRes, 4, 4> tempMatrix;
-
             // Negate position for translation
             VectorData<TypePos, 3> negatedPos;
             negatedPos[0] = -position[0];
             negatedPos[1] = -position[1];
             negatedPos[2] = -position[2];
 
-            // Create translation matrix with negated position
-            MatrixAlgorithms::getTranslationMatrix(negatedPos, translationMatrix);
+            VectorData<TypeRes, 3> negatedRotationRadians;
+            negatedRotationRadians[0] = -Math::radians(rotationDegrees[0]);
+            negatedRotationRadians[1] = -Math::radians(rotationDegrees[1]);
+            negatedRotationRadians[2] = -Math::radians(rotationDegrees[2]);
 
-            // Create rotation matrices for inverse rotation
-            MatrixData<TypeRes, 4, 4> rotateXMatrix;
-            MatrixData<TypeRes, 4, 4> rotateYMatrix;
-            MatrixData<TypeRes, 4, 4> rotateZMatrix;
-            MatrixMixedAlgorithms::getRotate3DMatrix(-rotationDegrees[0], {1, 0, 0}, rotateXMatrix);
-            MatrixMixedAlgorithms::getRotate3DMatrix(-rotationDegrees[1], {0, 1, 0}, rotateYMatrix);
-            MatrixMixedAlgorithms::getRotate3DMatrix(-rotationDegrees[2], {0, 0, 1}, rotateZMatrix);
+            VectorData<TypeRes, 3> scale = {1, 1, 1};
 
-            // Combine rotation matrices (note the order: X * Y * Z for inverse rotation)
-            MatrixAlgorithms::matrixMatrixMul(rotateXMatrix, rotateYMatrix, rotationMatrix);
-            MatrixAlgorithms::matrixMatrixMulInPlace(rotationMatrix, rotateZMatrix, rotationMatrix);
-
-            // Combine all transformations into the view matrix
-            // Note: Multiplication order is: Translation * Rotation
-            MatrixAlgorithms::matrixMatrixMul(translationMatrix, rotationMatrix, viewMat);
+            MatrixMixedAlgorithms::calculateModelMatrix(negatedPos, negatedRotationRadians, scale, viewMat);
         }
 
         template <typename Type>

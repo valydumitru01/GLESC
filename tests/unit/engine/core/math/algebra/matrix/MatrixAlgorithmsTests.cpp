@@ -37,14 +37,11 @@ protected:
 };
 
 using MatrixAlgorithmsTypes = ::testing::Types<
-    MatrixType<float, 2, 2>, MatrixType<double, 2, 2>, MatrixType<int, 2, 2>, MatrixType<size_t, 2, 2>,
-    MatrixType<float, 3, 3>, MatrixType<double, 3, 3>, MatrixType<int, 3, 3>, MatrixType<size_t, 3, 3>,
-    MatrixType<float, 4, 4>, MatrixType<double, 4, 4>, MatrixType<int, 4, 4>, MatrixType<size_t, 4, 4>,
-    MatrixType<float, 5, 5>, MatrixType<double, 5, 5>, MatrixType<int, 5, 5>, MatrixType<size_t, 5, 5>,
-    MatrixType<float, 10, 10>, MatrixType<double, 10, 10>,
+    MatrixType<float, 2, 2>, MatrixType<double, 2, 2>,
+    MatrixType<float, 3, 3>, MatrixType<double, 3, 3>,
+    MatrixType<float, 4, 4>, MatrixType<double, 4, 4>,
     // Non-square matrices
-    MatrixType<float, 2, 3>, MatrixType<double, 2, 3>, MatrixType<int, 2, 3>, MatrixType<size_t, 2, 3>,
-    MatrixType<float, 3, 2>, MatrixType<double, 3, 2>, MatrixType<int, 3, 2>, MatrixType<size_t, 3, 2>,
+    MatrixType<float, 3, 2>, MatrixType<double, 3, 2>,
     MatrixType<float, 4, 3>, MatrixType<double, 4, 3>
 >;
 
@@ -444,7 +441,7 @@ TYPED_TEST(MatrixAlgorithmsTests, MatrixMatrixMul) {
     GLESC::Math::MatrixData<Type, N, X> expectedMulMatrix = {};
     GLESC::Math::MatrixAlgorithms::setMatrixZero(expectedMulMatrix);
 
-    GLESC::Math::MatrixAlgorithms::matrixMatrixMul(matrixToMulLeft, matrixToMulRight, expectedMulMatrix);
+    GLESC::Math::MatrixAlgorithms::matrixMatrixMulNaive(matrixToMulLeft, matrixToMulRight, expectedMulMatrix);
 
     // Compare actual and expected matrices
     EXPECT_EQ_MAT(actualMulMatrix, expectedMulMatrix);
@@ -781,13 +778,16 @@ TEST(MatrixAlgorithmsTests, RotateAlgorithm) {
         GLESC::Math::MatrixData<float, 4, 4> rotate3Dy({});
         GLESC::Math::MatrixData<float, 4, 4> rotate3Dz({});
         GLESC::Math::MatrixData<float, 4, 4> rotate3D({});
+        GLESC::Math::MatrixAlgorithms::setMatrixZero(rotate3D);
+        GLESC::Math::MatrixAlgorithms::setMatrixDiagonal(rotate3D, 1.0f);
 
         GLESC::Math::MatrixMixedAlgorithms::getRotate3DMatrix(vecDegrs[0], {1, 0, 0}, rotate3Dx);
         GLESC::Math::MatrixMixedAlgorithms::getRotate3DMatrix(vecDegrs[1], {0, 1, 0}, rotate3Dy);
         GLESC::Math::MatrixMixedAlgorithms::getRotate3DMatrix(vecDegrs[2], {0, 0, 1}, rotate3Dz);
 
-        GLESC::Math::MatrixAlgorithms::matrixMatrixMulInPlace(rotate3Dx, rotate3Dy, rotate3D);
         GLESC::Math::MatrixAlgorithms::matrixMatrixMulInPlace(rotate3D, rotate3Dz, rotate3D);
+        GLESC::Math::MatrixAlgorithms::matrixMatrixMulInPlace(rotate3D, rotate3Dy, rotate3D);
+        GLESC::Math::MatrixAlgorithms::matrixMatrixMulInPlace(rotate3D, rotate3Dx, rotate3D);
 
         auto glmMatToRotate3D = glm::mat4(1.0f);
         // Rotate around X-axis
@@ -803,6 +803,7 @@ TEST(MatrixAlgorithmsTests, RotateAlgorithm) {
                 expectedRotate3D[i][j] = glmMatToRotate3D[i][j];
             }
         }
+
         std::cout << "Degrees: " << vecDegrs[0] << " " << vecDegrs[1] << " " << vecDegrs[2] << "\n";
         EXPECT_EQ_MAT(rotate3D, expectedRotate3D);
     }

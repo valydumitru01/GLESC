@@ -201,6 +201,6 @@ namespace GLESC::GAPI {
 
         ShaderProgramID boundShaderProgram{};
 
-        static constexpr bool rowMajorMatrix{true};
+        static constexpr bool rowMajorMatrix{false};
     };
 } // namespace GLESC

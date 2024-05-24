@@ -337,13 +337,8 @@ namespace GLESC::Math {
             matrixScalarMul(matrix, Type(1) / scalar, result);
         }
 
-        template <typename Type>
-        static void kahanSum(Type addend, Type& sum, Type& compensation) {
-            Type y = addend - compensation;
-            Type t = sum + y;
-            compensation = (t - sum) - y;
-            sum = t;
-        }
+
+
         /**
          * @brief Dot product matrix multiplication. Uses Kahan summation algorithm.
          * @tparam Type The data type of the matrix and vector elements (e.g., float, double).
@@ -356,18 +351,36 @@ namespace GLESC::Math {
          */
         template <typename Type, size_t N, size_t M, size_t X>
         static void matrixMatrixMul(const MatrixData<Type, N, M>& matrix1,
-                                    const MatrixData<Type, M, X>& matrix2,
-                                    MatrixData<Type, N, X>& result) {
-            D_ASSERT_NOT_EQUAL(&matrix1, &result, "Cannot multiply matrix in place. Use matrixMatrixMulInPlace.");
-            D_ASSERT_NOT_EQUAL(&matrix2, &result, "Cannot multiply matrix in place. Use matrixMatrixMulInPlace.");
-
-            for (size_t j = 0; j < X; ++j) {
-                for (size_t i = 0; i < N; ++i) {
-                    Type sum = 0;
-                    Type compensation = 0; // Error compensation
+                             const MatrixData<Type, M, X>& matrix2,
+                             MatrixData<Type, N, X>& result) {
+            for (size_t i = 0; i < N; ++i) {
+                for (size_t j = 0; j < X; ++j) {
+                    Type sum = static_cast<Type>(0);
+                    Type c = static_cast<Type>(0); // A running compensation for lost low-order bits.
                     for (size_t k = 0; k < M; ++k) {
                         Type product = matrix1[i][k] * matrix2[k][j];
-                        kahanSum(product, sum, compensation);
+                        Type y = product - c;
+                        Type t = sum + y;
+                        c = (t - sum) - y;
+                        sum = t;
+                    }
+                    result[i][j] = sum;
+                }
+            }
+        }
+
+        template <typename Type, size_t N, size_t M, size_t X>
+        static void matrixMatrixMulNaive(const MatrixData<Type, N, M>& matrix1,
+                                         const MatrixData<Type, M, X>& matrix2,
+                                         MatrixData<Type, N, X>& result) {
+            D_ASSERT_NOT_EQUAL(&matrix1, &result, "Cannot multiply matrix in place. Use matrixMatrixMulNaiveInPlace.");
+            D_ASSERT_NOT_EQUAL(&matrix2, &result, "Cannot multiply matrix in place. Use matrixMatrixMulNaiveInPlace.");
+
+            for (size_t i = 0; i < N; ++i) {
+                for (size_t j = 0; j < X; ++j) {
+                    Type sum = 0;
+                    for (size_t k = 0; k < M; ++k) {
+                        sum += matrix1[i][k] * matrix2[k][j];
                     }
                     result[i][j] = sum;
                 }
@@ -392,6 +405,15 @@ namespace GLESC::Math {
                                            MatrixData<Type, N, M>& result) {
             MatrixData<Type, N, M> temp(result);
             matrixMatrixMul(matrix1, matrix2, temp);
+            copyMatrix(result, temp);
+        }
+
+        template <typename Type, size_t N, size_t M>
+        static void matrixMatrixMulNaiveInPlace(const MatrixData<Type, N, M>& matrix1,
+                                                const MatrixData<Type, M, M>& matrix2,
+                                                MatrixData<Type, N, M>& result) {
+            MatrixData<Type, N, M> temp(result);
+            matrixMatrixMulNaive(matrix1, matrix2, temp);
             copyMatrix(result, temp);
         }
 
@@ -430,7 +452,7 @@ namespace GLESC::Math {
          */
         template <typename Type, size_t N, size_t M>
         static void transpose(const MatrixData<Type, N, M>& matrix, MatrixData<Type, M, N>& result) {
-            if constexpr(M==N)
+            if constexpr (M == N)
                 D_ASSERT_FALSE(&matrix == &result, "Cannot transpose matrix in place.");
             for (size_t i = 0; i < N; ++i)
                 for (size_t j = 0; j < M; ++j)
@@ -571,9 +593,9 @@ namespace GLESC::Math {
             Type aspect = viewWidth / viewHeight;
             result[0][0] = static_cast<Type>(1) / (aspect * tanHalfFovy);
             result[1][1] = static_cast<Type>(1) / (tanHalfFovy);
-            result[2][2] = - (farPlane + nearPlane) / (farPlane - nearPlane);
-            result[2][3] = - static_cast<Type>(1);
-            result[3][2] = - (static_cast<Type>(2) * farPlane * nearPlane) / (farPlane - nearPlane);
+            result[2][2] = -(farPlane + nearPlane) / (farPlane - nearPlane);
+            result[2][3] = -static_cast<Type>(1);
+            result[3][2] = -(static_cast<Type>(2) * farPlane * nearPlane) / (farPlane - nearPlane);
         }
 
         /**
