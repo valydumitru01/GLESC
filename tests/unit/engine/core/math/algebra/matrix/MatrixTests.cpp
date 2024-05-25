@@ -22,7 +22,8 @@ protected:
         initializeMatrixWithDifferentValues(this->matrix2);
     }
 
-    void TearDown() override {}
+    void TearDown() override {
+    }
 
     GLESC::Math::Matrix<typename Type::ValueType, Type::Rows, Type::Cols> matrix;
     // For combined operations
@@ -102,7 +103,7 @@ TYPED_TEST(MatrixTests, BracketAccessor) {
             EXPECT_EQ_CUSTOM(this->matrix[i][j], generateNextValue<Type>(i, j));
 
     S_ASSERT_TRUE((std::is_same_v<decltype(this->matrix[0][0]), Type &>),
-              "Operator [] must return a reference");
+                  "Operator [] must return a reference");
 }
 
 TYPED_TEST(MatrixTests, GetAccessor) {
@@ -119,7 +120,6 @@ TYPED_TEST(MatrixTests, GetAccessor) {
 
     S_ASSERT_TRUE((std::is_same_v<decltype(this->matrix.get(0)), const GLESC::Math::MatrixRow<Type, M> &>),
                   "Getter (index) must return a const reference to the matrix row");
-
 }
 
 TYPED_TEST(MatrixTests, EqualityOperators) {
@@ -205,7 +205,7 @@ TYPED_TEST(MatrixTests, MultAssignment) {
         //
         auto expectedMultAssign = this->matrix;
         GLESC::Math::MatrixAlgorithms::matrixMatrixMulInPlace(expectedMultAssign.data, matrixToMultiplyWith.data,
-                                                           expectedMultAssign.data);
+                                                              expectedMultAssign.data);
         EXPECT_EQ_MAT(matrixMultAssign, expectedMultAssign);
     }
 }
@@ -229,7 +229,8 @@ TYPED_TEST(MatrixTests, DivAssignment) {
         matrixDivEquals /= this->matrix;
 
         Mat expectedDivEquals = this->matrix2;
-        GLESC::Math::MatrixAlgorithms::matrixMatrixDiv(expectedDivEquals.data, this->matrix.data, expectedDivEquals.data);
+        GLESC::Math::MatrixAlgorithms::matrixMatrixDiv(expectedDivEquals.data, this->matrix.data,
+                                                       expectedDivEquals.data);
         EXPECT_EQ_MAT(matrixDivEquals, expectedDivEquals);
 
         // Dividing by zero
@@ -312,17 +313,40 @@ TYPED_TEST(MatrixTests, UnaryMinusOperator) {
 TYPED_TEST(MatrixTests, MulOperator) {
     PREPARE_TEST();
     // Multiplication operator (dot product)
-    constexpr auto X = GLESC::Math::generateCompileTimeRandomNumber<size_t, 2, 10>(); // Compile-time random number
-    GLESC::Math::Matrix<Type, M, X> matrixToMultiply;
-    initializeMatrixWithValues<Type, M, X>(matrixToMultiply);
+    constexpr auto X = 4;
 
-    GLESC::Math::Matrix<Type, N, X> expectedMultResult;
-    GLESC::Math::Matrix<Type, N, X> actualMultResult;
 
-    actualMultResult = this->matrix * matrixToMultiply;
-    GLESC::Math::MatrixAlgorithms::matrixMatrixMul(this->matrix.data, matrixToMultiply.data,
-                                                expectedMultResult.data);
-    EXPECT_EQ_MAT(actualMultResult, expectedMultResult);
+    if constexpr (GLESC::Math::MatrixAlgorithms::colMajorMatrix) {
+        GLESC::Math::Matrix<Type, M, N> matrixToMultiplyLeft;
+        initializeMatrixWithValues(matrixToMultiplyLeft);
+
+        GLESC::Math::Matrix<Type, X, M> matrixToMultiplyRight;
+        initializeMatrixWithValues(matrixToMultiplyRight);
+
+
+        GLESC::Math::Matrix<Type, X, N> expectedMultResult;
+        GLESC::Math::Matrix<Type, X, N> actualMultResult;
+
+        actualMultResult = matrixToMultiplyLeft * matrixToMultiplyRight;
+        GLESC::Math::MatrixAlgorithms::matrixMatrixMulColMaj(matrixToMultiplyLeft.data, matrixToMultiplyRight.data,
+                                                             expectedMultResult.data);
+        EXPECT_EQ_MAT(actualMultResult, expectedMultResult);
+    }
+    else {
+        GLESC::Math::Matrix<Type, N, M> matrixToMultiplyLeft;
+        initializeMatrixWithValues(matrixToMultiplyLeft);
+
+        GLESC::Math::Matrix<Type, M, X> matrixToMultiplyRight;
+        initializeMatrixWithValues(matrixToMultiplyRight);
+
+        GLESC::Math::Matrix<Type, N, X> expectedMultResult;
+        GLESC::Math::Matrix<Type, N, X> actualMultResult;
+
+        actualMultResult = matrixToMultiplyLeft * matrixToMultiplyRight;
+        GLESC::Math::MatrixAlgorithms::matrixMatrixMulRowMaj(matrixToMultiplyLeft, matrixToMultiplyRight.data,
+                                                             expectedMultResult.data);
+        EXPECT_EQ_MAT(actualMultResult, expectedMultResult);
+    }
 }
 
 TYPED_TEST(MatrixTests, MulScalarOperator) {
@@ -400,7 +424,6 @@ TYPED_TEST(MatrixTests, Inverse) {
         EXPECT_EQ_MAT(matrixInverseResult.data, expectedInverseResult);
     }
 }
-
 
 
 TYPED_TEST(MatrixTests, Rank) {

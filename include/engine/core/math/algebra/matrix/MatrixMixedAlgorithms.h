@@ -91,14 +91,14 @@ namespace GLESC::Math {
          *   It's recommended to use quaternions for robustness.
          * @tparam TypeDgrs The data type of the rotation angles (e.g., float, double).
          * @tparam TypeRes The data type of the result matrix elements (e.g., float, double).
-         * @param angleDegrees A 3D vector containing the rotation angles around the X, Y, and Z axes respectively.
+         * @param rads A 3D vector containing the rotation angles around the X, Y, and Z axes respectively.
          * @param result A 4x4 matrix which will contain the result of the rotation.
          */
         template <typename TypeDgrs, typename TypeRes>
-        static void getRotate3DMatrix(TypeDgrs angleDegrees,
-                                      const VectorData<TypeDgrs, 3>& axisVec,
-                                      MatrixData<TypeRes, 4, 4>& result) {
-            const TypeDgrs angleRadians = Math::radians(angleDegrees);
+        static void getRotate3DMatrixForAxis(TypeDgrs rads,
+                                             const VectorData<TypeDgrs, 3>& axisVec,
+                                             MatrixData<TypeRes, 4, 4>& result) {
+            const TypeDgrs angleRadians = rads;
             const TypeRes c = Math::cos(angleRadians);
             const TypeRes s = Math::sin(angleRadians);
             const TypeRes t = TypeRes(1) - c;
@@ -131,6 +131,27 @@ namespace GLESC::Math {
             result[3][3] = 1;
         }
 
+        template <typename TypeDgrs, typename TypeRes>
+        static void getRotate3DMatrix(const VectorData<TypeDgrs, 3>& rads,
+                                      MatrixData<TypeRes, 4, 4>& result) {
+            GLESC::Math::MatrixAlgorithms::setMatrixZero(result);
+            GLESC::Math::MatrixAlgorithms::setMatrixDiagonal(result, 1.0f);
+
+            MatrixData<TypeRes, 4, 4> rotX;
+            VectorData<TypeDgrs, 3> rotXAxis = {1, 0, 0};
+            MatrixMixedAlgorithms::getRotate3DMatrixForAxis(rads[0], rotXAxis, rotX);
+            MatrixData<TypeRes, 4, 4> rotY;
+            VectorData<TypeDgrs, 3> rotYAxis = {0, 1, 0};
+            MatrixMixedAlgorithms::getRotate3DMatrixForAxis(rads[1], rotYAxis, rotY);
+            MatrixData<TypeRes, 4, 4> rotZ;
+            VectorData<TypeDgrs, 3> rotZAxis = {0, 0, 1};
+            MatrixMixedAlgorithms::getRotate3DMatrixForAxis(rads[2], rotZAxis, rotZ);
+
+            MatrixAlgorithms::matrixMatrixMulInPlace(result, rotX, result);
+            MatrixAlgorithms::matrixMatrixMulInPlace(result, rotY, result);
+            MatrixAlgorithms::matrixMatrixMulInPlace(result, rotZ, result);
+        }
+
         /**
          * @brief Calculate the model matrix from the position, rotation, and scale.
          * @details This function calculates the model matrix from the position, rotation, and scale.
@@ -143,49 +164,41 @@ namespace GLESC::Math {
          * @tparam TypeRot The data type of the rotation vector elements (e.g., float, double).
          * @tparam TypeScale The data type of the scale vector elements (e.g., float, double).
          * @param position A 3D vector containing the position of the model.
-         * @param rotationDegrees A 3D vector containing the rotation angles (in radians) around X, Y, and Z axes respectively.
+         * @param rotationRads A 3D vector containing the rotation angles (in radians) around X, Y, and Z axes respectively.
          * @param scale A 3D vector containing the scale factors for the model.
          * @param model A 4x4 matrix which will contain the result of the model matrix.
          */
         template <typename ModelType, typename TypePos, typename TypeRot, typename TypeScale>
         static void calculateModelMatrix(const VectorData<TypePos, 3>& position,
-                                         const VectorData<TypeRot, 3>& rotationDegrees,
+                                         const VectorData<TypeRot, 3>& rotationRads,
                                          const VectorData<TypeScale, 3>& scale,
                                          MatrixData<ModelType, 4, 4>& model) {
             // Initialize matrices
             MatrixData<ModelType, 4, 4> scaleMatrix;
             MatrixData<ModelType, 4, 4> rotationMatrix;
             MatrixData<ModelType, 4, 4> translationMatrix;
+            MatrixAlgorithms::setMatrixZero(model);
+            MatrixAlgorithms::setMatrixDiagonal(model, ModelType(1));
 
             // First, create the scale matrix
             MatrixAlgorithms::getScaleMatrix(scale, scaleMatrix);
 
             // Create rotation matrices around X, Y, and Z axes
-            MatrixData<ModelType, 4, 4> rotateXMatrix;
-            MatrixData<ModelType, 4, 4> rotateYMatrix;
-            MatrixData<ModelType, 4, 4> rotateZMatrix;
-            MatrixMixedAlgorithms::getRotate3DMatrix(rotationDegrees[0], {1, 0, 0}, rotateXMatrix);
-            MatrixMixedAlgorithms::getRotate3DMatrix(rotationDegrees[1], {0, 1, 0}, rotateYMatrix);
-            MatrixMixedAlgorithms::getRotate3DMatrix(rotationDegrees[2], {0, 0, 1}, rotateZMatrix);
-
-            // Combine rotation matrices
-            MatrixAlgorithms::matrixMatrixMulInPlace(rotateZMatrix, rotationMatrix, rotationMatrix);
-            MatrixAlgorithms::matrixMatrixMulInPlace(rotateYMatrix, rotationMatrix, rotationMatrix);
-            MatrixAlgorithms::matrixMatrixMulInPlace(rotateXMatrix, rotationMatrix, rotationMatrix);
+            MatrixMixedAlgorithms::getRotate3DMatrix(rotationRads, rotationMatrix);
 
             // Create the translation matrix
             MatrixAlgorithms::getTranslationMatrix(position, translationMatrix);
 
-            // Combine all transformations into the model matrix
-            // Note: Multiplication order is: Translation * Rotation * Scale
-            MatrixData<ModelType, 4, 4> tempMatrix;
-            MatrixAlgorithms::matrixMatrixMul(scaleMatrix, rotationMatrix, tempMatrix); // Rotation * Scale
-            MatrixAlgorithms::matrixMatrixMul(tempMatrix, translationMatrix, model); // Translation * (Rotation * Scale)
+            MatrixAlgorithms::matrixMatrixMulInPlace(model, translationMatrix, model);
+
+            MatrixAlgorithms::matrixMatrixMulInPlace(model, rotationMatrix, model);
+
+            MatrixAlgorithms::matrixMatrixMulInPlace(model, scaleMatrix, model);
         }
 
         template <typename TypePos, typename TypeRot, typename TypeRes>
         static void calculateViewMatrixPosRot(const VectorData<TypePos, 3>& position,
-                                              const VectorData<TypeRot, 3>& rotationDegrees,
+                                              const VectorData<TypeRot, 3>& rotationRads,
                                               MatrixData<TypeRes, 4, 4>& viewMat) {
             // Negate position for translation
             VectorData<TypePos, 3> negatedPos;
@@ -194,9 +207,9 @@ namespace GLESC::Math {
             negatedPos[2] = -position[2];
 
             VectorData<TypeRes, 3> negatedRotationRadians;
-            negatedRotationRadians[0] = -Math::radians(rotationDegrees[0]);
-            negatedRotationRadians[1] = -Math::radians(rotationDegrees[1]);
-            negatedRotationRadians[2] = -Math::radians(rotationDegrees[2]);
+            negatedRotationRadians[0] = -rotationRads[0];
+            negatedRotationRadians[1] = -rotationRads[1];
+            negatedRotationRadians[2] = -rotationRads[2];
 
             VectorData<TypeRes, 3> scale = {1, 1, 1};
 

@@ -118,9 +118,8 @@ GLESC::Math::BoundingVolume Transformer::transformBoundingVolume(const Math::Bou
 Position Transformer::transformPosition(const Position& position, const Render::Model& matrix) {
     // IMPORTANT! We use row major matrices but the data distribution is prepared to be column major for in GPU
     // operations. So for the CPU we need to transpose the matrices.
-    GLESC::Math::Matrix<float, 4, 1> vectorMatrix(position.homogenize().toMatrix());
-    auto mat = vectorMatrix.transpose() *  matrix;
-    Vec4F transformedToWorldVertex =Vec4F(mat[0][0], mat[0][1], mat[0][2], mat[0][3]);
+
+    Vec4F transformedToWorldVertex = matrix * position.homogenize();
     return transformedToWorldVertex.dehomogenize();
 }
 

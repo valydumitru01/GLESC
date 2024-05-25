@@ -57,7 +57,8 @@ namespace GLESC::Math {
          * @param args
          */
         template <typename... Args, typename = std::enable_if_t<(sizeof...(Args) == N)>>
-        constexpr Vector(Args&&... args) noexcept : data{args...} {}
+        constexpr Vector(Args&&... args) noexcept : data{args...} {
+        }
 
 
         /**
@@ -76,6 +77,12 @@ namespace GLESC::Math {
          */
         template <size_t N2>
         constexpr Vector(const Vector<Type, N2>& other) noexcept {
+            VectorAlgorithms::vectorFill(data, Type{0});
+            VectorAlgorithms::vectorCopy(data, other.data);
+        }
+
+        template <size_t N2>
+        constexpr Vector(const Vector<Type, N2>&& other) noexcept {
             VectorAlgorithms::vectorFill(data, Type{0});
             VectorAlgorithms::vectorCopy(data, other.data);
         }
@@ -614,9 +621,6 @@ namespace GLESC::Math {
         }
 
 
-
-
-
         // =========================================================================================
         // ==================================== Vector Methods =====================================
         // =========================================================================================
@@ -626,7 +630,6 @@ namespace GLESC::Math {
             VectorMixedAlgorithms::vectorToMatrix(this->data, result);
             return result;
         }
-
 
 
         [[nodiscard]] bool isZero() const {
@@ -649,8 +652,25 @@ namespace GLESC::Math {
             return result;
         }
 
-        [[nodiscard]]  Type sum() const {
+        [[nodiscard]] Type sum() const {
             return VectorAlgorithms::sum(this->data);
+        }
+
+        [[nodiscard]] Vector toRads() const {
+            Vector result;
+            for (size_t i = 0; i < N; i++) {
+                result[i] = Math::radians(data[i]);
+            }
+            return result;
+        }
+
+
+        [[nodiscard]] Vector toDegrees() const {
+            Vector result;
+            for (size_t i = 0; i < N; i++) {
+                result[i] = Math::degrees(data[i]);
+            }
+            return result;
         }
 
         [[nodiscard]] Vector abs() const noexcept {
@@ -835,13 +855,15 @@ using Vec2D = VectorT<double, 2>;
 using Vec3D = VectorT<double, 3>;
 using Vec4D = VectorT<double, 4>;
 
-template<typename T>
-struct is_vector : std::false_type {};
+template <typename T>
+struct is_vector : std::false_type {
+};
 
-template<typename T, std::size_t N>
-struct is_vector<GLESC::Math::Vector<T, N>> : std::true_type {};
+template <typename T, std::size_t N>
+struct is_vector<GLESC::Math::Vector<T, N>> : std::true_type {
+};
 
-template<typename T>
+template <typename T>
 inline constexpr bool is_vector_v = is_vector<T>::value;
 
 template <typename T, size_t U>
@@ -855,4 +877,3 @@ struct std::hash<VectorT<T, U>> {
         return seed;
     }
 };
-

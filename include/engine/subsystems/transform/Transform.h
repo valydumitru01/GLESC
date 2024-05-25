@@ -28,7 +28,7 @@ namespace GLESC::Transform {
         static Math::Direction worldForward;
 
         Transform() {
-            modelMat.makeModelMatrix(position, rotation, scale);
+            modelMat.makeModelMatrix(position, rotation.toRads(), scale);
         };
 
         Transform(Position position, Rotation rotation, Scale scale);
@@ -106,7 +106,7 @@ namespace GLESC::Transform {
 
         Render::Model getModelMatrix() const {
             if (dirty) {
-                modelMat.makeModelMatrix(position, rotation, scale);
+                modelMat.makeModelMatrix(position, rotation.toRads(), scale);
                 dirty = false;
             }
             return modelMat;

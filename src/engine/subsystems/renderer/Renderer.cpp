@@ -77,7 +77,7 @@ void Renderer::renderMeshes(double timeOfFrame) {
     drawCounter.startFrame();
     View viewMat = getView();
     Projection projMat = getProjection();
-    VP viewProj = projMat * viewMat;
+    VP viewProj =  viewMat * projMat;
     shader.bind(); // Activate the shader program before transform, material and lighting setup
     // Don't render anything if the view matrix is not valid
     frustum.update(viewProj);
@@ -103,8 +103,8 @@ shared(adaptedMeshes, lights, sun, fog, skybox, timeOfFrame, view, projection, f
                 std::lock_guard lockMutex(frustumMutex);
                 isContainedInFrustum[&dynamicMesh] = frustum.contains(transformedBoundingVol);
             }
-            MVP MVPMat = viewProj * model;
-            MV MV = viewMat * model;
+            MVP MVPMat = model*viewProj;
+            MV MV = model*viewMat;
             NormalMat normalMat;
             normalMat.makeNormalMatrix(MV);
             {

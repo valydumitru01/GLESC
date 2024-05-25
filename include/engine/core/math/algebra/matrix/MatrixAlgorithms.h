@@ -337,22 +337,36 @@ namespace GLESC::Math {
             matrixScalarMul(matrix, Type(1) / scalar, result);
         }
 
+        static constexpr bool colMajorMatrix = true;
 
-
-        /**
-         * @brief Dot product matrix multiplication. Uses Kahan summation algorithm.
-         * @tparam Type The data type of the matrix and vector elements (e.g., float, double).
-         * @tparam N The number of rows of the first matrix.
-         * @tparam M The number of columns of the first matrix.
-         * @tparam X The number of columns of the second matrix.
-         * @param matrix1 The first matrix.
-         * @param matrix2 The second matrix.
-         * @param result The result matrix.
-         */
         template <typename Type, size_t N, size_t M, size_t X>
-        static void matrixMatrixMul(const MatrixData<Type, N, M>& matrix1,
-                             const MatrixData<Type, M, X>& matrix2,
-                             MatrixData<Type, N, X>& result) {
+        static void matrixMatrixMulColMaj(const MatrixData<Type, M, N>& matrix1,
+                                          const MatrixData<Type, X, M>& matrix2,
+                                          MatrixData<Type, X, N>& result) {
+            D_ASSERT_NOT_EQUAL(&matrix1, &result, "Cannot multiply matrix in place. Use matrixMatrixMulNaiveInPlace.");
+            D_ASSERT_NOT_EQUAL(&matrix2, &result, "Cannot multiply matrix in place. Use matrixMatrixMulNaiveInPlace.");
+            for (size_t i = 0; i < N; ++i) {
+                for (size_t j = 0; j < X; ++j) {
+                    Type sum = static_cast<Type>(0);
+                    Type c = static_cast<Type>(0); // A running compensation for lost low-order bits.
+                    for (size_t k = 0; k < M; ++k) {
+                        Type product = matrix1[k][i] * matrix2[j][k];
+                        Type y = product - c;
+                        Type t = sum + y;
+                        c = (t - sum) - y;
+                        sum = t;
+                    }
+                    result[j][i] = sum;
+                }
+            }
+        }
+
+        template <typename Type, size_t N, size_t M, size_t X>
+        static void matrixMatrixMulRowMaj(const MatrixData<Type, N, M>& matrix1,
+                                          const MatrixData<Type, M, X>& matrix2,
+                                          MatrixData<Type, N, X>& result) {
+            D_ASSERT_NOT_EQUAL(&matrix1, &result, "Cannot multiply matrix in place. Use matrixMatrixMulNaiveInPlace.");
+            D_ASSERT_NOT_EQUAL(&matrix2, &result, "Cannot multiply matrix in place. Use matrixMatrixMulNaiveInPlace.");
             for (size_t i = 0; i < N; ++i) {
                 for (size_t j = 0; j < X; ++j) {
                     Type sum = static_cast<Type>(0);
@@ -369,13 +383,30 @@ namespace GLESC::Math {
             }
         }
 
+
         template <typename Type, size_t N, size_t M, size_t X>
-        static void matrixMatrixMulNaive(const MatrixData<Type, N, M>& matrix1,
-                                         const MatrixData<Type, M, X>& matrix2,
-                                         MatrixData<Type, N, X>& result) {
+        static void matrixMatrixMulNaiveColMaj(const MatrixData<Type, M, N>& matrix1,
+                                               const MatrixData<Type, X, M>& matrix2,
+                                               MatrixData<Type, X, N>& result) {
             D_ASSERT_NOT_EQUAL(&matrix1, &result, "Cannot multiply matrix in place. Use matrixMatrixMulNaiveInPlace.");
             D_ASSERT_NOT_EQUAL(&matrix2, &result, "Cannot multiply matrix in place. Use matrixMatrixMulNaiveInPlace.");
+            for (size_t i = 0; i < N; ++i) {
+                for (size_t j = 0; j < X; ++j) {
+                    Type sum = 0;
+                    for (size_t k = 0; k < M; ++k) {
+                        sum += matrix1[k][i] * matrix2[j][k]; // Reversed multiplication order
+                    }
+                    result[j][i] = sum; // Store the result
+                }
+            }
+        }
 
+        template <typename Type, size_t N, size_t M, size_t X>
+        static void matrixMatrixMulNaiveRowMaj(const MatrixData<Type, N, M>& matrix1,
+                                               const MatrixData<Type, M, X>& matrix2,
+                                               MatrixData<Type, N, X>& result) {
+            D_ASSERT_NOT_EQUAL(&matrix1, &result, "Cannot multiply matrix in place. Use matrixMatrixMulNaiveInPlace.");
+            D_ASSERT_NOT_EQUAL(&matrix2, &result, "Cannot multiply matrix in place. Use matrixMatrixMulNaiveInPlace.");
             for (size_t i = 0; i < N; ++i) {
                 for (size_t j = 0; j < X; ++j) {
                     Type sum = 0;
@@ -384,6 +415,33 @@ namespace GLESC::Math {
                     }
                     result[i][j] = sum;
                 }
+            }
+        }
+
+
+        template <typename Type, size_t N, size_t M>
+        static void matrixVectorMulRowMaj(const VectorData<Type, M>& vector,
+                                          const MatrixData<Type, N, M>& matrix,
+                                          VectorData<Type, N>& result) {
+            for (size_t i = 0; i < N; ++i) {
+                Type sum = 0;
+                for (size_t j = 0; j < M; ++j) {
+                    sum += matrix[i][j] * vector[j];
+                }
+                result[i] = sum;
+            }
+        }
+
+        template <typename Type, size_t N, size_t M>
+        static void matrixVectorMulColMaj(const VectorData<Type, M>& vector,
+                                          const MatrixData<Type, M, N>& matrix,
+                                          VectorData<Type, N>& result) {
+            for (size_t i = 0; i < N; ++i) {
+                Type sum = 0;
+                for (size_t j = 0; j < M; ++j) {
+                    sum += matrix[j][i] * vector[j];
+                }
+                result[i] = sum;
             }
         }
 
@@ -399,22 +457,36 @@ namespace GLESC::Math {
          * @param matrix1 The first matrix.
          * @param matrix2 The second matrix.
          */
-        template <typename Type, size_t N, size_t M>
+        template <typename Type, size_t N, size_t M, size_t N2, size_t M2, size_t N3, size_t M3>
         static void matrixMatrixMulInPlace(const MatrixData<Type, N, M>& matrix1,
-                                           const MatrixData<Type, M, M>& matrix2,
-                                           MatrixData<Type, N, M>& result) {
-            MatrixData<Type, N, M> temp(result);
-            matrixMatrixMul(matrix1, matrix2, temp);
-            copyMatrix(result, temp);
+                                           const MatrixData<Type, N2, M2>& matrix2,
+                                           MatrixData<Type, N3, M3>& result) {
+            if constexpr (colMajorMatrix) {
+                MatrixData<Type, M, N> temp(result);
+                matrixMatrixMulColMaj(matrix1, matrix2, temp);
+                copyMatrix(result, temp);
+            }
+            else {
+                MatrixData<Type, N, M> temp(result);
+                matrixMatrixMulRowMaj(matrix1, matrix2, temp);
+                copyMatrix(result, temp);
+            }
         }
 
         template <typename Type, size_t N, size_t M>
         static void matrixMatrixMulNaiveInPlace(const MatrixData<Type, N, M>& matrix1,
                                                 const MatrixData<Type, M, M>& matrix2,
                                                 MatrixData<Type, N, M>& result) {
-            MatrixData<Type, N, M> temp(result);
-            matrixMatrixMulNaive(matrix1, matrix2, temp);
-            copyMatrix(result, temp);
+            if constexpr (colMajorMatrix) {
+                MatrixData<Type, M, N> temp(result);
+                matrixMatrixMulNaiveColMaj(matrix1, matrix2, temp);
+                copyMatrix(result, temp);
+            }
+            else {
+                MatrixData<Type, N, M> temp(result);
+                matrixMatrixMulNaiveRowMaj(matrix1, matrix2, temp);
+                copyMatrix(result, temp);
+            }
         }
 
         /**
@@ -437,9 +509,16 @@ namespace GLESC::Math {
                 throw MathException("Matrix is not invertible.");
             MatrixData<Type, M, X> inverse;
             MatrixAlgorithms::matrixInverse(matrix2, inverse);
-            MatrixData<Type, N, X> resultTemp;
-            MatrixAlgorithms::matrixMatrixMul(matrix1, inverse, resultTemp);
-            result = resultTemp;
+            if constexpr (colMajorMatrix) {
+                MatrixData<Type, X, N> resultTemp;
+                MatrixAlgorithms::matrixMatrixMulColMaj(matrix1, inverse, resultTemp);
+                result = resultTemp;
+            }
+            else {
+                MatrixData<Type, N, X> resultTemp;
+                MatrixAlgorithms::matrixMatrixMulRowMaj(matrix1, inverse, resultTemp);
+                result = resultTemp;
+            }
         }
 
         /**

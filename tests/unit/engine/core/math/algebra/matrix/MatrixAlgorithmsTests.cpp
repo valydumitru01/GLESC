@@ -419,32 +419,123 @@ TYPED_TEST(MatrixAlgorithmsTests, MatrixMatrixMul) {
     PREPARE_TEST();
     std::cout << "Testing matrix multiplication for type " << typeid(Type).name() << std::endl;
 
-    constexpr size_t X= 3; // Example, adjust P as needed for the second matrix dimension
+    constexpr size_t X = 3; // Example, adjust P as needed for the second matrix dimension
 
-    // Initialize first matrix (N x M)
-    GLESC::Math::MatrixData<Type, N, M> matrixToMulLeft;
-    initializeMatrixWithValues(matrixToMulLeft);
 
-    // Initialize second matrix (M x P) with example values
-    GLESC::Math::MatrixData<Type, M, X> matrixToMulRight;
-    initializeMatrixWithDifferentValues(matrixToMulRight);
-    // Fill matrixToMulRight with values for testing
+    if constexpr (GLESC::Math::MatrixAlgorithms::colMajorMatrix) {
+        GLESC::Math::MatrixData<Type, M, N> matrixToMulLeft;
+        initializeMatrixWithValues(matrixToMulLeft);
 
-    // Result matrix (N x P)
-    GLESC::Math::MatrixData<Type, N, X> actualMulMatrix = {};
-    GLESC::Math::MatrixAlgorithms::setMatrixZero(actualMulMatrix);
+        GLESC::Math::MatrixData<Type, X, M> matrixToMulRight;
+        initializeMatrixWithDifferentValues(matrixToMulRight);
+
+        GLESC::Math::MatrixData<Type, X, N> actualMulMatrix = {};
+        GLESC::Math::MatrixAlgorithms::setMatrixZero(actualMulMatrix);
+
+        // Calculate expected result matrix
+        GLESC::Math::MatrixData<Type, X, N> expectedMulMatrix = {};
+        GLESC::Math::MatrixAlgorithms::setMatrixZero(expectedMulMatrix);
+
+        // Perform matrix multiplication
+        GLESC::Math::MatrixAlgorithms::matrixMatrixMulColMaj(matrixToMulLeft, matrixToMulRight, actualMulMatrix);
+
+        GLESC::Math::MatrixAlgorithms::matrixMatrixMulNaiveColMaj(matrixToMulLeft, matrixToMulRight, expectedMulMatrix);
+
+        // Compare actual and expected matrices
+        EXPECT_EQ_MAT(actualMulMatrix, expectedMulMatrix);
+    }
+    else {
+        GLESC::Math::MatrixData<Type, N, M> matrixToMulLeft;
+        initializeMatrixWithValues(matrixToMulLeft);
+
+        GLESC::Math::MatrixData<Type, M, X> matrixToMulRight;
+        initializeMatrixWithDifferentValues(matrixToMulRight);
+
+        GLESC::Math::MatrixData<Type, N, X> actualMulMatrix = {};
+        GLESC::Math::MatrixAlgorithms::setMatrixZero(actualMulMatrix);
+        // Calculate expected result matrix
+        GLESC::Math::MatrixData<Type, N, X> expectedMulMatrix = {};
+        GLESC::Math::MatrixAlgorithms::setMatrixZero(expectedMulMatrix);
+
+
+        // Perform matrix multiplication
+        GLESC::Math::MatrixAlgorithms::matrixMatrixMulRowMaj(matrixToMulLeft, matrixToMulRight, actualMulMatrix);
+
+        GLESC::Math::MatrixAlgorithms::matrixMatrixMulNaiveRowMaj(matrixToMulLeft, matrixToMulRight, expectedMulMatrix);
+
+        // Compare actual and expected matrices
+        EXPECT_EQ_MAT(actualMulMatrix, expectedMulMatrix);
+    }
+}
+
+TYPED_TEST(MatrixAlgorithmsTests, MatrixMatrixMulColMajRowMajComparison) {
+    PREPARE_TEST();
+
+    constexpr size_t X = 3; // Example, adjust P as needed for the second matrix dimension
+
+    GLESC::Math::MatrixData<Type, N, M> matrixToMulLeftRowMaj;
+    initializeMatrixWithValues(matrixToMulLeftRowMaj);
+    GLESC::Math::MatrixData<Type, M, X> matrixToMulRightRowMaj;
+    initializeMatrixWithDifferentValues(matrixToMulRightRowMaj);
+
+
+    GLESC::Math::MatrixData<Type, X, N> expectedMulMatrixColMaj = {};
+    GLESC::Math::MatrixData<Type, N, X> expectedMulMatrixRowMaj = {};
+
+
+    GLESC::Math::MatrixData<Type, M, N> matrixToMulLeftColMaj = {};
+    GLESC::Math::MatrixAlgorithms::transpose(matrixToMulLeftRowMaj, matrixToMulLeftColMaj);
+    GLESC::Math::MatrixData<Type, X, M> matrixToMulRightColMaj = {};
+    GLESC::Math::MatrixAlgorithms::transpose(matrixToMulRightRowMaj, matrixToMulRightColMaj);
+
 
     // Perform matrix multiplication
-    GLESC::Math::MatrixAlgorithms::matrixMatrixMul(matrixToMulLeft, matrixToMulRight, actualMulMatrix);
+    GLESC::Math::MatrixAlgorithms::matrixMatrixMulColMaj
+        (matrixToMulLeftColMaj, matrixToMulRightColMaj, expectedMulMatrixColMaj);
+    GLESC::Math::MatrixAlgorithms::matrixMatrixMulRowMaj
+        (matrixToMulLeftRowMaj, matrixToMulRightRowMaj, expectedMulMatrixRowMaj);
 
-    // Calculate expected result matrix
-    GLESC::Math::MatrixData<Type, N, X> expectedMulMatrix = {};
-    GLESC::Math::MatrixAlgorithms::setMatrixZero(expectedMulMatrix);
+    GLESC::Math::MatrixData<Type, N, X> expectedMulMatrixColMajTransposed = {};
+    GLESC::Math::MatrixAlgorithms::transpose(expectedMulMatrixColMaj, expectedMulMatrixColMajTransposed);
 
-    GLESC::Math::MatrixAlgorithms::matrixMatrixMulNaive(matrixToMulLeft, matrixToMulRight, expectedMulMatrix);
+    EXPECT_EQ_MAT(expectedMulMatrixColMajTransposed, expectedMulMatrixRowMaj);
+}
 
-    // Compare actual and expected matrices
-    EXPECT_EQ_MAT(actualMulMatrix, expectedMulMatrix);
+TYPED_TEST(MatrixAlgorithmsTests, MatrixMatrixMulNaiveColMajRowMajComparison) {
+    PREPARE_TEST();
+
+    constexpr size_t X = 3; // Example, adjust P as needed for the second matrix dimension
+
+    // Initialize first matrix (N x M)
+    GLESC::Math::MatrixData<Type, N, M> matrixToMulLeftRowMaj;
+    initializeMatrixWithValues(matrixToMulLeftRowMaj);
+
+    // Initialize second matrix (M x P) with example values
+    GLESC::Math::MatrixData<Type, M, X> matrixToMulRightRowMaj;
+    initializeMatrixWithDifferentValues(matrixToMulRightRowMaj);
+
+
+    GLESC::Math::MatrixData<Type, M, N> matrixToMulLeftColMaj = {};
+    GLESC::Math::MatrixAlgorithms::transpose(matrixToMulLeftRowMaj, matrixToMulLeftColMaj);
+    GLESC::Math::MatrixData<Type, X, M> matrixToMulRightColMaj = {};
+    GLESC::Math::MatrixAlgorithms::transpose(matrixToMulRightRowMaj, matrixToMulRightColMaj);
+
+
+    // Result matrix (N x P)
+    GLESC::Math::MatrixData<Type, X, N> expectedMulMatrixColMaj = {};
+    GLESC::Math::MatrixData<Type, N, X> expectedMulMatrixRowMaj = {};
+
+
+    // Perform matrix multiplication
+    GLESC::Math::MatrixAlgorithms::matrixMatrixMulNaiveColMaj(matrixToMulLeftColMaj, matrixToMulRightColMaj,
+                                                              expectedMulMatrixColMaj);
+    GLESC::Math::MatrixAlgorithms::matrixMatrixMulRowMaj(matrixToMulLeftRowMaj, matrixToMulRightRowMaj,
+                                                         expectedMulMatrixRowMaj);
+
+    GLESC::Math::MatrixData<Type, N, X> expectedMulMatrixColMajTransposed = {};
+    GLESC::Math::MatrixAlgorithms::transpose(expectedMulMatrixColMaj, expectedMulMatrixColMajTransposed);
+
+    EXPECT_EQ_MAT(expectedMulMatrixColMajTransposed, expectedMulMatrixRowMaj);
 }
 
 TYPED_TEST(MatrixAlgorithmsTests, Transpose) {
@@ -707,11 +798,11 @@ TEST(MatrixAlgorithmsTests, RotateAlgorithmX) {
     for (const auto& vecDegrs : rotateVecDegrsX) {
         GLESC::Math::MatrixData<float, 4, 4> rotate3Dx({});
 
-        GLESC::Math::MatrixMixedAlgorithms::getRotate3DMatrix(vecDegrs, {1, 0, 0}, rotate3Dx);
+        GLESC::Math::MatrixMixedAlgorithms::getRotate3DMatrixForAxis(vecDegrs, {1, 0, 0}, rotate3Dx);
 
         auto glmMatToRotate3D = glm::mat4(1.0f);
         // Rotate around X-axis
-        glmMatToRotate3D = glm::rotate(glmMatToRotate3D, glm::radians(vecDegrs), glm::vec3(1, 0, 0));
+        glmMatToRotate3D = glm::rotate(glmMatToRotate3D, vecDegrs, glm::vec3(1, 0, 0));
         GLESC::Math::MatrixData<float, 4, 4> expectedRotate3D({});
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
@@ -729,11 +820,11 @@ TEST(MatrixAlgorithmsTests, RotateAlgorithmY) {
 
     for (const auto& vecDegrs : rotateVecDegrsY) {
         GLESC::Math::MatrixData<float, 4, 4> rotate3Dy({});
-        GLESC::Math::MatrixMixedAlgorithms::getRotate3DMatrix(vecDegrs, {0, 1, 0}, rotate3Dy);
+        GLESC::Math::MatrixMixedAlgorithms::getRotate3DMatrixForAxis(vecDegrs, {0, 1, 0}, rotate3Dy);
 
         auto glmMatToRotate3D = glm::mat4(1.0f);
         // Rotate around Y-axis
-        glmMatToRotate3D = glm::rotate(glmMatToRotate3D, glm::radians(vecDegrs), glm::vec3(0, 1, 0));
+        glmMatToRotate3D = glm::rotate(glmMatToRotate3D, vecDegrs, glm::vec3(0, 1, 0));
         GLESC::Math::MatrixData<float, 4, 4> expectedRotate3D({});
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
@@ -751,11 +842,11 @@ TEST(MatrixAlgorithmsTests, RotateAlgorithmZ) {
 
     for (const auto& vecDegrs : rotateVecDegrsZ) {
         GLESC::Math::MatrixData<float, 4, 4> rotate3Dz({});
-        GLESC::Math::MatrixMixedAlgorithms::getRotate3DMatrix(vecDegrs, {0, 0, 1}, rotate3Dz);
+        GLESC::Math::MatrixMixedAlgorithms::getRotate3DMatrixForAxis(vecDegrs, {0, 0, 1}, rotate3Dz);
 
         auto glmMatToRotate3D = glm::mat4(1.0f);
         // Rotate around Z-axis
-        glmMatToRotate3D = glm::rotate(glmMatToRotate3D, glm::radians(vecDegrs), glm::vec3(0, 0, 1));
+        glmMatToRotate3D = glm::rotate(glmMatToRotate3D, vecDegrs, glm::vec3(0, 0, 1));
         GLESC::Math::MatrixData<float, 4, 4> expectedRotate3D({});
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
@@ -766,6 +857,18 @@ TEST(MatrixAlgorithmsTests, RotateAlgorithmZ) {
     }
 }
 
+template <typename TypeDgrs>
+static glm::mat4 calculateGlmRotateMatrix(const GLESC::Math::VectorData<TypeDgrs, 3>& degrees) {
+    glm::mat4 glmMatToRotate3D = glm::mat4(1.0f);
+    // Rotate around X-axis
+    glmMatToRotate3D = glm::rotate(glmMatToRotate3D, degrees[0], glm::vec3(1, 0, 0));
+    // Rotate around Y-axis
+    glmMatToRotate3D = glm::rotate(glmMatToRotate3D, degrees[1], glm::vec3(0, 1, 0));
+    // Rotate around Z-axis
+    glmMatToRotate3D = glm::rotate(glmMatToRotate3D, degrees[2], glm::vec3(0, 0, 1));
+    return glmMatToRotate3D;
+}
+
 
 TEST(MatrixAlgorithmsTests, RotateAlgorithm) {
     std::vector<GLESC::Math::VectorData<float, 3>> rotateVecDegrs = {
@@ -774,29 +877,11 @@ TEST(MatrixAlgorithmsTests, RotateAlgorithm) {
         {45.0f, 99.0f, 53.0f}
     };
     for (const auto& vecDegrs : rotateVecDegrs) {
-        GLESC::Math::MatrixData<float, 4, 4> rotate3Dx({});
-        GLESC::Math::MatrixData<float, 4, 4> rotate3Dy({});
-        GLESC::Math::MatrixData<float, 4, 4> rotate3Dz({});
         GLESC::Math::MatrixData<float, 4, 4> rotate3D({});
-        GLESC::Math::MatrixAlgorithms::setMatrixZero(rotate3D);
-        GLESC::Math::MatrixAlgorithms::setMatrixDiagonal(rotate3D, 1.0f);
 
-        GLESC::Math::MatrixMixedAlgorithms::getRotate3DMatrix(vecDegrs[0], {1, 0, 0}, rotate3Dx);
-        GLESC::Math::MatrixMixedAlgorithms::getRotate3DMatrix(vecDegrs[1], {0, 1, 0}, rotate3Dy);
-        GLESC::Math::MatrixMixedAlgorithms::getRotate3DMatrix(vecDegrs[2], {0, 0, 1}, rotate3Dz);
+        GLESC::Math::MatrixMixedAlgorithms::getRotate3DMatrix(vecDegrs, rotate3D);
 
-        GLESC::Math::MatrixAlgorithms::matrixMatrixMulInPlace(rotate3D, rotate3Dz, rotate3D);
-        GLESC::Math::MatrixAlgorithms::matrixMatrixMulInPlace(rotate3D, rotate3Dy, rotate3D);
-        GLESC::Math::MatrixAlgorithms::matrixMatrixMulInPlace(rotate3D, rotate3Dx, rotate3D);
-
-        auto glmMatToRotate3D = glm::mat4(1.0f);
-        // Rotate around X-axis
-        glmMatToRotate3D = glm::rotate(glmMatToRotate3D, glm::radians(vecDegrs[0]), glm::vec3(1, 0, 0));
-        // Rotate around Y-axis
-        glmMatToRotate3D = glm::rotate(glmMatToRotate3D, glm::radians(vecDegrs[1]), glm::vec3(0, 1, 0));
-        // Rotate around Z-axis
-        glmMatToRotate3D = glm::rotate(glmMatToRotate3D, glm::radians(vecDegrs[2]), glm::vec3(0, 0, 1));
-
+        glm::mat4 glmMatToRotate3D = calculateGlmRotateMatrix(vecDegrs);
         GLESC::Math::MatrixData<float, 4, 4> expectedRotate3D({});
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
@@ -905,7 +990,7 @@ TEST(MatrixAlgorithmsTests, PerspectiveProjectionAlgorithm) {
 }
 
 glm::mat4 calculateGlmModelMatrix(const GLESC::Math::VectorData<float, 3>& position,
-                                  const GLESC::Math::VectorData<float, 3>& rotationDegrees,
+                                  const GLESC::Math::VectorData<float, 3>& rotationRads,
                                   const GLESC::Math::VectorData<float, 3>& scale) {
     glm::mat4 model = glm::mat4(1.0f);
 
@@ -913,9 +998,9 @@ glm::mat4 calculateGlmModelMatrix(const GLESC::Math::VectorData<float, 3>& posit
     model = glm::translate(model, glm::vec3(position[0], position[1], position[2]));
 
     // Apply rotation in the order of yaw (Y-axis), pitch (X-axis), and roll (Z-axis)
-    model = glm::rotate(model, rotationDegrees[0], glm::vec3(1.0f, 0.0f, 0.0f)); // Roll
-    model = glm::rotate(model, rotationDegrees[1], glm::vec3(0.0f, 1.0f, 0.0f)); // Pitch
-    model = glm::rotate(model, rotationDegrees[2], glm::vec3(0.0f, 0.0f, 1.0f)); // Yaw
+    model = glm::rotate(model, rotationRads[0], glm::vec3(1.0f, 0.0f, 0.0f)); // Roll
+    model = glm::rotate(model, rotationRads[1], glm::vec3(0.0f, 1.0f, 0.0f)); // Pitch
+    model = glm::rotate(model, rotationRads[2], glm::vec3(0.0f, 0.0f, 1.0f)); // Yaw
 
     // Apply scaling
     model = glm::scale(model, glm::vec3(scale[0], scale[1], scale[2]));
@@ -927,6 +1012,8 @@ glm::mat4 calculateGlmViewMatrix(const GLESC::Math::VectorData<float, 3>& camera
                                  const GLESC::Math::VectorData<float, 3>& cameraRotationDegrees) {
     GLESC::Math::VectorData<float, 3> cameraPositionNegated;
     GLESC::Math::VectorData<float, 3> cameraRotationDegreesNegated;
+
+
     GLESC::Math::VectorAlgorithms::vectorNegate(cameraPosition, cameraPositionNegated);
     GLESC::Math::VectorAlgorithms::vectorNegate(cameraRotationDegrees, cameraRotationDegreesNegated);
     return calculateGlmModelMatrix(cameraPositionNegated, cameraRotationDegreesNegated, {1, 1, 1});
@@ -969,12 +1056,12 @@ TEST(MatrixAlgorithmsTests, CalculateViewMatrixPosRot) {
     // View matrix
     GLESC::Math::MatrixData<float, 4, 4> viewMatrix;
     GLESC::Math::VectorData<float, 3> position({1, 2, 3});
-    GLESC::Math::VectorData<float, 3> rotationDegrees({12, 32, 211});
+    GLESC::Math::VectorData<float, 3> rotationRads({1, 2, 3.2});
 
-    GLESC::Math::MatrixMixedAlgorithms::calculateViewMatrixPosRot(position, rotationDegrees, viewMatrix);
+    GLESC::Math::MatrixMixedAlgorithms::calculateViewMatrixPosRot(position, rotationRads, viewMatrix);
 
     // Check against glm
-    glm::mat4 glmMat = calculateGlmViewMatrix(position, rotationDegrees);
+    glm::mat4 glmMat = calculateGlmViewMatrix(position, rotationRads);
 
     GLESC::Math::MatrixData<float, 4, 4> viewGlmMatrix;
     for (int i = 0; i < 4; i++) {
@@ -1009,7 +1096,7 @@ TEST(MatrixAlgorithmsTests, CalculateNormalMatrix) {
     GLESC::Math::MatrixMixedAlgorithms::calculateModelMatrix(position, rotationDegrees, scale, ourModelMat);
     GLESC::Math::MatrixData<float, 4, 4> ourViewMat;
     GLESC::Math::MatrixMixedAlgorithms::calculateViewMatrixPosRot(cameraPosition, cameraRotationDegrees, ourViewMat);
-    GLESC::Math::MatrixAlgorithms::matrixMatrixMul(ourViewMat, ourModelMat, ourMV);
+    GLESC::Math::MatrixAlgorithms::matrixMatrixMulColMaj(ourModelMat, ourViewMat, ourMV);
 
     // Calculate the normal matrix using our implementation
     GLESC::Math::MatrixData<float, 3, 3> ourNormalMatrix;
@@ -1026,6 +1113,226 @@ TEST(MatrixAlgorithmsTests, CalculateNormalMatrix) {
     EXPECT_EQ_MAT(ourNormalMatrix, glmNormalMatrixConverted);
 }
 
+TEST(MatrixAlgorithmsTests, MatrixMatrixMulComparisonWithGlm) {
+    // ----------------------------------------------------------------
+    {
+        GLESC::Math::MatrixData<float, 4, 4> matrixA;
+        initializeMatrixWithValues(matrixA);
+        GLESC::Math::MatrixData<float, 4, 4> matrixB;
+        initializeMatrixWithValues(matrixB);
+        GLESC::Math::MatrixData<float, 4, 4> matrixResult;
+
+
+        // Calculate the result using our implementation
+        GLESC::Math::MatrixAlgorithms::matrixMatrixMulColMaj(matrixA, matrixB, matrixResult);
+
+        // Calculate the result using glm
+        glm::mat4 glmMatrixA;
+        glm::mat4 glmMatrixB;
+        glm::mat4 glmMatrixResult;
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                glmMatrixA[i][j] = matrixA[i][j];
+                glmMatrixB[i][j] = matrixB[i][j];
+            }
+        }
+        glmMatrixResult = glmMatrixA * glmMatrixB;
+
+        // Convert glmMatrixResult to our MatrixData format for comparison
+        GLESC::Math::MatrixData<float, 4, 4> glmMatrixResultConverted;
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                glmMatrixResultConverted[i][j] = glmMatrixResult[i][j];
+            }
+        }
+        // Finally, compare our result to glm's result
+        EXPECT_EQ_MAT(matrixResult, glmMatrixResultConverted);
+    }
+
+    // Now with different size matrices
+    // ----------------------------------------------------------------
+    {
+        GLESC::Math::MatrixData<float, 3, 4> matrixA3x4;
+        initializeMatrixWithValues(matrixA3x4);
+        GLESC::Math::MatrixData<float, 4, 3> matrixB4x3;
+        initializeMatrixWithValues(matrixB4x3);
+        GLESC::Math::MatrixData<float, 4, 4> matrixResult4x4;
+        GLESC::Math::MatrixAlgorithms::matrixMatrixMulColMaj(matrixA3x4, matrixB4x3, matrixResult4x4);
+
+        // Calculate the result using glm
+        glm::mat3x4 glmMatrixA3x4;
+        glm::mat4x3 glmMatrixB4x3;
+        glm::mat4 glmMatrixResult4x4;
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 4; j++) {
+                glmMatrixA3x4[i][j] = matrixA3x4[i][j];
+            }
+        }
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 3; j++) {
+                glmMatrixB4x3[i][j] = matrixB4x3[i][j];
+            }
+        }
+        glmMatrixResult4x4 = glmMatrixA3x4 * glmMatrixB4x3;
+
+        // Convert glmMatrixResult3x3 to our MatrixData format for comparison
+        GLESC::Math::MatrixData<float, 4, 4> glmMatrixResultConverted4x4;
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                glmMatrixResultConverted4x4[i][j] = glmMatrixResult4x4[i][j];
+            }
+        }
+        // Finally, compare our result to glm's result
+        EXPECT_EQ_MAT(matrixResult4x4, glmMatrixResultConverted4x4);
+    }
+
+    // Now one where the result is not a square matrix
+    // ----------------------------------------------------------------
+    {
+        GLESC::Math::MatrixData<float, 2, 4> matrixA2x4;
+        initializeMatrixWithValues(matrixA2x4);
+        GLESC::Math::MatrixData<float, 4, 3> matrixB4x3;
+        initializeMatrixWithValues(matrixB4x3);
+        GLESC::Math::MatrixData<float, 2, 3> matrixResult2x3;
+        GLESC::Math::MatrixAlgorithms::matrixMatrixMulColMaj(matrixB4x3, matrixA2x4, matrixResult2x3);
+
+        // Calculate the result using glm
+        glm::mat<2, 4, float> glmMatrixA2x4{};
+        glm::mat<4, 3, float> glmMatrixB4x3{};
+        glm::mat<2, 3, float> glmMatrixResult2x3{};
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 4; j++) {
+                glmMatrixA2x4[i][j] = matrixA2x4[i][j];
+            }
+        }
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 3; j++) {
+                glmMatrixB4x3[i][j] = matrixB4x3[i][j];
+            }
+        }
+        glmMatrixResult2x3 = glmMatrixB4x3 * glmMatrixA2x4;
+
+        // Convert glmMatrixResult3x3 to our MatrixData format for comparison
+        GLESC::Math::MatrixData<float, 2, 3> glmMatrixResultConverted2x3;
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 3; j++) {
+                glmMatrixResultConverted2x3[i][j] = glmMatrixResult2x3[i][j];
+            }
+        }
+        // Finally, compare our result to glm's result
+        EXPECT_EQ_MAT(matrixResult2x3, glmMatrixResultConverted2x3);
+    }
+}
+
+TEST(MatrixAlgorithmsTests, MatrixMatrixNaiveMulComparisonWithGlm) {
+    // ----------------------------------------------------------------
+    {
+        GLESC::Math::MatrixData<float, 4, 4> matrixA;
+        initializeMatrixWithValues(matrixA);
+        GLESC::Math::MatrixData<float, 4, 4> matrixB;
+        initializeMatrixWithValues(matrixB);
+        GLESC::Math::MatrixData<float, 4, 4> matrixResult;
+
+        // Calculate the result using our implementation
+        GLESC::Math::MatrixAlgorithms::matrixMatrixMulNaiveColMaj(matrixA, matrixB, matrixResult);
+
+        // Calculate the result using glm
+        glm::mat4 glmMatrixA;
+        glm::mat4 glmMatrixB;
+        glm::mat4 glmMatrixResult;
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                glmMatrixA[i][j] = matrixA[i][j];
+                glmMatrixB[i][j] = matrixB[i][j];
+            }
+        }
+        glmMatrixResult = glmMatrixA * glmMatrixB;
+
+        // Convert glmMatrixResult to our MatrixData format for comparison
+        GLESC::Math::MatrixData<float, 4, 4> glmMatrixResultConverted;
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                glmMatrixResultConverted[i][j] = glmMatrixResult[i][j];
+            }
+        }
+        // Finally, compare our result to glm's result
+        EXPECT_EQ_MAT(matrixResult, glmMatrixResultConverted);
+    }
+
+    // Now with different size matrices
+    // ----------------------------------------------------------------
+    {
+        GLESC::Math::MatrixData<float, 3, 4> matrixA3x4;
+        initializeMatrixWithValues(matrixA3x4);
+        GLESC::Math::MatrixData<float, 4, 3> matrixB4x3;
+        initializeMatrixWithValues(matrixB4x3);
+        GLESC::Math::MatrixData<float, 4, 4> matrixResult4x4;
+        GLESC::Math::MatrixAlgorithms::matrixMatrixMulNaiveColMaj(matrixA3x4, matrixB4x3, matrixResult4x4);
+
+        // Calculate the result using glm
+        glm::mat3x4 glmMatrixA3x4;
+        glm::mat4x3 glmMatrixB4x3;
+        glm::mat4 glmMatrixResult4x4;
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 4; j++) {
+                glmMatrixA3x4[i][j] = matrixA3x4[i][j];
+            }
+        }
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 3; j++) {
+                glmMatrixB4x3[i][j] = matrixB4x3[i][j];
+            }
+        }
+        glmMatrixResult4x4 = glmMatrixA3x4 * glmMatrixB4x3;
+
+        // Convert glmMatrixResult3x3 to our MatrixData format for comparison
+        GLESC::Math::MatrixData<float, 4, 4> glmMatrixResultConverted4x4;
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                glmMatrixResultConverted4x4[i][j] = glmMatrixResult4x4[i][j];
+            }
+        }
+        // Finally, compare our result to glm's result
+        EXPECT_EQ_MAT(matrixResult4x4, glmMatrixResultConverted4x4);
+    }
+
+    // Now one where the result is not a square matrix
+    // ----------------------------------------------------------------
+    {
+        GLESC::Math::MatrixData<float, 2, 4> matrixA2x4;
+        initializeMatrixWithValues(matrixA2x4);
+        GLESC::Math::MatrixData<float, 4, 3> matrixB4x3;
+        initializeMatrixWithValues(matrixB4x3);
+        GLESC::Math::MatrixData<float, 2, 3> matrixResult2x3;
+        GLESC::Math::MatrixAlgorithms::matrixMatrixMulNaiveColMaj(matrixB4x3, matrixA2x4, matrixResult2x3);
+
+        // Calculate the result using glm
+        glm::mat<2, 4, float> glmMatrixA2x4{};
+        glm::mat<4, 3, float> glmMatrixB4x3{};
+        glm::mat<2, 3, float> glmMatrixResult2x3{};
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 4; j++) {
+                glmMatrixA2x4[i][j] = matrixA2x4[i][j];
+            }
+        }
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 3; j++) {
+                glmMatrixB4x3[i][j] = matrixB4x3[i][j];
+            }
+        }
+        glmMatrixResult2x3 = glmMatrixB4x3 * glmMatrixA2x4;
+
+        // Convert glmMatrixResult3x3 to our MatrixData format for comparison
+        GLESC::Math::MatrixData<float, 2, 3> glmMatrixResultConverted;
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 3; j++) {
+                glmMatrixResultConverted[i][j] = glmMatrixResult2x3[i][j];
+            }
+        }
+        // Finally, compare our result to glm's result
+        EXPECT_EQ_MAT(matrixResult2x3, glmMatrixResultConverted);
+    }
+}
 
 TEST(MatrixAlgorithmsTests, CalculateViewMatrixAlgorithmEyeTarget) {
     // View matrix

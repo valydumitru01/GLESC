@@ -62,11 +62,10 @@ namespace GLESC::Math {
             MatrixAlgorithms::setMatrix(this->data, other);
         }
 
-        template<typename OtherType, size_t OtherN, size_t OtherM>
+        template <typename OtherType, size_t OtherN, size_t OtherM>
         explicit Matrix(const Matrix<OtherType, OtherN, OtherM>& other) {
             MatrixAlgorithms::resizeMatrix(other.data, this->data);
         }
-
 
 
         /**
@@ -84,8 +83,6 @@ namespace GLESC::Math {
         Matrix(Matrix&& other) noexcept {
             MatrixAlgorithms::moveMatrix(this->data, std::move(other.data));
         }
-
-
 
 
         // =========================================================================================
@@ -106,12 +103,13 @@ namespace GLESC::Math {
             return *this;
         }
 
-        template<typename OtherType, size_t OtherN, size_t OtherM>
+        template <typename OtherType, size_t OtherN, size_t OtherM>
         constexpr Matrix& operator=(const Matrix<OtherType, OtherN, OtherM>& other) noexcept {
             MatrixAlgorithms::resizeMatrix(this->data, other.data);
             return *this;
         }
-        template<typename OtherType, size_t OtherN, size_t OtherM>
+
+        template <typename OtherType, size_t OtherN, size_t OtherM>
         constexpr Matrix& operator=(const MatrixData<OtherType, OtherN, OtherM>&& other) noexcept {
             MatrixAlgorithms::resizeMatrix(this->data, other);
             return *this;
@@ -280,30 +278,27 @@ namespace GLESC::Math {
          * @return
          */
         template <size_t X>
-        [[nodiscard]] Matrix<Type, N, X> operator*(const Matrix<Type, M, X>& other) const {
-            Matrix<Type, N, X> result;
-            MatrixAlgorithms::matrixMatrixMul(this->data, other.data, result.data);
-            return result;
+        [[nodiscard]] auto operator*(const Matrix<Type, X, N>& other) const {
+            if constexpr (MatrixAlgorithms::colMajorMatrix) {
+                Matrix<Type, X, M> result;
+                MatrixAlgorithms::matrixMatrixMulColMaj(this->data, other.data, result.data);
+                return result;
+            }
+            else {
+                Matrix<Type, N, X> result;
+                MatrixAlgorithms::matrixMatrixMulRowMaj(other.data, this->data, result.data);
+                return result;
+            }
         }
 
-        /**
-         * @brief Multiplying Matrix by Vector
-         * @details A matrix NxM multiplied by a vector Mx1 results in a vector N
-         * (which acts as a matrix Nx1)
-         * For example:
-         * | 1 2 3 |   | 7 |   | 58  |
-         * | 4 5 6 | * | 8 | = | 139 |
-         *             | 9 |
-         *    2x3    *  3x1  =   2x1
-         * @tparam X The dimension of the vector
-         * @param vector The vector to multiply with
-         * @return The result of the multiplication
-         */
-        [[nodiscard]] Vector<Type, M> operator*(const Vector<Type, M>& vector) const {
-            Matrix<Type, N, 1> result;
-            MatrixData<Type, N, 1> vectorMatrix = vector.toMatrix();
-            MatrixAlgorithms::matrixMatrixMul(this->data, vectorMatrix, result.data);
-            Vector<Type, N> resultVector = result.toVector();
+        [[nodiscard]] Vector<Type, N> operator*(const Vector<Type, M>& other) const {
+            Vector<Type, N> resultVector;
+            if constexpr (MatrixAlgorithms::colMajorMatrix) {
+                MatrixAlgorithms::matrixVectorMulColMaj(this->data, other.data, resultVector.data);
+            }
+            else {
+                MatrixAlgorithms::matrixVectorMulRowMaj(other.data, this->data, resultVector.data);
+            }
             return resultVector;
         }
 
@@ -429,16 +424,16 @@ namespace GLESC::Math {
          * @tparam RotType The type of the rotation vector
          * @tparam ScaleType The type of the scale vector
          * @param position The position vector
-         * @param rotation The rotation vector
+         * @param rotationRads The rotation vector
          * @param scale The scale vector
          */
         template <typename PosType, typename RotType, typename ScaleType>
         void makeModelMatrix(const Vector<PosType, 3>& position,
-                             const Vector<RotType, 3>& rotation,
+                             const Vector<RotType, 3>& rotationRads,
                              const Vector<ScaleType, 3>& scale) {
             S_ASSERT_TRUE(N == 4 && M == 4, "Model matrix can only be created for 4x4 matrices");
             MatrixMixedAlgorithms::calculateModelMatrix<Type, PosType, RotType, ScaleType>
-                (position.data, rotation.data, scale.data, this->data);
+                (position.data, rotationRads.data, scale.data, this->data);
         }
 
 
