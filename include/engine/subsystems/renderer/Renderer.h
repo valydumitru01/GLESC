@@ -63,11 +63,13 @@ namespace GLESC::Render {
 
         ~Renderer();
 
-        [[nodiscard]] View getView() const { return view; }
+        [[nodiscard]] const View& getView() const { return view; }
         void setView(const View& viewParam) { this->view = viewParam; }
 
-        [[nodiscard]] Projection getProjection() const { return projection; }
+        [[nodiscard]]const  Projection& getProjection() const { return projection; }
         void setProjection(const Projection& projectionParam) { this->projection = projectionParam; }
+
+        [[nodiscard]] const VP& getViewProjection() const { return viewProjection; }
 
         [[nodiscard]] WindowDimensions getViewportSize() const { return windowManager.getSize(); }
         [[nodiscard]] Camera getCamera() const { return this->camera; }

@@ -428,19 +428,21 @@ namespace GLESC::Math {
          * @param scale The scale vector
          */
         template <typename PosType, typename RotType, typename ScaleType>
-        void makeModelMatrix(const Vector<PosType, 3>& position,
+        Matrix& makeModelMatrix(const Vector<PosType, 3>& position,
                              const Vector<RotType, 3>& rotationRads,
                              const Vector<ScaleType, 3>& scale) {
             S_ASSERT_TRUE(N == 4 && M == 4, "Model matrix can only be created for 4x4 matrices");
             MatrixMixedAlgorithms::calculateModelMatrix<Type, PosType, RotType, ScaleType>
                 (position.data, rotationRads.data, scale.data, this->data);
+            return *this;
         }
 
 
         template <typename ModelType>
-        void makeNormalMatrix(const Matrix<ModelType, 4, 4>& MVMat) {
+        Matrix& makeNormalMatrix(const Matrix<ModelType, 4, 4>& MVMat) {
             S_ASSERT_TRUE(N == 3 && M == 3, "Normal matrix can only be created for 4x4 matrices");
             MatrixAlgorithms::calculateNormalMatrix(MVMat.data, this->data);
+            return *this;
         }
 
         /**
@@ -450,17 +452,19 @@ namespace GLESC::Math {
          * @param target The target of the camera
          * @param up The up vector of the camera
          */
-        void makeViewMatrixEye(const Vector<Type, 3>& eye,
+        Matrix& makeViewMatrixEye(const Vector<Type, 3>& eye,
                                const Vector<Type, 3>& target,
                                const Vector<Type, 3>& up) {
             S_ASSERT_TRUE(N == 4 && M == 4, "View matrix can only be created for 4x4 matrices");
             MatrixMixedAlgorithms::calculateViewMatrixEye(eye.data, target.data, up.data, data);
+            return *this;
         }
 
-        void makeViewMatrixPosRot(const Vector<Type, 3>& position,
+        Matrix& makeViewMatrixPosRot(const Vector<Type, 3>& position,
                                   const Vector<Type, 3>& rotation) {
             S_ASSERT_TRUE(N == 4 && M == 4, "View matrix can only be created for 4x4 matrices");
             MatrixMixedAlgorithms::calculateViewMatrixPosRot(position.data, rotation.data, data);
+            return *this;
         }
 
 
@@ -478,7 +482,7 @@ namespace GLESC::Math {
          * @param viewWidth The width of the view
          * @param viewHeight The height of the view
          */
-        void makeProjectionMatrix(float fovDegrees,
+        Matrix& makeProjectionMatrix(float fovDegrees,
                                   float nearPlane,
                                   float farPlane,
                                   float viewWidth,
@@ -486,6 +490,7 @@ namespace GLESC::Math {
             S_ASSERT_TRUE(N == 4 && M == 4, "Projection matrix can only be created for 4x4 matrices");
             MatrixAlgorithms::perspective<Type>(Math::radians(fovDegrees), nearPlane, farPlane, viewWidth, viewHeight,
                                                 this->data);
+            return *this;
         }
 
         /**

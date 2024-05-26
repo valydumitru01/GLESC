@@ -740,6 +740,22 @@ namespace GLESC::Math {
             return result;
         }
 
+        [[nodiscard]] Vector& makeForward(const Vector& rotation) {
+            VectorAlgorithms::makeForwardVector(rotation.data, this->data);
+            return *this;
+        }
+
+        [[nodiscard]] Vector& makeRight(const Vector& rotation) {
+            VectorAlgorithms::makeRightVector(rotation.data, this->data);
+            return *this;
+        }
+
+        [[nodiscard]] Vector& makeUp(const Vector& rotation) {
+            VectorAlgorithms::makeUpVector(rotation.data, this->data);
+            return *this;
+        }
+
+
 
         [[nodiscard]] Vector normalize() const {
             Vector result;

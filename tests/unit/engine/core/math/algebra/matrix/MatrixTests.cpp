@@ -7,6 +7,7 @@
  * Copyright (c) 2023 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
  ******************************************************************************/
+#include <glm/glm.hpp>
 #include <gtest/gtest.h>
 #include "engine/core/math/algebra/matrix/MatrixAlgorithms.h"
 #include "unit/engine/core/math/MathCustomTestingFramework.cpp"
@@ -425,17 +426,104 @@ TYPED_TEST(MatrixTests, Inverse) {
     }
 }
 
+template <class Type, size_t N, size_t M, size_t X>
+void textMatrixWithGlm() {
+    if constexpr (GLESC::Math::MatrixAlgorithms::colMajorMatrix) {
+        using MyMatLeft = GLESC::Math::Matrix<Type, M, N>;
+        using MyMatRight = GLESC::Math::Matrix<Type, X, M>;
+        using MyMatResult = GLESC::Math::Matrix<Type, X, N>;
 
-TYPED_TEST(MatrixTests, Rank) {
-    //
-    //PREPARE_TEST();
-    //// Rank
-    //if constexpr (N == M) {
-    //    size_t matrixRankResult = this->matrix.rank();
-    //    auto gaussianEliminationData = GLESC::Math::MatrixAlgorithms::gaussianElimination(this->matrix.data);
-    //    EXPECT_EQ_CUSTOM(matrixRankResult, gaussianEliminationData.rank);
-    //}
-    //
+        using GlmMatLeft = glm::mat<M, N, Type>;
+        using GlmMatRight = glm::mat<X, M, Type>;
+        using GlmMatResult = glm::mat<X, N, Type>;
+
+        MyMatLeft matrixToMultiplyLeft;
+        initializeMatrixWithValues(matrixToMultiplyLeft);
+
+        MyMatRight matrixToMultiplyRight;
+        initializeMatrixWithValues(matrixToMultiplyRight);
+
+        MyMatResult actualMultResult;
+
+        actualMultResult = matrixToMultiplyLeft * matrixToMultiplyRight;
+
+        GlmMatLeft glmMatrixToMultiplyLeft{};
+        for (int i = 0; i < M; ++i)
+            for (int j = 0; j < N; ++j)
+                glmMatrixToMultiplyLeft[i][j] = matrixToMultiplyLeft[i][j];
+        GlmMatRight glmMatrixToMultiplyRight{};
+        for (int i = 0; i < X; ++i)
+            for (int j = 0; j < M; ++j)
+                glmMatrixToMultiplyRight[i][j] = matrixToMultiplyRight[i][j];
+
+        MyMatResult expectedMultResult;
+        GlmMatResult glmExpectedMultResult{};
+        glmExpectedMultResult = glmMatrixToMultiplyLeft * glmMatrixToMultiplyRight;
+        for (int i = 0; i < X; ++i)
+            for (int j = 0; j < N; ++j)
+                expectedMultResult[i][j] = glmExpectedMultResult[i][j];
+
+        EXPECT_EQ_MAT(actualMultResult, expectedMultResult);
+    }
+    else {
+        using MyMatLeft = GLESC::Math::Matrix<Type, N, M>;
+        using MyMatRight = GLESC::Math::Matrix<Type, M, X>;
+        using MyMatResult = GLESC::Math::Matrix<Type, N, X>;
+
+        using GlmMatLeft = glm::mat<N, M, Type>;
+        using GlmMatRight = glm::mat<M, X, Type>;
+        using GlmMatResult = glm::mat<N, X, Type>;
+
+
+        MyMatLeft matrixToMultiplyLeft;
+        initializeMatrixWithValues(matrixToMultiplyLeft);
+
+        MyMatRight matrixToMultiplyRight;
+        initializeMatrixWithValues(matrixToMultiplyRight);
+
+        MyMatResult actualMultResult;
+
+        actualMultResult = matrixToMultiplyLeft * matrixToMultiplyRight;
+
+
+        MyMatResult expectedMultResult;
+        GlmMatLeft glmMatrixToMultiplyLeft{};
+        for (int i = 0; i < N; ++i)
+            for (int j = 0; j < M; ++j)
+                glmMatrixToMultiplyLeft[i][j] = matrixToMultiplyLeft[i][j];
+        GlmMatRight glmMatrixToMultiplyRight{};
+        for (int i = 0; i < M; ++i)
+            for (int j = 0; j < X; ++j)
+                glmMatrixToMultiplyRight[i][j] = matrixToMultiplyRight[i][j];
+        GlmMatResult glmExpectedMultResult{};
+        glmExpectedMultResult = glmMatrixToMultiplyLeft * glmMatrixToMultiplyRight;
+        for (int i = 0; i < N; ++i)
+            for (int j = 0; j < X; ++j)
+                expectedMultResult[i][j] = glmExpectedMultResult[i][j];
+
+        EXPECT_EQ_MAT(actualMultResult, expectedMultResult);
+    }
+}
+
+
+TEST(MatrixTests, MulOperatorGLMComparison) {
+    // ----------------------------------------- Multiplication ------------------------------------------
+    // Multiplication operator (dot product)
+    // Only square matrices can be multiplied
+    // And only dimensions 2, 3 and 4 are supported due to the implementation of the inverse
+    constexpr size_t N = 4;
+    constexpr size_t M = 4;
+    constexpr size_t X = 4;
+    using Type = float;
+    textMatrixWithGlm<Type, N, M, X>();
+
+    constexpr size_t N2 = 3;
+    constexpr size_t M2 = 4;
+    textMatrixWithGlm<Type, N2, M2, X>();
+
+    constexpr size_t N3 = 2;
+    constexpr size_t M3 = 3;
+    textMatrixWithGlm<Type, N3, M3, X>();
 }
 
 #endif // MATH_ALGEBRA_UNIT_TESTING

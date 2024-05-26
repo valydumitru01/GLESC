@@ -16,7 +16,7 @@ using namespace GLESC::Transform;
 
 Transform::Transform(Position position, Rotation rotation, Scale scale) :
     position(std::move(position)),
-    rotation(std::move(rotation)),
+    rotationDegrees(std::move(rotation)),
     scale(std::move(scale)) {
 }
 
@@ -40,34 +40,25 @@ GLESC::Math::Direction Transform::up() const {
 }
 
 GLESC::Math::Direction Transform::calculateForward() const {
-    RotComp pitch = Math::radians(rotation.getX()); // Rotation around X-axis (pitch)
-    RotComp yaw = Math::radians(rotation.getY()); // Rotation around Y-axis (yaw)
-
-    // TODO: Find why adding 90 degrees to yaw is necessary, it shouldn't be
-    //       but if not done, the forward vector is incorrect (is to the left)
-    PosComp x = Math::cos(pitch) * Math::cos(yaw + Math::radians(90.0f));
-    PosComp y = Math::sin(pitch);
-    PosComp z = Math::cos(pitch) * Math::sin(yaw + Math::radians(90.0f));
-
-    return {x, y, z};
+    return GLESC::Math::Direction().makeForward(rotationDegrees.toRads());
 }
 
 GLESC::Math::Direction Transform::calculateRight() const {
-    return calculateForward().cross(worldUp).normalize();
+    return GLESC::Math::Direction().makeRight(rotationDegrees.toRads());
 }
 
 GLESC::Math::Direction Transform::calculateUp() const {
-    return calculateRight().cross(calculateForward()).normalize();
+    return GLESC::Math::Direction().makeUp(rotationDegrees.toRads());
 }
 
 
 bool Transform::operator==(const Transform& other) const {
-    return position == other.position && rotation == other.rotation && scale == other.scale;
+    return position == other.position && rotationDegrees == other.rotationDegrees && scale == other.scale;
 }
 
 std::string Transform::toString() const {
     return "Position: " + position.toString() + "\n" +
-        "Rotation: " + rotation.toString() + "\n" +
+        "Rotation: " + rotationDegrees.toString() + "\n" +
         "Scale: " + scale.toString();
 }
 
@@ -138,9 +129,8 @@ Position Transformer::NDCToViewport(const Position& ndcPos, float vpWidth, float
 }
 
 
-Position Transformer::worldToViewport(const Position& worldPos, const Render::View& viewMat,
-                                      const Render::Projection& projMat, float vpWidth, float vpHeight) {
-    Render::VP viewProj = viewMat * projMat;
+Position Transformer::worldToViewport(const Position& worldPos, const Render::VP& viewProj, float vpWidth,
+                                      float vpHeight) {
     // IMPORTANT! We use row major matrices but the data distribution is prepared to be column major for in GPU
     // operations. So for the CPU we need to transpose the matrices.
     HomogeneousPosition clipPos = viewProj * worldPos.homogenize();

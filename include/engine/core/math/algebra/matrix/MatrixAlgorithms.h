@@ -433,8 +433,8 @@ namespace GLESC::Math {
         }
 
         template <typename Type, size_t N, size_t M>
-        static void matrixVectorMulColMaj(const VectorData<Type, M>& vector,
-                                          const MatrixData<Type, M, N>& matrix,
+        static void matrixVectorMulColMaj(const MatrixData<Type, M, N>& matrix,
+                                          const VectorData<Type, M>& vector,
                                           VectorData<Type, N>& result) {
             for (size_t i = 0; i < N; ++i) {
                 Type sum = 0;

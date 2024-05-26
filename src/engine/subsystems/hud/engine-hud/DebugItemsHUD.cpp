@@ -43,12 +43,11 @@ DebugItems::DebugItems(Render::Renderer& renderer, TextureFactory& textureFactor
 void DebugItems::windowContent() {
     float width = static_cast<float>(renderer.getViewportSize().width);
     float height = static_cast<float>(renderer.getViewportSize().height);
-    auto viewMatrix = renderer.getView();
-    auto projMatrix = renderer.getProjection();
+    const auto& viewProj = renderer.getViewProjection();
     for (Item& item : HudItemsManager::getItems()) {
         if (!renderer.getFrustum().contains(*item.worldPosition)) continue;
         Render::Position screenPos =
-            Transform::Transformer::worldToViewport(*item.worldPosition, viewMatrix, projMatrix, width, height);
+            Transform::Transformer::worldToViewport(*item.worldPosition, viewProj, width, height);
         float imageScale = screenPos.z() * 20;
         float vpWidth = static_cast<float>(renderer.getViewportSize().height);
         float vpHeight = static_cast<float>(renderer.getViewportSize().height);

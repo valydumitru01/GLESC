@@ -21,6 +21,11 @@ namespace GLESC::Transform {
         Y = 1,
         Z = 2
     };
+    enum class RotationAxis {
+        Pitch = static_cast<int>(Axis::X),
+        Yaw = static_cast<int>(Axis::Y),
+        Roll = static_cast<int>(Axis::Z)
+    };
 
     struct Transform {
         static Math::Direction worldUp;
@@ -28,7 +33,7 @@ namespace GLESC::Transform {
         static Math::Direction worldForward;
 
         Transform() {
-            modelMat.makeModelMatrix(position, rotation.toRads(), scale);
+            modelMat.makeModelMatrix(position, rotationDegrees.toRads(), scale);
         };
 
         Transform(Position position, Rotation rotation, Scale scale);
@@ -38,7 +43,7 @@ namespace GLESC::Transform {
         }
 
         const Rotation& getRotation() const {
-            return rotation;
+            return rotationDegrees;
         }
 
         const Scale& getScale() const {
@@ -52,7 +57,7 @@ namespace GLESC::Transform {
 
         void setRotation(const Rotation& rotation) {
             dirty = true;
-            this->rotation = rotation;
+            this->rotationDegrees = rotation;
         }
 
         void setScale(const Scale& scale) {
@@ -66,10 +71,10 @@ namespace GLESC::Transform {
             position.set(index, value);
         }
 
-        void setRotation(Axis axis, RotComp value) {
+        void setRotation(RotationAxis axis, RotComp value) {
             dirty = true;
             int index = static_cast<int>(axis);
-            rotation.set(index, value);
+            rotationDegrees.set(index, value);
         }
 
         void setScale(Axis axis, ScaleComp value) {
@@ -84,20 +89,19 @@ namespace GLESC::Transform {
         }
 
         void addRotation(const Rotation& rotation) {
-            setRotation(this->rotation + rotation);
+            setRotation(this->rotationDegrees + rotation);
         }
 
         void addScale(const Scale& scale) {
             setScale(this->scale + scale);
-
         }
 
         void addPosition(Axis axis, PosComp value) {
             setPosition(axis, position.get(static_cast<int>(axis)) + value);
         }
 
-        void addRotation(Axis axis, RotComp value) {
-            setRotation(axis, rotation.get(static_cast<int>(axis)) + value);
+        void addRotation(RotationAxis axis, RotComp value) {
+            setRotation(axis, rotationDegrees.get(static_cast<int>(axis)) + value);
         }
 
         void addScale(Axis axis, ScaleComp value) {
@@ -106,7 +110,7 @@ namespace GLESC::Transform {
 
         Render::Model getModelMatrix() const {
             if (dirty) {
-                modelMat.makeModelMatrix(position, rotation.toRads(), scale);
+                modelMat.makeModelMatrix(position, rotationDegrees.toRads(), scale);
                 dirty = false;
             }
             return modelMat;
@@ -126,12 +130,12 @@ namespace GLESC::Transform {
 
             EntityStatsManager::Value rotationValue;
             rotationValue.name = "Rotation";
-            rotationValue.data = reinterpret_cast<void*>(&rotation);
+            rotationValue.data = reinterpret_cast<void*>(&rotationDegrees);
             positionValue.valueDirty = &dirty;
             rotationValue.type = EntityStatsManager::ValueType::VEC3F;
             rotationValue.isModifiable = true;
             rotationValue.usesSlider = true;
-            rotationValue.min = -360.0f;
+            rotationValue.min = 0.0f;
             rotationValue.max = 360.0f;
             values.push_back(rotationValue);
 
@@ -166,7 +170,7 @@ namespace GLESC::Transform {
         Math::Direction calculateUp() const;
 
         Position position = Position(0.0f, 0.0f, 0.0f);
-        Rotation rotation = Rotation(0.0f, 0.0f, 0.0f);
+        Rotation rotationDegrees = Rotation(0.0f, 0.0f, 0.0f);
         Scale scale = Scale(1.0f, 1.0f, 1.0f);
 
         mutable bool dirty = true;
@@ -180,29 +184,28 @@ namespace GLESC::Transform {
 
     class Transformer {
     public:
-
         static void translateMesh(Render::ColorMesh& mesh, const Position& translation);
         static void transformMesh(Render::ColorMesh& mesh, const Transform& transform);
         static Math::BoundingVolume transformBoundingVolume(const Math::BoundingVolume& boundingVolume,
-                                                              const Transform& transform);
+                                                            const Transform& transform);
 
         static Position transformPosition(const Position& position, const Render::Model& matrix);
         static Position clipToNDC(const HomogeneousPosition& clipPos);
         static Position NDCToViewport(const Position& clipPos, float vpWidth, float vpHeight);
-        static Position worldToViewport(const Position& worldPos, const Render::Model& viewMat,
-                                        const Render::Model& projMat,
-                                        float vpWidth, float vpHeight);
+        static Position worldToViewport(const Position& worldPos, const Render::VP& viewProj, float vpWidth,
+                                        float vpHeight);
+
     private:
         static Math::BoundingVolume transformBoundingVolume(const Math::BoundingVolume& boundingVolume,
-                                                              const Render::Model& matrix);
+                                                            const Render::Model& matrix);
         static void transformMesh(Render::ColorMesh& mesh, const Mat4F& matrix);
-
     }; // class Transformer
 
     struct Interpolator {
         Interpolator() = default;
         void pushTransform(const Transform& transform);
         Transform interpolate(double alpha) const;
+
     private:
         Transform lastTransform = Transform();
         Transform previousOfLastTransform = Transform();

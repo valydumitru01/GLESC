@@ -98,9 +98,8 @@ namespace GLESC::Math {
         static void getRotate3DMatrixForAxis(TypeDgrs rads,
                                              const VectorData<TypeDgrs, 3>& axisVec,
                                              MatrixData<TypeRes, 4, 4>& result) {
-            const TypeDgrs angleRadians = rads;
-            const TypeRes c = Math::cos(angleRadians);
-            const TypeRes s = Math::sin(angleRadians);
+            const TypeRes c = Math::cos(rads);
+            const TypeRes s = Math::sin(rads);
             const TypeRes t = TypeRes(1) - c;
 
             // Normalized axis vector
@@ -189,11 +188,9 @@ namespace GLESC::Math {
             // Create the translation matrix
             MatrixAlgorithms::getTranslationMatrix(position, translationMatrix);
 
-            MatrixAlgorithms::matrixMatrixMulInPlace(model, translationMatrix, model);
-
             MatrixAlgorithms::matrixMatrixMulInPlace(model, rotationMatrix, model);
-
             MatrixAlgorithms::matrixMatrixMulInPlace(model, scaleMatrix, model);
+            MatrixAlgorithms::matrixMatrixMulInPlace(model, translationMatrix, model);
         }
 
         template <typename TypePos, typename TypeRot, typename TypeRes>
@@ -206,15 +203,16 @@ namespace GLESC::Math {
             negatedPos[1] = -position[1];
             negatedPos[2] = -position[2];
 
-            VectorData<TypeRes, 3> negatedRotationRadians;
-            negatedRotationRadians[0] = -rotationRads[0];
-            negatedRotationRadians[1] = -rotationRads[1];
-            negatedRotationRadians[2] = -rotationRads[2];
+            VectorData<TypeRes, 3> negatedRotationRads;
+            negatedRotationRads[0] = -rotationRads[0];
+            negatedRotationRads[1] = -rotationRads[1];
+            negatedRotationRads[2] = -rotationRads[2];
 
             VectorData<TypeRes, 3> scale = {1, 1, 1};
 
-            MatrixMixedAlgorithms::calculateModelMatrix(negatedPos, negatedRotationRadians, scale, viewMat);
+            MatrixMixedAlgorithms::calculateModelMatrix(negatedPos, negatedRotationRads, scale, viewMat);
         }
+
 
         template <typename Type>
         static void calculateViewMatrixEye(const VectorData<Type, 3>& eye,

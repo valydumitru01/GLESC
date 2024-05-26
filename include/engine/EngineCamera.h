@@ -26,7 +26,7 @@ namespace GLESC {
                                                      windowManager(windowManager),
                                                      cameraSpeed(CAMERA_SPEED),
                                                      cameraSensitivity(CAMERA_SENSITIVITY),
-                                                     camerXRotationConstraint(CAMERA_X_ROTATION_LIMIT),
+                                                     cameraPitchConstraint(CAMERA_X_ROTATION_LIMIT),
                                                      camera(entityFactory.createEntity("camera")) {
         }
 
@@ -94,19 +94,20 @@ namespace GLESC {
                 ECS::Entity cameraEntity = entityFactory.getEntity("camera");
 
                 auto& transformComp = cameraEntity.getComponent<ECS::TransformComponent>().transform;
-                auto& cameraComp = cameraEntity.getComponent<ECS::CameraComponent>();
+                float cameraSensitivityValue = cameraSensitivity.get();
 
-                // Adjust the target rotation based on mouse input
-                // Only rotate if rotation is between -90 and 90 degrees
-                float mouseAdditionX = deltaMouse.getY() * cameraSensitivity.get();
-                float nextMouseX = transformComp.getRotation().getX() + mouseAdditionX;
-                if (nextMouseX < camerXRotationConstraint &&
-                    nextMouseX > -camerXRotationConstraint)
-                    transformComp.addRotation(Transform::Axis::X, mouseAdditionX);
-                transformComp.addRotation(Transform::Axis::Y,
-                                          static_cast<float>(deltaMouse.getX()) * cameraSensitivity.get());
+                // Adjust the pitch based on mouse Y movement (up/down)
+                float mouseAdditionPitch = deltaMouse.getY() * cameraSensitivityValue;
+                float nextMousePitch = transformComp.getRotation().getX() + mouseAdditionPitch;
 
-                // Ensure we avoid gimbal lock, restrict the X rotation to 90 degrees
+                // Only apply pitch rotation if it is within the constraints
+                if (nextMousePitch < cameraPitchConstraint && nextMousePitch > -cameraPitchConstraint) {
+                    transformComp.setRotation(Transform::RotationAxis::Pitch, nextMousePitch);
+                }
+
+                // Adjust the yaw based on mouse X movement (left/right)
+                float mouseAdditionYaw = -deltaMouse.getX() * cameraSensitivityValue;
+                transformComp.addRotation(Transform::RotationAxis::Yaw, mouseAdditionYaw);
             });
 
             Input::KeyCommand mouseRelativeMove = Input::KeyCommand([&] {
@@ -146,7 +147,7 @@ namespace GLESC {
 
         float cameraSpeed;
         Render::Intensity<float> cameraSensitivity;
-        float camerXRotationConstraint;
+        float cameraPitchConstraint;
         ECS::Entity camera;
     }; // class EngineCamera
 } // namespace GLESC

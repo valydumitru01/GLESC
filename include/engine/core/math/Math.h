@@ -236,25 +236,22 @@ namespace GLESC::Math {
 
     template <typename Type>
     auto cos(const Type& value) {
+        S_ASSERT_TRUE(std::is_arithmetic_v<Type>, "Type must be arithmetic");
         return std::cos(value);
     }
 
     template <typename Type>
     auto sin(const Type& value) {
+        S_ASSERT_TRUE(std::is_arithmetic_v<Type>, "Type must be arithmetic");
         return std::sin(value);
     }
 
     template <typename Type>
     auto tan(const Type& value) {
+        S_ASSERT_TRUE(std::is_arithmetic_v<Type>, "Type must be arithmetic");
         return std::tan(value);
     }
 
-
-    template <typename Type>
-    constexpr const int getMantissaBytes() {
-        S_ASSERT_TRUE(std::is_floating_point_v<Type>, "Type must be floating point");
-        return std::numeric_limits<Type>::digits;
-    }
 
     /**
      * @brief Generates a random number between min and max, specifically [min, max)

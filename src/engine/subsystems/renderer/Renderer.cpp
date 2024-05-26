@@ -26,7 +26,8 @@ Renderer::Renderer(WindowManager& windowManager) :
     camera(),
     projection(createProjectionMatrix(CameraPerspective())),
     view(createViewMatrix(Transform::Transform())),
-    frustum(view * projection) {
+    viewProjection(projection * view),
+    frustum(viewProjection) {
     camera.camera = &defaultCameraPerspective;
     camera.transform = &defaultCameraTransform;
 }
@@ -42,7 +43,7 @@ Projection Renderer::createProjectionMatrix(const CameraPerspective& camera) {
 
 View Renderer::createViewMatrix(const Transform::Transform& transform) {
     View view;
-    view.makeViewMatrixPosRot(transform.getPosition(), transform.getRotation());
+    view.makeViewMatrixPosRot(transform.getPosition(), transform.getRotation().toRads());
     return view;
 }
 
@@ -67,24 +68,25 @@ void Renderer::start() {
                                     camera.camera->getViewHeight());
     this->setProjection(projection);
     View view;
-    view.makeViewMatrixPosRot(camera.transform->getPosition(),
-                              camera.transform->getRotation());
+    view.makeViewMatrixPosRot(camera.transform->getPosition(), camera.transform->getRotation().toRads());
     this->setView(view);
+
+    viewProjection = projection * view;
 }
 
 
 void Renderer::renderMeshes(double timeOfFrame) {
     drawCounter.startFrame();
-    View viewMat = getView();
-    Projection projMat = getProjection();
-    VP viewProj =  viewMat * projMat;
+    const View& viewMat = getView();
+    const Projection& projMat = getProjection();
+    const VP& viewProjMat = getViewProjection();
     shader.bind(); // Activate the shader program before transform, material and lighting setup
     // Don't render anything if the view matrix is not valid
-    frustum.update(viewProj);
+    frustum.update(viewProjMat);
 
 #pragma omp parallel default(none) \
-shared(adaptedMeshes, lights, sun, fog, skybox, timeOfFrame, view, projection, frustum, \
-    viewMat, projMat, viewProj, mvMutex, normalMatMutex, mvpMutex, frustumMutex, \
+    shared(adaptedMeshes, lights, sun, fog, skybox, timeOfFrame, viewMat, projMat, viewProjMat, \
+    frustum, mvMutex, normalMatMutex, mvpMutex, frustumMutex, \
     interpolationMutex, mvs, mvps, normalMats, isContainedInFrustum)
     {
 #pragma omp for schedule(dynamic)
@@ -103,8 +105,8 @@ shared(adaptedMeshes, lights, sun, fog, skybox, timeOfFrame, view, projection, f
                 std::lock_guard lockMutex(frustumMutex);
                 isContainedInFrustum[&dynamicMesh] = frustum.contains(transformedBoundingVol);
             }
-            MVP MVPMat = model*viewProj;
-            MV MV = model*viewMat;
+            MVP MVPMat = viewProjMat * model;
+            MV MV = viewMat * model;
             NormalMat normalMat;
             normalMat.makeNormalMatrix(MV);
             {

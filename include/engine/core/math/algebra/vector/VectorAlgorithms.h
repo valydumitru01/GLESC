@@ -558,6 +558,39 @@ namespace GLESC::Math {
             }
         }
 
+        template <typename Type, size_t N>
+        static void makeForwardVector(const VectorData<Type, N>& rotationRads, VectorData<Type, N>& result) {
+            Type pitch = rotationRads[0];
+            Type yaw = rotationRads[1];
+
+            result[0] = Math::cos(pitch) * Math::sin(yaw);
+            result[1] = Math::sin(pitch);
+            result[2] = Math::cos(pitch) * Math::cos(yaw);
+        }
+
+
+        template <typename Type, size_t N>
+        static void makeRightVector(const VectorData<Type, N>& rotationRads,
+                                    VectorData<Type, N>& result) {
+            Type pitch = rotationRads[0];
+            Type yaw = rotationRads[1];
+            Type roll = rotationRads[2];
+            result[0] = Math::cos(pitch) * Math::sin(yaw - Math::PI / 2);
+            result[1] = Math::sin(roll);
+            result[2] = Math::cos(pitch) * Math::cos(yaw - Math::PI / 2);
+        }
+
+        template <typename Type, size_t N>
+        static void makeUpVector(const VectorData<Type, N>& rotationRads, VectorData<Type, N>& result) {
+            Type pitch = rotationRads[0];
+            Type yaw = rotationRads[1];
+            Type roll = rotationRads[2];
+
+            result[0] = -Math::cos(roll) * Math::sin(pitch) * Math::sin(yaw) + Math::sin(roll) * Math::cos(yaw); // up_x
+            result[1] = Math::cos(roll) * Math::cos(pitch); // up_y
+            result[2] = -Math::cos(roll) * Math::sin(pitch) * Math::cos(yaw) - Math::sin(roll) * Math::sin(yaw); // up_z
+        }
+
 
         /**
          * @brief Checks if two vectors are orthogonal.
