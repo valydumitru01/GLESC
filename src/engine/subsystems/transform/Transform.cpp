@@ -14,6 +14,7 @@
 
 using namespace GLESC::Transform;
 
+
 Transform::Transform(Position position, Rotation rotation, Scale scale) :
     position(std::move(position)),
     rotationDegrees(std::move(rotation)),
@@ -106,6 +107,7 @@ GLESC::Math::BoundingVolume Transformer::transformBoundingVolume(const Math::Bou
     return transformBoundingVolume(boundingVolume, modelMat);
 }
 
+
 Position Transformer::transformPosition(const Position& position, const Render::Model& matrix) {
     // IMPORTANT! We use row major matrices but the data distribution is prepared to be column major for in GPU
     // operations. So for the CPU we need to transpose the matrices.
@@ -140,17 +142,19 @@ Position Transformer::worldToViewport(const Position& worldPos, const Render::VP
 
 
 void Interpolator::pushTransform(const Transform& transform) {
-    previousOfLastTransform = lastTransform;
-    lastTransform = transform;
+    lastTransform = currentTransform;
+    currentTransform = transform;
 }
 
-Transform Interpolator::interpolate(double alpha) const {
+Transform Interpolator::interpolate(float alphaParam) const {
+    // Clamp alpha to [0, 1]
+    float alpha = Math::min(alphaParam, 1.0f);
     Transform interpolatedTransform;
     interpolatedTransform.setPosition(
-        previousOfLastTransform.getPosition().lerp(lastTransform.getPosition(), alpha));
+        lastTransform.getPosition().lerp(currentTransform.getPosition(), alpha));
     interpolatedTransform.setRotation(
-        previousOfLastTransform.getRotation().lerp(lastTransform.getRotation(), alpha));
+        lastTransform.getRotation().lerp(currentTransform.getRotation(), alpha));
     interpolatedTransform.setScale(
-        previousOfLastTransform.getScale().lerp(lastTransform.getScale(), alpha));
+        lastTransform.getScale().lerp(currentTransform.getScale(), alpha));
     return interpolatedTransform;
 }

@@ -13,6 +13,8 @@
 #include <string>
 #include <memory>
 #include <mutex>
+#include "engine/core/low-level-renderer/buffers/IndexBuffer.h"
+#include "engine/core/low-level-renderer/buffers/VertexArray.h"
 #include "engine/core/math/geometry/GeometryTypes.h"
 #include "engine/core/hash/Hasher.h"
 #include "engine/core/math/geometry/figures/BoundingVolume.h"
@@ -20,6 +22,7 @@
 #include "engine/subsystems/renderer/RendererTypes.h"
 
 namespace GLESC::Render {
+    class Renderer;
     /**
      * @brief A class that represents a mesh.
      * @details This is the mesh class for the engine. Is a template class that needs to be instantiated with the
@@ -30,10 +33,10 @@ namespace GLESC::Render {
      */
     template <typename VertexT>
     class Mesh {
+        friend class GLESC::Render::Renderer;
     public:
         S_ASSERT_TRUE((std::is_base_of_v<ColorVertex, VertexT> ||std::is_base_of_v<TextureVertex, VertexT>),
                       "Vertex must be a ColorVertex or TextureVertex");
-
         using Index = unsigned int;
         using Vertex = VertexT;
 
@@ -54,7 +57,9 @@ namespace GLESC::Render {
             *this = std::move(other);
         }
 
-        void operator=(Mesh&& other) noexcept {
+        Mesh& operator=(Mesh&& other) noexcept {
+            if (this == &other)
+                return *this;
             vertices = std::move(other.vertices);
             indices = std::move(other.indices);
             boundingVolume = std::move(other.boundingVolume);
@@ -63,9 +68,13 @@ namespace GLESC::Render {
             renderType = other.renderType;
             hashDirty = other.hashDirty;
             cachedHash = other.cachedHash;
+
+            return *this;
         }
 
-        void operator=(const Mesh& other) {
+        Mesh& operator=(const Mesh& other) {
+            if (this == &other)
+                return *this;
             vertices = other.vertices;
             indices = other.indices;
             boundingVolume = other.boundingVolume;
@@ -74,6 +83,7 @@ namespace GLESC::Render {
             renderType = other.renderType;
             hashDirty = other.hashDirty;
             cachedHash = other.cachedHash;
+            return *this;
         }
 
         void startBuilding() {
@@ -291,6 +301,52 @@ namespace GLESC::Render {
         }
 
     private:
+        void sendToGpuBuffers() const {
+            if(wasDataSentToGpu) return;
+            vertexArray = std::make_unique<GAPI::VertexArray>();
+
+            const void* bufferData = getVertices().data();
+            size_t bufferCount = getVertices().size();
+            size_t vertexBytes = sizeof(Vertex);
+            GAPI::Enums::BufferUsages bufferUsage = getBufferUsage(getRenderType());
+
+            vertexArray->bind();
+
+            vertexBuffer = std::make_unique<GAPI::VertexBuffer>(
+                bufferData,
+                bufferCount,
+                vertexBytes,
+                bufferUsage
+            );
+
+            indexBuffer = std::make_unique<GAPI::IndexBuffer>(
+                getIndices().data(),
+                getIndices().size());
+
+            GAPI::VertexBufferLayout layout;
+            for (GAPI::Enums::Types type : getVertexLayout()) {
+                layout.push(type);
+            }
+
+            vertexArray->addBuffer(*vertexBuffer, layout);
+            wasDataSentToGpu = true;
+        }
+
+        const GAPI::VertexArray& getVertexArray() const {
+            D_ASSERT_TRUE(wasDataSentToGpu, "Data was not sent to GPU");
+            return *vertexArray;
+        }
+
+        const GAPI::IndexBuffer& getIndexBuffer() const {
+            D_ASSERT_TRUE(wasDataSentToGpu, "Data was not sent to GPU");
+            return *indexBuffer;
+        }
+
+        const GAPI::VertexBuffer& getVertexBuffer() const {
+            D_ASSERT_TRUE(wasDataSentToGpu, "Data was not sent to GPU");
+            return *vertexBuffer;
+        }
+
         Normal calculateNormal(const Position& a, const Position& b, const Position& c) const {
             return (b - a).cross(c - a).normalize();
         }
@@ -311,13 +367,10 @@ namespace GLESC::Render {
         }
 
         RenderType renderType;
-
-        std::vector<Vertex> vertices{};
-        std::mutex verticesMutex{};
-        std::vector<Index> indices{};
-        std::mutex indicesMutex{};
         std::vector<Math::FaceIndices> faces{};
-        std::mutex facesMutex{};
+        std::vector<Index> indices{};
+        std::vector<Vertex> vertices{};
+
         /**
          * @brief The bounding volume of the mesh.
          * @details The bounding volume is a polyhedron cuboid that encloses the mesh. It is used for culling.
@@ -342,6 +395,15 @@ namespace GLESC::Render {
 
         mutable size_t cachedHash = 0;
         mutable bool hashDirty = true;
+
+        mutable std::unique_ptr<GAPI::VertexArray> vertexArray;
+        mutable std::unique_ptr<GAPI::IndexBuffer> indexBuffer;
+        mutable std::unique_ptr<GAPI::VertexBuffer> vertexBuffer;
+        mutable bool wasDataSentToGpu = false;
+
+        mutable std::mutex verticesMutex{};
+        mutable std::mutex indicesMutex{};
+        mutable std::mutex facesMutex{};
     }; // class Mesh
 
     using ColorMesh = Mesh<ColorVertex>;

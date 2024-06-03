@@ -146,9 +146,9 @@ namespace GLESC::Math {
             VectorData<TypeDgrs, 3> rotZAxis = {0, 0, 1};
             MatrixMixedAlgorithms::getRotate3DMatrixForAxis(rads[2], rotZAxis, rotZ);
 
-            MatrixAlgorithms::matrixMatrixMulInPlace(result, rotX, result);
             MatrixAlgorithms::matrixMatrixMulInPlace(result, rotY, result);
             MatrixAlgorithms::matrixMatrixMulInPlace(result, rotZ, result);
+            MatrixAlgorithms::matrixMatrixMulInPlace(result, rotX, result);
         }
 
         /**
@@ -188,9 +188,9 @@ namespace GLESC::Math {
             // Create the translation matrix
             MatrixAlgorithms::getTranslationMatrix(position, translationMatrix);
 
+            MatrixAlgorithms::matrixMatrixMulInPlace(model, translationMatrix, model);
             MatrixAlgorithms::matrixMatrixMulInPlace(model, rotationMatrix, model);
             MatrixAlgorithms::matrixMatrixMulInPlace(model, scaleMatrix, model);
-            MatrixAlgorithms::matrixMatrixMulInPlace(model, translationMatrix, model);
         }
 
         template <typename TypePos, typename TypeRot, typename TypeRes>
@@ -210,7 +210,39 @@ namespace GLESC::Math {
 
             VectorData<TypeRes, 3> scale = {1, 1, 1};
 
-            MatrixMixedAlgorithms::calculateModelMatrix(negatedPos, negatedRotationRads, scale, viewMat);
+            // Initialize matrices
+            MatrixAlgorithms::setMatrixZero(viewMat);
+            MatrixAlgorithms::setMatrixDiagonal(viewMat, TypePos(1));
+
+            MatrixData<TypePos, 4, 4> scaleMatrix;
+            MatrixData<TypePos, 4, 4> rotationMatrix;
+            MatrixData<TypePos, 4, 4> translationMatrix;
+            // First, create the scale matrix
+            MatrixAlgorithms::getScaleMatrix(scale, scaleMatrix);
+            // Create rotation matrices around X, Y, and Z axes
+
+            MatrixAlgorithms::setMatrixZero(rotationMatrix);
+            MatrixAlgorithms::setMatrixDiagonal(rotationMatrix, TypePos(1));
+
+            MatrixData<TypeRes, 4, 4> rotX;
+            VectorData<TypeRot, 3> rotXAxis = {1, 0, 0};
+            MatrixMixedAlgorithms::getRotate3DMatrixForAxis(negatedRotationRads[0], rotXAxis, rotX);
+            MatrixData<TypeRes, 4, 4> rotY;
+            VectorData<TypeRot, 3> rotYAxis = {0, 1, 0};
+            MatrixMixedAlgorithms::getRotate3DMatrixForAxis(negatedRotationRads[1], rotYAxis, rotY);
+            MatrixData<TypeRes, 4, 4> rotZ;
+            VectorData<TypeRot, 3> rotZAxis = {0, 0, 1};
+            MatrixMixedAlgorithms::getRotate3DMatrixForAxis(negatedRotationRads[2], rotZAxis, rotZ);
+
+            MatrixAlgorithms::matrixMatrixMulInPlace(rotationMatrix, rotZ, rotationMatrix);
+            MatrixAlgorithms::matrixMatrixMulInPlace(rotationMatrix, rotX, rotationMatrix);
+            MatrixAlgorithms::matrixMatrixMulInPlace(rotationMatrix, rotY, rotationMatrix);
+            // Create the translation matrix
+            MatrixAlgorithms::getTranslationMatrix(negatedPos, translationMatrix);
+
+            MatrixAlgorithms::matrixMatrixMulInPlace(viewMat, scaleMatrix, viewMat);
+            MatrixAlgorithms::matrixMatrixMulInPlace(viewMat, rotationMatrix, viewMat);
+            MatrixAlgorithms::matrixMatrixMulInPlace(viewMat, translationMatrix, viewMat);
         }
 
 

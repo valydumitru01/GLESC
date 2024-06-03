@@ -20,15 +20,27 @@ EntityManager::EntityManager() {
     }
 }
 
-EntityID EntityManager::createNextEntity(const EntityName& name) {
-    D_ASSERT_TRUE(canEntityBeCreated(name), "Entity must be able to be created");
-    
+EntityID EntityManager::createNextEntity(const EntityName& nameParam, const EntityMetadata& metadata) {
     EntityID id = availableEntities.front();
+
+    EntityName name = nameParam;
+    if (metadata.type == EntityType::Instance) {
+        instancedEntities[nameParam].push_back(id);
+        if (entityNameToID.find(nameParam) != entityNameToID.end())
+            currentInstanceID++;
+        name.append(std::to_string(instancedEntities[nameParam].size()));
+    }
+
+
+    D_ASSERT_TRUE(canEntityBeCreated(name), "Entity must be able to be created");
+
     availableEntities.pop();
     entityIDToName.insert({id, name});
     entityNameToID.insert({name, id});
+    entityMetadata.insert({id, metadata});
     ++livingEntityCount;
     ++entityCounter;
+
     D_ASSERT_TRUE(doesEntityExist(id), "Entity must exist after creation");
     return id;
 }
@@ -36,11 +48,12 @@ EntityID EntityManager::createNextEntity(const EntityName& name) {
 void EntityManager::destroyEntity(EntityID entity) {
     D_ASSERT_TRUE(areThereLivingEntities(), "There must be living entities to destroy one");
     D_ASSERT_TRUE(doesEntityExist(entity), "Entity must exist before destruction");
-    
+
     signatures[entity].reset();
     availableEntities.push(entity);
     entityNameToID.erase(entityIDToName[entity]);
     entityIDToName.erase(entity);
+    entityMetadata.erase(entity);
     --livingEntityCount;
 
     D_ASSERT_FALSE(doesEntityExist(entity), "Entity must not exist after destruction");
@@ -63,14 +76,29 @@ const EntityName& EntityManager::getEntityName(EntityID entity) const {
     return entityIDToName.at(entity);
 }
 
+const EntityMetadata& EntityManager::getEntityMetadata(EntityID entity) const {
+    D_ASSERT_TRUE(doesEntityExist(entity), "Entity must exist to get its metadata");
+    return entityMetadata.at(entity);
+}
+
 EntityID EntityManager::getEntityID(const EntityName& name) const {
     D_ASSERT_TRUE(doesEntityExist(name), "Entity must exist to get its ID");
     return entityNameToID.at(name);
 }
+
 EntityID EntityManager::tryGetEntity(const EntityName& name) const {
-    if(!doesEntityExist(name))
+    if (!doesEntityExist(name))
         return nullEntity;
     return entityNameToID.at(name);
+}
+
+const std::vector<EntityID>& EntityManager::getInstancedEntities(const EntityName& name) const {
+    return instancedEntities.at(name);
+}
+
+bool EntityManager::isEntityInstanced(const EntityName& name) const {
+    std::string strippedName = Stringer::strip(name, "1234567890");
+    return instancedEntities.find(strippedName) != instancedEntities.end();
 }
 
 void EntityManager::removeComponentFromEntity(EntityID entity, ComponentID componentID) {
@@ -109,11 +137,12 @@ bool EntityManager::isEntityAlive(const EntityName& name) const {
     return componentID < signatures[0].size();
 }
 
-bool EntityManager:: canEntityBeCreated(const EntityName& name) const {
+bool EntityManager::canEntityBeCreated(const EntityName& name) const {
     return livingEntityCount < maxEntities
-    && !availableEntities.empty()
-    && entityNameToID.find(name) == entityNameToID.end();
+        && !availableEntities.empty()
+        && entityNameToID.find(name) == entityNameToID.end();
 }
+
 bool EntityManager::areThereLivingEntities() const {
     return livingEntityCount > 0;
 }

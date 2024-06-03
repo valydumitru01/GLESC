@@ -563,9 +563,9 @@ namespace GLESC::Math {
             Type pitch = rotationRads[0];
             Type yaw = rotationRads[1];
 
-            result[0] = Math::cos(pitch) * Math::sin(yaw);
-            result[1] = Math::sin(pitch);
-            result[2] = Math::cos(pitch) * Math::cos(yaw);
+            result[0] = Math::cos(-pitch) * Math::sin(yaw);
+            result[1] = Math::sin(-pitch);
+            result[2] = Math::cos(-pitch) * Math::cos(yaw);
         }
 
 

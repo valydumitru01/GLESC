@@ -13,6 +13,8 @@
 #include "engine/ecs/frontend/component/CameraComponent.h"
 #include "engine/ecs/frontend/component/FogComponent.h"
 #include "engine/ecs/frontend/component/InputComponent.h"
+#include "engine/ecs/frontend/component/PhysicsComponent.h"
+#include "engine/ecs/frontend/component/RenderComponent.h"
 #include "engine/ecs/frontend/component/SunComponent.h"
 #include "engine/ecs/frontend/component/TransformComponent.h"
 #include "engine/ecs/frontend/system/systems/LightSystem.h"
@@ -48,7 +50,7 @@ Engine::Engine(FPSManager& fpsManager) :
     renderSystems(createRenderSystems()),
     engineCamera(entityFactory, inputManager, windowManager),
     sceneManager(entityFactory, windowManager),
-    sceneContainer(windowManager, entityFactory, sceneManager),
+    sceneContainer(windowManager, entityFactory, inputManager, sceneManager, engineCamera),
     game(windowManager, entityFactory, sceneManager, sceneContainer) {
     engineCamera.setupCamera();
     this->registerStats();
@@ -65,21 +67,15 @@ void Engine::processInput() {
 
 void Engine::render(double const timeOfFrame) {
     Logger::get().importantInfoPurple("Engine render started");
-#pragma omp sections
-    {
-#pragma omp section
-        {
-            for (auto& system : renderSystems) {
-                system->update();
-            }
-            renderer.start();
-            renderer.renderMeshes(timeOfFrame);
-            hudManager.update();
-            hudManager.render();
-        }
-#pragma omp section
-        renderer.swapBuffers();
+    //renderer.removeMarkedMeshes();
+    for (auto& system : renderSystems) {
+        system->update();
     }
+    renderer.start(timeOfFrame);
+    hudManager.update();
+    renderer.render(timeOfFrame);
+    hudManager.render();
+    renderer.swapBuffers();
     Logger::get().importantInfoPurple("Engine render finished");
 }
 
@@ -87,14 +83,34 @@ void Engine::update() {
     Logger::get().importantInfoWhite("Engine update started");
 
     game.update();
+    for (ECS::EntityID id : ecs.getEntitiesToBeDestroyed()) {
+        EntityListManager::entityRemoved(ecs.getEntityName(id));
+        if (ecs.hasComponent<ECS::RenderComponent>(id) && ecs.hasComponent<ECS::TransformComponent>(id)) {
+            renderer.remove(ecs.getComponent<ECS::RenderComponent>(id).getMesh(),
+                            ecs.getComponent<ECS::TransformComponent>(id).transform);
+        }
+    }
+    ecs.destroyEntities();
 
-//#pragma omp parallel for \
-//    shared(renderer, windowManager, ecs, updateSystems) \
-//    schedule(static, 1)
+    //#pragma omp parallel for \
+    //    shared(renderer, windowManager, ecs, updateSystems) \
+    //    schedule(static, 1)
     for (auto& system : updateSystems) {
         system->update();
     }
-
+    for (const auto& [name,id] : ecs.getAllEntities()) {
+        if (ecs.isEntityInstanced(name))
+            if ((engineCamera.getEntity().getComponent<ECS::TransformComponent>().transform.getPosition().distance(
+                ecs.getComponent<ECS::TransformComponent>(id).transform.getPosition()) > 1000.0f)) {
+                ecs.markForDestruction(id);
+            }
+        if (ecs.hasComponent<ECS::PhysicsComponent>(id)) {
+            auto& physics = ecs.getComponent<ECS::PhysicsComponent>(id);
+            if (physics.collider.isDestroyed()) {
+                ecs.markForDestruction(id);
+            }
+        }
+    }
     Console::log("Debug log message");
     Console::warn("Debug warning message");
     Console::error("Debug error message");
@@ -102,10 +118,16 @@ void Engine::update() {
     Logger::get().importantInfoWhite("Engine update finished");
 }
 
+std::vector<std::unique_ptr<ECS::System>> Engine::createRenderSystems() {
+    std::vector<std::unique_ptr<ECS::System>> systems;
+    systems.push_back(std::make_unique<ECS::RenderSystem>(renderer, ecs));
+    return systems;
+}
+
 std::vector<std::unique_ptr<ECS::System>> Engine::createUpdateSystems() {
     std::vector<std::unique_ptr<ECS::System>> systems;
-    systems.push_back(std::make_unique<ECS::InputSystem>(inputManager, ecs));
     systems.push_back(std::make_unique<ECS::PhysicsSystem>(physicsManager, ecs));
+    systems.push_back(std::make_unique<ECS::InputSystem>(inputManager, ecs));
     systems.push_back(std::make_unique<ECS::CameraSystem>(renderer, windowManager, ecs));
     systems.push_back(std::make_unique<ECS::TransformSystem>(ecs));
     systems.push_back(std::make_unique<ECS::LightSystem>(ecs, renderer));
@@ -116,7 +138,7 @@ std::vector<std::unique_ptr<ECS::System>> Engine::createUpdateSystems() {
 }
 
 void Engine::createEngineEntities() {
-    ECS::Entity sun = entityFactory.createEntity("sun")
+    ECS::Entity sun = entityFactory.createEntity("sun", {EntityType::Engine})
                                    .addComponent<ECS::TransformComponent>()
                                    .addComponent<ECS::SunComponent>();
     sun.getComponent<ECS::TransformComponent>().transform.setPosition(
@@ -128,18 +150,12 @@ void Engine::createEngineEntities() {
     sun.getComponent<ECS::SunComponent>().globalAmbienLight.setColor({255, 255, 150});
 
 
-    ECS::Entity fog = entityFactory.createEntity("fog")
+    ECS::Entity fog = entityFactory.createEntity("fog", {EntityType::Engine})
                                    .addComponent<ECS::TransformComponent>()
                                    .addComponent<ECS::FogComponent>();
     fog.getComponent<ECS::TransformComponent>().transform.setPosition({1, 0, 0});
     fog.getComponent<ECS::FogComponent>().fog.setDensity(1);
     fog.getComponent<ECS::FogComponent>().fog.setColor({255, 255, 255});
-}
-
-std::vector<std::unique_ptr<ECS::System>> Engine::createRenderSystems() {
-    std::vector<std::unique_ptr<ECS::System>> systems;
-    systems.push_back(std::make_unique<ECS::RenderSystem>(renderer, ecs));
-    return systems;
 }
 
 

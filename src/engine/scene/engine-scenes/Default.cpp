@@ -19,7 +19,7 @@ static std::vector<ECS::Entity> entities;
 void Default::init() {
     int numOfEntities = 20;
     for (int i = 0; i < numOfEntities; i++) {
-        ECS::Entity entity = entityFactory.createEntity("entity" + std::to_string(i))
+        ECS::Entity entity = createEntity("entity" + std::to_string(i))
                                           .addComponent<ECS::TransformComponent>()
                                           .addComponent<ECS::RenderComponent>();
         float increment = Math::clamp(0.1f * static_cast<float>(i), 0.0f, 1.0f);
@@ -49,7 +49,7 @@ void Default::init() {
 
         // Put a light every 3 entities
         if (i % 3 == 0) {
-            ECS::Entity light = entityFactory.createEntity("light" + std::to_string(i))
+            ECS::Entity light = createEntity("light" + std::to_string(i))
                                              .addComponent<ECS::TransformComponent>()
                                              .addComponent<ECS::LightComponent>();
             light.getComponent<ECS::TransformComponent>().transform.setPosition(

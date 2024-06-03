@@ -17,9 +17,6 @@ using namespace GLESC::Physics;
         velocity.toString() + " " +
         acceleration.toString() + " " +
         force.toString() + " " +
-        std::to_string(forwardVelocity) + " " +
-        std::to_string(forwardForce) + " " +
-        std::to_string(forwardAcceleration) + " " +
         std::to_string(affectedByGravity);
 }
 
@@ -65,35 +62,6 @@ using namespace GLESC::Physics;
     accelerationValue.max = 1000.0F;
     values.push_back(accelerationValue);
 
-    EntityStatsManager::Value forwardVelocityValue;
-    forwardVelocityValue.name = "Forward Velocity";
-    forwardVelocityValue.data = reinterpret_cast<void*>(&forwardVelocity);
-    forwardVelocityValue.type = EntityStatsManager::ValueType::FLOAT;
-    forwardVelocityValue.isModifiable = true;
-    forwardVelocityValue.usesSlider = true;
-    forwardVelocityValue.min = -1000.0F;
-    forwardVelocityValue.max = 1000.0F;
-    values.push_back(forwardVelocityValue);
-
-    EntityStatsManager::Value forwardForceValue;
-    forwardForceValue.name = "Forward Force";
-    forwardForceValue.data = reinterpret_cast<void*>(&forwardForce);
-    forwardForceValue.type = EntityStatsManager::ValueType::FLOAT;
-    forwardForceValue.isModifiable = true;
-    forwardForceValue.usesSlider = true;
-    forwardForceValue.min = -1000.0F;
-    forwardForceValue.max = 1000.0F;
-    values.push_back(forwardForceValue);
-
-    EntityStatsManager::Value forwardAccelerationValue;
-    forwardAccelerationValue.name = "Forward Acceleration";
-    forwardAccelerationValue.data = reinterpret_cast<void*>(&forwardAcceleration);
-    forwardAccelerationValue.type = EntityStatsManager::ValueType::FLOAT;
-    forwardAccelerationValue.isModifiable = true;
-    forwardAccelerationValue.usesSlider = true;
-    forwardAccelerationValue.min = -1000.0F;
-    forwardAccelerationValue.max = 1000.0F;
-    values.push_back(forwardAccelerationValue);
 
 
     return values;

@@ -14,7 +14,12 @@ class Default : public GLESC::Scene::Scene {
 public:
     Default(GLESC::WindowManager& windowManager,
             GLESC::ECS::EntityFactory& entityFactory,
-            GLESC::Scene::SceneManager& sceneManager) : Scene(windowManager, entityFactory, sceneManager) {}
+            GLESC::Input::InputManager& inputManager,
+            GLESC::Scene::SceneManager& sceneManager,
+            GLESC::EngineCamera& camera)
+        : Scene(windowManager, entityFactory, inputManager, sceneManager, camera) {
+    }
+
     void init() override;
     void update() override;
     void destroy() override;

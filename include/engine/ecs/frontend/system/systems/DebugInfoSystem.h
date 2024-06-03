@@ -23,7 +23,7 @@ namespace GLESC::ECS {
         void update() override;
 
     private:
-        void setEntityData(const EntityID& id);
+        void setEntityData(const EntityName& name);
         EntityID selectedEntity{nullEntity};
         Render::Renderer& renderer;
 

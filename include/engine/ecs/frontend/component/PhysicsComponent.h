@@ -8,6 +8,7 @@
 
 #include "engine/ecs/backend/component/IComponent.h"
 #include "engine/subsystems/physics/Physics.h"
+#include "engine/subsystems/physics/Collider.h"
 #include "engine/subsystems/physics/PhysicsTypes.h"
 
 namespace GLESC::ECS {

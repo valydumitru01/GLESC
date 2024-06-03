@@ -12,7 +12,6 @@
 #include "engine/core/counter/FPSAverager.h"
 #include "SDL2/SDL.h"
 
-#define MILLIS_IN_A_SECOND 1000.0f
 
 enum FpsRates {
     Fps30 [[maybe_unused]] = 30,
@@ -60,6 +59,8 @@ public:
      */
     void refreshUpdateLag();
 
+    bool hasSpiralOfDeathBeenReached() const;
+
     /**
      * @brief Get the constant speed in which our game updates
      *
@@ -95,41 +96,50 @@ public:
      */
     [[nodiscard]] float getUpdateFPS() const;
 
-
-
 private:
     void delay() const;
-
-    /**
-     * @brief constant speed (in ms) in which our game updates
-     *
-     */
-    const Uint32 msPerUpdate;
+    static constexpr Uint32 msInASecond{1000};
     /**
      * @brief The max time (milliseconds) can elapse between frames
      *
      */
     Uint32 fpsMs;
     /**
+     * @brief constant speed (in ms) in which our game updates
+     *
+     */
+    const Uint32 msPerUpdate;
+
+    /**
      * @brief Time recorded at the beginning of the loop iteration
      *
      */
-    Uint64 current;
+    Uint64 current{};
     /**
      * @brief Time recorded at the end of the loop iteration
      *
      */
-    Uint64 previous;
+    Uint64 previous{};
     /**
      * @brief The actual time it elapses
      *
      */
-    Uint32 elapsed;
+    Uint32 elapsed{};
     /**
      * @brief Amount of time game time is behind real time
      *
      */
-    Uint32 lag;
+    Uint32 lag{};
+
+    /**
+     * @brief Threshold to check if the game is stuck in a loop-
+     * If the amount of updates is greater than this value, the game is stuck in a loop
+     */
+    static constexpr int spiralOfDeathLimit = 500;
+    /**
+     * @brief Counter to check if the game is stuck in a loop
+     */
+    int updateCounter{};
 
     static constexpr int averageFpsListSize = 60;
     /**

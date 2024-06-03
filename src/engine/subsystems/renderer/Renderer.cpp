@@ -20,7 +20,7 @@ using namespace GLESC::Render;
 
 
 Counter Renderer::drawCounter{};
-
+constexpr int reservedSize = 500;
 Renderer::Renderer(WindowManager& windowManager) :
     windowManager(windowManager), shader(Shader("Shader.glsl")),
     camera(),
@@ -30,8 +30,23 @@ Renderer::Renderer(WindowManager& windowManager) :
     frustum(viewProjection) {
     camera.camera = &defaultCameraPerspective;
     camera.transform = &defaultCameraTransform;
+
+    meshesToRender.reserve(reservedSize);
+    meshMaterials.reserve(reservedSize);
+    meshTransforms.reserve(reservedSize);
+    lights.reserve(reservedSize);
+    lightTransforms.reserve(reservedSize);
+    interpolationTransforms.reserve(reservedSize);
+    mvs.reserve(reservedSize);
+    mvps.reserve(reservedSize);
+    normalMats.reserve(reservedSize);
+    isContainedInFrustum.reserve(reservedSize);
+
 }
 
+// =====================================================================================================================
+// =========================================Private methods (Rendering methods)=========================================
+// =====================================================================================================================
 Projection Renderer::createProjectionMatrix(const CameraPerspective& camera) {
     Projection projection;
     projection.makeProjectionMatrix(camera.getFovDegrees(), camera.getNearPlane(),
@@ -52,7 +67,7 @@ void Renderer::swapBuffers() const {
     getGAPI().swapBuffers(windowManager.getWindow());
 }
 
-void Renderer::start() {
+void Renderer::start(double timeOfFrame) {
     getGAPI().clear({
         Enums::ClearBits::Color,
         Enums::ClearBits::Depth,
@@ -67,86 +82,27 @@ void Renderer::start() {
                                     camera.camera->getViewWidth(),
                                     camera.camera->getViewHeight());
     this->setProjection(projection);
+
+    Transform::Transform interpolatedTransform =
+        interpolationTransforms[camera.transform].interpolate(static_cast<float>(timeOfFrame));
     View view;
-    view.makeViewMatrixPosRot(camera.transform->getPosition(), camera.transform->getRotation().toRads());
+    view.makeViewMatrixPosRot(interpolatedTransform.getPosition(), interpolatedTransform.getRotation().toRads());
     this->setView(view);
 
     viewProjection = projection * view;
 }
 
-
-void Renderer::renderMeshes(double timeOfFrame) {
-    drawCounter.startFrame();
-    const View& viewMat = getView();
-    const Projection& projMat = getProjection();
-    const VP& viewProjMat = getViewProjection();
-    shader.bind(); // Activate the shader program before transform, material and lighting setup
-    // Don't render anything if the view matrix is not valid
-    frustum.update(viewProjMat);
-
-#pragma omp parallel default(none) \
-    shared(adaptedMeshes, lights, sun, fog, skybox, timeOfFrame, viewMat, projMat, viewProjMat, \
-    frustum, mvMutex, normalMatMutex, mvpMutex, frustumMutex, \
-    interpolationMutex, mvs, mvps, normalMats, isContainedInFrustum)
-    {
-#pragma omp for schedule(dynamic)
-        for (auto& dynamicMesh : adaptedMeshes) {
-            {
-                std::lock_guard lockInterpolation(interpolationMutex);
-                interpolationTransforms[dynamicMesh.transform].pushTransform(*dynamicMesh.transform);
-            }
-            Transform::Transform interpolatedTransform =
-                interpolationTransforms[dynamicMesh.transform].interpolate(timeOfFrame);
-            Model model = interpolatedTransform.getModelMatrix();
-
-            Math::BoundingVolume transformedBoundingVol =
-                Transform::Transformer::transformBoundingVolume(*dynamicMesh.boundingVolume, interpolatedTransform);
-            {
-                std::lock_guard lockMutex(frustumMutex);
-                isContainedInFrustum[&dynamicMesh] = frustum.contains(transformedBoundingVol);
-            }
-            MVP MVPMat = viewProjMat * model;
-            MV MV = viewMat * model;
-            NormalMat normalMat;
-            normalMat.makeNormalMatrix(MV);
-            {
-                std::lock_guard lockMVP(mvpMutex);
-                mvs[&dynamicMesh] = MV;
-            }
-            {
-                std::lock_guard lockMV(mvMutex);
-                mvps[&dynamicMesh] = MVPMat;
-            }
-            {
-                std::lock_guard lockNormalMat(normalMatMutex);
-                normalMats[&dynamicMesh] = normalMat;
-            }
-        }
-    }
-    for (auto& dynamicMesh : adaptedMeshes) {
-        //if (!isContainedInFrustum[&dynamicMesh]) continue;
-        const Material& material = *dynamicMesh.material;
-        applyTransform(mvs[&dynamicMesh], mvps[&dynamicMesh], normalMats[&dynamicMesh]);
-        applyMaterial(material);
-        renderMesh(dynamicMesh);
-    }
-    applyLighSpots(lights, timeOfFrame);
-    applySun(sun);
-    applyFog(fog, camera.transform->getPosition());
-    applySkybox(skybox, viewMat, projMat);
-}
-
-
-void Renderer::applyLighSpots(const std::vector<Light>& lights, double timeOfFrame) const {
+void Renderer::renderLights(const std::vector<const LightSpot*>& lights,
+                          const std::vector<const Transform::Transform*>& lightTransforms,
+                          double timeOfFrame) const {
     size_t lightCount = static_cast<int>(lights.size());
     Shader::setUniform("uLights.count", lightCount);
-    for (size_t i = 0; i < lightCount; i++) {
-        const LightSpot& light = *lights[i].light;
-        std::string iStr = std::to_string(i);
-        const Transform::Transform& transform = *lights[i].transform;
-        interpolationTransforms[&transform].pushTransform(transform);
+    for (size_t lightIndex = 0; lightIndex < lightCount; lightIndex++) {
+        const LightSpot& light = *lights[lightIndex];
+        std::string iStr = std::to_string(lightIndex);
+        const Transform::Transform& transform = *lightTransforms[lightIndex];
         const Transform::Transform& interpolatedTransform =
-            interpolationTransforms[&transform].interpolate(timeOfFrame);
+            interpolationTransforms[&transform].interpolate(static_cast<float>(timeOfFrame));
 
         Position lightPosViewSpace =
             Transform::Transformer::transformPosition(interpolatedTransform.getPosition(), getView());
@@ -215,6 +171,82 @@ void Renderer::applyMaterial(const Material& material) {
     Shader::setUniform("uMaterial.shininess", material.getShininess());
 }
 
+void Renderer::render(double timeOfFrame) {
+    drawCounter.startFrame();
+    const View& viewMat = getView();
+    const Projection& projMat = getProjection();
+    const VP& viewProjMat = getViewProjection();
+    shader.bind(); // Activate the shader program before transform, material and lighting setup
+    frustum.update(viewProjMat);
+    removeMarkedInterpolationTransforms();
+
+#pragma omp parallel for default(shared) schedule(dynamic)
+    for (int meshIndex = 0; meshIndex < meshesToRender.size(); meshIndex++) {
+        const ColorMesh& mesh = *meshesToRender[meshIndex];
+        const Transform::Transform& transform = *meshTransforms[meshIndex];
+        Transform::Transform interpolatedTransform =
+            interpolationTransforms[&transform].interpolate(static_cast<float>(timeOfFrame));
+
+        Model model = interpolatedTransform.getModelMatrix();
+
+        Math::BoundingVolume transformedBoundingVol =
+            Transform::Transformer::transformBoundingVolume(mesh.getBoundingVolume(), interpolatedTransform);
+        {
+            std::lock_guard lockMutex(frustumMutex);
+            isContainedInFrustum[meshIndex] = frustum.contains(transformedBoundingVol);
+        }
+        MVP MVPMat = viewProjMat * model;
+        MV MV = viewMat * model;
+        NormalMat normalMat;
+        normalMat.makeNormalMatrix(MV);
+        {
+            std::lock_guard lockMVP(mvpMutex);
+            mvs[meshIndex] = MV;
+        }
+        {
+            std::lock_guard lockMV(mvMutex);
+            mvps[meshIndex] = MVPMat;
+        }
+        {
+            std::lock_guard lockNormalMat(normalMatMutex);
+            normalMats[meshIndex] = normalMat;
+        }
+    }
+
+    std::string renderedMeshesPtr;
+    for (int i = 0; i < meshesToRender.size(); i++) {
+        if (!isContainedInFrustum[i]) continue;
+        const ColorMesh& mesh = *meshesToRender[i];
+        const Material& material = *meshMaterials[i];
+        applyTransform(mvs[i], mvps[i], normalMats[i]);
+        applyMaterial(material);
+        mesh.sendToGpuBuffers();
+        renderMesh(mesh);
+        renderedMeshesPtr += std::to_string(i) + " ";
+    }
+    renderLights(lights, lightTransforms, timeOfFrame);
+    applySun(sun);
+    applyFog(fog, camera.transform->getPosition());
+    applySkybox(skybox, viewMat, projMat);
+
+    clearRenderer();
+}
+
+void Renderer::clearRenderer() {
+    meshesToRender.clear();
+    meshMaterials.clear();
+    meshTransforms.clear();
+    instances.clear();
+    lights.clear();
+    lightTransforms.clear();
+    // interpolationTransforms.clear();
+    mvs.clear();
+    mvps.clear();
+    normalMats.clear();
+    isContainedInFrustum.clear();
+    transformsToBeRemoved.clear();
+}
+
 
 void Renderer::applyTransform(const MV& MVMat, const MVP& MVPMat, const NormalMat& normalMat) {
     Shader::setUniform("uMVP", MVPMat);
@@ -227,30 +259,31 @@ Renderer::~Renderer() {
 }
 
 
-void Renderer::renderInstances(const AdaptedInstances& adaptedInstances) {
+void Renderer::renderMesh(const ColorMesh& mesh) {
     // Bind the VAO before drawing
-    adaptedInstances.vertexArray->bind();
-    getGAPI().drawTrianglesIndexedInstanced(adaptedInstances.indexBuffer->getCount(),
-                                            adaptedInstances.instanceCount);
-}
-
-void Renderer::renderMesh(const AdaptedMesh& mesh) {
-    // Bind the VAO before drawing
-    mesh.vertexArray->bind();
-    getGAPI().drawTrianglesIndexed(mesh.indexBuffer->getCount());
+    mesh.getVertexArray().bind();
+    getGAPI().drawTrianglesIndexed(mesh.getIndexBuffer().getCount());
     drawCounter.addToCounter(1);
 }
+void Renderer::renderInstances(MeshIndex adaptedInstances) {
 
+}
+
+// =====================================================================================================================
+// ===========================================Public methods (Update methods)===========================================
+// =====================================================================================================================
 
 void Renderer::sendMeshData(const ColorMesh& mesh, const Material& material, const Transform::Transform& transform) {
     D_ASSERT_TRUE(!mesh.isBeingBuilt(), "Mesh is being built");
 
+    MeshIndex meshIndex = meshesToRender.size();
+    RenderType renderType = mesh.getRenderType();
+    interpolationTransforms[&transform].pushTransform(transform);
+
     if (mesh.getVertices().empty()) {
-        Console::error("Mesh has no vertices");
+        Console::warn("Mesh has no vertices");
         return;
     }
-
-    RenderType renderType = mesh.getRenderType();
 
     if (renderType == RenderType::Static) {
         D_ASSERT_TRUE(false, "Static meshes are not supported");
@@ -261,21 +294,26 @@ void Renderer::sendMeshData(const ColorMesh& mesh, const Material& material, con
         return;
     }
     if (renderType == RenderType::InstancedDynamic) {
-        D_ASSERT_TRUE(false, "Instanced dynamic meshes are not supported");
+        meshesToRender.push_back(&mesh);
+        meshMaterials.push_back(&material);
+        meshTransforms.push_back(&transform);
+        instances[&mesh].push_back(meshTransforms.size());
         return;
     }
     if (renderType == RenderType::Dynamic) {
-        adaptedMeshes.push_back(MeshAdapter::adaptMesh(mesh, material, transform));
+        meshesToRender.push_back(&mesh);
+        meshMaterials.push_back(&material);
+        meshTransforms.push_back(&transform);
         return;
     }
     D_ASSERT_TRUE(false, "Unknown render type");
 }
 
-void Renderer::addLightSpot(const LightSpot& light, const Transform::Transform& transform) {
-    Light lightData{};
-    lightData.light = &light;
-    lightData.transform = &transform;
-    lights.push_back(lightData);
+
+void Renderer::sendLightSpot(const LightSpot& light, const Transform::Transform& transform) {
+    this->lightTransforms.push_back(&transform);
+    this->lights.push_back(&light);
+    this->interpolationTransforms[&transform].pushTransform(transform);
 }
 
 void Renderer::setSun(const GlobalSun& sun, const GlobalAmbienLight& ambientLight,
@@ -283,14 +321,43 @@ void Renderer::setSun(const GlobalSun& sun, const GlobalAmbienLight& ambientLigh
     this->sun.sun = &sun;
     this->sun.ambientLight = &ambientLight;
     this->sun.transform = &transform;
+    this->interpolationTransforms[&transform].pushTransform(transform);
 }
 
 void Renderer::setFog(const Fog& fogParam, const Transform::Transform& transform) {
     this->fog.fog = &fogParam;
     this->fog.transform = &transform;
+    this->interpolationTransforms[&transform].pushTransform(transform);
 }
 
 void Renderer::setCamera(const CameraPerspective& cameraPerspective, const Transform::Transform& transform) {
     this->camera.camera = &cameraPerspective;
     this->camera.transform = &transform;
+    this->interpolationTransforms[&transform].pushTransform(transform);
 }
+
+template <typename Type>
+void removeSwapAndPop(std::vector<Type>& vec, size_t index) {
+    if (index >= vec.size()) {
+        throw std::out_of_range("Index out of range");
+    }
+    if (index != vec.size() - 1) {
+        std::swap(vec[index], vec.back());
+    }
+    vec.pop_back();
+}
+
+
+
+void Renderer::removeMarkedInterpolationTransforms() {
+    for (auto transformToRemove : transformsToBeRemoved) {
+        interpolationTransforms.erase(transformToRemove);
+    }
+    transformsToBeRemoved.clear();
+}
+
+
+void Renderer::remove(const ColorMesh& mesh, const Transform::Transform& transform) {
+    transformsToBeRemoved.push_back(&transform);
+}
+

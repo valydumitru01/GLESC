@@ -15,16 +15,17 @@
 #include "SceneTypes.h"
 
 namespace GLESC::Scene {
-
     class SceneContainer {
     public:
         /**
          * @brief Default constructor.
          */
-        SceneContainer(WindowManager& windowManager, ECS::EntityFactory& entityFactory, SceneManager& sceneManager)
+        SceneContainer(WindowManager& windowManager, ECS::EntityFactory& entityFactory,
+                       Input::InputManager inputManager, SceneManager& sceneManager, EngineCamera& camera)
             : windowManager(windowManager),
               entityFactory(entityFactory),
-              sceneManager(sceneManager) {
+              sceneManager(sceneManager),
+              inputManager(inputManager), camera(camera) {
         }
 
         Scene& getScene(SceneID sceneID) {
@@ -38,16 +39,18 @@ namespace GLESC::Scene {
         template <typename SceneType>
         SceneID registerScene() {
             static_assert(std::is_base_of_v<Scene, SceneType>, "SceneType must inherit from Scene");
-            scenes[nextSceneID] = std::make_unique<SceneType>(windowManager, entityFactory, sceneManager);
+            scenes[nextSceneID] = std::make_unique<SceneType>(windowManager, entityFactory, inputManager, sceneManager,
+                                                              camera);
             return nextSceneID++;
         }
 
     private:
         SceneID nextSceneID{};
         std::unordered_map<SceneID, std::unique_ptr<Scene>> scenes;
+        Input::InputManager& inputManager;
         WindowManager& windowManager;
         ECS::EntityFactory& entityFactory;
         SceneManager& sceneManager;
+        EngineCamera& camera;
     }; // class SceneContainer
-
 } // namespace GLESC::Scene

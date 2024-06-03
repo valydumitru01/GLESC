@@ -18,7 +18,7 @@ namespace GLESC::ECS {
     public:
         explicit EntityFactory(ECSCoordinator &ecs) : ecs(ecs) {}
 
-        Entity createEntity(const EntityName &name);
+        Entity createEntity(const EntityName &name, const EntityMetadata& metadata);
 
         Entity createEntity();
 

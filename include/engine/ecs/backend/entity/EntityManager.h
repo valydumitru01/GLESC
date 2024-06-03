@@ -16,9 +16,14 @@
 
 #include "engine/core/asserts/Asserts.h"
 #include "engine/ecs/ECSTypes.h"
+#include "engine/subsystems/ingame-debug/EntityListManager.h"
 
 
 namespace GLESC::ECS {
+    struct EntityMetadata {
+        EntityType type = EntityType::Default;
+    };
+
     class EntityManager {
         friend class ECS;
 
@@ -48,10 +53,10 @@ namespace GLESC::ECS {
 
         /**
          * @brief Create an entity with the given name. The name must be unique.
-         * @param name
+         * @param nameParam
          * @return
          */
-        EntityID createNextEntity(const EntityName& name);
+        EntityID createNextEntity(const EntityName& nameParam, const EntityMetadata& metadata);
 
         /**
          * @brief Tries to get the entity ID from the entity name
@@ -62,6 +67,9 @@ namespace GLESC::ECS {
          */
         [[nodiscard]] EntityID tryGetEntity(const EntityName& name) const;
 
+        [[nodiscard]] const std::vector<EntityID>& getInstancedEntities(const EntityName& name) const;
+
+        [[nodiscard]] bool isEntityInstanced(const EntityName& name) const;
         /**
          * @brief Destroy the entity with the given ID. The entity must exist.
          * @param entity The ID of the entity
@@ -96,6 +104,13 @@ namespace GLESC::ECS {
          * @return The name of the entity
          */
         [[nodiscard]] const EntityName& getEntityName(EntityID entity) const;
+
+        /**
+         * @brief Get the entity metadata from the entity ID. The entity must exist.
+         * @param entity The ID of the entity
+         * @return The metadata of the entity
+         */
+        [[nodiscard]] const EntityMetadata& getEntityMetadata(EntityID entity) const;
 
         /**
          * @brief Get the entity ID from the entity name
@@ -173,6 +188,10 @@ namespace GLESC::ECS {
         //  It's a waste of memory, hash the name and store the hash instead
         std::unordered_map<EntityName, EntityID> entityNameToID;
         std::unordered_map<EntityID, EntityName> entityIDToName;
+        std::unordered_map<EntityID, EntityMetadata> entityMetadata;
+        std::unordered_map<EntityName, std::vector<EntityID>> instancedEntities;
+
+        InstanceID currentInstanceID = 0;
         /**
          * @brief The number of living entities
          */

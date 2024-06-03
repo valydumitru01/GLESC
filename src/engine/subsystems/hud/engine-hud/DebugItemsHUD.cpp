@@ -44,17 +44,17 @@ void DebugItems::windowContent() {
     float width = static_cast<float>(renderer.getViewportSize().width);
     float height = static_cast<float>(renderer.getViewportSize().height);
     const auto& viewProj = renderer.getViewProjection();
+    float vpWidth = static_cast<float>(renderer.getViewportSize().height);
+    float vpHeight = static_cast<float>(renderer.getViewportSize().height);
     for (Item& item : HudItemsManager::getItems()) {
         if (!renderer.getFrustum().contains(*item.worldPosition)) continue;
         Render::Position screenPos =
             Transform::Transformer::worldToViewport(*item.worldPosition, viewProj, width, height);
         float imageScale = screenPos.z() * 20;
-        float vpWidth = static_cast<float>(renderer.getViewportSize().height);
-        float vpHeight = static_cast<float>(renderer.getViewportSize().height);
 
         ImVec2 size = ImVec2(imageScale * vpWidth, imageScale * vpHeight);
 
-        ImGui::SetCursorPos(ImVec2(screenPos.x() + size.x, screenPos.y() - size.y));
+        ImGui::SetCursorPos(ImVec2(screenPos.x() - size.x / 2, screenPos.y() - size.y / 2));
 
         // Get texture ID from the item's type
         auto textureId = (void*)(intptr_t)items[item.type]->getTextureID();
@@ -66,8 +66,7 @@ void DebugItems::windowContent() {
         if (ImGui::IsItemHovered()) {
             ImGui::BeginTooltip();
             ImGui::Text("Item: %s", itemToString(item.type).c_str());
-            ImGui::Text("Position: (%.2f, %.2f, %.2f)",
-                        item.worldPosition->getX(), item.worldPosition->getY(), item.worldPosition->getZ());
+            ImGui::Text("Screen Position: (%.2f, %.2f)", screenPos.x(), screenPos.y());
             ImGui::EndTooltip();
         }
     }

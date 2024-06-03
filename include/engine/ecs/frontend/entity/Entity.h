@@ -35,8 +35,8 @@ namespace GLESC::ECS {
          * The entity signature is updated to reflect the new component
          * @tparam Component The type of the component
          */
-        template <typename Component, typename... Args>
-        Entity& addComponent(Args&&... args);
+        template <typename Component>
+        Entity& addComponent();
 
 
         /**
@@ -71,16 +71,21 @@ namespace GLESC::ECS {
          */
         [[nodiscard]] EntityName getName() const;
 
+        /**
+         *
+         */
+        [[nodiscard]] bool isAlive() const;
+
     private:
         /**
          * @brief This constructor is internal to the ECS, it is used to create a new Entity
          * @param name The name of the entity
          */
-        explicit Entity(const EntityName& name, ECSCoordinator& ecs);
+        explicit Entity(const EntityName& name, const EntityMetadata& metadata,  ECSCoordinator& ecs);
 
         /**
          * @brief This constructor is internal to the ECS, it is used to create a new without a name
-         * @param name The name of the entity
+         * @param ecs The ECSManager
          */
         explicit Entity(ECSCoordinator& ecs);
 
@@ -100,10 +105,9 @@ namespace GLESC::ECS {
     }; // class Entity
 
 
-    template <typename Component, typename... Args>
-    Entity& Entity::addComponent(Args&&... args) {
-        S_ASSERT_LESS_OR_EQUAL(sizeof...(Args), 1, "Only one component can be passed to addComponent");
-        ecs.addComponent<Component>(ID, Component(std::forward<Args>(args)...));
+    template <typename Component>
+    Entity& Entity::addComponent() {
+        ecs.addComponent<Component>(ID, Component());
         return *this;
     }
 

@@ -26,8 +26,8 @@ namespace GLESC::ECS {
         for (auto& entity : entities) {
             auto& fog = getComponent<FogComponent>(entity);
             auto& transform = getComponent<TransformComponent>(entity);
-            if (fogCache.find(&fog) != fogCache.end()) continue;
             renderer.setFog(fog.fog, transform.transform);
+            if (fogCache.find(&fog) != fogCache.end()) continue;
             HudItemsManager::addItem(HudItemType::FOG, transform.transform.getPosition());
             fogCache.insert(&fog);
         }

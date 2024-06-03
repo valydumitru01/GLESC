@@ -16,8 +16,9 @@
 #include "engine/subsystems/ingame-debug/Console.h"
 #include "engine/subsystems/renderer/mesh/MeshFactory.h"
 
+using namespace GLESC;
+
 void ShootTheChickenGame::createChickenMesh() {
-    using namespace GLESC;
     Render::ColorMesh chickenBody = Render::MeshFactory::cube(Render::ColorRgb::WHITE);
 
     Render::ColorMesh chickenHead = Render::MeshFactory::cube(Render::ColorRgb::WHITE, 0.5f);
@@ -58,62 +59,11 @@ void ShootTheChickenGame::createChickenMesh() {
     chickenMesh.finishBuilding();
 }
 
-void ShootTheChickenGame::init() {
-    using namespace GLESC;
-    createChickenMesh();
-    int numChickens = 10;
-    for (int i = 0; i < numChickens; i++) {
-        Transform::Position position = Transform::Position(i * 3, 0, 0);
-        ECS::Entity chicken = createEntity("chicken" + std::to_string(i));
-        chicken.addComponent<ECS::TransformComponent>();
-        chicken.addComponent<ECS::RenderComponent>();
-        chicken.addComponent<ECS::PhysicsComponent>();
-        chicken.getComponent<ECS::TransformComponent>().transform.setPosition({position});
-        chicken.getComponent<ECS::RenderComponent>().copyMesh(chickenMesh);
-        chickens.push_back(chicken.getID());
-    }
-    // Rotate once by a random amount
-    for (auto& chickenID : chickens) {
-        ECS::Entity chicken = getEntity(chickenID);
-        auto& transform = chicken.getComponent<GLESC::ECS::TransformComponent>().transform;
-        /*transform.addRotation(GLESC::Transform::Rotation(Math::generateRandomNumber(0, 360),
-                                                         Math::generateRandomNumber(0, 360),
-                                                         Math::generateRandomNumber(0, 360)));*/
+void ShootTheChickenGame::createBulletMesh() {
+    bulletMesh = Render::MeshFactory::cube(Render::ColorRgb::WHITE, 0.1f);
+}
 
-        transform.setPosition({transform.getPosition().getX(), 100, transform.getPosition().getZ()});
-        chicken.getComponent<ECS::PhysicsComponent>().physics.setAffectedByGravity(true);
-        chicken.getComponent<ECS::PhysicsComponent>().collider.setBoundingVolume(
-            chicken.getComponent<ECS::RenderComponent>().getMesh().getBoundingVolume());
-        //chicken.getComponent<GLESC::ECS::PhysicsComponent>().physics.setForwardAcceleration(0.1f);
-    }
-
-    Input::KeyCommand shootBullet = Input::KeyCommand([&]() {
-        // Create a bullet
-        ECS::Entity bullet = createEntity();
-        // Copy the camera transform
-        auto cameraTransformCopy = getCamera().getComponent<ECS::TransformComponent>();
-        bullet.addComponent<ECS::TransformComponent>(cameraTransformCopy);
-        bullet.addComponent<ECS::RenderComponent>();
-        bullet.addComponent<ECS::PhysicsComponent>();
-
-        // Capture the bullet ID by value in the lambda
-        auto bulletID = bullet.getID();
-        bullet.getComponent<ECS::PhysicsComponent>().collider.setCollisionCallback(
-            [bulletID, this]() {
-                Console::log("Collide!");
-                destroyEntity(bulletID);
-                bullets.erase(std::remove(bullets.begin(), bullets.end(), bulletID), bullets.end());
-            });
-
-        bullet.getComponent<ECS::RenderComponent>().copyMesh(Render::MeshFactory::cube(Render::ColorRgb::WHITE, 0.1f));
-        bullet.getComponent<ECS::PhysicsComponent>().physics.giveForwardForce(100.f);
-        bullet.getComponent<ECS::PhysicsComponent>().physics.setAffectedByGravity(false);
-        bullets.push_back(bulletID);
-    });
-
-    getCamera().getComponent<ECS::InputComponent>().input.subscribeKey(
-        {Input::Key::LEFT_CLICK, Input::KeyAction::ONCE_PRESSED}, shootBullet);
-
+void ShootTheChickenGame::createFloorEntity() {
     // Create a floor
     ECS::Entity floor = createEntity("floor");
     floor.addComponent<ECS::TransformComponent>();
@@ -123,18 +73,140 @@ void ShootTheChickenGame::init() {
     floor.getComponent<ECS::RenderComponent>().copyMesh(
         Render::MeshFactory::cuboid(1000, 2.f, 1000, Render::ColorRgb::GREEN));
     floor.getComponent<ECS::PhysicsComponent>().physics.setAffectedByGravity(false);
+    floor.getComponent<ECS::PhysicsComponent>().physics.setFriction(0.5f);
     floor.getComponent<ECS::PhysicsComponent>().collider.setBoundingVolume(
         floor.getComponent<ECS::RenderComponent>().getMesh().getBoundingVolume());
 }
 
+void ShootTheChickenGame::generateChickenEntities() {
+    int numChickens = 10;
+    for (int i = 0; i < numChickens; i++) {
+        Transform::Position position = Transform::Position(i * 3, 0, 0);
+        ECS::Entity chicken = createEntity("chicken", {EntityType::Instance});
+        chicken.addComponent<ECS::TransformComponent>();
+        chicken.addComponent<ECS::RenderComponent>();
+        chicken.addComponent<ECS::PhysicsComponent>();
+        auto& transform = chicken.getComponent<GLESC::ECS::TransformComponent>().transform;
+        chicken.getComponent<ECS::TransformComponent>().transform.setPosition({position});
+        chicken.getComponent<ECS::RenderComponent>().copyMesh(chickenMesh);
+        chicken.getComponent<ECS::PhysicsComponent>().collider.setBoundingVolume(
+            chicken.getComponent<ECS::RenderComponent>().getMesh().getBoundingVolume());
+        chicken.getComponent<ECS::PhysicsComponent>().physics.setAffectedByGravity(true);
+        transform.setPosition({transform.getPosition().getX(), 100, transform.getPosition().getZ()});
+        chickens.push_back(chicken.getID());
+    }
+}
+
+void ShootTheChickenGame::collisionCallback(GLESC::ECS::EntityID chicken, GLESC::Physics::Collider& bulletCollider) {
+    // Find the chicken that collided with the bullet
+    auto it = std::find_if(chickens.begin(), chickens.end(),
+                           [this, &bulletCollider](ECS::EntityID chickenID) {
+                               return &bulletCollider == &getEntity(chickenID)
+                                                          .getComponent<ECS::PhysicsComponent>().collider;
+                           });
+
+    if (it != chickens.end()) {
+        ECS::EntityID chickenID = *it;
+        // Destroy the chicken entity
+        getEntity(chickenID).getComponent<ECS::TransformComponent>().transform.setPosition(
+            {0, 0, 0});
+        Console::log("Collide with" + getEntity(chickenID).getName());
+    }
+
+    // Destroy the bullet entity
+    destroyEntity(chicken);
+}
+
+
+void ShootTheChickenGame::shootBulletActionFunc() {
+    if (!inputManager.isMouseRelative()) return;
+    // Create a bullet
+    ECS::Entity bullet = createEntity("bullet", {EntityType::Instance});
+    // Copy the camera transform
+    auto cameraTransformCopy = getCamera().getEntity().getComponent<ECS::TransformComponent>();
+    bullet.addComponent<ECS::TransformComponent>();
+    bullet.addComponent<ECS::RenderComponent>();
+    bullet.addComponent<ECS::PhysicsComponent>();
+
+    bullet.getComponent<ECS::TransformComponent>().transform.setPosition(
+        cameraTransformCopy.transform.getPosition());
+    bullet.getComponent<ECS::TransformComponent>().transform.setRotation(
+        cameraTransformCopy.transform.getRotation());
+
+
+    // Capture the bullet ID by value in the lambda
+    ECS::EntityID bulletID = bullet.getID();
+    bullet.getComponent<ECS::PhysicsComponent>().collider.setCollisionCallback(
+        [bulletID, this](Physics::Collider& otherCollider) {
+            collisionCallback(bulletID, otherCollider);
+        });
+
+    Console::log("Shooting" + getEntity(bulletID).getName());
+
+    bullet.getComponent<ECS::RenderComponent>().copyMesh(bulletMesh);
+    bullet.getComponent<ECS::PhysicsComponent>().physics.setDirectionalForce(
+        bullet.getComponent<ECS::TransformComponent>().transform.forward(), 10.f);
+    bullet.getComponent<ECS::PhysicsComponent>().physics.setAffectedByGravity(true);
+}
+
+void ShootTheChickenGame::jumpActionFunc() {
+    if (getCamera().getEntity().getComponent<ECS::PhysicsComponent>().collider.isOnAir()) {
+        return;
+    }
+    getCamera().getEntity().getComponent<ECS::PhysicsComponent>().physics.addForce({0, 100, 0});
+}
+
+
+void ShootTheChickenGame::setUpControls() {
+    shootBulletAction = Input::KeyCommand([&]() { shootBulletActionFunc(); });
+    jumpAction = Input::KeyCommand([&]() { jumpActionFunc(); });
+    getCamera().getEntity().getComponent<ECS::PhysicsComponent>().physics.setAffectedByGravity(true);
+    getCamera().getEntity().getComponent<ECS::PhysicsComponent>().collider.setSolid(true);
+    getCamera().getEntity().getComponent<ECS::PhysicsComponent>().collider.setBoundingVolume(
+        Math::BoundingVolume::createFromVulume(1, -10, 1));
+    getCamera().getEntity().getComponent<ECS::TransformComponent>().transform.setPosition({0, 100, 0});
+
+    getCamera().getEntity().getComponent<ECS::InputComponent>().input.subscribeKey(
+        {Input::Key::LEFT_CLICK, Input::KeyAction::ONCE_PRESSED}, shootBulletAction);
+    getCamera().getEntity().getComponent<ECS::InputComponent>().input.subscribeKey(
+        {Input::Key::SPACE, Input::KeyAction::ONCE_PRESSED}, jumpAction);
+    getCamera().setSpeed(100);
+}
+
+void ShootTheChickenGame::init() {
+    createChickenMesh();
+    createBulletMesh();
+
+    createFloorEntity();
+    generateChickenEntities();
+
+    setUpControls();
+}
+
 void ShootTheChickenGame::update() {
     // Every 2 seconds, give upword force to all chickens
-    if ((getSceneTime() / 1000) % 20 == 0) {
-        for (auto& chickenID : chickens) {
-            GLESC::ECS::Entity chicken = getEntity(chickenID);
-            auto transform = chicken.getComponent<GLESC::ECS::TransformComponent>().transform;
-            chicken.getComponent<GLESC::ECS::PhysicsComponent>().physics.addForce(transform.up() * 0.1f);
+    for (int i = 0; i < chickens.size(); i++) {
+        GLESC::ECS::EntityID chickenID = chickens.at(i);
+        GLESC::ECS::Entity chicken = getEntity(chickenID);
+        if (!chicken.isAlive()) {
+            chickens.erase(chickens.begin() + i);
+            i--;
+            continue;
         }
+        if ((getSceneTime() / 1000) % 20 == 0) {
+            auto transform = chicken.getComponent<GLESC::ECS::TransformComponent>().transform;
+            chicken.getComponent<GLESC::ECS::PhysicsComponent>().physics.addForce(transform.up());
+        }
+        // Rotate the chickens so they look at the oppsite direction of where the camera is positioned
+        // But not in the Y rotation so they dont look up or down
+        Transform::Position cameraPosition =
+            getCamera().getEntity().getComponent<GLESC::ECS::TransformComponent>().transform.getPosition();
+        Render::Position chickenPosition =
+            chicken.getComponent<GLESC::ECS::TransformComponent>().transform.getPosition();
+        Math::Direction cameraChickenDirection = cameraPosition - chickenPosition;
+        cameraChickenDirection = cameraChickenDirection.normalize();
+        cameraChickenDirection.setY(0);
+        chicken.getComponent<GLESC::ECS::TransformComponent>().transform.setRotation(cameraChickenDirection);
     }
 }
 

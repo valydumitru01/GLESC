@@ -9,6 +9,7 @@
  **************************************************************************************************/
 #pragma once
 #include "DebugItemsHUD.h"
+#include "EntityListHUD.h"
 #include "engine/subsystems/hud/HUDManager.h"
 
 #include "engine/subsystems/hud/engine-hud/DebugEntityDataHUD.h"
@@ -33,5 +34,6 @@ namespace GLESC::HUD {
         DebugEntityData debugEntityDataHud;
         CrosshairHUD crosshairHud;
         DebugItems debugItemHud;
+        EntityListHUD entityListHud;
     }; // class EngineDebugHUDManager
 } // namespace GLESC::HUD

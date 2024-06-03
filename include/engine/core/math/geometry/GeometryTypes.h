@@ -12,6 +12,7 @@
 #include "engine/core/math/algebra/vector/Vector.h"
 
 namespace GLESC::Math{
+    using Volume = float;
     using Point = Vec3F;
     using Points = std::vector<Point>;
     using Direction = Vec3F;

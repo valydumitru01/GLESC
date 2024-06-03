@@ -31,3 +31,11 @@ std::vector<IComponent*> System::getComponents(EntityID entityId) const {
 const EntityName& System::getEntityName(EntityID entityId) const {
     return ecs.getEntityName(entityId);
 }
+
+EntityID System::getEntity(const EntityName& entityName) const {
+    return ecs.getEntityID(entityName);
+}
+
+const EntityMetadata& System::getEntityMetadata(EntityID entityId) const {
+    return ecs.getEntityMetadata(entityId);
+}

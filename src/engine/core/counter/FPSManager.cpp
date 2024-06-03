@@ -13,8 +13,10 @@
 #include "engine/core/math/Math.h"
 
 
-FPSManager::FPSManager(FpsRates maxFPS) : msPerUpdate(15), fpsMs(MILLIS_IN_A_SECOND / static_cast<double>(maxFPS)),
-                                          current(0), previous(0), elapsed(0), lag(0) {}
+FPSManager::FPSManager(FpsRates maxFPS)
+    : fpsMs(maxFPS == FpsUnlimited ? 0 : msInASecond / static_cast<Uint32>(maxFPS)),
+      msPerUpdate(msInASecond / 60) {
+}
 
 void FPSManager::startFrame() {
     current = SDL_GetTicks(); // Update the current frame-time
@@ -22,7 +24,7 @@ void FPSManager::startFrame() {
     previous = current; // Updates the previous frame-time
     lag += elapsed; // Accumulate the elapsed time inside lag
     fpsAverager.addFrame(elapsed);
-    //delay();
+    delay();
 }
 
 bool FPSManager::isUpdateLagged() const {
@@ -31,11 +33,17 @@ bool FPSManager::isUpdateLagged() const {
 
 void FPSManager::refreshUpdateLag() {
     lag -= msPerUpdate;
+    updateCounter++;
 }
 
 Uint32 FPSManager::getUpdateTimeMillis() const {
     return msPerUpdate;
 }
+
+bool FPSManager::hasSpiralOfDeathBeenReached() const{
+    return updateCounter > spiralOfDeathLimit;
+}
+
 
 Uint32 FPSManager::getCurrentRenderTimeMillis() const {
     return elapsed;
@@ -55,9 +63,11 @@ float FPSManager::getRenderFPS() const {
 
 
 void FPSManager::delay() const {
-    auto dif = static_cast<int32_t>(fpsMs - elapsed);
-    if (dif > 0)
-        SDL_Delay(dif); // Cap the Counter, wait until we get to minimum frame time
+    if (fpsMs > 0) {
+        auto dif = static_cast<int32_t>(fpsMs - elapsed);
+        if (dif > 0)
+            SDL_Delay(dif); // Cap the Counter, wait until we get to minimum frame time
+    }
 }
 
 double FPSManager::getTimeOfFrameAfterUpdate() const {

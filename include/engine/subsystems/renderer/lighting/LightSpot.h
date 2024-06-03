@@ -13,7 +13,7 @@
 #include "engine/subsystems/renderer/RendererTypes.h"
 
 namespace GLESC::Render {
-    struct LightSpot {
+    struct LightSpot  {
         LightSpot() = default;
 
 

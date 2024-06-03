@@ -66,6 +66,15 @@ namespace GLESC {
         [[nodiscard]] static std::string replace(const std::string& string, const std::string& stringToReplace,
                                                  const std::string& replacement);
 
+
+        /**
+         * @brief Strips the string of the characters in the chars string
+         * @param string The string to strip
+         * @param chars The characters to strip from the string
+         * @return The stripped string
+         */
+        [[nodiscard]] static std::string strip(const std::string& string, const std::string& chars);
+
         [[nodiscard]] static bool contains(const std::string& string, const std::string& substring);
 
     private:

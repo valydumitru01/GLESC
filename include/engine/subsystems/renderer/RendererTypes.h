@@ -54,6 +54,9 @@ namespace GLESC::Render {
     using Normal = Vec3F;
     using Position = Vec3F;
 
+    using RotateMat = Mat4F;
+    using ScaleMat = Mat4F;
+    using TranslateMat = Mat4F;
     using Model = Mat4F;
     using NormalMat = Mat3F;
     using View = Mat4F;

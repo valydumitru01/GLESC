@@ -67,6 +67,7 @@ bool WindowManager::isFullscreenBorderless() {
     return (flags & SDL_WINDOW_FULLSCREEN_DESKTOP) != 0;
 }
 
+
 void WindowManager::setBorderlessWindow(bool isBorderless) {
     SDLCall(SDL_SetWindowBordered(window, isBorderless ? SDL_FALSE : SDL_TRUE));
 }
@@ -119,6 +120,13 @@ SDL_Window &WindowManager::getWindow() {
 
 GLESC::WindowDimensions WindowManager::getSize() const {
     WindowDimensions dimensions{};
+    Uint32 flags = SDL_GetWindowFlags(window);
+    if (flags & (SDL_WINDOW_MINIMIZED | SDL_WINDOW_HIDDEN)) {
+        return dimensions;
+    }
+    if (window== nullptr) {
+        return dimensions;
+    }
     SDLCall(SDL_GetWindowSize(window, &dimensions.width, &dimensions.height));
     return dimensions;
 }

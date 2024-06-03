@@ -26,7 +26,7 @@ namespace GLESC::ECS {
             auto& transform = getComponent<TransformComponent>(entity);
             if(lightCache.find(&light) != lightCache.end()) continue;
 
-            renderer.addLightSpot(light.light, transform.transform);
+            renderer.sendLightSpot(light.light, transform.transform);
             HudItemsManager::addItem(HudItemType::LIGHT_SPOT, transform.transform.getPosition());
             lightCache.insert(&light);
         }

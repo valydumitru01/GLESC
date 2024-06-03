@@ -10,8 +10,8 @@
 #include "engine/ecs/frontend/entity/EntityFactory.h"
 
 namespace GLESC::ECS {
-    Entity EntityFactory::createEntity(const EntityName& name) {
-        return Entity(name, ecs);
+    Entity EntityFactory::createEntity(const EntityName& name, const EntityMetadata& metadata) {
+        return Entity(name, metadata, ecs);
     }
 
     Entity EntityFactory::createEntity() {

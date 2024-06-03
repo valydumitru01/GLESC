@@ -23,7 +23,7 @@ public:
          GLESC::Scene::SceneContainer& sceneContainer) :
         windowManager(windowManager),
         entityFactory(entityFactory),
-        sceneManager(sceneManager), sceneContainer(sceneContainer) {
+        sceneManager(sceneManager), sceneContainer(sceneContainer){
     }
 
     void init();

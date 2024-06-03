@@ -16,10 +16,9 @@ int main(int argc, char* argv[]) {
 #ifndef NDEBUG
     Logger::get().warning("DEBUG MODE IS ON");
 #endif
-    FPSManager fps(FpsUnlimited);
+    FPSManager fps(Fps120);
     GLESC::Engine glesc(fps);
 
-    int updateCounter = 0;
     while (glesc.running) {
         fps.startFrame();
 
@@ -31,11 +30,9 @@ int main(int argc, char* argv[]) {
             fps.refreshUpdateLag();
 
             // Break if we get in spiral of death
-            if (updateCounter > 500)
-                break;
-            updateCounter++;
+            if(fps.hasSpiralOfDeathBeenReached()) break;
         }
-        //Render execute arbitrarily, depending on how much time update() takes
+        //Render executes arbitrarily
         glesc.render(fps.getTimeOfFrameAfterUpdate());
     }
     return 0;

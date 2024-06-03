@@ -42,7 +42,7 @@ namespace GLESC::ECS {
          * @param name The name of the entity
          * @return The ID of the entity or NULL_ENTITY if the entity name already exists.
          */
-        EntityID createEntity(const EntityName& name);
+        EntityID createEntity(const EntityName& name, const EntityMetadata& metadata);
 
         /**
          * @brief Create an entity with a default name
@@ -51,11 +51,19 @@ namespace GLESC::ECS {
         EntityID createEntity();
 
         /**
-         * @brief Destroy an entity
-         * @param entity The ID of the entity
-         * @return True if the entity was destroyed, false if the entity does not exist
+         * @brief Mark entity to be destroyed
          */
-        bool destroyEntity(EntityID entity);
+        void markForDestruction(EntityID entity);
+
+        const std::vector<EntityID>& getEntitiesToBeDestroyed() const {
+            return entitiesToDestroy;
+        }
+
+        /**
+         * @brief Destroy all entities marked for destruction
+         */
+        void destroyEntities();
+
         /**
          * @brief Get the entity ID from the entity name
          * @param name The name of the entity
@@ -68,6 +76,8 @@ namespace GLESC::ECS {
          * @return The name of the entity or nullptr if the entity does not exist
          */
         const EntityName& getEntityName(EntityID entity) const;
+
+        bool isEntityAlive(EntityID entity) const;
         /**
          * @brief Tries to get the entity ID from the entity name.
          * @details This will return the ID of the entity with the given name. If the entity does not exist,
@@ -77,6 +87,11 @@ namespace GLESC::ECS {
          */
         EntityID tryGetEntityID(const EntityName& name) const;
 
+        const std::vector<EntityID>& getInstancedEntities(const EntityName& name) const;
+
+        const EntityMetadata& getEntityMetadata(EntityID entity) const;
+
+        bool isEntityInstanced(const EntityName& name) const;
 
         template <class Component>
         void addComponent(EntityID entity, Component component);
@@ -124,11 +139,19 @@ namespace GLESC::ECS {
         [[nodiscard]] const std::unordered_map<EntityName, EntityID>& getAllEntities() const;
 
     protected:
+        /**
+         * @brief Destroy an entity
+         * @param entity The ID of the entity
+         * @return True if the entity was destroyed, false if the entity does not exist
+         */
+        bool destroyEntity(EntityID entity);
+
         void printStatus(const std::string& contextMessage = "");
         void printEntity(EntityID entity);
         ComponentManager componentManager{};
         SystemManager systemManager{};
         EntityManager entityManager{};
+        std::vector<EntityID> entitiesToDestroy{};
         mutable std::shared_mutex ecsMutex{};
     }; // class ECS
 
@@ -161,6 +184,7 @@ namespace GLESC::ECS {
 
     template <class Component>
     Component& ECSCoordinator::getComponent(EntityID entity) const {
+        D_ASSERT_TRUE(entityManager.doesEntityExist(entity), "Entity must exist");
         return componentManager.getComponent<Component>(entity);
     }
 

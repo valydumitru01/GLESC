@@ -8,13 +8,16 @@
  * See LICENSE.txt in the project root for license information.
  **************************************************************************************************/
 #pragma once
-#include "SceneDependecies.h"
 #include "SceneManager.h"
 #include "SceneTypes.h"
+#include "engine/EngineCamera.h"
+#include "engine/core/window/WindowManager.h"
+#include "engine/ecs/frontend/entity/EntityFactory.h"
+#include "engine/subsystems/input/InputManager.h"
 #include "engine/core/counter/Timer.h"
 
 namespace GLESC::Scene {
-    class Scene : public SceneDependecies {
+    class Scene {
     public:
         virtual ~Scene() {
             destroyEntities();
@@ -22,9 +25,14 @@ namespace GLESC::Scene {
 
         Scene(WindowManager& windowManager,
               ECS::EntityFactory& entityFactory,
-              SceneManager& sceneManager) :
-            SceneDependecies(entityFactory, windowManager),
-            sceneManager(sceneManager) {
+              Input::InputManager& inputManager,
+              SceneManager& sceneManager,
+              EngineCamera& camera)
+            : entityFactory(entityFactory),
+              windowManager(windowManager),
+              inputManager(inputManager),
+              sceneManager(sceneManager),
+              camera(camera) {
             sceneTimer.start();
         }
 
@@ -32,15 +40,15 @@ namespace GLESC::Scene {
         virtual void update() = 0;
         virtual void destroy() = 0;
 
-        ECS::Entity getCamera() { return entityFactory.getEntity("camera"); }
+        EngineCamera getCamera() { return camera; }
         void switchScene(const std::string& sceneName) { sceneManager.switchScene(sceneName); }
         Time getSceneTime() { return sceneTimer.getCurrentTime(); }
 
     protected:
         std::vector<ECS::EntityID>& getSceneEntities() { return sceneEntities; }
 
-        ECS::Entity createEntity(const std::string& entityName) {
-            ECS::Entity entity = entityFactory.createEntity(entityName);
+        ECS::Entity createEntity(const std::string& entityName, const ECS::EntityMetadata& metadata = {}) {
+            ECS::Entity entity = entityFactory.createEntity(entityName, metadata);
             sceneEntities.push_back(entity.getID());
             return entityFactory.getEntity(sceneEntities.back());
         }
@@ -81,10 +89,16 @@ namespace GLESC::Scene {
             sceneEntities.clear();
         }
 
+    protected:
+        ECS::EntityFactory& entityFactory;
+        WindowManager& windowManager;
+        Input::InputManager& inputManager;
+
     private:
         std::vector<ECS::EntityID> sceneEntities;
         SceneManager& sceneManager;
         SceneID sceneID{};
         Timer sceneTimer;
+        EngineCamera& camera;
     }; // class Scene
 } // namespace GLESC::Scene

@@ -8,17 +8,21 @@
  * See LICENSE.txt in the project root for license information.
  **************************************************************************************************/
 #pragma once
-#define CAMERA_SPEED 0.3f
+#define CAMERA_SPEED 10.f
 #define CAMERA_X_ROTATION_LIMIT 45.0f
 #define CAMERA_SENSITIVITY 1.f
 #include "ecs/frontend/component/CameraComponent.h"
 #include "ecs/frontend/component/InputComponent.h"
+#include "ecs/frontend/component/PhysicsComponent.h"
 #include "ecs/frontend/component/TransformComponent.h"
 #include "ecs/frontend/entity/EntityFactory.h"
 #include "subsystems/input/InputManager.h"
 
 namespace GLESC {
+    class Engine;
+
     class EngineCamera {
+        friend class GLESC::Engine;
     public:
         EngineCamera(ECS::EntityFactory& entityFactory, Input::InputManager& inputManager,
                      WindowManager& windowManager) : entityFactory(entityFactory),
@@ -27,15 +31,26 @@ namespace GLESC {
                                                      cameraSpeed(CAMERA_SPEED),
                                                      cameraSensitivity(CAMERA_SENSITIVITY),
                                                      cameraPitchConstraint(CAMERA_X_ROTATION_LIMIT),
-                                                     camera(entityFactory.createEntity("camera")) {
+                                                     camera(entityFactory.createEntity(
+                                                         "camera", {EntityType::Engine})) {
         }
 
+
+        ~EngineCamera() = default;
+
+        ECS::Entity& getEntity() { return camera; }
+        void setSpeed(float speed) { cameraSpeed = speed; }
+        void setSensitivity(float sensitivity) { cameraSensitivity.set(sensitivity); }
+
+    private:
         void setupCamera() {
             camera.addComponent<ECS::CameraComponent>()
                   .addComponent<ECS::TransformComponent>()
-                  .addComponent<ECS::InputComponent>();
+                  .addComponent<ECS::InputComponent>()
+                  .addComponent<ECS::PhysicsComponent>();
 
-
+            camera.getComponent<ECS::PhysicsComponent>().collider.setSolid(false);
+            camera.getComponent<ECS::PhysicsComponent>().physics.setAffectedByGravity(false);
             camera.getComponent<ECS::CameraComponent>().perspective.setFarPlane(1000.0f);
             camera.getComponent<ECS::CameraComponent>().perspective.setNearPlane(0.1f);
             camera.getComponent<ECS::CameraComponent>().perspective.setFovDegrees(60.0f);
@@ -46,39 +61,33 @@ namespace GLESC {
             // IMPORTANT! Camera movement needs to be done with inverse directions, because it looks at the
             // opposite direction of the forward vector
             Input::KeyCommand moveForward = Input::KeyCommand([&] {
-                ECS::Entity cameraEntity = entityFactory.getEntity("camera");
-                cameraEntity.getComponent<ECS::TransformComponent>().transform.addPosition(
-                    -cameraEntity.getComponent<ECS::TransformComponent>().transform.forward() * cameraSpeed);
+                camera.getComponent<ECS::PhysicsComponent>().physics.addDirectionalForce(
+                    camera.getComponent<ECS::TransformComponent>().transform.forward(), -cameraSpeed);
             });
 
             Input::KeyCommand moveBackward = Input::KeyCommand([&] {
-                ECS::Entity cameraEntity = entityFactory.getEntity("camera");
-                cameraEntity.getComponent<ECS::TransformComponent>().transform.addPosition(
-                    cameraEntity.getComponent<ECS::TransformComponent>().transform.forward() * cameraSpeed);
+                camera.getComponent<ECS::PhysicsComponent>().physics.addDirectionalForce(
+                    camera.getComponent<ECS::TransformComponent>().transform.forward(), cameraSpeed);
             });
 
             Input::KeyCommand moveLeft = Input::KeyCommand([&] {
-                ECS::Entity cameraEntity = entityFactory.getEntity("camera");
-                cameraEntity.getComponent<ECS::TransformComponent>().transform.addPosition(
-                    cameraEntity.getComponent<ECS::TransformComponent>().transform.right() * cameraSpeed);
+                camera.getComponent<ECS::PhysicsComponent>().physics.addDirectionalForce(
+                    camera.getComponent<ECS::TransformComponent>().transform.right(), cameraSpeed);
             });
 
             Input::KeyCommand moveRight = Input::KeyCommand([&] {
-                ECS::Entity cameraEntity = entityFactory.getEntity("camera");
-                cameraEntity.getComponent<ECS::TransformComponent>().transform.addPosition(
-                    -cameraEntity.getComponent<ECS::TransformComponent>().transform.right() * cameraSpeed);
+                camera.getComponent<ECS::PhysicsComponent>().physics.addDirectionalForce(
+                    -camera.getComponent<ECS::TransformComponent>().transform.right(), cameraSpeed);
             });
 
             Input::KeyCommand moveUp = Input::KeyCommand([&] {
-                ECS::Entity cameraEntity = entityFactory.getEntity("camera");
-                cameraEntity.getComponent<ECS::TransformComponent>().transform.addPosition(
-                    Transform::Transform::worldUp * cameraSpeed);
+                camera.getComponent<ECS::PhysicsComponent>().physics.addDirectionalForce(
+                    Transform::Transform::worldUp, cameraSpeed);
             });
 
             Input::KeyCommand moveDown = Input::KeyCommand([&] {
-                ECS::Entity cameraEntity = entityFactory.getEntity("camera");
-                cameraEntity.getComponent<ECS::TransformComponent>().transform.addPosition(
-                    -Transform::Transform::worldUp * cameraSpeed);
+                camera.getComponent<ECS::PhysicsComponent>().physics.addDirectionalForce(
+                    -Transform::Transform::worldUp, cameraSpeed);
             });
 
             Input::KeyCommand accelerate = Input::KeyCommand([&] {
@@ -91,17 +100,18 @@ namespace GLESC {
 
             Input::MouseCommand rotate = Input::MouseCommand([&](const MousePosition& deltaMouse) {
                 if (!inputManager.isMouseRelative()) return;
-                ECS::Entity cameraEntity = entityFactory.getEntity("camera");
 
-                auto& transformComp = cameraEntity.getComponent<ECS::TransformComponent>().transform;
+
+                auto& transformComp = camera.getComponent<ECS::TransformComponent>().transform;
                 float cameraSensitivityValue = cameraSensitivity.get();
 
                 // Adjust the pitch based on mouse Y movement (up/down)
-                float mouseAdditionPitch = deltaMouse.getY() * cameraSensitivityValue;
+                float mouseAdditionPitch = -deltaMouse.getY() * cameraSensitivityValue;
                 float nextMousePitch = transformComp.getRotation().getX() + mouseAdditionPitch;
 
                 // Only apply pitch rotation if it is within the constraints
-                if (nextMousePitch < cameraPitchConstraint && nextMousePitch > -cameraPitchConstraint) {
+                if (nextMousePitch < cameraPitchConstraint &&
+                    nextMousePitch > -cameraPitchConstraint) {
                     transformComp.setRotation(Transform::RotationAxis::Pitch, nextMousePitch);
                 }
 
@@ -136,11 +146,6 @@ namespace GLESC {
             camera.getComponent<ECS::InputComponent>().input.setMouseCommand(rotate);
         }
 
-        ~EngineCamera() = default;
-
-        ECS::Entity& getCamera() { return camera; }
-
-    private:
         ECS::EntityFactory& entityFactory;
         Input::InputManager& inputManager;
         WindowManager& windowManager;

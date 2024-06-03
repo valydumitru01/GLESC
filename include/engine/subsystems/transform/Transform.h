@@ -26,15 +26,15 @@ namespace GLESC::Transform {
         Yaw = static_cast<int>(Axis::Y),
         Roll = static_cast<int>(Axis::Z)
     };
-
-    struct Transform {
+    struct Transform{
         static Math::Direction worldUp;
         static Math::Direction worldRight;
         static Math::Direction worldForward;
 
-        Transform() {
+        Transform(){
             modelMat.makeModelMatrix(position, rotationDegrees.toRads(), scale);
         };
+
 
         Transform(Position position, Rotation rotation, Scale scale);
 
@@ -116,6 +116,30 @@ namespace GLESC::Transform {
             return modelMat;
         }
 
+        Render::TranslateMat getTranslationMatrix() const {
+            if (dirty) {
+                translateMat.makeModelMatrix(position, Vec3F{0,0,0}, Vec3F{0,0,0});
+                dirty = false;
+            }
+            return translateMat;
+        }
+
+        Render::RotateMat getRotationMatrix() const {
+            if (dirty) {
+                rotateMat.makeModelMatrix(Vec3F{0,0,0}, rotationDegrees.toRads(), Vec3F{0,0,0});
+                dirty = false;
+            }
+            return rotateMat;
+        }
+
+        Render::ScaleMat getScaleMatrix() const {
+            if (dirty) {
+                scaleMat.makeModelMatrix(Vec3F{0,0,0}, Vec3F{0,0,0}, scale);
+                dirty = false;
+            }
+            return scaleMat;
+        }
+
         [[nodiscard]] std::vector<EntityStatsManager::Value> getDebuggingValues() {
             std::vector<EntityStatsManager::Value> values;
 
@@ -135,7 +159,7 @@ namespace GLESC::Transform {
             rotationValue.type = EntityStatsManager::ValueType::VEC3F;
             rotationValue.isModifiable = true;
             rotationValue.usesSlider = true;
-            rotationValue.min = 0.0f;
+            rotationValue.min = -360.0f;
             rotationValue.max = 360.0f;
             values.push_back(rotationValue);
 
@@ -152,7 +176,6 @@ namespace GLESC::Transform {
 
             return values;
         }
-
 
         [[nodiscard]] Math::Direction forward() const;
 
@@ -173,13 +196,16 @@ namespace GLESC::Transform {
         Rotation rotationDegrees = Rotation(0.0f, 0.0f, 0.0f);
         Scale scale = Scale(1.0f, 1.0f, 1.0f);
 
-        mutable bool dirty = true;
-
         Math::Direction forwardDirection;
         Math::Direction rightDirection;
         Math::Direction upDirection;
+
         // Mutable because we want to return it lazily
         mutable Render::Model modelMat;
+        mutable Render::TranslateMat translateMat;
+        mutable Render::RotateMat rotateMat;
+        mutable Render::ScaleMat scaleMat;
+        mutable bool dirty = true;
     };
 
     class Transformer {
@@ -187,7 +213,9 @@ namespace GLESC::Transform {
         static void translateMesh(Render::ColorMesh& mesh, const Position& translation);
         static void transformMesh(Render::ColorMesh& mesh, const Transform& transform);
         static Math::BoundingVolume transformBoundingVolume(const Math::BoundingVolume& boundingVolume,
-                                                            const Transform& transform);
+        const Transform& transform);
+        static Math::BoundingVolume transformBoundingVolume(const Math::BoundingVolume& boundingVolume,
+                                                            const Render::Model& matrix);
 
         static Position transformPosition(const Position& position, const Render::Model& matrix);
         static Position clipToNDC(const HomogeneousPosition& clipPos);
@@ -196,18 +224,16 @@ namespace GLESC::Transform {
                                         float vpHeight);
 
     private:
-        static Math::BoundingVolume transformBoundingVolume(const Math::BoundingVolume& boundingVolume,
-                                                            const Render::Model& matrix);
         static void transformMesh(Render::ColorMesh& mesh, const Mat4F& matrix);
     }; // class Transformer
 
     struct Interpolator {
         Interpolator() = default;
         void pushTransform(const Transform& transform);
-        Transform interpolate(double alpha) const;
+        Transform interpolate(float alphaParam) const;
 
     private:
+        Transform currentTransform = Transform();
         Transform lastTransform = Transform();
-        Transform previousOfLastTransform = Transform();
     }; // struct Interpolator
 } // namespace GLESC

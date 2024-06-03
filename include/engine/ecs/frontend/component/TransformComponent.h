@@ -10,7 +10,8 @@
 #include "engine/subsystems/transform/Transform.h"
 
 namespace GLESC::ECS {
-    struct TransformComponent : IComponent {
+
+    struct TransformComponent : public IComponent {
         Transform::Transform transform;
 
         std::string toString() const override {

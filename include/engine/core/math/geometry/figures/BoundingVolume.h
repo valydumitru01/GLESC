@@ -21,6 +21,7 @@ namespace GLESC::Math {
             Vec3F min;
             Vec3F max;
         };
+
         BoundingVolume() = default;
 
         BoundingVolume(const Vec3F& min, const Vec3F& max) {
@@ -35,6 +36,7 @@ namespace GLESC::Math {
         const AABB& getVolume() const {
             return boundingBox;
         }
+
         /**
          * @brief Updates the bounding volume to fit the points it encloses.
          * @param data The data to update the bounding volume with
@@ -76,19 +78,18 @@ namespace GLESC::Math {
 
         bool isInside(const Vec3F& point) const {
             return point.getX() >= boundingBox.min.getX() && point.getX() <= boundingBox.max.getX() &&
-                   point.getY() >= boundingBox.min.getY() && point.getY() <= boundingBox.max.getY() &&
-                   point.getZ() >= boundingBox.min.getZ() && point.getZ() <= boundingBox.max.getZ();
+                point.getY() >= boundingBox.min.getY() && point.getY() <= boundingBox.max.getY() &&
+                point.getZ() >= boundingBox.min.getZ() && point.getZ() <= boundingBox.max.getZ();
         }
 
         bool intersects(const BoundingVolume& other) const {
             return boundingBox.min.getX() <= other.boundingBox.max.getX() &&
-                   boundingBox.max.getX() >= other.boundingBox.min.getX() &&
-                   boundingBox.min.getY() <= other.boundingBox.max.getY() &&
-                   boundingBox.max.getY() >= other.boundingBox.min.getY() &&
-                   boundingBox.min.getZ() <= other.boundingBox.max.getZ() &&
-                   boundingBox.max.getZ() >= other.boundingBox.min.getZ();
+                boundingBox.max.getX() >= other.boundingBox.min.getX() &&
+                boundingBox.min.getY() <= other.boundingBox.max.getY() &&
+                boundingBox.max.getY() >= other.boundingBox.min.getY() &&
+                boundingBox.min.getZ() <= other.boundingBox.max.getZ() &&
+                boundingBox.max.getZ() >= other.boundingBox.min.getZ();
         }
-
 
 
         [[nodiscard]] const AABB& getBoundingBox() const {
@@ -97,6 +98,18 @@ namespace GLESC::Math {
 
         void operator=(const BoundingVolume& other) {
             boundingBox = other.boundingBox;
+        }
+
+        const Vec3F& getMin() const {
+            return boundingBox.min;
+        }
+
+        const Vec3F& getMax() const {
+            return boundingBox.max;
+        }
+
+        static BoundingVolume createFromVulume(float width, float height, float depth) {
+            return BoundingVolume(Vec3F(-width / 2, -height / 2, -depth / 2), Vec3F(width / 2, height / 2, depth / 2));
         }
 
     private:

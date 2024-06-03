@@ -32,6 +32,8 @@ namespace GLESC::ECS {
         [[nodiscard]] std::vector<IComponent*> getComponents(EntityID entityId) const;
 
         const EntityName& getEntityName(EntityID entityId) const;
+        EntityID getEntity(const EntityName& entityName) const;
+        [[nodiscard]] const EntityMetadata& getEntityMetadata(EntityID entityId) const;
 
     protected:
         template<class Component>

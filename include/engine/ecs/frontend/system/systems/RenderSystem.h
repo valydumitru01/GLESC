@@ -22,7 +22,6 @@ namespace GLESC::ECS {
         void update() override;
 
     private:
-        std::set<RenderComponent*> renderCache;
         Render::Renderer& renderer;
     };
 }

@@ -10,6 +10,7 @@
 #include "engine/ecs/frontend/system/systems/DebugInfoSystem.h"
 
 #include "engine/ecs/frontend/component/TransformComponent.h"
+#include "engine/subsystems/ingame-debug/EntityListManager.h"
 #include "engine/subsystems/ingame-debug/EntityStatsManager.h"
 
 using namespace GLESC::ECS;
@@ -19,61 +20,28 @@ DebugInfoSystem::DebugInfoSystem(ECSCoordinator& ecs, Render::Renderer& renderer
     addComponentRequirement<TransformComponent>();
 }
 
-void DebugInfoSystem::setEntityData(const EntityID& id) {
-    std::vector<IComponent*> components = getComponents(id);
-
+void DebugInfoSystem::setEntityData(const EntityName& name) {
     EntityStatsManager::EntityData entityData;
-    entityData.name = getEntityName(id);
+    EntityID entityId = getEntity(name);
+    if(selectedEntity == entityId) return;
+
+    std::vector<IComponent*> components = getComponents(entityId);
+
     for (IComponent* component : components) {
         EntityStatsManager::ComponentData componentData;
         componentData.name = component->getName();
         componentData.values = &component->getDebuggingValues();
         entityData.components.push_back(componentData);
     }
+    selectedEntity = entityId;
     EntityStatsManager::setEntityData(entityData);
 }
 
-bool intersects(const GLESC::Math::Line& line, const GLESC::Math::Point& point) {
-    return line.distance(point) < 1;
-}
 
 void DebugInfoSystem::update() {
-    double minDistanceFromCam = std::numeric_limits<double>::max();
-    EntityID closestEntity{nullEntity};
-    Math::Line cameraForwardLine;
-    const Math::Point cameraPos = renderer.getCamera().transform->getPosition();
-    const Math::Direction cameraForward = renderer.getCamera().transform->forward();
-    EntityID cameraID{nullEntity};
     for (EntityID id : getAssociatedEntities()) {
-        const Math::Point entityPos = getComponent<TransformComponent>(id).transform.getPosition();
-
-        // Skip if the entity position is the same as the camera's
-        if (entityPos == cameraPos) {
-            cameraID = id;
-            continue;
-        }
-
-        cameraForwardLine = Math::Line(cameraPos, cameraForward);
-
-        // Skip if the forward line of the camera does not intersect with the bounding volume of the entity
-        if (!intersects(cameraForwardLine, entityPos)) continue;
-
-        double entityDistanceFromCam = entityPos.distance(cameraPos);
-
-        // Skip if the entity is too far away
-        if (entityDistanceFromCam > maxDetectionValue) continue;
-
-        if (entityDistanceFromCam < minDistanceFromCam) {
-            minDistanceFromCam = entityDistanceFromCam;
-            closestEntity = id;
-        }
+        EntityListManager::addEntity(getEntityName(id), getEntityMetadata(id).type);
     }
-    if (closestEntity == nullEntity) {
-        closestEntity = cameraID;
-    }
-
-    if (closestEntity == selectedEntity) return;
-
-    selectedEntity = closestEntity;
-    setEntityData(closestEntity);
+    if(!EntityListManager::getSelectedEntity().empty())
+        setEntityData(EntityListManager::getSelectedEntity());
 }

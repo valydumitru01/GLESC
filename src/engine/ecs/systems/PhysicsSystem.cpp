@@ -22,15 +22,17 @@ PhysicsSystem::PhysicsSystem(Physics::PhysicsManager& physicsManager, ECSCoordin
 
 void PhysicsSystem::update() {
     auto& entities = getAssociatedEntities();
+    // TODO: Get the component array from the ecs so we don't need to iterate over the entities
     for (auto& entity : entities) {
-        physicsManager.addCollider(getComponent<PhysicsComponent>(entity).collider);
+        physicsManager.addPhysics(getComponent<PhysicsComponent>(entity).collider,
+                                  getComponent<PhysicsComponent>(entity).physics);
     }
-
     for (auto& entity : getAssociatedEntities()) {
         auto& physics = getComponent<PhysicsComponent>(entity);
         auto& transform = getComponent<TransformComponent>(entity);
 
-        physicsManager.updatePhysics(physics.physics,physics.collider, transform.transform);
+        physicsManager.updatePhysics(physics.physics);
+        physicsManager.checkCollisions(physics.collider, transform.transform, physics.physics);
     }
-    physicsManager.clearColliders();
+    physicsManager.clearPhysics();
 }

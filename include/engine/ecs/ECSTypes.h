@@ -22,6 +22,10 @@ namespace GLESC::ECS {
      */
     using EntityID = std::uint16_t;
     /**
+     * @brief Type of the ID of each instance type (e.g. enemy, bullet, etc.)
+     */
+    using InstanceID = std::uint16_t;
+    /**
      * @brief Type of the ID of each component
      */
     using ComponentID = std::uint8_t;

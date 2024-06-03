@@ -21,19 +21,19 @@ namespace GLESC::ECS {
             auto& transform = getComponent<TransformComponent>(entity);
             Transform::Rotation rotation = transform.transform.getRotation();
             // Use of fmod to avoid floating point errors
-            if (rotation.getX() < 0.0f)
-                transform.transform.addRotation(Transform::RotationAxis::Pitch, 360.0f);
-            if (rotation.getY() < 0.0f)
-                transform.transform.addRotation(Transform::RotationAxis::Yaw, 360.0f);
-            if (rotation.getZ() < 0.0f)
-                transform.transform.addRotation(Transform::RotationAxis::Roll, 360.0f);
+            if (rotation.getX() < -360.0f)
+                transform.transform.addRotation(Transform::RotationAxis::Pitch, 720.0f);
+            if (rotation.getY() < -360.0f)
+                transform.transform.addRotation(Transform::RotationAxis::Yaw, 720.0f);
+            if (rotation.getZ() < -360.0f)
+                transform.transform.addRotation(Transform::RotationAxis::Roll, 720.0f);
 
             if (rotation.getX() > 360.0f)
-                transform.transform.addRotation(Transform::RotationAxis::Pitch, -360.0f);
+                transform.transform.addRotation(Transform::RotationAxis::Pitch, -720.0f);
             if (rotation.getY() > 360.0f)
-                transform.transform.addRotation(Transform::RotationAxis::Yaw, -360.0f);
+                transform.transform.addRotation(Transform::RotationAxis::Yaw, -720.0f);
             if (rotation.getZ() > 360.0f)
-                transform.transform.addRotation(Transform::RotationAxis::Roll, -360.0f);
+                transform.transform.addRotation(Transform::RotationAxis::Roll, -720.0f);
 
 
         }

@@ -279,7 +279,7 @@ namespace GLESC::Math {
          */
         template <size_t X>
         [[nodiscard]] auto operator*(const Matrix<Type, X, N>& other) const {
-            if constexpr (MatrixAlgorithms::colMajorMatrix) {
+            if constexpr (MatrixAlgorithms::rowMajorMatrix) {
                 Matrix<Type, X, M> result;
                 MatrixAlgorithms::matrixMatrixMulColMaj(this->data, other.data, result.data);
                 return result;
@@ -293,7 +293,7 @@ namespace GLESC::Math {
 
         [[nodiscard]] Vector<Type, N> operator*(const Vector<Type, M>& other) const {
             Vector<Type, N> resultVector;
-            if constexpr (MatrixAlgorithms::colMajorMatrix) {
+            if constexpr (MatrixAlgorithms::rowMajorMatrix) {
                 MatrixAlgorithms::matrixVectorMulColMaj(this->data, other.data, resultVector.data);
             }
             else {

@@ -10,7 +10,7 @@
 #pragma once
 #include <functional>
 
-#include "../../core/math/geometry/figures/BoundingVolume.h"
+#include "engine/core/math/geometry/figures/BoundingVolume.h"
 
 namespace GLESC::Physics {
     class PhysicsManager;
@@ -24,26 +24,46 @@ namespace GLESC::Physics {
         Collider() = default;
         ~Collider() = default;
 
-        void setCollisionCallback(std::function<void()> callback) { collisionCallback = callback; }
+        void setCollisionCallback(std::function<void(Collider&)> callback) { collisionCallback = callback; }
 
-        void setCollisionCallbackForCollider(const Collider& collider, std::function<void()> callback) {
+        void setCollisionCallbackForCollider(Collider& collider, std::function<void(Collider&)> callback) {
             collisionCallbacksForSpecificColliders[&collider] = callback;
         }
 
         bool isSolid() const { return solid; }
+        void setSolid(bool solid) { this->solid = solid; }
 
-        void setBoundingVolume(const Vec3F corner1, const Vec3F corner2) {
-            boundingVolume = GLESC::Math::BoundingVolume(corner1, corner2);
+        void destroyEntity() {
+            destroyed = true;
+        }
+
+        bool isDestroyed() const {
+            return destroyed;
         }
 
         void setBoundingVolume(const GLESC::Math::BoundingVolume& boundingVolume) {
             this->boundingVolume = boundingVolume;
         }
 
+
+        const Math::BoundingVolume& getBoundingVolume() const {
+            return boundingVolume;
+        }
+
+        void setIsOnAir(bool isOnAir) {
+            this->onAir = isOnAir;
+        }
+
+        bool isOnAir() const {
+            return onAir;
+        }
+
     private:
-        std::function<void()> collisionCallback;
-        std::unordered_map<const Collider*, std::function<void()>> collisionCallbacksForSpecificColliders;
+        std::function<void(Collider&)> collisionCallback;
+        std::unordered_map<Collider*, std::function<void(Collider&)>> collisionCallbacksForSpecificColliders;
         GLESC::Math::BoundingVolume boundingVolume;
         bool solid = true;
+        bool onAir = true;
+        bool destroyed = false;
     }; // class Collider
 }

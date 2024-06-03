@@ -13,6 +13,8 @@
 #include <unordered_map>
 #include <vector>
 
+#include "engine/ecs/ECSTypes.h"
+
 
 class EntityStatsManager {
 public:

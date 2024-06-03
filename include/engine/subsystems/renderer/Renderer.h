@@ -23,7 +23,6 @@
 #include "engine/subsystems/renderer/material/Material.h"
 #include "engine/subsystems/renderer/math/Frustum.h"
 #include "engine/subsystems/renderer/mesh/Mesh.h"
-#include "engine/subsystems/renderer/mesh/MeshAdapter.h"
 #include "engine/subsystems/transform/Transform.h"
 
 class MeshRenderingTest;
@@ -33,14 +32,18 @@ namespace GLESC {
 }
 
 namespace GLESC::Render {
+    /**
+     * @brief This is the render engine of the game engine. It is resposable of sending the data to the GPU and render
+     * it.
+     *
+     * @details The public methods are the update side of the renderer (with some exceptions).
+     * It must be executed in the update loop of the engine.
+     * While the private methods are the render side of the renderer. It must be executed in the render loop of the
+     * engine.
+     */
     class Renderer {
         friend class GLESC::Engine;
         friend class ::MeshRenderingTest;
-
-        struct Light {
-            const LightSpot* light = nullptr;
-            const Transform::Transform* transform = nullptr;
-        };
 
         struct Camera {
             const CameraPerspective* camera = nullptr;
@@ -60,13 +63,12 @@ namespace GLESC::Render {
 
     public:
         explicit Renderer(WindowManager& windowManager);
-
         ~Renderer();
 
         [[nodiscard]] const View& getView() const { return view; }
         void setView(const View& viewParam) { this->view = viewParam; }
 
-        [[nodiscard]]const  Projection& getProjection() const { return projection; }
+        [[nodiscard]] const Projection& getProjection() const { return projection; }
         void setProjection(const Projection& projectionParam) { this->projection = projectionParam; }
 
         [[nodiscard]] const VP& getViewProjection() const { return viewProjection; }
@@ -81,18 +83,26 @@ namespace GLESC::Render {
         [[nodiscard]] const float getMeshRenderCount() const { return drawCounter.getCount(); }
 
 
+        void remove(const ColorMesh& mesh, const Transform::Transform& transform);
+
+        void sendLightSpot(const LightSpot& lightSpot, const Transform::Transform& transform);
         void sendMeshData(const ColorMesh& mesh, const Material& material, const Transform::Transform& transform);
         void setCamera(const CameraPerspective& cameraPerspective, const Transform::Transform& transform);
         void setSun(const GlobalSun& sun, const GlobalAmbienLight& ambientLight, const Transform::Transform& transform);
         void setFog(const Fog& fogParam, const Transform::Transform& transform);
-        void addLightSpot(const LightSpot& lightSpot, const Transform::Transform& transform);
 
     private:
-        void renderMeshes(double timeOfFrame);
-        void start();
+        void start(double timeOfFrame);
+        void render(double timeOfFrame);
         void swapBuffers() const;
 
-        void applyLighSpots(const std::vector<Light>& lights, double timeOfFrame) const;
+        using MeshIndex = size_t;
+        using MeshTransformIndex = size_t;
+        using LightTransformIndex = size_t;
+
+        void renderLights(const std::vector<const LightSpot*>& lights,
+                          const std::vector<const Transform::Transform*>& lightTransforms,
+                          double timeOfFrame) const;
         static void applyTransform(const MV& MVMat, const MVP& MVPMat, const NormalMat& normalMat);
         static void applyAmbientLight(const GlobalAmbienLight& ambientLight);
         static void applyFog(const FogData& fogParam, const Position& cameraPosition);
@@ -100,28 +110,40 @@ namespace GLESC::Render {
         static void applySun(const Sun& sunParam);
         static void applyMaterial(const Material& material);
 
-        static void renderMesh(const AdaptedMesh& mesh);
-        static void renderInstances(const AdaptedInstances& adaptedInstances);
+        static void renderMesh(const ColorMesh& mesh);
+        static void renderInstances(MeshIndex adaptedInstances);
+
+        void removeMarkedInterpolationTransforms();
+
+        void clearRenderer();
+
+        static Projection createProjectionMatrix(const CameraPerspective& camera);
+        static View createViewMatrix(const Transform::Transform& transform);
 
         WindowManager& windowManager;
 
+        std::vector<const ColorMesh*> meshesToRender;
+        std::vector<const Material*> meshMaterials;
+        std::vector<const Transform::Transform*> meshTransforms;
+
+        std::unordered_map<const ColorMesh*, std::vector<MeshTransformIndex>> instances;
+
+        std::vector<const LightSpot*> lights;
+        std::vector<const Transform::Transform*> lightTransforms;
+
         mutable std::unordered_map<const Transform::Transform*, Transform::Interpolator> interpolationTransforms;
-        mutable std::mutex interpolationMutex{};
 
-        std::unordered_map<AdaptedMesh*, MVP> mvps;
-        std::mutex mvpMutex{};
-        std::unordered_map<AdaptedMesh*, MV> mvs;
-        std::mutex mvMutex{};
-        std::unordered_map<AdaptedMesh*, NormalMat> normalMats;
-        std::mutex normalMatMutex{};
-        std::unordered_map<AdaptedMesh*, bool> isContainedInFrustum;
-        std::mutex frustumMutex{};
+        std::vector<MVP> mvps;
+        std::vector<MV> mvs;
+        std::vector<NormalMat> normalMats;
+        std::vector<bool> isContainedInFrustum;
 
-        std::vector<AdaptedMesh> adaptedMeshes;
+        //std::set<ColorMesh::ID> meshCache;
+
+        std::vector<const Transform::Transform*> transformsToBeRemoved;
+
 
         Shader shader;
-
-        Camera camera;
         CameraPerspective defaultCameraPerspective;
         Transform::Transform defaultCameraTransform;
         Skybox skybox;
@@ -129,15 +151,19 @@ namespace GLESC::Render {
         Sun sun;
         GlobalAmbienLight ambientLight;
 
-        std::vector<Light> lights;
-
-        static Counter drawCounter;
-
+        Camera camera;
         Projection projection;
         View view;
         VP viewProjection;
         Frustum frustum;
-        static Projection createProjectionMatrix(const CameraPerspective& camera);
-        static View createViewMatrix(const Transform::Transform& transform);
+
+        static Counter drawCounter;
+
+
+        mutable std::mutex interpolationMutex{};
+        mutable std::mutex mvpMutex{};
+        mutable std::mutex mvMutex{};
+        mutable std::mutex normalMatMutex{};
+        mutable std::mutex frustumMutex{};
     }; // class Renderer
 } // namespace GLESC

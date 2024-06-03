@@ -15,11 +15,14 @@
 #include "engine/scene/Scene.h"
 #include "engine/scene/SceneManager.h"
 
-class TerrainGeneratorGame : public GLESC::Scene::Scene{
+class TerrainGeneratorGame : public GLESC::Scene::Scene {
 public:
     TerrainGeneratorGame(GLESC::WindowManager& windowManager,
-                         GLESC::ECS::EntityFactory& entityFactory,
-                         GLESC::Scene::SceneManager& sceneManager) : Scene(windowManager, entityFactory, sceneManager) {
+                        GLESC::ECS::EntityFactory& entityFactory,
+                        GLESC::Input::InputManager& inputManager,
+                        GLESC::Scene::SceneManager& sceneManager,
+                        GLESC::EngineCamera& camera)
+        : Scene(windowManager, entityFactory, inputManager, sceneManager, camera) {
     }
 
     void generateEntitiesForMap(GLESC::ECS::EntityFactory& entityFactory);

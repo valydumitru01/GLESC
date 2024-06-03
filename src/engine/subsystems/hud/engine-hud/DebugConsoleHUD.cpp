@@ -19,10 +19,10 @@ DebugConsoleHUD::DebugConsoleHUD() {
     this->setTitle("Console");
     this->setMaxSize({1200.0f, 300.0f});
     this->setMinSize({600.0f, 150.0f});
-    this->setSizeFraction({0.5f, 0.2f});
+    this->setSizeFraction({0.4f, 0.2f});
     isVisible = true;
-    this->setCenter(WindowCenter::BottomLeft);
-    this->setLayoutPosition(LayoutPos::BottomLeft);
+    this->setCenter(WindowCenter::BottomCenter);
+    this->setLayoutPosition(LayoutPos::BottomCenter);
     this->addFlag(ImGuiWindowFlags_NoResize);
     this->addFlag(ImGuiWindowFlags_NoMove);
     this->addFlag(ImGuiWindowFlags_NoCollapse);
@@ -34,8 +34,15 @@ DebugConsoleHUD::DebugConsoleHUD() {
 
 
 void DebugConsoleHUD::windowContent() {
+    static size_t lastMessageCount = 0;
+    const auto& messages = GLESC::Console::GetMessages();
+    bool shouldScroll = messages.size() != lastMessageCount;
+    lastMessageCount = messages.size();
+
+    ImGui::BeginChild("ConsoleRegion", ImVec2(0, 0), true, ImGuiWindowFlags_AlwaysVerticalScrollbar);
+
     // Iterate through console messages and display them with appropriate color
-    for (const auto& entry : GLESC::Console::GetMessages()) {
+    for (const auto& entry : messages) {
         ImVec4 color;
         std::string level;
         switch (entry.level) {
@@ -57,8 +64,15 @@ void DebugConsoleHUD::windowContent() {
             break;
         }
 
-
+        ImGui::PushTextWrapPos(ImGui::GetWindowContentRegionMax().x);
         ImGui::TextColored(color, "( %d ) %s: %s", entry.count, level.c_str(), entry.message.c_str());
+        ImGui::PopTextWrapPos();
         ImGui::Separator();
     }
+
+    if (shouldScroll) {
+        ImGui::SetScrollHereY(1.0f);
+    }
+
+    ImGui::EndChild();
 }

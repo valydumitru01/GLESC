@@ -100,16 +100,18 @@ std::vector<IComponent*> ECSCoordinator::getComponents(EntityID entity) const {
     return components;
 }
 
-EntityID ECSCoordinator::createEntity(const EntityName& name) {
+EntityID ECSCoordinator::createEntity(const EntityName& name, const EntityMetadata& metadata) {
     std::lock_guard lock(ecsMutex);
     D_ASSERT_FALSE(entityManager.doesEntityExist(name),
                    "Cannot create entity with name " + name + " because it already exists");
 
     PRINT_ECS_STATUS("Before creating entity: " + name);
-    EntityID id = entityManager.createNextEntity(name);
+    EntityID id = entityManager.createNextEntity(name, metadata);
     PRINT_ECS_STATUS("After entity created: " + name);
     return id;
 }
+
+
 
 EntityID ECSCoordinator::createEntity() {
     std::lock_guard lock(ecsMutex);
@@ -118,9 +120,20 @@ EntityID ECSCoordinator::createEntity() {
                    "Cannot create entity with name " + name + " because it already exists");
 
     PRINT_ECS_STATUS("Before creating entity: " + name);
-    EntityID id = entityManager.createNextEntity(name);
+    EntityID id = entityManager.createNextEntity(name,{});
     PRINT_ECS_STATUS("After entity created: " + name);
     return id;
+}
+
+void ECSCoordinator::destroyEntities() {
+    for (EntityID entity : entitiesToDestroy) {
+        destroyEntity(entity);
+    }
+    entitiesToDestroy.clear();
+}
+
+void ECSCoordinator::markForDestruction(EntityID entity) {
+    entitiesToDestroy.push_back(entity);
 }
 
 
@@ -143,6 +156,22 @@ const EntityName& ECSCoordinator::getEntityName(EntityID entity) const {
     return entityManager.getEntityName(entity);
 }
 
+bool ECSCoordinator::isEntityAlive(EntityID entity) const {
+    return entityManager.isEntityAlive(entity);
+}
+
 EntityID ECSCoordinator::tryGetEntityID(const EntityName& name) const {
     return entityManager.tryGetEntity(name);
+}
+
+bool ECSCoordinator::isEntityInstanced(const EntityName& name) const {
+    return entityManager.isEntityInstanced(name);
+}
+
+const std::vector<EntityID>& ECSCoordinator::getInstancedEntities(const EntityName& name) const {
+    return entityManager.getInstancedEntities(name);
+}
+
+const EntityMetadata& ECSCoordinator::getEntityMetadata(EntityID entity) const {
+    return entityManager.getEntityMetadata(entity);
 }

@@ -422,7 +422,7 @@ TYPED_TEST(MatrixAlgorithmsTests, MatrixMatrixMul) {
     constexpr size_t X = 3; // Example, adjust P as needed for the second matrix dimension
 
 
-    if constexpr (GLESC::Math::MatrixAlgorithms::colMajorMatrix) {
+    if constexpr (GLESC::Math::MatrixAlgorithms::rowMajorMatrix) {
         GLESC::Math::MatrixData<Type, M, N> matrixToMulLeft;
         initializeMatrixWithValues(matrixToMulLeft);
 

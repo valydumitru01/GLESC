@@ -337,7 +337,7 @@ namespace GLESC::Math {
             matrixScalarMul(matrix, Type(1) / scalar, result);
         }
 
-        static constexpr bool colMajorMatrix = true;
+        static constexpr bool rowMajorMatrix = true;
 
         template <typename Type, size_t N, size_t M, size_t X>
         static void matrixMatrixMulColMaj(const MatrixData<Type, M, N>& matrix1,
@@ -461,7 +461,7 @@ namespace GLESC::Math {
         static void matrixMatrixMulInPlace(const MatrixData<Type, N, M>& matrix1,
                                            const MatrixData<Type, N2, M2>& matrix2,
                                            MatrixData<Type, N3, M3>& result) {
-            if constexpr (colMajorMatrix) {
+            if constexpr (rowMajorMatrix) {
                 MatrixData<Type, M, N> temp(result);
                 matrixMatrixMulColMaj(matrix1, matrix2, temp);
                 copyMatrix(result, temp);
@@ -477,7 +477,7 @@ namespace GLESC::Math {
         static void matrixMatrixMulNaiveInPlace(const MatrixData<Type, N, M>& matrix1,
                                                 const MatrixData<Type, M, M>& matrix2,
                                                 MatrixData<Type, N, M>& result) {
-            if constexpr (colMajorMatrix) {
+            if constexpr (rowMajorMatrix) {
                 MatrixData<Type, M, N> temp(result);
                 matrixMatrixMulNaiveColMaj(matrix1, matrix2, temp);
                 copyMatrix(result, temp);
@@ -509,7 +509,7 @@ namespace GLESC::Math {
                 throw MathException("Matrix is not invertible.");
             MatrixData<Type, M, X> inverse;
             MatrixAlgorithms::matrixInverse(matrix2, inverse);
-            if constexpr (colMajorMatrix) {
+            if constexpr (rowMajorMatrix) {
                 MatrixData<Type, X, N> resultTemp;
                 MatrixAlgorithms::matrixMatrixMulColMaj(matrix1, inverse, resultTemp);
                 result = resultTemp;

@@ -20,5 +20,6 @@ EngineDebugHUDManager::EngineDebugHUDManager(HUDManager& hudManager, Render::Ren
     hudManager.addWindow(debugStatsHud);
     hudManager.addWindow(debugEntityDataHud);
     hudManager.addWindow(crosshairHud);
+    hudManager.addWindow(entityListHud);
     hudManager.addWindow(debugItemHud);
 }

@@ -142,6 +142,7 @@ namespace GLESC {
          */
         [[nodiscard]] bool isFullscreenBorderless();
 
+
         /**
          * @brief Destroy window and release resources.
          */
