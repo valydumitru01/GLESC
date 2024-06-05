@@ -28,7 +28,19 @@ namespace GLESC::ECS {
             for (auto& value : physics.getDebuggingValues()) {
                 values.push_back(value);
             }
+
+            for (auto& value : collider.getDebuggingValues()) {
+                values.push_back(value);
+            }
         }
 
+        void setUpdatedDebuggingValues() override {
+            for (auto& value : physics.getUpdatedDebuggingValues()) {
+                updatedValues.push_back(value);
+            }
+            for (auto& value : collider.getUpdatedDebuggingValues()) {
+                updatedValues.push_back(value);
+            }
+        }
     };
 } // namespace GLESC::ECS

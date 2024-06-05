@@ -18,8 +18,8 @@ namespace GLESC::Math {
     class BoundingVolume {
     public:
         struct AABB {
-            Vec3F min;
-            Vec3F max;
+            Vec3F min{-1, -1, -1};
+            Vec3F max{1, 1, 1};
         };
 
         BoundingVolume() = default;
@@ -76,23 +76,68 @@ namespace GLESC::Math {
             buildBoundingVolume(minVec, maxVec);
         }
 
-        bool isInside(const Vec3F& point) const {
+        bool hasInside(const Vec3F& point) const {
             return point.getX() >= boundingBox.min.getX() && point.getX() <= boundingBox.max.getX() &&
                 point.getY() >= boundingBox.min.getY() && point.getY() <= boundingBox.max.getY() &&
                 point.getZ() >= boundingBox.min.getZ() && point.getZ() <= boundingBox.max.getZ();
         }
 
+        Vec3F intersectsVolume(const BoundingVolume& other) const {
+            float depthX = 0, depthY = 0, depthZ = 0;
+
+            // Check X axis
+            float minX = std::max(boundingBox.min.getX(), other.boundingBox.min.getX());
+            float maxX = std::min(boundingBox.max.getX(), other.boundingBox.max.getX());
+            if (maxX > minX) {
+                depthX = maxX - minX;
+                if (boundingBox.min.getX() < other.boundingBox.min.getX()) {
+                    depthX = -depthX;
+                }
+            }
+
+            // Check Y axis
+            float minY = std::max(boundingBox.min.getY(), other.boundingBox.min.getY());
+            float maxY = std::min(boundingBox.max.getY(), other.boundingBox.max.getY());
+            if (maxY > minY) {
+                depthY = maxY - minY;
+                if (boundingBox.min.getY() < other.boundingBox.min.getY()) {
+                    depthY = -depthY;
+                }
+            }
+
+            // Check Z axis
+            float minZ = std::max(boundingBox.min.getZ(), other.boundingBox.min.getZ());
+            float maxZ = std::min(boundingBox.max.getZ(), other.boundingBox.max.getZ());
+            if (maxZ > minZ) {
+                depthZ = maxZ - minZ;
+                if (boundingBox.min.getZ() < other.boundingBox.min.getZ()) {
+                    depthZ = -depthZ;
+                }
+            }
+
+            return {depthX, depthY, depthZ};
+        }
+
+
         bool intersects(const BoundingVolume& other) const {
-            return boundingBox.min.getX() <= other.boundingBox.max.getX() &&
-                boundingBox.max.getX() >= other.boundingBox.min.getX() &&
-                boundingBox.min.getY() <= other.boundingBox.max.getY() &&
-                boundingBox.max.getY() >= other.boundingBox.min.getY() &&
-                boundingBox.min.getZ() <= other.boundingBox.max.getZ() &&
-                boundingBox.max.getZ() >= other.boundingBox.min.getZ();
+            if (boundingBox.min.getX() >= other.boundingBox.max.getX() ||
+                boundingBox.max.getX() <= other.boundingBox.min.getX())
+                return false;
+            if (boundingBox.min.getY() >= other.boundingBox.max.getY() ||
+                boundingBox.max.getY() <= other.boundingBox.min.getY())
+                return false;
+            if (boundingBox.min.getZ() >= other.boundingBox.max.getZ() ||
+                boundingBox.max.getZ() <= other.boundingBox.min.getZ())
+                return false;
+            return true;
         }
 
 
         [[nodiscard]] const AABB& getBoundingBox() const {
+            return boundingBox;
+        }
+
+        [[nodiscard]] AABB& getBoundingBox() {
             return boundingBox;
         }
 

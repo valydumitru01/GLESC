@@ -20,7 +20,7 @@ using namespace GLESC::Render;
 
 
 Counter Renderer::drawCounter{};
-constexpr int reservedSize = 500;
+constexpr int reservedSize = 100;
 Renderer::Renderer(WindowManager& windowManager) :
     windowManager(windowManager), shader(Shader("Shader.glsl")),
     camera(),
@@ -170,6 +170,11 @@ void Renderer::applyMaterial(const Material& material) {
     //
     Shader::setUniform("uMaterial.shininess", material.getShininess());
 }
+void Renderer::applyTransform(const MV& MVMat, const MVP& MVPMat, const NormalMat& normalMat) {
+    Shader::setUniform("uMVP", MVPMat);
+    Shader::setUniform("uMV", MVMat);
+    Shader::setUniform("uNormalMat", normalMat);
+}
 
 void Renderer::render(double timeOfFrame) {
     drawCounter.startFrame();
@@ -228,8 +233,7 @@ void Renderer::render(double timeOfFrame) {
     applySun(sun);
     applyFog(fog, camera.transform->getPosition());
     applySkybox(skybox, viewMat, projMat);
-
-    clearRenderer();
+    hasRenderBeenCalled = true;
 }
 
 void Renderer::clearRenderer() {
@@ -248,11 +252,6 @@ void Renderer::clearRenderer() {
 }
 
 
-void Renderer::applyTransform(const MV& MVMat, const MVP& MVPMat, const NormalMat& normalMat) {
-    Shader::setUniform("uMVP", MVPMat);
-    Shader::setUniform("uMV", MVMat);
-    Shader::setUniform("uNormalMat", normalMat);
-}
 
 Renderer::~Renderer() {
     getGAPI().deleteContext();
@@ -335,18 +334,6 @@ void Renderer::setCamera(const CameraPerspective& cameraPerspective, const Trans
     this->camera.transform = &transform;
     this->interpolationTransforms[&transform].pushTransform(transform);
 }
-
-template <typename Type>
-void removeSwapAndPop(std::vector<Type>& vec, size_t index) {
-    if (index >= vec.size()) {
-        throw std::out_of_range("Index out of range");
-    }
-    if (index != vec.size() - 1) {
-        std::swap(vec[index], vec.back());
-    }
-    vec.pop_back();
-}
-
 
 
 void Renderer::removeMarkedInterpolationTransforms() {

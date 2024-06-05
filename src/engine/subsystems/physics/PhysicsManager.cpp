@@ -24,102 +24,101 @@ namespace GLESC::Physics {
             transform = hypotheticalNextTransform;
             return;
         }
-        // Storing the old transform for clarity in the code
-        Transform::Transform& oldTransform = transform;
-
-        // Check if the X translation in the next frame will cause a collision
-        Transform::Transform nextHypTransformX = hypotheticalNextTransform;
-        nextHypTransformX.setPosition({
-            nextHypTransformX.getPosition().getX(),
-            oldTransform.getPosition().getY(),
-            oldTransform.getPosition().getZ()
+        Transform::Transform hypNextTransformX = hypotheticalNextTransform;
+        Transform::Transform hypNextTransformY = hypotheticalNextTransform;
+        Transform::Transform hypNextTransformZ = hypotheticalNextTransform;
+        hypNextTransformX.setPosition({
+            hypotheticalNextTransform.getPosition().getX(),
+            transform.getPosition().getY(),
+            transform.getPosition().getZ()
         });
-        Collider nextColliderX = getNextCollider(collider, nextHypTransformX);
-
-
-        // Check if the Y translation in the next frame will cause a collision
-        Transform::Transform nextHypTransformY = hypotheticalNextTransform;
-        nextHypTransformY.setPosition({
-            oldTransform.getPosition().getX(),
-            nextHypTransformY.getPosition().getY(),
-            oldTransform.getPosition().getZ()
+        hypNextTransformY.setPosition({
+            transform.getPosition().getX(),
+            hypotheticalNextTransform.getPosition().getY(),
+            transform.getPosition().getZ()
         });
-        Collider nextColliderY = getNextCollider(collider, nextHypTransformY);
-
-
-        // Check if the Z translation in the next frame will cause a collision
-        Transform::Transform nextHypTransformZ = hypotheticalNextTransform;
-        nextHypTransformZ.setPosition({
-            oldTransform.getPosition().getX(),
-            oldTransform.getPosition().getY(),
-            nextHypTransformZ.getPosition().getZ()
+        hypNextTransformZ.setPosition({
+            transform.getPosition().getX(),
+            transform.getPosition().getY(),
+            hypotheticalNextTransform.getPosition().getZ()
         });
-        Collider nextColliderZ = getNextCollider(collider, nextHypTransformZ);
+
+        // Get the next collider based on the hypothetical next transform
+        Collider hypothethicalNextCollider = getNextCollider(collider, hypotheticalNextTransform);
+
+        Collider hypotheticalNextColliderX = getNextCollider(collider, hypNextTransformX);
+        Collider hypotheticalNextColliderY = getNextCollider(collider, hypNextTransformY);
+        Collider hypotheticalNextColliderZ = getNextCollider(collider, hypNextTransformZ);
 
         // Cancel the component that causes the collision
-        CollisionInformation information = collidesOnNextFrame(
-            collider, nextColliderX, nextColliderY, nextColliderZ);
+        CollisionInformation information = collidesOnNextFrame(collider,
+                                                               hypothethicalNextCollider,
+                                                               hypotheticalNextColliderX,
+                                                               hypotheticalNextColliderY,
+                                                               hypotheticalNextColliderZ);
 
-        handleCollisions(information, collider, physics);
+        if (information.collided)
+            handleCollisions(information, collider, physics);
+        else
+            collider.setColliding({false, false, false});
+
 
         // We need to update the transform with the updated physics
-        hypotheticalNextTransform = getNextTransform(transform, physics);
-        transform = hypotheticalNextTransform;
+        transform = getNextTransform(transform, physics);
     }
 
 
     void PhysicsManager::handleCollisions(CollisionInformation& info, Collider& collider, Physics& physics) {
-        if (info.collided) {
-            if (collider.collisionCallback)
-                collider.collisionCallback(*info.colliders[0]);
-            for (auto& otherCollider : info.colliders) {
-                // Check if there is a specific callback for this collider
-                auto it = collider.collisionCallbacksForSpecificColliders.find(otherCollider);
-                if (it != collider.collisionCallbacksForSpecificColliders.end()) {
-                    it->second(*otherCollider);
-                }
+        if (collider.getGeneralCollisionCallback())
+            collider.getGeneralCollisionCallback()(*info.colliders[0]);
+        for (auto& otherCollider : info.colliders) {
+            // Check if there is a specific callback for this collider
+            auto it = collider.getSpecificCollisionCallbacks().find(otherCollider);
+            if (it != collider.getSpecificCollisionCallbacks().end()) {
+                it->second(*otherCollider);
             }
         }
-        bool collidesX = info.collisionPenetrationsForAxis[0].getX() != 0;
-        bool collidesY = info.collisionPenetrationsForAxis[0].getY() != 0;
-        bool collidesZ = info.collisionPenetrationsForAxis[0].getZ() != 0;
-        Velocity appliedFriction;
+        bool collidesX = false, collidesY = false, collidesZ = false;
+        for (const auto& penetration : info.collisionPenetrationsForAxis) {
+            if (!Math::eq(penetration.getX(), 0)) collidesX = true;
+            if (!Math::eq(penetration.getY(), 0)) collidesY = true;
+            if (!Math::eq(penetration.getZ(), 0)) collidesZ = true;
+        }
+
+        Vec3F totalVelocity = physics.getVelocity();
         for (Physics* otherPhysics : info.physicsOfCollided) {
-            appliedFriction +=
-                otherPhysics->getVelocity() * otherPhysics->getFriction() +
-                physics.getVelocity() * physics.getFriction();
+            if (otherPhysics) {
+                // Calculate the average friction coefficient between the two objects
+                float frictionCoefficient = otherPhysics->getFriction() + physics.getFriction();
+
+                // Calculate the relative velocity between the two objects
+                Vec3F relativeVelocity = otherPhysics->getVelocity() - physics.getVelocity();
+
+                // Calculate the friction force based on the relative velocity and friction coefficient
+                Vec3F frictionForce = relativeVelocity * frictionCoefficient;
+
+                // Apply the friction force to the total velocity
+                //totalVelocity -= frictionForce;
+            }
         }
-        float frictionX = appliedFriction.getX();
-        float frictionY = appliedFriction.getY();
-        float frictionZ = appliedFriction.getZ();
+
+        collider.setColliding({collidesX, collidesY, collidesZ});
         // Cancel the components that cause the collision
-        if (collidesX) {
-            physics.addVelocity({
-                -physics.getVelocity().getX(),
-                -frictionY,
-                -frictionZ
-            });
-        }
-        if (collidesY) {
-            physics.addVelocity({
-                -frictionX,
-                -physics.getVelocity().getY(),
-                -frictionZ
-            });
-        }
-        if (info.collisionPenetrationsForAxis.getY() < 0)
-            collider.setIsOnAir(false);
-        else
-            collider.setIsOnAir(true);
+        physics.setVelocity({
+            collidesX ? 0.0f : totalVelocity.getX(),
+            collidesY ? 0.0f : totalVelocity.getY(),
+            collidesZ ? 0.0f : totalVelocity.getZ()
+        });
 
 
-        if (collidesZ) {
-            physics.setVelocity({
-                physics.getVelocity().getX() - frictionX,
-                physics.getVelocity().getY() - frictionY,
-                0.0F
-            });
+        bool isOnAnyFloor = false;
+        for (const Vec3F& collisionPenetration : info.collisionPenetrationsForAxis) {
+            if (collisionPenetration.getY() < 0) {
+                isOnAnyFloor = true;
+                break;
+            }
         }
+        collider.setIsOnAir(!isOnAnyFloor);
     }
 
 
@@ -156,79 +155,42 @@ namespace GLESC::Physics {
     Collider PhysicsManager::getNextCollider(const Collider& oldCollider,
                                              const Transform::Transform& nextTransform) {
         Collider nextCollider = oldCollider;
-        nextCollider.boundingVolume =
-            Transform::Transformer::transformBoundingVolume(oldCollider.boundingVolume,
-                                                            nextTransform.getTranslationMatrix());
+        nextCollider.setBoundingVolume(
+            Transform::Transformer::transformBoundingVolume(oldCollider.getBoundingVolume(),
+                                                            nextTransform.getTranslationMatrix()));
         return nextCollider;
     }
 
 
     CollisionInformation PhysicsManager::collidesOnNextFrame(const Collider& originalCollider,
+                                                             const Collider& nextCollider,
                                                              const Collider& nextColliderX,
                                                              const Collider& nextColliderY,
                                                              const Collider& nextColliderZ) {
         CollisionInformation information;
+        information.collided = false;
+
         for (int i = 0; i < colliders.size(); i++) {
             Collider* otherCollider = colliders[i];
-            if (otherCollider == &originalCollider) continue;
-            Vec3F collisionVolumes{
-                collidesWithCollider(nextColliderX, *otherCollider),
-                collidesWithCollider(nextColliderY, *otherCollider),
-                collidesWithCollider(nextColliderZ, *otherCollider)
-            };
-            information.collided =
-                !Math::eq(collisionVolumes.getX(), 0) ||
-                !Math::eq(collisionVolumes.getY(), 0) ||
-                !Math::eq(collisionVolumes.getZ(), 0);
-
-            if (information.collided) {
+            if (&originalCollider == otherCollider) continue;
+            if (nextCollider.getBoundingVolume().intersects(otherCollider->getBoundingVolume())) {
+                information.collided = true;
                 information.physicsOfCollided.push_back(physics[i]);
                 information.colliders.push_back(otherCollider);
-                information.collisionPenetrationsForAxis.emplace_back(
-                    collisionVolumes.getX(),
-                    collisionVolumes.getY(),
-                    collisionVolumes.getZ()
-                );
+                Vec3F collisionVolumes = getCollisionDepth(nextColliderX, nextColliderY, nextColliderZ, *otherCollider);
+                information.collisionPenetrationsForAxis.push_back(collisionVolumes);
             }
         }
         return information;
     }
 
-    float intersectionDepthForAxis(float minA, float maxA, float minB, float maxB) {
-        if (minA < minB) {
-            if (maxA < minB) return 0; // No collision
-            return maxA - minB; // Positive side collision
-        }
-        if (maxB < minA) return 0; // No collision
-        return minA - maxB; // Negative side collision
-    }
+    Vec3F PhysicsManager::getCollisionDepth(const Collider& nextColliderX, const Collider& nextColliderY,
+                                            const Collider& nextColliderZ, const Collider& otherCollider) {
+        // Assumes that collision occured, therefore depth will be non-zero
+        Vec3F depthX = nextColliderX.getBoundingVolume().intersectsVolume(otherCollider.getBoundingVolume());
+        Vec3F depthY = nextColliderY.getBoundingVolume().intersectsVolume(otherCollider.getBoundingVolume());
+        Vec3F depthZ = nextColliderZ.getBoundingVolume().intersectsVolume(otherCollider.getBoundingVolume());
 
-    Vec3F PhysicsManager::collidesWithCollider(const Collider& collider, const Collider& otherCollider) {
-        const auto& colliderVolume = collider.getBoundingVolume();
-        const auto& otherColliderVolume = otherCollider.getBoundingVolume();
-
-        // Assuming the bounding volume has methods to get min and max for each axis
-        float minAX = colliderVolume.getMin().getX();
-        float maxAX = colliderVolume.getMax().getX();
-        float minAY = colliderVolume.getMin().getY();
-        float maxAY = colliderVolume.getMax().getY();
-        float minAZ = colliderVolume.getMin().getZ();
-        float maxAZ = colliderVolume.getMax().getZ();
-
-        float minBX = otherColliderVolume.getMin().getX();
-        float maxBX = otherColliderVolume.getMax().getX();
-        float minBY = otherColliderVolume.getMin().getY();
-        float maxBY = otherColliderVolume.getMax().getY();
-        float minBZ = otherColliderVolume.getMin().getZ();
-        float maxBZ = otherColliderVolume.getMax().getZ();
-
-        float depthX = intersectionDepthForAxis(minAX, maxAX, minBX, maxBX);
-        float depthY = intersectionDepthForAxis(minAY, maxAY, minBY, maxBY);
-        float depthZ = intersectionDepthForAxis(minAZ, maxAZ, minBZ, maxBZ);
-
-        if (depthX != 0 && depthY != 0 && depthZ != 0) {
-            return {depthX, depthY, depthZ};
-        }
-        return {0, 0, 0};
+        return {depthX.getX(), depthY.getY(), depthZ.getZ()};
     }
 } // namespace GLESC

@@ -45,7 +45,6 @@ namespace GLESC {
 
     private:
         std::vector<std::unique_ptr<ECS::System>> createUpdateSystems();
-        std::vector<std::unique_ptr<ECS::System>> createRenderSystems();
         void createEngineEntities();
 
 
@@ -114,7 +113,6 @@ namespace GLESC {
         EngineCamera engineCamera;
 
         std::vector<std::unique_ptr<ECS::System>> updateSystems;
-        std::vector<std::unique_ptr<ECS::System>> renderSystems;
 
         Scene::SceneManager sceneManager;
         Scene::SceneContainer sceneContainer;

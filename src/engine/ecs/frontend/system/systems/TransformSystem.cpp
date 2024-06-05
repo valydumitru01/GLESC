@@ -35,7 +35,6 @@ namespace GLESC::ECS {
             if (rotation.getZ() > 360.0f)
                 transform.transform.addRotation(Transform::RotationAxis::Roll, -720.0f);
 
-
         }
     }
 } // namespace GLESC::ECS

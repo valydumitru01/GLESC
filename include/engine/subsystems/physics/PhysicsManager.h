@@ -8,16 +8,10 @@
 #include "Physics.h"
 #include "PhysicsTypes.h"
 #include "Collider.h"
+#include "CollisionInformation.h"
 #include "engine/subsystems/transform/Transform.h"
 
 namespace GLESC::Physics {
-    struct CollisionInformation {
-        std::vector<Vec3F> collisionPenetrationsForAxis;
-        bool collided = false;
-        std::vector<Collider*> colliders;
-        std::vector<Physics*> physicsOfCollided;
-    };
-
     class PhysicsManager {
     public:
         void updatePhysics(Physics& physics);
@@ -37,28 +31,25 @@ namespace GLESC::Physics {
         static void handleCollisions(CollisionInformation& info, Collider& collider, Physics& physics);
 
         static Transform::Transform getNextTransform(const Transform::Transform& transformParam,
-                                              const Physics& nextPhysics);
+                                                     const Physics& nextPhysics);
 
         static Physics getNextPhysics(const Physics& oldPhysics);
         static Collider getNextCollider(const Collider& oldCollider, const Transform::Transform& nextTransform);
 
 
         CollisionInformation collidesOnNextFrame(const Collider& originalCollider,
+                                                 const Collider& nextCollider,
                                                  const Collider& nextColliderX,
                                                  const Collider& nextColliderY,
-                                                 const Collider& nextColliderZ) ;
+                                                 const Collider& nextColliderZ);
 
         /**
-         *
-         * @param collider The collider that is being checked for collision
-         * @param otherCollider The collider that is being checked against
-         * @return The volume of the collision for each axis
-         * < 0 - Collision happened on the negative side of the axis
-         * 0 - No collision
-         * > 0 - Collision happened on the positive side of the axis
+         * @brief Get the depth of the collision on each axis
+         * @param otherCollider The collider of the object that we are checking the collision with
+         * @return The depth of the collision on each axis
          */
-        static Vec3F collidesWithCollider(const Collider& collider, const Collider& otherCollider);
-
+        static Vec3F getCollisionDepth(const Collider& nextColliderX, const Collider& nextColliderY,
+                                       const Collider& nextColliderZ, const Collider& otherCollider);
 
         std::vector<Collider*> colliders;
         std::vector<Physics*> physics;

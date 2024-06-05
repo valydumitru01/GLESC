@@ -10,10 +10,11 @@
 #pragma once
 #include "PhysicsTypes.h"
 #include "engine/core/math/geometry/GeometryTypes.h"
+#include "engine/subsystems/EngineComponent.h"
 #include "engine/subsystems/ingame-debug/EntityStatsManager.h"
 
 namespace GLESC::Physics {
-    class Physics {
+    class Physics : public EngineComponent {
     public:
         Physics() = default;
 
@@ -65,7 +66,7 @@ namespace GLESC::Physics {
         [[nodiscard]] AngularVelocity getAngularVelocity() const { return angularVelocity; }
 
 
-        [[nodiscard]] std::vector<EntityStatsManager::Value> getDebuggingValues();
+        [[nodiscard]] std::vector<EntityStatsManager::Value> getDebuggingValues() override;
         [[nodisacrd]] std::string toString() const;
 
     private:

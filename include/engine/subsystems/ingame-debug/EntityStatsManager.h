@@ -32,7 +32,10 @@ public:
         VEC4I,
         MAT2F,
         MAT3F,
-        MAT4F
+        MAT4F,
+        VEC2B,
+        VEC3B,
+        VEC4B,
     };
     struct Value {
         std::string name;
@@ -57,6 +60,7 @@ public:
     struct ComponentData {
         std::string name;
         std::vector<Value>* values;
+        std::vector<Value> updatedValues;
     };
 
     struct EntityData {
@@ -65,7 +69,7 @@ public:
     };
 
     static void setEntityData(EntityData data) { entityData = data; }
-    static EntityData getEntityData();
+    static EntityData& getEntityData();
 private:
     static EntityData entityData;
 }; // class EntityStatsManager

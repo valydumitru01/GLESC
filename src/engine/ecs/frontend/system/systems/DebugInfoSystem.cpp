@@ -31,6 +31,7 @@ void DebugInfoSystem::setEntityData(const EntityName& name) {
         EntityStatsManager::ComponentData componentData;
         componentData.name = component->getName();
         componentData.values = &component->getDebuggingValues();
+        componentData.updatedValues = component->getUpdatedDebuggingValues();
         entityData.components.push_back(componentData);
     }
     selectedEntity = entityId;

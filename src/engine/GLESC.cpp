@@ -47,7 +47,6 @@ Engine::Engine(FPSManager& fpsManager) :
     ecs(),
     entityFactory(ecs),
     updateSystems(createUpdateSystems()),
-    renderSystems(createRenderSystems()),
     engineCamera(entityFactory, inputManager, windowManager),
     sceneManager(entityFactory, windowManager),
     sceneContainer(windowManager, entityFactory, inputManager, sceneManager, engineCamera),
@@ -67,10 +66,6 @@ void Engine::processInput() {
 
 void Engine::render(double const timeOfFrame) {
     Logger::get().importantInfoPurple("Engine render started");
-    //renderer.removeMarkedMeshes();
-    for (auto& system : renderSystems) {
-        system->update();
-    }
     renderer.start(timeOfFrame);
     hudManager.update();
     renderer.render(timeOfFrame);
@@ -104,12 +99,6 @@ void Engine::update() {
                 ecs.getComponent<ECS::TransformComponent>(id).transform.getPosition()) > 1000.0f)) {
                 ecs.markForDestruction(id);
             }
-        if (ecs.hasComponent<ECS::PhysicsComponent>(id)) {
-            auto& physics = ecs.getComponent<ECS::PhysicsComponent>(id);
-            if (physics.collider.isDestroyed()) {
-                ecs.markForDestruction(id);
-            }
-        }
     }
     Console::log("Debug log message");
     Console::warn("Debug warning message");
@@ -118,20 +107,15 @@ void Engine::update() {
     Logger::get().importantInfoWhite("Engine update finished");
 }
 
-std::vector<std::unique_ptr<ECS::System>> Engine::createRenderSystems() {
-    std::vector<std::unique_ptr<ECS::System>> systems;
-    systems.push_back(std::make_unique<ECS::RenderSystem>(renderer, ecs));
-    return systems;
-}
-
 std::vector<std::unique_ptr<ECS::System>> Engine::createUpdateSystems() {
     std::vector<std::unique_ptr<ECS::System>> systems;
+    systems.push_back(std::make_unique<ECS::RenderSystem>(renderer, ecs));
+    systems.push_back(std::make_unique<ECS::TransformSystem>(ecs));
     systems.push_back(std::make_unique<ECS::PhysicsSystem>(physicsManager, ecs));
     systems.push_back(std::make_unique<ECS::InputSystem>(inputManager, ecs));
-    systems.push_back(std::make_unique<ECS::CameraSystem>(renderer, windowManager, ecs));
-    systems.push_back(std::make_unique<ECS::TransformSystem>(ecs));
-    systems.push_back(std::make_unique<ECS::LightSystem>(ecs, renderer));
     systems.push_back(std::make_unique<ECS::DebugInfoSystem>(ecs, renderer));
+    systems.push_back(std::make_unique<ECS::CameraSystem>(renderer, windowManager, ecs));
+    systems.push_back(std::make_unique<ECS::LightSystem>(ecs, renderer));
     systems.push_back(std::make_unique<ECS::SunSystem>(ecs, renderer));
     systems.push_back(std::make_unique<ECS::FogSystem>(renderer, ecs));
     return systems;

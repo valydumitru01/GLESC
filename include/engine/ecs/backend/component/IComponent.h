@@ -40,8 +40,16 @@ namespace GLESC::ECS {
             return values;
         }
 
+        std::vector<EntityStatsManager::Value> getUpdatedDebuggingValues() {
+            std::vector<EntityStatsManager::Value> updatedValuesAux = updatedValues;
+            setUpdatedDebuggingValues();
+            updatedValues.clear();
+            return updatedValuesAux;
+        }
     protected:
         virtual void setDebuggingValues() = 0;
+        virtual void setUpdatedDebuggingValues() {}
         std::vector<EntityStatsManager::Value> values;
+        std::vector<EntityStatsManager::Value> updatedValues;
     };
 } // namespace GLESC::ECS

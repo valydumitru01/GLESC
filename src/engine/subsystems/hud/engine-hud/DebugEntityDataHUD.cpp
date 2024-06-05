@@ -66,6 +66,18 @@ void text(const std::string& name, InputType* data) {
     else if constexpr (std::is_same_v<InputType, Vec4I>) {
         ImGui::Text(name.c_str(), data->data.data());
     }
+    else if constexpr (std::is_same_v<InputType, Vec2B>) {
+        ImGui::Text("%s: x: %s, y: %s", name.c_str(), data->x() ? "true" : "false", data->y() ? "true" : "false");
+    }
+    else if constexpr (std::is_same_v<InputType, Vec3B>) {
+        ImGui::Text("%s: x: %s, y: %s, z: %s", name.c_str(), data->x() ? "true" : "false", data->y() ? "true" : "false",
+                    data->z() ? "true" : "false");
+    }
+    else if constexpr (std::is_same_v<InputType, Vec4B>) {
+        ImGui::Text("%s: x: %s, y: %s, z: %s, w: %s",
+                    name.c_str(), data->x() ? "true" : "false", data->y() ? "true" : "false",
+                    data->z() ? "true" : "false", data->w() ? "true" : "false");
+    }
     else if constexpr (std::is_same_v<InputType, Mat2F> || std::is_same_v<InputType, Mat3F> ||
         std::is_same_v<InputType, Mat4F>) {
         ImGui::Text("%s: \n", name.c_str());
@@ -96,9 +108,6 @@ void slider(const std::string& name, InputType* data, const float& minParam, con
     }
     else if constexpr (std::is_same_v<InputType, Vec3I>) {
         ImGui::SliderInt3(inputName.c_str(), data->data.data(), minParam, static_cast<int>(maxParam));
-    }
-    else if constexpr (std::is_same_v<InputType, Vec4I>) {
-        ImGui::SliderInt4(inputName.c_str(), data->data.data(), minParam, static_cast<int>(maxParam));
     }
 }
 
@@ -135,8 +144,26 @@ void input(const std::string& name, InputType* data) {
     else if constexpr (std::is_same_v<InputType, Vec4I>) {
         ImGui::InputInt4(inputName.c_str(), data->data.data());
     }
-    else if constexpr (std::is_same_v<InputType, bool>) {
-        ImGui::Checkbox(inputName.c_str(), data->data.data());
+    else if constexpr (std::is_same_v<InputType, Vec2B>) {
+        ImGui::Checkbox(std::string(" - x ").c_str(), &data->x());
+        ImGui::SameLine();
+        ImGui::Checkbox(std::string(" - y ").c_str(), &data->y());
+    }
+    else if constexpr (std::is_same_v<InputType, Vec3B>) {
+        ImGui::Checkbox(std::string(" - x ").c_str(), &data->x());
+        ImGui::SameLine();
+        ImGui::Checkbox(std::string(" - y ").c_str(), &data->y());
+        ImGui::SameLine();
+        ImGui::Checkbox(std::string(" - z ").c_str(), &data->z());
+    }
+    else if constexpr (std::is_same_v<InputType, Vec4B>) {
+        ImGui::Checkbox(std::string(" - x ").c_str(), &data->x());
+        ImGui::SameLine();
+        ImGui::Checkbox(std::string(" - y ").c_str(), &data->y());
+        ImGui::SameLine();
+        ImGui::Checkbox(std::string(" - z ").c_str(), &data->z());
+        ImGui::SameLine();
+        ImGui::Checkbox(std::string(" - w ").c_str(), &data->w());
     }
 }
 
@@ -156,9 +183,79 @@ void input(EntityStatsManager::Value& value) {
     ImGui::PopItemWidth();
 }
 
+void putInputForType(EntityStatsManager::ValueType type, EntityStatsManager::Value& value) {
+    switch (type) {
+    case EntityStatsManager::ValueType::FLOAT:
+        input<float>(value);
+        break;
+
+    case EntityStatsManager::ValueType::INT:
+        input<int>(value);
+        break;
+
+    case EntityStatsManager::ValueType::BOOL:
+        input<bool>(value);
+        break;
+
+    case EntityStatsManager::ValueType::VEC2B:
+        input<Vec2B>(value);
+        break;
+    case EntityStatsManager::ValueType::VEC3B:
+        input<Vec3B>(value);
+        break;
+
+    case EntityStatsManager::ValueType::VEC4B:
+        input<Vec4B>(value);
+        break;
+
+    case EntityStatsManager::ValueType::STRING:
+        input<std::string>(value);
+        break;
+
+    case EntityStatsManager::ValueType::VEC2F:
+        input<Vec2F>(value);
+        break;
+
+    case EntityStatsManager::ValueType::VEC3F:
+        input<Vec3F>(value);
+        break;
+
+    case EntityStatsManager::ValueType::VEC4F:
+        input<Vec4F>(value);
+        break;
+
+    case EntityStatsManager::ValueType::VEC2I:
+        input<Vec2I>(value);
+        break;
+
+    case EntityStatsManager::ValueType::VEC3I:
+        input<Vec3I>(value);
+        break;
+
+    case EntityStatsManager::ValueType::VEC4I:
+        input<Vec4I>(value);
+        break;
+
+    case EntityStatsManager::ValueType::MAT2F:
+        input<Mat2F>(value);
+        break;
+
+    case EntityStatsManager::ValueType::MAT3F:
+        input<Mat3F>(value);
+        break;
+
+    case EntityStatsManager::ValueType::MAT4F:
+        input<Mat4F>(value);
+        break;
+    default: {
+        D_ASSERT_TRUE(false, "Unknown value type");
+    }
+    }
+}
+
 
 void DebugEntityData::windowContent() {
-    EntityStatsManager::EntityData data = EntityStatsManager::getEntityData();
+    EntityStatsManager::EntityData& data = EntityStatsManager::getEntityData();
 
 
     // Set a window title with the entity's name
@@ -184,65 +281,12 @@ void DebugEntityData::windowContent() {
                 break;
             }
             // While visible the panel of the data, the value is dirty as we want to update it
-            if(value.valueDirty != nullptr)
+            if (value.valueDirty != nullptr)
                 *value.valueDirty = true;
-            switch (value.type) {
-            case EntityStatsManager::ValueType::FLOAT:
-                input<float>(value);
-                break;
-
-            case EntityStatsManager::ValueType::INT:
-                input<int>(value);
-                break;
-
-            case EntityStatsManager::ValueType::BOOL:
-                input<bool>(value);
-                break;
-
-            case EntityStatsManager::ValueType::STRING:
-                input<std::string>(value);
-                break;
-
-            case EntityStatsManager::ValueType::VEC2F:
-                input<Vec2F>(value);
-                break;
-
-            case EntityStatsManager::ValueType::VEC3F:
-                input<Vec3F>(value);
-                break;
-
-            case EntityStatsManager::ValueType::VEC4F:
-                input<Vec4F>(value);
-                break;
-
-            case EntityStatsManager::ValueType::VEC2I:
-                input<Vec2I>(value);
-                break;
-
-            case EntityStatsManager::ValueType::VEC3I:
-                input<Vec3I>(value);
-                break;
-
-            case EntityStatsManager::ValueType::VEC4I:
-                input<Vec4I>(value);
-                break;
-
-            case EntityStatsManager::ValueType::MAT2F:
-                input<Mat2F>(value);
-                break;
-
-            case EntityStatsManager::ValueType::MAT3F:
-                input<Mat3F>(value);
-                break;
-
-            case EntityStatsManager::ValueType::MAT4F:
-                input<Mat4F>(value);
-                break;
-            default: {
-
-                D_ASSERT_TRUE(false, "Unknown value type");
-            }
-            }
+            putInputForType(value.type, value);
+        }
+        for (EntityStatsManager::Value value : stat.updatedValues) {
+            putInputForType(value.type, value);
         }
         ImGui::EndChild(); // End of component frame
         ImGui::Spacing(); // Add some space between components for better readability

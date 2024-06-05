@@ -72,6 +72,8 @@ namespace GLESC::Render {
         void setProjection(const Projection& projectionParam) { this->projection = projectionParam; }
 
         [[nodiscard]] const VP& getViewProjection() const { return viewProjection; }
+        bool hasRenderBeenCalledThisFrame() const { return hasRenderBeenCalled; }
+        void setRendererUpdated() { hasRenderBeenCalled = false; }
 
         [[nodiscard]] WindowDimensions getViewportSize() const { return windowManager.getSize(); }
         [[nodiscard]] Camera getCamera() const { return this->camera; }
@@ -91,6 +93,7 @@ namespace GLESC::Render {
         void setSun(const GlobalSun& sun, const GlobalAmbienLight& ambientLight, const Transform::Transform& transform);
         void setFog(const Fog& fogParam, const Transform::Transform& transform);
 
+        void clearRenderer();
     private:
         void start(double timeOfFrame);
         void render(double timeOfFrame);
@@ -115,7 +118,6 @@ namespace GLESC::Render {
 
         void removeMarkedInterpolationTransforms();
 
-        void clearRenderer();
 
         static Projection createProjectionMatrix(const CameraPerspective& camera);
         static View createViewMatrix(const Transform::Transform& transform);
@@ -138,7 +140,7 @@ namespace GLESC::Render {
         std::vector<NormalMat> normalMats;
         std::vector<bool> isContainedInFrustum;
 
-        //std::set<ColorMesh::ID> meshCache;
+        bool hasRenderBeenCalled = false;
 
         std::vector<const Transform::Transform*> transformsToBeRemoved;
 

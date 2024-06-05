@@ -15,6 +15,6 @@ EntityStatsManager::EntityData EntityStatsManager::entityData{};
 
 
 
-EntityStatsManager::EntityData EntityStatsManager::getEntityData() {
+EntityStatsManager::EntityData& EntityStatsManager::getEntityData() {
     return entityData;
 }

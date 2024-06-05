@@ -62,7 +62,5 @@ using namespace GLESC::Physics;
     accelerationValue.max = 1000.0F;
     values.push_back(accelerationValue);
 
-
-
     return values;
 }
