@@ -8,6 +8,7 @@
  * See LICENSE.txt in the project root for license information.
  **************************************************************************************************/
 #pragma once
+#include "engine/subsystems/hud/HUDLookAndFeel.h"
 #include <imgui/imgui.h>
 #include <string>
 #include <vector>

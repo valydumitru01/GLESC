@@ -70,6 +70,15 @@ namespace GLESC::Math {
             VectorAlgorithms::vectorFill(data, values);
         }
 
+        constexpr explicit Vector(VectorData<Type, N>&& values) noexcept {
+            VectorAlgorithms::vectorMove(data, values);
+        }
+
+        constexpr explicit Vector(const VectorData<Type, N>& values) noexcept {
+            VectorAlgorithms::vectorCopy(data, values);
+        }
+
+
         /**
          * @brief Copy constructor
          * @details Copies the data from the other vector to this one
@@ -755,13 +764,51 @@ namespace GLESC::Math {
             return *this;
         }
 
+        Vector<Type, 3>& rotate(const Vector<Type, 3>& rotation) {
+            VectorAlgorithms::rotateVector3D(this->data, rotation.data, this->data);
+            return *this;
+        }
+        [[nodiscard]] Vector<Type, 3> rotate(const Vector<Type, 3>& rotation) const{
+            Vector<Type, 3> result;
+            VectorAlgorithms::rotateVector3D(this->data, rotation.data, result.data);
+            return result;
+        }
 
+
+        Vector normalize() {
+            VectorAlgorithms::normalize(this->data, data);
+            return *this;
+        }
 
         [[nodiscard]] Vector normalize() const {
             Vector result;
             VectorAlgorithms::normalize(this->data, result.data);
             return result;
         }
+
+
+        [[nodiscard]] Vector& reflect(const Vector& normal) {
+            VectorAlgorithms::reflect(this->data, normal.data, this->data);
+            return *this;
+        }
+
+        [[nodiscard]] Vector reflect(const Vector& normal) const{
+            Vector result;
+            VectorAlgorithms::reflect(this->data, normal.data, result.data);
+            return result;
+        }
+
+        [[nodiscard]] Vector& vectorToEulerRotation(const Vector& up) {
+            VectorAlgorithms::vectorToEuler(this->data, up.data, this->data);
+            return *this;
+        }
+
+        [[nodiscard]] Vector vectorToEulerRotation(const Vector& up) const {
+            Vector result;
+            VectorAlgorithms::vectorToEuler(this->data, up.data, result.data);
+            return result;
+        }
+
 
         [[nodiscard]] int size() const {
             return N;

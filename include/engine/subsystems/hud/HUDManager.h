@@ -9,30 +9,40 @@
 
 #include <SDL2/SDL.h>
 
+#include "engine/core/hash/Hasher.h"
 #include "engine/subsystems/hud/InGameWindow.h"
 
+namespace GLESC::HUD {
+    class HUDManager {
+    public:
+        HUDManager(SDL_Window& window);
+        ~HUDManager();
 
-class HUDManager {
-public:
-    HUDManager(SDL_Window& window);
-    ~HUDManager();
+        void processInput(SDL_Event& event);
 
-    void processInput(SDL_Event& event);
+        /**
+         * Add a new window to the HUD
+         * Uses the move operator, this manager will take ownership of the window
+         * @param window
+         */
+        void addWindow(GLESC::InGameWindow& window, const std::string &name);
+        void addWindow(GLESC::InGameWindow&& window, const std::string &name);
 
-    void addWindow(GLESC::InGameWindow& window);
+        void removeWindow(const std::string& name);
 
-    void update();
+        void update();
 
-    void render() const;
+        void render() const;
 
+    private:
+        void updateNewFrame();
 
-private:
-    void updateNewFrame();
+        void updateEndFrame();
 
-    void updateEndFrame();
+        void initImGUI();
 
-    void initImGUI();
-
-    SDL_Window& window;
-    std::vector<GLESC::InGameWindow*> windows;
-};
+        SDL_Window& window;
+        std::vector<GLESC::InGameWindow*> windows;
+        std::vector<Hasher::Hash> windowNames;
+    };
+} // namespace GLESC::HUD

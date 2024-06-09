@@ -11,6 +11,7 @@
 #include <functional>
 
 #include "CollisionInformation.h"
+#include "Physics.h"
 #include "engine/core/math/geometry/figures/BoundingVolume.h"
 #include "engine/subsystems/EngineComponent.h"
 #include "engine/subsystems/ingame-debug/EntityStatsManager.h"
@@ -21,6 +22,9 @@ namespace GLESC::Physics {
 
 namespace GLESC::Physics {
     class Collider : public EngineComponent {
+        using CollisionCallback = std::function<void(Collider&)>;
+        using SpecificCollisionCallbacks = std::unordered_map<Collider*, CollisionCallback>;
+        friend class CollisionManager;
     public:
         Collider() = default;
         ~Collider() = default;
@@ -28,34 +32,26 @@ namespace GLESC::Physics {
         void setBoundingVolume(const Math::BoundingVolume& boundingVolume) { this->boundingVolume = boundingVolume; }
         void setCollisionCallback(std::function<void(Collider&)> callback) { collisionCallback = callback; }
         void setSolid(bool solid) { this->solid = solid; }
-        void setIsOnAir(bool isOnAir) { this->onAir = isOnAir; }
-        void setColliding(Vec3B collideAxisParam) { collidesAxis = collideAxisParam; }
+        void setCollisionInformation(const CollisionInformation& collisionInformation) { this->collisionInformation = collisionInformation; }
 
-        void setCollisionCallbackForCollider(Collider& collider, std::function<void(Collider&)> callback) {
-            collisionCallbacks[&collider] = callback;
-        }
-        void addCollidingWith(Collider& collider) { collidingWith.push_back(&collider); }
-        void setCollidingWith(const std::vector<Collider*>& colliders) { collidingWith = colliders; }
 
+        CollisionInformation& getCollisionInformation() { return collisionInformation; }
+        const CollisionCallback& getGeneralCollisionCallback() const { return collisionCallback; }
+        const SpecificCollisionCallbacks& getSpecificCollisionCallbacks() const { return collisionCallbacks; }
         bool isSolid() const { return solid; }
-        bool isOnAir() const { return onAir; }
-        Vec3B isColliding() const { return collidesAxis; }
-        const auto& getGeneralCollisionCallback() const { return collisionCallback; }
-        const auto& getSpecificCollisionCallbacks() const { return collisionCallbacks; }
         const Math::BoundingVolume& getBoundingVolume() const { return boundingVolume; }
 
         [[nodiscard]] std::vector<EntityStatsManager::Value> getDebuggingValues() override;
         [[nodiscard]] std::vector<EntityStatsManager::Value> getUpdatedDebuggingValues() override;
+        [[nodiscard]] std::string toString() const override;
 
     private:
-        std::function<void(Collider&)> collisionCallback;
-        std::unordered_map<Collider*, std::function<void(Collider&)>> collisionCallbacks;
-        GLESC::Math::BoundingVolume boundingVolume;
+        CollisionCallback collisionCallback;
+        SpecificCollisionCallbacks collisionCallbacks;
+        Math::BoundingVolume boundingVolume;
+        CollisionInformation collisionInformation;
+
         bool solid = true;
-        bool onAir = true;
-        Vec3B collidesAxis{false, false, false};
-#ifndef NDEBUG
-        std::vector<Collider*> collidingWith;
-#endif
+
     }; // class Collider
 }

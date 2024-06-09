@@ -14,48 +14,17 @@
 namespace GLESC::Physics {
     class PhysicsManager {
     public:
-        void updatePhysics(Physics& physics);
-        void checkCollisions(Collider& collider, Transform::Transform& transform, Physics& physics);
-
-        void addPhysics(Collider& collider, Physics& physics) {
-            this->colliders.push_back(&collider);
-            this->physics.push_back(&physics);
-        }
-
-        void clearPhysics() {
-            this->colliders.clear();
-            this->physics.clear();
-        }
+        void applyForces(Physics& physics) const;
+        void handleCollisions(Collider& collider, Physics& physics) const;
+        static Transform::Transform updateTransform(const Transform::Transform& transform, const Physics& physics);
 
     private:
-        static void handleCollisions(CollisionInformation& info, Collider& collider, Physics& physics);
+        static void executeCallbacks(Collider& collider, const CollisionInformation& collisionInfo);
 
-        static Transform::Transform getNextTransform(const Transform::Transform& transformParam,
-                                                     const Physics& nextPhysics);
-
-        static Physics getNextPhysics(const Physics& oldPhysics);
-        static Collider getNextCollider(const Collider& oldCollider, const Transform::Transform& nextTransform);
-
-
-        CollisionInformation collidesOnNextFrame(const Collider& originalCollider,
-                                                 const Collider& nextCollider,
-                                                 const Collider& nextColliderX,
-                                                 const Collider& nextColliderY,
-                                                 const Collider& nextColliderZ);
-
-        /**
-         * @brief Get the depth of the collision on each axis
-         * @param otherCollider The collider of the object that we are checking the collision with
-         * @return The depth of the collision on each axis
-         */
-        static Vec3F getCollisionDepth(const Collider& nextColliderX, const Collider& nextColliderY,
-                                       const Collider& nextColliderZ, const Collider& otherCollider);
-
-        std::vector<Collider*> colliders;
-        std::vector<Physics*> physics;
-
-        static constexpr Acceleration gravity{0.f, -8.91f, 0.f};
-        static constexpr Friction airFriction{0.01f};
+        Acceleration gravity{0.f, -8.91f, 0.f};
+        Friction airFriction{0.01f};
+        Bounciness bounciness{0.1f};
+        float bouncinessThreshold{50.f};
         /**
          * @brief This scalar is used to scale the velocity of the object
          * @details We need this because using fixed update time steps makes normal values too bit,

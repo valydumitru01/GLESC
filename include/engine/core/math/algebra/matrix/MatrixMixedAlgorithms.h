@@ -84,6 +84,29 @@ namespace GLESC::Math {
         }
 
         /**
+         * @brief Converts a 4x4 rotation matrix to Euler angles.
+         * @param mat A 4x4 rotation matrix.
+         * @param result A 3D vector to store the Euler angles (pitch, yaw, roll).
+         */
+        template <typename TypeMat, typename Type>
+        static void matrixToEulerRotation(const MatrixData<TypeMat, 4, 4>& mat, VectorData<Type, 3>& result) {
+            Type pitch = std::asin(-mat[2][1]);  // Calculate pitch
+
+            Type cosPitch = std::cos(pitch);
+            Type yaw, roll;
+
+            if (std::abs(cosPitch) > 1e-6) {  // Gimbal lock check
+                yaw = std::atan2(mat[2][0], mat[2][2]);
+                roll = std::atan2(mat[0][1], mat[1][1]);
+            } else {
+                yaw = std::atan2(-mat[0][2], mat[0][0]);
+                roll = 0;
+            }
+
+            result = {pitch, yaw, roll};
+        }
+
+        /**
          * @brief Rotate a 3D matrix around the X, Y, and Z axis.
          * @details This function applies sequential rotations to the input matrix based on the given angles.
          * The function assumes a specific order of rotations. It is Z, then Y, then X

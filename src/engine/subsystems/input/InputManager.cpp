@@ -16,7 +16,7 @@
 #include "engine/subsystems/ingame-debug/StatsManager.h"
 using namespace GLESC::Input;
 
-InputManager::InputManager(HUDManager& hudManagerm, WindowManager& windowManager): hudManager(hudManager),
+InputManager::InputManager(HUD::HUDManager& hudManagerm, WindowManager& windowManager): hudManager(hudManager),
     windowManager(windowManager) {
 }
 

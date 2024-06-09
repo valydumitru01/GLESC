@@ -23,8 +23,6 @@ Z
 *include/engine/subsystems/hud/HUDManager.h,9\4\94c8a5375ed2aef9a020908faecb3b5d73760420
 X
 (src/engine/core/window/WindowManager.cpp,4\7\47acc1dc6ce401691c78ae8c2f4f351418fa549d
-W
-'src/engine/ecs/systems/RenderSystem.cpp,c\5\c5570a78ed8c891d26aa504a2fc5c7d7c7d4ba96
 ]
 -src/engine/res-mng/textures/TextureLoader.cpp,4\5\4531d26401f2d2a0041484a774146536d8513c9e
 _
@@ -53,8 +51,6 @@ G
 include/engine/Config.h,4\a\4a4b7845963c6789d5333235929e5ffd70b396f7
 M
 include/engine/ecs/ECSTypes.h,0\a\0aae88874e7c2d482b393024bca136e678fcbdb1
-W
-'src/engine/ecs/systems/CameraSystem.cpp,5\a\5a6d8e5cf6473a464d43587adf5a5d79508c2520
 D
 src/engine/GLESC.cpp,c\c\cc8ef4c3b495738676daee0079ecafbf2324967e
 i

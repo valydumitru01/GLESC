@@ -52,33 +52,39 @@ namespace GLESC::Transform {
 
         void setPosition(const Position& position) {
             dirty = true;
+            translateDirty = true;
             this->position = position;
         }
 
         void setRotation(const Rotation& rotation) {
             dirty = true;
+            rotateDirty = true;
             this->rotationDegrees = rotation;
         }
 
         void setScale(const Scale& scale) {
             dirty = true;
+            scaleDirty = true;
             this->scale = scale;
         }
 
         void setPosition(Axis axis, PosComp value) {
             dirty = true;
+            translateDirty = true;
             int index = static_cast<int>(axis);
             position.set(index, value);
         }
 
         void setRotation(RotationAxis axis, RotComp value) {
             dirty = true;
+            rotateDirty = true;
             int index = static_cast<int>(axis);
             rotationDegrees.set(index, value);
         }
 
         void setScale(Axis axis, ScaleComp value) {
             dirty = true;
+            scaleDirty = true;
             int index = static_cast<int>(axis);
             scale.set(index, value);
         }
@@ -109,33 +115,33 @@ namespace GLESC::Transform {
         }
 
         Render::Model getModelMatrix() const {
-            if (dirty) {
+            if (modelDirty) {
                 modelMat.makeModelMatrix(position, rotationDegrees.toRads(), scale);
-                dirty = false;
+                modelDirty = false;
             }
             return modelMat;
         }
 
         Render::TranslateMat getTranslationMatrix() const {
-            if (dirty) {
-                translateMat.makeModelMatrix(position, Vec3F{0,0,0}, Vec3F{0,0,0});
-                dirty = false;
+            if (translateDirty) {
+                translateMat.makeTranslationMatrix(position);
+                translateDirty = false;
             }
             return translateMat;
         }
 
         Render::RotateMat getRotationMatrix() const {
-            if (dirty) {
-                rotateMat.makeModelMatrix(Vec3F{0,0,0}, rotationDegrees.toRads(), Vec3F{0,0,0});
-                dirty = false;
+            if (rotateDirty) {
+                rotateMat.makeRotationMatrix(rotationDegrees.toRads());
+                rotateDirty = false;
             }
             return rotateMat;
         }
 
         Render::ScaleMat getScaleMatrix() const {
-            if (dirty) {
-                scaleMat.makeModelMatrix(Vec3F{0,0,0}, Vec3F{0,0,0}, scale);
-                dirty = false;
+            if (scaleDirty) {
+                scaleMat.makeScaleMatrix(scale);
+                scaleDirty = false;
             }
             return scaleMat;
         }
@@ -202,22 +208,29 @@ namespace GLESC::Transform {
 
         // Mutable because we want to return it lazily
         mutable Render::Model modelMat;
+        mutable bool modelDirty = true;
         mutable Render::TranslateMat translateMat;
+        mutable bool translateDirty = true;
         mutable Render::RotateMat rotateMat;
+        mutable bool rotateDirty = true;
         mutable Render::ScaleMat scaleMat;
+        mutable bool scaleDirty = true;
+
         mutable bool dirty = true;
     };
 
     class Transformer {
     public:
         static void translateMesh(Render::ColorMesh& mesh, const Position& translation);
+        static void rotateMesh(Render::ColorMesh& mesh, const Rotation& rotationDegrees);
         static void transformMesh(Render::ColorMesh& mesh, const Transform& transform);
+        static Rotation lookAt(const Position& from, const Position& to, const Math::Direction& up);
         static Math::BoundingVolume transformBoundingVolume(const Math::BoundingVolume& boundingVolume,
         const Transform& transform);
         static Math::BoundingVolume transformBoundingVolume(const Math::BoundingVolume& boundingVolume,
                                                             const Render::Model& matrix);
 
-        static Position transformPosition(const Position& position, const Render::Model& matrix);
+        static Position transformVector(const Position& position, const Render::Model& matrix);
         static Position clipToNDC(const HomogeneousPosition& clipPos);
         static Position NDCToViewport(const Position& clipPos, float vpWidth, float vpHeight);
         static Position worldToViewport(const Position& worldPos, const Render::VP& viewProj, float vpWidth,

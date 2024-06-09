@@ -12,6 +12,7 @@
 #include "game/Game.h"
 
 #include "engine/ecs/frontend/component/RenderComponent.h"
+#include "engine/scene/engine-scenes/Default.h"
 #include "game/scenes/shoot-chicken/ShootTheChickenGame.h"
 #include "game/scenes/terrain/TerrainGeneratorGame.h"
 
@@ -19,9 +20,10 @@
 using namespace GLESC;
 
 void Game::init() {
+    registerScene<Default>(Default::getSceneName());
     registerScene<TerrainGeneratorGame>(TerrainGeneratorGame::getSceneName());
     registerScene<ShootTheChickenGame>(ShootTheChickenGame::getSceneName());
-    switchScene(ShootTheChickenGame::getSceneName());
+    switchScene(Default::getSceneName());
 }
 
 void Game::update() {

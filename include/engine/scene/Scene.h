@@ -17,6 +17,22 @@
 #include "engine/core/counter/Timer.h"
 
 namespace GLESC::Scene {
+#define SCENE_DEFINITION(sceneName) \
+    sceneName(GLESC::WindowManager& windowManager,\
+    GLESC::ECS::EntityFactory& entityFactory,\
+    GLESC::Input::InputManager& inputManager,\
+    GLESC::Scene::SceneManager& sceneManager,\
+    GLESC::HUD::HUDManager& hudManager,\
+    GLESC::EngineCamera& camera)\
+    : Scene(windowManager, entityFactory, inputManager, sceneManager,hudManager, camera) {} \
+    \
+    ~sceneName() override {\
+        destroyEntities();\
+    } \
+    static const std::string getSceneName() { return #sceneName; } \
+    void destroy() override { destroyEntities(); }
+
+
     class Scene {
     public:
         virtual ~Scene() {
@@ -27,11 +43,13 @@ namespace GLESC::Scene {
               ECS::EntityFactory& entityFactory,
               Input::InputManager& inputManager,
               SceneManager& sceneManager,
+              HUD::HUDManager& hudManager,
               EngineCamera& camera)
             : entityFactory(entityFactory),
               windowManager(windowManager),
               inputManager(inputManager),
               sceneManager(sceneManager),
+              hudManager(hudManager),
               camera(camera) {
             sceneTimer.start();
         }
@@ -40,9 +58,12 @@ namespace GLESC::Scene {
         virtual void update() = 0;
         virtual void destroy() = 0;
 
-        EngineCamera getCamera() { return camera; }
+        EngineCamera& getCamera() { return camera; }
+
+
         void switchScene(const std::string& sceneName) { sceneManager.switchScene(sceneName); }
         Time getSceneTime() { return sceneTimer.getCurrentTime(); }
+        Time getSceneTimeInSec() { return getSceneTime() / 1000.0; }
 
     protected:
         std::vector<ECS::EntityID>& getSceneEntities() { return sceneEntities; }
@@ -89,12 +110,13 @@ namespace GLESC::Scene {
             sceneEntities.clear();
         }
 
-    protected:
         ECS::EntityFactory& entityFactory;
         WindowManager& windowManager;
         Input::InputManager& inputManager;
+        HUD::HUDManager& hudManager;
 
     private:
+
         std::vector<ECS::EntityID> sceneEntities;
         SceneManager& sceneManager;
         SceneID sceneID{};

@@ -34,7 +34,7 @@ namespace GLESC::Input {
             subscribedKeysValue.isString = true;
             std::stringstream ss;
             for (const auto& [key, command] : subscribedKeys) {
-                ss << keyToString(key.key) << " ";
+                ss << keyToString(key.key) << "\n";
             }
             subscribedKeysValue.stringData = ss.str();
             values.push_back(subscribedKeysValue);
@@ -59,6 +59,10 @@ namespace GLESC::Input {
 
         void subscribeKey(KeyInput key, KeyCommand command) {
             subscribedKeys[key] = command;
+        }
+
+        void unsubscribeKey(KeyInput key) {
+            subscribedKeys.erase(key);
         }
 
         void setMouseCommand(MouseCommand command) {

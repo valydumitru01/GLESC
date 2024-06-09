@@ -21,15 +21,9 @@ std::vector<EntityStatsManager::Value> GLESC::Physics::Collider::getDebuggingVal
     solidValue.isModifiable = true;
     values.push_back(solidValue);
 
-    EntityStatsManager::Value onAirValue;
-    onAirValue.name = "On Air";
-    onAirValue.data = reinterpret_cast<void*>(&onAir);
-    onAirValue.type = EntityStatsManager::ValueType::BOOL;
-    onAirValue.isModifiable = true;
-    values.push_back(onAirValue);
 
     EntityStatsManager::Value boundingVolumeValueMin;
-    boundingVolumeValueMin.name = "Bounding Volume";
+    boundingVolumeValueMin.name = "Bounding Volume Min";
     boundingVolumeValueMin.data = reinterpret_cast<void*>(&boundingVolume.getBoundingBox().min);
     boundingVolumeValueMin.type = EntityStatsManager::ValueType::VEC3F;
     boundingVolumeValueMin.usesSlider = true;
@@ -39,7 +33,7 @@ std::vector<EntityStatsManager::Value> GLESC::Physics::Collider::getDebuggingVal
     values.push_back(boundingVolumeValueMin);
 
     EntityStatsManager::Value boundingVolumeValueMax;
-    boundingVolumeValueMax.name = "Bounding Volume";
+    boundingVolumeValueMax.name = "Bounding Volume Max";
     boundingVolumeValueMax.data = reinterpret_cast<void*>(&boundingVolume.getBoundingBox().max);
     boundingVolumeValueMax.type = EntityStatsManager::ValueType::VEC3F;
     boundingVolumeValueMax.usesSlider = true;
@@ -50,17 +44,24 @@ std::vector<EntityStatsManager::Value> GLESC::Physics::Collider::getDebuggingVal
 
     EntityStatsManager::Value isCollidingValue;
     isCollidingValue.name = "Is Colliding";
-    isCollidingValue.data = reinterpret_cast<void*>(&collidesAxis);
-    isCollidingValue.type = EntityStatsManager::ValueType::VEC3B;
-    isCollidingValue.isModifiable = true;
+    isCollidingValue.data = reinterpret_cast<void*>(&collisionInformation.isColliding());
+    isCollidingValue.type = EntityStatsManager::ValueType::BOOL;
+    isCollidingValue.isModifiable = false;
     values.push_back(isCollidingValue);
 
-    EntityStatsManager::Value colliderNamesValue;
-    colliderNamesValue.name = "Colliders";
-    colliderNamesValue.data = reinterpret_cast<void*>(&collidingWith);
-    colliderNamesValue.type = EntityStatsManager::ValueType::STRING;
-    colliderNamesValue.isModifiable = false;
-    values.push_back(colliderNamesValue);
+    EntityStatsManager::Value isCollidingWithAxisValue;
+    isCollidingWithAxisValue.name = "Is Colliding with axis";
+    isCollidingWithAxisValue.data = reinterpret_cast<void*>(&collisionInformation.getCollidingAxis());
+    isCollidingWithAxisValue.type = EntityStatsManager::ValueType::VEC3B;
+    isCollidingWithAxisValue.isModifiable = true;
+    values.push_back(isCollidingWithAxisValue);
+
+    EntityStatsManager::Value onAirValue;
+    onAirValue.name = "Is on ground";
+    onAirValue.data = reinterpret_cast<void*>(&collisionInformation.isOnGround());
+    onAirValue.type = EntityStatsManager::ValueType::BOOL;
+    onAirValue.isModifiable = true;
+    values.push_back(onAirValue);
 
 
     return values;
@@ -71,12 +72,26 @@ std::vector<EntityStatsManager::Value> GLESC::Physics::Collider::getUpdatedDebug
     EntityStatsManager::Value colliderNamesValue;
     colliderNamesValue.name = "Colliders";
     colliderNamesValue.isString = true;
-    for (auto& collider : collidingWith) {
-        colliderNamesValue.stringData += std::string(collider->getOwnerName()) + " ";
+    for (int i = 0; i < collisionInformation.getCollisionDepthForAxis().size(); i++) {
+        Vec3F& collisionDepth = collisionInformation.getCollisionDepthForAxis()[i];
+        Collider* collider = collisionInformation.getCollidingWithColliders()[i];
+        colliderNamesValue.stringData += std::string(collider->getOwnerName()) +
+            " depth: " + collisionDepth.toString() + "\n";
     }
     colliderNamesValue.type = EntityStatsManager::ValueType::STRING;
     colliderNamesValue.isModifiable = false;
     values.push_back(colliderNamesValue);
 
+
     return values;
+}
+
+std::string GLESC::Physics::Collider::toString() const {
+    // TODO: Improve this if needed (missing stuff)
+    std::stringstream ss;
+    ss << "AABB max:" + boundingVolume.getMax().toString() + " min:" + boundingVolume.getMin().toString();
+    ss << " Solid:" << solid;
+    ss << " On Air:" << collisionInformation.isOnGround();
+    ss << " Collides Axis:" << collisionInformation.getCollidingAxis().toString();
+    return ss.str();
 }

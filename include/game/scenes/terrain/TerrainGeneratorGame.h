@@ -17,23 +17,13 @@
 
 class TerrainGeneratorGame : public GLESC::Scene::Scene {
 public:
-    TerrainGeneratorGame(GLESC::WindowManager& windowManager,
-                        GLESC::ECS::EntityFactory& entityFactory,
-                        GLESC::Input::InputManager& inputManager,
-                        GLESC::Scene::SceneManager& sceneManager,
-                        GLESC::EngineCamera& camera)
-        : Scene(windowManager, entityFactory, inputManager, sceneManager, camera) {
-    }
+    SCENE_DEFINITION(TerrainGeneratorGame)
 
     void generateEntitiesForMap(GLESC::ECS::EntityFactory& entityFactory);
 
     void init() override;
 
     void update() override;
-
-    void destroy() override;
-
-    static const std::string getSceneName() { return "terrain-generator"; }
 
 private:
 }; // class TerrainGeneratorGame

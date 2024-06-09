@@ -47,7 +47,3 @@ void TerrainGeneratorGame::init() {
 
 void TerrainGeneratorGame::update() {
 }
-
-void TerrainGeneratorGame::destroy() {
-    destroyEntities();
-}

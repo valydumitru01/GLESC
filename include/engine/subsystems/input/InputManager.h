@@ -25,7 +25,7 @@ namespace GLESC::Input {
         /**
          * @brief Constructs an instance of the InputManager class.
          */
-        InputManager(HUDManager& hudManager, WindowManager& windowManager);
+        InputManager(HUD::HUDManager& hudManager, WindowManager& windowManager);
         /**
         * @brief Nothing to delete, use default destructor.
         */
@@ -170,6 +170,6 @@ namespace GLESC::Input {
         /**
          * @brief The HUDManager instance used to handle HUD events.
          */
-        HUDManager& hudManager;
+        HUD::HUDManager& hudManager;
     };
 }

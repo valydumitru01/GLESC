@@ -7,15 +7,18 @@
 
 #include "engine/ecs/frontend/system/System.h"
 #include "engine/subsystems/physics/PhysicsManager.h"
-#include "engine/subsystems/physics/PhysicsTypes.h"
+#include "engine/subsystems/physics/CollisionManager.h"
 
 namespace GLESC::ECS {
     class PhysicsSystem : public System {
     public:
-        explicit PhysicsSystem(Physics::PhysicsManager& physicsManager, ECSCoordinator& ecs);
+        explicit PhysicsSystem(Physics::PhysicsManager& physicsManager,
+                               Physics::CollisionManager& collisionManager,
+                               ECSCoordinator& ecs);
         void update() override;
 
     private:
         Physics::PhysicsManager& physicsManager;
+        Physics::CollisionManager& collisionManager;
     };
 } // namespace GLESC::ECS

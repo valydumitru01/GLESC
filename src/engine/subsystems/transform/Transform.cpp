@@ -71,7 +71,7 @@ GLESC::Math::Direction Transform::worldForward{Math::Direction(0.0f, 0.0f, 1.0f)
 
 void Transformer::transformMesh(Render::ColorMesh& mesh, const Mat4F& matrix) {
     for (auto& vertex : mesh.getModifiableVertices()) {
-        vertex.setPosition(transformPosition(vertex.getPosition(), matrix));
+        vertex.setPosition(transformVector(vertex.getPosition(), matrix));
     }
 
     transformBoundingVolume(mesh.getBoundingVolumeMutable(), matrix);
@@ -87,17 +87,29 @@ void Transformer::translateMesh(Render::ColorMesh& mesh, const Position& transla
     }
 }
 
+void Transformer::rotateMesh(Render::ColorMesh& mesh, const Rotation& rotationDegrees) {
+    const Rotation rotation = rotationDegrees.toRads();
+    for (auto& vertex : mesh.getModifiableVertices()) {
+        vertex.getPosition().rotate(rotation);
+    }
+}
+
 
 void Transformer::transformMesh(Render::ColorMesh& mesh, const Transform& transform) {
     Render::Model modelMat = transform.getModelMatrix();
     transformMesh(mesh, modelMat);
 }
 
+Rotation Transformer::lookAt(const Position& from, const Position& to, const Math::Direction& up) {
+    Math::Direction forward = (to - from).normalize();
+    return forward.vectorToEulerRotation(up).toDegrees();
+}
+
 GLESC::Math::BoundingVolume Transformer::transformBoundingVolume(const Math::BoundingVolume& boundingVolume,
                                                                  const Render::Model& matrix) {
     return {
-        transformPosition(boundingVolume.getVolume().min, matrix),
-        transformPosition(boundingVolume.getVolume().max, matrix)
+        transformVector(boundingVolume.getVolume().min, matrix),
+        transformVector(boundingVolume.getVolume().max, matrix)
     };
 }
 
@@ -108,7 +120,7 @@ GLESC::Math::BoundingVolume Transformer::transformBoundingVolume(const Math::Bou
 }
 
 
-Position Transformer::transformPosition(const Position& position, const Render::Model& matrix) {
+Position Transformer::transformVector(const Position& position, const Render::Model& matrix) {
     // IMPORTANT! We use row major matrices but the data distribution is prepared to be column major for in GPU
     // operations. So for the CPU we need to transpose the matrices.
 
@@ -142,6 +154,12 @@ Position Transformer::worldToViewport(const Position& worldPos, const Render::VP
 
 
 void Interpolator::pushTransform(const Transform& transform) {
+    // Check if the transform has changed significantly
+    if (Math::abs(transform.getPosition().length() - lastTransform.getPosition().length()) > 100.f) {
+        lastTransform = transform;
+        currentTransform = transform;
+    }
+
     lastTransform = currentTransform;
     currentTransform = transform;
 }

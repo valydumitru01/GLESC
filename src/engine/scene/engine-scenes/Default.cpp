@@ -73,8 +73,3 @@ void Default::update() {
         transform.addRotation(Transform::Rotation(0.01, 0.01, 0.1));
     }
 }
-
-void Default::destroy() {
-
-}
-

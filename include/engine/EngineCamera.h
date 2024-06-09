@@ -49,7 +49,6 @@ namespace GLESC {
                   .addComponent<ECS::InputComponent>()
                   .addComponent<ECS::PhysicsComponent>();
 
-            camera.getComponent<ECS::PhysicsComponent>().collider.setSolid(false);
             camera.getComponent<ECS::PhysicsComponent>().physics.setAffectedByGravity(false);
             camera.getComponent<ECS::CameraComponent>().perspective.setFarPlane(1000.0f);
             camera.getComponent<ECS::CameraComponent>().perspective.setNearPlane(0.1f);

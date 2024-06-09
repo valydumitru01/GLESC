@@ -21,11 +21,14 @@ namespace GLESC::Scene {
          * @brief Default constructor.
          */
         SceneContainer(WindowManager& windowManager, ECS::EntityFactory& entityFactory,
-                       Input::InputManager inputManager, SceneManager& sceneManager, EngineCamera& camera)
+                       Input::InputManager inputManager, SceneManager& sceneManager, HUD::HUDManager& hudManager,
+                       EngineCamera& camera)
             : windowManager(windowManager),
               entityFactory(entityFactory),
               sceneManager(sceneManager),
-              inputManager(inputManager), camera(camera) {
+              inputManager(inputManager),
+              hudManager(hudManager),
+              camera(camera) {
         }
 
         Scene& getScene(SceneID sceneID) {
@@ -40,7 +43,7 @@ namespace GLESC::Scene {
         SceneID registerScene() {
             static_assert(std::is_base_of_v<Scene, SceneType>, "SceneType must inherit from Scene");
             scenes[nextSceneID] = std::make_unique<SceneType>(windowManager, entityFactory, inputManager, sceneManager,
-                                                              camera);
+                                                              hudManager, camera);
             return nextSceneID++;
         }
 
@@ -51,6 +54,7 @@ namespace GLESC::Scene {
         WindowManager& windowManager;
         ECS::EntityFactory& entityFactory;
         SceneManager& sceneManager;
+        HUD::HUDManager& hudManager;
         EngineCamera& camera;
     }; // class SceneContainer
 } // namespace GLESC::Scene

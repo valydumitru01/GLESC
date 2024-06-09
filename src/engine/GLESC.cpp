@@ -49,8 +49,8 @@ Engine::Engine(FPSManager& fpsManager) :
     updateSystems(createUpdateSystems()),
     engineCamera(entityFactory, inputManager, windowManager),
     sceneManager(entityFactory, windowManager),
-    sceneContainer(windowManager, entityFactory, inputManager, sceneManager, engineCamera),
-    game(windowManager, entityFactory, sceneManager, sceneContainer) {
+    sceneContainer(windowManager, entityFactory, inputManager, sceneManager, hudManager, engineCamera),
+    game(sceneManager, sceneContainer) {
     engineCamera.setupCamera();
     this->registerStats();
     createEngineEntities();
@@ -111,7 +111,7 @@ std::vector<std::unique_ptr<ECS::System>> Engine::createUpdateSystems() {
     std::vector<std::unique_ptr<ECS::System>> systems;
     systems.push_back(std::make_unique<ECS::RenderSystem>(renderer, ecs));
     systems.push_back(std::make_unique<ECS::TransformSystem>(ecs));
-    systems.push_back(std::make_unique<ECS::PhysicsSystem>(physicsManager, ecs));
+    systems.push_back(std::make_unique<ECS::PhysicsSystem>(physicsManager, collisionManager, ecs));
     systems.push_back(std::make_unique<ECS::InputSystem>(inputManager, ecs));
     systems.push_back(std::make_unique<ECS::DebugInfoSystem>(ecs, renderer));
     systems.push_back(std::make_unique<ECS::CameraSystem>(renderer, windowManager, ecs));

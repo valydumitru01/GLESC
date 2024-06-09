@@ -82,37 +82,42 @@ namespace GLESC::Math {
                 point.getZ() >= boundingBox.min.getZ() && point.getZ() <= boundingBox.max.getZ();
         }
 
-        Vec3F intersectsVolume(const BoundingVolume& other) const {
+        Vec3F intersectionDepth(const BoundingVolume& other) const {
             float depthX = 0, depthY = 0, depthZ = 0;
 
             // Check X axis
-            float minX = std::max(boundingBox.min.getX(), other.boundingBox.min.getX());
-            float maxX = std::min(boundingBox.max.getX(), other.boundingBox.max.getX());
-            if (maxX > minX) {
-                depthX = maxX - minX;
+            if (boundingBox.max.getX() > other.boundingBox.min.getX() && boundingBox.min.getX() < other.boundingBox.max.
+                getX()) {
+                depthX = std::min(boundingBox.max.getX(), other.boundingBox.max.getX()) - std::max(
+                    boundingBox.min.getX(), other.boundingBox.min.getX());
                 if (boundingBox.min.getX() < other.boundingBox.min.getX()) {
                     depthX = -depthX;
                 }
             }
 
             // Check Y axis
-            float minY = std::max(boundingBox.min.getY(), other.boundingBox.min.getY());
-            float maxY = std::min(boundingBox.max.getY(), other.boundingBox.max.getY());
-            if (maxY > minY) {
-                depthY = maxY - minY;
+            if (boundingBox.max.getY() > other.boundingBox.min.getY() && boundingBox.min.getY() < other.boundingBox.max.
+                getY()) {
+                depthY = std::min(boundingBox.max.getY(), other.boundingBox.max.getY()) - std::max(
+                    boundingBox.min.getY(), other.boundingBox.min.getY());
                 if (boundingBox.min.getY() < other.boundingBox.min.getY()) {
                     depthY = -depthY;
                 }
             }
 
             // Check Z axis
-            float minZ = std::max(boundingBox.min.getZ(), other.boundingBox.min.getZ());
-            float maxZ = std::min(boundingBox.max.getZ(), other.boundingBox.max.getZ());
-            if (maxZ > minZ) {
-                depthZ = maxZ - minZ;
+            if (boundingBox.max.getZ() > other.boundingBox.min.getZ() && boundingBox.min.getZ() < other.boundingBox.max.
+                getZ()) {
+                depthZ = std::min(boundingBox.max.getZ(), other.boundingBox.max.getZ()) - std::max(
+                    boundingBox.min.getZ(), other.boundingBox.min.getZ());
                 if (boundingBox.min.getZ() < other.boundingBox.min.getZ()) {
                     depthZ = -depthZ;
                 }
+            }
+
+            // If no overlap in any axis, return {0, 0, 0}
+            if (depthX == 0 || depthY == 0 || depthZ == 0) {
+                return {0, 0, 0};
             }
 
             return {depthX, depthY, depthZ};
@@ -154,6 +159,9 @@ namespace GLESC::Math {
         }
 
         static BoundingVolume createFromVulume(float width, float height, float depth) {
+            D_ASSERT_GREATER(width, 0, "Width must be greater than 0");
+            D_ASSERT_GREATER(height, 0, "Height must be greater than 0");
+            D_ASSERT_GREATER(depth, 0, "Depth must be greater than 0");
             return BoundingVolume(Vec3F(-width / 2, -height / 2, -depth / 2), Vec3F(width / 2, height / 2, depth / 2));
         }
 

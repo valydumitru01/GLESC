@@ -27,6 +27,7 @@ public:
     }
 
     [[nodiscard]] virtual std::vector<EntityStatsManager::Value> getDebuggingValues() = 0;
+    [[nodiscard]] virtual std::string toString() const = 0;
 
     [[nodiscard]] virtual std::vector<EntityStatsManager::Value> getUpdatedDebuggingValues() {
         return std::vector<EntityStatsManager::Value>();

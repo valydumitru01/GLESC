@@ -8,6 +8,7 @@
  * See LICENSE.txt in the project root for license information.
  **************************************************************************************************/
 #pragma once
+#include "ChickenKillCountHUD.h"
 #include "engine/core/window/WindowManager.h"
 #include "engine/ecs/frontend/entity/EntityFactory.h"
 #include "engine/scene/Scene.h"
@@ -21,24 +22,20 @@
 
 class ShootTheChickenGame : public GLESC::Scene::Scene {
 public:
-    ShootTheChickenGame(GLESC::WindowManager& windowManager,
-                        GLESC::ECS::EntityFactory& entityFactory,
-                        GLESC::Input::InputManager& inputManager,
-                        GLESC::Scene::SceneManager& sceneManager,
-                        GLESC::EngineCamera& camera)
-        : Scene(windowManager, entityFactory, inputManager, sceneManager, camera) {
-    }
-
-    ~ShootTheChickenGame() override {
-        destroyEntities();
-    }
+    SCENE_DEFINITION(ShootTheChickenGame)
 
     void createChickenMesh();
+    void createPlayerMesh();
     void createBulletMesh();
+    void createTreeMesh();
+
     void createFloorEntity();
+    void createTreeEntities();
     void generateChickenEntities();
 
-    void setUpControls();
+    GLESC::Transform::Position generateChickenPosition();
+
+    void createPlayerEntity();
 
     void shootBulletActionFunc();
     void jumpActionFunc();
@@ -46,8 +43,6 @@ public:
 
     void init() override;
     void update() override;
-    void destroy() override;
-    static const std::string getSceneName() { return "shoot-the-chicken"; }
 
 private:
     GLESC::Input::KeyCommand shootBulletAction;
@@ -57,8 +52,13 @@ private:
     GLESC::Input::KeyCommand moveForwardAction;
     GLESC::Input::KeyCommand moveBackwardAction;
 
+    GLESC::Render::ColorMesh playerMesh;
     GLESC::Render::ColorMesh chickenMesh;
     GLESC::Render::ColorMesh bulletMesh;
+    GLESC::Render::ColorMesh treeMesh;
+
+    ChickenKillCountHUD chickenKillCountHUD;
+
     std::vector<GLESC::ECS::EntityID> chickens;
     // This will lead to memory leak
     std::vector<GLESC::ECS::EntityID> bullets;

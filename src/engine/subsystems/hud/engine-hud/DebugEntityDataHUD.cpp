@@ -285,8 +285,9 @@ void DebugEntityData::windowContent() {
                 *value.valueDirty = true;
             putInputForType(value.type, value);
         }
-        for (EntityStatsManager::Value value : stat.updatedValues) {
-            putInputForType(value.type, value);
+        for (const EntityStatsManager::Value& value : stat.getUpdatedValues()) {
+            ImGui::Text(value.name.c_str());
+            ImGui::Text(value.stringData.c_str());
         }
         ImGui::EndChild(); // End of component frame
         ImGui::Spacing(); // Add some space between components for better readability

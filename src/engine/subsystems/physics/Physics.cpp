@@ -62,5 +62,22 @@ using namespace GLESC::Physics;
     accelerationValue.max = 1000.0F;
     values.push_back(accelerationValue);
 
+    EntityStatsManager::Value affectedByGravity;
+    affectedByGravity.name = "Affected by gravity";
+    affectedByGravity.data = reinterpret_cast<void*>(&this->affectedByGravity);
+    affectedByGravity.type = EntityStatsManager::ValueType::BOOL;
+    affectedByGravity.isModifiable = true;
+    values.push_back(affectedByGravity);
+
+    EntityStatsManager::Value frictionValue;
+    frictionValue.name = "Friction";
+    frictionValue.data = reinterpret_cast<void*>(&friction);
+    frictionValue.type = EntityStatsManager::ValueType::FLOAT;
+    frictionValue.isModifiable = true;
+    frictionValue.usesSlider = true;
+    frictionValue.min = 0.0F;
+    frictionValue.max = 1.0F;
+    values.push_back(frictionValue);
+
     return values;
 }

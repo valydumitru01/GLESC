@@ -16,6 +16,7 @@ namespace GLESC::Physics {
     using Force = Vec3F;
     using Acceleration = Vec3F;
     using Friction = float;
+    using Bounciness = float;
     using Scalar = float;
 
     using AngularVelocity = Vec3F;

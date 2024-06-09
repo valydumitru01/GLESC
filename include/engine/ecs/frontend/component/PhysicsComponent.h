@@ -12,9 +12,8 @@
 #include "engine/subsystems/physics/PhysicsTypes.h"
 
 namespace GLESC::ECS {
-    struct PhysicsComponent : IComponent {
+    struct PhysicsComponent : public IComponent {
         Physics::Physics physics;
-        Physics::Collider collider;
 
         std::string toString() const override {
             return physics.toString();
@@ -28,17 +27,10 @@ namespace GLESC::ECS {
             for (auto& value : physics.getDebuggingValues()) {
                 values.push_back(value);
             }
-
-            for (auto& value : collider.getDebuggingValues()) {
-                values.push_back(value);
-            }
         }
 
         void setUpdatedDebuggingValues() override {
             for (auto& value : physics.getUpdatedDebuggingValues()) {
-                updatedValues.push_back(value);
-            }
-            for (auto& value : collider.getUpdatedDebuggingValues()) {
                 updatedValues.push_back(value);
             }
         }

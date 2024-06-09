@@ -24,7 +24,9 @@ namespace GLESC::Render {
         }
 
         [[nodiscard]] const Position& getPosition() const { return position; }
+        [[nodiscard]] Position& getPosition() { return position; }
         [[nodiscard]] const Normal& getNormal() const { return normal; }
+        [[nodiscard]] Normal& getNormal() { return normal; }
 
         void setPosition(const Position& positionParam) { position = positionParam; }
         void setNormal(const Normal& normalParam) { normal = normalParam; }

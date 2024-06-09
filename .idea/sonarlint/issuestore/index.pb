@@ -23,8 +23,6 @@ X
 (src/engine/core/window/WindowManager.cpp,4\7\47acc1dc6ce401691c78ae8c2f4f351418fa549d
 X
 (src/engine/subsystems/hud/HUDManager.cpp,a\d\ade15bade43e0f2e3e30908cf71dbade026d3130
-W
-'src/engine/ecs/systems/RenderSystem.cpp,c\5\c5570a78ed8c891d26aa504a2fc5c7d7c7d4ba96
 ]
 -src/engine/res-mng/textures/TextureLoader.cpp,4\5\4531d26401f2d2a0041484a774146536d8513c9e
 _
@@ -33,8 +31,6 @@ W
 'include/engine/core/debugger/Debugger.h,d\0\d0c0a520391af322d0292a638913289e86dfcd33
 M
 include/engine/ecs/ECSTypes.h,0\a\0aae88874e7c2d482b393024bca136e678fcbdb1
-W
-'src/engine/ecs/systems/CameraSystem.cpp,5\a\5a6d8e5cf6473a464d43587adf5a5d79508c2520
 _
 /src/engine/ecs/backend/entity/EntityManager.cpp,2\b\2bd1f1606331b1b72ba288e702f5ea3cf447a9d2
 ]

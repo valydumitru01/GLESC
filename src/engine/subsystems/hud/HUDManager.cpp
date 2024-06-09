@@ -19,7 +19,7 @@
 #include "engine/subsystems/hud/HudLookAndFeel.h"
 #include "engine/core/low-level-renderer/graphic-api/Gapi.h"
 
-
+using namespace GLESC::HUD;
 HUDManager::HUDManager(SDL_Window &window) :
     window(window) {
     initImGUI();
@@ -37,8 +37,19 @@ void HUDManager::processInput(SDL_Event &event) {
     ImGui_ImplSDL2_ProcessEvent(&event);
 }
 
-void HUDManager::addWindow(GLESC::InGameWindow &window) {
+void HUDManager::addWindow(GLESC::InGameWindow &window, const std::string &name) {
     windows.push_back(&window);
+    windowNames.push_back(Hasher::hash(name));
+}
+void HUDManager::removeWindow(const std::string &name) {
+    auto hash = Hasher::hash(name);
+    for (int i = 0; i < windowNames.size(); i++) {
+        if (windowNames[i] == hash) {
+            windows.erase(windows.begin() + i);
+            windowNames.erase(windowNames.begin() + i);
+            break;
+        }
+    }
 }
 
 void HUDManager::update() {

@@ -17,13 +17,9 @@
 
 class Game {
 public:
-    Game(GLESC::WindowManager& windowManager,
-         GLESC::ECS::EntityFactory& entityFactory,
-         GLESC::Scene::SceneManager& sceneManager,
+    Game(GLESC::Scene::SceneManager& sceneManager,
          GLESC::Scene::SceneContainer& sceneContainer) :
-        windowManager(windowManager),
-        entityFactory(entityFactory),
-        sceneManager(sceneManager), sceneContainer(sceneContainer){
+        sceneManager(sceneManager), sceneContainer(sceneContainer) {
     }
 
     void init();
@@ -41,8 +37,6 @@ private:
         sceneContainer.getScene(sceneManager.getCurrentScene()).init();
     }
 
-    GLESC::ECS::EntityFactory& entityFactory;
-    GLESC::WindowManager& windowManager;
     GLESC::Scene::SceneManager& sceneManager;
     GLESC::Scene::SceneContainer& sceneContainer;
 }; // class Game

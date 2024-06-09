@@ -60,7 +60,7 @@ public:
     struct ComponentData {
         std::string name;
         std::vector<Value>* values;
-        std::vector<Value> updatedValues;
+        std::function<std::vector<Value>()> getUpdatedValues;
     };
 
     struct EntityData {

@@ -50,6 +50,7 @@ namespace GLESC::Physics {
         void giveAngularForce(const AngularForce& angularForce) { this->angularForce = angularForce; }
 
         void setAffectedByGravity(bool affectedByGravity) { this->affectedByGravity = affectedByGravity; }
+        void setStatic(bool isStatic) { this->staticObj = isStatic; }
 
 
         [[nodiscard]] Mass getMass() const { return mass; }
@@ -60,6 +61,7 @@ namespace GLESC::Physics {
 
 
         [[nodiscard]] bool isAffectedByGravity() const { return affectedByGravity; }
+        [[nodiscard]] bool isStatic() const { return staticObj; }
 
         [[nodiscard]] AngularForce getAngularForce() const { return angularForce; }
         [[nodiscard]] AngularAcceleration getAngularAcceleration() const { return angAccel; }
@@ -71,7 +73,7 @@ namespace GLESC::Physics {
 
     private:
         Mass mass{1.0F};
-        Friction friction{0.1F};
+        Friction friction{0.01F};
         Velocity velocity{0, 0, 0};
         Acceleration acceleration{0, 0, 0};
         Force force{0, 0, 0};
@@ -80,7 +82,7 @@ namespace GLESC::Physics {
         AngularAcceleration angAccel{0, 0, 0};
         AngularVelocity angularVelocity{0, 0, 0};
 
-
+        bool staticObj{false};
         bool affectedByGravity{true};
     }; // class Physics
 } // namespace Physics

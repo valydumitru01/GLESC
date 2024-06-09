@@ -27,6 +27,7 @@
 #include "engine/subsystems/renderer/Renderer.h"
 #include "engine/subsystems/input/InputManager.h"
 #include "engine/subsystems/physics/PhysicsManager.h"
+#include "subsystems/physics/CollisionManager.h"
 
 // Game
 #include "EngineCamera.h"
@@ -99,7 +100,8 @@ namespace GLESC {
         Render::Renderer renderer;
 
         Physics::PhysicsManager physicsManager;
-        HUDManager hudManager;
+        Physics::CollisionManager collisionManager;
+        HUD::HUDManager hudManager;
         TextureFactory textureFactory;
 
         FPSManager& fpsManager;

@@ -438,6 +438,28 @@ namespace GLESC::Math {
         }
 
 
+        template  <typename PosType>
+        Matrix& makeTranslationMatrix(const Vector<PosType, 3>& position) {
+            S_ASSERT_TRUE(N == 4 && M == 4, "Translation matrix can only be created for 4x4 matrices");
+            MatrixAlgorithms::getTranslationMatrix<Type, PosType>(position.data, this->data);
+            return *this;
+        }
+
+        template <typename RotType>
+        Matrix& makeRotationMatrix(const Vector<RotType, 3>& rotationRads) {
+            S_ASSERT_TRUE(N == 4 && M == 4, "Rotation matrix can only be created for 4x4 matrices");
+            MatrixMixedAlgorithms::getRotate3DMatrix<Type, RotType>(rotationRads.data, this->data);
+            return *this;
+        }
+
+        template <typename ScaleType>
+        Matrix& makeScaleMatrix(const Vector<ScaleType, 3>& scale) {
+            S_ASSERT_TRUE(N == 4 && M == 4, "Scale matrix can only be created for 4x4 matrices");
+            MatrixAlgorithms::getScaleMatrix<Type, ScaleType>(scale.data, this->data);
+            return *this;
+        }
+
+
         template <typename ModelType>
         Matrix& makeNormalMatrix(const Matrix<ModelType, 4, 4>& MVMat) {
             S_ASSERT_TRUE(N == 3 && M == 3, "Normal matrix can only be created for 4x4 matrices");
@@ -501,12 +523,6 @@ namespace GLESC::Math {
          */
         [[nodiscard]] size_t rank() {
             return MatrixAlgorithms::gaussianElimination(this->data).rank;
-        }
-
-        [[nodiscard]] Matrix<Type, 4, 4> lookAt(const Vector<Type, 3>& target, const Vector<Type, 3>& up) const {
-            Matrix<Type, 4, 4> result;
-            MatrixMixedAlgorithms::lookAt3D(this->data, target.data, up.data, result.data);
-            return result;
         }
 
 

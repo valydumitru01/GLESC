@@ -528,11 +528,80 @@ namespace GLESC::Math {
         */
         template <typename Type, size_t N>
         static bool areParallel(const VectorData<Type, N>& vec1, const VectorData<Type, N>& vec2) {
-            Type absDot = Math::abs(dotProduct(vec1, vec2));
-            Type length1 = length(vec1);
-            Type length2 = length(vec2);
+            Type absDot = Math::abs(VectorAlgorithms::dotProduct(vec1, vec2));
+            Type length1 = VectorAlgorithms::length(vec1);
+            Type length2 = VectorAlgorithms::length(vec2);
             Type productOfLengths = length1 * length2;
             return Math::eq(absDot, productOfLengths); // Account for floating-point errors
+        }
+
+        /**
+         * @brief Reflects a vector against a normal vector.
+         * @details Computes the reflection of a vector against a given normal vector.
+         * @tparam Type Data type of the vectors (e.g., double, float).
+         * @param vec The vector to be reflected.
+         * @param normal The normal vector to reflect against.
+         * @param result The reflected vector.
+         */
+        template <typename Type, size_t N>
+        static void reflect(const VectorData<Type, N>& vec, const VectorData<Type, N>& normal,
+                            VectorData<Type, N>& result) {
+            VectorData<Type, N> normalizedNormal;
+            VectorAlgorithms::normalize(normal, normalizedNormal);
+            Type dotProd = VectorAlgorithms::dotProduct(vec, normalizedNormal);
+            for (size_t i = 0; i < N; ++i) {
+                result[i] = vec[i] - normalizedNormal[i] * dotProd * 2.0f;
+            }
+        }
+
+
+        /**
+         * @brief Converts a direction vector to Euler angles.
+         * @details Converts a direction vector to Euler angles (pitch, yaw, roll).
+         * @tparam Type Data type of the vector (e.g., double, float).
+         * @param direction The direction vector.
+         * @param up The up vector.
+         * @param rotation Output vector for pitch, yaw, and roll.
+         */
+        template <typename Type>
+        static void vectorToEuler(const VectorData<Type, 3>& direction, const VectorData<Type, 3>& up,
+                                  VectorData<Type, 3>& rotation) {
+            VectorData<Type, 3> normalizedDirection;
+            VectorAlgorithms::normalize(direction, normalizedDirection);
+
+            VectorData<Type, 3> right;
+            VectorAlgorithms::crossProduct(normalizedDirection, up, right);
+            VectorAlgorithms::normalize(right, right);
+
+            VectorData<Type, 3> newUp;
+            VectorAlgorithms::crossProduct(right, normalizedDirection, newUp);
+
+            Type pitch, yaw, roll;
+
+            // Calculate yaw (rotation around the y-axis)
+            if (!Math::eq(normalizedDirection[0], Type(0)) || !Math::eq(normalizedDirection[2], Type(0))) {
+                yaw = Math::atan2(normalizedDirection[0], normalizedDirection[2]);
+            }
+            else {
+                yaw = 0;
+            }
+
+            // Calculate pitch (rotation around the x-axis)
+            Type horizontalDist = Math::sqrt(
+                normalizedDirection[0] * normalizedDirection[0] + normalizedDirection[2] * normalizedDirection[2]);
+            pitch = Math::atan2(-normalizedDirection[1], horizontalDist);
+
+            // Calculate roll (rotation around the z-axis)
+            if (!Math::eq(up[0], Type(0)) || !Math::eq(up[1], Type(0)) || !Math::eq(up[2], Type(0))) {
+                roll = Math::atan2(newUp[0], newUp[1]);
+            }
+            else {
+                roll = 0;
+            }
+
+            rotation[0] = pitch;
+            rotation[1] = yaw;
+            rotation[2] = roll;
         }
 
         template <typename Type, size_t N>
@@ -589,6 +658,39 @@ namespace GLESC::Math {
             result[0] = -Math::cos(roll) * Math::sin(pitch) * Math::sin(yaw) + Math::sin(roll) * Math::cos(yaw); // up_x
             result[1] = Math::cos(roll) * Math::cos(pitch); // up_y
             result[2] = -Math::cos(roll) * Math::sin(pitch) * Math::cos(yaw) - Math::sin(roll) * Math::sin(yaw); // up_z
+        }
+
+        template <typename Type>
+        static void rotateVector3D(const VectorData<Type, 3>& vec,
+                                   const VectorData<Type, 3>& rotationRads,
+                                   VectorData<Type, 3>& result) {
+            Type cosX = Math::cos(rotationRads[0]);
+            Type sinX = Math::sin(rotationRads[0]);
+            Type cosY = Math::cos(rotationRads[1]);
+            Type sinY = Math::sin(rotationRads[1]);
+            Type cosZ = Math::cos(rotationRads[2]);
+            Type sinZ = Math::sin(rotationRads[2]);
+
+            // Rotation matrix for X axis
+            VectorData<Type, 3> rotatedX = {
+                vec[0],
+                vec[1] * cosX - vec[2] * sinX,
+                vec[1] * sinX + vec[2] * cosX
+            };
+
+            // Rotation matrix for Y axis
+            VectorData<Type, 3> rotatedY = {
+                rotatedX[0] * cosY + rotatedX[2] * sinY,
+                rotatedX[1],
+                -rotatedX[0] * sinY + rotatedX[2] * cosY
+            };
+
+            // Rotation matrix for Z axis
+            result = {
+                rotatedY[0] * cosZ - rotatedY[1] * sinZ,
+                rotatedY[0] * sinZ + rotatedY[1] * cosZ,
+                rotatedY[2]
+            };
         }
 
 

@@ -165,6 +165,7 @@ namespace GLESC::Render {
         static const ColorRgb PURPLE;
         static const ColorRgb PINK;
         static const ColorRgb BROWN;
+        static const ColorRgb DARK_BROWN;
         static const ColorRgb GREY;
         static const ColorRgb LIGHT_GREY;
         static const ColorRgb DARK_GREY;

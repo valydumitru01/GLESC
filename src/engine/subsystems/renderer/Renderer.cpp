@@ -105,7 +105,7 @@ void Renderer::renderLights(const std::vector<const LightSpot*>& lights,
             interpolationTransforms[&transform].interpolate(static_cast<float>(timeOfFrame));
 
         Position lightPosViewSpace =
-            Transform::Transformer::transformPosition(interpolatedTransform.getPosition(), getView());
+            Transform::Transformer::transformVector(interpolatedTransform.getPosition(), getView());
         Shader::setUniform("uLights.posInViewSpace[" + iStr + "]", lightPosViewSpace);
 
         if (!light.isDirty()) continue;

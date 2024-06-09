@@ -211,6 +211,29 @@ namespace GLESC::Math {
         return a > b ? static_cast<CommonType>(a) : static_cast<CommonType>(b);
     }
 
+
+    /**
+     * @brief Remaps a value from one range to another, including support for reverse mapping.
+     * @details Maps the value `x` from the range [min1, max1] to the range [min2, max2].
+     *
+     * @tparam Type Data type of the value (e.g., float, double).
+     * @param x The value to be remapped.
+     * @param min1 The lower bound of the input range.
+     * @param max1 The upper bound of the input range.
+     * @param min2 The lower bound of the output range.
+     * @param max2 The upper bound of the output range.
+     * @return Remapped value.
+     */
+    template <typename TypeX, typename TypeMin1, typename TypeMax1, typename TypeMin2, typename TypeMax2>
+    static TypeX remap(TypeX x, TypeMin1 min1, TypeMax1 max1, TypeMin2 min2, TypeMax2 max2) {
+        // Ensure the input value is clamped within the input range
+        x = Math::clamp(x, min1, max1);
+        // Calculate the proportion of x within the input range
+        TypeX t = (x - min1) / (max1 - min1);
+        // Map the proportion to the output range
+        return min2 + t * (max2 - min2);
+    }
+
     template <typename Type>
     Type sqrt(const Type& value) {
         S_ASSERT_TRUE(std::is_arithmetic_v<Type>, "Type must be arithmetic");
@@ -250,6 +273,12 @@ namespace GLESC::Math {
     auto tan(const Type& value) {
         S_ASSERT_TRUE(std::is_arithmetic_v<Type>, "Type must be arithmetic");
         return std::tan(value);
+    }
+
+    template <typename Type>
+    auto atan2(const Type& y, const Type& x) {
+        S_ASSERT_TRUE(std::is_arithmetic_v<Type>, "Type must be arithmetic");
+        return std::atan2(y, x);
     }
 
 

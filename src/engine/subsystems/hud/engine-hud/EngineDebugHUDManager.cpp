@@ -16,10 +16,10 @@ EngineDebugHUDManager::EngineDebugHUDManager(HUDManager& hudManager, Render::Ren
                                              TextureFactory& textureManager) :
     debugConsoleHud(), debugStatsHud(), debugEntityDataHud(), crosshairHud(),
     debugItemHud(renderer, textureManager) {
-    hudManager.addWindow(debugConsoleHud);
-    hudManager.addWindow(debugStatsHud);
-    hudManager.addWindow(debugEntityDataHud);
-    hudManager.addWindow(crosshairHud);
-    hudManager.addWindow(entityListHud);
-    hudManager.addWindow(debugItemHud);
+    hudManager.addWindow(debugConsoleHud, "Debug Console");
+    hudManager.addWindow(debugStatsHud, "Debug Stats");
+    hudManager.addWindow(debugEntityDataHud, "Entity Data");
+    hudManager.addWindow(crosshairHud, "Crosshair");
+    hudManager.addWindow(entityListHud, "Entity List");
+    hudManager.addWindow(debugItemHud, "Debug Items");
 }

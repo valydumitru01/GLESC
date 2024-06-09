@@ -41,8 +41,8 @@ namespace GLESC::ECS {
         }
 
         std::vector<EntityStatsManager::Value> getUpdatedDebuggingValues() {
-            std::vector<EntityStatsManager::Value> updatedValuesAux = updatedValues;
             setUpdatedDebuggingValues();
+            std::vector<EntityStatsManager::Value> updatedValuesAux = updatedValues;
             updatedValues.clear();
             return updatedValuesAux;
         }
