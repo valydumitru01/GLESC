@@ -25,8 +25,8 @@ void DebugInfoSystem::setEntityData(const EntityName& name) {
     EntityID entityId = getEntity(name);
     if(selectedEntity == entityId) return;
 
+    entityData.name = name;
     std::vector<IComponent*> components = getComponents(entityId);
-
     for (IComponent* component : components) {
         EntityStatsManager::ComponentData componentData;
         componentData.name = component->getName();

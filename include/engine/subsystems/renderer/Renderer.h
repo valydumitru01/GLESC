@@ -93,7 +93,8 @@ namespace GLESC::Render {
         void setSun(const GlobalSun& sun, const GlobalAmbienLight& ambientLight, const Transform::Transform& transform);
         void setFog(const Fog& fogParam, const Transform::Transform& transform);
 
-        void clearRenderer();
+        void clearMeshData();
+        void clearLightData();
     private:
         void start(double timeOfFrame);
         void render(double timeOfFrame);

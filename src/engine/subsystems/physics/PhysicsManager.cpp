@@ -16,10 +16,11 @@ namespace GLESC::Physics {
             physics.setVelocity({0, 0, 0});
             physics.setAcceleration({0, 0, 0});
             physics.setForce({0, 0, 0});
+            return;
         }
 
         // Calculate acceleration
-        physics.addAcceleration(physics.getForce() / physics.getMass());
+        physics.addAcceleration(physics.getForce() * 10 / physics.getMass());
         if (physics.isAffectedByGravity())
             physics.addAcceleration(gravity);
 
@@ -27,7 +28,10 @@ namespace GLESC::Physics {
         physics.addVelocity(physics.getAcceleration());
 
         // Apply friction
-        physics.addVelocity(-physics.getVelocity() * airFriction);
+        if (physics.getAirFriction() < 0.0f)
+            physics.addVelocity(-physics.getVelocity() * airFriction);
+        else
+            physics.addVelocity(-physics.getVelocity() * physics.getAirFriction());
 
         // Clear forces
         physics.setForce(Force(0.0F, 0.0F, 0.0F));
@@ -55,6 +59,58 @@ namespace GLESC::Physics {
         }
     }
 
+    Velocity getBouncingVelocity(const Velocity& velocity, const Vec3F& collisionNormal, float bounciness) {
+        Velocity bouncingVelocity = velocity * bounciness;
+        // Reflect, for bounciness
+        bouncingVelocity = bouncingVelocity.reflect(collisionNormal);
+        return bouncingVelocity;
+    }
+
+    using AxisConstraints = std::array<std::array<bool, 2>, 3>;
+
+    AxisConstraints getAxisFree(const Collider& collider) {
+        AxisConstraints isAxisFree = {{
+            //   +     -    // Axis
+            {true, true}, // X
+            {true, true}, // Y
+            {true, true} // Z
+        }};
+
+        for (const Vec3F& collisionDepth : collider.getCollisionInformation().getCollisionDepthForAxis()) {
+            for (int i = 0; i < 3; ++i) {
+                // Check if the collision depth is positive or negative
+                isAxisFree[i][0] = isAxisFree[i][0] && !Math::gt(collisionDepth[i], 0.0f);
+                isAxisFree[i][1] = isAxisFree[i][1] && !Math::lt(collisionDepth[i], 0.0f);
+            }
+        }
+        return isAxisFree;
+    }
+
+    Velocity getVelocityWithFriction(const Physics& physics, const std::vector<Physics*>& physicsOfCollided) {
+        Velocity velocityWithFriction = physics.getVelocity();
+        for (auto otherPhysics : physicsOfCollided) {
+            // Calculate the average friction coefficient between the two objects
+            float frictionCoefficient = otherPhysics->getFriction() + physics.getFriction();
+
+            // Calculate the friction force based on the velocity and friction coefficient
+            Vec3F frictionForce = physics.getVelocity() * frictionCoefficient;
+
+            // Apply the friction force to the total velocity
+            velocityWithFriction -= frictionForce;
+        }
+        return velocityWithFriction;
+    }
+
+    bool isFrictionApplied(const Physics& physics,
+                           const AxisConstraints& freeAxis) {
+        bool isFrictionApplied = true;
+
+        for (int i = 0; i < 3; ++i) {
+            isFrictionApplied = Math::gt(physics.getVelocity()[i], 0) && freeAxis[i][0] && isFrictionApplied;
+            isFrictionApplied = Math::lt(physics.getVelocity()[i], 0) && freeAxis[i][1] && isFrictionApplied;
+        }
+        return isFrictionApplied;
+    }
 
     void PhysicsManager::handleCollisions(Collider& collider, Physics& physics) const {
         CollisionInformation& info = collider.getCollisionInformation();
@@ -73,34 +129,24 @@ namespace GLESC::Physics {
             Vec3F collisionNormal = {
                 info.getCollidingAxis().getX(), info.getCollidingAxis().getY(), info.getCollidingAxis().getZ()
             };
-            Velocity bouncingVelocity = physics.getVelocity() * bounciness;
-            // Reflect, for bounciness
-            bouncingVelocity = bouncingVelocity.reflect(collisionNormal);
-            finalVelocity = bouncingVelocity;
+            finalVelocity = getBouncingVelocity(physics.getVelocity(), collisionNormal, bounciness);
         }
         else {
-            Vec3F velocityWithFriction = physics.getVelocity();
-            for (auto otherPhysics : info.getPhysicsOfCollided()) {
-                // Calculate the average friction coefficient between the two objects
-                float frictionCoefficient = otherPhysics->getFriction() + physics.getFriction();
+            AxisConstraints freeAxis = getAxisFree(collider);
+            bool frictionApplied = isFrictionApplied(physics, freeAxis);
 
-                // Calculate the friction force based on the velocity and friction coefficient
-                Vec3F frictionForce = physics.getVelocity() * frictionCoefficient;
+            Vec3F velocityWithFriction;
+            if (frictionApplied)
+                velocityWithFriction = physics.getVelocity();
+            else
+                velocityWithFriction= getVelocityWithFriction(physics, info.getPhysicsOfCollided());
 
-                // Apply the friction force to the total velocity
-                velocityWithFriction -= frictionForce;
+            for (int i = 0; i < 3; ++i) {
+                if (Math::gt(velocityWithFriction[i], 0.0f))
+                    velocityWithFriction[i] *= static_cast<float>(freeAxis[i][0]);
+                else
+                    velocityWithFriction[i] *= static_cast<float>(freeAxis[i][1]);
             }
-
-            float isXFree = !collider.getCollisionInformation().getCollidingAxis().getX();
-            float isYFree = !collider.getCollisionInformation().getCollidingAxis().getY();
-            float isZFree = !collider.getCollisionInformation().getCollidingAxis().getZ();
-
-            velocityWithFriction.setX(isXFree * velocityWithFriction.getX());
-
-            velocityWithFriction.setY(isYFree * velocityWithFriction.getY());
-
-            velocityWithFriction.setZ(isZFree * velocityWithFriction.getZ());
-
             finalVelocity = velocityWithFriction;
         }
 

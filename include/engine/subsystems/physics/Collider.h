@@ -25,17 +25,21 @@ namespace GLESC::Physics {
         using CollisionCallback = std::function<void(Collider&)>;
         using SpecificCollisionCallbacks = std::unordered_map<Collider*, CollisionCallback>;
         friend class CollisionManager;
+
     public:
         Collider() = default;
-        ~Collider() = default;
+        ~Collider() override = default;
 
         void setBoundingVolume(const Math::BoundingVolume& boundingVolume) { this->boundingVolume = boundingVolume; }
         void setCollisionCallback(std::function<void(Collider&)> callback) { collisionCallback = callback; }
         void setSolid(bool solid) { this->solid = solid; }
-        void setCollisionInformation(const CollisionInformation& collisionInformation) { this->collisionInformation = collisionInformation; }
+
+        void setCollisionInformation(const CollisionInformation& collisionInformation) {
+            this->collisionInformation = collisionInformation;
+        }
 
 
-        CollisionInformation& getCollisionInformation() { return collisionInformation; }
+        CollisionInformation& getCollisionInformation() const { return collisionInformation; }
         const CollisionCallback& getGeneralCollisionCallback() const { return collisionCallback; }
         const SpecificCollisionCallbacks& getSpecificCollisionCallbacks() const { return collisionCallbacks; }
         bool isSolid() const { return solid; }
@@ -49,9 +53,8 @@ namespace GLESC::Physics {
         CollisionCallback collisionCallback;
         SpecificCollisionCallbacks collisionCallbacks;
         Math::BoundingVolume boundingVolume;
-        CollisionInformation collisionInformation;
+        mutable CollisionInformation collisionInformation;
 
         bool solid = true;
-
     }; // class Collider
 }

@@ -43,6 +43,7 @@ class HudItemsManager {
 public:
     static void addItem(HudItemType type, const GLESC::Transform::Position& worldPosition);
     [[nodiscard]] static std::vector<Item> getItems() { return items; }
+    static void clearItems() { items.clear(); }
 
 private:
     static std::vector<Item> items;

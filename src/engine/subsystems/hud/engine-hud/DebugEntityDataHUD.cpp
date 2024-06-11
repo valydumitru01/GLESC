@@ -254,7 +254,7 @@ void putInputForType(EntityStatsManager::ValueType type, EntityStatsManager::Val
 }
 
 
-void DebugEntityData::windowContent() {
+void DebugEntityData::windowContent(float timeOfFrame) {
     EntityStatsManager::EntityData& data = EntityStatsManager::getEntityData();
 
 

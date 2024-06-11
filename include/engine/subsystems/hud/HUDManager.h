@@ -26,18 +26,17 @@ namespace GLESC::HUD {
          * @param window
          */
         void addWindow(GLESC::InGameWindow& window, const std::string &name);
-        void addWindow(GLESC::InGameWindow&& window, const std::string &name);
 
         void removeWindow(const std::string& name);
 
         void update();
 
-        void render() const;
+        void render(double timeOfFrame);
 
     private:
-        void updateNewFrame();
+        void newFrame();
 
-        void updateEndFrame();
+        void endFrame();
 
         void initImGUI();
 

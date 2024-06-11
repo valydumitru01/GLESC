@@ -110,6 +110,7 @@ namespace GLESC::Math {
             return value.abs();
         }
     }
+
     /**
      * @brief Clamps a value between a minimum and maximum value
      * @details Clamp is a function that limits a value to a specific range. If the value is less than the minimum,
@@ -160,6 +161,57 @@ namespace GLESC::Math {
             return left == right;
         }
     }
+    template <typename LValueT, typename RValueT>
+    constexpr bool lt(const LValueT& left, const RValueT& right, const double epsilon) {
+        static_assert(std::is_arithmetic_v<LValueT> && std::is_arithmetic_v<RValueT>, "Types must be arithmetic");
+        if constexpr (std::is_floating_point_v<LValueT> || std::is_floating_point_v<RValueT>) {
+            // Use epsilon for floating-point comparison
+            return (left < right) && !eq(left, right, epsilon);
+        }
+        else {
+            // Exact comparison for non-floating-point types
+            return left < right;
+        }
+    }
+    template <typename LValueT, typename RValueT>
+    constexpr bool lte(const LValueT& left, const RValueT& right, const double epsilon) {
+        static_assert(std::is_arithmetic_v<LValueT> && std::is_arithmetic_v<RValueT>, "Types must be arithmetic");
+        if constexpr (std::is_floating_point_v<LValueT> || std::is_floating_point_v<RValueT>) {
+            // Use epsilon for floating-point comparison
+            return (left < right) || eq(left, right, epsilon);
+        }
+        else {
+            // Exact comparison for non-floating-point types
+            return left <= right;
+        }
+    }
+
+    template <typename LValueT, typename RValueT>
+    constexpr bool gt(const LValueT& left, const RValueT& right, const double epsilon) {
+        static_assert(std::is_arithmetic_v<LValueT> && std::is_arithmetic_v<RValueT>, "Types must be arithmetic");
+        if constexpr (std::is_floating_point_v<LValueT> || std::is_floating_point_v<RValueT>) {
+            // Use epsilon for floating-point comparison
+            return (left > right) && !eq(left, right, epsilon);
+        }
+        else {
+            // Exact comparison for non-floating-point types
+            return left > right;
+        }
+    }
+    template <typename LValueT, typename RValueT>
+    constexpr bool mte(const LValueT& left, const RValueT& right, const double epsilon) {
+        static_assert(std::is_arithmetic_v<LValueT> && std::is_arithmetic_v<RValueT>, "Types must be arithmetic");
+        if constexpr (std::is_floating_point_v<LValueT> || std::is_floating_point_v<RValueT>) {
+            // Use epsilon for floating-point comparison
+            return (left > right) || eq(left, right, epsilon);
+        }
+        else {
+            // Exact comparison for non-floating-point types
+            return left >= right;
+        }
+    }
+
+
 
     template <typename LValueT, typename RValueT>
     constexpr bool eq(const LValueT& left, const RValueT& right) {
@@ -179,6 +231,87 @@ namespace GLESC::Math {
         else {
             // Exact comparison for non-floating-point types
             return left == right;
+        }
+    }
+
+    template <typename LValueT, typename RValueT>
+    constexpr bool lt(const LValueT& left, const RValueT& right) {
+        static_assert(std::is_arithmetic_v<LValueT> && std::is_arithmetic_v<RValueT>, "Types must be arithmetic");
+        if constexpr (std::is_floating_point_v<LValueT> || std::is_floating_point_v<RValueT>) {
+            // Determine the type with the lower precision
+            using LowerPrecisionFloatingType = typename SelectSmallerFloatingType<LValueT, RValueT>::type;
+
+            // Define a fixed epsilon value
+            constexpr LowerPrecisionFloatingType fixedEpsilon = Math::epsilon<LowerPrecisionFloatingType>(
+                EPSILON_MULTIPLIER_FOR_EQUALITY);
+
+            // Use epsilon for floating-point comparison
+            return (left < right) && !eq(left, right, fixedEpsilon);
+        }
+        else {
+            // Exact comparison for non-floating-point types
+            return left < right;
+        }
+    }
+
+
+    template <typename LValueT, typename RValueT>
+    constexpr bool lte(const LValueT& left, const RValueT& right) {
+        static_assert(std::is_arithmetic_v<LValueT> && std::is_arithmetic_v<RValueT>, "Types must be arithmetic");
+        if constexpr (std::is_floating_point_v<LValueT> || std::is_floating_point_v<RValueT>) {
+            // Determine the type with the lower precision
+            using LowerPrecisionFloatingType = typename SelectSmallerFloatingType<LValueT, RValueT>::type;
+
+            // Define a fixed epsilon value
+            constexpr LowerPrecisionFloatingType fixedEpsilon = Math::epsilon<LowerPrecisionFloatingType>(
+                EPSILON_MULTIPLIER_FOR_EQUALITY);
+
+            // Use epsilon for floating-point comparison
+            return (left < right) || eq(left, right, fixedEpsilon);
+        }
+        else {
+            // Exact comparison for non-floating-point types
+            return left <= right;
+        }
+    }
+
+    template <typename LValueT, typename RValueT>
+    constexpr bool gt(const LValueT& left, const RValueT& right) {
+        static_assert(std::is_arithmetic_v<LValueT> && std::is_arithmetic_v<RValueT>, "Types must be arithmetic");
+        if constexpr (std::is_floating_point_v<LValueT> || std::is_floating_point_v<RValueT>) {
+            // Determine the type with the lower precision
+            using LowerPrecisionFloatingType = typename SelectSmallerFloatingType<LValueT, RValueT>::type;
+
+            // Define a fixed epsilon value
+            constexpr LowerPrecisionFloatingType fixedEpsilon = Math::epsilon<LowerPrecisionFloatingType>(
+                EPSILON_MULTIPLIER_FOR_EQUALITY);
+
+            // Use epsilon for floating-point comparison
+            return (left > right) && !eq(left, right, fixedEpsilon);
+        }
+        else {
+            // Exact comparison for non-floating-point types
+            return left > right;
+        }
+    }
+
+    template <typename LValueT, typename RValueT>
+    constexpr bool mte(const LValueT& left, const RValueT& right) {
+        static_assert(std::is_arithmetic_v<LValueT> && std::is_arithmetic_v<RValueT>, "Types must be arithmetic");
+        if constexpr (std::is_floating_point_v<LValueT> || std::is_floating_point_v<RValueT>) {
+            // Determine the type with the lower precision
+            using LowerPrecisionFloatingType = typename SelectSmallerFloatingType<LValueT, RValueT>::type;
+
+            // Define a fixed epsilon value
+            constexpr LowerPrecisionFloatingType fixedEpsilon = Math::epsilon<LowerPrecisionFloatingType>(
+                EPSILON_MULTIPLIER_FOR_EQUALITY);
+
+            // Use epsilon for floating-point comparison
+            return (left > right) || eq(left, right, fixedEpsilon);
+        }
+        else {
+            // Exact comparison for non-floating-point types
+            return left >= right;
         }
     }
 

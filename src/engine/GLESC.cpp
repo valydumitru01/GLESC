@@ -24,13 +24,14 @@
 #include "engine/subsystems/input/KeyCommand.h"
 #include "engine/subsystems/input/debugger/InputDebugger.h"
 
-#include "engine/ecs/frontend/system/systems/PhysicsSystem.h"
+#include "engine/ecs/frontend/system/systems/PhysicsCollisionSystem.h"
 #include "engine/ecs/frontend/system/systems/RenderSystem.h"
 #include "engine/ecs/frontend/system/systems/CameraSystem.h"
 #include "engine/ecs/frontend/system/systems/InputSystem.h"
 #include "engine/ecs/frontend/system/systems/TransformSystem.h"
 #include "engine/ecs/frontend/system/systems/DebugInfoSystem.h"
 #include "engine/ecs/frontend/system/systems/FogSystem.h"
+#include "engine/ecs/frontend/system/systems/PhysicsSystem.h"
 #include "engine/ecs/frontend/system/systems/SunSystem.h"
 #include "engine/scene/Scene.h"
 using namespace GLESC;
@@ -46,7 +47,7 @@ Engine::Engine(FPSManager& fpsManager) :
 #endif
     ecs(),
     entityFactory(ecs),
-    updateSystems(createUpdateSystems()),
+    updateSystems(createSystems()),
     engineCamera(entityFactory, inputManager, windowManager),
     sceneManager(entityFactory, windowManager),
     sceneContainer(windowManager, entityFactory, inputManager, sceneManager, hudManager, engineCamera),
@@ -67,9 +68,8 @@ void Engine::processInput() {
 void Engine::render(double const timeOfFrame) {
     Logger::get().importantInfoPurple("Engine render started");
     renderer.start(timeOfFrame);
-    hudManager.update();
     renderer.render(timeOfFrame);
-    hudManager.render();
+    hudManager.render(timeOfFrame);
     renderer.swapBuffers();
     Logger::get().importantInfoPurple("Engine render finished");
 }
@@ -77,6 +77,7 @@ void Engine::render(double const timeOfFrame) {
 void Engine::update() {
     Logger::get().importantInfoWhite("Engine update started");
 
+    hudManager.update();
     game.update();
     for (ECS::EntityID id : ecs.getEntitiesToBeDestroyed()) {
         EntityListManager::entityRemoved(ecs.getEntityName(id));
@@ -86,13 +87,16 @@ void Engine::update() {
         }
     }
     ecs.destroyEntities();
+    // We need to clear the hud items (Sun, Fog, etc) here, if not called here, juttering will occur
+    // Or we will get memory leaks
+    HudItemsManager::clearItems();
 
-    //#pragma omp parallel for \
-    //    shared(renderer, windowManager, ecs, updateSystems) \
-    //    schedule(static, 1)
     for (auto& system : updateSystems) {
         system->update();
     }
+    // This tells the renderer that all the data it needs to render has been updated
+    // (Update and render are decoupled, therefore not necesarily consecutive)
+    renderer.setRendererUpdated();
     for (const auto& [name,id] : ecs.getAllEntities()) {
         if (ecs.isEntityInstanced(name))
             if ((engineCamera.getEntity().getComponent<ECS::TransformComponent>().transform.getPosition().distance(
@@ -107,11 +111,13 @@ void Engine::update() {
     Logger::get().importantInfoWhite("Engine update finished");
 }
 
-std::vector<std::unique_ptr<ECS::System>> Engine::createUpdateSystems() {
+std::vector<std::unique_ptr<ECS::System>> Engine::createSystems() {
     std::vector<std::unique_ptr<ECS::System>> systems;
     systems.push_back(std::make_unique<ECS::RenderSystem>(renderer, ecs));
     systems.push_back(std::make_unique<ECS::TransformSystem>(ecs));
-    systems.push_back(std::make_unique<ECS::PhysicsSystem>(physicsManager, collisionManager, ecs));
+    // Physics system must update before the physics collision system
+    systems.push_back(std::make_unique<ECS::PhysicsSystem>(physicsManager, ecs));
+    systems.push_back(std::make_unique<ECS::PhysicsCollisionSystem>(physicsManager, collisionManager, ecs));
     systems.push_back(std::make_unique<ECS::InputSystem>(inputManager, ecs));
     systems.push_back(std::make_unique<ECS::DebugInfoSystem>(ecs, renderer));
     systems.push_back(std::make_unique<ECS::CameraSystem>(renderer, windowManager, ecs));

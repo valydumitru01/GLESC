@@ -17,7 +17,7 @@ namespace GLESC::HUD {
         DebugStatsHUD();
 
     private:
-        void windowContent() override;
+        void windowContent(float timeOfFrame) override;
         ImVec4 statsTextColor = ImVec4(1.0f, 1.0f, 1.0f, 1.0f);
     }; // class EngineDataInterface
 } // namespace GLESC::HUD

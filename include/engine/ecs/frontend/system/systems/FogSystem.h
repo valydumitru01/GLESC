@@ -19,7 +19,6 @@ namespace GLESC::ECS {
         explicit FogSystem(Render::Renderer& renderer, ECSCoordinator& ecs);
         void update() override;
     private:
-        std::set<FogComponent*> fogCache;
         Render::Renderer& renderer;
     }; // class FogSystem
 } // namespace GLESC::ECS

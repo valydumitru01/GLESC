@@ -40,7 +40,7 @@ DebugItems::DebugItems(Render::Renderer& renderer, TextureFactory& textureFactor
     this->addFlag(ImGuiWindowFlags_NoBackground);
 }
 
-void DebugItems::windowContent() {
+void DebugItems::windowContent(float timeOfFrame) {
     float width = static_cast<float>(renderer.getViewportSize().width);
     float height = static_cast<float>(renderer.getViewportSize().height);
     const auto& viewProj = renderer.getViewProjection();
@@ -48,8 +48,14 @@ void DebugItems::windowContent() {
     float vpHeight = static_cast<float>(renderer.getViewportSize().height);
     for (Item& item : HudItemsManager::getItems()) {
         if (!renderer.getFrustum().contains(*item.worldPosition)) continue;
+        // TODO: Possible memory leak here if the item is not removed from the interpolators map
+        interpolators[item.worldPosition].pushTransform(Transform::Transform(*
+                                                                             item.worldPosition, {}, {1, 1, 1}));
+
         Render::Position screenPos =
-            Transform::Transformer::worldToViewport(*item.worldPosition, viewProj, width, height);
+            Transform::Transformer::worldToViewport(
+                interpolators[item.worldPosition].interpolate(timeOfFrame).getPosition(),
+                viewProj, width, height);
         float imageScale = screenPos.z() * 20;
 
         ImVec2 size = ImVec2(imageScale * vpWidth, imageScale * vpHeight);

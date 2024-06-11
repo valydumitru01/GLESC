@@ -24,7 +24,9 @@ namespace GLESC::Physics {
         }
 
         void addMass(const Mass& mass) { this->mass += mass; }
-        void setMass(float mass) { this->mass = mass; }
+        void setMass(Mass& mass) { this->mass = mass; }
+        void setAirFriction(Friction airFriction) { this->airFriction = airFriction; }
+        void addAirFriction(Friction airFriction) { this->airFriction += airFriction; }
         void setFriction(float friction) { this->friction = friction; }
         void addFriciton(float friction) { this->friction += friction; }
 
@@ -45,8 +47,8 @@ namespace GLESC::Physics {
 
         void setForce(const Force& force) { this->force = force; }
         void addForce(const Force& force) { this->force += force; }
-        void setDirectionalForce(const Math::Direction& dir, float speed) { force = dir * speed; }
-        void addDirectionalForce(const Math::Direction& dir, float speed) { force += dir * speed; }
+        void setDirectionalForce(const Math::Direction& dir, float forceParam) { force = dir * forceParam; }
+        void addDirectionalForce(const Math::Direction& dir, float forceParam) { force += dir * forceParam; }
         void giveAngularForce(const AngularForce& angularForce) { this->angularForce = angularForce; }
 
         void setAffectedByGravity(bool affectedByGravity) { this->affectedByGravity = affectedByGravity; }
@@ -55,6 +57,7 @@ namespace GLESC::Physics {
 
         [[nodiscard]] Mass getMass() const { return mass; }
         [[nodiscard]] Friction getFriction() const { return friction; }
+        [[nodiscard]] Friction getAirFriction() const { return airFriction; }
         [[nodiscard]] Velocity getVelocity() const { return velocity; }
         [[nodiscard]] Force getForce() const { return force; }
         [[nodiscard]] Acceleration getAcceleration() const { return acceleration; }
@@ -69,11 +72,15 @@ namespace GLESC::Physics {
 
 
         [[nodiscard]] std::vector<EntityStatsManager::Value> getDebuggingValues() override;
-        [[nodisacrd]] std::string toString() const;
+        [[nodiscard]] std::string toString() const override;
 
     private:
         Mass mass{1.0F};
-        Friction friction{0.01F};
+        Friction friction{0.01f};
+        /**
+         * @details While its negative, it will be the default value for air friction defined in the physics manager
+         */
+        Friction airFriction{-1.f};
         Velocity velocity{0, 0, 0};
         Acceleration acceleration{0, 0, 0};
         Force force{0, 0, 0};

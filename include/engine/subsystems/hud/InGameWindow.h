@@ -58,9 +58,10 @@ namespace GLESC {
         void toggleVisibility() { isVisible = !isVisible; }
 
         void update();
+        void render(float timeOfFrame);
 
     protected:
-        virtual void windowContent() = 0;
+        virtual void windowContent(float timeOfFrame) = 0;
         ImVec2 calculateSize();
         ImVec2 calculatePosition(ImVec2 windowSize);
         ImGuiWindowFlags getFlags();
@@ -73,7 +74,6 @@ namespace GLESC {
         ImVec2 positionFraction = ImVec2(0.5f, 0.5f);
         ImVec2 center = ImVec2(0.5f, 0.5f);
         float windowMarginFraction{0.02f};
-
 
         std::string title = "Window";
         ImVec2 size;

@@ -21,14 +21,14 @@ namespace GLESC::ECS {
     }
 
     void LightSystem::update() {
-        for (const auto& entity : getAssociatedEntities()) {
-            auto& light = getComponent<LightComponent>(entity);
-            auto& transform = getComponent<TransformComponent>(entity);
-            if(lightCache.find(&light) != lightCache.end()) continue;
-
-            renderer.sendLightSpot(light.light, transform.transform);
-            HudItemsManager::addItem(HudItemType::LIGHT_SPOT, transform.transform.getPosition());
-            lightCache.insert(&light);
+        if (renderer.hasRenderBeenCalledThisFrame()) {
+            renderer.clearLightData();
+            for (const auto& entity : getAssociatedEntities()) {
+                auto& light = getComponent<LightComponent>(entity);
+                auto& transform = getComponent<TransformComponent>(entity);
+                renderer.sendLightSpot(light.light, transform.transform);
+                HudItemsManager::addItem(HudItemType::LIGHT_SPOT, transform.transform.getPosition());
+            }
         }
     }
 } // namespace GLESC::ECS

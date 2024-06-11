@@ -161,19 +161,23 @@ ImVec2 InGameWindow::calculateSize() {
     return calculatedSize;
 }
 
+void InGameWindow::render(float timeOfFrame) {
+    if (isVisible) {
+        // Set the position and size of the console
+        ImGui::SetNextWindowPos(position, ImGuiCond_Always);
+        ImGui::SetNextWindowSize(size, ImGuiCond_Always);
+
+        // Begin the console window with no title bar and other specified flags
+        ImGui::Begin(title.c_str(), &isVisible, getFlags());
+
+        windowContent(timeOfFrame);
+
+        ImGui::End();
+    }
+}
+
 
 void InGameWindow::update() {
     size = calculateSize();
     position = calculatePosition(size);
-
-    // Set the position and size of the console
-    ImGui::SetNextWindowPos(position, ImGuiCond_Always);
-    ImGui::SetNextWindowSize(size, ImGuiCond_Always);
-
-    // Begin the console window with no title bar and other specified flags
-    ImGui::Begin(title.c_str(), &isVisible, getFlags());
-
-    windowContent();
-
-    ImGui::End();
 }

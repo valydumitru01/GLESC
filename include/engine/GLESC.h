@@ -45,7 +45,7 @@ namespace GLESC {
         friend int ::main(int argc, char* argv[]);
 
     private:
-        std::vector<std::unique_ptr<ECS::System>> createUpdateSystems();
+        std::vector<std::unique_ptr<ECS::System>> createSystems();
         void createEngineEntities();
 
 

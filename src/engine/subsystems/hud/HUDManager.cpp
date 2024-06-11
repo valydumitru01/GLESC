@@ -53,16 +53,18 @@ void HUDManager::removeWindow(const std::string &name) {
 }
 
 void HUDManager::update() {
-    updateNewFrame();
     for (auto &window : windows) {
-        if (window->isVisibile()) {
             window->update();
-        }
     }
-    updateEndFrame();
 }
 
-void HUDManager::render() const {
+void HUDManager::render(double timeOfFrame) {
+    newFrame();
+    for (auto &window : windows) {
+        window->render(static_cast<float>(timeOfFrame));
+    }
+    endFrame();
+
     // ImGui::ShowDemoWindow();
     ImGui::Render();
 #ifdef GLESC_OPENGL
@@ -70,7 +72,7 @@ void HUDManager::render() const {
 #endif
 }
 
-void HUDManager::updateNewFrame() {
+void HUDManager::newFrame() {
 #ifdef GLESC_OPENGL
     ImGui_ImplOpenGL3_NewFrame();
 #endif
@@ -78,7 +80,7 @@ void HUDManager::updateNewFrame() {
     ImGui::NewFrame();
 }
 
-void HUDManager::updateEndFrame() {
+void HUDManager::endFrame() {
     ImGui::EndFrame();
 }
 

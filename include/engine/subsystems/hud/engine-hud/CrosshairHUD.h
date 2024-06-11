@@ -19,6 +19,6 @@ namespace GLESC::HUD {
     private:
         float linesLength = 10.0f;
         GLESC::Render::ColorRgba linesColor = GLESC::Render::ColorRgba(255, 255, 255, 255);
-        void windowContent() override;
+        void windowContent(float timeOfFrame) override;
     }; // class Crosshair
 } // namespace GLESC::HUD

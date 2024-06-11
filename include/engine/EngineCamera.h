@@ -8,7 +8,7 @@
  * See LICENSE.txt in the project root for license information.
  **************************************************************************************************/
 #pragma once
-#define CAMERA_SPEED 10.f
+#define CAMERA_SPEED 25.f
 #define CAMERA_X_ROTATION_LIMIT 45.0f
 #define CAMERA_SENSITIVITY 1.f
 #include "ecs/frontend/component/CameraComponent.h"
@@ -23,6 +23,7 @@ namespace GLESC {
 
     class EngineCamera {
         friend class GLESC::Engine;
+
     public:
         EngineCamera(ECS::EntityFactory& entityFactory, Input::InputManager& inputManager,
                      WindowManager& windowManager) : entityFactory(entityFactory),
@@ -39,7 +40,7 @@ namespace GLESC {
         ~EngineCamera() = default;
 
         ECS::Entity& getEntity() { return camera; }
-        void setSpeed(float speed) { cameraSpeed = speed; }
+        void setForce(float speed) { cameraSpeed = speed; }
         void setSensitivity(float sensitivity) { cameraSensitivity.set(sensitivity); }
 
     private:
@@ -48,7 +49,7 @@ namespace GLESC {
                   .addComponent<ECS::TransformComponent>()
                   .addComponent<ECS::InputComponent>()
                   .addComponent<ECS::PhysicsComponent>();
-
+            camera.getComponent<ECS::PhysicsComponent>().physics.setAirFriction(0.1);
             camera.getComponent<ECS::PhysicsComponent>().physics.setAffectedByGravity(false);
             camera.getComponent<ECS::CameraComponent>().perspective.setFarPlane(1000.0f);
             camera.getComponent<ECS::CameraComponent>().perspective.setNearPlane(0.1f);

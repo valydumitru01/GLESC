@@ -236,19 +236,22 @@ void Renderer::render(double timeOfFrame) {
     hasRenderBeenCalled = true;
 }
 
-void Renderer::clearRenderer() {
+void Renderer::clearMeshData() {
     meshesToRender.clear();
     meshMaterials.clear();
     meshTransforms.clear();
     instances.clear();
-    lights.clear();
-    lightTransforms.clear();
     // interpolationTransforms.clear();
     mvs.clear();
     mvps.clear();
     normalMats.clear();
     isContainedInFrustum.clear();
     transformsToBeRemoved.clear();
+}
+
+void Renderer::clearLightData() {
+    lights.clear();
+    lightTransforms.clear();
 }
 
 

@@ -24,9 +24,10 @@ namespace GLESC::HUD {
         DebugItems(Render::Renderer& renderer, TextureFactory& textureFactory);
 
     private:
-        void windowContent() override;
+        void windowContent(float timeOfFrame) override;
         TextureFactory& textureFactory;
         Render::Renderer& renderer;
+        mutable std::unordered_map<const Transform::Position*, Transform::Interpolator> interpolators;
         std::unordered_map<HudItemType, Render::Texture*> items;
     }; // class DebugItemsHUD
 } // namespace GLESC::HUD

@@ -15,6 +15,6 @@ namespace GLESC::HUD {
     public:
         EntityListHUD();
     private:
-        void windowContent() override;
+        void windowContent(float timeOfFrame) override;
     }; // class EntityListHUD
 }

@@ -23,13 +23,12 @@ namespace GLESC::ECS {
     void FogSystem::update() {
         auto entities = getAssociatedEntities();
         D_ASSERT_TRUE(entities.size() <= 1, "For now, only one fog is supported.");
-        for (auto& entity : entities) {
-            auto& fog = getComponent<FogComponent>(entity);
-            auto& transform = getComponent<TransformComponent>(entity);
-            renderer.setFog(fog.fog, transform.transform);
-            if (fogCache.find(&fog) != fogCache.end()) continue;
-            HudItemsManager::addItem(HudItemType::FOG, transform.transform.getPosition());
-            fogCache.insert(&fog);
-        }
+        if(renderer.hasRenderBeenCalledThisFrame())
+            for (auto& entity : entities) {
+                auto& fog = getComponent<FogComponent>(entity);
+                auto& transform = getComponent<TransformComponent>(entity);
+                renderer.setFog(fog.fog, transform.transform);
+                HudItemsManager::addItem(HudItemType::FOG, transform.transform.getPosition());
+            }
     }
 } // namespace GLESC::ECS

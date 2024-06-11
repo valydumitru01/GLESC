@@ -32,7 +32,7 @@ DebugStatsHUD::DebugStatsHUD() {
     this->addFlag(ImGuiWindowFlags_NoBackground);
 }
 
-void DebugStatsHUD::windowContent() {
+void DebugStatsHUD::windowContent(float timeOfFrame) {
     for (const auto& entry : StatsManager::getStats()) {
         std::string statName = entry.first;
         std::string statValue = entry.second;

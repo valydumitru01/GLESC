@@ -20,7 +20,7 @@ GLESC::Math::BoundingVolume translateBV(const Collider& colliderWithBV,
 }
 
 
-void CollisionManager::checkAndUpdateColliders(Collider& collider,
+void CollisionManager::checkAndUpdateColliderInformation(Collider& collider,
                                                const Transform::Transform& originalTransform,
                                                const Transform::Transform& hypNextFrameTransform) {
     // Clear the information before using it (so we don't accumulate information)
@@ -103,9 +103,20 @@ Vec3F CollisionManager::getCollisionDepth(const Math::BoundingVolume& nextCollid
                                           const Math::BoundingVolume& nextColliderBVZ,
                                           const Math::BoundingVolume& otherBV) {
     // Assumes that collision occured, therefore depth will be non-zero
-    Vec3F depthX = nextColliderBVX.intersectionDepth(otherBV);
-    Vec3F depthY = nextColliderBVY.intersectionDepth(otherBV);
-    Vec3F depthZ = nextColliderBVZ.intersectionDepth(otherBV);
+    float depthX = nextColliderBVX.intersectionVolume(otherBV);
+    float depthY = nextColliderBVY.intersectionVolume(otherBV);
+    float depthZ = nextColliderBVZ.intersectionVolume(otherBV);
 
-    return {depthX.length(), depthY.length(), depthZ.length()};
+    // Negate volume if collision occurred on the negative side of the axis
+    if (otherBV.getMin().getX() < nextColliderBVX.getMin().getX()) {
+        depthX = -depthX;
+    }
+    if (otherBV.getMin().getY() < nextColliderBVY.getMin().getY()) {
+        depthY = -depthY;
+    }
+    if (otherBV.getMin().getZ() < nextColliderBVZ.getMin().getZ()) {
+        depthZ = -depthZ;
+    }
+
+    return {depthX, depthY, depthZ};
 }

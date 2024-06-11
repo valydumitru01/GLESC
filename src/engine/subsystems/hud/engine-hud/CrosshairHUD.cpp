@@ -26,7 +26,7 @@ CrosshairHUD::CrosshairHUD() {
     this->addFlag(ImGuiWindowFlags_NoFocusOnAppearing);
 }
 
-void CrosshairHUD::windowContent() {
+void CrosshairHUD::windowContent(float timeOfFrame) {
     // Get the center of your window or viewport
     ImVec2 windowCenter = ImVec2(
         ImGui::GetWindowPos().x + ImGui::GetWindowSize().x * 0.5f,

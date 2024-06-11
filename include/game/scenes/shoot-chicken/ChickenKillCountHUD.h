@@ -17,6 +17,6 @@ public:
         chickenKillCount++;
     }
 private:
-    void windowContent() override;
+    void windowContent(float timeOfFrame) override;
     int chickenKillCount = 0;
 }; // class ChickenKillCountHUD

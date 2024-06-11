@@ -22,7 +22,6 @@ namespace GLESC::ECS {
 
         void update() override;
     private:
-        std::set<LightComponent*> lightCache;
         Render::Renderer& renderer;
     }; // class LightSystem
 } // namespace GLESC::ECS

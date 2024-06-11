@@ -17,7 +17,7 @@ namespace GLESC::HUD {
         DebugConsoleHUD();
 
     private:
-        void windowContent() override;
+        void windowContent(float timeOfFrame) override;
         ImVec4 errorColor = ImVec4(1.0f, 0.0f, 0.0f, 1.0f);
         ImVec4 warningColor = ImVec4(1.0f, 1.0f, 0.0f, 1.0f);
         ImVec4 infoColor = ImVec4(0.0f, 1.0f, 0.0f, 1.0f);

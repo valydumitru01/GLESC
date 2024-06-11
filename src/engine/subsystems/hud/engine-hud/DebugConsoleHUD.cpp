@@ -33,7 +33,7 @@ DebugConsoleHUD::DebugConsoleHUD() {
 }
 
 
-void DebugConsoleHUD::windowContent() {
+void DebugConsoleHUD::windowContent(float timeOfFrame) {
     static size_t lastMessageCount = 0;
     const auto& messages = GLESC::Console::GetMessages();
     bool shouldScroll = messages.size() != lastMessageCount;

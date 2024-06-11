@@ -50,7 +50,7 @@ void entityButton(int index, const std::string& name) {
     ImGui::NextColumn();
 }
 
-void GLESC::HUD::EntityListHUD::windowContent() {
+void GLESC::HUD::EntityListHUD::windowContent(float timeOfFrame) {
     std::map<std::string, std::vector<const std::string*>> entityMap;
 
     // Group entities and instances

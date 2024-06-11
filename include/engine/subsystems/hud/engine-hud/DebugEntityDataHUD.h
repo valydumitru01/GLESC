@@ -16,6 +16,6 @@ namespace GLESC::HUD {
         DebugEntityData();
 
     private:
-        void windowContent() override;
+        void windowContent(float timeOfFrame) override;
     }; // class EntityDebugDataInterface
 } // namespace GLESC::HUD

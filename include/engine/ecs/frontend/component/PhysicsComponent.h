@@ -10,10 +10,16 @@
 #include "engine/subsystems/physics/Physics.h"
 #include "engine/subsystems/physics/Collider.h"
 #include "engine/subsystems/physics/PhysicsTypes.h"
+#include "engine/subsystems/transform/Transform.h"
 
 namespace GLESC::ECS {
     struct PhysicsComponent : public IComponent {
         Physics::Physics physics;
+        /**
+         * @details This transform is the old transform before applying the physics
+         * It can be used to change the behavior of the physics (such as collisions)
+         */
+        Transform::Transform oldTransform;
 
         std::string toString() const override {
             return physics.toString();

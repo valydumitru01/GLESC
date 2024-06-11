@@ -22,12 +22,11 @@ RenderSystem::RenderSystem(Render::Renderer& renderer, ECSCoordinator& ecs) :
 
 void RenderSystem::update() {
     if (renderer.hasRenderBeenCalledThisFrame()) {
-        renderer.clearRenderer();
+        renderer.clearMeshData();
         for (auto& entity : getAssociatedEntities()) {
             auto& render = getComponent<RenderComponent>(entity);
             auto& transform = getComponent<TransformComponent>(entity);
             renderer.sendMeshData(render.getMesh(), render.getMaterial(), transform.transform);
         }
-        renderer.setRendererUpdated();
     }
 }

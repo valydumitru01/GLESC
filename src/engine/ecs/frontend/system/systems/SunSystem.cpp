@@ -23,13 +23,12 @@ namespace GLESC::ECS {
     void SunSystem::update() {
         const std::set<EntityID>& entities = getAssociatedEntities();
         D_ASSERT_TRUE(entities.size() <= 1, "For now, only one sun is supported.");
-        for (auto& entity : entities) {
-            auto& sun = getComponent<SunComponent>(entity);
-            auto& transform = getComponent<TransformComponent>(entity);
-            renderer.setSun(sun.sun, sun.globalAmbienLight, transform.transform);
-            if (sunCache.find(&sun) != sunCache.end()) continue;
-            HudItemsManager::addItem(HudItemType::SUN, transform.transform.getPosition());
-            sunCache.insert(&sun);
-        }
+        if (renderer.hasRenderBeenCalledThisFrame())
+            for (auto& entity : entities) {
+                auto& sun = getComponent<SunComponent>(entity);
+                auto& transform = getComponent<TransformComponent>(entity);
+                renderer.setSun(sun.sun, sun.globalAmbienLight, transform.transform);
+                HudItemsManager::addItem(HudItemType::SUN, transform.transform.getPosition());
+            }
     }
 } // namespace GLESC::ECS

@@ -30,7 +30,7 @@ namespace GLESC::Physics {
             this->physicsOfColliders.clear();
         }
 
-        void checkAndUpdateColliders(Collider& collider,
+        void checkAndUpdateColliderInformation(Collider& collider,
                              const Transform::Transform& originalTransform,
                              const Transform::Transform& hypNextFrameTransform);
 

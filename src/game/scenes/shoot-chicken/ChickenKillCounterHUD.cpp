@@ -28,8 +28,11 @@ ChickenKillCountHUD::ChickenKillCountHUD() {
     this->addFlag(ImGuiWindowFlags_NoBackground);
 }
 
-void ChickenKillCountHUD::windowContent() {
+void ChickenKillCountHUD::windowContent(float timeOfFrame) {
     ImGui::PushFont(HudLookAndFeel::get().getFont(HudLookAndFeel::get().getDefaultFont(), 30));
+    // Push text color
+    ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(1.0f, 0.0f, 0.0f, 1.0f));  // Red color
+
     ImGui::Text("Chicken Kill Count: %d", chickenKillCount);
     ImGui::PopFont();
 }

@@ -62,8 +62,8 @@ namespace GLESC::Scene {
 
 
         void switchScene(const std::string& sceneName) { sceneManager.switchScene(sceneName); }
-        Time getSceneTime() { return sceneTimer.getCurrentTime(); }
-        Time getSceneTimeInSec() { return getSceneTime() / 1000.0; }
+        Time getSceneTimeMillis() { return sceneTimer.getCurrentTime(); }
+        Time getSceneTimeInSec() { return getSceneTimeMillis() / 1000.0; }
 
     protected:
         std::vector<ECS::EntityID>& getSceneEntities() { return sceneEntities; }
