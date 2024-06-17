@@ -14,6 +14,8 @@
 
 #include <shared_mutex>
 
+#include "engine/core/debugger/Stringer.h"
+
 using namespace GLESC::ECS;
 
 void ECSCoordinator::printStatus(const std::string& contextMessage) {
@@ -60,7 +62,7 @@ void ECSCoordinator::printEntity(EntityID entity) {
         ComponentID componentID = component.second;
         if (entityManager.doesEntityHaveComponent(entity, componentID)) {
             IComponent& componentData = componentManager.getComponent(entity, componentID);
-            Logger::get().nonImportantInfo(GLESC::Stringer::replace(componentData.toString(), "\n", "\n\t\t"));
+            Logger::get().nonImportantInfo(Stringer::replace(componentData.toString(), "\n", "\n\t\t"));
         }
     }
 }
@@ -69,11 +71,13 @@ const std::set<EntityID>& ECSCoordinator::getAssociatedEntities(const SystemName
     if (!systemManager.isSystemRegistered(name))
         return {};
     const auto& set = systemManager.getAssociatedEntitiesOfSystem(name);
+#ifndef NDEBUG_GLESC
     for (const auto& entity : set) {
         D_ASSERT_TRUE(entityManager.doesEntityExist(entity), "Entity must exist");
         D_ASSERT_TRUE(systemManager.isEntityAssociatedWithSystem(name, entity),
                       "Entity must be associated with system");
     }
+#endif
     return set;
 }
 

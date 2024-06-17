@@ -1,18 +1,16 @@
 /**************************************************************************************************
- * @file   HudLookAndFeel.h
+* @file   HudLookAndFeel.h
  * @author Valentin Dumitru
  * @date   08/03/2024
  * @brief  Add description of this file if needed @TODO
  *
- * Copyright (c) 2024$ Valentin Dumitru. Licensed under the MIT License.
+ * Copyright (c) 2024 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
  **************************************************************************************************/
 #pragma once
 #include <string>
 #include <unordered_map>
 #include <imgui/imgui.h>
-
-#include "engine/core/asserts/Asserts.h"
 
 class HudLookAndFeel {
 public:
@@ -52,7 +50,7 @@ private:
     ImVec4 white = ImVec4(0.75f, 0.75f, 0.75f, 1.00f);
     ImVec4 gray = ImVec4(0.20f, 0.25f, 0.20f, 1.00f);
     std::unordered_map<std::string, ImFont *> fonts;
-    std::string defaultFont = "";
+    std::string defaultFont;
     int defaultFontSize = 0;
 
     bool lookAndFeelApplied = false;

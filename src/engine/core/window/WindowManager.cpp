@@ -1,5 +1,5 @@
 /******************************************************************************
- * @file   Example.h
+ * @file   WindowManager.cpp
  * @author Valentin Dumitru
  * @date   2023-09-26
  * @brief @todo
@@ -8,12 +8,12 @@
  * See LICENSE.txt in the project root for license information.
  ******************************************************************************/
 #include "engine/core/math/algebra/vector/Vector.h"
-#include "engine/core/exceptions/EngineException.h"
-#include "engine/core/exceptions/core/window/WindowException.h"
 #include "engine/core/logger/Logger.h"
 #include "engine/core/low-level-renderer/graphic-api/Gapi.h"
 #include "engine/core/asserts/Asserts.h"
 #include "engine/core/window/WindowManager.h"
+
+#include "engine/core/file-system/BinPath.h"
 
 using namespace GLESC;
 
@@ -26,13 +26,13 @@ WindowManager::WindowManager() {
     auto width = static_cast<unsigned short>(GLESC_WINDOW_WIDTH);
     auto height = static_cast<unsigned short>(GLESC_WINDOW_HEIGHT);
     auto isFullscreen = GLESC_WINDOW_FULLSCREEN;
-    
+
     setFullscreen(isFullscreen);
     setSize(width, height);
     setPosition(x, y);
     getGAPI().createContext(*window);
     getGAPI().postWindowCreationInit();
-    
+
     // Enable mouse relative mode
     // This will make the mouse cursor invisible and locked in the middle of the screen
     //setMouseRelative(true);
@@ -99,22 +99,23 @@ void WindowManager::setPosition(unsigned int windowX, unsigned int windowY) {
 Vec2I WindowManager::getPosition() {
     int x, y;
     SDLCall(SDL_GetWindowPosition(window, &x, &y));
-    return {x, y};
+    return Vec2I{x, y};
 }
 
-void WindowManager::setIcon(const std::string &iconFile) {
-    std::string iconPath = std::string(ASSETS_PATH) + "/" + iconFile;
+void WindowManager::setIcon(const std::string& iconFile) {
+    std::string iconPath = BinPath::getExecutableDirectory() + std::string(ASSETS_PATH) + "/" + iconFile;
     Logger::get().info("Loading icon: " + iconPath);
 
-    SDL_Surface *iconSurface = SDL_LoadBMP(iconPath.c_str());
-    D_ASSERT_NOT_NULL(iconSurface, "Unable to load icon: " + std::string(SDL_GetError()));
+    SDL_Surface* iconSurface = SDL_LoadBMP(iconPath.c_str());
+    D_ASSERT_NOT_NULLPTR(iconSurface, "Unable to load icon with path: " + iconPath + " SDL_Error: " +
+                         std::string(SDL_GetError()));
 
     SDLCall(SDL_SetWindowIcon(window, iconSurface));
     SDLCall(SDL_FreeSurface(iconSurface));
 }
 
 
-SDL_Window &WindowManager::getWindow() {
+SDL_Window& WindowManager::getWindow() {
     return *window;
 }
 
@@ -124,7 +125,7 @@ GLESC::WindowDimensions WindowManager::getSize() const {
     if (flags & (SDL_WINDOW_MINIMIZED | SDL_WINDOW_HIDDEN)) {
         return dimensions;
     }
-    if (window== nullptr) {
+    if (window == nullptr) {
         return dimensions;
     }
     SDLCall(SDL_GetWindowSize(window, &dimensions.width, &dimensions.height));
@@ -133,14 +134,14 @@ GLESC::WindowDimensions WindowManager::getSize() const {
 
 Vec2UI WindowManager::getWindowCenter() const {
     auto dimensions = getSize();
-    return {dimensions.width / 2, dimensions.height / 2};
+    return Vec2UI{dimensions.width / 2, dimensions.height / 2};
 }
 
 uint32_t WindowManager::getRaisedFlags() {
     // Flags that are needed to be passed to the windowManager * to configure it.
     // To add more flags we need to use the binary OR ( | )
     // More info: https://wiki.libsdl.org/SDL_WindowFlags
-    
+
     uint32_t flags = 0;
 #if GLESC_RENDER_API == OpenGLAPI
     // Flag to allow SDL windowManager work with OpenGL
@@ -156,7 +157,7 @@ uint32_t WindowManager::getRaisedFlags() {
     flags |= SDL_WINDOW_ALLOW_HIGHDPI;
     // Window is resizable
     flags |= SDL_WINDOW_RESIZABLE;
-    
+
     return flags;
 }
 
@@ -169,15 +170,15 @@ void WindowManager::initSDL() {
 }
 
 
-SDL_Window *WindowManager::createWindow(const char *title) {
+SDL_Window* WindowManager::createWindow(const char* title) {
     uint32_t flags = getRaisedFlags();
-    SDL_Window *tempWindow = SDL_CreateWindow(title, GLESC_WINDOW_X, GLESC_WINDOW_Y,
+    SDL_Window* tempWindow = SDL_CreateWindow(title, GLESC_WINDOW_X, GLESC_WINDOW_Y,
                                               GLESC_WINDOW_WIDTH, GLESC_WINDOW_HEIGHT, flags);
     postSDLCall;
     D_ASSERT_NOT_NULLPTR(tempWindow, "Unable to create windowManager: " + std::string(SDL_GetError()));
     Logger::get().success("Window created!");
     SDLCall(SDL_SetWindowMinimumSize(tempWindow, windowMinWidth, windowMinHeight));
-    
+
     return tempWindow;
 }
 

@@ -11,7 +11,7 @@
 
 #include <mutex>
 
-#include "../renderer/texture/Texture.h"
+#include "engine/subsystems/renderer/texture/Texture.h"
 #include "engine/subsystems/transform/TransformTypes.h"
 
 
@@ -41,11 +41,21 @@ struct Item {
 
 class HudItemsManager {
 public:
+#ifndef NDEBUG_GLESC
     static void addItem(HudItemType type, const GLESC::Transform::Position& worldPosition);
     [[nodiscard]] static std::vector<Item> getItems() { return items; }
     static void clearItems() { items.clear(); }
-
+#else
+    static void addItem(HudItemType type, const GLESC::Transform::Position& worldPosition) {
+        (void)type;
+        (void)worldPosition;
+    }
+    [[nodiscard]] static std::vector<Item> getItems() { return {}; }
+#endif
 private:
+#ifndef NDEBUG_GLESC
+
     static std::vector<Item> items;
     static std::mutex itemsMutex;
+#endif
 }; // class HudItemsManager

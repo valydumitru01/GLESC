@@ -13,7 +13,6 @@
 #include <type_traits>
 #include <cmath>
 #include <string>
-#include <engine/core/exceptions/core/math/MathException.h>
 #include "engine/core/math/Math.h"
 #include "engine/core/math/asserts/VectorAsserts.h"
 #include "engine/core/math/algebra/vector/VectorAlgorithms.h"
@@ -41,9 +40,9 @@ namespace GLESC::Math {
         /**
          * @brief Array constructor
          * @details Initializes the vector with the values from the array
-         * @param values
+         * @param list The array of values to initialize the vector with
          */
-        constexpr explicit Vector(const Type (&list)[N]) noexcept {
+        constexpr Vector(const Type (&list)[N]) noexcept {
             VectorAlgorithms::vectorInitRawArray(data, list);
         }
 
@@ -66,15 +65,15 @@ namespace GLESC::Math {
          * @details Initializes all the values of the vector with the given value
          * @param values
          */
-        constexpr explicit Vector(Type values) noexcept {
+        constexpr Vector(Type values) noexcept {
             VectorAlgorithms::vectorFill(data, values);
         }
 
-        constexpr explicit Vector(VectorData<Type, N>&& values) noexcept {
+        constexpr Vector(VectorData<Type, N>&& values) noexcept {
             VectorAlgorithms::vectorMove(data, values);
         }
 
-        constexpr explicit Vector(const VectorData<Type, N>& values) noexcept {
+        constexpr Vector(const VectorData<Type, N>& values) noexcept {
             VectorAlgorithms::vectorCopy(data, values);
         }
 

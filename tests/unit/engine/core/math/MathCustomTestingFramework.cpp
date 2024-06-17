@@ -10,7 +10,6 @@
 #pragma once
 
 #include <iostream>
-#include "TestsConfig.cpp"
 #include "unit/CustomTestingFramework.cpp"
 #include "engine/core/math/algebra/matrix/Matrix.h"
 

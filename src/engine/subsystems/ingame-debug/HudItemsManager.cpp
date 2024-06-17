@@ -9,7 +9,8 @@
  **************************************************************************************************/
 #include "engine/subsystems/ingame-debug/HudItemsManager.h"
 
-std::vector<Item> HudItemsManager::items = {};
+#ifndef NDEBUG_GLESC
+  std::vector<Item> HudItemsManager::items = {};
 std::mutex HudItemsManager::itemsMutex{};
 
 
@@ -22,3 +23,5 @@ void HudItemsManager::addItem(HudItemType type, const GLESC::Transform::Position
         items.push_back(item);
     }
 }
+
+#endif

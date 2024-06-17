@@ -11,6 +11,8 @@
 #include "engine/ecs/frontend/system/System.h"
 #include "engine/subsystems/renderer/Renderer.h"
 
+#ifndef NDEBUG_GLESC
+
 namespace GLESC::ECS {
     class DebugInfoSystem : public System {
     public:
@@ -30,3 +32,5 @@ namespace GLESC::ECS {
         float maxDetectionValue = 20.0f;
     }; // class DebugInfoSystem
 }
+
+#endif

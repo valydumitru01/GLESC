@@ -6,11 +6,7 @@
 
 #pragma once
 
-#include "../../backend/component/IComponent.h"
-#include "engine/core/math/debugger/MathDebugger.h"
-#include "engine/core/math/algebra/matrix/Matrix.h"
-#include "engine/core/math/geometry/GeometryTypes.h"
-#include "engine/subsystems/renderer/RendererTypes.h"
+#include "engine/ecs/backend/component/IComponent.h"
 #include "engine/subsystems/renderer/camera/CameraPerspective.h"
 
 namespace GLESC::ECS {
@@ -27,11 +23,12 @@ namespace GLESC::ECS {
             return "CameraComponent";
         }
 
-
+#ifndef NDEBUG_GLESC
         void setDebuggingValues() override {
             for (auto& value : perspective.getDebuggingValues()) {
                 values.push_back(value);
             }
         }
+#endif
     };
 } // namespace GLESC::ECS

@@ -12,7 +12,6 @@
 #include <SDL2/SDL.h>
 #include <gtest/gtest.h>
 
-#include "LoopHelper.cpp"
 #include "engine/core/low-level-renderer/buffers/IndexBuffer.h"
 #include "engine/core/low-level-renderer/buffers/VertexArray.h"
 #include "engine/core/low-level-renderer/buffers/VertexBuffer.h"
@@ -41,7 +40,7 @@ protected:
     
     RGBAColorNormalized backgroundColor = {0.2f, 0.3f, 0.3f, 1.0f};
     
-    TextureAbstractionTests() {
+    TextureAbstractionTests() : vao(nullptr), vbo(nullptr), ibo(nullptr), shader(nullptr), texture(nullptr){
     }
     
     void prepareShaders() {

@@ -48,7 +48,7 @@ namespace GLESC::GAPI::Enums {
                 ClampToEdge [[maybe_unused]] = GL_CLAMP_TO_EDGE,
                 ClampToBorder [[maybe_unused]] = GL_CLAMP_TO_BORDER
             };
-        };
+        }
 
         // TODO: This is messy, we're copying the messy opengl enums, we should make our own
         //  enums and convert them to opengl enums
@@ -375,6 +375,7 @@ namespace GLESC::GAPI::Enums {
             case Types::Mat3F: return TypeCount::Mat3;
             case Types::Mat4D:
             case Types::Mat4F: return TypeCount::Mat4;
+            default: return TypeCount::Value;
         }
     }
 
@@ -417,6 +418,7 @@ namespace GLESC::GAPI::Enums {
             case Types::Mat2D: return TypeSize::Mat2D;
             case Types::Mat3D: return TypeSize::Mat3D;
             case Types::Mat4D: return TypeSize::Mat4D;
+            default: return TypeSize::None;
         }
     }
 

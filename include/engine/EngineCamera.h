@@ -8,15 +8,11 @@
  * See LICENSE.txt in the project root for license information.
  **************************************************************************************************/
 #pragma once
-#define CAMERA_SPEED 25.f
-#define CAMERA_X_ROTATION_LIMIT 45.0f
-#define CAMERA_SENSITIVITY 1.f
-#include "ecs/frontend/component/CameraComponent.h"
-#include "ecs/frontend/component/InputComponent.h"
-#include "ecs/frontend/component/PhysicsComponent.h"
-#include "ecs/frontend/component/TransformComponent.h"
 #include "ecs/frontend/entity/EntityFactory.h"
 #include "subsystems/input/InputManager.h"
+#include "subsystems/renderer/RendererTypes.h"
+
+#include "subsystems/hud/engine-hud/EngineHUDManager.h"
 
 namespace GLESC {
     class Engine;
@@ -29,9 +25,6 @@ namespace GLESC {
                      WindowManager& windowManager) : entityFactory(entityFactory),
                                                      inputManager(inputManager),
                                                      windowManager(windowManager),
-                                                     cameraSpeed(CAMERA_SPEED),
-                                                     cameraSensitivity(CAMERA_SENSITIVITY),
-                                                     cameraPitchConstraint(CAMERA_X_ROTATION_LIMIT),
                                                      camera(entityFactory.createEntity(
                                                          "camera", {EntityType::Engine})) {
         }
@@ -39,120 +32,85 @@ namespace GLESC {
 
         ~EngineCamera() = default;
 
+        void setEngineHuds(HUD::EngineHUDManager* engineHuds) {
+            this->engineHuds = engineHuds;
+        }
         ECS::Entity& getEntity() { return camera; }
         void setForce(float speed) { cameraSpeed = speed; }
         void setSensitivity(float sensitivity) { cameraSensitivity.set(sensitivity); }
 
     private:
-        void setupCamera() {
-            camera.addComponent<ECS::CameraComponent>()
-                  .addComponent<ECS::TransformComponent>()
-                  .addComponent<ECS::InputComponent>()
-                  .addComponent<ECS::PhysicsComponent>();
-            camera.getComponent<ECS::PhysicsComponent>().physics.setAirFriction(0.1);
-            camera.getComponent<ECS::PhysicsComponent>().physics.setAffectedByGravity(false);
-            camera.getComponent<ECS::CameraComponent>().perspective.setFarPlane(1000.0f);
-            camera.getComponent<ECS::CameraComponent>().perspective.setNearPlane(0.1f);
-            camera.getComponent<ECS::CameraComponent>().perspective.setFovDegrees(60.0f);
-            camera.getComponent<ECS::CameraComponent>().perspective.setViewWidth(
-                static_cast<float>(windowManager.getSize().width));
-            camera.getComponent<ECS::CameraComponent>().perspective.
-                   setViewHeight(static_cast<float>(windowManager.getSize().height));
-            // IMPORTANT! Camera movement needs to be done with inverse directions, because it looks at the
-            // opposite direction of the forward vector
-            Input::KeyCommand moveForward = Input::KeyCommand([&] {
-                camera.getComponent<ECS::PhysicsComponent>().physics.addDirectionalForce(
-                    camera.getComponent<ECS::TransformComponent>().transform.forward(), -cameraSpeed);
-            });
+        /**
+         * @brief Moves the camera downwards
+         */
+        void moveDown();
+        /**
+         * @brief Moves the camera upwards
+         */
+        void moveUp();
+        /**
+         * @brief Moves the camera to the right
+         * @note Camera movement is done with inverse directions, because camera looks at the
+         * opposite direction of its forward vector
+         */
+        void moveRight();
+        /**
+         * @brief Moves the camera to the left
+         * @note Camera movement is done with inverse directions, because camera looks at the
+         * opposite direction of its forward vector
+         */
+        void moveLeft();
+        /**
+         * @brief Moves the camera backwards
+         * @note Camera movement is done with inverse directions, because camera looks at the
+         * opposite direction of its forward vector
+         */
+        void moveBackward();
+        /**
+         * @brief Moves the camera forwards
+         * @note Camera movement is done with inverse directions, because camera looks at the
+         * opposite direction of its forward vector
+         */
+        void moveForward();
+        /**
+         * @brief Accelerates the camera (increases the speed by a factor of 2)
+         */
+        void accelerate();
+        /**
+         * @brief Decelerates the camera (decreases the speed by a factor of 2)
+         */
+        void decelerate();
 
-            Input::KeyCommand moveBackward = Input::KeyCommand([&] {
-                camera.getComponent<ECS::PhysicsComponent>().physics.addDirectionalForce(
-                    camera.getComponent<ECS::TransformComponent>().transform.forward(), cameraSpeed);
-            });
+        /**
+         * @brief Rotates the camera based on the mouse movement
+         * @details It adjusts the pitch and yaw of the camera based on the mouse movement
+         * The pitch has a constraint of 45 degrees.
+         * @param deltaMouse The mouse movement
+         */
+        void rotate(const MousePosition& deltaMouse);
 
-            Input::KeyCommand moveLeft = Input::KeyCommand([&] {
-                camera.getComponent<ECS::PhysicsComponent>().physics.addDirectionalForce(
-                    camera.getComponent<ECS::TransformComponent>().transform.right(), cameraSpeed);
-            });
-
-            Input::KeyCommand moveRight = Input::KeyCommand([&] {
-                camera.getComponent<ECS::PhysicsComponent>().physics.addDirectionalForce(
-                    -camera.getComponent<ECS::TransformComponent>().transform.right(), cameraSpeed);
-            });
-
-            Input::KeyCommand moveUp = Input::KeyCommand([&] {
-                camera.getComponent<ECS::PhysicsComponent>().physics.addDirectionalForce(
-                    Transform::Transform::worldUp, cameraSpeed);
-            });
-
-            Input::KeyCommand moveDown = Input::KeyCommand([&] {
-                camera.getComponent<ECS::PhysicsComponent>().physics.addDirectionalForce(
-                    -Transform::Transform::worldUp, cameraSpeed);
-            });
-
-            Input::KeyCommand accelerate = Input::KeyCommand([&] {
-                cameraSpeed *= 2;
-            });
-
-            Input::KeyCommand decelerate = Input::KeyCommand([&] {
-                cameraSpeed /= 2;
-            });
-
-            Input::MouseCommand rotate = Input::MouseCommand([&](const MousePosition& deltaMouse) {
-                if (!inputManager.isMouseRelative()) return;
+        void setupCamera();
 
 
-                auto& transformComp = camera.getComponent<ECS::TransformComponent>().transform;
-                float cameraSensitivityValue = cameraSensitivity.get();
+        static constexpr float defaultCameraAirFriction = 0.1f;
+        static constexpr float defaultFarPlane = 1000.f;
+        static constexpr float defaultNearPlane = 0.1f;
+        static constexpr float defaultFov = 45.f;
+        static constexpr bool defaultCameraAffectedByGravity = false;
 
-                // Adjust the pitch based on mouse Y movement (up/down)
-                float mouseAdditionPitch = -deltaMouse.getY() * cameraSensitivityValue;
-                float nextMousePitch = transformComp.getRotation().getX() + mouseAdditionPitch;
+        float cameraSpeed = 25.f;
+        Render::Intensity<float> cameraSensitivity{1.0f};
+        float cameraPitchConstraint = 45.0f;
 
-                // Only apply pitch rotation if it is within the constraints
-                if (nextMousePitch < cameraPitchConstraint &&
-                    nextMousePitch > -cameraPitchConstraint) {
-                    transformComp.setRotation(Transform::RotationAxis::Pitch, nextMousePitch);
-                }
+        ECS::Entity camera;
 
-                // Adjust the yaw based on mouse X movement (left/right)
-                float mouseAdditionYaw = -deltaMouse.getX() * cameraSensitivityValue;
-                transformComp.addRotation(Transform::RotationAxis::Yaw, mouseAdditionYaw);
-            });
-
-            Input::KeyCommand mouseRelativeMove = Input::KeyCommand([&] {
-                inputManager.setMouseRelative(!inputManager.isMouseRelative());
-            });
-
-            camera.getComponent<ECS::InputComponent>().input.subscribeKey(
-                {Input::Key::W, Input::KeyAction::ONGOING_PRESSED}, moveForward);
-            camera.getComponent<ECS::InputComponent>().input.subscribeKey(
-                {Input::Key::S, Input::KeyAction::ONGOING_PRESSED}, moveBackward);
-            camera.getComponent<ECS::InputComponent>().input.subscribeKey(
-                {Input::Key::A, Input::KeyAction::ONGOING_PRESSED}, moveLeft);
-            camera.getComponent<ECS::InputComponent>().input.subscribeKey(
-                {Input::Key::D, Input::KeyAction::ONGOING_PRESSED}, moveRight);
-            camera.getComponent<ECS::InputComponent>().input.subscribeKey(
-                {Input::Key::SPACE, Input::KeyAction::ONGOING_PRESSED}, moveUp);
-            camera.getComponent<ECS::InputComponent>().input.subscribeKey(
-                {Input::Key::LEFT_SHIFT, Input::KeyAction::ONGOING_PRESSED}, moveDown);
-            camera.getComponent<ECS::InputComponent>().input.subscribeKey(
-                {Input::Key::LEFT_CTRL, Input::KeyAction::ONCE_PRESSED}, mouseRelativeMove);
-            camera.getComponent<ECS::InputComponent>().input.subscribeKey(
-                {Input::Key::LEFT_ALT, Input::KeyAction::ONCE_PRESSED}, accelerate);
-            camera.getComponent<ECS::InputComponent>().input.subscribeKey(
-                {Input::Key::LEFT_ALT, Input::KeyAction::ONCE_RELEASED}, decelerate);
-
-            camera.getComponent<ECS::InputComponent>().input.setMouseCommand(rotate);
-        }
 
         ECS::EntityFactory& entityFactory;
         Input::InputManager& inputManager;
         WindowManager& windowManager;
 
-        float cameraSpeed;
-        Render::Intensity<float> cameraSensitivity;
-        float cameraPitchConstraint;
-        ECS::Entity camera;
+
+        bool debugHUDActive = false;
+        HUD::EngineHUDManager* engineHuds{};
     }; // class EngineCamera
 } // namespace GLESC

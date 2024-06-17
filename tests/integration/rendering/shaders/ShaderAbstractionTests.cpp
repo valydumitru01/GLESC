@@ -29,7 +29,7 @@ protected:
     IndexBuffer* ibo;
     Shader* shader;
     
-    ShaderAbstractionTests(){
+    ShaderAbstractionTests() : vbo(nullptr), ibo(nullptr), vao(nullptr){
     }
     
     void prepareShaders() {

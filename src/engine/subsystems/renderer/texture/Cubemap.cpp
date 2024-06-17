@@ -44,6 +44,13 @@ void Cubemap::load(const std::array<std::string, 6>& facePaths) {
     hasLoaded = true;
 }
 
+std::array<Pixel, 6> Cubemap::getPixelsAtCoords(const int x, const int y) const {
+    std::array<Pixel, 6> pixels{};
+    for (int i = 0; i < 6; i++) {
+        pixels[i] = cubemapTextures[i].getPixel(x, y);
+    }
+    return pixels;
+}
 
 void Cubemap::release() {
     if (hasLoaded) {
@@ -52,6 +59,7 @@ void Cubemap::release() {
         }
     }
 }
+
 void Cubemap::bind() const {
     D_ASSERT_TRUE(hasLoaded, "Cubemap not loaded");
     getGAPI().bindTextureOnSlot(textureID, Enums::Texture::Types::TextureCubeMap, 0);

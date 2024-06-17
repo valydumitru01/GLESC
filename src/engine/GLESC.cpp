@@ -10,7 +10,6 @@
 #include "engine/GLESC.h"
 #include "engine/ecs/backend/ECS.h"
 // In-Game debug
-#include "engine/ecs/frontend/component/CameraComponent.h"
 #include "engine/ecs/frontend/component/FogComponent.h"
 #include "engine/ecs/frontend/component/InputComponent.h"
 #include "engine/ecs/frontend/component/PhysicsComponent.h"
@@ -20,8 +19,6 @@
 #include "engine/ecs/frontend/system/systems/LightSystem.h"
 #include "engine/subsystems/ingame-debug/Console.h"
 #include "engine/subsystems/ingame-debug/StatsManager.h"
-#include "engine/subsystems/ingame-debug/EntityStatsManager.h"
-#include "engine/subsystems/input/KeyCommand.h"
 #include "engine/subsystems/input/debugger/InputDebugger.h"
 
 #include "engine/ecs/frontend/system/systems/PhysicsCollisionSystem.h"
@@ -34,6 +31,7 @@
 #include "engine/ecs/frontend/system/systems/PhysicsSystem.h"
 #include "engine/ecs/frontend/system/systems/SunSystem.h"
 #include "engine/scene/Scene.h"
+#include "engine/subsystems/sound/SoundPlayer.h"
 using namespace GLESC;
 
 Engine::Engine(FPSManager& fpsManager) :
@@ -42,9 +40,7 @@ Engine::Engine(FPSManager& fpsManager) :
     renderer(windowManager),
     hudManager(windowManager.getWindow()),
     inputManager(hudManager, windowManager),
-#ifndef NDEBUG_GLESC
     engineHuds(hudManager, renderer, textureFactory),
-#endif
     ecs(),
     entityFactory(ecs),
     updateSystems(createSystems()),
@@ -53,9 +49,15 @@ Engine::Engine(FPSManager& fpsManager) :
     sceneContainer(windowManager, entityFactory, inputManager, sceneManager, hudManager, engineCamera),
     game(sceneManager, sceneContainer) {
     engineCamera.setupCamera();
+    engineCamera.setEngineHuds(&engineHuds);
     this->registerStats();
+    SoundPlayer::init();
     createEngineEntities();
     game.init();
+}
+
+Engine::~Engine() {
+    SoundPlayer::cleanup();
 }
 
 
@@ -80,16 +82,21 @@ void Engine::update() {
     hudManager.update();
     game.update();
     for (ECS::EntityID id : ecs.getEntitiesToBeDestroyed()) {
+#ifndef NDEBUG_GLESC
         EntityListManager::entityRemoved(ecs.getEntityName(id));
+#endif
         if (ecs.hasComponent<ECS::RenderComponent>(id) && ecs.hasComponent<ECS::TransformComponent>(id)) {
             renderer.remove(ecs.getComponent<ECS::RenderComponent>(id).getMesh(),
                             ecs.getComponent<ECS::TransformComponent>(id).transform);
         }
     }
     ecs.destroyEntities();
+#ifndef NDEBUG_GLESC
     // We need to clear the hud items (Sun, Fog, etc) here, if not called here, juttering will occur
     // Or we will get memory leaks
     HudItemsManager::clearItems();
+#endif
+
 
     for (auto& system : updateSystems) {
         system->update();
@@ -100,7 +107,7 @@ void Engine::update() {
     for (const auto& [name,id] : ecs.getAllEntities()) {
         if (ecs.isEntityInstanced(name))
             if ((engineCamera.getEntity().getComponent<ECS::TransformComponent>().transform.getPosition().distance(
-                ecs.getComponent<ECS::TransformComponent>(id).transform.getPosition()) > 1000.0f)) {
+                ecs.getComponent<ECS::TransformComponent>(id).transform.getPosition()) > 10000.0f)) {
                 ecs.markForDestruction(id);
             }
     }
@@ -119,11 +126,13 @@ std::vector<std::unique_ptr<ECS::System>> Engine::createSystems() {
     systems.push_back(std::make_unique<ECS::PhysicsSystem>(physicsManager, ecs));
     systems.push_back(std::make_unique<ECS::PhysicsCollisionSystem>(physicsManager, collisionManager, ecs));
     systems.push_back(std::make_unique<ECS::InputSystem>(inputManager, ecs));
-    systems.push_back(std::make_unique<ECS::DebugInfoSystem>(ecs, renderer));
     systems.push_back(std::make_unique<ECS::CameraSystem>(renderer, windowManager, ecs));
     systems.push_back(std::make_unique<ECS::LightSystem>(ecs, renderer));
     systems.push_back(std::make_unique<ECS::SunSystem>(ecs, renderer));
     systems.push_back(std::make_unique<ECS::FogSystem>(renderer, ecs));
+#ifndef NDEBUG_GLESC
+  systems.push_back(std::make_unique<ECS::DebugInfoSystem>(ecs, renderer));
+#endif
     return systems;
 }
 
@@ -194,3 +203,4 @@ void Engine::registerStats() const {
         return renderer.getView().toString();
     });
 }
+

@@ -4,12 +4,14 @@
  * @date   08/03/2024
  * @brief  Add description of this file if needed @TODO
  *
- * Copyright (c) 2024$ Valentin Dumitru. Licensed under the MIT License.
+ * Copyright (c) 2024 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
  **************************************************************************************************/
 
 #include "engine/subsystems/hud/HUDLookAndFeel.h"
 #include "engine/core/asserts/Asserts.h"
+#include "engine/core/file-system/BinPath.h"
+#include "engine/core/logger/Logger.h"
 
 
 #define FONTS_PATH_FROM_ASSETS "/fonts/"
@@ -19,9 +21,13 @@
 void HudLookAndFeel::addFont(const std::string& fileName, FontSize size) {
     validateFontName(fileName);
     validateFontSize(size);
+    std::string fullFontPath = BinPath::getExecutableDirectory() + ASSETS_PATH + FONTS_PATH_FROM_ASSETS + fileName +
+        FONTS_EXTENSION;
+    //fullFontPath= GLESC::Stringer::replace(fullFontPath, "/", "\\");
+    Logger::get().info("Loading font: " + fullFontPath);
     ImGuiIO& io = ImGui::GetIO();
-    ImFont* font = io.Fonts->AddFontFromFileTTF(
-        (ASSETS_PATH + std::string("/fonts/") + fileName + FONTS_EXTENSION).c_str(), static_cast<float>(size));
+    ImFont* font = io.Fonts->AddFontFromFileTTF(fullFontPath.c_str(), static_cast<float>(size));
+    D_ASSERT_NOT_NULLPTR(font, "Failed to load font: " + fullFontPath);
     fonts[fileName + std::to_string(size)] = font;
 }
 
@@ -67,8 +73,6 @@ ImFont* HudLookAndFeel::getFont(const std::string& fileName, FontSize size) {
 }
 
 void HudLookAndFeel::apply() {
-    ImGuiStyle& style = ImGui::GetStyle();
-
     ImVec4* colors = ImGui::GetStyle().Colors;
     colors[ImGuiCol_Text] = ImVec4(0.29f, 1.00f, 0.28f, 1.00f);
     colors[ImGuiCol_TextDisabled] = ImVec4(0.48f, 0.61f, 0.48f, 1.00f);
@@ -126,7 +130,7 @@ void HudLookAndFeel::apply() {
 
 
     // Make sure these changes take effect
-    ImGui::GetIO().Fonts->Build();
     ImGui::GetIO().FontDefault = getFont(defaultFont, defaultFontSize);
+    ImGui::GetIO().Fonts->Build();
     lookAndFeelApplied = true;
 }

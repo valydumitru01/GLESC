@@ -15,6 +15,7 @@
 namespace GLESC::HUD {
     class HUDManager {
     public:
+        using WindowID = int;
         HUDManager(SDL_Window& window);
         ~HUDManager();
 
@@ -23,11 +24,13 @@ namespace GLESC::HUD {
         /**
          * Add a new window to the HUD
          * Uses the move operator, this manager will take ownership of the window
-         * @param window
+         * @return the ID of the window
          */
-        void addWindow(GLESC::InGameWindow& window, const std::string &name);
+        WindowID addWindow(GLESC::InGameWindow& window);
 
-        void removeWindow(const std::string& name);
+        GLESC::InGameWindow &getWindow(WindowID id);
+
+        void removeWindow(WindowID id);
 
         void update();
 
@@ -41,7 +44,8 @@ namespace GLESC::HUD {
         void initImGUI();
 
         SDL_Window& window;
+        WindowID nextWindowID = 0;
         std::vector<GLESC::InGameWindow*> windows;
-        std::vector<Hasher::Hash> windowNames;
+        std::unordered_map<WindowID, GLESC::InGameWindow*> windowIDs;
     };
 } // namespace GLESC::HUD

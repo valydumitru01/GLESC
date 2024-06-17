@@ -27,17 +27,15 @@ namespace GLESC::Scene {
     : Scene(windowManager, entityFactory, inputManager, sceneManager,hudManager, camera) {} \
     \
     ~sceneName() override {\
-        destroyEntities();\
+        destroy();\
     } \
     static const std::string getSceneName() { return #sceneName; } \
-    void destroy() override { destroyEntities(); }
+    void destroy() override { destroyEntities();  }
 
 
     class Scene {
     public:
-        virtual ~Scene() {
-            destroyEntities();
-        };
+        virtual ~Scene() = default;
 
         Scene(WindowManager& windowManager,
               ECS::EntityFactory& entityFactory,
@@ -54,16 +52,21 @@ namespace GLESC::Scene {
             sceneTimer.start();
         }
 
+        void setInitialized(bool initializedParam) { initialized = initializedParam; }
+        [[nodiscard]] bool isInitialized() const { return initialized; }
         virtual void init() = 0;
         virtual void update() = 0;
         virtual void destroy() = 0;
 
         EngineCamera& getCamera() { return camera; }
 
+        template <typename SceneType>
+        void switchScene() {
+            sceneManager.switchScene(SceneType::getSceneName());
+        }
 
-        void switchScene(const std::string& sceneName) { sceneManager.switchScene(sceneName); }
         Time getSceneTimeMillis() { return sceneTimer.getCurrentTime(); }
-        Time getSceneTimeInSec() { return getSceneTimeMillis() / 1000.0; }
+        Time getSceneTimeInSec() { return static_cast<Time>(getSceneTimeMillis() / 1000.0); }
 
     protected:
         std::vector<ECS::EntityID>& getSceneEntities() { return sceneEntities; }
@@ -102,6 +105,28 @@ namespace GLESC::Scene {
                                 sceneEntities.end());
         }
 
+        template <typename WindowType>
+        [[nodiscard]] HUD::HUDManager::WindowID addWindow() {
+            D_ASSERT_TRUE((std::is_base_of_v<GLESC::InGameWindow, WindowType>),
+                          "WindowType must be derived from InGameWindow");
+            sceneWindows.push_back(std::make_unique<WindowType>());
+            windowReferences.push_back(hudManager.addWindow(*sceneWindows.back()));
+            return windowReferences.back();
+
+        }
+
+        template <typename WindowType>
+        [[nodiscard]] WindowType& getWindow(HUD::HUDManager::WindowID id) {
+            return dynamic_cast<WindowType&>(hudManager.getWindow(id));
+        }
+
+        void destroyWindows() {
+            for (auto& window : windowReferences) {
+                hudManager.removeWindow(window);
+            }
+            windowReferences.clear();
+            sceneWindows.clear();
+        }
 
         void destroyEntities() {
             for (auto& entity : getSceneEntities()) {
@@ -110,13 +135,16 @@ namespace GLESC::Scene {
             sceneEntities.clear();
         }
 
+
         ECS::EntityFactory& entityFactory;
         WindowManager& windowManager;
         Input::InputManager& inputManager;
-        HUD::HUDManager& hudManager;
 
     private:
-
+        HUD::HUDManager& hudManager;
+        std::vector<HUD::HUDManager::WindowID> windowReferences;
+        std::vector<std::unique_ptr<GLESC::InGameWindow>> sceneWindows;
+        bool initialized = false;
         std::vector<ECS::EntityID> sceneEntities;
         SceneManager& sceneManager;
         SceneID sceneID{};

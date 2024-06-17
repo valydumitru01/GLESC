@@ -8,11 +8,13 @@
  * See LICENSE.txt in the project root for license information.
  **************************************************************************************************/
 
+#ifndef NDEBUG_GLESC
 #include "engine/subsystems/hud/engine-hud/EntityListHUD.h"
 
 #include <map>
 
 #include "engine/core/asserts/Asserts.h"
+#include "engine/core/debugger/Stringer.h"
 #include "engine/subsystems/ingame-debug/EntityListManager.h"
 
 GLESC::HUD::EntityListHUD::EntityListHUD() {
@@ -44,7 +46,7 @@ void entityButton(int index, const std::string& name) {
 
 
     if (ImGui::Button(name.c_str(), ImVec2(-1, 0.0f))) {
-        EntityListManager::setSelectedEntity(name);
+        GLESC::EntityListManager::setSelectedEntity(name);
     }
 
     ImGui::NextColumn();
@@ -59,7 +61,7 @@ void GLESC::HUD::EntityListHUD::windowContent(float timeOfFrame) {
         const std::string* entityName = entityListItem.name;
 
         if (entityListItem.type == EntityType::Instance) {
-            std::string strippedName = GLESC::Stringer::strip(*entityName, "1234567890");
+            std::string strippedName = Stringer::strip(*entityName, "1234567890");
             entityMap[strippedName].push_back(entityName);
         } else {
             entityMap[*entityName]; // Ensure the entity is in the map
@@ -98,3 +100,4 @@ void GLESC::HUD::EntityListHUD::windowContent(float timeOfFrame) {
         ++entityIndex; // Increment the entity index
     }
 }
+#endif

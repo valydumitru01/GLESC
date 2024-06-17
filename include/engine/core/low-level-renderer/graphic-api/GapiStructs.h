@@ -84,8 +84,8 @@ namespace std {
         std::size_t operator()(const GLESC::RGBA &color) const noexcept {
             // Implement a simple hash function for RGBA
             // This is a basic example, and you might want to use a more sophisticated approach
-            return (std::hash<float>()(color.r) ^ std::hash<float>()(color.g) << 1 ^
-                    std::hash<float>()(color.b) << 2 ^ std::hash<float>()(color.a) << 3);
+            return std::hash<float>()(color.r) ^ std::hash<float>()(color.g) << 1 ^
+                    std::hash<float>()(color.b) << 2 ^ std::hash<float>()(color.a) << 3;
         }
     };
 }
@@ -96,8 +96,8 @@ namespace std {
         std::size_t operator()(const GLESC::RGBANorm &color) const noexcept{
             // Implement a simple hash function for RGBA
             // This is a basic example, and you might want to use a more sophisticated approach
-            return (std::hash<float>()(color.r) ^ std::hash<float>()(color.g) << 1 ^
-                    std::hash<float>()(color.b) << 2 ^ std::hash<float>()(color.a) << 3);
+            return std::hash<float>()(color.r) ^ std::hash<float>()(color.g) << 1 ^
+                    std::hash<float>()(color.b) << 2 ^ std::hash<float>()(color.a) << 3;
         }
     };
 }

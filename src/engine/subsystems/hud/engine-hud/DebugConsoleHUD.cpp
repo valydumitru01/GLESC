@@ -1,16 +1,17 @@
 /**************************************************************************************************
- * @file   ConsoleInterface.cpp
+ * @file   DebugConsoleHUD.cpp
  * @author Valentin Dumitru
  * @date   07/03/2024
  * @brief  Add description of this file if needed @TODO
  *
- * Copyright (c) 2024$ Valentin Dumitru. Licensed under the MIT License.
+ * Copyright (c) 2024 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
  **************************************************************************************************/
 
 
-#include "engine/subsystems/hud/engine-hud/DebugConsoleHUD.h"
 
+#ifndef NDEBUG_GLESC
+#include "engine/subsystems/hud/engine-hud/DebugConsoleHUD.h"
 #include "engine/core/math/Math.h"
 #include "engine/subsystems/ingame-debug/Console.h"
 
@@ -76,3 +77,4 @@ void DebugConsoleHUD::windowContent(float timeOfFrame) {
 
     ImGui::EndChild();
 }
+#endif

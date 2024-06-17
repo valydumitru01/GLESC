@@ -51,6 +51,22 @@ endfunction()
 
 
 verbose_info("----Defining directories and files----")
+
+# ...................... Binary Dirs .......................
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY
+        ${CMAKE_SOURCE_DIR}/bin)
+set_new_dir(BIN_DIR
+        ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
+if (CMAKE_BUILD_TYPE STREQUAL "Debug")
+    set_new_dir(BIN_DIR
+            ${BIN_DIR}/debug)
+else ()
+    set_new_dir(BIN_DIR
+            ${BIN_DIR}/release)
+endif ()
+
+# ..........................................................
+
 # ..................... Project Dirs .......................
 # Set the source directory, this is where the source files
 # are located
@@ -60,7 +76,8 @@ set_new_dir(SRC_DIR src)
 set_new_dir(SHADER_DIR ${CMAKE_SOURCE_DIR}/src/engine/subsystems/renderer/shaders)
 # Set the assets directory, this is where the assets are
 # located
-set_new_dir(ASSETS_DIR ${CMAKE_SOURCE_DIR}/assets)
+set_new_dir(ASSETS_DIR /assets)
+set_new_dir(SOUND_ASSETS_DIR ${ASSETS_DIR}/sounds)
 set_new_dir(INCLUDE_DIR include)
 # ..........................................................
 
@@ -87,20 +104,7 @@ endif ()
 set_new_dir(TEST_DIR tests)
 # ..........................................................
 
-# ...................... Binary Dirs .......................
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY
-        ${CMAKE_SOURCE_DIR}/bin)
-set_new_dir(BIN_DIR
-        ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
-if (CMAKE_BUILD_TYPE STREQUAL "Debug")
-    set_new_dir(BIN_DIR
-            ${BIN_DIR}/debug)
-else ()
-    set_new_dir(BIN_DIR
-            ${BIN_DIR}/release)
-endif ()
 
-# ..........................................................
 
 # ...................... Source Files ......................
 # We're using GLOB_RECURSE to obtain all the files in the

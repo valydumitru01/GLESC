@@ -23,48 +23,48 @@ namespace GLESC::Render {
               farPlane(farPlane) {
         }
 
-        float getFovDegrees() const {
+        [[nodiscard]] float getFovDegrees() const {
             return fovDegrees;
         }
 
-        float getViewWidth() const {
+        [[nodiscard]] float getViewWidth() const {
             return viewWidth;
         }
 
-        float getViewHeight() const {
+        [[nodiscard]] float getViewHeight() const {
             return viewHeight;
         }
 
-        float getNearPlane() const {
+        [[nodiscard]] float getNearPlane() const {
             return nearPlane;
         }
 
-        float getFarPlane() const {
+        [[nodiscard]] float getFarPlane() const {
             return farPlane;
         }
 
-        void setFovDegrees(float fovDegrees) {
-            this->fovDegrees = Math::Distance(fovDegrees);
+        void setFovDegrees(Math::Distance fovDegrees) {
+            this->fovDegrees = fovDegrees;
             dirty = true;
         }
 
-        void setViewWidth(float viewWidth) {
-            this->viewWidth = Math::Distance(viewWidth);
+        void setViewWidth(Math::Distance viewWidth) {
+            this->viewWidth = viewWidth;
             dirty = true;
         }
 
-        void setViewHeight(float viewHeight) {
-            this->viewHeight = Math::Distance(viewHeight);
+        void setViewHeight(Math::Distance viewHeight) {
+            this->viewHeight = viewHeight;
             dirty = true;
         }
 
-        void setNearPlane(float nearPlane) {
-            this->nearPlane = Math::Distance(nearPlane);
+        void setNearPlane(Math::Distance nearPlane) {
+            this->nearPlane = nearPlane;
             dirty = true;
         }
 
-        void setFarPlane(float farPlane) {
-            this->farPlane = Math::Distance(farPlane);
+        void setFarPlane(Math::Distance farPlane) {
+            this->farPlane = farPlane;
             dirty = true;
         }
 
@@ -80,79 +80,10 @@ namespace GLESC::Render {
             return dirty;
         }
 
-
-        [[nodiscard]] std::vector<EntityStatsManager::Value> getDebuggingValues() {
-            std::vector<EntityStatsManager::Value> values;
-            EntityStatsManager::Value fovValue;
-            fovValue.name = "Fov";
-            fovValue.data = reinterpret_cast<void*>(&fovDegrees);
-            fovValue.type = EntityStatsManager::ValueType::FLOAT;
-            fovValue.isModifiable = true;
-            fovValue.usesSlider = true;
-            fovValue.valueDirty = &dirty;
-            fovValue.min = 0.0f;
-            fovValue.max = 180.0f;
-            values.push_back(fovValue);
-
-            EntityStatsManager::Value viewWidthValue;
-            viewWidthValue.name = "View Width";
-            viewWidthValue.data = reinterpret_cast<void*>(&viewWidth);
-            viewWidthValue.type = EntityStatsManager::ValueType::FLOAT;
-            viewWidthValue.isModifiable = true;
-            viewWidthValue.usesSlider = true;
-            viewWidthValue.valueDirty = &dirty;
-            viewWidthValue.min = 0.0f;
-            viewWidthValue.max = 1000.0f;
-            values.push_back(viewWidthValue);
-
-            EntityStatsManager::Value viewHeightValue;
-            viewHeightValue.name = "View Height";
-            viewHeightValue.data = reinterpret_cast<void*>(&viewHeight);
-            viewHeightValue.type = EntityStatsManager::ValueType::FLOAT;
-            viewHeightValue.isModifiable = true;
-            viewHeightValue.usesSlider = true;
-            viewHeightValue.valueDirty = &dirty;
-            viewHeightValue.min = 0.0f;
-            viewHeightValue.max = 1000.0f;
-            values.push_back(viewHeightValue);
-
-            EntityStatsManager::Value nearPlaneValue;
-            nearPlaneValue.name = "Near Plane";
-            nearPlaneValue.data = reinterpret_cast<void*>(&nearPlane);
-            nearPlaneValue.type = EntityStatsManager::ValueType::FLOAT;
-            nearPlaneValue.isModifiable = true;
-            nearPlaneValue.usesSlider = true;
-            nearPlaneValue.valueDirty = &dirty;
-            nearPlaneValue.min = 0.0001f;
-            nearPlaneValue.max = 1000.0f;
-            values.push_back(nearPlaneValue);
-
-            EntityStatsManager::Value farPlaneValue;
-            farPlaneValue.name = "Far Plane";
-            farPlaneValue.data = reinterpret_cast<void*>(&farPlane);
-            farPlaneValue.type = EntityStatsManager::ValueType::FLOAT;
-            farPlaneValue.isModifiable = true;
-            farPlaneValue.usesSlider = true;
-            farPlaneValue.valueDirty = &dirty;
-            farPlaneValue.min = 0.0f;
-            farPlaneValue.max = 1000.0f;
-            values.push_back(farPlaneValue);
-
-            return values;
-        }
-
-        [[nodiscard]] std::string toString() const {
-            return std::string("\n\tfov: ")
-                + std::to_string(fovDegrees)
-                + std::string("\n\tviewWidth: ")
-                + std::to_string(viewWidth)
-                + std::string("\n\tviewHeight: ")
-                + std::to_string(viewHeight)
-                + std::string("\n\tnearPlane: ")
-                + std::to_string(nearPlane)
-                + std::string("\n\tfarPlane: ")
-                + std::to_string(farPlane);
-        }
+#ifndef NDEBUG_GLESC
+        [[nodiscard]] std::vector<EntityStatsManager::Value> getDebuggingValues() ;
+#endif
+        [[nodiscard]] std::string toString() const ;
 
     private:
         Math::Distance fovDegrees{60.0f};

@@ -12,7 +12,6 @@
 #include <gtest/gtest.h>
 
 #include "engine/core/math/algebra/vector/Vector.h"
-#include "engine/core/math/algebra/vector/VectorAlgorithms.h"
 
 template <typename Type, size_t N>
 struct VectorType {

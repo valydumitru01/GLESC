@@ -6,13 +6,8 @@
 
 #pragma once
 
-#include <unordered_map>
-
 #include "engine/ecs/backend/component/IComponent.h"
 #include "engine/subsystems/input/Input.h"
-#include "engine/subsystems/input/KeyCommand.h"
-#include "engine/subsystems/input/InputTypes.h"
-#include "engine/subsystems/input/MouseCommand.h"
 
 namespace GLESC::ECS {
     struct InputComponent : IComponent {
@@ -24,11 +19,12 @@ namespace GLESC::ECS {
         std::string getName() const override {
             return "InputComponent";
         }
-
+#ifndef NDEBUG_GLESC
         void setDebuggingValues() override {
             for (auto& value : input.getDebuggingValues()) {
                 values.push_back(value);
             }
         }
+#endif
     };
 } // namespace GLESC::ECS

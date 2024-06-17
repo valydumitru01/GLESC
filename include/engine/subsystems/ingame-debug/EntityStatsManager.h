@@ -4,17 +4,13 @@
  * @date   08/03/2024
  * @brief  Add description of this file if needed @TODO
  *
- * Copyright (c) 2024$ Valentin Dumitru. Licensed under the MIT License.
+ * Copyright (c) 2024 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
  **************************************************************************************************/
 #pragma once
 #include <functional>
 #include <string>
-#include <unordered_map>
 #include <vector>
-
-#include "engine/ecs/ECSTypes.h"
-
 
 class EntityStatsManager {
 public:
@@ -68,8 +64,15 @@ public:
         std::vector<ComponentData> components;
     };
 
+#ifndef NDEBUG_GLESC
     static void setEntityData(EntityData data) { entityData = data; }
-    static EntityData& getEntityData();
+    static EntityData& getEntityData(){
+        return entityData;
+    }
+#else
+    static void setEntityData(const EntityData& data) { (void)data; }
+    static EntityData getEntityData() { return {}; }
+#endif
 private:
     static EntityData entityData;
 }; // class EntityStatsManager

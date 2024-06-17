@@ -52,7 +52,7 @@ namespace GLESC::ECS {
         void registerComponentIfNotRegistered();
 
         template <typename Component>
-        void addComponentToEntity(EntityID entity, Component component);
+        void addComponentToEntity(EntityID entity, const Component& component);
 
         template <typename Component>
         void removeComponent(EntityID entity);
@@ -137,7 +137,7 @@ namespace GLESC::ECS {
 
     template <typename Component>
     void
-    ComponentManager::addComponentToEntity(EntityID entity, Component component) {
+    ComponentManager::addComponentToEntity(EntityID entity, const Component& component) {
         // No need for asserts or printing, they are already done in the functions called
         registerComponentIfNotRegistered<Component>();
         getComponentArray<Component>()->insertData(entity, component);

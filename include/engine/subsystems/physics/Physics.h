@@ -70,9 +70,10 @@ namespace GLESC::Physics {
         [[nodiscard]] AngularAcceleration getAngularAcceleration() const { return angAccel; }
         [[nodiscard]] AngularVelocity getAngularVelocity() const { return angularVelocity; }
 
-
-        [[nodiscard]] std::vector<EntityStatsManager::Value> getDebuggingValues() override;
         [[nodiscard]] std::string toString() const override;
+#ifndef NDEBUG_GLESC
+        [[nodiscard]] std::vector<EntityStatsManager::Value> getDebuggingValues() override;
+#endif
 
     private:
         Mass mass{1.0F};

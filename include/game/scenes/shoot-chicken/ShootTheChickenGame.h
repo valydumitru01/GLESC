@@ -8,13 +8,13 @@
  * See LICENSE.txt in the project root for license information.
  **************************************************************************************************/
 #pragma once
-#include "ChickenKillCountHUD.h"
+#include "ShootTheChickenHUD.h"
+#include "STCGameOverHUD.h"
 #include "engine/core/window/WindowManager.h"
 #include "engine/ecs/frontend/entity/EntityFactory.h"
 #include "engine/scene/Scene.h"
 #include "engine/scene/SceneManager.h"
 #include "engine/subsystems/input/KeyCommand.h"
-#include "engine/subsystems/input/MouseCommand.h"
 #include "engine/subsystems/physics/Collider.h"
 #include "engine/subsystems/physics/PhysicsTypes.h"
 #include "engine/subsystems/renderer/mesh/Mesh.h"
@@ -28,14 +28,19 @@ public:
     void createPlayerMesh();
     void createBulletMesh();
     void createTreeMesh();
+    void createGrassMesh();
+    void createBushesMeshes();
 
     void createFloorEntity();
     void createTreeEntities();
+    void createBushesEntity();
+    void createGrassEntity();
     void generateChickenEntities();
 
     GLESC::Transform::Position generateChickenPosition();
 
     void createPlayerEntity();
+
 
     void shootBulletActionFunc();
     void jumpActionFunc();
@@ -56,10 +61,14 @@ private:
     GLESC::Render::ColorMesh chickenMesh;
     GLESC::Render::ColorMesh bulletMesh;
     GLESC::Render::ColorMesh treeMesh;
+    GLESC::Render::ColorMesh allBushesMesh;
+    GLESC::Render::ColorMesh allGrassMesh;
 
-    ChickenKillCountHUD chickenKillCountHUD;
+    GLESC::HUD::HUDManager::WindowID gameOverWindow{};
+    GLESC::HUD::HUDManager::WindowID statsWindow{};
 
     std::vector<GLESC::ECS::EntityID> chickens;
     // This will lead to memory leak
     std::vector<GLESC::ECS::EntityID> bullets;
+    bool hasAlreadyInitialized = false;
 }; // class ShootTheChickenGame

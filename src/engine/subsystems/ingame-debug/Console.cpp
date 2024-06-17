@@ -4,7 +4,7 @@
  * @date   07/03/2024
  * @brief  Add description of this file if needed @TODO
  *
- * Copyright (c) 2024$ Valentin Dumitru. Licensed under the MIT License.
+ * Copyright (c) 2024 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
  **************************************************************************************************/
 
@@ -13,6 +13,7 @@
 
 using namespace GLESC;
 
+#ifndef NDEBUG_GLESC
 std::vector<LogEntry> Console::messages = {};
 std::unordered_map<std::string, size_t> Console::messageIndices = {};
 std::mutex Console::mutex = {};
@@ -29,3 +30,5 @@ void Console::addMessage(const std::string& message, LogLevel level) {
         messages.push_back({message, 1, level});
     }
 }
+
+#endif

@@ -1,10 +1,10 @@
 /**************************************************************************************************
- * @file   FPSAverage.h
+ * @file   FPSAverager.h
  * @author Valentin Dumitru
  * @date   08/03/2024
- * @brief  Add description of this file if needed @TODO
+ * @brief  Class to encapsulate the logic of averaging the FPS
  *
- * Copyright (c) 2024$ Valentin Dumitru. Licensed under the MIT License.
+ * Copyright (c) 2024 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
  **************************************************************************************************/
 #pragma once
@@ -23,12 +23,13 @@ public:
         }
     }
     [[nodiscard]] long unsigned int getAverage() const {
-        float sum = 0;
+        if (frames.empty()) return 0;
+        long unsigned int sum = 0;
         for (auto& frame : frames) {
             sum += frame;
         }
-        return sum / frames.size();
+        return static_cast<long unsigned int>(static_cast<double>(sum) / static_cast<double>(frames.size()));
     }
 private:
-    std::deque<float> frames;
+    std::deque<long unsigned int> frames;
 }; // class FPSAverage

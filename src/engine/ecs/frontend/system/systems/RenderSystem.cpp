@@ -17,7 +17,7 @@ RenderSystem::RenderSystem(Render::Renderer& renderer, ECSCoordinator& ecs) :
     System(ecs, "RenderSystem"), renderer(renderer) {
     addComponentRequirement<TransformComponent>();
     addComponentRequirement<RenderComponent>();
-};
+}
 
 
 void RenderSystem::update() {
@@ -26,6 +26,7 @@ void RenderSystem::update() {
         for (auto& entity : getAssociatedEntities()) {
             auto& render = getComponent<RenderComponent>(entity);
             auto& transform = getComponent<TransformComponent>(entity);
+            render.getMesh().setOwnerName(getEntityName(entity).c_str());
             renderer.sendMeshData(render.getMesh(), render.getMaterial(), transform.transform);
         }
     }

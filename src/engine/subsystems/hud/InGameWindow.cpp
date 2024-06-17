@@ -4,16 +4,18 @@
  * @date   08/03/2024
  * @brief  Add description of this file if needed @TODO
  *
- * Copyright (c) 2024$ Valentin Dumitru. Licensed under the MIT License.
+ * Copyright (c) 2024 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
  **************************************************************************************************/
 
 
 #include "engine/subsystems/hud/InGameWindow.h"
 #include "engine/core/asserts/Asserts.h"
+#include "engine/subsystems/ingame-debug/Console.h"
 using namespace GLESC;
 
-InGameWindow::InGameWindow() : isVisible(false) {}
+InGameWindow::InGameWindow() : isVisible(false) {
+}
 
 void InGameWindow::setTitle(const std::string& title) {
     D_ASSERT_FALSE(title.empty(), "Title cannot be empty");
@@ -80,11 +82,14 @@ void InGameWindow::setCenter(WindowCenter center) {
 
 
 ImGuiWindowFlags InGameWindow::getFlags() {
-    ImGuiWindowFlags flags = 0;
-    for (auto& flag : windowFlags) {
-        flags |= flag;
+    if (!windowFlagsCached) {
+        cachedFlags = 0;
+        for (auto& flag : windowFlags) {
+            cachedFlags |= flag;
+        }
+        windowFlagsCached = true;
     }
-    return flags;
+    return cachedFlags;
 }
 
 void InGameWindow::setLayoutPosition(LayoutPos position) {
@@ -133,7 +138,7 @@ void InGameWindow::setLayoutPosition(LayoutPos position) {
 }
 
 
-ImVec2 InGameWindow::calculatePosition(ImVec2 windowSize) {
+ImVec2 InGameWindow::calculatePosition(ImVec2 windowSize) const {
     float screenWidth = ImGui::GetIO().DisplaySize.x;
     float screenHeight = ImGui::GetIO().DisplaySize.y;
 
@@ -141,13 +146,20 @@ ImVec2 InGameWindow::calculatePosition(ImVec2 windowSize) {
     float posX = (screenWidth * positionFraction.x) - (windowSize.x * center.x);
     float posY = (screenHeight * positionFraction.y) - (windowSize.y * center.y);
 
+    // Ensure the position respects the screen boundaries
+    posX = std::max(posX, windowMarginFraction * screenWidth);
+    posY = std::max(posY, windowMarginFraction * screenHeight);
+    posX = std::min(posX, screenWidth - windowSize.x - windowMarginFraction * screenWidth);
+    posY = std::min(posY, screenHeight - windowSize.y - windowMarginFraction * screenHeight);
+
     return {posX, posY};
 }
 
-ImVec2 InGameWindow::calculateSize() {
+ImVec2 InGameWindow::calculateSize() const {
     float screenWidth = ImGui::GetIO().DisplaySize.x;
     float screenHeight = ImGui::GetIO().DisplaySize.y;
 
+    // Calculate size based on fractions of screen width and height
     ImVec2 calculatedSize = ImVec2(screenWidth * sizeFraction.x, screenHeight * sizeFraction.y);
 
     // Apply minimum size constraints
@@ -155,23 +167,23 @@ ImVec2 InGameWindow::calculateSize() {
     calculatedSize.y = std::max(calculatedSize.y, minSize.y);
 
     // Apply maximum size constraints
-    calculatedSize.x = std::min(calculatedSize.x, maxSize.x);
-    calculatedSize.y = std::min(calculatedSize.y, maxSize.y);
+    calculatedSize.x = std::min(calculatedSize.x, maxSize.x > 0 ? maxSize.x : screenWidth);
+    calculatedSize.y = std::min(calculatedSize.y, maxSize.y > 0 ? maxSize.y : screenHeight);
 
     return calculatedSize;
 }
 
 void InGameWindow::render(float timeOfFrame) {
-    if (isVisible) {
-        // Set the position and size of the console
-        ImGui::SetNextWindowPos(position, ImGuiCond_Always);
-        ImGui::SetNextWindowSize(size, ImGuiCond_Always);
+    if (!isVisible) return;
+    ImGui::SetNextWindowPos(position, ImGuiCond_Always);
+    ImGui::SetNextWindowSize(size, ImGuiCond_Always);
 
-        // Begin the console window with no title bar and other specified flags
-        ImGui::Begin(title.c_str(), &isVisible, getFlags());
+    // Debugging output
+    Console::log(title + " window Position: (" + std::to_string(position.x) + ", " + std::to_string(position.y) + ")");
+    Console::log(title + " window Size: (" + std::to_string(size.x) + ", " + std::to_string(size.y) + ")");
 
+    if (ImGui::Begin(title.c_str(), &isVisible, getFlags())) {
         windowContent(timeOfFrame);
-
         ImGui::End();
     }
 }

@@ -22,7 +22,8 @@ enum FpsRates {
     Fps120 [[maybe_unused]] = 120,
     Fps144 [[maybe_unused]] = 144,
     Fps240 [[maybe_unused]] = 240,
-    FpsUnlimited [[maybe_unused]] = 99999999
+    Fps480 [[maybe_unused]] = 480,
+    Fps960 [[maybe_unused]] = 960,
 };
 
 class FPSManager {

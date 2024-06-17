@@ -92,7 +92,8 @@ Point Polyhedron::getCenter() const {
 }
 
 [[nodiscard]] bool Polyhedron::hasInside(const Point& point) const {
-
+    (void)point;
+    D_ASSERT_TRUE(false, "Not implemented");
 }
 
 [[nodiscard]] bool Polyhedron::hasInside(const PolyhedronFace& face) {

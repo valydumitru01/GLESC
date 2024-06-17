@@ -27,6 +27,7 @@ in vec2 VertexTexCoord;
 #endif
 in vec3 NormalViewSpace;
 in vec3 FragPosViewSpace;
+in vec3 SunDirViewSpace;
 // ==========================================
 
 
@@ -44,7 +45,6 @@ struct AmbientLight {
 struct GlobalSun {
     vec3 color;
     float intensity;
-    vec3 direction;
     sampler2D shadowMap;
     mat4 viewProjMatrix;
 };
@@ -95,10 +95,10 @@ struct Material {
 // ---------------- Unforms -----------------
 // ------------------------------------------
 uniform Fog uFog;
-uniform GlobalSun uGlobalSun;
 uniform AmbientLight uAmbient;
 uniform LightSpots uLights;
 uniform Material uMaterial;
+uniform GlobalSun uGlobalSun;
 #ifdef USE_COLOR
 uniform vec4 Color;
 #else
@@ -109,10 +109,10 @@ uniform sampler2D Texture1;
 float calculateAttenuation(float distance, float radius) {
     // Formula obtained from
     // https://gamedev.stackexchange.com/questions/56897/glsl-light-attenuation-color-and-intensity-formula
-    float minLight = 0.01;
+    float minLight = 0.01f;
     float a = 0.1;
-    float b = 1.0 / (radius*radius * minLight);
-    return 1.0 / (1.0 + a*distance + b*distance*distance);
+    float b = 1.0f / (radius*radius * minLight);
+    return 1.0f / (1.0f + a*distance + b*distance*distance);
 }
 
 vec3 calculateSpecular(vec3 lightDir, vec3 norm, vec3 viewDir, float shininess,
@@ -120,7 +120,7 @@ vec3 specularColor, float materialSpecularIntensity, float att, float intensity)
     if (shininess < 0.01) {
         return vec3(0.0);// No specular highlight if shininess is close to zero
     }
-    float materialShininessMapped = shininess * 256.0;
+    float materialShininessMapped = shininess * 256.0f;
     vec3 reflectDir = reflect(-lightDir, norm);
     float spec = pow(max(dot(viewDir, reflectDir), 0.0), materialShininessMapped);
     return intensity * spec * specularColor * materialSpecularIntensity;
@@ -132,14 +132,14 @@ vec3 calculateDiffuse(vec3 lightDir, vec3 norm, vec3 color, float intensity, flo
 }
 
 float calculateFogFactor(float distanceToPixel, float fogEnd, float density) {
-    float distRatio = 4.0 * distanceToPixel / fogEnd;
+    float distRatio = 4.0f * distanceToPixel / fogEnd;
     float fogFactor = exp(-distRatio * density * distRatio * density);
     return fogFactor;
 }
 
 void main() {
     vec3 viewDir = normalize(-FragPosViewSpace);
-    vec3 norm = normalize(NormalViewSpace);
+    vec3 norm = NormalViewSpace;
     #ifdef USE_COLOR
     vec3 baseColor = VertexColor.rgb;
     #else
@@ -152,7 +152,7 @@ void main() {
     vec3 totalSpecular = vec3(0.0);
 
     // Applying the sun light
-    vec3 sunDir = -normalize(uGlobalSun.direction);
+    vec3 sunDir = -SunDirViewSpace;
     float sunIntensity = uGlobalSun.intensity;
     vec3 sunColor = uGlobalSun.color;
 
@@ -233,6 +233,7 @@ out vec2 VertexTexCoord;
 #endif
 out vec3 NormalViewSpace;
 out vec3 FragPosViewSpace;
+out vec3 SunDirViewSpace;
 // ==========================================
 
 
@@ -242,6 +243,7 @@ out vec3 FragPosViewSpace;
 uniform mat4 uMVP;
 uniform mat4 uMV;
 uniform mat3 uNormalMat;
+uniform vec3 uSunDirection;
 // ==========================================
 
 void main() {
@@ -260,6 +262,9 @@ void main() {
     #else
     VertexTexCoord = aTexCoord;// Pass the texture coordinate to the fragment shader.
     #endif
-    NormalViewSpace = uNormalMat * aNormal;
+    NormalViewSpace = normalize(uNormalMat * aNormal);
     FragPosViewSpace = vec3(uMV * vec4(aPos, 1.0));
+
+    // Transform sun direction to view space using the normal matrix
+    SunDirViewSpace = normalize(uNormalMat * uSunDirection);
 }

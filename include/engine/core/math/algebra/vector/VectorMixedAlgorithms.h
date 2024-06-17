@@ -15,7 +15,6 @@
 
 #include <cstddef>
 #include <vector>
-#include "engine/core/math/algebra/matrix/MatrixAlgorithms.h"
 #include "engine/core/math/algebra/vector/VectorTypes.h"
 #include "engine/core/math/algebra/vector/VectorAlgorithms.h"
 #include "engine/core/math/algebra/matrix/MatrixTypes.h"
@@ -39,7 +38,6 @@ namespace GLESC::Math {
          * The points are collinear if cross product of the direction vectors from the reference point to each point is
          * the zero vector.
          * @tparam Type Data type of the points (e.g., double, float).
-         * @tparam N Dimension of space.
          * @param p1 First point.
          * @param p2 Second point.
          * @param p3 Third point.

@@ -41,18 +41,21 @@ namespace GLESC::ECS {
             return componentArray[entityToIndexMap.at(entity)];
         }
 
-        void insertData(EntityID entity, Component component) {
+        void insertData(EntityID entity,const Component& component) {
             PRINT_COMPONENT_ARRAY_STATUS(
                 "Before inserting component:\n"
                 "\t" + component.toString() + "\n"
                 "\tfrom entity " + std::to_string(entity));
 
-
+            // If the entity already has a component in this array, do nothing
+            if (hasComponent(entity)) return;
             // Put new entry at end and update the maps
             size_t newIndex = size;
             entityToIndexMap[entity] = newIndex;
             indexToEntityMap[newIndex] = entity;
-            componentArray[newIndex] = component;
+            //componentArray[newIndex] = component;
+
+            new(&componentArray[newIndex]) Component(std::move(component));
             ++size;
 
 
@@ -76,10 +79,13 @@ namespace GLESC::ECS {
             // Copy element at end into deleted element's place to maintain density
             size_t indexOfRemovedEntity = entityToIndexMap[entity];
             size_t indexOfLastElement = size - 1;
-            componentArray[indexOfRemovedEntity] = componentArray[indexOfLastElement];
+            // Call destructor on removed component, it is not called automatically causing bugs and memory leaks
+            componentArray[indexOfRemovedEntity].~Component();
+            new(&componentArray[indexOfRemovedEntity]) Component(std::move(componentArray[indexOfLastElement]));
 
             // Update map to point to moved spot
             EntityID entityOfLastElement = indexToEntityMap[indexOfLastElement];
+
             entityToIndexMap[entityOfLastElement] = indexOfRemovedEntity;
             indexToEntityMap[indexOfRemovedEntity] = entityOfLastElement;
 
@@ -109,14 +115,14 @@ namespace GLESC::ECS {
             return entityToIndexMap.find(entity) != entityToIndexMap.end();
         }
 
-        void entityDestroyed(EntityID entity) {
+        void entityDestroyed(EntityID entity) override {
             if (entityToIndexMap.find(entity) != entityToIndexMap.end()) {
                 removeData(entity);
             }
         }
 
     private:
-        void printStatus(std::string context) {
+        void printStatus(const std::string& context) {
             Logger::get().importantInfoBlue("ComponentArray Status Report - Context: " + context);
             const char* componentName = typeid(Component).name();
             Logger::get().infoBlue("Component Type: " + std::string(componentName));

@@ -11,7 +11,6 @@
 
 #include <string>
 #include "engine/core/low-level-renderer/graphic-api/GapiEnums.h"
-#include "engine/core/asserts/Asserts.h"
 
 namespace GLESC::GAPI::Enums{
 

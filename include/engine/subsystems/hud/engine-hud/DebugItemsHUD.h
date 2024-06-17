@@ -8,6 +8,7 @@
  * See LICENSE.txt in the project root for license information.
  **************************************************************************************************/
 #pragma once
+#ifndef NDEBUG_GLESC
 #include <unordered_map>
 
 #include "engine/subsystems/renderer/texture/Texture.h"
@@ -31,3 +32,4 @@ namespace GLESC::HUD {
         std::unordered_map<HudItemType, Render::Texture*> items;
     }; // class DebugItemsHUD
 } // namespace GLESC::HUD
+#endif

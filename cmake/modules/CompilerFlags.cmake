@@ -62,13 +62,10 @@ set(DEBUG_FLAGS
         "-O0"
         # Produce debugging information
         "-g"
-        # This disables debugging for graphics API, avoiding
-        # the overhead
-        "-DNDEBUG_GAPI"
-        # This disables debugging for ECS, avoiding the overhead
-        "-DNDEBUG_ECS"
         # Produce debugging information for gdb
         "-ggdb"
+        # This disables debugging for ECS, avoiding the overhead
+        "-DNDEBUG_ECS"
         # Verbose output, enabled only for specific problems
         # "-v"
         CACHE STRING "Flags used by the compiler during debug builds." FORCE
@@ -78,7 +75,7 @@ set(DEBUG_FLAGS
 set(RELEASE_FLAGS
         # Optimization flag, -O3 is not always faster than -O2
         # TODO: Test which one is faster
-        "-O3"
+        #"-O3"
         # Enable miscellaneous release features
         "-DRELEASE"
         # This disables the assert statements, avoiding the
@@ -87,17 +84,20 @@ set(RELEASE_FLAGS
         # This disables the logging statements, avoiding the
         # overhead of writing to the log file
         "-DNLOGGING"
+        # This disables GLESC debug
+        "-DNDEBUG_GLESC"
         # This disables debugging for graphics API, avoiding
         # the overhead
         "-DNDEBUG_GAPI"
-        # This disables GLESC debug HUD and hides default stats, also disables default camera
+        # This disables GLESC debug
         "-DNDEBUG_GLESC"
-        # Link time optimization, optimizes code at link time
-        # but increases compilation time
-        # "-flto"
+        # This disables debugging for ECS, avoiding the overhead
+        "-DNDEBUG_ECS"
         # Strip symbols from binary, reduces the size of the
         # binary but makes debugging harder
         "-s"
+        # Disable all warnings
+        "-w"
         CACHE STRING "Flags used by the compiler during release builds." FORCE
 )
 

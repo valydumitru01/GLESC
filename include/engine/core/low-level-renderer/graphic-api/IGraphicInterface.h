@@ -64,6 +64,8 @@ namespace GLESC::GAPI {
         // ------------------------------------------------------------------------------
         // -------------------------------- Buffers -------------------------------------
 
+        virtual Bool isBuffer(UInt bufferID) = 0;
+
         virtual Void genBuffers(UInt amount, UInt& bufferID) = 0;
 
         virtual Void bindBuffer(Enums::BufferTypes bufferType, UInt buffer) = 0;
@@ -76,7 +78,7 @@ namespace GLESC::GAPI {
 
         virtual std::vector<int> getBufferDataI(UInt bufferId) = 0;
 
-        virtual Void deleteBuffer(UInt buffer) = 0;
+        virtual Void deleteBuffer(UInt& buffer) = 0;
 
         virtual Void setDynamicBufferData(UInt size, Enums::BufferTypes bufferType) = 0;
 
@@ -98,7 +100,7 @@ namespace GLESC::GAPI {
 
         virtual Void unbindVertexArray() = 0;
 
-        virtual Void deleteVertexArray(UInt vertexArrayID) = 0;
+        virtual Void deleteVertexArray(UInt& vertexArrayID) = 0;
 
         virtual Void enableVertexData(UInt index) = 0;
 
@@ -118,8 +120,7 @@ namespace GLESC::GAPI {
                                         Enums::Texture::Filters::Mag magFilter,
                                         Enums::Texture::Filters::WrapMode wrapS,
                                         Enums::Texture::Filters::WrapMode wrapT,
-                                        Enums::Texture::Filters::WrapMode wrapR =
-                                            Enums::Texture::Filters::WrapMode::ClampToEdge) = 0;
+                                        Enums::Texture::Filters::WrapMode wrapR) = 0;
 
         virtual Void
         setTextureData(Enums::Texture::Types textureType,

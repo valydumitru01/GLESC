@@ -4,11 +4,11 @@
  * @date   08/03/2024
  * @brief  Add description of this file if needed @TODO
  *
- * Copyright (c) 2024$ Valentin Dumitru. Licensed under the MIT License.
+ * Copyright (c) 2024 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
  **************************************************************************************************/
 #include "engine/subsystems/ingame-debug/StatsManager.h"
-
+using namespace GLESC;
 std::unordered_map<std::string, std::string> StatsManager::getStats() {
     std::unordered_map<std::string, std::string> result;
     for (auto& source : sources) {

@@ -8,39 +8,20 @@
  * See LICENSE.txt in the project root for license information.
  **************************************************************************************************/
 #pragma once
-#include <sstream>
 #include <unordered_map>
 
 #include "KeyCommand.h"
 #include "MouseCommand.h"
-#include "engine/subsystems/input/debugger/InputDebugger.h"
+#include "engine/subsystems/ingame-debug/EntityStatsManager.h"
 
 namespace GLESC::Input {
     class Input {
     public:
-        [[nodiscard]] std::string toString() const {
-            std::ostringstream ss;
-            ss << "Subscribed keys";
-            for (const auto& [key, command] : subscribedKeys) {
-                ss << keyToString(key.key) << " ";
-            }
-            return ss.str();
-        }
+        [[nodiscard]] std::string toString() const;
 
-        std::vector<EntityStatsManager::Value> getDebuggingValues() {
-            std::vector<EntityStatsManager::Value> values;
-            EntityStatsManager::Value subscribedKeysValue;
-            subscribedKeysValue.name = "Subscribed keys";
-            subscribedKeysValue.isString = true;
-            std::stringstream ss;
-            for (const auto& [key, command] : subscribedKeys) {
-                ss << keyToString(key.key) << "\n";
-            }
-            subscribedKeysValue.stringData = ss.str();
-            values.push_back(subscribedKeysValue);
-            return values;
-        }
-
+#ifndef NDEBUG_GLESC
+        [[nodiscard]] std::vector<EntityStatsManager::Value> getDebuggingValues();
+#endif
         const std::unordered_map<KeyInput, KeyCommand>& getSubscribedKeys() const {
             return subscribedKeys;
         }
@@ -57,15 +38,15 @@ namespace GLESC::Input {
             return mouseCommand;
         }
 
-        void subscribeKey(KeyInput key, KeyCommand command) {
+        void subscribeKey(const KeyInput& key, const KeyCommand& command) {
             subscribedKeys[key] = command;
         }
 
-        void unsubscribeKey(KeyInput key) {
+        void unsubscribeKey(const KeyInput& key) {
             subscribedKeys.erase(key);
         }
 
-        void setMouseCommand(MouseCommand command) {
+        void setMouseCommand(const MouseCommand& command) {
             mouseCommand = command;
         }
 

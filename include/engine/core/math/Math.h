@@ -349,7 +349,11 @@ namespace GLESC::Math {
      * @brief Remaps a value from one range to another, including support for reverse mapping.
      * @details Maps the value `x` from the range [min1, max1] to the range [min2, max2].
      *
-     * @tparam Type Data type of the value (e.g., float, double).
+     * @tparam TypeX The type of the value to be remapped.
+     * @tparam TypeMin1 The type of the lower bound of the input range.
+     * @tparam TypeMax1 The type of the upper bound of the input range.
+     * @tparam TypeMin2 The type of the lower bound of the output range.
+     * @tparam TypeMax2 The type of the upper bound of the output range.
      * @param x The value to be remapped.
      * @param min1 The lower bound of the input range.
      * @param max1 The upper bound of the input range.
@@ -427,7 +431,7 @@ namespace GLESC::Math {
      * @return A random number of the given type in the range [min, max)
      */
     template <typename Type, typename = std::enable_if_t<std::is_arithmetic_v<Type>>>
-    Type generateRandomNumber(Type min, Type max) {
+    [[nodiscard]] Type generateRandomNumber(Type min, Type max) {
         S_ASSERT_TRUE(std::is_arithmetic_v<Type>, "Type must be arithmetic");
         D_ASSERT_TRUE(max >= min, "Max must be greater than min");
         D_ASSERT_TRUE((max + GLESC::Math::abs(min)) < std::numeric_limits<Type>::max(),
@@ -450,6 +454,16 @@ namespace GLESC::Math {
             std::uniform_real_distribution<Type> dist(min, max);
             return dist(mt);
         }
+        else {
+            D_ASSERT_TRUE(false, "Type not supported for random number generation");
+        }
+    }
+
+    template <typename Type>
+    [[nodiscard]] bool tossCoinWithChance(Type chance) {
+        S_ASSERT_TRUE(std::is_arithmetic_v<Type>, "Type must be arithmetic");
+        D_ASSERT_TRUE(chance >= 0.0f && chance <= 1.0f, "Chance must be between 0 and 1");
+        return generateRandomNumber<float>(0.0f, 1.0f) < chance;
     }
 
     /**

@@ -11,6 +11,7 @@
 
 #include "engine/core/math/geometry/figures/polyhedron/Polyhedron.h"
 #include "../../../core/math/geometry/figures/BoundingVolume.h"
+#include "engine/subsystems/renderer/RendererTypes.h"
 
 namespace GLESC::Render {
     class Frustum {
@@ -26,7 +27,7 @@ namespace GLESC::Render {
          *
          * @param VPMatrix The combined view-projection matrix.
          */
-        Frustum(const VP& VPMatrix) {
+        explicit Frustum(const VP& VPMatrix) {
             extractPlanes(VPMatrix);
         }
 
@@ -47,131 +48,19 @@ namespace GLESC::Render {
          * @return true If the frustum intersects the volume.
          * @return false If the frustum does not intersect the volume.
          */
-        [[nodiscard]] bool contains(const Math::BoundingVolume& volume) const {
-            const auto& bbox = volume.getBoundingBox();
-            for (const auto& plane : planes) {
-                // Check if all points of the AABB are outside a plane
-                if (!plane.hasInside({bbox.min.getX(), bbox.min.getY(), bbox.min.getZ()}) &&
-                    !plane.hasInside({bbox.max.getX(), bbox.min.getY(), bbox.min.getZ()}) &&
-                    !plane.hasInside({bbox.min.getX(), bbox.max.getY(), bbox.min.getZ()}) &&
-                    !plane.hasInside({bbox.max.getX(), bbox.max.getY(), bbox.min.getZ()}) &&
-                    !plane.hasInside({bbox.min.getX(), bbox.min.getY(), bbox.max.getZ()}) &&
-                    !plane.hasInside({bbox.max.getX(), bbox.min.getY(), bbox.max.getZ()}) &&
-                    !plane.hasInside({bbox.min.getX(), bbox.max.getY(), bbox.max.getZ()}) &&
-                    !plane.hasInside({bbox.max.getX(), bbox.max.getY(), bbox.max.getZ()})) {
-                    return false;
-                }
-            }
-            return true;
-        }
+        [[nodiscard]] bool contains(const Math::BoundingVolume& volume) const;
 
-        [[nodiscard]] bool contains(Position position) const {
-            for (const Math::Plane& plane : planes) {
-                if (!plane.hasInside(position)) {
-                    return false;
-                }
-            }
-            return true;
-        }
+        [[nodiscard]] bool contains(const Position& position) const;
 
     private:
-        /**
-         * @brief Extracts the frustum planes from a combined view-projection matrix. Uses Hartmann & Gribbs method.
-         * It's done with row-major matrices.
-         * @see https://web.archive.org/web/20210226045225/http://www.cs.otago.ac.nz/postgrads/alexis/planeExtraction.pdf
-         *
-         * @param VPMatrix The combined view-projection matrix.
-         */
-        void extractPlanes(const VP& VPMatrix) {
-            if constexpr (Math::MatrixAlgorithms::rowMajorMatrix) {
-                                // Left clipping plane
-                planes[0].setNormal(Math::Direction(VPMatrix[0][3] + VPMatrix[0][0],
-                                                    VPMatrix[1][3] + VPMatrix[1][0],
-                                                    VPMatrix[2][3] + VPMatrix[2][0]));
-                planes[0].setDistance(VPMatrix[3][3] + VPMatrix[3][0]);
-                planes[0].normalize();
-
-                // Right clipping plane
-                planes[1].setNormal(Math::Direction(VPMatrix[0][3] - VPMatrix[0][0],
-                                                    VPMatrix[1][3] - VPMatrix[1][0],
-                                                    VPMatrix[2][3] - VPMatrix[2][0]));
-                planes[1].setDistance(VPMatrix[3][3] - VPMatrix[3][0]);
-                planes[1].normalize();
-
-                // Top clipping plane
-                planes[2].setNormal(Math::Direction(VPMatrix[0][3] - VPMatrix[0][1],
-                                                    VPMatrix[1][3] - VPMatrix[1][1],
-                                                    VPMatrix[2][3] - VPMatrix[2][1]));
-                planes[2].setDistance(VPMatrix[3][3] - VPMatrix[3][1]);
-                planes[2].normalize();
-
-                // Bottom clipping plane
-                planes[3].setNormal(Math::Direction(VPMatrix[0][3] + VPMatrix[0][1],
-                                                    VPMatrix[1][3] + VPMatrix[1][1],
-                                                    VPMatrix[2][3] + VPMatrix[2][1]));
-                planes[3].setDistance(VPMatrix[3][3] + VPMatrix[3][1]);
-                planes[3].normalize();
-
-                // Near clipping plane
-                planes[4].setNormal(Math::Direction(VPMatrix[0][3] + VPMatrix[0][2],
-                                                    VPMatrix[1][3] + VPMatrix[1][2],
-                                                    VPMatrix[2][3] + VPMatrix[2][2]));
-                planes[4].setDistance(VPMatrix[3][3] + VPMatrix[3][2]);
-                planes[4].normalize();
-
-                // Far clipping plane
-                planes[5].setNormal(Math::Direction(VPMatrix[0][3] - VPMatrix[0][2],
-                                                    VPMatrix[1][3] - VPMatrix[1][2],
-                                                    VPMatrix[2][3] - VPMatrix[2][2]));
-                planes[5].setDistance(VPMatrix[3][3] - VPMatrix[3][2]);
-                planes[5].normalize();
-
-            }
-            else {
-
-                // Left clipping plane
-                planes[0].setNormal(Math::Direction(VPMatrix[3][0] + VPMatrix[0][0],
-                                                    VPMatrix[3][1] + VPMatrix[0][1],
-                                                    VPMatrix[3][2] + VPMatrix[0][2]));
-                planes[0].setDistance(VPMatrix[3][3] + VPMatrix[0][3]);
-                planes[0].normalize();
-
-                // Right clipping plane
-                planes[1].setNormal(Math::Direction(VPMatrix[3][0] - VPMatrix[0][0],
-                                                    VPMatrix[3][1] - VPMatrix[0][1],
-                                                    VPMatrix[3][2] - VPMatrix[0][2]));
-                planes[1].setDistance(VPMatrix[3][3] - VPMatrix[0][3]);
-                planes[1].normalize();
-
-                // Top clipping plane
-                planes[2].setNormal(Math::Direction(VPMatrix[3][0] - VPMatrix[1][0],
-                                                    VPMatrix[3][1] - VPMatrix[1][1],
-                                                    VPMatrix[3][2] - VPMatrix[1][2]));
-                planes[2].setDistance(VPMatrix[3][3] - VPMatrix[1][3]);
-                planes[2].normalize();
-
-                // Bottom clipping plane
-                planes[3].setNormal(Math::Direction(VPMatrix[3][0] + VPMatrix[1][0],
-                                                    VPMatrix[3][1] + VPMatrix[1][1],
-                                                    VPMatrix[3][2] + VPMatrix[1][2]));
-                planes[3].setDistance(VPMatrix[3][3] + VPMatrix[1][3]);
-                planes[3].normalize();
-
-                // Near clipping plane
-                planes[4].setNormal(Math::Direction(VPMatrix[3][0] + VPMatrix[2][0],
-                                                    VPMatrix[3][1] + VPMatrix[2][1],
-                                                    VPMatrix[3][2] + VPMatrix[2][2]));
-                planes[4].setDistance(VPMatrix[3][3] + VPMatrix[2][3]);
-                planes[4].normalize();
-
-                // Far clipping plane
-                planes[5].setNormal(Math::Direction(VPMatrix[3][0] - VPMatrix[2][0],
-                                                    VPMatrix[3][1] - VPMatrix[2][1],
-                                                    VPMatrix[3][2] - VPMatrix[2][2]));
-                planes[5].setDistance(VPMatrix[3][3] - VPMatrix[2][3]);
-                planes[5].normalize();
-            }
-        }
+       /**
+        * @brief Extracts the frustum planes from a combined view-projection matrix. Uses Hartmann & Gribbs method.
+        * It's done with row-major matrices.
+        * @see https://web.archive.org/web/20210226045225/http://www.cs.otago.ac.nz/postgrads/alexis/planeExtraction.pdf
+        *
+        * @param VPMatrix The combined view-projection matrix.
+        */
+        void extractPlanes(const VP& VPMatrix);
 
         std::array<Math::Plane, 6> planes{};
     }; // class Frustum

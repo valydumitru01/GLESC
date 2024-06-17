@@ -8,7 +8,10 @@
  * See LICENSE.txt in the project root for license information.
  **************************************************************************************************/
 #pragma once
+#include <utility>
+
 #include "engine/core/math/geometry/GeometryTypes.h"
+#include "engine/subsystems/ingame-debug/EntityStatsManager.h"
 #include "engine/subsystems/renderer/RendererTypes.h"
 
 namespace GLESC::Render {
@@ -19,8 +22,8 @@ namespace GLESC::Render {
          */
         GlobalSun() = default;
 
-        GlobalSun(float intensity, const ColorRgb& color, const Math::Direction& direction) :
-            intensity(intensity), color(color), direction(direction) {
+        GlobalSun(float intensity, ColorRgb  color, Math::Direction  direction) :
+            intensity(intensity), color(std::move(color)), direction(std::move(direction)) {
         }
 
         float getIntensity() const {
@@ -63,50 +66,8 @@ namespace GLESC::Render {
         bool& isDirty() const {
             return dirty;
         }
-
-        [[nodiscard]] std::vector<EntityStatsManager::Value> getDebuggingValues() {
-            std::vector<EntityStatsManager::Value> values;
-            EntityStatsManager::Value intensityValue;
-            intensityValue.name = "Sun Intensity";
-            intensityValue.data = reinterpret_cast<void*>(&intensity.getModifiable());
-            intensityValue.type = EntityStatsManager::ValueType::FLOAT;
-            intensityValue.isModifiable = true;
-            intensityValue.usesSlider = true;
-            intensityValue.valueDirty = &dirty;
-            intensityValue.min = 0.0f;
-            intensityValue.max = 1.0f;
-            values.push_back(intensityValue);
-
-            EntityStatsManager::Value colorValue;
-            colorValue.name = "Sun Color";
-            colorValue.data = reinterpret_cast<void*>(&color);
-            colorValue.type = EntityStatsManager::ValueType::VEC3F;
-            colorValue.isModifiable = true;
-            colorValue.valueDirty = &dirty;
-            colorValue.usesSlider = true;
-            colorValue.min = 0.0f;
-            colorValue.max = 255.0f;
-            values.push_back(colorValue);
-
-            EntityStatsManager::Value directionValue;
-            directionValue.name = "Sun Direction";
-            directionValue.data = reinterpret_cast<void*>(&direction);
-            directionValue.type = EntityStatsManager::ValueType::VEC3F;
-            directionValue.isModifiable = true;
-            directionValue.usesSlider = true;
-            directionValue.valueDirty = &dirty;
-            directionValue.min = -1.0f;
-            directionValue.max = 1.0f;
-            values.push_back(directionValue);
-
-            return values;
-        }
-
-        std::string toString() const {
-            return "Intensity: " + std::to_string(intensity.get()) +
-                " Color: " + color.toString() +
-                " Direction: " + direction.toString();
-        }
+        [[nodiscard]] std::vector<EntityStatsManager::Value> getDebuggingValues() ;
+        [[nodiscard]] std::string toString() const;
 
     private:
         Intensity<float> intensity{1.0f};

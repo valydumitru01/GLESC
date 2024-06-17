@@ -22,5 +22,5 @@ namespace GLESC {
             seed = seed ^ (hash + 0x9e3779b9 + (seed << 6) + (seed >> 2));
         }
 
-    }; // class Hasher
+    }// class Hasher
 } // namespace GLESC

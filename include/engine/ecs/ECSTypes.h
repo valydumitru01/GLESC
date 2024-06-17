@@ -8,7 +8,6 @@
 
 #include <memory>
 #include <bitset>
-#include <set>
 #include <cstdint>
 
 #include "engine/Config.h"
@@ -49,11 +48,11 @@ namespace GLESC::ECS {
     /**
      * @brief Maximum amount of entities can there be at once
      */
-    const static EntityID maxEntities = static_cast<EntityID>(GLESC_ECS_MAX_ENTITIES);
+    const static EntityID maxEntities = GLESC_ECS_MAX_ENTITIES;
     /**
      * @brief Maximum amount of components each entity can have
      */
-    const static ComponentID maxComponents = static_cast<ComponentID>(GLESC_ECS_MAX_COMPONENTS);
+    const static ComponentID maxComponents = GLESC_ECS_MAX_COMPONENTS;
 
     /**
      * @brief type of the signature of each entity.

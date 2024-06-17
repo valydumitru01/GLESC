@@ -13,10 +13,10 @@
 #include <SDL2/SDL_main.h>
 
 int main(int argc, char* argv[]) {
-#ifndef NDEBUG
+#ifndef NDEBUG_GLESC
     Logger::get().warning("DEBUG MODE IS ON");
 #endif
-    FPSManager fps(Fps120);
+    FPSManager fps(Fps960);
     GLESC::Engine glesc(fps);
 
     while (glesc.running) {

@@ -21,7 +21,7 @@ namespace GLESC::Scene {
          * @brief Default constructor.
          */
         SceneContainer(WindowManager& windowManager, ECS::EntityFactory& entityFactory,
-                       Input::InputManager inputManager, SceneManager& sceneManager, HUD::HUDManager& hudManager,
+                       Input::InputManager& inputManager, SceneManager& sceneManager, HUD::HUDManager& hudManager,
                        EngineCamera& camera)
             : windowManager(windowManager),
               entityFactory(entityFactory),

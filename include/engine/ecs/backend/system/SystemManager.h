@@ -11,6 +11,7 @@
 #pragma once
 
 #include <unordered_map>
+#include <set>
 #include "engine/ecs/ECSTypes.h"
 
 namespace GLESC::ECS {

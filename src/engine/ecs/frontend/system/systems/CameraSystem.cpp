@@ -31,8 +31,5 @@ void CameraSystem::update() {
         camera.perspective.setViewWidth(static_cast<float>(windowManager.getSize().width));
         camera.perspective.setViewHeight(static_cast<float>(windowManager.getSize().height));
         renderer.setCamera(camera.perspective, transform.transform);
-        if (cameraCache.find(&camera) != cameraCache.end()) continue;
-        // Nothing to cache for now
-        cameraCache.insert(&camera);
     }
 }

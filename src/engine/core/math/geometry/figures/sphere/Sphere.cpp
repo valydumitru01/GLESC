@@ -63,6 +63,7 @@ bool Sphere::intersects(const Polyhedron &polyhedron) const {
             return true;
         }
     }
+    return false;
 }
 
 

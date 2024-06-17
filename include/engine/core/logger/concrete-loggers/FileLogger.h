@@ -6,9 +6,8 @@
 
 #pragma once
 #include <fstream>
-
-#include "engine/core/file-system/FileSystemPath.h"
 #include "engine/core/logger/ILogger.h"
+#define LOG_FILE "log.txt"
 
 class FileLogger : public ILogger
 {
@@ -43,5 +42,6 @@ public:
     
     void success(const std::string &text) override;
 private:
+    void clearFileContent() ;
     std::ofstream logFile;
 };

@@ -25,8 +25,9 @@ namespace GLESC::ECS {
         std::string getName() const override {
             return "SunComponent";
         }
+#ifndef NDEBUG_GLESC
 
-        void setDebuggingValues() override {
+          void setDebuggingValues() override {
             for (auto& value : sun.getDebuggingValues()) {
                 values.push_back(value);
             }
@@ -34,5 +35,6 @@ namespace GLESC::ECS {
                 values.push_back(value);
             }
         }
+#endif
     }; // class SunComponent
 } // namespace GLESC::ECS

@@ -15,28 +15,40 @@
 class EngineComponent {
 public:
     virtual ~EngineComponent() = default;
+    [[nodiscard]] virtual std::string toString() const = 0;
 
-#ifndef NDEBUG
+#ifndef NDEBUG_GLESC
+    /**
+     * @brief Set the owner name of the component for debugging purposes
+     * @param ownerName The name of the owner entity
+     */
     void setOwnerName(const char* ownerName) {
         entityOwnerName = ownerName;
     }
 
-    const char* getOwnerName() const {
+    [[nodiscard]] const char* getOwnerName() const {
         D_ASSERT_NOT_NULLPTR(entityOwnerName, "Owner name not set for EngineComponent");
         return entityOwnerName;
     }
 
-    [[nodiscard]] virtual std::vector<EntityStatsManager::Value> getDebuggingValues() = 0;
-    [[nodiscard]] virtual std::string toString() const = 0;
+    [[nodiscard]] virtual std::vector<EntityStatsManager::Value> getDebuggingValues() {
+        return {};
+    }
 
     [[nodiscard]] virtual std::vector<EntityStatsManager::Value> getUpdatedDebuggingValues() {
-        return std::vector<EntityStatsManager::Value>();
+        return {};
     }
+#else
+    /**
+     * @brief In release mode, this function is empty
+     * @param ownerName The name of the owner entity
+     */
+    void setOwnerName(const char* ownerName) {}
 
 #endif
 
 private:
-#ifndef NDEBUG
+#ifndef NDEBUG_GLESC
     const char* entityOwnerName = nullptr;
 #endif
 }; // class EngineComponent

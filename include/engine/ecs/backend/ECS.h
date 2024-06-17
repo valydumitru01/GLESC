@@ -94,7 +94,7 @@ namespace GLESC::ECS {
         bool isEntityInstanced(const EntityName& name) const;
 
         template <class Component>
-        void addComponent(EntityID entity, Component component);
+        void addComponent(EntityID entity,const Component& component);
 
 
         template <class Component>
@@ -157,7 +157,7 @@ namespace GLESC::ECS {
 
 
     template <typename Component>
-    void ECSCoordinator::addComponent(EntityID entity, Component component) {
+    void ECSCoordinator::addComponent(EntityID entity,const Component& component) {
         std::lock_guard<std::shared_mutex> lock(ecsMutex);
         PRINT_ECS_STATUS("Before adding component " + std::string(typeid(Component).name()) +
             "to entity with ID " + std::to_string(entity));

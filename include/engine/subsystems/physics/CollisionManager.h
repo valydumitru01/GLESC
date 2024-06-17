@@ -37,7 +37,7 @@ namespace GLESC::Physics {
 
 
     private:
-        static Vec3F getCollisionDepth(const Math::BoundingVolume& nextColliderBVX,
+        [[nodiscard]] static Vec3F getCollisionDepth(const Math::BoundingVolume& nextColliderBVX,
                                                          const Math::BoundingVolume& nextColliderBVY,
                                                          const Math::BoundingVolume& nextColliderBVZ,
                                                          const Math::BoundingVolume& otherBV);

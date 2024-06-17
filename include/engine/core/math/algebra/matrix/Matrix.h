@@ -10,12 +10,10 @@
 #pragma once
 
 #include <cmath>
-#include <memory>
 #include <algorithm>
 #include <engine/core/asserts/Asserts.h>
 
 #include "engine/core/exceptions/core/math/MathException.h"
-#include "engine/core/math/asserts/MatrixAsserts.h"
 #include "engine/core/math/algebra/matrix/MatrixMixedAlgorithms.h"
 #include "engine/core/math/algebra/vector/Vector.h"
 #include "MatrixAlgorithms.h"

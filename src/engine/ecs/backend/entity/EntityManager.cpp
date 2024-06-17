@@ -8,7 +8,11 @@
  * See LICENSE.txt in the project root for license information.
  ******************************************************************************/
 
+#include <functional>
 #include "engine/ecs/backend/entity/EntityManager.h"
+
+
+#include "engine/core/debugger/Stringer.h"
 
 using namespace GLESC::ECS;
 
@@ -26,9 +30,8 @@ EntityID EntityManager::createNextEntity(const EntityName& nameParam, const Enti
     EntityName name = nameParam;
     if (metadata.type == EntityType::Instance) {
         instancedEntities[nameParam].push_back(id);
-        if (entityNameToID.find(nameParam) != entityNameToID.end())
-            currentInstanceID++;
-        name.append(std::to_string(instancedEntities[nameParam].size()));
+        name.append(std::to_string(instancesNextID[nameParam]));
+        instancesNextID[nameParam]++;
     }
 
 
@@ -49,11 +52,23 @@ void EntityManager::destroyEntity(EntityID entity) {
     D_ASSERT_TRUE(areThereLivingEntities(), "There must be living entities to destroy one");
     D_ASSERT_TRUE(doesEntityExist(entity), "Entity must exist before destruction");
 
+    if (isEntityInstanced(entityIDToName[entity])) {
+        EntityName instanceName = Stringer::strip(entityIDToName[entity], "1234567890");
+        std::vector<EntityID>& instancedList = this->instancedEntities[instanceName];
+
+        auto it = std::find(instancedList.begin(), instancedList.end(), entity);
+        if (it != instancedList.end())
+            instancedList.erase(it);
+    }
+
+
     signatures[entity].reset();
     availableEntities.push(entity);
     entityNameToID.erase(entityIDToName[entity]);
     entityIDToName.erase(entity);
     entityMetadata.erase(entity);
+
+
     --livingEntityCount;
 
     D_ASSERT_FALSE(doesEntityExist(entity), "Entity must not exist after destruction");
@@ -111,7 +126,7 @@ void EntityManager::removeComponentFromEntity(EntityID entity, ComponentID compo
 void EntityManager::addComponentToEntity(EntityID entity, ComponentID componentID) {
     D_ASSERT_TRUE(doesEntityExist(entity), "Entity must exist to add a component");
     D_ASSERT_TRUE(isComponentInRange(componentID), "Component must be in range to be added");
-    D_ASSERT_FALSE(doesEntityHaveComponent(entity, componentID), "Entity must not have the component to add it");
+    if (doesEntityHaveComponent(entity, componentID)) return;
     signatures[entity].set(componentID);
 }
 

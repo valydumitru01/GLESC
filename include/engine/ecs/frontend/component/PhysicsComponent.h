@@ -21,14 +21,16 @@ namespace GLESC::ECS {
          */
         Transform::Transform oldTransform;
 
-        std::string toString() const override {
-            return physics.toString();
-        }
 
         std::string getName() const override {
             return "PhysicsComponent";
         }
 
+        std::string toString() const override {
+            return physics.toString();
+        }
+
+#ifndef NDEBUG_GLESC
         void setDebuggingValues() override {
             for (auto& value : physics.getDebuggingValues()) {
                 values.push_back(value);
@@ -40,5 +42,6 @@ namespace GLESC::ECS {
                 updatedValues.push_back(value);
             }
         }
+#endif
     };
 } // namespace GLESC::ECS

@@ -9,6 +9,7 @@
  **************************************************************************************************/
 #pragma once
 #include "engine/subsystems/hud/InGameWindow.h"
+#ifndef NDEBUG_GLESC
 
 namespace GLESC::HUD {
     class EntityListHUD : public InGameWindow {
@@ -18,3 +19,5 @@ namespace GLESC::HUD {
         void windowContent(float timeOfFrame) override;
     }; // class EntityListHUD
 }
+
+#endif

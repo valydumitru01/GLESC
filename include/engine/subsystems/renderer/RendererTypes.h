@@ -8,6 +8,7 @@
  * See LICENSE.txt in the project root for license information.
  **************************************************************************************************/
 #pragma once
+#include "engine/core/debugger/Stringer.h"
 #include "engine/core/low-level-renderer/buffers/VertexArray.h"
 #include "engine/core/hash/Hasher.h"
 
@@ -41,6 +42,7 @@ namespace GLESC::Render {
             return GAPI::Enums::BufferUsages::StaticDraw;
         }
         D_ASSERT_TRUE(false, "Unknown render type");
+        return GAPI::Enums::BufferUsages::StaticDraw;
     }
 
     /**
@@ -72,8 +74,11 @@ namespace GLESC::Render {
 
         Intensity(const Intensity& other) = default;
 
-        Intensity& operator=(const Intensity& other) = default;
+        explicit Intensity(IntensityType intensityParam) {
+            this->set(intensityParam);
+        }
 
+        Intensity& operator=(const Intensity& other) = default;
         Intensity(Intensity&& other) noexcept = default;
 
         Intensity& operator=(Intensity&& other) noexcept = default;
@@ -112,10 +117,6 @@ namespace GLESC::Render {
 
         ~Intensity() = default;
 
-        explicit Intensity(IntensityType intensity) {
-            set(intensity);
-        }
-
         [[nodiscard]] IntensityType get() const {
             return intensity;
         }
@@ -140,7 +141,7 @@ namespace GLESC::Render {
 
     class ColorFuncs {
     public:
-        static void checkValue(float value, std::string valueName) {
+        static void checkValue(float value, const std::string& valueName) {
             D_ASSERT_LESS_OR_EQUAL(value, 255.0f, valueName + " must be between less or equal than 255");
             D_ASSERT_GREATER_OR_EQUAL(value, 0.0f, valueName + " must be between greater or equal than 0");
         }
@@ -153,30 +154,32 @@ namespace GLESC::Render {
     struct ColorRgba;
 
     struct ColorRgb : Vec3F {
-        static const ColorRgb RED;
-        static const ColorRgb GREEN;
-        static const ColorRgb BLUE;
-        static const ColorRgb WHITE;
-        static const ColorRgb BLACK;
-        static const ColorRgb YELLOW;
-        static const ColorRgb CYAN;
-        static const ColorRgb MAGENTA;
-        static const ColorRgb ORANGE;
-        static const ColorRgb PURPLE;
-        static const ColorRgb PINK;
-        static const ColorRgb BROWN;
-        static const ColorRgb DARK_BROWN;
-        static const ColorRgb GREY;
-        static const ColorRgb LIGHT_GREY;
-        static const ColorRgb DARK_GREY;
+        static const ColorRgb Red;
+        static const ColorRgb Green;
+        static const ColorRgb DarkGreen;
+        static const ColorRgb Blue;
+        static const ColorRgb White;
+        static const ColorRgb Black;
+        static const ColorRgb Yellow;
+        static const ColorRgb Cyan;
+        static const ColorRgb Magenta;
+        static const ColorRgb Orange;
+        static const ColorRgb Purple;
+        static const ColorRgb Pink;
+        static const ColorRgb Brown;
+        static const ColorRgb DarkBrown;
+        static const ColorRgb Grey;
+        static const ColorRgb LightGrey;
+        static const ColorRgb DarkGrey;
+        static const ColorRgb ClearSkin;
 
         ColorRgb() = default;
 
         ColorRgb(const ColorRgb& other) = default;
 
-        ColorRgb(ColorRgba& other) noexcept;
+        explicit ColorRgb(ColorRgba& other) noexcept;
 
-        ColorRgb(const ColorRgba& other) noexcept;
+        explicit ColorRgb(const ColorRgba& other) noexcept;
 
         ColorRgb& operator=(const ColorRgb& other) = default;
 
@@ -194,27 +197,27 @@ namespace GLESC::Render {
         }
 
 
-        const float& getR() const {
+        [[nodiscard]]const float& getR() const {
             return data[0];
         }
 
-        const float& getG() const {
+        [[nodiscard]]const float& getG() const {
             return data[1];
         }
 
-        const float& getB() const {
+        [[nodiscard]]const float& getB() const {
             return data[2];
         }
 
-        float getRNormalized() const {
+        [[nodiscard]]float getRNormalized() const {
             return ColorFuncs::normalizeColorValue(data[0]);
         }
 
-        float getGNormalized() const {
+        [[nodiscard]]float getGNormalized() const {
             return ColorFuncs::normalizeColorValue(data[1]);
         }
 
-        float getBNormalized() const {
+        [[nodiscard]]float getBNormalized() const {
             return ColorFuncs::normalizeColorValue(data[2]);
         }
 
@@ -233,8 +236,8 @@ namespace GLESC::Render {
             data[2] = bParam;
         }
 
-        Vec3F getRGBVec3FNormalized() const {
-            return Vec3F(getRNormalized(), getGNormalized(), getBNormalized());
+        [[nodiscard]] Vec3F getRGBVec3FNormalized() const {
+            return {getRNormalized(), getGNormalized(), getBNormalized()};
         }
 
         [[nodiscard]] std::string toString() const {
@@ -269,56 +272,56 @@ namespace GLESC::Render {
             data[3] = a;
         }
 
-        const float& getR() const {
+        [[nodiscard]] const float& getR() const {
             return data[0];
         }
 
-        const float& getG() const {
+        [[nodiscard]] const float& getG() const {
             return data[1];
         }
 
-        const float& getB() const {
+        [[nodiscard]] const float& getB() const {
             return data[2];
         }
 
-        const float& getA() const {
+        [[nodiscard]] const float& getA() const {
             return data[3];
         }
 
-        float getRNormalized() const {
+        [[nodiscard]] float getRNormalized() const {
             return ColorFuncs::normalizeColorValue(data[0]);
         }
 
-        float getGNormalized() const {
+        [[nodiscard]] float getGNormalized() const {
             return ColorFuncs::normalizeColorValue(data[1]);
         }
 
-        float getBNormalized() const {
+        [[nodiscard]] float getBNormalized() const {
             return ColorFuncs::normalizeColorValue(data[2]);
         }
 
-        float getANormalized() const {
+        [[nodiscard]] float getANormalized() const {
             return ColorFuncs::normalizeColorValue(data[3]);
         }
 
-        Vec4F getRGBAVec4FNormalized() const {
-            return Vec4F(getRNormalized(), getGNormalized(), getBNormalized(), getANormalized());
+        [[nodiscard]] Vec4F getRGBAVec4FNormalized() const {
+            return {getRNormalized(), getGNormalized(), getBNormalized(), getANormalized()};
         }
 
 
-        float& getRModifiable() {
+        [[nodiscard]] float& getRModifiable() {
             return data[0];
         }
 
-        float& getGModifiable() {
+        [[nodiscard]] float& getGModifiable() {
             return data[1];
         }
 
-        float& getBModifiable() {
+        [[nodiscard]] float& getBModifiable() {
             return data[2];
         }
 
-        float& getAModifiable() {
+        [[nodiscard]] float& getAModifiable() {
             return data[3];
         }
 
@@ -342,7 +345,7 @@ namespace GLESC::Render {
             data[3] = aParam;
         }
 
-        std::string toString() const {
+        [[nodiscard]] std::string toString() const {
             return "R:" + Stringer::toString(getR()) + " G:" + Stringer::toString(getG()) + " B:" +
                 Stringer::toString(getB()) + " A:" + Stringer::toString(getA());
         }
@@ -357,19 +360,19 @@ namespace GLESC::Render {
     struct ColorRgbNorm : Vec3F {
         ColorRgbNorm() : Vec3F(0) {}
 
-        float getR() const {
+        [[nodiscard]] float getR() const {
             return data[0];
         }
 
-        float getG() const {
+        [[nodiscard]] float getG() const {
             return data[1];
         }
 
-        float getB() const {
+        [[nodiscard]] float getB() const {
             return data[2];
         }
 
-        ColorRgbNorm(float r, float g, float b) {
+        explicit ColorRgbNorm(float r, float g, float b) {
             D_ASSERT_LESS_OR_EQUAL(r, 1.0f, "R must be less or equal than 1");
             D_ASSERT_GREATER_OR_EQUAL(r, 0.0f, "R must be greater or equal than 0");
             D_ASSERT_LESS_OR_EQUAL(g, 1.0f, "G must be less or equal than 1");
@@ -382,24 +385,26 @@ namespace GLESC::Render {
         }
 
 
-        ColorRgbNorm(const ColorRgb& colorRgb) {
+        explicit ColorRgbNorm(const ColorRgb& colorRgb) {
             data[0] = colorRgb.getRNormalized();
             data[1] = colorRgb.getGNormalized();
             data[2] = colorRgb.getBNormalized();
         }
 
-        bool operator==(const ColorRgbNorm& other) const {
+        [[nodiscard]] bool operator==(const ColorRgbNorm& other) const {
             return Vec3F::operator==(other);
         }
 
-        void operator=(const ColorRgb& colorRgb) {
+        ColorRgbNorm& operator=(const ColorRgb& colorRgb) {
             data[0] = colorRgb.getRNormalized();
             data[1] = colorRgb.getGNormalized();
             data[2] = colorRgb.getBNormalized();
+            return *this;
         }
 
-        void operator=(const ColorRgbNorm& other) {
+        ColorRgbNorm& operator=(const ColorRgbNorm& other) {
             Vec3F::operator=(other);
+            return *this;
         }
 
         [[nodiscard]] std::string toString() const {
@@ -416,23 +421,23 @@ namespace GLESC::Render {
     struct ColorRgbaNorm : Vec4F {
         ColorRgbaNorm() = delete;
 
-        float getR() const {
+        [[nodiscard]] float getR() const {
             return data[0];
         }
 
-        float getG() const {
+        [[nodiscard]] float getG() const {
             return data[1];
         }
 
-        float getB() const {
+        [[nodiscard]] float getB() const {
             return data[2];
         }
 
-        float getA() const {
+        [[nodiscard]] float getA() const {
             return data[3];
         }
 
-        ColorRgbaNorm(const ColorRgba& colorRgba) {
+        explicit ColorRgbaNorm(const ColorRgba& colorRgba) {
             data[0] = colorRgba.getRNormalized();
             data[1] = colorRgba.getGNormalized();
             data[2] = colorRgba.getBNormalized();
@@ -440,20 +445,19 @@ namespace GLESC::Render {
         }
 
 
-        bool operator==(const ColorRgbaNorm& other) const {
+        [[nodiscard]] bool operator==(const ColorRgbaNorm& other) const {
             return Vec4F::operator==(other);
         }
 
-        void operator=(const ColorRgba& colorRgba) {
+        ColorRgbaNorm& operator=(const ColorRgba& colorRgba) {
             data[0] = colorRgba.getRNormalized();
             data[1] = colorRgba.getGNormalized();
             data[2] = colorRgba.getBNormalized();
             data[3] = colorRgba.getANormalized();
+            return *this;
         }
 
-        void operator=(const ColorRgbaNorm& other) {
-            Vec4F::operator=(other);
-        }
+        ColorRgbaNorm& operator=(const ColorRgbaNorm& other) = default;
 
         [[nodiscard]] std::string toString() const {
             return "R:" + Stringer::toString(getR()) +

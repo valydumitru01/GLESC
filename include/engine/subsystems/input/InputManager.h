@@ -47,7 +47,7 @@ namespace GLESC::Input {
         * @brief Retrieves the current mouse position.
         * @return the current mouse position as a MousePosition object.
         */
-        const MousePosition getMousePosition() const { return mousePos; } ;
+        const MousePosition& getMousePosition() const { return mousePos; }
         /**
          * @brief Get the current pressed keys
          * @return A vector of all keys that are currently pressed

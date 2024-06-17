@@ -32,11 +32,6 @@ private:
         sceneManager.addScene(sceneName, id);
     }
 
-    void switchScene(const std::string& sceneName) {
-        sceneManager.switchScene(sceneName);
-        sceneContainer.getScene(sceneManager.getCurrentScene()).init();
-    }
-
     GLESC::Scene::SceneManager& sceneManager;
     GLESC::Scene::SceneContainer& sceneContainer;
 }; // class Game

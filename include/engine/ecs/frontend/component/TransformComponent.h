@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include "../../backend/component/IComponent.h"
+#include "engine/ecs/backend/component/IComponent.h"
 #include "engine/subsystems/transform/Transform.h"
 
 namespace GLESC::ECS {
@@ -21,11 +21,12 @@ namespace GLESC::ECS {
         std::string getName() const override {
             return "TransformComponent";
         }
-
+#ifndef NDEBUG_GLESC
         void setDebuggingValues() override {
             for (auto& value : transform.getDebuggingValues()) {
                 values.push_back(value);
             }
         }
+#endif
     };
 } // namespace GLESC::ECS

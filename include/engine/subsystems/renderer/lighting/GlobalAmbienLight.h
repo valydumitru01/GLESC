@@ -8,6 +8,7 @@
  * See LICENSE.txt in the project root for license information.
  **************************************************************************************************/
 #pragma once
+#include "engine/subsystems/ingame-debug/EntityStatsManager.h"
 #include "engine/subsystems/renderer/RendererTypes.h"
 
 namespace GLESC::Render {
@@ -44,35 +45,7 @@ namespace GLESC::Render {
         [[nodiscard]] bool& isDirty() const {
             return dirty;
         }
-
-        [[nodisacrd]] std::vector<EntityStatsManager::Value> getDebuggingValues() {
-            std::vector<EntityStatsManager::Value> values;
-            EntityStatsManager::Value intensityValue;
-            intensityValue.name = "Ambient Intensity";
-            intensityValue.data = reinterpret_cast<void*>(&intensity);
-            intensityValue.type = EntityStatsManager::ValueType::FLOAT;
-            intensityValue.isModifiable = true;
-            intensityValue.usesSlider = true;
-            intensityValue.valueDirty = &dirty;
-            intensityValue.min = 0.0f;
-            intensityValue.max = 1.0f;
-            values.push_back(intensityValue);
-
-            EntityStatsManager::Value colorValue;
-            colorValue.name = "Ambient Color";
-            colorValue.data = reinterpret_cast<void*>(&color);
-            colorValue.type = EntityStatsManager::ValueType::VEC3F;
-            colorValue.isModifiable = true;
-            colorValue.valueDirty = &dirty;
-            colorValue.usesSlider = true;
-            colorValue.min = 0.0f;
-            colorValue.max = 255.0f;
-            values.push_back(colorValue);
-
-            return values;
-        }
-
-
+        [[nodisacrd]] std::vector<EntityStatsManager::Value> getDebuggingValues();
 
     private:
         ColorRgb color{255, 255, 255};

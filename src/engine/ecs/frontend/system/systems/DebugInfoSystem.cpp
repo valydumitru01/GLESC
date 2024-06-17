@@ -7,6 +7,7 @@
  * Copyright (c) 2024 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
  **************************************************************************************************/
+#ifndef NDEBUG_GLESC
 #include "engine/ecs/frontend/system/systems/DebugInfoSystem.h"
 
 #include "engine/ecs/frontend/component/TransformComponent.h"
@@ -46,3 +47,5 @@ void DebugInfoSystem::update() {
     if(!EntityListManager::getSelectedEntity().empty())
         setEntityData(EntityListManager::getSelectedEntity());
 }
+
+#endif

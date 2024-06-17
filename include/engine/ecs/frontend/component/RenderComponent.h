@@ -20,11 +20,23 @@ namespace GLESC::ECS {
             return "RenderComponent";
         }
 
+#ifndef NDEBUG_GLESC
         void setDebuggingValues() override {
             for (auto& value : material.getDebuggingValues()) {
                 values.push_back(value);
             }
+            for (auto& value : mesh.getDebuggingValues()) {
+                values.push_back(value);
+            }
         }
+
+        void setUpdatedDebuggingValues() override {
+            for (auto& value : mesh.getUpdatedDebuggingValues()) {
+                updatedValues.push_back(value);
+            }
+        }
+#endif
+
 
         void copyMesh(const Render::ColorMesh& mesh) {
             this->mesh = mesh;
@@ -53,6 +65,7 @@ namespace GLESC::ECS {
         Render::Material& getMaterial() {
             return material;
         }
+
     private:
         /**
          * @brief The mesh of the object

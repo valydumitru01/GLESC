@@ -8,12 +8,11 @@
  * See LICENSE.txt in the project root for license information.
  **************************************************************************************************/
 #pragma once
-#include <cmath>
-
 #include "TransformTypes.h"
 #include "engine/core/math/geometry/GeometryTypes.h"
 #include "engine/subsystems/ingame-debug/EntityStatsManager.h"
-#include "engine/subsystems/renderer/mesh/MeshTypes.h"
+#include "engine/subsystems/renderer/RendererTypes.h"
+#include "engine/subsystems/renderer/mesh/Mesh.h"
 
 namespace GLESC::Transform {
     enum class Axis {
@@ -21,19 +20,21 @@ namespace GLESC::Transform {
         Y = 1,
         Z = 2
     };
+
     enum class RotationAxis {
         Pitch = static_cast<int>(Axis::X),
         Yaw = static_cast<int>(Axis::Y),
         Roll = static_cast<int>(Axis::Z)
     };
-    struct Transform{
+
+    struct Transform : public EngineComponent {
         static Math::Direction worldUp;
         static Math::Direction worldRight;
         static Math::Direction worldForward;
 
-        Transform(){
+        Transform() {
             modelMat.makeModelMatrix(position, rotationDegrees.toRads(), scale);
-        };
+        }
 
 
         Transform(Position position, Rotation rotation, Scale scale);
@@ -146,43 +147,7 @@ namespace GLESC::Transform {
             return scaleMat;
         }
 
-        [[nodiscard]] std::vector<EntityStatsManager::Value> getDebuggingValues() {
-            std::vector<EntityStatsManager::Value> values;
-
-            EntityStatsManager::Value positionValue;
-            positionValue.name = "Position";
-            positionValue.data = reinterpret_cast<void*>(&position);
-            positionValue.valueDirty = &dirty;
-            positionValue.type = EntityStatsManager::ValueType::VEC3F;
-            positionValue.isModifiable = true;
-            positionValue.usesSlider = false;
-            values.push_back(positionValue);
-
-            EntityStatsManager::Value rotationValue;
-            rotationValue.name = "Rotation";
-            rotationValue.data = reinterpret_cast<void*>(&rotationDegrees);
-            positionValue.valueDirty = &dirty;
-            rotationValue.type = EntityStatsManager::ValueType::VEC3F;
-            rotationValue.isModifiable = true;
-            rotationValue.usesSlider = true;
-            rotationValue.min = -360.0f;
-            rotationValue.max = 360.0f;
-            values.push_back(rotationValue);
-
-            EntityStatsManager::Value scaleValue;
-            scaleValue.name = "Scale";
-            scaleValue.data = reinterpret_cast<void*>(&scale);
-            positionValue.valueDirty = &dirty;
-            scaleValue.type = EntityStatsManager::ValueType::VEC3F;
-            scaleValue.isModifiable = true;
-            scaleValue.usesSlider = true;
-            scaleValue.min = -10.0f;
-            scaleValue.max = 10.0f;
-            values.push_back(scaleValue);
-
-            return values;
-        }
-
+        [[nodiscard]] std::vector<EntityStatsManager::Value> getDebuggingValues();
         [[nodiscard]] Math::Direction forward() const;
 
         [[nodiscard]] Math::Direction right() const;
@@ -226,7 +191,7 @@ namespace GLESC::Transform {
         static void transformMesh(Render::ColorMesh& mesh, const Transform& transform);
         static Rotation lookAt(const Position& from, const Position& to, const Math::Direction& up);
         static Math::BoundingVolume transformBoundingVolume(const Math::BoundingVolume& boundingVolume,
-        const Transform& transform);
+                                                            const Transform& transform);
         static Math::BoundingVolume transformBoundingVolume(const Math::BoundingVolume& boundingVolume,
                                                             const Render::Model& matrix);
 

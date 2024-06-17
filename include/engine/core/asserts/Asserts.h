@@ -21,7 +21,7 @@
 #define D_ASSERT_FALSE(condition, message) do {} while (false)
 #define D_ASSERT_NOT_NULL(condition, message) do {} while (false)
 #define D_ASSERT_NOT_NULLPTR(condition, message) do {} while (false)
-#define D_ASSERT_NULL(condition, message) do {} while (false)
+#define D_ASSERT_NULLPTR(condition, message) do {} while (false)
 #define D_ASSERT_EQUAL(condition, expected, message) do {} while (false)
 #define D_ASSERT_GREATER(condition, expected, message) do {} while (false)
 #define D_ASSERT_GREATER_OR_EQUAL(condition, expected, message) do {} while (false)
@@ -41,7 +41,7 @@
 
 
 
-#ifndef NDEBUG
+#ifndef NDEBUG_GLESC
 #include "engine/core/debugger/StackTrace.h"
 #include "engine/core/exceptions/core/AssertFailedException.h"
 #include "engine/core/debugger/Stringer.h"
@@ -107,7 +107,7 @@ bool assertEqualsEq(const Type1& value, const Type2& expected) {
             ASSERT_CONTENT((value) != nullptr, message) \
         } while (false)
 
-#define D_ASSERT_NULL(value, message) \
+#define D_ASSERT_NULLPTR(value, message) \
         do { \
             ASSERT_CONTENT((value) == nullptr, message) \
         } while (false)

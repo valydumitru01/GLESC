@@ -13,11 +13,15 @@
 #include <string>
 #include <memory>
 #include <mutex>
+#include <utility>
+#include "engine/core/low-level-renderer/graphic-api/GapiEnums.h"
 #include "engine/core/low-level-renderer/buffers/IndexBuffer.h"
 #include "engine/core/low-level-renderer/buffers/VertexArray.h"
+#include "engine/core/low-level-renderer/buffers/VertexBuffer.h"
 #include "engine/core/math/geometry/GeometryTypes.h"
 #include "engine/core/hash/Hasher.h"
 #include "engine/core/math/geometry/figures/BoundingVolume.h"
+#include "engine/subsystems/EngineComponent.h"
 #include "engine/subsystems/renderer/mesh/Vertex.h"
 #include "engine/subsystems/renderer/RendererTypes.h"
 
@@ -26,14 +30,15 @@ namespace GLESC::Render {
     /**
      * @brief A class that represents a mesh.
      * @details This is the mesh class for the engine. Is a template class that needs to be instantiated with the
-     * types (@see GAPI::Types) of the vertex attributes that the mesh will have.
+     * types (@see Types) of the vertex attributes that the mesh will have.
      * This mesh class contains only the abstraction of the mesh data.
      * @warning mesh does NOT need to be instantiated with the position attribute, as it is always present, Doing so
      * might lead to unexpected behavior. Position is inside the topology and is always present.
      */
     template <typename VertexT>
-    class Mesh {
+    class Mesh : public EngineComponent {
         friend class GLESC::Render::Renderer;
+
     public:
         S_ASSERT_TRUE((std::is_base_of_v<ColorVertex, VertexT> ||std::is_base_of_v<TextureVertex, VertexT>),
                       "Vertex must be a ColorVertex or TextureVertex");
@@ -44,10 +49,11 @@ namespace GLESC::Render {
         Mesh():
             dirtyFlag(false),
             vertexLayout({Vertex::getLayout()}),
-            renderType(RenderType::Dynamic) {
+            renderType(RenderType::Dynamic),
+            vertexArray(), indexBuffer(), vertexBuffer() {
         }
 
-        ~Mesh() = default;
+        ~Mesh() override = default;
 
         Mesh(const Mesh& other) {
             *this = other;
@@ -64,6 +70,7 @@ namespace GLESC::Render {
             indices = std::move(other.indices);
             boundingVolume = std::move(other.boundingVolume);
             vertexLayout = std::move(other.vertexLayout);
+            faces = std::move(other.faces);
             dirtyFlag = other.dirtyFlag;
             renderType = other.renderType;
             hashDirty = other.hashDirty;
@@ -83,9 +90,16 @@ namespace GLESC::Render {
             renderType = other.renderType;
             hashDirty = other.hashDirty;
             cachedHash = other.cachedHash;
+            faces = other.faces;
             return *this;
         }
 
+        /**
+         * @brief Starts the building of the mesh.
+         * @details This method should be called before adding any vertices or indices to the mesh.
+         * It will also set the isBuilding flag to true.
+         * It is only possible to attach vertices or whole meshes to the mesh while it is being built.
+         */
         void startBuilding() {
             dirtyFlag = true;
             isBuilding = true;
@@ -100,8 +114,8 @@ namespace GLESC::Render {
 
         void finishBuilding() {
             D_ASSERT_TRUE(isBuilding, "Mesh is not being built");
-            D_ASSERT_TRUE(vertices.size() > 0, "No vertices in mesh");
-            D_ASSERT_TRUE(indices.size() > 0, "No indices in mesh");
+            D_ASSERT_TRUE(!vertices.empty(), "No vertices in mesh");
+            D_ASSERT_TRUE(!indices.empty(), "No indices in mesh");
             boundingVolume.updateBoundingBox(vertices.data(), vertices.size() * sizeof(Vertex), sizeof(Vertex), 0);
             isBuilding = false;
         }
@@ -123,9 +137,9 @@ namespace GLESC::Render {
 
         [[nodiscard]] const std::vector<Vertex>& getVertices() const { return vertices; }
         [[nodiscard]] std::vector<Vertex>& getModifiableVertices() { return vertices; }
-        [[nodiscard]] const std::vector<Index> getIndices() const { return indices; }
-        [[nodiscard]] const std::vector<GAPI::Enums::Types> getVertexLayout() const { return vertexLayout; }
-        [[nodiscard]] const std::vector<Math::FaceIndices> getFaces() const { return faces; }
+        [[nodiscard]] const std::vector<Index>& getIndices() const { return indices; }
+        [[nodiscard]] const std::vector<GLESC::GAPI::Enums::Types>& getVertexLayout() const { return vertexLayout; }
+        [[nodiscard]] const std::vector<Math::FaceIndices>& getFaces() const { return faces; }
         [[nodiscard]] const Math::BoundingVolume& getBoundingVolume() const { return boundingVolume; }
         [[nodiscard]] Math::BoundingVolume& getBoundingVolumeMutable() { return boundingVolume; }
         [[nodiscard]] bool isDirty() const { return dirtyFlag; }
@@ -133,11 +147,10 @@ namespace GLESC::Render {
         [[nodiscard]] bool isBeingBuilt() const { return isBuilding; }
 
         void setRenderType(RenderType renderTypeParam) { renderType = renderTypeParam; }
-        void setClean() const { dirtyFlag = false; }
 
         struct VertexColorParam {
-            VertexColorParam(const Position& positionParam, const ColorRgba& colorParam)
-                : position(positionParam), color(colorParam) {
+            VertexColorParam(Position positionParam, ColorRgba colorParam)
+                : position(std::move(positionParam)), color(std::move(colorParam)) {
             }
 
             Position position;
@@ -145,8 +158,8 @@ namespace GLESC::Render {
         };
 
         struct VertexTexParam {
-            VertexTexParam(const Position& positionParam, const UV& textureCoordinateParam)
-                : position(positionParam), textureCoordinate(textureCoordinateParam) {
+            VertexTexParam(Position positionParam, UV textureCoordinateParam)
+                : position(std::move(positionParam)), textureCoordinate(std::move(textureCoordinateParam)) {
             }
 
             Position position;
@@ -230,7 +243,7 @@ namespace GLESC::Render {
         Index addVertex(const Vertex& vertexParam) {
             D_ASSERT_TRUE(isBuilding, "Mesh is not being built");
             // Insert new vertex
-            Index newIndex = static_cast<Index>(vertices.size());
+            auto newIndex = static_cast<Index>(vertices.size());
             {
                 std::lock_guard<std::mutex> lock(verticesMutex);
                 vertices.push_back(vertexParam);
@@ -279,7 +292,7 @@ namespace GLESC::Render {
             return true;
         }
 
-        [[nodiscard]] std::string toString() const {
+        [[nodiscard]] std::string toString() const override {
             std::string result = "Mesh\n";
             result += "Vertices (first 10):\n";
             for (size_t i = 0; i < 10 && i < vertices.size(); ++i) {
@@ -300,31 +313,65 @@ namespace GLESC::Render {
             return cachedHash;
         }
 
+
+#ifndef NDEBUG_GLESC
+          std::vector<EntityStatsManager::Value> getUpdatedDebuggingValues() override {
+            std::vector<EntityStatsManager::Value> values;
+            if (wasDataSentToGpu) {
+                EntityStatsManager::Value vertexCountValue;
+                vertexCountValue.name = "Vertex Count";
+                vertexCountValue.stringData = std::to_string(vertices.size());
+                vertexCountValue.isString = true;
+                values.push_back(vertexCountValue);
+
+                EntityStatsManager::Value faceCountValue;
+                faceCountValue.name = "Face Count";
+                faceCountValue.stringData = std::to_string(faces.size());
+                faceCountValue.isString = true;
+                values.push_back(faceCountValue);
+
+                EntityStatsManager::Value VAOIDValue;
+                VAOIDValue.name = "VAO ID";
+                VAOIDValue.stringData = std::to_string(getVertexArray().getRendererID());
+                VAOIDValue.isString = true;
+                values.push_back(VAOIDValue);
+            }
+            else {
+                EntityStatsManager::Value errorValue;
+                errorValue.name = "Error";
+                errorValue.stringData = "Data was not sent to GPU";
+                errorValue.isString = true;
+                values.push_back(errorValue);
+            }
+            return values;
+        }
+#endif
+
     private:
         void sendToGpuBuffers() const {
-            if(wasDataSentToGpu) return;
-            vertexArray = std::make_unique<GAPI::VertexArray>();
+            if (wasDataSentToGpu) return;
+            vertexArray = std::make_unique<GLESC::GAPI::VertexArray>();
 
             const void* bufferData = getVertices().data();
             size_t bufferCount = getVertices().size();
             size_t vertexBytes = sizeof(Vertex);
-            GAPI::Enums::BufferUsages bufferUsage = getBufferUsage(getRenderType());
+            GLESC::GAPI::Enums::BufferUsages bufferUsage = getBufferUsage(getRenderType());
 
             vertexArray->bind();
 
-            vertexBuffer = std::make_unique<GAPI::VertexBuffer>(
+            vertexBuffer = std::make_unique<GLESC::GAPI::VertexBuffer>(
                 bufferData,
                 bufferCount,
                 vertexBytes,
                 bufferUsage
             );
 
-            indexBuffer = std::make_unique<GAPI::IndexBuffer>(
+            indexBuffer = std::make_unique<GLESC::GAPI::IndexBuffer>(
                 getIndices().data(),
                 getIndices().size());
 
-            GAPI::VertexBufferLayout layout;
-            for (GAPI::Enums::Types type : getVertexLayout()) {
+            GLESC::GAPI::VertexBufferLayout layout;
+            for (GLESC::GAPI::Enums::Types type : getVertexLayout()) {
                 layout.push(type);
             }
 
@@ -332,17 +379,26 @@ namespace GLESC::Render {
             wasDataSentToGpu = true;
         }
 
-        const GAPI::VertexArray& getVertexArray() const {
+        void destroyBuffers() const {
+            if (!wasDataSentToGpu) return;
+            vertexArray->destroy();
+            vertexBuffer->destroy();
+            indexBuffer->destroy();
+            wasDataSentToGpu = false;
+        }
+
+
+        const GLESC::GAPI::VertexArray& getVertexArray() const {
             D_ASSERT_TRUE(wasDataSentToGpu, "Data was not sent to GPU");
             return *vertexArray;
         }
 
-        const GAPI::IndexBuffer& getIndexBuffer() const {
+        const GLESC::GAPI::IndexBuffer& getIndexBuffer() const {
             D_ASSERT_TRUE(wasDataSentToGpu, "Data was not sent to GPU");
             return *indexBuffer;
         }
 
-        const GAPI::VertexBuffer& getVertexBuffer() const {
+        const GLESC::GAPI::VertexBuffer& getVertexBuffer() const {
             D_ASSERT_TRUE(wasDataSentToGpu, "Data was not sent to GPU");
             return *vertexBuffer;
         }
@@ -378,11 +434,11 @@ namespace GLESC::Render {
         Math::BoundingVolume boundingVolume;
         /**
          * @brief The vertex layout of the mesh.
-         * @details The vertex layout is a vector of GAPI::Types that describes the layout of the
+         * @details The vertex layout is a vector of Types that describes the layout of the
          * vertex data in the vertices vector. The layout is used to create the vertex buffer layout
          * for the vertex array object.
          */
-        std::vector<GAPI::Enums::Types> vertexLayout;
+        std::vector<GLESC::GAPI::Enums::Types> vertexLayout;
 
         /**
          * @brief A flag that indicates whether the mesh is dirty.
@@ -396,9 +452,9 @@ namespace GLESC::Render {
         mutable size_t cachedHash = 0;
         mutable bool hashDirty = true;
 
-        mutable std::unique_ptr<GAPI::VertexArray> vertexArray;
-        mutable std::unique_ptr<GAPI::IndexBuffer> indexBuffer;
-        mutable std::unique_ptr<GAPI::VertexBuffer> vertexBuffer;
+        mutable std::unique_ptr<GLESC::GAPI::IndexBuffer> indexBuffer;
+        mutable std::unique_ptr<GLESC::GAPI::VertexBuffer> vertexBuffer;
+        mutable std::unique_ptr<GLESC::GAPI::VertexArray> vertexArray;
         mutable bool wasDataSentToGpu = false;
 
         mutable std::mutex verticesMutex{};

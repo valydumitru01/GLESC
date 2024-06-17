@@ -5,7 +5,6 @@
  ******************************************************************************/
 
 #pragma once
-#include "engine/core/low-level-renderer/graphic-api/Gapi.h"
 
 class VulkanAPI //: public GraphicsInterface
 {

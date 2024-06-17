@@ -13,17 +13,19 @@
 #include "engine/res-mng/textures/TextureLoader.h"
 
 #include "engine/core/debugger/Debugger.h"
+#include "engine/core/file-system/BinPath.h"
 
 
 SDL_SurfacePtr TextureLoader::createSurface(const std::string &filePath) {
     D_ASSERT_FALSE(filePath.empty(), "File path is empty.");
-    Logger::get().info("Loading image: " + filePath);
+    std::string fullImagePath = BinPath::getExecutableDirectory() + "/" + filePath;
+    Logger::get().info("Loading image: " + fullImagePath);
     // Load the image
-    SDL_SurfacePtr surfacePtr(IMG_Load(filePath.c_str()), &SDL_FreeSurface);
+    SDL_SurfacePtr surfacePtr(IMG_Load(fullImagePath.c_str()), &SDL_FreeSurface);
     //postSDLCall
     SDL_ClearError();
     // Check if the image was loaded
-    D_ASSERT_NOT_NULLPTR(surfacePtr, "Image couldn't be loaded. Image path: " + filePath +
+    D_ASSERT_NOT_NULLPTR(surfacePtr, "Image couldn't be loaded. Image path: " + fullImagePath +
                                      ", SDL error: " + SDL_GetError());
     Logger::get().success("Image loaded successfully: " + filePath);
     return surfacePtr;

@@ -18,7 +18,7 @@ void TerrainGeneratorGame::generateEntitiesForMap(GLESC::ECS::EntityFactory& ent
     keys.reserve(map.size());
     for (const auto& item : map) {
         keys.push_back(item.first);
-        createEntity("chunk" + item.first.toString(), {EntityType::Instance});
+        createEntity("chunk" + item.first.toString(), {GLESC::EntityType::Instance});
     }
 
 #pragma omp parallel for schedule(static, 1) default(none) shared(keys, map, std::cout)

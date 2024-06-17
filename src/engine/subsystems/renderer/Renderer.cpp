@@ -21,6 +21,7 @@ using namespace GLESC::Render;
 
 Counter Renderer::drawCounter{};
 constexpr int reservedSize = 100;
+
 Renderer::Renderer(WindowManager& windowManager) :
     windowManager(windowManager), shader(Shader("Shader.glsl")),
     camera(),
@@ -41,7 +42,6 @@ Renderer::Renderer(WindowManager& windowManager) :
     mvps.reserve(reservedSize);
     normalMats.reserve(reservedSize);
     isContainedInFrustum.reserve(reservedSize);
-
 }
 
 // =====================================================================================================================
@@ -67,7 +67,7 @@ void Renderer::swapBuffers() const {
     getGAPI().swapBuffers(windowManager.getWindow());
 }
 
-void Renderer::start(double timeOfFrame) {
+void Renderer::start(const double timeOfFrame) {
     getGAPI().clear({
         Enums::ClearBits::Color,
         Enums::ClearBits::Depth,
@@ -83,7 +83,7 @@ void Renderer::start(double timeOfFrame) {
                                     camera.camera->getViewHeight());
     this->setProjection(projection);
 
-    Transform::Transform interpolatedTransform =
+    const Transform::Transform interpolatedTransform =
         interpolationTransforms[camera.transform].interpolate(static_cast<float>(timeOfFrame));
     View view;
     view.makeViewMatrixPosRot(interpolatedTransform.getPosition(), interpolatedTransform.getRotation().toRads());
@@ -93,8 +93,8 @@ void Renderer::start(double timeOfFrame) {
 }
 
 void Renderer::renderLights(const std::vector<const LightSpot*>& lights,
-                          const std::vector<const Transform::Transform*>& lightTransforms,
-                          double timeOfFrame) const {
+                            const std::vector<const Transform::Transform*>& lightTransforms,
+                            const double timeOfFrame) const {
     size_t lightCount = static_cast<int>(lights.size());
     Shader::setUniform("uLights.count", lightCount);
     for (size_t lightIndex = 0; lightIndex < lightCount; lightIndex++) {
@@ -132,7 +132,7 @@ void Renderer::applySun(const Sun& sunParam) {
     Math::Direction sunDirection = sun.getDirection();
     Shader::setUniform("uGlobalSun.color", sunColor);
     Shader::setUniform("uGlobalSun.intensity", sunIntensity);
-    Shader::setUniform("uGlobalSun.direction", sunDirection);
+    Shader::setUniform("uSunDirection", sunDirection);
     sun.setClean();
 
     applyAmbientLight(*sunParam.ambientLight);
@@ -170,6 +170,7 @@ void Renderer::applyMaterial(const Material& material) {
     //
     Shader::setUniform("uMaterial.shininess", material.getShininess());
 }
+
 void Renderer::applyTransform(const MV& MVMat, const MVP& MVPMat, const NormalMat& normalMat) {
     Shader::setUniform("uMVP", MVPMat);
     Shader::setUniform("uMV", MVMat);
@@ -183,9 +184,8 @@ void Renderer::render(double timeOfFrame) {
     const VP& viewProjMat = getViewProjection();
     shader.bind(); // Activate the shader program before transform, material and lighting setup
     frustum.update(viewProjMat);
-    removeMarkedInterpolationTransforms();
 
-#pragma omp parallel for default(shared) schedule(dynamic)
+//#pragma omp parallel for default(shared) schedule(dynamic)
     for (int meshIndex = 0; meshIndex < meshesToRender.size(); meshIndex++) {
         const ColorMesh& mesh = *meshesToRender[meshIndex];
         const Transform::Transform& transform = *meshTransforms[meshIndex];
@@ -198,7 +198,7 @@ void Renderer::render(double timeOfFrame) {
             Transform::Transformer::transformBoundingVolume(mesh.getBoundingVolume(), interpolatedTransform);
         {
             std::lock_guard lockMutex(frustumMutex);
-            isContainedInFrustum[meshIndex] = frustum.contains(transformedBoundingVol);
+            isContainedInFrustum.push_back(frustum.contains(transformedBoundingVol));
         }
         MVP MVPMat = viewProjMat * model;
         MV MV = viewMat * model;
@@ -206,15 +206,15 @@ void Renderer::render(double timeOfFrame) {
         normalMat.makeNormalMatrix(MV);
         {
             std::lock_guard lockMVP(mvpMutex);
-            mvs[meshIndex] = MV;
+            mvs.push_back(MV);
         }
         {
             std::lock_guard lockMV(mvMutex);
-            mvps[meshIndex] = MVPMat;
+            mvps.push_back(MVPMat);
         }
         {
             std::lock_guard lockNormalMat(normalMatMutex);
-            normalMats[meshIndex] = normalMat;
+            normalMats.push_back(normalMat);
         }
     }
 
@@ -241,19 +241,16 @@ void Renderer::clearMeshData() {
     meshMaterials.clear();
     meshTransforms.clear();
     instances.clear();
-    // interpolationTransforms.clear();
     mvs.clear();
     mvps.clear();
     normalMats.clear();
     isContainedInFrustum.clear();
-    transformsToBeRemoved.clear();
 }
 
 void Renderer::clearLightData() {
     lights.clear();
     lightTransforms.clear();
 }
-
 
 
 Renderer::~Renderer() {
@@ -267,8 +264,8 @@ void Renderer::renderMesh(const ColorMesh& mesh) {
     getGAPI().drawTrianglesIndexed(mesh.getIndexBuffer().getCount());
     drawCounter.addToCounter(1);
 }
-void Renderer::renderInstances(MeshIndex adaptedInstances) {
 
+void Renderer::renderInstances(MeshIndex adaptedInstances) {
 }
 
 // =====================================================================================================================
@@ -278,7 +275,6 @@ void Renderer::renderInstances(MeshIndex adaptedInstances) {
 void Renderer::sendMeshData(const ColorMesh& mesh, const Material& material, const Transform::Transform& transform) {
     D_ASSERT_TRUE(!mesh.isBeingBuilt(), "Mesh is being built");
 
-    MeshIndex meshIndex = meshesToRender.size();
     RenderType renderType = mesh.getRenderType();
     interpolationTransforms[&transform].pushTransform(transform);
 
@@ -339,15 +335,6 @@ void Renderer::setCamera(const CameraPerspective& cameraPerspective, const Trans
 }
 
 
-void Renderer::removeMarkedInterpolationTransforms() {
-    for (auto transformToRemove : transformsToBeRemoved) {
-        interpolationTransforms.erase(transformToRemove);
-    }
-    transformsToBeRemoved.clear();
-}
-
-
 void Renderer::remove(const ColorMesh& mesh, const Transform::Transform& transform) {
-    transformsToBeRemoved.push_back(&transform);
+    interpolationTransforms.erase(&transform);
 }
-

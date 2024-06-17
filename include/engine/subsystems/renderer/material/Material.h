@@ -9,6 +9,8 @@
  **************************************************************************************************/
 #pragma once
 
+#include <utility>
+
 #include "engine/subsystems/ingame-debug/EntityStatsManager.h"
 #include "engine/subsystems/renderer/RendererTypes.h"
 
@@ -36,18 +38,18 @@ namespace GLESC::Render {
         {
         }
 
-        Material(const ColorRgb& diffuseColor,
+        Material(ColorRgb  diffuseColor,
                  const Intensity& diffuseIntensity,
-                 const ColorRgb& specularColor,
+                 ColorRgb  specularColor,
                  const Intensity& specularIntensity,
-                 const ColorRgb& emissionColor,
+                 ColorRgb  emissionColor,
                  const Intensity& emmisionIntensity,
                  const Intensity& shininess) :
-            diffuseColor{diffuseColor},
+            diffuseColor{std::move(diffuseColor)},
             diffuseIntensity{diffuseIntensity},
-            specularColor{specularColor},
+            specularColor{std::move(specularColor)},
             specularIntensity{specularIntensity},
-            emissionColor{emissionColor},
+            emissionColor{std::move(emissionColor)},
             emmisionIntensity{emmisionIntensity},
             shininess{shininess} {
         }
@@ -68,7 +70,7 @@ namespace GLESC::Render {
         void setEmmisionIntensity(const float emmisionIntensity) { this->emmisionIntensity.set(emmisionIntensity); }
         void setShininess(const float shininess) { this->shininess.set(shininess); }
 
-        bool operator<(const Material& other) const {
+        [[nodiscard]] bool operator<(const Material& other) const {
             return std::tie(diffuseColor, specularColor, emissionColor, specularIntensity, shininess) <
                 std::tie(other.diffuseColor, other.specularColor, other.emissionColor,
                          other.specularIntensity, other.shininess);
@@ -87,91 +89,9 @@ namespace GLESC::Render {
                 specularIntensity == other.specularIntensity &&
                 shininess == other.shininess;
         }
+        [[nodiscard]] std::vector<EntityStatsManager::Value> getDebuggingValues();
 
-        [[nodiscard]] std::vector<EntityStatsManager::Value> getDebuggingValues() {
-            std::vector<EntityStatsManager::Value> values;
-            EntityStatsManager::Value diffuseColorValue;
-            diffuseColorValue.name = "Diffuse Color";
-            diffuseColorValue.data = reinterpret_cast<void*>(&diffuseColor);
-            diffuseColorValue.type = EntityStatsManager::ValueType::VEC3F;
-            diffuseColorValue.isModifiable = true;
-            diffuseColorValue.valueDirty = &dirty;
-            diffuseColorValue.usesSlider = true;
-            diffuseColorValue.min = 0.0f;
-            diffuseColorValue.max = 255.0f;
-            values.push_back(diffuseColorValue);
-
-            EntityStatsManager::Value diffuseIntensityValue;
-            diffuseIntensityValue.name = "Diffuse Intensity";
-            diffuseIntensityValue.data = reinterpret_cast<void*>(&diffuseIntensity.getModifiable());
-            diffuseIntensityValue.type = EntityStatsManager::ValueType::FLOAT;
-            diffuseIntensityValue.isModifiable = true;
-            diffuseIntensityValue.valueDirty = &dirty;
-            diffuseIntensityValue.usesSlider = true;
-            diffuseIntensityValue.min = 0.0f;
-            diffuseIntensityValue.max = 1.0f;
-            values.push_back(diffuseIntensityValue);
-
-            EntityStatsManager::Value specularColorValue;
-            specularColorValue.name = "Specular Color";
-            specularColorValue.data = reinterpret_cast<void*>(&specularColor);
-            specularColorValue.type = EntityStatsManager::ValueType::VEC3F;
-            specularColorValue.isModifiable = true;
-            specularColorValue.valueDirty = &dirty;
-            specularColorValue.usesSlider = true;
-            specularColorValue.min = 0.0f;
-            specularColorValue.max = 255.0f;
-            values.push_back(specularColorValue);
-
-            EntityStatsManager::Value specularIntensityValue;
-            specularIntensityValue.name = "Specular Intensity";
-            specularIntensityValue.data = reinterpret_cast<void*>(&specularIntensity.getModifiable());
-            specularIntensityValue.type = EntityStatsManager::ValueType::FLOAT;
-            specularIntensityValue.isModifiable = true;
-            specularIntensityValue.valueDirty = &dirty;
-            specularIntensityValue.usesSlider = true;
-            specularIntensityValue.min = 0.0f;
-            specularIntensityValue.max = 1.0f;
-            values.push_back(specularIntensityValue);
-
-            EntityStatsManager::Value emissionColorValue;
-            emissionColorValue.name = "Emission Color";
-            emissionColorValue.data = reinterpret_cast<void*>(&emissionColor);
-            emissionColorValue.type = EntityStatsManager::ValueType::VEC3F;
-            emissionColorValue.isModifiable = true;
-            emissionColorValue.valueDirty = &dirty;
-            emissionColorValue.usesSlider = true;
-            emissionColorValue.min = 0.0f;
-            emissionColorValue.max = 255.0f;
-
-            values.push_back(emissionColorValue);
-
-            EntityStatsManager::Value emissionIntensityValue;
-            emissionIntensityValue.name = "Emission Intensity";
-            emissionIntensityValue.data = reinterpret_cast<void*>(&emmisionIntensity.getModifiable());
-            emissionIntensityValue.type = EntityStatsManager::ValueType::FLOAT;
-            emissionIntensityValue.isModifiable = true;
-            emissionIntensityValue.valueDirty = &dirty;
-            emissionIntensityValue.usesSlider = true;
-            emissionIntensityValue.min = 0.0f;
-            emissionIntensityValue.max = 1.0f;
-            values.push_back(emissionIntensityValue);
-
-            EntityStatsManager::Value shininessValue;
-            shininessValue.name = "Shininess";
-            shininessValue.data = reinterpret_cast<void*>(&shininess.getModifiable());
-            shininessValue.type = EntityStatsManager::ValueType::FLOAT;
-            shininessValue.isModifiable = true;
-            shininessValue.valueDirty = &dirty;
-            shininessValue.usesSlider = true;
-            shininessValue.min = 0.0f;
-            shininessValue.max = 1.0f;
-            values.push_back(shininessValue);
-
-            return values;
-        }
-
-        bool& isDirty() const { return dirty; }
+        [[nodiscard]] bool& isDirty() const { return dirty; }
         void setClean() const { dirty = false; }
 
     private:
@@ -214,7 +134,7 @@ namespace GLESC::Render {
 // Hash
 template <>
 struct std::hash<GLESC::Render::Material> {
-    std::size_t operator()(const GLESC::Render::Material& material) const noexcept {
+    [[nodiscard]] std::size_t operator()(const GLESC::Render::Material& material) const noexcept {
         std::size_t hash = 0;
         GLESC::Hasher::hashCombine(hash, std::hash<GLESC::Render::ColorRgb>{}(material.getDiffuseColor()));
         GLESC::Hasher::hashCombine(hash, std::hash<float>{}(material.getDiffuseIntensity()));

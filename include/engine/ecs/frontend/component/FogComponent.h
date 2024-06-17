@@ -20,13 +20,16 @@ namespace GLESC::ECS {
         [[nodiscard]] std::string getName() const override {
             return "FogComponent";
         }
+#ifndef NDEBUG_GLESC
 
         void setDebuggingValues() override {
             for (auto& value : fog.getDebuggingValues()) {
                 values.push_back(value);
             }
         }
+#endif
 
-        Fog fog;
+
+        Render::Fog fog;
     }; // class FogComponent
 } // namespace GLESC::ECS

@@ -16,7 +16,7 @@ namespace GLESC::Render {
     public:
         static ColorMesh cube(const ColorRgba &color, const Math::Distance& radius = 1.0);
 
-        static ColorMesh sphere(int numSlices, int numStacks, const ColorRgba &color);
+        static ColorMesh sphere(int numSlices, int numStacks, float radius, const ColorRgba &color);
 
         static ColorMesh cuboid(double width, double height, double depth, const ColorRgba &color);
 

@@ -6,9 +6,7 @@
 
 #pragma once
 
-#include <memory>
 #include <string>
-#include <GL/glew.h>
 #include <SDL2/SDL.h>
 
 #include "engine/core/math/algebra/vector/Vector.h"

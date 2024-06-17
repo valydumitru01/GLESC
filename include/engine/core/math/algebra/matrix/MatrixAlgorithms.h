@@ -2,7 +2,7 @@
  * @file   MatrixAlgorithms.h
  * @author Valentin Dumitru
  * @date   23/01/2024
- * @brief  @todo Add description of this file if needed
+ * @brief  Backend implementation of the matrix class.
  *
  * Copyright (c) 2023 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
@@ -541,8 +541,7 @@ namespace GLESC::Math {
         /**
          * @brief Transposes a matrix in place
          * @tparam Type The data type of the matrix elements (e.g., float, double).
-         * @tparam N The number of rows of the matrix.
-         * @tparam M The number of columns of the matrix.
+         * @tparam N The size of the square matrix
          * @param matrix The matrix.
          */
         template <typename Type, size_t N>
@@ -648,25 +647,8 @@ namespace GLESC::Math {
                                 float viewHeight,
                                 MatrixData<Type, 4, 4>& result) {
             S_ASSERT_TRUE(std::is_arithmetic_v<Type>, "Type must be arithmetic.");
-            D_ASSERT_TRUE(farPlane > nearPlane, "Far must be greater than near.");
-            D_ASSERT_TRUE(nearPlane > 0, "Near must be greater than 0.");
-            D_ASSERT_TRUE(viewWidth > 0, "View width must be greater than 0.");
-            D_ASSERT_TRUE(viewHeight > 0, "View height must be greater than 0.");
-            D_ASSERT_TRUE(fovRad > 0, "Field of view must be greater than 0.");
-            /*
-            Type aspect = viewWidth / viewHeight;
 
-            Type tangent = Math::tan(fovRad / Type(2));
-            Type right = nearPlane * tangent;
-            Type top = right / aspect;
 
-            MatrixAlgorithms::setMatrixZero(result);
-            result[0][0] = nearPlane / right;
-            result[1][1] = nearPlane / top;
-            result[2][2] = -(farPlane + nearPlane) / (farPlane - nearPlane);
-            result[2][3] = -Type(1);
-            result[3][2] = -(Type(2) * farPlane * nearPlane) / (farPlane - nearPlane);
-            // result[3][3] = 0; // Already set to 0*/
             MatrixAlgorithms::setMatrixZero(result);
             Type const tanHalfFovy = Math::tan(fovRad / static_cast<Type>(2));
             Type aspect = viewWidth / viewHeight;
@@ -1028,7 +1010,7 @@ namespace GLESC::Math {
         }
 
         template <class Type, size_t N>
-        static inline Type cofactor(const MatrixData<Type, N, N>& matrix, size_t row, size_t col) {
+        static Type cofactor(const MatrixData<Type, N, N>& matrix, size_t row, size_t col) {
             MatrixData<Type, N - 1, N - 1> subMatrix;
 
             size_t subI = 0;

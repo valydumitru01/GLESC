@@ -48,4 +48,5 @@ void VertexBuffer::destroyOnce() {
 
         objectAlive = false;
     }
+    D_ASSERT_TRUE(!objectAlive, "Failed to destroy VertexBuffer");
 }

@@ -36,55 +36,55 @@ namespace GLESC::Physics {
             this->onGoundLastFrame = onGround;
         }
 
-        Vec3B& getCollidingAxis() {
+        [[nodiscard]] Vec3B& getCollidingAxis() {
             return collidingAxis;
         }
 
-        std::vector<Vec3F>& getCollisionDepthForAxis() {
+        [[nodiscard]] std::vector<Vec3F>& getCollisionDepthForAxis() {
             return collisionDepthForAxis;
         }
 
-        std::vector<Collider*>& getCollidingWithColliders() {
+        [[nodiscard]] std::vector<Collider*>& getCollidingWithColliders() {
             return collidingWithColliders;
         }
 
-        std::vector<Physics*>& getPhysicsOfCollided() {
+        [[nodiscard]] std::vector<Physics*>& getPhysicsOfCollided() {
             return physicsOfCollided;
         }
 
-        bool& isColliding() {
+        [[nodiscard]] bool& isColliding() {
             return colliding;
         }
 
-        bool& isOnGround() {
+        [[nodiscard]] bool& isOnGround() {
             return onGround;
         }
 
-        const std::vector<Physics*>& getPhysicsOfCollided() const {
+        [[nodiscard]] const std::vector<Physics*>& getPhysicsOfCollided() const {
             return physicsOfCollided;
         }
 
-        const std::vector<Collider*>& getCollidingWithColliders() const {
+        [[nodiscard]] const std::vector<Collider*>& getCollidingWithColliders() const {
             return collidingWithColliders;
         }
 
-        const std::vector<Vec3F>& getCollisionDepthForAxis() const {
+        [[nodiscard]] const std::vector<Vec3F>& getCollisionDepthForAxis() const {
             return collisionDepthForAxis;
         }
 
-        const Vec3B& getCollidingAxis() const {
+        [[nodiscard]] const Vec3B& getCollidingAxis() const {
             return collidingAxis;
         }
 
-        bool isColliding() const {
+        [[nodiscard]] bool isColliding() const {
             return colliding;
         }
 
-        bool isOnGround() const {
+        [[nodiscard]] bool isOnGround() const {
             return onGround;
         }
 
-        bool wasOnGroundLastFrame() const {
+        [[nodiscard]] bool wasOnGroundLastFrame() const {
             return onGoundLastFrame;
         }
 

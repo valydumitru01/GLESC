@@ -6,9 +6,7 @@
 
 #pragma once
 
-#include <vector>
 #include <array>
-#include <omp.h>
 #include <unordered_map>
 
 #include "PerlinNoise.hpp"
@@ -16,7 +14,7 @@
 #include "engine/subsystems/renderer/RendererTypes.h"
 #include "engine/subsystems/renderer/mesh/Mesh.h"
 #define CHUNK_SIZE 50
-#define MAP_SIZE_IN_CHUNKS 10
+#define MAP_SIZE_IN_CHUNKS 20
 #define CHUNK_HEIGHT 100
 #define DIRT_HEIGHT 3
 
@@ -60,14 +58,14 @@ public:
     }
 
 private:
-    TileType getSurfaceTileType(double value) {
+    static TileType getSurfaceTileType(double value) {
         if (value < 0.3 * CHUNK_HEIGHT) return TileType::WATER;
         if (value < 0.4 * CHUNK_HEIGHT) return TileType::SAND;
         if (value < 0.8 * CHUNK_HEIGHT) return TileType::GRASS;
         return TileType::ROCK;
     }
 
-    TileType getCaveTileType(double value) {
+    static TileType getCaveTileType(double value) {
         if (value < 0.5) return TileType::AIR;
         return TileType::ROCK;
     }

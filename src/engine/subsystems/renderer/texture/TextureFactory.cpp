@@ -11,7 +11,7 @@
 
 #include "engine/core/hash/Hasher.h"
 
-GLESC::Render::Texture& TextureFactory::loadTexture(const std::string& path, bool flipTexture) {
+GLESC::Render::Texture& TextureFactory::loadTexture(const std::string& path, const bool flipTexture) {
     D_ASSERT_FALSE(path.empty(), "Path is empty");
     GLESC::Hasher::Hash hash = std::hash<std::string>{}(path);
     if (textures.find(hash) != textures.end()) {

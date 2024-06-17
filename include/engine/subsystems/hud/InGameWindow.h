@@ -4,11 +4,10 @@
  * @date   07/03/2024
  * @brief  Add description of this file if needed @TODO
  *
- * Copyright (c) 2024$ Valentin Dumitru. Licensed under the MIT License.
+ * Copyright (c) 2024 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
  **************************************************************************************************/
 #pragma once
-#include "engine/subsystems/hud/HUDLookAndFeel.h"
 #include <imgui/imgui.h>
 #include <string>
 #include <vector>
@@ -44,7 +43,6 @@ namespace GLESC {
         InGameWindow();
         virtual ~InGameWindow() = default;
 
-        void setTitle(const std::string& title);
         void setMaxSize(ImVec2 size);
         void setMinSize(ImVec2 size);
         void setSizeFraction(ImVec2 fraction);
@@ -52,19 +50,26 @@ namespace GLESC {
         void setCenter(WindowCenter center);
         void setLayoutPosition(LayoutPos position);
 
+        const std::string& getTitle() const { return title; }
 
-        void addFlag(ImGuiWindowFlags_ flag) { windowFlags.push_back(flag); }
-        bool isVisibile() { return isVisible; }
+
+        void addFlag(ImGuiWindowFlags_ flag) {
+            windowFlags.push_back(flag);
+            windowFlagsCached = false;
+        }
+        [[nodiscard]] bool isVisibile() const { return isVisible; }
+        void setVisible(bool visible) { isVisible = visible; }
         void toggleVisibility() { isVisible = !isVisible; }
 
         void update();
         void render(float timeOfFrame);
 
     protected:
+        void setTitle(const std::string& title);
         virtual void windowContent(float timeOfFrame) = 0;
-        ImVec2 calculateSize();
-        ImVec2 calculatePosition(ImVec2 windowSize);
-        ImGuiWindowFlags getFlags();
+        [[nodiscard]] ImVec2 calculateSize() const;
+        [[nodiscard]] ImVec2 calculatePosition(ImVec2 windowSize)  const;
+        [[nodiscard]] ImGuiWindowFlags getFlags();
         bool isVisible = true;
 
     private:
@@ -79,5 +84,7 @@ namespace GLESC {
         ImVec2 size;
         ImVec2 position;
         std::vector<ImGuiWindowFlags_> windowFlags;
+        ImGuiWindowFlags cachedFlags = 0;
+        mutable bool windowFlagsCached = false;
     }; // class Window
 } // namespace GLESC

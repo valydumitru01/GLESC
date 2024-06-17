@@ -716,32 +716,32 @@ TEST(MatrixAlgorithmsTests, InverseAlgorithmExactSolution) {
     TEST_SECTION("Testing Inverse of a 5x5 matrix")
     {
         // Test Inverse of a 5x5 matrix
-        GLESC::Math::MatrixData<double, 5, 5> matrix5x5({
-            {
-                {-1, 2, 3, 4, 5},
-                {6, 7, 8, -9, 0},
-                {11, -21, 31, -41, 51},
-                {-61, 71, 81, 91, 10},
-                {11.1, 32.1, -53.1, 64.1, -75.1}
-            }
-        });
+        //GLESC::Math::MatrixData<double, 5, 5> matrix5x5({
+        //    {
+        //        {-1, 2, 3, 4, 5},
+        //        {6, 7, 8, -9, 0},
+        //        {11, -21, 31, -41, 51},
+        //        {-61, 71, 81, 91, 10},
+        //        {11.1, 32.1, -53.1, 64.1, -75.1}
+        //    }
+        //});
+
+
+        // @TODO: Implement inverse for any matrix size
+        //GLESC::Math::MatrixData<double, 5, 5> expectedInverse5x5(
+        //    {
+        //        {
+        //            {-0.0935895, -0.0085282, 0.0719947, 0.00517271, 0.043349},
+        //            {0.351945, 0.119422, -0.0858807, -0.0162524, -0.0370535},
+        //            {-0.326954, -0.0438212, 0.0777137, 0.02122, 0.0338326},
+        //            {-0.0792838, -0.0628653, 0.0502792, 0.00966992, 0.0301534},
+        //            {0.300103, 0.0271107, -0.0381003, -0.0129324, -0.020931}
+        //        }
+        //    });
+        //GLESC::Math::MatrixData<double, 5, 5> actualInverse5x5;
+        //GLESC::Math::MatrixAlgorithms::matrixInverse(matrix5x5, actualInverse5x5);
+        //EXPECT_EQ_MAT(actualInverse5x5, expectedInverse5x5);
     }
-
-
-    // @TODO: Implement inverse for any matrix size
-    //GLESC::Math::MatrixData<double, 5, 5> expectedInverse5x5(
-    //    {
-    //        {
-    //            {-0.0935895, -0.0085282, 0.0719947, 0.00517271, 0.043349},
-    //            {0.351945, 0.119422, -0.0858807, -0.0162524, -0.0370535},
-    //            {-0.326954, -0.0438212, 0.0777137, 0.02122, 0.0338326},
-    //            {-0.0792838, -0.0628653, 0.0502792, 0.00966992, 0.0301534},
-    //            {0.300103, 0.0271107, -0.0381003, -0.0129324, -0.020931}
-    //        }
-    //    });
-    //GLESC::Math::MatrixData<double, 5, 5> actualInverse5x5;
-    //GLESC::Math::MatrixAlgorithms::matrixInverse(matrix5x5, actualInverse5x5);
-    //EXPECT_EQ_MAT(actualInverse5x5, expectedInverse5x5);
 }
 
 TEST(MatrixAlgorithmsTests, TranslateAlgorithm) {
@@ -1129,14 +1129,14 @@ TEST(MatrixAlgorithmsTests, MatrixMatrixMulComparisonWithGlm) {
         // Calculate the result using glm
         glm::mat4 glmMatrixA;
         glm::mat4 glmMatrixB;
-        glm::mat4 glmMatrixResult;
+
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
                 glmMatrixA[i][j] = matrixA[i][j];
                 glmMatrixB[i][j] = matrixB[i][j];
             }
         }
-        glmMatrixResult = glmMatrixA * glmMatrixB;
+        glm::mat4 glmMatrixResult = glmMatrixA * glmMatrixB;
 
         // Convert glmMatrixResult to our MatrixData format for comparison
         GLESC::Math::MatrixData<float, 4, 4> glmMatrixResultConverted;
@@ -1162,7 +1162,6 @@ TEST(MatrixAlgorithmsTests, MatrixMatrixMulComparisonWithGlm) {
         // Calculate the result using glm
         glm::mat3x4 glmMatrixA3x4;
         glm::mat4x3 glmMatrixB4x3;
-        glm::mat4 glmMatrixResult4x4;
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 4; j++) {
                 glmMatrixA3x4[i][j] = matrixA3x4[i][j];
@@ -1173,7 +1172,7 @@ TEST(MatrixAlgorithmsTests, MatrixMatrixMulComparisonWithGlm) {
                 glmMatrixB4x3[i][j] = matrixB4x3[i][j];
             }
         }
-        glmMatrixResult4x4 = glmMatrixA3x4 * glmMatrixB4x3;
+        glm::mat4 glmMatrixResult4x4 = glmMatrixA3x4 * glmMatrixB4x3;
 
         // Convert glmMatrixResult3x3 to our MatrixData format for comparison
         GLESC::Math::MatrixData<float, 4, 4> glmMatrixResultConverted4x4;
@@ -1239,14 +1238,13 @@ TEST(MatrixAlgorithmsTests, MatrixMatrixNaiveMulComparisonWithGlm) {
         // Calculate the result using glm
         glm::mat4 glmMatrixA;
         glm::mat4 glmMatrixB;
-        glm::mat4 glmMatrixResult;
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
                 glmMatrixA[i][j] = matrixA[i][j];
                 glmMatrixB[i][j] = matrixB[i][j];
             }
         }
-        glmMatrixResult = glmMatrixA * glmMatrixB;
+        glm::mat4 glmMatrixResult = glmMatrixA * glmMatrixB;
 
         // Convert glmMatrixResult to our MatrixData format for comparison
         GLESC::Math::MatrixData<float, 4, 4> glmMatrixResultConverted;
@@ -1272,7 +1270,6 @@ TEST(MatrixAlgorithmsTests, MatrixMatrixNaiveMulComparisonWithGlm) {
         // Calculate the result using glm
         glm::mat3x4 glmMatrixA3x4;
         glm::mat4x3 glmMatrixB4x3;
-        glm::mat4 glmMatrixResult4x4;
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 4; j++) {
                 glmMatrixA3x4[i][j] = matrixA3x4[i][j];
@@ -1283,7 +1280,7 @@ TEST(MatrixAlgorithmsTests, MatrixMatrixNaiveMulComparisonWithGlm) {
                 glmMatrixB4x3[i][j] = matrixB4x3[i][j];
             }
         }
-        glmMatrixResult4x4 = glmMatrixA3x4 * glmMatrixB4x3;
+        glm::mat4 glmMatrixResult4x4 = glmMatrixA3x4 * glmMatrixB4x3;
 
         // Convert glmMatrixResult3x3 to our MatrixData format for comparison
         GLESC::Math::MatrixData<float, 4, 4> glmMatrixResultConverted4x4;

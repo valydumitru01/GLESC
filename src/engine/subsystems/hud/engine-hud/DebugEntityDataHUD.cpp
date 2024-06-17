@@ -4,10 +4,10 @@
  * @date   09/03/2024
  * @brief  Add description of this file if needed @TODO
  *
- * Copyright (c) 2024$ Valentin Dumitru. Licensed under the MIT License.
+ * Copyright (c) 2024 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
  **************************************************************************************************/
-
+#ifndef NDEBUG_GLESC
 #include "engine/subsystems/hud/engine-hud/DebugEntityDataHUD.h"
 
 #include "engine/core/math/algebra/matrix/Matrix.h"
@@ -278,7 +278,7 @@ void DebugEntityData::windowContent(float timeOfFrame) {
             if (value.isString) {
                 ImGui::Text(value.name.c_str());
                 ImGui::Text(value.stringData.c_str());
-                break;
+                continue;
             }
             // While visible the panel of the data, the value is dirty as we want to update it
             if (value.valueDirty != nullptr)
@@ -294,3 +294,4 @@ void DebugEntityData::windowContent(float timeOfFrame) {
     }
     ImGui::PopFont();
 }
+#endif

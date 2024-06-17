@@ -30,10 +30,10 @@ namespace GLESC::ECS {
          * This is because we are using a vector of IComponents.
          * @return
          */
-        virtual std::string toString() const = 0;
+        [[nodiscard]] virtual std::string toString() const = 0;
 
-        virtual std::string getName() const = 0;
-
+        [[nodiscard]] virtual std::string getName() const = 0;
+#ifndef NDEBUG_GLESC
         std::vector<EntityStatsManager::Value>& getDebuggingValues() {
             if (!values.empty()) return values;
             setDebuggingValues();
@@ -46,10 +46,13 @@ namespace GLESC::ECS {
             updatedValues.clear();
             return updatedValuesAux;
         }
+#endif
     protected:
+#ifndef NDEBUG_GLESC
         virtual void setDebuggingValues() = 0;
         virtual void setUpdatedDebuggingValues() {}
         std::vector<EntityStatsManager::Value> values;
         std::vector<EntityStatsManager::Value> updatedValues;
+#endif
     };
 } // namespace GLESC::ECS

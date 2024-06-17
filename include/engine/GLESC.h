@@ -22,7 +22,7 @@
 #include "ecs/frontend/system/System.h"
 
 // Subsystems
-#include "engine/subsystems/hud/engine-hud/EngineDebugHUDManager.h"
+#include "engine/subsystems/hud/engine-hud/EngineHUDManager.h"
 #include "engine/subsystems/hud/HUDManager.h"
 #include "engine/subsystems/renderer/Renderer.h"
 #include "engine/subsystems/input/InputManager.h"
@@ -48,14 +48,16 @@ namespace GLESC {
         std::vector<std::unique_ptr<ECS::System>> createSystems();
         void createEngineEntities();
 
-
         void registerStats() const;
+
 
         /**
          * @brief The constructor is private,
          * the engine can only be created by the main function
          */
         explicit Engine(FPSManager& fpsManager);
+
+        ~Engine();
 
         /**
          * @brief Processes the logic of the game
@@ -106,9 +108,7 @@ namespace GLESC {
 
         FPSManager& fpsManager;
 
-#ifndef NDEBUG_GLESC
-        HUD::EngineDebugHUDManager engineHuds;
-#endif
+        HUD::EngineHUDManager engineHuds;
         ECS::ECSCoordinator ecs;
         ECS::EntityFactory entityFactory;
 

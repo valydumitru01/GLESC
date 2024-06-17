@@ -82,7 +82,7 @@ namespace GLESC::Render {
         [[nodiscard]] Shader& getDefaultShader() { return shader; }
         [[nodiscard]] Frustum& getFrustum() { return frustum; }
         [[nodiscard]] const Frustum& getFrustum() const { return frustum; }
-        [[nodiscard]] const float getMeshRenderCount() const { return drawCounter.getCount(); }
+        [[nodiscard]] float getMeshRenderCount() const { return drawCounter.getCount(); }
 
 
         void remove(const ColorMesh& mesh, const Transform::Transform& transform);
@@ -117,8 +117,6 @@ namespace GLESC::Render {
         static void renderMesh(const ColorMesh& mesh);
         static void renderInstances(MeshIndex adaptedInstances);
 
-        void removeMarkedInterpolationTransforms();
-
 
         static Projection createProjectionMatrix(const CameraPerspective& camera);
         static View createViewMatrix(const Transform::Transform& transform);
@@ -142,8 +140,6 @@ namespace GLESC::Render {
         std::vector<bool> isContainedInFrustum;
 
         bool hasRenderBeenCalled = false;
-
-        std::vector<const Transform::Transform*> transformsToBeRemoved;
 
 
         Shader shader;

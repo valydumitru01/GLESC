@@ -8,9 +8,6 @@
  * See LICENSE.txt in the project root for license information.
  **************************************************************************************************/
 #pragma once
-
-#include <utility>
-
 #include "engine/core/math/algebra/vector/Vector.h"
 #include "engine/core/math/geometry/GeometryTypes.h"
 

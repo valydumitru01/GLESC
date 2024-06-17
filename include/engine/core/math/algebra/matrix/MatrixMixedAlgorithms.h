@@ -11,7 +11,6 @@
 #pragma once
 
 
-#include "engine/core/asserts/Asserts.h"
 #include "engine/core/math/Math.h"
 #include "engine/core/math/algebra/matrix/MatrixAlgorithms.h"
 #include "engine/core/math/algebra/matrix/MatrixTypes.h"
@@ -277,4 +276,4 @@ namespace GLESC::Math {
             MatrixMixedAlgorithms::lookAt3D(eye, target, up, resMatrix);
         }
     }; // class MatrixAlgorithms
-}; // namespace GLESC::Math
+} // namespace GLESC::Math

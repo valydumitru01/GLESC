@@ -14,7 +14,7 @@
 
 
 FPSManager::FPSManager(FpsRates maxFPS)
-    : fpsMs(maxFPS == FpsUnlimited ? 0 : msInASecond / static_cast<Uint32>(maxFPS)),
+    : fpsMs(msInASecond / static_cast<Uint32>(maxFPS)),
       msPerUpdate(msInASecond / 60) {
 }
 

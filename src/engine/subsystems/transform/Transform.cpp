@@ -165,6 +165,12 @@ void Interpolator::pushTransform(const Transform& transform) {
 }
 
 Transform Interpolator::interpolate(float alphaParam) const {
+    // If rotation difference is more than 180 degrees, don't interpolate
+    if (Math::abs(lastTransform.getRotation().getX() - currentTransform.getRotation().getX()) > 180.0f ||
+        Math::abs(lastTransform.getRotation().getY() - currentTransform.getRotation().getY()) > 180.0f ||
+        Math::abs(lastTransform.getRotation().getZ() - currentTransform.getRotation().getZ()) > 180.0f) {
+        return currentTransform;
+    }
     // Clamp alpha to [0, 1]
     float alpha = Math::min(alphaParam, 1.0f);
     Transform interpolatedTransform;
@@ -176,3 +182,48 @@ Transform Interpolator::interpolate(float alphaParam) const {
         lastTransform.getScale().lerp(currentTransform.getScale(), alpha));
     return interpolatedTransform;
 }
+
+#ifndef NDEBUG_GLESC
+std::vector<EntityStatsManager::Value> Transform::getDebuggingValues() {
+    std::vector<EntityStatsManager::Value> values;
+
+    EntityStatsManager::Value positionValue;
+    positionValue.name = "Position";
+    positionValue.data = reinterpret_cast<void*>(&position);
+    positionValue.valueDirty = &dirty;
+    positionValue.type = EntityStatsManager::ValueType::VEC3F;
+    positionValue.isModifiable = true;
+    positionValue.usesSlider = false;
+    values.push_back(positionValue);
+
+    EntityStatsManager::Value rotationValue;
+    rotationValue.name = "Rotation";
+    rotationValue.data = reinterpret_cast<void*>(&rotationDegrees);
+    positionValue.valueDirty = &dirty;
+    rotationValue.type = EntityStatsManager::ValueType::VEC3F;
+    rotationValue.isModifiable = true;
+    rotationValue.usesSlider = true;
+    rotationValue.min = -360.0f;
+    rotationValue.max = 360.0f;
+    values.push_back(rotationValue);
+
+    EntityStatsManager::Value scaleValue;
+    scaleValue.name = "Scale";
+    scaleValue.data = reinterpret_cast<void*>(&scale);
+    positionValue.valueDirty = &dirty;
+    scaleValue.type = EntityStatsManager::ValueType::VEC3F;
+    scaleValue.isModifiable = true;
+    scaleValue.usesSlider = true;
+    scaleValue.min = -10.0f;
+    scaleValue.max = 10.0f;
+    values.push_back(scaleValue);
+
+    return values;
+}
+
+#else
+
+std::vector<EntityStatsManager::Value> Transform::getDebuggingValues() {
+    return {};
+}
+#endif

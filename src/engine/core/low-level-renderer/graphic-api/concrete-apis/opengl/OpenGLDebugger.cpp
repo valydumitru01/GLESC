@@ -1,8 +1,8 @@
 /******************************************************************************
- * @file   Example.h
+ * @file   OpenGLDebugger.cpp
  * @author Valentin Dumitru
  * @date   2023-09-26
- * @brief @todo
+ * @brief A debugger for OpenGL. Includes a callback function for OpenGL errors and some helper functions.
  *
  * Copyright (c) 2023 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.

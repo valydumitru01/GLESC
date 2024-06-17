@@ -1,8 +1,8 @@
 /******************************************************************************
- * @file   Example.h
+ * @file   Debugger.h
  * @author Valentin Dumitru
  * @date   2023-09-26
- * @brief @todo
+ * @brief A set of macros and functions for debugging and logging.
  *
  * Copyright (c) 2023 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
@@ -33,13 +33,10 @@ do { } while (0)
 #endif
 
 
-#ifndef NDEBUG
+#ifndef NDEBUG_GAPI
 
-#include "engine/core/logger/Logger.h"
 #include "Stringer.h"
-#include <SDL2/SDL.h>
 #include <string>
-#include <iostream>
 #include <iterator>
 #include <sstream>
 #include <type_traits>

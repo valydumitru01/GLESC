@@ -3,6 +3,7 @@
 
 #include <functional>
 #include <string>
+#include <utility>
 #include "engine/core/low-level-renderer/graphic-api/GapiStructs.h"
 #include "engine/subsystems/renderer/RendererTypes.h"
 
@@ -15,8 +16,8 @@ namespace GLESC::Render {
     class BaseVertex {
     public:
         [[nodisacrd]] static const std::vector<GAPI::Enums::Types>& getLayout() { return layout; }
-        BaseVertex(const Position& position, const Normal& normal)
-            : position(position), normal(normal) {
+        BaseVertex(Position  position, Normal  normal)
+            : position(std::move(position)), normal(std::move(normal)) {
         }
 
         [[nodisacrd]] bool operator==(const BaseVertex& other) const {
@@ -65,8 +66,8 @@ namespace GLESC::Render {
     class TextureVertex : public BaseVertex {
     public:
         [[nodisacrd]] static const std::vector<GAPI::Enums::Types>& getLayout() { return layout; }
-        TextureVertex(Position position, Normal normal, UV textureCoordinate)
-            : BaseVertex(position, normal), textureCoordinate(textureCoordinate) {
+        TextureVertex(const Position& position, const Normal& normal, UV  textureCoordinate)
+            : BaseVertex(position, normal), textureCoordinate(std::move(textureCoordinate)) {
         }
 
         bool operator==(const TextureVertex& other) const {

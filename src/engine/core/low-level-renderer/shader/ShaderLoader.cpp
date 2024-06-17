@@ -13,6 +13,8 @@
 #include "engine/core/low-level-renderer/graphic-api/Gapi.h"
 #include "engine/res-mng/files/FileManager.h"
 #include "engine/core/low-level-renderer/shader/ShaderLoader.h"
+
+#include "engine/core/debugger/Stringer.h"
 using namespace GLESC::GAPI;
 UInt ShaderLoader::loadShader(const std::string& fileName, const std::vector<std::string>& macros) {
     std::string shaderPath = std::string(SHADER_PATH) + "/" + fileName;

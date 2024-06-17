@@ -11,13 +11,10 @@
 
 #include <string>
 #include <sstream>
-#include <limits>
 #include <type_traits>
 #include <iomanip>
 #include <cstdint>
 #include <utility>
-
-#include "engine/core/logger/concrete-loggers/FileLogger.h"
 
 namespace GLESC {
 #define DEFAULT_FLOAT_PRECISION 6

@@ -232,7 +232,8 @@ namespace GLESC::Math {
          * @brief Equality operator for vectors
          * @details Compares this vector to another, allowing for different underlying types.
          * Handles floating-point comparison via 'eq' function.
-         * @param rhs Vector to compare against
+         * @param vec1 First vector
+         * @param vec2 Second vector
          * @return True if the vectors are equal, false otherwise
          */
         template <typename Type, size_t N>

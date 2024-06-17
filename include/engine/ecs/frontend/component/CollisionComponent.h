@@ -15,6 +15,7 @@ namespace GLESC::ECS {
     class CollisionComponent : public IComponent {
     public:
         Physics::Collider collider;
+
         std::string toString() const override {
             return collider.toString();
         }
@@ -22,6 +23,7 @@ namespace GLESC::ECS {
         std::string getName() const override {
             return "CollisionComponent";
         }
+#ifndef NDEBUG_GLESC
         void setDebuggingValues() override {
             for (auto& value : collider.getDebuggingValues()) {
                 values.push_back(value);
@@ -33,5 +35,6 @@ namespace GLESC::ECS {
                 updatedValues.push_back(value);
             }
         }
+#endif
     }; // class CollisionComponent
 }

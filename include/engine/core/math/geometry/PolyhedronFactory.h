@@ -1,5 +1,5 @@
 /**************************************************************************************************
- * @file   PolygonFactory.h
+ * @file   PolyhedronFactory.h
  * @author Valentin Dumitru
  * @date   15/12/2023
  * @brief  Add description of this file if needed @TODO
@@ -15,14 +15,12 @@ namespace PolyhedronFactory {
     namespace Regular {
         /**
          * @brief Regular polyhedron with 4 faces (pyramid, all faces are triangles)
-         * @param radius radius of the polyhedron
          * @return A tetrahedron
          */
         static GLESC::Math::Polyhedron tetra();
         
         /**
          * @brief Regular polyhedron with 6 faces (cube, all faces are squares)
-         * @param radius radius of the polyhedron
          * @return A cube
          */
         static GLESC::Math::Polyhedron cube();
@@ -30,14 +28,12 @@ namespace PolyhedronFactory {
         /**
          * @brief Regular polyhedron with 8 faces (octahedron, all faces are triangles, looks like
          * two pyramids glued together)
-         * @param radius radius of the polyhedron
          * @return An octahedron
          */
         static GLESC::Math::Polyhedron octa();
         
         /**
          * @brief Regular polyhedron with 12 faces (dodecahedron, all faces are pentagons)
-         * @param radius radius of the polyhedron
          * @return A dodecahedron
          */
         static GLESC::Math::Polyhedron dodeca();
@@ -45,7 +41,6 @@ namespace PolyhedronFactory {
         /**
          * @brief Regular polyhedron with 20 faces (icosahedron, all faces are triangles, looks like
          * a 20 side dice in D&D)
-         * @param radius radius of the polyhedron
          * @return An icosahedron
          */
         static GLESC::Math::Polyhedron icos();

@@ -10,6 +10,7 @@
 
 #include "engine/subsystems/ingame-debug/EntityListManager.h"
 
+using namespace GLESC;
 std::set<EntityListItem> EntityListManager::entities;
 std::string EntityListManager::selectedEntity;
 

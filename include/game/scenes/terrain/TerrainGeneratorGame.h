@@ -18,12 +18,7 @@
 class TerrainGeneratorGame : public GLESC::Scene::Scene {
 public:
     SCENE_DEFINITION(TerrainGeneratorGame)
-
     void generateEntitiesForMap(GLESC::ECS::EntityFactory& entityFactory);
-
     void init() override;
-
     void update() override;
-
-private:
 }; // class TerrainGeneratorGame

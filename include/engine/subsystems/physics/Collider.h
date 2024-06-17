@@ -11,7 +11,6 @@
 #include <functional>
 
 #include "CollisionInformation.h"
-#include "Physics.h"
 #include "engine/core/math/geometry/figures/BoundingVolume.h"
 #include "engine/subsystems/EngineComponent.h"
 #include "engine/subsystems/ingame-debug/EntityStatsManager.h"
@@ -44,11 +43,12 @@ namespace GLESC::Physics {
         const SpecificCollisionCallbacks& getSpecificCollisionCallbacks() const { return collisionCallbacks; }
         bool isSolid() const { return solid; }
         const Math::BoundingVolume& getBoundingVolume() const { return boundingVolume; }
-
+#ifndef NDEBUG_GLESC
         [[nodiscard]] std::vector<EntityStatsManager::Value> getDebuggingValues() override;
         [[nodiscard]] std::vector<EntityStatsManager::Value> getUpdatedDebuggingValues() override;
-        [[nodiscard]] std::string toString() const override;
+#endif
 
+        [[nodiscard]] std::string toString() const override;
     private:
         CollisionCallback collisionCallback;
         SpecificCollisionCallbacks collisionCallbacks;

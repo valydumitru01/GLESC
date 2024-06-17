@@ -11,6 +11,8 @@
 
 #include "engine/subsystems/physics/Collider.h"
 
+#include <sstream>
+#ifndef NDEBUG_GLESC
 
 std::vector<EntityStatsManager::Value> GLESC::Physics::Collider::getDebuggingValues() {
     std::vector<EntityStatsManager::Value> values;
@@ -85,6 +87,8 @@ std::vector<EntityStatsManager::Value> GLESC::Physics::Collider::getUpdatedDebug
 
     return values;
 }
+#endif
+
 
 std::string GLESC::Physics::Collider::toString() const {
     // TODO: Improve this if needed (missing stuff)

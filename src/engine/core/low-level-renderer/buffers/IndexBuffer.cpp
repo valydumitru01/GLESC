@@ -20,7 +20,8 @@ IndexBuffer::IndexBuffer(const UInt* data, const Size count, Enums::BufferUsages
 }
 
 IndexBuffer::IndexBuffer(const std::vector<UInt>& data, Enums::BufferUsages bufferUsage) :
-    IndexBuffer(data.data(), static_cast<Size>(data.size()), bufferUsage) {}
+    IndexBuffer(data.data(), static_cast<Size>(data.size()), bufferUsage) {
+}
 
 IndexBuffer::~IndexBuffer() {
     destroyOnce();
@@ -42,6 +43,7 @@ void IndexBuffer::unbind() const {
 
 void IndexBuffer::destroyOnce() {
     if (objectAlive) {
+        std::vector<UInt> ibuData = getGAPI().getBufferDataUI(indexBufferID);
         getGAPI().deleteBuffer(indexBufferID);
         objectAlive = false;
     }

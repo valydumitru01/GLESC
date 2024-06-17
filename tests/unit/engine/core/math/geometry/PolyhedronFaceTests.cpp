@@ -1,16 +1,16 @@
 /******************************************************************************
- * @file   FaceTests.cpp
+ * @file   PolyhedronFaceTests.cpp
  * @author Valentin Dumitru
  * @date   2023-12-14
- * @brief  @todo Add description of this file if needed
+ * @brief  Tests for the PolyhedronFace class.
  *
  * Copyright (c) 2023 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
  ******************************************************************************/
 
 
-#include "TestsConfig.cpp"
 #if MATH_GEOMETRY_UNIT_TESTING
+#include "TestsConfig.cpp"
 #include <gtest/gtest.h>
 #include "engine/core/math/Math.h"
 #include "engine/core/math/geometry/GeometryTypes.h"

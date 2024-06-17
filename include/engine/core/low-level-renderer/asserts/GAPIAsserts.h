@@ -1,8 +1,8 @@
 /******************************************************************************
- * @file   Example.h
+ * @file   GAPIAsserts.h
  * @author Valentin Dumitru
  * @date   2023-09-26
- * @brief @todo
+ * @brief A set of macros and functions for debugging and logging.
  *
  * Copyright (c) 2023 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
@@ -10,7 +10,6 @@
 
 #pragma once
 #include "engine/core/asserts/Asserts.h"
-#include "engine/core/debugger/Stringer.h"
 #include "engine/Config.h"
 
 
@@ -18,7 +17,7 @@
 #define D_ASSERT_GL_CALL_IS_CORRECT(isCorrect, message) do {} while (false)
 #define D_ASSERT_GLEW_OK(isGlewOk, message) do {} while (false)
 
-#ifndef NDEBUG
+#ifndef NDEBUG_GLESC
 #define D_ASSERT_GL_CORRECT_VERSION() \
     D_ASSERT_TRUE(isGLCorrectVersion(GLESC_GL_MAJOR_VERSION, GLESC_GL_MINOR_VERSION), \
     "OpenGL version is not supported")
@@ -28,7 +27,7 @@
     "OpenGL call is not correct \n" + GLESC::Stringer::toString(message))
 
 #define D_ASSERT_GLEW_OK(isGlewOk, message) \
-    D_ASSERT_TRUE(isGlewOk,std::string("Unable to initialize GLEW: ") + message)
+    D_ASSERT_TRUE(isGlewOk,std::string("Unable to initialize GLEW: ") + (message))
 
 
 [[maybe_unused]] inline bool isGLCorrectVersion(int glslMajorVersion, int glslMinorVersion){

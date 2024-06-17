@@ -8,6 +8,8 @@
  * See LICENSE.txt in the project root for license information.
  ******************************************************************************/
 #pragma once
+#include <string>
+
 #include "engine/core/asserts/Asserts.h"
 #include "engine/subsystems/input/InputKeys.h"
 
@@ -20,6 +22,7 @@ namespace GLESC::Input {
         case KeyAction::ONGOING_RELEASED: return "ONGOING_RELEASED";
         default: D_ASSERT_TRUE(false, "KeyState not supported to be converted to string");
         }
+        return "UNKNOWN_KEY_STATE";
     }
 
     inline std::string keyToString(const Key& key) {

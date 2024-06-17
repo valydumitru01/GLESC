@@ -42,7 +42,7 @@ void Default::init() {
         // Setting mesh, cube, sphere, pyramid, in this order
         if (i % 3 == 1)
             entity.getComponent<ECS::RenderComponent>().moveMesh(
-                Render::MeshFactory::sphere(4 + i, 4 + i, color));
+                Render::MeshFactory::sphere(4 + i, 4 + i, 1, color));
         else
             entity.getComponent<ECS::RenderComponent>().moveMesh(
                 Render::MeshFactory::cube(color));

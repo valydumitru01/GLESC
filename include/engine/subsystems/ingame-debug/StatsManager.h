@@ -4,7 +4,7 @@
  * @date   08/03/2024
  * @brief  Add description of this file if needed @TODO
  *
- * Copyright (c) 2024$ Valentin Dumitru. Licensed under the MIT License.
+ * Copyright (c) 2024 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
  **************************************************************************************************/
 #pragma once
@@ -13,19 +13,24 @@
 #include <map>
 #include <string>
 
-class StatsManager {
-public:
-    // Register a stat source with any return type
-    template <typename Func>
-    static void registerStatSource(std::string name, Func callback) {
-        S_ASSERT_TRUE(std::is_invocable_v<Func>, "Callback must be invocable");
+#include "engine/core/debugger/Stringer.h"
 
-        sources[name] = [callback]() -> std::string {
-            return GLESC::Stringer::toString(callback());
-        };
-    }
+namespace GLESC {
+    class StatsManager {
+    public:
+        // Register a stat source with any return type
+        template <typename Func>
+        static void registerStatSource(const std::string& name, Func callback) {
+            S_ASSERT_TRUE(std::is_invocable_v<Func>, "Callback must be invocable");
 
-    static std::unordered_map<std::string, std::string> getStats();
-private:
-    static std::map<std::string, std::function<std::string()>> sources;
-};
+            sources[name] = [callback]() -> std::string {
+                return Stringer::toString(callback());
+            };
+        }
+
+        static std::unordered_map<std::string, std::string> getStats();
+
+    private:
+        static std::map<std::string, std::function<std::string()>> sources;
+    };
+}

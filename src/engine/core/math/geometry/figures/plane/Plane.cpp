@@ -121,10 +121,8 @@ std::string Plane::toString() const {
         // If the distance is close to 0, the line lies in the plane
         return eq(abs(distanceToPoint(line.getPoint())), 0);
     }
-    else {
-        // If the line is not parallel to the plane, it will intersect the plane at some point
-        return true;
-    }
+    // If the line is not parallel to the plane, it will intersect the plane at some point
+    return true;
 }
 
 [[nodiscard]] bool Plane::intersects(const Line& line, Point& intersectionPoint) const {

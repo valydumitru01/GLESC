@@ -15,7 +15,7 @@ namespace GLESC::Render {
     class Texture {
     public:
         Texture() = default;
-        Texture(const std::string& pathParam, bool flipTexture = true);
+        explicit Texture(const std::string& path, bool flipTexture = true);
         
         ~Texture();
         
@@ -29,7 +29,7 @@ namespace GLESC::Render {
         
         void unbind() const;
 
-        void load(const std::string& pathParam, bool flipTexture);
+        void load(const std::string& path, bool flipTexture);
         void release();
         
         [[nodiscard]] UInt getTextureID() const { return textureID; }

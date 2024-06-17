@@ -30,6 +30,7 @@ void PhysicsCollisionSystem::update() {
     auto& entities = getAssociatedEntities();
     // TODO: Get the component array from the ecs so we don't need to iterate over the entities
     for (auto& entity : entities) {
+
         getComponent<CollisionComponent>(entity).collider.setOwnerName(getEntityName(entity).c_str());
         getComponent<PhysicsComponent>(entity).physics.setOwnerName(getEntityName(entity).c_str());
         collisionManager.addCollider(getComponent<CollisionComponent>(entity).collider,

@@ -8,7 +8,7 @@
  * See LICENSE.txt in the project root for license information.
  **************************************************************************************************/
 #pragma once
-#include "../../backend/component/IComponent.h"
+#include "engine/ecs/backend/component/IComponent.h"
 #include "engine/subsystems/renderer/lighting/LightSpot.h"
 
 namespace GLESC::ECS {
@@ -22,11 +22,12 @@ namespace GLESC::ECS {
         [[nodiscard]] std::string toString() const override {
             return light.toString();
         }
-
+#ifndef NDEBUG_GLESC
         void setDebuggingValues() override {
             for (auto& value : light.getDebuggingValues()) {
                 values.push_back(value);
             }
         }
+#endif
     }; // struct LightComponent
 }

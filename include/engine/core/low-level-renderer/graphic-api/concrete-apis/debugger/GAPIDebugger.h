@@ -10,6 +10,7 @@
 
 #pragma once
 
+#include <iomanip>
 #include "engine/core/debugger/Debugger.h"
 #include "engine/core/logger/Logger.h"
 
@@ -46,7 +47,7 @@
     printBufferData<TYPE>(DATA, SIZE)
 template<typename BufferType>
 void printBufferData(const GLESC::GAPI::Void *data, GLESC::GAPI::Size size) {
-    const BufferType *typedData = static_cast<const BufferType *>(data);
+    const auto *typedData = static_cast<const BufferType *>(data);
     size_t count = size / sizeof(BufferType); // Calculate how many elements are in the buffer
 
     // Determine the maximum width needed for alignment

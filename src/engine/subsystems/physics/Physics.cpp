@@ -19,7 +19,7 @@ using namespace GLESC::Physics;
         force.toString() + " " +
         std::to_string(affectedByGravity);
 }
-
+#ifndef NDEBUG_GLESC
 [[nodiscard]] std::vector<EntityStatsManager::Value> Physics::getDebuggingValues() {
     std::vector<EntityStatsManager::Value> values;
     EntityStatsManager::Value massValue;
@@ -81,3 +81,4 @@ using namespace GLESC::Physics;
 
     return values;
 }
+#endif

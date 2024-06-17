@@ -15,7 +15,7 @@
 class Cubemap {
 public:
     Cubemap() = default;
-    Cubemap(const std::array<std::string, 6>& facePaths);
+    explicit Cubemap(const std::array<std::string, 6>& facePaths);
     ~Cubemap();
     [[nodiscard]] bool hasBeenLoaded() const { return hasLoaded; }
 
@@ -27,19 +27,12 @@ public:
         return cubemapTextures;
     }
 
-    std::array<Pixel, 6> getPixelsAtCoords(int x, int y) {
-        std::array<Pixel, 6> pixels{};
-        for (int i = 0; i < 6; i++) {
-            pixels[i] = cubemapTextures[i].getPixel(x, y);
-        }
-        return pixels;
-    }
+    [[nodiscard]] std::array<Pixel, 6> getPixelsAtCoords(int x, int y) const;
 
     void bind() const;
     void unbind() const;
     void load(const std::array<std::string, 6>& facePaths);
     void release();
-
 
 private:
     bool hasLoaded{false};

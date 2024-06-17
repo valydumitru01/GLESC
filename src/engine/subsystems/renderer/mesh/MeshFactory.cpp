@@ -12,56 +12,56 @@
 
 using namespace GLESC::Render;
 
-ColorMesh MeshFactory::cube(const ColorRgba &color, const Math::Distance& radius) {
+ColorMesh MeshFactory::cube(const ColorRgba& color, const Math::Distance& radius) {
     return cuboid(radius, radius, radius, color);
 }
 
-ColorMesh MeshFactory::sphere(int numSlices, int numStacks, const ColorRgba& color) {
+ColorMesh MeshFactory::sphere(const int numSlices, const int numStacks, const float radius, const ColorRgba& color) {
     ColorMesh mesh;
     mesh.startBuilding();
 
-    auto pi_f = Math::pi<float>();
+    constexpr auto piF = Math::pi<float>();
     // Create the top and bottom cap
     for (int i = 0; i < numSlices; ++i) {
-        float theta1 = 2 * pi_f * float(i) / float(numSlices);
-        float theta2 = 2 * pi_f * float(i + 1) / float(numSlices);
-        auto stacks = static_cast<float>(numStacks);
+        float theta1 = 2 * piF * static_cast<float>(i) / static_cast<float>(numSlices);
+        float theta2 = 2 * piF * static_cast<float>(i + 1) / static_cast<float>(numSlices);
+        const auto stacks = static_cast<float>(numStacks);
 
-        Position topP1(Math::cos(theta2) * Math::sin(pi_f / stacks),
-                       Math::cos(pi_f / stacks),
-                       Math::sin(theta2) * Math::sin(pi_f / stacks));
-        Position topP2(Math::cos(theta1) * Math::sin(pi_f / stacks),
-                       Math::cos(pi_f / stacks),
-                       Math::sin(theta1) * Math::sin(pi_f / stacks));
+        Position topP1(Math::cos(theta2) * Math::sin(piF / stacks),
+                       Math::cos(piF / stacks),
+                       Math::sin(theta2) * Math::sin(piF / stacks));
+        Position topP2(Math::cos(theta1) * Math::sin(piF / stacks),
+                       Math::cos(piF / stacks),
+                       Math::sin(theta1) * Math::sin(piF / stacks));
 
-        Position bottomP1(Math::cos(theta2) * Math::sin(pi_f - pi_f / stacks),
-                          Math::cos(pi_f - pi_f / stacks),
-                          Math::sin(theta2) * Math::sin(pi_f - pi_f / stacks));
-        Position bottomP2(Math::cos(theta1) * Math::sin(pi_f - pi_f / stacks),
-                          Math::cos(pi_f - pi_f / stacks),
-                          Math::sin(theta1) * Math::sin(pi_f - pi_f / stacks));
+        Position bottomP1(Math::cos(theta2) * Math::sin(piF - piF / stacks),
+                          Math::cos(piF - piF / stacks),
+                          Math::sin(theta2) * Math::sin(piF - piF / stacks));
+        Position bottomP2(Math::cos(theta1) * Math::sin(piF - piF / stacks),
+                          Math::cos(piF - piF / stacks),
+                          Math::sin(theta1) * Math::sin(piF - piF / stacks));
         // Top cap triangles
         mesh.addTris(
-            {Position(0, 1, 0), color},
-            {topP1, color},
-            {topP2, color}
+            {Position(0, radius, 0), color},
+            {topP1 * radius, color},
+            {topP2 * radius, color}
         );
 
         // Bottom cap triangles
         mesh.addTris(
-            {Position(0, -1, 0), color},
-            {bottomP2, color},
-            {bottomP1, color}
+            {Position(0, -radius, 0), color},
+            {bottomP2 * radius, color},
+            {bottomP1 * radius, color}
         );
     }
 
     // Create the middle quads
     for (int j = 1; j < numStacks - 1; ++j) {
         for (int i = 0; i < numSlices; ++i) {
-            float theta1 = 2 * pi_f * float(i) / float(numSlices);
-            float theta2 = 2 * pi_f * float(i + 1) / float(numSlices);
-            float phi1 = pi_f * float(j) / float(numStacks);
-            float phi2 = pi_f * float(j + 1) / float(numStacks);
+            float theta1 = 2 * piF * static_cast<float>(i) / static_cast<float>(numSlices);
+            float theta2 = 2 * piF * static_cast<float>(i + 1) / static_cast<float>(numSlices);
+            float phi1 = piF * static_cast<float>(j) / static_cast<float>(numStacks);
+            float phi2 = piF * static_cast<float>(j + 1) / static_cast<float>(numStacks);
 
             Position p1(Math::cos(theta1) * Math::sin(phi1), Math::cos(phi1), Math::sin(theta1) * Math::sin(phi1));
             Position p2(Math::cos(theta2) * Math::sin(phi1), Math::cos(phi1), Math::sin(theta2) * Math::sin(phi1));
@@ -70,10 +70,10 @@ ColorMesh MeshFactory::sphere(int numSlices, int numStacks, const ColorRgba& col
 
 
             mesh.addQuad(
-                {p1, color},
-                {p2, color},
-                {p3, color},
-                {p4, color}
+                {p1 * radius, color},
+                {p2 * radius, color},
+                {p3 * radius, color},
+                {p4 * radius, color}
             );
         }
     }
@@ -177,5 +177,3 @@ ColorMesh MeshFactory::plane(const ColorRgba& color) {
     mesh.finishBuilding();
     return mesh;
 }
-
-
