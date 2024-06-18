@@ -17,7 +17,7 @@
 
 <h3 align="center">GLESC Game Engine</h3>
 
-  <p align="center">
+  <p style="text-align: center;">
     A c++ game engine using OpenGL and SDL2 based on ECS architecture.
     <br />
     <br />
@@ -75,7 +75,7 @@ Request Feature</a>
 
 ## About The Project
 
-[![GLESC game screenshot.png](doc/images/GLESC_game_screenshot.png)][Project-url]
+[![GLESC game screenshot.png](doc/images/GLESC_game_screenshot.png)][project-url]
 
 GLESC is a game engine implemented in C++ using OpenGL and SDL2. It is a final degree project for the Bachelor's
 Degree in Computer Engineering at the University of Oviedo. It's development lasted 1 year and a half of
