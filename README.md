@@ -1,3 +1,16 @@
+[![License][license-shield]][license-url]
+[![Issues][issues-shield]][issues-url]
+[![Forks][forks-shield]][forks-url]
+[![Stars][stars-shield]][stars-url]
+[![Pull Requests][pull-requests-shield]][pull-requests-url]
+![Version][version-shield]
+![Platform][platform-shield]
+[![Code Style][code-style-shield]][code-style-url]
+[![Documentation][documentation-shield]][documentation-url]
+[![Build With][build-with-shield]][cmake-url]
+[![Download][download-shield]][download-url]
+
+
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
@@ -73,36 +86,95 @@ The project was developed with some principles in mind:
 * **KISS**: The engine is designed to be as simple as possible. This does not mean it is simple. It means that it is not
   more complex than it needs to be. Unfortunately, by definition, a game engine is a complex piece of software.
 * **SOLID**: The engine is designed to be as SOLID as possible. This means that the code is easy to maintain and extend.
-It takes advantage of c++'s OOP and polymorphism to improve SOLID principles.
+  It takes advantage of c++'s OOP and polymorphism to improve SOLID principles.
 * **Documentation**: The engine is well documented, as it is a requirement for the assignment of the degree project.
 
 > **Note**: It's important to take into consideration the huge constraints of the project:
 > * The lack of experience of the developer
 > * The lack of time and the time restrictions
 > * The lack of resources (hardware and software)
-> * The lack of knowledge of the developer (therefore a lot of time was spent learning). 
-> 
+> * The lack of knowledge of the developer (therefore a lot of time was spent learning).
+>
 > This project is not perfect and has some ugly workarounds, some poor design decisions, some bugs, and some performance
-> issues. But it has also some great design decisions, some great code, and some great performance that took a lot of time
+> issues. But it has also some great design decisions, some great code, and some great performance that took a lot of
+> time
 > and effort to achieve.
 
 ### Built With
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+<!-- Built with shields -->
 
-* [![Next][Next.js]][Next-url]
-* [![React][React.js]][React-url]
-* [![Vue][Vue.js]][Vue-url]
-* [![Angular][Angular.io]][Angular-url]
-* [![Svelte][Svelte.dev]][Svelte-url]
-* [![Laravel][Laravel.com]][Laravel-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![JQuery][JQuery.com]][JQuery-url]
+- [![C++][cpp-shield]][cpp-url]
+- [![CMake][CMake-shield]][CMake-url]
+- [![OpenGL][OpenGL-shield]][OpenGL-url]
+- [![SDL2][SDL2-shield]][SDL2-url]
+- [![GLEW][GLEW-shield]][GLEW-url]
+- [![ImGui][ImGui-shield]][ImGui-url]
+- [![Mingw][Mingw-shield]][Mingw-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+<!-- GETTING STARTED -->
 
+## Getting Started
 
+The following instructions will help you get a copy of the project up and running on your local machine for development
+and testing purposes.
+
+### Prerequisites
+
+Here is a list of things you need to use the software and how to install them.
+
+- #### MinGW/GNU Compiler Collection (GCC)
+
+  In order to execute our code, we will require GNU utilities. This contains numerous compilers for various languages (
+  e.g. Fortran, C++ etc.) classified as the **GNU Compiler Collection (GCC)**, and their respective debuggers.<br><br>
+
+  **MinGW ("Minimalist GNU for Windows")** is a free and open source software development environment to create
+  Microsoft
+  Windows applications.<br><br>
+
+  MinGW includes a port of the **GNU Compiler Collection (GCC)**, GNU Binutils for Windows (assembler, linker, archive
+  manager), a set of freely distributable Windows specific header files and static import libraries which enable the use
+  of the Windows API, a Windows native build of the GNU Project's GNU Debugger, and miscellaneous utilities. <br><br>
+
+  [Download here (Installer)]([Mingw-download-installer])
+
+  > _**IMPORTANT:** MUST SELECT x86_64 (which is 64 bits) **NOT** i686 (which is 32 bits)_
+
+  In case the installer doesn't work (which is likely):
+
+  [Download here (folder with 64 bits version)]([Mingw-download-folder])
+
+  > _**HOW TO INSTALL:**_
+  >
+  > - Unzip the folder, copy it somewhere logical (for example `C:/MinGW` or `C:/Program Files/MinGW`).
+  > - Add to the path of the Environment Variables the bin folder.
+
+    * [MinGW wiki]([Mingw-wiki])
+
+- #### CLion
+
+### Installation
+
+_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't
+rely on any external dependencies or services._
+
+1. Get a free API Key at [https://example.com](https://example.com)
+2. Clone the repo
+   ```sh
+   git clone https://github.com/your_username_/Project-Name.git
+   ```
+3. Install NPM packages
+   ```sh
+   npm install
+   ```
+4. Enter your API in `config.js`
+   ```js
+   const API_KEY = 'ENTER YOUR API';
+   ```
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 # Code restrictions
 
@@ -125,20 +197,20 @@ MinGW includes a port of the **GNU Compiler Collection (GCC)**, GNU Binutils for
 manager), a set of freely distributable Windows specific header files and static import libraries which enable the use
 of the Windows API, a Windows native build of the GNU Project's GNU Debugger, and miscellaneous utilities.
 
-[Download here (Installer)](https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win32/Personal%20Builds/mingw-builds/installer/mingw-w64-install.exe/download)
+[Download here (Installer)]([Mingw-download-installer])
 
 > _**IMPORTANT:** MUST SELECT x86_64 (which is 64 bits) **NOT** i686 (which is 32 bits)_
 
 In case the installer doesn't work (which is likely):
 
-[Download here (folder with 64 bits version)](https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win64/Personal%20Builds/mingw-builds/8.1.0/threads-win32/seh/x86_64-8.1.0-release-win32-seh-rt_v6-rev0.7z/download)
+[Download here (folder with 64 bits version)]([Mingw-download-folder])
 
 > _**HOW TO INSTALL:**_
 >
 > - Unzip the folder, copy it somewhere logical (for example `C:/MinGW` or `C:/Program Files/MinGW`).
 > - Add to the path of the Environment Variables the bin folder.
 
-* [MinGW wiki](http://mingw.org/)
+* [MinGW wiki]([Mingw-wiki])
 
 ---
 
@@ -206,69 +278,109 @@ use OpenGL under the same interface no matter the SO you're in, simplifying it's
 
 * [GLEW wiki](https://en.wikipedia.org/wiki/OpenGL#Extension_loading_libraries)
 
-[![License][license-shield]][license-url]
-[![Issues][issues-shield]][issues-url]
-[![Forks][forks-shield]][forks-url]
-[![Stars][stars-shield]][stars-url]
-[![Pull Requests][pull-requests-shield]][pull-requests-url]
-[![C++][cpp-shield]][cpp-url]
-[![Game Engine][game-engine-shield]][game-engine-url]
-[![Version][version-shield]][version-url]
-[![Platform][platform-shield]][platform-url]
-[![Code Style][code-style-shield]][code-style-url]
-[![Documentation][documentation-shield]][documentation-url]
-[![Build With][build-with-shield]][build-with-url]
-
-<!-- Build with shields -->
-[![C++][cpp-shield]][cpp-url]
-[![CMake][CMake-shield]][CMake-url]
-[![OpenGL][OpenGL-shield]][OpenGL-url]
-[![SDL2][SDL2-shield]][SDL2-url]
-[![GLEW][GLEW-shield]][GLEW-url]
-[![ImGui][ImGui-shield]][ImGui-url]
-
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[license-shield]: https://img.shields.io/badge/license-MIT-blue?style=for-the-badge
-[issues-shield]: https://img.shields.io/github/issues/valydumitru01/GLESC?style=for-the-badge
-[forks-shield]: https://img.shields.io/github/forks/valydumitru01/GLESC?style=for-the-badge
-[stars-shield]: https://img.shields.io/github/stars/valydumitru01/GLESC?style=for-the-badge
-[pull-requests-shield]: https://img.shields.io/github/issues-pr/valydumitru01/GLESC?style=for-the-badge
-[game-engine-shield]: 
-https://img.shields.io/badge/game_engine-C%2B%2B-00599C?style=for-the-badge&logo=game-engine&logoColor=white
-[version-shield]: https://img.shields.io/badge/version-1.0.0-blue?style=for-the-badge
-[platform-shield]: 
-https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20MacOS-informational?style=for-the-badge
-[code-style-shield]: https://img.shields.io/badge/code_style-LLVM-AB47BC?style=for-the-badge
-[documentation-shield]: https://img.shields.io/badge/documentation-available-brightgreen?style=for-the-badge
+
 [build-with-shield]: https://img.shields.io/badge/build_with-CMake-064F8C?style=for-the-badge&logo=cmake
 
 <!-- Build with shields -->
+
 [cpp-shield]: https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white
+
 [CMake-shield]: https://img.shields.io/badge/CMake-064F8C?style=for-the-badge&logo=cmake&logoColor=white
+
 [OpenGL-shield]: https://img.shields.io/badge/OpenGL-5586A4?style=for-the-badge&logo=opengl&logoColor=white
+
 [SDL2-shield]: https://img.shields.io/badge/SDL2-FFCC00?style=for-the-badge&logo=sdl&logoColor=white
+
 [GLEW-shield]: https://img.shields.io/badge/GLEW-FFCC00?style=for-the-badge&logo=glew&logoColor=white
+
 [ImGui-shield]: https://img.shields.io/badge/ImGui-FF6F61?style=for-the-badge&logo=imgui&logoColor=white
 
-<!-- Build with urls -->
-[cpp-url]: https://cplusplus.com/
-[CMake-url]: https://cmake.org/
-[OpenGL-url]: https://www.opengl.org/
-[SDL2-url]: https://www.libsdl.org/
-[GLEW-url]: http://glew.sourceforge.net/
-[ImGui-url]: https
+[Mingw-shield]: https://img.shields.io/badge/Mingw-FF6F61?style=for-the-badge&logo=mingw&logoColor=white
 
-[issues-url]: https://github.com/valydumitru01/GLESC/issues
-[forks-url]: https://github.com/valydumitru01/GLESC/network/members
-[stars-url]: https://github.com/valydumitru01/GLESC/stargazers
-[pull-requests-url]: https://github.com/valydumitru01/GLESC/pulls
-[project-url]: https://github.com/valydumitru01/GLESC
+<!-- Tools urls -->
+
 [cpp-url]: https://cplusplus.com/
+
+[CMake-url]: https://cmake.org/
+
+[OpenGL-url]: https://www.opengl.org/
+
+[SDL2-url]: https://www.libsdl.org/
+
+[GLEW-url]: https://glew.sourceforge.net/
+
+[GLM-url]: https://glm.g-truc.net/0.9.9/index.html
+
+[ImGui-url]: https://github.com/ocornut/imgui/
+
+[Mingw-url]: https://sourceforge.net/projects/mingw-w64/
+
+
+<!-- Project's Github shields -->
+
+[documentation-shield]: https://img.shields.io/badge/documentation-available-brightgreen?style=for-the-badge
+
+[issues-shield]: https://img.shields.io/github/issues/valydumitru01/GLESC?style=for-the-badge
+
+[forks-shield]: https://img.shields.io/github/forks/valydumitru01/GLESC?style=for-the-badge
+
+[stars-shield]: https://img.shields.io/github/stars/valydumitru01/GLESC?style=for-the-badge
+
+[pull-requests-shield]: https://img.shields.io/github/issues-pr/valydumitru01/GLESC?style=for-the-badge
+
+[download-shield]: https://img.shields.io/badge/download-0.0.1-blue?style=for-the-badge
+
+
+<!-- Project's Github urls -->
+
+[issues-url]: https://github.com/valydumitru01/GLESC/issues/
+
+[forks-url]: https://github.com/valydumitru01/GLESC/network/members/
+
+[stars-url]: https://github.com/valydumitru01/GLESC/stargazers/
+
+[pull-requests-url]: https://github.com/valydumitru01/GLESC/pulls/
+
+[project-url]: https://github.com/valydumitru01/GLESC/
+[download-url]:
+
+<!-- Dependencies download urls -->
+
+[Mingw-download-installer]:
+https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win32/Personal%20Builds/mingw-builds/installer/mingw-w64-install.exe/download
+
+[Mingw-download-folder]:
+https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win64/Personal%20Builds/mingw-builds/8.1.0/threads-win32/seh/x86_64-8.1.0-release-win32-seh-rt_v6-rev0.7z/download
+
+<!-- Dependencies wiki urls -->
+
+[Mingw-wiki]: http://mingw.org/
+
+
+<!-- Misc shields -->
+
+[game-engine-shield]:
+https://img.shields.io/badge/game_engine-C%2B%2B-00599C?style=for-the-badge&logo=game-engine&logoColor=white
+
+[license-shield]: https://img.shields.io/badge/license-MIT-blue?style=for-the-badge
+
+[version-shield]: https://img.shields.io/badge/version-0.0.1-blue?style=for-the-badge
+
+[platform-shield]:
+https://img.shields.io/badge/platform-Windows-informational?style=for-the-badge
+
+[code-style-shield]: https://img.shields.io/badge/code_style-Custom-AB47BC?style=for-the-badge
+
+<!-- Misc variables -->
 
 [license-url]: LICENSE.txt
+
 [project-version]: 0.0.1
-[code-style-file-url]: doc/CODE_STYLE.md
+
+[code-style-url]: doc/CODE_STYLE.md
+
 [documentation-url]: doc/TFG_GLESC_Documentation.pdf
+
 [GLESC_logo]: doc/images/GLESC_logo.png
-[executable-download-url]:  
