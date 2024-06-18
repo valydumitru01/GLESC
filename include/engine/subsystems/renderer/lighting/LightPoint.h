@@ -1,5 +1,5 @@
 /**************************************************************************************************
- * @file   LightSpot.h
+ * @file   LightPoint.h
  * @author Valentin Dumitru
  * @date   2024-03-31
  * @brief  Add description of this file if needed @TODO 
@@ -14,8 +14,8 @@
 #include "engine/subsystems/renderer/RendererTypes.h"
 
 namespace GLESC::Render {
-    struct LightSpot  {
-        LightSpot() = default;
+    struct LightPoint  {
+        LightPoint() = default;
 
 
         void setRadius(float radiusParam) {

@@ -49,7 +49,7 @@ struct GlobalSun {
     mat4 viewProjMatrix;
 };
 
-struct LightSpots {
+struct LightPoints {
     vec3 posInViewSpace[MAX_LIGHTS];
     vec3 color[MAX_LIGHTS];
     float intensity[MAX_LIGHTS];
@@ -96,7 +96,7 @@ struct Material {
 // ------------------------------------------
 uniform Fog uFog;
 uniform AmbientLight uAmbient;
-uniform LightSpots uLights;
+uniform LightPoints uLights;
 uniform Material uMaterial;
 uniform GlobalSun uGlobalSun;
 #ifdef USE_COLOR

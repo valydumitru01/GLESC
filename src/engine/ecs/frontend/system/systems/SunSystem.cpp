@@ -27,7 +27,7 @@ namespace GLESC::ECS {
             for (auto& entity : entities) {
                 auto& sun = getComponent<SunComponent>(entity);
                 auto& transform = getComponent<TransformComponent>(entity);
-                renderer.setSun(sun.sun, sun.globalAmbienLight, transform.transform);
+                renderer.setSun(sun.sun, sun.globalAmbientLight, transform.transform);
                 HudItemsManager::addItem(HudItemType::SUN, transform.transform.getPosition());
             }
     }

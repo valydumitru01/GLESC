@@ -38,16 +38,41 @@ namespace GLESC {
         CenterRight,
         BottomRight
     };
+
     class InGameWindow {
     public:
         InGameWindow();
         virtual ~InGameWindow() = default;
-
+        /**
+         * @brief Set the max size of the window
+         * @details If the window gets bigger this value, it will be clamped to this size
+         */
         void setMaxSize(ImVec2 size);
+        /**
+         * @brief Set the min size of the window
+         * @details If the window gets smaller this value, it will be clamped to this size
+         */
         void setMinSize(ImVec2 size);
+        /**
+         * @brief Set the size of the window as a fraction of the screen size
+         * @details The fraction is clamped between 0.0f and 1.0f
+         */
         void setSizeFraction(ImVec2 fraction);
+        /**
+         * @brief Set the position of the window as a fraction of the screen size.
+         * @details The fraction is clamped between 0.0f and 1.0f. The center of the window is set by the set center
+         * function. The position will modify that center.
+         */
         void setPositionFraction(ImVec2 fraction);
+        /**
+         * @brief Set the center of the window
+         * @details The center is used to calculate the position of the window.
+         */
         void setCenter(WindowCenter center);
+        /**
+         * @brief Set the layout position of the window
+         * @details The layout position is used to calculate the position of the window.
+         */
         void setLayoutPosition(LayoutPos position);
 
         const std::string& getTitle() const { return title; }
@@ -57,6 +82,7 @@ namespace GLESC {
             windowFlags.push_back(flag);
             windowFlagsCached = false;
         }
+
         [[nodiscard]] bool isVisibile() const { return isVisible; }
         void setVisible(bool visible) { isVisible = visible; }
         void toggleVisibility() { isVisible = !isVisible; }
@@ -68,7 +94,7 @@ namespace GLESC {
         void setTitle(const std::string& title);
         virtual void windowContent(float timeOfFrame) = 0;
         [[nodiscard]] ImVec2 calculateSize() const;
-        [[nodiscard]] ImVec2 calculatePosition(ImVec2 windowSize)  const;
+        [[nodiscard]] ImVec2 calculatePosition(ImVec2 windowSize) const;
         [[nodiscard]] ImGuiWindowFlags getFlags();
         bool isVisible = true;
 

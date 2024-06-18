@@ -1,5 +1,5 @@
 /**************************************************************************************************
- * @file   LightSpot.cpp
+ * @file   LightPoint.cpp
  * @author Valentin Dumitru
  * @date   14/06/2024
  * @brief  Add description of this file if needed @TODO
@@ -7,9 +7,9 @@
  * Copyright (c) 2023 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
  **************************************************************************************************/
-#include "engine/subsystems/renderer/lighting/LightSpot.h"
+#include "engine/subsystems/renderer/lighting/LightPoint.h"
 #ifndef NDEBUG_GLESC
-std::vector<EntityStatsManager::Value> GLESC::Render::LightSpot::getDebuggingValues() {
+std::vector<EntityStatsManager::Value> GLESC::Render::LightPoint::getDebuggingValues() {
     std::vector<EntityStatsManager::Value> values;
     EntityStatsManager::Value intensityValue;
     intensityValue.name = "Intensity";
@@ -45,12 +45,12 @@ std::vector<EntityStatsManager::Value> GLESC::Render::LightSpot::getDebuggingVal
     return values;
 }
 #else
-std::vector<EntityStatsManager::Value> GLESC::Render::LightSpot::getDebuggingValues() {
+std::vector<EntityStatsManager::Value> GLESC::Render::LightPoint::getDebuggingValues() {
     return {};
 }
 #endif
 
-std::string GLESC::Render::LightSpot::toString() const {
+std::string GLESC::Render::LightPoint::toString() const {
     return "Intensity:" + intensity.toString() +
         " Color:" + color.toString() +
         " Radius:" + std::to_string(radius);

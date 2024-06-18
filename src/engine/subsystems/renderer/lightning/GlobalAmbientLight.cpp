@@ -8,10 +8,10 @@
  * See LICENSE.txt in the project root for license information.
  **************************************************************************************************/
 
-#include "engine/subsystems/renderer/lighting/GlobalAmbienLight.h"
+#include "engine/subsystems/renderer/lighting/GlobalAmbientLight.h"
 #ifndef NDEBUG_GLESC
 
-std::vector<EntityStatsManager::Value> GLESC::Render::GlobalAmbienLight::getDebuggingValues() {
+std::vector<EntityStatsManager::Value> GLESC::Render::GlobalAmbientLight::getDebuggingValues() {
     std::vector<EntityStatsManager::Value> values;
     EntityStatsManager::Value intensityValue;
     intensityValue.name = "Ambient Intensity";
@@ -39,7 +39,7 @@ std::vector<EntityStatsManager::Value> GLESC::Render::GlobalAmbienLight::getDebu
 }
 
 #else
-std::vector<EntityStatsManager::Value> GLESC::Render::GlobalAmbienLight::getDebuggingValues() {
+std::vector<EntityStatsManager::Value> GLESC::Render::GlobalAmbientLight::getDebuggingValues() {
     return {};
 }
 #endif

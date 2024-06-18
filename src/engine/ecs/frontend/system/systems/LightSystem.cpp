@@ -26,7 +26,7 @@ namespace GLESC::ECS {
             for (const auto& entity : getAssociatedEntities()) {
                 auto& light = getComponent<LightComponent>(entity);
                 auto& transform = getComponent<TransformComponent>(entity);
-                renderer.sendLightSpot(light.light, transform.transform);
+                renderer.sendLightPoint(light.light, transform.transform);
                 HudItemsManager::addItem(HudItemType::LIGHT_SPOT, transform.transform.getPosition());
             }
         }

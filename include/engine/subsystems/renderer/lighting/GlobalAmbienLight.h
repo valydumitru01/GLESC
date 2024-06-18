@@ -1,5 +1,5 @@
 /**************************************************************************************************
- * @file   GlobalAmbienLight.h
+ * @file   GlobalAmbientLight.h
  * @author Valentin Dumitru
  * @date   2024-04-01
  * @brief  Add description of this file if needed @TODO 
@@ -12,20 +12,20 @@
 #include "engine/subsystems/renderer/RendererTypes.h"
 
 namespace GLESC::Render {
-    class GlobalAmbienLight {
+    class GlobalAmbientLight {
     public:
         /**
          * @brief Default constructor.
          */
-        GlobalAmbienLight() = default;
+        GlobalAmbientLight() = default;
 
         void setColor(const ColorRgb &color) {
-            GlobalAmbienLight::color = color;
+            GlobalAmbientLight::color = color;
             dirty = true;
         }
 
         void setIntensity(float intensity) {
-            GlobalAmbienLight::intensity = intensity;
+            GlobalAmbientLight::intensity = intensity;
             dirty = true;
         }
 
@@ -59,5 +59,5 @@ namespace GLESC::Render {
          * @brief If the light is dirty, it should be resend to the shader.
          */
         mutable bool dirty{true};
-    }; // class GlobalAmbienLight
+    }; // class GlobalAmbientLight
 }

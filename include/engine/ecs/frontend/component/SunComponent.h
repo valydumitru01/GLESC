@@ -9,13 +9,13 @@
  **************************************************************************************************/
 #pragma once
 #include "../../backend/component/IComponent.h"
-#include "engine/subsystems/renderer/lighting/GlobalAmbienLight.h"
+#include "engine/subsystems/renderer/lighting/GlobalAmbientLight.h"
 #include "engine/subsystems/renderer/lighting/GlobalSun.h"
 
 namespace GLESC::ECS {
     class SunComponent : public IComponent {
     public:
-        Render::GlobalAmbienLight globalAmbienLight;
+        Render::GlobalAmbientLight globalAmbientLight;
         Render::GlobalSun sun;
 
         std::string toString() const override {
@@ -31,7 +31,7 @@ namespace GLESC::ECS {
             for (auto& value : sun.getDebuggingValues()) {
                 values.push_back(value);
             }
-            for (auto& value : globalAmbienLight.getDebuggingValues()) {
+            for (auto& value : globalAmbientLight.getDebuggingValues()) {
                 values.push_back(value);
             }
         }

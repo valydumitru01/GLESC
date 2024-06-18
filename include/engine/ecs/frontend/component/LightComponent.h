@@ -9,11 +9,11 @@
  **************************************************************************************************/
 #pragma once
 #include "engine/ecs/backend/component/IComponent.h"
-#include "engine/subsystems/renderer/lighting/LightSpot.h"
+#include "engine/subsystems/renderer/lighting/LightPoint.h"
 
 namespace GLESC::ECS {
     struct LightComponent : IComponent {
-        Render::LightSpot light;
+        Render::LightPoint light;
 
         [[nodiscard]] std::string getName() const override {
             return "LightComponent";

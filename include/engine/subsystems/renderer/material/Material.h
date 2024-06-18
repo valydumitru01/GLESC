@@ -33,7 +33,7 @@ namespace GLESC::Render {
             specularColor(ColorRgb(255, 255, 255)), // Bright specular highlights
             specularIntensity(0.5f), // Moderate intensity for specular highlights
             emissionColor(ColorRgb(0, 0, 0)), // No emission by default
-            emmisionIntensity(0.0f), // No intensity for emission
+            emissionIntensity(0.0f), // No intensity for emission
             shininess(1) // Moderately shiny;
         {
         }
@@ -43,14 +43,14 @@ namespace GLESC::Render {
                  ColorRgb  specularColor,
                  const Intensity& specularIntensity,
                  ColorRgb  emissionColor,
-                 const Intensity& emmisionIntensity,
+                 const Intensity& emissionIntensity,
                  const Intensity& shininess) :
             diffuseColor{std::move(diffuseColor)},
             diffuseIntensity{diffuseIntensity},
             specularColor{std::move(specularColor)},
             specularIntensity{specularIntensity},
             emissionColor{std::move(emissionColor)},
-            emmisionIntensity{emmisionIntensity},
+            emissionIntensity{emissionIntensity},
             shininess{shininess} {
         }
 
@@ -59,7 +59,7 @@ namespace GLESC::Render {
         [[nodiscard]] const ColorRgb& getSpecularColor() const { return specularColor; }
         [[nodiscard]] float getSpecularIntensity() const { return specularIntensity.get(); }
         [[nodiscard]] const ColorRgb& getEmissionColor() const { return emissionColor; }
-        [[nodiscard]] float getEmmisionIntensity() const { return emmisionIntensity.get(); }
+        [[nodiscard]] float getEmissionIntensity() const { return emissionIntensity.get(); }
         [[nodiscard]] float getShininess() const { return shininess.get(); }
 
         void setDiffuseColor(const ColorRgb& diffuseColor) { this->diffuseColor = diffuseColor; }
@@ -67,7 +67,7 @@ namespace GLESC::Render {
         void setSpecularColor(const ColorRgb& specularColor) { this->specularColor = specularColor; }
         void setSpecularIntensity(const float specularIntensity) { this->specularIntensity.set(specularIntensity); }
         void setEmissionColor(const ColorRgb& emissionColor) { this->emissionColor = emissionColor; }
-        void setEmmisionIntensity(const float emmisionIntensity) { this->emmisionIntensity.set(emmisionIntensity); }
+        void setEmmissionIntensity(const float emissionIntensity) { this->emissionIntensity.set(emissionIntensity); }
         void setShininess(const float shininess) { this->shininess.set(shininess); }
 
         [[nodiscard]] bool operator<(const Material& other) const {
@@ -118,7 +118,7 @@ namespace GLESC::Render {
         /**
          * @brief The emission intensity of the material
          */
-        Intensity emmisionIntensity;
+        Intensity emissionIntensity;
 
         /**
          * @brief The shininess of the material
@@ -141,7 +141,7 @@ struct std::hash<GLESC::Render::Material> {
         GLESC::Hasher::hashCombine(hash, std::hash<GLESC::Render::ColorRgb>{}(material.getSpecularColor()));
         GLESC::Hasher::hashCombine(hash, std::hash<float>{}(material.getSpecularIntensity()));
         GLESC::Hasher::hashCombine(hash, std::hash<GLESC::Render::ColorRgb>{}(material.getEmissionColor()));
-        GLESC::Hasher::hashCombine(hash, std::hash<float>{}(material.getEmmisionIntensity()));
+        GLESC::Hasher::hashCombine(hash, std::hash<float>{}(material.getEmissionIntensity()));
         GLESC::Hasher::hashCombine(hash, std::hash<float>{}(material.getShininess()));
         return hash;
     }

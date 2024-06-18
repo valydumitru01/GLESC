@@ -71,7 +71,7 @@ std::vector<EntityStatsManager::Value> GLESC::Render::Material::getDebuggingValu
 
     EntityStatsManager::Value emissionIntensityValue;
     emissionIntensityValue.name = "Emission Intensity";
-    emissionIntensityValue.data = reinterpret_cast<void*>(&emmisionIntensity.getModifiable());
+    emissionIntensityValue.data = reinterpret_cast<void*>(&emissionIntensity.getModifiable());
     emissionIntensityValue.type = EntityStatsManager::ValueType::FLOAT;
     emissionIntensityValue.isModifiable = true;
     emissionIntensityValue.valueDirty = &dirty;

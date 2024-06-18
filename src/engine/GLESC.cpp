@@ -145,8 +145,8 @@ void Engine::createEngineEntities() {
     sun.getComponent<ECS::SunComponent>().sun.setDirection({-0.4, -1, -0.4});
     sun.getComponent<ECS::SunComponent>().sun.setIntensity(0.7);
     sun.getComponent<ECS::SunComponent>().sun.setColor({255, 255, 150});
-    sun.getComponent<ECS::SunComponent>().globalAmbienLight.setIntensity(0.3);
-    sun.getComponent<ECS::SunComponent>().globalAmbienLight.setColor({255, 255, 150});
+    sun.getComponent<ECS::SunComponent>().globalAmbientLight.setIntensity(0.3);
+    sun.getComponent<ECS::SunComponent>().globalAmbientLight.setColor({255, 255, 150});
 
 
     ECS::Entity fog = entityFactory.createEntity("fog", {EntityType::Engine})

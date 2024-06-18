@@ -14,7 +14,7 @@
 #include "engine/subsystems/ingame-debug/Console.h"
 #include "engine/subsystems/renderer/math/Frustum.h"
 #include "engine/subsystems/ingame-debug/StatsManager.h"
-#include "engine/subsystems/renderer/lighting/LightSpot.h"
+#include "engine/subsystems/renderer/lighting/LightPoint.h"
 
 using namespace GLESC::Render;
 
@@ -92,13 +92,13 @@ void Renderer::start(const double timeOfFrame) {
     viewProjection = projection * view;
 }
 
-void Renderer::renderLights(const std::vector<const LightSpot*>& lights,
+void Renderer::renderLights(const std::vector<const LightPoint*>& lights,
                             const std::vector<const Transform::Transform*>& lightTransforms,
                             const double timeOfFrame) const {
     size_t lightCount = static_cast<int>(lights.size());
     Shader::setUniform("uLights.count", lightCount);
     for (size_t lightIndex = 0; lightIndex < lightCount; lightIndex++) {
-        const LightSpot& light = *lights[lightIndex];
+        const LightPoint& light = *lights[lightIndex];
         std::string iStr = std::to_string(lightIndex);
         const Transform::Transform& transform = *lightTransforms[lightIndex];
         const Transform::Transform& interpolatedTransform =
@@ -138,7 +138,7 @@ void Renderer::applySun(const Sun& sunParam) {
     applyAmbientLight(*sunParam.ambientLight);
 }
 
-void Renderer::applyAmbientLight(const GlobalAmbienLight& ambientLight) {
+void Renderer::applyAmbientLight(const GlobalAmbientLight& ambientLight) {
     if (!ambientLight.isDirty()) return;
     Vec3F ambientColor = ambientLight.getColor().getRGBVec3FNormalized();
     float ambientIntensity = ambientLight.getIntensity();
@@ -166,7 +166,7 @@ void Renderer::applyMaterial(const Material& material) {
     Shader::setUniform("uMaterial.specularIntensity", material.getSpecularIntensity());
     //
     //Shader::setUniform("uMaterial.emissionColor",material.getEmissionColor());
-    //Shader::setUniform("uMaterial.emissionIntensity",material.getEmmisionIntensity());
+    //Shader::setUniform("uMaterial.emissionIntensity",material.getEmissionIntensity());
     //
     Shader::setUniform("uMaterial.shininess", material.getShininess());
 }
@@ -308,13 +308,13 @@ void Renderer::sendMeshData(const ColorMesh& mesh, const Material& material, con
 }
 
 
-void Renderer::sendLightSpot(const LightSpot& light, const Transform::Transform& transform) {
+void Renderer::sendLightPoint(const LightPoint& light, const Transform::Transform& transform) {
     this->lightTransforms.push_back(&transform);
     this->lights.push_back(&light);
     this->interpolationTransforms[&transform].pushTransform(transform);
 }
 
-void Renderer::setSun(const GlobalSun& sun, const GlobalAmbienLight& ambientLight,
+void Renderer::setSun(const GlobalSun& sun, const GlobalAmbientLight& ambientLight,
                       const Transform::Transform& transform) {
     this->sun.sun = &sun;
     this->sun.ambientLight = &ambientLight;

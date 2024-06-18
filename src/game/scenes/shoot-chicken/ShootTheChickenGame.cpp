@@ -449,8 +449,8 @@ void ShootTheChickenGame::init() {
         getEntity("sun").getComponent<ECS::SunComponent>().sun.setIntensity(0.4f);
         getEntity("sun").getComponent<ECS::SunComponent>().sun.setColor({255, 255, 200});
         getEntity("sun").getComponent<ECS::SunComponent>().sun.setDirection({-0.4, -1, -0.4});
-        getEntity("sun").getComponent<ECS::SunComponent>().globalAmbienLight.setIntensity(0.5);
-        getEntity("sun").getComponent<ECS::SunComponent>().globalAmbienLight.setColor({255, 180, 165});
+        getEntity("sun").getComponent<ECS::SunComponent>().globalAmbientLight.setIntensity(0.5);
+        getEntity("sun").getComponent<ECS::SunComponent>().globalAmbientLight.setColor({255, 180, 165});
         statsWindow = addWindow<ShootTheChickenHUD>();
         gameOverWindow = addWindow<STCGameOverHUD>();
         SoundPlayer::loadSong("Chicken_Blasters.mp3", "main_song");

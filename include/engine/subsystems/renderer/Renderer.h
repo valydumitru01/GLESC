@@ -17,9 +17,9 @@
 #include "engine/subsystems/renderer/Skybox.h"
 #include "engine/subsystems/renderer/camera/CameraPerspective.h"
 #include "engine/subsystems/renderer/fog/Fog.h"
-#include "engine/subsystems/renderer/lighting/GlobalAmbienLight.h"
+#include "engine/subsystems/renderer/lighting/GlobalAmbientLight.h"
 #include "engine/subsystems/renderer/lighting/GlobalSun.h"
-#include "engine/subsystems/renderer/lighting/LightSpot.h"
+#include "engine/subsystems/renderer/lighting/LightPoint.h"
 #include "engine/subsystems/renderer/material/Material.h"
 #include "engine/subsystems/renderer/math/Frustum.h"
 #include "engine/subsystems/renderer/mesh/Mesh.h"
@@ -52,7 +52,7 @@ namespace GLESC::Render {
 
         struct Sun {
             const GlobalSun* sun = nullptr;
-            const GlobalAmbienLight* ambientLight = nullptr;
+            const GlobalAmbientLight* ambientLight = nullptr;
             const Transform::Transform* transform = nullptr;
         };
 
@@ -87,10 +87,10 @@ namespace GLESC::Render {
 
         void remove(const ColorMesh& mesh, const Transform::Transform& transform);
 
-        void sendLightSpot(const LightSpot& lightSpot, const Transform::Transform& transform);
+        void sendLightPoint(const LightPoint& LightPoint, const Transform::Transform& transform);
         void sendMeshData(const ColorMesh& mesh, const Material& material, const Transform::Transform& transform);
         void setCamera(const CameraPerspective& cameraPerspective, const Transform::Transform& transform);
-        void setSun(const GlobalSun& sun, const GlobalAmbienLight& ambientLight, const Transform::Transform& transform);
+        void setSun(const GlobalSun& sun, const GlobalAmbientLight& ambientLight, const Transform::Transform& transform);
         void setFog(const Fog& fogParam, const Transform::Transform& transform);
 
         void clearMeshData();
@@ -104,11 +104,11 @@ namespace GLESC::Render {
         using MeshTransformIndex = size_t;
         using LightTransformIndex = size_t;
 
-        void renderLights(const std::vector<const LightSpot*>& lights,
+        void renderLights(const std::vector<const LightPoint*>& lights,
                           const std::vector<const Transform::Transform*>& lightTransforms,
                           double timeOfFrame) const;
         static void applyTransform(const MV& MVMat, const MVP& MVPMat, const NormalMat& normalMat);
-        static void applyAmbientLight(const GlobalAmbienLight& ambientLight);
+        static void applyAmbientLight(const GlobalAmbientLight& ambientLight);
         static void applyFog(const FogData& fogParam, const Position& cameraPosition);
         static void applySkybox(const Skybox& skyboxParam, const View& view, const Projection& projection);
         static void applySun(const Sun& sunParam);
@@ -129,7 +129,7 @@ namespace GLESC::Render {
 
         std::unordered_map<const ColorMesh*, std::vector<MeshTransformIndex>> instances;
 
-        std::vector<const LightSpot*> lights;
+        std::vector<const LightPoint*> lights;
         std::vector<const Transform::Transform*> lightTransforms;
 
         mutable std::unordered_map<const Transform::Transform*, Transform::Interpolator> interpolationTransforms;
@@ -148,7 +148,7 @@ namespace GLESC::Render {
         Skybox skybox;
         FogData fog;
         Sun sun;
-        GlobalAmbienLight ambientLight;
+        GlobalAmbientLight ambientLight;
 
         Camera camera;
         Projection projection;
