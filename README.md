@@ -12,6 +12,7 @@
 <div style="text-align: center;">
   <a href="https://github.com/othneildrew/Best-README-Template">
     <img style="background: white; border-radius: 0.5em; padding: 0.3em; width: 10em" 
+    style="text-align: center;"
     src="doc/images/GLESC_logo.png" alt="Logo"  >
   </a>
 
