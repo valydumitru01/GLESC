@@ -1,106 +1,195 @@
 
-RELEASE_MACRO	:=-D RELEASE
-DEBUG_MACRO		:=-D DEBUG
-OS_MACRO		:=-D
 
-#bin folder: there will be our binaries with our executable
-BIN_DIR     	:=bin
 
-#src folder: there will be only our headers
-SRC_DIR     	:=src
+############################################
+# ------------FOLDER LOCATIONS-------------#
+# -----------------------------------------#
+# -----------------------------------------#
 
-#lib folder: there will be static libraries here
-LIB_DIR			:=lib
+#bin folder: binaries and executables
+BIN_DIR     	:= bin
 
-#include folder: there will be only external headers for external libraries
-INCLUDE_DIR 	:=include
+#res-mng folders
+#paths need to use backslashes as they are going to be used for windows commands
+#src folder: Source code, implementations
+SRC_DIR 		:= src
+#src lib folder: Source code of external libraries
+LIB_SRC_DIR		:= lib\src
 
-#Include folders, where to search for headers
-INCLUDE 		:=-I$(SRC_DIR) -I$(INCLUDE_DIR)
+#src folder: include folder of internal headers
+INCLUDE_DIR     := include
+#lib folder: static libraries to link
+LIB_STATIC_DIR	:=lib/lib
+#include folder: headers of external libraries
+LIB_INCLUDE_DIR :=lib/include
 
-#Lib folders, where to search for the static libraries
-LIB     		:=-L$(LIB_DIR)
+# Location of source files
+# Searches recursively
+SRC_FILES  		:= $(shell dir /s /b $(SRC_DIR)\*.cpp)
+SRC_FILES 		+= $(shell dir /s /b $(LIB_SRC_DIR)\*.cpp)
+# Name of executable file
+EXE_FILE  := game
 
-#Check the OS
+# -----------------------------------------#
+# -----------------------------------------#
+############################################
+
+
+############################################
+# ------------MACRO DEFINITIONS------------#
+# -----------------------------------------#
+# -----------------------------------------#
+
+MACROS :=
+OS_MACRO :=
+
+# Operating system macro definition
+# Will also be used throughout the makefile
 ifeq ($(OS),Windows_NT)
-
-# the compiler: gcc for C program, define as g++ for C++
-CC	:= g++
-
-# The windows command for delete
-DEL := del
-
-# The windows slash for directory
-SLASH := "\"
-
-# Indicating that we dont need wine, unlike in linux
-WINE := 
-
-# Creating own macro for windows
-OS_MACRO +=__WINDOWS__
-
-# Source files for cpp files in tbe project, we only search for them up to 4 depth. Every /* is a new depth.
-# To add a depth add another item to the list with another /*
-SOURCES := $(wildcard *.cpp */*.cpp */*/*.cpp */*/*/*.cpp)
-
-# compiler flags:
-  #  -g    adds debugging information to the executable file
-  #  -Wall turns on most, but not all, compiler warnings
-CFLAGS:= -g -Wall
-
-# libraries to link to the project
-LIBRARIES   :=-lmingw32 -lSDL2main -lSDL2 -lSDL2_net -lSDL2_mixer -lmingw32 -lopengl32 -lglew32 -lglu32 -lSDL2main -lSDL2 -lSDL2_image 
-
-# the build target executable
-EXECUTABLE  := game
-
+	OS_MACRO:= __WINDOWS__
 else
-# CURRENTLY NOT WORKING
-# Linux compiler for windows executables (64 bits)
-CC	:= x86_64-w64-mingw32-g++
-# Linux command for delete (rm -f)
-DEL := $(RM)
-# Linux slash for directory
-SLASH := '/'
-# Wine, program for executing windows apps .exe
-WINE := wine
-OS_MACRO +=__LINUX__
-SOURCES := $(shell dir . -r *.cpp)
+	UNAME := $(shell uname)
+	ifeq ($(UNAME),Linux)
+		OS_MACRO:= __LINUX__
+	else ifeq ($(UNAME), Darwin)
+		OS_MACRO:= __MAC__
+	endif
+endif
+# Add the operating system macro to the list of macros
+MACROS 	+= -D $(OS_MACRO)
+# Add the macro for Glew static linking
+# It is needed to link glew32s.lib
+MACROS	+= -DGLEW_STATIC
+
+
+# Define the release macro
+MACRO_RELEASE	+= -D RELEASE
+# Define the debug macro
+MACRO_DEBUG	+= -D DEBUG
+
+# -----------------------------------------#
+# -----------------------------------------#
+############################################
+
+
+############################################
+# ----------------COMPILER-----------------#
+# -----------------------------------------#
+# -----------------------------------------#
+ifeq ($(OS_MACRO),__WINDOWS__)
+	CXX:=g++
+else ifeq ($(OS_MACRO),__LINUX__)
+	CXX	:= x86_64-w64-mingw32-g++
+else ifeq ($(OS_MACRO),__MAC__)
+	CXX := g++
 endif
 
+# -----------------------------------------#
+# -----------------------------------------#
+############################################
+
+
+
+
+
+############################################
+# ------------------FLAGS------------------#
+# -----------------------------------------#
+# -----------------------------------------#
+
+# C++ flags
+CXXFLAGS_RELEASE := -O3
+CXXFLAGS_DEBUG := -O0
+CXXFLAGS := -std=c++17 -Wall -Wextra -pedantic -g -Wno-unused-function
+# Include flags
+INCFLAGS:= -I$(INCLUDE_DIR) -I$(LIB_INCLUDE_DIR)
+# Linker flags
+LDFLAGS:= -L$(LIB_STATIC_DIR)
+# Linked libraries flags
+LDLIBS:=-lmingw32
+LDLIBS+=-lSDL2main -lSDL2 -lSDL2_net -lSDL2_mixer -lSDL2_image
+LDLIBS+=-lglew32s -lopengl32 -lglu32
+
+# Object flags
+OBJFLAGS= -o $(BIN_DIR)/$(EXE_FILE)
+
+# -----------------------------------------#
+# -----------------------------------------#
+############################################
+
+
+############################################
+# ------------------EXECUTE----------------#
+ifeq ($(OS_MACRO),__WINDOWS__)
+WINE :=
+else ifeq ($(OS_MACRO),__LINUX__)
+# Wine is needed to execute .exe in linux
+WINE := wine
+else ifeq ($(OS_MACRO),__MAC__)
+
+endif
+
+############################################
+
+
+############################################
+# ------------------CLEAN------------------#
+# -----------------------------------------#
+
+ifeq ($(OS_MACRO),__WINDOWS__)
+# Windows uses backwards slash '\'
+RM_EXE := del $(BIN_DIR)\$(EXE_FILE)
+else ifeq ($(OS_MACRO),__LINUX__)
+RM_EXE := rm -f $(BIN_DIR)/$(EXE_FILE)
+else ifeq ($(OS_MACRO),__MAC__)
+RM_EXE := rm -f $(BIN_DIR)/$(EXE_FILE)
+endif
+
+# -----------------------------------------#
+############################################
+
+
+
+
+# Phony targets, do not output files
+.PHONY: clean run build-and-run
 
 
 #---------------------------------------------
 # All builds and runs
-all: build-and-run
+all: build-debug run
+
+
+# When the GNU linker sees a library, it discards all symbols that it doesn't need.
+# That's why, you need to specify the libraries in the order that they depend on each other and
+# at the end of the command.
 
 #---------------------------------------------
-# Show source files for debugging purposes
-showfiles:
-	@echo $(SOURCES)
-
-
-#---------------------------------------------
-# Builds the executable game
-build:
+# Builds the executable game in release mode
+build-release:
 	echo "Building..."
-	$(CC) $(CFLAGS)  $(INCLUDE) $(LIB) $(OS_MACRO) $(DEBUG_MACRO) -o $(BIN_DIR)/$(EXECUTABLE) $(SOURCES) $(LIBRARIES) 
-
+	$(CXX) $(CXXFLAGS) $(OBJFLAGS) $(CXXFLAGS_RELEASE) $(MACROS) $(MACRO_RELEASE) $(INCFLAGS) $(SRC_FILES) $(LDFLAGS) $(LDLIBS)
 
 #---------------------------------------------
-# Run the game 
+# Builds the executable game in release mode
+build-debug:
+	echo "Building..."
+	$(CXX) $(CXXFLAGS) $(OBJFLAGS) $(CXXFLAGS_DEBUG) $(MACROS) $(MACRO_DEBUG) $(INCFLAGS) $(SRC_FILES) $(LDFLAGS) $(LDLIBS)
+
+#---------------------------------------------
+# Run the game
 run:
 	echo "Executing..."
-	$(WINE) $(BIN_DIR)/$(EXECUTABLE)
+	$(WINE) $(BIN_DIR)\$(EXE_FILE)
 
 
 #---------------------------------------------
 # Build then run the game
-build-and-run: clean build run
+build-run-release:
+	clean build-release run
 
 
-#---------------------------------------------
 # Remove the executable
 clean:
 	echo "Clearing..."
-	$(DEL) bin$(SLASH)$(EXECUTABLE).exe
+	$(RM_EXE)

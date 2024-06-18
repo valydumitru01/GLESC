@@ -1,0 +1,10 @@
+
+important_info("Detecting Platform...")
+if (WIN32)
+  set(PLATFORM "__WINDOWS__" )
+elseif (UNIX AND NOT APPLE)
+  set(PLATFORM "__LINUX__" )
+elseif (APPLE)
+  set(PLATFORM "__APPLE__" )
+endif ()
+success("Detected Platform: ${PLATFORM}")

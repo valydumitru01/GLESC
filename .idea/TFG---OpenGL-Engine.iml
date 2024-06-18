@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module external.linked.project.id="TFG---OpenGL-Engine" external.linked.project.path="$MODULE_DIR$" external.root.project.path="$MODULE_DIR$" external.system.id="Makefile" type="CPP_MODULE" version="4">
-  <component name="NewModuleRootManager">
-    <orderEntry type="sourceFolder" forTests="false" />
+<module classpath="CMake" type="CPP_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="Python" name="Python facet">
+      <configuration sdkName="Python 3.10 (TFG---OpenGL-Engine)" />
+    </facet>
+  </component>
+  <component name="SonarLintModuleSettings">
+    <option name="uniqueId" value="10bf2e8d-d681-445b-8ccb-9a4fc86f60cc" />
   </component>
 </module>
