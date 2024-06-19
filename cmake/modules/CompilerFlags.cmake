@@ -98,8 +98,6 @@ set(RELEASE_FLAGS
         # Optimization flag, -O3 is not always faster than -O2
         # TODO: Test which one is faster
         "-O3"
-        # Removes console window in Windows
-        "-WIN32"
         # Enable miscellaneous release features
         "-DRELEASE"
         # This disables the assert statements, avoiding the

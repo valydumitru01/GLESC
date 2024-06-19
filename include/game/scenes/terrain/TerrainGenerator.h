@@ -14,7 +14,7 @@
 #include "engine/subsystems/renderer/RendererTypes.h"
 #include "engine/subsystems/renderer/mesh/Mesh.h"
 #define CHUNK_SIZE 50
-#define MAP_SIZE_IN_CHUNKS 20
+#define MAP_SIZE_IN_CHUNKS 13
 #define CHUNK_HEIGHT 100
 #define DIRT_HEIGHT 3
 

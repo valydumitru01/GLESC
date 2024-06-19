@@ -42,6 +42,7 @@ void TerrainGeneratorGame::generateEntitiesForMap(GLESC::ECS::EntityFactory& ent
 
 
 void TerrainGeneratorGame::init() {
+    getCamera().setForce(5);
     generateEntitiesForMap(entityFactory);
 }
 

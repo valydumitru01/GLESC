@@ -70,7 +70,11 @@ endif ()
 # ----------------------------------------------------------
 function(create_executable name)
     important_info("Adding executable target ${name}")
-    add_executable(${name})
+    if (CMAKE_BUILD_TYPE STREQUAL "Release")
+        add_executable(${name} WIN32)
+    else ()
+        add_executable(${name})
+    endif ()
     success("Added executable target ${name}")
 endfunction()
 
