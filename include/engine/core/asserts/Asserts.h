@@ -11,15 +11,12 @@
 #pragma once
 
 
-
-
 // ------------------------ Empty asserts ---------------------------
 // Empty asserts are used to substitute asserts in release mode,
 // this way the compiler will optimize them out (remove them)
 
 #define D_ASSERT_TRUE(condition, message) do {} while (false)
 #define D_ASSERT_FALSE(condition, message) do {} while (false)
-#define D_ASSERT_NOT_NULL(condition, message) do {} while (false)
 #define D_ASSERT_NOT_NULLPTR(condition, message) do {} while (false)
 #define D_ASSERT_NULLPTR(condition, message) do {} while (false)
 #define D_ASSERT_EQUAL(condition, expected, message) do {} while (false)
@@ -41,7 +38,7 @@
 
 
 
-#ifndef NDEBUG_GLESC
+#ifdef NDEBUG
 #include "engine/core/debugger/StackTrace.h"
 #include "engine/core/exceptions/core/AssertFailedException.h"
 #include "engine/core/debugger/Stringer.h"
@@ -86,7 +83,7 @@ bool assertEqualsEq(const Type1& value, const Type2& expected) {
             std::ostringstream oss; \
             oss << "\n==================== ASSERTION FAILED ====================\n" \
                 << "Failed Condition: " << #failureCondition << "\n" \
-                << "Message  : " << message << "\n\n" \
+                << "Message  : " << (message) << "\n\n" \
                 << "Location : " << __FILE__ << ", Line " << __LINE__ << "\n" \
                 << "Function : " << __PRETTY_FUNCTION__ << "\n\n"; \
             throw AssertFailedException(oss.str()); \

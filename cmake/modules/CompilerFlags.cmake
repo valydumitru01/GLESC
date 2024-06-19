@@ -71,11 +71,35 @@ set(DEBUG_FLAGS
         CACHE STRING "Flags used by the compiler during debug builds." FORCE
 )
 
+set(REL_WITH_DEB_INFO_FLAGS
+        # Optimization flag, no optimization
+        "-O0"
+        # Produce debugging information
+        "-g"
+        # Produce debugging information for gdb
+        "-ggdb"
+        # Enable miscellaneous release features
+        "-DRELEASE"
+        # This disables the GLESC debug
+        "-DNDEBUG_GLESC"
+        # This disables debugging for ECS, avoiding the overhead
+        "-DNDEBUG_ECS"
+        # This disables debugging for graphics API, avoiding
+        # the overhead
+        "-DNDEBUG_GAPI"
+        # This disables the logging statements, avoiding the
+        # overhead of writing to the log file
+        "-DNLOGGING"
+        CACHE STRING "Flags used by the compiler during release builds." FORCE
+)
+
 # Defining release build flags
 set(RELEASE_FLAGS
         # Optimization flag, -O3 is not always faster than -O2
         # TODO: Test which one is faster
-        #"-O3"
+        "-O3"
+        # Removes console window in Windows
+        "-WIN32"
         # Enable miscellaneous release features
         "-DRELEASE"
         # This disables the assert statements, avoiding the
@@ -118,15 +142,22 @@ set(RELEASE_FLAGS
 # ----------------------------------------------------------
 function(set_common_compiler_flags_to_build_type target)
     assert_not_empty(${target})
-    important_info("Adding common compile flags to build type for target ${target}")
+    important_info("Adding build specific ${CMAKE_BUILD_TYPE} flags to target ${target}")
     if (CMAKE_BUILD_TYPE STREQUAL "Debug")
         target_compile_options(${target} PRIVATE ${DEBUG_FLAGS})
-        success("Flags applied to build type DEBUG: ${DEBUG_FLAGS}")
+        success("Flags applied to build type Debug: ${DEBUG_FLAGS}")
     elseif (CMAKE_BUILD_TYPE STREQUAL "Release")
         target_compile_options(${target} PRIVATE ${RELEASE_FLAGS})
-        success("Flags applied to build type RELEASE: ${RELEASE_FLAGS}")
+        success("Flags applied to build type Release: ${RELEASE_FLAGS}")
+    elseif (CMAKE_BUILD_TYPE STREQUAL "RelWithDebInfo")
+        target_compile_options(${target} PRIVATE ${REL_WITH_DEB_INFO_FLAGS})
+        success("Flags applied to build type RelWithDebInfo: ${REL_WITH_DEB_INFO_FLAGS}")
+    else ()
+        error("Unknown build type: ${CMAKE_BUILD_TYPE}")
     endif ()
+    important_info("Adding common compile flags applied to target ${target}")
     target_compile_options(${target} PRIVATE ${MAIN_COMPILE_FLAGS})
+    success("Added common compile flags: ${MAIN_COMPILE_FLAGS}")
 endfunction()
 
 # ----------------------------------------------------------

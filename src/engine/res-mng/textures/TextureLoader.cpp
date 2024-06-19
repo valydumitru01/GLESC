@@ -42,6 +42,7 @@ SDL_SurfacePtr TextureLoader::loadTexture(const std::string &filePath, bool flip
     D_ASSERT_FALSE(filePath.empty(), "File path is empty.");
 
     SDL_SurfacePtr surface = createSurface(filePath);
+    D_ASSERT_NOT_NULLPTR(surface, "Surface is null.");
     if (flipTexture)
         surface = flipSurface(*surface.get());
     

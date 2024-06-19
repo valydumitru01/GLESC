@@ -18,13 +18,12 @@ FileLogger::FileLogger() {
     clearFileContent();
     // Open the log file in append mode
     logFile.open(LOG_FILE, std::ios::app);
-    D_ASSERT_NOT_NULL(logFile, "Failed to open log file");
+    D_ASSERT_TRUE(logFile.is_open(), "Log file couldn't be opened.");
 }
 
 void FileLogger::clearFileContent() {
     // Open the file in truncation mode to clear its contents
     logFile.open(LOG_FILE, std::ios::trunc);
-    D_ASSERT_NOT_NULL(logFile, "Failed to clear log file content");
     logFile.close();
 }
 
