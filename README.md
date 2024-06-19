@@ -9,11 +9,9 @@
 
 <!-- PROJECT LOGO -->
 <br />
-<div style="text-align: center;">
+<div align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
-    <img style="background: white; border-radius: 0.5em; padding: 0.3em; width: 10em" 
-    style="left: 50%;"
-    src="doc/images/GLESC_logo.png" alt="Logo"  >
+    <img style="width: 10em; left: 50%;" src="doc/images/GLESC_logo_white_background.png" alt="Logo"  >
   </a>
 
 <h3 align="center">GLESC Game Engine</h3>
@@ -122,7 +120,7 @@ The project was developed with some principles in mind:
 - [![Mingw][Mingw-shield]][Mingw-url]
 - [![Boost][Boost-shield]][Boost-url]
 
-<p style="text-align:right;">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
 
@@ -208,7 +206,7 @@ Here is a step-by-step guide on how to install the project.
 4. Build the project with CMake
 5. Run the project
 
-<p style="text-align:right;">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
@@ -420,7 +418,7 @@ void setEmissionIntensity(const float emmissionIntensity) { this->emissionIntens
 void setShininess(const float shininess) { this->shininess.set(shininess); }
 ```	
 > **Note:** Not all properties do something. Emission intensity and color do not work. The rest should work fine.
-<p style="text-align:right;">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ##### InputComponent
 The `InputComponent` is used to define the inputs of the entity. It is quite intuitive and easy to use. 
@@ -839,7 +837,7 @@ To play a song you need first to set the music and then play it. To play a sound
 See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (
 and known issues).
 
-<p style="text-align:right;">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
@@ -855,7 +853,7 @@ contact me, and we can discuss it once the project has been presented.
 > The reason there are contributors is that I have reused the repository from another project in which I have
 > collaborated with other people. Nothing serious, but I wanted to clarify it.
 
-<p style="text-align:right;">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
@@ -865,7 +863,7 @@ contact me, and we can discuss it once the project has been presented.
 
 Distributed under the MIT License. See [`LICENSE.txt`][license-url] for more information.
 
-<p style="text-align:right;">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
@@ -877,7 +875,7 @@ Valentin Dumitru - [Twitter: @valentindmtr115](https://twitter.com/valentindmtr1
 
 Project Link: https://github.com/valydumitru01/GLESC/
 
-<p style="text-align:right;">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
@@ -900,7 +898,7 @@ I would like to thank the following people and resources for helping me with thi
 * And [me][My-Portfolio]! (For being able to handle all the stress, hard work and dedication needed to finish this
   project)
 
-<p style="text-align:right;">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
