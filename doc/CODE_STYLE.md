@@ -1,102 +1,85 @@
 # Code Style Guide for GLESC engine
-<!-- TABLE OF CONTENTS -->
-<details>
-    <summary>Table of Contents</summary>
-    <ol>
-        <li>
-            <a href="#c-code-style-guide">C++ Code Style Guide</a>
-            <ol>
-                <li>
-                    <a href="#files">Files</a>
-                </li>
-                <li>
-                    <a href="#code-practices">Code practices</a>
-                    <ol>
-                        <li>
-                            <a href="#class-definition">Class Definition</a>
-                        </li>
-                        <li>
-                            <a href="#access-restriction-order">Access Restriction Order</a>
-                        </li>
-                        <li>
-                            <a href="#friend-classes-and-methods">Friend Classes and Methods</a>
-                        </li>
-                    </ol>
-                </li>
-                <li>
-                    <a href="#namespaces">Namespaces</a>
-                </li>
-                <li>
-                    <a href="#forward-declarations">Forward Declarations</a>
-                </li>
-                <li>
-                    <a href="#comments">Comments</a>
-                </li>
-                <li>
-                    <a href="#variable-initialization">Variable Initialization</a>
-                </li>
-                <li>
-                    <a href="#scopes">Scopes</a>
-                </li>
-                <li>
-                    <a href="#directives">Directives</a>
-                </li>
-                <li>
-                    <a href="#cast">Cast</a>
-                </li>
-                <li>
-                    <a href="#pointers">Pointers</a>
-                </li>
-                <li>
-                    <a href="#loops">Loops</a>
-                </li>
-                <li>
-                    <a href="#functions">Functions</a>
-                    <ol>
-                        <li>
-                            <a href="#function-parameters">Function parameters</a>
-                        </li>
-                    </ol>
-                </li>
-                <li>
-                    <a href="#error-handling">Error Handling</a>
-                </li>
-                <li>
-                    <a href="#testing">Testing</a>
-                </li>
-                <li>
-                    <a href="#naming">Naming</a>
-                </li>
-                <li>
-                    <a href="#formatting">Formatting</a>
-                </li>
-            </ol>
-        </li>
-        <li>
-            <a href="#cmake-code-style-guide">CMake Code Style Guide</a>
-            <ol>
-                <li>
-                    <a href="#general-guidelines">General Guidelines</a>
-                </li>
-                <li>
-                    <a href="#formatting">Formatting</a>
-                </li>
-            </ol>
-        </li>
-    </ol>
-</details>
+## [Direct Link to C++ Code Style Guide](#c-code-style-guide)
+## [Direct Link CMake Code Style Guide](#cmake-code-style-guide)
+
+
+**Table of Contents**
+<!-- TOC -->
+* [Code Style Guide for GLESC engine](#code-style-guide-for-glesc-engine)
+  * [Direct Link to C++ Code Style Guide](#direct-link-to-c-code-style-guide)
+  * [Direct Link CMake Code Style Guide](#direct-link-cmake-code-style-guide)
+* [C++ Code Style Guide](#c-code-style-guide)
+  * [Files](#files)
+  * [Code practices](#code-practices)
+    * [Class Definition](#class-definition)
+      * [Separation of Definition and Implementation](#separation-of-definition-and-implementation)
+        * [Example of a Class Definition](#example-of-a-class-definition)
+      * [Example of Templates](#example-of-templates)
+      * [Access Restriction Order](#access-restriction-order)
+        * [Example](#example)
+      * [Friend Classes and Methods](#friend-classes-and-methods)
+        * [Example](#example-1)
+    * [Namespaces](#namespaces)
+      * [Example of Namespace Declaration](#example-of-namespace-declaration)
+      * [Example of Namespace Usage](#example-of-namespace-usage)
+    * [Forward Declarations](#forward-declarations)
+    * [Comments](#comments)
+        * [Example](#example-2)
+        * [Example](#example-3)
+    * [Variable Initialization](#variable-initialization)
+    * [Scopes](#scopes)
+        * [Example](#example-4)
+    * [Directives](#directives)
+      * [Include](#include)
+      * [Define](#define)
+      * [Pragma](#pragma)
+    * [Cast](#cast)
+    * [Pointers](#pointers)
+    * [Loops](#loops)
+    * [Functions](#functions)
+      * [Function parameters](#function-parameters)
+    * [Error Handling](#error-handling)
+      * [Example of custom asserts usage](#example-of-custom-asserts-usage)
+  * [Testing](#testing)
+  * [Naming](#naming)
+    * [Example macro naming](#example-macro-naming)
+    * [Example class naming](#example-class-naming)
+    * [Example variable naming](#example-variable-naming)
+    * [Example function naming](#example-function-naming)
+    * [Example namespace naming](#example-namespace-naming)
+    * [Example enum naming](#example-enum-naming)
+    * [Example struct naming](#example-struct-naming)
+  * [Formatting](#formatting)
+    * [Braces](#braces)
+    * [Indentation](#indentation)
+    * [Line Length](#line-length)
+* [CMake Code Style Guide](#cmake-code-style-guide)
+  * [General Guidelines](#general-guidelines)
+      * [Example of visual separators](#example-of-visual-separators)
+      * [Example single line comments](#example-single-line-comments)
+      * [Example function comments and multi-line comments](#example-function-comments-and-multi-line-comments)
+  * [Formatting](#formatting-1)
+    * [Indentation](#indentation-1)
+    * [Line Length](#line-length-1)
+    * [Spacing](#spacing)
+      * [Example](#example-5)
+    * [Name conventions](#name-conventions)
+      * [Example variables](#example-variables)
+      * [Example functions](#example-functions)
+      * [Example targets](#example-targets)
+<!-- TOC -->
 
 # C++ Code Style Guide
 
-## Files <a name="files"></a>
+## Files
 
 1. Use the extension `.cpp` for implementation and `.h` for headers.
 3. Use kebab-case for file naming.
 4. Group related files in the same directory, this is very important for the organization of the project.
 
-## Code practices <a name="code-practices"></a>
+## Code practices
 
-### Class Definition <a name="class-definition"></a>
+### Class Definition
 
 #### Separation of Definition and Implementation
 
@@ -140,7 +123,7 @@ void Example::doSomething() {
 files (`cpp`) until link time, which occurs later. Implementing templates immediately after the class definition
 simulates this separation and keeps the code compact.
 
-#### Access Restriction Order <a name="access-restriction-order"></a>
+#### Access Restriction Order
 
 - Follow a classic style where members are ordered from least to most restrictive access.
 
@@ -157,7 +140,7 @@ private:
 };
 ```
 
-#### Friend Classes and Methods <a name="friend-classes-and-methods"></a>
+#### Friend Classes and Methods
 
 - The definition of friend classes and methods should be right below the class name in the header.
 
@@ -177,7 +160,7 @@ private:
 };
 ```
 
-### Namespaces <a name="namespaces"></a>
+### Namespaces
 
 - Use namespaces to avoid naming conflicts and to organize code.
 - Use namespaces to group related classes, functions, and variables.
@@ -207,7 +190,7 @@ namespace GLESC {
 } // namespace GLESC
 ```
 
-### Forward Declarations <a name="forward-declarations"></a>
+### Forward Declarations
 
 - Avoid using forward declarations.
 
@@ -221,7 +204,7 @@ namespace GLESC {
 6. Using multiple forward declarations can be more verbose than including the header.
 7. Structuring code to allow forward declarations can make it slower and more complex.
 
-### Comments <a name="comments"></a>
+### Comments
 
 1. No grammatical errors.
 2. In headers, use Doxygen-style block comments with tags.
@@ -261,12 +244,12 @@ setGlAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
 - Add comments when fixing bugs.
 - Use comments to mark incomplete implementations.
 
-### Variable Initialization <a name="variable-initialization"></a>
+### Variable Initialization
 
 1. Initialize variables in the class constructor's initializer list, unless explicitly needed otherwise.
 2. Prefer initializing variables using `{}` instead of `=` unless there is a compelling reason.
 
-### Scopes <a name="scopes"></a>
+### Scopes
 
 For large scope definitions (classes, namespaces, structs), indicate the scope name along with its type.
 
@@ -282,7 +265,7 @@ namespace GLESC {
 } // namespace GLESC
 ```
 
-### Directives <a name="directives"></a>
+### Directives
 
 #### Include
 
@@ -303,7 +286,7 @@ namespace GLESC {
 - `#pragma once` is preferred over `#ifdef` guards because it is simpler, requires less code, and is widely supported by
   most compilers.
 
-### Cast <a name="cast"></a>
+### Cast
 
 1. Use `static_cast` for casting. Never use C-style casts.
 
@@ -315,7 +298,7 @@ float x = static_cast<float>(var);
 float x = (float)var;
 ```
 
-### Pointers <a name="pointers"></a>
+### Pointers
 
 1. Use `nullptr` instead of `NULL` or `0`.
 
@@ -339,7 +322,7 @@ std::unique_ptr<int> x = std::make_unique<int>(5);
 int* x = new int(5);
 ```
 
-### Loops <a name="loops"></a>
+### Loops
 
 1. Use range-based loops when possible.
 
@@ -358,7 +341,7 @@ for (int i = 0; i < vec.size(); i++) {
 
 **Reason**: Range-based loops are more readable and less error-prone.
 
-### Functions <a name="functions"></a>
+### Functions
 
 1. Use `const` whenever possible.
 2. Use `noexcept` when a function does not throw exceptions.
@@ -381,7 +364,7 @@ They also make the code more readable.
 2. Use `&` for parameters that should not be copied.
 3. Use `&&` for parameters that should be moved.
 
-### Error Handling <a name="error-handling"></a>
+### Error Handling
 
 1. Use the custom asserts defined in the `Assert.h` file.
 2. Avoid using exceptions for error handling, for a game engine, exceptions are not recommended. Asserts make the code
@@ -409,13 +392,13 @@ void doSomething(int* ptr, bool boolVar) {
 }
 ```
 
-## Testing <a name="testing"></a>
+## Testing
 
 1. Use unit tests to test individual components.
 2. Use integration tests to test the interaction between components.
 3. Use end-to-end tests to test the entire system.
 
-## Naming <a name="naming"></a>
+## Naming
 
 1. General code: camelCase
 2. Macros: SCREAMING_SNAKE_CASE
@@ -506,7 +489,7 @@ struct example_struct {
 };
 ```
 
-## Formatting <a name="formatting"></a>
+## Formatting
 
 ### Braces
 
@@ -693,7 +676,7 @@ endfunction()
 
 ```
 
-## Formatting <a name="formatting"></a>
+## Formatting
 
 ### Indentation
 
