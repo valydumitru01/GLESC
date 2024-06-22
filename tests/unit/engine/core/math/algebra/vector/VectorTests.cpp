@@ -9,15 +9,17 @@
  **************************************************************************************************/
 #pragma once
 
+
+#include "TestsConfig.h"
+#ifdef MATH_ALGEBRA_UNIT_TESTING
 #include <gtest/gtest.h>
 #include <engine/core/math/algebra/vector/VectorMixedAlgorithms.h>
 #include "engine/core/math/algebra/matrix/Matrix.h"
 #include "engine/subsystems/input/InputKeys.h"
-#include "unit/engine/core/math/algebra/vector/VectorTestsHelper.cpp"
-#include "unit/engine/core/math/MathCustomTestingFramework.cpp"
+#include "unit/engine/core/math/algebra/vector/VectorTestsHelper.h"
+#include "unit/engine/core/math/MathCustomTestingFramework.h"
 
-#ifdef MATH_ALGEBRA_UNIT_TESTING
-template<typename Type>
+template <typename Type>
 class VectorTests : public ::testing::Test {
 protected:
     VectorTests() = default;
@@ -42,21 +44,25 @@ TYPED_TEST_SUITE(VectorTests, VectorTypes);
 TYPED_TEST(VectorTests, Accesors) {
     PREPARE_TEST();
 
-    TEST_SECTION("Vector Size") {
+    TEST_SECTION("Vector Size")
+    {
         EXPECT_EQ(this->v1.size(), N);
     }
 
-    TEST_SECTION("Vector get()") {
+    TEST_SECTION("Vector get()")
+    {
         for (size_t i = 0; i < N; ++i)
             EXPECT_EQ_CUSTOM(this->v1.get(i), generateNextValue1<Type>(i));
     }
 
-    TEST_SECTION("Vector []") {
+    TEST_SECTION("Vector []")
+    {
         for (size_t i = 0; i < N; ++i)
             EXPECT_EQ_CUSTOM(this->v1[i], generateNextValue1<Type>(i));
     }
 
-    TEST_SECTION("Vector x(), y(), z(), w()") {
+    TEST_SECTION("Vector x(), y(), z(), w()")
+    {
         Vec v3;
         initVector1(v3);
         if constexpr (N >= 1) {
@@ -103,14 +109,16 @@ TYPED_TEST(VectorTests, Accesors) {
 
 TYPED_TEST(VectorTests, Constructors) {
     PREPARE_TEST();
-    TEST_SECTION("Default Constructor") {
+    TEST_SECTION("Default Constructor")
+    {
         Vec defaultConstruct;
         Vec expectDefaultConstruct;
         for (size_t i = 0; i < N; ++i)
             expectDefaultConstruct.set(i, Type());
         EXPECT_EQ_VEC(defaultConstruct, expectDefaultConstruct);
     }
-    TEST_SECTION("Variadic Constructor") {
+    TEST_SECTION("Variadic Constructor")
+    {
         // Variadic constructor
         if constexpr (N == 2) {
             Vec variadicConstruct(generateNextValue1<Type>(0), generateNextValue1<Type>(1));
@@ -129,7 +137,8 @@ TYPED_TEST(VectorTests, Constructors) {
         } // Enough with the variadic constructors, it could go on forever
     }
 
-    TEST_SECTION("Array constructor") {
+    TEST_SECTION("Array constructor")
+    {
         // Array constructor
         Type arr[N];
         for (size_t i = 0; i < N; ++i)
@@ -137,7 +146,8 @@ TYPED_TEST(VectorTests, Constructors) {
         Vec arrayConstruct(arr);
         EXPECT_EQ_VEC(arrayConstruct, this->v1);
     }
-    TEST_SECTION("Initializer List Constructor") {
+    TEST_SECTION("Initializer List Constructor")
+    {
         // Initializer list constructor
         if constexpr (N == 2) {
             Vec initListConstruct{generateNextValue1<Type>(0), generateNextValue1<Type>(1)};
@@ -159,7 +169,8 @@ TYPED_TEST(VectorTests, Constructors) {
             EXPECT_EQ_VEC(initListConstruct, this->v1);
         } // Enough with the initializers, it could go on forever
     }
-    TEST_SECTION("Fill Constructor") {
+    TEST_SECTION("Fill Constructor")
+    {
         // Fill constructor
         Type fillValue = Type(1);
         Vec fillConstruct(fillValue);
@@ -167,7 +178,8 @@ TYPED_TEST(VectorTests, Constructors) {
         GLESC::Math::VectorAlgorithms::vectorFill(expectFillConstruct.data, fillValue);
         EXPECT_EQ_VEC(fillConstruct, expectFillConstruct);
     }
-    TEST_SECTION("Copy Constructor") {
+    TEST_SECTION("Copy Constructor")
+    {
         // Copy constructor
         Vec copyConstruct;
         initVector1(copyConstruct);
@@ -175,7 +187,8 @@ TYPED_TEST(VectorTests, Constructors) {
         EXPECT_EQ_VEC(copyConstruct2, copyConstruct);
         EXPECT_EQ_VEC(copyConstruct2, this->v1); // Must be equal to the initial vector
     }
-    TEST_SECTION("Move Constructor") {
+    TEST_SECTION("Move Constructor")
+    {
         // Move constructor
         Vec moveConstruct;
         initVector1(moveConstruct);

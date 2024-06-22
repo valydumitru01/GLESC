@@ -8,7 +8,7 @@
  * See LICENSE.txt in the project root for license information.
  **************************************************************************************************/
 
-#include "unit/CustomTestingFramework.cpp"
+#include "unit/CustomTestingFramework.h"
 #include <gtest/gtest.h>
 #include <random>
 

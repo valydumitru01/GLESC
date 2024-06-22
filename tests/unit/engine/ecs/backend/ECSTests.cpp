@@ -8,11 +8,11 @@
  * See LICENSE.txt in the project root for license information.
  **************************************************************************************************/
 
-#include "TestsConfig.cpp"
+#include "TestsConfig.h"
 #if ECS_BACKEND_UNIT_TESTING
 #include <gtest/gtest.h>
 #include "engine/ecs/backend/ECS.h"
-#include "unit/CustomTestingFramework.cpp"
+#include "unit/CustomTestingFramework.h"
 
 class ECSTests : public testing::Test {
 protected:
@@ -95,7 +95,7 @@ TEST_F(ECSTests, EmptyState) {
 }
 
 TEST_F(ECSTests, CreateEntity) {
-    GLESC::ECS::EntityID entityID = ecs.createEntity("TestEntity");
+    GLESC::ECS::EntityID entityID = ecs.createEntity("TestEntity", {});
     ASSERT_EQ(getEntityManager().getLivingEntityCount(), 1);
     ASSERT_EQ(getEntityManager().getEntityNameToID().size(), 1);
     ASSERT_EQ(getEntityManager().getEntityIDToName().size(), 1);
@@ -105,7 +105,7 @@ TEST_F(ECSTests, CreateEntity) {
 }
 
 TEST_F(ECSTests, DestroyEntity) {
-    GLESC::ECS::EntityID entityID = ecs.createEntity("TestEntity");
+    GLESC::ECS::EntityID entityID = ecs.createEntity("TestEntity", {});
     ecs.destroyEntity(entityID);
     ASSERT_EQ(getEntityManager().getLivingEntityCount(), 0);
     ASSERT_TRUE(getEntityManager().getEntityNameToID().empty());
@@ -116,26 +116,26 @@ TEST_F(ECSTests, DestroyEntity) {
 }
 
 TEST_F(ECSTests, GetEntityID) {
-    GLESC::ECS::EntityID entityID = ecs.createEntity("TestEntity");
+    GLESC::ECS::EntityID entityID = ecs.createEntity("TestEntity", {});
     ASSERT_EQ(getEntityManager().getEntityNameToID().at("TestEntity"), entityID);
     ASSERT_EQ(getEntityManager().getEntityIDToName().at(entityID), "TestEntity");
 }
 
 TEST_F(ECSTests, TryGetEntityID) {
-    GLESC::ECS::EntityID entityID = ecs.createEntity("TestEntity");
+    GLESC::ECS::EntityID entityID = ecs.createEntity("TestEntity", {});
     ASSERT_EQ(ecs.tryGetEntityID("TestEntity"), entityID);
     // Now checking for non-existent entity
     ASSERT_EQ(ecs.tryGetEntityID("NonExistentEntity"), GLESC::ECS::EntityManager::nullEntity);
 }
 
 TEST_F(ECSTests, GetEntityName) {
-    GLESC::ECS::EntityID entityID = ecs.createEntity("TestEntity");
+    GLESC::ECS::EntityID entityID = ecs.createEntity("TestEntity", {});
     ASSERT_TRUE(getEntityManager().getEntityName(entityID) == "TestEntity");
 }
 
 
 TEST_F(ECSTests, AddComponent) {
-    GLESC::ECS::EntityID entityID = ecs.createEntity("TestEntity");
+    GLESC::ECS::EntityID entityID = ecs.createEntity("TestEntity", {});
     ecs.registerSystem("TestSystem");
     ecs.addComponent<TestComponent1>(entityID, testComponent1);
     ASSERT_EQ(getComponentManager().getComponentIDs().size(), 1);
@@ -145,7 +145,7 @@ TEST_F(ECSTests, AddComponent) {
 }
 
 TEST_F(ECSTests, RemoveComponent) {
-    GLESC::ECS::EntityID entityID = ecs.createEntity("TestEntity");
+    GLESC::ECS::EntityID entityID = ecs.createEntity("TestEntity", {});
     ecs.registerSystem("TestSystem");
     ecs.addComponent<TestComponent1>(entityID, testComponent1);
     ecs.removeComponent<TestComponent1>(entityID);
@@ -157,8 +157,8 @@ TEST_F(ECSTests, RemoveComponent) {
 }
 
 TEST_F(ECSTests, DoesEntityHaveComponent) {
-    GLESC::ECS::EntityID entityID = ecs.createEntity("TestEntity");
-    GLESC::ECS::EntityID entityID2 = ecs.createEntity("TestEntity2");
+    GLESC::ECS::EntityID entityID = ecs.createEntity("TestEntity", {});
+    GLESC::ECS::EntityID entityID2 = ecs.createEntity("TestEntity2", {});
     ecs.registerSystem("TestSystem");
     ecs.addComponent<TestComponent1>(entityID, testComponent1);
     ecs.addComponent<TestComponent2>(entityID2, testComponent2);
@@ -168,21 +168,21 @@ TEST_F(ECSTests, DoesEntityHaveComponent) {
 
 
 TEST_F(ECSTests, GetComponentID) {
-    GLESC::ECS::EntityID entityID = ecs.createEntity("TestEntity");
+    GLESC::ECS::EntityID entityID = ecs.createEntity("TestEntity", {});
     ecs.registerSystem("TestSystem");
     ecs.addComponent<TestComponent1>(entityID, testComponent1);
     ASSERT_EQ(ecs.getComponentID<TestComponent1>(), GLESC::ECS::ComponentManager::firstComponentID);
 }
 
 TEST_F(ECSTests, GetComponent) {
-    GLESC::ECS::EntityID entityID = ecs.createEntity("TestEntity");
+    GLESC::ECS::EntityID entityID = ecs.createEntity("TestEntity", {});
     ecs.registerSystem("TestSystem");
     ecs.addComponent<TestComponent1>(entityID, testComponent1);
     ASSERT_EQ(ecs.getComponent<TestComponent1>(entityID).x, testComponent1.x);
 }
 
 TEST_F(ECSTests, GetComponents) {
-    GLESC::ECS::EntityID entityID = ecs.createEntity("TestEntity");
+    GLESC::ECS::EntityID entityID = ecs.createEntity("TestEntity", {});
     ecs.registerSystem("TestSystem");
     ecs.addComponent<TestComponent1>(entityID, TestComponent1(1));
     ecs.addComponent<TestComponent2>(entityID, TestComponent2(2));
@@ -201,7 +201,7 @@ TEST_F(ECSTests, GetComponents) {
         }
     }
 
-    GLESC::ECS::EntityID entityID2 = ecs.createEntity("TestEntity2");
+    GLESC::ECS::EntityID entityID2 = ecs.createEntity("TestEntity2", {});
     ecs.addComponent<TestComponent1>(entityID2, TestComponent1(4));
     ecs.addComponent<TestComponent2>(entityID2, TestComponent2(5));
     std::vector<GLESC::ECS::IComponent*> components2 = ecs.getComponents(entityID2);
@@ -215,7 +215,7 @@ TEST_F(ECSTests, GetComponents) {
         }
     }
 
-    GLESC::ECS::EntityID entityID3 = ecs.createEntity("TestEntity3");
+    GLESC::ECS::EntityID entityID3 = ecs.createEntity("TestEntity3", {});
     ecs.addComponent<TestComponent1>(entityID3, TestComponent1(6));
     ecs.addComponent<TestComponent2>(entityID3, TestComponent2(7));
     ecs.addComponent<TestComponent3>(entityID3, TestComponent3(8));
@@ -256,12 +256,12 @@ TEST_F(ECSTests, GetAssociatedEntities) {
     GLESC::ECS::SystemName systemName{"TestSystem"};
     ecs.registerSystem(systemName);
     ecs.addComponentRequirementToSystem<TestComponent1>(systemName);
-    GLESC::ECS::EntityID entityID = ecs.createEntity("TestEntity");
+    GLESC::ECS::EntityID entityID = ecs.createEntity("TestEntity", {});
     ecs.addComponent<TestComponent1>(entityID, testComponent1);
     ASSERT_EQ(ecs.getAssociatedEntities(systemName).size(), 1);
 
     // More than one entity
-    GLESC::ECS::EntityID entityID2 = ecs.createEntity("TestEntity2");
+    GLESC::ECS::EntityID entityID2 = ecs.createEntity("TestEntity2", {});
     ecs.addComponent<TestComponent1>(entityID2, testComponent1);
     ASSERT_EQ(ecs.getAssociatedEntities(systemName).size(), 2);
 }
@@ -269,7 +269,7 @@ TEST_F(ECSTests, GetAssociatedEntities) {
 TEST_F(ECSTests, CreateAndDeleteManyEntities) {
     int entities = 100;
     for (int i = 0; i < entities; ++i) {
-        ecs.createEntity("TestEntity" + std::to_string(i));
+        ecs.createEntity("TestEntity" + std::to_string(i), {});
     }
 
     ASSERT_EQ(getEntityManager().getLivingEntityCount(), entities);
@@ -294,7 +294,7 @@ TEST_F(ECSTests, CreateAndDeleteManyEntitiesAlternating) {
     std::vector<GLESC::ECS::EntityID> createdEntities;
     // First creating half of maxEntities
     for (int i = 0; i < entities / 2; ++i) {
-        ecs.createEntity("TestEntity" + std::to_string(i));
+        ecs.createEntity("TestEntity" + std::to_string(i), {});
         createdEntities.push_back(i);
     }
     ASSERT_EQ(getEntityManager().getLivingEntityCount(), entities / 2);
@@ -314,7 +314,7 @@ TEST_F(ECSTests, CreateAndDeleteManyEntitiesAlternating) {
 
     // Creating 1/3 of the entities, leaving 1/6 + 1/3 = 1/2 of the entities
     for (int i = 0; i < entities / 3; ++i) {
-        ecs.createEntity("TestEntity" + std::to_string(i + entities / 2)); // Ensure unique names
+        ecs.createEntity("TestEntity" + std::to_string(i + entities / 2), {}); // Ensure unique names
         createdEntities.push_back(i + entities / 2);
     }
     ASSERT_EQ(getEntityManager().getLivingEntityCount(), entities / 2);
@@ -354,7 +354,7 @@ TEST_F(ECSTests, CreateAndDestroyEntitiesWithComponentsAndSystems) {
     int oneComponentEntities = 10;
     std::set<GLESC::ECS::EntityID> oneComponentEntityIDs;
     for (int i = 0; i < oneComponentEntities; ++i) {
-        GLESC::ECS::EntityID entityID = ecs.createEntity("OneCompTestEntity" + std::to_string(i));
+        GLESC::ECS::EntityID entityID = ecs.createEntity("OneCompTestEntity" + std::to_string(i), {});
         ecs.addComponent<TestComponent1>(entityID, TestComponent1(i));
         oneComponentEntityIDs.insert(entityID);
     }
@@ -369,7 +369,7 @@ TEST_F(ECSTests, CreateAndDestroyEntitiesWithComponentsAndSystems) {
     int twoComponentEntities = 10;
     std::set<GLESC::ECS::EntityID> twoComponentEntityIDs;
     for (int i = 0; i < twoComponentEntities; ++i) {
-        GLESC::ECS::EntityID entityID = ecs.createEntity("TwoCompTestEntity" + std::to_string(i));
+        GLESC::ECS::EntityID entityID = ecs.createEntity("TwoCompTestEntity" + std::to_string(i), {});
         ecs.addComponent<TestComponent1>(entityID, TestComponent1(i));
         ecs.addComponent<TestComponent2>(entityID, TestComponent2(i));
         twoComponentEntityIDs.insert(entityID);
@@ -386,7 +386,7 @@ TEST_F(ECSTests, CreateAndDestroyEntitiesWithComponentsAndSystems) {
     int threeComponentEntities = 10;
     std::set<GLESC::ECS::EntityID> threeComponentEntityIDs;
     for (int i = 0; i < threeComponentEntities; ++i) {
-        GLESC::ECS::EntityID entityID = ecs.createEntity("ThreeCompTestEntity" + std::to_string(i));
+        GLESC::ECS::EntityID entityID = ecs.createEntity("ThreeCompTestEntity" + std::to_string(i), {});
         ecs.addComponent<TestComponent1>(entityID, TestComponent1(i));
         ecs.addComponent<TestComponent2>(entityID, TestComponent2(i));
         ecs.addComponent<TestComponent3>(entityID, TestComponent3(i));

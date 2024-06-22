@@ -89,15 +89,17 @@ namespace GLESC::Math {
          */
         template <typename TypeMat, typename Type>
         static void matrixToEulerRotation(const MatrixData<TypeMat, 4, 4>& mat, VectorData<Type, 3>& result) {
-            Type pitch = std::asin(-mat[2][1]);  // Calculate pitch
+            Type pitch = std::asin(-mat[2][1]); // Calculate pitch
 
             Type cosPitch = std::cos(pitch);
             Type yaw, roll;
 
-            if (std::abs(cosPitch) > 1e-6) {  // Gimbal lock check
+            if (std::abs(cosPitch) > 1e-6) {
+                // Gimbal lock check
                 yaw = std::atan2(mat[2][0], mat[2][2]);
                 roll = std::atan2(mat[0][1], mat[1][1]);
-            } else {
+            }
+            else {
                 yaw = std::atan2(-mat[0][2], mat[0][0]);
                 roll = 0;
             }
@@ -185,7 +187,8 @@ namespace GLESC::Math {
          * @tparam TypeRot The data type of the rotation vector elements (e.g., float, double).
          * @tparam TypeScale The data type of the scale vector elements (e.g., float, double).
          * @param position A 3D vector containing the position of the model.
-         * @param rotationRads A 3D vector containing the rotation angles (in radians) around X, Y, and Z axes respectively.
+         * @param rotationRads A 3D vector containing the rotation angles (in radians) around X, Y, and Z axes
+         * respectively.
          * @param scale A 3D vector containing the scale factors for the model.
          * @param model A 4x4 matrix which will contain the result of the model matrix.
          */
@@ -201,14 +204,15 @@ namespace GLESC::Math {
             MatrixAlgorithms::setMatrixZero(model);
             MatrixAlgorithms::setMatrixDiagonal(model, ModelType(1));
 
-            // First, create the scale matrix
-            MatrixAlgorithms::getScaleMatrix(scale, scaleMatrix);
+            // Create the translation matrix
+            MatrixAlgorithms::getTranslationMatrix(position, translationMatrix);
 
             // Create rotation matrices around X, Y, and Z axes
             MatrixMixedAlgorithms::getRotate3DMatrix(rotationRads, rotationMatrix);
 
-            // Create the translation matrix
-            MatrixAlgorithms::getTranslationMatrix(position, translationMatrix);
+            // First, create the scale matrix
+            MatrixAlgorithms::getScaleMatrix(scale, scaleMatrix);
+
 
             MatrixAlgorithms::matrixMatrixMulInPlace(model, translationMatrix, model);
             MatrixAlgorithms::matrixMatrixMulInPlace(model, rotationMatrix, model);
@@ -221,14 +225,10 @@ namespace GLESC::Math {
                                               MatrixData<TypeRes, 4, 4>& viewMat) {
             // Negate position for translation
             VectorData<TypePos, 3> negatedPos;
-            negatedPos[0] = -position[0];
-            negatedPos[1] = -position[1];
-            negatedPos[2] = -position[2];
+            VectorAlgorithms::vectorNegate(position, negatedPos);
 
             VectorData<TypeRes, 3> negatedRotationRads;
-            negatedRotationRads[0] = -rotationRads[0];
-            negatedRotationRads[1] = -rotationRads[1];
-            negatedRotationRads[2] = -rotationRads[2];
+            VectorAlgorithms::vectorNegate(rotationRads, negatedRotationRads);
 
             VectorData<TypeRes, 3> scale = {1, 1, 1};
 

@@ -9,12 +9,14 @@
  **************************************************************************************************/
 
 
+#include "TestsConfig.h"
+#ifdef MATH_ALGEBRA_UNIT_TESTING
 #include <gtest/gtest.h>
 #include "engine/core/math/algebra/vector/VectorAlgorithms.h"
-#include "unit/engine/core/math/algebra/vector/VectorTestsHelper.cpp"
-#include "unit/engine/core/math/MathCustomTestingFramework.cpp"
-#ifdef MATH_ALGEBRA_UNIT_TESTING
-template<class Type>
+#include "unit/engine/core/math/algebra/vector/VectorTestsHelper.h"
+#include "unit/engine/core/math/MathCustomTestingFramework.h"
+
+template <class Type>
 class VectorAlgorithmsTests : public testing::Test {
 protected:
     VectorAlgorithmsTests() = default;
@@ -398,7 +400,8 @@ TYPED_TEST(VectorAlgorithmsTests, VectorNormalize) {
         for (size_t i = 0; i < N; ++i) {
             this->expected[i] = this->vecA[i] / len;
         }
-    } else {
+    }
+    else {
         this->expected = this->vecA;
     }
     EXPECT_EQ_VEC(this->result, this->expected);
@@ -421,7 +424,7 @@ TYPED_TEST(VectorAlgorithmsTests, VectorProjection) {
     GLESC::Math::VectorAlgorithms::project(this->vecA, this->vecB, this->result);
 
     Type scalarProjection = GLESC::Math::VectorAlgorithms::dotProduct(this->vecA, this->vecB) /
-                            GLESC::Math::VectorAlgorithms::length(this->vecB);
+        GLESC::Math::VectorAlgorithms::length(this->vecB);
     GLESC::Math::VectorAlgorithms::vectorScalarMul(this->vecB, scalarProjection, this->expected);
     EXPECT_EQ_VEC(this->result, this->expected);
 }
@@ -539,7 +542,7 @@ TYPED_TEST(VectorAlgorithmsTests, VectorCollinearityArray) {
     PREPARE_TEST();
     if constexpr (N == 3) {
         // Two vectors are always collinear
-        std::vector<const VecData *> collinearVecs = {&this->vecA};
+        std::vector<const VecData*> collinearVecs = {&this->vecA};
         EXPECT_TRUE(GLESC::Math::VectorMixedAlgorithms::areCollinear(this->vecA, collinearVecs));
         // Collinear vectors with a scalar multiple
         collinearVecs.clear();
@@ -557,7 +560,7 @@ TYPED_TEST(VectorAlgorithmsTests, VectorCollinearityArray) {
         // Two vectors are the same, therefore they are collinear
         VecData nonCollinear = this->vecA;
         nonCollinear[0] += 555;
-        std::vector<const VecData *> nonCollinearVecs = {&nonCollinear, &this->vecA};
+        std::vector<const VecData*> nonCollinearVecs = {&nonCollinear, &this->vecA};
         EXPECT_TRUE(GLESC::Math::VectorMixedAlgorithms::areCollinear(this->vecA, nonCollinearVecs));
 
         // Non collinear vectors

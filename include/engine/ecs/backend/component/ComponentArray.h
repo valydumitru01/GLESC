@@ -38,6 +38,7 @@ namespace GLESC::ECS {
         ComponentArray() = default;
 
         IComponent& getComponent(EntityID entity) override {
+            D_ASSERT_TRUE(hasComponent(entity), "Entity does not have component");
             return componentArray[entityToIndexMap.at(entity)];
         }
 

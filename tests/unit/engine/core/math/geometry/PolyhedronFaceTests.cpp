@@ -7,10 +7,11 @@
  * Copyright (c) 2023 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
  ******************************************************************************/
-
+#include "TestsConfig.h"
+#pragma once
 
 #if MATH_GEOMETRY_UNIT_TESTING
-#include "TestsConfig.cpp"
+#include "TestsConfig.h"
 #include <gtest/gtest.h>
 #include "engine/core/math/Math.h"
 #include "engine/core/math/geometry/GeometryTypes.h"

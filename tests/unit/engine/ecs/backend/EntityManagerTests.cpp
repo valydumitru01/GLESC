@@ -8,11 +8,12 @@
  * See LICENSE.txt in the project root for license information.
  **************************************************************************************************/
 
-#include "TestsConfig.cpp"
+#include "TestsConfig.h"
 #if ECS_BACKEND_UNIT_TESTING
 #include <gtest/gtest.h>
+#include "engine/core/exceptions/core/AssertFailedException.h"
 #include "engine/ecs/backend/entity/EntityManager.h"
-#include "unit/CustomTestingFramework.cpp"
+#include "unit/CustomTestingFramework.h"
 
 class EntityManagerTests : public testing::Test {
 protected:
@@ -42,7 +43,7 @@ TEST_F(EntityManagerTests, EmptyState) {
 
 
 TEST_F(EntityManagerTests, CreateEntity) {
-    GLESC::ECS::EntityID entity = entityManager.createNextEntity("TestEntity");
+    GLESC::ECS::EntityID entity = entityManager.createNextEntity("TestEntity", {});
 
     // The entity ID is the first entity ID
     ASSERT_EQ(entity, firstEntityID);
@@ -64,14 +65,14 @@ TEST_F(EntityManagerTests, CanEntityBeCreated) {
     // Assert that the entity manager can create an entity
     ASSERT_TRUE(getEntityManager().canEntityBeCreated("TestEntity"));
     // Create an entity
-    entityManager.createNextEntity("TestEntity");
+    entityManager.createNextEntity("TestEntity", {});
     // Now the entity manager cannot create an entity with the same name
     ASSERT_FALSE(getEntityManager().canEntityBeCreated("TestEntity"));
 }
 
 TEST_F(EntityManagerTests, TryGetEntity) {
     using namespace GLESC::ECS;
-    EntityID entity = entityManager.createNextEntity("TestEntity");
+    EntityID entity = entityManager.createNextEntity("TestEntity", {});
 
     EntityID foundEntity = getEntityManager().tryGetEntity("TestEntity");
 
@@ -113,7 +114,7 @@ TEST_F(EntityManagerTests, DestroyNullEntity) {
 
 TEST_F(EntityManagerTests, DestroyEntityFromOneToZero) {
     using namespace GLESC::ECS;
-    EntityID entity = entityManager.createNextEntity("TestEntity");
+    EntityID entity = entityManager.createNextEntity("TestEntity", {});
 
     entityManager.destroyEntity(entity);
     TEST_SECTION("Checking interface checkers");
@@ -145,7 +146,7 @@ TEST_F(EntityManagerTests, DestroyEntityMany) {
 
 
     for (EntityID entityId = firstEntityID; entityId < createdEntities + firstEntityID; ++entityId) {
-        entityManager.createNextEntity("TestEntity" + std::to_string(entityId));
+        entityManager.createNextEntity("TestEntity" + std::to_string(entityId), {});
     }
 
     // Destroy every second entity 1, 3, 5, 7, 9, ... to destroyedEntities * 2 (70)
@@ -185,17 +186,21 @@ TEST_F(EntityManagerTests, DestroyEntityMany) {
 
 TEST_F(EntityManagerTests, AddComponentToEntity) {
     using namespace GLESC::ECS;
-    EntityID entity = entityManager.createNextEntity("TestEntity");
+    EntityID entity = entityManager.createNextEntity("TestEntity", {});
 
     entityManager.addComponentToEntity(entity, 0);
     entityManager.addComponentToEntity(entity, 1);
     entityManager.addComponentToEntity(entity, 2);
+    // Adding repeated component to entity does nothing
+    entityManager.addComponentToEntity(entity, 1);
+
 
     TEST_SECTION("Checking interface checkers");
     // checking if entity has the component
     ASSERT_TRUE(getEntityManager().doesEntityHaveComponent(entity, 0));
     ASSERT_TRUE(getEntityManager().doesEntityHaveComponent(entity, 1));
     ASSERT_TRUE(getEntityManager().doesEntityHaveComponent(entity, 2));
+
     // The signature of the entity we just created is 0b111, as it has three components
     ASSERT_TRUE(getEntityManager().getSignature(entity).to_ulong() == 0b111);
 
@@ -203,20 +208,9 @@ TEST_F(EntityManagerTests, AddComponentToEntity) {
     ASSERT_TRUE(getEntityManager().getSignatures().at(entity).to_ulong() == 0b111);
 }
 
-TEST_F(EntityManagerTests, AddAlreadyExistingComponentToEntity) {
-    using namespace GLESC::ECS;
-    EntityID entity = entityManager.createNextEntity("TestEntity");
-    // Adding some components
-    entityManager.addComponentToEntity(entity, 0);
-    entityManager.addComponentToEntity(entity, 1);
-    entityManager.addComponentToEntity(entity, 2);
-    // Adding the same component again
-    ASSERT_THROW({entityManager.addComponentToEntity(entity, 1);}, AssertFailedException);
-}
-
 TEST_F(EntityManagerTests, RemoveComponentFromEntity) {
     using namespace GLESC::ECS;
-    EntityID entity = entityManager.createNextEntity("TestEntity");
+    EntityID entity = entityManager.createNextEntity("TestEntity", {});
 
     entityManager.addComponentToEntity(entity, 0);
     entityManager.addComponentToEntity(entity, 1);
@@ -238,7 +232,7 @@ TEST_F(EntityManagerTests, RemoveComponentFromEntity) {
 
 TEST_F(EntityManagerTests, RemoveNonExistentComponentFromEntity) {
     using namespace GLESC::ECS;
-    EntityID entity = entityManager.createNextEntity("TestEntity");
+    EntityID entity = entityManager.createNextEntity("TestEntity", {});
 
     entityManager.addComponentToEntity(entity, 0);
     entityManager.addComponentToEntity(entity, 1);

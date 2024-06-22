@@ -7,12 +7,15 @@
  * Copyright (c) 2023 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
  ******************************************************************************/
+
+#include "TestsConfig.h"
+#ifdef MATH_ALGEBRA_UNIT_TESTING
 #include <glm/glm.hpp>
 #include <gtest/gtest.h>
 #include "engine/core/math/algebra/matrix/MatrixAlgorithms.h"
-#include "unit/engine/core/math/MathCustomTestingFramework.cpp"
-#include "unit/engine/core/math/algebra/matrix/MatrixTestsHelper.cpp"
-#ifdef MATH_ALGEBRA_UNIT_TESTING
+#include "unit/engine/core/math/MathCustomTestingFramework.h"
+#include "unit/engine/core/math/algebra/matrix/MatrixTestsHelper.h"
+
 template <class Type>
 class MatrixTests : public testing::Test {
 protected:

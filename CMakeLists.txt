@@ -141,9 +141,6 @@ foreach (target ${targets})
     set_common_definitions(${target})
 endforeach ()
 
-if (TARGET game_test)
-    add_extra_definitions(game_test "GTEST_HAS_DEATH_TEST")
-endif ()
 
 # ----------------------------------------------------------
 
@@ -152,6 +149,10 @@ endif ()
 foreach (target ${targets})
     set_common_include_dirs(${target})
 endforeach ()
+if (TARGET game_test)
+    add_extra_include_dirs(game_test "${TEST_DIR}")
+    add_extra_include_dirs(game_test "${GTEST_INCLUDE_DIRS}")
+endif ()
 # ----------------------------------------------------------
 
 # ----------------------------------------------------------

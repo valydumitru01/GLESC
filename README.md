@@ -775,10 +775,7 @@ To play a song you need first to set the music and then play it. To play a sound
 - [x] Add renderer
     - [x] Add mesh abstraction
         - [x] Add mesh class
-        - [ ] Add mesh loader
-            - [ ] Add obj loader
-            - [ ] Add fbx loader
-            - [ ] Add gltf loader
+        - [ ] Add assimp mesh loader
         - [ ] Add mesh builder
     - [x] Add shaders
         - [x] Add reflections
@@ -800,10 +797,11 @@ To play a song you need first to set the music and then play it. To play a sound
 - [x] Add HUD window system (using imgui)
 - [x] Add collisions
     - [x] Add AABB
-    - [ ] Add convex colliders
-    - [x] Add OBB with SAT
+    - [ ] Add OBB with SAT
+    - [ ] Add convex colliders with SAT
     - [ ] Add GJK for convex colliders
     - [ ] Add quadtree or octree for broad-phase
+    - [ ] Add mesh shape colliders
 - [x] Add inputs
 - [x] Add sounds
     - [x] Add music

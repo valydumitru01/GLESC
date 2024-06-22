@@ -136,10 +136,9 @@ function(set_common_include_dirs target)
     assert_not_empty(${INCLUDE_DIR})
     assert_not_empty(${LIB_INCLUDE_DIR})
     assert_not_empty(${Boost_INCLUDE_DIRS})
-    assert_not_empty(${TEST_DIR})
     target_include_directories(${target} SYSTEM PRIVATE
             ${INCLUDE_DIR} ${LIB_INCLUDE_DIR}
-            ${Boost_INCLUDE_DIRS} ${TEST_DIR})
+            ${Boost_INCLUDE_DIRS})
 
     success("Added include directories to ${target}:
 \t\tProject Include Directory: ${INCLUDE_DIR}
@@ -160,7 +159,7 @@ endfunction()
 # ----------------------------------------------------------
 function(add_extra_include_dirs target dirs)
     assert_not_empty(${target})
-    assert_not_empty(${dirs})
+    assert_not_empty(dirs)
 
     important_info("Adding extra include directories to target ${target}")
 

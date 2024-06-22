@@ -9,13 +9,13 @@
  **************************************************************************************************/
 
 
-#include "TestsConfig.cpp"
+#include "TestsConfig.h"
 #if WINDOW_TESTING
 #include <gtest/gtest.h>
 #include <engine/core/low-level-renderer/graphic-api/GapiStructs.h>
 #include <engine/core/low-level-renderer/graphic-api/Gapi.h>
 #include "engine/core/window/WindowManager.h"
-#include "../math/MathCustomTestingFramework.cpp"
+#include "../math/MathCustomTestingFramework.h"
 
 class WindowManagerTest : public ::testing::Test {
 protected:
@@ -36,7 +36,7 @@ protected:
 TEST_F(WindowManagerTest, Size) {
     windowManager.setResizable(true);
     windowManager.setSize(800, 600);
-    GAPI::Viewport vp;
+    GLESC::GAPI::Viewport vp;
     GLESC::WindowDimensions windowDimensions;
     windowDimensions= windowManager.getSize();
     EXPECT_EQ_CUSTOM(windowDimensions.width, 800);

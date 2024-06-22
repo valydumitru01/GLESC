@@ -8,10 +8,11 @@
  * See LICENSE.txt in the project root for license information.
  ******************************************************************************/
 
-#include "TestsConfig.cpp"
+#include "TestsConfig.h"
 #if MATH_GEOMETRY_UNIT_TESTING
 #include <gtest/gtest.h>
-#include "unit/engine/core/math/MathCustomTestingFramework.cpp"
+#include "engine/core/exceptions/core/AssertFailedException.h"
+#include "unit/engine/core/math/MathCustomTestingFramework.h"
 #include "engine/core/math/Math.h"
 #include "engine/core/math/geometry/figures/plane/Plane.h"
 

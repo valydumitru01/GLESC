@@ -80,6 +80,10 @@ Point Polyhedron::getCenter() const {
     return vertices;
 }
 
+[[nodiscard]] std::vector<Point>& Polyhedron::getVerticesMutable() {
+    return vertices;
+}
+
 [[nodiscard]] bool Polyhedron::intersects(const Polyhedron& other) const {
     for (const auto& face : faces) {
         for (const auto& otherFace : other.getFaces()) {

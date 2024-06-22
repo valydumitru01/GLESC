@@ -64,11 +64,23 @@ set(DEBUG_FLAGS
         "-g"
         # Produce debugging information for gdb
         "-ggdb"
-        # This disables debugging for ECS, avoiding the overhead
+        # This disables debugging for ECS, avoiding the overhead, we put them in debug because is too slow
         "-DNDEBUG_ECS"
         # Verbose output, enabled only for specific problems
         # "-v"
         CACHE STRING "Flags used by the compiler during debug builds." FORCE
+)
+
+set(TEST_FLAGS
+        # Optimization flag, no optimization
+        "-O0"
+        # Produce debugging information
+        "-g"
+        # Produce debugging information for gdb
+        "-ggdb"
+        # Verbose output, enabled only for specific problems
+        # "-v"
+        CACHE STRING "Flags used by the compiler during test builds." FORCE
 )
 
 set(REL_WITH_DEB_INFO_FLAGS
@@ -150,6 +162,9 @@ function(set_common_compiler_flags_to_build_type target)
     elseif (CMAKE_BUILD_TYPE STREQUAL "RelWithDebInfo")
         target_compile_options(${target} PRIVATE ${REL_WITH_DEB_INFO_FLAGS})
         success("Flags applied to build type RelWithDebInfo: ${REL_WITH_DEB_INFO_FLAGS}")
+    elseif (CMAKE_BUILD_TYPE STREQUAL "game_test")
+        target_compile_options(${target} PRIVATE ${TEST_FLAGS})
+        success("Flags applied to build type Test: ${TEST_FLAGS}")
     else ()
         error("Unknown build type: ${CMAKE_BUILD_TYPE}")
     endif ()

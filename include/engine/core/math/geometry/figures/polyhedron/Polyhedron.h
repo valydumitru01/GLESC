@@ -32,6 +32,8 @@ namespace GLESC::Math {
         [[nodiscard]] const std::vector<PolyhedronFace> &getFaces() const;
 
         [[nodiscard]] const std::vector<Point> &getVertices() const;
+
+        [[nodiscard]] std::vector<Point>& getVerticesMutable();
         
         [[nodiscard]] bool intersects(const Polyhedron &other) const;
 

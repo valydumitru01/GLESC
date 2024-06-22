@@ -7,11 +7,12 @@
  * Copyright (c) 2023 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
 ******************************************************************************/
-#include "TestsConfig.cpp"
+#include "TestsConfig.h"
 #if MATH_GEOMETRY_UNIT_TESTING
 
 #include <gtest/gtest.h>
-#include <unit/engine/core/math/MathCustomTestingFramework.cpp>
+#include <unit/engine/core/math/MathCustomTestingFramework.h>
+#include "engine/core/exceptions/core/AssertFailedException.h"
 #include "engine/core/math/Math.h"
 #include "engine/core/math/geometry/figures/polyhedron/Polyhedron.h"
 
@@ -76,19 +77,19 @@ TEST(GeometryTests, PolyhedronIntersectsPoint) {
     auto polyhedronIntersectsPoint = createTetrahedron();
 
     // Test points inside the polyhedron
-    EXPECT_TRUE(polyhedronIntersectsPoint.intersects({0.25f, 0.25f, 0.25f}));
+    EXPECT_TRUE(polyhedronIntersectsPoint.intersects(Point{0.25f, 0.25f, 0.25f}));
     // Test points on the edge of the polyhedron
-    EXPECT_TRUE(polyhedronIntersectsPoint.intersects({0.5f, 0.5f, 0}));
+    EXPECT_TRUE(polyhedronIntersectsPoint.intersects(Point{0.5f, 0.5f, 0}));
     // Test points at the vertices of the polyhedron
-    EXPECT_TRUE(polyhedronIntersectsPoint.intersects({0, 0, 0}));
+    EXPECT_TRUE(polyhedronIntersectsPoint.intersects(Point{0, 0, 0}));
 
     // Polyhedron that does not intersect points
     auto polyhedronNotIntersectsPoint = createTetrahedron();
 
     // Test points outside the polyhedron
-    EXPECT_FALSE(polyhedronNotIntersectsPoint.intersects({1.5f, 1.5f, 1.5f}));
+    EXPECT_FALSE(polyhedronNotIntersectsPoint.intersects(Point{1.5f, 1.5f, 1.5f}));
     // Test points close to but outside the polyhedron
-    EXPECT_FALSE(polyhedronNotIntersectsPoint.intersects({-0.01f, -0.01f, -0.01f}));
+    EXPECT_FALSE(polyhedronNotIntersectsPoint.intersects(Point{-0.01f, -0.01f, -0.01f}));
 }
 
 TEST(GeometryTests, PolyhedronIntersectsLine) {

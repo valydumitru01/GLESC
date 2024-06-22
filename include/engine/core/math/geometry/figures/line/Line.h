@@ -19,12 +19,12 @@ namespace GLESC::Math {
         };
         /**
          * @brief Construct a new Line object.
-         * @param pointParam
-         * @param directionParam
-         * @param construct
+         * @param pointParam The point in the line
+         * @param pointOrDir The second point or the direction of the line
+         * @param construct The type of construction
          */
         Line(const Point &pointParam,
-             const Direction &directionParam,
+             const Vec3F &pointOrDir,
              Construct construct = Construct::PointDirection);
 
         Line() = default;

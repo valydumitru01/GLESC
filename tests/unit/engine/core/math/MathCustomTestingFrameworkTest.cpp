@@ -10,7 +10,7 @@
 
 #include <gtest/gtest.h>
 #include <random>
-#include "unit/engine/core/math/MathCustomTestingFramework.cpp"
+#include "unit/engine/core/math/MathCustomTestingFramework.h"
 
 
 template<typename T>

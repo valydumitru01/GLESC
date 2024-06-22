@@ -29,10 +29,8 @@ class ECSTests;
 
 namespace GLESC::ECS {
     class ECSCoordinator {
-        friend class ECSDebugger;
-        // Global namespace is necessary, IDE doesn't recognize it as an error and compiler complains, I found this
-        // error by sheer luck
         friend class ::ECSTests;
+        friend class ECSDebugger;
 
     public:
         ECSCoordinator() = default;
@@ -138,13 +136,13 @@ namespace GLESC::ECS {
 
         [[nodiscard]] const std::unordered_map<EntityName, EntityID>& getAllEntities() const;
 
-    protected:
         /**
          * @brief Destroy an entity
          * @param entity The ID of the entity
          * @return True if the entity was destroyed, false if the entity does not exist
          */
         bool destroyEntity(EntityID entity);
+    protected:
 
         void printStatus(const std::string& contextMessage = "");
         void printEntity(EntityID entity);

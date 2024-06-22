@@ -13,6 +13,7 @@
 #include <queue>
 #include <unordered_map>
 #include <array>
+#include <limits>
 
 #include "engine/core/asserts/Asserts.h"
 #include "engine/ecs/ECSTypes.h"
@@ -31,7 +32,7 @@ namespace GLESC::ECS {
         /**
          * @brief Null entity with ID 0. This is used to indicate that an entity does not exist.
          */
-        static constexpr EntityID nullEntity{static_cast<EntityID>(99999)};
+        static constexpr EntityID nullEntity{std::numeric_limits<EntityID>::max()};
         static constexpr EntityID firstEntity{0};
         S_ASSERT_TRUE(firstEntity == 0, "First entity must be 0, ComponentArray uses the entity ID as index, "
                       "if edited this, it needs ComponentArray to be updated as well");

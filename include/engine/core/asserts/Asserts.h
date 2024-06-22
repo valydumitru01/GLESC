@@ -38,7 +38,7 @@
 
 
 
-#ifdef NDEBUG
+#ifndef NDEBUG
 #include "engine/core/debugger/StackTrace.h"
 #include "engine/core/exceptions/core/AssertFailedException.h"
 #include "engine/core/debugger/Stringer.h"

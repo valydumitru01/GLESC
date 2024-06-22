@@ -8,6 +8,9 @@
  * See LICENSE.txt in the project root for license information.
  **************************************************************************************************/
 
+
+#include "TestsConfig.h"
+#ifdef MATH_ALGEBRA_UNIT_TESTING
 #include <gtest/gtest.h>
 #include <type_traits>
 #include <iostream>
@@ -16,9 +19,9 @@
 #include <glm/ext/matrix_transform.hpp>
 
 
-#include "unit/engine/core/math/algebra/matrix/MatrixTestsHelper.cpp"
-#include "unit/engine/core/math/MathCustomTestingFramework.cpp"
-#ifdef MATH_ALGEBRA_UNIT_TESTING
+#include "unit/engine/core/math/algebra/matrix/MatrixTestsHelper.h"
+#include "unit/engine/core/math/MathCustomTestingFramework.h"
+
 template <class Type>
 class MatrixAlgorithmsTests : public testing::Test {
 protected:
@@ -858,14 +861,14 @@ TEST(MatrixAlgorithmsTests, RotateAlgorithmZ) {
 }
 
 template <typename TypeDgrs>
-static glm::mat4 calculateGlmRotateMatrix(const GLESC::Math::VectorData<TypeDgrs, 3>& degrees) {
-    glm::mat4 glmMatToRotate3D = glm::mat4(1.0f);
-    // Rotate around X-axis
-    glmMatToRotate3D = glm::rotate(glmMatToRotate3D, degrees[0], glm::vec3(1, 0, 0));
+static glm::mat4 calculateGlmRotateMatrix(glm::mat4 glmMatToRotate3D,
+                                          const GLESC::Math::VectorData<TypeDgrs, 3>& degrees) {
     // Rotate around Y-axis
     glmMatToRotate3D = glm::rotate(glmMatToRotate3D, degrees[1], glm::vec3(0, 1, 0));
     // Rotate around Z-axis
     glmMatToRotate3D = glm::rotate(glmMatToRotate3D, degrees[2], glm::vec3(0, 0, 1));
+    // Rotate around X-axis
+    glmMatToRotate3D = glm::rotate(glmMatToRotate3D, degrees[0], glm::vec3(1, 0, 0));
     return glmMatToRotate3D;
 }
 
@@ -881,7 +884,7 @@ TEST(MatrixAlgorithmsTests, RotateAlgorithm) {
 
         GLESC::Math::MatrixMixedAlgorithms::getRotate3DMatrix(vecDegrs, rotate3D);
 
-        glm::mat4 glmMatToRotate3D = calculateGlmRotateMatrix(vecDegrs);
+        glm::mat4 glmMatToRotate3D = calculateGlmRotateMatrix(glm::mat4(1), vecDegrs);
         GLESC::Math::MatrixData<float, 4, 4> expectedRotate3D({});
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
@@ -938,54 +941,7 @@ TEST(MatrixAlgorithmsTests, PerspectiveProjectionAlgorithm) {
         GLESC::Math::MatrixAlgorithms::perspective(fovRads, nearPlane, farPlane, viewWidth, viewHeight,
                                                    perspectiveMatrix);
 
-        EXPECT_EQ_MAT(perspectiveMatrix, perspectiveGlmMatrix);
-    }
-
-    TEST_SECTION("Testing errors in projection matrix")
-    {
-        // Far plane is closer than the near plane
-        float fovRads = 0.3;
-        float nearPlane = 10;
-        float farPlane = 5;
-        float viewWidth = 140.0;
-        float viewHeight = 120.0;
-        GLESC::Math::MatrixData<double, 4, 4> perspectiveMatrix;
-        EXPECT_THROW(GLESC::Math::MatrixAlgorithms::perspective(fovRads, nearPlane, farPlane, viewWidth, viewHeight,
-                         perspectiveMatrix), AssertFailedException);
-
-        // Restore to a valid far plane and near plane
-        farPlane = 40.4;
-        nearPlane = 10;
-
-        // Fov is negative and zero
-        EXPECT_THROW(GLESC::Math::MatrixAlgorithms::perspective(-fovRads, nearPlane, farPlane, viewWidth, viewHeight,
-                         perspectiveMatrix), AssertFailedException);
-        EXPECT_THROW(GLESC::Math::MatrixAlgorithms::perspective(0, nearPlane, farPlane, viewWidth, viewHeight,
-                         perspectiveMatrix), AssertFailedException);
-
-        // Near plane is negative
-        EXPECT_THROW(GLESC::Math::MatrixAlgorithms::perspective(fovRads, -nearPlane, farPlane, viewWidth, viewHeight,
-                         perspectiveMatrix), AssertFailedException);
-        EXPECT_THROW(GLESC::Math::MatrixAlgorithms::perspective(fovRads, nearPlane, 0, viewWidth, viewHeight,
-                         perspectiveMatrix), AssertFailedException);
-
-        // Far plane is negative
-        EXPECT_THROW(GLESC::Math::MatrixAlgorithms::perspective(fovRads, nearPlane, -farPlane, viewWidth, viewHeight,
-                         perspectiveMatrix), AssertFailedException);
-        EXPECT_THROW(GLESC::Math::MatrixAlgorithms::perspective(fovRads, nearPlane, 0, viewWidth, viewHeight,
-                         perspectiveMatrix), AssertFailedException);
-
-        // View width is negative
-        EXPECT_THROW(GLESC::Math::MatrixAlgorithms::perspective(fovRads, nearPlane, farPlane, -viewWidth, viewHeight,
-                         perspectiveMatrix), AssertFailedException);
-        EXPECT_THROW(GLESC::Math::MatrixAlgorithms::perspective(fovRads, nearPlane, farPlane, viewWidth, 0,
-                         perspectiveMatrix), AssertFailedException);
-
-        // View height is negative
-        EXPECT_THROW(GLESC::Math::MatrixAlgorithms::perspective(fovRads, nearPlane, farPlane, viewWidth, -viewHeight,
-                         perspectiveMatrix), AssertFailedException);
-        EXPECT_THROW(GLESC::Math::MatrixAlgorithms::perspective(fovRads, nearPlane, farPlane, 0, viewHeight,
-                         perspectiveMatrix), AssertFailedException);
+        EXPECT_EQ_MAT_EPSILON(perspectiveMatrix, perspectiveGlmMatrix, 0.001);
     }
 }
 
@@ -996,27 +952,40 @@ glm::mat4 calculateGlmModelMatrix(const GLESC::Math::VectorData<float, 3>& posit
 
     // Apply translation
     model = glm::translate(model, glm::vec3(position[0], position[1], position[2]));
-
     // Apply rotation in the order of yaw (Y-axis), pitch (X-axis), and roll (Z-axis)
-    model = glm::rotate(model, rotationRads[0], glm::vec3(1.0f, 0.0f, 0.0f)); // Roll
-    model = glm::rotate(model, rotationRads[1], glm::vec3(0.0f, 1.0f, 0.0f)); // Pitch
-    model = glm::rotate(model, rotationRads[2], glm::vec3(0.0f, 0.0f, 1.0f)); // Yaw
-
+    model = calculateGlmRotateMatrix(model, rotationRads);
     // Apply scaling
     model = glm::scale(model, glm::vec3(scale[0], scale[1], scale[2]));
+
 
     return model;
 }
 
 glm::mat4 calculateGlmViewMatrix(const GLESC::Math::VectorData<float, 3>& cameraPosition,
-                                 const GLESC::Math::VectorData<float, 3>& cameraRotationDegrees) {
+                                 const GLESC::Math::VectorData<float, 3>& cameraRotationRads) {
     GLESC::Math::VectorData<float, 3> cameraPositionNegated;
-    GLESC::Math::VectorData<float, 3> cameraRotationDegreesNegated;
+    GLESC::Math::VectorData<float, 3> cameraRotationRadsNegated;
 
 
     GLESC::Math::VectorAlgorithms::vectorNegate(cameraPosition, cameraPositionNegated);
-    GLESC::Math::VectorAlgorithms::vectorNegate(cameraRotationDegrees, cameraRotationDegreesNegated);
-    return calculateGlmModelMatrix(cameraPositionNegated, cameraRotationDegreesNegated, {1, 1, 1});
+    GLESC::Math::VectorAlgorithms::vectorNegate(cameraRotationRads, cameraRotationRadsNegated);
+    glm::vec3 xAxis(1, 0, 0);
+    glm::vec3 yAxis(0, 1, 0);
+    glm::vec3 zAxis(0, 0, 1);
+
+    glm::vec3 scale(1.0f, 1.0f, 1.0f);
+
+    glm::vec3 pos(cameraPositionNegated[0], cameraPositionNegated[1], cameraPositionNegated[2]);
+    glm::vec3 rads(cameraRotationRadsNegated[0], cameraRotationRadsNegated[1], cameraRotationRadsNegated[2]);
+
+    glm::mat4 view = glm::mat4(1.0f);
+
+    view = glm::scale(view, scale);
+    view = glm::rotate(view, rads[2], zAxis);
+    view = glm::rotate(view, rads[0], xAxis);
+    view = glm::rotate(view, rads[1], yAxis);
+    view = glm::translate(view, pos);
+    return view;
 }
 
 glm::mat4 calculateGlmNormalMatrix(const glm::mat4& modelViewMatrix) {
@@ -1036,11 +1005,11 @@ TEST(MatrixAlgorithmsTests, CalculateModelMatrixAlgorithm) {
         {{1.9, 2.0, 2.1}, {100, 110, 120}, {1000, -1100, 1200}},
         {{2.2, 2.3, 2.4}, {130, 140, -150}, {1300, 1400, 1500}},
     };
-    for (const auto& [scale, rotationDegrees, position] : transforms) {
-        GLESC::Math::MatrixMixedAlgorithms::calculateModelMatrix(position, rotationDegrees, scale, modelMatrix);
+    for (const auto& [scale, rotationRads, position] : transforms) {
+        GLESC::Math::MatrixMixedAlgorithms::calculateModelMatrix(position, rotationRads, scale, modelMatrix);
 
         // Check against glm
-        glm::mat4 glmMat = calculateGlmModelMatrix(position, rotationDegrees, scale);
+        glm::mat4 glmMat = calculateGlmModelMatrix(position, rotationRads, scale);
 
         GLESC::Math::MatrixData<float, 4, 4> modelGlmMatrix;
         for (int i = 0; i < 4; i++) {

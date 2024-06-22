@@ -1,5 +1,5 @@
 /**************************************************************************************************
- * @file   CustomTestingFramework.cpp
+ * @file   CustomTestingFramework.h
  * @author Valentin Dumitru
  * @date   25/01/2024
  * @brief  Add description of this file if needed @TODO
@@ -31,7 +31,19 @@ void expectEqCustom(const Type1& a, const Type2& b) {
         EXPECT_EQ(a, b);
         std::cout << "\n";
     }
+}
 
+template <typename Type1, typename Type2>
+void expectEqCustomEpsilon(const Type1& a, const Type2& b, const Type1& epsilon) {
+    std::cout << "Comparing values: " << GLESC::Stringer::toString(a) << " and " << GLESC::Stringer::toString(b);
+    if constexpr (std::is_floating_point_v<Type1> || std::is_floating_point_v<Type2>) {
+        std::cout << " with epsilon: " << GLESC::Stringer::toString(epsilon) << "\n";
+        EXPECT_NEAR(a, b, epsilon);
+    }
+    else{
+        EXPECT_EQ(a, b);
+        std::cout << "\n";
+    }
 }
 
 template <typename Type1, typename Type2>

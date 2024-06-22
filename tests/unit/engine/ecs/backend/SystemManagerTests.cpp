@@ -8,11 +8,11 @@
  * See LICENSE.txt in the project root for license information.
  **************************************************************************************************/
 
-#include "TestsConfig.cpp"
+#include "TestsConfig.h"
 #if ECS_BACKEND_UNIT_TESTING
 #include <gtest/gtest.h>
 #include "engine/ecs/backend/system/SystemManager.h"
-#include "unit/CustomTestingFramework.cpp"
+#include "unit/CustomTestingFramework.h"
 
 class SystemManagerTests : public testing::Test {
 protected:

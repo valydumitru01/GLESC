@@ -8,7 +8,7 @@
  * See LICENSE.txt in the project root for license information.
  **************************************************************************************************/
 
-#include "TestsConfig.cpp"
+#include "TestsConfig.h"
 #if MATH_RANDOM_GENERATION_UNIT_TESTING
 #include <gtest/gtest.h>
 #include <unordered_set>

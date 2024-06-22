@@ -8,11 +8,12 @@
  * See LICENSE.txt in the project root for license information.
  **************************************************************************************************/
 
-#include "TestsConfig.cpp"
+#include "TestsConfig.h"
 #if ECS_BACKEND_UNIT_TESTING
 #include <gtest/gtest.h>
+#include "engine/core/exceptions/core/AssertFailedException.h"
 #include "engine/ecs/backend/component/ComponentManager.h"
-#include "unit/CustomTestingFramework.cpp"
+#include "unit/CustomTestingFramework.h"
 
 class ComponentManagerTests : public testing::Test {
 protected:
@@ -155,11 +156,11 @@ TEST_F(ComponentManagerTests, AddComponentToEntity) {
         getComponentManager().getComponentName(getComponentManager().getComponentID<TestComponent3>()));
 
     ASSERT_TRUE(componentArrayTestComponent1.getSize() == 1);
-    ASSERT_TRUE(componentArrayTestComponent1.getComponent(0).toString() == testComponent1.toString());
+    ASSERT_TRUE(componentArrayTestComponent1.getComponent(entityID).toString() == testComponent1.toString());
     ASSERT_TRUE(componentArrayTestComponent2.getSize() == 1);
-    ASSERT_TRUE(componentArrayTestComponent2.getComponent(0).toString() == testComponent2.toString());
+    ASSERT_TRUE(componentArrayTestComponent2.getComponent(entityID).toString() == testComponent2.toString());
     ASSERT_TRUE(componentArrayTestComponent3.getSize() == 1);
-    ASSERT_TRUE(componentArrayTestComponent3.getComponent(0).toString() == testComponent3.toString());
+    ASSERT_TRUE(componentArrayTestComponent3.getComponent(entityID).toString() == testComponent3.toString());
 }
 
 TEST_F(ComponentManagerTests, RemoveComponentFromEntity) {

@@ -51,6 +51,7 @@ EntityID EntityManager::createNextEntity(const EntityName& nameParam, const Enti
 void EntityManager::destroyEntity(EntityID entity) {
     D_ASSERT_TRUE(areThereLivingEntities(), "There must be living entities to destroy one");
     D_ASSERT_TRUE(doesEntityExist(entity), "Entity must exist before destruction");
+    D_ASSERT_TRUE((entity != GLESC::ECS::EntityManager::nullEntity), "Entity must not be nullEntity");
 
     if (isEntityInstanced(entityIDToName[entity])) {
         EntityName instanceName = Stringer::strip(entityIDToName[entity], "1234567890");
