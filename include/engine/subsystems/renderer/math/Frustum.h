@@ -55,7 +55,7 @@ namespace GLESC::Render {
     private:
        /**
         * @brief Extracts the frustum planes from a combined view-projection matrix. Uses Hartmann & Gribbs method.
-        * It's done with row-major matrices.
+        * It's done with colum-major matrices (OpenGL).
         * @see https://web.archive.org/web/20210226045225/http://www.cs.otago.ac.nz/postgrads/alexis/planeExtraction.pdf
         *
         * @param VPMatrix The combined view-projection matrix.
