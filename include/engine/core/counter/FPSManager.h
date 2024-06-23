@@ -1,8 +1,8 @@
 /******************************************************************************
-* @file   FPSManager.h
+ * @file   FPSManager.h
  * @author Valentin Dumitru
  * @date   2023-09-26
- * @brief @todo
+ * @brief Class that encapsulates the logic of managing the frames and the loop.
  *
  * Copyright (c) 2023 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
@@ -60,7 +60,7 @@ public:
      */
     void refreshUpdateLag();
 
-    bool hasSpiralOfDeathBeenReached() const;
+    [[nodiscard]] bool hasSpiralOfDeathBeenReached() const;
 
     /**
      * @brief Get the constant speed in which our game updates
@@ -152,5 +152,8 @@ private:
      */
     int fpsListIndex{0};
 
+    /**
+     * @brief The averager to calculate the average fps
+     */
     FPSAverager fpsAverager;
 };

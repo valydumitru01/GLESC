@@ -11,14 +11,37 @@
 #include "engine/core/low-level-renderer/graphic-api/GapiTypes.h"
 
 
-using SDL_SurfacePtr = std::unique_ptr<SDL_Surface, decltype(&SDL_FreeSurface)>;
+namespace GLESC {
+    /**
+     * @brief A smart pointer for SDL_Surface
+     */
+    using SDL_SurfacePtr = std::unique_ptr<SDL_Surface, decltype(&SDL_FreeSurface)>;
+    /**
+     * @brief A class that loads textures from the file system
+     */
+    class TextureLoader {
+    public:
+        /**
+         * @brief Loads a texture from the file system
+         * @param path The path to the texture
+         * @param flipTexture If the texture should be flipped
+         * @return A smart pointer to the texture
+         */
+        static SDL_SurfacePtr loadTexture(const std::string& path, bool flipTexture);
 
-class TextureLoader {
-public:
-    static SDL_SurfacePtr loadTexture(const std::string &path, bool flipTexture);
-
-private:
-    
-    static SDL_SurfacePtr flipSurface(SDL_Surface &surface);
-    static SDL_SurfacePtr createSurface(const std::string &filePath);
-};
+    private:
+        /**
+         * @brief Flips a surface
+         * @details It is needed because some graphic APIs require textures to be flipped
+         * @param surface The surface to flip
+         * @return The flipped surface
+         */
+        static SDL_SurfacePtr flipSurface(SDL_Surface& surface);
+        /**
+         * @brief Creates a surface from a file, it is called by loadTexture
+         * @param filePath The path to the file
+         * @return The surface
+         */
+        static SDL_SurfacePtr createSurface(const std::string& filePath);
+    };
+}

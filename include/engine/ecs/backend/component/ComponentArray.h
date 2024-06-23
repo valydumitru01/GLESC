@@ -32,16 +32,31 @@ namespace GLESC::ECS {
         virtual size_t getSize() = 0;
     };
 
+    /**
+     * @brief The ComponentArray class is a template class that stores components of a specific type
+     * @tparam Component The type of component to store
+     */
     template <typename Component>
     class ComponentArray : public IComponentArray {
     public:
         ComponentArray() = default;
-
+        /**
+         * @brief Get the component of the entity
+         * @param entity The entity to get the component from
+         * @return The component of the entity
+         */
         IComponent& getComponent(EntityID entity) override {
             D_ASSERT_TRUE(hasComponent(entity), "Entity does not have component");
             return componentArray[entityToIndexMap.at(entity)];
         }
 
+        /**
+         * @brief Inserts the data of the entity into the array
+         * @details The entity is added to the end of the array
+         * It is also added to some maps for quick lookup
+         * @param entity The entity to insert
+         * @param component The component to insert
+         */
         void insertData(EntityID entity,const Component& component) {
             PRINT_COMPONENT_ARRAY_STATUS(
                 "Before inserting component:\n"
@@ -98,6 +113,11 @@ namespace GLESC::ECS {
             PRINT_COMPONENT_ARRAY_STATUS("After removing data from entity " + std::to_string(entity));
         }
 
+        /**
+         * @brief Get the data of the entity
+         * @param entity The entity to get the data from
+         * @return The data of the entity
+         */
         Component& getData(EntityID entity) {
             D_ASSERT_TRUE(hasComponent(entity), "Entity does not have component");
 
@@ -116,6 +136,11 @@ namespace GLESC::ECS {
             return entityToIndexMap.find(entity) != entityToIndexMap.end();
         }
 
+        /**
+         * @brief Called when an entity is destroyed
+         * @details The entity is removed from the array
+         * @param entity The entity that was destroyed
+         */
         void entityDestroyed(EntityID entity) override {
             if (entityToIndexMap.find(entity) != entityToIndexMap.end()) {
                 removeData(entity);
@@ -123,6 +148,10 @@ namespace GLESC::ECS {
         }
 
     private:
+        /**
+         * @brief Print the status of the component array
+         * @param context The context of the status
+         */
         void printStatus(const std::string& context) {
             Logger::get().importantInfoBlue("ComponentArray Status Report - Context: " + context);
             const char* componentName = typeid(Component).name();

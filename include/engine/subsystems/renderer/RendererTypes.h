@@ -68,7 +68,7 @@ namespace GLESC::Render {
     using MVP = Mat4F;
 
     template <typename IntensityType>
-    class Intensity{
+    [[nodiscard]] class Intensity {
     public:
         Intensity() = default;
 
@@ -153,7 +153,7 @@ namespace GLESC::Render {
 
     struct ColorRgba;
 
-    struct ColorRgb : Vec3F {
+    [[nodiscard]] struct ColorRgb : Vec3F {
         static const ColorRgb Red;
         static const ColorRgb Green;
         static const ColorRgb DarkGreen;
@@ -197,27 +197,27 @@ namespace GLESC::Render {
         }
 
 
-        [[nodiscard]]const float& getR() const {
+        [[nodiscard]] const float& getR() const {
             return data[0];
         }
 
-        [[nodiscard]]const float& getG() const {
+        [[nodiscard]] const float& getG() const {
             return data[1];
         }
 
-        [[nodiscard]]const float& getB() const {
+        [[nodiscard]] const float& getB() const {
             return data[2];
         }
 
-        [[nodiscard]]float getRNormalized() const {
+        [[nodiscard]] float getRNormalized() const {
             return ColorFuncs::normalizeColorValue(data[0]);
         }
 
-        [[nodiscard]]float getGNormalized() const {
+        [[nodiscard]] float getGNormalized() const {
             return ColorFuncs::normalizeColorValue(data[1]);
         }
 
-        [[nodiscard]]float getBNormalized() const {
+        [[nodiscard]] float getBNormalized() const {
             return ColorFuncs::normalizeColorValue(data[2]);
         }
 
@@ -247,8 +247,7 @@ namespace GLESC::Render {
     };
 
 
-
-    struct ColorRgba : Vec4F {
+    [[nodiscard]] struct ColorRgba : Vec4F {
         ColorRgba() = default;
 
         ColorRgba(const ColorRgba& other) = default;
@@ -357,8 +356,9 @@ namespace GLESC::Render {
      * @brief Color in normalized values
      * @details This cannot be constructed on its own, must be constructed from a ColorRgb
      */
-    struct ColorRgbNorm : Vec3F {
-        ColorRgbNorm() : Vec3F(0) {}
+    [[nodiscard]] struct ColorRgbNorm : Vec3F {
+        ColorRgbNorm() : Vec3F(0) {
+        }
 
         [[nodiscard]] float getR() const {
             return data[0];
@@ -418,7 +418,7 @@ namespace GLESC::Render {
      * @brief Color in normalized values
      * @details This cannot be constructed on its own, must be constructed from a ColorRgb
      */
-    struct ColorRgbaNorm : Vec4F {
+    [[nodiscard]] struct ColorRgbaNorm : Vec4F {
         ColorRgbaNorm() = delete;
 
         [[nodiscard]] float getR() const {

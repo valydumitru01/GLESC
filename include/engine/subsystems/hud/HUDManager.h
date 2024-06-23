@@ -15,25 +15,58 @@
 namespace GLESC::HUD {
     class HUDManager {
     public:
+        /**
+         * The ID of a window
+         */
         using WindowID = int;
-        HUDManager(SDL_Window& window);
+        /**
+         * @brief Constructor for the HUDManager
+         * @param window The SDL window to render the HUD on
+         */
+        explicit HUDManager(SDL_Window& window);
+        /**
+         * @brief Destructor for the HUDManager
+         */
         ~HUDManager();
 
+        /**
+         * @brief Process input for the HUD
+         * @details Calls the ImGui SDL input processing function
+         * @param event The SDL event to process
+         */
         void processInput(SDL_Event& event);
 
         /**
-         * Add a new window to the HUD
-         * Uses the move operator, this manager will take ownership of the window
+         * @brief Add a new window to the HUD
+         * @details Uses the move operator, this manager will take ownership of the window
          * @return the ID of the window
          */
-        WindowID addWindow(GLESC::InGameWindow& window);
+        WindowID addWindow(InGameWindow& window);
 
-        GLESC::InGameWindow &getWindow(WindowID id);
+        /**
+         * @brief Get a window by its ID
+         * @param id The ID of the window
+         * @return The window
+         */
+        InGameWindow &getWindow(WindowID id);
 
+        /**
+         * Remove a window from the HUD
+         * @param id The ID of the window to remove
+         */
         void removeWindow(WindowID id);
-
+        /**
+         * @brief Update the HUD
+         * @details Updates the positions of the windows given their layout configurations
+         * and the current window size
+         */
         void update();
 
+        /**
+         * @brief Render the HUD
+         * @details The time of frame is needed to interpolate hud items and allow for smooth rendering
+         * @param timeOfFrame The time of the current frame
+         */
         void render(double timeOfFrame);
 
     private:

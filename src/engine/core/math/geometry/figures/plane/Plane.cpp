@@ -45,9 +45,7 @@ void Plane::setNormal(const Direction& normalParam) {
     normal = normalParam;
 }
 
-void Plane::setDistance(Distance distanceParam) {
-    distance = distanceParam;
-}
+
 
 void Plane::normalize() {
     float length = normal.length();
@@ -62,13 +60,7 @@ std::string Plane::toString() const {
     return "Plane: normal = " + normal.toString() + ", distance from [0,0] = " + std::to_string(distance);
 }
 
-[[nodiscard]] const Direction& Plane::getNormal() const {
-    return normal;
-}
 
-[[nodiscard]] Distance Plane::getDistance() const {
-    return distance;
-}
 
 /**
  * @brief Calculate the distance from the plane to a point.

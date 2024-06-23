@@ -15,6 +15,10 @@
 #include "Texture.h"
 #include "engine/core/hash/Hasher.h"
 
+/**
+ * Class that abstracts away the creation of GPU textures. It also caches the textures to avoid
+ * loading the same texture multiple times.
+ */
 class TextureFactory {
 public:
     /**

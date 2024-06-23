@@ -12,6 +12,12 @@
 #include "Mesh.h"
 
 namespace GLESC::Render {
+    /**
+     * @brief Factory class for creating meshes
+     * @details This is a utily class that helps create predefined meshes such as cube, sphere and so on.
+     * For now this class is the building block for the mesh class as you are not able to import meshes and building
+     * meshes by hand is pretty hard.
+     */
     class MeshFactory {
     public:
         static ColorMesh cube(const ColorRgba &color, const Math::Distance& radius = 1.0);

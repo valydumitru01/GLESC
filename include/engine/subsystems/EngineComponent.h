@@ -12,6 +12,14 @@
 
 #include "ingame-debug/EntityStatsManager.h"
 
+/**
+ * @brief Class that represents a component of the engine
+ * @details A component in the engine is a encapsulated piece of data with functionality that can be attached to an
+ * entity. It can be a camera, a physics component, a transform component, etc.
+ * This abstraction is useful for, for example, debugging purposes, where we can get all the debugging values as
+ * a list and abstrat away the implementation details of the component iterating over all the components.
+ * Also allows storing the owner name (the entity name) for debugging purposes.
+ */
 class EngineComponent {
 public:
     virtual ~EngineComponent() = default;

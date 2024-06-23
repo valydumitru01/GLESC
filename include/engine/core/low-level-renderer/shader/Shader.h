@@ -2,7 +2,7 @@
  * @file   Shader.h
  * @author Valentin Dumitru
  * @date   2023-11-07
- * @brief  Add description of this file if needed @TODO 
+ * @brief  Class for handling shaders.
  *
  * Copyright (c) 2023 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
@@ -37,20 +37,37 @@ namespace GLESC::GAPI {
          * @param fileName The file name of the shader source code
          */
         Shader(const std::string& fileName, const std::vector<ShaderMacros>& macros = {USE_COLOR});
-
+        /**
+         * @brief Destructor, deletes the shader program
+         */
         ~Shader();
-
+        /**
+         * @brief Binds the shader program of the object
+         */
         void bind() const;
-
+        /**
+         * @brief Unbinds the shader program
+         */
         void unbind() const;
 
+        /**
+         * @brief Sets a uniform value in the shader
+         * @tparam Type The type of the uniform value
+         * @param name The name of the uniform
+         * @param value The value to be set
+         */
         template <typename Type>
         static void setUniform(const std::string& name, const Type& value) {
             Int location= getGAPI().getUniformLocation(name);
             getGAPI().setUniform(location, value);
             D_ASSERT_EQUAL(getGAPI().getUniformValue<Type>(location), value, "Uniform was not set correctly");
         }
-
+        /**
+         * @brief Gets a uniform value from the shader
+         * @tparam Type The type of the uniform value
+         * @param name The name of the uniform
+         * @return The value of the uniform
+         */
         template<typename Type>
         auto getUniform(const std::string& name) const {
             return getGAPI().getUniformValue<Type>(getGAPI().getUniformLocation(name));

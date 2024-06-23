@@ -8,13 +8,12 @@
  * See LICENSE.txt in the project root for license information.
  ******************************************************************************/
 
-#include "engine/core/exceptions/resources/ResourceException.h"
 #include "engine/core/logger/Logger.h"
 #include "engine/res-mng/textures/TextureLoader.h"
 
 #include "engine/core/debugger/Debugger.h"
 #include "engine/core/file-system/BinPath.h"
-
+using namespace GLESC;
 
 SDL_SurfacePtr TextureLoader::createSurface(const std::string &filePath) {
     D_ASSERT_FALSE(filePath.empty(), "File path is empty.");

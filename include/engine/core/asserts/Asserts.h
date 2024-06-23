@@ -2,7 +2,10 @@
  * @file   Asserts.h
  * @author Valentin Dumitru
  * @date   2023-09-26
- * @brief @todo
+ * @brief Set of macros for runtime and compile time assertions.
+ * @details This file contains a set of macros that can be used to check conditions at runtime and compile time.
+ * It's separated into two categories: runtime asserts and static asserts. If the NDEBUG macro is defined, the
+ * asserts will be empty, otherwise, they will throw an AssertFailedException if the condition is not met.
  *
  * Copyright (c) 2023 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
@@ -39,23 +42,43 @@
 
 
 #ifndef NDEBUG
-#include "engine/core/debugger/StackTrace.h"
-#include "engine/core/exceptions/core/AssertFailedException.h"
-#include "engine/core/debugger/Stringer.h"
-#include "engine/core/logger/Logger.h"
 #include <cmath>
 #include <limits>
 #include <string>
 #include <type_traits>
+#include <sstream>
+#include "engine/core/exceptions/core/AssertFailedException.h"
+#include "engine/core/debugger/Stringer.h"
+#include "engine/core/logger/Logger.h"
 
 // ------------------------ Runtime asserts ---------------------------
 // Runtime asserts are used to check conditions at runtime
 
+/**
+ * @brief Converts two values to a string for comparison
+ * @details This function is useful to print the values that are being compared in the asserts.
+ *
+ * @param value The first value
+ * @param expected The second value
+ * @return std::string The string representation of the values
+ */
 inline std::string comparingValuesToString(const std::string& value, const std::string& expected) {
     return "Left Value : " + value + " Right Value: " + expected + "\n";
 }
 
-
+/**
+ * @brief Compares two values for equality
+ * @details This function is used to compare two values for equality. It is only used for the runtime asserts.
+ * It already exists a similar implementation of equality comparison in Math.h, but given that we need asserts
+ * to be independent to avoid circular dependencies, we have to implement it here.
+ *
+ * @tparam Type1 The type of the first value
+ * @tparam Type2 The type of the second value
+ * @param value The first value
+ * @param expected The second value
+ * @return true If the values are equal
+ * @return false If the values are not equal
+ */
 template <typename Type1, typename Type2>
 bool assertEqualsEq(const Type1& value, const Type2& expected) {
     // Floating point comparison
@@ -113,42 +136,42 @@ bool assertEqualsEq(const Type1& value, const Type2& expected) {
         do { \
         std::string valuesString = comparingValuesToString(GLESC::Stringer::toString(value), \
                    GLESC::Stringer::toString(expected)); \
-            ASSERT_CONTENT(assertEqualsEq((value), (expected)), (valuesString + message)) \
+            ASSERT_CONTENT(assertEqualsEq((value), (expected)), (valuesString + (message))) \
         } while (false)
 
 #define D_ASSERT_GREATER(value, expected, message) \
         do { \
         std::string valuesString = comparingValuesToString(GLESC::Stringer::toString(value), \
                    GLESC::Stringer::toString(expected)); \
-            ASSERT_CONTENT((value) > (expected), (valuesString + message)) \
+            ASSERT_CONTENT((value) > (expected), (valuesString + (message))) \
         } while (false)
 
 #define D_ASSERT_GREATER_OR_EQUAL(value, expected, message) \
         do { \
         std::string valuesString = comparingValuesToString(GLESC::Stringer::toString(value), \
                    GLESC::Stringer::toString(expected)); \
-            ASSERT_CONTENT((value) >= (expected), (valuesString + message)) \
+            ASSERT_CONTENT((value) >= (expected), (valuesString + (message))) \
         } while (false)
 
 #define D_ASSERT_LESS(value, expected, message) \
         do { \
         std::string valuesString = comparingValuesToString(GLESC::Stringer::toString(value), \
                    GLESC::Stringer::toString(expected)); \
-            ASSERT_CONTENT((value) < (expected), (valuesString + message)) \
+            ASSERT_CONTENT((value) < (expected), (valuesString + (message))) \
         } while (false)
 
 #define D_ASSERT_LESS_OR_EQUAL(value, expected, message) \
         do { \
         std::string valuesString = comparingValuesToString(GLESC::Stringer::toString(value), \
                    GLESC::Stringer::toString(expected)); \
-            ASSERT_CONTENT((value) <= (expected), (valuesString + message)) \
+            ASSERT_CONTENT((value) <= (expected), (valuesString + (message))) \
         } while (false)
 
 #define D_ASSERT_NOT_EQUAL(value, expected, message) \
         do { \
         std::string valuesString = comparingValuesToString(GLESC::Stringer::toString(value), \
                    GLESC::Stringer::toString(expected)); \
-            ASSERT_CONTENT(!assertEqualsEq((value), (expected)), (valuesString + message)) \
+            ASSERT_CONTENT(!assertEqualsEq((value), (expected)), (valuesString + (message))) \
         } while (false)
 
 
@@ -165,18 +188,18 @@ bool assertEqualsEq(const Type1& value, const Type2& expected) {
         static_assert((condition) == (expected), message)
 
 #define S_ASSERT_GREATER(condition, expected, message) \
-        static_assert(condition > expected, message)
+        static_assert((condition) > (expected), message)
 
 #define S_ASSERT_GREATER_OR_EQUAL(condition, expected, message) \
-        static_assert(condition >= expected, message)
+        static_assert((condition) >= (expected), message)
 
 #define S_ASSERT_LESS(condition, expected, message) \
-        static_assert(condition < expected, message)
+        static_assert((condition) < expected, message)
 
 #define S_ASSERT_LESS_OR_EQUAL(condition, expected, message) \
-        static_assert(condition <= expected, message)
+        static_assert((condition) <= (expected), message)
 
 #define S_ASSERT_NOT_EQUAL(condition, expected, message) \
-        static_assert(condition != expected, message)
+        static_assert((condition) != (expected), message)
 
 #endif

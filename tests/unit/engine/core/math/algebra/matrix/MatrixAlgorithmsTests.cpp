@@ -425,7 +425,7 @@ TYPED_TEST(MatrixAlgorithmsTests, MatrixMatrixMul) {
     constexpr size_t X = 3; // Example, adjust P as needed for the second matrix dimension
 
 
-    if constexpr (GLESC::Math::MatrixAlgorithms::rowMajorMatrix) {
+    if constexpr (GLESC::Math::MatrixAlgorithms::columnMajorMatrix) {
         GLESC::Math::MatrixData<Type, M, N> matrixToMulLeft;
         initializeMatrixWithValues(matrixToMulLeft);
 
@@ -863,10 +863,11 @@ TEST(MatrixAlgorithmsTests, RotateAlgorithmZ) {
 template <typename TypeDgrs>
 static glm::mat4 calculateGlmRotateMatrix(glm::mat4 glmMatToRotate3D,
                                           const GLESC::Math::VectorData<TypeDgrs, 3>& degrees) {
-    // Rotate around Y-axis
-    glmMatToRotate3D = glm::rotate(glmMatToRotate3D, degrees[1], glm::vec3(0, 1, 0));
+
     // Rotate around Z-axis
     glmMatToRotate3D = glm::rotate(glmMatToRotate3D, degrees[2], glm::vec3(0, 0, 1));
+    // Rotate around Y-axis
+    glmMatToRotate3D = glm::rotate(glmMatToRotate3D, degrees[1], glm::vec3(0, 1, 0));
     // Rotate around X-axis
     glmMatToRotate3D = glm::rotate(glmMatToRotate3D, degrees[0], glm::vec3(1, 0, 0));
     return glmMatToRotate3D;

@@ -12,7 +12,7 @@
 using namespace GLESC::Render;
 
 void Frustum::extractPlanes(const VP& VPMatrix) {
-    if constexpr (Math::MatrixAlgorithms::rowMajorMatrix) [[maybe_unused]]  {
+    if constexpr (Math::MatrixAlgorithms::columnMajorMatrix) [[maybe_unused]]  {
         // Left clipping plane
         planes[0].setNormal(Math::Direction(VPMatrix[0][3] + VPMatrix[0][0],
                                             VPMatrix[1][3] + VPMatrix[1][0],

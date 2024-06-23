@@ -10,8 +10,8 @@
 namespace GLESC::Render {
 #pragma pack(push, 1)
     /**
-     * @brief Represents a Vertex in the mesh
-     * @details This vertex must be tightly packed, and so does all of its members
+     * @brief Represents the base Vertex in the mesh
+     * @details This is tightly packed, and so are all of its members
      */
     class BaseVertex {
     public:
@@ -42,6 +42,10 @@ namespace GLESC::Render {
         Normal normal;
     };
 
+    /**
+     * @brief Represents a vertex with color
+     * @details This is tightly packed, and so are all of its members
+     */
     class ColorVertex : public BaseVertex {
     public:
         [[nodisacrd]] static const std::vector<GAPI::Enums::Types>& getLayout() { return layout; }
@@ -63,6 +67,10 @@ namespace GLESC::Render {
         static std::vector<GAPI::Enums::Types> layout;
     };
 
+    /**
+     * @brief Represents a vertex with texture coordinates
+     * @details This is tightly packed, and so are all of its members
+     */
     class TextureVertex : public BaseVertex {
     public:
         [[nodisacrd]] static const std::vector<GAPI::Enums::Types>& getLayout() { return layout; }

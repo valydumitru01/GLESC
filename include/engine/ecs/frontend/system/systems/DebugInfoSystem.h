@@ -2,7 +2,7 @@
  * @file   DebugInfoSystem.h
  * @author Valentin Dumitru
  * @date   2024-03-24
- * @brief  Add description of this file if needed @TODO 
+ * @brief  System that displays debug information about the selected entity
  *
  * Copyright (c) 2024 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
@@ -16,9 +16,6 @@
 namespace GLESC::ECS {
     class DebugInfoSystem : public System {
     public:
-        /**
-         * @brief Default constructor.
-         */
         DebugInfoSystem(ECSCoordinator& ecs, Render::Renderer& renderer);
 
 

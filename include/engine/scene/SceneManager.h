@@ -2,7 +2,7 @@
  * @file   SceneManager.h
  * @author Valentin Dumitru
  * @date   13/05/2024
- * @brief  Add description of this file if needed @TODO
+ * @brief  Scene handler and switcher.
  *
  * Copyright (c) 2023 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
@@ -15,7 +15,10 @@
 
 namespace GLESC::Scene {
     class Scene;
-
+    /**
+     * @brief Manages the scenes of the game.
+     * @details It contains the scenes and the current scene. Allows switching between scenes.
+     */
     class SceneManager {
     public:
         SceneManager(ECS::EntityFactory& entityFactory,

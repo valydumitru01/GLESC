@@ -64,26 +64,68 @@ namespace GLESC::Math {
          */
         Plane(const Point& point, const Line& line);
 
-
+        /**
+         * @brief Construct a new Plane object from another plane. Default copy constructor.
+         * @param plane The plane to copy.
+         */
         Plane(const Plane& plane) = default;
 
+        /**
+         * @brief Construct a new Plane object from another plane. Default move constructor.
+         * @param plane The plane to move.
+         */
         Plane(Plane&& plane) = default;
 
+        /**
+         * @brief Assign a plane to another plane. Default copy assignment operator.
+         * @param plane The plane to copy.
+         * @return Plane& The assigned plane.
+         */
         Plane& operator=(const Plane& plane) = default;
 
+        /**
+         * @brief Assign a plane to another plane. Default move assignment operator.
+         * @param plane The plane to move.
+         * @return Plane& The assigned plane.
+         */
         Plane& operator=(Plane&& plane) = default;
 
+        /**
+         * @brief Destroy the Plane object. Default destructor.
+         */
         ~Plane() = default;
 
+        /**
+         * @brief Set the normal vector of the plane.
+         * @details The normal vector is normalized if its length is greater than 1.
+         * The normal cannot be a zero vector.
+         * @param normalParam The normal vector of the plane.
+         */
         void setNormal(const Direction& normalParam);
 
+        /**
+         * @brief Normalize the normal vector of the plane.
+         */
         void normalize();
 
-        void setDistance(Distance distanceParam);
+        /**
+         * @brief Set the distance from the origin to the plane.
+         * @param distanceParam The distance from the origin to the plane.
+         */
+        void setDistance(Distance distanceParam) { distance = distanceParam; }
 
-        [[nodiscard]] const Direction& getNormal() const;
+        /**
+         * @brief Get the normal vector of the plane.
+         * @return const Direction& The normal vector of the plane.
+         */
+        [[nodiscard]] const Direction& getNormal() const { return normal; }
 
-        [[nodiscard]] Distance getDistance() const;
+        /**
+         * @brief Get the distance from the origin to the plane.
+         * @return Distance The distance from the origin to the plane.
+         */
+        [[nodiscard]] Distance getDistance() const { return distance; }
+
 
         /**
          * @brief Calculate the distance from the plane to a point.
@@ -133,7 +175,11 @@ namespace GLESC::Math {
          */
         bool operator==(const Plane& other) const;
 
-        std::string toString() const;
+        /**
+         * @brief Convert the plane to a string.
+         * @return String representation of the plane.
+         */
+        [[nodiscard]] std::string toString() const;
 
     private:
         /**

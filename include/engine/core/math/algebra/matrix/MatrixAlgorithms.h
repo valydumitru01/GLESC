@@ -24,7 +24,13 @@
 
 namespace GLESC::Math {
     class MatrixAlgorithms {
+
+
     public:
+        /**
+         * @brief Defines if the matrix implementation is row-major.
+         */
+        static constexpr bool columnMajorMatrix = true;
         // =============================================================================================================
         // ========================================= Matrix data movement ==============================================
         // =============================================================================================================
@@ -59,6 +65,16 @@ namespace GLESC::Math {
             }
         }
 
+        /**
+         * @brief Swaps two rows of a matrix.
+         * @details Swaps two rows of a matrix. The rows are specified by their indices.
+         * @tparam Type The data type of the matrix elements (e.g., float, double).
+         * @tparam N The number of rows of the matrix.
+         * @tparam M The number of columns of the matrix.
+         * @param matrix The matrix.
+         * @param row1 The index of the first row.
+         * @param row2 The index of the second row.
+         */
         template <typename Type, size_t N, size_t M>
         static void swapRows(MatrixData<Type, N, M>& matrix, size_t row1, size_t row2) {
             for (size_t i = 0; i < M; ++i) {
@@ -70,11 +86,25 @@ namespace GLESC::Math {
         // =================================================== Matrix Init =============================================
         // =============================================================================================================
 
+        /**
+         * @brief Sets the values of a matrix to zero.
+         * @tparam Type The data type of the matrix elements (e.g., float, double).
+         * @tparam N The number of rows of the matrix.
+         * @tparam M The number of columns of the matrix.
+         * @param matrixObjective The matrix to be set.
+         */
         template <typename Type, size_t N, size_t M>
         static void setMatrixZero(MatrixData<Type, N, M>& matrixObjective) {
             MatrixAlgorithms::fillMatrix(matrixObjective, Type(0));
         }
 
+        /**
+         * @brief Sets the values of a matrix to one.
+         * @tparam Type The data type of the matrix elements (e.g., float, double).
+         * @tparam N The number of rows of the matrix.
+         * @tparam M The number of columns of the matrix.
+         * @param matrixObjective The matrix to be set.
+         */
         template <typename Type, size_t N, size_t M>
         static void fillMatrix(MatrixData<Type, N, M>& matrixObjective, const Type& value) {
             for (size_t i = 0; i < N; ++i)
@@ -82,9 +112,16 @@ namespace GLESC::Math {
                     matrixObjective[i][j] = value;
         }
 
-        template <typename Type, size_t N, size_t M>
-        static void setMatrixDiagonal(MatrixData<Type, N, M>& matrixObjective, const Type& value) {
-            S_ASSERT_TRUE(N == M, "Matrix must be square.");
+        /**
+         * @brief Sets the diagonal of a matrix to a specific value.
+         * @details Sets the diagonal of a matrix to a specific value. The matrix must be square.
+         * @tparam Type The data type of the matrix elements (e.g., float, double).
+         * @tparam N The number of rows and columns of the matrix.
+         * @param matrixObjective The matrix to be set.
+         * @param value The value to be set on the diagonal.
+         */
+        template <typename Type, size_t N>
+        static void setMatrixDiagonal(MatrixData<Type, N, N>& matrixObjective, const Type& value) {
             for (size_t i = 0; i < N; ++i)
                 matrixObjective[i][i] = value;
         }
@@ -105,6 +142,15 @@ namespace GLESC::Math {
             MatrixAlgorithms::copyMatrix(leftMat, rightMat);
         }
 
+        /**
+         * @brief Sets the values of a matrix using a raw array.
+         * @details Copies the values from the raw array into the matrix.
+         * @tparam Type The data type of the matrix elements (e.g., float, double).
+         * @tparam N The number of rows in the matrix.
+         * @tparam M The number of columns in the matrix.
+         * @param matrixObjective The matrix to be set.
+         * @param values The raw array containing the values to be copied into the matrix.
+         */
         template <typename Type, size_t N, size_t M>
         static void setMatrix(MatrixData<Type, N, M>& matrixObjective, const Type (&values)[N][M]) {
             for (size_t i = 0; i < N; ++i)
@@ -112,6 +158,16 @@ namespace GLESC::Math {
                     matrixObjective[i][j] = values[i][j];
         }
 
+        /**
+         * @brief Copies the data from one matrix to another.
+         * @details  If the source and destination matrices are the same, the function does nothing.
+         * @tparam Type1 The data type of the matrix elements (e.g., float, double).
+         * @tparam Type2 The data type of the source matrix elements (e.g., float, double).
+         * @tparam N The number of rows in the matrix.
+         * @tparam M The number of columns in the matrix.
+         * @param matrixObjective The destination matrix where the data will be copied to.
+         * @param matrixToCopy The source matrix from which the data will be copied.
+         */
         template <typename Type1, typename Type2, size_t N, size_t M>
         static void copyMatrix(MatrixData<Type1, N, M>& matrixObjective,
                                const MatrixData<Type2, N, M>& matrixToCopy) {
@@ -131,7 +187,7 @@ namespace GLESC::Math {
 
         /**
          * @brief Moves the data from one matrix to another.
-         * This function moves the data from the source matrix to the destination matrix.
+         * @deatails This function moves the data from the source matrix to the destination matrix.
          * If the source and destination matrices are the same, the function does nothing.
          *
          * @tparam Type The data type of the matrix elements (e.g., float, double).
@@ -152,7 +208,7 @@ namespace GLESC::Math {
 
         /**
          * @brief Sets the values of a matrix using a rvalue raw array.
-         * This function moves the data from the raw array to the matrix data.
+         * @details This function moves the data from the raw array to the matrix data.
          *
          * @tparam Type The data type of the matrix elements (e.g., float, double).
          * @tparam N The number of rows in the matrix.
@@ -174,7 +230,7 @@ namespace GLESC::Math {
         // ============================================ Arithmetic operations ==========================================
         // =============================================================================================================
         /**
-         * @brief Adds two matrices.
+         * @brief Adds two matrices, element-wise.
          * @tparam Type The data type of the matrix elements (e.g., float, double).
          * @tparam N The number of rows of the matrices.
          * @tparam M The number of columns of the matrices.
@@ -210,7 +266,7 @@ namespace GLESC::Math {
         }
 
         /**
-         * @brief Multiplies two matrices.
+         * @brief Multiplies two matrices, element-wise.
          * @tparam Type The data type of the matrix elements (e.g., float, double).
          * @tparam N The number of rows of the matrices.
          * @tparam M The number of columns of the matrices.
@@ -228,7 +284,7 @@ namespace GLESC::Math {
         }
 
         /**
-         * @brief Multiplies a matrix by a scalar.
+         * @brief Multiplies a matrix by a scalar, element-wise.
          * @tparam Type The data type of the matrix elements (e.g., float, double).
          * @tparam N The number of rows of the matrix.
          * @tparam M The number of columns of the matrix.
@@ -245,7 +301,7 @@ namespace GLESC::Math {
         }
 
         /**
-         * @brief Subtracts two matrices.
+         * @brief Subtracts two matrices, element-wise.
          * @tparam Type The data type of the matrix elements (e.g., float, double).
          * @tparam N The number of rows of the matrices.
          * @tparam M The number of columns of the matrices.
@@ -264,7 +320,7 @@ namespace GLESC::Math {
 
 
         /**
-         * @brief Subtracts a scalar from a matrix.
+         * @brief Subtracts a scalar from a matrix, element-wise.
          * @details Subtracts a scalar from each element of a matrix.
          * @tparam Type The data type of the matrix elements (e.g., float, double).
          * @tparam N The number of rows of the matrix.
@@ -337,7 +393,6 @@ namespace GLESC::Math {
             matrixScalarMul(matrix, Type(1) / scalar, result);
         }
 
-        static constexpr bool rowMajorMatrix = true;
 
         template <typename Type, size_t N, size_t M, size_t X>
         static void matrixMatrixMulColMaj(const MatrixData<Type, M, N>& matrix1,
@@ -461,7 +516,7 @@ namespace GLESC::Math {
         static void matrixMatrixMulInPlace(const MatrixData<Type, N, M>& matrix1,
                                            const MatrixData<Type, N2, M2>& matrix2,
                                            MatrixData<Type, N3, M3>& result) {
-            if constexpr (rowMajorMatrix) {
+            if constexpr (columnMajorMatrix) {
                 MatrixData<Type, M, N> temp(result);
                 matrixMatrixMulColMaj(matrix1, matrix2, temp);
                 copyMatrix(result, temp);
@@ -473,11 +528,22 @@ namespace GLESC::Math {
             }
         }
 
+        /**
+         * @brief Dot product matrix multiplication in place.
+         * @details An in place method is needed because the normal matrix multiplication doesn't allow it without
+         * making any copy. So this method is provieded but does make copy of the result.
+         * @note Only makes sense for square matrices.
+         * @tparam Type The data type of the matrix and vector elements (e.g., float, double).
+         * @tparam N The number of rows of the first matrix.
+         * @tparam M The number of columns of the first matrix.
+         * @param matrix1 The first matrix.
+         * @param matrix2 The second matrix.
+         */
         template <typename Type, size_t N, size_t M>
         static void matrixMatrixMulNaiveInPlace(const MatrixData<Type, N, M>& matrix1,
                                                 const MatrixData<Type, M, M>& matrix2,
                                                 MatrixData<Type, N, M>& result) {
-            if constexpr (rowMajorMatrix) {
+            if constexpr (columnMajorMatrix) {
                 MatrixData<Type, M, N> temp(result);
                 matrixMatrixMulNaiveColMaj(matrix1, matrix2, temp);
                 copyMatrix(result, temp);
@@ -509,7 +575,7 @@ namespace GLESC::Math {
                 throw MathException("Matrix is not invertible.");
             MatrixData<Type, M, X> inverse;
             MatrixAlgorithms::matrixInverse(matrix2, inverse);
-            if constexpr (rowMajorMatrix) {
+            if constexpr (columnMajorMatrix) {
                 MatrixData<Type, X, N> resultTemp;
                 MatrixAlgorithms::matrixMatrixMulColMaj(matrix1, inverse, resultTemp);
                 result = resultTemp;
@@ -571,6 +637,16 @@ namespace GLESC::Math {
             result[3][2] = translation[2];
         }
 
+        /**
+         * @brief Gets the scale matrix.
+         * @details Creates a scale matrix from a scale vector. The scale matrix is a diagonal matrix with the scale
+         * vector elements on the diagonal.
+         * @tparam Type1 The data type of the matrix elements (e.g., float, double).
+         * @tparam Type2 The data type of the scale vector elements (e.g., float, double).
+         * @tparam N The size of the scale vector.
+         * @param scale The scale vector.
+         * @param result The result matrix.
+         */
         template <typename Type1, typename Type2, size_t N>
         static void getScaleMatrix(const VectorData<Type2, N - 1>& scale,
                                    MatrixData<Type1, N, N>& result) {
@@ -587,7 +663,14 @@ namespace GLESC::Math {
             result[N - 1][N - 1] = Type1(1);
         }
 
-
+        /**
+         * @brief Calculates the normal matrix given the model-view matrix.
+         * @details The normal matrix is used to transform the normal vectors from model space to eye space.
+         * @tparam ModelType The data type of the model-view matrix elements (e.g., float, double).
+         * @tparam NormalMatType The data type of the normal matrix elements (e.g., float, double).
+         * @param MVMat The model-view matrix.
+         * @param normalMat The result normal matrix.
+         */
         template <typename ModelType, typename NormalMatType>
         static void calculateNormalMatrix(const MatrixData<ModelType, 4, 4>& MVMat,
                                           MatrixData<NormalMatType, 3, 3>& normalMat) {
@@ -607,12 +690,29 @@ namespace GLESC::Math {
             normalMat = resizedMVMat;
         }
 
+        /**
+         * @brief Checks if a matrix is a valid view matrix.
+         * @details A view matrix is valid if it is invertible.
+         * @tparam Type The data type of the matrix elements (e.g., float, double).
+         * @param viewMatrix The view matrix.
+         * @return True if the view matrix is valid, false otherwise.
+         */
         template <typename Type>
         static bool isValidViewMatrix(const MatrixData<Type, 4, 4>& viewMatrix) {
             // The view matrix is valid if it is invertible
             return MatrixAlgorithms::isInvertible(viewMatrix);
         }
 
+        /**
+         * @brief Calculates the inverse of a 2x2 matrix.
+         * @details The inverse matrix is calculated using the formula:
+         *      |a b|^-1 = 1/det |d -b|
+         *      |c d|            |-c a|
+         * @tparam Type The data type of the matrix elements (e.g., float, double).
+         * @tparam N The size of the matrix.
+         * @param matrix The matrix.
+         * @param result The result matrix.
+         */
         template <typename Type, size_t N>
         static void
         inverse2x2(const MatrixData<Type, N, N>& matrix, MatrixData<Type, N, N>& result) {
@@ -625,6 +725,90 @@ namespace GLESC::Math {
             result[1][0] = -matrix[1][0] / determinant;
             result[1][1] = matrix[0][0] / determinant;
         }
+
+        /**
+         * @brief Calculates the inverse of a 3x3 matrix.
+         * @details The inverse matrix is calculated using the formula:
+         *      |a b c|^-1 = 1/det |i -f g|
+         *      |d e f|            |-h e c|
+         *      |g h i|            |g -d a|
+         * @tparam Type The data type of the matrix elements (e.g., float, double).
+         * @tparam N The size of the matrix.
+         * @param matrix The matrix.
+         * @param result The result matrix.
+         */
+        template <typename Type, size_t N>
+        static void
+        inverse3x3(const MatrixData<Type, N, N>& matrix, MatrixData<Type, N, N>& result) {
+            Type determinant;
+            MatrixAlgorithms::determinant3x3(matrix, determinant);
+            D_ASSERT_TRUE(MatrixAlgorithms::isInvertible(matrix), "Matrix is not invertible.");
+            D_ASSERT_FALSE(&matrix == &result, "Cannot invert matrix in place.");
+            result[0][0] = (matrix[1][1] * matrix[2][2] - matrix[1][2] * matrix[2][1]) / determinant;
+            result[0][1] = (matrix[0][2] * matrix[2][1] - matrix[0][1] * matrix[2][2]) / determinant;
+            result[0][2] = (matrix[0][1] * matrix[1][2] - matrix[0][2] * matrix[1][1]) / determinant;
+            result[1][0] = (matrix[1][2] * matrix[2][0] - matrix[1][0] * matrix[2][2]) / determinant;
+            result[1][1] = (matrix[0][0] * matrix[2][2] - matrix[0][2] * matrix[2][0]) / determinant;
+            result[1][2] = (matrix[0][2] * matrix[1][0] - matrix[0][0] * matrix[1][2]) / determinant;
+            result[2][0] = (matrix[1][0] * matrix[2][1] - matrix[1][1] * matrix[2][0]) / determinant;
+            result[2][1] = (matrix[0][1] * matrix[2][0] - matrix[0][0] * matrix[2][1]) / determinant;
+            result[2][2] = (matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0]) / determinant;
+        }
+
+        /**
+         * @brief Calculates the inverse of a 4x4 matrix.
+         * @details The inverse matrix is calculated using the formula of the adjugate matrix.
+         * @cite https://en.wikipedia.org/wiki/Invertible_matrix#Inversion_of_4_%C3%97_4_matrices
+         * @tparam N The size of the matrix.
+         * @param matrix The matrix.
+         * @param result The result matrix.
+         */
+        template <typename Type, size_t N>
+        static void
+        inverse4x4(const MatrixData<Type, N, N>& matrix, MatrixData<Type, N, N>& result) {
+            Type determinant;
+            MatrixAlgorithms::determinant4x4(matrix, determinant);
+            D_ASSERT_TRUE(MatrixAlgorithms::isInvertible(matrix), "Matrix is not invertible.");
+            D_ASSERT_FALSE(&matrix == &result, "Cannot invert matrix in place.");
+            Type A2323 = matrix[2][2] * matrix[3][3] - matrix[2][3] * matrix[3][2];
+            Type A1323 = matrix[2][1] * matrix[3][3] - matrix[2][3] * matrix[3][1];
+            Type A1223 = matrix[2][1] * matrix[3][2] - matrix[2][2] * matrix[3][1];
+            Type A0323 = matrix[2][0] * matrix[3][3] - matrix[2][3] * matrix[3][0];
+            Type A0223 = matrix[2][0] * matrix[3][2] - matrix[2][2] * matrix[3][0];
+            Type A0123 = matrix[2][0] * matrix[3][1] - matrix[2][1] * matrix[3][0];
+            Type A2313 = matrix[1][2] * matrix[3][3] - matrix[1][3] * matrix[3][2];
+            Type A1313 = matrix[1][1] * matrix[3][3] - matrix[1][3] * matrix[3][1];
+            Type A1213 = matrix[1][1] * matrix[3][2] - matrix[1][2] * matrix[3][1];
+            Type A2312 = matrix[1][2] * matrix[2][3] - matrix[1][3] * matrix[2][2];
+            Type A1312 = matrix[1][1] * matrix[2][3] - matrix[1][3] * matrix[2][1];
+            Type A1212 = matrix[1][1] * matrix[2][2] - matrix[1][2] * matrix[2][1];
+            Type A0313 = matrix[1][0] * matrix[3][3] - matrix[1][3] * matrix[3][0];
+            Type A0213 = matrix[1][0] * matrix[3][2] - matrix[1][2] * matrix[3][0];
+            Type A0312 = matrix[1][0] * matrix[2][3] - matrix[1][3] * matrix[2][0];
+            Type A0212 = matrix[1][0] * matrix[2][2] - matrix[1][2] * matrix[2][0];
+            Type A0113 = matrix[1][0] * matrix[3][1] - matrix[1][1] * matrix[3][0];
+            Type A0112 = matrix[1][0] * matrix[2][1] - matrix[1][1] * matrix[2][0];
+
+            Type invDet = 1.0 / determinant;
+
+            result[0][0] = invDet * (matrix[1][1] * A2323 - matrix[1][2] * A1323 + matrix[1][3] * A1223);
+            result[0][1] = invDet * -(matrix[0][1] * A2323 - matrix[0][2] * A1323 + matrix[0][3] * A1223);
+            result[0][2] = invDet * (matrix[0][1] * A2313 - matrix[0][2] * A1313 + matrix[0][3] * A1213);
+            result[0][3] = invDet * -(matrix[0][1] * A2312 - matrix[0][2] * A1312 + matrix[0][3] * A1212);
+            result[1][0] = invDet * -(matrix[1][0] * A2323 - matrix[1][2] * A0323 + matrix[1][3] * A0223);
+            result[1][1] = invDet * (matrix[0][0] * A2323 - matrix[0][2] * A0323 + matrix[0][3] * A0223);
+            result[1][2] = invDet * -(matrix[0][0] * A2313 - matrix[0][2] * A0313 + matrix[0][3] * A0213);
+            result[1][3] = invDet * (matrix[0][0] * A2312 - matrix[0][2] * A0312 + matrix[0][3] * A0212);
+            result[2][0] = invDet * (matrix[1][0] * A1323 - matrix[1][1] * A0323 + matrix[1][3] * A0123);
+            result[2][1] = invDet * -(matrix[0][0] * A1323 - matrix[0][1] * A0323 + matrix[0][3] * A0123);
+            result[2][2] = invDet * (matrix[0][0] * A1313 - matrix[0][1] * A0313 + matrix[0][3] * A0113);
+            result[2][3] = invDet * -(matrix[0][0] * A1312 - matrix[0][1] * A0312 + matrix[0][3] * A0112);
+            result[3][0] = invDet * -(matrix[1][0] * A1223 - matrix[1][1] * A0223 + matrix[1][2] * A0123);
+            result[3][1] = invDet * (matrix[0][0] * A1223 - matrix[0][1] * A0223 + matrix[0][2] * A0123);
+            result[3][2] = invDet * -(matrix[0][0] * A1213 - matrix[0][1] * A0213 + matrix[0][2] * A0113);
+            result[3][3] = invDet * (matrix[0][0] * A1212 - matrix[0][1] * A0212 + matrix[0][2] * A0112);
+        }
+
 
         /**
          * @brief Calculates the perspective projection matrix.
@@ -682,79 +866,16 @@ namespace GLESC::Math {
             MatrixAlgorithms::perspective(radians(fovDegrees), nearPlane, farPlane, viewWidth, viewHeight, projection);
         }
 
-        template <typename Type, size_t N>
-        static void
-        inverse3x3(const MatrixData<Type, N, N>& matrix, MatrixData<Type, N, N>& result) {
-            Type determinant;
-            MatrixAlgorithms::determinant3x3(matrix, determinant);
-            D_ASSERT_TRUE(MatrixAlgorithms::isInvertible(matrix), "Matrix is not invertible.");
-            D_ASSERT_FALSE(&matrix == &result, "Cannot invert matrix in place.");
-            result[0][0] = (matrix[1][1] * matrix[2][2] - matrix[1][2] * matrix[2][1]) / determinant;
-            result[0][1] = (matrix[0][2] * matrix[2][1] - matrix[0][1] * matrix[2][2]) / determinant;
-            result[0][2] = (matrix[0][1] * matrix[1][2] - matrix[0][2] * matrix[1][1]) / determinant;
-            result[1][0] = (matrix[1][2] * matrix[2][0] - matrix[1][0] * matrix[2][2]) / determinant;
-            result[1][1] = (matrix[0][0] * matrix[2][2] - matrix[0][2] * matrix[2][0]) / determinant;
-            result[1][2] = (matrix[0][2] * matrix[1][0] - matrix[0][0] * matrix[1][2]) / determinant;
-            result[2][0] = (matrix[1][0] * matrix[2][1] - matrix[1][1] * matrix[2][0]) / determinant;
-            result[2][1] = (matrix[0][1] * matrix[2][0] - matrix[0][0] * matrix[2][1]) / determinant;
-            result[2][2] = (matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0]) / determinant;
-        }
+
 
         /**
-         * @brief Inverts a 4x4 matrix.
-         * @details Calcutes the inverse matrix of the left parameter and stores it in the result
-         * Can't be done in place, matrix and result must reference different objects.
+         * @brief Calculates the inverse of any square matrix.
+         * @details The inverse matrix is calculated using the adjugate matrix.
          * @tparam Type The data type of the matrix elements (e.g., float, double).
-         * @tparam N The number of rows of the matrix.
+         * @tparam N The size of the matrix.
          * @param matrix The matrix.
          * @param result The result matrix.
          */
-        template <typename Type, size_t N>
-        static void
-        inverse4x4(const MatrixData<Type, N, N>& matrix, MatrixData<Type, N, N>& result) {
-            Type determinant;
-            MatrixAlgorithms::determinant4x4(matrix, determinant);
-            D_ASSERT_TRUE(MatrixAlgorithms::isInvertible(matrix), "Matrix is not invertible.");
-            D_ASSERT_FALSE(&matrix == &result, "Cannot invert matrix in place.");
-            Type A2323 = matrix[2][2] * matrix[3][3] - matrix[2][3] * matrix[3][2];
-            Type A1323 = matrix[2][1] * matrix[3][3] - matrix[2][3] * matrix[3][1];
-            Type A1223 = matrix[2][1] * matrix[3][2] - matrix[2][2] * matrix[3][1];
-            Type A0323 = matrix[2][0] * matrix[3][3] - matrix[2][3] * matrix[3][0];
-            Type A0223 = matrix[2][0] * matrix[3][2] - matrix[2][2] * matrix[3][0];
-            Type A0123 = matrix[2][0] * matrix[3][1] - matrix[2][1] * matrix[3][0];
-            Type A2313 = matrix[1][2] * matrix[3][3] - matrix[1][3] * matrix[3][2];
-            Type A1313 = matrix[1][1] * matrix[3][3] - matrix[1][3] * matrix[3][1];
-            Type A1213 = matrix[1][1] * matrix[3][2] - matrix[1][2] * matrix[3][1];
-            Type A2312 = matrix[1][2] * matrix[2][3] - matrix[1][3] * matrix[2][2];
-            Type A1312 = matrix[1][1] * matrix[2][3] - matrix[1][3] * matrix[2][1];
-            Type A1212 = matrix[1][1] * matrix[2][2] - matrix[1][2] * matrix[2][1];
-            Type A0313 = matrix[1][0] * matrix[3][3] - matrix[1][3] * matrix[3][0];
-            Type A0213 = matrix[1][0] * matrix[3][2] - matrix[1][2] * matrix[3][0];
-            Type A0312 = matrix[1][0] * matrix[2][3] - matrix[1][3] * matrix[2][0];
-            Type A0212 = matrix[1][0] * matrix[2][2] - matrix[1][2] * matrix[2][0];
-            Type A0113 = matrix[1][0] * matrix[3][1] - matrix[1][1] * matrix[3][0];
-            Type A0112 = matrix[1][0] * matrix[2][1] - matrix[1][1] * matrix[2][0];
-
-            Type invDet = 1.0 / determinant;
-
-            result[0][0] = invDet * (matrix[1][1] * A2323 - matrix[1][2] * A1323 + matrix[1][3] * A1223);
-            result[0][1] = invDet * -(matrix[0][1] * A2323 - matrix[0][2] * A1323 + matrix[0][3] * A1223);
-            result[0][2] = invDet * (matrix[0][1] * A2313 - matrix[0][2] * A1313 + matrix[0][3] * A1213);
-            result[0][3] = invDet * -(matrix[0][1] * A2312 - matrix[0][2] * A1312 + matrix[0][3] * A1212);
-            result[1][0] = invDet * -(matrix[1][0] * A2323 - matrix[1][2] * A0323 + matrix[1][3] * A0223);
-            result[1][1] = invDet * (matrix[0][0] * A2323 - matrix[0][2] * A0323 + matrix[0][3] * A0223);
-            result[1][2] = invDet * -(matrix[0][0] * A2313 - matrix[0][2] * A0313 + matrix[0][3] * A0213);
-            result[1][3] = invDet * (matrix[0][0] * A2312 - matrix[0][2] * A0312 + matrix[0][3] * A0212);
-            result[2][0] = invDet * (matrix[1][0] * A1323 - matrix[1][1] * A0323 + matrix[1][3] * A0123);
-            result[2][1] = invDet * -(matrix[0][0] * A1323 - matrix[0][1] * A0323 + matrix[0][3] * A0123);
-            result[2][2] = invDet * (matrix[0][0] * A1313 - matrix[0][1] * A0313 + matrix[0][3] * A0113);
-            result[2][3] = invDet * -(matrix[0][0] * A1312 - matrix[0][1] * A0312 + matrix[0][3] * A0112);
-            result[3][0] = invDet * -(matrix[1][0] * A1223 - matrix[1][1] * A0223 + matrix[1][2] * A0123);
-            result[3][1] = invDet * (matrix[0][0] * A1223 - matrix[0][1] * A0223 + matrix[0][2] * A0123);
-            result[3][2] = invDet * -(matrix[0][0] * A1213 - matrix[0][1] * A0213 + matrix[0][2] * A0113);
-            result[3][3] = invDet * (matrix[0][0] * A1212 - matrix[0][1] * A0212 + matrix[0][2] * A0112);
-        }
-
         template <typename Type, size_t N, typename = std::enable_if_t<N == 2 || N == 3 || N == 4>>
         static void
         matrixInverse(const MatrixData<Type, N, N>& matrix, MatrixData<Type, N, N>& result) {
@@ -773,6 +894,14 @@ namespace GLESC::Math {
             }
         }
 
+        /**
+         * @brief Checks if a matrix is invertible.
+         * @details A matrix is invertible if its determinant is not zero.
+         * @tparam Type The data type of the matrix elements (e.g., float, double).
+         * @tparam N The size of the square matrix.
+         * @param matrix The matrix.
+         * @return True if the matrix is invertible, false otherwise.
+         */
         template <typename Type, size_t N>
         static bool isInvertible(const MatrixData<Type, N, N>& matrix) {
             Type determinant = MatrixAlgorithms::laplaceExpansionDeterminant(matrix);
@@ -780,6 +909,13 @@ namespace GLESC::Math {
         }
 
 
+        /**
+         * @brief Calculates the determinant of a 2x2 matrix.
+         * @details Computes the determinant of a matrix using Laplace expansion.
+         * @tparam Type The data type of the matrix elements (e.g., float, double).
+         * @param matrix The matrix.
+         * @return The determinant of the matrix.
+         */
         template <typename Type>
         static void determinant2x2(const MatrixData<Type, 2, 2>& matrix, Type& result) {
             result = matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0];
@@ -826,14 +962,26 @@ namespace GLESC::Math {
         }
 
 
+        /**
+         * @brief Struct that holds the result of Gaussian elimination with tracking.
+         */
         template <typename Type, size_t N, size_t M>
         struct GaussianEliminationData {
             GaussianEliminationData(const MatrixData<Type, N, M>& inverse, unsigned int rank, Type determinant) :
                 inverse(inverse), rank(rank), determinant(determinant) {
             }
 
+            /**
+             * @brief The inverse matrix.
+             */
             MatrixData<Type, N, M> inverse;
+            /**
+             * @brief The rank of the matrix.
+             */
             unsigned int rank;
+            /**
+             * @brief The determinant of the matrix.
+             */
             Type determinant;
         };
 
@@ -905,6 +1053,13 @@ namespace GLESC::Math {
         }
 
 
+        /**
+         * @brief Calculates the determinant of any matrix using Laplace expansion.
+         * @tparam Type The data type of the matrix elements (e.g., float, double).
+         * @tparam N The size of the square matrix.
+         * @param matrix The matrix.
+         * @return The determinant of the matrix.
+         */
         template <class Type, size_t N>
         static Type laplaceExpansionDeterminant(const MatrixData<Type, N, N>& matrix) {
             if constexpr (N == 1) {
@@ -938,6 +1093,9 @@ namespace GLESC::Math {
         }
 
     private:
+        /**
+         * @brief Struct that holds the result of Gaussian elimination with tracking.
+         */
         template <typename Type, size_t N, size_t M>
         struct GaussianEliminationTrackedResult {
             MatrixData<Type, N, M> resultMatrix;
@@ -946,6 +1104,14 @@ namespace GLESC::Math {
             std::vector<std::pair<size_t, Type>> rowMultiplications;
         };
 
+        /**
+         * @brief Calculates gaussian elimination with partial pivoting and extracts the result.
+         * @tparam Type The data type of the matrix elements (e.g., float, double).
+         * @tparam N The number of rows of the matrix.
+         * @tparam M The number of columns of the matrix.
+         * @param inputMatrix The input matrix.
+         * @return The result of the Gaussian elimination.
+         */
         template <typename Type, size_t N, size_t M>
         static GaussianEliminationTrackedResult<Type, N, M>
         gaussianEliminationAlgorithm(const MatrixData<Type, N, M>& inputMatrix) {
@@ -1009,6 +1175,15 @@ namespace GLESC::Math {
             return trackedResult;
         }
 
+        /**
+         * @brief Calculates the cofactor of a matrix element.
+         * @tparam Type The data type of the matrix elements (e.g., float, double).
+         * @tparam N The size of the square matrix.
+         * @param matrix The matrix.
+         * @param row The row of the element.
+         * @param col The column of the element.
+         * @return The cofactor of the element.
+         */
         template <class Type, size_t N>
         static Type cofactor(const MatrixData<Type, N, N>& matrix, size_t row, size_t col) {
             MatrixData<Type, N - 1, N - 1> subMatrix;

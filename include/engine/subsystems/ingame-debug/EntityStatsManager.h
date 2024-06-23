@@ -2,7 +2,7 @@
  * @file   EntityStatsManager.h
  * @author Valentin Dumitru
  * @date   08/03/2024
- * @brief  Add description of this file if needed @TODO
+ * @brief  Class that encapsulates the logic of the entity stats manager.
  *
  * Copyright (c) 2024 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
@@ -12,6 +12,11 @@
 #include <string>
 #include <vector>
 
+/**
+ * @brief Class that encapsulates the logic of the entity stats manager.
+ * @details This class allows storing references to data to then be able to display,
+ * modify and visualize it in the debug entity data HUD.
+ */
 class EntityStatsManager {
 public:
 
@@ -33,6 +38,9 @@ public:
         VEC3B,
         VEC4B,
     };
+    /**
+     * @brief Struct that holds the data of a value of a component.
+     */
     struct Value {
         std::string name;
         std::string stringData;

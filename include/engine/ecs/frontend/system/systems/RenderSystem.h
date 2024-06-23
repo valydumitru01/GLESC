@@ -2,7 +2,8 @@
  * @file   RenderSystem.h
  * @author Valentin Dumitru
  * @date   2023-09-26
- * @brief @todo
+ * @brief System that updates the renderer, sends the data to the renderer to then
+ * be handled by it.
  *
  * Copyright (c) 2023 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.

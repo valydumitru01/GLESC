@@ -2,7 +2,7 @@
  * @file   SceneContainer.h
  * @author Valentin Dumitru
  * @date   2024-05-14
- * @brief  Add description of this file if needed @TODO 
+ * @brief  Class that stores and manages scenes.
  *
  * Copyright (c) 2024 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
@@ -15,6 +15,9 @@
 #include "SceneTypes.h"
 
 namespace GLESC::Scene {
+    /**
+     * @brief Class that stores and manages scenes. It is used to register and get scenes.
+     */
     class SceneContainer {
     public:
         /**

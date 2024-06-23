@@ -12,6 +12,13 @@
 #include <array>
 
 namespace GLESC::Math {
+    /**
+     * @brief Type alias for a vector data
+     * @details We use a std::array to store the vector data contiguously in memory with a fixed size and minimum
+     * overhead.
+     * @tparam Type The type of the vector elements
+     * @tparam N The number of elements in the vector
+     */
     template<typename Type, std::size_t N>
     using VectorData = std::array<Type, N>;
 

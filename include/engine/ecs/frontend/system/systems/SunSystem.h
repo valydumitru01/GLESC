@@ -2,7 +2,7 @@
  * @file   SunSystem.h
  * @author Valentin Dumitru
  * @date   2024-04-30
- * @brief  Add description of this file if needed @TODO 
+ * @brief  System that updates the sun in the scene
  *
  * Copyright (c) 2024 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.

@@ -12,6 +12,12 @@
 #include "engine/res-mng/textures/TextureSurface.h"
 
 namespace GLESC::Render {
+    /**
+     * @brief Class representing a texture. It abstracts away the creating and handling of textures for the renderer.
+     * @details This is just the abstraction for the Texture for the Graphic API, the actual texture data is handled by
+     * texture surface
+     * @see TextureSurface
+     */
     class Texture {
     public:
         Texture() = default;
@@ -36,6 +42,11 @@ namespace GLESC::Render {
 
         [[nodiscard]] bool hasBeenLoaded() const { return hasLoaded; }
 
+        /**
+         * @brief Get the texture surface
+         * @details The texture surface is the data of the texutre with its pixels and format
+         * @return The texture surface
+         */
         [[nodiscard]] const ResMng::Texture::TextureSurface& getTextureSurface() const { return textureSurface; }
     
     

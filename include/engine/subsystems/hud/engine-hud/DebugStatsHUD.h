@@ -12,6 +12,11 @@
 #include "engine/subsystems/hud/InGameWindow.h"
 
 namespace GLESC::HUD {
+    /**
+     * @brief Class that encapsulates the visualization of the debug statistics HUD.
+     * @details allows seeing in the screen a set of statistics that are useful for debugging such as fps,
+     * render call number, etc-
+     */
     class DebugStatsHUD : public InGameWindow {
     public:
         DebugStatsHUD();

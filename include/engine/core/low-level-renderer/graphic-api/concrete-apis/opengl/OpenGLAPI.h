@@ -2,7 +2,7 @@
  * @file   OpenGLAPI.h
  * @author Valentin Dumitru
  * @date   2023-09-26
- * @brief @todo
+ * @brief OpenGL API implementation.
  *
  * Copyright (c) 2023 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
@@ -16,7 +16,6 @@
 #include <engine/core/low-level-renderer/graphic-api/debugger/GapiDebugger.h>
 
 #include "engine/Config.h"
-#include "engine/core/exceptions/core/low-level-renderer/GAPIException.h"
 #include "engine/core/logger/Logger.h"
 #include "engine/core/low-level-renderer/asserts/GAPIAsserts.h"
 #include "engine/core/low-level-renderer/graphic-api/IGraphicInterface.h"
@@ -295,6 +294,7 @@ namespace GLESC::GAPI {
             GLuint padding;
 
 
+
             if (inputFormat == Enums::Texture::CPUBufferFormat::RGB &&
                 bitsPerPixel == Enums::Texture::BitDepth::Bit24) {
                 GLinternalFormat = GL_RGB8;
@@ -306,7 +306,7 @@ namespace GLESC::GAPI {
                 padding = 4;
             }
             else
-                throw GAPIException("Invalid texture format.");
+                D_ASSERT_FALSE(true, "Invalid texture format.");
 
             GAPI_FUNCTION_IMPLEMENTATION_LOG("glPixelStorei", GL_UNPACK_ALIGNMENT, padding);
             glPixelStorei(GL_UNPACK_ALIGNMENT, padding);
@@ -397,7 +397,7 @@ namespace GLESC::GAPI {
                 padding = 4;
             }
             else
-                throw GAPIException("Invalid texture format.");
+                D_ASSERT_FALSE(true, "Invalid texture format.");
 
             std::vector<UByte> data(numBytes);
             auto extractedFormatGL = static_cast<GLenum>(extractedFormat);
@@ -542,9 +542,9 @@ namespace GLESC::GAPI {
                                              GL_BUFFER_SIZE, &sizeBytes);
             glGetBufferParameteriv(GL_ARRAY_BUFFER, GL_BUFFER_SIZE, &sizeBytes);
 
-            if (sizeBytes <= 0) {
-                throw GAPIException("Invalid buffer size.");
-            }
+
+            D_ASSERT_GREATER(sizeBytes, 0, "Invalid buffer size.");
+
             auto numElements = sizeBytes / sizeof(T);
             std::vector<T> data(numElements);
             GAPI_FUNCTION_IMPLEMENTATION_LOG("glGetBufferSubData", GL_ARRAY_BUFFER, 0, sizeBytes);
@@ -998,8 +998,7 @@ namespace GLESC::GAPI {
             GAPI_FUNCTION_IMPLEMENTATION_LOG("glGetUniformLocation", boundShaderProgram,
                                              uName);
             GLint location = glGetUniformLocation(boundShaderProgram, uName.c_str());
-            if (location == -1)
-                throw GAPIException("Uniform " + uName + " not found.");
+            D_ASSERT_NOT_EQUAL(location, -1, "Uniform " + uName + " not found.");
             uniformLocationsCache[uName] = location;
             return location;
         }
@@ -1059,8 +1058,8 @@ namespace GLESC::GAPI {
         void setSDLGLAttribute(SDL_GLattr attrib, int val) {
             GAPI_FUNCTION_LOG("setSDLGLAttribute", attrib, val);
             GAPI_FUNCTION_IMPLEMENTATION_LOG("SDL_GL_SetAttribute", attrib, val);
-            if (SDL_GL_SetAttribute(attrib, val) == -1)
-                throw GAPIException("Unable to set gl attribute: " + std::string(SDL_GetError()));
+            int err = SDL_GL_SetAttribute(attrib, val);
+            D_ASSERT_NOT_EQUAL(err, -1, "Unable to set gl attribute: " + std::string(SDL_GetError()));
         }
 
 
@@ -1080,7 +1079,7 @@ namespace GLESC::GAPI {
         }
 
 
-        Bool isTexture(TextureID textureID) {
+        Bool isTexture(TextureID textureID) override {
             Bool isTextureBool =
                 static_cast<Bool>(textureCache.find(textureID) != textureCache.end());
             return isTextureBool;

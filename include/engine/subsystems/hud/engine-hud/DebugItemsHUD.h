@@ -20,6 +20,11 @@
 enum class HudItemType;
 
 namespace GLESC::HUD {
+    /**
+     * @brief Class that encapsulates the logic of the debug displaying of non visible items
+     * @details Allows seeing as heads up display the items that are not visible in the game world.
+     * Such as sun, lights, etc. Helps with debugging.
+     */
     class DebugItems : public InGameWindow {
     public:
         DebugItems(Render::Renderer& renderer, TextureFactory& textureFactory);

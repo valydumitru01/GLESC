@@ -14,10 +14,10 @@ void GLESC::Timer::start() {
     startTime = SDL_GetTicks();
 }
 
-GLESC::Time  GLESC::Timer::getCurrentTime() {
+GLESC::TimeMillis  GLESC::Timer::getCurrentTime() {
     return SDL_GetTicks() - startTime;
 }
 
-GLESC::Time GLESC::AbsoluteTimer::getCurrentTime() {
+GLESC::TimeMillis GLESC::AbsoluteTimer::getCurrentTime() {
     return SDL_GetTicks();
 }

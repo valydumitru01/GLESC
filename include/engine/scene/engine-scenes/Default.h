@@ -10,6 +10,11 @@
 #pragma once
 #include "engine/scene/Scene.h"
 
+/**
+ * @brief Default scene.
+ * @details This is the default scene that is loaded when the engine starts.
+ * It contains some objects rotationg, some lights and the camera with default camera movement.
+ */
 class Default : public GLESC::Scene::Scene {
 public:
     SCENE_DEFINITION(Default)

@@ -2,7 +2,7 @@
  * @file   CameraSystem.h
  * @author Valentin Dumitru
  * @date   2023-09-26
- * @brief @todo
+ * @brief Camera system that updates the renderer's camera
  *
  * Copyright (c) 2023 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.

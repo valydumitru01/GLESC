@@ -18,11 +18,32 @@
 
 namespace GLESC::Math {
     // TODO: Implement min and max and limit functions
+    /**
+     * @brief The epsilon value for floating point comparison
+     * @details it is 1e-6 because of the lower precision of float
+     */
     constexpr float FLOAT_COMPARISON_EPSILON = 1e-6f;
+    /**
+     * @brief The epsilon value for double comparison
+     * @details it is 1e-10 because of the higher precision of double
+     */
     constexpr double DOUBLE_COMPARISON_EPSILON = 1e-10;
+    /**
+     * @brief The epsilon multiplier for equality comparison
+     * @details it is 100 because of the lower precision of float
+     */
+    constexpr double EPSILON_MULTIPLIER_FOR_EQUALITY = 100;
+    /**
+     * @brief The value of PI
+     * @details It is defined with 50 decimal numbers, just in case the precision is needed
+     */
+    constexpr long double PI = 3.14159265358979323846264338327950288419716939937510;
 
-    constexpr double PI = 3.14159265358979323846264338327950288419716939937510;
-
+    /**
+     * @brief Pi getter with precision of a given template type
+     * @tparam Type The type of the pi value
+     * @return The value of pi with the precision of the given type
+     */
     template <typename Type>
     constexpr Type pi() noexcept {
         if constexpr (std::is_floating_point<Type>::value) {
@@ -33,6 +54,11 @@ namespace GLESC::Math {
         }
     }
 
+    /**
+     * @brief Epsilon getter with precision of a given template type
+     * @tparam Type The type of the epsilon value
+     * @return The value of epsilon with the precision of the given type
+     */
     template <typename Type>
     constexpr auto epsilon() noexcept {
         using DecayedType = std::remove_const_t<std::remove_reference_t<Type>>;
@@ -51,6 +77,12 @@ namespace GLESC::Math {
         }
     }
 
+    /**
+     * @brief Epsilon getter with precision of a given value
+     * @tparam Type The type of the epsilon value
+     * @param valueParam The value to calculate the epsilon from
+     * @return The value of epsilon with the precision of the given value
+     */
     template <typename Type>
     constexpr Type epsilon(Type valueParam) {
         auto value = abs(valueParam);
@@ -60,22 +92,53 @@ namespace GLESC::Math {
         return epsilon<Type>() * value;
     }
 
+    /**
+     * @brief Linear interpolation between two values
+     * @details Linear interpolation (lerp) is a method of generating values that are between two other values.
+     * @tparam Type The type of the values
+     * @tparam TypeFactor The type of the factor
+     * @param start The start value
+     * @param end The end value
+     * @param factor The factor of the interpolation
+     * @return The interpolated value
+     */
     template <typename Type, typename TypeFactor>
     constexpr Type lerp(const Type& start, const Type& end, const TypeFactor& factor) {
         return start + (end - start) * factor;
     }
 
+    /**
+     * @brief Converts degrees to radians
+     * @details The formula is `radians = degrees * PI / 180`
+     * @tparam Type The type of the values
+     * @param degrees The value in degrees
+     * @return The value in radians
+     */
     template <typename Type>
     Type radians(const Type& degrees) noexcept {
         return degrees * Type(PI) / Type(180);
     }
 
+    /**
+     * @brief Converts radians to degrees
+     * @details The formula is `degrees = radians * 180 / PI`
+     * @tparam Type The type of the values
+     * @param radians The value in radians
+     * @return The value in degrees
+     */
     template <typename Type>
     Type degrees(const Type& radians) noexcept {
         S_ASSERT_TRUE(std::is_floating_point_v<Type>, "Type must be floating point");
         return radians * Type(180) / Type(PI);
     }
 
+    /**
+     * @brief Calculates the square of a value
+     * @details Mod operation is the remainder of the division of one number by another.
+     * @tparam Type The type of the value
+     * @param value The value to square
+     * @return The square of the value
+     */
     template <typename Type>
     Type mod(const Type& value, const Type& divisor) {
         static_assert(std::is_arithmetic_v<Type>, "Type must be arithmetic");
@@ -90,6 +153,13 @@ namespace GLESC::Math {
         }
     }
 
+    /**
+     * @brief Calculates the absolute value of a number
+     * @details The absolute value of a number is the value without its sign.
+     * @tparam Type The type of the value
+     * @param value The value to calculate the absolute value of
+     * @return The absolute value of the number
+     */
     template <typename Type>
     constexpr Type abs(const Type& value) {
         S_ASSERT_TRUE(std::is_arithmetic_v<Type>, "Type must be arithmetic");
@@ -136,8 +206,15 @@ namespace GLESC::Math {
     }
 
 
-    constexpr double EPSILON_MULTIPLIER_FOR_EQUALITY = 100;
-
+    /**
+     * @brief Selects the smaller floating-point type between two types
+     * @details The function selects the smaller floating-point type between two types.
+     * If both types are floating-point, it selects the type with the smaller size.
+     * If only one type is floating-point, it selects that type.
+     * @tparam T1 The first type
+     * @tparam T2 The second type
+     * @return The smaller floating-point type between the two types
+     */
     template <typename T1, typename T2>
     struct SelectSmallerFloatingType {
         using type = std::conditional_t<
@@ -148,6 +225,18 @@ namespace GLESC::Math {
     };
 
 
+    /**
+     * @brief Compares two values for equality
+     * @details The function compares two values for equality.
+     * If the values are floating-point, it uses a fixed epsilon value for comparison.
+     * If the values are not floating-point, it uses exact comparison.
+     * @tparam LValueT The type of the left value
+     * @tparam RValueT The type of the right value
+     * @param left The left value
+     * @param right The right value
+     * @param epsilon The epsilon value for floating-point comparison
+     * @return True if the values are equal, false otherwise
+     */
     template <typename LValueT, typename RValueT>
     constexpr bool eq(const LValueT& left, const RValueT& right, const double epsilon) {
         static_assert(std::is_arithmetic_v<LValueT> && std::is_arithmetic_v<RValueT>,
@@ -161,6 +250,18 @@ namespace GLESC::Math {
             return left == right;
         }
     }
+
+    /**
+     * @brief Compares two values for less than
+     * @details The function compares two values for less than. Makes use of the eq function for floating-point types.
+     * @see eq
+     * @tparam LValueT The type of the left value
+     * @tparam RValueT The type of the right value
+     * @param left The left value
+     * @param right The right value
+     * @param epsilon The epsilon value for floating-point comparison
+     * @return True if the left value is less than the right value, false otherwise
+     */
     template <typename LValueT, typename RValueT>
     constexpr bool lt(const LValueT& left, const RValueT& right, const double epsilon) {
         static_assert(std::is_arithmetic_v<LValueT> && std::is_arithmetic_v<RValueT>, "Types must be arithmetic");
@@ -173,6 +274,18 @@ namespace GLESC::Math {
             return left < right;
         }
     }
+    /**
+     * @brief Compares two values for less than or equal
+     * @details The function compares two values for less than or equal.
+     * Makes use of the eq function for floating-point types.
+     * @see eq
+     * @tparam LValueT The type of the left value
+     * @tparam RValueT The type of the right value
+     * @param left The left value
+     * @param right The right value
+     * @param epsilon The epsilon value for floating-point comparison
+     * @return True if the left value is less than or equal to the right value, false otherwise
+     */
     template <typename LValueT, typename RValueT>
     constexpr bool lte(const LValueT& left, const RValueT& right, const double epsilon) {
         static_assert(std::is_arithmetic_v<LValueT> && std::is_arithmetic_v<RValueT>, "Types must be arithmetic");
@@ -186,6 +299,18 @@ namespace GLESC::Math {
         }
     }
 
+    /**
+     * @brief Compares two values for greater than
+     * @details The function compares two values for greater than.
+     * Makes use of the eq function for floating-point types.
+     * @see eq
+     * @tparam LValueT The type of the left value
+     * @tparam RValueT The type of the right value
+     * @param left The left value
+     * @param right The right value
+     * @param epsilon The epsilon value for floating-point comparison
+     * @return True if the left value is greater than the right value, false otherwise
+     */
     template <typename LValueT, typename RValueT>
     constexpr bool gt(const LValueT& left, const RValueT& right, const double epsilon) {
         static_assert(std::is_arithmetic_v<LValueT> && std::is_arithmetic_v<RValueT>, "Types must be arithmetic");
@@ -198,8 +323,21 @@ namespace GLESC::Math {
             return left > right;
         }
     }
+
+    /**
+     * @brief Compares two values for greater than or equal
+     * @details The function compares two values for greater than or equal.
+     * Makes use of the eq function for floating-point types.
+     * @see eq
+     * @tparam LValueT The type of the left value
+     * @tparam RValueT The type of the right value
+     * @param left The left value
+     * @param right The right value
+     * @param epsilon The epsilon value for floating-point comparison
+     * @return True if the left value is greater than or equal to the right value, false otherwise
+     */
     template <typename LValueT, typename RValueT>
-    constexpr bool mte(const LValueT& left, const RValueT& right, const double epsilon) {
+    constexpr bool gte(const LValueT& left, const RValueT& right, const double epsilon) {
         static_assert(std::is_arithmetic_v<LValueT> && std::is_arithmetic_v<RValueT>, "Types must be arithmetic");
         if constexpr (std::is_floating_point_v<LValueT> || std::is_floating_point_v<RValueT>) {
             // Use epsilon for floating-point comparison
@@ -212,7 +350,17 @@ namespace GLESC::Math {
     }
 
 
-
+    /**
+     * @brief Compares two values for equality, calculates the epsilon automatically
+     * @details The function compares two values for equality.
+     * If the values are floating-point, it uses a fixed epsilon value for comparison.
+     * If the values are not floating-point, it uses exact comparison.
+     * @tparam LValueT The type of the left value
+     * @tparam RValueT The type of the right value
+     * @param left The left value
+     * @param right The right value
+     * @return True if the values are equal, false otherwise
+     */
     template <typename LValueT, typename RValueT>
     constexpr bool eq(const LValueT& left, const RValueT& right) {
         static_assert(std::is_arithmetic_v<LValueT> && std::is_arithmetic_v<RValueT>,
@@ -234,6 +382,17 @@ namespace GLESC::Math {
         }
     }
 
+    /**
+     * @brief Compares two values for less than, calculates the epsilon automatically
+     * @details The function compares two values for less than.
+     * Makes use of the eq function for floating-point types.
+     * @see eq
+     * @tparam LValueT The type of the left value
+     * @tparam RValueT The type of the right value
+     * @param left The left value
+     * @param right The right value
+     * @return True if the left value is less than the right value, false otherwise
+     */
     template <typename LValueT, typename RValueT>
     constexpr bool lt(const LValueT& left, const RValueT& right) {
         static_assert(std::is_arithmetic_v<LValueT> && std::is_arithmetic_v<RValueT>, "Types must be arithmetic");
@@ -255,6 +414,17 @@ namespace GLESC::Math {
     }
 
 
+    /**
+     * @brief Compares two values for less than or equal, calculates the epsilon automatically
+     * @details The function compares two values for less than or equal.
+     * Makes use of the eq function for floating-point types.
+     * @see eq
+     * @tparam LValueT The type of the left value
+     * @tparam RValueT The type of the right value
+     * @param left The left value
+     * @param right The right value
+     * @return True if the left value is less than or equal to the right value, false otherwise
+     */
     template <typename LValueT, typename RValueT>
     constexpr bool lte(const LValueT& left, const RValueT& right) {
         static_assert(std::is_arithmetic_v<LValueT> && std::is_arithmetic_v<RValueT>, "Types must be arithmetic");
@@ -275,6 +445,17 @@ namespace GLESC::Math {
         }
     }
 
+    /**
+     * @brief Compares two values for greater than, calculates the epsilon automatically
+     * @details The function compares two values for greater than.
+     * Makes use of the eq function for floating-point types.
+     * @see eq
+     * @tparam LValueT The type of the left value
+     * @tparam RValueT The type of the right value
+     * @param left The left value
+     * @param right The right value
+     * @return True if the left value is greater than the right value, false otherwise
+     */
     template <typename LValueT, typename RValueT>
     constexpr bool gt(const LValueT& left, const RValueT& right) {
         static_assert(std::is_arithmetic_v<LValueT> && std::is_arithmetic_v<RValueT>, "Types must be arithmetic");
@@ -295,6 +476,17 @@ namespace GLESC::Math {
         }
     }
 
+    /**
+     * @brief Compares two values for greater than or equal, calculates the epsilon automatically
+     * @details The function compares two values for greater than or equal.
+     * Makes use of the eq function for floating-point types.
+     * @see eq
+     * @tparam LValueT The type of the left value
+     * @tparam RValueT The type of the right value
+     * @param left The left value
+     * @param right The right value
+     * @return True if the left value is greater than or equal to the right value, false otherwise
+     */
     template <typename LValueT, typename RValueT>
     constexpr bool mte(const LValueT& left, const RValueT& right) {
         static_assert(std::is_arithmetic_v<LValueT> && std::is_arithmetic_v<RValueT>, "Types must be arithmetic");
@@ -371,6 +563,13 @@ namespace GLESC::Math {
         return min2 + t * (max2 - min2);
     }
 
+    /**
+     * @brief Calculates the square root of a value
+     * @details The square root of a number is a value that, when multiplied by itself, gives the original number.
+     * @tparam Type The type of the value
+     * @param value The value to calculate the square root of
+     * @return The square root of the value
+     */
     template <typename Type>
     Type sqrt(const Type& value) {
         S_ASSERT_TRUE(std::is_arithmetic_v<Type>, "Type must be arithmetic");
@@ -394,28 +593,58 @@ namespace GLESC::Math {
         return result;
     }
 
+    /**
+     * @brief Calculates the cosine of a value
+     * @details The cosine of an angle is the ratio of the length of the adjacent side to the length of the hypotenuse.
+     * @tparam Type The type of the value
+     * @param value The value to calculate the cosine of
+     * @return The cosine of the value
+     */
     template <typename Type>
     auto cos(const Type& value) {
         S_ASSERT_TRUE(std::is_arithmetic_v<Type>, "Type must be arithmetic");
         return std::cos(value);
     }
 
+    /**
+     * @brief Calculates the sine of a value
+     * @details The sine of an angle is the ratio of the length of the opposite side to the length of the hypotenuse.
+     * @tparam Type The type of the value
+     * @param value The value to calculate the sine of
+     * @return The sine of the value
+     */
     template <typename Type>
     auto sin(const Type& value) {
         S_ASSERT_TRUE(std::is_arithmetic_v<Type>, "Type must be arithmetic");
         return std::sin(value);
     }
 
+    /**
+     * @brief Calculates the tangent of a value
+     * @details The tangent of an angle is the ratio of the length of the opposite side to the
+     * length of the adjacent side.
+     * @tparam Type The type of the value
+     * @param value The value to calculate the tangent of
+     * @return The tangent of the value
+     */
     template <typename Type>
     auto tan(const Type& value) {
         S_ASSERT_TRUE(std::is_arithmetic_v<Type>, "Type must be arithmetic");
         return std::tan(value);
     }
 
+    /**
+     * @brief Calculates the arctangent of a value
+     * @details The arctangent of a value is the angle whose tangent is the value.
+     * @tparam Type The type of the value
+     * @param value1 The value to calculate the arctangent of
+     * @param value2 The value to calculate the arctangent of
+     * @return The arctangent of the value
+     */
     template <typename Type>
-    auto atan2(const Type& y, const Type& x) {
+    auto atan2(const Type& value1, const Type& value2) {
         S_ASSERT_TRUE(std::is_arithmetic_v<Type>, "Type must be arithmetic");
-        return std::atan2(y, x);
+        return std::atan2(value1, value2);
     }
 
 
@@ -459,6 +688,15 @@ namespace GLESC::Math {
         }
     }
 
+    /**
+     * @brief Simulates a perfect coin toss with a given chance of success
+     * @details The function returns true with the given chance of success, and false otherwise.
+     * Makes use of the generateRandomNumber function to generate a random number between 0 and 1.
+     * @see generateRandomNumber
+     * @tparam Type The type of the chance
+     * @param chance The chance of success
+     * @return True with the given chance of success, false otherwise
+     */
     template <typename Type>
     [[nodiscard]] bool tossCoinWithChance(Type chance) {
         S_ASSERT_TRUE(std::is_arithmetic_v<Type>, "Type must be arithmetic");

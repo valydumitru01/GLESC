@@ -16,6 +16,10 @@
 #include "engine/core/debugger/Stringer.h"
 
 namespace GLESC {
+    /**
+     * @brief Class to manage the stats of the game.
+     * @details This class allows registering stat sources such as FPS, memory usage, etc.
+     */
     class StatsManager {
     public:
         // Register a stat source with any return type

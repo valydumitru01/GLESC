@@ -2,7 +2,7 @@
  * @file   PhysicsSystem.h
  * @author Valentin Dumitru
  * @date   09/06/2024
- * @brief  Add description of this file if needed @TODO
+ * @brief  System that updates the physics of the entities
  *
  * Copyright (c) 2023 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.

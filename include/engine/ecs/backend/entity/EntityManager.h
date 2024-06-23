@@ -45,6 +45,7 @@ namespace GLESC::ECS {
          */
         ~EntityManager() = default;
 
+
         const std::unordered_map<EntityName, EntityID>& getEntityNameToID() const { return entityNameToID; }
         const std::unordered_map<EntityID, EntityName>& getEntityIDToName() const { return entityIDToName; }
         const std::queue<EntityID>& getAvailableEntities() const { return availableEntities; }

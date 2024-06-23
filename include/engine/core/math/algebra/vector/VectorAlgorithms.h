@@ -485,13 +485,13 @@ namespace GLESC::Math {
         }
 
         /**
-         * @brief Computes the angle between two vectors.
+         * @brief Computes the rads between two vectors.
          *
          * @tparam Type Data type of the vectors (e.g., double, float).
          * @tparam N Dimension of space.
          * @param vec1 First vector.
          * @param vec2 Second vector.
-         * @return Angle between the two vectors.
+         * @return Rads between the two vectors.
          */
         template <typename Type, size_t N>
         static Type angle(const VectorData<Type, N>& vec1, const VectorData<Type, N>& vec2) {
@@ -605,17 +605,40 @@ namespace GLESC::Math {
             rotation[2] = roll;
         }
 
+        /**
+         * @brief Checks if a vector is homogeneous.
+         * @details A vector is homogeneous if its last element is 1.
+         * @tparam Type Data type of the vector (e.g., double, float).
+         * @tparam N Dimension of space.
+         * @param vec Vector to be checked.
+         * @return true if the vector is homogeneous, false otherwise.
+         */
         template <typename Type, size_t N>
         static bool isHomogeneous(const VectorData<Type, N>& vec) {
             return vec[N - 1] == Type(1);
         }
-
+        /**
+         * @brief Homozenizes a vector.
+         * @details Adds a 1 to the end of the vector.
+         * @tparam Type Data type of the vector (e.g., double, float).
+         * @tparam N Dimension of space.
+         * @param vec Vector to be homogenized.
+         * @param result Vector to store the homogenized vector.
+         */
         template <typename Type, size_t N>
         static void homogenize(const VectorData<Type, N>& vec, VectorData<Type, N + 1>& result) {
             VectorAlgorithms::vectorCopy(result, vec); // Copies until the Nth element
             result[N] = Type(1); // Set the N+1th element to 1
         }
 
+        /**
+         * @brief Dehomogenizes a vector.
+         * @details Divides each element of the vector by the last element and removes the last element.
+         * @tparam Type Data type of the vector (e.g., double, float).
+         * @tparam N Dimension of space.
+         * @param vec Vector to be dehomogenized.
+         * @param result Vector to store the dehomogenized vector.
+         */
         template <typename Type, size_t N>
         static void dehomogenize(const VectorData<Type, N>& vec, VectorData<Type, N - 1>& result) {
             if (vec[N - 1] == Type(0))
@@ -628,6 +651,14 @@ namespace GLESC::Math {
             }
         }
 
+        /**
+         * @brief Makes a forward vector from rotation angles.
+         * @details Computes the forward vector from the rotation angles (pitch, yaw, roll).
+         * @tparam Type Data type of the vector (e.g., double, float).
+         * @tparam N Dimension of space.
+         * @param rotationRads Rotation angles in radians.
+         * @param result Vector to store the forward vector.
+         */
         template <typename Type, size_t N>
         static void makeForwardVector(const VectorData<Type, N>& rotationRads, VectorData<Type, N>& result) {
             Type pitch = rotationRads[0];
@@ -638,7 +669,14 @@ namespace GLESC::Math {
             result[2] = Math::cos(-pitch) * Math::cos(yaw);
         }
 
-
+        /**
+         * @brief Makes a right vector from rotation angles.
+         * @details Computes the right vector from the rotation angles (pitch, yaw, roll).
+         * @tparam Type Data type of the vector (e.g., double, float).
+         * @tparam N Dimension of space.
+         * @param rotationRads Rotation angles in radians.
+         * @param result Vector to store the right vector.
+         */
         template <typename Type, size_t N>
         static void makeRightVector(const VectorData<Type, N>& rotationRads,
                                     VectorData<Type, N>& result) {
@@ -650,6 +688,14 @@ namespace GLESC::Math {
             result[2] = Math::cos(pitch) * Math::cos(yaw - Math::PI / 2);
         }
 
+        /**
+         * @brief Makes an up vector from rotation angles.
+         * @details Computes the up vector from the rotation angles (pitch, yaw, roll).
+         * @tparam Type Data type of the vector (e.g., double, float).
+         * @tparam N Dimension of space.
+         * @param rotationRads Rotation angles in radians.
+         * @param result Vector to store the up vector.
+         */
         template <typename Type, size_t N>
         static void makeUpVector(const VectorData<Type, N>& rotationRads, VectorData<Type, N>& result) {
             Type pitch = rotationRads[0];
@@ -661,6 +707,16 @@ namespace GLESC::Math {
             result[2] = -Math::cos(roll) * Math::sin(pitch) * Math::cos(yaw) - Math::sin(roll) * Math::sin(yaw); // up_z
         }
 
+        /**
+         * @brief Rotates a 3D vector by the given rotation angles.
+         * @details Rotates a 3D vector by the given rotation angles (pitch, yaw, roll).
+         * Rotating a vector means rotating a vector around the origin of the coordinate system.
+         * Imagine the vector as an arrow pointing from the origin to the vector's tip, we rotate the arrow.
+         * @tparam Type Data type of the vector (e.g., double, float).
+         * @param vec Vector to be rotated.
+         * @param rotationRads Rotation angles in radians.
+         * @param result Vector to store the rotated vector.
+         */
         template <typename Type>
         static void rotateVector3D(const VectorData<Type, 3>& vec,
                                    const VectorData<Type, 3>& rotationRads,
@@ -711,6 +767,14 @@ namespace GLESC::Math {
         }
 
 
+        /**
+         * @brief Gets an orthogonal vector to the input vector.
+         * @details Gets an orthogonal vector to the input vector in the same plane.
+         * @tparam Type Data type of the vectors (e.g., double, float).
+         * @tparam N Dimension of space.
+         * @param data Input vector.
+         * @param result Output orthogonal vector.
+         */
         template <typename Type, size_t N>
         static void getOrthogonal(const VectorData<Type, N>& data, VectorData<Type, N>& result) {
             static_assert(N == 2 || N == 3 || N == 4, "getOrthogonal is only implemented for 2D, 3D, and 4D vectors");

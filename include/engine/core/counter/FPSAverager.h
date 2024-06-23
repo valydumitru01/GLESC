@@ -14,8 +14,18 @@
 
 class FPSAverager {
 public:
+    /**
+     * @brief Default constructor.
+     */
     FPSAverager() = default;
+    /**
+     * @brief Default destructor.
+     */
     ~FPSAverager() = default;
+    /**
+     * @brief Adds a frame to the FPS averager.
+     * @param frameTime - the time it took to render the frame.
+     */
     void addFrame(long unsigned int frameTime) {
         frames.push_back(frameTime);
         if (frames.size() > AVERAGE_FPS_COUNT) {

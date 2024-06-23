@@ -2,7 +2,7 @@
  * @file   Console.h
  * @author Valentin Dumitru
  * @date   06/03/2024
- * @brief  Add description of this file if needed @TODO
+ * @brief  Console class that encapsulates the logic of the console.
  *
  * Copyright (c) 2024 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
@@ -26,6 +26,12 @@ namespace GLESC {
         int count;
         LogLevel level;
     };
+    /**
+     * @brief Class that encapsulates the logic of the console.
+     * @details Allows logging messages with different levels of importance.
+     * Also, handles messages so that repeated messages are not displayed multiple times but instead
+     * a counter is shown.
+     */
     class Console {
     public:
 #ifndef NDEBUG_GLESC

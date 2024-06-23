@@ -13,15 +13,20 @@
 #include "engine/core/asserts/Asserts.h"
 
 
-#define S_ASSERT_VEC_IS_OF_SIZE_OR_BIGGER(expectedSize) \
-    S_ASSERT_GREATER_OR_EQUAL(N, expectedSize,             \
+/**
+ * @brief Asserts that a vector is of a certain size or bigger.
+ * @param N The size of the vector.
+ * @param expectedSize The expected size of the vector.
+ */
+#define S_ASSERT_VEC_IS_OF_SIZE_OR_BIGGER(expectedSize)          \
+    S_ASSERT_GREATER_OR_EQUAL(N, expectedSize,                   \
         "Vector size is incorrect, expected size" #expectedSize  \
         " or bigger")
 
-#define S_ASSERT_VEC_IS_OF_SIZE(expectedSize)           \
-    S_ASSERT_EQUAL(N, expectedSize,                        \
-        "Vector size is incorrect, expected size"#expectedSize)
-    
+/**
+ * @brief Asserts that the vector is homogeneous.
+ * @param vec The vector to check.
+ */
 #define D_ASSERT_VEC_IS_HOMOGENEOUS(vec)                          \
-    D_ASSERT_TRUE(vec.isHomogeneous(),                            \
+    D_ASSERT_TRUE((vec).isHomogeneous(),                          \
     "Vector is not homogenous")

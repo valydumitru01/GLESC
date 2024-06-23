@@ -2,7 +2,8 @@
  * @file   GAPIDebugger.h
  * @author Valentin Dumitru
  * @date   2023-09-26
- * @brief @todo
+ * @brief Debugger for the Graphic Application Programming Interface (GAPI).
+ * @details Includes toStrings and logging for the GAPI.
  *
  * Copyright (c) 2023 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.

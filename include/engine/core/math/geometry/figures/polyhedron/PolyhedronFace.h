@@ -46,14 +46,29 @@ namespace GLESC::Math {
         *
         */
         PolyhedronFace& operator=(const PolyhedronFace& other) = delete;
+        /**
+         * @brief Returns the normal the face
+         * @return The normal of the face
+         */
+        [[nodiscard]] const Point &getNormal() const { return plane.getNormal(); }
 
-        const Point &getNormal() const { return plane.getNormal(); }
+        /**
+         * @details Get the vertices of the polyhedron that contains this face.
+         * @return The vertices of the polyhedron.
+         */
+        [[nodiscard]] const std::vector<Point>& getPolyhedronVertices() const { return polyhedronVertices; }
 
-        const std::vector<Point>& getPolyhedronVertices() const { return polyhedronVertices; }
+        /**
+         * @details Get the indices of the vertices of the face.
+         * @return The indices of the vertices of the face.
+         */
+        [[nodiscard]] const FaceIndices& getVertexIndices() const { return indices; }
 
-        const FaceIndices& getVertexIndices() const { return indices; }
-
-        const Plane& getPlane() const { return plane; }
+        /**
+         * @details Get the plane that contains the face.
+         * @return The plane that contains the face.
+         */
+        [[nodiscard]] const Plane& getPlane() const { return plane; }
 
         /**
         * @brief Checks if the current face intersects with the given face.
@@ -73,10 +88,19 @@ namespace GLESC::Math {
         */
         [[nodiscard]] bool intersects(const PolyhedronFace& face) const;
 
+        /**
+         * @brief Checks if the face intersects with a given point.
+         * @param point The point to check for intersection.
+         * @return True if the face intersects with the point, false otherwise.
+         */
+        [[nodiscard]] bool intersects(const Vec3F& point) const;
 
-        bool intersects(const Vec3F& point) const;
-
-        bool intersects(const Line& line) const;
+        /**
+         * @brief Checks if the face intersects with a given line.
+         * @param line The line to check for intersection.
+         * @return True if the face intersects with the line, false otherwise.
+         */
+        [[nodiscard]] bool intersects(const Line& line) const;
 
         /**
         * @brief Checks if the face intersects with a given plane.
@@ -88,7 +112,7 @@ namespace GLESC::Math {
         * @param plane The plane to check for intersection with the face.
         * @return True if the face intersects with the plane, false otherwise.
         */
-        bool intersects(const Plane& plane) const;
+        [[nodiscard]] bool intersects(const Plane& plane) const;
 
     private:
         /**
@@ -105,8 +129,5 @@ namespace GLESC::Math {
         * @brief Const reference to the vertices of the polyhedron that contains this face.
         */
         const std::vector<Point>& polyhedronVertices;
-
-
-        // Other methods like area calculation, etc., can be added as needed.
-    };
+    }; // class PolyhedronFace
 } // namespace GLESC::Math

@@ -72,7 +72,7 @@ namespace GLESC::ECS {
         [[nodiscard]] EntityName getName() const;
 
         /**
-         *
+         * @brief Checks if the entity is alive (if the ID of the entity is valid)
          */
         [[nodiscard]] bool isAlive() const;
 

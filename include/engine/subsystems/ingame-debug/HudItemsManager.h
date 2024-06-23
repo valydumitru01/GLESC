@@ -39,6 +39,11 @@ struct Item {
     const GLESC::Transform::Position* worldPosition{};
 };
 
+/**
+ * @brief Class that manages the items that are displayed in the HUD.
+ * @details This class stores the items that are not displayed by the renderer but are displayed in the HUD while
+ * debugging.
+ */
 class HudItemsManager {
 public:
 #ifndef NDEBUG_GLESC

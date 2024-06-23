@@ -7,7 +7,6 @@
  * Copyright (c) 2023 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
  **************************************************************************************************/
-#include "engine/core/exceptions/subsystems/ShaderException.h"
 #include "engine/core/logger/Logger.h"
 #include "engine/core/low-level-renderer/asserts/ShaderAsserts.h"
 #include "engine/core/low-level-renderer/graphic-api/Gapi.h"
@@ -68,8 +67,6 @@ void ShaderLoader::insertShaderMacros(std::string& vertexCode, std::string& frag
 void ShaderLoader::extractShaderCode(const std::string& shaderSource,
                                      std::string& vertexCode,
                                      std::string& fragmentCode) {
-    const char* tokenVertex = "#shader vertex";
-    const char* tokenFragment = "#shader fragment";
 
     size_t vertexPos = shaderSource.find(tokenVertex);
     size_t fragmentPos = shaderSource.find(tokenFragment);

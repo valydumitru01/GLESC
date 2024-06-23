@@ -89,19 +89,48 @@ namespace GLESC {
          */
         void rotate(const MousePosition& deltaMouse);
 
+        /**
+         * @brief Prepares the camera entity with its components and it's initial values
+         */
         void setupCamera();
 
-
+        /**
+         * @brief Camera friction value is 0.1f, makes the camera move like swimming through air as
+         * 0.1 is a relatively big value for a friction
+         */
         static constexpr float defaultCameraAirFriction = 0.1f;
+        /**
+         * @brief The far plane is at 1000 units, far enough to see the whole scene
+         */
         static constexpr float defaultFarPlane = 1000.f;
+        /**
+         * @brief The near plane is at 0.1 units
+         */
         static constexpr float defaultNearPlane = 0.1f;
+        /**
+         * @brief The field of view is 45 degrees
+         */
         static constexpr float defaultFov = 45.f;
+        /**
+         * @brief The camera is not affected by gravity
+         */
         static constexpr bool defaultCameraAffectedByGravity = false;
 
+        /**
+         * @brief The camera speed is 25 units per second
+         */
         float cameraSpeed = 25.f;
+        /**
+         * @brief The camera sensitivity is 1.0f, is the sensitivity of the mouse movement
+         */
         Render::Intensity<float> cameraSensitivity{1.0f};
+        /**
+         * @brief The camera pitch constraint is 45 degrees
+         */
         float cameraPitchConstraint = 45.0f;
-
+        /**
+         * @brief The camera entity
+         */
         ECS::Entity camera;
 
 
@@ -111,6 +140,9 @@ namespace GLESC {
 
 
         bool debugHUDActive = false;
+        /**
+         * @brief A reference to the engine huds, the camer allows hide or show them with the input
+         */
         HUD::EngineHUDManager* engineHuds{};
     }; // class EngineCamera
 } // namespace GLESC

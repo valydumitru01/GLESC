@@ -2,7 +2,7 @@
  * @file   LightSystem.h
  * @author Valentin Dumitru
  * @date   2024-03-31
- * @brief  Add description of this file if needed @TODO 
+ * @brief  System that updates the lights in the scene
  *
  * Copyright (c) 2024 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.

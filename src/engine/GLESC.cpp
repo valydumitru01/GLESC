@@ -43,7 +43,7 @@ Engine::Engine(FPSManager& fpsManager) :
     engineHuds(hudManager, renderer, textureFactory),
     ecs(),
     entityFactory(ecs),
-    updateSystems(createSystems()),
+    systems(createSystems()),
     engineCamera(entityFactory, inputManager, windowManager),
     sceneManager(entityFactory, windowManager),
     sceneContainer(windowManager, entityFactory, inputManager, sceneManager, hudManager, engineCamera),
@@ -98,7 +98,7 @@ void Engine::update() {
 #endif
 
 
-    for (auto& system : updateSystems) {
+    for (auto& system : systems) {
         system->update();
     }
     // This tells the renderer that all the data it needs to render has been updated

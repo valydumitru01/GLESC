@@ -2,7 +2,7 @@
  * @file   EntityListManager.h
  * @author Valentin Dumitru
  * @date   28/05/2024
- * @brief  Add description of this file if needed @TODO
+ * @brief  Class that manages the list of entities in the scene.
  *
  * Copyright (c) 2023 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
@@ -15,6 +15,9 @@
 
 
 namespace GLESC {
+    /**
+     * @brief Struct that holds the name and type of an entity.
+     */
     struct EntityListItem {
         const std::string* name;
         GLESC::EntityType type;
@@ -28,6 +31,12 @@ namespace GLESC {
         }
     };
 
+    /**
+     * @brief Class that manages the list of entities in the scene.
+     * @details It allows adding, removing, and selecting entities.
+     * This class will be rendered by the EntityListHUD.
+     * It is static because it's logic and data are simple and it benefits from being accessed from anywhere.
+     */
     class EntityListManager {
     public:
         static void addEntity(const std::string& entity, GLESC::EntityType type);

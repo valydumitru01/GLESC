@@ -497,7 +497,7 @@ void ShootTheChickenGame::update() {
         ECS::Entity chicken = getEntity(chickenID);
 
         // Jump every random seconds between 1 and 10
-        if (getSceneTimeInSec() % Math::generateRandomNumber(1, 10) == 0) {
+        if (getSceneTimeSeconds() % Math::generateRandomNumber(1, 10) == 0) {
             auto transform = chicken.getComponent<ECS::TransformComponent>().transform;
             if (chicken.getComponent<ECS::CollisionComponent>().collider.getCollisionInformation().isOnGround())
                 chicken.getComponent<ECS::PhysicsComponent>().physics.addForce(
@@ -543,7 +543,7 @@ void ShootTheChickenGame::update() {
             chicken.getComponent<ECS::TransformComponent>().transform.
                     setRotation({0, currentRotation.getY(), 0});
             // Rotate for 4 seconds every 4 seconds
-            if (getSceneTimeInSec() / rotationSecondsDuration % rotationSecondsInterval == 0) {
+            if (getSceneTimeSeconds() / rotationSecondsDuration % rotationSecondsInterval == 0) {
                 chicken.getComponent<ECS::TransformComponent>().transform.addRotation(
                     Transform::RotationAxis::Yaw,
                     4

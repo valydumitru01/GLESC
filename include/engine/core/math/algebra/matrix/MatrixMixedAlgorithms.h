@@ -110,8 +110,7 @@ namespace GLESC::Math {
         /**
          * @brief Rotate a 3D matrix around the X, Y, and Z axis.
          * @details This function applies sequential rotations to the input matrix based on the given angles.
-         * The function assumes a specific order of rotations. It is Z, then Y, then X
-         * TODO: Be cautious about gimbal lock when using Euler angles.
+         * TODO: Be cautious about gimbal lock when using Euler angles, use quaternions for robustness.
          *   It's recommended to use quaternions for robustness.
          * @tparam TypeDgrs The data type of the rotation angles (e.g., float, double).
          * @tparam TypeRes The data type of the result matrix elements (e.g., float, double).
@@ -154,11 +153,20 @@ namespace GLESC::Math {
             result[3][3] = 1;
         }
 
+        /**
+         * @brief Calculate the 3D rotation matrix from the rotation angles around the X, Y, and Z axes.
+         * @details This function calculates the 3D rotation matrix from the rotation angles around the coordinate axes.
+         * The function applies the transformations in the following order: rotation around the X, Y, and Z axes.
+         * @tparam TypeDgrs The data type of the rotation angles (e.g., float, double).
+         * @tparam TypeRes The data type of the result matrix elements (e.g., float, double).
+         * @param rads A 3D vector containing the rotation angles around the X, Y, and Z axes respectively.
+         * @param result A 4x4 matrix which will contain the result of the rotation.
+         */
         template <typename TypeDgrs, typename TypeRes>
         static void getRotate3DMatrix(const VectorData<TypeDgrs, 3>& rads,
                                       MatrixData<TypeRes, 4, 4>& result) {
-            GLESC::Math::MatrixAlgorithms::setMatrixZero(result);
-            GLESC::Math::MatrixAlgorithms::setMatrixDiagonal(result, 1.0f);
+            MatrixAlgorithms::setMatrixZero(result);
+            MatrixAlgorithms::setMatrixDiagonal(result, 1.0f);
 
             MatrixData<TypeRes, 4, 4> rotX;
             VectorData<TypeDgrs, 3> rotXAxis = {1, 0, 0};
@@ -170,8 +178,8 @@ namespace GLESC::Math {
             VectorData<TypeDgrs, 3> rotZAxis = {0, 0, 1};
             MatrixMixedAlgorithms::getRotate3DMatrixForAxis(rads[2], rotZAxis, rotZ);
 
-            MatrixAlgorithms::matrixMatrixMulInPlace(result, rotY, result);
             MatrixAlgorithms::matrixMatrixMulInPlace(result, rotZ, result);
+            MatrixAlgorithms::matrixMatrixMulInPlace(result, rotY, result);
             MatrixAlgorithms::matrixMatrixMulInPlace(result, rotX, result);
         }
 

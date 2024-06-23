@@ -320,7 +320,7 @@ TYPED_TEST(MatrixTests, MulOperator) {
     constexpr auto X = 4;
 
 
-    if constexpr (GLESC::Math::MatrixAlgorithms::rowMajorMatrix) {
+    if constexpr (GLESC::Math::MatrixAlgorithms::columnMajorMatrix) {
         GLESC::Math::Matrix<Type, M, N> matrixToMultiplyLeft;
         initializeMatrixWithValues(matrixToMultiplyLeft);
 
@@ -431,7 +431,7 @@ TYPED_TEST(MatrixTests, Inverse) {
 
 template <class Type, size_t N, size_t M, size_t X>
 void textMatrixWithGlm() {
-    if constexpr (GLESC::Math::MatrixAlgorithms::rowMajorMatrix) {
+    if constexpr (GLESC::Math::MatrixAlgorithms::columnMajorMatrix) {
         using MyMatLeft = GLESC::Math::Matrix<Type, M, N>;
         using MyMatRight = GLESC::Math::Matrix<Type, X, M>;
         using MyMatResult = GLESC::Math::Matrix<Type, X, N>;

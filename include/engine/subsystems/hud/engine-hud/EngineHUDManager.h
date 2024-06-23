@@ -20,6 +20,9 @@
 #include "engine/subsystems/renderer/texture/TextureFactory.h"
 
 namespace GLESC::HUD {
+    /**
+     * @brief Container for all the engine HUDs.
+     */
     class EngineHUDManager {
     public:
         explicit EngineHUDManager(HUDManager& hudManager, Render::Renderer& renderer,

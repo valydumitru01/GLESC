@@ -39,6 +39,11 @@ namespace GLESC {
         BottomRight
     };
 
+    /**
+     * @brief Class to encapsulate the logic of an in-game window.
+     * @details This class must be inherited by any class that wants to create a window in the game.
+     * Allows setting the position, size, and layout of the window.
+     */
     class InGameWindow {
     public:
         InGameWindow();
@@ -87,7 +92,16 @@ namespace GLESC {
         void setVisible(bool visible) { isVisible = visible; }
         void toggleVisibility() { isVisible = !isVisible; }
 
+        /**
+         * @brief Update the window position and size
+         * @details Updates the windows positions given it's layout configuration and the current window size
+         */
         void update();
+        /**
+         * @brief Render the window
+         * @details The time of frame is needed to interpolate hud items and allow for smooth rendering
+         * @param timeOfFrame The time of the current frame
+         */
         void render(float timeOfFrame);
 
     protected:

@@ -14,10 +14,14 @@
 #include "TextureEnums.h"
 
 using namespace GLESC::GAPI;
-struct Pixel {
-    UByte r, g, b, a;
+
+/**
+ * @brief A pixel abstraction class that holds the RGBA values of a pixel
+ */
+[[nodiscard]] struct Pixel {
+    UByte r{}, g{}, b{}, a{};
     
-    Pixel() : r(0), g(0), b(0), a(0) {}
+    Pixel() = default;
     
     Pixel(UByte rParam, UByte gParam, UByte bParam, UByte aParam)
             : r(rParam), g(gParam), b(bParam), a(aParam) {}
@@ -39,7 +43,10 @@ struct Pixel {
 };
 
 
-struct Format {
+/**
+ * @brief A struct that holds the format of a texture
+ */
+[[nodiscard]] struct Format {
     GLESC::ResMng::Texture::ColorFormat colorFormat;
     GLESC::ResMng::Texture::BitDepth bitDepth;
     Uint32 rMask, gMask, bMask, aMask;

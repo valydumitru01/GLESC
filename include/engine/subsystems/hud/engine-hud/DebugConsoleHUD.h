@@ -2,7 +2,7 @@
  * @file   DebugConsoleHUD.h
  * @author Valentin Dumitru
  * @date   07/03/2024
- * @brief  Add description of this file if needed @TODO
+ * @brief  HUD for the debug console.
  *
  * Copyright (c) 2024 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
@@ -12,6 +12,11 @@
 #include "engine/subsystems/hud/InGameWindow.h"
 #ifndef NDEBUG_GLESC
 namespace GLESC::HUD {
+    /**
+     * @brief Class to encapsulate the logic of the debug console HUD.
+     * @details The debug console HUD is a window that displays debug information.
+     * Allows visualizing the data contained in the debug console.
+     */
     class DebugConsoleHUD : public InGameWindow {
     public:
         DebugConsoleHUD();

@@ -20,6 +20,11 @@ namespace GLESC::Physics {
 }
 
 namespace GLESC::Physics {
+    /**
+     * @brief The collider class component for entities.
+     * @details This class handles all the data of the collider and the information of the collision itself (such
+     * as the position or the depth of the collision). Also stores the callbacks for the collision.
+     */
     class Collider : public EngineComponent {
         using CollisionCallback = std::function<void(Collider&)>;
         using SpecificCollisionCallbacks = std::unordered_map<Collider*, CollisionCallback>;

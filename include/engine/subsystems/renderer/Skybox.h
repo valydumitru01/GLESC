@@ -16,6 +16,10 @@
 #define SKYBOX_PATH "images/skyboxes/default/"
 
 namespace GLESC::Render {
+    /**
+     * @brief Class that represents a skybox.
+     * @details Stores the skybox cubemap, and handles the textures and rendering of the skybox.
+     */
     class Skybox {
     public:
         /**
@@ -28,6 +32,11 @@ namespace GLESC::Render {
         }
 
         void calculateAverageColor();
+        /**
+         * @brief Renders the skybox around the player given the view and projection.
+         * @param view 
+         * @param projection
+         */
         void draw(const View& view, const Projection& projection) const ;
 
     private:

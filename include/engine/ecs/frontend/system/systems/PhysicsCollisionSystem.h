@@ -1,8 +1,12 @@
-/*******************************************************************************
+/**************************************************************************************************
+* @file   LightSystem.h
+ * @author Valentin Dumitru
+ * @date   2024-03-31
+ * @brief  System that updates the collision physics of the entities
  *
- * Copyright (c) 2023.
- * Licensed under the MIT License. See LICENSE.txt in the project root for license information.
- ******************************************************************************/
+ * Copyright (c) 2024 Valentin Dumitru. Licensed under the MIT License.
+ * See LICENSE.txt in the project root for license information.
+ **************************************************************************************************/
 #pragma once
 
 #include "engine/ecs/frontend/system/System.h"

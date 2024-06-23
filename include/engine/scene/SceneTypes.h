@@ -10,5 +10,9 @@
 #pragma once
 #include <cstddef>
 namespace GLESC::Scene {
+    /**
+     * @brief Type used to identify a scene.
+     * @details Each scene has a unique ID.
+     */
     using SceneID = int;
 } // namespace GLESC::Scene

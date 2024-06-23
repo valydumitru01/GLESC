@@ -32,6 +32,7 @@ namespace GLESC::Render {
      * @details This is the mesh class for the engine. Is a template class that needs to be instantiated with the
      * types (@see Types) of the vertex attributes that the mesh will have.
      * This mesh class contains only the abstraction of the mesh data.
+     * This mesh is thread safe, so its safe to modify it from multiple threads.
      * @warning mesh does NOT need to be instantiated with the position attribute, as it is always present, Doing so
      * might lead to unexpected behavior. Position is inside the topology and is always present.
      */
@@ -166,6 +167,13 @@ namespace GLESC::Render {
             UV textureCoordinate;
         };
 
+        /**
+         * @brief Adds a tris to the mesh, tris are defined by 3 vertices.
+         * @details The order of the faces is important, the vertices should be defined in a counter-clockwise order.
+         * @param a The first vertex of the tris.
+         * @param b The second vertex of the tris.
+         * @param c The third vertex of the tris.
+         */
         void addTris(const VertexColorParam& a, const VertexColorParam& b, const VertexColorParam& c) {
             D_ASSERT_TRUE(isBuilding, "Mesh is not being built");
             Normal normal = calculateNormal(a.position, b.position, c.position);
@@ -185,14 +193,28 @@ namespace GLESC::Render {
             this->addTris(v1Index, v2Index, v3Index);
         }
 
-        void addTris(const Vertex& a, const Vertex& b, const Vertex& c) {
+        /**
+         * @brief Adds a tris to the mesh, tris are defined by 3 vertices.
+         * @details The order of the faces is important, the vertices should be defined in a counter-clockwise order.
+         * @param v1 The first vertex of the tris.
+         * @param v2 The second vertex of the tris.
+         * @param v3 The third vertex of the tris.
+         */
+        void addTris(const Vertex& v1, const Vertex& v2, const Vertex& v3) {
             D_ASSERT_TRUE(isBuilding, "Mesh is not being built");
-            unsigned int v1Index = this->addVertex(a);
-            unsigned int v2Index = this->addVertex(b);
-            unsigned int v3Index = this->addVertex(c);
+            unsigned int v1Index = this->addVertex(v1);
+            unsigned int v2Index = this->addVertex(v2);
+            unsigned int v3Index = this->addVertex(v3);
             this->addTris(v1Index, v2Index, v3Index);
         }
 
+        /**
+         * @brief Attaches a mesh to the current mesh.
+         * @details This method will add the faces and vertices to the current mesh.
+         * It is an expesive operation as will iterate over all the faces of other mesh to add
+         * to this one.
+         * @param mesh The mesh to be attached.
+         */
         void attatchMesh(const Mesh& mesh) {
             D_ASSERT_TRUE(isBuilding, "Mesh is not being built");
 
@@ -208,38 +230,61 @@ namespace GLESC::Render {
             }
         }
 
-        void addQuad(const VertexColorParam& a,
-                     const VertexColorParam& b,
-                     const VertexColorParam& c,
-                     const VertexColorParam& d) {
+        /**
+         * @brief Adds a quad to the mesh, quads are defined by 4 vertices.
+         * @details The order of the faces is important, the vertices should be defined in a counter-clockwise order.
+         * @param v1 The first vertex of the quad.
+         * @param v2 The second vertex of the quad.
+         * @param v3 The third vertex of the quad.
+         * @param v4 The fourth vertex of the quad.
+         */
+        void addQuad(const VertexColorParam& v1,
+                     const VertexColorParam& v2,
+                     const VertexColorParam& v3,
+                     const VertexColorParam& v4) {
             D_ASSERT_TRUE(isBuilding, "Mesh is not being built");
-            Normal normal = calculateNormal(a.position, b.position, c.position);
+            Normal normal = calculateNormal(v1.position, v2.position, v3.position);
             unsigned int v1Index;
             unsigned int v2Index;
             unsigned int v3Index;
             unsigned int v4Index;
             if constexpr (std::is_same_v<Vertex, ColorVertex>) {
-                v1Index = this->addVertex({a.position, normal, a.color});
-                v2Index = this->addVertex({b.position, normal, b.color});
-                v3Index = this->addVertex({c.position, normal, c.color});
-                v4Index = this->addVertex({d.position, normal, d.color});
+                v1Index = this->addVertex({v1.position, normal, v1.color});
+                v2Index = this->addVertex({v2.position, normal, v2.color});
+                v3Index = this->addVertex({v3.position, normal, v3.color});
+                v4Index = this->addVertex({v4.position, normal, v4.color});
             }
             else {
-                v1Index = this->addVertex({a.position, normal, a.textureCoordinate});
-                v2Index = this->addVertex({b.position, normal, b.textureCoordinate});
-                v3Index = this->addVertex({c.position, normal, c.textureCoordinate});
-                v4Index = this->addVertex({d.position, normal, d.textureCoordinate});
+                v1Index = this->addVertex({v1.position, normal, v1.textureCoordinate});
+                v2Index = this->addVertex({v2.position, normal, v2.textureCoordinate});
+                v3Index = this->addVertex({v3.position, normal, v3.textureCoordinate});
+                v4Index = this->addVertex({v4.position, normal, v4.textureCoordinate});
             }
             this->addQuad(v1Index, v2Index, v3Index, v4Index);
         }
 
+        /**
+         * @brief Adds a quad to the mesh, quads are defined by 4 vertices.
+         * @details Will add two tris to the mesh. The order of the faces is important, the vertices should be defined
+         * in a counter-clockwise order.
+         * @param index1
+         * @param index2
+         * @param index3
+         * @param index4
+         */
         void addQuad(Index index1, Index index2, Index index3, Index index4) {
             D_ASSERT_TRUE(isBuilding, "Mesh is not being built");
             addTris(index1, index2, index3);
             addTris(index1, index3, index4);
         }
 
-        // Modify addVertex to return the index of the vertex, whether newly added or already existing
+        /**
+         * @brief Adds a vertex to the mesh
+         * @details This method will just add a vertex to the vertex buffer of the mesh.
+         * The mesh is a thread safe structure, so it is safe to call this method from multiple threads.
+         * @param vertexParam
+         * @return
+         */
         Index addVertex(const Vertex& vertexParam) {
             D_ASSERT_TRUE(isBuilding, "Mesh is not being built");
             // Insert new vertex
@@ -251,6 +296,12 @@ namespace GLESC::Render {
             return newIndex;
         }
 
+        /**
+         * @brief Adds a list of vertices to the mesh
+         * @details This method will just add a list of vertices to the vertex buffer of the mesh.
+         * Will call addVertex for each vertex in the list.
+         * @param verticesParam
+         */
         void addVertices(const std::vector<Vertex>& verticesParam) {
             D_ASSERT_TRUE(isBuilding, "Mesh is not being built");
             for (const auto& vertex : verticesParam) {
@@ -258,6 +309,14 @@ namespace GLESC::Render {
             }
         }
 
+        /**
+         * @brief Adds a list of indices to the mesh
+         * @details This method will add a list of indices to the index buffer of the mesh.
+         * The indices must be valid indices of the vertices vector, not out of bounds.
+         * @param index1 The first index of the tris.
+         * @param index2 The second index of the tris.
+         * @param index3 The third index of the tris.
+         */
         void addTris(Index index1, Index index2, Index index3) {
             D_ASSERT_TRUE(isBuilding, "Mesh is not being built");
             D_ASSERT_NOT_EQUAL(index1, index2, "Index 1 and 2 are equal");
@@ -348,6 +407,13 @@ namespace GLESC::Render {
 #endif
 
     private:
+        /**
+         * @brief This method creates GPU buffers and sends the data to the GPU.
+         * @details This method will create the vertex array, vertex buffer and index buffer objects and send the data
+         * to the GPU. This method also ensures that it is only called once. Even if the data is modified,
+         * as the mesh is not prepared for modifications.
+         * @todo Prepare the mesh for modifications.
+         */
         void sendToGpuBuffers() const {
             if (wasDataSentToGpu) return;
             vertexArray = std::make_unique<GLESC::GAPI::VertexArray>();
@@ -447,6 +513,11 @@ namespace GLESC::Render {
          * after rendering the mesh, we want to set the flag to false and nothing else.
          */
         mutable bool dirtyFlag = false;
+        /**
+         * @brief A flag that indicates whether the mesh is being built.
+         * @details The mesh can only be modified while it is being built. If trying to modify the mesh while it is not
+         * being built, the renderer will assert error.
+         */
         mutable bool isBuilding = false;
 
         mutable size_t cachedHash = 0;

@@ -2,7 +2,7 @@
  * @file   CrosshairHUD.h
  * @author Valentin Dumitru
  * @date   2024-04-13
- * @brief  Add description of this file if needed @TODO 
+ * @brief HUD for the crosshair.
  *
  * Copyright (c) 2024 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
@@ -12,6 +12,10 @@
 #include "engine/subsystems/renderer/RendererTypes.h"
 
 namespace GLESC::HUD {
+    /**
+     * @brief Class to encapsulate the logic of the crosshair HUD.
+     * @details The crosshair HUD is a simple crosshair that is displayed in the center of the screen.
+     */
     class CrosshairHUD : public GLESC::InGameWindow {
     public:
         CrosshairHUD();

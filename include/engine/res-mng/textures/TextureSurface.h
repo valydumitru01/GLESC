@@ -15,7 +15,13 @@
 
 
 namespace GLESC::ResMng::Texture {
-    class TextureSurface {
+    /**
+     * @brief Class that represents a texture surface. This class will hold the data of the texture
+     * and will be used to load the data from the file.
+     * It stores all the pixels to be able to retreive and modify.
+     * Also can be released to free the memory, as textures are memory intensive.
+     */
+    [[nodiscard]] class TextureSurface {
     public:
         /**
          * @brief Loader constructor. This constructor will initialize the texture with the data from the file.
@@ -30,7 +36,15 @@ namespace GLESC::ResMng::Texture {
         TextureSurface() = default;
 
         ~TextureSurface() = default;
+        /**
+         * @brief Loads the texture from the file system
+         * @param pathParam The path to the file
+         * @param flipTexture If the texture should be flipped
+         */
         void load(const std::string& pathParam, bool flipTexture);
+        /**
+         * @brief Releases the texture data
+         */
         void release();
         [[nodiscard]] unsigned int getHeight() const {
             return height;
@@ -65,7 +79,7 @@ namespace GLESC::ResMng::Texture {
         UInt width{0};
         UInt height{0};
         std::vector<UByte> pixels{};
-        Format format;
+        Format format{};
         bool hasLoaded = false;
     }; // class TextureSurface
 } // namespace GLESC::ResMng::Texture

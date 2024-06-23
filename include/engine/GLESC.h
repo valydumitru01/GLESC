@@ -101,23 +101,67 @@ namespace GLESC {
          */
         Render::Renderer renderer;
 
+        /**
+         * @brief Handles the physics of the game
+         * @details Handles all the physics of the game, including collision handling and physics simulation.
+         */
         Physics::PhysicsManager physicsManager;
+        /**
+         * @brief Handles the collision of the game
+         * @details Handles all the collision of the game, including collision detection and it's information.
+         */
         Physics::CollisionManager collisionManager;
+        /**
+         * @brief Handles the HUD of the game
+         * @details Handles all the HUD of the game, including the rendering of the HUD and the input of the HUD.
+         */
         HUD::HUDManager hudManager;
+        /**
+         * @brief A factory for creating textures
+         * @details This factory facilitates the creating and handling of textures.
+         */
         TextureFactory textureFactory;
 
+        /**
+         * @brief A reference to the FPS manager
+         * @details Handles the FPS of the game, including the calculation of the FPS and the limiting of the FPS.
+         */
         FPSManager& fpsManager;
 
+        /**
+         * @brief A simple storage for the engine entities
+         */
         HUD::EngineHUDManager engineHuds;
+
+        /**
+         * @brief The ECS coordinator, stores all the entities, components and systems
+         */
         ECS::ECSCoordinator ecs;
+        /**
+         * @brief The ECS entity factory, used to create entities
+         * @details Operates using the ECS coordinator
+         */
         ECS::EntityFactory entityFactory;
-
+        /**
+         * @brief A default implementation of the engine camera.
+         */
         EngineCamera engineCamera;
+        /**
+         * @brief A list of systems that are updated every frame
+         */
+        std::vector<std::unique_ptr<ECS::System>> systems;
 
-        std::vector<std::unique_ptr<ECS::System>> updateSystems;
-
+        /**
+         * @brief The scene manager, handles the scenes of the game
+         */
         Scene::SceneManager sceneManager;
+        /**
+         * @brief The scene container, stores all the scenes of the game
+         */
         Scene::SceneContainer sceneContainer;
+        /**
+         * @brief The game, handles the game logic
+         */
         Game game;
     }; // class Engine
 } // namespace GLESC

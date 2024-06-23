@@ -35,33 +35,96 @@ namespace GLESC::ECS {
             return nextComponentID;
         }
 
+        /**
+         * @brief Get the ID of a component by its type.
+         * @tparam Component The type of the component.
+         * @return The ID of the component.
+         */
         template <typename Component>
         ComponentID getComponentID() const;
 
+        /**
+         * @brief Get the name of a component by its ID.
+         * @param componentID The ID of the component.
+         * @return The name of the component.
+         */
         ComponentName getComponentName(ComponentID componentID) const;
 
+        /**
+         * @brief Get the component of an entity by its ID.
+         * @param entity The ID of the entity.
+         * @param componentID The ID of the component.
+         * @return The component.
+         */
         IComponent& getComponent(EntityID entity, ComponentID componentID) const;
 
+        /**
+         * @brief Get the component of an entity by its Id
+         * @tparam Component The type of the component
+         * @param entity The ID of the entity
+         * @return The component
+         */
         template <typename Component>
         Component& getComponent(EntityID entity) const;
 
+        /**
+         * @brief Register a component.
+         * @details When a component is registered, it is added to the component arrays and it is assigned an ID.
+         * @tparam Component The type of the component.
+         */
         template <typename Component>
         void registerComponent();
 
+        /**
+         * @brief Register a component if it is not already registered. If it is already registered, does nothing.
+         * @tparam Component The type of the component.
+         */
         template <typename Component>
         void registerComponentIfNotRegistered();
 
+        /**
+         * @brief Add a component to an entity.
+         * @details The component must be registered before adding it to an entity.
+         * Adding a component to an entity means adding a new component to the array of components of that type.
+         * And assigning the component to the entity inside the component array.
+         * @tparam Component The type of the component.
+         * @param entity The ID of the entity.
+         * @param component The component to add.
+         */
         template <typename Component>
         void addComponentToEntity(EntityID entity, const Component& component);
 
+        /**
+         * @brief Remove a component from an entity.
+         * @details Removing a component from an entity means removing the component from the array of components of
+         * that type and removing the component from the entity inside the component array.
+         * @tparam Component The type of the component.
+         * @param entity The ID of the entity.
+         */
         template <typename Component>
         void removeComponent(EntityID entity);
 
+        /**
+         * @brief Check if a component is registered.
+         * @tparam Component The type of the component.
+         * @return True if the component is registered, false otherwise.
+         */
         template <typename Component>
         bool isComponentRegistered() const;
 
+        /**
+         * @brief Check if a component is registered.
+         * @param componentID The ID of the component.
+         * @return True if the component is registered, false otherwise.
+        */
         bool isComponentRegistered(ComponentID componentID) const;
 
+        /**
+         * @brief Alert the component manager that an entity has been destroyed.
+         * @details This will alert all the component arrays that an entity has been destroyed amd they should remove
+         * the entity from their arrays with their assigned components.
+         * @param entity The ID of the entity.
+         */
         void entityDestroyed(EntityID entity);
 
         ~ComponentManager() = default;
@@ -76,6 +139,9 @@ namespace GLESC::ECS {
          * @brief Map from the name of a component to the ID of that component.
          */
         std::unordered_map<ComponentName, ComponentID> componentIDs{};
+        /**
+         * @brief Map from the ID of a component to the name of that component.
+         */
         std::unordered_map<ComponentID, ComponentName> componentNames{};
         /**
          * @brief ID of the next component to be registered. It is incremented after each component is registered.

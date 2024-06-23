@@ -12,6 +12,11 @@
 #ifndef NDEBUG_GLESC
 
 namespace GLESC::HUD {
+    /**
+     * @brief A class that encapsulates the HUD for the entity list.
+     * @details Allows visualizing the list of entities in the scene. Also, it allows selecting an entity
+     * to then be able to display in the debug entity data HUD.
+     */
     class EntityListHUD : public InGameWindow {
     public:
         EntityListHUD();

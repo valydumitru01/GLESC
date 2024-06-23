@@ -2,7 +2,7 @@
  * @file   Stringer.h
  * @author Valentin Dumitru
  * @date   2023-11-22
- * @brief  Add description of this file if needed @TODO 
+ * @brief  A set of functions for converting objects to strings.
  *
  * Copyright (c) 2023 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
@@ -43,12 +43,28 @@ namespace GLESC {
     template <typename T>
     constexpr bool hasToString_v = hasToString<T>::value;
 
+    /**
+     * @brief A general class to convert objects to strings.
+     */
     class Stringer {
     public:
+        /**
+         * @brief Sets the precision for floating point numbers.
+         * @param precision - the precision to set.
+         */
         static void setFloatPrecision(int precision) {
             floatPrecision = precision;
         }
-
+        /**
+         * @brief Converts an object to a string.
+         * @details The object to convert can be iterable or non iterable. If it is iterable, the output will be a
+         * list separated by commas. If it is non iterable, the output will be the string representation of the object.
+         * If the object is a floating point number, the precision of the output will be either the default or the
+         * one set by setFloatPrecision. Once the object is converted, the precision will be reset to the default.
+         * The default precision is 6.
+         * @param value - the object to convert.
+         * @return the string representation of the object.
+         */
         template <typename Type>
         [[nodiscard]] static std::string toString(const Type& value) {
             if constexpr (isIterable_v<Type> && !std::is_same_v<Type, std::string>) {
@@ -59,7 +75,11 @@ namespace GLESC {
             }
             floatPrecision = DEFAULT_FLOAT_PRECISION;
         }
-
+        /**
+         * @brief Converts a string to a number.
+         * @param string - the string to convert.
+         * @return the number representation of the string.
+         */
         [[nodiscard]] static std::string replace(const std::string& string, const std::string& stringToReplace,
                                                  const std::string& replacement);
 
@@ -71,11 +91,21 @@ namespace GLESC {
          * @return The stripped string
          */
         [[nodiscard]] static std::string strip(const std::string& string, const std::string& chars);
-
+        /**
+         * @brief Checks if a string contains a substring.
+         * @param string - the string to check.
+         * @param substring - the substring to check for.
+         * @return true if the string contains the substring, false otherwise.
+         */
         [[nodiscard]] static bool contains(const std::string& string, const std::string& substring);
 
     private:
         static int floatPrecision;
+        /**
+         * @brief Converts a non-iterable object to a string.
+         * @param value - the object to convert.
+         * @return the string representation of the object.
+         */
         template <typename Type>
         [[nodiscard]] static std::string nonIterableToString(const Type& value) {
             std::ostringstream oss;
@@ -129,7 +159,11 @@ namespace GLESC {
 
             return oss.str();
         }
-
+        /**
+         * @brief Converts an iterable object to a string.
+         * @param iterable - the iterable object to convert.
+         * @return the string representation of the iterable object.
+         */
         template <typename Iterable>
         [[nodiscard]] static std::string iterableToString(const Iterable& iterable) {
             std::ostringstream oss;

@@ -25,6 +25,14 @@ namespace GLESC::Math {
         // =============================================================================================================
         // ========================================= Vector operations =================================================
         // =============================================================================================================
+        /**
+         * @brief Converts a vector to a matrix.
+         * @details This function converts a vector to a single-column matrix.
+         * @tparam Type Data type of the vector and matrix (e.g., double, float).
+         * @tparam N Dimension of the vector and matrix.
+         * @param vector Vector to be converted.
+         * @param matrix Matrix to store the vector.
+         */
         template<typename Type, size_t N>
         static void
         vectorToMatrix(const VectorData<Type, N> &vector, MatrixData<Type, N, 1> &matrix) {
@@ -70,7 +78,6 @@ namespace GLESC::Math {
          * @details This function checks if a set of points are collinear.
          * @see areCollinear(p1, p2, p3)
          * @tparam Type Data type of the points (e.g., double, float).
-         * @tparam N Dimension of space.
          * @param referencePoint Reference for forming direction vectors.
          * @param points Points to be checked for collinearity.
          * @return true if points are collinear, false otherwise.

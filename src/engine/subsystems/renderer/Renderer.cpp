@@ -102,7 +102,7 @@ void Renderer::renderLights(const std::vector<const LightPoint*>& lights,
         std::string iStr = std::to_string(lightIndex);
         const Transform::Transform& transform = *lightTransforms[lightIndex];
         const Transform::Transform& interpolatedTransform =
-            interpolationTransforms[&transform].interpolate(static_cast<float>(timeOfFrame));
+            interpolationTransforms.at(&transform).interpolate(static_cast<float>(timeOfFrame));
 
         Position lightPosViewSpace =
             Transform::Transformer::transformVector(interpolatedTransform.getPosition(), getView());
@@ -178,7 +178,7 @@ void Renderer::applyTransform(const MV& MVMat, const MVP& MVPMat, const NormalMa
 }
 
 void Renderer::render(double timeOfFrame) {
-    drawCounter.startFrame();
+    drawCounter.startCounter();
     const View& viewMat = getView();
     const Projection& projMat = getProjection();
     const VP& viewProjMat = getViewProjection();

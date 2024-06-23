@@ -12,6 +12,9 @@
 
 #include "engine/res-mng/textures/TextureSurface.h"
 
+/**
+ * @brief Class representing a cubemap texture. It abstract away the creating and handling of cubemaps.
+ */
 class Cubemap {
 public:
     Cubemap() = default;
