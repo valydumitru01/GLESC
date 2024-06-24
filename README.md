@@ -25,7 +25,9 @@
     A c++ game engine using OpenGL and SDL2 based on ECS architecture.
     <br />
     <br />
-    <a href="GLESC/doc/doxy/generated-doxy/html/index.html"><strong>Read the Doxygen documentation »</strong></a>
+        <a href="https://valydumitru01.github.io/GLESC/doc/doxy/generated-doxy/html/index.html">
+            <strong>Read the Doxygen documentation »</strong>
+        </a>
     <br />
     <br />
     <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
