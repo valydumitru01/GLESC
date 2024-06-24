@@ -1,0 +1,5 @@
+<map id="GLESC::Math::Vector::lerp" name="GLESC::Math::Vector::lerp">
+<area shape="rect" id="Node000001" title="Calculates the linear interpolation between two vectors using a factor." alt="" coords="256,5,404,48"/>
+<area shape="rect" id="Node000002" href="$struct_g_l_e_s_c_1_1_transform_1_1_interpolator.html#ac421b853892d9700f61a4f55d6f5582e" title="Interpolates between the current and the last transform." alt="" coords="5,5,208,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="240,29,208,29,208,24,240,24"/>
+</map>

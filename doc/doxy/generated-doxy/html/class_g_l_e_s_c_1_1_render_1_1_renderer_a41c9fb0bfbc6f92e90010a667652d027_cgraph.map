@@ -1,0 +1,30 @@
+<map id="GLESC::Render::Renderer::applySun" name="GLESC::Render::Renderer::applySun">
+<area shape="rect" id="Node000001" title="This encapsulates the application of the sun, setting the uniforms." alt="" coords="5,272,180,315"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_render_1_1_renderer.html#aa5273b3a3abbfed253e75ce5d7c2b73a" title="This encapsulates the application of the ambient light." alt="" coords="228,205,402,248"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="165,269,226,250,227,256,167,274"/>
+<area shape="rect" id="Node000012" href="$class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader.html#a2af6148a4a3aca3519a20fdd877f6016" title="Sets a uniform value in the shader." alt="" coords="477,339,630,381"/>
+<area shape="poly" id="edge15_Node000001_Node000012" title=" " alt="" coords="180,303,462,344,461,349,180,309"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_render_1_1_global_ambient_light.html#a954145fad8637b8a98aae0595ba25cf5" title=" " alt="" coords="450,5,657,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="326,203,373,132,408,92,448,58,456,53,459,58,452,62,412,96,377,135,330,206"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_render_1_1_global_ambient_light.html#a5fb68421a02ad6d3c1a6b66f7e2b2cae" title=" " alt="" coords="450,72,657,115"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="339,203,387,163,449,124,461,119,463,123,451,129,391,168,342,207"/>
+<area shape="rect" id="Node000005" href="$struct_g_l_e_s_c_1_1_render_1_1_color_rgb.html#af0a993d6f6257b791729083f6b8e7ab3" title=" " alt="" coords="465,139,643,181"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="393,202,459,183,461,189,394,207"/>
+<area shape="rect" id="Node000010" href="$class_g_l_e_s_c_1_1_render_1_1_global_ambient_light.html#a5de0090c404e29488dcbbf60f9e94fea" title=" " alt="" coords="450,205,657,248"/>
+<area shape="poly" id="edge11_Node000002_Node000010" title=" " alt="" coords="402,224,434,224,434,229,402,229"/>
+<area shape="rect" id="Node000011" href="$class_g_l_e_s_c_1_1_render_1_1_global_ambient_light.html#a8b72e0360ffcbd093b3debdeb254ecd6" title=" " alt="" coords="450,272,657,315"/>
+<area shape="poly" id="edge12_Node000002_Node000011" title=" " alt="" coords="394,246,461,265,459,270,393,251"/>
+<area shape="poly" id="edge13_Node000002_Node000012" title=" " alt="" coords="342,246,391,286,451,324,464,330,462,335,449,329,387,290,339,251"/>
+<area shape="rect" id="Node000006" href="$struct_g_l_e_s_c_1_1_render_1_1_color_rgb.html#a674c5aa3d673ec1b4c583f7b3570b421" title=" " alt="" coords="705,72,881,115"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="632,136,699,117,700,122,633,141"/>
+<area shape="rect" id="Node000008" href="$struct_g_l_e_s_c_1_1_render_1_1_color_rgb.html#a1a34cffe125e0669b6f0f59c55641333" title=" " alt="" coords="705,139,881,181"/>
+<area shape="poly" id="edge7_Node000005_Node000008" title=" " alt="" coords="643,157,690,157,690,163,643,163"/>
+<area shape="rect" id="Node000009" href="$struct_g_l_e_s_c_1_1_render_1_1_color_rgb.html#a52dce8aa77d51de1f0e38d8fcfa81ce9" title=" " alt="" coords="705,205,881,248"/>
+<area shape="poly" id="edge9_Node000005_Node000009" title=" " alt="" coords="633,179,700,198,699,203,632,184"/>
+<area shape="rect" id="Node000007" href="$class_g_l_e_s_c_1_1_render_1_1_color_funcs.html#a4415bd4e262b54a2d95185ffee1c3eef" title="Normalizes a color to be between 0 and 1." alt="" coords="929,139,1117,181"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="869,113,933,131,931,136,868,118"/>
+<area shape="poly" id="edge8_Node000008_Node000007" title=" " alt="" coords="881,157,913,157,913,163,881,163"/>
+<area shape="poly" id="edge10_Node000009_Node000007" title=" " alt="" coords="868,202,931,184,933,189,869,207"/>
+<area shape="rect" id="Node000013" href="$_gapi_8h.html#ab7514d88e65656ffa15ca33256518fe5" title="Returns the graphic API used by the engine." alt="" coords="758,347,828,373"/>
+<area shape="poly" id="edge14_Node000012_Node000013" title=" " alt="" coords="631,357,743,357,743,363,631,363"/>
+</map>

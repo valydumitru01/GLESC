@@ -1,0 +1,5 @@
+<map id="GLESC::HUD::DebugEntityData" name="GLESC::HUD::DebugEntityData">
+<area shape="rect" id="Node000001" title="Class to encapsulate the logic of the debug entity data HUD." alt="" coords="5,784,203,875"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_in_game_window.html" title="Class to encapsulate the logic of an in&#45;game window." alt="" coords="26,5,182,736"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="107,751,107,784,101,784,101,751"/>
+</map>

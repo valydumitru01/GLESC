@@ -1,0 +1,7 @@
+<map id="GLESC::Physics::Collider::getUpdatedDebuggingValues" name="GLESC::Physics::Collider::getUpdatedDebuggingValues">
+<area shape="rect" id="Node000001" title="Get the updated debugging values of the component." alt="" coords="5,27,202,69"/>
+<area shape="rect" id="Node000002" href="$class_engine_component.html#abd1566e4b3dc922636e3766bf91b466e" title="Get the owner name of the component for debugging purposes." alt="" coords="250,5,474,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="202,34,234,31,234,36,203,39"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_physics_1_1_collider.html#a50f70a178b6f9163b9591d6abed2a445" title=" " alt="" coords="276,56,448,99"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="203,57,261,63,260,68,202,62"/>
+</map>

@@ -1,0 +1,16 @@
+<map id="GLESC::Render::Renderer::applySkybox" name="GLESC::Render::Renderer::applySkybox">
+<area shape="rect" id="Node000001" title="This encapsulates the application of the skybox, calling the skybox draw method." alt="" coords="5,89,180,132"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_render_1_1_skybox.html#a297794252ba3f880d7312cd20ca443a7" title="Renders the skybox around the player given the view and projection." alt="" coords="228,89,394,132"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="180,108,212,108,212,113,180,113"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader.html#aadbc0ca0d899238d547f87f19461dfeb" title="Binds the shader program of the object." alt="" coords="442,5,595,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="365,86,449,52,451,57,367,91"/>
+<area shape="rect" id="Node000004" href="$_gapi_8h.html#ab7514d88e65656ffa15ca33256518fe5" title="Returns the graphic API used by the engine." alt="" coords="643,97,714,124"/>
+<area shape="poly" id="edge6_Node000002_Node000004" title=" " alt="" coords="395,108,628,108,628,113,395,113"/>
+<area shape="rect" id="Node000005" href="$class_cubemap.html#ac9943df0cdf3a03e6e9c71b97b8d7830" title=" " alt="" coords="465,123,573,149"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="395,118,449,125,449,130,394,123"/>
+<area shape="rect" id="Node000006" href="$class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader.html#a2af6148a4a3aca3519a20fdd877f6016" title="Sets a uniform value in the shader." alt="" coords="442,173,595,216"/>
+<area shape="poly" id="edge7_Node000002_Node000006" title=" " alt="" coords="367,130,451,165,449,170,365,135"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="563,46,597,64,639,87,637,92,594,69,560,51"/>
+<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="573,125,628,116,629,121,574,130"/>
+<area shape="poly" id="edge8_Node000006_Node000004" title=" " alt="" coords="571,170,594,159,643,130,646,135,597,164,573,175"/>
+</map>

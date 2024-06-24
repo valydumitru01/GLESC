@@ -1,0 +1,23 @@
+<map id="GLESC::ECS::TransformSystem::update" name="GLESC::ECS::TransformSystem::update">
+<area shape="rect" id="Node000001" title="Updates the system." alt="" coords="5,68,216,111"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_system.html#a9b4f36ba29354a976dc23a598ec85952" title="Gets the entities associated with the system." alt="" coords="264,101,420,144"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="217,102,248,107,248,112,216,107"/>
+<area shape="rect" id="Node000008" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_system.html#adbd8144d4b95771844546e2391cd49ad" title="Gets the name of an entity." alt="" coords="265,20,419,63"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="216,65,249,58,250,63,217,70"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator.html#a73636f46c1a9f0bd7f380524210cf4b4" title="Get the entities associated with a system." alt="" coords="468,131,669,173"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="421,130,453,134,452,140,420,135"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a5145504091eb26170aa219acb60aca71" title="Check if the entity with the given name exists." alt="" coords="985,115,1178,157"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="669,146,969,137,970,142,670,152"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#a283c04f81e82970a822c9696ddab2319" title="Gets the entities associated with a system. The system must be registered." alt="" coords="717,189,932,232"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="665,171,714,183,713,188,664,177"/>
+<area shape="rect" id="Node000006" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#a32f415d7a7e0cefc9e1b5c71a4dc1be4" title="Checks if a system is registered." alt="" coords="980,207,1183,249"/>
+<area shape="poly" id="edge7_Node000003_Node000006" title=" " alt="" coords="597,172,650,210,683,228,718,241,780,254,844,258,906,255,964,249,964,254,906,261,844,263,779,259,717,247,681,233,647,215,593,176"/>
+<area shape="rect" id="Node000007" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#abe8641c2514be36e652e7f77d0ed87a5" title="Checks if an entity is associated with a system." alt="" coords="719,72,930,115"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="664,127,713,116,714,121,665,133"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="932,215,965,217,964,223,932,221"/>
+<area shape="rect" id="Node000009" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator.html#a2c49b6ec20626dd4f84c939ec3750812" title="Get the name of the entity given the ID." alt="" coords="468,13,669,56"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="419,36,453,35,453,41,419,42"/>
+<area shape="rect" id="Node000010" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#ad75636a479815b1d3e5b1b26d2a1245c" title="Get the entity name from the entity ID. The entity must exist." alt="" coords="728,5,921,48"/>
+<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="670,29,712,28,713,33,670,34"/>
+<area shape="poly" id="edge11_Node000010_Node000004" title=" " alt="" coords="902,46,933,58,1030,105,1028,109,931,62,900,51"/>
+</map>

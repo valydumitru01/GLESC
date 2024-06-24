@@ -1,0 +1,9 @@
+<map id="GLESC::Math::MatrixAlgorithms::swapRows" name="GLESC::Math::MatrixAlgorithms::swapRows">
+<area shape="rect" id="Node000001" title="Swaps two rows of a matrix." alt="" coords="712,5,921,48"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#aa18fde4904887d7afb83932a79dc8cbe" title="Calculates gaussian elimination with partial pivoting and extracts the result." alt="" coords="456,5,664,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="697,29,665,29,665,24,697,24"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#ae35d1a5907e775efb15cc5d6a4fd015e" title="Performs Gaussian elimination on a matrix. @TODO: Make this work (doesn&#39;t work for some reason)" alt="" coords="200,5,408,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="441,29,409,29,409,24,441,24"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_math_1_1_matrix.html#a4d1f38620cb3dbcadd10904644ff2ef2" title="Calculates the rank of the matrix." alt="" coords="5,5,152,48"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="184,29,152,29,152,24,184,24"/>
+</map>

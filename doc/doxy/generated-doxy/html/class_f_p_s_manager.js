@@ -1,0 +1,28 @@
+var class_f_p_s_manager =
+[
+    [ "FPSManager", "class_f_p_s_manager.html#a0ab2077f0a13d1780b470452f758739f", null ],
+    [ "delay", "class_f_p_s_manager.html#aa81047af00a87059468b39b3ef524e77", null ],
+    [ "getAverageRenderTimeMillis", "class_f_p_s_manager.html#a16aeb66b6730404aa5199290a021cbb4", null ],
+    [ "getCurrentRenderTimeMillis", "class_f_p_s_manager.html#a114f9419715529967e3126e3677120e2", null ],
+    [ "getRenderFPS", "class_f_p_s_manager.html#aafbdbb7916fe683ecca823ed7638c370", null ],
+    [ "getTimeOfFrameAfterUpdate", "class_f_p_s_manager.html#a69b2f540e0469bfcd4ba9cca0910843b", null ],
+    [ "getUpdateFPS", "class_f_p_s_manager.html#aae6362e31331ad9f94d63020a0395c73", null ],
+    [ "getUpdateTimeMillis", "class_f_p_s_manager.html#ae47a2614bf8ea4ccf52234e95980cc06", null ],
+    [ "hasSpiralOfDeathBeenReached", "class_f_p_s_manager.html#a2fbccbcca1c84f9db712a7c310f2894c", null ],
+    [ "isUpdateLagged", "class_f_p_s_manager.html#a2293812478c7c40b51762e86a27054b9", null ],
+    [ "refreshUpdateLag", "class_f_p_s_manager.html#a007c4b90cf2db9e58b6a73ecbc5bc95e", null ],
+    [ "startFrame", "class_f_p_s_manager.html#a6eda5c4346a47df26d00437a9c96ec7d", null ],
+    [ "averageFpsListSize", "class_f_p_s_manager.html#a736c506f7cc7adf19ab66da5c194630e", null ],
+    [ "current", "class_f_p_s_manager.html#a73203d4afc5cbec2ed238c9d20b22ecc", null ],
+    [ "elapsed", "class_f_p_s_manager.html#a4570d9bfc9faf40bf5a3e78dafe5c8d6", null ],
+    [ "fpsAverager", "class_f_p_s_manager.html#a28f8f0b21bd9c7547194318540ed67f0", null ],
+    [ "fpsList", "class_f_p_s_manager.html#a96a16bd2bd91abfa86a0b63f9301831d", null ],
+    [ "fpsListIndex", "class_f_p_s_manager.html#aef22b3c28ef796e9520075a071fd6428", null ],
+    [ "fpsMs", "class_f_p_s_manager.html#aa3e3fe09f20d7107af0118bf89062f3e", null ],
+    [ "lag", "class_f_p_s_manager.html#afb179a88ebb74c3a2edf2c4672da0549", null ],
+    [ "msInASecond", "class_f_p_s_manager.html#aad6f78589950fccb7922e24c8115dc03", null ],
+    [ "msPerUpdate", "class_f_p_s_manager.html#af46018f627884d1630f250149cb13309", null ],
+    [ "previous", "class_f_p_s_manager.html#a62123b81d7f00d5cd1e4638871726719", null ],
+    [ "spiralOfDeathLimit", "class_f_p_s_manager.html#a97c20d0314bfbeb0319155d6594eaa97", null ],
+    [ "updateCounter", "class_f_p_s_manager.html#ab7ef76ba7703876ea2df7e30345c82d8", null ]
+];

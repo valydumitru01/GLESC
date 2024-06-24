@@ -1,0 +1,7 @@
+<map id="GLESC::Math::Vector::abs" name="GLESC::Math::Vector::abs">
+<area shape="rect" id="Node000001" title="Returns the absolute value of the vector." alt="" coords="5,5,183,32"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#ab293a83186797c46b688d47b7cdcb4f4" title="Computes the absolute value of a vector." alt="" coords="231,5,470,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="183,16,215,16,215,21,183,21"/>
+<area shape="rect" id="Node000003" href="$namespace_g_l_e_s_c_1_1_math.html#a04db3782a0754ba2d22eb5d159dd681c" title="Calculates the absolute value of a number." alt="" coords="518,5,649,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="470,16,503,16,503,21,470,21"/>
+</map>

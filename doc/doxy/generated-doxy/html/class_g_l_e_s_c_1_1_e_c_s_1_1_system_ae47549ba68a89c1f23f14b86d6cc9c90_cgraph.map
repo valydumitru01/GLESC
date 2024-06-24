@@ -1,0 +1,9 @@
+<map id="GLESC::ECS::System::getEntityMetadata" name="GLESC::ECS::System::getEntityMetadata">
+<area shape="rect" id="Node000001" title="Gets the metadata of an entity." alt="" coords="5,5,159,48"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator.html#a697ccbe4694d1cc7c647d179be0d8560" title="Get the metadata of the entity." alt="" coords="207,5,408,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="159,24,191,24,191,29,159,29"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a763922e6d0025aadf5f9534679589354" title="Get the entity metadata from the entity ID. The entity must exist." alt="" coords="456,5,648,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="409,24,440,24,440,29,409,29"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a5145504091eb26170aa219acb60aca71" title="Check if the entity with the given name exists." alt="" coords="696,5,889,48"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="649,24,681,24,681,29,649,29"/>
+</map>

@@ -1,0 +1,48 @@
+<map id="GLESC::Input::InputManager" name="GLESC::Input::InputManager">
+<area shape="rect" id="Node000001" title="The InputManager class handles user input events such as keyboard and mouse events...." alt="" coords="299,2032,478,2464"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,1752,143,1837"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="74,1837,74,1875,79,1919,88,1964,106,2007,143,2060,188,2109,238,2150,287,2185,284,2190,234,2155,185,2112,139,2064,101,2009,83,1966,73,1920,69,1875,69,1837"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html" title=" " alt="" coords="103,1259,243,1557"/>
+<area shape="poly" id="edge5_Node000001_Node000003" title=" " alt="" coords="177,1557,183,1650,195,1755,213,1862,240,1967,264,2030,294,2091,289,2093,259,2032,235,1969,208,1864,189,1755,178,1651,172,1557"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="117,1558,110,1582,93,1662,83,1736,77,1735,88,1661,105,1581,112,1556"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="132,248,237,317"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="125,329,97,355,73,385,55,420,49,458,49,1409,51,1506,57,1601,72,1752,66,1753,52,1602,46,1506,43,1409,43,457,50,418,68,383,93,351,121,325"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="491,5,511,75"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="492,50,419,101,240,240,237,235,415,97,489,46"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="461,792,589,877"/>
+<area shape="poly" id="edge10_Node000008_Node000005" title=" " alt="" coords="504,74,526,775,520,775,499,74"/>
+<area shape="rect" id="Node000019" title=" " alt="" coords="887,147,991,216"/>
+<area shape="poly" id="edge22_Node000019_Node000005" title=" " alt="" coords="511,42,872,156,870,161,510,47"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="268,1357,408,1459"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="341,1458,346,1679,360,1968,364,2015,359,2015,355,1968,340,1679,336,1458"/>
+<area shape="rect" id="Node000007" href="$_input_types_8h.html#struct_input_state" title="This is a helper struct that ensures that the key is pressed, released, or held." alt="" coords="225,779,323,891"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="269,890,262,960,258,1046,260,1140,272,1234,287,1289,308,1341,303,1343,282,1291,266,1235,255,1141,253,1046,257,959,264,890"/>
+<area shape="poly" id="edge8_Node000006_Node000008" title=" " alt="" coords="504,892,450,1032,391,1203,351,1358,346,1357,386,1202,445,1031,499,890"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="454,1357,595,1459"/>
+<area shape="poly" id="edge13_Node000010_Node000008" title=" " alt="" coords="527,892,527,1358,522,1358,522,892"/>
+<area shape="rect" id="Node000020" title=" " alt="" coords="659,1365,913,1451"/>
+<area shape="poly" id="edge26_Node000020_Node000008" title=" " alt="" coords="547,890,609,1046,692,1233,763,1364,759,1367,687,1236,604,1048,543,892"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="538,349,559,419"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="550,419,530,775,525,775,544,418"/>
+<area shape="poly" id="edge11_Node000001_Node000010" title=" " alt="" coords="507,1459,480,1535,457,1622,432,1791,410,2015,405,2015,427,1790,451,1621,475,1534,502,1458"/>
+<area shape="rect" id="Node000011" href="$struct_g_l_e_s_c_1_1_input_1_1_key_input.html" title="This is a struct that encapsulates the key and its action for subscribing to the input system." alt="" coords="750,779,902,891"/>
+<area shape="poly" id="edge12_Node000010_Node000011" title=" " alt="" coords="848,890,868,966,875,1011,879,1059,877,1106,869,1153,852,1197,825,1237,811,1246,790,1251,739,1253,686,1254,664,1256,649,1261,624,1278,601,1299,563,1345,559,1342,597,1295,620,1274,646,1256,663,1251,686,1248,738,1248,789,1246,809,1241,821,1233,847,1195,863,1152,872,1106,873,1059,870,1012,862,967,843,891"/>
+<area shape="rect" id="Node000012" href="$class_g_l_e_s_c_1_1_window_manager.html" title=" " alt="" coords="605,1621,769,1968"/>
+<area shape="poly" id="edge14_Node000001_Node000012" title=" " alt="" coords="608,1938,588,1969,490,2113,486,2110,584,1967,603,1936"/>
+<area shape="rect" id="Node000013" href="$class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html" title=" " alt="" coords="793,1643,971,1947"/>
+<area shape="poly" id="edge15_Node000001_Node000013" title=" " alt="" coords="802,1948,784,1970,715,2037,639,2097,564,2149,494,2192,491,2188,561,2145,636,2093,711,2033,780,1966,798,1945"/>
+<area shape="rect" id="Node000014" title=" " alt="" coords="938,1365,1071,1451"/>
+<area shape="poly" id="edge16_Node000013_Node000014" title=" " alt="" coords="994,1451,938,1627,933,1626,989,1450"/>
+<area shape="rect" id="Node000015" href="$class_g_l_e_s_c_1_1_in_game_window.html" title="Class to encapsulate the logic of an in&#45;game window." alt="" coords="1063,491,1219,1179"/>
+<area shape="poly" id="edge17_Node000014_Node000015" title=" " alt="" coords="1080,1179,1066,1235,1029,1350,1024,1349,1061,1234,1075,1177"/>
+<area shape="poly" id="edge25_Node000020_Node000015" title=" " alt="" coords="1065,963,823,1353,818,1350,1061,960"/>
+<area shape="rect" id="Node000016" title=" " alt="" coords="1228,349,1299,419"/>
+<area shape="poly" id="edge18_Node000015_Node000016" title=" " alt="" coords="1257,419,1226,533,1221,532,1252,418"/>
+<area shape="rect" id="Node000017" title=" " alt="" coords="1205,139,1322,224"/>
+<area shape="poly" id="edge19_Node000016_Node000017" title=" " alt="" coords="1266,239,1266,350,1261,350,1261,239"/>
+<area shape="rect" id="Node000018" title=" " alt="" coords="1007,341,1173,427"/>
+<area shape="poly" id="edge20_Node000015_Node000018" title=" " alt="" coords="1115,426,1123,450,1129,474,1123,475,1118,451,1110,428"/>
+<area shape="poly" id="edge23_Node000014_Node000019" title=" " alt="" coords="941,231,938,451,929,844,935,1016,945,1116,961,1234,975,1304,993,1365,988,1366,970,1305,955,1235,940,1117,930,1016,924,844,933,451,936,231"/>
+<area shape="poly" id="edge21_Node000018_Node000019" title=" " alt="" coords="975,226,1061,340,1057,343,971,229"/>
+<area shape="poly" id="edge24_Node000013_Node000020" title=" " alt="" coords="799,1450,843,1625,838,1627,794,1451"/>
+</map>

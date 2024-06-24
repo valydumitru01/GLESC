@@ -1,0 +1,18 @@
+<map id="GLESC::Math::MatrixAlgorithms::isInvertible" name="GLESC::Math::MatrixAlgorithms::isInvertible">
+<area shape="rect" id="Node000001" title="Checks if a matrix is invertible." alt="" coords="5,60,214,103"/>
+<area shape="rect" id="Node000002" href="$namespace_g_l_e_s_c_1_1_math.html#aee25910dbba06d09d9df14d03933ace1" title="Compares two values for equality." alt="" coords="304,23,428,49"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="214,60,288,47,289,52,214,66"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a9670e25803284a303601766e75617acc" title="Calculates the determinant of any matrix using Laplace expansion." alt="" coords="262,89,470,132"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="214,91,246,94,246,100,214,96"/>
+<area shape="rect" id="Node000003" href="$namespace_g_l_e_s_c_1_1_math.html#acd429163efe906cd22916cc75ccb2421" title="Epsilon getter with precision of a given template type." alt="" coords="547,5,698,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="428,29,531,22,531,27,429,34"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a85f90015980f7ee665903d04b4b797d8" title="Calculates the cofactor of a matrix element." alt="" coords="518,56,726,99"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="470,103,505,99,506,104,471,109"/>
+<area shape="rect" id="Node000006" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#abd516042cc3d928eefae413db0725670" title="Calculates the determinant of a 2x2 matrix." alt="" coords="518,123,726,165"/>
+<area shape="poly" id="edge6_Node000004_Node000006" title=" " alt="" coords="471,122,503,126,502,131,470,127"/>
+<area shape="rect" id="Node000007" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a2217ee08c38b92c583d3f193b5a0da9b" title="Computes the determinant of a matrix 3x3." alt="" coords="518,189,726,232"/>
+<area shape="poly" id="edge7_Node000004_Node000007" title=" " alt="" coords="415,130,519,175,537,181,535,186,517,180,412,135"/>
+<area shape="rect" id="Node000008" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a972ac9793d405d0a5daca41591c1fb8c" title="Computes the determinant of a matrix 4x4." alt="" coords="518,256,726,299"/>
+<area shape="poly" id="edge8_Node000004_Node000008" title=" " alt="" coords="388,131,444,186,480,216,519,242,529,247,527,252,517,246,477,220,440,190,385,135"/>
+<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="518,85,483,89,482,84,517,79"/>
+</map>

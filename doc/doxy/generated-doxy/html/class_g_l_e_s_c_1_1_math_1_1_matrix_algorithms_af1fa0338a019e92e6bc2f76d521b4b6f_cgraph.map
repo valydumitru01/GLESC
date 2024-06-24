@@ -1,0 +1,27 @@
+<map id="GLESC::Math::MatrixAlgorithms::calculateNormalMatrix" name="GLESC::Math::MatrixAlgorithms::calculateNormalMatrix">
+<area shape="rect" id="Node000001" title="Calculates the normal matrix given the model&#45;view matrix." alt="" coords="5,157,214,200"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a1380aa1364ae38a37a7e710d20cf90ec" title="Calculates the inverse of a 4x4 matrix." alt="" coords="262,91,470,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="194,154,266,135,267,140,195,159"/>
+<area shape="rect" id="Node000011" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#ac9c8254e9cef4455b19199963ed4be7e" title="Resizes a matrix." alt="" coords="262,157,470,200"/>
+<area shape="poly" id="edge12_Node000001_Node000011" title=" " alt="" coords="214,176,246,176,246,181,214,181"/>
+<area shape="rect" id="Node000012" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a132bed6acafb41906a156dae5f6f4d1f" title="Transposes a matrix." alt="" coords="262,224,470,267"/>
+<area shape="poly" id="edge13_Node000001_Node000012" title=" " alt="" coords="195,198,267,217,266,222,194,203"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a972ac9793d405d0a5daca41591c1fb8c" title="Computes the determinant of a matrix 4x4." alt="" coords="1031,5,1239,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="470,98,1015,37,1016,42,471,103"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a5d9d986d19eb1ff929b7c9c8f8cdbcdc" title="Checks if a matrix is invertible." alt="" coords="518,139,726,181"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="471,129,503,135,502,140,470,134"/>
+<area shape="rect" id="Node000005" href="$namespace_g_l_e_s_c_1_1_math.html#aee25910dbba06d09d9df14d03933ace1" title="Compares two values for equality." alt="" coords="816,239,941,265"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="685,179,825,230,824,235,683,184"/>
+<area shape="rect" id="Node000007" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a9670e25803284a303601766e75617acc" title="Calculates the determinant of any matrix using Laplace expansion." alt="" coords="774,139,983,181"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="727,157,759,157,759,163,727,163"/>
+<area shape="rect" id="Node000006" href="$namespace_g_l_e_s_c_1_1_math.html#acd429163efe906cd22916cc75ccb2421" title="Epsilon getter with precision of a given template type." alt="" coords="1059,272,1211,299"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="942,257,1044,271,1043,276,941,263"/>
+<area shape="poly" id="edge11_Node000007_Node000003" title=" " alt="" coords="906,136,961,97,1029,58,1043,52,1045,56,1032,62,964,101,909,141"/>
+<area shape="rect" id="Node000008" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a85f90015980f7ee665903d04b4b797d8" title="Calculates the cofactor of a matrix element." alt="" coords="1031,205,1239,248"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="935,179,1016,202,1015,207,934,184"/>
+<area shape="rect" id="Node000009" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#abd516042cc3d928eefae413db0725670" title="Calculates the determinant of a 2x2 matrix." alt="" coords="1031,72,1239,115"/>
+<area shape="poly" id="edge9_Node000007_Node000009" title=" " alt="" coords="963,135,1035,117,1036,122,964,141"/>
+<area shape="rect" id="Node000010" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a2217ee08c38b92c583d3f193b5a0da9b" title="Computes the determinant of a matrix 3x3." alt="" coords="1031,139,1239,181"/>
+<area shape="poly" id="edge10_Node000007_Node000010" title=" " alt="" coords="983,157,1015,157,1015,163,983,163"/>
+<area shape="poly" id="edge8_Node000008_Node000007" title=" " alt="" coords="1078,207,997,185,998,179,1079,202"/>
+</map>

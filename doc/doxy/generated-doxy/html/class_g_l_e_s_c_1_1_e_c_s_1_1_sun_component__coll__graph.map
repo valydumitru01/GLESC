@@ -1,0 +1,33 @@
+<map id="GLESC::ECS::SunComponent" name="GLESC::ECS::SunComponent">
+<area shape="rect" id="Node000001" title=" " alt="" coords="416,1568,605,1680"/>
+<area shape="rect" id="Node000002" href="$struct_g_l_e_s_c_1_1_e_c_s_1_1_i_component.html" title="Base class for all components." alt="" coords="158,1243,357,1440"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="357,1449,463,1566,459,1570,353,1453"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="113,840,263,925"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="197,925,243,1225,237,1226,192,926"/>
+<area shape="rect" id="Node000004" href="$class_entity_stats_manager.html#struct_entity_stats_manager_1_1_value" title="Struct that holds the data of a value of a component." alt="" coords="5,320,133,555"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="103,554,175,823,170,824,98,555"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="34,139,105,208"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="72,208,72,303,67,303,67,208"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="11,5,128,91"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="72,106,72,139,67,139,67,106"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="157,403,261,472"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="210,487,193,840,187,840,204,487"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="199,139,219,208"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="212,208,212,385,207,385,207,208"/>
+<area shape="rect" id="Node000009" href="$class_g_l_e_s_c_1_1_render_1_1_global_ambient_light.html" title=" " alt="" coords="622,1213,821,1469"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="637,1471,611,1506,570,1557,566,1554,607,1502,633,1467"/>
+<area shape="rect" id="Node000010" href="$struct_g_l_e_s_c_1_1_render_1_1_color_rgb.html" title="Color in RGB values." alt="" coords="638,667,805,1099"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="724,1099,724,1196,719,1196,719,1099"/>
+<area shape="poly" id="edge11_Node000010_Node000010" title=" " alt="" coords="806,836,816,842,824,852,829,866,831,883,828,904,820,919,816,916,823,902,826,883,824,867,820,855,813,846,803,840"/>
+<area shape="rect" id="Node000012" href="$class_g_l_e_s_c_1_1_render_1_1_global_sun.html" title=" " alt="" coords="424,1179,597,1504"/>
+<area shape="poly" id="edge16_Node000012_Node000010" title=" " alt="" coords="640,1075,629,1100,599,1164,594,1162,624,1098,636,1073"/>
+<area shape="rect" id="Node000011" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html" title=" " alt="" coords="667,296,775,579"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="724,593,724,667,719,667,719,593"/>
+<area shape="poly" id="edge12_Node000001_Node000012" title=" " alt="" coords="513,1504,513,1551,508,1551,508,1504"/>
+<area shape="rect" id="Node000013" href="$class_g_l_e_s_c_1_1_render_1_1_intensity.html" title=" " alt="" coords="287,733,449,1032"/>
+<area shape="poly" id="edge13_Node000012_Node000013" title=" " alt="" coords="417,1031,458,1162,453,1163,412,1032"/>
+<area shape="rect" id="Node000014" href="$class_g_l_e_s_c_1_1_render_1_1_intensity.html" title="Intensity class, to encapsulate values between 0 and 1." alt="" coords="287,288,449,587"/>
+<area shape="poly" id="edge14_Node000013_Node000014" title=" " alt="" coords="371,601,371,733,365,733,365,601"/>
+<area shape="rect" id="Node000015" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html" title=" " alt="" coords="474,733,614,1032"/>
+<area shape="poly" id="edge15_Node000012_Node000015" title=" " alt="" coords="536,1032,526,1162,521,1162,531,1031"/>
+</map>

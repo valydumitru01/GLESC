@@ -12,7 +12,8 @@
 
 namespace GLESC {
     using TimeMillis = Uint32;
-    using TimeSeconds = float;
+    using TimeSecondsF = float;
+    using TimeSecondsUI = Uint32;
 
     /**
      * @brief Class to encapsulate the logic of measuring real time.

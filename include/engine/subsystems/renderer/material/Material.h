@@ -2,7 +2,7 @@
  * @file   Material.h
  * @author Valentin Dumitru
  * @date   11/12/2023
- * @brief  Add description of this file if needed @TODO
+ * @brief  @TODO Add description of this file if needed
  *
  * Copyright (c) 2023 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
@@ -97,31 +97,40 @@ namespace GLESC::Render {
     private:
         /**
          * @brief The diffuse color of the material
+         * @details Diffuse color is the color that is reflected by the material.
+         * @details This is different than the color that is stored in the data of the mesh. The two will blend.
          */
         ColorRgb diffuseColor;
         /**
          * @brief The diffuse intensity of the material
+         * @details This is the intensity of the diffuse reflection
          */
         Intensity diffuseIntensity;
         /**
          * @brief The specular color of the material
+         * @details Specular color is the color of the specular highlights
          */
         ColorRgb specularColor;
         /**
          * @brief The specular intensity of the material
+         * @details This is the intensity of the specular highlights
          */
         Intensity specularIntensity;
         /**
-         * @brief The emission color of the material
+         * @brief The emission color of the material @todo doesnt work
+         * @details Emission color is the color that the material emits
          */
         ColorRgb emissionColor;
         /**
-         * @brief The emission intensity of the material
+         * @brief The emission intensity of the material @todo doesnt work
+         * @details This is the intensity of the emission
          */
         Intensity emissionIntensity;
 
         /**
          * @brief The shininess of the material
+         * @details This is the shininess of the material, which is used to calculate the specular highlights
+         * The higher the shininess, the smaller the specular highlights.
          */
         Intensity shininess;
         /**

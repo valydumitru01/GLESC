@@ -1,0 +1,19 @@
+<map id="GLESC::SoundPlayer::play3DSound" name="GLESC::SoundPlayer::play3DSound">
+<area shape="rect" id="Node000001" title="Play a 3D sound." alt="" coords="5,89,153,132"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#a1e7d79fa65198c1323e9ae2c4893ee95" title="Returns the length of the vector." alt="" coords="201,56,349,99"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="152,96,185,90,186,95,153,101"/>
+<area shape="rect" id="Node000006" href="$class_g_l_e_s_c_1_1_sound_player.html#ab969a32bda09a239c109c9e66824760b" title="Play a sound." alt="" coords="201,123,349,165"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="153,121,186,126,185,131,152,126"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#a96acaa670e780132720dd3ea6a6cdf97" title="Computes the length of a vector." alt="" coords="397,56,607,99"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="349,75,381,75,381,80,349,80"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#ae45bcff9b53fb60d513c53823418d97b" title="Computes the dot product of two vectors." alt="" coords="655,5,866,48"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="607,54,639,48,640,53,608,59"/>
+<area shape="rect" id="Node000005" href="$namespace_g_l_e_s_c_1_1_math.html#ab2316a2512c43c18e29709201adf3fe5" title="Calculates the square root of a value." alt="" coords="694,72,827,99"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="608,78,679,80,679,85,608,83"/>
+<area shape="rect" id="Node000007" href="$class_g_l_e_s_c_1_1_sound_loader.html#a7d8f17c839c3aeed9e1f39d7a0c9b7d2" title="Gets a sound by name." alt="" coords="428,123,577,165"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="349,141,412,141,412,147,349,147"/>
+<area shape="rect" id="Node000009" href="$class_g_l_e_s_c_1_1_sound_player.html#a27978a079c31197b1079bbdc9ac5eecd" title="Set the volume of the music." alt="" coords="429,189,576,232"/>
+<area shape="poly" id="edge8_Node000006_Node000009" title=" " alt="" coords="350,163,414,182,413,187,348,168"/>
+<area shape="rect" id="Node000008" href="$namespace_g_l_e_s_c_1_1_hasher.html#ab698a0c9b11ea6e42ab7739d75da38f2" title=" " alt="" coords="685,131,836,157"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="577,141,670,141,670,147,577,147"/>
+</map>

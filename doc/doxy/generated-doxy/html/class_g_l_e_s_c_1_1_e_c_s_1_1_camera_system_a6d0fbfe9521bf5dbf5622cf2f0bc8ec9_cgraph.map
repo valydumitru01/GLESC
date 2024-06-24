@@ -1,0 +1,20 @@
+<map id="GLESC::ECS::CameraSystem::update" name="GLESC::ECS::CameraSystem::update">
+<area shape="rect" id="Node000001" title="Updates the system." alt="" coords="5,168,204,211"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_system.html#a9b4f36ba29354a976dc23a598ec85952" title="Gets the entities associated with the system." alt="" coords="261,101,417,144"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="181,165,246,146,247,151,182,170"/>
+<area shape="rect" id="Node000008" href="$class_g_l_e_s_c_1_1_window_manager.html#a9773451549202e2cee40c3106d8e5bbe" title="Get the width and height of the window." alt="" coords="254,168,424,211"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="204,187,238,187,238,192,204,192"/>
+<area shape="rect" id="Node000009" href="$class_g_l_e_s_c_1_1_render_1_1_renderer.html#a9c70acf2cf0af8581a6b96abcd262a12" title="This sets the camera for the renderer." alt="" coords="252,235,426,277"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="182,209,247,227,246,232,181,214"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator.html#a73636f46c1a9f0bd7f380524210cf4b4" title="Get the entities associated with a system." alt="" coords="474,101,675,144"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="417,120,458,120,458,125,417,125"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a5145504091eb26170aa219acb60aca71" title="Check if the entity with the given name exists." alt="" coords="734,5,927,48"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="623,98,722,58,741,51,743,56,724,62,625,103"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#a283c04f81e82970a822c9696ddab2319" title="Gets the entities associated with a system. The system must be registered." alt="" coords="723,72,938,115"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="675,108,707,105,708,110,676,114"/>
+<area shape="rect" id="Node000006" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#a32f415d7a7e0cefc9e1b5c71a4dc1be4" title="Checks if a system is registered." alt="" coords="986,101,1189,144"/>
+<area shape="poly" id="edge7_Node000003_Node000006" title=" " alt="" coords="676,123,723,124,938,124,970,123,970,129,938,129,723,129,676,128"/>
+<area shape="rect" id="Node000007" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#abe8641c2514be36e652e7f77d0ed87a5" title="Checks if an entity is associated with a system." alt="" coords="725,189,936,232"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="640,142,753,181,751,186,638,147"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="938,103,971,107,970,112,938,108"/>
+</map>

@@ -1,8 +1,12 @@
-/*******************************************************************************
+/**************************************************************************************************
+ * @file   InputTypes.h
+ * @author Valentin Dumitru
+ * @date   2024-04-17
+ * @brief  @TODO Add description of this file if needed
  *
- * Copyright (c) 2023.
- * Licensed under the MIT License. See LICENSE.txt in the project root for license information.
- ******************************************************************************/
+ * Copyright (c) 2024 Valentin Dumitru. Licensed under the MIT License.
+ * See LICENSE.txt in the project root for license information.
+ **************************************************************************************************/
 
 #pragma once
 #include <unordered_map>
@@ -13,6 +17,11 @@
 using MousePosition = Vec2F;
 
 namespace GLESC::Input {
+    /**
+     * @brief This is a struct that encapsulates the key and its action for subscribing to the input system.
+     * @details The key stores the key and the action its action (pressed once, released, held, etc.)
+     *
+     */
     struct KeyInput {
         KeyInput() = default;
 
@@ -35,6 +44,9 @@ struct std::hash<GLESC::Input::KeyInput> {
     }
 };
 
+/**
+ * @brief This is a helper struct that ensures that the key is pressed, released, or held.
+ */
 struct InputState {
     bool pressed = false;
     bool justPressed = false;

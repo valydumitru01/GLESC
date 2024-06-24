@@ -1,0 +1,26 @@
+<map id="GLESC::TextureLoader::createSurface" name="GLESC::TextureLoader::createSurface">
+<area shape="rect" id="Node000001" title="Creates a surface from a file, it is called by loadTexture." alt="" coords="5,73,161,116"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_logger.html#a9b12ce53593be134b7d7dea62607d22d" title=" " alt="" coords="245,5,383,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="132,70,208,41,234,34,235,39,210,47,134,75"/>
+<area shape="rect" id="Node000003" href="$class_bin_path.html#a518dec5500f3666c8ecc54023e0c229d" title=" " alt="" coords="209,56,419,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="161,84,193,80,193,85,161,89"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_logger.html#a5fa42012f212a31fe7eb06c5ba93caba" title="Display basic information Background – Black Text – White." alt="" coords="244,107,384,133"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="161,101,228,108,228,113,161,106"/>
+<area shape="rect" id="Node000010" href="$class_g_l_e_s_c_1_1_logger.html#accab43e8aa76342c5e58ac869f2f32d5" title="Display success information Background – Green Text – White Bold." alt="" coords="229,195,399,221"/>
+<area shape="poly" id="edge10_Node000001_Node000010" title=" " alt="" coords="130,114,272,185,270,190,127,119"/>
+<area shape="rect" id="Node000004" href="$class_bin_path.html#afc63e7a8201f134535b3531659dd97a3" title=" " alt="" coords="467,5,652,32"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="382,53,476,33,477,38,383,58"/>
+<area shape="rect" id="Node000006" href="$class_g_l_e_s_c_1_1_logger.html#adcc4730c087b2df0b97cccc15557e432" title=" " alt="" coords="468,157,651,200"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="373,131,453,151,452,156,372,136"/>
+<area shape="rect" id="Node000008" href="$_debug_entity_data_h_u_d_8cpp.html#a9acf295be457442cac6bccc0bf75112c" title=" " alt="" coords="758,140,801,167"/>
+<area shape="poly" id="edge9_Node000005_Node000008" title=" " alt="" coords="385,122,742,148,742,153,384,128"/>
+<area shape="rect" id="Node000009" href="$class_i_logger.html#af378b37a56de2bad5c4ce2d0f7572f9c" title="Display basic information Background – Black Text – White." alt="" coords="514,56,605,83"/>
+<area shape="poly" id="edge8_Node000005_Node000009" title=" " alt="" coords="382,103,498,79,499,84,383,109"/>
+<area shape="rect" id="Node000007" href="$class_concurrent_queue.html#a7d61d602747cee9adf97076d2781023c" title=" " alt="" coords="700,191,859,217"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="652,187,685,190,684,196,652,192"/>
+<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="652,165,742,155,743,160,652,171"/>
+<area shape="poly" id="edge11_Node000010_Node000006" title=" " alt="" coords="399,195,452,189,453,194,399,201"/>
+<area shape="poly" id="edge13_Node000010_Node000008" title=" " alt="" coords="391,219,449,226,515,228,584,224,651,209,666,203,675,195,699,176,742,160,744,165,702,181,679,199,668,207,653,215,585,229,515,234,448,231,390,225"/>
+<area shape="rect" id="Node000011" href="$class_i_logger.html#a08a2761c749b766cb789f0dc8e256f95" title="Display success information Background – Green Text – White Bold." alt="" coords="500,275,620,301"/>
+<area shape="poly" id="edge12_Node000010_Node000011" title=" " alt="" coords="358,219,503,267,501,272,357,224"/>
+</map>

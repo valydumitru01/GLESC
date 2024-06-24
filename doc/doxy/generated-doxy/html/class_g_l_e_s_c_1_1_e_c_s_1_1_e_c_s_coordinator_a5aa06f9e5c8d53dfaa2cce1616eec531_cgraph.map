@@ -1,0 +1,13 @@
+<map id="GLESC::ECS::ECSCoordinator::hasComponent" name="GLESC::ECS::ECSCoordinator::hasComponent">
+<area shape="rect" id="Node000001" title="Check if an entity has a component, checking it&#39;s signature." alt="" coords="5,105,207,148"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#aab28983bdd04e1acf2dd7d94dbe4639d" title="Check if the entity has the given component. The entity must exist and the component must be in the r..." alt="" coords="271,39,463,81"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="192,102,265,83,267,88,193,107"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_component_manager.html#aa81ef6c48acdf07190ada035bfa9bd59" title="Get the ID of a component by its type." alt="" coords="255,105,479,148"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="207,124,239,124,239,129,207,129"/>
+<area shape="rect" id="Node000006" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_component_manager.html#af4b8c65d69d17052413005a7402bf116" title="Check if a component is registered." alt="" coords="255,172,479,215"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="193,146,267,165,265,170,192,151"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a5145504091eb26170aa219acb60aca71" title="Check if the entity with the given name exists." alt="" coords="527,5,719,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="463,45,511,39,512,44,464,50"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a54e81951030afee74dd6ea3c4e2b74e5" title="Check if the component ID is in the range of the signature." alt="" coords="527,72,719,115"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="464,70,512,76,511,81,463,75"/>
+</map>

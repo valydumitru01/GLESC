@@ -1,0 +1,26 @@
+<map id="GLESC::ECS::Entity::removeComponent" name="GLESC::ECS::Entity::removeComponent">
+<area shape="rect" id="Node000001" title="Removes a component from the entity The entity signature is updated to reflect the removed component." alt="" coords="5,131,148,173"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator.html#af2a3fb9a4f78b71f602de7f29bd7446f" title="Remove a component from an entity." alt="" coords="196,131,397,173"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="148,149,180,149,180,155,148,155"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#a69e2b35d930bdb4505587279d31b9400" title="Adds the entity to the systems it is associated with and removes it from the systems it is no longer ..." alt="" coords="456,5,659,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="326,128,379,92,444,58,459,51,461,56,446,62,382,97,329,132"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_component_manager.html#aa81ef6c48acdf07190ada035bfa9bd59" title="Get the ID of a component by its type." alt="" coords="445,72,669,115"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="394,127,444,116,445,121,395,133"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#afed1028adc518bc27c8cc190832f2bf9" title="Get the signature of the entity. The entity must exist." alt="" coords="717,128,910,171"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="397,149,702,147,702,153,397,154"/>
+<area shape="rect" id="Node000007" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_component_manager.html#a312d4ae6954e391d77e79fd4a2180c8f" title="Remove a component from an entity." alt="" coords="445,189,669,232"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="395,171,445,183,444,188,394,177"/>
+<area shape="rect" id="Node000008" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#aa12eb5a78f90d23488324ee51e7dbd6c" title="Remove a component from the entity. The entity must exist." alt="" coords="457,257,657,300"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="329,172,382,207,446,242,464,249,462,254,444,246,380,211,326,176"/>
+<area shape="rect" id="Node000006" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a5145504091eb26170aa219acb60aca71" title="Check if the entity with the given name exists." alt="" coords="958,195,1150,237"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="893,169,960,187,959,193,892,174"/>
+<area shape="rect" id="Node000009" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#aab28983bdd04e1acf2dd7d94dbe4639d" title="Check if the entity has the given component. The entity must exist and the component must be in the r..." alt="" coords="717,261,910,304"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="658,278,702,278,702,284,658,283"/>
+<area shape="rect" id="Node000010" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a54e81951030afee74dd6ea3c4e2b74e5" title="Check if the component ID is in the range of the signature." alt="" coords="958,291,1150,333"/>
+<area shape="poly" id="edge11_Node000008_Node000010" title=" " alt="" coords="636,298,718,313,771,318,813,317,910,313,942,313,942,318,910,319,813,323,771,323,717,319,635,303"/>
+<area shape="rect" id="Node000011" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#af174dceb6b3d4ec490f5812ba128dd51" title="Check if the entity with the given ID is alive." alt="" coords="717,195,910,237"/>
+<area shape="poly" id="edge12_Node000008_Node000011" title=" " alt="" coords="647,254,708,239,709,244,648,259"/>
+<area shape="poly" id="edge9_Node000009_Node000006" title=" " alt="" coords="892,258,959,239,960,245,893,263"/>
+<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="910,292,942,296,942,301,910,297"/>
+<area shape="poly" id="edge13_Node000011_Node000006" title=" " alt="" coords="910,213,942,213,942,219,910,219"/>
+</map>

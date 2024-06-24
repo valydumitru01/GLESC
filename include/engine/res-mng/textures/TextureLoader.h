@@ -1,8 +1,12 @@
-/*******************************************************************************
+/**************************************************************************************************
+ * @file   TextureLoader.h
+ * @author Valentin Dumitru
+ * @date   2024-04-17
+ * @brief  @TODO Add description of this file if needed
  *
- * Copyright (c) 2023.
- * Licensed under the MIT License. See LICENSE.txt in the project root for license information.
- ******************************************************************************/
+ * Copyright (c) 2024 Valentin Dumitru. Licensed under the MIT License.
+ * See LICENSE.txt in the project root for license information.
+ **************************************************************************************************/
 
 #pragma once
 

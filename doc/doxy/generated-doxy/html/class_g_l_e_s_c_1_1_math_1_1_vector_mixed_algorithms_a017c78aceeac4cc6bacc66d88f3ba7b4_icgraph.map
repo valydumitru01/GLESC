@@ -1,0 +1,9 @@
+<map id="GLESC::Math::VectorMixedAlgorithms::areCollinear" name="GLESC::Math::VectorMixedAlgorithms::areCollinear">
+<area shape="rect" id="Node000001" title="Checks if points are collinear." alt="" coords="237,72,420,115"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_plane.html#a503abb5ac4797527f02056f1223a0166" title="Construct a new Plane object from three distinct points." alt="" coords="25,5,169,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="237,70,168,50,170,45,238,65"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_vector_mixed_algorithms.html#af98aa7b91b091b447e76b467d60a7114" title="Checks if points are collinear." alt="" coords="5,72,189,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="221,96,189,96,189,91,221,91"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#aa9d1c92dac095666f8eb521b1e5a541d" title="Checks if the current vector is a scalar multiple of some vectors." alt="" coords="23,139,171,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="239,122,173,141,171,136,237,117"/>
+</map>

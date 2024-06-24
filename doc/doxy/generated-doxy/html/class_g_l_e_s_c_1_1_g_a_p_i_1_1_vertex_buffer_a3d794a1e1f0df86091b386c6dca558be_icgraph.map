@@ -1,0 +1,7 @@
+<map id="GLESC::GAPI::VertexBuffer::destroyOnce" name="GLESC::GAPI::VertexBuffer::destroyOnce">
+<area shape="rect" id="Node000001" title="This method destroys the vertex buffer object once. It is called from the destructor and the destroy ..." alt="" coords="237,39,420,81"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_g_a_p_i_1_1_vertex_buffer.html#a5216726fdd43b2ae8e1439e347717fdd" title=" " alt="" coords="5,5,189,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="221,47,189,43,190,37,222,42"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_g_a_p_i_1_1_vertex_buffer.html#ab8856015451d3e88ce77fd062b7f10d3" title=" " alt="" coords="5,72,189,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="222,78,190,83,189,77,221,73"/>
+</map>

@@ -1,0 +1,63 @@
+<map id="GLESC::Math::Vector::toRads" name="GLESC::Math::Vector::toRads">
+<area shape="rect" id="Node000001" title="Converts the vector to radians." alt="" coords="1526,239,1675,281"/>
+<area shape="rect" id="Node000002" href="$struct_g_l_e_s_c_1_1_transform_1_1_transform.html#a7f9a0fd9e4d3a30acbf62ae0ad54bb14" title=" " alt="" coords="1278,5,1473,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1584,226,1568,187,1544,143,1514,100,1477,62,1459,51,1462,46,1480,58,1518,96,1549,141,1573,185,1589,224"/>
+<area shape="rect" id="Node000003" href="$struct_g_l_e_s_c_1_1_transform_1_1_transform.html#af9d35a099f1653e8964f845c289927e0" title="Calculates the forward vector using the rotation." alt="" coords="1278,72,1473,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="1574,228,1532,177,1506,151,1477,129,1455,117,1458,113,1480,124,1509,147,1536,173,1578,224"/>
+<area shape="rect" id="Node000009" href="$struct_g_l_e_s_c_1_1_transform_1_1_transform.html#a92fc8e586bd408d56f8f7edcdd0c6c48" title="Calculates the right vector using the rotation." alt="" coords="1278,139,1473,181"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="1550,233,1477,196,1448,184,1450,179,1479,191,1552,228"/>
+<area shape="rect" id="Node000013" href="$struct_g_l_e_s_c_1_1_transform_1_1_transform.html#a39474140c356e7fa09891e1c3d307578" title="Calculates the up vector using the rotation." alt="" coords="1278,205,1473,248"/>
+<area shape="poly" id="edge15_Node000001_Node000013" title=" " alt="" coords="1511,249,1473,244,1474,239,1512,244"/>
+<area shape="rect" id="Node000015" href="$class_g_l_e_s_c_1_1_render_1_1_renderer.html#aaa4f270fc41e2f2a1f9ce7b979376eb1" title="Static method that creates the view matrix from a transform (transform of the camera)" alt="" coords="1288,272,1462,315"/>
+<area shape="poly" id="edge17_Node000001_Node000015" title=" " alt="" coords="1512,276,1463,283,1462,278,1511,271"/>
+<area shape="rect" id="Node000016" href="$struct_g_l_e_s_c_1_1_transform_1_1_transform.html#ace5eaadaa06308bac65203f413c3cb0c" title="Returns the model matrix of the transform." alt="" coords="1278,339,1473,381"/>
+<area shape="poly" id="edge18_Node000001_Node000016" title=" " alt="" coords="1552,292,1479,329,1450,341,1448,336,1477,324,1550,287"/>
+<area shape="rect" id="Node000027" href="$struct_g_l_e_s_c_1_1_transform_1_1_transform.html#ab33cb83796cc9b761a2fac182d252190" title="Returns the rotation matrix of the transform." alt="" coords="1278,405,1473,448"/>
+<area shape="poly" id="edge32_Node000001_Node000027" title=" " alt="" coords="1578,296,1536,347,1509,373,1480,396,1458,407,1455,403,1477,391,1506,369,1532,343,1574,292"/>
+<area shape="rect" id="Node000028" href="$class_g_l_e_s_c_1_1_transform_1_1_transformer.html#a5577240cc80f5b926c31d1b67da65de0" title="Rotates a mesh by a given rotation." alt="" coords="1272,472,1478,515"/>
+<area shape="poly" id="edge33_Node000001_Node000028" title=" " alt="" coords="1589,296,1573,335,1549,379,1518,424,1480,462,1462,474,1459,469,1477,458,1514,420,1544,377,1568,333,1584,294"/>
+<area shape="rect" id="Node000004" href="$struct_g_l_e_s_c_1_1_transform_1_1_transform.html#ad2ee8e926f9bfcb5ec42baab5f431cb9" title="Calculates the forward vector using the rotation." alt="" coords="1018,72,1213,115"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="1262,96,1213,96,1213,91,1262,91"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_engine_camera.html#a97a3af009cfc6a81b42d4a61d43e36e2" title="Moves the camera backwards." alt="" coords="776,5,935,48"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="1014,70,934,49,936,44,1016,65"/>
+<area shape="rect" id="Node000008" href="$class_g_l_e_s_c_1_1_engine_camera.html#a335ed43ca73bdbc5527ea0ec49a00dd2" title="Moves the camera forwards." alt="" coords="776,72,935,115"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="1002,96,935,96,935,91,1002,91"/>
+<area shape="rect" id="Node000006" href="$class_g_l_e_s_c_1_1_engine_camera.html#a3f37b288117cbbf684843bf4b88acb72" title="Prepares the camera entity with its components and it&#39;s initial values." alt="" coords="537,105,695,148"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="770,56,753,62,659,107,657,102,751,58,768,51"/>
+<area shape="rect" id="Node000007" href="$class_g_l_e_s_c_1_1_engine.html#a93e1621f9daf326a7c45d3b2a4c826c1" title="The constructor is private, the engine can only be created by the main function." alt="" coords="288,113,449,140"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="521,129,449,129,449,124,521,124"/>
+<area shape="poly" id="edge8_Node000008_Node000006" title=" " alt="" coords="761,109,696,118,695,113,761,104"/>
+<area shape="rect" id="Node000010" href="$struct_g_l_e_s_c_1_1_transform_1_1_transform.html#a3ca12c0fcf34d42593d0e8a59a0e21d4" title="Calculates the right vector using the rotation." alt="" coords="1018,139,1213,181"/>
+<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="1262,163,1213,163,1213,157,1262,157"/>
+<area shape="rect" id="Node000011" href="$class_g_l_e_s_c_1_1_engine_camera.html#acd6cb2233c367b37d1888d8c6fa743db" title="Moves the camera to the left." alt="" coords="776,139,935,181"/>
+<area shape="poly" id="edge11_Node000010_Node000011" title=" " alt="" coords="1002,163,935,163,935,157,1002,157"/>
+<area shape="rect" id="Node000012" href="$class_g_l_e_s_c_1_1_engine_camera.html#a26c75b09b36ddc554f1d8cabd314a9be" title="Moves the camera to the right." alt="" coords="776,205,935,248"/>
+<area shape="poly" id="edge13_Node000010_Node000012" title=" " alt="" coords="1016,188,936,209,934,204,1014,183"/>
+<area shape="poly" id="edge12_Node000011_Node000006" title=" " alt="" coords="761,150,695,140,696,135,761,144"/>
+<area shape="poly" id="edge14_Node000012_Node000006" title=" " alt="" coords="768,202,751,196,657,151,659,146,753,191,770,197"/>
+<area shape="rect" id="Node000014" href="$struct_g_l_e_s_c_1_1_transform_1_1_transform.html#a6d0f9441feeb9ac52b51f59be0e7b121" title="Calculates the up vector using the rotation." alt="" coords="1007,213,1224,240"/>
+<area shape="poly" id="edge16_Node000013_Node000014" title=" " alt="" coords="1262,229,1225,229,1225,224,1262,224"/>
+<area shape="rect" id="Node000017" href="$class_g_l_e_s_c_1_1_transform_1_1_transformer.html#ab1d19df9ad6722b545c0e3e0953c1edf" title="Transforms a bounding volume by a given transform." alt="" coords="1012,339,1219,381"/>
+<area shape="poly" id="edge19_Node000016_Node000017" title=" " alt="" coords="1262,363,1219,363,1219,357,1262,357"/>
+<area shape="rect" id="Node000026" href="$class_g_l_e_s_c_1_1_transform_1_1_transformer.html#a739096353c50719f0b19a2dc3586a4ab" title="Scales a mesh by a given scale." alt="" coords="1012,429,1219,472"/>
+<area shape="poly" id="edge30_Node000016_Node000026" title=" " alt="" coords="1292,389,1273,396,1175,431,1173,426,1271,391,1291,384"/>
+<area shape="poly" id="edge23_Node000017_Node000017" title=" " alt="" coords="1158,326,1142,320,1115,317,1091,319,1075,324,1070,330,1072,337,1066,339,1064,329,1073,320,1090,314,1115,312,1143,314,1160,321"/>
+<area shape="rect" id="Node000018" href="$class_g_l_e_s_c_1_1_render_1_1_renderer.html#a3244ebc15bf8310257ec613f62d00a33" title="This renders the frame." alt="" coords="768,272,943,315"/>
+<area shape="poly" id="edge20_Node000017_Node000018" title=" " alt="" coords="1014,337,941,318,942,313,1015,332"/>
+<area shape="rect" id="Node000021" href="$class_g_l_e_s_c_1_1_transform_1_1_transformer.html#ac4210d1b111a51d877cbe9187cc057f1" title=" " alt="" coords="752,339,959,381"/>
+<area shape="poly" id="edge24_Node000017_Node000021" title=" " alt="" coords="997,363,959,363,959,357,997,357"/>
+<area shape="rect" id="Node000022" href="$_collision_manager_8cpp.html#a2ac513f9f1089540fb3395b6ab92baee" title=" " alt="" coords="811,405,900,432"/>
+<area shape="poly" id="edge25_Node000017_Node000022" title=" " alt="" coords="1004,388,901,411,900,406,1002,383"/>
+<area shape="rect" id="Node000019" href="$class_g_l_e_s_c_1_1_engine.html#ab0a886855ca341089947b36b9c6f6e15" title="Processes the rendering of the game Can be called at variable intervals of time as it uses elapsed." alt="" coords="537,280,694,307"/>
+<area shape="poly" id="edge21_Node000018_Node000019" title=" " alt="" coords="753,296,695,296,695,291,753,291"/>
+<area shape="rect" id="Node000020" href="$main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="344,280,393,307"/>
+<area shape="poly" id="edge22_Node000019_Node000020" title=" " alt="" coords="522,296,393,296,393,291,522,291"/>
+<area shape="rect" id="Node000023" href="$class_g_l_e_s_c_1_1_physics_1_1_collision_manager.html#a3e36f52b42d71e2e6adf6a61626e196a" title=" " alt="" coords="258,360,479,419"/>
+<area shape="poly" id="edge26_Node000022_Node000023" title=" " alt="" coords="795,407,704,388,588,382,480,384,480,379,589,376,705,383,796,402"/>
+<area shape="rect" id="Node000025" href="$class_g_l_e_s_c_1_1_physics_1_1_collision_manager.html#a27c5c28ac5363d15ea2f149fa618bb4f" title=" " alt="" coords="527,397,704,440"/>
+<area shape="poly" id="edge28_Node000022_Node000025" title=" " alt="" coords="795,421,705,421,705,416,795,416"/>
+<area shape="rect" id="Node000024" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_physics_collision_system.html#a01af297180e01be8c9d22d955bfb11b3" title="Updates the system." alt="" coords="5,368,210,411"/>
+<area shape="poly" id="edge27_Node000023_Node000024" title=" " alt="" coords="242,392,210,392,210,387,242,387"/>
+<area shape="poly" id="edge29_Node000025_Node000023" title=" " alt="" coords="511,409,479,405,480,400,511,404"/>
+<area shape="poly" id="edge31_Node000026_Node000026" title=" " alt="" coords="1158,416,1142,410,1115,408,1091,410,1075,415,1070,421,1072,428,1066,429,1064,419,1073,410,1090,405,1115,403,1143,405,1160,411"/>
+</map>

@@ -1,0 +1,100 @@
+<map id="GLESC::Math::VectorAlgorithms::length" name="GLESC::Math::VectorAlgorithms::length">
+<area shape="rect" id="Node000001" title="Computes the length of a vector." alt="" coords="1663,352,1873,395"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#ab480ed45699c98de8b5c198d85329789" title="Computes the rads between two vectors." alt="" coords="1404,72,1615,115"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1751,338,1730,292,1700,236,1661,180,1613,131,1591,117,1593,113,1616,127,1665,176,1705,233,1735,289,1756,336"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#abd445eb1a09f37b1dc51d28e9a7e6f28" title="Checks if two vectors are parallel." alt="" coords="1404,141,1615,184"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="1742,341,1687,272,1652,236,1613,205,1580,187,1583,182,1616,200,1656,233,1691,269,1746,337"/>
+<area shape="rect" id="Node000008" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#a7ebf0b6ba478ecc9c795cc178c80256d" title="Computes the distance between two vectors." alt="" coords="1404,215,1615,257"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="1719,346,1613,284,1564,260,1566,256,1616,279,1722,341"/>
+<area shape="rect" id="Node000012" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#a244693e646eae8bd74830ccea54ad31d" title=" " alt="" coords="1404,293,1615,336"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="1655,351,1606,339,1607,334,1657,345"/>
+<area shape="rect" id="Node000014" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#a1e7d79fa65198c1323e9ae2c4893ee95" title="Returns the length of the vector." alt="" coords="1435,385,1584,428"/>
+<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="1648,392,1584,400,1584,394,1647,386"/>
+<area shape="rect" id="Node000020" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#a5723feaf2c733b98d5dcff0ac1833529" title="Returns the length of the vector." alt="" coords="1435,452,1584,495"/>
+<area shape="poly" id="edge19_Node000001_Node000020" title=" " alt="" coords="1707,404,1616,442,1584,454,1582,449,1614,438,1705,399"/>
+<area shape="rect" id="Node000021" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#a7ee5da5ffdabacb6faa895af42dd78c3" title="Normalizes a vector." alt="" coords="1404,723,1615,765"/>
+<area shape="poly" id="edge20_Node000001_Node000021" title=" " alt="" coords="1745,409,1528,724,1524,721,1741,406"/>
+<area shape="rect" id="Node000046" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#ae76427931423c05c656aa4b922e8bcdc" title="Projects a vector onto another vector." alt="" coords="1404,897,1615,940"/>
+<area shape="poly" id="edge48_Node000001_Node000046" title=" " alt="" coords="1759,410,1706,573,1666,677,1617,779,1574,846,1532,899,1528,895,1569,843,1612,776,1661,675,1701,572,1754,409"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#aab65f204d83735ed679a1128adb65875" title="Gives the rads between two vectors." alt="" coords="1177,5,1325,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="1409,70,1325,48,1327,43,1410,65"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#ad7af0ec13acb61741329855d8abfd678" title="Gives the angle between two vectors in degrees." alt="" coords="1177,72,1325,115"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="1389,96,1326,96,1326,91,1389,91"/>
+<area shape="rect" id="Node000006" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#a04bde0db0fa6c404f5c9e1d6c0901c9a" title="Checks if the vector is parallel to another vector." alt="" coords="1177,139,1325,181"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="1389,164,1326,163,1326,158,1389,159"/>
+<area shape="rect" id="Node000007" href="$class_g_l_e_s_c_1_1_math_1_1_plane.html#a7ff29d08e781e1368153ec76635df34d" title=" " alt="" coords="923,139,1066,181"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="1162,163,1067,163,1067,157,1162,157"/>
+<area shape="rect" id="Node000009" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#a1c6191d691ecd08db7806279439305ef" title="Gives the distance between two vectors." alt="" coords="1177,205,1325,248"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="1389,234,1326,232,1326,227,1389,229"/>
+<area shape="rect" id="Node000010" href="$class_g_l_e_s_c_1_1_engine.html#ad2ff110d5a86c1cd60b541d65915ac48" title="Processes the logic of the game Is called every frame, must be called at constant intervals of time a..." alt="" coords="125,389,285,416"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="1162,244,286,392,285,387,1161,239"/>
+<area shape="rect" id="Node000011" href="$main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,628,55,655"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="187,430,44,629,39,626,183,427"/>
+<area shape="rect" id="Node000013" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#ac3325d1730888f4181513c3e4cc039e2" title="checks if the vector is normalized" alt="" coords="1177,272,1325,315"/>
+<area shape="poly" id="edge12_Node000012_Node000013" title=" " alt="" coords="1389,307,1325,302,1326,297,1389,302"/>
+<area shape="rect" id="Node000015" href="$class_g_l_e_s_c_1_1_physics_1_1_physics_manager.html#a989f5035ba226da4a55a192cb42b8675" title=" " alt="" coords="355,581,580,624"/>
+<area shape="poly" id="edge14_Node000014_Node000015" title=" " alt="" coords="1420,385,1264,354,1166,341,1061,334,951,335,840,347,732,372,680,390,630,413,603,429,578,449,536,496,503,544,482,582,477,580,499,541,532,493,575,446,600,425,627,408,678,385,730,367,839,342,950,330,1061,329,1167,336,1265,349,1421,380"/>
+<area shape="rect" id="Node000017" href="$class_g_l_e_s_c_1_1_math_1_1_plane.html#a6e73a6db0f74741d99f1fc3d5e56dec3" title="Normalize the normal vector of the plane." alt="" coords="1180,389,1323,432"/>
+<area shape="poly" id="edge16_Node000014_Node000017" title=" " alt="" coords="1420,411,1323,412,1323,407,1420,405"/>
+<area shape="rect" id="Node000018" href="$class_g_l_e_s_c_1_1_sound_player.html#abf4800d7917b03791dde67925c43149c" title="Play a 3D sound." alt="" coords="1178,456,1325,499"/>
+<area shape="poly" id="edge17_Node000014_Node000018" title=" " alt="" coords="1421,433,1326,460,1325,455,1420,428"/>
+<area shape="rect" id="Node000019" href="$struct_g_l_e_s_c_1_1_transform_1_1_interpolator.html#a594cf0ebd253815096437cfbbe2a8d9f" title="Pushes a new transform to the interpolator." alt="" coords="1150,523,1352,565"/>
+<area shape="poly" id="edge18_Node000014_Node000019" title=" " alt="" coords="1422,432,1406,442,1391,459,1383,476,1375,495,1358,513,1339,524,1336,520,1355,509,1370,492,1378,474,1386,456,1403,438,1419,427"/>
+<area shape="rect" id="Node000016" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_physics_collision_system.html#a01af297180e01be8c9d22d955bfb11b3" title="Updates the system." alt="" coords="103,581,307,624"/>
+<area shape="poly" id="edge15_Node000015_Node000016" title=" " alt="" coords="339,605,308,605,308,600,339,600"/>
+<area shape="rect" id="Node000022" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_mixed_algorithms.html#a88aadedf958ac6e320f73137e81aaf37" title="Rotate a 3D matrix around the X, Y, and Z axis." alt="" coords="1152,856,1351,915"/>
+<area shape="poly" id="edge21_Node000021_Node000022" title=" " alt="" coords="1468,777,1416,812,1358,846,1334,858,1331,853,1355,842,1414,807,1465,772"/>
+<area shape="rect" id="Node000030" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_mixed_algorithms.html#a7ededab6ed7bb33c8662b3b9ae8ab944" title="Calculate the view matrix from the eye, target, and up vectors." alt="" coords="1161,939,1342,981"/>
+<area shape="poly" id="edge30_Node000021_Node000030" title=" " alt="" coords="1486,780,1421,864,1386,903,1358,929,1337,940,1334,936,1355,924,1382,899,1416,860,1482,776"/>
+<area shape="rect" id="Node000031" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#a921eb7e96f275d34d7f5f24906a66ec1" title="Normalizes the vector." alt="" coords="1177,589,1325,632"/>
+<area shape="poly" id="edge31_Node000021_Node000031" title=" " alt="" coords="1467,715,1415,680,1355,646,1325,634,1327,629,1357,642,1418,675,1470,711"/>
+<area shape="rect" id="Node000037" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#a5abd1df230f318baf6ec02f6e1614f6b" title="Normalizes the vector." alt="" coords="1177,656,1325,699"/>
+<area shape="poly" id="edge38_Node000021_Node000037" title=" " alt="" coords="1409,721,1325,699,1327,694,1410,716"/>
+<area shape="rect" id="Node000038" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#a983f4aa7d9dfbc66e7828446069b3c67" title="Reflects a vector against a normal vector." alt="" coords="1146,723,1356,765"/>
+<area shape="poly" id="edge39_Node000021_Node000038" title=" " alt="" coords="1388,747,1357,747,1357,741,1388,741"/>
+<area shape="rect" id="Node000042" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#a21ad8abd8b4058b6510dfa819f629f73" title="Converts a direction vector to Euler angles." alt="" coords="1146,789,1356,832"/>
+<area shape="poly" id="edge44_Node000021_Node000042" title=" " alt="" coords="1410,772,1337,791,1336,786,1409,767"/>
+<area shape="rect" id="Node000023" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_mixed_algorithms.html#a67bdda15ead970e5074845bdf3fcf085" title=" " alt="" coords="891,889,1098,948"/>
+<area shape="poly" id="edge22_Node000022_Node000023" title=" " alt="" coords="1136,903,1099,908,1098,903,1135,898"/>
+<area shape="rect" id="Node000028" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_mixed_algorithms.html#af2edbd12a5a8a4f225c1a811285d6414" title="Calculate the 3D rotation matrix from the rotation angles around the X, Y, and Z axes." alt="" coords="895,972,1094,1015"/>
+<area shape="poly" id="edge28_Node000022_Node000028" title=" " alt="" coords="1157,924,1147,929,1124,946,1099,962,1073,974,1071,969,1097,958,1121,941,1145,924,1155,919"/>
+<area shape="rect" id="Node000024" href="$class_g_l_e_s_c_1_1_math_1_1_matrix.html#a3c0812b3a24431dfc5bc68f394910d61" title="Creates a view matrix from the given position and rotation vectors." alt="" coords="651,893,820,936"/>
+<area shape="poly" id="edge23_Node000023_Node000024" title=" " alt="" coords="875,919,820,919,820,913,875,914"/>
+<area shape="rect" id="Node000025" href="$class_g_l_e_s_c_1_1_render_1_1_renderer.html#aaa4f270fc41e2f2a1f9ce7b979376eb1" title="Static method that creates the view matrix from a transform (transform of the camera)" alt="" coords="381,827,555,869"/>
+<area shape="poly" id="edge24_Node000024_Node000025" title=" " alt="" coords="636,893,554,872,556,867,637,888"/>
+<area shape="rect" id="Node000026" href="$class_g_l_e_s_c_1_1_render_1_1_renderer.html#a0f562e14a9fb4e13e03bc108b5dd1111" title="This starts the frame of rendering." alt="" coords="381,893,555,936"/>
+<area shape="poly" id="edge25_Node000024_Node000026" title=" " alt="" coords="636,917,555,917,555,912,636,912"/>
+<area shape="rect" id="Node000027" href="$class_g_l_e_s_c_1_1_engine.html#ab0a886855ca341089947b36b9c6f6e15" title="Processes the rendering of the game Can be called at variable intervals of time as it uses elapsed." alt="" coords="126,759,284,785"/>
+<area shape="poly" id="edge26_Node000026_Node000027" title=" " alt="" coords="367,890,354,884,314,861,276,834,219,788,223,784,279,830,316,856,356,879,369,885"/>
+<area shape="poly" id="edge27_Node000027_Node000011" title=" " alt="" coords="171,751,48,657,51,653,175,747"/>
+<area shape="rect" id="Node000029" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_mixed_algorithms.html#a485f02d22191da3635105401351ec519" title="Calculate the model matrix from the position, rotation, and scale." alt="" coords="628,972,843,1015"/>
+<area shape="poly" id="edge29_Node000028_Node000029" title=" " alt="" coords="879,996,843,996,843,991,879,991"/>
+<area shape="rect" id="Node000032" href="$class_g_l_e_s_c_1_1_math_1_1_polyhedron_face.html#a958817b02687286fe25e69e874f3cecd" title="Checks if the current face intersects with the given face." alt="" coords="892,423,1097,465"/>
+<area shape="poly" id="edge32_Node000031_Node000032" title=" " alt="" coords="1161,591,1144,579,1133,567,1126,554,1119,528,1113,503,1107,491,1096,479,1080,468,1083,464,1100,475,1111,488,1118,501,1125,527,1131,552,1137,564,1148,575,1164,587"/>
+<area shape="rect" id="Node000034" href="$class_g_l_e_s_c_1_1_math_1_1_line.html#a748af27a9162eb49e70e7ced1761c5a3" title="Set the Direction vector." alt="" coords="923,556,1066,599"/>
+<area shape="poly" id="edge34_Node000031_Node000034" title=" " alt="" coords="1161,602,1066,589,1066,584,1162,596"/>
+<area shape="rect" id="Node000036" href="$class_g_l_e_s_c_1_1_math_1_1_line.html#a1be2dab9cf99b95192d64da68aa3a939" title="Set the direction of the line from two points." alt="" coords="916,489,1073,532"/>
+<area shape="poly" id="edge36_Node000031_Node000036" title=" " alt="" coords="1161,587,1145,580,1120,563,1097,546,1071,535,1073,530,1099,542,1124,558,1147,575,1164,582"/>
+<area shape="rect" id="Node000033" href="$class_g_l_e_s_c_1_1_math_1_1_polyhedron_face.html#acda5c36a9dc475202153436369828d53" title="Checks if the face intersects with a given line." alt="" coords="633,423,838,465"/>
+<area shape="poly" id="edge33_Node000032_Node000033" title=" " alt="" coords="877,447,838,447,838,441,877,441"/>
+<area shape="rect" id="Node000035" href="$class_g_l_e_s_c_1_1_math_1_1_line.html#aea0b7158fc03f98c18337e9a266da910" title="Construct a new Line object." alt="" coords="652,531,819,557"/>
+<area shape="poly" id="edge35_Node000034_Node000035" title=" " alt="" coords="907,569,819,557,820,552,908,564"/>
+<area shape="poly" id="edge37_Node000036_Node000035" title=" " alt="" coords="901,525,820,536,819,531,900,520"/>
+<area shape="rect" id="Node000039" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#a5e0f9d2f17ab2daf5e2293a4d04a5b76" title="Reflects the vector by a given normal, modifying the current vector." alt="" coords="920,689,1069,732"/>
+<area shape="poly" id="edge40_Node000038_Node000039" title=" " alt="" coords="1130,731,1069,723,1069,718,1131,726"/>
+<area shape="rect" id="Node000041" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#ad66b012cf7efdba101e6b64a52a3ff29" title="Reflects the vector by a given normal." alt="" coords="920,623,1069,665"/>
+<area shape="poly" id="edge43_Node000038_Node000041" title=" " alt="" coords="1158,719,1145,713,1120,696,1097,680,1068,667,1070,662,1099,675,1124,692,1147,708,1160,714"/>
+<area shape="rect" id="Node000040" href="$namespace_g_l_e_s_c_1_1_physics.html#a8e38cace2434232da6df7a72ee13f497" title=" " alt="" coords="635,652,836,695"/>
+<area shape="poly" id="edge41_Node000039_Node000040" title=" " alt="" coords="904,700,836,690,836,685,905,695"/>
+<area shape="poly" id="edge42_Node000040_Node000015" title=" " alt="" coords="637,650,551,627,552,622,638,645"/>
+<area shape="rect" id="Node000043" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#abafb1f7d66f1c7d8d624eb5fc9654d4c" title="Converts the vector to euler angles." alt="" coords="917,823,1072,865"/>
+<area shape="poly" id="edge45_Node000042_Node000043" title=" " alt="" coords="1131,829,1073,837,1072,831,1130,824"/>
+<area shape="rect" id="Node000045" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#a2812d4af5876511454191857cab1d18b" title="Converts the vector to euler angles." alt="" coords="917,756,1072,799"/>
+<area shape="poly" id="edge47_Node000042_Node000045" title=" " alt="" coords="1130,798,1072,790,1073,785,1131,792"/>
+<area shape="rect" id="Node000044" href="$class_g_l_e_s_c_1_1_transform_1_1_transformer.html#a4880807323f7c515dd37b15ba2a32acb" title=" " alt="" coords="632,823,839,865"/>
+<area shape="poly" id="edge46_Node000043_Node000044" title=" " alt="" coords="901,847,839,847,839,841,901,841"/>
+<area shape="rect" id="Node000047" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#afe0496b857816e05a61744e6a8c852bb" title="Projects the vector onto another vector." alt="" coords="1177,1005,1325,1048"/>
+<area shape="poly" id="edge49_Node000046_Node000047" title=" " alt="" coords="1455,950,1357,996,1327,1007,1325,1002,1355,991,1453,945"/>
+<area shape="rect" id="Node000048" href="$class_g_l_e_s_c_1_1_math_1_1_sphere.html#af57e36ca525f974ffbf5bb25f041a3b0" title="Checks if the figure intersects with the given line." alt="" coords="919,1039,1070,1081"/>
+<area shape="poly" id="edge50_Node000047_Node000048" title=" " alt="" coords="1162,1041,1071,1053,1070,1048,1161,1036"/>
+</map>

@@ -1,0 +1,39 @@
+<map id="GLESC::Render::Intensity::get" name="GLESC::Render::Intensity::get">
+<area shape="rect" id="Node000001" title=" " alt="" coords="1005,280,1202,307"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_render_1_1_fog.html#abdb5bd4a63f169c6c707956d7c954044" title=" " alt="" coords="794,5,938,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1090,267,1070,223,1041,168,1003,111,955,62,937,50,940,46,959,58,1007,108,1046,165,1075,220,1095,265"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_render_1_1_material.html#a48434fb4dcf5bd105e462acd8ad4a1ee" title=" " alt="" coords="782,72,950,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="1083,268,1031,199,995,162,955,129,936,118,938,113,959,124,999,158,1035,196,1088,265"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_render_1_1_material.html#aa2c848ad8a36da2259d71b0cccfb2ceb" title=" " alt="" coords="782,139,950,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="1072,272,1019,234,956,196,931,184,933,180,958,191,1022,230,1075,268"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_render_1_1_global_sun.html#ab2eb1cc53781b74b01928b392e41412c" title=" " alt="" coords="775,205,957,248"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="1038,278,944,251,945,246,1039,273"/>
+<area shape="rect" id="Node000006" href="$struct_g_l_e_s_c_1_1_render_1_1_light_point.html#ad3fbf61cb424a458eddc68949546b79d" title=" " alt="" coords="776,272,956,315"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="990,296,957,296,957,291,990,291"/>
+<area shape="rect" id="Node000011" href="$class_g_l_e_s_c_1_1_render_1_1_material.html#a443dac631732701962950d4d63b7d46b" title=" " alt="" coords="782,339,950,381"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="1039,314,945,341,944,335,1038,309"/>
+<area shape="rect" id="Node000013" href="$class_g_l_e_s_c_1_1_render_1_1_material.html#a43ac6591769079dc8e36b7db3dd2af47" title=" " alt="" coords="782,405,950,448"/>
+<area shape="poly" id="edge13_Node000001_Node000013" title=" " alt="" coords="1075,319,1022,357,958,396,933,407,931,402,956,391,1019,352,1072,314"/>
+<area shape="rect" id="Node000014" href="$class_g_l_e_s_c_1_1_engine_camera.html#a63dae1933350d3e10798719c19db2870" title="Rotates the camera based on the mouse movement." alt="" coords="787,472,945,515"/>
+<area shape="poly" id="edge15_Node000001_Node000014" title=" " alt="" coords="1088,321,1035,391,999,429,959,462,938,474,936,469,955,458,995,425,1031,387,1083,318"/>
+<area shape="rect" id="Node000017" href="$class_g_l_e_s_c_1_1_render_1_1_fog.html#af49dd56c8f6a9af557de0e72590efca0" title=" " alt="" coords="794,539,938,581"/>
+<area shape="poly" id="edge18_Node000001_Node000017" title=" " alt="" coords="1095,322,1075,366,1046,422,1007,479,959,529,940,541,937,537,955,525,1003,475,1041,419,1070,364,1090,320"/>
+<area shape="rect" id="Node000007" href="$class_g_l_e_s_c_1_1_render_1_1_renderer.html#aa1a9e1d79bb96f79ee1e421dd245bbf1" title="This encapsulates the rendering of the lights, setting the uniforms." alt="" coords="541,272,716,315"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="760,296,716,296,716,291,760,291"/>
+<area shape="rect" id="Node000008" href="$class_g_l_e_s_c_1_1_render_1_1_renderer.html#a3244ebc15bf8310257ec613f62d00a33" title="This renders the frame." alt="" coords="308,305,482,348"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="527,311,483,317,482,312,526,305"/>
+<area shape="rect" id="Node000009" href="$class_g_l_e_s_c_1_1_engine.html#ab0a886855ca341089947b36b9c6f6e15" title="Processes the rendering of the game Can be called at variable intervals of time as it uses elapsed." alt="" coords="103,313,260,340"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="292,329,261,329,261,324,292,324"/>
+<area shape="rect" id="Node000010" href="$main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,313,55,340"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="87,329,55,329,55,324,87,324"/>
+<area shape="rect" id="Node000012" href="$class_g_l_e_s_c_1_1_render_1_1_renderer.html#a8424374b350690f034c330a92393b182" title="This encapsulates the application of the material, setting all the uniforms of the material shader." alt="" coords="541,339,716,381"/>
+<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="766,363,716,363,716,357,766,357"/>
+<area shape="poly" id="edge12_Node000012_Node000008" title=" " alt="" coords="526,348,482,342,483,337,527,343"/>
+<area shape="poly" id="edge14_Node000013_Node000012" title=" " alt="" coords="773,403,707,385,708,379,774,398"/>
+<area shape="rect" id="Node000015" href="$class_g_l_e_s_c_1_1_engine_camera.html#a3f37b288117cbbf684843bf4b88acb72" title="Prepares the camera entity with its components and it&#39;s initial values." alt="" coords="549,472,708,515"/>
+<area shape="poly" id="edge16_Node000014_Node000015" title=" " alt="" coords="771,496,708,496,708,491,771,491"/>
+<area shape="rect" id="Node000016" href="$class_g_l_e_s_c_1_1_engine.html#a93e1621f9daf326a7c45d3b2a4c826c1" title="The constructor is private, the engine can only be created by the main function." alt="" coords="315,480,476,507"/>
+<area shape="poly" id="edge17_Node000015_Node000016" title=" " alt="" coords="534,496,476,496,476,491,534,491"/>
+<area shape="rect" id="Node000018" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_fog_component.html#a2f20c06e3d69e024f2548d7cc01923b9" title="Each component must have a toString function." alt="" coords="530,539,727,581"/>
+<area shape="poly" id="edge19_Node000017_Node000018" title=" " alt="" coords="778,563,727,563,727,557,778,557"/>
+</map>

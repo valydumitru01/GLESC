@@ -1,0 +1,10 @@
+<map id="GLESC::Render::Renderer::createProjectionMatrix" name="GLESC::Render::Renderer::createProjectionMatrix">
+<area shape="rect" id="Node000001" title="Static method that creates the projection matrix from a camera." alt="" coords="5,5,180,48"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_matrix.html#ab2583de6ae9c51915c51e0900e55caad" title="Creates a projection matrix from the given fov, aspect ratio, near and far planes." alt="" coords="228,5,383,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="180,24,212,24,212,29,180,29"/>
+<area shape="rect" id="Node000003" href="$namespace_g_l_e_s_c_1_1_math.html#a980ed967f85bef4bb539c9701701a877" title="Converts degrees to radians." alt="" coords="431,13,583,40"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="383,24,415,24,415,29,383,29"/>
+<area shape="rect" id="Node000004" href="$namespace_g_l_e_s_c_1_1_math.html#a69598a72ef2c06e1caba0ea9613d65e6" title="Converts radians to degrees." alt="" coords="631,13,788,40"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="584,33,616,33,616,38,584,38"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="631,21,599,20,599,15,631,15"/>
+</map>

@@ -1,0 +1,14 @@
+<map id="GLESC::Input::InputManager::updateKeyState" name="GLESC::Input::InputManager::updateKeyState">
+<area shape="rect" id="Node000001" title="Updates the state of a specific key in the key map." alt="" coords="817,39,1004,81"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_input_1_1_input_manager.html#ae05086375cf5fc9e92f75679831c3562" title="Handles the keyboard event by updating the key map with the current key state." alt="" coords="581,5,769,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="801,47,769,43,770,37,801,42"/>
+<area shape="rect" id="Node000006" href="$class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a89301a457ade75c8f2ed479016606221" title="Handles the mouse button event by updating the key map with the current key state." alt="" coords="581,72,769,115"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="801,78,770,83,769,77,801,73"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a2088e82ea6410ae3534a4fb8f7a0d891" title="Updates the input manager by processing the current input state." alt="" coords="346,39,533,81"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="566,45,534,49,533,44,565,39"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_engine.html#aa1aec35d59f1364a79c7a62c29640226" title="Processes the input of the game." alt="" coords="103,47,298,73"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="330,63,299,63,299,57,330,57"/>
+<area shape="rect" id="Node000005" href="$main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,47,55,73"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="87,63,55,63,55,57,87,57"/>
+<area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="565,81,533,76,534,71,566,75"/>
+</map>

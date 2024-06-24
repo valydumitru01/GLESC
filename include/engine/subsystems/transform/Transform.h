@@ -2,7 +2,7 @@
  * @file   Transform.h
  * @author Valentin Dumitru
  * @date   16/02/2024
- * @brief  Add description of this file if needed @TODO
+ * @brief  @TODO Add description of this file if needed
  *
  * Copyright (c) 2024 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
@@ -104,32 +104,83 @@ namespace GLESC::Transform {
         }
 
 
+        /**
+         * @brief Adds a position to the current position.
+         * @details This facilitates adding positions. Without it adding would look like
+         * setPosition(getPosition() + position); which is not very readable.
+         * And addition is a very common operation.
+         * @param position The position to add.
+         */
         void addPosition(const Position& position) {
             setPosition(this->position + position);
         }
 
+        /**
+         * @brief Adds a rotation to the current rotation.
+         * @details This facilitates adding rotations. Without it adding would look like
+         * setRotation(getRotation() + rotation); which is not very readable.
+         * And addition is a very common operation.
+         * @param rotation The rotation to add.
+         */
         void addRotation(const Rotation& rotation) {
             setRotation(this->rotationDegrees + rotation);
         }
 
+        /**
+         * @brief Adds a scale to the current scale.
+         * @details This facilitates adding scales. Without it adding would look like
+         * setScale(getScale() + scale); which is not very readable.
+         * And addition is a very common operation.
+         * @param scale The scale to add.
+         */
         void addScale(const Scale& scale) {
             setScale(this->scale + scale);
         }
 
+        /**
+         * @brief Adds a position to the current position at the given axis.
+         * @details This facilitates adding positions at a given axis, without it it would look like this
+         * setPosition(getPosition() + Position(0.0f, 0.0f, value)); which is not very readable and is
+         * very verbose.
+         * @param axis The axis to add the position to.
+         * @param value The value to add.
+         */
         void addPosition(Axis axis, PosComp value) {
             setPosition(axis, position.get(static_cast<int>(axis)) + value);
         }
 
+        /**
+         * @brief Adds a rotation to the current rotation.
+         * @details This facilitates adding rotations at a given axis, without it it would look like this
+         * setRotation(getRotation() + Rotation(0.0f, 0.0f, value)); which is not very readable and is
+         * very verbose.
+         * @param axis The axis to add the rotation to.
+         * Rotation axis:
+         * RotationAxis::Pitch - x rotation
+         * RotationAxis::Yaw - y rotation
+         * RotationAxis::Roll - z rotation
+         * @param value The value to add.
+         */
         void addRotation(RotationAxis axis, RotComp value) {
             setRotation(axis, rotationDegrees.get(static_cast<int>(axis)) + value);
         }
 
+        /**
+         * @brief Adds a scale to the current scale.
+         * @details This facilitates adding scales at a given axis, without it it would look like this
+         * setScale(getScale() + Scale(0.0f, 0.0f, value)); which is not very readable and is
+         * very verbose.
+         * @param axis The axis to add the scale to.
+         * @param value The value to add.
+         */
         void addScale(Axis axis, ScaleComp value) {
             setScale(axis, scale.get(static_cast<int>(axis)) + value);
         }
 
         /**
          * @brief Returns the model matrix of the transform.
+         * @details Will not be recalculated if the transform has not changed as it is a heavy operation.
+         * It uses a dirty flag to check if the transform has changed.
          * @return The model matrix of the transform.
          */
         Render::Model getModelMatrix() const {
@@ -142,7 +193,8 @@ namespace GLESC::Transform {
 
         /**
          * @brief Returns the translation matrix of the transform.
-         * @details Will not be recalculated if the position has not changed.
+         * @details Will not be recalculated if the position has not changed as it is a heavy operation.
+         * It uses a dirty flag to check if the position has changed.
          * @return The translation matrix of the transform.
          */
         Render::TranslateMat getTranslationMatrix() const {
@@ -155,7 +207,8 @@ namespace GLESC::Transform {
 
         /**
          * @brief Returns the rotation matrix of the transform.
-         * @details Will not be recalculated if the rotation has not changed.
+         * @details Will not be recalculated if the rotation has not changed as it is a heavy operation.
+         * It uses a dirty flag to check if the rotation has changed.
          * @return The rotation matrix of the transform.
          */
         Render::RotateMat getRotationMatrix() const {
@@ -168,7 +221,8 @@ namespace GLESC::Transform {
 
         /**
          * @brief Returns the scale matrix of the transform.
-         * @details Will not be recalculated if the scale has not changed.
+         * @details Will not be recalculated if the scale has not changed as it is a heavy operation.
+         * It uses a dirty flag to check if the scale has changed.
          * @return The scale matrix of the transform.
          */
         Render::ScaleMat getScaleMatrix() const {
@@ -179,7 +233,7 @@ namespace GLESC::Transform {
             return scaleMat;
         }
 
-        [[nodiscard]] std::vector<EntityStatsManager::Value> getDebuggingValues();
+        [[nodiscard]] std::vector<EntityStatsManager::Value> getDebuggingValues() override;
         /**
          * @brief Calculates the forward vector using the rotation
          * @return The forward vector
@@ -199,30 +253,90 @@ namespace GLESC::Transform {
          */
         [[nodiscard]] Math::Direction up() const;
 
+        /**
+         * @brief Compares two transforms for equality.
+         * @details This is necessary as we need to store transforms in a set (when we interpolate them)
+         * @param other The other transform to compare to.
+         * @return True if the transforms are equal, false otherwise.
+         */
         [[nodiscard]] bool operator==(const Transform& other) const;
 
-        [[nodiscard]] std::string toString() const;
+        /**
+         * @brief Converts the transform to a string.
+         * @details For debugging purposes.
+         * @return The string representation of the transform.
+         */
+        [[nodiscard]] std::string toString() const override;
 
     private:
-        Math::Direction calculateForward() const;
-        Math::Direction calculateRight() const;
-        Math::Direction calculateUp() const;
+        /**
+         * @brief Calculates the forward vector using the rotation.
+         * @details This is a helper function for the forward function.
+         * @return The forward vector.
+         */
+        [[nodiscard]] Math::Direction calculateForward() const;
+        /**
+         * @brief Calculates the right vector using the rotation.
+         * @details This is a helper function for the right function.
+         * @return The right vector.
+         */
+        [[nodiscard]] Math::Direction calculateRight() const;
+        /**
+         * @brief Calculates the up vector using the rotation.
+         * @details This is a helper function for the up function.
+         * @return The up vector.
+         */
+        [[nodiscard]] Math::Direction calculateUp() const;
 
+        /**
+         * @brief The position of the transform.
+         */
         Position position = Position(0.0f, 0.0f, 0.0f);
+        /**
+         * @brief The rotation of the transform.
+         */
         Rotation rotationDegrees = Rotation(0.0f, 0.0f, 0.0f);
+        /**
+         * @brief The scale of the transform.
+         */
         Scale scale = Scale(1.0f, 1.0f, 1.0f);
 
+        /**
+         * @brief The forward direction of the transform so we don't have to recalculate it every time.
+         */
         Math::Direction forwardDirection;
+        /**
+         * @brief The right direction of the transform so we don't have to recalculate it every time.
+         */
         Math::Direction rightDirection;
+        /**
+         * @brief The up direction of the transform so we don't have to recalculate it every time.
+         */
         Math::Direction upDirection;
 
 
+        /**
+         * @brief The model matrix of the transform.
+         * @details it is mutable so we can recalculate it directly in the const getter.
+         */
         mutable Render::Model modelMat;
         mutable bool modelDirty = true;
+        /**
+         * @brief The translation matrix of the transform.
+         * @details it is mutable so we can recalculate it directly in the const getter.
+         */
         mutable Render::TranslateMat translateMat;
         mutable bool translateDirty = true;
+     /**
+         * @brief The rotation matrix of the transform.
+         * @details it is mutable so we can recalculate it directly in the const getter.
+         */
         mutable Render::RotateMat rotateMat;
         mutable bool rotateDirty = true;
+        /**
+         * @brief The scale matrix of the transform.
+         * @details it is mutable so we can recalculate it directly in the const getter.
+         */
         mutable Render::ScaleMat scaleMat;
         mutable bool scaleDirty = true;
 

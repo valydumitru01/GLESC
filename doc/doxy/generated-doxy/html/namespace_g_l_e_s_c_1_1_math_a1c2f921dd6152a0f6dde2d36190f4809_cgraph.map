@@ -1,0 +1,7 @@
+<map id="GLESC::Math::generateCompileTimeRandomNumber" name="GLESC::Math::generateCompileTimeRandomNumber">
+<area shape="rect" id="Node000001" title="Generates a compile time random number between min and max, specifically [min, max)" alt="" coords="5,23,213,65"/>
+<area shape="rect" id="Node000002" href="$namespace_g_l_e_s_c_1_1_math.html#a522e4f8e000cccddbf9d2f92280cfb6c" title="Calculates the max of two values." alt="" coords="261,5,396,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="213,29,245,26,246,31,213,35"/>
+<area shape="rect" id="Node000003" href="$namespace_g_l_e_s_c_1_1_math.html#ad2df75a6181d9d1d318d20d224a2866b" title="Calculates the min of two values." alt="" coords="263,56,394,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="213,53,248,57,247,63,213,59"/>
+</map>

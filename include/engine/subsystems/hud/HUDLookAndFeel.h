@@ -1,5 +1,5 @@
 /**************************************************************************************************
-* @file   HudLookAndFeel.h
+ * @file   HudLookAndFeel.h
  * @author Valentin Dumitru
  * @date   08/03/2024
  * @brief  Class that encapsulates the look and feel of the HUD.

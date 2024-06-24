@@ -1,0 +1,750 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="Doxygen Awesome" />
+<meta property="og:image" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+<meta property="og:description" content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
+<meta property="og:url" content="https://jothepro.github.io/doxygen-awesome-css/" />
+<!-- END opengraph metadata -->
+<!-- BEGIN twitter metadata -->
+<meta name="twitter:image:src" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+<meta name="twitter:title" content="Doxygen Awesome" />
+<meta name="twitter:description" content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
+<!-- END twitter metadata -->
+<title>GLESC: GLESC::Math::Line Class Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.drawio.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/ -->
+<a href="https://github.com/jothepro/doxygen-awesome-css" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="GLESC_logo_white_background.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">GLESC
+   &#160;<span id="projectnumber">1</span>
+   </div>
+   <div id="projectbrief">Game engine using ECS architecture</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('class_g_l_e_s_c_1_1_math_1_1_line.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="class_g_l_e_s_c_1_1_math_1_1_line-members.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">GLESC::Math::Line Class Reference</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_line_8h_source.html">Line.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for GLESC::Math::Line:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_math_1_1_line__coll__graph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:aa65a026d4e4c1d9b08ffca7450a54bc8" id="r_aa65a026d4e4c1d9b08ffca7450a54bc8"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_math_1_1_line.html#aa65a026d4e4c1d9b08ffca7450a54bc8">Construct</a> { <a class="el" href="class_g_l_e_s_c_1_1_math_1_1_line.html#aa65a026d4e4c1d9b08ffca7450a54bc8a1de5e45af54f9f098e4ae388726e9677">PointPoint</a>
+, <a class="el" href="class_g_l_e_s_c_1_1_math_1_1_line.html#aa65a026d4e4c1d9b08ffca7450a54bc8a86b9466abf2c86fabc148ce97e7f2536">PointDirection</a>
+ }</td></tr>
+<tr class="separator:aa65a026d4e4c1d9b08ffca7450a54bc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a0c3b0b33bb08cfe147e1922961eed1d1" id="r_a0c3b0b33bb08cfe147e1922961eed1d1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_math_1_1_line.html#a0c3b0b33bb08cfe147e1922961eed1d1">Line</a> ()=<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">default</a></td></tr>
+<tr class="separator:a0c3b0b33bb08cfe147e1922961eed1d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea0b7158fc03f98c18337e9a266da910" id="r_aea0b7158fc03f98c18337e9a266da910"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_math_1_1_line.html#aea0b7158fc03f98c18337e9a266da910">Line</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a1ea271525883f12774755d7d62bea7ac">Point</a> &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">pointParam</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="_vector_8h.html#a5daba7afb5c94aa954510a1f02f39394">Vec3F</a> &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">pointOrDir</a>, <a class="el" href="class_g_l_e_s_c_1_1_math_1_1_line.html#aa65a026d4e4c1d9b08ffca7450a54bc8">Construct</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">construct</a>=<a class="el" href="class_g_l_e_s_c_1_1_math_1_1_line.html#aa65a026d4e4c1d9b08ffca7450a54bc8a86b9466abf2c86fabc148ce97e7f2536">Construct::PointDirection</a>)</td></tr>
+<tr class="memdesc:aea0b7158fc03f98c18337e9a266da910"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="class_g_l_e_s_c_1_1_math_1_1_line.html">Line</a> object.  <br /></td></tr>
+<tr class="separator:aea0b7158fc03f98c18337e9a266da910"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4aaee09054357a0d63793ceec15b6f06" id="r_a4aaee09054357a0d63793ceec15b6f06"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a41c67586ad532e578bb839ad5067d3ac">Distance</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_math_1_1_line.html#a4aaee09054357a0d63793ceec15b6f06">distance</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a1ea271525883f12774755d7d62bea7ac">Point</a> &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">pointParam</a>) <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a></td></tr>
+<tr class="memdesc:a4aaee09054357a0d63793ceec15b6f06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the distance from a point to the line.  <br /></td></tr>
+<tr class="separator:a4aaee09054357a0d63793ceec15b6f06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14edc63fc932f3d7e466a207cf45cd80" id="r_a14edc63fc932f3d7e466a207cf45cd80"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a9eadb18d7a162972604c1a6cefa0efa8">Direction</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_math_1_1_line.html#a14edc63fc932f3d7e466a207cf45cd80">getDirection</a> () <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a></td></tr>
+<tr class="memdesc:a14edc63fc932f3d7e466a207cf45cd80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the Direction vector.  <br /></td></tr>
+<tr class="separator:a14edc63fc932f3d7e466a207cf45cd80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e0824ad07f82c53abdfcee105cd00dd" id="r_a2e0824ad07f82c53abdfcee105cd00dd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a1ea271525883f12774755d7d62bea7ac">Point</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_math_1_1_line.html#a2e0824ad07f82c53abdfcee105cd00dd">getPoint</a> () <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a></td></tr>
+<tr class="memdesc:a2e0824ad07f82c53abdfcee105cd00dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the Point object.  <br /></td></tr>
+<tr class="separator:a2e0824ad07f82c53abdfcee105cd00dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54ec550807f8b505f6aef9da336d60f7" id="r_a54ec550807f8b505f6aef9da336d60f7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_math_1_1_line.html#a54ec550807f8b505f6aef9da336d60f7">intersects</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="class_g_l_e_s_c_1_1_math_1_1_line.html">Line</a> &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">line</a>) <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a></td></tr>
+<tr class="memdesc:a54ec550807f8b505f6aef9da336d60f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a line intersects with another line.  <br /></td></tr>
+<tr class="separator:a54ec550807f8b505f6aef9da336d60f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18a1fdcbcbd3c1055df4cbc67d46914d" id="r_a18a1fdcbcbd3c1055df4cbc67d46914d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_math_1_1_line.html#a18a1fdcbcbd3c1055df4cbc67d46914d">intersects</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a1ea271525883f12774755d7d62bea7ac">Point</a> &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">pointParam</a>) <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a></td></tr>
+<tr class="memdesc:a18a1fdcbcbd3c1055df4cbc67d46914d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a line intersects with a point.  <br /></td></tr>
+<tr class="separator:a18a1fdcbcbd3c1055df4cbc67d46914d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a748af27a9162eb49e70e7ced1761c5a3" id="r_a748af27a9162eb49e70e7ced1761c5a3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_math_1_1_line.html#a748af27a9162eb49e70e7ced1761c5a3">setDirection</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a9eadb18d7a162972604c1a6cefa0efa8">Direction</a> &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">directionParam</a>)</td></tr>
+<tr class="memdesc:a748af27a9162eb49e70e7ced1761c5a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the Direction vector.  <br /></td></tr>
+<tr class="separator:a748af27a9162eb49e70e7ced1761c5a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13bdc3053a2bee5480864188b39ca489" id="r_a13bdc3053a2bee5480864188b39ca489"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_math_1_1_line.html#a13bdc3053a2bee5480864188b39ca489">setPoint</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a1ea271525883f12774755d7d62bea7ac">Point</a> &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">pointParam</a>)</td></tr>
+<tr class="separator:a13bdc3053a2bee5480864188b39ca489"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a1be2dab9cf99b95192d64da68aa3a939" id="r_a1be2dab9cf99b95192d64da68aa3a939"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_math_1_1_line.html#a1be2dab9cf99b95192d64da68aa3a939">setDirectionFromPoints</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a1ea271525883f12774755d7d62bea7ac">Point</a> &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">pointParam</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a1ea271525883f12774755d7d62bea7ac">Point</a> &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">otherPoint</a>)</td></tr>
+<tr class="memdesc:a1be2dab9cf99b95192d64da68aa3a939"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the direction of the line from two points.  <br /></td></tr>
+<tr class="separator:a1be2dab9cf99b95192d64da68aa3a939"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a22cd5a80a8f4e04efd4b60e0c4175a77" id="r_a22cd5a80a8f4e04efd4b60e0c4175a77"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a9eadb18d7a162972604c1a6cefa0efa8">Direction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_math_1_1_line.html#a22cd5a80a8f4e04efd4b60e0c4175a77">direction</a> {{0, 1}}</td></tr>
+<tr class="memdesc:a22cd5a80a8f4e04efd4b60e0c4175a77"><td class="mdescLeft">&#160;</td><td class="mdescRight">The direction of the line.  <br /></td></tr>
+<tr class="separator:a22cd5a80a8f4e04efd4b60e0c4175a77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8a1d5b8a5194a7dc90558328aebf917" id="r_ab8a1d5b8a5194a7dc90558328aebf917"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a1ea271525883f12774755d7d62bea7ac">Point</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_math_1_1_line.html#ab8a1d5b8a5194a7dc90558328aebf917">point</a> {{0, 0}}</td></tr>
+<tr class="memdesc:ab8a1d5b8a5194a7dc90558328aebf917"><td class="mdescLeft">&#160;</td><td class="mdescRight">A point in the line.  <br /></td></tr>
+<tr class="separator:ab8a1d5b8a5194a7dc90558328aebf917"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock">
+<p class="definition">Definition at line <a class="el" href="_line_8h_source.html#l00015">15</a> of file <a class="el" href="_line_8h_source.html">Line.h</a>.</p>
+</div><h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="aa65a026d4e4c1d9b08ffca7450a54bc8" name="aa65a026d4e4c1d9b08ffca7450a54bc8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa65a026d4e4c1d9b08ffca7450a54bc8">&#9670;&#160;</a></span>Construct</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">enum</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">class</a> <a class="el" href="class_g_l_e_s_c_1_1_math_1_1_line.html#aa65a026d4e4c1d9b08ffca7450a54bc8">GLESC::Math::Line::Construct</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aa65a026d4e4c1d9b08ffca7450a54bc8a1de5e45af54f9f098e4ae388726e9677" name="aa65a026d4e4c1d9b08ffca7450a54bc8a1de5e45af54f9f098e4ae388726e9677"></a>PointPoint&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa65a026d4e4c1d9b08ffca7450a54bc8a86b9466abf2c86fabc148ce97e7f2536" name="aa65a026d4e4c1d9b08ffca7450a54bc8a86b9466abf2c86fabc148ce97e7f2536"></a>PointDirection&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="_line_8h_source.html#l00017">17</a> of file <a class="el" href="_line_8h_source.html">Line.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   17</span>                             {</div>
+<div class="line"><span class="lineno">   18</span>            <a class="code hl_enumvalue" href="class_g_l_e_s_c_1_1_math_1_1_line.html#aa65a026d4e4c1d9b08ffca7450a54bc8a1de5e45af54f9f098e4ae388726e9677">PointPoint</a>, <a class="code hl_enumvalue" href="class_g_l_e_s_c_1_1_math_1_1_line.html#aa65a026d4e4c1d9b08ffca7450a54bc8a86b9466abf2c86fabc148ce97e7f2536">PointDirection</a></div>
+<div class="line"><span class="lineno">   19</span>        };</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_line_html_aa65a026d4e4c1d9b08ffca7450a54bc8a1de5e45af54f9f098e4ae388726e9677"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_line.html#aa65a026d4e4c1d9b08ffca7450a54bc8a1de5e45af54f9f098e4ae388726e9677">GLESC::Math::Line::Construct::PointPoint</a></div><div class="ttdeci">@ PointPoint</div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_line_html_aa65a026d4e4c1d9b08ffca7450a54bc8a86b9466abf2c86fabc148ce97e7f2536"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_line.html#aa65a026d4e4c1d9b08ffca7450a54bc8a86b9466abf2c86fabc148ce97e7f2536">GLESC::Math::Line::Construct::PointDirection</a></div><div class="ttdeci">@ PointDirection</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="aea0b7158fc03f98c18337e9a266da910" name="aea0b7158fc03f98c18337e9a266da910"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea0b7158fc03f98c18337e9a266da910">&#9670;&#160;</a></span>Line() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Line::Line </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a1ea271525883f12774755d7d62bea7ac">Point</a> &amp;&#160;</td>
+          <td class="paramname"><em>pointParam</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="_vector_8h.html#a5daba7afb5c94aa954510a1f02f39394">Vec3F</a> &amp;&#160;</td>
+          <td class="paramname"><em>pointOrDir</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_g_l_e_s_c_1_1_math_1_1_line.html#aa65a026d4e4c1d9b08ffca7450a54bc8">Construct</a>&#160;</td>
+          <td class="paramname"><em>construct</em> = <code><a class="el" href="class_g_l_e_s_c_1_1_math_1_1_line.html#aa65a026d4e4c1d9b08ffca7450a54bc8a86b9466abf2c86fabc148ce97e7f2536">Construct::PointDirection</a></code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Construct a new <a class="el" href="class_g_l_e_s_c_1_1_math_1_1_line.html">Line</a> object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pointParam</td><td>The point in the line </td></tr>
+    <tr><td class="paramname">pointOrDir</td><td>The second point or the direction of the line </td></tr>
+    <tr><td class="paramname">construct</td><td>The type of construction </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_line_8cpp_source.html#l00015">15</a> of file <a class="el" href="_line_8cpp_source.html">Line.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   17</span>                                  {</div>
+<div class="line"><span class="lineno">   18</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">construct</a> == <a class="code hl_enumvalue" href="class_g_l_e_s_c_1_1_math_1_1_line.html#aa65a026d4e4c1d9b08ffca7450a54bc8a86b9466abf2c86fabc148ce97e7f2536">Construct::PointDirection</a>) {</div>
+<div class="line"><span class="lineno">   19</span>        <a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_line.html#a13bdc3053a2bee5480864188b39ca489">setPoint</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">pointParam</a>);</div>
+<div class="line"><span class="lineno">   20</span>        <a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_line.html#a748af27a9162eb49e70e7ced1761c5a3">setDirection</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">pointOrDir</a>);</div>
+<div class="line"><span class="lineno">   21</span>    }</div>
+<div class="line"><span class="lineno">   22</span>    <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">   23</span>        <a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_line.html#a13bdc3053a2bee5480864188b39ca489">setPoint</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">pointParam</a>);</div>
+<div class="line"><span class="lineno">   24</span>        <a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_line.html#a1be2dab9cf99b95192d64da68aa3a939">setDirectionFromPoints</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">pointParam</a>, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">pointOrDir</a>);</div>
+<div class="line"><span class="lineno">   25</span>    }</div>
+<div class="line"><span class="lineno">   26</span>}</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_line_html_a13bdc3053a2bee5480864188b39ca489"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_line.html#a13bdc3053a2bee5480864188b39ca489">GLESC::Math::Line::setPoint</a></div><div class="ttdeci">void setPoint(const Point &amp;pointParam)</div><div class="ttdef"><b>Definition</b> <a href="_line_8cpp_source.html#l00049">Line.cpp:49</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_line_html_a1be2dab9cf99b95192d64da68aa3a939"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_line.html#a1be2dab9cf99b95192d64da68aa3a939">GLESC::Math::Line::setDirectionFromPoints</a></div><div class="ttdeci">void setDirectionFromPoints(const Point &amp;pointParam, const Point &amp;otherPoint)</div><div class="ttdoc">Set the direction of the line from two points.</div><div class="ttdef"><b>Definition</b> <a href="_line_8cpp_source.html#l00058">Line.cpp:58</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_line_html_a748af27a9162eb49e70e7ced1761c5a3"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_line.html#a748af27a9162eb49e70e7ced1761c5a3">GLESC::Math::Line::setDirection</a></div><div class="ttdeci">void setDirection(const Direction &amp;directionParam)</div><div class="ttdoc">Set the Direction vector.</div><div class="ttdef"><b>Definition</b> <a href="_line_8cpp_source.html#l00053">Line.cpp:53</a></div></div>
+<div class="ttc" id="anamespace_g_l_e_s_c_html_a7c64a4da2d1da1597f4ec563d00bb9f8"><div class="ttname"><a href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">GLESC::isIterable_v</a></div><div class="ttdeci">constexpr bool isIterable_v</div><div class="ttdef"><b>Definition</b> <a href="_stringer_8h_source.html#l00029">Stringer.h:29</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, <a class="el" href="class_g_l_e_s_c_1_1_math_1_1_line.html#aa65a026d4e4c1d9b08ffca7450a54bc8a86b9466abf2c86fabc148ce97e7f2536">PointDirection</a>, <a class="el" href="_line_8cpp_source.html#l00053">setDirection()</a>, <a class="el" href="_line_8cpp_source.html#l00058">setDirectionFromPoints()</a>, and <a class="el" href="_line_8cpp_source.html#l00049">setPoint()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_math_1_1_line_aea0b7158fc03f98c18337e9a266da910_cgraph.svg" width="100%" height="440"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a0c3b0b33bb08cfe147e1922961eed1d1" name="a0c3b0b33bb08cfe147e1922961eed1d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c3b0b33bb08cfe147e1922961eed1d1">&#9670;&#160;</a></span>Line() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLESC::Math::Line::Line </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a4aaee09054357a0d63793ceec15b6f06" name="a4aaee09054357a0d63793ceec15b6f06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4aaee09054357a0d63793ceec15b6f06">&#9670;&#160;</a></span>distance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a41c67586ad532e578bb839ad5067d3ac">Distance</a> Line::distance </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a1ea271525883f12774755d7d62bea7ac">Point</a> &amp;&#160;</td>
+          <td class="paramname"><em>pointParam</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the distance from a point to the line. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pointParam</td><td>The point to calculate the distance to. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Distance The distance from the point to the line. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_line_8cpp_source.html#l00037">37</a> of file <a class="el" href="_line_8cpp_source.html">Line.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   37</span>                                                     {</div>
+<div class="line"><span class="lineno">   38</span>    <span class="comment">// Calculate the cross product vector</span></div>
+<div class="line"><span class="lineno">   39</span>    <span class="keyword">auto</span> crossProduct = <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_line.html#a22cd5a80a8f4e04efd4b60e0c4175a77">direction</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_vector.html#ac4fe912b3001e4fad684c2cd4c56cf83">cross</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">pointParam</a> - this-&gt;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_line.html#ab8a1d5b8a5194a7dc90558328aebf917">point</a>);</div>
+<div class="line"><span class="lineno">   40</span> </div>
+<div class="line"><span class="lineno">   41</span>    <span class="comment">// Return the length of the cross product vector,</span></div>
+<div class="line"><span class="lineno">   42</span>    <span class="comment">// which represents the area of the parallelogram formed by the two vectors</span></div>
+<div class="line"><span class="lineno">   43</span>    <span class="comment">// and is equal to the distance times the length of the direction vector</span></div>
+<div class="line"><span class="lineno">   44</span>    <span class="comment">// Because the direction vector is normalized, its length is 1, and the length of the cross product</span></div>
+<div class="line"><span class="lineno">   45</span>    <span class="comment">// is the distance from the point to the line.</span></div>
+<div class="line"><span class="lineno">   46</span>    <span class="keywordflow">return</span> crossProduct.length();</div>
+<div class="line"><span class="lineno">   47</span>}</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_line_html_a22cd5a80a8f4e04efd4b60e0c4175a77"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_line.html#a22cd5a80a8f4e04efd4b60e0c4175a77">GLESC::Math::Line::direction</a></div><div class="ttdeci">Direction direction</div><div class="ttdoc">The direction of the line.</div><div class="ttdef"><b>Definition</b> <a href="_line_8h_source.html#l00099">Line.h:99</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_line_html_ab8a1d5b8a5194a7dc90558328aebf917"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_line.html#ab8a1d5b8a5194a7dc90558328aebf917">GLESC::Math::Line::point</a></div><div class="ttdeci">Point point</div><div class="ttdoc">A point in the line.</div><div class="ttdef"><b>Definition</b> <a href="_line_8h_source.html#l00093">Line.h:93</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_vector_html_ac4fe912b3001e4fad684c2cd4c56cf83"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_vector.html#ac4fe912b3001e4fad684c2cd4c56cf83">GLESC::Math::Vector::cross</a></div><div class="ttdeci">Vector&lt; Type, 3 &gt; cross(const Vector&lt; Type, 3 &gt; &amp;other) const</div><div class="ttdoc">Calculates the cross product of two vectors.</div><div class="ttdef"><b>Definition</b> <a href="_vector_8h_source.html#l01126">Vector.h:1126</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_vector_8h_source.html#l01126">GLESC::Math::Vector&lt; Type, N &gt;::cross()</a>, <a class="el" href="_line_8h_source.html#l00099">direction</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_line_8h_source.html#l00093">point</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_line_8cpp_source.html#l00033">intersects()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_math_1_1_line_a4aaee09054357a0d63793ceec15b6f06_cgraph.svg" width="608" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_math_1_1_line_a4aaee09054357a0d63793ceec15b6f06_icgraph.svg" width="344" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a14edc63fc932f3d7e466a207cf45cd80" name="a14edc63fc932f3d7e466a207cf45cd80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14edc63fc932f3d7e466a207cf45cd80">&#9670;&#160;</a></span>getDirection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a9eadb18d7a162972604c1a6cefa0efa8">Direction</a> &amp; GLESC::Math::Line::getDirection </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the Direction vector. </p>
+<p>This will return the normalized direction vector. </p><dl class="section return"><dt>Returns</dt><dd>const Direction&amp; </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_line_8h_source.html#l00046">46</a> of file <a class="el" href="_line_8h_source.html">Line.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   46</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_line.html#a22cd5a80a8f4e04efd4b60e0c4175a77">direction</a>; }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_line_8h_source.html#l00099">direction</a>.</p>
+
+</div>
+</div>
+<a id="a2e0824ad07f82c53abdfcee105cd00dd" name="a2e0824ad07f82c53abdfcee105cd00dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e0824ad07f82c53abdfcee105cd00dd">&#9670;&#160;</a></span>getPoint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a1ea271525883f12774755d7d62bea7ac">Point</a> &amp; GLESC::Math::Line::getPoint </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the Point object. </p>
+<dl class="section return"><dt>Returns</dt><dd>const Point&amp; </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_line_8h_source.html#l00052">52</a> of file <a class="el" href="_line_8h_source.html">Line.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   52</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_line.html#ab8a1d5b8a5194a7dc90558328aebf917">point</a>; }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_line_8h_source.html#l00093">point</a>.</p>
+
+</div>
+</div>
+<a id="a54ec550807f8b505f6aef9da336d60f7" name="a54ec550807f8b505f6aef9da336d60f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54ec550807f8b505f6aef9da336d60f7">&#9670;&#160;</a></span>intersects() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a> Line::intersects </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="class_g_l_e_s_c_1_1_math_1_1_line.html">Line</a> &amp;&#160;</td>
+          <td class="paramname"><em>line</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check if a line intersects with another line. </p>
+<p>This function checks if the lines intersect by checking if the cross product of the directions is not the zero vector. It also uses an epsilon value to account for floating point errors. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">line</td><td>The line to check for intersection. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true If the lines intersect. </dd>
+<dd>
+false If the lines do not intersect. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_line_8cpp_source.html#l00029">29</a> of file <a class="el" href="_line_8cpp_source.html">Line.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   29</span>                                            {</div>
+<div class="line"><span class="lineno">   30</span>    <span class="keywordflow">return</span> !<a class="code hl_function" href="namespace_g_l_e_s_c_1_1_math.html#aee25910dbba06d09d9df14d03933ace1">eq</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_line.html#a22cd5a80a8f4e04efd4b60e0c4175a77">direction</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_vector.html#ac4fe912b3001e4fad684c2cd4c56cf83">cross</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">line</a>.direction).length(), 0);</div>
+<div class="line"><span class="lineno">   31</span>}</div>
+<div class="ttc" id="anamespace_g_l_e_s_c_1_1_math_html_aee25910dbba06d09d9df14d03933ace1"><div class="ttname"><a href="namespace_g_l_e_s_c_1_1_math.html#aee25910dbba06d09d9df14d03933ace1">GLESC::Math::eq</a></div><div class="ttdeci">constexpr bool eq(const LValueT &amp;left, const RValueT &amp;right, const double epsilon)</div><div class="ttdoc">Compares two values for equality.</div><div class="ttdef"><b>Definition</b> <a href="_math_8h_source.html#l00241">Math.h:241</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_vector_8h_source.html#l01126">GLESC::Math::Vector&lt; Type, N &gt;::cross()</a>, <a class="el" href="_line_8h_source.html#l00099">direction</a>, <a class="el" href="_math_8h_source.html#l00241">GLESC::Math::eq()</a>, and <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_math_1_1_line_a54ec550807f8b505f6aef9da336d60f7_cgraph.svg" width="608" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a18a1fdcbcbd3c1055df4cbc67d46914d" name="a18a1fdcbcbd3c1055df4cbc67d46914d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18a1fdcbcbd3c1055df4cbc67d46914d">&#9670;&#160;</a></span>intersects() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a> Line::intersects </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a1ea271525883f12774755d7d62bea7ac">Point</a> &amp;&#160;</td>
+          <td class="paramname"><em>pointParam</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check if a line intersects with a point. </p>
+<p>This function checks if the point is on the line by checking if the cross product of the direction of the line and the vector from the point to the line is the zero vector. It uses an epsilon value to account for floating point errors. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pointParam</td><td>The point to check for intersection. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true If the point is on the line. </dd>
+<dd>
+false If the point is not on the line. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_line_8cpp_source.html#l00033">33</a> of file <a class="el" href="_line_8cpp_source.html">Line.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   33</span>                                                   {</div>
+<div class="line"><span class="lineno">   34</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespace_g_l_e_s_c_1_1_math.html#aee25910dbba06d09d9df14d03933ace1">eq</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_line.html#a4aaee09054357a0d63793ceec15b6f06">distance</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">pointParam</a>), 0);</div>
+<div class="line"><span class="lineno">   35</span>}</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_line_html_a4aaee09054357a0d63793ceec15b6f06"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_line.html#a4aaee09054357a0d63793ceec15b6f06">GLESC::Math::Line::distance</a></div><div class="ttdeci">Distance distance(const Point &amp;pointParam) const</div><div class="ttdoc">Get the distance from a point to the line.</div><div class="ttdef"><b>Definition</b> <a href="_line_8cpp_source.html#l00037">Line.cpp:37</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_line_8cpp_source.html#l00037">distance()</a>, <a class="el" href="_math_8h_source.html#l00241">GLESC::Math::eq()</a>, and <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_math_1_1_line_a18a1fdcbcbd3c1055df4cbc67d46914d_cgraph.svg" width="100%" height="378"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a748af27a9162eb49e70e7ced1761c5a3" name="a748af27a9162eb49e70e7ced1761c5a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a748af27a9162eb49e70e7ced1761c5a3">&#9670;&#160;</a></span>setDirection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> Line::setDirection </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a9eadb18d7a162972604c1a6cefa0efa8">Direction</a> &amp;&#160;</td>
+          <td class="paramname"><em>directionParam</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the Direction vector. </p>
+<p>This accepts any vector, but it will normalize it. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">directionParam</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_line_8cpp_source.html#l00053">53</a> of file <a class="el" href="_line_8cpp_source.html">Line.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   53</span>                                                       {</div>
+<div class="line"><span class="lineno">   54</span>    <a class="code hl_define" href="_asserts_8h.html#a171af12a23e7195f2b32c32e2b5fc9ff">D_ASSERT_NOT_EQUAL</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">directionParam</a>.length(), 0, <span class="stringliteral">&quot;Direction cannot be a zero vector&quot;</span>);</div>
+<div class="line"><span class="lineno">   55</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_line.html#a22cd5a80a8f4e04efd4b60e0c4175a77">direction</a> = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">directionParam</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_vector.html#a921eb7e96f275d34d7f5f24906a66ec1">normalize</a>();</div>
+<div class="line"><span class="lineno">   56</span>}</div>
+<div class="ttc" id="a_asserts_8h_html_a171af12a23e7195f2b32c32e2b5fc9ff"><div class="ttname"><a href="_asserts_8h.html#a171af12a23e7195f2b32c32e2b5fc9ff">D_ASSERT_NOT_EQUAL</a></div><div class="ttdeci">#define D_ASSERT_NOT_EQUAL(condition, expected, message)</div><div class="ttdef"><b>Definition</b> <a href="_asserts_8h_source.html#l00030">Asserts.h:30</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_vector_html_a921eb7e96f275d34d7f5f24906a66ec1"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_vector.html#a921eb7e96f275d34d7f5f24906a66ec1">GLESC::Math::Vector::normalize</a></div><div class="ttdeci">Vector &amp; normalize()</div><div class="ttdoc">Normalizes the vector.</div><div class="ttdef"><b>Definition</b> <a href="_vector_8h_source.html#l00857">Vector.h:857</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_asserts_8h_source.html#l00030">D_ASSERT_NOT_EQUAL</a>, <a class="el" href="_line_8h_source.html#l00099">direction</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_vector_8h_source.html#l00857">GLESC::Math::Vector&lt; Type, N &gt;::normalize()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_line_8cpp_source.html#l00015">Line()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_math_1_1_line_a748af27a9162eb49e70e7ced1761c5a3_cgraph.svg" width="100%" height="416"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_math_1_1_line_a748af27a9162eb49e70e7ced1761c5a3_icgraph.svg" width="368" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a1be2dab9cf99b95192d64da68aa3a939" name="a1be2dab9cf99b95192d64da68aa3a939"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1be2dab9cf99b95192d64da68aa3a939">&#9670;&#160;</a></span>setDirectionFromPoints()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> Line::setDirectionFromPoints </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a1ea271525883f12774755d7d62bea7ac">Point</a> &amp;&#160;</td>
+          <td class="paramname"><em>pointParam</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a1ea271525883f12774755d7d62bea7ac">Point</a> &amp;&#160;</td>
+          <td class="paramname"><em>otherPoint</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set the direction of the line from two points. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pointParam</td><td>The point in the line </td></tr>
+    <tr><td class="paramname">otherPoint</td><td>The second point </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_line_8cpp_source.html#l00058">58</a> of file <a class="el" href="_line_8cpp_source.html">Line.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   58</span>                                                                                  {</div>
+<div class="line"><span class="lineno">   59</span>    <span class="keyword">auto</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">dir</a> = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">otherPoint</a> - <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">pointParam</a>;</div>
+<div class="line"><span class="lineno">   60</span>    <a class="code hl_define" href="_asserts_8h.html#a171af12a23e7195f2b32c32e2b5fc9ff">D_ASSERT_NOT_EQUAL</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">dir</a>.length(), 0, <span class="stringliteral">&quot;Direction cannot be a zero vector&quot;</span>);</div>
+<div class="line"><span class="lineno">   61</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_line.html#a22cd5a80a8f4e04efd4b60e0c4175a77">direction</a> = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">dir</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_vector.html#a921eb7e96f275d34d7f5f24906a66ec1">normalize</a>();</div>
+<div class="line"><span class="lineno">   62</span>}</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_asserts_8h_source.html#l00030">D_ASSERT_NOT_EQUAL</a>, <a class="el" href="_line_8h_source.html#l00099">direction</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_vector_8h_source.html#l00857">GLESC::Math::Vector&lt; Type, N &gt;::normalize()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_line_8cpp_source.html#l00015">Line()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_math_1_1_line_a1be2dab9cf99b95192d64da68aa3a939_cgraph.svg" width="100%" height="416"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_math_1_1_line_a1be2dab9cf99b95192d64da68aa3a939_icgraph.svg" width="383" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a13bdc3053a2bee5480864188b39ca489" name="a13bdc3053a2bee5480864188b39ca489"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13bdc3053a2bee5480864188b39ca489">&#9670;&#160;</a></span>setPoint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> Line::setPoint </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a1ea271525883f12774755d7d62bea7ac">Point</a> &amp;&#160;</td>
+          <td class="paramname"><em>pointParam</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_line_8cpp_source.html#l00049">49</a> of file <a class="el" href="_line_8cpp_source.html">Line.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   49</span>                                           {</div>
+<div class="line"><span class="lineno">   50</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_line.html#ab8a1d5b8a5194a7dc90558328aebf917">point</a> = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">pointParam</a>;</div>
+<div class="line"><span class="lineno">   51</span>}</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_line_8h_source.html#l00093">point</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_line_8cpp_source.html#l00015">Line()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_math_1_1_line_a13bdc3053a2bee5480864188b39ca489_icgraph.svg" width="368" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a22cd5a80a8f4e04efd4b60e0c4175a77" name="a22cd5a80a8f4e04efd4b60e0c4175a77"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22cd5a80a8f4e04efd4b60e0c4175a77">&#9670;&#160;</a></span>direction</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a9eadb18d7a162972604c1a6cefa0efa8">Direction</a> GLESC::Math::Line::direction {{0, 1}}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The direction of the line. </p>
+<p>This is normalized when calculated, set or modified. This way the direction can be get with the getter without having to normalize it every time. </p>
+
+<p class="definition">Definition at line <a class="el" href="_line_8h_source.html#l00099">99</a> of file <a class="el" href="_line_8h_source.html">Line.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   99</span>{{0, 1}};</div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="_line_8cpp_source.html#l00037">distance()</a>, <a class="el" href="_line_8h_source.html#l00046">getDirection()</a>, <a class="el" href="_line_8cpp_source.html#l00029">intersects()</a>, <a class="el" href="_line_8cpp_source.html#l00053">setDirection()</a>, and <a class="el" href="_line_8cpp_source.html#l00058">setDirectionFromPoints()</a>.</p>
+
+</div>
+</div>
+<a id="ab8a1d5b8a5194a7dc90558328aebf917" name="ab8a1d5b8a5194a7dc90558328aebf917"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8a1d5b8a5194a7dc90558328aebf917">&#9670;&#160;</a></span>point</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a1ea271525883f12774755d7d62bea7ac">Point</a> GLESC::Math::Line::point {{0, 0}}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A point in the line. </p>
+
+<p class="definition">Definition at line <a class="el" href="_line_8h_source.html#l00093">93</a> of file <a class="el" href="_line_8h_source.html">Line.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   93</span>{{0, 0}};</div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="_line_8cpp_source.html#l00037">distance()</a>, <a class="el" href="_line_8h_source.html#l00052">getPoint()</a>, and <a class="el" href="_line_8cpp_source.html#l00049">setPoint()</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li><a class="el" href="_line_8h_source.html">Line.h</a></li>
+<li><a class="el" href="_line_8cpp_source.html">Line.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_g_l_e_s_c.html">GLESC</a></li><li class="navelem"><a class="el" href="namespace_g_l_e_s_c_1_1_math.html">Math</a></li><li class="navelem"><a class="el" href="class_g_l_e_s_c_1_1_math_1_1_line.html">Line</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,12 @@
+<map id="GLESC::Render::Mesh::addTris" name="GLESC::Render::Mesh::addTris">
+<area shape="rect" id="Node000001" title="Adds a tris to the mesh, tris are defined by 3 vertices." alt="" coords="5,39,160,81"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="44,39,42,29,49,20,62,14,83,12,104,14,117,21,115,25,103,20,82,17,64,19,52,24,47,30,49,38"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_render_1_1_mesh.html#a7d4ee0ef7799514b465c2e4f1e6806dc" title="Adds a vertex to the mesh." alt="" coords="208,5,362,48"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="159,45,192,39,193,44,160,50"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_render_1_1_mesh.html#a78f09fa1a41f6e3ec496aae31c671e92" title="Helper function to automatically calculate the normal of a face with 3 points." alt="" coords="208,72,362,115"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="160,70,193,76,192,81,159,75"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#ac4fe912b3001e4fad684c2cd4c56cf83" title="Calculates the cross product of two vectors." alt="" coords="410,72,558,115"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="362,91,395,91,395,96,362,96"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#ab041da9d339dfe80b80c6f0bdf5dbfd4" title="Computes the cross product of two vectors." alt="" coords="606,72,817,115"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="558,91,591,91,591,96,558,96"/>
+</map>

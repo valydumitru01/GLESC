@@ -1,0 +1,7 @@
+<map id="GLESC::Math::VectorAlgorithms::angle" name="GLESC::Math::VectorAlgorithms::angle">
+<area shape="rect" id="Node000001" title="Computes the rads between two vectors." alt="" coords="202,39,412,81"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#aab65f204d83735ed679a1128adb65875" title="Gives the rads between two vectors." alt="" coords="5,5,154,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="186,45,154,40,155,35,187,40"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#ad7af0ec13acb61741329855d8abfd678" title="Gives the angle between two vectors in degrees." alt="" coords="5,72,154,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="187,80,155,85,154,80,186,75"/>
+</map>

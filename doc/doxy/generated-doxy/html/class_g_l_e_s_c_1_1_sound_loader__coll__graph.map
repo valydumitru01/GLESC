@@ -1,0 +1,14 @@
+<map id="GLESC::SoundLoader" name="GLESC::SoundLoader">
+<area shape="rect" id="Node000001" title="Class that loads and stores sounds and music." alt="" coords="105,459,246,635"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,288,164,395"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="110,393,132,442,127,444,105,395"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="119,139,231,208"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="118,220,108,233,97,260,90,289,85,288,92,259,104,231,114,217"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="188,288,347,395"/>
+<area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="224,218,232,231,246,259,257,288,252,289,242,261,228,233,219,221"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="130,5,151,75"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="140,74,145,114,147,122,142,124,139,115,135,75"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="201,5,221,75"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="205,75,192,123,186,121,200,74"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="246,395,224,444,219,442,241,393"/>
+</map>

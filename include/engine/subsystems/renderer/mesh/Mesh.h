@@ -41,28 +41,60 @@ namespace GLESC::Render {
         friend class GLESC::Render::Renderer;
 
     public:
+        /**
+         * @brief Static assert to ensure that the vertex is a ColorVertex or TextureVertex. As we currently only
+         * support these two types of vertices.
+         */
         S_ASSERT_TRUE((std::is_base_of_v<ColorVertex, VertexT> ||std::is_base_of_v<TextureVertex, VertexT>),
                       "Vertex must be a ColorVertex or TextureVertex");
+        /**
+         * @brief Alias for the index type of the mesh. Is unsigned because the index can't be negative.
+         */
         using Index = unsigned int;
+        /**
+         * @brief Alias for the vertex, for readability purposes.
+         */
         using Vertex = VertexT;
 
 
+        /**
+         * @brief Mesh constructor.
+         * @details Starts with some default values:
+         * RenderType - SingleDrawDynamic
+         */
         Mesh():
             dirtyFlag(false),
             vertexLayout({Vertex::getLayout()}),
-            renderType(RenderType::Dynamic),
+            renderType(RenderType::SingleDrawDynamic),
             vertexArray(), indexBuffer(), vertexBuffer() {
         }
 
+        /**
+         * @details Default destructor, nothing else to do.
+         */
         ~Mesh() override = default;
 
-        Mesh(const Mesh& other) {
-            *this = other;
+
+        Mesh(const Mesh& other) : vertices(other.vertices),
+                                  indices(other.indices),
+                                  boundingVolume(other.boundingVolume),
+                                  vertexLayout(other.vertexLayout),
+                                  faces(other.faces),
+                                  dirtyFlag(other.dirtyFlag),
+                                  renderType(other.renderType),
+                                  hashDirty(other.hashDirty),
+                                  cachedHash(other.cachedHash) {
         }
 
-        Mesh(Mesh&& other) noexcept {
-            *this = std::move(other);
-        }
+        Mesh(Mesh&& other) noexcept : vertices(std::move(other.vertices)),
+                                      indices(std::move(other.indices)),
+                                      boundingVolume(std::move(other.boundingVolume)),
+                                      vertexLayout(std::move(other.vertexLayout)),
+                                      faces(std::move(other.faces)),
+                                      dirtyFlag(other.dirtyFlag),
+                                      renderType(other.renderType),
+                                      hashDirty(other.hashDirty),
+                                      cachedHash(other.cachedHash){}
 
         Mesh& operator=(Mesh&& other) noexcept {
             if (this == &other)
@@ -76,7 +108,6 @@ namespace GLESC::Render {
             renderType = other.renderType;
             hashDirty = other.hashDirty;
             cachedHash = other.cachedHash;
-
             return *this;
         }
 
@@ -149,6 +180,9 @@ namespace GLESC::Render {
 
         void setRenderType(RenderType renderTypeParam) { renderType = renderTypeParam; }
 
+        /**
+         * @brief Struct with only color and position vertex.
+         */
         struct VertexColorParam {
             VertexColorParam(Position positionParam, ColorRgba colorParam)
                 : position(std::move(positionParam)), color(std::move(colorParam)) {
@@ -158,6 +192,9 @@ namespace GLESC::Render {
             ColorRgba color;
         };
 
+        /**
+         * @brief Struct with only texture UV and position vertex.
+         */
         struct VertexTexParam {
             VertexTexParam(Position positionParam, UV textureCoordinateParam)
                 : position(std::move(positionParam)), textureCoordinate(std::move(textureCoordinateParam)) {
@@ -335,6 +372,13 @@ namespace GLESC::Render {
             this->dirtyFlag = true;
         }
 
+        /**
+         * @brief To check if a mesh is equal to another mesh we iterate over the vertices and indices and compare them.
+         * If the vertices and indices are the same, the meshes are equal.
+         * @details This is a slow operation and should be avoided.
+         * @param other
+         * @return
+         */
         [[nodiscard]] bool operator==(const Mesh& other) const {
             for (size_t i = 0; i < vertices.size(); ++i) {
                 if (vertices[i] != other.vertices[i]) {
@@ -351,6 +395,11 @@ namespace GLESC::Render {
             return true;
         }
 
+        /**
+         * @brief This converts the mesh to a string
+         * @details Will only convert the first 10 vertices and indices to a string, just for debugging purposes.
+         * @return The string representation of the mesh.
+         */
         [[nodiscard]] std::string toString() const override {
             std::string result = "Mesh\n";
             result += "Vertices (first 10):\n";
@@ -364,6 +413,10 @@ namespace GLESC::Render {
             return result;
         }
 
+        /**
+         * @brief Calculates lazily the hash of the mesh. Only recalculates if the mesh has been changed.
+         * @return The hash of the mesh.
+         */
         size_t hash() const {
             if (hashDirty) {
                 cachedHash = this->calculateHash();
@@ -445,6 +498,12 @@ namespace GLESC::Render {
             wasDataSentToGpu = true;
         }
 
+        /**
+         * @brief This destroys the buffers in the GPU, removing the data with it.
+         * @details This will call gpu functions that will destroy the buffers in the GPU.
+         * @details If needed to render again, must be called sendToGpuBuffers again.
+         * @details If the data was never sent to the GPU, this method will do nothing.
+         */
         void destroyBuffers() const {
             if (!wasDataSentToGpu) return;
             vertexArray->destroy();
@@ -469,10 +528,25 @@ namespace GLESC::Render {
             return *vertexBuffer;
         }
 
-        Normal calculateNormal(const Position& a, const Position& b, const Position& c) const {
-            return (b - a).cross(c - a).normalize();
+        /**
+         * @brief Helper function to automatically calculate the normal of a face with 3 points.
+         * @details The formula to calculate the normal of a face is:
+         * normal = ((p2 - p1) x (p3 - p1)).normalize()
+         * @param p1 The first point of the face.
+         * @param p2 The second point of the face.
+         * @param p3 The third point of the face.
+         * @return The normal of the face.
+         */
+        Normal calculateNormal(const Position& p1, const Position& p2, const Position& p3) const {
+            return (p2 - p1).cross(p3 - p1).normalize();
         }
 
+        /**
+         * @brief Helper function to calculate the hash of the mesh.
+         * @details This method will calculate the hash of the mesh by hashing the vertices and indices.
+         * @details This a heavy function and should be avoided.
+         * @return The hash of the mesh.
+         */
         size_t calculateHash() const {
             size_t hashValue = 0;
 
@@ -523,9 +597,21 @@ namespace GLESC::Render {
         mutable size_t cachedHash = 0;
         mutable bool hashDirty = true;
 
+        /**
+         * @brief buffer that handles the indices of the mesh in the gpu.
+         */
         mutable std::unique_ptr<GLESC::GAPI::IndexBuffer> indexBuffer;
+        /**
+         * @brief buffer that handles the vertices of the mesh in the gpu.
+         */
         mutable std::unique_ptr<GLESC::GAPI::VertexBuffer> vertexBuffer;
+        /**
+         * @brief
+         */
         mutable std::unique_ptr<GLESC::GAPI::VertexArray> vertexArray;
+        /**
+         * @details Flag to ensure that the data was sent to the gpu only once.
+         */
         mutable bool wasDataSentToGpu = false;
 
         mutable std::mutex verticesMutex{};

@@ -2,7 +2,7 @@
  * @file   Renderer.cpp
  * @author Valentin Dumitru
  * @date   2023-09-26
- * @brief @todo
+ * @brief @todo Add description of this file if needed
  *
  * Copyright (c) 2023 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
@@ -283,7 +283,7 @@ void Renderer::sendMeshData(const ColorMesh& mesh, const Material& material, con
         return;
     }
 
-    if (renderType == RenderType::Static) {
+    if (renderType == RenderType::SingleDrawStatic) {
         D_ASSERT_TRUE(false, "Static meshes are not supported");
         return;
     }
@@ -298,7 +298,7 @@ void Renderer::sendMeshData(const ColorMesh& mesh, const Material& material, con
         instances[&mesh].push_back(meshTransforms.size());
         return;
     }
-    if (renderType == RenderType::Dynamic) {
+    if (renderType == RenderType::SingleDrawDynamic) {
         meshesToRender.push_back(&mesh);
         meshMaterials.push_back(&material);
         meshTransforms.push_back(&transform);

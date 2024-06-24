@@ -1,0 +1,11 @@
+<map id="GLESC::Math::VectorAlgorithms::lengthSquared" name="GLESC::Math::VectorAlgorithms::lengthSquared">
+<area shape="rect" id="Node000001" title="Computes the squared length of a vector." alt="" coords="463,39,673,81"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#aac1a177987e059f58c0ff6829cc6efc8" title="Computes the squared distance between two vectors." alt="" coords="205,5,415,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="447,47,415,43,416,38,448,42"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#ac66836b89bb27dc02a9fd0f43b019740" title="Returns the squared length of the vector." alt="" coords="236,72,384,115"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="448,78,385,86,384,81,447,73"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#aa9d2cf1021e68de567a6df2ca104c473" title="Gives the squared distance between two vectors." alt="" coords="7,5,155,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="189,29,155,29,155,24,189,24"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_math_1_1_sphere.html#a375b95d18510299f26b1bb69d5f28116" title="Checks if the sphere intersects with an edge defined by two points." alt="" coords="5,72,157,115"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="220,96,157,96,157,91,220,91"/>
+</map>

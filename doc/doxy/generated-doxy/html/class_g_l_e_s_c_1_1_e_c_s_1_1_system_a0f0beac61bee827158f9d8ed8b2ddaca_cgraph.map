@@ -1,0 +1,15 @@
+<map id="GLESC::ECS::System::getComponents" name="GLESC::ECS::System::getComponents">
+<area shape="rect" id="Node000001" title="Gets the components of an entity." alt="" coords="5,39,159,81"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator.html#a6cd97a4b3b3617b8cef2e62493b59574" title="Get the components of an entity." alt="" coords="207,39,408,81"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="159,57,191,57,191,63,159,63"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_component_manager.html#ac63a277ed5aed0640e808f20480d01a1" title="Get the component of an entity by its ID." alt="" coords="456,5,680,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="408,44,440,40,441,46,409,50"/>
+<area shape="rect" id="Node000006" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#afed1028adc518bc27c8cc190832f2bf9" title="Get the signature of the entity. The entity must exist." alt="" coords="472,72,664,115"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="409,70,457,76,456,82,408,76"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_component_manager.html#ab06d3e4aecbf882b3f75fa4943f561f2" title="Get the name of a component by its ID." alt="" coords="728,5,953,48"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="681,24,713,24,713,29,681,29"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_component_manager.html#af4b8c65d69d17052413005a7402bf116" title="Check if a component is registered." alt="" coords="1001,5,1225,48"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="953,24,985,24,985,29,953,29"/>
+<area shape="rect" id="Node000007" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a5145504091eb26170aa219acb60aca71" title="Check if the entity with the given name exists." alt="" coords="744,72,937,115"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="665,91,729,91,729,96,665,96"/>
+</map>

@@ -1,0 +1,52 @@
+# Doxyfile 1.9.8
+
+PROJECT_NAME           = GLESC
+PROJECT_NUMBER         = 1
+PROJECT_BRIEF          = "Game engine using ECS architecture"
+PROJECT_LOGO           = C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/doc/images/GLESC_logo_white_background.png
+OUTPUT_DIRECTORY       = C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/doc/doxy/generated-doxy
+FULL_PATH_NAMES        = NO
+JAVADOC_BANNER         = YES
+BUILTIN_STL_SUPPORT    = YES
+INLINE_GROUPED_CLASSES = YES
+INLINE_SIMPLE_STRUCTS  = YES
+NUM_PROC_THREADS       = 0
+EXTRACT_ALL            = YES
+EXTRACT_PRIVATE        = YES
+EXTRACT_PRIV_VIRTUAL   = YES
+EXTRACT_STATIC         = YES
+EXTRACT_LOCAL_CLASSES  = NO
+SORT_BRIEF_DOCS        = YES
+SORT_MEMBERS_CTORS_1ST = YES
+SORT_GROUP_NAMES       = YES
+SORT_BY_SCOPE_NAME     = YES
+INPUT                  = C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include/engine \
+                         C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine \
+                         C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/cmake
+RECURSIVE              = YES
+SOURCE_BROWSER         = YES
+INLINE_SOURCES         = YES
+REFERENCED_BY_RELATION = YES
+REFERENCES_RELATION    = YES
+HTML_HEADER            = C:/Users/valyd/Desktop/Github_Repos/doxygen-awesome-css/doxygen-custom/header.html
+HTML_EXTRA_STYLESHEET  = C:\Users\valyd\Desktop\Github_Repos\TFG---OpenGL-Engine\doc\doxy\custom-css\doxygen-awesome.css
+HTML_EXTRA_FILES       = C:/Users/valyd/Desktop/Github_Repos/doxygen-awesome-css/doxygen-awesome-fragment-copy-button.js \
+                         C:/Users/valyd/Desktop/Github_Repos/doxygen-awesome-css/doxygen-awesome-interactive-toc.js \
+                         C:/Users/valyd/Desktop/Github_Repos/doxygen-awesome-css/doxygen-awesome-paragraph-link.js \
+                         C:/Users/valyd/Desktop/Github_Repos/doxygen-awesome-css/doxygen-awesome-tabs.js \
+                         C:/Users/valyd/Desktop/Github_Repos/doxygen-awesome-css/doxygen-awesome-fragment-copy-button.js
+HTML_COLORSTYLE        = LIGHT
+HTML_COLORSTYLE_HUE    = 119
+HTML_COLORSTYLE_SAT    = 162
+HTML_COLORSTYLE_GAMMA  = 240
+GENERATE_TREEVIEW      = YES
+GENERATE_LATEX         = NO
+HAVE_DOT               = YES
+UML_LOOK               = YES
+TEMPLATE_RELATIONS     = YES
+CALL_GRAPH             = YES
+CALLER_GRAPH           = YES
+DIR_GRAPH_MAX_DEPTH    = 5
+DOT_IMAGE_FORMAT       = svg
+INTERACTIVE_SVG        = YES
+DOT_PATH               = "C:/Program Files/Graphviz/bin"

@@ -1,0 +1,5 @@
+<map id="GLESC::SoundPlayer::cleanup" name="GLESC::SoundPlayer::cleanup">
+<area shape="rect" id="Node000001" title="Cleanup the sound player." alt="" coords="5,5,153,48"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_sound_loader.html#a82e5003b2e1f866660b364e0ed243db8" title="Cleans up the resources used by SDL and SDL_mixer." alt="" coords="201,5,350,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="153,24,185,24,185,29,153,29"/>
+</map>

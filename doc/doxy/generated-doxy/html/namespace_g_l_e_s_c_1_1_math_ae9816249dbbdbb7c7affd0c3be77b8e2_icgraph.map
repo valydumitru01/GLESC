@@ -1,0 +1,17 @@
+<map id="GLESC::Math::clamp" name="GLESC::Math::clamp">
+<area shape="rect" id="Node000001" title="Clamps a value between a minimum and maximum value." alt="" coords="460,139,605,165"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#ac725a821c1720b206c7e6b75390be67c" title=" " alt="" coords="202,5,412,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="505,131,462,96,411,62,385,51,388,46,413,58,465,91,508,126"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#a2b9416063831799aab10b6c3ba3ec074" title=" " alt="" coords="202,72,412,115"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="463,137,391,118,392,113,465,132"/>
+<area shape="rect" id="Node000006" href="$class_default.html#a6e26da3ebf533b0f5d45266cd0ce9082" title="Initializes the scene. Must be implemented by the derived class." alt="" coords="264,139,350,165"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="444,155,351,155,351,149,444,149"/>
+<area shape="rect" id="Node000007" href="$class_g_l_e_s_c_1_1_math_1_1_sphere.html#a375b95d18510299f26b1bb69d5f28116" title="Checks if the sphere intersects with an edge defined by two points." alt="" coords="231,189,383,232"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="465,172,384,194,382,188,463,167"/>
+<area shape="rect" id="Node000008" href="$namespace_g_l_e_s_c_1_1_math.html#a9e9a2867723e2295b6656692b14e9e18" title="Remaps a value from one range to another, including support for reverse mapping." alt="" coords="234,256,380,283"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="509,178,466,213,413,246,381,258,380,253,411,242,463,209,505,174"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#ae661d92e2842daa76f97ae80c76c0248" title="Clamps the vector to a given range." alt="" coords="5,5,154,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="186,29,154,29,154,24,186,24"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#ae68049a5b68edf8771dcf22d2c30edd0" title="Clamps the vector to a given range." alt="" coords="5,72,154,115"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="186,96,154,96,154,91,186,91"/>
+</map>

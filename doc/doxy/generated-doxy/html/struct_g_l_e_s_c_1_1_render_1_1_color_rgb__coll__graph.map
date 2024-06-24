@@ -1,0 +1,6 @@
+<map id="GLESC::Render::ColorRgb" name="GLESC::Render::ColorRgb">
+<area shape="rect" id="Node000001" title="Color in RGB values." alt="" coords="5,336,172,768"/>
+<area shape="poly" id="edge2_Node000001_Node000001" title=" " alt="" coords="174,508,192,523,199,552,196,571,188,585,183,583,191,570,193,552,187,526,170,512"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html" title=" " alt="" coords="35,5,143,288"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="91,303,91,336,86,336,86,303"/>
+</map>

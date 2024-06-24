@@ -1,0 +1,9 @@
+<map id="GLESC::Math::MatrixAlgorithms::moveMatrix" name="GLESC::Math::MatrixAlgorithms::moveMatrix">
+<area shape="rect" id="Node000001" title="Moves the data from one matrix to another. @deatails This function moves the data from the source mat..." alt="" coords="200,72,408,115"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_matrix.html#a20789f482f4771ba1e119e3a3c503bba" title="Move constructor." alt="" coords="5,5,152,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="215,70,151,51,153,46,216,65"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_matrix.html#add0279ab5f38702a97e974298568c61c" title="Move assignment operator." alt="" coords="5,72,152,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="184,96,152,96,152,91,184,91"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_math_1_1_matrix.html#aff594d6ca99e77245be43a2d1a833917" title=" " alt="" coords="5,139,152,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="216,122,153,141,151,136,215,117"/>
+</map>

@@ -1,12 +1,13 @@
-/**
+/**************************************************************************************************
  * @file   Stacktrace.cpp
  * @author Valentin Dumitru
- * @date   2023-10-09
- * @brief  Brief description of Stacktrace. @todo
+ * @date   2024-04-17
+ * @brief  @TODO Add description of this file if needed
  *
- * Copyright (c) 2023 Valentin Dumitru. Licensed under the MIT License.
+ * Copyright (c) 2024 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
- */
+ **************************************************************************************************/
+
 #include "engine/core/debugger/Stacktrace.h"
 #include <sstream>
 #include <array>

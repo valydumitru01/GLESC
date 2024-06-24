@@ -1,0 +1,9 @@
+<map id="FileLogger.h" name="FileLogger.h">
+<area shape="rect" id="Node000001" title="@TODO Add description of this file if needed" alt="" coords="51,5,144,32"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,88,70,115"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="90,34,58,77,53,74,86,31"/>
+<area shape="rect" id="Node000003" href="$_i_logger_8h.html" title="Class that encapsulates the look and feel of the HUD." alt="" coords="94,80,221,123"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="109,31,135,66,131,69,105,34"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="131,171,184,197"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="160,123,160,155,155,155,155,123"/>
+</map>

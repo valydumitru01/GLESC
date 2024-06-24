@@ -1,0 +1,407 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="Doxygen Awesome" />
+<meta property="og:image" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+<meta property="og:description" content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
+<meta property="og:url" content="https://jothepro.github.io/doxygen-awesome-css/" />
+<!-- END opengraph metadata -->
+<!-- BEGIN twitter metadata -->
+<meta name="twitter:image:src" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+<meta name="twitter:title" content="Doxygen Awesome" />
+<meta name="twitter:description" content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
+<!-- END twitter metadata -->
+<title>GLESC: GLESC::ECS::PhysicsComponent Struct Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.drawio.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/ -->
+<a href="https://github.com/jothepro/doxygen-awesome-css" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="GLESC_logo_white_background.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">GLESC
+   &#160;<span id="projectnumber">1</span>
+   </div>
+   <div id="projectbrief">Game engine using ECS architecture</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('struct_g_l_e_s_c_1_1_e_c_s_1_1_physics_component.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="struct_g_l_e_s_c_1_1_e_c_s_1_1_physics_component-members.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">GLESC::ECS::PhysicsComponent Struct Reference</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_physics_component_8h_source.html">PhysicsComponent.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for GLESC::ECS::PhysicsComponent:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="struct_g_l_e_s_c_1_1_e_c_s_1_1_physics_component__inherit__graph.svg" width="224" height="432"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Collaboration diagram for GLESC::ECS::PhysicsComponent:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="struct_g_l_e_s_c_1_1_e_c_s_1_1_physics_component__coll__graph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a2fa1b8a9850ca67f13c6125274e12414" id="r_a2fa1b8a9850ca67f13c6125274e12414"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_g_l_e_s_c_1_1_e_c_s_1_1_physics_component.html#a2fa1b8a9850ca67f13c6125274e12414">getName</a> () <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">override</a></td></tr>
+<tr class="separator:a2fa1b8a9850ca67f13c6125274e12414"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72e76f9e95879161100ffe80d1fec217" id="r_a72e76f9e95879161100ffe80d1fec217"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_g_l_e_s_c_1_1_e_c_s_1_1_physics_component.html#a72e76f9e95879161100ffe80d1fec217">setDebuggingValues</a> () <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">override</a></td></tr>
+<tr class="memdesc:a72e76f9e95879161100ffe80d1fec217"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the debugging values of the component.  <br /></td></tr>
+<tr class="separator:a72e76f9e95879161100ffe80d1fec217"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa55ead1d36ea3ab7dd583ef635e055f1" id="r_aa55ead1d36ea3ab7dd583ef635e055f1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_g_l_e_s_c_1_1_e_c_s_1_1_physics_component.html#aa55ead1d36ea3ab7dd583ef635e055f1">setUpdatedDebuggingValues</a> () <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">override</a></td></tr>
+<tr class="memdesc:aa55ead1d36ea3ab7dd583ef635e055f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the updated debugging values of the component.  <br /></td></tr>
+<tr class="separator:aa55ead1d36ea3ab7dd583ef635e055f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44ae3a68089118c5bc23acae2f8bdf4d" id="r_a44ae3a68089118c5bc23acae2f8bdf4d"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_g_l_e_s_c_1_1_e_c_s_1_1_physics_component.html#a44ae3a68089118c5bc23acae2f8bdf4d">toString</a> () <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">override</a></td></tr>
+<tr class="memdesc:a44ae3a68089118c5bc23acae2f8bdf4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Each component must have a toString function.  <br /></td></tr>
+<tr class="separator:a44ae3a68089118c5bc23acae2f8bdf4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_struct_g_l_e_s_c_1_1_e_c_s_1_1_i_component"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_struct_g_l_e_s_c_1_1_e_c_s_1_1_i_component')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="struct_g_l_e_s_c_1_1_e_c_s_1_1_i_component.html">GLESC::ECS::IComponent</a></td></tr>
+<tr class="memitem:ab67e336f3ef46c20f4f59b4ed7217b87 inherit pub_methods_struct_g_l_e_s_c_1_1_e_c_s_1_1_i_component" id="r_ab67e336f3ef46c20f4f59b4ed7217b87"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_g_l_e_s_c_1_1_e_c_s_1_1_i_component.html#ab67e336f3ef46c20f4f59b4ed7217b87">~IComponent</a> ()=<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">default</a></td></tr>
+<tr class="separator:ab67e336f3ef46c20f4f59b4ed7217b87 inherit pub_methods_struct_g_l_e_s_c_1_1_e_c_s_1_1_i_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c27702fbfda6ddaeb75557334d9ba84 inherit pub_methods_struct_g_l_e_s_c_1_1_e_c_s_1_1_i_component" id="r_a2c27702fbfda6ddaeb75557334d9ba84"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_entity_stats_manager.html#struct_entity_stats_manager_1_1_value">EntityStatsManager::Value</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_g_l_e_s_c_1_1_e_c_s_1_1_i_component.html#a2c27702fbfda6ddaeb75557334d9ba84">getDebuggingValues</a> ()</td></tr>
+<tr class="memdesc:a2c27702fbfda6ddaeb75557334d9ba84 inherit pub_methods_struct_g_l_e_s_c_1_1_e_c_s_1_1_i_component"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the debugging values of the component.  <br /></td></tr>
+<tr class="separator:a2c27702fbfda6ddaeb75557334d9ba84 inherit pub_methods_struct_g_l_e_s_c_1_1_e_c_s_1_1_i_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:addef41b4a661ef202909f62b833137ae inherit pub_methods_struct_g_l_e_s_c_1_1_e_c_s_1_1_i_component" id="r_addef41b4a661ef202909f62b833137ae"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_entity_stats_manager.html#struct_entity_stats_manager_1_1_value">EntityStatsManager::Value</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_g_l_e_s_c_1_1_e_c_s_1_1_i_component.html#addef41b4a661ef202909f62b833137ae">getUpdatedDebuggingValues</a> ()</td></tr>
+<tr class="memdesc:addef41b4a661ef202909f62b833137ae inherit pub_methods_struct_g_l_e_s_c_1_1_e_c_s_1_1_i_component"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the updated debugging values of the component.  <br /></td></tr>
+<tr class="separator:addef41b4a661ef202909f62b833137ae inherit pub_methods_struct_g_l_e_s_c_1_1_e_c_s_1_1_i_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:ac64e829044fea7a5eb7c1c9b62cb5083" id="r_ac64e829044fea7a5eb7c1c9b62cb5083"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_g_l_e_s_c_1_1_transform_1_1_transform.html">Transform::Transform</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_g_l_e_s_c_1_1_e_c_s_1_1_physics_component.html#ac64e829044fea7a5eb7c1c9b62cb5083">oldTransform</a></td></tr>
+<tr class="separator:ac64e829044fea7a5eb7c1c9b62cb5083"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a684d739d149d0e71d24a2034a60471be" id="r_a684d739d149d0e71d24a2034a60471be"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html">Physics::Physics</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_g_l_e_s_c_1_1_e_c_s_1_1_physics_component.html#a684d739d149d0e71d24a2034a60471be">physics</a></td></tr>
+<tr class="separator:a684d739d149d0e71d24a2034a60471be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pro_attribs_struct_g_l_e_s_c_1_1_e_c_s_1_1_i_component"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_struct_g_l_e_s_c_1_1_e_c_s_1_1_i_component')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="struct_g_l_e_s_c_1_1_e_c_s_1_1_i_component.html">GLESC::ECS::IComponent</a></td></tr>
+<tr class="memitem:a7117101920a427123799148bfef4292e inherit pro_attribs_struct_g_l_e_s_c_1_1_e_c_s_1_1_i_component" id="r_a7117101920a427123799148bfef4292e"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_entity_stats_manager.html#struct_entity_stats_manager_1_1_value">EntityStatsManager::Value</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_g_l_e_s_c_1_1_e_c_s_1_1_i_component.html#a7117101920a427123799148bfef4292e">updatedValues</a></td></tr>
+<tr class="memdesc:a7117101920a427123799148bfef4292e inherit pro_attribs_struct_g_l_e_s_c_1_1_e_c_s_1_1_i_component"><td class="mdescLeft">&#160;</td><td class="mdescRight">The updated debugging values of the component.  <br /></td></tr>
+<tr class="separator:a7117101920a427123799148bfef4292e inherit pro_attribs_struct_g_l_e_s_c_1_1_e_c_s_1_1_i_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56e80b8d6cb4fabcd6bac47d3fba4d7a inherit pro_attribs_struct_g_l_e_s_c_1_1_e_c_s_1_1_i_component" id="r_a56e80b8d6cb4fabcd6bac47d3fba4d7a"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_entity_stats_manager.html#struct_entity_stats_manager_1_1_value">EntityStatsManager::Value</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_g_l_e_s_c_1_1_e_c_s_1_1_i_component.html#a56e80b8d6cb4fabcd6bac47d3fba4d7a">values</a></td></tr>
+<tr class="memdesc:a56e80b8d6cb4fabcd6bac47d3fba4d7a inherit pro_attribs_struct_g_l_e_s_c_1_1_e_c_s_1_1_i_component"><td class="mdescLeft">&#160;</td><td class="mdescRight">The debugging values of the component.  <br /></td></tr>
+<tr class="separator:a56e80b8d6cb4fabcd6bac47d3fba4d7a inherit pro_attribs_struct_g_l_e_s_c_1_1_e_c_s_1_1_i_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock">
+<p class="definition">Definition at line <a class="el" href="_physics_component_8h_source.html#l00020">20</a> of file <a class="el" href="_physics_component_8h_source.html">PhysicsComponent.h</a>.</p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a2fa1b8a9850ca67f13c6125274e12414" name="a2fa1b8a9850ca67f13c6125274e12414"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2fa1b8a9850ca67f13c6125274e12414">&#9670;&#160;</a></span>getName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string GLESC::ECS::PhysicsComponent::getName </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="struct_g_l_e_s_c_1_1_e_c_s_1_1_i_component.html#abe60047054518a7f0f4a54fdc7618011">GLESC::ECS::IComponent</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_physics_component_8h_source.html#l00029">29</a> of file <a class="el" href="_physics_component_8h_source.html">PhysicsComponent.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   29</span>                                           {</div>
+<div class="line"><span class="lineno">   30</span>            <span class="keywordflow">return</span> <span class="stringliteral">&quot;PhysicsComponent&quot;</span>;</div>
+<div class="line"><span class="lineno">   31</span>        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a72e76f9e95879161100ffe80d1fec217" name="a72e76f9e95879161100ffe80d1fec217"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72e76f9e95879161100ffe80d1fec217">&#9670;&#160;</a></span>setDebuggingValues()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> GLESC::ECS::PhysicsComponent::setDebuggingValues </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set the debugging values of the component. </p>
+<p>This function must be implemented by the derived classes. This function is used to set the specific debugging values of the component. </p><dl class="section return"><dt>Returns</dt><dd>The specifc debugging values of the component </dd></dl>
+
+<p>Implements <a class="el" href="struct_g_l_e_s_c_1_1_e_c_s_1_1_i_component.html#a49c37f1c2b407c84cc13c51059c86b51">GLESC::ECS::IComponent</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_physics_component_8h_source.html#l00038">38</a> of file <a class="el" href="_physics_component_8h_source.html">PhysicsComponent.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   38</span>                                           {</div>
+<div class="line"><span class="lineno">   39</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">value</a> : <a class="code hl_variable" href="struct_g_l_e_s_c_1_1_e_c_s_1_1_physics_component.html#a684d739d149d0e71d24a2034a60471be">physics</a>.<a class="code hl_function" href="struct_g_l_e_s_c_1_1_e_c_s_1_1_i_component.html#a2c27702fbfda6ddaeb75557334d9ba84">getDebuggingValues</a>()) {</div>
+<div class="line"><span class="lineno">   40</span>                <a class="code hl_variable" href="struct_g_l_e_s_c_1_1_e_c_s_1_1_i_component.html#a56e80b8d6cb4fabcd6bac47d3fba4d7a">values</a>.push_back(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">value</a>);</div>
+<div class="line"><span class="lineno">   41</span>            }</div>
+<div class="line"><span class="lineno">   42</span>        }</div>
+<div class="ttc" id="anamespace_g_l_e_s_c_html_a7c64a4da2d1da1597f4ec563d00bb9f8"><div class="ttname"><a href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">GLESC::isIterable_v</a></div><div class="ttdeci">constexpr bool isIterable_v</div><div class="ttdef"><b>Definition</b> <a href="_stringer_8h_source.html#l00029">Stringer.h:29</a></div></div>
+<div class="ttc" id="astruct_g_l_e_s_c_1_1_e_c_s_1_1_i_component_html_a2c27702fbfda6ddaeb75557334d9ba84"><div class="ttname"><a href="struct_g_l_e_s_c_1_1_e_c_s_1_1_i_component.html#a2c27702fbfda6ddaeb75557334d9ba84">GLESC::ECS::IComponent::getDebuggingValues</a></div><div class="ttdeci">std::vector&lt; EntityStatsManager::Value &gt; &amp; getDebuggingValues()</div><div class="ttdoc">Get the debugging values of the component.</div><div class="ttdef"><b>Definition</b> <a href="_i_component_8h_source.html#l00051">IComponent.h:51</a></div></div>
+<div class="ttc" id="astruct_g_l_e_s_c_1_1_e_c_s_1_1_i_component_html_a56e80b8d6cb4fabcd6bac47d3fba4d7a"><div class="ttname"><a href="struct_g_l_e_s_c_1_1_e_c_s_1_1_i_component.html#a56e80b8d6cb4fabcd6bac47d3fba4d7a">GLESC::ECS::IComponent::values</a></div><div class="ttdeci">std::vector&lt; EntityStatsManager::Value &gt; values</div><div class="ttdoc">The debugging values of the component.</div><div class="ttdef"><b>Definition</b> <a href="_i_component_8h_source.html#l00104">IComponent.h:104</a></div></div>
+<div class="ttc" id="astruct_g_l_e_s_c_1_1_e_c_s_1_1_physics_component_html_a684d739d149d0e71d24a2034a60471be"><div class="ttname"><a href="struct_g_l_e_s_c_1_1_e_c_s_1_1_physics_component.html#a684d739d149d0e71d24a2034a60471be">GLESC::ECS::PhysicsComponent::physics</a></div><div class="ttdeci">Physics::Physics physics</div><div class="ttdef"><b>Definition</b> <a href="_physics_component_8h_source.html#l00021">PhysicsComponent.h:21</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_physics_8cpp_source.html#l00023">GLESC::Physics::Physics::getDebuggingValues()</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, <a class="el" href="_physics_component_8h_source.html#l00021">physics</a>, and <a class="el" href="_i_component_8h_source.html#l00104">GLESC::ECS::IComponent::values</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="struct_g_l_e_s_c_1_1_e_c_s_1_1_physics_component_a72e76f9e95879161100ffe80d1fec217_cgraph.svg" width="456" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aa55ead1d36ea3ab7dd583ef635e055f1" name="aa55ead1d36ea3ab7dd583ef635e055f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa55ead1d36ea3ab7dd583ef635e055f1">&#9670;&#160;</a></span>setUpdatedDebuggingValues()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> GLESC::ECS::PhysicsComponent::setUpdatedDebuggingValues </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set the updated debugging values of the component. </p>
+<p>This function can be implemented by the derived classes, but not always necessary. This function is used to set the specific updated debugging values of the component. </p><dl class="section return"><dt>Returns</dt><dd>The specifc updated debugging values of the component </dd></dl>
+
+<p>Reimplemented from <a class="el" href="struct_g_l_e_s_c_1_1_e_c_s_1_1_i_component.html#af3b45d2761bb56cd4ddc0a6b5baf8580">GLESC::ECS::IComponent</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_physics_component_8h_source.html#l00044">44</a> of file <a class="el" href="_physics_component_8h_source.html">PhysicsComponent.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   44</span>                                                  {</div>
+<div class="line"><span class="lineno">   45</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">value</a> : <a class="code hl_variable" href="struct_g_l_e_s_c_1_1_e_c_s_1_1_physics_component.html#a684d739d149d0e71d24a2034a60471be">physics</a>.<a class="code hl_function" href="struct_g_l_e_s_c_1_1_e_c_s_1_1_i_component.html#addef41b4a661ef202909f62b833137ae">getUpdatedDebuggingValues</a>()) {</div>
+<div class="line"><span class="lineno">   46</span>                <a class="code hl_variable" href="struct_g_l_e_s_c_1_1_e_c_s_1_1_i_component.html#a7117101920a427123799148bfef4292e">updatedValues</a>.push_back(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">value</a>);</div>
+<div class="line"><span class="lineno">   47</span>            }</div>
+<div class="line"><span class="lineno">   48</span>        }</div>
+<div class="ttc" id="astruct_g_l_e_s_c_1_1_e_c_s_1_1_i_component_html_a7117101920a427123799148bfef4292e"><div class="ttname"><a href="struct_g_l_e_s_c_1_1_e_c_s_1_1_i_component.html#a7117101920a427123799148bfef4292e">GLESC::ECS::IComponent::updatedValues</a></div><div class="ttdeci">std::vector&lt; EntityStatsManager::Value &gt; updatedValues</div><div class="ttdoc">The updated debugging values of the component.</div><div class="ttdef"><b>Definition</b> <a href="_i_component_8h_source.html#l00114">IComponent.h:114</a></div></div>
+<div class="ttc" id="astruct_g_l_e_s_c_1_1_e_c_s_1_1_i_component_html_addef41b4a661ef202909f62b833137ae"><div class="ttname"><a href="struct_g_l_e_s_c_1_1_e_c_s_1_1_i_component.html#addef41b4a661ef202909f62b833137ae">GLESC::ECS::IComponent::getUpdatedDebuggingValues</a></div><div class="ttdeci">std::vector&lt; EntityStatsManager::Value &gt; getUpdatedDebuggingValues()</div><div class="ttdoc">Get the updated debugging values of the component.</div><div class="ttdef"><b>Definition</b> <a href="_i_component_8h_source.html#l00070">IComponent.h:70</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_engine_component_8h_source.html#l00071">EngineComponent::getUpdatedDebuggingValues()</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, <a class="el" href="_physics_component_8h_source.html#l00021">physics</a>, and <a class="el" href="_i_component_8h_source.html#l00114">GLESC::ECS::IComponent::updatedValues</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="struct_g_l_e_s_c_1_1_e_c_s_1_1_physics_component_aa55ead1d36ea3ab7dd583ef635e055f1_cgraph.svg" width="482" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a44ae3a68089118c5bc23acae2f8bdf4d" name="a44ae3a68089118c5bc23acae2f8bdf4d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44ae3a68089118c5bc23acae2f8bdf4d">&#9670;&#160;</a></span>toString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string GLESC::ECS::PhysicsComponent::toString </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Each component must have a toString function. </p>
+<p>This is needed because when we want to debug the content of the components, we need to be able to do it without knowing the specific type of the component. This is because we are using a vector of IComponents. </p><dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p>Implements <a class="el" href="struct_g_l_e_s_c_1_1_e_c_s_1_1_i_component.html#a9e3c9f537cfdfbcb91c9b84381f8fd95">GLESC::ECS::IComponent</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_physics_component_8h_source.html#l00033">33</a> of file <a class="el" href="_physics_component_8h_source.html">PhysicsComponent.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   33</span>                                            {</div>
+<div class="line"><span class="lineno">   34</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="struct_g_l_e_s_c_1_1_e_c_s_1_1_physics_component.html#a684d739d149d0e71d24a2034a60471be">physics</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a8ab4df7294cbaaa761c981e13188c369">toString</a>();</div>
+<div class="line"><span class="lineno">   35</span>        }</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_physics_1_1_physics_html_a8ab4df7294cbaaa761c981e13188c369"><div class="ttname"><a href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a8ab4df7294cbaaa761c981e13188c369">GLESC::Physics::Physics::toString</a></div><div class="ttdeci">std::string toString() const override</div><div class="ttdef"><b>Definition</b> <a href="_physics_8cpp_source.html#l00014">Physics.cpp:14</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_physics_component_8h_source.html#l00021">physics</a>, and <a class="el" href="_physics_8cpp_source.html#l00014">GLESC::Physics::Physics::toString()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="struct_g_l_e_s_c_1_1_e_c_s_1_1_physics_component_a44ae3a68089118c5bc23acae2f8bdf4d_cgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="ac64e829044fea7a5eb7c1c9b62cb5083" name="ac64e829044fea7a5eb7c1c9b62cb5083"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac64e829044fea7a5eb7c1c9b62cb5083">&#9670;&#160;</a></span>oldTransform</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_g_l_e_s_c_1_1_transform_1_1_transform.html">Transform::Transform</a> GLESC::ECS::PhysicsComponent::oldTransform</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This transform is the old transform before applying the physics It can be used to change the behavior of the physics (such as collisions) </p>
+
+<p class="definition">Definition at line <a class="el" href="_physics_component_8h_source.html#l00026">26</a> of file <a class="el" href="_physics_component_8h_source.html">PhysicsComponent.h</a>.</p>
+
+</div>
+</div>
+<a id="a684d739d149d0e71d24a2034a60471be" name="a684d739d149d0e71d24a2034a60471be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a684d739d149d0e71d24a2034a60471be">&#9670;&#160;</a></span>physics</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html">Physics::Physics</a> GLESC::ECS::PhysicsComponent::physics</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_physics_component_8h_source.html#l00021">21</a> of file <a class="el" href="_physics_component_8h_source.html">PhysicsComponent.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_physics_component_8h_source.html#l00038">setDebuggingValues()</a>, <a class="el" href="_physics_component_8h_source.html#l00044">setUpdatedDebuggingValues()</a>, and <a class="el" href="_physics_component_8h_source.html#l00033">toString()</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li><a class="el" href="_physics_component_8h_source.html">PhysicsComponent.h</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_g_l_e_s_c.html">GLESC</a></li><li class="navelem"><a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html">ECS</a></li><li class="navelem"><a class="el" href="struct_g_l_e_s_c_1_1_e_c_s_1_1_physics_component.html">PhysicsComponent</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

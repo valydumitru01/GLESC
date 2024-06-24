@@ -1,0 +1,47 @@
+<map id="GLESC::Hasher::hash" name="GLESC::Hasher::hash">
+<area shape="rect" id="Node000001" title=" " alt="" coords="704,397,855,424"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_scene_1_1_scene_manager.html#a034d5e244b4a4a58568321adada39629" title=" " alt="" coords="451,197,656,240"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="762,385,719,319,689,284,655,254,635,243,638,238,658,250,693,281,724,316,766,382"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_sound_loader.html#a336f54c16328d4a892f3b9a170ccb99b" title="Gets a music by name." alt="" coords="479,264,628,307"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="750,389,707,354,655,321,628,309,630,304,658,316,710,350,754,385"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_sound_loader.html#a7d8f17c839c3aeed9e1f39d7a0c9b7d2" title="Gets a sound by name." alt="" coords="479,331,628,373"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="710,395,628,374,629,369,711,390"/>
+<area shape="rect" id="Node000008" href="$namespace_g_l_e_s_c_1_1_hasher.html#a6a2fdfc12181b6f4643e164af60bae0c" title=" " alt="" coords="453,397,654,424"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="689,413,655,413,655,408,689,408"/>
+<area shape="rect" id="Node000018" href="$class_g_l_e_s_c_1_1_sound_loader.html#ad50e3d04a3c265532d571bd51ed8be92" title="Loads a music from a file." alt="" coords="479,552,628,595"/>
+<area shape="poly" id="edge17_Node000001_Node000018" title=" " alt="" coords="749,436,587,554,584,549,745,431"/>
+<area shape="rect" id="Node000020" href="$class_g_l_e_s_c_1_1_sound_loader.html#ac34d74e5fd12c3ff1834f0a4aa996da8" title="Loads a sound from a file." alt="" coords="479,619,628,661"/>
+<area shape="poly" id="edge19_Node000001_Node000020" title=" " alt="" coords="771,440,754,478,730,523,698,569,658,609,630,625,628,620,655,605,694,566,725,520,749,475,766,438"/>
+<area shape="rect" id="Node000022" href="$class_g_l_e_s_c_1_1_scene_1_1_scene_manager.html#a70d54b978b5452ed9659f01a2970ac7e" title=" " alt="" coords="451,685,656,728"/>
+<area shape="poly" id="edge21_Node000001_Node000022" title=" " alt="" coords="775,440,762,490,740,553,706,619,684,649,658,675,641,687,638,683,655,671,680,645,701,616,735,551,757,489,770,438"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_sound_player.html#ac596d3152b344faf92e1dac3857a7070" title="Set the music to play." alt="" coords="232,5,379,48"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="463,266,449,254,432,229,424,204,422,180,424,156,426,132,425,109,417,85,401,62,378,45,381,41,405,58,422,83,430,108,431,132,429,156,428,180,429,203,437,227,453,250,467,262"/>
+<area shape="rect" id="Node000006" href="$class_g_l_e_s_c_1_1_sound_player.html#ab969a32bda09a239c109c9e66824760b" title="Play a sound." alt="" coords="232,72,379,115"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="463,332,449,320,432,296,424,271,422,247,424,223,426,199,425,175,417,152,401,129,378,112,381,107,405,125,422,150,430,175,431,199,429,223,428,247,429,270,437,293,453,317,467,328"/>
+<area shape="rect" id="Node000007" href="$class_g_l_e_s_c_1_1_sound_player.html#abf4800d7917b03791dde67925c43149c" title="Play a 3D sound." alt="" coords="9,72,156,115"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="216,96,156,96,156,91,216,91"/>
+<area shape="rect" id="Node000009" href="$class_g_l_e_s_c_1_1_render_1_1_mesh.html#a558dc6a8524805e237a86604b5b4454c" title="Helper function to calculate the hash of the mesh." alt="" coords="228,139,383,181"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="452,390,449,387,431,363,423,339,421,314,423,290,425,266,424,242,417,219,401,195,381,180,384,176,405,192,422,217,429,242,431,266,429,291,427,314,428,338,436,361,453,384,456,386"/>
+<area shape="rect" id="Node000011" href="$class_texture_factory.html#a55d24587dc859b1d3bdb94b88cf63b62" title=" " alt="" coords="208,205,403,232"/>
+<area shape="poly" id="edge10_Node000008_Node000011" title=" " alt="" coords="453,391,449,387,435,370,427,351,424,315,422,279,415,263,401,246,385,235,388,230,405,242,419,260,427,278,430,315,432,350,439,367,453,383,457,387"/>
+<area shape="rect" id="Node000012" href="$structstd_1_1hash_3_01_g_l_e_s_c_1_1_input_1_1_key_input_01_4.html#a33abbc219447940ebe5e54c569443357" title=" " alt="" coords="222,256,389,299"/>
+<area shape="poly" id="edge11_Node000008_Node000012" title=" " alt="" coords="457,392,449,387,432,369,424,350,417,331,401,313,383,301,386,297,405,309,421,328,429,348,437,366,453,383,460,388"/>
+<area shape="rect" id="Node000013" href="$structstd_1_1hash_3_01_g_l_e_s_c_1_1_render_1_1_color_rgba_norm_01_4.html#aa4b8f8bc50aaad1c0d34c70585e2366a" title=" " alt="" coords="208,323,403,365"/>
+<area shape="poly" id="edge12_Node000008_Node000013" title=" " alt="" coords="480,396,450,388,381,369,382,363,452,383,481,390"/>
+<area shape="rect" id="Node000014" href="$structstd_1_1hash_3_01_g_l_e_s_c_1_1_render_1_1_color_rgb_norm_01_4.html#ab8ab3a2f3393457d3ac4ff7d1928023d" title=" " alt="" coords="211,389,400,432"/>
+<area shape="poly" id="edge13_Node000008_Node000014" title=" " alt="" coords="437,413,400,413,400,408,437,408"/>
+<area shape="rect" id="Node000015" href="$structstd_1_1hash_3_01_g_l_e_s_c_1_1_render_1_1_color_vertex_01_4.html#a5238af79ef8e391f882b4879b7684371" title=" " alt="" coords="215,456,396,499"/>
+<area shape="poly" id="edge14_Node000008_Node000015" title=" " alt="" coords="487,431,388,458,387,453,485,426"/>
+<area shape="rect" id="Node000016" href="$structstd_1_1hash_3_01_g_l_e_s_c_1_1_render_1_1_material_01_4.html#aeaf56ed50fed12b3666740779d9499c8" title=" " alt="" coords="215,523,396,565"/>
+<area shape="poly" id="edge15_Node000008_Node000016" title=" " alt="" coords="524,436,470,475,404,513,378,524,376,520,402,508,467,470,521,432"/>
+<area shape="rect" id="Node000017" href="$structstd_1_1hash_3_01_g_l_e_s_c_1_1_render_1_1_texture_vertex_01_4.html#a1ee0c9238c19f0d1b86c23685007de40" title=" " alt="" coords="213,589,398,632"/>
+<area shape="poly" id="edge16_Node000008_Node000017" title=" " alt="" coords="537,438,483,508,446,546,404,580,383,591,381,586,402,575,443,542,479,505,533,435"/>
+<area shape="rect" id="Node000010" href="$class_g_l_e_s_c_1_1_render_1_1_mesh.html#ac6fe60df79f0a10240c9372c44d469fb" title="Calculates lazily the hash of the mesh. Only recalculates if the mesh has been changed." alt="" coords="5,139,160,181"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="213,163,160,163,160,157,213,157"/>
+<area shape="rect" id="Node000019" href="$class_g_l_e_s_c_1_1_sound_player.html#a5b123559c304d61892e2d69c98ae82b8" title="Load a song from a file." alt="" coords="232,656,379,699"/>
+<area shape="poly" id="edge18_Node000018_Node000019" title=" " alt="" coords="466,603,452,609,429,627,404,646,379,658,377,653,402,642,425,623,450,604,463,598"/>
+<area shape="rect" id="Node000021" href="$class_g_l_e_s_c_1_1_sound_player.html#af853ca7b646ab7e809df681deee7fbd2" title="Load a sound from a file." alt="" coords="232,723,379,765"/>
+<area shape="poly" id="edge20_Node000020_Node000021" title=" " alt="" coords="466,669,452,676,429,694,404,713,379,725,377,720,402,708,425,690,450,671,463,664"/>
+<area shape="rect" id="Node000023" href="$class_g_l_e_s_c_1_1_scene_1_1_scene.html#a01ce03f761bd70fe7cfa5c743b709d50" title="Switches to another scene." alt="" coords="228,789,383,832"/>
+<area shape="poly" id="edge22_Node000022_Node000023" title=" " alt="" coords="497,738,404,780,374,791,372,786,402,775,495,733"/>
+</map>

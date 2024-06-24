@@ -1,0 +1,11 @@
+<map id="GLESC::Render::LightPoint::getIntensity" name="GLESC::Render::LightPoint::getIntensity">
+<area shape="rect" id="Node000001" title=" " alt="" coords="753,5,933,48"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_render_1_1_renderer.html#aa1a9e1d79bb96f79ee1e421dd245bbf1" title="This encapsulates the rendering of the lights, setting the uniforms." alt="" coords="530,5,705,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="737,29,705,29,705,24,737,24"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_render_1_1_renderer.html#a3244ebc15bf8310257ec613f62d00a33" title="This renders the frame." alt="" coords="308,5,482,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="515,29,483,29,483,24,515,24"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_engine.html#ab0a886855ca341089947b36b9c6f6e15" title="Processes the rendering of the game Can be called at variable intervals of time as it uses elapsed." alt="" coords="103,13,260,40"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="292,29,261,29,261,24,292,24"/>
+<area shape="rect" id="Node000005" href="$main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,13,55,40"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="87,29,55,29,55,24,87,24"/>
+</map>

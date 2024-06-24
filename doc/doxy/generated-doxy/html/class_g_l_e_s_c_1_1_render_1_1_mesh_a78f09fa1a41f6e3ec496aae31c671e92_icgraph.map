@@ -1,0 +1,32 @@
+<map id="GLESC::Render::Mesh::calculateNormal" name="GLESC::Render::Mesh::calculateNormal">
+<area shape="rect" id="Node000001" title="Helper function to automatically calculate the normal of a face with 3 points." alt="" coords="835,205,989,248"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_render_1_1_mesh.html#a2ad7899a1de4ee74a10854158b601a2c" title="Adds a quad to the mesh, quads are defined by 4 vertices." alt="" coords="632,139,787,181"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="830,203,776,185,778,179,832,198"/>
+<area shape="rect" id="Node000009" href="$class_g_l_e_s_c_1_1_render_1_1_mesh.html#ad2308e9137f51614b5d46416bc01deef" title="Adds a tris to the mesh, tris are defined by 3 vertices." alt="" coords="632,272,787,315"/>
+<area shape="poly" id="edge10_Node000001_Node000009" title=" " alt="" coords="832,256,778,274,776,269,830,251"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="742,125,730,120,709,117,691,119,679,124,674,130,676,138,671,139,669,129,676,120,689,114,710,112,731,114,744,121"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_render_1_1_mesh_factory.html#a871c80a56dc8888b526df44b1ac49dca" title="Creates a cuboid mesh given a width, height, depth and a color." alt="" coords="386,5,584,48"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="674,130,632,95,583,62,559,51,561,46,586,58,635,91,677,126"/>
+<area shape="rect" id="Node000006" href="$class_g_l_e_s_c_1_1_render_1_1_mesh_factory.html#aff179044917548ba91300a69ffb39256" title=" " alt="" coords="386,72,584,115"/>
+<area shape="poly" id="edge6_Node000002_Node000006" title=" " alt="" coords="620,136,559,118,560,113,622,131"/>
+<area shape="rect" id="Node000007" href="$class_g_l_e_s_c_1_1_render_1_1_mesh_factory.html#aefd29f32b084155c54dd3d91fef99aba" title=" " alt="" coords="386,205,584,248"/>
+<area shape="poly" id="edge7_Node000002_Node000007" title=" " alt="" coords="622,189,560,207,559,202,620,184"/>
+<area shape="rect" id="Node000008" href="$class_g_l_e_s_c_1_1_render_1_1_mesh_factory.html#ac34bbd39823c1d507524e1395305e310" title="Creates a sphere mesh given a number of slices, stacks, a radius and a color." alt="" coords="386,139,584,181"/>
+<area shape="poly" id="edge8_Node000002_Node000008" title=" " alt="" coords="617,163,585,163,585,157,617,157"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_render_1_1_mesh_factory.html#a4b07130768fe0a8e6720aa0550a7b5dd" title="Creates a cube mesh given a color and a radius." alt="" coords="140,24,338,67"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="371,38,339,40,338,35,370,33"/>
+<area shape="rect" id="Node000005" href="$class_default.html#a6e26da3ebf533b0f5d45266cd0ce9082" title="Initializes the scene. Must be implemented by the derived class." alt="" coords="5,80,92,107"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="138,74,93,85,92,80,137,68"/>
+<area shape="poly" id="edge9_Node000008_Node000005" title=" " alt="" coords="370,145,92,102,93,97,371,140"/>
+<area shape="poly" id="edge15_Node000009_Node000007" title=" " alt="" coords="620,270,559,251,560,246,622,265"/>
+<area shape="poly" id="edge16_Node000009_Node000008" title=" " alt="" coords="674,264,632,228,583,196,559,184,561,179,586,191,635,224,677,259"/>
+<area shape="poly" id="edge13_Node000009_Node000009" title=" " alt="" coords="742,259,730,253,709,251,691,253,679,257,674,263,676,271,671,272,669,262,676,253,689,247,710,245,731,248,744,254"/>
+<area shape="rect" id="Node000010" href="$class_g_l_e_s_c_1_1_render_1_1_mesh.html#aae4b61c752ff29970ff6bb6a2b08abb2" title="Adds a quad to the mesh, quads are defined by 4 vertices." alt="" coords="408,272,562,315"/>
+<area shape="poly" id="edge11_Node000009_Node000010" title=" " alt="" coords="617,296,563,296,563,291,617,291"/>
+<area shape="rect" id="Node000011" href="$class_g_l_e_s_c_1_1_render_1_1_mesh.html#aaae30a265886c96c91daa8e59f67b3ea" title="Adds a tris to the mesh, tris are defined by 3 vertices." alt="" coords="408,339,562,381"/>
+<area shape="poly" id="edge12_Node000009_Node000011" title=" " alt="" coords="622,322,560,341,559,335,620,317"/>
+<area shape="rect" id="Node000012" href="$class_g_l_e_s_c_1_1_render_1_1_mesh.html#aaeba541999c321e65620b52780298e14" title="Attaches a mesh to the current mesh." alt="" coords="408,405,562,448"/>
+<area shape="poly" id="edge14_Node000009_Node000012" title=" " alt="" coords="677,327,635,363,586,396,561,407,559,402,583,391,632,358,674,323"/>
+<area shape="rect" id="Node000013" href="$class_g_l_e_s_c_1_1_render_1_1_mesh_factory.html#a1e3caaf52ad95406520b1ad999bd357b" title=" " alt="" coords="386,472,584,515"/>
+<area shape="poly" id="edge17_Node000009_Node000013" title=" " alt="" coords="693,330,650,397,620,432,586,462,566,474,564,469,583,458,616,428,646,394,688,327"/>
+</map>

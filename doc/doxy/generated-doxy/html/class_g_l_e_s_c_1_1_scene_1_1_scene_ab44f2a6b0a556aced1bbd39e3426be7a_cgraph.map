@@ -1,0 +1,13 @@
+<map id="GLESC::Scene::Scene::createEntity" name="GLESC::Scene::Scene::createEntity">
+<area shape="rect" id="Node000001" title="Creates an entity and adds it to the scene." alt="" coords="5,39,161,81"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity_factory.html#ad221fc5ee0b013516db800c6940e7d94" title="Creates an entity with a name and metadata." alt="" coords="209,5,395,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="161,46,193,41,193,46,162,51"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity_factory.html#a12a9f6adc2559286d8e0cc2cc9a42fb3" title="Gets an entity by its name." alt="" coords="209,72,395,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="162,69,193,74,193,79,161,74"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator.html#ac50027c90385da038caeb27371d3dde6" title="Get the entity ID from the entity name." alt="" coords="443,72,644,115"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="396,91,428,91,428,96,396,96"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a331b9b5711f516647e4de67f9a256db3" title="Get the entity ID from the entity name." alt="" coords="692,72,885,115"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="645,91,676,91,676,96,645,96"/>
+<area shape="rect" id="Node000006" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a5145504091eb26170aa219acb60aca71" title="Check if the entity with the given name exists." alt="" coords="933,72,1125,115"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="885,91,917,91,917,96,885,96"/>
+</map>

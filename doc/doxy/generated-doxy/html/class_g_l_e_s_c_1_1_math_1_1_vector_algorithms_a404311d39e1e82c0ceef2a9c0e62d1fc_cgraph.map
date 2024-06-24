@@ -1,0 +1,7 @@
+<map id="GLESC::Math::VectorAlgorithms::getOrthogonal" name="GLESC::Math::VectorAlgorithms::getOrthogonal">
+<area shape="rect" id="Node000001" title="Gets an orthogonal vector to the input vector." alt="" coords="5,27,216,69"/>
+<area shape="rect" id="Node000002" href="$namespace_g_l_e_s_c_1_1_math.html#a04db3782a0754ba2d22eb5d159dd681c" title="Calculates the absolute value of a number." alt="" coords="303,5,435,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="216,33,287,25,288,30,216,39"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#ab041da9d339dfe80b80c6f0bdf5dbfd4" title="Computes the cross product of two vectors." alt="" coords="264,56,474,99"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="216,57,248,61,248,66,216,63"/>
+</map>

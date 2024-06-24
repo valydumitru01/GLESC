@@ -1,0 +1,5 @@
+<map id="GLESC::Render::MeshFactory::cube" name="GLESC::Render::MeshFactory::cube">
+<area shape="rect" id="Node000001" title="Creates a cube mesh given a color and a radius." alt="" coords="140,5,338,48"/>
+<area shape="rect" id="Node000002" href="$class_default.html#a6e26da3ebf533b0f5d45266cd0ce9082" title="Initializes the scene. Must be implemented by the derived class." alt="" coords="5,13,92,40"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="124,29,92,29,92,24,124,24"/>
+</map>

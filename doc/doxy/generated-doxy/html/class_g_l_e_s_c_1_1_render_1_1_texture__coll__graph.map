@@ -1,0 +1,13 @@
+<map id="GLESC::Render::Texture" name="GLESC::Render::Texture">
+<area shape="rect" id="Node000001" title="Class representing a texture. It abstracts away the creating and handling of textures for the rendere..." alt="" coords="61,1173,219,1477"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_res_mng_1_1_texture_1_1_texture_surface.html" title="Class that represents a texture surface. This class will hold the data of the texture and will be use..." alt="" coords="58,704,222,1109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="143,1109,143,1156,137,1156,137,1109"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,421,139,491"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="80,490,110,687,104,688,74,491"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="20,139,124,208"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="75,223,75,421,69,421,69,223"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="62,5,82,75"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="75,75,75,122,69,122,69,75"/>
+<area shape="rect" id="Node000006" href="$struct_format.html" title="A struct that holds the format of a texture." alt="" coords="163,272,255,640"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="184,640,176,688,171,687,178,639"/>
+</map>

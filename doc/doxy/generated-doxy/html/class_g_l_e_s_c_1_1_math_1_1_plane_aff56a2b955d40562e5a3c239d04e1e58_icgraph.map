@@ -1,0 +1,11 @@
+<map id="GLESC::Math::Plane::setDistance" name="GLESC::Math::Plane::setDistance">
+<area shape="rect" id="Node000001" title="Set the distance from the origin to the plane." alt="" coords="197,105,340,148"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_plane.html#a45a29d0f34d028e4f34ec5cf772f2ff2" title="Construct a new Plane object from a normal vector and a distance." alt="" coords="5,5,149,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="216,100,147,62,125,51,127,46,150,58,218,95"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_plane.html#affc081045f970df73ea1a7e5bca2841f" title="Construct a new Plane object from a point and a normal vector." alt="" coords="5,72,149,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="181,114,148,108,149,103,182,109"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_math_1_1_plane.html#a468fe79f91e1aa6ebe498e6ab3ce7674" title="Construct a new Plane object from a point and a line." alt="" coords="5,139,149,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="182,144,149,150,148,145,181,139"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_math_1_1_plane.html#a503abb5ac4797527f02056f1223a0166" title="Construct a new Plane object from three distinct points." alt="" coords="5,205,149,248"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="218,158,150,196,127,207,125,202,147,191,216,154"/>
+</map>

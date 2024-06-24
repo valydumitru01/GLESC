@@ -1,0 +1,18 @@
+<map id="Cubemap" name="Cubemap">
+<area shape="rect" id="Node000001" title="Class representing a cubemap texture. It abstract away the creating and handling of cubemaps." alt="" coords="156,1392,311,1696"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="117,1243,350,1328"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="236,1328,236,1375,231,1375,231,1328"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_res_mng_1_1_texture_1_1_texture_surface.html" title="Class that represents a texture surface. This class will hold the data of the texture and will be use..." alt="" coords="91,773,255,1179"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="203,1178,212,1218,214,1226,209,1227,207,1219,198,1179"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,475,139,544"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="82,543,128,757,123,758,77,544"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="83,139,187,208"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="128,223,81,475,76,474,123,222"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="178,5,198,75"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="180,53,162,73,147,100,140,123,135,121,142,98,158,70,176,49"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="219,232,317,301"/>
+<area shape="poly" id="edge8_Node000008_Node000006" title=" " alt="" coords="200,67,212,98,253,215,248,217,207,100,195,68"/>
+<area shape="rect" id="Node000007" href="$struct_format.html" title="A struct that holds the format of a texture." alt="" coords="163,325,255,693"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="198,693,193,757,188,756,193,693"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="271,316,277,1203,277,1219,267,1244,262,1242,272,1218,272,1203,266,316"/>
+</map>

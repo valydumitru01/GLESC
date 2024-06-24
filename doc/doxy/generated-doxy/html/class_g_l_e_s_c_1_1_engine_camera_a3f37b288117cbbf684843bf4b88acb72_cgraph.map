@@ -1,0 +1,102 @@
+<map id="GLESC::EngineCamera::setupCamera" name="GLESC::EngineCamera::setupCamera">
+<area shape="rect" id="Node000001" title="Prepares the camera entity with its components and it&#39;s initial values." alt="" coords="5,395,164,437"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_engine_camera.html#a0180724c3fe73ea39b1fdfabd0396b45" title="Accelerates the camera (increases the speed by a factor of 2)" alt="" coords="217,27,376,69"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="85,394,95,333,116,249,132,204,153,159,179,117,210,80,212,77,216,81,214,83,183,120,158,162,137,206,121,251,100,334,91,394"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html#a9e9f27d8c519ebe4c50e3463608d06b2" title="Adds a component to the entity and returns a reference to it The components is registered to the ECSM..." alt="" coords="225,93,368,136"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="88,393,101,344,125,278,160,208,183,175,210,146,213,143,217,147,214,150,187,179,165,211,130,280,106,345,93,395"/>
+<area shape="rect" id="Node000013" href="$class_g_l_e_s_c_1_1_engine_camera.html#a7e5cec81f7cdfc9a0480148355b9e3f7" title="Decelerates the camera (decreases the speed by a factor of 2)" alt="" coords="217,160,376,203"/>
+<area shape="poly" id="edge15_Node000001_Node000013" title=" " alt="" coords="93,393,136,311,169,263,210,219,224,209,227,213,213,223,174,266,140,314,97,396"/>
+<area shape="rect" id="Node000014" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html#a14143b00be0701d787f043955c449e22" title="Returns a reference to the component." alt="" coords="459,528,601,571"/>
+<area shape="poly" id="edge16_Node000001_Node000014" title=" " alt="" coords="94,393,111,362,137,325,170,290,210,263,258,243,300,233,320,233,341,238,361,248,383,263,407,292,418,323,418,354,412,386,407,419,405,451,412,483,431,514,446,527,443,531,427,518,407,485,400,451,401,418,407,385,412,354,412,323,403,295,379,267,359,253,339,243,320,238,300,238,260,248,213,268,174,294,141,329,116,365,98,396"/>
+<area shape="rect" id="Node000019" href="$class_g_l_e_s_c_1_1_window_manager.html#a9773451549202e2cee40c3106d8e5bbe" title="Get the width and height of the window." alt="" coords="212,277,381,320"/>
+<area shape="poly" id="edge22_Node000001_Node000019" title=" " alt="" coords="113,392,158,361,210,330,221,324,223,329,213,334,161,365,116,396"/>
+<area shape="rect" id="Node000020" href="$_debug_entity_data_h_u_d_8cpp.html#a903bf8047efcb53468156de5e2f12163" title=" " alt="" coords="272,344,321,371"/>
+<area shape="poly" id="edge23_Node000001_Node000020" title=" " alt="" coords="163,392,256,366,257,371,164,397"/>
+<area shape="rect" id="Node000021" href="$class_g_l_e_s_c_1_1_engine_camera.html#a97a3af009cfc6a81b42d4a61d43e36e2" title="Moves the camera backwards." alt="" coords="217,395,376,437"/>
+<area shape="poly" id="edge24_Node000001_Node000021" title=" " alt="" coords="164,413,202,413,202,419,164,419"/>
+<area shape="rect" id="Node000031" href="$class_g_l_e_s_c_1_1_engine_camera.html#ab1754eb155a149e9ee93e62e9b1b2002" title="Moves the camera downwards." alt="" coords="217,528,376,571"/>
+<area shape="poly" id="edge36_Node000001_Node000031" title=" " alt="" coords="111,436,156,475,213,514,222,519,219,523,210,518,153,479,107,440"/>
+<area shape="rect" id="Node000032" href="$class_g_l_e_s_c_1_1_engine_camera.html#a335ed43ca73bdbc5527ea0ec49a00dd2" title="Moves the camera forwards." alt="" coords="217,461,376,504"/>
+<area shape="poly" id="edge38_Node000001_Node000032" title=" " alt="" coords="155,435,212,454,211,459,154,440"/>
+<area shape="rect" id="Node000033" href="$class_g_l_e_s_c_1_1_engine_camera.html#acd6cb2233c367b37d1888d8c6fa743db" title="Moves the camera to the left." alt="" coords="217,661,376,704"/>
+<area shape="poly" id="edge41_Node000001_Node000033" title=" " alt="" coords="95,437,110,481,134,537,169,596,190,623,213,647,217,650,214,655,210,651,186,627,164,599,129,539,105,483,90,439"/>
+<area shape="rect" id="Node000038" href="$class_g_l_e_s_c_1_1_engine_camera.html#a26c75b09b36ddc554f1d8cabd314a9be" title="Moves the camera to the right." alt="" coords="217,728,376,771"/>
+<area shape="poly" id="edge50_Node000001_Node000038" title=" " alt="" coords="92,437,103,492,125,566,161,645,185,681,214,714,216,717,213,721,210,718,181,685,157,647,120,568,98,493,86,438"/>
+<area shape="rect" id="Node000039" href="$class_g_l_e_s_c_1_1_engine_camera.html#ad7633b5892a3e8d8490642726e3bb0a9" title="Moves the camera upwards." alt="" coords="217,595,376,637"/>
+<area shape="poly" id="edge53_Node000001_Node000039" title=" " alt="" coords="99,437,144,507,176,546,213,581,219,584,216,589,210,585,172,550,139,510,95,439"/>
+<area shape="rect" id="Node000040" href="$class_g_l_e_s_c_1_1_engine_camera.html#a63dae1933350d3e10798719c19db2870" title="Rotates the camera based on the mouse movement." alt="" coords="217,795,376,837"/>
+<area shape="poly" id="edge55_Node000001_Node000040" title=" " alt="" coords="90,437,98,503,117,595,133,644,154,693,181,740,214,781,216,783,212,787,210,784,176,743,150,696,128,646,112,596,92,504,85,438"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator.html#ac174f3ade2ce8ea1a240c49385409942" title="Add a component to an entity." alt="" coords="429,105,630,148"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="368,116,414,118,414,123,368,121"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a8c54c83144ea6f6e27660aac346f1fa7" title="Add a component to the entity. The entity must exist." alt="" coords="694,5,887,48"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="574,102,677,58,697,51,698,56,679,62,577,107"/>
+<area shape="rect" id="Node000009" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_component_manager.html#a74683fbd748d8c01e27b63a5eeab010d" title="Add a component to an entity." alt="" coords="678,72,903,115"/>
+<area shape="poly" id="edge10_Node000004_Node000009" title=" " alt="" coords="630,111,663,107,663,112,631,116"/>
+<area shape="rect" id="Node000010" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#a69e2b35d930bdb4505587279d31b9400" title="Adds the entity to the systems it is associated with and removes it from the systems it is no longer ..." alt="" coords="689,139,892,181"/>
+<area shape="poly" id="edge11_Node000004_Node000010" title=" " alt="" coords="631,137,673,142,673,148,630,142"/>
+<area shape="rect" id="Node000011" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_component_manager.html#aa81ef6c48acdf07190ada035bfa9bd59" title="Get the ID of a component by its type." alt="" coords="678,205,903,248"/>
+<area shape="poly" id="edge12_Node000004_Node000011" title=" " alt="" coords="577,146,679,191,698,198,697,203,677,196,574,151"/>
+<area shape="rect" id="Node000012" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#afed1028adc518bc27c8cc190832f2bf9" title="Get the signature of the entity. The entity must exist." alt="" coords="967,213,1159,256"/>
+<area shape="poly" id="edge13_Node000004_Node000012" title=" " alt="" coords="549,147,571,174,601,206,638,235,679,258,716,269,755,276,834,279,910,271,976,258,977,263,910,276,834,284,754,281,715,274,677,262,635,240,598,210,567,178,544,150"/>
+<area shape="rect" id="Node000006" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a5145504091eb26170aa219acb60aca71" title="Check if the entity with the given name exists." alt="" coords="1239,140,1431,183"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="883,46,904,58,920,73,928,89,937,104,952,116,1018,144,1089,160,1159,167,1223,168,1223,173,1158,172,1088,165,1016,149,949,121,933,107,924,92,916,76,901,62,880,51"/>
+<area shape="rect" id="Node000007" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#aab28983bdd04e1acf2dd7d94dbe4639d" title="Check if the entity has the given component. The entity must exist and the component must be in the r..." alt="" coords="967,64,1159,107"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="888,45,952,59,951,64,887,50"/>
+<area shape="rect" id="Node000008" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a54e81951030afee74dd6ea3c4e2b74e5" title="Check if the component ID is in the range of the signature." alt="" coords="1239,48,1431,91"/>
+<area shape="poly" id="edge9_Node000005_Node000008" title=" " alt="" coords="887,29,1175,49,1224,54,1223,59,1175,55,887,34"/>
+<area shape="poly" id="edge7_Node000007_Node000006" title=" " alt="" coords="1143,105,1242,133,1241,138,1141,110"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="1159,77,1223,73,1223,79,1160,82"/>
+<area shape="poly" id="edge14_Node000012_Node000006" title=" " alt="" coords="1144,210,1238,185,1239,190,1145,215"/>
+<area shape="rect" id="Node000015" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator.html#a70c1d7a354e40af5426372cb3daaaaf1" title="Get the component of an entity by its Id." alt="" coords="690,397,891,440"/>
+<area shape="poly" id="edge17_Node000014_Node000015" title=" " alt="" coords="600,527,629,514,653,494,677,473,725,445,727,450,680,477,656,498,632,518,603,532"/>
+<area shape="poly" id="edge18_Node000015_Node000006" title=" " alt="" coords="860,394,1007,341,1091,305,1174,266,1237,228,1292,190,1295,194,1240,232,1176,270,1093,310,1009,346,861,399"/>
+<area shape="rect" id="Node000016" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_component_manager.html#ac63a277ed5aed0640e808f20480d01a1" title="Get the component of an entity by its ID." alt="" coords="951,397,1175,440"/>
+<area shape="poly" id="edge19_Node000015_Node000016" title=" " alt="" coords="891,416,935,416,935,421,891,421"/>
+<area shape="rect" id="Node000017" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_component_manager.html#ab06d3e4aecbf882b3f75fa4943f561f2" title="Get the name of a component by its ID." alt="" coords="1223,397,1447,440"/>
+<area shape="poly" id="edge20_Node000016_Node000017" title=" " alt="" coords="1175,416,1207,416,1207,421,1175,421"/>
+<area shape="rect" id="Node000018" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_component_manager.html#af4b8c65d69d17052413005a7402bf116" title="Check if a component is registered." alt="" coords="1495,397,1720,440"/>
+<area shape="poly" id="edge21_Node000017_Node000018" title=" " alt="" coords="1448,416,1480,416,1480,421,1448,421"/>
+<area shape="poly" id="edge35_Node000021_Node000014" title=" " alt="" coords="364,436,383,447,399,465,407,482,415,498,431,514,446,523,443,528,427,518,411,501,402,484,394,468,379,451,361,440"/>
+<area shape="rect" id="Node000022" href="$struct_g_l_e_s_c_1_1_transform_1_1_transform.html#ad2ee8e926f9bfcb5ec42baab5f431cb9" title="Calculates the forward vector using the rotation." alt="" coords="432,461,627,504"/>
+<area shape="poly" id="edge25_Node000021_Node000022" title=" " alt="" coords="374,435,438,454,437,459,372,440"/>
+<area shape="rect" id="Node000023" href="$struct_g_l_e_s_c_1_1_transform_1_1_transform.html#af9d35a099f1653e8964f845c289927e0" title="Calculates the forward vector using the rotation." alt="" coords="693,487,888,529"/>
+<area shape="poly" id="edge26_Node000022_Node000023" title=" " alt="" coords="628,490,677,494,677,500,628,495"/>
+<area shape="rect" id="Node000024" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#a106b2900ef5a7d1e188bb2009089beab" title="Returs the forward vector of a rotation." alt="" coords="989,487,1137,529"/>
+<area shape="poly" id="edge27_Node000023_Node000024" title=" " alt="" coords="889,505,973,505,973,511,889,511"/>
+<area shape="rect" id="Node000028" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#a058dd167ea8c84edda5fdeccdeebd5d5" title="Converts the vector to radians." alt="" coords="989,583,1137,625"/>
+<area shape="poly" id="edge31_Node000023_Node000028" title=" " alt="" coords="854,527,986,574,985,579,852,532"/>
+<area shape="rect" id="Node000025" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#a77a66f0f55bf3620e92c2cffd4773dab" title="Makes a forward vector from rotation angles." alt="" coords="1230,487,1440,529"/>
+<area shape="poly" id="edge28_Node000024_Node000025" title=" " alt="" coords="1137,505,1214,505,1214,511,1137,511"/>
+<area shape="rect" id="Node000026" href="$namespace_g_l_e_s_c_1_1_math.html#ac72fdbfd43b6a5770385dbfd805b687b" title="Calculates the cosine of a value." alt="" coords="1542,503,1673,529"/>
+<area shape="poly" id="edge29_Node000025_Node000026" title=" " alt="" coords="1441,508,1526,511,1526,516,1441,514"/>
+<area shape="rect" id="Node000027" href="$namespace_g_l_e_s_c_1_1_math.html#aa21a1aeaaa25e280f941221e165dffa4" title="Calculates the sine of a value." alt="" coords="1544,557,1671,584"/>
+<area shape="poly" id="edge30_Node000025_Node000027" title=" " alt="" coords="1431,527,1532,551,1531,556,1430,533"/>
+<area shape="rect" id="Node000029" href="$namespace_g_l_e_s_c_1_1_math.html#a980ed967f85bef4bb539c9701701a877" title="Converts degrees to radians." alt="" coords="1259,620,1411,647"/>
+<area shape="poly" id="edge32_Node000028_Node000029" title=" " alt="" coords="1138,609,1244,621,1243,626,1137,615"/>
+<area shape="rect" id="Node000030" href="$namespace_g_l_e_s_c_1_1_math.html#a69598a72ef2c06e1caba0ea9613d65e6" title="Converts radians to degrees." alt="" coords="1529,620,1686,647"/>
+<area shape="poly" id="edge33_Node000029_Node000030" title=" " alt="" coords="1412,639,1514,639,1514,645,1412,644"/>
+<area shape="poly" id="edge34_Node000030_Node000029" title=" " alt="" coords="1529,628,1427,627,1427,622,1529,622"/>
+<area shape="poly" id="edge37_Node000031_Node000014" title=" " alt="" coords="376,547,443,547,443,552,376,552"/>
+<area shape="poly" id="edge40_Node000032_Node000014" title=" " alt="" coords="374,502,445,522,443,528,372,507"/>
+<area shape="poly" id="edge39_Node000032_Node000022" title=" " alt="" coords="376,480,417,480,417,485,376,485"/>
+<area shape="poly" id="edge42_Node000033_Node000014" title=" " alt="" coords="356,658,380,647,437,613,487,578,490,582,439,617,382,652,358,663"/>
+<area shape="rect" id="Node000034" href="$struct_g_l_e_s_c_1_1_transform_1_1_transform.html#a3ca12c0fcf34d42593d0e8a59a0e21d4" title="Calculates the right vector using the rotation." alt="" coords="432,661,627,704"/>
+<area shape="poly" id="edge43_Node000033_Node000034" title=" " alt="" coords="376,680,417,680,417,685,376,685"/>
+<area shape="rect" id="Node000035" href="$struct_g_l_e_s_c_1_1_transform_1_1_transform.html#a92fc8e586bd408d56f8f7edcdd0c6c48" title="Calculates the right vector using the rotation." alt="" coords="693,649,888,692"/>
+<area shape="poly" id="edge44_Node000034_Node000035" title=" " alt="" coords="628,676,677,673,677,679,628,681"/>
+<area shape="poly" id="edge49_Node000035_Node000028" title=" " alt="" coords="880,646,973,623,974,628,881,651"/>
+<area shape="rect" id="Node000036" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#a45143ffe5273f8e3ec870f864e03f20d" title="Returns the right vector of a rotation." alt="" coords="989,649,1137,692"/>
+<area shape="poly" id="edge45_Node000035_Node000036" title=" " alt="" coords="889,668,973,668,973,673,889,673"/>
+<area shape="rect" id="Node000037" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#a75d6e29326396451ea50687480ccb518" title="Makes a right vector from rotation angles." alt="" coords="1230,553,1440,596"/>
+<area shape="poly" id="edge46_Node000036_Node000037" title=" " alt="" coords="1136,649,1174,635,1198,620,1222,606,1237,599,1239,604,1224,610,1200,625,1176,640,1138,654"/>
+<area shape="poly" id="edge47_Node000037_Node000026" title=" " alt="" coords="1437,550,1527,531,1528,536,1438,555"/>
+<area shape="poly" id="edge48_Node000037_Node000027" title=" " alt="" coords="1441,570,1528,569,1528,574,1441,576"/>
+<area shape="poly" id="edge51_Node000038_Node000014" title=" " alt="" coords="361,725,379,714,395,698,405,683,427,648,492,580,496,583,431,651,409,686,399,702,383,718,364,730"/>
+<area shape="poly" id="edge52_Node000038_Node000034" title=" " alt="" coords="372,725,437,706,438,711,374,730"/>
+<area shape="poly" id="edge54_Node000039_Node000014" title=" " alt="" coords="372,592,443,571,445,576,374,597"/>
+<area shape="poly" id="edge57_Node000040_Node000014" title=" " alt="" coords="365,792,379,781,392,765,400,749,406,719,411,686,427,648,456,611,488,579,491,583,460,614,431,651,416,687,411,719,405,751,396,768,383,785,368,796"/>
+<area shape="rect" id="Node000041" href="$class_g_l_e_s_c_1_1_render_1_1_intensity.html#a53940c748518c99fc3f50b5fa2d7e31a" title=" " alt="" coords="431,773,628,800"/>
+<area shape="poly" id="edge56_Node000040_Node000041" title=" " alt="" coords="375,803,415,798,416,804,376,809"/>
+<area shape="rect" id="Node000042" href="$class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a7d49f885da5aee9871965a2e5c814608" title="Gets whether the mouse is relative or not." alt="" coords="436,824,623,867"/>
+<area shape="poly" id="edge58_Node000040_Node000042" title=" " alt="" coords="376,823,421,829,420,834,375,829"/>
+</map>

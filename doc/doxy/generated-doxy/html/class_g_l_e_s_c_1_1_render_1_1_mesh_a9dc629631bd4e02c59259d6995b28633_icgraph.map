@@ -1,0 +1,9 @@
+<map id="GLESC::Render::Mesh::getModifiableVertices" name="GLESC::Render::Mesh::getModifiableVertices">
+<area shape="rect" id="Node000001" title=" " alt="" coords="260,72,414,115"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_transform_1_1_transformer.html#a5577240cc80f5b926c31d1b67da65de0" title="Rotates a mesh by a given rotation." alt="" coords="5,5,212,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="247,70,184,51,185,46,248,65"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_transform_1_1_transformer.html#ac4210d1b111a51d877cbe9187cc057f1" title=" " alt="" coords="5,72,212,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="244,96,212,96,212,91,244,91"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_transform_1_1_transformer.html#a23d9dfb2b4c5d47b0aeca15bdc34b83d" title="Translates a mesh by a given position." alt="" coords="5,139,212,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="248,122,185,141,184,135,247,117"/>
+</map>

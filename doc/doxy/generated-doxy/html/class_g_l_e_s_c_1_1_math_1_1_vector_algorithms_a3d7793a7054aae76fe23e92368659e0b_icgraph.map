@@ -1,0 +1,29 @@
+<map id="GLESC::Math::VectorAlgorithms::vectorSub" name="GLESC::Math::VectorAlgorithms::vectorSub">
+<area shape="rect" id="Node000001" title="Subtracts two vectors." alt="" coords="801,305,1011,348"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_vector_mixed_algorithms.html#a017c78aceeac4cc6bacc66d88f3ba7b4" title="Checks if points are collinear." alt="" coords="556,105,739,148"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="869,296,815,247,751,195,684,151,687,146,754,191,818,243,872,292"/>
+<area shape="rect" id="Node000006" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#a7ebf0b6ba478ecc9c795cc178c80256d" title="Computes the distance between two vectors." alt="" coords="542,205,753,248"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="843,301,752,262,720,251,722,246,754,258,845,296"/>
+<area shape="rect" id="Node000010" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#aac1a177987e059f58c0ff6829cc6efc8" title="Computes the squared distance between two vectors." alt="" coords="542,272,753,315"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="785,314,753,310,754,304,786,308"/>
+<area shape="rect" id="Node000012" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_mixed_algorithms.html#a7ededab6ed7bb33c8662b3b9ae8ab944" title="Calculate the view matrix from the eye, target, and up vectors." alt="" coords="557,339,738,381"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="786,345,739,351,738,346,785,340"/>
+<area shape="rect" id="Node000013" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#a34b5bb657f11e1cb62c3653b8cf9d295" title="Overloads the &#39;&#45;&#39; operator for vector subtraction." alt="" coords="573,405,722,448"/>
+<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="845,357,754,396,722,407,720,402,752,391,843,352"/>
+<area shape="rect" id="Node000014" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#aa22858a880933e1e2925bb7242ecadc1" title="In&#45;place subtraction with another vector." alt="" coords="573,472,722,515"/>
+<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="877,361,823,413,789,439,754,462,723,476,721,472,751,458,786,435,819,409,873,357"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_plane.html#a503abb5ac4797527f02056f1223a0166" title="Construct a new Plane object from three distinct points." alt="" coords="331,5,474,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="583,101,493,62,464,51,466,46,495,58,586,96"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_math_1_1_vector_mixed_algorithms.html#af98aa7b91b091b447e76b467d60a7114" title="Checks if points are collinear." alt="" coords="311,72,494,115"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="540,115,495,108,495,103,541,109"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#aa9d1c92dac095666f8eb521b1e5a541d" title="Checks if the current vector is a scalar multiple of some vectors." alt="" coords="329,139,477,181"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="541,144,478,153,477,147,540,139"/>
+<area shape="rect" id="Node000007" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#a1c6191d691ecd08db7806279439305ef" title="Gives the distance between two vectors." alt="" coords="329,205,477,248"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="526,229,477,229,477,224,526,224"/>
+<area shape="rect" id="Node000008" href="$class_g_l_e_s_c_1_1_engine.html#ad2ff110d5a86c1cd60b541d65915ac48" title="Processes the logic of the game Is called every frame, must be called at constant intervals of time a..." alt="" coords="103,213,263,240"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="313,229,264,229,264,224,313,224"/>
+<area shape="rect" id="Node000009" href="$main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,213,55,240"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="87,229,55,229,55,224,87,224"/>
+<area shape="rect" id="Node000011" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#aa9d2cf1021e68de567a6df2ca104c473" title="Gives the squared distance between two vectors." alt="" coords="329,272,477,315"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="526,296,477,296,477,291,526,291"/>
+</map>

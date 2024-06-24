@@ -1,0 +1,17 @@
+<map id="TextureSurface.h" name="TextureSurface.h">
+<area shape="rect" id="Node000001" title="@TODO Add description of this file if needed" alt="" coords="94,5,213,32"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,96,59,123"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="138,35,63,89,60,85,134,30"/>
+<area shape="rect" id="Node000003" href="$_gapi_8h.html" title="Abstracts the graphic API used by the engine." alt="" coords="83,80,224,139"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="156,33,156,64,151,64,151,33"/>
+<area shape="rect" id="Node000005" href="$_texture_structs_8h.html" title="@TODO Add description of this file if needed" alt="" coords="273,96,391,123"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="180,30,294,86,292,91,178,35"/>
+<area shape="rect" id="Node000004" href="$_config_8h.html" title="This file contains the configuration of the engine." alt="" coords="85,187,195,213"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="152,139,147,172,142,171,146,139"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="219,187,285,213"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="323,125,275,177,272,173,319,121"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="310,187,378,213"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="336,123,343,171,338,171,331,124"/>
+<area shape="rect" id="Node000008" href="$_texture_enums_8h.html" title="@TODO Add description of this file if needed" alt="" coords="402,187,518,213"/>
+<area shape="poly" id="edge7_Node000005_Node000008" title=" " alt="" coords="352,121,431,175,428,180,349,125"/>
+</map>

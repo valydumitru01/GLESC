@@ -1,0 +1,15 @@
+<map id="GLESC::ECS::IComponent" name="GLESC::ECS::IComponent">
+<area shape="rect" id="Node000001" title="Base class for all components." alt="" coords="39,768,238,965"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="64,603,213,688"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="141,688,141,751,136,751,136,688"/>
+<area shape="rect" id="Node000003" href="$class_entity_stats_manager.html#struct_entity_stats_manager_1_1_value" title="Struct that holds the data of a value of a component." alt="" coords="5,288,133,523"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="89,522,106,578,109,586,104,588,100,580,84,523"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="34,139,105,208"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="72,208,72,271,67,271,67,208"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="11,5,128,91"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="72,106,72,139,67,139,67,106"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="157,371,261,440"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="203,455,189,515,171,580,161,604,156,602,165,578,184,514,198,454"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="199,139,219,208"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="212,208,212,354,207,354,207,208"/>
+</map>

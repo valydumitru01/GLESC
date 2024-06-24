@@ -1,0 +1,8 @@
+<map id="GLESC::Math::Vector::toDegrees" name="GLESC::Math::Vector::toDegrees">
+<area shape="rect" id="Node000001" title="Converts the vector to degrees." alt="" coords="5,5,154,48"/>
+<area shape="rect" id="Node000002" href="$namespace_g_l_e_s_c_1_1_math.html#a69598a72ef2c06e1caba0ea9613d65e6" title="Converts radians to degrees." alt="" coords="202,13,358,40"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="154,24,186,24,186,29,154,29"/>
+<area shape="rect" id="Node000003" href="$namespace_g_l_e_s_c_1_1_math.html#a980ed967f85bef4bb539c9701701a877" title="Converts degrees to radians." alt="" coords="406,13,558,40"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="358,33,391,33,391,38,358,38"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="406,21,374,20,374,15,406,15"/>
+</map>

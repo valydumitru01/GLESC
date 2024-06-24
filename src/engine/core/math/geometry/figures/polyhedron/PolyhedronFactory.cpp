@@ -2,7 +2,7 @@
  * @file   PolyhedronFactory.cpp
  * @author Valentin Dumitru
  * @date   2023-12-25
- * @brief  Add description of this file if needed @TODO 
+ * @brief  @TODO Add description of this file if needed
  *
  * Copyright (c) 2023 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
@@ -13,7 +13,7 @@
 
 using namespace GLESC::Math;
 
-namespace PolyhedronFactory::Regular {
+namespace GLESC::PolyhedronFactory::Regular {
     Polyhedron tetra() {
         Polyhedron tetrahedron;
         double sqrt2_3 = sqrt(2.0 / 3.0);
@@ -108,7 +108,7 @@ namespace PolyhedronFactory::Regular {
     }
 }
 
-namespace PolyhedronFactory::Common {
+namespace GLESC::PolyhedronFactory::Common {
     Polyhedron pyramid([[maybe_unused]] double radius, [[maybe_unused]] double height,
                        [[maybe_unused]] unsigned int baseSides) {
         Polyhedron pyramid;

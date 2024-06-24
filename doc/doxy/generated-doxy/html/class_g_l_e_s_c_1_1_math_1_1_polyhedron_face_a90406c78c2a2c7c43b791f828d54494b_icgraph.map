@@ -1,0 +1,7 @@
+<map id="GLESC::Math::PolyhedronFace::getPolyhedronVertices" name="GLESC::Math::PolyhedronFace::getPolyhedronVertices">
+<area shape="rect" id="Node000001" title=" " alt="" coords="229,39,433,81"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a13c2a619c25064b513eb8f9287aac4a1" title="Checks if a face is inside the polyhedron." alt="" coords="5,5,181,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="213,46,181,42,181,36,213,41"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_sphere.html#afae71303211a202967e7389fa613ca86" title="Checks if the sphere intersects with the given face." alt="" coords="17,72,169,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="214,79,170,85,169,80,213,74"/>
+</map>

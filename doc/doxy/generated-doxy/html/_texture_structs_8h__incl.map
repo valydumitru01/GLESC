@@ -1,0 +1,9 @@
+<map id="TextureStructs.h" name="TextureStructs.h">
+<area shape="rect" id="Node000001" title="@TODO Add description of this file if needed" alt="" coords="72,5,189,32"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,80,72,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="116,35,68,73,64,68,113,30"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="96,80,165,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="133,33,133,64,128,64,128,33"/>
+<area shape="rect" id="Node000004" href="$_texture_enums_8h.html" title="@TODO Add description of this file if needed" alt="" coords="188,80,305,107"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="152,30,215,69,212,74,149,35"/>
+</map>

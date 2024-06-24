@@ -1,0 +1,5 @@
+<map id="GLESC::Math::Figure" name="GLESC::Math::Figure">
+<area shape="rect" id="Node000001" title="Base class for all geometric figures." alt="" coords="8,5,145,181"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_sphere.html" title=" " alt="" coords="5,229,148,448"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="79,197,79,230,74,230,74,197"/>
+</map>

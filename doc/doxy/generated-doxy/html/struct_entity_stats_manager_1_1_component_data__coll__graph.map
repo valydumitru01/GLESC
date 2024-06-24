@@ -1,0 +1,16 @@
+<map id="EntityStatsManager::ComponentData" name="EntityStatsManager::ComponentData">
+<area shape="rect" id="Node000001" title=" " alt="" coords="199,752,329,837"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="237,139,307,208"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="295,207,304,231,305,248,304,264,304,476,297,688,293,728,291,737,286,735,288,728,292,688,299,476,299,264,300,248,299,233,290,209"/>
+<area shape="rect" id="Node000005" href="$class_entity_stats_manager.html#struct_entity_stats_manager_1_1_value" title="Struct that holds the data of a value of a component." alt="" coords="155,288,283,523"/>
+<area shape="poly" id="edge5_Node000005_Node000002" title=" " alt="" coords="249,209,237,233,227,272,222,270,232,231,244,207"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="213,5,331,91"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="275,106,275,139,269,139,269,106"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="133,603,283,688"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="226,687,245,735,240,737,221,689"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="216,523,213,586,208,586,211,522"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="5,371,109,440"/>
+<area shape="poly" id="edge6_Node000004_Node000006" title=" " alt="" coords="53,455,52,485,54,517,62,548,76,577,102,603,135,621,132,626,99,607,72,580,57,550,49,518,47,485,48,455"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="47,139,67,208"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="60,208,60,354,55,354,55,208"/>
+</map>

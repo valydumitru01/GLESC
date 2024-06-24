@@ -1,0 +1,7 @@
+<map id="GLESC::Transform::Transform::setRotation" name="GLESC::Transform::Transform::setRotation">
+<area shape="rect" id="Node000001" title=" " alt="" coords="249,39,444,81"/>
+<area shape="rect" id="Node000002" href="$struct_g_l_e_s_c_1_1_transform_1_1_transform.html#a7a79768931913a44f67a4b700c608ff7" title="Adds a rotation to the current rotation." alt="" coords="5,5,201,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="233,47,201,43,201,37,233,42"/>
+<area shape="rect" id="Node000003" href="$struct_g_l_e_s_c_1_1_transform_1_1_transform.html#a2965fba8d532747b5ce10cfcdeea21fe" title="Adds a rotation to the current rotation." alt="" coords="5,72,201,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="233,78,201,83,201,77,233,73"/>
+</map>

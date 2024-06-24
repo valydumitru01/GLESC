@@ -1,0 +1,16 @@
+<map id="GLESC::ECS::EntityManager::addComponentToEntity" name="GLESC::ECS::EntityManager::addComponentToEntity">
+<area shape="rect" id="Node000001" title="Add a component to the entity. The entity must exist." alt="" coords="900,64,1092,107"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator.html#ac174f3ade2ce8ea1a240c49385409942" title="Add a component to an entity." alt="" coords="650,64,852,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="884,88,852,88,852,83,884,83"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html#a9e9f27d8c519ebe4c50e3463608d06b2" title="Adds a component to the entity and returns a reference to it The components is registered to the ECSM..." alt="" coords="460,64,602,107"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="635,88,602,88,602,83,635,83"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_engine.html#adb0bb222b1e702be0a95d55d8cfc915f" title=" " alt="" coords="215,5,412,48"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="444,65,394,51,396,46,445,60"/>
+<area shape="rect" id="Node000006" href="$class_default.html#a6e26da3ebf533b0f5d45266cd0ce9082" title="Initializes the scene. Must be implemented by the derived class." alt="" coords="270,72,357,99"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="444,88,357,88,357,83,444,83"/>
+<area shape="rect" id="Node000007" href="$class_g_l_e_s_c_1_1_engine_camera.html#a3f37b288117cbbf684843bf4b88acb72" title="Prepares the camera entity with its components and it&#39;s initial values." alt="" coords="234,123,393,165"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="445,111,394,125,392,120,444,106"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_engine.html#a93e1621f9daf326a7c45d3b2a4c826c1" title="The constructor is private, the engine can only be created by the main function." alt="" coords="5,72,167,99"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="214,55,141,74,140,69,213,50"/>
+<area shape="poly" id="edge7_Node000007_Node000005" title=" " alt="" coords="219,122,140,102,141,97,220,117"/>
+</map>

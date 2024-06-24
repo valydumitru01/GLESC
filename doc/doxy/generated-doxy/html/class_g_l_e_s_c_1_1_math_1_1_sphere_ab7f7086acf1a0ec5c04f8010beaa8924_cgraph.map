@@ -1,0 +1,9 @@
+<map id="GLESC::Math::Sphere::intersects" name="GLESC::Math::Sphere::intersects">
+<area shape="rect" id="Node000001" title="Checks if the sphere intersects with the given plane." alt="" coords="5,5,157,48"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_plane.html#a11df2e06eb0ee48a7bb905050744bd45" title="Calculate the distance from the plane to a point." alt="" coords="205,5,348,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="157,24,189,24,189,29,157,29"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#ab7062a9b67c16d4e60413b625412b4eb" title="Returns the dot product of two vectors." alt="" coords="396,13,570,40"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="349,24,380,24,380,29,349,29"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#ae45bcff9b53fb60d513c53823418d97b" title="Computes the dot product of two vectors." alt="" coords="618,5,829,48"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="571,24,603,24,603,29,571,29"/>
+</map>

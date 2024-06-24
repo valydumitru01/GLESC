@@ -1,0 +1,9 @@
+<map id="GLESC::HUD::HUDManager::newFrame" name="GLESC::HUD::HUDManager::newFrame">
+<area shape="rect" id="Node000001" title=" " alt="" coords="541,5,727,48"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#ae33f9835adbdd3c1bc2e3e807ff66875" title="Render the HUD." alt="" coords="308,5,493,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="526,29,494,29,494,24,526,24"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_engine.html#ab0a886855ca341089947b36b9c6f6e15" title="Processes the rendering of the game Can be called at variable intervals of time as it uses elapsed." alt="" coords="103,13,260,40"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="292,29,260,29,260,24,292,24"/>
+<area shape="rect" id="Node000004" href="$main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,13,55,40"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="87,29,55,29,55,24,87,24"/>
+</map>

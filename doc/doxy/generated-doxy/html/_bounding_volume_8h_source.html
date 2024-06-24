@@ -1,0 +1,215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="Doxygen Awesome" />
+<meta property="og:image" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+<meta property="og:description" content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
+<meta property="og:url" content="https://jothepro.github.io/doxygen-awesome-css/" />
+<!-- END opengraph metadata -->
+<!-- BEGIN twitter metadata -->
+<meta name="twitter:image:src" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+<meta name="twitter:title" content="Doxygen Awesome" />
+<meta name="twitter:description" content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
+<!-- END twitter metadata -->
+<title>GLESC: BoundingVolume.h Source File</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.drawio.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/ -->
+<a href="https://github.com/jothepro/doxygen-awesome-css" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="GLESC_logo_white_background.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">GLESC
+   &#160;<span id="projectnumber">1</span>
+   </div>
+   <div id="projectbrief">Game engine using ECS architecture</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('_bounding_volume_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">BoundingVolume.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_bounding_volume_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="_vector_8h.html">engine/core/math/algebra/vector/Vector.h</a>&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_g_l_e_s_c_1_1_math.html">GLESC::Math</a> {</div>
+<div class="foldopen" id="foldopen00018" data-start="{" data-end="};">
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html">   18</a></span>    <span class="keyword">class </span><a class="code hl_class" href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html">BoundingVolume</a> {</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00027" data-start="{" data-end="};">
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html">   27</a></span>        <span class="keyword">struct </span><a class="code hl_struct" href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#struct_g_l_e_s_c_1_1_math_1_1_bounding_volume_1_1_a_a_b_b">AABB</a> {</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#aa5f0994267dfc364ef2a72daeabb215c">   28</a></span>            <a class="code hl_class" href="class_g_l_e_s_c_1_1_math_1_1_vector.html">Vec3F</a> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#aa5f0994267dfc364ef2a72daeabb215c">min</a>{-1, -1, -1};</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#afe880873b7f74cfc4963a0c439049c2e">   29</a></span>            <a class="code hl_class" href="class_g_l_e_s_c_1_1_math_1_1_vector.html">Vec3F</a> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#afe880873b7f74cfc4963a0c439049c2e">max</a>{1, 1, 1};</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        };</div>
+</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#a9fb1ba06c01a9c11e16773daba92779b">   36</a></span>        <a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#a9fb1ba06c01a9c11e16773daba92779b">BoundingVolume</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#a9fb1ba06c01a9c11e16773daba92779b">BoundingVolume</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_g_l_e_s_c_1_1_math_1_1_vector.html">Vec3F</a>&amp; <a class="code hl_function" href="namespace_g_l_e_s_c_1_1_math.html#ad2df75a6181d9d1d318d20d224a2866b">min</a>, <span class="keyword">const</span> <a class="code hl_class" href="class_g_l_e_s_c_1_1_math_1_1_vector.html">Vec3F</a>&amp; <a class="code hl_function" href="namespace_g_l_e_s_c_1_1_math.html#a522e4f8e000cccddbf9d2f92280cfb6c">max</a>);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#acde54378eb86d972d399a347c0a83e79">setVolume</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_g_l_e_s_c_1_1_math_1_1_vector.html">Vec3F</a>&amp; <a class="code hl_function" href="namespace_g_l_e_s_c_1_1_math.html#ad2df75a6181d9d1d318d20d224a2866b">min</a>, <span class="keyword">const</span> <a class="code hl_class" href="class_g_l_e_s_c_1_1_math_1_1_vector.html">Vec3F</a>&amp; <a class="code hl_function" href="namespace_g_l_e_s_c_1_1_math.html#a522e4f8e000cccddbf9d2f92280cfb6c">max</a>);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#a350720ffffef022517e214c0562479ec">   55</a></span>        [[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">nodiscard</a>]] <span class="keyword">const</span> <a class="code hl_struct" href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#struct_g_l_e_s_c_1_1_math_1_1_bounding_volume_1_1_a_a_b_b">AABB</a>&amp; <a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#a350720ffffef022517e214c0562479ec">getVolume</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#a3d64211ebf46e9c11d9a447eadd1c3c9">boundingBox</a>; }</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#a61c5ed29689b97d66a06eaf16b8dfc36">updateBoundingBox</a>(<span class="keyword">const</span> <span class="keywordtype">void</span>* data, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> size, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> stride,</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>                               <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">offset</a>);</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        [[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">nodiscard</a>]] <span class="keywordtype">bool</span> <a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#aa9c922ad5b3176ab74bf96467b833e22">hasInside</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_g_l_e_s_c_1_1_math_1_1_vector.html">Vec3F</a>&amp; point) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        [[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">nodiscard</a>]] <span class="keywordtype">float</span> <a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#a12cfae8beb38d7f3ea1948f5bf8a2951">intersectionVolume</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html">BoundingVolume</a>&amp; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">other</a>) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        [[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">nodiscard</a>]] <span class="keywordtype">bool</span> <a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#a40b05af3ce23a6ddf48ad6641df10a51">intersects</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html">BoundingVolume</a>&amp; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">other</a>) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#a08cec61a230e442cfdb83f31e2cc8597">   92</a></span>        [[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">nodiscard</a>]] <span class="keyword">const</span> <a class="code hl_struct" href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#struct_g_l_e_s_c_1_1_math_1_1_bounding_volume_1_1_a_a_b_b">AABB</a>&amp; <a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#a08cec61a230e442cfdb83f31e2cc8597">getBoundingBox</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#a3d64211ebf46e9c11d9a447eadd1c3c9">boundingBox</a>; }</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#a61e91a34c381b7237086810a3d14619f">   98</a></span>        [[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">nodiscard</a>]] <a class="code hl_struct" href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#struct_g_l_e_s_c_1_1_math_1_1_bounding_volume_1_1_a_a_b_b">AABB</a>&amp; <a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#a61e91a34c381b7237086810a3d14619f">getBoundingBox</a>() { <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#a3d64211ebf46e9c11d9a447eadd1c3c9">boundingBox</a>; }</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno"><a class="line" href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#a9b3fd07a8c1e26540af28d36450bcb82">  104</a></span>        [[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">nodiscard</a>]] <span class="keyword">const</span> <a class="code hl_class" href="class_g_l_e_s_c_1_1_math_1_1_vector.html">Vec3F</a>&amp; <a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#a9b3fd07a8c1e26540af28d36450bcb82">getMin</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#a3d64211ebf46e9c11d9a447eadd1c3c9">boundingBox</a>.<a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#aa5f0994267dfc364ef2a72daeabb215c">min</a>; }</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#a89c8c2393df446464f13d60cb031fd51">  110</a></span>        [[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">nodiscard</a>]] <span class="keyword">const</span> <a class="code hl_class" href="class_g_l_e_s_c_1_1_math_1_1_vector.html">Vec3F</a>&amp; <a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#a89c8c2393df446464f13d60cb031fd51">getMax</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#a3d64211ebf46e9c11d9a447eadd1c3c9">boundingBox</a>.<a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#afe880873b7f74cfc4963a0c439049c2e">max</a>; }</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>        [[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">nodiscard</a>]] <span class="keyword">static</span> <a class="code hl_class" href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html">BoundingVolume</a> <a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#a2608942e6303a16ee8ec869b95a133ce">createFromVulume</a>(<span class="keywordtype">float</span> width, <span class="keywordtype">float</span> height, <span class="keywordtype">float</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">depth</a>);</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#ab59e562d5ff9a4a30f4458f4b579f0ba">buildBoundingVolume</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_g_l_e_s_c_1_1_math_1_1_vector.html">Vec3F</a>&amp; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">minVec</a>, <span class="keyword">const</span> <a class="code hl_class" href="class_g_l_e_s_c_1_1_math_1_1_vector.html">Vec3F</a>&amp; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">maxVec</a>);</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno"><a class="line" href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#a3d64211ebf46e9c11d9a447eadd1c3c9">  132</a></span>        <a class="code hl_struct" href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#struct_g_l_e_s_c_1_1_math_1_1_bounding_volume_1_1_a_a_b_b">AABB</a> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#a3d64211ebf46e9c11d9a447eadd1c3c9">boundingBox</a>;</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    };</div>
+</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>} <span class="comment">// namespace GLESC::Math</span></div>
+<div class="ttc" id="a_vector_8h_html"><div class="ttname"><a href="_vector_8h.html">Vector.h</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_bounding_volume_html"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html">GLESC::Math::BoundingVolume</a></div><div class="ttdoc">A bounding volume is a geometric shape that encloses a set of points.</div><div class="ttdef"><b>Definition</b> <a href="_bounding_volume_8h_source.html#l00018">BoundingVolume.h:18</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_bounding_volume_html_a08cec61a230e442cfdb83f31e2cc8597"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#a08cec61a230e442cfdb83f31e2cc8597">GLESC::Math::BoundingVolume::getBoundingBox</a></div><div class="ttdeci">const AABB &amp; getBoundingBox() const</div><div class="ttdoc">Get the const bounding box of the bounding volume.</div><div class="ttdef"><b>Definition</b> <a href="_bounding_volume_8h_source.html#l00092">BoundingVolume.h:92</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_bounding_volume_html_a12cfae8beb38d7f3ea1948f5bf8a2951"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#a12cfae8beb38d7f3ea1948f5bf8a2951">GLESC::Math::BoundingVolume::intersectionVolume</a></div><div class="ttdeci">float intersectionVolume(const BoundingVolume &amp;other) const</div><div class="ttdoc">Get the intersection volume of the bounding volume with another bounding volume.</div><div class="ttdef"><b>Definition</b> <a href="_bounding_volume_8cpp_source.html#l00028">BoundingVolume.cpp:28</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_bounding_volume_html_a2608942e6303a16ee8ec869b95a133ce"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#a2608942e6303a16ee8ec869b95a133ce">GLESC::Math::BoundingVolume::createFromVulume</a></div><div class="ttdeci">static BoundingVolume createFromVulume(float width, float height, float depth)</div><div class="ttdoc">Create a bounding volume from a volume.</div><div class="ttdef"><b>Definition</b> <a href="_bounding_volume_8cpp_source.html#l00109">BoundingVolume.cpp:109</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_bounding_volume_html_a350720ffffef022517e214c0562479ec"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#a350720ffffef022517e214c0562479ec">GLESC::Math::BoundingVolume::getVolume</a></div><div class="ttdeci">const AABB &amp; getVolume() const</div><div class="ttdoc">Get the volume of the bounding volume.</div><div class="ttdef"><b>Definition</b> <a href="_bounding_volume_8h_source.html#l00055">BoundingVolume.h:55</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_bounding_volume_html_a3d64211ebf46e9c11d9a447eadd1c3c9"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#a3d64211ebf46e9c11d9a447eadd1c3c9">GLESC::Math::BoundingVolume::boundingBox</a></div><div class="ttdeci">AABB boundingBox</div><div class="ttdoc">The bounding box of the bounding volume.</div><div class="ttdef"><b>Definition</b> <a href="_bounding_volume_8h_source.html#l00132">BoundingVolume.h:132</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_bounding_volume_html_a40b05af3ce23a6ddf48ad6641df10a51"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#a40b05af3ce23a6ddf48ad6641df10a51">GLESC::Math::BoundingVolume::intersects</a></div><div class="ttdeci">bool intersects(const BoundingVolume &amp;other) const</div><div class="ttdoc">Checks if the bounding volume intersects with another bounding volume.</div><div class="ttdef"><b>Definition</b> <a href="_bounding_volume_8cpp_source.html#l00062">BoundingVolume.cpp:62</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_bounding_volume_html_a61c5ed29689b97d66a06eaf16b8dfc36"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#a61c5ed29689b97d66a06eaf16b8dfc36">GLESC::Math::BoundingVolume::updateBoundingBox</a></div><div class="ttdeci">void updateBoundingBox(const void *data, unsigned int size, unsigned int stride, unsigned int offset)</div><div class="ttdoc">Updates the bounding volume to fit the points it encloses.</div><div class="ttdef"><b>Definition</b> <a href="_bounding_volume_8cpp_source.html#l00075">BoundingVolume.cpp:75</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_bounding_volume_html_a61e91a34c381b7237086810a3d14619f"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#a61e91a34c381b7237086810a3d14619f">GLESC::Math::BoundingVolume::getBoundingBox</a></div><div class="ttdeci">AABB &amp; getBoundingBox()</div><div class="ttdoc">Get the bounding box of the bounding volume.</div><div class="ttdef"><b>Definition</b> <a href="_bounding_volume_8h_source.html#l00098">BoundingVolume.h:98</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_bounding_volume_html_a89c8c2393df446464f13d60cb031fd51"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#a89c8c2393df446464f13d60cb031fd51">GLESC::Math::BoundingVolume::getMax</a></div><div class="ttdeci">const Vec3F &amp; getMax() const</div><div class="ttdoc">Get the maximum point of the bounding volume.</div><div class="ttdef"><b>Definition</b> <a href="_bounding_volume_8h_source.html#l00110">BoundingVolume.h:110</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_bounding_volume_html_a9b3fd07a8c1e26540af28d36450bcb82"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#a9b3fd07a8c1e26540af28d36450bcb82">GLESC::Math::BoundingVolume::getMin</a></div><div class="ttdeci">const Vec3F &amp; getMin() const</div><div class="ttdoc">Get the minimum point of the bounding volume.</div><div class="ttdef"><b>Definition</b> <a href="_bounding_volume_8h_source.html#l00104">BoundingVolume.h:104</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_bounding_volume_html_a9fb1ba06c01a9c11e16773daba92779b"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#a9fb1ba06c01a9c11e16773daba92779b">GLESC::Math::BoundingVolume::BoundingVolume</a></div><div class="ttdeci">BoundingVolume()=default</div><div class="ttdoc">Construct a new Bounding Volume object.</div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_bounding_volume_html_aa5f0994267dfc364ef2a72daeabb215c"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#aa5f0994267dfc364ef2a72daeabb215c">GLESC::Math::BoundingVolume::AABB::min</a></div><div class="ttdeci">Vec3F min</div><div class="ttdef"><b>Definition</b> <a href="_bounding_volume_8h_source.html#l00028">BoundingVolume.h:28</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_bounding_volume_html_aa9c922ad5b3176ab74bf96467b833e22"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#aa9c922ad5b3176ab74bf96467b833e22">GLESC::Math::BoundingVolume::hasInside</a></div><div class="ttdeci">bool hasInside(const Vec3F &amp;point) const</div><div class="ttdoc">Checks if the bounding volume contains the given point.</div><div class="ttdef"><b>Definition</b> <a href="_bounding_volume_8cpp_source.html#l00022">BoundingVolume.cpp:22</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_bounding_volume_html_ab59e562d5ff9a4a30f4458f4b579f0ba"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#ab59e562d5ff9a4a30f4458f4b579f0ba">GLESC::Math::BoundingVolume::buildBoundingVolume</a></div><div class="ttdeci">void buildBoundingVolume(const Vec3F &amp;minVec, const Vec3F &amp;maxVec)</div><div class="ttdoc">Builds the bounding volume from the minimum and maximum points.</div><div class="ttdef"><b>Definition</b> <a href="_bounding_volume_8cpp_source.html#l00116">BoundingVolume.cpp:116</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_bounding_volume_html_acde54378eb86d972d399a347c0a83e79"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#acde54378eb86d972d399a347c0a83e79">GLESC::Math::BoundingVolume::setVolume</a></div><div class="ttdeci">void setVolume(const Vec3F &amp;min, const Vec3F &amp;max)</div><div class="ttdoc">Set the volume of the bounding volume.</div><div class="ttdef"><b>Definition</b> <a href="_bounding_volume_8cpp_source.html#l00017">BoundingVolume.cpp:17</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_bounding_volume_html_afe880873b7f74cfc4963a0c439049c2e"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#afe880873b7f74cfc4963a0c439049c2e">GLESC::Math::BoundingVolume::AABB::max</a></div><div class="ttdeci">Vec3F max</div><div class="ttdef"><b>Definition</b> <a href="_bounding_volume_8h_source.html#l00029">BoundingVolume.h:29</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_bounding_volume_html_struct_g_l_e_s_c_1_1_math_1_1_bounding_volume_1_1_a_a_b_b"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#struct_g_l_e_s_c_1_1_math_1_1_bounding_volume_1_1_a_a_b_b">GLESC::Math::BoundingVolume::AABB</a></div><div class="ttdoc">The axis-aligned bounding box of the bounding volume.</div><div class="ttdef"><b>Definition</b> <a href="_bounding_volume_8h_source.html#l00027">BoundingVolume.h:27</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_vector_html"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_vector.html">GLESC::Math::Vector</a></div><div class="ttdef"><b>Definition</b> <a href="_vector_8h_source.html#l00025">Vector.h:25</a></div></div>
+<div class="ttc" id="anamespace_g_l_e_s_c_1_1_math_html"><div class="ttname"><a href="namespace_g_l_e_s_c_1_1_math.html">GLESC::Math</a></div><div class="ttdef"><b>Definition</b> <a href="_matrix_8h_source.html#l00021">Matrix.h:21</a></div></div>
+<div class="ttc" id="anamespace_g_l_e_s_c_1_1_math_html_a522e4f8e000cccddbf9d2f92280cfb6c"><div class="ttname"><a href="namespace_g_l_e_s_c_1_1_math.html#a522e4f8e000cccddbf9d2f92280cfb6c">GLESC::Math::max</a></div><div class="ttdeci">constexpr auto max(const Type1 a, const Type2 b)</div><div class="ttdoc">Calculates the max of two values.</div><div class="ttdef"><b>Definition</b> <a href="_math_8h_source.html#l00534">Math.h:534</a></div></div>
+<div class="ttc" id="anamespace_g_l_e_s_c_1_1_math_html_ad2df75a6181d9d1d318d20d224a2866b"><div class="ttname"><a href="namespace_g_l_e_s_c_1_1_math.html#ad2df75a6181d9d1d318d20d224a2866b">GLESC::Math::min</a></div><div class="ttdeci">constexpr auto min(const Type1 a, const Type2 b)</div><div class="ttdoc">Calculates the min of two values.</div><div class="ttdef"><b>Definition</b> <a href="_math_8h_source.html#l00520">Math.h:520</a></div></div>
+<div class="ttc" id="anamespace_g_l_e_s_c_html_a7c64a4da2d1da1597f4ec563d00bb9f8"><div class="ttname"><a href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">GLESC::isIterable_v</a></div><div class="ttdeci">constexpr bool isIterable_v</div><div class="ttdef"><b>Definition</b> <a href="_stringer_8h_source.html#l00029">Stringer.h:29</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_a7f531b1c37460085cedd304cb8df01d.html">engine</a></li><li class="navelem"><a class="el" href="dir_7f643b58e2241519524527f42d96aecd.html">core</a></li><li class="navelem"><a class="el" href="dir_9b7a143a33eab80bc69bf9753c3bc0ec.html">math</a></li><li class="navelem"><a class="el" href="dir_5d3fba62fa3af7df04f1d0edebb8e364.html">geometry</a></li><li class="navelem"><a class="el" href="dir_c33a5472afd55a3e70924ba268110e03.html">figures</a></li><li class="navelem"><a class="el" href="_bounding_volume_8h.html">BoundingVolume.h</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

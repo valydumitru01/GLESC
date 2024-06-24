@@ -2,7 +2,7 @@
  * @file   InputDebugger.h
  * @author Valentin Dumitru
  * @date   2023-09-26
- * @brief @todo
+ * @brief @todo Add description of this file if needed
  *
  * Copyright (c) 2023 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
@@ -14,6 +14,12 @@
 #include "engine/subsystems/input/InputKeys.h"
 
 namespace GLESC::Input {
+    /**
+     * @brief Converts the key state to a string.
+     * @details This function is used for debugging purposes.
+     * @param keyState The key state to convert to a string.
+     * @return The string representation of the key state.
+     */
     inline std::string keyActionToString(const KeyAction& keyState) {
         switch (keyState) {
         case KeyAction::ONCE_PRESSED: return "ONCE_PRESSED";
@@ -25,6 +31,12 @@ namespace GLESC::Input {
         return "UNKNOWN_KEY_STATE";
     }
 
+    /**
+     * @brief Converts the key to a string.
+     * @details This function is used for debugging purposes.
+     * @param key The key to convert to a string.
+     * @return The string representation of the key.
+     */
     inline std::string keyToString(const Key& key) {
         switch (key) {
         case Key::ESCAPE: return "ESCAPE";

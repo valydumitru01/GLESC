@@ -1,0 +1,314 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="Doxygen Awesome" />
+<meta property="og:image" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+<meta property="og:description" content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
+<meta property="og:url" content="https://jothepro.github.io/doxygen-awesome-css/" />
+<!-- END opengraph metadata -->
+<!-- BEGIN twitter metadata -->
+<meta name="twitter:image:src" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+<meta name="twitter:title" content="Doxygen Awesome" />
+<meta name="twitter:description" content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
+<!-- END twitter metadata -->
+<title>GLESC: HUDLookAndFeel.cpp Source File</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.drawio.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/ -->
+<a href="https://github.com/jothepro/doxygen-awesome-css" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="GLESC_logo_white_background.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">GLESC
+   &#160;<span id="projectnumber">1</span>
+   </div>
+   <div id="projectbrief">Game engine using ECS architecture</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('_h_u_d_look_and_feel_8cpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">HUDLookAndFeel.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_h_u_d_look_and_feel_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="_h_u_d_look_and_feel_8h.html">engine/subsystems/hud/HUDLookAndFeel.h</a>&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="_asserts_8h.html">engine/core/asserts/Asserts.h</a>&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="_bin_path_8h.html">engine/core/file-system/BinPath.h</a>&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="_logger_8h.html">engine/core/logger/Logger.h</a>&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="_h_u_d_look_and_feel_8cpp.html#aa759bea36d73a5a4663d1d1dee12cbd0">   17</a></span><span class="preprocessor">#define FONTS_PATH_FROM_ASSETS &quot;/fonts/&quot;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="_h_u_d_look_and_feel_8cpp.html#a33e51bdc0efd924a13d1bb4e8dd29221">   18</a></span><span class="preprocessor">#define FONTS_EXTENSION &quot;.ttf&quot;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="foldopen" id="foldopen00021" data-start="{" data-end="}">
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="class_hud_look_and_feel.html#a1466001b2e5e8963e55ff4be372c3e0e">   21</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_hud_look_and_feel.html#a1466001b2e5e8963e55ff4be372c3e0e">HudLookAndFeel::addFont</a>(<span class="keyword">const</span> std::string&amp; fileName, <a class="code hl_typedef" href="class_hud_look_and_feel.html#a3f1b5fac2a7ddac4556e2b9bdaeb808b">FontSize</a> size) {</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <a class="code hl_function" href="class_hud_look_and_feel.html#a6186621c1bacc784027bfc788baa41c1">validateFontName</a>(fileName);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <a class="code hl_function" href="class_hud_look_and_feel.html#a4149f1a2cdc165caa2973732e4960278">validateFontSize</a>(size);</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    std::string fullFontPath = <a class="code hl_function" href="class_bin_path.html#a518dec5500f3666c8ecc54023e0c229d">BinPath::getExecutableDirectory</a>() + ASSETS_PATH + <a class="code hl_define" href="_h_u_d_look_and_feel_8cpp.html#aa759bea36d73a5a4663d1d1dee12cbd0">FONTS_PATH_FROM_ASSETS</a> + fileName +</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        <a class="code hl_define" href="_h_u_d_look_and_feel_8cpp.html#a33e51bdc0efd924a13d1bb4e8dd29221">FONTS_EXTENSION</a>;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="comment">//fullFontPath= GLESC::Stringer::replace(fullFontPath, &quot;/&quot;, &quot;\\&quot;);</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <a class="code hl_function" href="class_g_l_e_s_c_1_1_logger.html#a9b12ce53593be134b7d7dea62607d22d">Logger::get</a>().<a class="code hl_function" href="class_g_l_e_s_c_1_1_logger.html#a5fa42012f212a31fe7eb06c5ba93caba">info</a>(<span class="stringliteral">&quot;Loading font: &quot;</span> + fullFontPath);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    ImGuiIO&amp; io = ImGui::GetIO();</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    ImFont* font = io.Fonts-&gt;AddFontFromFileTTF(fullFontPath.c_str(), <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(size));</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <a class="code hl_define" href="_asserts_8h.html#a89998838563ab1ba549ea052cdcd5bc2">D_ASSERT_NOT_NULLPTR</a>(font, <span class="stringliteral">&quot;Failed to load font: &quot;</span> + fullFontPath);</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <a class="code hl_variable" href="class_hud_look_and_feel.html#a4f93439dadb5ed4bc1f2a1340a1848c0">fonts</a>[fileName + std::to_string(size)] = font;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>}</div>
+</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="foldopen" id="foldopen00034" data-start="{" data-end="}">
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="class_hud_look_and_feel.html#a6186621c1bacc784027bfc788baa41c1">   34</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_hud_look_and_feel.html#a6186621c1bacc784027bfc788baa41c1">HudLookAndFeel::validateFontName</a>(<span class="keyword">const</span> std::string&amp; fileName) {</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(!fileName.empty(), <span class="stringliteral">&quot;Font file name cannot be empty&quot;</span>);</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(!<a class="code hl_function" href="class_g_l_e_s_c_1_1_stringer.html#ae6ebbc41fe6bedb05cea879bb93fd378">GLESC::Stringer::contains</a>(fileName, <a class="code hl_define" href="_h_u_d_look_and_feel_8cpp.html#a33e51bdc0efd924a13d1bb4e8dd29221">FONTS_EXTENSION</a>),</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>                  <span class="stringliteral">&quot;Font file should not contain the extension&quot;</span>);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(!<a class="code hl_function" href="class_g_l_e_s_c_1_1_stringer.html#ae6ebbc41fe6bedb05cea879bb93fd378">GLESC::Stringer::contains</a>(fileName, <a class="code hl_define" href="_h_u_d_look_and_feel_8cpp.html#aa759bea36d73a5a4663d1d1dee12cbd0">FONTS_PATH_FROM_ASSETS</a>),</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>                  <span class="stringliteral">&quot;Font file should not contain the path&quot;</span>);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>}</div>
+</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="foldopen" id="foldopen00042" data-start="{" data-end="}">
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="class_hud_look_and_feel.html#a4149f1a2cdc165caa2973732e4960278">   42</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_hud_look_and_feel.html#a4149f1a2cdc165caa2973732e4960278">HudLookAndFeel::validateFontSize</a>(<a class="code hl_typedef" href="class_hud_look_and_feel.html#a3f1b5fac2a7ddac4556e2b9bdaeb808b">FontSize</a> size) {</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(size &gt; 0, <span class="stringliteral">&quot;Font size should be greater than 0&quot;</span>);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>}</div>
+</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="foldopen" id="foldopen00046" data-start="{" data-end="}">
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="class_hud_look_and_feel.html#a35c49a50988ddee5c65494d503b1ee0f">   46</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_hud_look_and_feel.html#a35c49a50988ddee5c65494d503b1ee0f">HudLookAndFeel::setDefaultFont</a>(<span class="keyword">const</span> std::string&amp; fileName) {</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <a class="code hl_function" href="class_hud_look_and_feel.html#a6186621c1bacc784027bfc788baa41c1">validateFontName</a>(fileName);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <a class="code hl_variable" href="class_hud_look_and_feel.html#a606436b16b063e232f3d46f55d8f8d1b">defaultFont</a> = fileName;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>}</div>
+</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="foldopen" id="foldopen00051" data-start="{" data-end="}">
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="class_hud_look_and_feel.html#aa631dd52d2ffbad2778d5813e357449e">   51</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_hud_look_and_feel.html#aa631dd52d2ffbad2778d5813e357449e">HudLookAndFeel::setDefaultFontSize</a>(<a class="code hl_typedef" href="class_hud_look_and_feel.html#a3f1b5fac2a7ddac4556e2b9bdaeb808b">FontSize</a> size) {</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <a class="code hl_function" href="class_hud_look_and_feel.html#a4149f1a2cdc165caa2973732e4960278">validateFontSize</a>(size);</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <a class="code hl_variable" href="class_hud_look_and_feel.html#a522187aff0d14bfc04b0f2d5a34636a4">defaultFontSize</a> = size;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>}</div>
+</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="foldopen" id="foldopen00056" data-start="{" data-end="}">
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="class_hud_look_and_feel.html#a0a34a5926d389bd92e8572edf28885de">   56</a></span>std::string <a class="code hl_function" href="class_hud_look_and_feel.html#a0a34a5926d389bd92e8572edf28885de">HudLookAndFeel::getDefaultFont</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(!<a class="code hl_variable" href="class_hud_look_and_feel.html#a606436b16b063e232f3d46f55d8f8d1b">defaultFont</a>.empty(), <span class="stringliteral">&quot;Default font not set&quot;</span>);</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_hud_look_and_feel.html#a606436b16b063e232f3d46f55d8f8d1b">defaultFont</a>;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>}</div>
+</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="foldopen" id="foldopen00061" data-start="{" data-end="}">
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="class_hud_look_and_feel.html#aeb18521eebe17dc7db55174f1c9ece47">   61</a></span><a class="code hl_typedef" href="class_hud_look_and_feel.html#a3f1b5fac2a7ddac4556e2b9bdaeb808b">HudLookAndFeel::FontSize</a> <a class="code hl_function" href="class_hud_look_and_feel.html#aeb18521eebe17dc7db55174f1c9ece47">HudLookAndFeel::getDefaultFontSize</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<a class="code hl_variable" href="class_hud_look_and_feel.html#a522187aff0d14bfc04b0f2d5a34636a4">defaultFontSize</a> &gt; 0, <span class="stringliteral">&quot;Default font size not set&quot;</span>);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_hud_look_and_feel.html#a522187aff0d14bfc04b0f2d5a34636a4">defaultFontSize</a>;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>}</div>
+</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="foldopen" id="foldopen00066" data-start="{" data-end="}">
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="class_hud_look_and_feel.html#a815b718b209fe097df0cde4293dc39b8">   66</a></span>ImFont* <a class="code hl_function" href="class_hud_look_and_feel.html#a815b718b209fe097df0cde4293dc39b8">HudLookAndFeel::getFont</a>(<span class="keyword">const</span> std::string&amp; fileName, <a class="code hl_typedef" href="class_hud_look_and_feel.html#a3f1b5fac2a7ddac4556e2b9bdaeb808b">FontSize</a> size) {</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <a class="code hl_function" href="class_hud_look_and_feel.html#a6186621c1bacc784027bfc788baa41c1">validateFontName</a>(fileName);</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <a class="code hl_function" href="class_hud_look_and_feel.html#a4149f1a2cdc165caa2973732e4960278">validateFontSize</a>(size);</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_hud_look_and_feel.html#a4f93439dadb5ed4bc1f2a1340a1848c0">fonts</a>.find(fileName + std::to_string(size)) == <a class="code hl_variable" href="class_hud_look_and_feel.html#a4f93439dadb5ed4bc1f2a1340a1848c0">fonts</a>.end()) {</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        <a class="code hl_function" href="class_hud_look_and_feel.html#a1466001b2e5e8963e55ff4be372c3e0e">addFont</a>(fileName, size);</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    }</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_hud_look_and_feel.html#a4f93439dadb5ed4bc1f2a1340a1848c0">fonts</a>[fileName + std::to_string(size)];</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>}</div>
+</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="foldopen" id="foldopen00075" data-start="{" data-end="}">
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="class_hud_look_and_feel.html#ae1d994a42a7915cfa11a72a664dabc79">   75</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_hud_look_and_feel.html#ae1d994a42a7915cfa11a72a664dabc79">HudLookAndFeel::apply</a>() {</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    ImVec4* colors = ImGui::GetStyle().Colors;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    colors[ImGuiCol_Text] = ImVec4(0.29f, 1.00f, 0.28f, 1.00f);</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    colors[ImGuiCol_TextDisabled] = ImVec4(0.48f, 0.61f, 0.48f, 1.00f);</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    colors[ImGuiCol_WindowBg] = ImVec4(0.00f, 0.00f, 0.00f, 0.85f);</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    colors[ImGuiCol_ChildBg] = ImVec4(0.00f, 0.00f, 0.00f, 0.00f);</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    colors[ImGuiCol_PopupBg] = ImVec4(0.11f, 0.11f, 0.14f, 0.92f);</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    colors[ImGuiCol_Border] = ImVec4(0.15f, 0.70f, 0.22f, 0.50f);</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    colors[ImGuiCol_BorderShadow] = ImVec4(0.00f, 0.00f, 0.00f, 0.00f);</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    colors[ImGuiCol_FrameBg] = ImVec4(0.43f, 0.43f, 0.43f, 0.39f);</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    colors[ImGuiCol_FrameBgHovered] = ImVec4(0.47f, 0.69f, 0.47f, 0.40f);</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    colors[ImGuiCol_FrameBgActive] = ImVec4(0.41f, 0.64f, 0.41f, 0.69f);</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    colors[ImGuiCol_TitleBg] = ImVec4(0.27f, 0.54f, 0.27f, 0.83f);</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    colors[ImGuiCol_TitleBgActive] = ImVec4(0.32f, 0.63f, 0.32f, 0.87f);</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    colors[ImGuiCol_TitleBgCollapsed] = ImVec4(0.40f, 0.80f, 0.41f, 0.20f);</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    colors[ImGuiCol_MenuBarBg] = ImVec4(0.40f, 0.55f, 0.40f, 0.80f);</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    colors[ImGuiCol_ScrollbarBg] = ImVec4(0.20f, 0.30f, 0.20f, 0.60f);</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    colors[ImGuiCol_ScrollbarGrab] = ImVec4(0.41f, 0.80f, 0.40f, 0.30f);</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    colors[ImGuiCol_ScrollbarGrabHovered] = ImVec4(0.40f, 0.80f, 0.40f, 0.40f);</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    colors[ImGuiCol_ScrollbarGrabActive] = ImVec4(0.39f, 0.80f, 0.39f, 0.60f);</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    colors[ImGuiCol_CheckMark] = ImVec4(0.90f, 0.90f, 0.90f, 0.50f);</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    colors[ImGuiCol_SliderGrab] = ImVec4(1.00f, 1.00f, 1.00f, 0.30f);</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    colors[ImGuiCol_SliderGrabActive] = ImVec4(0.39f, 0.80f, 0.39f, 0.60f);</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    colors[ImGuiCol_Button] = ImVec4(0.35f, 0.61f, 0.36f, 0.62f);</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    colors[ImGuiCol_ButtonHovered] = ImVec4(0.40f, 0.71f, 0.41f, 0.79f);</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    colors[ImGuiCol_ButtonActive] = ImVec4(0.46f, 0.80f, 0.47f, 1.00f);</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    colors[ImGuiCol_Header] = ImVec4(0.40f, 0.90f, 0.40f, 0.45f);</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    colors[ImGuiCol_HeaderHovered] = ImVec4(0.45f, 0.90f, 0.45f, 0.80f);</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    colors[ImGuiCol_HeaderActive] = ImVec4(0.53f, 0.87f, 0.54f, 0.80f);</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    colors[ImGuiCol_Separator] = ImVec4(0.21f, 0.39f, 0.21f, 0.60f);</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    colors[ImGuiCol_SeparatorHovered] = ImVec4(0.60f, 0.70f, 0.60f, 1.00f);</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    colors[ImGuiCol_SeparatorActive] = ImVec4(0.70f, 0.90f, 0.70f, 1.00f);</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    colors[ImGuiCol_ResizeGrip] = ImVec4(1.00f, 1.00f, 1.00f, 0.10f);</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    colors[ImGuiCol_ResizeGripHovered] = ImVec4(0.78f, 1.00f, 0.79f, 0.60f);</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    colors[ImGuiCol_ResizeGripActive] = ImVec4(0.78f, 1.00f, 0.78f, 0.90f);</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    colors[ImGuiCol_Tab] = ImVec4(0.34f, 0.68f, 0.34f, 0.79f);</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    colors[ImGuiCol_TabHovered] = ImVec4(0.45f, 0.90f, 0.46f, 0.80f);</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    colors[ImGuiCol_TabActive] = ImVec4(0.40f, 0.73f, 0.41f, 0.84f);</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    colors[ImGuiCol_TabUnfocused] = ImVec4(0.28f, 0.57f, 0.29f, 0.82f);</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    colors[ImGuiCol_TabUnfocusedActive] = ImVec4(0.35f, 0.65f, 0.35f, 0.84f);</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    colors[ImGuiCol_PlotLines] = ImVec4(1.00f, 1.00f, 1.00f, 1.00f);</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    colors[ImGuiCol_PlotLinesHovered] = ImVec4(0.90f, 0.70f, 0.00f, 1.00f);</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    colors[ImGuiCol_PlotHistogram] = ImVec4(0.90f, 0.70f, 0.00f, 1.00f);</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    colors[ImGuiCol_PlotHistogramHovered] = ImVec4(1.00f, 0.60f, 0.00f, 1.00f);</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    colors[ImGuiCol_TableHeaderBg] = ImVec4(0.27f, 0.38f, 0.27f, 1.00f);</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    colors[ImGuiCol_TableBorderStrong] = ImVec4(0.31f, 0.45f, 0.31f, 1.00f);</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    colors[ImGuiCol_TableBorderLight] = ImVec4(0.26f, 0.26f, 0.28f, 1.00f);</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    colors[ImGuiCol_TableRowBg] = ImVec4(0.00f, 0.00f, 0.00f, 0.00f);</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    colors[ImGuiCol_TableRowBgAlt] = ImVec4(1.00f, 1.00f, 1.00f, 0.07f);</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    colors[ImGuiCol_TextSelectedBg] = ImVec4(0.00f, 1.00f, 0.01f, 0.35f);</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    colors[ImGuiCol_DragDropTarget] = ImVec4(1.00f, 1.00f, 0.00f, 0.90f);</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    colors[ImGuiCol_NavHighlight] = ImVec4(0.45f, 0.90f, 0.45f, 0.80f);</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    colors[ImGuiCol_NavWindowingHighlight] = ImVec4(1.00f, 1.00f, 1.00f, 0.70f);</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    colors[ImGuiCol_NavWindowingDimBg] = ImVec4(0.80f, 0.80f, 0.80f, 0.20f);</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    colors[ImGuiCol_ModalWindowDimBg] = ImVec4(0.20f, 0.20f, 0.20f, 0.35f);</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    <span class="comment">// Make sure these changes take effect</span></div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    ImGui::GetIO().FontDefault = <a class="code hl_function" href="class_hud_look_and_feel.html#a815b718b209fe097df0cde4293dc39b8">getFont</a>(<a class="code hl_variable" href="class_hud_look_and_feel.html#a606436b16b063e232f3d46f55d8f8d1b">defaultFont</a>, <a class="code hl_variable" href="class_hud_look_and_feel.html#a522187aff0d14bfc04b0f2d5a34636a4">defaultFontSize</a>);</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    ImGui::GetIO().Fonts-&gt;Build();</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    <a class="code hl_variable" href="class_hud_look_and_feel.html#a5446c9d7d25f07f7f96030d68210fc77">lookAndFeelApplied</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>}</div>
+</div>
+<div class="ttc" id="a_asserts_8h_html"><div class="ttname"><a href="_asserts_8h.html">Asserts.h</a></div><div class="ttdoc">Set of macros for runtime and compile time assertions.</div></div>
+<div class="ttc" id="a_asserts_8h_html_a7c8157e57600c968442fc2ee80245d5a"><div class="ttname"><a href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a></div><div class="ttdeci">#define D_ASSERT_TRUE(condition, message)</div><div class="ttdef"><b>Definition</b> <a href="_asserts_8h_source.html#l00021">Asserts.h:21</a></div></div>
+<div class="ttc" id="a_asserts_8h_html_a89998838563ab1ba549ea052cdcd5bc2"><div class="ttname"><a href="_asserts_8h.html#a89998838563ab1ba549ea052cdcd5bc2">D_ASSERT_NOT_NULLPTR</a></div><div class="ttdeci">#define D_ASSERT_NOT_NULLPTR(condition, message)</div><div class="ttdef"><b>Definition</b> <a href="_asserts_8h_source.html#l00023">Asserts.h:23</a></div></div>
+<div class="ttc" id="a_bin_path_8h_html"><div class="ttname"><a href="_bin_path_8h.html">BinPath.h</a></div></div>
+<div class="ttc" id="a_h_u_d_look_and_feel_8cpp_html_a33e51bdc0efd924a13d1bb4e8dd29221"><div class="ttname"><a href="_h_u_d_look_and_feel_8cpp.html#a33e51bdc0efd924a13d1bb4e8dd29221">FONTS_EXTENSION</a></div><div class="ttdeci">#define FONTS_EXTENSION</div><div class="ttdef"><b>Definition</b> <a href="_h_u_d_look_and_feel_8cpp_source.html#l00018">HUDLookAndFeel.cpp:18</a></div></div>
+<div class="ttc" id="a_h_u_d_look_and_feel_8cpp_html_aa759bea36d73a5a4663d1d1dee12cbd0"><div class="ttname"><a href="_h_u_d_look_and_feel_8cpp.html#aa759bea36d73a5a4663d1d1dee12cbd0">FONTS_PATH_FROM_ASSETS</a></div><div class="ttdeci">#define FONTS_PATH_FROM_ASSETS</div><div class="ttdef"><b>Definition</b> <a href="_h_u_d_look_and_feel_8cpp_source.html#l00017">HUDLookAndFeel.cpp:17</a></div></div>
+<div class="ttc" id="a_h_u_d_look_and_feel_8h_html"><div class="ttname"><a href="_h_u_d_look_and_feel_8h.html">HUDLookAndFeel.h</a></div><div class="ttdoc">Class that encapsulates the look and feel of the HUD.</div></div>
+<div class="ttc" id="a_logger_8h_html"><div class="ttname"><a href="_logger_8h.html">Logger.h</a></div><div class="ttdoc">@TODO Add description of this file if needed</div></div>
+<div class="ttc" id="aclass_bin_path_html_a518dec5500f3666c8ecc54023e0c229d"><div class="ttname"><a href="class_bin_path.html#a518dec5500f3666c8ecc54023e0c229d">BinPath::getExecutableDirectory</a></div><div class="ttdeci">static std::string getExecutableDirectory()</div><div class="ttdef"><b>Definition</b> <a href="_bin_path_8cpp_source.html#l00045">BinPath.cpp:45</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_logger_html_a5fa42012f212a31fe7eb06c5ba93caba"><div class="ttname"><a href="class_g_l_e_s_c_1_1_logger.html#a5fa42012f212a31fe7eb06c5ba93caba">GLESC::Logger::info</a></div><div class="ttdeci">void info(const std::string &amp;text) override</div><div class="ttdoc">Display basic information Background – Black Text – White.</div><div class="ttdef"><b>Definition</b> <a href="_logger_8cpp_source.html#l00065">Logger.cpp:65</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_logger_html_a9b12ce53593be134b7d7dea62607d22d"><div class="ttname"><a href="class_g_l_e_s_c_1_1_logger.html#a9b12ce53593be134b7d7dea62607d22d">GLESC::Logger::get</a></div><div class="ttdeci">static Logger &amp; get()</div><div class="ttdef"><b>Definition</b> <a href="_logger_8cpp_source.html#l00030">Logger.cpp:30</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_stringer_html_ae6ebbc41fe6bedb05cea879bb93fd378"><div class="ttname"><a href="class_g_l_e_s_c_1_1_stringer.html#ae6ebbc41fe6bedb05cea879bb93fd378">GLESC::Stringer::contains</a></div><div class="ttdeci">static bool contains(const std::string &amp;string, const std::string &amp;substring)</div><div class="ttdoc">Checks if a string contains a substring.</div><div class="ttdef"><b>Definition</b> <a href="_stringer_8cpp_source.html#l00036">Stringer.cpp:36</a></div></div>
+<div class="ttc" id="aclass_hud_look_and_feel_html_a0a34a5926d389bd92e8572edf28885de"><div class="ttname"><a href="class_hud_look_and_feel.html#a0a34a5926d389bd92e8572edf28885de">HudLookAndFeel::getDefaultFont</a></div><div class="ttdeci">std::string getDefaultFont() const</div><div class="ttdoc">Returns the default font and font size.</div><div class="ttdef"><b>Definition</b> <a href="_h_u_d_look_and_feel_8cpp_source.html#l00056">HUDLookAndFeel.cpp:56</a></div></div>
+<div class="ttc" id="aclass_hud_look_and_feel_html_a1466001b2e5e8963e55ff4be372c3e0e"><div class="ttname"><a href="class_hud_look_and_feel.html#a1466001b2e5e8963e55ff4be372c3e0e">HudLookAndFeel::addFont</a></div><div class="ttdeci">void addFont(const std::string &amp;fileName, FontSize size)</div><div class="ttdoc">Adds a font from a file with a size.</div><div class="ttdef"><b>Definition</b> <a href="_h_u_d_look_and_feel_8cpp_source.html#l00021">HUDLookAndFeel.cpp:21</a></div></div>
+<div class="ttc" id="aclass_hud_look_and_feel_html_a35c49a50988ddee5c65494d503b1ee0f"><div class="ttname"><a href="class_hud_look_and_feel.html#a35c49a50988ddee5c65494d503b1ee0f">HudLookAndFeel::setDefaultFont</a></div><div class="ttdeci">void setDefaultFont(const std::string &amp;fileName)</div><div class="ttdoc">Sets the default font.</div><div class="ttdef"><b>Definition</b> <a href="_h_u_d_look_and_feel_8cpp_source.html#l00046">HUDLookAndFeel.cpp:46</a></div></div>
+<div class="ttc" id="aclass_hud_look_and_feel_html_a3f1b5fac2a7ddac4556e2b9bdaeb808b"><div class="ttname"><a href="class_hud_look_and_feel.html#a3f1b5fac2a7ddac4556e2b9bdaeb808b">HudLookAndFeel::FontSize</a></div><div class="ttdeci">int FontSize</div><div class="ttdef"><b>Definition</b> <a href="_h_u_d_look_and_feel_8h_source.html#l00020">HUDLookAndFeel.h:20</a></div></div>
+<div class="ttc" id="aclass_hud_look_and_feel_html_a4149f1a2cdc165caa2973732e4960278"><div class="ttname"><a href="class_hud_look_and_feel.html#a4149f1a2cdc165caa2973732e4960278">HudLookAndFeel::validateFontSize</a></div><div class="ttdeci">static void validateFontSize(FontSize size)</div><div class="ttdef"><b>Definition</b> <a href="_h_u_d_look_and_feel_8cpp_source.html#l00042">HUDLookAndFeel.cpp:42</a></div></div>
+<div class="ttc" id="aclass_hud_look_and_feel_html_a4f93439dadb5ed4bc1f2a1340a1848c0"><div class="ttname"><a href="class_hud_look_and_feel.html#a4f93439dadb5ed4bc1f2a1340a1848c0">HudLookAndFeel::fonts</a></div><div class="ttdeci">std::unordered_map&lt; std::string, ImFont * &gt; fonts</div><div class="ttdef"><b>Definition</b> <a href="_h_u_d_look_and_feel_8h_source.html#l00085">HUDLookAndFeel.h:85</a></div></div>
+<div class="ttc" id="aclass_hud_look_and_feel_html_a522187aff0d14bfc04b0f2d5a34636a4"><div class="ttname"><a href="class_hud_look_and_feel.html#a522187aff0d14bfc04b0f2d5a34636a4">HudLookAndFeel::defaultFontSize</a></div><div class="ttdeci">int defaultFontSize</div><div class="ttdef"><b>Definition</b> <a href="_h_u_d_look_and_feel_8h_source.html#l00087">HUDLookAndFeel.h:87</a></div></div>
+<div class="ttc" id="aclass_hud_look_and_feel_html_a5446c9d7d25f07f7f96030d68210fc77"><div class="ttname"><a href="class_hud_look_and_feel.html#a5446c9d7d25f07f7f96030d68210fc77">HudLookAndFeel::lookAndFeelApplied</a></div><div class="ttdeci">bool lookAndFeelApplied</div><div class="ttdef"><b>Definition</b> <a href="_h_u_d_look_and_feel_8h_source.html#l00089">HUDLookAndFeel.h:89</a></div></div>
+<div class="ttc" id="aclass_hud_look_and_feel_html_a606436b16b063e232f3d46f55d8f8d1b"><div class="ttname"><a href="class_hud_look_and_feel.html#a606436b16b063e232f3d46f55d8f8d1b">HudLookAndFeel::defaultFont</a></div><div class="ttdeci">std::string defaultFont</div><div class="ttdef"><b>Definition</b> <a href="_h_u_d_look_and_feel_8h_source.html#l00086">HUDLookAndFeel.h:86</a></div></div>
+<div class="ttc" id="aclass_hud_look_and_feel_html_a6186621c1bacc784027bfc788baa41c1"><div class="ttname"><a href="class_hud_look_and_feel.html#a6186621c1bacc784027bfc788baa41c1">HudLookAndFeel::validateFontName</a></div><div class="ttdeci">static void validateFontName(const std::string &amp;fileName)</div><div class="ttdef"><b>Definition</b> <a href="_h_u_d_look_and_feel_8cpp_source.html#l00034">HUDLookAndFeel.cpp:34</a></div></div>
+<div class="ttc" id="aclass_hud_look_and_feel_html_a815b718b209fe097df0cde4293dc39b8"><div class="ttname"><a href="class_hud_look_and_feel.html#a815b718b209fe097df0cde4293dc39b8">HudLookAndFeel::getFont</a></div><div class="ttdeci">ImFont * getFont(const std::string &amp;fileName, FontSize size)</div><div class="ttdef"><b>Definition</b> <a href="_h_u_d_look_and_feel_8cpp_source.html#l00066">HUDLookAndFeel.cpp:66</a></div></div>
+<div class="ttc" id="aclass_hud_look_and_feel_html_aa631dd52d2ffbad2778d5813e357449e"><div class="ttname"><a href="class_hud_look_and_feel.html#aa631dd52d2ffbad2778d5813e357449e">HudLookAndFeel::setDefaultFontSize</a></div><div class="ttdeci">void setDefaultFontSize(int size)</div><div class="ttdoc">Sets the default font size.</div><div class="ttdef"><b>Definition</b> <a href="_h_u_d_look_and_feel_8cpp_source.html#l00051">HUDLookAndFeel.cpp:51</a></div></div>
+<div class="ttc" id="aclass_hud_look_and_feel_html_ae1d994a42a7915cfa11a72a664dabc79"><div class="ttname"><a href="class_hud_look_and_feel.html#ae1d994a42a7915cfa11a72a664dabc79">HudLookAndFeel::apply</a></div><div class="ttdeci">void apply()</div><div class="ttdoc">Applies the look and feel to ImGui.</div><div class="ttdef"><b>Definition</b> <a href="_h_u_d_look_and_feel_8cpp_source.html#l00075">HUDLookAndFeel.cpp:75</a></div></div>
+<div class="ttc" id="aclass_hud_look_and_feel_html_aeb18521eebe17dc7db55174f1c9ece47"><div class="ttname"><a href="class_hud_look_and_feel.html#aeb18521eebe17dc7db55174f1c9ece47">HudLookAndFeel::getDefaultFontSize</a></div><div class="ttdeci">FontSize getDefaultFontSize() const</div><div class="ttdoc">Returns the default font size.</div><div class="ttdef"><b>Definition</b> <a href="_h_u_d_look_and_feel_8cpp_source.html#l00061">HUDLookAndFeel.cpp:61</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_2052808828190f934b76e979ee65af8a.html">engine</a></li><li class="navelem"><a class="el" href="dir_dae283cde8a8f8ba1aab1ee8b3266bbb.html">subsystems</a></li><li class="navelem"><a class="el" href="dir_f3eab96852a714ea25bacc2e7d7e7fec.html">hud</a></li><li class="navelem"><a class="el" href="_h_u_d_look_and_feel_8cpp.html">HUDLookAndFeel.cpp</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

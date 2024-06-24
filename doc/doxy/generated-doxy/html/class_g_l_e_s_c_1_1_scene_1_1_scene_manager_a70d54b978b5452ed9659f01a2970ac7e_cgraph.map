@@ -1,0 +1,7 @@
+<map id="GLESC::Scene::SceneManager::switchScene" name="GLESC::Scene::SceneManager::switchScene">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,27,211,69"/>
+<area shape="rect" id="Node000002" href="$namespace_g_l_e_s_c_1_1_hasher.html#ab698a0c9b11ea6e42ab7739d75da38f2" title=" " alt="" coords="268,5,419,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="211,33,252,27,253,33,211,38"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_window_manager.html#a2c3864d9a5b567c83b4799d97b38383a" title="Set the window title. Changes the title of the window." alt="" coords="259,56,428,99"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="211,58,244,62,243,68,211,63"/>
+</map>

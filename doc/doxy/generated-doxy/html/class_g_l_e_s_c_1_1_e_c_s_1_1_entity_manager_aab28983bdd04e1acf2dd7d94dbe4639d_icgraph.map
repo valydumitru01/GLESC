@@ -1,0 +1,36 @@
+<map id="GLESC::ECS::EntityManager::doesEntityHaveComponent" name="GLESC::ECS::EntityManager::doesEntityHaveComponent">
+<area shape="rect" id="Node000001" title="Check if the entity has the given component. The entity must exist and the component must be in the r..." alt="" coords="1149,215,1341,257"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a8c54c83144ea6f6e27660aac346f1fa7" title="Add a component to the entity. The entity must exist." alt="" coords="904,89,1097,132"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1187,210,1043,135,1045,130,1190,205"/>
+<area shape="rect" id="Node000009" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator.html#a5aa06f9e5c8d53dfaa2cce1616eec531" title="Check if an entity has a component, checking it&#39;s signature." alt="" coords="900,181,1101,224"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="1133,223,1101,219,1102,214,1134,218"/>
+<area shape="rect" id="Node000013" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator.html#a9986f9753dd8fc73c69787f3723d44b8" title="Print the status of the entity." alt="" coords="900,248,1101,291"/>
+<area shape="poly" id="edge13_Node000001_Node000013" title=" " alt="" coords="1134,254,1102,258,1101,253,1133,249"/>
+<area shape="rect" id="Node000015" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#aa12eb5a78f90d23488324ee51e7dbd6c" title="Remove a component from the entity. The entity must exist." alt="" coords="900,315,1101,357"/>
+<area shape="poly" id="edge15_Node000001_Node000015" title=" " alt="" coords="1188,267,1102,305,1071,317,1070,312,1100,300,1186,262"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator.html#ac174f3ade2ce8ea1a240c49385409942" title="Add a component to an entity." alt="" coords="650,64,852,107"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="888,102,852,98,852,93,889,97"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html#a9e9f27d8c519ebe4c50e3463608d06b2" title="Adds a component to the entity and returns a reference to it The components is registered to the ECSM..." alt="" coords="460,64,602,107"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="635,88,602,88,602,83,635,83"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_engine.html#adb0bb222b1e702be0a95d55d8cfc915f" title=" " alt="" coords="215,5,412,48"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="444,65,394,51,396,46,445,60"/>
+<area shape="rect" id="Node000007" href="$class_default.html#a6e26da3ebf533b0f5d45266cd0ce9082" title="Initializes the scene. Must be implemented by the derived class." alt="" coords="270,72,357,99"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="444,88,357,88,357,83,444,83"/>
+<area shape="rect" id="Node000008" href="$class_g_l_e_s_c_1_1_engine_camera.html#a3f37b288117cbbf684843bf4b88acb72" title="Prepares the camera entity with its components and it&#39;s initial values." alt="" coords="234,123,393,165"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="445,111,394,125,392,120,444,106"/>
+<area shape="rect" id="Node000006" href="$class_g_l_e_s_c_1_1_engine.html#a93e1621f9daf326a7c45d3b2a4c826c1" title="The constructor is private, the engine can only be created by the main function." alt="" coords="5,72,167,99"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="214,55,141,74,140,69,213,50"/>
+<area shape="poly" id="edge8_Node000008_Node000006" title=" " alt="" coords="219,122,140,102,141,97,220,117"/>
+<area shape="rect" id="Node000010" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html#a49f91266990cd9ae566c793684b0d447" title="Checks if the entity has a component." alt="" coords="680,131,822,173"/>
+<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="884,182,822,169,823,164,885,177"/>
+<area shape="rect" id="Node000011" href="$class_g_l_e_s_c_1_1_engine.html#ad2ff110d5a86c1cd60b541d65915ac48" title="Processes the logic of the game Is called every frame, must be called at constant intervals of time a..." alt="" coords="671,197,831,224"/>
+<area shape="poly" id="edge11_Node000009_Node000011" title=" " alt="" coords="884,209,832,211,832,205,884,204"/>
+<area shape="rect" id="Node000012" href="$main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="507,197,556,224"/>
+<area shape="poly" id="edge12_Node000011_Node000012" title=" " alt="" coords="656,213,556,213,556,208,656,208"/>
+<area shape="rect" id="Node000014" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator.html#a511e3ef0ebeceb191a06db185e8fdc46" title="Print the status of the ECS." alt="" coords="650,248,852,291"/>
+<area shape="poly" id="edge14_Node000013_Node000014" title=" " alt="" coords="884,272,852,272,852,267,884,267"/>
+<area shape="rect" id="Node000016" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator.html#af2a3fb9a4f78b71f602de7f29bd7446f" title="Remove a component from an entity." alt="" coords="650,315,852,357"/>
+<area shape="poly" id="edge16_Node000015_Node000016" title=" " alt="" coords="885,339,852,339,852,333,885,333"/>
+<area shape="rect" id="Node000017" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html#a1ea00349d7b9b4eff7df34a75d2d64dd" title="Removes a component from the entity The entity signature is updated to reflect the removed component." alt="" coords="460,315,602,357"/>
+<area shape="poly" id="edge17_Node000016_Node000017" title=" " alt="" coords="635,339,602,339,602,333,635,333"/>
+</map>

@@ -1,0 +1,14 @@
+<map id="scene" name="scene">
+<area shape="rect" id="node1" href="dir_4b5fd699f9c934d21be1ae6684f38785.html" title="subsystems" alt="" coords="27,139,120,165"/>
+<area shape="rect" id="node2" href="dir_7f643b58e2241519524527f42d96aecd.html" title="core" alt="" coords="144,139,190,165"/>
+<area shape="rect" id="node3" href="dir_8ab72e353a78ceede58b61c063873544.html" title="ecs" alt="" coords="214,139,256,165"/>
+<area shape="poly" id="edge1" href="dir_000100_000111.html" alt="" coords="87,91,81,123,76,122,82,90"/>
+<area shape="rect" id="edge1-headlabel" href="dir_000100_000111.html" title="1" alt="" coords="84,114,91,130"/>
+<area shape="poly" id="edge2" href="dir_000100_000018.html" alt="" coords="102,89,143,126,140,130,98,93"/>
+<area shape="rect" id="edge2-headlabel" href="dir_000100_000018.html" title="4" alt="" coords="141,112,148,128"/>
+<area shape="poly" id="edge3" href="dir_000100_000029.html" alt="" coords="109,88,129,99,201,133,199,138,127,104,106,93"/>
+<area shape="rect" id="edge3-headlabel" href="dir_000100_000029.html" title="2" alt="" coords="197,118,204,134"/>
+<area shape="rect" id="node5" href="dir_d597b648efc1c946b2a2d0d73c9015fd.html" title="engine&#45;scenes" alt="" coords="139,64,245,91"/>
+<area shape="rect" id="clust2" href="dir_7478f53511ba0d85d334cbcd33626813.html" alt="" coords="48,53,256,101"/>
+<area shape="rect" id="clust1" href="dir_a7f531b1c37460085cedd304cb8df01d.html" title="engine" alt="" coords="16,16,267,176"/>
+</map>

@@ -1,0 +1,13 @@
+<map id="GLESC::Math::MatrixAlgorithms::inverse2x2" name="GLESC::Math::MatrixAlgorithms::inverse2x2">
+<area shape="rect" id="Node000001" title="Calculates the inverse of a 2x2 matrix." alt="" coords="712,39,921,81"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a6926a06b307dbcaf08b77a7d1457b9cd" title="Calculates the inverse of any square matrix." alt="" coords="456,39,664,81"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="697,63,665,63,665,57,697,57"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_matrix.html#a3509fbaa0df9cb3def4bd2adaa9a0600" title="Calculates the inverse of the matrix." alt="" coords="231,5,377,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="440,47,377,39,378,34,441,42"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a9a320568d4cd85a382cb80f773e6e98f" title="Matrix division." alt="" coords="200,72,408,115"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="441,78,409,82,408,77,440,73"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_math_1_1_matrix.html#aadc4dae081d04d6df913d882ab4c7bb5" title="Matrix division by matrix." alt="" coords="5,39,152,81"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="184,78,151,73,152,68,185,73"/>
+<area shape="rect" id="Node000006" href="$class_g_l_e_s_c_1_1_math_1_1_matrix.html#ae49bdfe2f706c9c73080948a9faa8114" title="In&#45;place division by another matrix." alt="" coords="5,105,152,148"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="185,114,152,119,151,113,184,108"/>
+</map>

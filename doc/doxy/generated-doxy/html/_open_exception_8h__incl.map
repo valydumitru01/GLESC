@@ -1,0 +1,11 @@
+<map id="OpenException.h" name="OpenException.h">
+<area shape="rect" id="Node000001" title="Exception class for when a resource cannot be opened." alt="" coords="28,5,149,32"/>
+<area shape="rect" id="Node000002" href="$_engine_exception_8h.html" title="Base exception class for any exception in the engine." alt="" coords="11,80,166,123"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="91,33,91,65,86,65,86,33"/>
+<area shape="rect" id="Node000003" href="$_base_exception_8h.html" title=" " alt="" coords="28,171,149,197"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="91,123,91,155,86,155,86,123"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,245,84,272"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="83,199,62,233,58,231,79,196"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="107,245,161,272"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="99,196,120,231,116,233,94,199"/>
+</map>

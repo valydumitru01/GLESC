@@ -1,0 +1,25 @@
+<map id="GLESC::ECS::EntityManager::getEntityName" name="GLESC::ECS::EntityManager::getEntityName">
+<area shape="rect" id="Node000001" title="Get the entity name from the entity ID. The entity must exist." alt="" coords="762,264,955,307"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator.html#a2c49b6ec20626dd4f84c939ec3750812" title="Get the name of the entity given the ID." alt="" coords="513,219,714,261"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="746,267,714,261,715,256,747,262"/>
+<area shape="rect" id="Node000011" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator.html#a9986f9753dd8fc73c69787f3723d44b8" title="Print the status of the entity." alt="" coords="513,297,714,340"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="747,303,715,308,714,302,746,298"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_system.html#adbd8144d4b95771844546e2391cd49ad" title="Gets the name of an entity." alt="" coords="288,139,441,181"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="530,216,433,185,434,179,531,211"/>
+<area shape="rect" id="Node000008" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html#a91142a433e526c7d2617dc1b312da153" title="Returns the entity&#39;s name." alt="" coords="293,205,436,248"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="497,236,436,233,436,228,497,231"/>
+<area shape="rect" id="Node000009" href="$class_g_l_e_s_c_1_1_engine.html#ad2ff110d5a86c1cd60b541d65915ac48" title="Processes the logic of the game Is called every frame, must be called at constant intervals of time a..." alt="" coords="284,272,445,299"/>
+<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="498,264,442,274,441,269,497,259"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_debug_info_system.html#af0f60d4a863a70a744d562649e26c394" title="Updates the system." alt="" coords="5,5,216,48"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="323,131,273,96,214,62,188,51,190,46,217,58,275,91,326,127"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_physics_collision_system.html#a01af297180e01be8c9d22d955bfb11b3" title="Updates the system." alt="" coords="8,72,213,115"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="272,139,194,118,195,113,273,133"/>
+<area shape="rect" id="Node000006" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_render_system.html#a3d3b423c0c5bf7a1e67e31e069374f93" title="Updates the system." alt="" coords="13,139,208,181"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="272,163,208,163,208,157,272,157"/>
+<area shape="rect" id="Node000007" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_transform_system.html#a43d246de9f05a6c8a5a46f9b48493830" title="Updates the system." alt="" coords="5,205,216,248"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="273,187,195,207,194,202,272,181"/>
+<area shape="rect" id="Node000010" href="$main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="86,272,135,299"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="268,288,136,288,136,283,268,283"/>
+<area shape="rect" id="Node000012" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator.html#a511e3ef0ebeceb191a06db185e8fdc46" title="Print the status of the ECS." alt="" coords="264,323,465,365"/>
+<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="498,333,466,336,465,331,497,328"/>
+</map>

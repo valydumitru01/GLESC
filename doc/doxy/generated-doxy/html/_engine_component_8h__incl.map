@@ -1,0 +1,12 @@
+<map id="EngineComponent.h" name="EngineComponent.h">
+<area shape="rect" id="Node000001" title="@TODO Add description of this file if needed" alt="" coords="8,5,147,32"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,171,59,197"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="70,34,56,55,44,81,36,119,34,156,29,155,31,119,39,79,51,53,65,31"/>
+<area shape="rect" id="Node000003" href="$_entity_stats_manager_8h.html" title="Class that encapsulates the logic of the entity stats manager." alt="" coords="53,80,224,123"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="89,31,116,66,112,70,85,34"/>
+<area shape="poly" id="edge4_Node000003_Node000002" title=" " alt="" coords="113,125,62,163,59,159,110,121"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="91,171,168,197"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="139,124,135,156,130,155,134,123"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="191,171,246,197"/>
+<area shape="poly" id="edge5_Node000003_Node000005" title=" " alt="" coords="161,121,197,158,194,161,157,125"/>
+</map>

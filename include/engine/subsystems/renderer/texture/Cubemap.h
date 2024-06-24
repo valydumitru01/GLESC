@@ -2,7 +2,7 @@
  * @file   Cubemap.h
  * @author Valentin Dumitru
  * @date   28/04/2024
- * @brief  Add description of this file if needed @TODO
+ * @brief  @TODO Add description of this file if needed
  *
  * Copyright (c) 2023 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
@@ -14,6 +14,10 @@
 
 /**
  * @brief Class representing a cubemap texture. It abstract away the creating and handling of cubemaps.
+ * @details A cubemap is a type of texture that contains 6 faces of a cube, each face being a 2D texture.
+ * @details A cubemap helps retrieving a texel from a 3D direction vector, which is useful for many rendering techniques
+ * @details Example of cubemap usage is skyboxes, reflections, refractions, etc.
+ *
  */
 class Cubemap {
 public:

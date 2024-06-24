@@ -2,7 +2,7 @@
  * @file   RendererTypes.h
  * @author Valentin Dumitru
  * @date   21/02/2024
- * @brief  Add description of this file if needed @TODO
+ * @brief  @TODO Add description of this file if needed
  *
  * Copyright (c) 2024 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
@@ -13,20 +13,55 @@
 #include "engine/core/hash/Hasher.h"
 
 namespace GLESC::Render {
-    enum class RenderType {
-        Static,
-        Dynamic,
+    /**
+     * @brief This is the possible rendering types for a mesh.
+     */
+    [[nodisacrd]] enum class RenderType {
+        /**
+         * @brief Single draw meshes are going to call render once per mesh every frame
+         * Static meshes are not going to change their vertices
+         */
+        SingleDrawStatic,
+        /**
+         * @brief Single draw dynamic meshes can change their vertices at any point.
+         * Dynamic meshes can change their vertices at any point.
+         */
+        SingleDrawDynamic,
+        /**
+         * @brief Instanced meshes are going to be rendered multiple times with the same vertices
+         * Static meshes are not going to change their vertices
+         */
         InstancedStatic,
+        /**
+         * @brief Instanced dynamic meshes can change their vertices at any point.
+         * Dynamic meshes can change their vertices at any point.
+         */
         InstancedDynamic,
+        /**
+         * @brief Batched meshes are going to be batched in a single large mesh and then rendered once (saving a lot
+         * of draw calls).
+         * Static meshes are not going to change their vertices
+         */
         BatchedStatic,
+        /**
+         * @brief Batched meshes are going to be batched in a single large mesh and then rendered once (saving a lot
+         * of draw calls).
+         * Dynamic meshes can change their vertices at any point.
+         */
         BatchedDynamic
     };
 
+    /**
+     * @brief This maps the enum of the renderer to the enum of the graphic api
+     * @details This allows the renderer to be agnostic of the graphic api
+     * @param renderType
+     * @return The buffer usage for the graphic api
+     */
     inline GAPI::Enums::BufferUsages getBufferUsage(RenderType renderType) {
-        if (renderType == RenderType::Static) {
+        if (renderType == RenderType::SingleDrawStatic) {
             return GAPI::Enums::BufferUsages::StaticDraw;
         }
-        if (renderType == RenderType::Dynamic) {
+        if (renderType == RenderType::SingleDrawDynamic) {
             return GAPI::Enums::BufferUsages::DynamicDraw;
         }
         if (renderType == RenderType::InstancedStatic) {
@@ -42,6 +77,7 @@ namespace GLESC::Render {
             return GAPI::Enums::BufferUsages::StaticDraw;
         }
         D_ASSERT_TRUE(false, "Unknown render type");
+        // This is just to make the compiler happy
         return GAPI::Enums::BufferUsages::StaticDraw;
     }
 
@@ -67,6 +103,12 @@ namespace GLESC::Render {
     using VP = Mat4F;
     using MVP = Mat4F;
 
+    /**
+     * @brief Intensity class, to encapsulate values between 0 and 1
+     * @details This ensures values are always between 0 and 1, as are very common in the engine.
+     * It has minimum overhead, and only validates in debug mode.
+     * @tparam IntensityType The type of the intensity (float, double, etc)
+     */
     template <typename IntensityType>
     [[nodiscard]] class Intensity {
     public:
@@ -139,6 +181,9 @@ namespace GLESC::Render {
         IntensityType intensity = IntensityType(0);
     };
 
+    /**
+     * @brief Color functions, utility static class for color operations
+     */
     class ColorFuncs {
     public:
         static void checkValue(float value, const std::string& valueName) {
@@ -146,6 +191,11 @@ namespace GLESC::Render {
             D_ASSERT_GREATER_OR_EQUAL(value, 0.0f, valueName + " must be between greater or equal than 0");
         }
 
+        /**
+         * @brief Normalizes a color to be between 0 and 1
+         * @param value
+         * @return
+         */
         static float normalizeColorValue(float value) {
             return value / 255.0f;
         }
@@ -153,6 +203,14 @@ namespace GLESC::Render {
 
     struct ColorRgba;
 
+    /**
+     * @brief Color in RGB values
+     * @details Will store colors in the range of 0 to 255
+     * @details Has minimum overhead as only validates in debug mode.
+     * @details Contains a set of static colors for convenience.
+     * Examples: ColorRgb::Red, ColorRgb::Green, etc.
+     * @details Inherits from Vec3F to allow for easy conversion to Vec3F, as many functions expect Vec3F
+     */
     [[nodiscard]] struct ColorRgb : Vec3F {
         static const ColorRgb Red;
         static const ColorRgb Green;
@@ -247,6 +305,14 @@ namespace GLESC::Render {
     };
 
 
+    /**
+     * @brief Color in RGBA values (x = [0] = R, y = [1] = G, z = [2] = B, w = [3] = A)
+     * @details Will store colors in the range of 0 to 255
+     * @details Has minimum overhead as only validates in debug mode.
+     * @details Contains a set of static colors for convenience.
+     * Examples: ColorRgba::Red, ColorRgba::Green, etc.
+     * @details Inherits from Vec4F to allow for easy conversion to Vec4F, as many functions expect Vec4F
+     */
     [[nodiscard]] struct ColorRgba : Vec4F {
         ColorRgba() = default;
 

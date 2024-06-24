@@ -1,0 +1,33 @@
+<map id="GLESC::HUD::DebugItems::windowContent" name="GLESC::HUD::DebugItems::windowContent">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,189,183,232"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_render_1_1_frustum.html#a0fbcd7a741409909fa9af115b9e525eb" title="Checks if the frustum intersects with a given bounding volume." alt="" coords="249,5,419,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="107,187,156,124,190,88,229,58,237,53,240,58,232,62,194,92,160,127,111,191"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_render_1_1_renderer.html#a0de63dbe92ebfc070fcbd3f294773d99" title=" " alt="" coords="247,72,421,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="124,187,173,155,229,124,243,118,245,123,232,129,175,160,127,191"/>
+<area shape="rect" id="Node000004" href="$class_hud_items_manager.html#aa23b386d820484f155590b140cef3238" title=" " alt="" coords="242,139,426,165"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="183,186,261,167,262,172,184,191"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_render_1_1_renderer.html#af59c9e9729fac637fedf6c88737aa294" title=" " alt="" coords="247,189,421,232"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="183,208,231,208,231,213,183,213"/>
+<area shape="rect" id="Node000007" href="$class_g_l_e_s_c_1_1_render_1_1_renderer.html#a30bde44c95380491d58e44bca71e4855" title=" " alt="" coords="247,256,421,299"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="174,230,241,249,239,254,172,235"/>
+<area shape="rect" id="Node000008" href="$_hud_items_manager_8h.html#af5d4241fd24c7c442c0aa148c697505e" title=" " alt="" coords="287,323,381,349"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="121,231,170,270,232,308,272,322,271,327,230,313,167,275,117,235"/>
+<area shape="rect" id="Node000009" href="$class_g_l_e_s_c_1_1_transform_1_1_transformer.html#a867084113e8ae0eaaf7473f9c1d0a80b" title="Transforms the world position to viewport coordinates." alt="" coords="231,373,437,416"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="111,231,160,294,194,329,232,359,240,364,237,368,229,364,190,333,156,298,107,234"/>
+<area shape="rect" id="Node000006" href="$class_g_l_e_s_c_1_1_window_manager.html#a9773451549202e2cee40c3106d8e5bbe" title="Get the width and height of the window." alt="" coords="504,189,673,232"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="421,208,488,208,488,213,421,213"/>
+<area shape="rect" id="Node000010" href="$class_g_l_e_s_c_1_1_transform_1_1_transformer.html#a9539ec619440203589c9a2cc13145500" title="Transforms the clip position to normalized device coordinates." alt="" coords="485,307,691,349"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="417,370,489,351,490,356,419,375"/>
+<area shape="rect" id="Node000013" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#ae97c63da7362348a91413c64256df459" title="Homogenizes the vector." alt="" coords="514,373,662,416"/>
+<area shape="poly" id="edge12_Node000009_Node000013" title=" " alt="" coords="438,392,499,392,499,397,438,397"/>
+<area shape="rect" id="Node000016" href="$class_g_l_e_s_c_1_1_transform_1_1_transformer.html#ac4648154cefca78120d8bab23006d885" title="Transforms the normalized device coordinates to viewport coordinates." alt="" coords="485,440,691,483"/>
+<area shape="poly" id="edge15_Node000009_Node000016" title=" " alt="" coords="419,414,490,433,489,438,417,419"/>
+<area shape="rect" id="Node000011" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#a8913aa86e1b8a6453aacb419120a3857" title="Dehomogenizes the vector." alt="" coords="770,307,919,349"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="692,325,755,325,755,331,692,331"/>
+<area shape="rect" id="Node000012" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#af4cdeacecee1abea0c1c9e50e7765340" title="Dehomogenizes a vector." alt="" coords="998,307,1208,349"/>
+<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="919,325,982,325,982,331,919,331"/>
+<area shape="rect" id="Node000014" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#a0ac2336be4653468291125421bfb96ed" title="Homozenizes a vector." alt="" coords="739,373,950,416"/>
+<area shape="poly" id="edge13_Node000013_Node000014" title=" " alt="" coords="663,392,724,392,724,397,663,397"/>
+<area shape="rect" id="Node000015" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#a93326a041053cabfc137c40f2f19b874" title=" " alt="" coords="998,373,1208,416"/>
+<area shape="poly" id="edge14_Node000014_Node000015" title=" " alt="" coords="950,392,982,392,982,397,950,397"/>
+</map>

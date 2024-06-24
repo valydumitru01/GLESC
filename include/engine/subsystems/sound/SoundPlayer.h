@@ -2,7 +2,7 @@
  * @file   SoundPlayer.h
  * @author Valentin Dumitru
  * @date   13/06/2024
- * @brief  Add description of this file if needed @TODO
+ * @brief  @TODO Add description of this file if needed
  *
  * Copyright (c) 2023 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
@@ -87,8 +87,19 @@ namespace GLESC {
         static void playMusic(Loops loops = -1, Volume volume = 128); // Default is to loop indefinitely
 
     private:
+        /**
+         * @brief Pointer to the current music so it can be easily handled by the class
+         */
         static Mix_Music* currentMusic;
+        /**
+         * @brief Maximum distance for 3D sound
+         * @details If the distance between the listener and the sound is greater than this, the sound will not be heard
+         * @details This is to simulate the attenuation of sound in the real world
+         */
         static constexpr float maxDistance = 1000.0f;
+        /**
+         * @brief This handles all the loading and storing of sounds and music.
+         */
         static SoundLoader soundLoader;
     };
 }

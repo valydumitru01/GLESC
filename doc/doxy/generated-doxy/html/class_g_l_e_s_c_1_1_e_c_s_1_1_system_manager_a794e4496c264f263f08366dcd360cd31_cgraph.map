@@ -1,0 +1,7 @@
+<map id="GLESC::ECS::SystemManager::addComponentRequirementToSystem" name="GLESC::ECS::SystemManager::addComponentRequirementToSystem">
+<area shape="rect" id="Node000001" title="Adds a component requirement to a system, this changes the entities that are considered associated wi..." alt="" coords="5,39,254,81"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#ab3cf02a92c58027d95c678b108bb1e0d" title="Checks if a component is required by a system." alt="" coords="302,5,519,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="254,43,286,39,286,44,254,48"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#a32f415d7a7e0cefc9e1b5c71a4dc1be4" title="Checks if a system is registered." alt="" coords="309,72,512,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="254,72,294,77,293,82,254,77"/>
+</map>

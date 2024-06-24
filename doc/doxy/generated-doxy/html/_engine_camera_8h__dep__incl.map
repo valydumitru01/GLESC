@@ -1,0 +1,21 @@
+<map id="EngineCamera.h" name="EngineCamera.h">
+<area shape="rect" id="Node000001" title="@TODO Add description of this file if needed" alt="" coords="115,5,232,32"/>
+<area shape="rect" id="Node000002" href="$_engine_camera_8cpp.html" title="@TODO Add description of this file if needed" alt="" coords="5,80,137,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="145,44,91,82,87,77,142,39"/>
+<area shape="rect" id="Node000003" href="$_g_l_e_s_c_8h.html" title=" " alt="" coords="236,229,312,256"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="175,47,179,111,187,147,201,180,224,207,252,227,249,231,221,211,197,183,182,148,174,112,169,48"/>
+<area shape="rect" id="Node000006" href="$_scene_8h.html" title="@TODO Add description of this file if needed" alt="" coords="300,80,370,107"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="217,36,308,77,306,82,214,41"/>
+<area shape="rect" id="Node000004" href="$_g_l_e_s_c_8cpp.html" title=" " alt="" coords="379,304,470,331"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="315,261,399,301,397,306,312,265"/>
+<area shape="rect" id="Node000005" href="$main_8cpp.html" title=" " alt="" coords="237,304,311,331"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="276,272,276,304,271,304,271,272"/>
+<area shape="poly" id="edge8_Node000006_Node000004" title=" " alt="" coords="385,106,419,125,434,138,447,153,455,173,459,194,456,237,445,276,433,305,428,303,440,274,451,236,454,195,450,175,442,156,431,141,416,129,383,111"/>
+<area shape="rect" id="Node000007" href="$_default_8h.html" title="@TODO Add description of this file if needed" alt="" coords="360,155,433,181"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="357,117,388,153,384,156,353,120"/>
+<area shape="rect" id="Node000009" href="$_scene_container_8h.html" title="Class that stores and manages scenes." alt="" coords="212,155,336,181"/>
+<area shape="poly" id="edge9_Node000006_Node000009" title=" " alt="" coords="317,120,286,156,282,153,313,117"/>
+<area shape="rect" id="Node000008" href="$_default_8cpp.html" title="@TODO Add description of this file if needed" alt="" coords="347,229,433,256"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="396,197,393,229,388,229,391,197"/>
+<area shape="poly" id="edge10_Node000009_Node000003" title=" " alt="" coords="276,197,276,229,271,229,271,197"/>
+</map>

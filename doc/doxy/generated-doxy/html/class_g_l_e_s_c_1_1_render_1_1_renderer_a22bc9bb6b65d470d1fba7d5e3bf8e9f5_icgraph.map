@@ -1,0 +1,5 @@
+<map id="GLESC::Render::Renderer::sendLightPoint" name="GLESC::Render::Renderer::sendLightPoint">
+<area shape="rect" id="Node000001" title="This sends the light point reference to the renderer so it can be rendered." alt="" coords="235,5,409,48"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_light_system.html#a3efffc72794b6e6c0aed5e9bec629d0e" title="Updates the system." alt="" coords="5,5,187,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="219,29,187,29,187,24,219,24"/>
+</map>

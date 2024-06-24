@@ -1,0 +1,7 @@
+<map id="GLESC::ECS::ECSCoordinator::getEntityID" name="GLESC::ECS::ECSCoordinator::getEntityID">
+<area shape="rect" id="Node000001" title="Get the entity ID from the entity name." alt="" coords="5,5,207,48"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a331b9b5711f516647e4de67f9a256db3" title="Get the entity ID from the entity name." alt="" coords="255,5,447,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="207,24,239,24,239,29,207,29"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a5145504091eb26170aa219acb60aca71" title="Check if the entity with the given name exists." alt="" coords="495,5,687,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="447,24,479,24,479,29,447,29"/>
+</map>

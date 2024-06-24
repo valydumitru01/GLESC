@@ -1,0 +1,122 @@
+<map id="EngineException.h" name="EngineException.h">
+<area shape="rect" id="Node000001" title="Base exception class for any exception in the engine." alt="" coords="1916,5,2046,32"/>
+<area shape="rect" id="Node000002" href="$_assert_failed_exception_8h.html" title="@TODO Add description of this file if needed" alt="" coords="1817,80,1980,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1957,45,1914,82,1911,78,1954,40"/>
+<area shape="rect" id="Node000176" href="$_g_a_p_i_exception_8h.html" title="Exception class for the engine." alt="" coords="2005,80,2126,107"/>
+<area shape="poly" id="edge64_Node000001_Node000176" title=" " alt="" coords="2009,40,2052,78,2049,82,2006,45"/>
+<area shape="rect" id="Node000177" href="$_math_exception_8h.html" title="Exception class for math errors." alt="" coords="1419,229,1538,256"/>
+<area shape="poly" id="edge65_Node000001_Node000177" title=" " alt="" coords="1926,40,1806,82,1630,164,1503,231,1500,226,1628,159,1804,78,1924,35"/>
+<area shape="rect" id="Node000178" href="$_open_exception_8h.html" title="Exception class for when a resource cannot be opened." alt="" coords="2150,80,2271,107"/>
+<area shape="poly" id="edge69_Node000001_Node000178" title=" " alt="" coords="2036,35,2171,77,2169,82,2035,40"/>
+<area shape="rect" id="Node000003" href="$_asserts_8h.html" title="Set of macros for runtime and compile time assertions." alt="" coords="1956,155,2033,181"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="1929,114,1980,152,1976,156,1925,118"/>
+<area shape="rect" id="Node000004" href="$_component_array_8h.html" title="@TODO Add description of this file if needed" alt="" coords="1025,229,1154,256"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="1941,175,1616,194,1397,211,1173,232,1155,234,1154,229,1173,227,1396,206,1616,189,1940,169"/>
+<area shape="rect" id="Node000005" href="$_component_manager_8h.html" title="@TODO Add description of this file if needed" alt="" coords="1036,304,1185,331"/>
+<area shape="poly" id="edge8_Node000003_Node000005" title=" " alt="" coords="1940,172,1782,175,1574,184,1370,202,1287,215,1225,232,1194,247,1165,267,1123,306,1120,302,1162,263,1191,243,1223,227,1285,210,1369,196,1574,178,1782,170,1940,167"/>
+<area shape="rect" id="Node000046" href="$_entity_list_h_u_d_8cpp.html" title="@TODO Add description of this file if needed" alt="" coords="1562,229,1691,256"/>
+<area shape="poly" id="edge9_Node000003_Node000046" title=" " alt="" coords="1941,183,1691,231,1690,226,1940,177"/>
+<area shape="rect" id="Node000047" href="$_entity_manager_8h.html" title=" " alt="" coords="115,229,231,256"/>
+<area shape="poly" id="edge10_Node000003_Node000047" title=" " alt="" coords="1940,174,232,242,232,236,1940,169"/>
+<area shape="rect" id="Node000049" href="$_file_logger_8cpp.html" title=" " alt="" coords="1715,229,1821,256"/>
+<area shape="poly" id="edge13_Node000003_Node000049" title=" " alt="" coords="1942,189,1808,231,1807,226,1940,184"/>
+<area shape="rect" id="Node000050" href="$_g_a_p_i_asserts_8h.html" title="A set of macros and functions for debugging and logging." alt="" coords="2498,229,2606,256"/>
+<area shape="poly" id="edge14_Node000003_Node000050" title=" " alt="" coords="2049,172,2242,194,2486,227,2498,229,2497,234,2485,232,2241,199,2048,178"/>
+<area shape="rect" id="Node000053" href="$_h_u_d_look_and_feel_8cpp.html" title="@TODO Add description of this file if needed" alt="" coords="2032,229,2181,256"/>
+<area shape="poly" id="edge17_Node000003_Node000053" title=" " alt="" coords="2028,188,2088,226,2085,231,2025,192"/>
+<area shape="rect" id="Node000054" href="$_in_game_window_8cpp.html" title="@TODO Add description of this file if needed" alt="" coords="2206,229,2343,256"/>
+<area shape="poly" id="edge18_Node000003_Node000054" title=" " alt="" coords="2048,180,2226,226,2225,231,2047,186"/>
+<area shape="rect" id="Node000055" href="$_input_debugger_8h.html" title=" " alt="" coords="1280,229,1395,256"/>
+<area shape="poly" id="edge19_Node000003_Node000055" title=" " alt="" coords="1941,176,1708,197,1407,232,1396,234,1395,228,1406,227,1708,192,1940,171"/>
+<area shape="rect" id="Node000057" href="$_math_8h.html" title=" " alt="" coords="1896,229,1957,256"/>
+<area shape="poly" id="edge22_Node000003_Node000057" title=" " alt="" coords="1974,195,1940,231,1936,227,1970,191"/>
+<area shape="rect" id="Node000060" href="$_matrix_algorithms_8h.html" title="Backend implementation of the matrix class." alt="" coords="1480,304,1610,331"/>
+<area shape="poly" id="edge44_Node000003_Node000060" title=" " alt="" coords="1959,192,1834,258,1776,277,1717,291,1611,310,1610,305,1716,286,1775,272,1832,254,1957,187"/>
+<area shape="rect" id="Node000061" href="$_matrix_8h.html" title=" " alt="" coords="1606,528,1674,555"/>
+<area shape="poly" id="edge43_Node000003_Node000061" title=" " alt="" coords="1940,172,1774,175,1561,184,1458,192,1370,202,1304,215,1282,223,1270,231,1253,255,1245,279,1246,303,1255,326,1271,349,1293,371,1349,413,1417,450,1488,483,1606,527,1604,532,1486,488,1415,455,1347,417,1289,375,1267,352,1250,328,1241,304,1240,279,1248,253,1266,227,1280,218,1302,210,1369,197,1458,187,1561,179,1774,170,1940,167"/>
+<area shape="rect" id="Node000161" href="$_window_manager_8cpp.html" title=" " alt="" coords="2742,528,2884,555"/>
+<area shape="poly" id="edge63_Node000003_Node000161" title=" " alt="" coords="2049,172,2140,179,2375,180,2767,180,2971,183,3155,191,3298,205,3348,215,3381,227,3407,244,3424,263,3434,286,3437,316,3437,394,3433,414,3420,433,3399,450,3373,465,3304,489,3221,508,3131,522,3039,531,2885,541,2884,535,3039,526,3130,516,3220,503,3303,484,3370,460,3396,446,3416,430,3428,412,3432,393,3432,316,3429,287,3420,266,3403,248,3379,232,3347,220,3298,210,3155,197,2971,189,2767,185,2375,185,2140,184,2048,177"/>
+<area shape="rect" id="Node000165" href="$_model_loader_8h.html" title="@TODO Add description of this file if needed" alt="" coords="2367,229,2473,256"/>
+<area shape="poly" id="edge45_Node000003_Node000165" title=" " alt="" coords="2049,175,2356,227,2367,229,2366,234,2355,232,2048,181"/>
+<area shape="rect" id="Node000166" href="$_shader_asserts_8h.html" title="@TODO Add description of this file if needed" alt="" coords="2942,229,3060,256"/>
+<area shape="poly" id="edge46_Node000003_Node000166" title=" " alt="" coords="2049,171,2140,179,2362,191,2536,197,2709,206,2931,227,2942,228,2941,233,2930,232,2709,211,2536,202,2362,196,2140,184,2048,177"/>
+<area shape="rect" id="Node000167" href="$_sound_loader_8cpp.html" title="@TODO Add description of this file if needed" alt="" coords="2631,229,2753,256"/>
+<area shape="poly" id="edge48_Node000003_Node000167" title=" " alt="" coords="2049,171,2342,198,2619,227,2631,228,2630,234,2618,232,2341,203,2048,177"/>
+<area shape="rect" id="Node000168" href="$_stats_manager_8h.html" title="@TODO Add description of this file if needed" alt="" coords="694,229,807,256"/>
+<area shape="poly" id="edge49_Node000003_Node000168" title=" " alt="" coords="1941,175,808,241,808,235,1940,170"/>
+<area shape="rect" id="Node000171" href="$_system_manager_8cpp.html" title=" " alt="" coords="2777,229,2919,256"/>
+<area shape="poly" id="edge56_Node000003_Node000171" title=" " alt="" coords="2049,171,2140,179,2453,199,2590,209,2765,227,2777,228,2776,233,2765,232,2589,215,2453,205,2140,184,2048,177"/>
+<area shape="rect" id="Node000172" href="$_texture_8cpp.html" title=" " alt="" coords="3205,304,3294,331"/>
+<area shape="poly" id="edge57_Node000003_Node000172" title=" " alt="" coords="2049,172,2140,179,2757,186,2970,191,3158,199,3296,211,3339,218,3360,227,3368,240,3368,252,3362,263,3351,274,3321,292,3288,306,3286,301,3319,287,3348,270,3357,260,3363,251,3363,241,3357,231,3337,223,3295,216,3158,204,2970,196,2757,191,2140,184,2048,177"/>
+<area shape="rect" id="Node000173" href="$_texture_adapter_8h.html" title="@TODO Add description of this file if needed" alt="" coords="3085,229,3205,256"/>
+<area shape="poly" id="edge58_Node000003_Node000173" title=" " alt="" coords="2049,172,2140,179,2402,192,2606,196,2811,204,3072,227,3085,228,3084,234,3072,232,2810,210,2606,202,2402,197,2140,184,2048,177"/>
+<area shape="rect" id="Node000175" href="$_vector_asserts_8h.html" title="Contains custom asserts for vectors." alt="" coords="2109,379,2224,405"/>
+<area shape="poly" id="edge60_Node000003_Node000175" title=" " alt="" coords="1998,196,2005,227,2012,242,2022,254,2045,270,2069,277,2093,277,2118,274,2142,272,2166,273,2190,282,2211,303,2218,323,2211,345,2197,365,2182,380,2179,377,2193,361,2206,342,2212,323,2207,305,2187,287,2165,279,2142,277,2118,280,2093,282,2068,282,2043,275,2018,258,2007,244,2000,229,1993,197"/>
+<area shape="rect" id="Node000119" href="$_vertex_buffer_8cpp.html" title=" " alt="" coords="3229,229,3347,256"/>
+<area shape="poly" id="edge62_Node000003_Node000119" title=" " alt="" coords="2049,172,2140,179,2443,192,2679,195,2915,202,3054,211,3217,227,3229,228,3228,233,3217,232,3053,217,2915,207,2679,200,2443,197,2140,184,2048,177"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="1100,270,1109,303,1104,304,1095,272"/>
+<area shape="rect" id="Node000006" href="$_component_manager_8cpp.html" title=" " alt="" coords="1093,379,1256,405"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="1134,341,1165,376,1161,380,1130,344"/>
+<area shape="rect" id="Node000007" href="$_e_c_s_8h.html" title=" " alt="" coords="1010,379,1070,405"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="1090,344,1054,380,1050,376,1086,340"/>
+<area shape="rect" id="Node000015" href="$_g_l_e_s_c_8cpp.html" title=" " alt="" coords="995,453,1085,480"/>
+<area shape="poly" id="edge7_Node000007_Node000015" title=" " alt="" coords="1043,421,1043,453,1037,453,1037,421"/>
+<area shape="poly" id="edge11_Node000047_Node000007" title=" " alt="" coords="176,271,183,302,190,317,200,329,218,337,247,345,333,359,446,369,575,377,832,385,1010,388,1010,393,832,391,574,382,445,375,332,364,245,351,216,342,197,333,185,320,177,304,171,272"/>
+<area shape="rect" id="Node000048" href="$_entity_manager_8cpp.html" title=" " alt="" coords="5,304,136,331"/>
+<area shape="poly" id="edge12_Node000047_Node000048" title=" " alt="" coords="144,268,90,306,87,301,141,263"/>
+<area shape="rect" id="Node000051" href="$_open_g_l_a_p_i_8h.html" title="OpenGL API implementation." alt="" coords="1949,528,2051,555"/>
+<area shape="poly" id="edge15_Node000050_Node000051" title=" " alt="" coords="2553,272,2545,303,2529,332,2475,382,2413,423,2348,457,2280,483,2214,504,2152,519,2051,537,2050,532,2151,514,2212,499,2278,478,2345,452,2411,419,2471,378,2524,329,2540,301,2547,271"/>
+<area shape="rect" id="Node000052" href="$_open_g_l_debugger_8cpp.html" title="A debugger for OpenGL. Includes a callback function for OpenGL errors and some helper functions." alt="" coords="2365,304,2515,331"/>
+<area shape="poly" id="edge16_Node000050_Node000052" title=" " alt="" coords="2521,267,2461,306,2458,301,2518,262"/>
+<area shape="poly" id="edge20_Node000055_Node000015" title=" " alt="" coords="1331,271,1304,347,1287,384,1270,407,1226,435,1177,453,1128,463,1086,467,1085,462,1128,458,1175,448,1224,431,1266,403,1282,381,1299,345,1326,270"/>
+<area shape="rect" id="Node000056" href="$_input_8cpp.html" title="@TODO Add description of this file if needed" alt="" coords="1331,304,1405,331"/>
+<area shape="poly" id="edge21_Node000055_Node000056" title=" " alt="" coords="1351,270,1365,303,1360,305,1346,272"/>
+<area shape="rect" id="Node000058" href="$_debug_console_h_u_d_8cpp.html" title="@TODO Add description of this file if needed" alt="" coords="2040,304,2197,331"/>
+<area shape="poly" id="edge23_Node000057_Node000058" title=" " alt="" coords="1973,259,2086,301,2084,306,1971,264"/>
+<area shape="rect" id="Node000059" href="$_f_p_s_manager_8cpp.html" title=" " alt="" coords="1843,304,1965,331"/>
+<area shape="poly" id="edge24_Node000057_Node000059" title=" " alt="" coords="1921,272,1910,304,1905,303,1915,270"/>
+<area shape="poly" id="edge25_Node000057_Node000060" title=" " alt="" coords="1881,258,1878,259,1611,308,1610,303,1877,253,1880,253"/>
+<area shape="rect" id="Node000122" href="$_matrix_mixed_algorithms_8h.html" title="This is needed to avoid circular dependencies between MatrixMixedAlgorithms and VectorMixedAlgorithms..." alt="" coords="1557,379,1723,405"/>
+<area shape="poly" id="edge31_Node000057_Node000122" title=" " alt="" coords="1881,258,1878,259,1817,267,1768,268,1745,270,1723,276,1700,288,1675,306,1661,323,1652,342,1644,379,1638,378,1647,341,1657,320,1671,302,1697,283,1721,271,1744,265,1767,263,1817,261,1877,253,1880,253"/>
+<area shape="rect" id="Node000123" href="$_vector_8h.html" title=" " alt="" coords="1917,453,1987,480"/>
+<area shape="poly" id="edge32_Node000057_Node000123" title=" " alt="" coords="1955,265,1969,283,1980,303,1987,346,1982,388,1971,426,1960,454,1955,452,1966,424,1977,387,1981,346,1975,305,1964,286,1951,269"/>
+<area shape="rect" id="Node000163" href="$_vector_algorithms_8h.html" title="@TODO Add description of this file" alt="" coords="1686,304,1818,331"/>
+<area shape="poly" id="edge38_Node000057_Node000163" title=" " alt="" coords="1883,265,1784,306,1781,301,1881,260"/>
+<area shape="poly" id="edge26_Node000060_Node000061" title=" " alt="" coords="1544,346,1543,375,1548,405,1564,442,1586,476,1629,526,1625,529,1582,479,1559,444,1543,406,1538,375,1538,345"/>
+<area shape="poly" id="edge29_Node000060_Node000122" title=" " alt="" coords="1575,338,1625,376,1622,380,1572,343"/>
+<area shape="rect" id="Node000062" href="$_debug_entity_data_h_u_d_8cpp.html" title="@TODO Add description of this file if needed" alt="" coords="1761,603,1932,629"/>
+<area shape="poly" id="edge27_Node000061_Node000062" title=" " alt="" coords="1689,557,1811,600,1810,605,1688,562"/>
+<area shape="rect" id="Node000063" href="$_gapi_types_8h.html" title=" " alt="" coords="1626,603,1720,629"/>
+<area shape="poly" id="edge28_Node000061_Node000063" title=" " alt="" coords="1654,568,1670,601,1665,603,1650,570"/>
+<area shape="poly" id="edge30_Node000122_Node000061" title=" " alt="" coords="1643,421,1643,528,1637,528,1637,421"/>
+<area shape="poly" id="edge36_Node000123_Node000051" title=" " alt="" coords="1971,492,1994,526,1989,529,1966,495"/>
+<area shape="poly" id="edge35_Node000123_Node000061" title=" " alt="" coords="1902,482,1675,535,1674,529,1901,477"/>
+<area shape="poly" id="edge33_Node000123_Node000062" title=" " alt="" coords="1936,494,1858,604,1853,601,1932,491"/>
+<area shape="poly" id="edge34_Node000123_Node000063" title=" " alt="" coords="1916,490,1698,605,1696,600,1914,485"/>
+<area shape="poly" id="edge37_Node000123_Node000161" title=" " alt="" coords="2003,470,2742,531,2741,537,2002,475"/>
+<area shape="poly" id="edge39_Node000163_Node000122" title=" " alt="" coords="1721,342,1661,380,1658,376,1718,337"/>
+<area shape="poly" id="edge40_Node000163_Node000123" title=" " alt="" coords="1821,333,1884,353,1911,364,1928,377,1941,395,1949,416,1954,453,1949,453,1944,417,1936,398,1925,381,1908,369,1882,358,1819,338"/>
+<area shape="rect" id="Node000164" href="$_vector_mixed_algorithms_8h.html" title=" " alt="" coords="1747,379,1914,405"/>
+<area shape="poly" id="edge41_Node000163_Node000164" title=" " alt="" coords="1779,340,1819,376,1815,380,1775,344"/>
+<area shape="poly" id="edge42_Node000164_Node000123" title=" " alt="" coords="1866,411,1932,450,1929,455,1863,416"/>
+<area shape="rect" id="Node000093" href="$_shader_loader_8cpp.html" title="@TODO Add description of this file if needed" alt="" coords="2938,304,3064,331"/>
+<area shape="poly" id="edge47_Node000166_Node000093" title=" " alt="" coords="3004,272,3004,304,2999,304,2999,272"/>
+<area shape="poly" id="edge52_Node000168_Node000015" title=" " alt="" coords="823,249,888,267,921,282,950,302,971,326,981,350,988,375,1001,404,1033,451,1028,454,996,407,983,377,975,351,966,329,946,306,918,287,886,272,822,254"/>
+<area shape="rect" id="Node000027" href="$_camera_system_8cpp.html" title=" " alt="" coords="362,304,499,331"/>
+<area shape="poly" id="edge50_Node000168_Node000027" title=" " alt="" coords="680,263,487,306,486,301,679,257"/>
+<area shape="rect" id="Node000169" href="$_debug_stats_h_u_d_8cpp.html" title="@TODO Add description of this file if needed" alt="" coords="523,304,664,331"/>
+<area shape="poly" id="edge51_Node000168_Node000169" title=" " alt="" coords="710,265,622,306,620,301,708,260"/>
+<area shape="rect" id="Node000151" href="$_input_manager_8cpp.html" title=" " alt="" coords="688,304,813,331"/>
+<area shape="poly" id="edge53_Node000168_Node000151" title=" " alt="" coords="753,272,753,304,748,304,748,272"/>
+<area shape="rect" id="Node000075" href="$_renderer_8cpp.html" title=" " alt="" coords="837,304,936,331"/>
+<area shape="poly" id="edge54_Node000168_Node000075" title=" " alt="" coords="789,261,864,301,861,306,786,266"/>
+<area shape="rect" id="Node000170" href="$_stats_manager_8cpp.html" title="@TODO Add description of this file if needed" alt="" coords="211,304,338,331"/>
+<area shape="poly" id="edge55_Node000168_Node000170" title=" " alt="" coords="679,257,351,307,339,308,338,303,350,301,678,252"/>
+<area shape="poly" id="edge59_Node000173_Node000172" title=" " alt="" coords="3177,263,3232,301,3229,306,3174,267"/>
+<area shape="poly" id="edge61_Node000175_Node000123" title=" " alt="" coords="2116,413,1988,456,1987,451,2114,408"/>
+<area shape="poly" id="edge67_Node000177_Node000060" title=" " alt="" coords="1502,266,1536,302,1532,305,1498,269"/>
+<area shape="poly" id="edge66_Node000177_Node000061" title=" " alt="" coords="1472,272,1468,300,1470,330,1487,377,1506,410,1566,478,1594,505,1622,526,1619,530,1591,509,1562,482,1502,413,1482,379,1465,331,1462,300,1467,271"/>
+<area shape="poly" id="edge68_Node000177_Node000163" title=" " alt="" coords="1542,258,1705,301,1703,306,1540,263"/>
+<area shape="rect" id="Node000179" href="$_file_manager_8cpp.html" title=" " alt="" coords="2152,155,2269,181"/>
+<area shape="poly" id="edge70_Node000178_Node000179" title=" " alt="" coords="2213,122,2213,154,2208,154,2208,122"/>
+</map>

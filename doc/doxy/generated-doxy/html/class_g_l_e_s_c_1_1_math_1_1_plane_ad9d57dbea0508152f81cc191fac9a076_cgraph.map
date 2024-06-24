@@ -1,0 +1,11 @@
+<map id="GLESC::Math::Plane::calculateDistanceFromPointAndLine" name="GLESC::Math::Plane::calculateDistanceFromPointAndLine">
+<area shape="rect" id="Node000001" title="Calculate the distance from the origin to the plane defined by a point and a line." alt="" coords="5,31,198,89"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#ac4fe912b3001e4fad684c2cd4c56cf83" title="Calculates the cross product of two vectors." alt="" coords="259,8,407,51"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="197,45,243,39,243,44,198,50"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#ab7062a9b67c16d4e60413b625412b4eb" title="Returns the dot product of two vectors." alt="" coords="246,76,420,103"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="198,70,230,74,230,79,197,75"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#ab041da9d339dfe80b80c6f0bdf5dbfd4" title="Computes the cross product of two vectors." alt="" coords="468,5,678,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="407,26,452,25,452,31,407,31"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#ae45bcff9b53fb60d513c53823418d97b" title="Computes the dot product of two vectors." alt="" coords="468,72,678,115"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="421,88,453,89,452,94,421,93"/>
+</map>

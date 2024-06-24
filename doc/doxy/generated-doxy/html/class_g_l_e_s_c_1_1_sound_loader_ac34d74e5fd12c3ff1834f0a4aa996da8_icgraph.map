@@ -1,0 +1,5 @@
+<map id="GLESC::SoundLoader::loadSound" name="GLESC::SoundLoader::loadSound">
+<area shape="rect" id="Node000001" title="Loads a sound from a file." alt="" coords="201,5,350,48"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_sound_player.html#af853ca7b646ab7e809df681deee7fbd2" title="Load a sound from a file." alt="" coords="5,5,153,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="185,29,153,29,153,24,185,24"/>
+</map>

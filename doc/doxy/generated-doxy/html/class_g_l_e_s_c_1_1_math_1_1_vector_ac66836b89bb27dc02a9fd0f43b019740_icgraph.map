@@ -1,0 +1,5 @@
+<map id="GLESC::Math::Vector::lengthSquared" name="GLESC::Math::Vector::lengthSquared">
+<area shape="rect" id="Node000001" title="Returns the squared length of the vector." alt="" coords="205,5,353,48"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_sphere.html#a375b95d18510299f26b1bb69d5f28116" title="Checks if the sphere intersects with an edge defined by two points." alt="" coords="5,5,157,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="189,29,157,29,157,24,189,24"/>
+</map>

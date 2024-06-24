@@ -1,0 +1,9 @@
+<map id="GLESC::Math::Polyhedron::hasInside" name="GLESC::Math::Polyhedron::hasInside">
+<area shape="rect" id="Node000001" title="Checks if a point is inside the polyhedron." alt="" coords="229,72,404,115"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#ab033e88c6958b7e99a8dc22b13f5fc28" title="Checks if the polyhedron has any vertex inside another polyhedron." alt="" coords="5,5,181,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="227,70,166,51,168,46,229,65"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a81175ce4485ad13d4418d676e5adc13c" title="Checks if the polyhedron has any vertex inside another polyhedron." alt="" coords="5,72,181,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="213,96,181,96,181,91,213,91"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a13c2a619c25064b513eb8f9287aac4a1" title="Checks if a face is inside the polyhedron." alt="" coords="5,139,181,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="229,122,168,141,166,135,227,117"/>
+</map>

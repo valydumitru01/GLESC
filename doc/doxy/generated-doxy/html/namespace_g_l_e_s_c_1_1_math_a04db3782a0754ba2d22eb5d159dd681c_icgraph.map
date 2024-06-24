@@ -1,0 +1,29 @@
+<map id="GLESC::Math::abs" name="GLESC::Math::abs">
+<area shape="rect" id="Node000001" title="Calculates the absolute value of a number." alt="" coords="709,248,841,275"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#ab293a83186797c46b688d47b7cdcb4f4" title="Computes the absolute value of a vector." alt="" coords="422,5,661,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="765,234,752,191,731,140,701,89,682,66,660,46,640,35,643,30,663,42,685,62,705,86,736,138,757,189,770,232"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#abd445eb1a09f37b1dc51d28e9a7e6f28" title="Checks if two vectors are parallel." alt="" coords="437,56,647,99"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="758,236,720,173,692,141,660,113,640,102,642,97,663,108,696,137,724,170,763,233"/>
+<area shape="rect" id="Node000007" href="$namespace_g_l_e_s_c_1_1_math.html#af0637e3d0ce3a48661a6f8b07215e3c3" title="Epsilon getter with precision of a given value." alt="" coords="466,123,617,149"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="751,238,711,199,687,180,660,164,617,148,618,143,662,159,690,176,715,195,755,235"/>
+<area shape="rect" id="Node000008" href="$namespace_g_l_e_s_c_1_1_math.html#a514c8fd84566d9ba2d7b741cb7f7374f" title="Generates a random number between min and max, specifically [min, max)" alt="" coords="438,173,646,216"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="712,246,661,231,621,219,622,214,662,225,714,241"/>
+<area shape="rect" id="Node000009" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#a404311d39e1e82c0ceef2a9c0e62d1fc" title="Gets an orthogonal vector to the input vector." alt="" coords="437,240,647,283"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="694,264,647,264,647,259,694,259"/>
+<area shape="rect" id="Node000011" href="$struct_g_l_e_s_c_1_1_transform_1_1_interpolator.html#ac421b853892d9700f61a4f55d6f5582e" title="Interpolates between the current and the last transform." alt="" coords="441,307,643,349"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="714,282,662,297,622,309,621,304,661,292,712,277"/>
+<area shape="rect" id="Node000012" href="$class_g_l_e_s_c_1_1_math_1_1_plane.html#adf3a9613b3c7820418e363fa2d2e7449" title="Checks if the plane intersects with a given line." alt="" coords="470,373,613,416"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="754,288,714,327,663,364,615,383,613,378,660,359,711,323,750,284"/>
+<area shape="rect" id="Node000013" href="$class_g_l_e_s_c_1_1_math_1_1_polyhedron_face.html#acda5c36a9dc475202153436369828d53" title="Checks if the face intersects with a given line." alt="" coords="440,440,644,483"/>
+<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="765,290,727,360,698,398,663,430,643,442,640,437,660,426,694,394,722,357,760,288"/>
+<area shape="rect" id="Node000014" href="$struct_g_l_e_s_c_1_1_transform_1_1_interpolator.html#a594cf0ebd253815096437cfbbe2a8d9f" title="Pushes a new transform to the interpolator." alt="" coords="441,507,643,549"/>
+<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="771,290,758,335,737,391,706,448,686,474,663,497,645,509,642,505,660,493,682,470,702,445,733,389,753,334,766,289"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#a14db8da1bd8d2dfa3fd6c32b30f978b0" title="Returns the absolute value of the vector." alt="" coords="197,5,374,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="406,21,375,21,375,16,406,16"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#a04bde0db0fa6c404f5c9e1d6c0901c9a" title="Checks if the vector is parallel to another vector." alt="" coords="211,56,360,99"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="421,80,360,80,360,75,421,75"/>
+<area shape="rect" id="Node000006" href="$class_g_l_e_s_c_1_1_math_1_1_plane.html#a7ff29d08e781e1368153ec76635df34d" title=" " alt="" coords="5,56,149,99"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="196,80,149,80,149,75,196,75"/>
+<area shape="rect" id="Node000010" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#ac5484e71065fd5a499e3fc951a3d8261" title="Get an orthogonal (or perpendicular) vector." alt="" coords="211,240,360,283"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="421,264,360,264,360,259,421,259"/>
+</map>

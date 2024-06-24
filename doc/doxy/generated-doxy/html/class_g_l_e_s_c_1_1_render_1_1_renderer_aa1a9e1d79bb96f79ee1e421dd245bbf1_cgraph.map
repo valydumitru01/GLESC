@@ -1,0 +1,41 @@
+<map id="GLESC::Render::Renderer::renderLights" name="GLESC::Render::Renderer::renderLights">
+<area shape="rect" id="Node000001" title="This encapsulates the rendering of the lights, setting the uniforms." alt="" coords="5,272,180,315"/>
+<area shape="rect" id="Node000002" href="$struct_g_l_e_s_c_1_1_render_1_1_light_point.html#a8675140fb3df1abf1d90750bb7bc48a1" title=" " alt="" coords="241,5,421,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="98,271,114,226,140,169,178,110,200,82,226,58,231,54,234,59,229,62,204,86,182,113,145,172,119,228,103,272"/>
+<area shape="rect" id="Node000003" href="$struct_g_l_e_s_c_1_1_render_1_1_light_point.html#ad3fbf61cb424a458eddc68949546b79d" title=" " alt="" coords="241,72,421,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="103,270,151,199,186,159,226,125,234,120,236,124,229,129,189,163,155,202,108,273"/>
+<area shape="rect" id="Node000005" href="$struct_g_l_e_s_c_1_1_render_1_1_light_point.html#ad726322792d471e2e77d5fb533519d5d" title=" " alt="" coords="241,139,421,181"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="116,269,165,230,226,191,238,185,241,190,229,196,168,234,120,274"/>
+<area shape="rect" id="Node000006" href="$struct_g_l_e_s_c_1_1_render_1_1_color_rgb.html#af0a993d6f6257b791729083f6b8e7ab3" title=" " alt="" coords="242,205,420,248"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="170,269,237,250,238,255,172,274"/>
+<area shape="rect" id="Node000011" href="$class_g_l_e_s_c_1_1_render_1_1_renderer.html#af3208d587830e17a2cd7080ef1f647f6" title=" " alt="" coords="244,272,418,315"/>
+<area shape="poly" id="edge12_Node000001_Node000011" title=" " alt="" coords="180,291,228,291,228,296,180,296"/>
+<area shape="rect" id="Node000012" href="$struct_g_l_e_s_c_1_1_render_1_1_light_point.html#a05561bb047fe3ce0f7618598753f5b63" title=" " alt="" coords="241,339,421,381"/>
+<area shape="poly" id="edge13_Node000001_Node000012" title=" " alt="" coords="172,313,238,331,237,337,170,318"/>
+<area shape="rect" id="Node000013" href="$struct_g_l_e_s_c_1_1_render_1_1_light_point.html#a8f7013ddfcb305c999bf5e4439b55d49" title=" " alt="" coords="241,405,421,448"/>
+<area shape="poly" id="edge14_Node000001_Node000013" title=" " alt="" coords="120,313,168,352,229,391,241,397,238,401,226,396,165,357,116,317"/>
+<area shape="rect" id="Node000014" href="$class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader.html#a2af6148a4a3aca3519a20fdd877f6016" title="Sets a uniform value in the shader." alt="" coords="254,472,408,515"/>
+<area shape="poly" id="edge15_Node000001_Node000014" title=" " alt="" coords="108,314,155,384,189,424,229,458,242,465,239,470,226,462,186,428,151,388,103,317"/>
+<area shape="rect" id="Node000016" href="$class_g_l_e_s_c_1_1_transform_1_1_transformer.html#a0d20922989f21905e2113a48f4186c42" title="Transforms a position by a given matrix." alt="" coords="228,539,434,581"/>
+<area shape="poly" id="edge17_Node000001_Node000016" title=" " alt="" coords="103,314,119,358,145,415,182,474,204,501,229,525,234,528,231,532,226,529,200,505,178,477,140,418,114,360,98,316"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_render_1_1_intensity.html#a53940c748518c99fc3f50b5fa2d7e31a" title=" " alt="" coords="482,80,679,107"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="421,91,466,91,466,96,421,96"/>
+<area shape="rect" id="Node000007" href="$struct_g_l_e_s_c_1_1_render_1_1_color_rgb.html#a674c5aa3d673ec1b4c583f7b3570b421" title=" " alt="" coords="493,139,668,181"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="413,202,483,183,484,188,414,207"/>
+<area shape="rect" id="Node000009" href="$struct_g_l_e_s_c_1_1_render_1_1_color_rgb.html#a1a34cffe125e0669b6f0f59c55641333" title=" " alt="" coords="493,205,668,248"/>
+<area shape="poly" id="edge8_Node000006_Node000009" title=" " alt="" coords="420,224,477,224,477,229,420,229"/>
+<area shape="rect" id="Node000010" href="$struct_g_l_e_s_c_1_1_render_1_1_color_rgb.html#a52dce8aa77d51de1f0e38d8fcfa81ce9" title=" " alt="" coords="493,272,668,315"/>
+<area shape="poly" id="edge10_Node000006_Node000010" title=" " alt="" coords="414,246,484,265,483,270,413,251"/>
+<area shape="rect" id="Node000008" href="$class_g_l_e_s_c_1_1_render_1_1_color_funcs.html#a4415bd4e262b54a2d95185ffee1c3eef" title="Normalizes a color to be between 0 and 1." alt="" coords="738,205,927,248"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="665,179,736,198,734,203,663,184"/>
+<area shape="poly" id="edge9_Node000009_Node000008" title=" " alt="" coords="669,224,723,224,723,229,669,229"/>
+<area shape="poly" id="edge11_Node000010_Node000008" title=" " alt="" coords="663,269,734,250,736,255,665,274"/>
+<area shape="rect" id="Node000015" href="$_gapi_8h.html#ab7514d88e65656ffa15ca33256518fe5" title="Returns the graphic API used by the engine." alt="" coords="546,480,616,507"/>
+<area shape="poly" id="edge16_Node000014_Node000015" title=" " alt="" coords="408,491,530,491,530,496,408,496"/>
+<area shape="rect" id="Node000017" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#ae97c63da7362348a91413c64256df459" title="Homogenizes the vector." alt="" coords="507,539,655,581"/>
+<area shape="poly" id="edge18_Node000016_Node000017" title=" " alt="" coords="434,557,491,557,491,563,434,563"/>
+<area shape="rect" id="Node000018" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#a0ac2336be4653468291125421bfb96ed" title="Homozenizes a vector." alt="" coords="727,539,938,581"/>
+<area shape="poly" id="edge19_Node000017_Node000018" title=" " alt="" coords="655,557,712,557,712,563,655,563"/>
+<area shape="rect" id="Node000019" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#a93326a041053cabfc137c40f2f19b874" title=" " alt="" coords="986,539,1196,581"/>
+<area shape="poly" id="edge20_Node000018_Node000019" title=" " alt="" coords="938,557,970,557,970,563,938,563"/>
+</map>

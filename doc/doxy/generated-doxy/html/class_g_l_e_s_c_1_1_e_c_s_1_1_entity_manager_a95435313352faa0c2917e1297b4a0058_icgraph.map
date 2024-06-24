@@ -1,0 +1,7 @@
+<map id="GLESC::ECS::EntityManager::tryGetEntity" name="GLESC::ECS::EntityManager::tryGetEntity">
+<area shape="rect" id="Node000001" title="Tries to get the entity ID from the entity name." alt="" coords="489,5,681,48"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator.html#a5521a94c59c0d93511a953011cb13227" title="Tries to get the entity ID from the entity name." alt="" coords="240,5,441,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="473,29,441,29,441,24,473,24"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity_factory.html#a0ca65268c6f244def500235120755985" title="Tries to get an entity by its name." alt="" coords="5,5,192,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="224,29,192,29,192,24,224,24"/>
+</map>

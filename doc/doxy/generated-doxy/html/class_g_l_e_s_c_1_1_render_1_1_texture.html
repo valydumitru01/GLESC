@@ -1,0 +1,703 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="Doxygen Awesome" />
+<meta property="og:image" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+<meta property="og:description" content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
+<meta property="og:url" content="https://jothepro.github.io/doxygen-awesome-css/" />
+<!-- END opengraph metadata -->
+<!-- BEGIN twitter metadata -->
+<meta name="twitter:image:src" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+<meta name="twitter:title" content="Doxygen Awesome" />
+<meta name="twitter:description" content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
+<!-- END twitter metadata -->
+<title>GLESC: GLESC::Render::Texture Class Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.drawio.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/ -->
+<a href="https://github.com/jothepro/doxygen-awesome-css" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="GLESC_logo_white_background.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">GLESC
+   &#160;<span id="projectnumber">1</span>
+   </div>
+   <div id="projectbrief">Game engine using ECS architecture</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('class_g_l_e_s_c_1_1_render_1_1_texture.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="class_g_l_e_s_c_1_1_render_1_1_texture-members.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">GLESC::Render::Texture Class Reference</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Class representing a texture. It abstracts away the creating and handling of textures for the renderer.  
+ <a href="class_g_l_e_s_c_1_1_render_1_1_texture.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_texture_8h_source.html">Texture.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for GLESC::Render::Texture:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_render_1_1_texture__coll__graph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a908437b7149559690df088ee90a7a635" id="r_a908437b7149559690df088ee90a7a635"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_render_1_1_texture.html#a908437b7149559690df088ee90a7a635">Texture</a> ()=<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">default</a></td></tr>
+<tr class="separator:a908437b7149559690df088ee90a7a635"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00586ad6722116b48ff87d409eda8125" id="r_a00586ad6722116b48ff87d409eda8125"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_render_1_1_texture.html#a00586ad6722116b48ff87d409eda8125">Texture</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> std::string &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">path</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">flipTexture</a>=<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">true</a>)</td></tr>
+<tr class="separator:a00586ad6722116b48ff87d409eda8125"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09c4bcb7462f64c1d20fa69dba3cee8a" id="r_a09c4bcb7462f64c1d20fa69dba3cee8a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_render_1_1_texture.html#a09c4bcb7462f64c1d20fa69dba3cee8a">~Texture</a> ()</td></tr>
+<tr class="separator:a09c4bcb7462f64c1d20fa69dba3cee8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d5ae998bd8704c5a8eba5336908bd18" id="r_a6d5ae998bd8704c5a8eba5336908bd18"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_render_1_1_texture.html#a6d5ae998bd8704c5a8eba5336908bd18">bind</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">TextureSlot</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">textureSlot</a>=0) <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a></td></tr>
+<tr class="memdesc:a6d5ae998bd8704c5a8eba5336908bd18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bind the texture to the renderer to be used in the next draw calls.  <br /></td></tr>
+<tr class="separator:a6d5ae998bd8704c5a8eba5336908bd18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a290184fed37a398609cb6478459598d5" id="r_a290184fed37a398609cb6478459598d5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_render_1_1_texture.html#a290184fed37a398609cb6478459598d5">getTextureID</a> () <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a></td></tr>
+<tr class="separator:a290184fed37a398609cb6478459598d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4afc241546031f9b0e1ab165080cc67" id="r_ae4afc241546031f9b0e1ab165080cc67"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="class_g_l_e_s_c_1_1_res_mng_1_1_texture_1_1_texture_surface.html">ResMng::Texture::TextureSurface</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_render_1_1_texture.html#ae4afc241546031f9b0e1ab165080cc67">getTextureSurface</a> () <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a></td></tr>
+<tr class="memdesc:ae4afc241546031f9b0e1ab165080cc67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the texture surface.  <br /></td></tr>
+<tr class="separator:ae4afc241546031f9b0e1ab165080cc67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abcfa0a07acaaece5803803d981b9dd9b" id="r_abcfa0a07acaaece5803803d981b9dd9b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_render_1_1_texture.html#abcfa0a07acaaece5803803d981b9dd9b">hasBeenLoaded</a> () <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a></td></tr>
+<tr class="separator:abcfa0a07acaaece5803803d981b9dd9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a884764b058185fdde8104fd43939b63c" id="r_a884764b058185fdde8104fd43939b63c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_render_1_1_texture.html#a884764b058185fdde8104fd43939b63c">load</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> std::string &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">path</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">flipTexture</a>)</td></tr>
+<tr class="separator:a884764b058185fdde8104fd43939b63c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16c096defe40a38d6f22bd08b63eb826" id="r_a16c096defe40a38d6f22bd08b63eb826"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_render_1_1_texture.html#a16c096defe40a38d6f22bd08b63eb826">release</a> ()</td></tr>
+<tr class="separator:a16c096defe40a38d6f22bd08b63eb826"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a451d7afac3848417bb1007d39ee7d545" id="r_a451d7afac3848417bb1007d39ee7d545"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_render_1_1_texture.html#a451d7afac3848417bb1007d39ee7d545">unbind</a> () <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a></td></tr>
+<tr class="separator:a451d7afac3848417bb1007d39ee7d545"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a383842edfec57406497b503aa45956b4" id="r_a383842edfec57406497b503aa45956b4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_render_1_1_texture.html#a383842edfec57406497b503aa45956b4">load</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="class_g_l_e_s_c_1_1_res_mng_1_1_texture_1_1_texture_surface.html">ResMng::Texture::TextureSurface</a> &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">textureSurfaceParam</a>)</td></tr>
+<tr class="separator:a383842edfec57406497b503aa45956b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a9714bbcccdae12df3104037ec59b4e73" id="r_a9714bbcccdae12df3104037ec59b4e73"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_render_1_1_texture.html#a9714bbcccdae12df3104037ec59b4e73">hasLoaded</a> {<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">false</a>}</td></tr>
+<tr class="separator:a9714bbcccdae12df3104037ec59b4e73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4bf08090d5448951f8397bd9876064c4" id="r_a4bf08090d5448951f8397bd9876064c4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">TextureID</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_render_1_1_texture.html#a4bf08090d5448951f8397bd9876064c4">textureID</a> {0}</td></tr>
+<tr class="separator:a4bf08090d5448951f8397bd9876064c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5eb78e9e84d0690fd35b77ac78b8df7" id="r_ad5eb78e9e84d0690fd35b77ac78b8df7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_l_e_s_c_1_1_res_mng_1_1_texture_1_1_texture_surface.html">ResMng::Texture::TextureSurface</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_render_1_1_texture.html#ad5eb78e9e84d0690fd35b77ac78b8df7">textureSurface</a></td></tr>
+<tr class="separator:ad5eb78e9e84d0690fd35b77ac78b8df7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Class representing a texture. It abstracts away the creating and handling of textures for the renderer. </p>
+<p>This is just the abstraction for the <a class="el" href="class_g_l_e_s_c_1_1_render_1_1_texture.html" title="Class representing a texture. It abstracts away the creating and handling of textures for the rendere...">Texture</a> for the Graphic API, the actual texture data is handled by texture surface </p><dl class="section see"><dt>See also</dt><dd>TextureSurface </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_texture_8h_source.html#l00021">21</a> of file <a class="el" href="_texture_8h_source.html">Texture.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a908437b7149559690df088ee90a7a635" name="a908437b7149559690df088ee90a7a635"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a908437b7149559690df088ee90a7a635">&#9670;&#160;</a></span>Texture() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLESC::Render::Texture::Texture </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a00586ad6722116b48ff87d409eda8125" name="a00586ad6722116b48ff87d409eda8125"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00586ad6722116b48ff87d409eda8125">&#9670;&#160;</a></span>Texture() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Texture::Texture </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> std::string &amp;&#160;</td>
+          <td class="paramname"><em>path</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a>&#160;</td>
+          <td class="paramname"><em>flipTexture</em> = <code><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">true</a></code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_texture_8cpp_source.html#l00011">11</a> of file <a class="el" href="_texture_8cpp_source.html">Texture.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   11</span>                                                               {</div>
+<div class="line"><span class="lineno">   12</span>    <a class="code hl_function" href="class_g_l_e_s_c_1_1_render_1_1_texture.html#a884764b058185fdde8104fd43939b63c">load</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">path</a>, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">flipTexture</a>);</div>
+<div class="line"><span class="lineno">   13</span>}</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_render_1_1_texture_html_a884764b058185fdde8104fd43939b63c"><div class="ttname"><a href="class_g_l_e_s_c_1_1_render_1_1_texture.html#a884764b058185fdde8104fd43939b63c">GLESC::Render::Texture::load</a></div><div class="ttdeci">void load(const std::string &amp;path, bool flipTexture)</div><div class="ttdef"><b>Definition</b> <a href="_texture_8cpp_source.html#l00021">Texture.cpp:21</a></div></div>
+<div class="ttc" id="anamespace_g_l_e_s_c_html_a7c64a4da2d1da1597f4ec563d00bb9f8"><div class="ttname"><a href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">GLESC::isIterable_v</a></div><div class="ttdeci">constexpr bool isIterable_v</div><div class="ttdef"><b>Definition</b> <a href="_stringer_8h_source.html#l00029">Stringer.h:29</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_texture_8cpp_source.html#l00021">load()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_render_1_1_texture_a00586ad6722116b48ff87d409eda8125_cgraph.svg" width="100%" height="530"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a09c4bcb7462f64c1d20fa69dba3cee8a" name="a09c4bcb7462f64c1d20fa69dba3cee8a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09c4bcb7462f64c1d20fa69dba3cee8a">&#9670;&#160;</a></span>~Texture()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Texture::~Texture </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_texture_8cpp_source.html#l00015">15</a> of file <a class="el" href="_texture_8cpp_source.html">Texture.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   15</span>                  {</div>
+<div class="line"><span class="lineno">   16</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_texture.html#a9714bbcccdae12df3104037ec59b4e73">hasLoaded</a>) {</div>
+<div class="line"><span class="lineno">   17</span>        <a class="code hl_function" href="_gapi_8h.html#ab7514d88e65656ffa15ca33256518fe5">getGAPI</a>().deleteTexture(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_texture.html#a4bf08090d5448951f8397bd9876064c4">textureID</a>);</div>
+<div class="line"><span class="lineno">   18</span>    }</div>
+<div class="line"><span class="lineno">   19</span>}</div>
+<div class="ttc" id="a_gapi_8h_html_ab7514d88e65656ffa15ca33256518fe5"><div class="ttname"><a href="_gapi_8h.html#ab7514d88e65656ffa15ca33256518fe5">getGAPI</a></div><div class="ttdeci">auto &amp; getGAPI()</div><div class="ttdoc">Returns the graphic API used by the engine.</div><div class="ttdef"><b>Definition</b> <a href="_gapi_8h_source.html#l00028">Gapi.h:28</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_render_1_1_texture_html_a4bf08090d5448951f8397bd9876064c4"><div class="ttname"><a href="class_g_l_e_s_c_1_1_render_1_1_texture.html#a4bf08090d5448951f8397bd9876064c4">GLESC::Render::Texture::textureID</a></div><div class="ttdeci">TextureID textureID</div><div class="ttdef"><b>Definition</b> <a href="_texture_8h_source.html#l00057">Texture.h:57</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_render_1_1_texture_html_a9714bbcccdae12df3104037ec59b4e73"><div class="ttname"><a href="class_g_l_e_s_c_1_1_render_1_1_texture.html#a9714bbcccdae12df3104037ec59b4e73">GLESC::Render::Texture::hasLoaded</a></div><div class="ttdeci">bool hasLoaded</div><div class="ttdef"><b>Definition</b> <a href="_texture_8h_source.html#l00056">Texture.h:56</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_gapi_8h_source.html#l00028">getGAPI()</a>, <a class="el" href="_texture_8h_source.html#l00056">hasLoaded</a>, and <a class="el" href="_texture_8h_source.html#l00057">textureID</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_render_1_1_texture_a09c4bcb7462f64c1d20fa69dba3cee8a_cgraph.svg" width="295" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a6d5ae998bd8704c5a8eba5336908bd18" name="a6d5ae998bd8704c5a8eba5336908bd18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d5ae998bd8704c5a8eba5336908bd18">&#9670;&#160;</a></span>bind()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> Texture::bind </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">TextureSlot</a>&#160;</td>
+          <td class="paramname"><em>textureSlot</em> = <code>0</code></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Bind the texture to the renderer to be used in the next draw calls. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">textureSlot</td><td>Each renderer has a number of slots that can be used to bind textures (this depends on the platform and the renderer). This parameter specifies the slot to which the texture will be bound. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_texture_8cpp_source.html#l00043">43</a> of file <a class="el" href="_texture_8cpp_source.html">Texture.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   43</span>                                                       {</div>
+<div class="line"><span class="lineno">   44</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_texture.html#a9714bbcccdae12df3104037ec59b4e73">hasLoaded</a>, <span class="stringliteral">&quot;Texture not loaded&quot;</span>);</div>
+<div class="line"><span class="lineno">   45</span>    <a class="code hl_function" href="_gapi_8h.html#ab7514d88e65656ffa15ca33256518fe5">getGAPI</a>().bindTextureOnSlot(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_texture.html#a4bf08090d5448951f8397bd9876064c4">textureID</a>, Enums::Texture::Types::Texture2D, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">textureSlot</a>);</div>
+<div class="line"><span class="lineno">   46</span>}</div>
+<div class="ttc" id="a_asserts_8h_html_a7c8157e57600c968442fc2ee80245d5a"><div class="ttname"><a href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a></div><div class="ttdeci">#define D_ASSERT_TRUE(condition, message)</div><div class="ttdef"><b>Definition</b> <a href="_asserts_8h_source.html#l00021">Asserts.h:21</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_asserts_8h_source.html#l00021">D_ASSERT_TRUE</a>, <a class="el" href="_gapi_8h_source.html#l00028">getGAPI()</a>, <a class="el" href="_texture_8h_source.html#l00056">hasLoaded</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_texture_8h_source.html#l00057">textureID</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_render_1_1_texture_a6d5ae998bd8704c5a8eba5336908bd18_cgraph.svg" width="295" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a290184fed37a398609cb6478459598d5" name="a290184fed37a398609cb6478459598d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a290184fed37a398609cb6478459598d5">&#9670;&#160;</a></span>getTextureID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a> GLESC::Render::Texture::getTextureID </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_texture_8h_source.html#l00041">41</a> of file <a class="el" href="_texture_8h_source.html">Texture.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   41</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_texture.html#a4bf08090d5448951f8397bd9876064c4">textureID</a>; }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_texture_8h_source.html#l00057">textureID</a>.</p>
+
+</div>
+</div>
+<a id="ae4afc241546031f9b0e1ab165080cc67" name="ae4afc241546031f9b0e1ab165080cc67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4afc241546031f9b0e1ab165080cc67">&#9670;&#160;</a></span>getTextureSurface()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="class_g_l_e_s_c_1_1_res_mng_1_1_texture_1_1_texture_surface.html">ResMng::Texture::TextureSurface</a> &amp; GLESC::Render::Texture::getTextureSurface </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the texture surface. </p>
+<p>The texture surface is the data of the texutre with its pixels and format </p><dl class="section return"><dt>Returns</dt><dd>The texture surface </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_texture_8h_source.html#l00050">50</a> of file <a class="el" href="_texture_8h_source.html">Texture.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   50</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_texture.html#ad5eb78e9e84d0690fd35b77ac78b8df7">textureSurface</a>; }</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_render_1_1_texture_html_ad5eb78e9e84d0690fd35b77ac78b8df7"><div class="ttname"><a href="class_g_l_e_s_c_1_1_render_1_1_texture.html#ad5eb78e9e84d0690fd35b77ac78b8df7">GLESC::Render::Texture::textureSurface</a></div><div class="ttdeci">ResMng::Texture::TextureSurface textureSurface</div><div class="ttdef"><b>Definition</b> <a href="_texture_8h_source.html#l00058">Texture.h:58</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_texture_8h_source.html#l00058">textureSurface</a>.</p>
+
+</div>
+</div>
+<a id="abcfa0a07acaaece5803803d981b9dd9b" name="abcfa0a07acaaece5803803d981b9dd9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abcfa0a07acaaece5803803d981b9dd9b">&#9670;&#160;</a></span>hasBeenLoaded()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a> GLESC::Render::Texture::hasBeenLoaded </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_texture_8h_source.html#l00043">43</a> of file <a class="el" href="_texture_8h_source.html">Texture.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   43</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_texture.html#a9714bbcccdae12df3104037ec59b4e73">hasLoaded</a>; }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_texture_8h_source.html#l00056">hasLoaded</a>.</p>
+
+</div>
+</div>
+<a id="a383842edfec57406497b503aa45956b4" name="a383842edfec57406497b503aa45956b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a383842edfec57406497b503aa45956b4">&#9670;&#160;</a></span>load() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> Texture::load </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="class_g_l_e_s_c_1_1_res_mng_1_1_texture_1_1_texture_surface.html">ResMng::Texture::TextureSurface</a> &amp;&#160;</td>
+          <td class="paramname"><em>textureSurfaceParam</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_texture_8cpp_source.html#l00033">33</a> of file <a class="el" href="_texture_8cpp_source.html">Texture.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   33</span>                                                                         {</div>
+<div class="line"><span class="lineno">   34</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_texture.html#ad5eb78e9e84d0690fd35b77ac78b8df7">textureSurface</a> = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">textureSurfaceParam</a>;</div>
+<div class="line"><span class="lineno">   35</span>    <span class="keyword">const</span> Enums::Texture::CPUBufferFormat <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">inputFormat</a> = <a class="code hl_function" href="_texture_adapter_8h.html#af8df9c072d5a12970464e59e90e63707">getTextureInputFormat</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_texture.html#ad5eb78e9e84d0690fd35b77ac78b8df7">textureSurface</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_res_mng_1_1_texture_1_1_texture_surface.html#abb76787a32dab11f11c2fa23081552f5">getFormat</a>().<a class="code hl_variable" href="struct_format.html#ab7bf202ddfb7c5833b6f48c8724cf034">colorFormat</a>);</div>
+<div class="line"><span class="lineno">   36</span>    <span class="keyword">const</span> Enums::Texture::BitDepth bitDepth = <a class="code hl_function" href="_texture_adapter_8h.html#a57abcbbb65504dda9db17f4e8074ddb9">getTextureBitDepth</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_texture.html#ad5eb78e9e84d0690fd35b77ac78b8df7">textureSurface</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_res_mng_1_1_texture_1_1_texture_surface.html#abb76787a32dab11f11c2fa23081552f5">getFormat</a>().<a class="code hl_variable" href="struct_format.html#a0c0237d04aa3a766e9ccc2ee7aadc952">bitDepth</a>);</div>
+<div class="line"><span class="lineno">   37</span> </div>
+<div class="line"><span class="lineno">   38</span>    <a class="code hl_function" href="_gapi_8h.html#ab7514d88e65656ffa15ca33256518fe5">getGAPI</a>().setTextureData(</div>
+<div class="line"><span class="lineno">   39</span>        Enums::Texture::Types::Texture2D, 0, <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_texture.html#ad5eb78e9e84d0690fd35b77ac78b8df7">textureSurface</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_res_mng_1_1_texture_1_1_texture_surface.html#a6af8225281071cbb597566e9d5c3670f">getWidth</a>(), <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_texture.html#ad5eb78e9e84d0690fd35b77ac78b8df7">textureSurface</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_res_mng_1_1_texture_1_1_texture_surface.html#a0fc81f61718409dfd42444bd2da41a41">getHeight</a>(),</div>
+<div class="line"><span class="lineno">   40</span>        <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">inputFormat</a>, bitDepth, <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_texture.html#ad5eb78e9e84d0690fd35b77ac78b8df7">textureSurface</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_res_mng_1_1_texture_1_1_texture_surface.html#a613fd9a72ce9935c49e1ae3033cdc642">getPixels</a>().data());</div>
+<div class="line"><span class="lineno">   41</span>}</div>
+<div class="ttc" id="a_texture_adapter_8h_html_a57abcbbb65504dda9db17f4e8074ddb9"><div class="ttname"><a href="_texture_adapter_8h.html#a57abcbbb65504dda9db17f4e8074ddb9">getTextureBitDepth</a></div><div class="ttdeci">static Enums::Texture::BitDepth getTextureBitDepth(const GLESC::ResMng::Texture::BitDepth bitDepth)</div><div class="ttdef"><b>Definition</b> <a href="_texture_adapter_8h_source.html#l00029">TextureAdapter.h:29</a></div></div>
+<div class="ttc" id="a_texture_adapter_8h_html_af8df9c072d5a12970464e59e90e63707"><div class="ttname"><a href="_texture_adapter_8h.html#af8df9c072d5a12970464e59e90e63707">getTextureInputFormat</a></div><div class="ttdeci">static Enums::Texture::CPUBufferFormat getTextureInputFormat(const GLESC::ResMng::Texture::ColorFormat format)</div><div class="ttdef"><b>Definition</b> <a href="_texture_adapter_8h_source.html#l00015">TextureAdapter.h:15</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_res_mng_1_1_texture_1_1_texture_surface_html_a0fc81f61718409dfd42444bd2da41a41"><div class="ttname"><a href="class_g_l_e_s_c_1_1_res_mng_1_1_texture_1_1_texture_surface.html#a0fc81f61718409dfd42444bd2da41a41">GLESC::ResMng::Texture::TextureSurface::getHeight</a></div><div class="ttdeci">unsigned int getHeight() const</div><div class="ttdef"><b>Definition</b> <a href="_texture_surface_8h_source.html#l00049">TextureSurface.h:49</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_res_mng_1_1_texture_1_1_texture_surface_html_a613fd9a72ce9935c49e1ae3033cdc642"><div class="ttname"><a href="class_g_l_e_s_c_1_1_res_mng_1_1_texture_1_1_texture_surface.html#a613fd9a72ce9935c49e1ae3033cdc642">GLESC::ResMng::Texture::TextureSurface::getPixels</a></div><div class="ttdeci">const std::vector&lt; UByte &gt; &amp; getPixels() const</div><div class="ttdef"><b>Definition</b> <a href="_texture_surface_8h_source.html#l00061">TextureSurface.h:61</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_res_mng_1_1_texture_1_1_texture_surface_html_a6af8225281071cbb597566e9d5c3670f"><div class="ttname"><a href="class_g_l_e_s_c_1_1_res_mng_1_1_texture_1_1_texture_surface.html#a6af8225281071cbb597566e9d5c3670f">GLESC::ResMng::Texture::TextureSurface::getWidth</a></div><div class="ttdeci">unsigned int getWidth() const</div><div class="ttdef"><b>Definition</b> <a href="_texture_surface_8h_source.html#l00053">TextureSurface.h:53</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_res_mng_1_1_texture_1_1_texture_surface_html_abb76787a32dab11f11c2fa23081552f5"><div class="ttname"><a href="class_g_l_e_s_c_1_1_res_mng_1_1_texture_1_1_texture_surface.html#abb76787a32dab11f11c2fa23081552f5">GLESC::ResMng::Texture::TextureSurface::getFormat</a></div><div class="ttdeci">const Format &amp; getFormat() const</div><div class="ttdef"><b>Definition</b> <a href="_texture_surface_8h_source.html#l00057">TextureSurface.h:57</a></div></div>
+<div class="ttc" id="astruct_format_html_a0c0237d04aa3a766e9ccc2ee7aadc952"><div class="ttname"><a href="struct_format.html#a0c0237d04aa3a766e9ccc2ee7aadc952">Format::bitDepth</a></div><div class="ttdeci">GLESC::ResMng::Texture::BitDepth bitDepth</div><div class="ttdef"><b>Definition</b> <a href="_texture_structs_8h_source.html#l00051">TextureStructs.h:51</a></div></div>
+<div class="ttc" id="astruct_format_html_ab7bf202ddfb7c5833b6f48c8724cf034"><div class="ttname"><a href="struct_format.html#ab7bf202ddfb7c5833b6f48c8724cf034">Format::colorFormat</a></div><div class="ttdeci">GLESC::ResMng::Texture::ColorFormat colorFormat</div><div class="ttdef"><b>Definition</b> <a href="_texture_structs_8h_source.html#l00050">TextureStructs.h:50</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_texture_structs_8h_source.html#l00051">Format::bitDepth</a>, <a class="el" href="_texture_structs_8h_source.html#l00050">Format::colorFormat</a>, <a class="el" href="_texture_surface_8h_source.html#l00057">GLESC::ResMng::Texture::TextureSurface::getFormat()</a>, <a class="el" href="_gapi_8h_source.html#l00028">getGAPI()</a>, <a class="el" href="_texture_surface_8h_source.html#l00049">GLESC::ResMng::Texture::TextureSurface::getHeight()</a>, <a class="el" href="_texture_surface_8h_source.html#l00061">GLESC::ResMng::Texture::TextureSurface::getPixels()</a>, <a class="el" href="_texture_adapter_8h_source.html#l00029">getTextureBitDepth()</a>, <a class="el" href="_texture_adapter_8h_source.html#l00015">getTextureInputFormat()</a>, <a class="el" href="_texture_surface_8h_source.html#l00053">GLESC::ResMng::Texture::TextureSurface::getWidth()</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_texture_8h_source.html#l00058">textureSurface</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_render_1_1_texture_a383842edfec57406497b503aa45956b4_cgraph.svg" width="408" height="406"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a884764b058185fdde8104fd43939b63c" name="a884764b058185fdde8104fd43939b63c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a884764b058185fdde8104fd43939b63c">&#9670;&#160;</a></span>load() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> Texture::load </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> std::string &amp;&#160;</td>
+          <td class="paramname"><em>path</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a>&#160;</td>
+          <td class="paramname"><em>flipTexture</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_texture_8cpp_source.html#l00021">21</a> of file <a class="el" href="_texture_8cpp_source.html">Texture.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   21</span>                                                                {</div>
+<div class="line"><span class="lineno">   22</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(!<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">path</a>.empty(), <span class="stringliteral">&quot;File path is empty.&quot;</span>);</div>
+<div class="line"><span class="lineno">   23</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_texture.html#a4bf08090d5448951f8397bd9876064c4">textureID</a> = <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_texture.html#a4bf08090d5448951f8397bd9876064c4">textureID</a> = <a class="code hl_function" href="_gapi_8h.html#ab7514d88e65656ffa15ca33256518fe5">getGAPI</a>().createTexture(Enums::Texture::Types::Texture2D,</div>
+<div class="line"><span class="lineno">   24</span>                                                    Enums::Texture::Filters::Min::Linear,</div>
+<div class="line"><span class="lineno">   25</span>                                                    Enums::Texture::Filters::Mag::Linear,</div>
+<div class="line"><span class="lineno">   26</span>                                                    Enums::Texture::Filters::WrapMode::ClampToEdge,</div>
+<div class="line"><span class="lineno">   27</span>                                                    Enums::Texture::Filters::WrapMode::ClampToEdge);</div>
+<div class="line"><span class="lineno">   28</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_texture.html#ad5eb78e9e84d0690fd35b77ac78b8df7">textureSurface</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_res_mng_1_1_texture_1_1_texture_surface.html#abeeeaee38f405f7a65752bd314116432">load</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">path</a>, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">flipTexture</a>);</div>
+<div class="line"><span class="lineno">   29</span>    <a class="code hl_function" href="class_g_l_e_s_c_1_1_render_1_1_texture.html#a884764b058185fdde8104fd43939b63c">load</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_texture.html#ad5eb78e9e84d0690fd35b77ac78b8df7">textureSurface</a>);</div>
+<div class="line"><span class="lineno">   30</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_texture.html#a9714bbcccdae12df3104037ec59b4e73">hasLoaded</a> = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   31</span>}</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_res_mng_1_1_texture_1_1_texture_surface_html_abeeeaee38f405f7a65752bd314116432"><div class="ttname"><a href="class_g_l_e_s_c_1_1_res_mng_1_1_texture_1_1_texture_surface.html#abeeeaee38f405f7a65752bd314116432">GLESC::ResMng::Texture::TextureSurface::load</a></div><div class="ttdeci">void load(const std::string &amp;pathParam, bool flipTexture)</div><div class="ttdoc">Loads the texture from the file system.</div><div class="ttdef"><b>Definition</b> <a href="_texture_surface_8cpp_source.html#l00102">TextureSurface.cpp:102</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_asserts_8h_source.html#l00021">D_ASSERT_TRUE</a>, <a class="el" href="_gapi_8h_source.html#l00028">getGAPI()</a>, <a class="el" href="_texture_8h_source.html#l00056">hasLoaded</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, <a class="el" href="_texture_8cpp_source.html#l00021">load()</a>, <a class="el" href="_texture_surface_8cpp_source.html#l00102">GLESC::ResMng::Texture::TextureSurface::load()</a>, <a class="el" href="_texture_8h_source.html#l00057">textureID</a>, and <a class="el" href="_texture_8h_source.html#l00058">textureSurface</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_texture_8cpp_source.html#l00011">Texture()</a>, and <a class="el" href="_texture_8cpp_source.html#l00021">load()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_render_1_1_texture_a884764b058185fdde8104fd43939b63c_cgraph.svg" width="100%" height="530"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_render_1_1_texture_a884764b058185fdde8104fd43939b63c_icgraph.svg" width="390" height="78"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a16c096defe40a38d6f22bd08b63eb826" name="a16c096defe40a38d6f22bd08b63eb826"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16c096defe40a38d6f22bd08b63eb826">&#9670;&#160;</a></span>release()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> Texture::release </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_texture_8cpp_source.html#l00053">53</a> of file <a class="el" href="_texture_8cpp_source.html">Texture.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   53</span>                      {</div>
+<div class="line"><span class="lineno">   54</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_texture.html#ad5eb78e9e84d0690fd35b77ac78b8df7">textureSurface</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_res_mng_1_1_texture_1_1_texture_surface.html#ac73988dc91aec468b00760bc5014b849">release</a>();</div>
+<div class="line"><span class="lineno">   55</span>}</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_res_mng_1_1_texture_1_1_texture_surface_html_ac73988dc91aec468b00760bc5014b849"><div class="ttname"><a href="class_g_l_e_s_c_1_1_res_mng_1_1_texture_1_1_texture_surface.html#ac73988dc91aec468b00760bc5014b849">GLESC::ResMng::Texture::TextureSurface::release</a></div><div class="ttdeci">void release()</div><div class="ttdoc">Releases the texture data.</div><div class="ttdef"><b>Definition</b> <a href="_texture_surface_8cpp_source.html#l00112">TextureSurface.cpp:112</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_texture_surface_8cpp_source.html#l00112">GLESC::ResMng::Texture::TextureSurface::release()</a>, and <a class="el" href="_texture_8h_source.html#l00058">textureSurface</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_debug_items_h_u_d_8cpp_source.html#l00017">GLESC::HUD::DebugItems::DebugItems()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_render_1_1_texture_a16c096defe40a38d6f22bd08b63eb826_cgraph.svg" width="396" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_render_1_1_texture_a16c096defe40a38d6f22bd08b63eb826_icgraph.svg" width="402" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a451d7afac3848417bb1007d39ee7d545" name="a451d7afac3848417bb1007d39ee7d545"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a451d7afac3848417bb1007d39ee7d545">&#9670;&#160;</a></span>unbind()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> Texture::unbind </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_texture_8cpp_source.html#l00048">48</a> of file <a class="el" href="_texture_8cpp_source.html">Texture.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   48</span>                           {</div>
+<div class="line"><span class="lineno">   49</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_texture.html#a9714bbcccdae12df3104037ec59b4e73">hasLoaded</a>, <span class="stringliteral">&quot;Texture not loaded&quot;</span>);</div>
+<div class="line"><span class="lineno">   50</span>    <a class="code hl_function" href="_gapi_8h.html#ab7514d88e65656ffa15ca33256518fe5">getGAPI</a>().unbindTexture(Enums::Texture::Types::Texture2D);</div>
+<div class="line"><span class="lineno">   51</span>}</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_asserts_8h_source.html#l00021">D_ASSERT_TRUE</a>, <a class="el" href="_gapi_8h_source.html#l00028">getGAPI()</a>, and <a class="el" href="_texture_8h_source.html#l00056">hasLoaded</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_render_1_1_texture_a451d7afac3848417bb1007d39ee7d545_cgraph.svg" width="295" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a9714bbcccdae12df3104037ec59b4e73" name="a9714bbcccdae12df3104037ec59b4e73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9714bbcccdae12df3104037ec59b4e73">&#9670;&#160;</a></span>hasLoaded</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a> GLESC::Render::Texture::hasLoaded {<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">false</a>}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_texture_8h_source.html#l00056">56</a> of file <a class="el" href="_texture_8h_source.html">Texture.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   56</span>{<span class="keyword">false</span>};</div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="_texture_8cpp_source.html#l00015">~Texture()</a>, <a class="el" href="_texture_8cpp_source.html#l00043">bind()</a>, <a class="el" href="_texture_8h_source.html#l00043">hasBeenLoaded()</a>, <a class="el" href="_texture_8cpp_source.html#l00021">load()</a>, and <a class="el" href="_texture_8cpp_source.html#l00048">unbind()</a>.</p>
+
+</div>
+</div>
+<a id="a4bf08090d5448951f8397bd9876064c4" name="a4bf08090d5448951f8397bd9876064c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4bf08090d5448951f8397bd9876064c4">&#9670;&#160;</a></span>textureID</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">TextureID</a> GLESC::Render::Texture::textureID {0}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_texture_8h_source.html#l00057">57</a> of file <a class="el" href="_texture_8h_source.html">Texture.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   57</span>{0};</div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="_texture_8cpp_source.html#l00015">~Texture()</a>, <a class="el" href="_texture_8cpp_source.html#l00043">bind()</a>, <a class="el" href="_texture_8h_source.html#l00041">getTextureID()</a>, and <a class="el" href="_texture_8cpp_source.html#l00021">load()</a>.</p>
+
+</div>
+</div>
+<a id="ad5eb78e9e84d0690fd35b77ac78b8df7" name="ad5eb78e9e84d0690fd35b77ac78b8df7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5eb78e9e84d0690fd35b77ac78b8df7">&#9670;&#160;</a></span>textureSurface</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_g_l_e_s_c_1_1_res_mng_1_1_texture_1_1_texture_surface.html">ResMng::Texture::TextureSurface</a> GLESC::Render::Texture::textureSurface</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_texture_8h_source.html#l00058">58</a> of file <a class="el" href="_texture_8h_source.html">Texture.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_texture_8h_source.html#l00050">getTextureSurface()</a>, <a class="el" href="_texture_8cpp_source.html#l00033">load()</a>, <a class="el" href="_texture_8cpp_source.html#l00021">load()</a>, and <a class="el" href="_texture_8cpp_source.html#l00053">release()</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li><a class="el" href="_texture_8h_source.html">Texture.h</a></li>
+<li><a class="el" href="_texture_8cpp_source.html">Texture.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_g_l_e_s_c.html">GLESC</a></li><li class="navelem"><a class="el" href="namespace_g_l_e_s_c_1_1_render.html">Render</a></li><li class="navelem"><a class="el" href="class_g_l_e_s_c_1_1_render_1_1_texture.html">Texture</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

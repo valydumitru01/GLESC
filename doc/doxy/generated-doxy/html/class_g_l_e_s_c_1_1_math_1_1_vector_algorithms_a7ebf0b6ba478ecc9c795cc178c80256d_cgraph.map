@@ -1,0 +1,11 @@
+<map id="GLESC::Math::VectorAlgorithms::distance" name="GLESC::Math::VectorAlgorithms::distance">
+<area shape="rect" id="Node000001" title="Computes the distance between two vectors." alt="" coords="5,68,216,111"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#a96acaa670e780132720dd3ea6a6cdf97" title="Computes the length of a vector." alt="" coords="264,35,474,77"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="216,73,248,69,248,74,217,78"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#a3d7793a7054aae76fe23e92368659e0b" title="Subtracts two vectors." alt="" coords="264,101,474,144"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="217,100,248,104,248,110,216,106"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#ae45bcff9b53fb60d513c53823418d97b" title="Computes the dot product of two vectors." alt="" coords="522,5,732,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="474,41,506,38,507,43,475,47"/>
+<area shape="rect" id="Node000004" href="$namespace_g_l_e_s_c_1_1_math.html#ab2316a2512c43c18e29709201adf3fe5" title="Calculates the square root of a value." alt="" coords="561,72,693,99"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="475,65,546,73,545,79,474,71"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="GLESC::Render::Renderer::remove" name="GLESC::Render::Renderer::remove">
+<area shape="rect" id="Node000001" title="This will remove the mesh and transform from the renderer data structures." alt="" coords="311,5,485,48"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_engine.html#ad2ff110d5a86c1cd60b541d65915ac48" title="Processes the logic of the game Is called every frame, must be called at constant intervals of time a..." alt="" coords="103,13,263,40"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="295,29,263,29,263,24,295,24"/>
+<area shape="rect" id="Node000003" href="$main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,13,55,40"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="87,29,55,29,55,24,87,24"/>
+</map>

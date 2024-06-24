@@ -1,0 +1,7 @@
+<map id="GLESC::SoundPlayer::setMusic" name="GLESC::SoundPlayer::setMusic">
+<area shape="rect" id="Node000001" title="Set the music to play." alt="" coords="5,5,153,48"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_sound_loader.html#a336f54c16328d4a892f3b9a170ccb99b" title="Gets a music by name." alt="" coords="201,5,350,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="153,24,185,24,185,29,153,29"/>
+<area shape="rect" id="Node000003" href="$namespace_g_l_e_s_c_1_1_hasher.html#ab698a0c9b11ea6e42ab7739d75da38f2" title=" " alt="" coords="398,13,548,40"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="350,24,383,24,383,29,350,29"/>
+</map>

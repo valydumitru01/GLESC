@@ -1,0 +1,15 @@
+<map id="GLESC::Math::Plane::setNormal" name="GLESC::Math::Plane::setNormal">
+<area shape="rect" id="Node000001" title="Set the normal vector of the plane." alt="" coords="5,27,149,69"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#a2dbd64e2650d4925dded80a6ef8f3663" title="Checks if the vector is a zero vector." alt="" coords="197,27,345,69"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="149,45,181,45,181,51,149,51"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#a679d94d73e405dc11ea9140e71f4ef4f" title="Checks if a vector is zero." alt="" coords="393,27,603,69"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="345,45,377,45,377,51,345,51"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#a3249cf40f6140efca533d2f041f909d3" title="Equality operator for vectors." alt="" coords="651,5,884,32"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="603,34,636,30,636,36,604,39"/>
+<area shape="rect" id="Node000007" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#a2f0bed018a4d5856d507a85de181de62" title=" " alt="" coords="662,56,873,99"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="604,57,647,62,647,67,603,62"/>
+<area shape="rect" id="Node000005" href="$namespace_g_l_e_s_c_1_1_math.html#aee25910dbba06d09d9df14d03933ace1" title="Compares two values for equality." alt="" coords="932,5,1056,32"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="884,16,916,16,916,21,884,21"/>
+<area shape="rect" id="Node000006" href="$namespace_g_l_e_s_c_1_1_math.html#acd429163efe906cd22916cc75ccb2421" title="Epsilon getter with precision of a given template type." alt="" coords="1104,5,1255,32"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="1056,16,1088,16,1088,21,1056,21"/>
+</map>

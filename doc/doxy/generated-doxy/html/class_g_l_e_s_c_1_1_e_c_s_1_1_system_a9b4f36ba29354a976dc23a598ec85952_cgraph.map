@@ -1,0 +1,14 @@
+<map id="GLESC::ECS::System::getAssociatedEntities" name="GLESC::ECS::System::getAssociatedEntities">
+<area shape="rect" id="Node000001" title="Gets the entities associated with the system." alt="" coords="5,101,162,144"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator.html#a73636f46c1a9f0bd7f380524210cf4b4" title="Get the entities associated with a system." alt="" coords="210,101,411,144"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="162,120,194,120,194,125,162,125"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a5145504091eb26170aa219acb60aca71" title="Check if the entity with the given name exists." alt="" coords="470,5,662,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="359,98,458,58,477,51,479,56,460,62,361,103"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#a283c04f81e82970a822c9696ddab2319" title="Gets the entities associated with a system. The system must be registered." alt="" coords="459,72,673,115"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="411,108,443,105,444,110,412,114"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#a32f415d7a7e0cefc9e1b5c71a4dc1be4" title="Checks if a system is registered." alt="" coords="721,101,925,144"/>
+<area shape="poly" id="edge6_Node000002_Node000005" title=" " alt="" coords="412,123,459,124,673,124,705,123,705,129,673,129,459,129,411,128"/>
+<area shape="rect" id="Node000006" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#abe8641c2514be36e652e7f77d0ed87a5" title="Checks if an entity is associated with a system." alt="" coords="461,189,671,232"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="376,142,489,181,487,186,374,147"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="674,103,706,107,706,112,674,108"/>
+</map>

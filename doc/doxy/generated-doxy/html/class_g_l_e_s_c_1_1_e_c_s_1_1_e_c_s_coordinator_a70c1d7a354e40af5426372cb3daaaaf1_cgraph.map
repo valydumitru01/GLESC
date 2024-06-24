@@ -1,0 +1,11 @@
+<map id="GLESC::ECS::ECSCoordinator::getComponent" name="GLESC::ECS::ECSCoordinator::getComponent">
+<area shape="rect" id="Node000001" title="Get the component of an entity by its Id." alt="" coords="5,39,207,81"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a5145504091eb26170aa219acb60aca71" title="Check if the entity with the given name exists." alt="" coords="271,5,463,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="207,44,255,38,255,44,207,50"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_component_manager.html#ac63a277ed5aed0640e808f20480d01a1" title="Get the component of an entity by its ID." alt="" coords="255,72,479,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="207,70,240,74,239,80,207,76"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_component_manager.html#ab06d3e4aecbf882b3f75fa4943f561f2" title="Get the name of a component by its ID." alt="" coords="527,72,751,115"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="479,91,511,91,511,96,479,96"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_component_manager.html#af4b8c65d69d17052413005a7402bf116" title="Check if a component is registered." alt="" coords="799,72,1024,115"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="752,91,784,91,784,96,752,96"/>
+</map>

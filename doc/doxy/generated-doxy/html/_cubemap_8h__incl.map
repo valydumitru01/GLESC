@@ -1,0 +1,21 @@
+<map id="Cubemap.h" name="Cubemap.h">
+<area shape="rect" id="Node000001" title="@TODO Add description of this file if needed" alt="" coords="51,5,138,32"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,88,56,115"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="87,34,52,78,48,74,82,31"/>
+<area shape="rect" id="Node000003" href="$_texture_surface_8h.html" title="@TODO Add description of this file if needed" alt="" coords="79,80,241,123"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="107,31,136,67,132,70,103,34"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="12,187,65,213"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="136,125,67,179,64,175,132,121"/>
+<area shape="rect" id="Node000005" href="$_gapi_8h.html" title="Abstracts the graphic API used by the engine." alt="" coords="90,171,230,229"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="163,123,163,155,157,155,157,123"/>
+<area shape="rect" id="Node000007" href="$_texture_structs_8h.html" title="@TODO Add description of this file if needed" alt="" coords="280,187,397,213"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="199,121,303,177,300,181,197,126"/>
+<area shape="rect" id="Node000006" href="$_config_8h.html" title="This file contains the configuration of the engine." alt="" coords="91,277,202,304"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="158,230,153,262,148,261,153,229"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="225,277,292,304"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="329,216,282,267,278,264,325,212"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="316,277,385,304"/>
+<area shape="poly" id="edge8_Node000007_Node000009" title=" " alt="" coords="343,214,349,261,344,262,338,214"/>
+<area shape="rect" id="Node000010" href="$_texture_enums_8h.html" title="@TODO Add description of this file if needed" alt="" coords="408,277,525,304"/>
+<area shape="poly" id="edge9_Node000007_Node000010" title=" " alt="" coords="358,212,437,266,434,270,355,216"/>
+</map>

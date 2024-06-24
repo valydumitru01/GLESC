@@ -1,0 +1,17 @@
+<map id="GLESC::Math::MatrixAlgorithms::getScaleMatrix" name="GLESC::Math::MatrixAlgorithms::getScaleMatrix">
+<area shape="rect" id="Node000001" title="Gets the scale matrix." alt="" coords="1009,43,1217,85"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_mixed_algorithms.html#a485f02d22191da3635105401351ec519" title="Calculate the model matrix from the position, rotation, and scale." alt="" coords="747,5,961,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="993,49,961,45,962,40,994,44"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_mixed_algorithms.html#a67bdda15ead970e5074845bdf3fcf085" title=" " alt="" coords="750,72,958,131"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="994,84,958,89,957,84,993,79"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_math_1_1_matrix.html#a3c0812b3a24431dfc5bc68f394910d61" title="Creates a view matrix from the given position and rotation vectors." alt="" coords="530,80,699,123"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="735,104,699,104,699,99,735,99"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_render_1_1_renderer.html#aaa4f270fc41e2f2a1f9ce7b979376eb1" title="Static method that creates the view matrix from a transform (transform of the camera)" alt="" coords="308,47,482,89"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="515,89,482,84,483,79,515,84"/>
+<area shape="rect" id="Node000006" href="$class_g_l_e_s_c_1_1_render_1_1_renderer.html#a0f562e14a9fb4e13e03bc108b5dd1111" title="This starts the frame of rendering." alt="" coords="308,113,482,156"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="515,119,483,124,482,119,515,114"/>
+<area shape="rect" id="Node000007" href="$class_g_l_e_s_c_1_1_engine.html#ab0a886855ca341089947b36b9c6f6e15" title="Processes the rendering of the game Can be called at variable intervals of time as it uses elapsed." alt="" coords="103,121,260,148"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="292,137,261,137,261,132,292,132"/>
+<area shape="rect" id="Node000008" href="$main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,121,55,148"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="87,137,55,137,55,132,87,132"/>
+</map>

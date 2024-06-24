@@ -1,8 +1,12 @@
-/*******************************************************************************
+/**************************************************************************************************
+ * @file   ILogger.h
+ * @author Valentin Dumitru
+ * @date   08/03/2024
+ * @brief  Class that encapsulates the look and feel of the HUD.
  *
- * Copyright (c) 2023.
- * Licensed under the MIT License. See LICENSE.txt in the project root for license information.
- ******************************************************************************/
+ * Copyright (c) 2024 Valentin Dumitru. Licensed under the MIT License.
+ * See LICENSE.txt in the project root for license information.
+ **************************************************************************************************/
 
 #pragma once
 #include <string>

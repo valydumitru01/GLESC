@@ -1,0 +1,15 @@
+<map id="GLESC::ECS::EntityManager::destroyEntity" name="GLESC::ECS::EntityManager::destroyEntity">
+<area shape="rect" id="Node000001" title="Destroy the entity with the given ID. The entity must exist." alt="" coords="5,123,198,165"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a1d64d3d7d14581391c821fc0aa8ff0a7" title=" " alt="" coords="246,5,438,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="139,120,244,64,271,52,273,57,247,69,142,125"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a5145504091eb26170aa219acb60aca71" title="Check if the entity with the given name exists." alt="" coords="486,93,678,136"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="182,119,245,108,361,101,471,104,471,109,362,107,246,113,183,125"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#af174dceb6b3d4ec490f5812ba128dd51" title="Check if the entity with the given ID is alive." alt="" coords="246,123,438,165"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="198,141,230,141,230,147,198,147"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#ab206bffe5c3daf3f62226e2f585cb32e" title=" " alt="" coords="246,189,438,232"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="181,163,248,182,247,187,180,168"/>
+<area shape="rect" id="Node000006" href="$class_g_l_e_s_c_1_1_stringer.html#a664c9af6a77e075c21a6b0cff1329e4f" title="Strips the string of the characters in the chars string." alt="" coords="507,227,658,253"/>
+<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="126,164,178,206,211,226,246,241,308,255,373,260,435,259,491,253,491,259,435,264,372,265,308,260,245,247,209,231,175,211,123,168"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="438,130,470,126,471,131,439,135"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="439,220,491,226,491,232,438,225"/>
+</map>

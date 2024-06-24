@@ -1,0 +1,7 @@
+<map id="GLESC::Math::Vector::size" name="GLESC::Math::Vector::size">
+<area shape="rect" id="Node000001" title="Returns the size of the vector." alt="" coords="510,5,658,48"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_polyhedron_face.html#a958817b02687286fe25e69e874f3cecd" title="Checks if the current face intersects with the given face." alt="" coords="258,5,462,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="494,29,462,29,462,24,494,24"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_polyhedron_face.html#acda5c36a9dc475202153436369828d53" title="Checks if the face intersects with a given line." alt="" coords="5,5,210,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="242,29,210,29,210,24,242,24"/>
+</map>

@@ -1,0 +1,874 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="Doxygen Awesome" />
+<meta property="og:image" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+<meta property="og:description" content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
+<meta property="og:url" content="https://jothepro.github.io/doxygen-awesome-css/" />
+<!-- END opengraph metadata -->
+<!-- BEGIN twitter metadata -->
+<meta name="twitter:image:src" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+<meta name="twitter:title" content="Doxygen Awesome" />
+<meta name="twitter:description" content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
+<!-- END twitter metadata -->
+<title>GLESC: GLESC Namespace Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.drawio.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/ -->
+<a href="https://github.com/jothepro/doxygen-awesome-css" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="GLESC_logo_white_background.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">GLESC
+   &#160;<span id="projectnumber">1</span>
+   </div>
+   <div id="projectbrief">Game engine using ECS architecture</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('namespace_g_l_e_s_c.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle"><div class="title">GLESC Namespace Reference</div></div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:namespace_g_l_e_s_c_1_1_e_c_s" id="r_namespace_g_l_e_s_c_1_1_e_c_s"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html">ECS</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespace_g_l_e_s_c_1_1_g_a_p_i" id="r_namespace_g_l_e_s_c_1_1_g_a_p_i"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c_1_1_g_a_p_i.html">GAPI</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespace_g_l_e_s_c_1_1_hasher" id="r_namespace_g_l_e_s_c_1_1_hasher"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c_1_1_hasher.html">Hasher</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespace_g_l_e_s_c_1_1_h_u_d" id="r_namespace_g_l_e_s_c_1_1_h_u_d"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c_1_1_h_u_d.html">HUD</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespace_g_l_e_s_c_1_1_input" id="r_namespace_g_l_e_s_c_1_1_input"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c_1_1_input.html">Input</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespace_g_l_e_s_c_1_1_math" id="r_namespace_g_l_e_s_c_1_1_math"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c_1_1_math.html">Math</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespace_g_l_e_s_c_1_1_physics" id="r_namespace_g_l_e_s_c_1_1_physics"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c_1_1_physics.html">Physics</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespace_g_l_e_s_c_1_1_polyhedron_factory" id="r_namespace_g_l_e_s_c_1_1_polyhedron_factory"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c_1_1_polyhedron_factory.html">PolyhedronFactory</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespace_g_l_e_s_c_1_1_render" id="r_namespace_g_l_e_s_c_1_1_render"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c_1_1_render.html">Render</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespace_g_l_e_s_c_1_1_res_mng" id="r_namespace_g_l_e_s_c_1_1_res_mng"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c_1_1_res_mng.html">ResMng</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespace_g_l_e_s_c_1_1_scene" id="r_namespace_g_l_e_s_c_1_1_scene"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c_1_1_scene.html">Scene</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespace_g_l_e_s_c_1_1_transform" id="r_namespace_g_l_e_s_c_1_1_transform"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c_1_1_transform.html">Transform</a></td></tr>
+<tr class="memdesc:namespace_g_l_e_s_c_1_1_transform"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace that contains all the classes and functions related to the <a class="el" href="struct_g_l_e_s_c_1_1_transform_1_1_transform.html" title="Struct that represents the position, rotation, and scale of an entity in the game world.">Transform</a> subsystem. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_absolute_timer.html">AbsoluteTimer</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class to encapsulate the logic of measuring absolute time since the start of the program.  <a href="class_g_l_e_s_c_1_1_absolute_timer.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_console.html">Console</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class that encapsulates the logic of the console.  <a href="class_g_l_e_s_c_1_1_console.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_engine.html">Engine</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_engine_camera.html">EngineCamera</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_g_l_e_s_c_1_1_entity_list_item.html">EntityListItem</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Struct that holds the name and type of an entity.  <a href="struct_g_l_e_s_c_1_1_entity_list_item.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_entity_list_manager.html">EntityListManager</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class that manages the list of entities in the scene.  <a href="class_g_l_e_s_c_1_1_entity_list_manager.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_g_l_e_s_c_1_1has_to_string.html">hasToString</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_in_game_window.html">InGameWindow</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class to encapsulate the logic of an in-game window.  <a href="class_g_l_e_s_c_1_1_in_game_window.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_g_l_e_s_c_1_1is_iterable.html">isIterable</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_g_l_e_s_c_1_1is_iterable_3_01_t_00_01std_1_1void__t_3_01decltype_07std_1_1declval_3_01_t_2c6fe44a4dd1f6ad5748cd9c04374dd8.html">isIterable&lt; T, std::void_t&lt; decltype(std::declval&lt; T &gt;().begin()), decltype(std::declval&lt; T &gt;().end())&gt; &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:struct_g_l_e_s_c_1_1_log_entry" id="r_struct_g_l_e_s_c_1_1_log_entry"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c.html#struct_g_l_e_s_c_1_1_log_entry">LogEntry</a></td></tr>
+<tr class="separator:struct_g_l_e_s_c_1_1_log_entry"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_logger.html">Logger</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_sound_loader.html">SoundLoader</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class that loads and stores sounds and music.  <a href="class_g_l_e_s_c_1_1_sound_loader.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_sound_player.html">SoundPlayer</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class that handles sound playing.  <a href="class_g_l_e_s_c_1_1_sound_player.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_stats_manager.html">StatsManager</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class to manage the stats of the game.  <a href="class_g_l_e_s_c_1_1_stats_manager.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_stringer.html">Stringer</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A general class to convert objects to strings.  <a href="class_g_l_e_s_c_1_1_stringer.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_texture_loader.html">TextureLoader</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A class that loads textures from the file system.  <a href="class_g_l_e_s_c_1_1_texture_loader.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_timer.html">Timer</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class to encapsulate the logic of measuring real time.  <a href="class_g_l_e_s_c_1_1_timer.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_g_l_e_s_c_1_1_window_dimensions.html">WindowDimensions</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_window_manager.html">WindowManager</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a41035b0f8c29428c6ea266aae09fddaa" id="r_a41035b0f8c29428c6ea266aae09fddaa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c.html#a41035b0f8c29428c6ea266aae09fddaa">RGBA</a> = <a class="el" href="struct_g_l_e_s_c_1_1_g_a_p_i_1_1_r_g_b_a_color.html">GAPI::RGBAColor</a></td></tr>
+<tr class="separator:a41035b0f8c29428c6ea266aae09fddaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6325565a85055abe6d961548cc99c4c" id="r_ad6325565a85055abe6d961548cc99c4c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c.html#ad6325565a85055abe6d961548cc99c4c">RGBANorm</a> = <a class="el" href="struct_g_l_e_s_c_1_1_g_a_p_i_1_1_r_g_b_a_color_normalized.html">GAPI::RGBAColorNormalized</a></td></tr>
+<tr class="separator:ad6325565a85055abe6d961548cc99c4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5cabb025efbfd84dc49730e5f128bc83" id="r_a5cabb025efbfd84dc49730e5f128bc83"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c.html#a5cabb025efbfd84dc49730e5f128bc83">SDL_SurfacePtr</a> = std::unique_ptr&lt; <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_Surface</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">decltype</a>(&amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_FreeSurface</a>)&gt;</td></tr>
+<tr class="memdesc:a5cabb025efbfd84dc49730e5f128bc83"><td class="mdescLeft">&#160;</td><td class="mdescRight">A smart pointer for SDL_Surface.  <br /></td></tr>
+<tr class="separator:a5cabb025efbfd84dc49730e5f128bc83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19734f363e8d905c364cd95bcd5f7771" id="r_a19734f363e8d905c364cd95bcd5f7771"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c.html#a19734f363e8d905c364cd95bcd5f7771">TimeMillis</a> = <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Uint32</a></td></tr>
+<tr class="separator:a19734f363e8d905c364cd95bcd5f7771"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf9b2feff475282df8688efd184a1e4a" id="r_aaf9b2feff475282df8688efd184a1e4a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c.html#aaf9b2feff475282df8688efd184a1e4a">TimeSecondsF</a> = <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">float</a></td></tr>
+<tr class="separator:aaf9b2feff475282df8688efd184a1e4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d159446746773e072503dddf964b98e" id="r_a6d159446746773e072503dddf964b98e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c.html#a6d159446746773e072503dddf964b98e">TimeSecondsUI</a> = <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Uint32</a></td></tr>
+<tr class="separator:a6d159446746773e072503dddf964b98e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:a4c76efb6a8bcb81fb17743d8315c596b" id="r_a4c76efb6a8bcb81fb17743d8315c596b"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c.html#a4c76efb6a8bcb81fb17743d8315c596b">EntityType</a> { <a class="el" href="namespace_g_l_e_s_c.html#a4c76efb6a8bcb81fb17743d8315c596bad9a17c1c9e8ef6866e4dbeef41c741b2">Instance</a>
+, <a class="el" href="namespace_g_l_e_s_c.html#a4c76efb6a8bcb81fb17743d8315c596ba7bfa30721c5e726ff17e3f972237a82c">Engine</a>
+, <a class="el" href="namespace_g_l_e_s_c.html#a4c76efb6a8bcb81fb17743d8315c596ba7a1920d61156abc05a60135aefe8bc67">Default</a>
+ }</td></tr>
+<tr class="memdesc:a4c76efb6a8bcb81fb17743d8315c596b"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is part of the entity metadata and does not affect the entity's behavior or memory allocation. For now is just for differentiationg instance from other entities when creating entity names.  <a href="namespace_g_l_e_s_c.html#a4c76efb6a8bcb81fb17743d8315c596b">More...</a><br /></td></tr>
+<tr class="separator:a4c76efb6a8bcb81fb17743d8315c596b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a351c07e22b65ad78eab970862b06cd8b" id="r_a351c07e22b65ad78eab970862b06cd8b"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c.html#a351c07e22b65ad78eab970862b06cd8b">LayoutPos</a> { <br />
+&#160;&#160;<a class="el" href="namespace_g_l_e_s_c.html#a351c07e22b65ad78eab970862b06cd8bab32beb056fbfe36afbabc6c88c81ab36">TopLeft</a>
+, <a class="el" href="namespace_g_l_e_s_c.html#a351c07e22b65ad78eab970862b06cd8ba9f44821a7b58abb265709f49e54ef8ca">CenterLeft</a>
+, <a class="el" href="namespace_g_l_e_s_c.html#a351c07e22b65ad78eab970862b06cd8ba98e5a1c44509157ebcaf46c515c78875">BottomLeft</a>
+, <a class="el" href="namespace_g_l_e_s_c.html#a351c07e22b65ad78eab970862b06cd8ba91b8ede24b7f93a98ae4dcaade15d468">TopCenter</a>
+, <br />
+&#160;&#160;<a class="el" href="namespace_g_l_e_s_c.html#a351c07e22b65ad78eab970862b06cd8ba4f1f6016fc9f3f2353c0cc7c67b292bd">Center</a>
+, <a class="el" href="namespace_g_l_e_s_c.html#a351c07e22b65ad78eab970862b06cd8babf7d9c8ad2f89a37cf5378b5fec0b420">BottomCenter</a>
+, <a class="el" href="namespace_g_l_e_s_c.html#a351c07e22b65ad78eab970862b06cd8ba1d85a557894c340c318493f33bfa8efb">TopRight</a>
+, <a class="el" href="namespace_g_l_e_s_c.html#a351c07e22b65ad78eab970862b06cd8baa538ef718186c9e0967239bb60043d1f">CenterRight</a>
+, <br />
+&#160;&#160;<a class="el" href="namespace_g_l_e_s_c.html#a351c07e22b65ad78eab970862b06cd8ba9146bfc669fddc88db2c4d89297d0e9a">BottomRight</a>
+, <a class="el" href="namespace_g_l_e_s_c.html#a351c07e22b65ad78eab970862b06cd8ba90589c47f06eb971d548591f23c285af">Custom</a>
+<br />
+ }</td></tr>
+<tr class="separator:a351c07e22b65ad78eab970862b06cd8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e0421ec9d657de2546305b4b000f635" id="r_a3e0421ec9d657de2546305b4b000f635"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c.html#a3e0421ec9d657de2546305b4b000f635">LogLevel</a> { <a class="el" href="namespace_g_l_e_s_c.html#a3e0421ec9d657de2546305b4b000f635a4059b0251f66a18cb56f544728796875">Info</a>
+, <a class="el" href="namespace_g_l_e_s_c.html#a3e0421ec9d657de2546305b4b000f635a0eaadb4fcb48a0a0ed7bc9868be9fbaa">Warning</a>
+, <a class="el" href="namespace_g_l_e_s_c.html#a3e0421ec9d657de2546305b4b000f635a902b0d55fddef6f8d651fe1035b7d4bd">Error</a>
+ }</td></tr>
+<tr class="separator:a3e0421ec9d657de2546305b4b000f635"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b436a52619e351b00935b0d01bb79e2" id="r_a8b436a52619e351b00935b0d01bb79e2"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c.html#a8b436a52619e351b00935b0d01bb79e2">WindowCenter</a> { <br />
+&#160;&#160;<a class="el" href="namespace_g_l_e_s_c.html#a8b436a52619e351b00935b0d01bb79e2ab32beb056fbfe36afbabc6c88c81ab36">TopLeft</a>
+, <a class="el" href="namespace_g_l_e_s_c.html#a8b436a52619e351b00935b0d01bb79e2a9f44821a7b58abb265709f49e54ef8ca">CenterLeft</a>
+, <a class="el" href="namespace_g_l_e_s_c.html#a8b436a52619e351b00935b0d01bb79e2a98e5a1c44509157ebcaf46c515c78875">BottomLeft</a>
+, <a class="el" href="namespace_g_l_e_s_c.html#a8b436a52619e351b00935b0d01bb79e2a91b8ede24b7f93a98ae4dcaade15d468">TopCenter</a>
+, <br />
+&#160;&#160;<a class="el" href="namespace_g_l_e_s_c.html#a8b436a52619e351b00935b0d01bb79e2a4f1f6016fc9f3f2353c0cc7c67b292bd">Center</a>
+, <a class="el" href="namespace_g_l_e_s_c.html#a8b436a52619e351b00935b0d01bb79e2abf7d9c8ad2f89a37cf5378b5fec0b420">BottomCenter</a>
+, <a class="el" href="namespace_g_l_e_s_c.html#a8b436a52619e351b00935b0d01bb79e2a1d85a557894c340c318493f33bfa8efb">TopRight</a>
+, <a class="el" href="namespace_g_l_e_s_c.html#a8b436a52619e351b00935b0d01bb79e2aa538ef718186c9e0967239bb60043d1f">CenterRight</a>
+, <br />
+&#160;&#160;<a class="el" href="namespace_g_l_e_s_c.html#a8b436a52619e351b00935b0d01bb79e2a9146bfc669fddc88db2c4d89297d0e9a">BottomRight</a>
+<br />
+ }</td></tr>
+<tr class="separator:a8b436a52619e351b00935b0d01bb79e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a70928105022e5771539e4851612a30b3" id="r_a70928105022e5771539e4851612a30b3"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c.html#a70928105022e5771539e4851612a30b3">addr2Line</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> std::string &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">addr</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> std::string &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">exePath</a>)</td></tr>
+<tr class="memdesc:a70928105022e5771539e4851612a30b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to get the address of the function from the address of the function.  <br /></td></tr>
+<tr class="separator:a70928105022e5771539e4851612a30b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ecfcfd4b6cc472dc0de8d1163964fec" id="r_a8ecfcfd4b6cc472dc0de8d1163964fec"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> T &gt; </td></tr>
+<tr class="memitem:a8ecfcfd4b6cc472dc0de8d1163964fec"><td class="memTemplItemLeft" align="right" valign="top">std::false_type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c.html#a8ecfcfd4b6cc472dc0de8d1163964fec">checkToString</a> (...)</td></tr>
+<tr class="separator:a8ecfcfd4b6cc472dc0de8d1163964fec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa11376178c4ec367adc041bb9f67531c" id="r_aa11376178c4ec367adc041bb9f67531c"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> T &gt; </td></tr>
+<tr class="memitem:aa11376178c4ec367adc041bb9f67531c"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">auto</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c.html#aa11376178c4ec367adc041bb9f67531c">checkToString</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">int</a>) -&gt; <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">decltype</a>(std::declval&lt; T &gt;().toString(), std::true_type{})</td></tr>
+<tr class="separator:aa11376178c4ec367adc041bb9f67531c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d9b5020e5eda5caa4a4fef6415bd1c7" id="r_a8d9b5020e5eda5caa4a4fef6415bd1c7"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c.html#a8d9b5020e5eda5caa4a4fef6415bd1c7">generateStackTrace</a> ()</td></tr>
+<tr class="memdesc:a8d9b5020e5eda5caa4a4fef6415bd1c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to generate a stack trace.  <br /></td></tr>
+<tr class="separator:a8d9b5020e5eda5caa4a4fef6415bd1c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a780b1e56f07cc4102fa8b0573e09a210" id="r_a780b1e56f07cc4102fa8b0573e09a210"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c.html#a780b1e56f07cc4102fa8b0573e09a210">printStackTrace</a> ()</td></tr>
+<tr class="memdesc:a780b1e56f07cc4102fa8b0573e09a210"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to print a stack trace.  <br /></td></tr>
+<tr class="separator:a780b1e56f07cc4102fa8b0573e09a210"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:afe7f520dce63e5dce9af3eb7d555d61e" id="r_afe7f520dce63e5dce9af3eb7d555d61e"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> T &gt; </td></tr>
+<tr class="memitem:afe7f520dce63e5dce9af3eb7d555d61e"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">constexpr</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c.html#afe7f520dce63e5dce9af3eb7d555d61e">hasToString_v</a> = <a class="el" href="struct_g_l_e_s_c_1_1has_to_string.html">hasToString</a>&lt;T&gt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">::value</a></td></tr>
+<tr class="separator:afe7f520dce63e5dce9af3eb7d555d61e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c64a4da2d1da1597f4ec563d00bb9f8" id="r_a7c64a4da2d1da1597f4ec563d00bb9f8"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a7c64a4da2d1da1597f4ec563d00bb9f8"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">isIterable_v</a> = <a class="el" href="struct_g_l_e_s_c_1_1is_iterable.html">isIterable</a>&lt;T&gt;::value</td></tr>
+<tr class="separator:a7c64a4da2d1da1597f4ec563d00bb9f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<hr/><h2 class="groupheader">Class Documentation</h2>
+<a name="struct_g_l_e_s_c_1_1_log_entry" id="struct_g_l_e_s_c_1_1_log_entry"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#struct_g_l_e_s_c_1_1_log_entry">&#9670;&#160;</a></span>GLESC::LogEntry</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct GLESC::LogEntry</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock">
+<p class="definition">Definition at line <a class="el" href="_console_8h_source.html#l00024">24</a> of file <a class="el" href="_console_8h_source.html">Console.h</a>.</p>
+</div><div class="dynheader">
+Collaboration diagram for GLESC::LogEntry:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="struct_g_l_e_s_c_1_1_log_entry__coll__graph.svg" width="135" height="368"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<table class="fieldtable">
+<tr><th colspan="3">Class Members</th></tr>
+<tr><td class="fieldtype">
+<a id="aef54678ecfa5393b80455416359ba3e5" name="aef54678ecfa5393b80455416359ba3e5"></a><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">int</a></td>
+<td class="fieldname">
+count</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a4868cbb7cb14abbe723f334d6e80624e" name="a4868cbb7cb14abbe723f334d6e80624e"></a><a class="el" href="namespace_g_l_e_s_c.html#a3e0421ec9d657de2546305b4b000f635">LogLevel</a></td>
+<td class="fieldname">
+level</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="ad88ed7562cb536f322c23c2df2e038c7" name="ad88ed7562cb536f322c23c2df2e038c7"></a>string</td>
+<td class="fieldname">
+message</td>
+<td class="fielddoc">
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="a41035b0f8c29428c6ea266aae09fddaa" name="a41035b0f8c29428c6ea266aae09fddaa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41035b0f8c29428c6ea266aae09fddaa">&#9670;&#160;</a></span>RGBA</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">using</a> <a class="el" href="namespace_g_l_e_s_c.html#a41035b0f8c29428c6ea266aae09fddaa">GLESC::RGBA</a> = <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typedef</a> <a class="el" href="struct_g_l_e_s_c_1_1_g_a_p_i_1_1_r_g_b_a_color.html">GAPI::RGBAColor</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_gapi_structs_8h_source.html#l00077">77</a> of file <a class="el" href="_gapi_structs_8h_source.html">GapiStructs.h</a>.</p>
+
+</div>
+</div>
+<a id="ad6325565a85055abe6d961548cc99c4c" name="ad6325565a85055abe6d961548cc99c4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6325565a85055abe6d961548cc99c4c">&#9670;&#160;</a></span>RGBANorm</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">using</a> <a class="el" href="namespace_g_l_e_s_c.html#ad6325565a85055abe6d961548cc99c4c">GLESC::RGBANorm</a> = <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typedef</a> <a class="el" href="struct_g_l_e_s_c_1_1_g_a_p_i_1_1_r_g_b_a_color_normalized.html">GAPI::RGBAColorNormalized</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_gapi_structs_8h_source.html#l00078">78</a> of file <a class="el" href="_gapi_structs_8h_source.html">GapiStructs.h</a>.</p>
+
+</div>
+</div>
+<a id="a5cabb025efbfd84dc49730e5f128bc83" name="a5cabb025efbfd84dc49730e5f128bc83"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5cabb025efbfd84dc49730e5f128bc83">&#9670;&#160;</a></span>SDL_SurfacePtr</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">using</a> <a class="el" href="namespace_g_l_e_s_c.html#a5cabb025efbfd84dc49730e5f128bc83">GLESC::SDL_SurfacePtr</a> = <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typedef</a> std::unique_ptr&lt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_Surface</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">decltype</a>(&amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_FreeSurface</a>)&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A smart pointer for SDL_Surface. </p>
+
+<p class="definition">Definition at line <a class="el" href="_texture_loader_8h_source.html#l00022">22</a> of file <a class="el" href="_texture_loader_8h_source.html">TextureLoader.h</a>.</p>
+
+</div>
+</div>
+<a id="a19734f363e8d905c364cd95bcd5f7771" name="a19734f363e8d905c364cd95bcd5f7771"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19734f363e8d905c364cd95bcd5f7771">&#9670;&#160;</a></span>TimeMillis</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">using</a> <a class="el" href="namespace_g_l_e_s_c.html#a19734f363e8d905c364cd95bcd5f7771">GLESC::TimeMillis</a> = <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typedef</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Uint32</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_timer_8h_source.html#l00014">14</a> of file <a class="el" href="_timer_8h_source.html">Timer.h</a>.</p>
+
+</div>
+</div>
+<a id="aaf9b2feff475282df8688efd184a1e4a" name="aaf9b2feff475282df8688efd184a1e4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf9b2feff475282df8688efd184a1e4a">&#9670;&#160;</a></span>TimeSecondsF</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">using</a> <a class="el" href="namespace_g_l_e_s_c.html#aaf9b2feff475282df8688efd184a1e4a">GLESC::TimeSecondsF</a> = <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typedef</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">float</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_timer_8h_source.html#l00015">15</a> of file <a class="el" href="_timer_8h_source.html">Timer.h</a>.</p>
+
+</div>
+</div>
+<a id="a6d159446746773e072503dddf964b98e" name="a6d159446746773e072503dddf964b98e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d159446746773e072503dddf964b98e">&#9670;&#160;</a></span>TimeSecondsUI</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">using</a> <a class="el" href="namespace_g_l_e_s_c.html#a6d159446746773e072503dddf964b98e">GLESC::TimeSecondsUI</a> = <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typedef</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Uint32</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_timer_8h_source.html#l00016">16</a> of file <a class="el" href="_timer_8h_source.html">Timer.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="a4c76efb6a8bcb81fb17743d8315c596b" name="a4c76efb6a8bcb81fb17743d8315c596b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c76efb6a8bcb81fb17743d8315c596b">&#9670;&#160;</a></span>EntityType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">enum</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">class</a> <a class="el" href="namespace_g_l_e_s_c.html#a4c76efb6a8bcb81fb17743d8315c596b">GLESC::EntityType</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This is part of the entity metadata and does not affect the entity's behavior or memory allocation. For now is just for differentiationg instance from other entities when creating entity names. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a4c76efb6a8bcb81fb17743d8315c596bad9a17c1c9e8ef6866e4dbeef41c741b2" name="a4c76efb6a8bcb81fb17743d8315c596bad9a17c1c9e8ef6866e4dbeef41c741b2"></a>Instance&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4c76efb6a8bcb81fb17743d8315c596ba7bfa30721c5e726ff17e3f972237a82c" name="a4c76efb6a8bcb81fb17743d8315c596ba7bfa30721c5e726ff17e3f972237a82c"></a>Engine&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4c76efb6a8bcb81fb17743d8315c596ba7a1920d61156abc05a60135aefe8bc67" name="a4c76efb6a8bcb81fb17743d8315c596ba7a1920d61156abc05a60135aefe8bc67"></a>Default&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="_entity_types_8h_source.html#l00016">16</a> of file <a class="el" href="_entity_types_8h_source.html">EntityTypes.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   16</span>                          {</div>
+<div class="line"><span class="lineno">   17</span>        <a class="code hl_enumvalue" href="namespace_g_l_e_s_c.html#a4c76efb6a8bcb81fb17743d8315c596bad9a17c1c9e8ef6866e4dbeef41c741b2">Instance</a>,</div>
+<div class="line"><span class="lineno">   18</span>        <a class="code hl_class" href="class_g_l_e_s_c_1_1_engine.html">Engine</a>,</div>
+<div class="line"><span class="lineno">   19</span>        <a class="code hl_class" href="class_default.html">Default</a></div>
+<div class="line"><span class="lineno">   20</span>    };</div>
+<div class="ttc" id="aclass_default_html"><div class="ttname"><a href="class_default.html">Default</a></div><div class="ttdoc">Default scene.</div><div class="ttdef"><b>Definition</b> <a href="_default_8h_source.html#l00018">Default.h:18</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_engine_html"><div class="ttname"><a href="class_g_l_e_s_c_1_1_engine.html">GLESC::Engine</a></div><div class="ttdef"><b>Definition</b> <a href="_g_l_e_s_c_8h_source.html#l00040">GLESC.h:40</a></div></div>
+<div class="ttc" id="anamespace_g_l_e_s_c_html_a4c76efb6a8bcb81fb17743d8315c596bad9a17c1c9e8ef6866e4dbeef41c741b2"><div class="ttname"><a href="namespace_g_l_e_s_c.html#a4c76efb6a8bcb81fb17743d8315c596bad9a17c1c9e8ef6866e4dbeef41c741b2">GLESC::EntityType::Instance</a></div><div class="ttdeci">@ Instance</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a351c07e22b65ad78eab970862b06cd8b" name="a351c07e22b65ad78eab970862b06cd8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a351c07e22b65ad78eab970862b06cd8b">&#9670;&#160;</a></span>LayoutPos</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">enum</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">class</a> <a class="el" href="namespace_g_l_e_s_c.html#a351c07e22b65ad78eab970862b06cd8b">GLESC::LayoutPos</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a351c07e22b65ad78eab970862b06cd8bab32beb056fbfe36afbabc6c88c81ab36" name="a351c07e22b65ad78eab970862b06cd8bab32beb056fbfe36afbabc6c88c81ab36"></a>TopLeft&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a351c07e22b65ad78eab970862b06cd8ba9f44821a7b58abb265709f49e54ef8ca" name="a351c07e22b65ad78eab970862b06cd8ba9f44821a7b58abb265709f49e54ef8ca"></a>CenterLeft&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a351c07e22b65ad78eab970862b06cd8ba98e5a1c44509157ebcaf46c515c78875" name="a351c07e22b65ad78eab970862b06cd8ba98e5a1c44509157ebcaf46c515c78875"></a>BottomLeft&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a351c07e22b65ad78eab970862b06cd8ba91b8ede24b7f93a98ae4dcaade15d468" name="a351c07e22b65ad78eab970862b06cd8ba91b8ede24b7f93a98ae4dcaade15d468"></a>TopCenter&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a351c07e22b65ad78eab970862b06cd8ba4f1f6016fc9f3f2353c0cc7c67b292bd" name="a351c07e22b65ad78eab970862b06cd8ba4f1f6016fc9f3f2353c0cc7c67b292bd"></a>Center&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a351c07e22b65ad78eab970862b06cd8babf7d9c8ad2f89a37cf5378b5fec0b420" name="a351c07e22b65ad78eab970862b06cd8babf7d9c8ad2f89a37cf5378b5fec0b420"></a>BottomCenter&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a351c07e22b65ad78eab970862b06cd8ba1d85a557894c340c318493f33bfa8efb" name="a351c07e22b65ad78eab970862b06cd8ba1d85a557894c340c318493f33bfa8efb"></a>TopRight&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a351c07e22b65ad78eab970862b06cd8baa538ef718186c9e0967239bb60043d1f" name="a351c07e22b65ad78eab970862b06cd8baa538ef718186c9e0967239bb60043d1f"></a>CenterRight&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a351c07e22b65ad78eab970862b06cd8ba9146bfc669fddc88db2c4d89297d0e9a" name="a351c07e22b65ad78eab970862b06cd8ba9146bfc669fddc88db2c4d89297d0e9a"></a>BottomRight&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a351c07e22b65ad78eab970862b06cd8ba90589c47f06eb971d548591f23c285af" name="a351c07e22b65ad78eab970862b06cd8ba90589c47f06eb971d548591f23c285af"></a>Custom&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="_in_game_window_8h_source.html#l00017">17</a> of file <a class="el" href="_in_game_window_8h_source.html">InGameWindow.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   17</span>                         {</div>
+<div class="line"><span class="lineno">   18</span>        <a class="code hl_enumvalue" href="namespace_g_l_e_s_c.html#a351c07e22b65ad78eab970862b06cd8bab32beb056fbfe36afbabc6c88c81ab36">TopLeft</a>,</div>
+<div class="line"><span class="lineno">   19</span>        <a class="code hl_enumvalue" href="namespace_g_l_e_s_c.html#a351c07e22b65ad78eab970862b06cd8ba9f44821a7b58abb265709f49e54ef8ca">CenterLeft</a>,</div>
+<div class="line"><span class="lineno">   20</span>        <a class="code hl_enumvalue" href="namespace_g_l_e_s_c.html#a351c07e22b65ad78eab970862b06cd8ba98e5a1c44509157ebcaf46c515c78875">BottomLeft</a>,</div>
+<div class="line"><span class="lineno">   21</span>        <a class="code hl_enumvalue" href="namespace_g_l_e_s_c.html#a351c07e22b65ad78eab970862b06cd8ba91b8ede24b7f93a98ae4dcaade15d468">TopCenter</a>,</div>
+<div class="line"><span class="lineno">   22</span>        <a class="code hl_enumvalue" href="namespace_g_l_e_s_c.html#a351c07e22b65ad78eab970862b06cd8ba4f1f6016fc9f3f2353c0cc7c67b292bd">Center</a>,</div>
+<div class="line"><span class="lineno">   23</span>        <a class="code hl_enumvalue" href="namespace_g_l_e_s_c.html#a351c07e22b65ad78eab970862b06cd8babf7d9c8ad2f89a37cf5378b5fec0b420">BottomCenter</a>,</div>
+<div class="line"><span class="lineno">   24</span>        <a class="code hl_enumvalue" href="namespace_g_l_e_s_c.html#a351c07e22b65ad78eab970862b06cd8ba1d85a557894c340c318493f33bfa8efb">TopRight</a>,</div>
+<div class="line"><span class="lineno">   25</span>        <a class="code hl_enumvalue" href="namespace_g_l_e_s_c.html#a351c07e22b65ad78eab970862b06cd8baa538ef718186c9e0967239bb60043d1f">CenterRight</a>,</div>
+<div class="line"><span class="lineno">   26</span>        <a class="code hl_enumvalue" href="namespace_g_l_e_s_c.html#a351c07e22b65ad78eab970862b06cd8ba9146bfc669fddc88db2c4d89297d0e9a">BottomRight</a>,</div>
+<div class="line"><span class="lineno">   27</span>        <a class="code hl_enumvalue" href="namespace_g_l_e_s_c.html#a351c07e22b65ad78eab970862b06cd8ba90589c47f06eb971d548591f23c285af">Custom</a></div>
+<div class="line"><span class="lineno">   28</span>    };</div>
+<div class="ttc" id="anamespace_g_l_e_s_c_html_a351c07e22b65ad78eab970862b06cd8ba1d85a557894c340c318493f33bfa8efb"><div class="ttname"><a href="namespace_g_l_e_s_c.html#a351c07e22b65ad78eab970862b06cd8ba1d85a557894c340c318493f33bfa8efb">GLESC::LayoutPos::TopRight</a></div><div class="ttdeci">@ TopRight</div></div>
+<div class="ttc" id="anamespace_g_l_e_s_c_html_a351c07e22b65ad78eab970862b06cd8ba4f1f6016fc9f3f2353c0cc7c67b292bd"><div class="ttname"><a href="namespace_g_l_e_s_c.html#a351c07e22b65ad78eab970862b06cd8ba4f1f6016fc9f3f2353c0cc7c67b292bd">GLESC::LayoutPos::Center</a></div><div class="ttdeci">@ Center</div></div>
+<div class="ttc" id="anamespace_g_l_e_s_c_html_a351c07e22b65ad78eab970862b06cd8ba90589c47f06eb971d548591f23c285af"><div class="ttname"><a href="namespace_g_l_e_s_c.html#a351c07e22b65ad78eab970862b06cd8ba90589c47f06eb971d548591f23c285af">GLESC::LayoutPos::Custom</a></div><div class="ttdeci">@ Custom</div></div>
+<div class="ttc" id="anamespace_g_l_e_s_c_html_a351c07e22b65ad78eab970862b06cd8ba9146bfc669fddc88db2c4d89297d0e9a"><div class="ttname"><a href="namespace_g_l_e_s_c.html#a351c07e22b65ad78eab970862b06cd8ba9146bfc669fddc88db2c4d89297d0e9a">GLESC::LayoutPos::BottomRight</a></div><div class="ttdeci">@ BottomRight</div></div>
+<div class="ttc" id="anamespace_g_l_e_s_c_html_a351c07e22b65ad78eab970862b06cd8ba91b8ede24b7f93a98ae4dcaade15d468"><div class="ttname"><a href="namespace_g_l_e_s_c.html#a351c07e22b65ad78eab970862b06cd8ba91b8ede24b7f93a98ae4dcaade15d468">GLESC::LayoutPos::TopCenter</a></div><div class="ttdeci">@ TopCenter</div></div>
+<div class="ttc" id="anamespace_g_l_e_s_c_html_a351c07e22b65ad78eab970862b06cd8ba98e5a1c44509157ebcaf46c515c78875"><div class="ttname"><a href="namespace_g_l_e_s_c.html#a351c07e22b65ad78eab970862b06cd8ba98e5a1c44509157ebcaf46c515c78875">GLESC::LayoutPos::BottomLeft</a></div><div class="ttdeci">@ BottomLeft</div></div>
+<div class="ttc" id="anamespace_g_l_e_s_c_html_a351c07e22b65ad78eab970862b06cd8ba9f44821a7b58abb265709f49e54ef8ca"><div class="ttname"><a href="namespace_g_l_e_s_c.html#a351c07e22b65ad78eab970862b06cd8ba9f44821a7b58abb265709f49e54ef8ca">GLESC::LayoutPos::CenterLeft</a></div><div class="ttdeci">@ CenterLeft</div></div>
+<div class="ttc" id="anamespace_g_l_e_s_c_html_a351c07e22b65ad78eab970862b06cd8baa538ef718186c9e0967239bb60043d1f"><div class="ttname"><a href="namespace_g_l_e_s_c.html#a351c07e22b65ad78eab970862b06cd8baa538ef718186c9e0967239bb60043d1f">GLESC::LayoutPos::CenterRight</a></div><div class="ttdeci">@ CenterRight</div></div>
+<div class="ttc" id="anamespace_g_l_e_s_c_html_a351c07e22b65ad78eab970862b06cd8bab32beb056fbfe36afbabc6c88c81ab36"><div class="ttname"><a href="namespace_g_l_e_s_c.html#a351c07e22b65ad78eab970862b06cd8bab32beb056fbfe36afbabc6c88c81ab36">GLESC::LayoutPos::TopLeft</a></div><div class="ttdeci">@ TopLeft</div></div>
+<div class="ttc" id="anamespace_g_l_e_s_c_html_a351c07e22b65ad78eab970862b06cd8babf7d9c8ad2f89a37cf5378b5fec0b420"><div class="ttname"><a href="namespace_g_l_e_s_c.html#a351c07e22b65ad78eab970862b06cd8babf7d9c8ad2f89a37cf5378b5fec0b420">GLESC::LayoutPos::BottomCenter</a></div><div class="ttdeci">@ BottomCenter</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a3e0421ec9d657de2546305b4b000f635" name="a3e0421ec9d657de2546305b4b000f635"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e0421ec9d657de2546305b4b000f635">&#9670;&#160;</a></span>LogLevel</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">enum</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">class</a> <a class="el" href="namespace_g_l_e_s_c.html#a3e0421ec9d657de2546305b4b000f635">GLESC::LogLevel</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a3e0421ec9d657de2546305b4b000f635a4059b0251f66a18cb56f544728796875" name="a3e0421ec9d657de2546305b4b000f635a4059b0251f66a18cb56f544728796875"></a>Info&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a3e0421ec9d657de2546305b4b000f635a0eaadb4fcb48a0a0ed7bc9868be9fbaa" name="a3e0421ec9d657de2546305b4b000f635a0eaadb4fcb48a0a0ed7bc9868be9fbaa"></a>Warning&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a3e0421ec9d657de2546305b4b000f635a902b0d55fddef6f8d651fe1035b7d4bd" name="a3e0421ec9d657de2546305b4b000f635a902b0d55fddef6f8d651fe1035b7d4bd"></a>Error&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="_console_8h_source.html#l00018">18</a> of file <a class="el" href="_console_8h_source.html">Console.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   18</span>                        {</div>
+<div class="line"><span class="lineno">   19</span>        <a class="code hl_enumvalue" href="namespace_g_l_e_s_c.html#a3e0421ec9d657de2546305b4b000f635a4059b0251f66a18cb56f544728796875">Info</a>,</div>
+<div class="line"><span class="lineno">   20</span>        <a class="code hl_enumvalue" href="namespace_g_l_e_s_c.html#a3e0421ec9d657de2546305b4b000f635a0eaadb4fcb48a0a0ed7bc9868be9fbaa">Warning</a>,</div>
+<div class="line"><span class="lineno">   21</span>        <a class="code hl_enumvalue" href="namespace_g_l_e_s_c.html#a3e0421ec9d657de2546305b4b000f635a902b0d55fddef6f8d651fe1035b7d4bd">Error</a></div>
+<div class="line"><span class="lineno">   22</span>    };</div>
+<div class="ttc" id="anamespace_g_l_e_s_c_html_a3e0421ec9d657de2546305b4b000f635a0eaadb4fcb48a0a0ed7bc9868be9fbaa"><div class="ttname"><a href="namespace_g_l_e_s_c.html#a3e0421ec9d657de2546305b4b000f635a0eaadb4fcb48a0a0ed7bc9868be9fbaa">GLESC::LogLevel::Warning</a></div><div class="ttdeci">@ Warning</div></div>
+<div class="ttc" id="anamespace_g_l_e_s_c_html_a3e0421ec9d657de2546305b4b000f635a4059b0251f66a18cb56f544728796875"><div class="ttname"><a href="namespace_g_l_e_s_c.html#a3e0421ec9d657de2546305b4b000f635a4059b0251f66a18cb56f544728796875">GLESC::LogLevel::Info</a></div><div class="ttdeci">@ Info</div></div>
+<div class="ttc" id="anamespace_g_l_e_s_c_html_a3e0421ec9d657de2546305b4b000f635a902b0d55fddef6f8d651fe1035b7d4bd"><div class="ttname"><a href="namespace_g_l_e_s_c.html#a3e0421ec9d657de2546305b4b000f635a902b0d55fddef6f8d651fe1035b7d4bd">GLESC::LogLevel::Error</a></div><div class="ttdeci">@ Error</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a8b436a52619e351b00935b0d01bb79e2" name="a8b436a52619e351b00935b0d01bb79e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b436a52619e351b00935b0d01bb79e2">&#9670;&#160;</a></span>WindowCenter</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">enum</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">class</a> <a class="el" href="namespace_g_l_e_s_c.html#a8b436a52619e351b00935b0d01bb79e2">GLESC::WindowCenter</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a8b436a52619e351b00935b0d01bb79e2ab32beb056fbfe36afbabc6c88c81ab36" name="a8b436a52619e351b00935b0d01bb79e2ab32beb056fbfe36afbabc6c88c81ab36"></a>TopLeft&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8b436a52619e351b00935b0d01bb79e2a9f44821a7b58abb265709f49e54ef8ca" name="a8b436a52619e351b00935b0d01bb79e2a9f44821a7b58abb265709f49e54ef8ca"></a>CenterLeft&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8b436a52619e351b00935b0d01bb79e2a98e5a1c44509157ebcaf46c515c78875" name="a8b436a52619e351b00935b0d01bb79e2a98e5a1c44509157ebcaf46c515c78875"></a>BottomLeft&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8b436a52619e351b00935b0d01bb79e2a91b8ede24b7f93a98ae4dcaade15d468" name="a8b436a52619e351b00935b0d01bb79e2a91b8ede24b7f93a98ae4dcaade15d468"></a>TopCenter&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8b436a52619e351b00935b0d01bb79e2a4f1f6016fc9f3f2353c0cc7c67b292bd" name="a8b436a52619e351b00935b0d01bb79e2a4f1f6016fc9f3f2353c0cc7c67b292bd"></a>Center&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8b436a52619e351b00935b0d01bb79e2abf7d9c8ad2f89a37cf5378b5fec0b420" name="a8b436a52619e351b00935b0d01bb79e2abf7d9c8ad2f89a37cf5378b5fec0b420"></a>BottomCenter&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8b436a52619e351b00935b0d01bb79e2a1d85a557894c340c318493f33bfa8efb" name="a8b436a52619e351b00935b0d01bb79e2a1d85a557894c340c318493f33bfa8efb"></a>TopRight&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8b436a52619e351b00935b0d01bb79e2aa538ef718186c9e0967239bb60043d1f" name="a8b436a52619e351b00935b0d01bb79e2aa538ef718186c9e0967239bb60043d1f"></a>CenterRight&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8b436a52619e351b00935b0d01bb79e2a9146bfc669fddc88db2c4d89297d0e9a" name="a8b436a52619e351b00935b0d01bb79e2a9146bfc669fddc88db2c4d89297d0e9a"></a>BottomRight&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="_in_game_window_8h_source.html#l00030">30</a> of file <a class="el" href="_in_game_window_8h_source.html">InGameWindow.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   30</span>                            {</div>
+<div class="line"><span class="lineno">   31</span>        <a class="code hl_enumvalue" href="namespace_g_l_e_s_c.html#a351c07e22b65ad78eab970862b06cd8bab32beb056fbfe36afbabc6c88c81ab36">TopLeft</a>,</div>
+<div class="line"><span class="lineno">   32</span>        <a class="code hl_enumvalue" href="namespace_g_l_e_s_c.html#a351c07e22b65ad78eab970862b06cd8ba9f44821a7b58abb265709f49e54ef8ca">CenterLeft</a>,</div>
+<div class="line"><span class="lineno">   33</span>        <a class="code hl_enumvalue" href="namespace_g_l_e_s_c.html#a351c07e22b65ad78eab970862b06cd8ba98e5a1c44509157ebcaf46c515c78875">BottomLeft</a>,</div>
+<div class="line"><span class="lineno">   34</span>        <a class="code hl_enumvalue" href="namespace_g_l_e_s_c.html#a351c07e22b65ad78eab970862b06cd8ba91b8ede24b7f93a98ae4dcaade15d468">TopCenter</a>,</div>
+<div class="line"><span class="lineno">   35</span>        <a class="code hl_enumvalue" href="namespace_g_l_e_s_c.html#a351c07e22b65ad78eab970862b06cd8ba4f1f6016fc9f3f2353c0cc7c67b292bd">Center</a>,</div>
+<div class="line"><span class="lineno">   36</span>        <a class="code hl_enumvalue" href="namespace_g_l_e_s_c.html#a351c07e22b65ad78eab970862b06cd8babf7d9c8ad2f89a37cf5378b5fec0b420">BottomCenter</a>,</div>
+<div class="line"><span class="lineno">   37</span>        <a class="code hl_enumvalue" href="namespace_g_l_e_s_c.html#a351c07e22b65ad78eab970862b06cd8ba1d85a557894c340c318493f33bfa8efb">TopRight</a>,</div>
+<div class="line"><span class="lineno">   38</span>        <a class="code hl_enumvalue" href="namespace_g_l_e_s_c.html#a351c07e22b65ad78eab970862b06cd8baa538ef718186c9e0967239bb60043d1f">CenterRight</a>,</div>
+<div class="line"><span class="lineno">   39</span>        <a class="code hl_enumvalue" href="namespace_g_l_e_s_c.html#a351c07e22b65ad78eab970862b06cd8ba9146bfc669fddc88db2c4d89297d0e9a">BottomRight</a></div>
+<div class="line"><span class="lineno">   40</span>    };</div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="a70928105022e5771539e4851612a30b3" name="a70928105022e5771539e4851612a30b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70928105022e5771539e4851612a30b3">&#9670;&#160;</a></span>addr2Line()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string GLESC::addr2Line </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> std::string &amp;&#160;</td>
+          <td class="paramname"><em>addr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> std::string &amp;&#160;</td>
+          <td class="paramname"><em>exePath</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function to get the address of the function from the address of the function. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">addr</td><td>- the address of the function. </td></tr>
+    <tr><td class="paramname">exePath</td><td>- the path to the executable. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the address of the function. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_stacktrace_8cpp_source.html#l00019">19</a> of file <a class="el" href="_stacktrace_8cpp_source.html">Stacktrace.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   20</span>                                                                     {</div>
+<div class="line"><span class="lineno">   21</span>    std::ostringstream command;</div>
+<div class="line"><span class="lineno">   22</span>    command &lt;&lt; <span class="stringliteral">&quot;addr2line -f -C -e &quot;</span> &lt;&lt; exePath &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; addr;</div>
+<div class="line"><span class="lineno">   23</span>    std::array&lt;char, 128&gt; buffer{};</div>
+<div class="line"><span class="lineno">   24</span>    std::string result;</div>
+<div class="line"><span class="lineno">   25</span>    std::unique_ptr&lt;FILE, <span class="keyword">decltype</span>(&amp;pclose)&gt;</div>
+<div class="line"><span class="lineno">   26</span>            pipe(popen(command.str().c_str(), <span class="stringliteral">&quot;r&quot;</span>), pclose);</div>
+<div class="line"><span class="lineno">   27</span>    <span class="keywordflow">if</span> (!pipe) {</div>
+<div class="line"><span class="lineno">   28</span>        std::cerr &lt;&lt; <span class="stringliteral">&quot;popen() failed!&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">   29</span>        <span class="keywordflow">return</span> {};</div>
+<div class="line"><span class="lineno">   30</span>    }</div>
+<div class="line"><span class="lineno">   31</span>    <span class="keywordflow">while</span> (fgets(buffer.data(), buffer.size(), pipe.get()) != <span class="keyword">nullptr</span>) {</div>
+<div class="line"><span class="lineno">   32</span>        result += buffer.data();</div>
+<div class="line"><span class="lineno">   33</span>    }</div>
+<div class="line"><span class="lineno">   34</span>    <span class="keywordflow">return</span> result;</div>
+<div class="line"><span class="lineno">   35</span>}</div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="_stacktrace_8cpp_source.html#l00038">generateStackTrace()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespace_g_l_e_s_c_a70928105022e5771539e4851612a30b3_icgraph.svg" width="631" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a8ecfcfd4b6cc472dc0de8d1163964fec" name="a8ecfcfd4b6cc472dc0de8d1163964fec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ecfcfd4b6cc472dc0de8d1163964fec">&#9670;&#160;</a></span>checkToString() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::false_type GLESC::checkToString </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa11376178c4ec367adc041bb9f67531c" name="aa11376178c4ec367adc041bb9f67531c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa11376178c4ec367adc041bb9f67531c">&#9670;&#160;</a></span>checkToString() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">auto</a> GLESC::checkToString </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">int</a>&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> -&gt;  <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">decltype</a>(std::declval&lt; T &gt;().toString(), std::true_type{})</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8d9b5020e5eda5caa4a4fef6415bd1c7" name="a8d9b5020e5eda5caa4a4fef6415bd1c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d9b5020e5eda5caa4a4fef6415bd1c7">&#9670;&#160;</a></span>generateStackTrace()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string GLESC::generateStackTrace </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function to generate a stack trace. </p>
+<dl class="section return"><dt>Returns</dt><dd>the stack trace. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_stacktrace_8cpp_source.html#l00038">38</a> of file <a class="el" href="_stacktrace_8cpp_source.html">Stacktrace.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   38</span>                                                  {</div>
+<div class="line"><span class="lineno">   39</span>    <span class="keyword">const</span> <span class="keyword">auto</span> exePath = PROJECT_BINARY_DIR + std::string(<span class="stringliteral">&quot;/&quot;</span>) +</div>
+<div class="line"><span class="lineno">   40</span>                         std::string(PROJECT_NAME) + std::string(<span class="stringliteral">&quot;.exe&quot;</span>);</div>
+<div class="line"><span class="lineno">   41</span>    std::string stacktrace;</div>
+<div class="line"><span class="lineno">   42</span>    <span class="keyword">const</span> <span class="keyword">auto</span> st = boost::stacktrace::stacktrace();</div>
+<div class="line"><span class="lineno">   43</span>    </div>
+<div class="line"><span class="lineno">   44</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;frame : st) {</div>
+<div class="line"><span class="lineno">   45</span>        std::stringstream ss;</div>
+<div class="line"><span class="lineno">   46</span>        ss &lt;&lt; std::hex &lt;&lt; frame.address();</div>
+<div class="line"><span class="lineno">   47</span>        std::string line = <a class="code hl_function" href="namespace_g_l_e_s_c.html#a70928105022e5771539e4851612a30b3">GLESC::addr2Line</a>(ss.str(), exePath);</div>
+<div class="line"><span class="lineno">   48</span>        <span class="keywordflow">if</span> (line.find(<span class="stringliteral">&quot;??&quot;</span>) == std::string::npos) {</div>
+<div class="line"><span class="lineno">   49</span>            stacktrace.append(line);</div>
+<div class="line"><span class="lineno">   50</span>        } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">   51</span>            stacktrace.append(<span class="stringliteral">&quot;Function not found: &quot;</span> + ss.str() + <span class="stringliteral">&quot;\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   52</span>        }</div>
+<div class="line"><span class="lineno">   53</span>    }</div>
+<div class="line"><span class="lineno">   54</span>    </div>
+<div class="line"><span class="lineno">   55</span>    <span class="keywordflow">return</span> stacktrace;</div>
+<div class="line"><span class="lineno">   56</span>}</div>
+<div class="ttc" id="anamespace_g_l_e_s_c_html_a70928105022e5771539e4851612a30b3"><div class="ttname"><a href="namespace_g_l_e_s_c.html#a70928105022e5771539e4851612a30b3">GLESC::addr2Line</a></div><div class="ttdeci">std::string addr2Line(const std::string &amp;addr, const std::string &amp;exePath)</div><div class="ttdoc">Function to get the address of the function from the address of the function.</div><div class="ttdef"><b>Definition</b> <a href="_stacktrace_8cpp_source.html#l00019">Stacktrace.cpp:19</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_stacktrace_8cpp_source.html#l00019">addr2Line()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_base_exception_8cpp_source.html#l00014">BaseException::BaseException()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespace_g_l_e_s_c_a8d9b5020e5eda5caa4a4fef6415bd1c7_cgraph.svg" width="378" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespace_g_l_e_s_c_a8d9b5020e5eda5caa4a4fef6415bd1c7_icgraph.svg" width="454" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a780b1e56f07cc4102fa8b0573e09a210" name="a780b1e56f07cc4102fa8b0573e09a210"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a780b1e56f07cc4102fa8b0573e09a210">&#9670;&#160;</a></span>printStackTrace()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string GLESC::printStackTrace </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function to print a stack trace. </p>
+<dl class="section return"><dt>Returns</dt><dd>the stack trace. </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="afe7f520dce63e5dce9af3eb7d555d61e" name="afe7f520dce63e5dce9af3eb7d555d61e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe7f520dce63e5dce9af3eb7d555d61e">&#9670;&#160;</a></span>hasToString_v</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">constexpr</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a> GLESC::hasToString_v = <a class="el" href="struct_g_l_e_s_c_1_1has_to_string.html">hasToString</a>&lt;T&gt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">::value</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_stringer_8h_source.html#l00044">44</a> of file <a class="el" href="_stringer_8h_source.html">Stringer.h</a>.</p>
+
+</div>
+</div>
+<a id="a7c64a4da2d1da1597f4ec563d00bb9f8" name="a7c64a4da2d1da1597f4ec563d00bb9f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c64a4da2d1da1597f4ec563d00bb9f8">&#9670;&#160;</a></span>isIterable_v</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool GLESC::isIterable_v = <a class="el" href="struct_g_l_e_s_c_1_1is_iterable.html">isIterable</a>&lt;T&gt;::value</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_stringer_8h_source.html#l00029">29</a> of file <a class="el" href="_stringer_8h_source.html">Stringer.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_camera_system_8cpp_source.html#l00017">GLESC::ECS::CameraSystem::CameraSystem()</a>, <a class="el" href="_renderer_types_8h_source.html#l00506">GLESC::Render::ColorRgbaNorm::ColorRgbaNorm()</a>, <a class="el" href="_renderer_types_8h_source.html#l00454">GLESC::Render::ColorRgbNorm::ColorRgbNorm()</a>, <a class="el" href="_crosshair_h_u_d_8cpp_source.html#l00014">GLESC::HUD::CrosshairHUD::CrosshairHUD()</a>, <a class="el" href="_debug_console_h_u_d_8cpp_source.html#l00019">GLESC::HUD::DebugConsoleHUD::DebugConsoleHUD()</a>, <a class="el" href="_debug_entity_data_h_u_d_8cpp_source.html#l00020">GLESC::HUD::DebugEntityData::DebugEntityData()</a>, <a class="el" href="_debug_info_system_8cpp_source.html#l00019">GLESC::ECS::DebugInfoSystem::DebugInfoSystem()</a>, <a class="el" href="_debug_items_h_u_d_8cpp_source.html#l00017">GLESC::HUD::DebugItems::DebugItems()</a>, <a class="el" href="_debug_stats_h_u_d_8cpp_source.html#l00016">GLESC::HUD::DebugStatsHUD::DebugStatsHUD()</a>, <a class="el" href="_entity_list_h_u_d_8cpp_source.html#l00020">GLESC::HUD::EntityListHUD::EntityListHUD()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00020">GLESC::ECS::EntityManager::EntityManager()</a>, <a class="el" href="_fog_system_8cpp_source.html#l00017">GLESC::ECS::FogSystem::FogSystem()</a>, <a class="el" href="_frustum_8h_source.html#l00030">GLESC::Render::Frustum::Frustum()</a>, <a class="el" href="_index_buffer_8cpp_source.html#l00015">GLESC::GAPI::IndexBuffer::IndexBuffer()</a>, <a class="el" href="_input_system_8cpp_source.html#l00016">GLESC::ECS::InputSystem::InputSystem()</a>, <a class="el" href="_light_system_8cpp_source.html#l00017">GLESC::ECS::LightSystem::LightSystem()</a>, <a class="el" href="_line_8cpp_source.html#l00015">GLESC::Math::Line::Line()</a>, <a class="el" href="_matrix_8h_source.html#l00080">GLESC::Math::Matrix&lt; Type, N, M &gt;::Matrix()</a>, <a class="el" href="_matrix_8h_source.html#l00072">GLESC::Math::Matrix&lt; Type, N, M &gt;::Matrix()</a>, <a class="el" href="_matrix_8h_source.html#l00097">GLESC::Math::Matrix&lt; Type, N, M &gt;::Matrix()</a>, <a class="el" href="_physics_collision_system_8cpp_source.html#l00019">GLESC::ECS::PhysicsCollisionSystem::PhysicsCollisionSystem()</a>, <a class="el" href="_physics_system_8cpp_source.html#l00019">GLESC::ECS::PhysicsSystem::PhysicsSystem()</a>, <a class="el" href="_plane_8cpp_source.html#l00018">GLESC::Math::Plane::Plane()</a>, <a class="el" href="_plane_8cpp_source.html#l00023">GLESC::Math::Plane::Plane()</a>, <a class="el" href="_plane_8cpp_source.html#l00037">GLESC::Math::Plane::Plane()</a>, <a class="el" href="_plane_8cpp_source.html#l00028">GLESC::Math::Plane::Plane()</a>, <a class="el" href="_polyhedron_8cpp_source.html#l00016">GLESC::Math::Polyhedron::Polyhedron()</a>, <a class="el" href="_render_system_8cpp_source.html#l00016">GLESC::ECS::RenderSystem::RenderSystem()</a>, <a class="el" href="_sun_system_8cpp_source.html#l00017">GLESC::ECS::SunSystem::SunSystem()</a>, <a class="el" href="_texture_8cpp_source.html#l00011">GLESC::Render::Texture::Texture()</a>, <a class="el" href="_texture_surface_8cpp_source.html#l00016">GLESC::ResMng::Texture::TextureSurface::TextureSurface()</a>, <a class="el" href="_transform_system_8cpp_source.html#l00015">GLESC::ECS::TransformSystem::TransformSystem()</a>, <a class="el" href="_vector_8h_source.html#l00059">GLESC::Math::Vector&lt; Type, N &gt;::Vector()</a>, <a class="el" href="_vector_8h_source.html#l00118">GLESC::Math::Vector&lt; Type, N &gt;::Vector()</a>, <a class="el" href="_vector_8h_source.html#l00108">GLESC::Math::Vector&lt; Type, N &gt;::Vector()</a>, <a class="el" href="_vector_8h_source.html#l00097">GLESC::Math::Vector&lt; Type, N &gt;::Vector()</a>, <a class="el" href="_vector_8h_source.html#l00127">GLESC::Math::Vector&lt; Type, N &gt;::Vector()</a>, <a class="el" href="_h_u_d_manager_8cpp_source.html#l00029">GLESC::HUD::HUDManager::~HUDManager()</a>, <a class="el" href="_vector_8h_source.html#l00766">GLESC::Math::Vector&lt; Type, N &gt;::abs()</a>, <a class="el" href="_math_8h_source.html#l00164">GLESC::Math::abs()</a>, <a class="el" href="_vector_algorithms_8h_source.html#l00350">GLESC::Math::VectorAlgorithms::abs()</a>, <a class="el" href="_physics_8h_source.html#l00046">GLESC::Physics::Physics::addAngularAcceleration()</a>, <a class="el" href="_vertex_array_8cpp_source.html#l00035">GLESC::GAPI::VertexArray::addBuffer()</a>, <a class="el" href="_entity_8h_source.html#l00113">GLESC::ECS::Entity::addComponent()</a>, <a class="el" href="_e_c_s_8h_source.html#l00249">GLESC::ECS::ECSCoordinator::addComponent()</a>, <a class="el" href="_system_8h_source.html#l00041">GLESC::ECS::System::addComponentRequirement()</a>, <a class="el" href="_e_c_s_8h_source.html#l00286">GLESC::ECS::ECSCoordinator::addComponentRequirementToSystem()</a>, <a class="el" href="_system_manager_8cpp_source.html#l00060">GLESC::ECS::SystemManager::addComponentRequirementToSystem()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00127">GLESC::ECS::EntityManager::addComponentToEntity()</a>, <a class="el" href="_component_manager_8h_source.html#l00210">GLESC::ECS::ComponentManager::addComponentToEntity()</a>, <a class="el" href="_physics_8h_source.html#l00043">GLESC::Physics::Physics::addDirectionalAcceleration()</a>, <a class="el" href="_physics_8h_source.html#l00051">GLESC::Physics::Physics::addDirectionalForce()</a>, <a class="el" href="_physics_8h_source.html#l00037">GLESC::Physics::Physics::addDirectionalVelocity()</a>, <a class="el" href="_entity_list_manager_8cpp_source.html#l00017">GLESC::EntityListManager::addEntity()</a>, <a class="el" href="_polyhedron_8cpp_source.html#l00033">GLESC::Math::Polyhedron::addFace()</a>, <a class="el" href="_in_game_window_8h_source.html#l00086">GLESC::InGameWindow::addFlag()</a>, <a class="el" href="_logger_8cpp_source.html#l00035">GLESC::Logger::addLogger()</a>, <a class="el" href="_console_8cpp_source.html#l00022">GLESC::Console::addMessage()</a>, <a class="el" href="_transform_8h_source.html#l00148">GLESC::Transform::Transform::addPosition()</a>, <a class="el" href="_polyhedron_8cpp_source.html#l00047">GLESC::Math::Polyhedron::addQuad()</a>, <a class="el" href="_mesh_8h_source.html#l00278">GLESC::Render::Mesh&lt; VertexT &gt;::addQuad()</a>, <a class="el" href="_mesh_8h_source.html#l00312">GLESC::Render::Mesh&lt; VertexT &gt;::addQuad()</a>, <a class="el" href="_transform_8h_source.html#l00164">GLESC::Transform::Transform::addRotation()</a>, <a class="el" href="_transform_8h_source.html#l00176">GLESC::Transform::Transform::addScale()</a>, <a class="el" href="_scene_manager_8h_source.html#l00030">GLESC::Scene::SceneManager::addScene()</a>, <a class="el" href="_input_manager_8cpp_source.html#l00096">GLESC::Input::InputManager::addToBuffer()</a>, <a class="el" href="_mesh_8h_source.html#l00240">GLESC::Render::Mesh&lt; VertexT &gt;::addTris()</a>, <a class="el" href="_mesh_8h_source.html#l00214">GLESC::Render::Mesh&lt; VertexT &gt;::addTris()</a>, <a class="el" href="_mesh_8h_source.html#l00357">GLESC::Render::Mesh&lt; VertexT &gt;::addTris()</a>, <a class="el" href="_polyhedron_8cpp_source.html#l00023">GLESC::Math::Polyhedron::addVertex()</a>, <a class="el" href="_mesh_8h_source.html#l00325">GLESC::Render::Mesh&lt; VertexT &gt;::addVertex()</a>, <a class="el" href="_mesh_8h_source.html#l00342">GLESC::Render::Mesh&lt; VertexT &gt;::addVertices()</a>, <a class="el" href="_h_u_d_manager_8cpp_source.html#l00041">GLESC::HUD::HUDManager::addWindow()</a>, <a class="el" href="_vector_algorithms_8h_source.html#l00497">GLESC::Math::VectorAlgorithms::angle()</a>, <a class="el" href="_open_g_l_a_p_i_8h_source.html#l01094">GLESC::GAPI::OpenGLAPI::anyTextureBound()</a>, <a class="el" href="_renderer_8cpp_source.html#l00141">GLESC::Render::Renderer::applyAmbientLight()</a>, <a class="el" href="_renderer_8cpp_source.html#l00155">GLESC::Render::Renderer::applyFog()</a>, <a class="el" href="_renderer_8cpp_source.html#l00151">GLESC::Render::Renderer::applySkybox()</a>, <a class="el" href="_renderer_8cpp_source.html#l00124">GLESC::Render::Renderer::applySun()</a>, <a class="el" href="_renderer_8cpp_source.html#l00174">GLESC::Render::Renderer::applyTransform()</a>, <a class="el" href="_vector_mixed_algorithms_8h_source.html#l00054">GLESC::Math::VectorMixedAlgorithms::areCollinear()</a>, <a class="el" href="_vector_mixed_algorithms_8h_source.html#l00086">GLESC::Math::VectorMixedAlgorithms::areCollinear()</a>, <a class="el" href="_vector_algorithms_8h_source.html#l00764">GLESC::Math::VectorAlgorithms::areOrthogonal()</a>, <a class="el" href="_vector_algorithms_8h_source.html#l00531">GLESC::Math::VectorAlgorithms::areParallel()</a>, <a class="el" href="_math_8h_source.html#l00645">GLESC::Math::atan2()</a>, <a class="el" href="_mesh_8h_source.html#l00255">GLESC::Render::Mesh&lt; VertexT &gt;::attatchMesh()</a>, <a class="el" href="_texture_8cpp_source.html#l00043">GLESC::Render::Texture::bind()</a>, <a class="el" href="_open_g_l_a_p_i_8h_source.html#l00462">GLESC::GAPI::OpenGLAPI::bindBuffer()</a>, <a class="el" href="_open_g_l_a_p_i_8h_source.html#l00418">GLESC::GAPI::OpenGLAPI::bindTexture()</a>, <a class="el" href="_open_g_l_a_p_i_8h_source.html#l00428">GLESC::GAPI::OpenGLAPI::bindTextureOnSlot()</a>, <a class="el" href="_open_g_l_a_p_i_8h_source.html#l00573">GLESC::GAPI::OpenGLAPI::bindVertexArray()</a>, <a class="el" href="_bounding_volume_8cpp_source.html#l00116">GLESC::Math::BoundingVolume::buildBoundingVolume()</a>, <a class="el" href="_skybox_8cpp_source.html#l00086">GLESC::Render::Skybox::calculateAverageColor()</a>, <a class="el" href="_plane_8cpp_source.html#l00154">GLESC::Math::Plane::calculateDistanceFromPointAndLine()</a>, <a class="el" href="_plane_8cpp_source.html#l00161">GLESC::Math::Plane::calculateDistanceFromPoints()</a>, <a class="el" href="_mesh_8h_source.html#l00550">GLESC::Render::Mesh&lt; VertexT &gt;::calculateHash()</a>, <a class="el" href="_matrix_mixed_algorithms_8h_source.html#l00204">GLESC::Math::MatrixMixedAlgorithms::calculateModelMatrix()</a>, <a class="el" href="_mesh_8h_source.html#l00540">GLESC::Render::Mesh&lt; VertexT &gt;::calculateNormal()</a>, <a class="el" href="_plane_8cpp_source.html#l00143">GLESC::Math::Plane::calculateNormalFromPointAndLine()</a>, <a class="el" href="_plane_8cpp_source.html#l00134">GLESC::Math::Plane::calculateNormalFromPoints()</a>, <a class="el" href="_matrix_algorithms_8h_source.html#l00675">GLESC::Math::MatrixAlgorithms::calculateNormalMatrix()</a>, <a class="el" href="_in_game_window_8cpp_source.html#l00141">GLESC::InGameWindow::calculatePosition()</a>, <a class="el" href="_in_game_window_8cpp_source.html#l00158">GLESC::InGameWindow::calculateSize()</a>, <a class="el" href="_matrix_mixed_algorithms_8h_source.html#l00280">GLESC::Math::MatrixMixedAlgorithms::calculateViewMatrixEye()</a>, <a class="el" href="_matrix_mixed_algorithms_8h_source.html#l00231">GLESC::Math::MatrixMixedAlgorithms::calculateViewMatrixPosRot()</a>, <a class="el" href="_collision_manager_8cpp_source.html#l00023">GLESC::Physics::CollisionManager::checkAndUpdateColliderInformation()</a>, <a class="el" href="_input_manager_8cpp_source.html#l00161">GLESC::Input::InputManager::checkKeyAction()</a>, <a class="el" href="_renderer_types_8h_source.html#l00189">GLESC::Render::ColorFuncs::checkValue()</a>, <a class="el" href="_math_8h_source.html#l00198">GLESC::Math::clamp()</a>, <a class="el" href="_vector_8h_source.html#l00723">GLESC::Math::Vector&lt; Type, N &gt;::clamp()</a>, <a class="el" href="_vector_8h_source.html#l00711">GLESC::Math::Vector&lt; Type, N &gt;::clamp()</a>, <a class="el" href="_vector_algorithms_8h_source.html#l00293">GLESC::Math::VectorAlgorithms::clampWithValues()</a>, <a class="el" href="_vector_algorithms_8h_source.html#l00285">GLESC::Math::VectorAlgorithms::clampWithVectors()</a>, <a class="el" href="_sound_loader_8cpp_source.html#l00028">GLESC::SoundLoader::cleanup()</a>, <a class="el" href="_open_g_l_a_p_i_8h_source.html#l01029">GLESC::GAPI::OpenGLAPI::clear()</a>, <a class="el" href="_open_g_l_a_p_i_8h_source.html#l01039">GLESC::GAPI::OpenGLAPI::clearColor()</a>, <a class="el" href="_transform_8cpp_source.html#l00131">GLESC::Transform::Transformer::clipToNDC()</a>, <a class="el" href="_matrix_algorithms_8h_source.html#l01188">GLESC::Math::MatrixAlgorithms::cofactor()</a>, <a class="el" href="_open_g_l_a_p_i_8h_source.html#l00700">GLESC::GAPI::OpenGLAPI::compilationOK()</a>, <a class="el" href="_frustum_8cpp_source.html#l00112">GLESC::Render::Frustum::contains()</a>, <a class="el" href="_stringer_8cpp_source.html#l00036">GLESC::Stringer::contains()</a>, <a class="el" href="_matrix_algorithms_8h_source.html#l00172">GLESC::Math::MatrixAlgorithms::copyMatrix()</a>, <a class="el" href="_math_8h_source.html#l00604">GLESC::Math::cos()</a>, <a class="el" href="_open_g_l_a_p_i_8h_source.html#l01046">GLESC::GAPI::OpenGLAPI::createContext()</a>, <a class="el" href="_g_l_e_s_c_8cpp_source.html#l00139">GLESC::Engine::createEngineEntities()</a>, <a class="el" href="_e_c_s_8cpp_source.html#l00120">GLESC::ECS::ECSCoordinator::createEntity()</a>, <a class="el" href="_scene_8h_source.html#l00150">GLESC::Scene::Scene::createEntity()</a>, <a class="el" href="_e_c_s_8cpp_source.html#l00107">GLESC::ECS::ECSCoordinator::createEntity()</a>, <a class="el" href="_entity_factory_8cpp_source.html#l00013">GLESC::ECS::EntityFactory::createEntity()</a>, <a class="el" href="_bounding_volume_8cpp_source.html#l00109">GLESC::Math::BoundingVolume::createFromVulume()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00027">GLESC::ECS::EntityManager::createNextEntity()</a>, <a class="el" href="_shader_loader_8cpp_source.html#l00160">GLESC::GAPI::ShaderLoader::createShaderProgram()</a>, <a class="el" href="_open_g_l_a_p_i_8h_source.html#l00681">GLESC::GAPI::OpenGLAPI::createShaderProgram()</a>, <a class="el" href="_texture_loader_8cpp_source.html#l00018">GLESC::TextureLoader::createSurface()</a>, <a class="el" href="_open_g_l_a_p_i_8h_source.html#l00217">GLESC::GAPI::OpenGLAPI::createTexture()</a>, <a class="el" href="_open_g_l_a_p_i_8h_source.html#l00625">GLESC::GAPI::OpenGLAPI::createVertexData()</a>, <a class="el" href="_window_manager_8cpp_source.html#l00173">GLESC::WindowManager::createWindow()</a>, <a class="el" href="_vector_8h_source.html#l01126">GLESC::Math::Vector&lt; Type, N &gt;::cross()</a>, <a class="el" href="_vector_algorithms_8h_source.html#l00395">GLESC::Math::VectorAlgorithms::crossProduct()</a>, <a class="el" href="_mesh_factory_8cpp_source.html#l00084">GLESC::Render::MeshFactory::cuboid()</a>, <a class="el" href="_math_8h_source.html#l00130">GLESC::Math::degrees()</a>, <a class="el" href="_vector_8h_source.html#l00918">GLESC::Math::Vector&lt; Type, N &gt;::dehomogenize()</a>, <a class="el" href="_vector_algorithms_8h_source.html#l00643">GLESC::Math::VectorAlgorithms::dehomogenize()</a>, <a class="el" href="_open_g_l_a_p_i_8h_source.html#l00476">GLESC::GAPI::OpenGLAPI::deleteBuffer()</a>, <a class="el" href="_open_g_l_a_p_i_8h_source.html#l00034">GLESC::GAPI::OpenGLAPI::deleteContext()</a>, <a class="el" href="_open_g_l_a_p_i_8h_source.html#l00755">GLESC::GAPI::OpenGLAPI::deleteShader()</a>, <a class="el" href="_open_g_l_a_p_i_8h_source.html#l00749">GLESC::GAPI::OpenGLAPI::deleteShaderProgram()</a>, <a class="el" href="_open_g_l_a_p_i_8h_source.html#l00270">GLESC::GAPI::OpenGLAPI::deleteTexture()</a>, <a class="el" href="_open_g_l_a_p_i_8h_source.html#l00585">GLESC::GAPI::OpenGLAPI::deleteVertexArray()</a>, <a class="el" href="_e_c_s_8cpp_source.html#l00132">GLESC::ECS::ECSCoordinator::destroyEntities()</a>, <a class="el" href="_scene_8h_source.html#l00239">GLESC::Scene::Scene::destroyEntities()</a>, <a class="el" href="_scene_8h_source.html#l00193">GLESC::Scene::Scene::destroyEntity()</a>, <a class="el" href="_scene_8h_source.html#l00180">GLESC::Scene::Scene::destroyEntity()</a>, <a class="el" href="_e_c_s_8cpp_source.html#l00144">GLESC::ECS::ECSCoordinator::destroyEntity()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00051">GLESC::ECS::EntityManager::destroyEntity()</a>, <a class="el" href="_index_buffer_8cpp_source.html#l00044">GLESC::GAPI::IndexBuffer::destroyOnce()</a>, <a class="el" href="_open_g_l_a_p_i_8h_source.html#l00695">GLESC::GAPI::OpenGLAPI::destroyShaderProgram()</a>, <a class="el" href="_window_manager_8cpp_source.html#l00185">GLESC::WindowManager::destroyWindow()</a>, <a class="el" href="_matrix_algorithms_8h_source.html#l00920">GLESC::Math::MatrixAlgorithms::determinant2x2()</a>, <a class="el" href="_matrix_algorithms_8h_source.html#l00932">GLESC::Math::MatrixAlgorithms::determinant3x3()</a>, <a class="el" href="_matrix_algorithms_8h_source.html#l00946">GLESC::Math::MatrixAlgorithms::determinant4x4()</a>, <a class="el" href="_line_8cpp_source.html#l00037">GLESC::Math::Line::distance()</a>, <a class="el" href="_vector_algorithms_8h_source.html#l00445">GLESC::Math::VectorAlgorithms::distance()</a>, <a class="el" href="_vector_algorithms_8h_source.html#l00461">GLESC::Math::VectorAlgorithms::distanceSquared()</a>, <a class="el" href="_polyhedron_factory_8cpp_source.html#l00064">GLESC::PolyhedronFactory::Regular::dodeca()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00138">GLESC::ECS::EntityManager::doesEntityExist()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00084">GLESC::ECS::EntityManager::doesEntityHaveComponent()</a>, <a class="el" href="_vector_algorithms_8h_source.html#l00369">GLESC::Math::VectorAlgorithms::dotProduct()</a>, <a class="el" href="_skybox_8cpp_source.html#l00108">GLESC::Render::Skybox::draw()</a>, <a class="el" href="_open_g_l_a_p_i_8h_source.html#l00164">GLESC::GAPI::OpenGLAPI::drawTriangles()</a>, <a class="el" href="_open_g_l_a_p_i_8h_source.html#l00170">GLESC::GAPI::OpenGLAPI::drawTrianglesIndexed()</a>, <a class="el" href="_open_g_l_a_p_i_8h_source.html#l00180">GLESC::GAPI::OpenGLAPI::drawTrianglesIndexedInstanced()</a>, <a class="el" href="_open_g_l_a_p_i_8h_source.html#l00152">GLESC::GAPI::OpenGLAPI::enableDepthBuffer()</a>, <a class="el" href="_open_g_l_debugger_8h_source.html#l00032">GLESC::GAPI::OpenGLDebugger::enableGlDebugCallback()</a>, <a class="el" href="_open_g_l_a_p_i_8h_source.html#l00598">GLESC::GAPI::OpenGLAPI::enableVertexData()</a>, <a class="el" href="_h_u_d_manager_8cpp_source.html#l00090">GLESC::HUD::HUDManager::endFrame()</a>, <a class="el" href="_entity_list_h_u_d_8cpp_source.html#l00038">entityButton()</a>, <a class="el" href="_component_manager_8cpp_source.html#l00014">GLESC::ECS::ComponentManager::entityDestroyed()</a>, <a class="el" href="_system_manager_8cpp_source.html#l00047">GLESC::ECS::SystemManager::entityDestroyed()</a>, <a class="el" href="_component_array_8h_source.html#l00148">GLESC::ECS::ComponentArray&lt; Component &gt;::entityDestroyed()</a>, <a class="el" href="_entity_list_manager_8cpp_source.html#l00021">GLESC::EntityListManager::entityRemoved()</a>, <a class="el" href="_system_manager_8cpp_source.html#l00032">GLESC::ECS::SystemManager::entitySignatureChanged()</a>, <a class="el" href="_math_8h_source.html#l00063">GLESC::Math::epsilon()</a>, <a class="el" href="_math_8h_source.html#l00087">GLESC::Math::epsilon()</a>, <a class="el" href="_math_8h_source.html#l00365">GLESC::Math::eq()</a>, <a class="el" href="_math_8h_source.html#l00241">GLESC::Math::eq()</a>, <a class="el" href="_vector_algorithms_8h_source.html#l00240">GLESC::Math::VectorAlgorithms::eq()</a>, <a class="el" href="_open_g_l_debugger_8cpp_source.html#l00088">GLESC::GAPI::OpenGLDebugger::errorStringFromSeverity()</a>, <a class="el" href="_open_g_l_debugger_8cpp_source.html#l00035">GLESC::GAPI::OpenGLDebugger::errorStringFromSource()</a>, <a class="el" href="_open_g_l_debugger_8cpp_source.html#l00059">GLESC::GAPI::OpenGLDebugger::errorStringFromType()</a>, <a class="el" href="_physics_manager_8cpp_source.html#l00050">GLESC::Physics::PhysicsManager::executeCallbacks()</a>, <a class="el" href="_logger_8cpp_source.html#l00040">GLESC::Logger::executeOnAllInputs()</a>, <a class="el" href="_frustum_8cpp_source.html#l00014">GLESC::Render::Frustum::extractPlanes()</a>, <a class="el" href="_shader_loader_8cpp_source.html#l00067">GLESC::GAPI::ShaderLoader::extractShaderCode()</a>, <a class="el" href="_matrix_algorithms_8h_source.html#l00109">GLESC::Math::MatrixAlgorithms::fillMatrix()</a>, <a class="el" href="_texture_loader_8cpp_source.html#l00052">GLESC::TextureLoader::flipSurface()</a>, <a class="el" href="_matrix_algorithms_8h_source.html#l00998">GLESC::Math::MatrixAlgorithms::gaussianElimination()</a>, <a class="el" href="_matrix_algorithms_8h_source.html#l01117">GLESC::Math::MatrixAlgorithms::gaussianEliminationAlgorithm()</a>, <a class="el" href="_open_g_l_a_p_i_8h_source.html#l00455">GLESC::GAPI::OpenGLAPI::genBuffers()</a>, <a class="el" href="_math_8h_source.html#l00716">GLESC::Math::generateCompileTimeRandomNumber()</a>, <a class="el" href="_math_8h_source.html#l00663">GLESC::Math::generateRandomNumber()</a>, <a class="el" href="_open_g_l_a_p_i_8h_source.html#l00560">GLESC::GAPI::OpenGLAPI::genVertexArray()</a>, <a class="el" href="_logger_8cpp_source.html#l00030">GLESC::Logger::get()</a>, <a class="el" href="_matrix_8h_source.html#l00441">GLESC::Math::Matrix&lt; Type, N, M &gt;::get()</a>, <a class="el" href="_matrix_8h_source.html#l00432">GLESC::Math::Matrix&lt; Type, N, M &gt;::get()</a>, <a class="el" href="_vector_8h_source.html#l00161">GLESC::Math::Vector&lt; Type, N &gt;::get()</a>, <a class="el" href="_open_g_l_a_p_i_8h_source.html#l01006">GLESC::GAPI::OpenGLAPI::getAllUniforms()</a>, <a class="el" href="_e_c_s_8cpp_source.html#l00070">GLESC::ECS::ECSCoordinator::getAssociatedEntities()</a>, <a class="el" href="_input_manager_8cpp_source.html#l00136">GLESC::Input::InputManager::getAvgMousePos()</a>, <a class="el" href="_physics_manager_8cpp_source.html#l00071">GLESC::Physics::getAxisFree()</a>, <a class="el" href="_physics_manager_8cpp_source.html#l00062">GLESC::Physics::getBouncingVelocity()</a>, <a class="el" href="_open_g_l_a_p_i_8h_source.html#l00519">GLESC::GAPI::OpenGLAPI::getBufferDataF()</a>, <a class="el" href="_open_g_l_a_p_i_8h_source.html#l00535">GLESC::GAPI::OpenGLAPI::getBufferDataGL()</a>, <a class="el" href="_open_g_l_a_p_i_8h_source.html#l00529">GLESC::GAPI::OpenGLAPI::getBufferDataI()</a>, <a class="el" href="_open_g_l_a_p_i_8h_source.html#l00524">GLESC::GAPI::OpenGLAPI::getBufferDataUI()</a>, <a class="el" href="_polyhedron_8cpp_source.html#l00065">GLESC::Math::Polyhedron::getCenter()</a>, <a class="el" href="_collision_manager_8cpp_source.html#l00101">GLESC::Physics::CollisionManager::getCollisionDepth()</a>, <a class="el" href="_entity_8h_source.html#l00125">GLESC::ECS::Entity::getComponent()</a>, <a class="el" href="_component_manager_8h_source.html#l00167">GLESC::ECS::ComponentManager::getComponent()</a>, <a class="el" href="_e_c_s_8h_source.html#l00275">GLESC::ECS::ECSCoordinator::getComponent()</a>, <a class="el" href="_component_array_8h_source.html#l00052">GLESC::ECS::ComponentArray&lt; Component &gt;::getComponent()</a>, <a class="el" href="_component_manager_8cpp_source.html#l00030">GLESC::ECS::ComponentManager::getComponent()</a>, <a class="el" href="_system_8h_source.html#l00102">GLESC::ECS::System::getComponent()</a>, <a class="el" href="_component_manager_8h_source.html#l00235">GLESC::ECS::ComponentManager::getComponentArray()</a>, <a class="el" href="_component_manager_8h_source.html#l00186">GLESC::ECS::ComponentManager::getComponentID()</a>, <a class="el" href="_e_c_s_8h_source.html#l00281">GLESC::ECS::ECSCoordinator::getComponentID()</a>, <a class="el" href="_component_manager_8cpp_source.html#l00024">GLESC::ECS::ComponentManager::getComponentName()</a>, <a class="el" href="_e_c_s_8cpp_source.html#l00096">GLESC::ECS::ECSCoordinator::getComponents()</a>, <a class="el" href="_system_8cpp_source.html#l00027">GLESC::ECS::System::getComponents()</a>, <a class="el" href="_timer_8cpp_source.html#l00017">GLESC::Timer::getCurrentTime()</a>, <a class="el" href="_timer_8cpp_source.html#l00021">GLESC::AbsoluteTimer::getCurrentTime()</a>, <a class="el" href="_component_array_8h_source.html#l00125">GLESC::ECS::ComponentArray&lt; Component &gt;::getData()</a>, <a class="el" href="_input_8cpp_source.html#l00018">GLESC::Input::Input::getDebuggingValues()</a>, <a class="el" href="_camera_perspective_8cpp_source.html#l00014">GLESC::Render::CameraPerspective::getDebuggingValues()</a>, <a class="el" href="_fog_8cpp_source.html#l00014">GLESC::Render::Fog::getDebuggingValues()</a>, <a class="el" href="_global_ambient_light_8cpp_source.html#l00014">GLESC::Render::GlobalAmbientLight::getDebuggingValues()</a>, <a class="el" href="_global_sun_8cpp_source.html#l00012">GLESC::Render::GlobalSun::getDebuggingValues()</a>, <a class="el" href="_light_point_8cpp_source.html#l00012">GLESC::Render::LightPoint::getDebuggingValues()</a>, <a class="el" href="_material_8cpp_source.html#l00014">GLESC::Render::Material::getDebuggingValues()</a>, <a class="el" href="_collider_8cpp_source.html#l00017">GLESC::Physics::Collider::getDebuggingValues()</a>, <a class="el" href="_physics_8cpp_source.html#l00023">GLESC::Physics::Physics::getDebuggingValues()</a>, <a class="el" href="_transform_8cpp_source.html#l00187">GLESC::Transform::Transform::getDebuggingValues()</a>, <a class="el" href="_scene_8h_source.html#l00170">GLESC::Scene::Scene::getEntity()</a>, <a class="el" href="_system_8cpp_source.html#l00035">GLESC::ECS::System::getEntity()</a>, <a class="el" href="_scene_8h_source.html#l00161">GLESC::Scene::Scene::getEntity()</a>, <a class="el" href="_e_c_s_8cpp_source.html#l00179">GLESC::ECS::ECSCoordinator::getEntityMetadata()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00095">GLESC::ECS::EntityManager::getEntityMetadata()</a>, <a class="el" href="_system_8cpp_source.html#l00039">GLESC::ECS::System::getEntityMetadata()</a>, <a class="el" href="_e_c_s_8cpp_source.html#l00159">GLESC::ECS::ECSCoordinator::getEntityName()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00090">GLESC::ECS::EntityManager::getEntityName()</a>, <a class="el" href="_system_8cpp_source.html#l00031">GLESC::ECS::System::getEntityName()</a>, <a class="el" href="_in_game_window_8cpp_source.html#l00084">GLESC::InGameWindow::getFlags()</a>, <a class="el" href="_shader_loader_8cpp_source.html#l00097">GLESC::GAPI::ShaderLoader::getGLSLVersionString()</a>, <a class="el" href="_sound_loader_8cpp_source.html#l00059">GLESC::SoundLoader::getMusic()</a>, <a class="el" href="_vector_8h_source.html#l01082">GLESC::Math::Vector&lt; Type, N &gt;::getOrthogonal()</a>, <a class="el" href="_vector_algorithms_8h_source.html#l00779">GLESC::Math::VectorAlgorithms::getOrthogonal()</a>, <a class="el" href="_texture_surface_8cpp_source.html#l00065">GLESC::ResMng::Texture::TextureSurface::getPixel()</a>, <a class="el" href="_window_manager_8cpp_source.html#l00099">GLESC::WindowManager::getPosition()</a>, <a class="el" href="_input_manager_8cpp_source.html#l00126">GLESC::Input::InputManager::getPressedKeys()</a>, <a class="el" href="_window_manager_8cpp_source.html#l00140">GLESC::WindowManager::getRaisedFlags()</a>, <a class="el" href="_matrix_mixed_algorithms_8h_source.html#l00166">GLESC::Math::MatrixMixedAlgorithms::getRotate3DMatrix()</a>, <a class="el" href="_matrix_mixed_algorithms_8h_source.html#l00121">GLESC::Math::MatrixMixedAlgorithms::getRotate3DMatrixForAxis()</a>, <a class="el" href="_matrix_algorithms_8h_source.html#l00651">GLESC::Math::MatrixAlgorithms::getScaleMatrix()</a>, <a class="el" href="_scene_container_8h_source.html#l00037">GLESC::Scene::SceneContainer::getScene()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00079">GLESC::ECS::EntityManager::getSignature()</a>, <a class="el" href="_window_manager_8cpp_source.html#l00122">GLESC::WindowManager::getSize()</a>, <a class="el" href="_sound_loader_8cpp_source.html#l00065">GLESC::SoundLoader::getSound()</a>, <a class="el" href="_stats_manager_8cpp_source.html#l00012">GLESC::StatsManager::getStats()</a>, <a class="el" href="_open_g_l_a_p_i_8h_source.html#l00324">GLESC::GAPI::OpenGLAPI::getTextureColorFormat()</a>, <a class="el" href="_open_g_l_a_p_i_8h_source.html#l00371">GLESC::GAPI::OpenGLAPI::getTextureData()</a>, <a class="el" href="_open_g_l_a_p_i_8h_source.html#l00341">GLESC::GAPI::OpenGLAPI::getTextureHeight()</a>, <a class="el" href="_open_g_l_a_p_i_8h_source.html#l00356">GLESC::GAPI::OpenGLAPI::getTextureWidth()</a>, <a class="el" href="_matrix_algorithms_8h_source.html#l00629">GLESC::Math::MatrixAlgorithms::getTranslationMatrix()</a>, <a class="el" href="_shader_8h_source.html#l00072">GLESC::GAPI::Shader::getUniform()</a>, <a class="el" href="_open_g_l_a_p_i_8h_source.html#l00989">GLESC::GAPI::OpenGLAPI::getUniformLocation()</a>, <a class="el" href="_open_g_l_a_p_i_8h_source.html#l00857">GLESC::GAPI::OpenGLAPI::getUniformValue()</a>, <a class="el" href="_i_component_8h_source.html#l00070">GLESC::ECS::IComponent::getUpdatedDebuggingValues()</a>, <a class="el" href="_collider_8cpp_source.html#l00072">GLESC::Physics::Collider::getUpdatedDebuggingValues()</a>, <a class="el" href="_mesh_8h_source.html#l00430">GLESC::Render::Mesh&lt; VertexT &gt;::getUpdatedDebuggingValues()</a>, <a class="el" href="_physics_manager_8cpp_source.html#l00089">GLESC::Physics::getVelocityWithFriction()</a>, <a class="el" href="_open_g_l_a_p_i_8h_source.html#l00050">GLESC::GAPI::OpenGLAPI::getViewport()</a>, <a class="el" href="_scene_8h_source.html#l00221">GLESC::Scene::Scene::getWindow()</a>, <a class="el" href="_h_u_d_manager_8cpp_source.html#l00049">GLESC::HUD::HUDManager::getWindow()</a>, <a class="el" href="_window_manager_8cpp_source.html#l00135">GLESC::WindowManager::getWindowCenter()</a>, <a class="el" href="_open_g_l_debugger_8cpp_source.html#l00018">GLESC::GAPI::OpenGLDebugger::glDebugCallback()</a>, <a class="el" href="_math_8h_source.html#l00460">GLESC::Math::gt()</a>, <a class="el" href="_math_8h_source.html#l00315">GLESC::Math::gt()</a>, <a class="el" href="_math_8h_source.html#l00340">GLESC::Math::gte()</a>, <a class="el" href="_physics_manager_8cpp_source.html#l00115">GLESC::Physics::PhysicsManager::handleCollisions()</a>, <a class="el" href="_input_manager_8cpp_source.html#l00074">GLESC::Input::InputManager::handleKeyEvent()</a>, <a class="el" href="_input_manager_8cpp_source.html#l00080">GLESC::Input::InputManager::handleMouseButton()</a>, <a class="el" href="_input_manager_8cpp_source.html#l00087">GLESC::Input::InputManager::handleMouseMotion()</a>, <a class="el" href="_input_manager_8cpp_source.html#l00023">GLESC::Input::InputManager::handleWindowEvent()</a>, <a class="el" href="_polyhedron_8cpp_source.html#l00112">GLESC::Math::Polyhedron::hasAnyVertexInside()</a>, <a class="el" href="_entity_8h_source.html#l00130">GLESC::ECS::Entity::hasComponent()</a>, <a class="el" href="_e_c_s_8h_source.html#l00301">GLESC::ECS::ECSCoordinator::hasComponent()</a>, <a class="el" href="_component_array_8h_source.html#l00139">GLESC::ECS::ComponentArray&lt; Component &gt;::hasComponent()</a>, <a class="el" href="_hasher_8h_source.html#l00018">GLESC::Hasher::hash()</a>, <a class="el" href="_hasher_8h_source.html#l00021">GLESC::Hasher::hashCombine()</a>, <a class="el" href="_plane_8cpp_source.html#l00080">GLESC::Math::Plane::hasInside()</a>, <a class="el" href="_polyhedron_8cpp_source.html#l00098">GLESC::Math::Polyhedron::hasInside()</a>, <a class="el" href="_polyhedron_8cpp_source.html#l00121">GLESC::Math::Polyhedron::hasInside()</a>, <a class="el" href="_polyhedron_8cpp_source.html#l00103">GLESC::Math::Polyhedron::hasInside()</a>, <a class="el" href="_vector_8h_source.html#l00906">GLESC::Math::Vector&lt; Type, N &gt;::homogenize()</a>, <a class="el" href="_vector_algorithms_8h_source.html#l00629">GLESC::Math::VectorAlgorithms::homogenize()</a>, <a class="el" href="_polyhedron_factory_8cpp_source.html#l00071">GLESC::PolyhedronFactory::Regular::icos()</a>, <a class="el" href="_sound_loader_8cpp_source.html#l00019">GLESC::SoundLoader::init()</a>, <a class="el" href="_default_8cpp_source.html#l00019">Default::init()</a>, <a class="el" href="_open_g_l_a_p_i_8h_source.html#l01070">GLESC::GAPI::OpenGLAPI::initGLEW()</a>, <a class="el" href="_texture_surface_8cpp_source.html#l00020">GLESC::ResMng::Texture::TextureSurface::initializeData()</a>, <a class="el" href="_h_u_d_manager_8cpp_source.html#l00099">GLESC::HUD::HUDManager::initImGUI()</a>, <a class="el" href="_window_manager_8cpp_source.html#l00165">GLESC::WindowManager::initSDL()</a>, <a class="el" href="_debug_entity_data_h_u_d_8cpp_source.html#l00115">input()</a>, <a class="el" href="_debug_entity_data_h_u_d_8cpp_source.html#l00173">input()</a>, <a class="el" href="_component_array_8h_source.html#l00064">GLESC::ECS::ComponentArray&lt; Component &gt;::insertData()</a>, <a class="el" href="_shader_loader_8cpp_source.html#l00056">GLESC::GAPI::ShaderLoader::insertShaderMacros()</a>, <a class="el" href="_transform_8cpp_source.html#l00167">GLESC::Transform::Interpolator::interpolate()</a>, <a class="el" href="_bounding_volume_8cpp_source.html#l00028">GLESC::Math::BoundingVolume::intersectionVolume()</a>, <a class="el" href="_bounding_volume_8cpp_source.html#l00062">GLESC::Math::BoundingVolume::intersects()</a>, <a class="el" href="_line_8cpp_source.html#l00029">GLESC::Math::Line::intersects()</a>, <a class="el" href="_plane_8cpp_source.html#l00104">GLESC::Math::Plane::intersects()</a>, <a class="el" href="_polyhedron_8cpp_source.html#l00130">GLESC::Math::Polyhedron::intersects()</a>, <a class="el" href="_polyhedron_face_8cpp_source.html#l00109">GLESC::Math::PolyhedronFace::intersects()</a>, <a class="el" href="_sphere_8cpp_source.html#l00046">GLESC::Math::Sphere::intersects()</a>, <a class="el" href="_plane_8cpp_source.html#l00120">GLESC::Math::Plane::intersects()</a>, <a class="el" href="_polyhedron_8cpp_source.html#l00148">GLESC::Math::Polyhedron::intersects()</a>, <a class="el" href="_polyhedron_face_8cpp_source.html#l00125">GLESC::Math::PolyhedronFace::intersects()</a>, <a class="el" href="_polyhedron_8cpp_source.html#l00139">GLESC::Math::Polyhedron::intersects()</a>, <a class="el" href="_line_8cpp_source.html#l00033">GLESC::Math::Line::intersects()</a>, <a class="el" href="_sphere_8cpp_source.html#l00075">GLESC::Math::Sphere::intersects()</a>, <a class="el" href="_polyhedron_8cpp_source.html#l00087">GLESC::Math::Polyhedron::intersects()</a>, <a class="el" href="_sphere_8cpp_source.html#l00060">GLESC::Math::Sphere::intersects()</a>, <a class="el" href="_polyhedron_face_8cpp_source.html#l00028">GLESC::Math::PolyhedronFace::intersects()</a>, <a class="el" href="_sphere_8cpp_source.html#l00023">GLESC::Math::Sphere::intersects()</a>, <a class="el" href="_polyhedron_face_8cpp_source.html#l00097">GLESC::Math::PolyhedronFace::intersects()</a>, <a class="el" href="_matrix_8h_source.html#l00534">GLESC::Math::Matrix&lt; Type, N, M &gt;::inverse()</a>, <a class="el" href="_matrix_algorithms_8h_source.html#l00718">GLESC::Math::MatrixAlgorithms::inverse2x2()</a>, <a class="el" href="_matrix_algorithms_8h_source.html#l00742">GLESC::Math::MatrixAlgorithms::inverse3x3()</a>, <a class="el" href="_matrix_algorithms_8h_source.html#l00768">GLESC::Math::MatrixAlgorithms::inverse4x4()</a>, <a class="el" href="_window_manager_8cpp_source.html#l00075">GLESC::WindowManager::isBorderlessWindow()</a>, <a class="el" href="_open_g_l_a_p_i_8h_source.html#l00450">GLESC::GAPI::OpenGLAPI::isBuffer()</a>, <a class="el" href="_vector_8h_source.html#l01105">GLESC::Math::Vector&lt; Type, N &gt;::isCollinear()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00152">GLESC::ECS::EntityManager::isComponentInRange()</a>, <a class="el" href="_component_manager_8h_source.html#l00179">GLESC::ECS::ComponentManager::isComponentRegistered()</a>, <a class="el" href="_component_manager_8cpp_source.html#l00020">GLESC::ECS::ComponentManager::isComponentRegistered()</a>, <a class="el" href="_system_manager_8cpp_source.html#l00074">GLESC::ECS::SystemManager::isComponentRequiredBySystem()</a>, <a class="el" href="_texture_surface_8h_source.html#l00075">GLESC::ResMng::Texture::TextureSurface::isDppCorrect()</a>, <a class="el" href="_e_c_s_8cpp_source.html#l00163">GLESC::ECS::ECSCoordinator::isEntityAlive()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00142">GLESC::ECS::EntityManager::isEntityAlive()</a>, <a class="el" href="_system_manager_8cpp_source.html#l00068">GLESC::ECS::SystemManager::isEntityAssociatedWithSystem()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00115">GLESC::ECS::EntityManager::isEntityInstanced()</a>, <a class="el" href="_physics_manager_8cpp_source.html#l00104">GLESC::Physics::isFrictionApplied()</a>, <a class="el" href="_window_manager_8cpp_source.html#l00089">GLESC::WindowManager::isFullscreen()</a>, <a class="el" href="_window_manager_8cpp_source.html#l00065">GLESC::WindowManager::isFullscreenBorderless()</a>, <a class="el" href="_vector_algorithms_8h_source.html#l00617">GLESC::Math::VectorAlgorithms::isHomogeneous()</a>, <a class="el" href="_matrix_algorithms_8h_source.html#l00906">GLESC::Math::MatrixAlgorithms::isInvertible()</a>, <a class="el" href="_input_manager_8cpp_source.html#l00199">GLESC::Input::InputManager::isMouseRelative()</a>, <a class="el" href="_vector_algorithms_8h_source.html#l00829">GLESC::Math::VectorAlgorithms::isMultipleOf()</a>, <a class="el" href="_vector_algorithms_8h_source.html#l00431">GLESC::Math::VectorAlgorithms::isNormalized()</a>, <a class="el" href="_polyhedron_8cpp_source.html#l00168">GLESC::Math::Polyhedron::isOutOfBounds()</a>, <a class="el" href="_polyhedron_8cpp_source.html#l00159">GLESC::Math::Polyhedron::isOutOfBounds()</a>, <a class="el" href="_window_manager_8cpp_source.html#l00084">GLESC::WindowManager::isResizable()</a>, <a class="el" href="_open_g_l_a_p_i_8h_source.html#l00742">GLESC::GAPI::OpenGLAPI::isShaderProgram()</a>, <a class="el" href="_open_g_l_a_p_i_8h_source.html#l01082">GLESC::GAPI::OpenGLAPI::isTexture()</a>, <a class="el" href="_open_g_l_a_p_i_8h_source.html#l01088">GLESC::GAPI::OpenGLAPI::isTextureBound()</a>, <a class="el" href="_matrix_algorithms_8h_source.html#l00701">GLESC::Math::MatrixAlgorithms::isValidViewMatrix()</a>, <a class="el" href="_vector_algorithms_8h_source.html#l00278">GLESC::Math::VectorAlgorithms::isZero()</a>, <a class="el" href="_stringer_8h_source.html#l00168">GLESC::Stringer::iterableToString()</a>, <a class="el" href="_input_debugger_8h_source.html#l00023">GLESC::Input::keyActionToString()</a>, <a class="el" href="_matrix_algorithms_8h_source.html#l01064">GLESC::Math::MatrixAlgorithms::laplaceExpansionDeterminant()</a>, <a class="el" href="_vector_algorithms_8h_source.html#l00412">GLESC::Math::VectorAlgorithms::length()</a>, <a class="el" href="_vector_algorithms_8h_source.html#l00425">GLESC::Math::VectorAlgorithms::lengthSquared()</a>, <a class="el" href="_math_8h_source.html#l00106">GLESC::Math::lerp()</a>, <a class="el" href="_vector_8h_source.html#l00806">GLESC::Math::Vector&lt; Type, N &gt;::lerp()</a>, <a class="el" href="_vector_algorithms_8h_source.html#l00316">GLESC::Math::VectorAlgorithms::lerp()</a>, <a class="el" href="_input_manager_8cpp_source.html#l00154">GLESC::Input::InputManager::lerpMousePos()</a>, <a class="el" href="_open_g_l_a_p_i_8h_source.html#l00715">GLESC::GAPI::OpenGLAPI::linkOK()</a>, <a class="el" href="_texture_8cpp_source.html#l00033">GLESC::Render::Texture::load()</a>, <a class="el" href="_texture_8cpp_source.html#l00021">GLESC::Render::Texture::load()</a>, <a class="el" href="_texture_surface_8cpp_source.html#l00102">GLESC::ResMng::Texture::TextureSurface::load()</a>, <a class="el" href="_open_g_l_a_p_i_8h_source.html#l00661">GLESC::GAPI::OpenGLAPI::loadAndCompileShader()</a>, <a class="el" href="_shader_loader_8cpp_source.html#l00151">GLESC::GAPI::ShaderLoader::loadFragmentShader()</a>, <a class="el" href="_sound_loader_8cpp_source.html#l00051">GLESC::SoundLoader::loadMusic()</a>, <a class="el" href="_shader_loader_8cpp_source.html#l00018">GLESC::GAPI::ShaderLoader::loadShader()</a>, <a class="el" href="_shader_loader_8cpp_source.html#l00031">GLESC::GAPI::ShaderLoader::loadShader()</a>, <a class="el" href="_sound_player_8cpp_source.html#l00028">GLESC::SoundPlayer::loadSong()</a>, <a class="el" href="_sound_loader_8cpp_source.html#l00042">GLESC::SoundLoader::loadSound()</a>, <a class="el" href="_sound_player_8cpp_source.html#l00032">GLESC::SoundPlayer::loadSound()</a>, <a class="el" href="_texture_loader_8cpp_source.html#l00040">GLESC::TextureLoader::loadTexture()</a>, <a class="el" href="_shader_loader_8cpp_source.html#l00143">GLESC::GAPI::ShaderLoader::loadVertexShader()</a>, <a class="el" href="_transform_8cpp_source.html#l00103">GLESC::Transform::Transformer::lookAt()</a>, <a class="el" href="_matrix_mixed_algorithms_8h_source.html#l00032">GLESC::Math::MatrixMixedAlgorithms::lookAt3D()</a>, <a class="el" href="_matrix_mixed_algorithms_8h_source.html#l00055">GLESC::Math::MatrixMixedAlgorithms::lookAt3D()</a>, <a class="el" href="_math_8h_source.html#l00397">GLESC::Math::lt()</a>, <a class="el" href="_math_8h_source.html#l00266">GLESC::Math::lt()</a>, <a class="el" href="_vector_algorithms_8h_source.html#l00256">GLESC::Math::VectorAlgorithms::lt()</a>, <a class="el" href="_math_8h_source.html#l00429">GLESC::Math::lte()</a>, <a class="el" href="_math_8h_source.html#l00290">GLESC::Math::lte()</a>, <a class="el" href="_vector_8h_source.html#l00945">GLESC::Math::Vector&lt; Type, N &gt;::makeForward()</a>, <a class="el" href="_vector_algorithms_8h_source.html#l00663">GLESC::Math::VectorAlgorithms::makeForwardVector()</a>, <a class="el" href="_matrix_8h_source.html#l00551">GLESC::Math::Matrix&lt; Type, N, M &gt;::makeModelMatrix()</a>, <a class="el" href="_matrix_8h_source.html#l00610">GLESC::Math::Matrix&lt; Type, N, M &gt;::makeNormalMatrix()</a>, <a class="el" href="_vector_8h_source.html#l00957">GLESC::Math::Vector&lt; Type, N &gt;::makeRight()</a>, <a class="el" href="_vector_algorithms_8h_source.html#l00681">GLESC::Math::VectorAlgorithms::makeRightVector()</a>, <a class="el" href="_matrix_8h_source.html#l00582">GLESC::Math::Matrix&lt; Type, N, M &gt;::makeRotationMatrix()</a>, <a class="el" href="_matrix_8h_source.html#l00596">GLESC::Math::Matrix&lt; Type, N, M &gt;::makeScaleMatrix()</a>, <a class="el" href="_matrix_8h_source.html#l00568">GLESC::Math::Matrix&lt; Type, N, M &gt;::makeTranslationMatrix()</a>, <a class="el" href="_vector_8h_source.html#l00969">GLESC::Math::Vector&lt; Type, N &gt;::makeUp()</a>, <a class="el" href="_vector_algorithms_8h_source.html#l00700">GLESC::Math::VectorAlgorithms::makeUpVector()</a>, <a class="el" href="_matrix_8h_source.html#l00623">GLESC::Math::Matrix&lt; Type, N, M &gt;::makeViewMatrixEye()</a>, <a class="el" href="_matrix_8h_source.html#l00637">GLESC::Math::Matrix&lt; Type, N, M &gt;::makeViewMatrixPosRot()</a>, <a class="el" href="_e_c_s_8cpp_source.html#l00139">GLESC::ECS::ECSCoordinator::markForDestruction()</a>, <a class="el" href="_matrix_algorithms_8h_source.html#l00242">GLESC::Math::MatrixAlgorithms::matrixAdd()</a>, <a class="el" href="_matrix_algorithms_8h_source.html#l00368">GLESC::Math::MatrixAlgorithms::matrixHadamardDiv()</a>, <a class="el" href="_matrix_algorithms_8h_source.html#l00278">GLESC::Math::MatrixAlgorithms::matrixHadamardMul()</a>, <a class="el" href="_matrix_algorithms_8h_source.html#l00881">GLESC::Math::MatrixAlgorithms::matrixInverse()</a>, <a class="el" href="_matrix_algorithms_8h_source.html#l00570">GLESC::Math::MatrixAlgorithms::matrixMatrixDiv()</a>, <a class="el" href="_matrix_algorithms_8h_source.html#l00398">GLESC::Math::MatrixAlgorithms::matrixMatrixMulColMaj()</a>, <a class="el" href="_matrix_algorithms_8h_source.html#l00516">GLESC::Math::MatrixAlgorithms::matrixMatrixMulInPlace()</a>, <a class="el" href="_matrix_algorithms_8h_source.html#l00443">GLESC::Math::MatrixAlgorithms::matrixMatrixMulNaiveColMaj()</a>, <a class="el" href="_matrix_algorithms_8h_source.html#l00543">GLESC::Math::MatrixAlgorithms::matrixMatrixMulNaiveInPlace()</a>, <a class="el" href="_matrix_algorithms_8h_source.html#l00460">GLESC::Math::MatrixAlgorithms::matrixMatrixMulNaiveRowMaj()</a>, <a class="el" href="_matrix_algorithms_8h_source.html#l00420">GLESC::Math::MatrixAlgorithms::matrixMatrixMulRowMaj()</a>, <a class="el" href="_matrix_algorithms_8h_source.html#l00350">GLESC::Math::MatrixAlgorithms::matrixNegate()</a>, <a class="el" href="_matrix_algorithms_8h_source.html#l00262">GLESC::Math::MatrixAlgorithms::matrixScalarAdd()</a>, <a class="el" href="_matrix_algorithms_8h_source.html#l00390">GLESC::Math::MatrixAlgorithms::matrixScalarDiv()</a>, <a class="el" href="_matrix_algorithms_8h_source.html#l00297">GLESC::Math::MatrixAlgorithms::matrixScalarMul()</a>, <a class="el" href="_matrix_algorithms_8h_source.html#l00334">GLESC::Math::MatrixAlgorithms::matrixScalarSub()</a>, <a class="el" href="_matrix_algorithms_8h_source.html#l00313">GLESC::Math::MatrixAlgorithms::matrixSub()</a>, <a class="el" href="_matrix_mixed_algorithms_8h_source.html#l00091">GLESC::Math::MatrixMixedAlgorithms::matrixToEulerRotation()</a>, <a class="el" href="_matrix_mixed_algorithms_8h_source.html#l00024">GLESC::Math::MatrixMixedAlgorithms::matrixToVector()</a>, <a class="el" href="_matrix_algorithms_8h_source.html#l00491">GLESC::Math::MatrixAlgorithms::matrixVectorMulColMaj()</a>, <a class="el" href="_matrix_algorithms_8h_source.html#l00478">GLESC::Math::MatrixAlgorithms::matrixVectorMulRowMaj()</a>, <a class="el" href="_math_8h_source.html#l00534">GLESC::Math::max()</a>, <a class="el" href="_math_8h_source.html#l00520">GLESC::Math::min()</a>, <a class="el" href="_math_8h_source.html#l00143">GLESC::Math::mod()</a>, <a class="el" href="_vector_8h_source.html#l00779">GLESC::Math::Vector&lt; Type, N &gt;::mod()</a>, <a class="el" href="_vector_8h_source.html#l00792">GLESC::Math::Vector&lt; Type, N &gt;::mod()</a>, <a class="el" href="_vector_algorithms_8h_source.html#l00301">GLESC::Math::VectorAlgorithms::modWithValue()</a>, <a class="el" href="_vector_algorithms_8h_source.html#l00308">GLESC::Math::VectorAlgorithms::modWithVector()</a>, <a class="el" href="_matrix_algorithms_8h_source.html#l00200">GLESC::Math::MatrixAlgorithms::moveMatrix()</a>, <a class="el" href="_math_8h_source.html#l00491">GLESC::Math::mte()</a>, <a class="el" href="_transform_8cpp_source.html#l00136">GLESC::Transform::Transformer::NDCToViewport()</a>, <a class="el" href="_vector_algorithms_8h_source.html#l00251">GLESC::Math::VectorAlgorithms::neq()</a>, <a class="el" href="_h_u_d_manager_8cpp_source.html#l00082">GLESC::HUD::HUDManager::newFrame()</a>, <a class="el" href="_stringer_8h_source.html#l00110">GLESC::Stringer::nonIterableToString()</a>, <a class="el" href="_vector_8h_source.html#l00868">GLESC::Math::Vector&lt; Type, N &gt;::normalize()</a>, <a class="el" href="_vector_algorithms_8h_source.html#l00476">GLESC::Math::VectorAlgorithms::normalize()</a>, <a class="el" href="_renderer_types_8h_source.html#l00199">GLESC::Render::ColorFuncs::normalizeColorValue()</a>, <a class="el" href="_polyhedron_factory_8cpp_source.html#l00041">GLESC::PolyhedronFactory::Regular::octa()</a>, <a class="el" href="_matrix_8h_source.html#l00486">GLESC::Math::Matrix&lt; Type, N, M &gt;::operator!=()</a>, <a class="el" href="_matrix_8h_source.html#l00764">GLESC::Math::Matrix&lt; Type, N, M &gt;::MatrixIterator&lt; MatrixType, MatrixRowType, ValueType &gt;::operator!=()</a>, <a class="el" href="_renderer_types_8h_source.html#l00152">GLESC::Render::Intensity&lt; IntensityType &gt;::operator*()</a>, <a class="el" href="_matrix_8h_source.html#l00328">GLESC::Math::Matrix&lt; Type, N, M &gt;::operator*()</a>, <a class="el" href="_vector_8h_source.html#l00575">GLESC::Math::Vector&lt; Type, N &gt;::operator*()</a>, <a class="el" href="_matrix_8h_source.html#l00353">GLESC::Math::Matrix&lt; Type, N, M &gt;::operator*()</a>, <a class="el" href="_matrix_8h_source.html#l00370">GLESC::Math::Matrix&lt; Type, N, M &gt;::operator*()</a>, <a class="el" href="_vector_8h_source.html#l00563">GLESC::Math::Vector&lt; Type, N &gt;::operator*()</a>, <a class="el" href="_matrix_8h_source.html#l00178">GLESC::Math::Matrix&lt; Type, N, M &gt;::operator*=()</a>, <a class="el" href="_vector_8h_source.html#l00443">GLESC::Math::Vector&lt; Type, N &gt;::operator*=()</a>, <a class="el" href="_renderer_types_8h_source.html#l00144">GLESC::Render::Intensity&lt; IntensityType &gt;::operator+()</a>, <a class="el" href="_matrix_8h_source.html#l00263">GLESC::Math::Matrix&lt; Type, N, M &gt;::operator+()</a>, <a class="el" href="_vector_8h_source.html#l00480">GLESC::Math::Vector&lt; Type, N &gt;::operator+()</a>, <a class="el" href="_vector_8h_source.html#l00492">GLESC::Math::Vector&lt; Type, N &gt;::operator+()</a>, <a class="el" href="_matrix_8h_source.html#l00275">GLESC::Math::Matrix&lt; Type, N, M &gt;::operator+()</a>, <a class="el" href="_matrix_8h_source.html#l00746">GLESC::Math::Matrix&lt; Type, N, M &gt;::MatrixIterator&lt; MatrixType, MatrixRowType, ValueType &gt;::operator++()</a>, <a class="el" href="_vector_8h_source.html#l00387">GLESC::Math::Vector&lt; Type, N &gt;::operator+=()</a>, <a class="el" href="_matrix_8h_source.html#l00309">GLESC::Math::Matrix&lt; Type, N, M &gt;::operator-()</a>, <a class="el" href="_vector_8h_source.html#l00503">GLESC::Math::Vector&lt; Type, N &gt;::operator-()</a>, <a class="el" href="_renderer_types_8h_source.html#l00148">GLESC::Render::Intensity&lt; IntensityType &gt;::operator-()</a>, <a class="el" href="_matrix_8h_source.html#l00286">GLESC::Math::Matrix&lt; Type, N, M &gt;::operator-()</a>, <a class="el" href="_vector_8h_source.html#l00515">GLESC::Math::Vector&lt; Type, N &gt;::operator-()</a>, <a class="el" href="_vector_8h_source.html#l00527">GLESC::Math::Vector&lt; Type, N &gt;::operator-()</a>, <a class="el" href="_matrix_8h_source.html#l00298">GLESC::Math::Matrix&lt; Type, N, M &gt;::operator-()</a>, <a class="el" href="_vector_8h_source.html#l00409">GLESC::Math::Vector&lt; Type, N &gt;::operator-=()</a>, <a class="el" href="_renderer_types_8h_source.html#l00156">GLESC::Render::Intensity&lt; IntensityType &gt;::operator/()</a>, <a class="el" href="_matrix_8h_source.html#l00398">GLESC::Math::Matrix&lt; Type, N, M &gt;::operator/()</a>, <a class="el" href="_vector_8h_source.html#l00551">GLESC::Math::Vector&lt; Type, N &gt;::operator/()</a>, <a class="el" href="_matrix_8h_source.html#l00383">GLESC::Math::Matrix&lt; Type, N, M &gt;::operator/()</a>, <a class="el" href="_vector_8h_source.html#l00539">GLESC::Math::Vector&lt; Type, N &gt;::operator/()</a>, <a class="el" href="_matrix_8h_source.html#l00251">GLESC::Math::Matrix&lt; Type, N, M &gt;::operator/=()</a>, <a class="el" href="_vector_8h_source.html#l00466">GLESC::Math::Vector&lt; Type, N &gt;::operator/=()</a>, <a class="el" href="_entity_list_manager_8h_source.html#l00025">GLESC::EntityListItem::operator&lt;()</a>, <a class="el" href="_renderer_types_8h_source.html#l00132">GLESC::Render::Intensity&lt; IntensityType &gt;::operator&lt;()</a>, <a class="el" href="_material_8h_source.html#l00073">GLESC::Render::Material::operator&lt;()</a>, <a class="el" href="_gapi_structs_8h_source.html#l00033">GLESC::GAPI::RGBAColor::operator&lt;()</a>, <a class="el" href="_renderer_types_8h_source.html#l00140">GLESC::Render::Intensity&lt; IntensityType &gt;::operator&lt;=()</a>, <a class="el" href="_vector_8h_source.html#l00632">GLESC::Math::Vector&lt; Type, N &gt;::operator&lt;=()</a>, <a class="el" href="_renderer_types_8h_source.html#l00464">GLESC::Render::ColorRgbNorm::operator=()</a>, <a class="el" href="_renderer_types_8h_source.html#l00518">GLESC::Render::ColorRgbaNorm::operator=()</a>, <a class="el" href="_renderer_types_8h_source.html#l00471">GLESC::Render::ColorRgbNorm::operator=()</a>, <a class="el" href="_matrix_8h_source.html#l00142">GLESC::Math::Matrix&lt; Type, N, M &gt;::operator=()</a>, <a class="el" href="_matrix_8h_source.html#l00115">GLESC::Math::Matrix&lt; Type, N, M &gt;::operator=()</a>, <a class="el" href="_matrix_8h_source.html#l00124">GLESC::Math::Matrix&lt; Type, N, M &gt;::operator=()</a>, <a class="el" href="_matrix_8h_source.html#l00133">GLESC::Math::Matrix&lt; Type, N, M &gt;::operator=()</a>, <a class="el" href="_mesh_8h_source.html#l00114">GLESC::Render::Mesh&lt; VertexT &gt;::operator=()</a>, <a class="el" href="_polyhedron_8h_source.html#l00145">GLESC::Math::Polyhedron::operator=()</a>, <a class="el" href="_vector_8h_source.html#l00354">GLESC::Math::Vector&lt; Type, N &gt;::operator=()</a>, <a class="el" href="_matrix_8h_source.html#l00158">GLESC::Math::Matrix&lt; Type, N, M &gt;::operator=()</a>, <a class="el" href="_matrix_8h_source.html#l00148">GLESC::Math::Matrix&lt; Type, N, M &gt;::operator=()</a>, <a class="el" href="_mesh_8h_source.html#l00099">GLESC::Render::Mesh&lt; VertexT &gt;::operator=()</a>, <a class="el" href="_vector_8h_source.html#l00365">GLESC::Math::Vector&lt; Type, N &gt;::operator=()</a>, <a class="el" href="_vertex_8h_source.html#l00023">GLESC::Render::BaseVertex::operator==()</a>, <a class="el" href="_renderer_types_8h_source.html#l00514">GLESC::Render::ColorRgbaNorm::operator==()</a>, <a class="el" href="_renderer_types_8h_source.html#l00460">GLESC::Render::ColorRgbNorm::operator==()</a>, <a class="el" href="_vertex_8h_source.html#l00056">GLESC::Render::ColorVertex::operator==()</a>, <a class="el" href="_entity_list_manager_8h_source.html#l00029">GLESC::EntityListItem::operator==()</a>, <a class="el" href="_renderer_types_8h_source.html#l00128">GLESC::Render::Intensity&lt; IntensityType &gt;::operator==()</a>, <a class="el" href="_input_types_8h_source.html#l00028">GLESC::Input::KeyInput::operator==()</a>, <a class="el" href="_material_8h_source.html#l00085">GLESC::Render::Material::operator==()</a>, <a class="el" href="_matrix_8h_source.html#l00470">GLESC::Math::Matrix&lt; Type, N, M &gt;::operator==()</a>, <a class="el" href="_mesh_8h_source.html#l00382">GLESC::Render::Mesh&lt; VertexT &gt;::operator==()</a>, <a class="el" href="_plane_8cpp_source.html#l00129">GLESC::Math::Plane::operator==()</a>, <a class="el" href="_gapi_structs_8h_source.html#l00029">GLESC::GAPI::RGBAColor::operator==()</a>, <a class="el" href="_vertex_8h_source.html#l00081">GLESC::Render::TextureVertex::operator==()</a>, <a class="el" href="_transform_8cpp_source.html#l00056">GLESC::Transform::Transform::operator==()</a>, <a class="el" href="_renderer_types_8h_source.html#l00136">GLESC::Render::Intensity&lt; IntensityType &gt;::operator&gt;()</a>, <a class="el" href="_vector_8h_source.html#l00642">GLESC::Math::Vector&lt; Type, N &gt;::operator&gt;=()</a>, <a class="el" href="_matrix_8h_source.html#l00422">GLESC::Math::Matrix&lt; Type, N, M &gt;::operator[]()</a>, <a class="el" href="_vector_8h_source.html#l00142">GLESC::Math::Vector&lt; Type, N &gt;::operator[]()</a>, <a class="el" href="_matrix_8h_source.html#l00413">GLESC::Math::Matrix&lt; Type, N, M &gt;::operator[]()</a>, <a class="el" href="_vector_8h_source.html#l00151">GLESC::Math::Vector&lt; Type, N &gt;::operator[]()</a>, <a class="el" href="_matrix_algorithms_8h_source.html#l00827">GLESC::Math::MatrixAlgorithms::perspective()</a>, <a class="el" href="_math_8h_source.html#l00048">GLESC::Math::pi()</a>, <a class="el" href="_sound_player_8cpp_source.html#l00044">GLESC::SoundPlayer::play3DSound()</a>, <a class="el" href="_sound_player_8cpp_source.html#l00074">GLESC::SoundPlayer::playMusic()</a>, <a class="el" href="_sound_player_8cpp_source.html#l00037">GLESC::SoundPlayer::playSound()</a>, <a class="el" href="_open_g_l_a_p_i_8h_source.html#l00100">GLESC::GAPI::OpenGLAPI::postWindowCreationInit()</a>, <a class="el" href="_shader_loader_8cpp_source.html#l00091">GLESC::GAPI::ShaderLoader::prependGLSLVersion()</a>, <a class="el" href="_open_g_l_a_p_i_8h_source.html#l00067">GLESC::GAPI::OpenGLAPI::preWindowCreationInit()</a>, <a class="el" href="_e_c_s_8cpp_source.html#l00055">GLESC::ECS::ECSCoordinator::printEntity()</a>, <a class="el" href="_component_array_8h_source.html#l00159">GLESC::ECS::ComponentArray&lt; Component &gt;::printStatus()</a>, <a class="el" href="_e_c_s_8cpp_source.html#l00021">GLESC::ECS::ECSCoordinator::printStatus()</a>, <a class="el" href="_polyhedron_factory_8cpp_source.html#l00134">GLESC::PolyhedronFactory::Common::prism()</a>, <a class="el" href="_h_u_d_manager_8cpp_source.html#l00037">GLESC::HUD::HUDManager::processInput()</a>, <a class="el" href="_logger_8cpp_source.html#l00101">GLESC::Logger::processQueue()</a>, <a class="el" href="_vector_8h_source.html#l00932">GLESC::Math::Vector&lt; Type, N &gt;::project()</a>, <a class="el" href="_vector_algorithms_8h_source.html#l00514">GLESC::Math::VectorAlgorithms::project()</a>, <a class="el" href="_vertex_buffer_layout_8cpp_source.html#l00015">GLESC::GAPI::VertexBufferLayout::push()</a>, <a class="el" href="_debug_entity_data_h_u_d_8cpp_source.html#l00186">putInputForType()</a>, <a class="el" href="_mesh_factory_8cpp_source.html#l00122">GLESC::Render::MeshFactory::pyramid()</a>, <a class="el" href="_math_8h_source.html#l00118">GLESC::Math::radians()</a>, <a class="el" href="_open_g_l_a_p_i_8h_source.html#l00192">GLESC::GAPI::OpenGLAPI::readPixelColor()</a>, <a class="el" href="_open_g_l_a_p_i_8h_source.html#l00203">GLESC::GAPI::OpenGLAPI::readPixelColorNormalized()</a>, <a class="el" href="_polyhedron_factory_8cpp_source.html#l00118">GLESC::PolyhedronFactory::Common::rectangularCuboid()</a>, <a class="el" href="_vector_8h_source.html#l01004">GLESC::Math::Vector&lt; Type, N &gt;::reflect()</a>, <a class="el" href="_vector_8h_source.html#l01015">GLESC::Math::Vector&lt; Type, N &gt;::reflect()</a>, <a class="el" href="_vector_algorithms_8h_source.html#l00548">GLESC::Math::VectorAlgorithms::reflect()</a>, <a class="el" href="_component_manager_8h_source.html#l00195">GLESC::ECS::ComponentManager::registerComponent()</a>, <a class="el" href="_component_manager_8h_source.html#l00225">GLESC::ECS::ComponentManager::registerComponentIfNotRegistered()</a>, <a class="el" href="_g_l_e_s_c_8cpp_source.html#l00161">GLESC::Engine::registerStats()</a>, <a class="el" href="_stats_manager_8h_source.html#l00027">GLESC::StatsManager::registerStatSource()</a>, <a class="el" href="_e_c_s_8cpp_source.html#l00088">GLESC::ECS::ECSCoordinator::registerSystem()</a>, <a class="el" href="_math_8h_source.html#l00557">GLESC::Math::remap()</a>, <a class="el" href="_entity_8h_source.html#l00119">GLESC::ECS::Entity::removeComponent()</a>, <a class="el" href="_component_manager_8h_source.html#l00217">GLESC::ECS::ComponentManager::removeComponent()</a>, <a class="el" href="_e_c_s_8h_source.html#l00262">GLESC::ECS::ECSCoordinator::removeComponent()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00120">GLESC::ECS::EntityManager::removeComponentFromEntity()</a>, <a class="el" href="_component_array_8h_source.html#l00095">GLESC::ECS::ComponentArray&lt; Component &gt;::removeData()</a>, <a class="el" href="_h_u_d_manager_8cpp_source.html#l00053">GLESC::HUD::HUDManager::removeWindow()</a>, <a class="el" href="_g_l_e_s_c_8cpp_source.html#l00070">GLESC::Engine::render()</a>, <a class="el" href="_h_u_d_manager_8cpp_source.html#l00074">GLESC::HUD::HUDManager::render()</a>, <a class="el" href="_renderer_8cpp_source.html#l00180">GLESC::Render::Renderer::render()</a>, <a class="el" href="_in_game_window_8cpp_source.html#l00176">GLESC::InGameWindow::render()</a>, <a class="el" href="_renderer_8cpp_source.html#l00095">GLESC::Render::Renderer::renderLights()</a>, <a class="el" href="_stringer_8cpp_source.html#l00015">GLESC::Stringer::replace()</a>, <a class="el" href="_matrix_algorithms_8h_source.html#l00052">GLESC::Math::MatrixAlgorithms::resizeMatrix()</a>, <a class="el" href="_engine_camera_8cpp_source.html#l00058">GLESC::EngineCamera::rotate()</a>, <a class="el" href="_vector_8h_source.html#l00980">GLESC::Math::Vector&lt; Type, N &gt;::rotate()</a>, <a class="el" href="_vector_8h_source.html#l00991">GLESC::Math::Vector&lt; Type, N &gt;::rotate()</a>, <a class="el" href="_transform_8cpp_source.html#l00090">GLESC::Transform::Transformer::rotateMesh()</a>, <a class="el" href="_vector_algorithms_8h_source.html#l00721">GLESC::Math::VectorAlgorithms::rotateVector3D()</a>, <a class="el" href="_mesh_8h_source.html#l00470">GLESC::Render::Mesh&lt; VertexT &gt;::sendToGpuBuffers()</a>, <a class="el" href="_renderer_types_8h_source.html#l00170">GLESC::Render::Intensity&lt; IntensityType &gt;::set()</a>, <a class="el" href="_vector_8h_source.html#l00172">GLESC::Math::Vector&lt; Type, N &gt;::set()</a>, <a class="el" href="_renderer_types_8h_source.html#l00408">GLESC::Render::ColorRgba::setA()</a>, <a class="el" href="_physics_8h_source.html#l00045">GLESC::Physics::Physics::setAngularAcceleration()</a>, <a class="el" href="_renderer_types_8h_source.html#l00292">GLESC::Render::ColorRgb::setB()</a>, <a class="el" href="_renderer_types_8h_source.html#l00403">GLESC::Render::ColorRgba::setB()</a>, <a class="el" href="_window_manager_8cpp_source.html#l00071">GLESC::WindowManager::setBorderlessWindow()</a>, <a class="el" href="_open_g_l_a_p_i_8h_source.html#l00498">GLESC::GAPI::OpenGLAPI::setBufferData()</a>, <a class="el" href="_renderer_8cpp_source.html#l00331">GLESC::Render::Renderer::setCamera()</a>, <a class="el" href="_in_game_window_8cpp_source.html#l00050">GLESC::InGameWindow::setCenter()</a>, <a class="el" href="_collision_information_8h_source.html#l00020">GLESC::Physics::CollisionInformation::setCollidesAxis()</a>, <a class="el" href="_collider_8h_source.html#l00038">GLESC::Physics::Collider::setCollisionCallback()</a>, <a class="el" href="_light_point_8h_source.html#l00031">GLESC::Render::LightPoint::setColor()</a>, <a class="el" href="_vertex_8h_source.html#l00061">GLESC::Render::ColorVertex::setColor()</a>, <a class="el" href="_camera_component_8h_source.html#l00030">GLESC::ECS::CameraComponent::setDebuggingValues()</a>, <a class="el" href="_collision_component_8h_source.html#l00027">GLESC::ECS::CollisionComponent::setDebuggingValues()</a>, <a class="el" href="_fog_component_8h_source.html#l00025">GLESC::ECS::FogComponent::setDebuggingValues()</a>, <a class="el" href="_input_component_8h_source.html#l00027">GLESC::ECS::InputComponent::setDebuggingValues()</a>, <a class="el" href="_light_component_8h_source.html#l00026">GLESC::ECS::LightComponent::setDebuggingValues()</a>, <a class="el" href="_physics_component_8h_source.html#l00038">GLESC::ECS::PhysicsComponent::setDebuggingValues()</a>, <a class="el" href="_render_component_8h_source.html#l00028">GLESC::ECS::RenderComponent::setDebuggingValues()</a>, <a class="el" href="_sun_component_8h_source.html#l00030">GLESC::ECS::SunComponent::setDebuggingValues()</a>, <a class="el" href="_transform_component_8h_source.html#l00029">GLESC::ECS::TransformComponent::setDebuggingValues()</a>, <a class="el" href="_open_g_l_a_p_i_8h_source.html#l00158">GLESC::GAPI::OpenGLAPI::setDepthFunction()</a>, <a class="el" href="_line_8cpp_source.html#l00053">GLESC::Math::Line::setDirection()</a>, <a class="el" href="_physics_8h_source.html#l00044">GLESC::Physics::Physics::setDirectionalAcceleration()</a>, <a class="el" href="_physics_8h_source.html#l00050">GLESC::Physics::Physics::setDirectionalForce()</a>, <a class="el" href="_physics_8h_source.html#l00036">GLESC::Physics::Physics::setDirectionalVelocity()</a>, <a class="el" href="_line_8cpp_source.html#l00058">GLESC::Math::Line::setDirectionFromPoints()</a>, <a class="el" href="_plane_8h_source.html#l00115">GLESC::Math::Plane::setDistance()</a>, <a class="el" href="_open_g_l_a_p_i_8h_source.html#l00483">GLESC::GAPI::OpenGLAPI::setDynamicBufferData()</a>, <a class="el" href="_debug_info_system_8cpp_source.html#l00024">GLESC::ECS::DebugInfoSystem::setEntityData()</a>, <a class="el" href="_renderer_8cpp_source.html#l00325">GLESC::Render::Renderer::setFog()</a>, <a class="el" href="_engine_camera_8h_source.html#l00039">GLESC::EngineCamera::setForce()</a>, <a class="el" href="_window_manager_8cpp_source.html#l00055">GLESC::WindowManager::setFullscreen()</a>, <a class="el" href="_window_manager_8cpp_source.html#l00060">GLESC::WindowManager::setFullscreenBorderless()</a>, <a class="el" href="_renderer_types_8h_source.html#l00287">GLESC::Render::ColorRgb::setG()</a>, <a class="el" href="_renderer_types_8h_source.html#l00398">GLESC::Render::ColorRgba::setG()</a>, <a class="el" href="_window_manager_8cpp_source.html#l00105">GLESC::WindowManager::setIcon()</a>, <a class="el" href="_open_g_l_a_p_i_8h_source.html#l00490">GLESC::GAPI::OpenGLAPI::setIndexBufferData()</a>, <a class="el" href="_scene_8h_source.html#l00077">GLESC::Scene::Scene::setInitialized()</a>, <a class="el" href="_light_point_8h_source.html#l00026">GLESC::Render::LightPoint::setIntensity()</a>, <a class="el" href="_matrix_algorithms_8h_source.html#l00220">GLESC::Math::MatrixAlgorithms::setMatrix()</a>, <a class="el" href="_matrix_algorithms_8h_source.html#l00155">GLESC::Math::MatrixAlgorithms::setMatrix()</a>, <a class="el" href="_matrix_algorithms_8h_source.html#l00141">GLESC::Math::MatrixAlgorithms::setMatrix()</a>, <a class="el" href="_matrix_algorithms_8h_source.html#l00124">GLESC::Math::MatrixAlgorithms::setMatrixDiagonal()</a>, <a class="el" href="_matrix_algorithms_8h_source.html#l00097">GLESC::Math::MatrixAlgorithms::setMatrixZero()</a>, <a class="el" href="_input_8h_source.html#l00055">GLESC::Input::Input::setMouseCommand()</a>, <a class="el" href="_input_manager_8cpp_source.html#l00187">GLESC::Input::InputManager::setMouseRelative()</a>, <a class="el" href="_sound_player_8cpp_source.html#l00069">GLESC::SoundPlayer::setMusic()</a>, <a class="el" href="_sound_player_8cpp_source.html#l00080">GLESC::SoundPlayer::setMusicVolume()</a>, <a class="el" href="_plane_8cpp_source.html#l00043">GLESC::Math::Plane::setNormal()</a>, <a class="el" href="_vertex_8h_source.html#l00033">GLESC::Render::BaseVertex::setNormal()</a>, <a class="el" href="_scene_manager_8h_source.html#l00052">GLESC::Scene::SceneManager::setOldSceneDestroyed()</a>, <a class="el" href="_line_8cpp_source.html#l00049">GLESC::Math::Line::setPoint()</a>, <a class="el" href="_transform_8h_source.html#l00085">GLESC::Transform::Transform::setPosition()</a>, <a class="el" href="_vertex_8h_source.html#l00032">GLESC::Render::BaseVertex::setPosition()</a>, <a class="el" href="_window_manager_8cpp_source.html#l00095">GLESC::WindowManager::setPosition()</a>, <a class="el" href="_in_game_window_8cpp_source.html#l00044">GLESC::InGameWindow::setPositionFraction()</a>, <a class="el" href="_renderer_8h_source.html#l00076">GLESC::Render::Renderer::setProjection()</a>, <a class="el" href="_renderer_types_8h_source.html#l00282">GLESC::Render::ColorRgb::setR()</a>, <a class="el" href="_renderer_types_8h_source.html#l00393">GLESC::Render::ColorRgba::setR()</a>, <a class="el" href="_light_point_8h_source.html#l00021">GLESC::Render::LightPoint::setRadius()</a>, <a class="el" href="_mesh_8h_source.html#l00181">GLESC::Render::Mesh&lt; VertexT &gt;::setRenderType()</a>, <a class="el" href="_window_manager_8cpp_source.html#l00080">GLESC::WindowManager::setResizable()</a>, <a class="el" href="_transform_8h_source.html#l00073">GLESC::Transform::Transform::setRotation()</a>, <a class="el" href="_transform_8h_source.html#l00092">GLESC::Transform::Transform::setRotation()</a>, <a class="el" href="_transform_8h_source.html#l00099">GLESC::Transform::Transform::setScale()</a>, <a class="el" href="_open_g_l_a_p_i_8h_source.html#l01058">GLESC::GAPI::OpenGLAPI::setSDLGLAttribute()</a>, <a class="el" href="_open_g_l_debugger_8h_source.html#l00050">GLESC::GAPI::OpenGLDebugger::setSdlGlDebugContextAttribute()</a>, <a class="el" href="_entity_list_manager_8h_source.html#l00044">GLESC::EntityListManager::setSelectedEntity()</a>, <a class="el" href="_engine_camera_8h_source.html#l00040">GLESC::EngineCamera::setSensitivity()</a>, <a class="el" href="_window_manager_8cpp_source.html#l00043">GLESC::WindowManager::setSize()</a>, <a class="el" href="_in_game_window_8cpp_source.html#l00036">GLESC::InGameWindow::setSizeFraction()</a>, <a class="el" href="_vertex_8h_source.html#l00086">GLESC::Render::TextureVertex::setTextureCoordinate()</a>, <a class="el" href="_open_g_l_a_p_i_8h_source.html#l00281">GLESC::GAPI::OpenGLAPI::setTextureData()</a>, <a class="el" href="_shader_8h_source.html#l00060">GLESC::GAPI::Shader::setUniform()</a>, <a class="el" href="_open_g_l_a_p_i_8h_source.html#l00764">GLESC::GAPI::OpenGLAPI::setUniform()</a>, <a class="el" href="_engine_camera_8cpp_source.html#l00083">GLESC::EngineCamera::setupCamera()</a>, <a class="el" href="_collision_component_8h_source.html#l00033">GLESC::ECS::CollisionComponent::setUpdatedDebuggingValues()</a>, <a class="el" href="_physics_component_8h_source.html#l00044">GLESC::ECS::PhysicsComponent::setUpdatedDebuggingValues()</a>, <a class="el" href="_render_component_8h_source.html#l00037">GLESC::ECS::RenderComponent::setUpdatedDebuggingValues()</a>, <a class="el" href="_vertex_instance_buffer_8cpp_source.html#l00016">GLESC::GAPI::VertexInstanceBuffer::setupInstanceAttributes()</a>, <a class="el" href="_open_g_l_a_p_i_8h_source.html#l00567">GLESC::GAPI::OpenGLAPI::setVertexAttribDivisor()</a>, <a class="el" href="_renderer_8h_source.html#l00073">GLESC::Render::Renderer::setView()</a>, <a class="el" href="_open_g_l_a_p_i_8h_source.html#l00044">GLESC::GAPI::OpenGLAPI::setViewport()</a>, <a class="el" href="_in_game_window_8h_source.html#l00092">GLESC::InGameWindow::setVisible()</a>, <a class="el" href="_vector_8h_source.html#l00337">GLESC::Math::Vector&lt; Type, N &gt;::setW()</a>, <a class="el" href="_window_manager_8cpp_source.html#l00050">GLESC::WindowManager::setWindowTitle()</a>, <a class="el" href="_vector_8h_source.html#l00214">GLESC::Math::Vector&lt; Type, N &gt;::setX()</a>, <a class="el" href="_vector_8h_source.html#l00255">GLESC::Math::Vector&lt; Type, N &gt;::setY()</a>, <a class="el" href="_vector_8h_source.html#l00296">GLESC::Math::Vector&lt; Type, N &gt;::setZ()</a>, <a class="el" href="_math_8h_source.html#l00617">GLESC::Math::sin()</a>, <a class="el" href="_debug_entity_data_h_u_d_8cpp_source.html#l00089">slider()</a>, <a class="el" href="_mesh_factory_8cpp_source.html#l00019">GLESC::Render::MeshFactory::sphere()</a>, <a class="el" href="_math_8h_source.html#l00574">GLESC::Math::sqrt()</a>, <a class="el" href="_timer_8cpp_source.html#l00013">GLESC::Timer::start()</a>, <a class="el" href="_renderer_8cpp_source.html#l00070">GLESC::Render::Renderer::start()</a>, <a class="el" href="_stringer_8cpp_source.html#l00026">GLESC::Stringer::strip()</a>, <a class="el" href="_input_8h_source.html#l00047">GLESC::Input::Input::subscribeKey()</a>, <a class="el" href="_vector_algorithms_8h_source.html#l00331">GLESC::Math::VectorAlgorithms::sum()</a>, <a class="el" href="_vector_8h_source.html#l00816">GLESC::Math::Vector&lt; Type, N &gt;::swap()</a>, <a class="el" href="_open_g_l_a_p_i_8h_source.html#l00059">GLESC::GAPI::OpenGLAPI::swapBuffers()</a>, <a class="el" href="_matrix_algorithms_8h_source.html#l00079">GLESC::Math::MatrixAlgorithms::swapRows()</a>, <a class="el" href="_scene_manager_8h_source.html#l00034">GLESC::Scene::SceneManager::switchScene()</a>, <a class="el" href="_math_8h_source.html#l00631">GLESC::Math::tan()</a>, <a class="el" href="_polyhedron_factory_8cpp_source.html#l00017">GLESC::PolyhedronFactory::Regular::tetra()</a>, <a class="el" href="_vector_8h_source.html#l00753">GLESC::Math::Vector&lt; Type, N &gt;::toDegrees()</a>, <a class="el" href="_vector_8h_source.html#l00655">GLESC::Math::Vector&lt; Type, N &gt;::toMatrix()</a>, <a class="el" href="_vector_8h_source.html#l00741">GLESC::Math::Vector&lt; Type, N &gt;::toRads()</a>, <a class="el" href="_math_8h_source.html#l00701">GLESC::Math::tossCoinWithChance()</a>, <a class="el" href="_matrix_8h_source.html#l00689">GLESC::Math::Matrix&lt; Type, N, M &gt;::toString()</a>, <a class="el" href="_texture_surface_8cpp_source.html#l00119">GLESC::ResMng::Texture::TextureSurface::toString()</a>, <a class="el" href="_input_8cpp_source.html#l00033">GLESC::Input::Input::toString()</a>, <a class="el" href="_fog_8cpp_source.html#l00050">GLESC::Render::Fog::toString()</a>, <a class="el" href="_collider_8cpp_source.html#l00093">GLESC::Physics::Collider::toString()</a>, <a class="el" href="_mesh_8h_source.html#l00403">GLESC::Render::Mesh&lt; VertexT &gt;::toString()</a>, <a class="el" href="_stringer_8h_source.html#l00069">GLESC::Stringer::toString()</a>, <a class="el" href="_vector_algorithms_8h_source.html#l00863">GLESC::Math::VectorAlgorithms::toString()</a>, <a class="el" href="debugger_2_g_a_p_i_debugger_8h_source.html#l00030">GLESC::GAPI::Enums::toString()</a>, <a class="el" href="debugger_2_g_a_p_i_debugger_8h_source.html#l00021">GLESC::GAPI::Enums::toString()</a>, <a class="el" href="_matrix_8h_source.html#l00500">GLESC::Math::Matrix&lt; Type, N, M &gt;::toVector()</a>, <a class="el" href="_transform_8cpp_source.html#l00072">GLESC::Transform::Transformer::transformMesh()</a>, <a class="el" href="_transform_8cpp_source.html#l00123">GLESC::Transform::Transformer::transformVector()</a>, <a class="el" href="_transform_8cpp_source.html#l00080">GLESC::Transform::Transformer::translateMesh()</a>, <a class="el" href="_matrix_8h_source.html#l00512">GLESC::Math::Matrix&lt; Type, N, M &gt;::transpose()</a>, <a class="el" href="_matrix_algorithms_8h_source.html#l00599">GLESC::Math::MatrixAlgorithms::transpose()</a>, <a class="el" href="_matrix_algorithms_8h_source.html#l00614">GLESC::Math::MatrixAlgorithms::transposeInPlace()</a>, <a class="el" href="_open_g_l_a_p_i_8h_source.html#l00469">GLESC::GAPI::OpenGLAPI::unbindBuffer()</a>, <a class="el" href="_open_g_l_a_p_i_8h_source.html#l00439">GLESC::GAPI::OpenGLAPI::unbindTexture()</a>, <a class="el" href="_open_g_l_a_p_i_8h_source.html#l00579">GLESC::GAPI::OpenGLAPI::unbindVertexArray()</a>, <a class="el" href="_g_l_e_s_c_8cpp_source.html#l00079">GLESC::Engine::update()</a>, <a class="el" href="_camera_system_8cpp_source.html#l00023">GLESC::ECS::CameraSystem::update()</a>, <a class="el" href="_debug_info_system_8cpp_source.html#l00043">GLESC::ECS::DebugInfoSystem::update()</a>, <a class="el" href="_fog_system_8cpp_source.html#l00023">GLESC::ECS::FogSystem::update()</a>, <a class="el" href="_input_system_8cpp_source.html#l00021">GLESC::ECS::InputSystem::update()</a>, <a class="el" href="_light_system_8cpp_source.html#l00023">GLESC::ECS::LightSystem::update()</a>, <a class="el" href="_physics_collision_system_8cpp_source.html#l00029">GLESC::ECS::PhysicsCollisionSystem::update()</a>, <a class="el" href="_physics_system_8cpp_source.html#l00027">GLESC::ECS::PhysicsSystem::update()</a>, <a class="el" href="_render_system_8cpp_source.html#l00023">GLESC::ECS::RenderSystem::update()</a>, <a class="el" href="_sun_system_8cpp_source.html#l00023">GLESC::ECS::SunSystem::update()</a>, <a class="el" href="_transform_system_8cpp_source.html#l00019">GLESC::ECS::TransformSystem::update()</a>, <a class="el" href="_default_8cpp_source.html#l00070">Default::update()</a>, <a class="el" href="_input_manager_8cpp_source.html#l00036">GLESC::Input::InputManager::update()</a>, <a class="el" href="_frustum_8h_source.html#l00039">GLESC::Render::Frustum::update()</a>, <a class="el" href="_bounding_volume_8cpp_source.html#l00075">GLESC::Math::BoundingVolume::updateBoundingBox()</a>, <a class="el" href="_collision_manager_8cpp_source.html#l00065">GLESC::Physics::CollisionManager::updateCollider()</a>, <a class="el" href="_input_manager_8cpp_source.html#l00103">GLESC::Input::InputManager::updateKeyState()</a>, <a class="el" href="_physics_manager_8cpp_source.html#l00044">GLESC::Physics::PhysicsManager::updateTransform()</a>, <a class="el" href="_open_g_l_a_p_i_8h_source.html#l00730">GLESC::GAPI::OpenGLAPI::useShaderProgram()</a>, <a class="el" href="_shader_loader_8cpp_source.html#l00124">GLESC::GAPI::ShaderLoader::validateShaderCodes()</a>, <a class="el" href="_shader_loader_8cpp_source.html#l00114">GLESC::GAPI::ShaderLoader::validateShaderTokens()</a>, <a class="el" href="_vector_algorithms_8h_source.html#l00081">GLESC::Math::VectorAlgorithms::vectorAdd()</a>, <a class="el" href="_vector_algorithms_8h_source.html#l00045">GLESC::Math::VectorAlgorithms::vectorCopy()</a>, <a class="el" href="_vector_algorithms_8h_source.html#l00203">GLESC::Math::VectorAlgorithms::vectorDiv()</a>, <a class="el" href="_vector_algorithms_8h_source.html#l00032">GLESC::Math::VectorAlgorithms::vectorFill()</a>, <a class="el" href="_vector_algorithms_8h_source.html#l00038">GLESC::Math::VectorAlgorithms::vectorInitRawArray()</a>, <a class="el" href="_vector_algorithms_8h_source.html#l00059">GLESC::Math::VectorAlgorithms::vectorMove()</a>, <a class="el" href="_vector_algorithms_8h_source.html#l00168">GLESC::Math::VectorAlgorithms::vectorMul()</a>, <a class="el" href="_vector_algorithms_8h_source.html#l00151">GLESC::Math::VectorAlgorithms::vectorNegate()</a>, <a class="el" href="_vector_algorithms_8h_source.html#l00098">GLESC::Math::VectorAlgorithms::vectorScalarAdd()</a>, <a class="el" href="_vector_algorithms_8h_source.html#l00221">GLESC::Math::VectorAlgorithms::vectorScalarDiv()</a>, <a class="el" href="_vector_algorithms_8h_source.html#l00185">GLESC::Math::VectorAlgorithms::vectorScalarMul()</a>, <a class="el" href="_vector_algorithms_8h_source.html#l00136">GLESC::Math::VectorAlgorithms::vectorScalarSub()</a>, <a class="el" href="_vector_algorithms_8h_source.html#l00116">GLESC::Math::VectorAlgorithms::vectorSub()</a>, <a class="el" href="_vector_algorithms_8h_source.html#l00568">GLESC::Math::VectorAlgorithms::vectorToEuler()</a>, <a class="el" href="_vector_8h_source.html#l01030">GLESC::Math::Vector&lt; Type, N &gt;::vectorToEulerRotation()</a>, <a class="el" href="_vector_8h_source.html#l01042">GLESC::Math::Vector&lt; Type, N &gt;::vectorToEulerRotation()</a>, <a class="el" href="_vector_mixed_algorithms_8h_source.html#l00038">GLESC::Math::VectorMixedAlgorithms::vectorToMatrix()</a>, <a class="el" href="_vector_algorithms_8h_source.html#l00025">GLESC::Math::VectorAlgorithms::vectorZero()</a>, <a class="el" href="_vertex_buffer_8cpp_source.html#l00017">GLESC::GAPI::VertexInstanceBuffer::VertexBuffer()</a>, <a class="el" href="_vector_8h_source.html#l00317">GLESC::Math::Vector&lt; Type, N &gt;::w()</a>, <a class="el" href="_crosshair_h_u_d_8cpp_source.html#l00029">GLESC::HUD::CrosshairHUD::windowContent()</a>, <a class="el" href="_debug_console_h_u_d_8cpp_source.html#l00037">GLESC::HUD::DebugConsoleHUD::windowContent()</a>, <a class="el" href="_debug_entity_data_h_u_d_8cpp_source.html#l00257">GLESC::HUD::DebugEntityData::windowContent()</a>, <a class="el" href="_debug_items_h_u_d_8cpp_source.html#l00044">GLESC::HUD::DebugItems::windowContent()</a>, <a class="el" href="_debug_stats_h_u_d_8cpp_source.html#l00034">GLESC::HUD::DebugStatsHUD::windowContent()</a>, <a class="el" href="_entity_list_h_u_d_8cpp_source.html#l00055">GLESC::HUD::EntityListHUD::windowContent()</a>, <a class="el" href="_transform_8cpp_source.html#l00146">GLESC::Transform::Transformer::worldToViewport()</a>, <a class="el" href="_vector_8h_source.html#l00194">GLESC::Math::Vector&lt; Type, N &gt;::x()</a>, <a class="el" href="_vector_8h_source.html#l00235">GLESC::Math::Vector&lt; Type, N &gt;::y()</a>, and <a class="el" href="_vector_8h_source.html#l00276">GLESC::Math::Vector&lt; Type, N &gt;::z()</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_g_l_e_s_c.html">GLESC</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

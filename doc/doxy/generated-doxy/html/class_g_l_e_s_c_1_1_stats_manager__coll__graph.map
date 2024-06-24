@@ -1,0 +1,15 @@
+<map id="GLESC::StatsManager" name="GLESC::StatsManager">
+<area shape="rect" id="Node000001" title="Class to manage the stats of the game." alt="" coords="49,469,194,560"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="53,304,190,405"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="124,405,124,453,119,453,119,405"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="29,155,99,224"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="78,223,101,287,96,289,73,225"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,5,123,91"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="67,106,67,155,61,155,61,106"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="124,155,236,224"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="165,239,142,305,137,303,160,237"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="157,13,179,83"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="170,83,172,130,173,137,168,138,167,131,165,83"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="229,13,249,83"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="231,81,212,132,208,141,203,138,207,130,226,79"/>
+</map>

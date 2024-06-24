@@ -1,0 +1,20 @@
+<map id="GLESC::Transform::Transformer::rotateMesh" name="GLESC::Transform::Transformer::rotateMesh">
+<area shape="rect" id="Node000001" title="Rotates a mesh by a given rotation." alt="" coords="5,72,212,115"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_render_1_1_mesh.html#a9dc629631bd4e02c59259d6995b28633" title=" " alt="" coords="260,5,414,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="183,69,246,50,248,55,184,74"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#a59e384ea5a54361b8d985f67f7e3397c" title="Rotates the vector by a given rotation." alt="" coords="263,72,411,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="212,91,248,91,248,96,212,96"/>
+<area shape="rect" id="Node000007" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#a058dd167ea8c84edda5fdeccdeebd5d5" title="Converts the vector to radians." alt="" coords="263,139,411,181"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="184,113,249,132,247,137,183,118"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#a6ca52869ac900565e8b829736d266ea5" title="Rotates a 3D vector by the given rotation angles." alt="" coords="462,72,672,115"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="411,91,446,91,446,96,411,96"/>
+<area shape="rect" id="Node000005" href="$namespace_g_l_e_s_c_1_1_math.html#ac72fdbfd43b6a5770385dbfd805b687b" title="Calculates the cosine of a value." alt="" coords="733,37,864,64"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="672,71,717,63,718,68,673,76"/>
+<area shape="rect" id="Node000006" href="$namespace_g_l_e_s_c_1_1_math.html#aa21a1aeaaa25e280f941221e165dffa4" title="Calculates the sine of a value." alt="" coords="735,88,862,115"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="673,94,719,96,719,101,673,100"/>
+<area shape="rect" id="Node000008" href="$namespace_g_l_e_s_c_1_1_math.html#a980ed967f85bef4bb539c9701701a877" title="Converts degrees to radians." alt="" coords="491,147,643,173"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="411,157,475,157,475,163,411,163"/>
+<area shape="rect" id="Node000009" href="$namespace_g_l_e_s_c_1_1_math.html#a69598a72ef2c06e1caba0ea9613d65e6" title="Converts radians to degrees." alt="" coords="720,147,877,173"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="643,166,704,166,704,172,643,171"/>
+<area shape="poly" id="edge9_Node000009_Node000008" title=" " alt="" coords="720,154,659,154,659,149,720,149"/>
+</map>

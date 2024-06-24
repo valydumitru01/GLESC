@@ -1,0 +1,9 @@
+<map id="GLESC::Math::VectorAlgorithms::rotateVector3D" name="GLESC::Math::VectorAlgorithms::rotateVector3D">
+<area shape="rect" id="Node000001" title="Rotates a 3D vector by the given rotation angles." alt="" coords="456,39,666,81"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#a59e384ea5a54361b8d985f67f7e3397c" title="Rotates the vector by a given rotation." alt="" coords="260,5,408,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="440,45,408,40,409,35,441,40"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#aadf692c1df17ed1079fb5bfa1bc2bb42" title="Rotates the vector by a given rotation." alt="" coords="260,72,408,115"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="441,80,409,85,408,80,440,75"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_transform_1_1_transformer.html#a5577240cc80f5b926c31d1b67da65de0" title="Rotates a mesh by a given rotation." alt="" coords="5,5,212,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="244,29,212,29,212,24,244,24"/>
+</map>

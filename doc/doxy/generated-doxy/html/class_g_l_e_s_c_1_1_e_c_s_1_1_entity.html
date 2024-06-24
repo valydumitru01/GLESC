@@ -1,0 +1,783 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="Doxygen Awesome" />
+<meta property="og:image" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+<meta property="og:description" content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
+<meta property="og:url" content="https://jothepro.github.io/doxygen-awesome-css/" />
+<!-- END opengraph metadata -->
+<!-- BEGIN twitter metadata -->
+<meta name="twitter:image:src" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+<meta name="twitter:title" content="Doxygen Awesome" />
+<meta name="twitter:description" content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
+<!-- END twitter metadata -->
+<title>GLESC: GLESC::ECS::Entity Class Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.drawio.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/ -->
+<a href="https://github.com/jothepro/doxygen-awesome-css" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="GLESC_logo_white_background.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">GLESC
+   &#160;<span id="projectnumber">1</span>
+   </div>
+   <div id="projectbrief">Game engine using ECS architecture</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#friends">Friends</a> &#124;
+<a href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity-members.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">GLESC::ECS::Entity Class Reference</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_entity_8h_source.html">Entity.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for GLESC::ECS::Entity:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_e_c_s_1_1_entity__coll__graph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:ad3de6e83e97a762917e085413c6c031f" id="r_ad3de6e83e97a762917e085413c6c031f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html#ad3de6e83e97a762917e085413c6c031f">~Entity</a> ()=<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">default</a></td></tr>
+<tr class="memdesc:ad3de6e83e97a762917e085413c6c031f"><td class="mdescLeft">&#160;</td><td class="mdescRight">The entity will not be destroyed if the destructor is called To destroy an entity, use the <a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html#a691dbe5f9ec930c27af2af0b97907a9e">destroy()</a> method.  <br /></td></tr>
+<tr class="separator:ad3de6e83e97a762917e085413c6c031f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e9f27d8c519ebe4c50e3463608d06b2" id="r_a9e9f27d8c519ebe4c50e3463608d06b2"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Component</a> &gt; </td></tr>
+<tr class="memitem:a9e9f27d8c519ebe4c50e3463608d06b2"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html">Entity</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html#a9e9f27d8c519ebe4c50e3463608d06b2">addComponent</a> ()</td></tr>
+<tr class="memdesc:a9e9f27d8c519ebe4c50e3463608d06b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a component to the entity and returns a reference to it The components is registered to the ECSManager The entity signature is updated to reflect the new component.  <br /></td></tr>
+<tr class="separator:a9e9f27d8c519ebe4c50e3463608d06b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a691dbe5f9ec930c27af2af0b97907a9e" id="r_a691dbe5f9ec930c27af2af0b97907a9e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html#a691dbe5f9ec930c27af2af0b97907a9e">destroy</a> ()</td></tr>
+<tr class="separator:a691dbe5f9ec930c27af2af0b97907a9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14143b00be0701d787f043955c449e22" id="r_a14143b00be0701d787f043955c449e22"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Component</a> &gt; </td></tr>
+<tr class="memitem:a14143b00be0701d787f043955c449e22"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Component</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html#a14143b00be0701d787f043955c449e22">getComponent</a> () <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a></td></tr>
+<tr class="memdesc:a14143b00be0701d787f043955c449e22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a reference to the component.  <br /></td></tr>
+<tr class="separator:a14143b00be0701d787f043955c449e22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d93271e46989e6e67aca4dee5850451" id="r_a0d93271e46989e6e67aca4dee5850451"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html#a0d93271e46989e6e67aca4dee5850451">getID</a> () <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a></td></tr>
+<tr class="separator:a0d93271e46989e6e67aca4dee5850451"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91142a433e526c7d2617dc1b312da153" id="r_a91142a433e526c7d2617dc1b312da153"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#ac71e39014c5b48ffb131e0e4abbfe5ed">EntityName</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html#a91142a433e526c7d2617dc1b312da153">getName</a> () <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a></td></tr>
+<tr class="memdesc:a91142a433e526c7d2617dc1b312da153"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the entity's name.  <br /></td></tr>
+<tr class="separator:a91142a433e526c7d2617dc1b312da153"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49f91266990cd9ae566c793684b0d447" id="r_a49f91266990cd9ae566c793684b0d447"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Component</a> &gt; </td></tr>
+<tr class="memitem:a49f91266990cd9ae566c793684b0d447"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html#a49f91266990cd9ae566c793684b0d447">hasComponent</a> () <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a></td></tr>
+<tr class="memdesc:a49f91266990cd9ae566c793684b0d447"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the entity has a component.  <br /></td></tr>
+<tr class="separator:a49f91266990cd9ae566c793684b0d447"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abadcf5fb781cafa3a9779091e210b96f" id="r_abadcf5fb781cafa3a9779091e210b96f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html#abadcf5fb781cafa3a9779091e210b96f">isAlive</a> () <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a></td></tr>
+<tr class="memdesc:abadcf5fb781cafa3a9779091e210b96f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the entity is alive (if the ID of the entity is valid)  <br /></td></tr>
+<tr class="separator:abadcf5fb781cafa3a9779091e210b96f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ea00349d7b9b4eff7df34a75d2d64dd" id="r_a1ea00349d7b9b4eff7df34a75d2d64dd"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Component</a> &gt; </td></tr>
+<tr class="memitem:a1ea00349d7b9b4eff7df34a75d2d64dd"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html">Entity</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html#a1ea00349d7b9b4eff7df34a75d2d64dd">removeComponent</a> ()</td></tr>
+<tr class="memdesc:a1ea00349d7b9b4eff7df34a75d2d64dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a component from the entity The entity signature is updated to reflect the removed component.  <br /></td></tr>
+<tr class="separator:a1ea00349d7b9b4eff7df34a75d2d64dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a43b7062404aad440c6a912a1b9d8a77b" id="r_a43b7062404aad440c6a912a1b9d8a77b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html#a43b7062404aad440c6a912a1b9d8a77b">Entity</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#ac71e39014c5b48ffb131e0e4abbfe5ed">EntityName</a> &amp;name, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#struct_g_l_e_s_c_1_1_e_c_s_1_1_entity_metadata">EntityMetadata</a> &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">metadata</a>, <a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator.html">ECSCoordinator</a> &amp;<a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html#a59732238c6e696afb21692a6427a36e6">ecs</a>)</td></tr>
+<tr class="memdesc:a43b7062404aad440c6a912a1b9d8a77b"><td class="mdescLeft">&#160;</td><td class="mdescRight">This constructor is internal to the <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html">ECS</a>, it is used to create a new <a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html">Entity</a>.  <br /></td></tr>
+<tr class="separator:a43b7062404aad440c6a912a1b9d8a77b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75b9d4a0bc618199af0046a3aa24af2c" id="r_a75b9d4a0bc618199af0046a3aa24af2c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html#a75b9d4a0bc618199af0046a3aa24af2c">Entity</a> (<a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator.html">ECSCoordinator</a> &amp;<a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html#a59732238c6e696afb21692a6427a36e6">ecs</a>)</td></tr>
+<tr class="memdesc:a75b9d4a0bc618199af0046a3aa24af2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">This constructor is internal to the <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html">ECS</a>, it is used to create a new without a name.  <br /></td></tr>
+<tr class="separator:a75b9d4a0bc618199af0046a3aa24af2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2178399d298f254e2c8231278491fb9" id="r_ad2178399d298f254e2c8231278491fb9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html#ad2178399d298f254e2c8231278491fb9">Entity</a> (<a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">id</a>, <a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator.html">ECSCoordinator</a> &amp;<a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html#a59732238c6e696afb21692a6427a36e6">ecs</a>)</td></tr>
+<tr class="memdesc:ad2178399d298f254e2c8231278491fb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">This constructor is internal to the <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html">ECS</a>, it is used to cast an EntityID to an <a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html">Entity</a>.  <br /></td></tr>
+<tr class="separator:ad2178399d298f254e2c8231278491fb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a59732238c6e696afb21692a6427a36e6" id="r_a59732238c6e696afb21692a6427a36e6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator.html">ECSCoordinator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html#a59732238c6e696afb21692a6427a36e6">ecs</a></td></tr>
+<tr class="separator:a59732238c6e696afb21692a6427a36e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad526556c81664132d3ff68dff806329" id="r_aad526556c81664132d3ff68dff806329"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html#aad526556c81664132d3ff68dff806329">ID</a></td></tr>
+<tr class="memdesc:aad526556c81664132d3ff68dff806329"><td class="mdescLeft">&#160;</td><td class="mdescRight">The entity's ID The ID is used to identify the entity in the <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html">ECS</a>.  <br /></td></tr>
+<tr class="separator:aad526556c81664132d3ff68dff806329"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:a0431627fd9f9d731cc1bba31c9da7763" id="r_a0431627fd9f9d731cc1bba31c9da7763"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">class</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html#a0431627fd9f9d731cc1bba31c9da7763">GLESC::ECS::EntityFactory</a></td></tr>
+<tr class="memdesc:a0431627fd9f9d731cc1bba31c9da7763"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_factory.html" title="The EntityFactory class is responsible for creating entity objects, this helps avoid the need to pass...">EntityFactory</a> class is a friend of the <a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html">Entity</a> class.  <br /></td></tr>
+<tr class="separator:a0431627fd9f9d731cc1bba31c9da7763"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock">
+<p class="definition">Definition at line <a class="el" href="_entity_8h_source.html#l00021">21</a> of file <a class="el" href="_entity_8h_source.html">Entity.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ad3de6e83e97a762917e085413c6c031f" name="ad3de6e83e97a762917e085413c6c031f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3de6e83e97a762917e085413c6c031f">&#9670;&#160;</a></span>~Entity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLESC::ECS::Entity::~Entity </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The entity will not be destroyed if the destructor is called To destroy an entity, use the <a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html#a691dbe5f9ec930c27af2af0b97907a9e">destroy()</a> method. </p>
+
+</div>
+</div>
+<a id="a43b7062404aad440c6a912a1b9d8a77b" name="a43b7062404aad440c6a912a1b9d8a77b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43b7062404aad440c6a912a1b9d8a77b">&#9670;&#160;</a></span>Entity() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Entity::Entity </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#ac71e39014c5b48ffb131e0e4abbfe5ed">EntityName</a> &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#struct_g_l_e_s_c_1_1_e_c_s_1_1_entity_metadata">EntityMetadata</a> &amp;&#160;</td>
+          <td class="paramname"><em>metadata</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator.html">ECSCoordinator</a> &amp;&#160;</td>
+          <td class="paramname"><em>ecs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This constructor is internal to the <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html">ECS</a>, it is used to create a new <a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html">Entity</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>The name of the entity </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_entity_8cpp_source.html#l00014">14</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   15</span>    : <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html#aad526556c81664132d3ff68dff806329">ID</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html#a59732238c6e696afb21692a6427a36e6">ecs</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator.html#ab666a1e72517798b3bf19c81739581f5">createEntity</a>(name, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">metadata</a>)), <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html#a59732238c6e696afb21692a6427a36e6">ecs</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html#a59732238c6e696afb21692a6427a36e6">ecs</a>) {</div>
+<div class="line"><span class="lineno">   16</span>}</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator_html_ab666a1e72517798b3bf19c81739581f5"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator.html#ab666a1e72517798b3bf19c81739581f5">GLESC::ECS::ECSCoordinator::createEntity</a></div><div class="ttdeci">EntityID createEntity(const EntityName &amp;name, const EntityMetadata &amp;metadata)</div><div class="ttdoc">Create an entity with the given name. The name must be unique.</div><div class="ttdef"><b>Definition</b> <a href="_e_c_s_8cpp_source.html#l00107">ECS.cpp:107</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_entity_html_a59732238c6e696afb21692a6427a36e6"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html#a59732238c6e696afb21692a6427a36e6">GLESC::ECS::Entity::ecs</a></div><div class="ttdeci">ECSCoordinator &amp; ecs</div><div class="ttdef"><b>Definition</b> <a href="_entity_8h_source.html#l00108">Entity.h:108</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_entity_html_aad526556c81664132d3ff68dff806329"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html#aad526556c81664132d3ff68dff806329">GLESC::ECS::Entity::ID</a></div><div class="ttdeci">const EntityID ID</div><div class="ttdoc">The entity's ID The ID is used to identify the entity in the ECS.</div><div class="ttdef"><b>Definition</b> <a href="_entity_8h_source.html#l00106">Entity.h:106</a></div></div>
+<div class="ttc" id="anamespace_g_l_e_s_c_html_a7c64a4da2d1da1597f4ec563d00bb9f8"><div class="ttname"><a href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">GLESC::isIterable_v</a></div><div class="ttdeci">constexpr bool isIterable_v</div><div class="ttdef"><b>Definition</b> <a href="_stringer_8h_source.html#l00029">Stringer.h:29</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a75b9d4a0bc618199af0046a3aa24af2c" name="a75b9d4a0bc618199af0046a3aa24af2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75b9d4a0bc618199af0046a3aa24af2c">&#9670;&#160;</a></span>Entity() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Entity::Entity </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator.html">ECSCoordinator</a> &amp;&#160;</td>
+          <td class="paramname"><em>ecs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This constructor is internal to the <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html">ECS</a>, it is used to create a new without a name. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ecs</td><td>The ECSManager </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_entity_8cpp_source.html#l00018">18</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   18</span>                                  : <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html#aad526556c81664132d3ff68dff806329">ID</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html#a59732238c6e696afb21692a6427a36e6">ecs</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator.html#ab666a1e72517798b3bf19c81739581f5">createEntity</a>()), <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html#a59732238c6e696afb21692a6427a36e6">ecs</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html#a59732238c6e696afb21692a6427a36e6">ecs</a>) {</div>
+<div class="line"><span class="lineno">   19</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ad2178399d298f254e2c8231278491fb9" name="ad2178399d298f254e2c8231278491fb9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2178399d298f254e2c8231278491fb9">&#9670;&#160;</a></span>Entity() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Entity::Entity </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a>&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator.html">ECSCoordinator</a> &amp;&#160;</td>
+          <td class="paramname"><em>ecs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This constructor is internal to the <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html">ECS</a>, it is used to cast an EntityID to an <a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html">Entity</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_entity_8cpp_source.html#l00021">21</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   21</span>                                               : <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html#aad526556c81664132d3ff68dff806329">ID</a>(<span class="keywordtype">id</span>), <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html#a59732238c6e696afb21692a6427a36e6">ecs</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html#a59732238c6e696afb21692a6427a36e6">ecs</a>) {</div>
+<div class="line"><span class="lineno">   22</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a9e9f27d8c519ebe4c50e3463608d06b2" name="a9e9f27d8c519ebe4c50e3463608d06b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e9f27d8c519ebe4c50e3463608d06b2">&#9670;&#160;</a></span>addComponent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Component</a> &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html">Entity</a> &amp; GLESC::ECS::Entity::addComponent </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adds a component to the entity and returns a reference to it The components is registered to the ECSManager The entity signature is updated to reflect the new component. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Component</td><td>The type of the component </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_entity_8h_source.html#l00113">113</a> of file <a class="el" href="_entity_8h_source.html">Entity.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  113</span>                                 {</div>
+<div class="line"><span class="lineno">  114</span>        <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html#a59732238c6e696afb21692a6427a36e6">ecs</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator.html#ac174f3ade2ce8ea1a240c49385409942">addComponent</a>&lt;<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Component</a>&gt;(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html#aad526556c81664132d3ff68dff806329">ID</a>, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Component</a>());</div>
+<div class="line"><span class="lineno">  115</span>        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><span class="lineno">  116</span>    }</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator_html_ac174f3ade2ce8ea1a240c49385409942"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator.html#ac174f3ade2ce8ea1a240c49385409942">GLESC::ECS::ECSCoordinator::addComponent</a></div><div class="ttdeci">void addComponent(EntityID entity, const Component &amp;component)</div><div class="ttdoc">Add a component to an entity.</div><div class="ttdef"><b>Definition</b> <a href="_e_c_s_8h_source.html#l00249">ECS.h:249</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_e_c_s_8h_source.html#l00249">GLESC::ECS::ECSCoordinator::addComponent()</a>, <a class="el" href="_entity_8h_source.html#l00108">ecs</a>, <a class="el" href="_entity_8h_source.html#l00106">ID</a>, and <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_g_l_e_s_c_8cpp_source.html#l00139">GLESC::Engine::createEngineEntities()</a>, <a class="el" href="_default_8cpp_source.html#l00019">Default::init()</a>, and <a class="el" href="_engine_camera_8cpp_source.html#l00083">GLESC::EngineCamera::setupCamera()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_a9e9f27d8c519ebe4c50e3463608d06b2_cgraph.svg" width="100%" height="515"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_a9e9f27d8c519ebe4c50e3463608d06b2_icgraph.svg" width="608" height="171"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a691dbe5f9ec930c27af2af0b97907a9e" name="a691dbe5f9ec930c27af2af0b97907a9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a691dbe5f9ec930c27af2af0b97907a9e">&#9670;&#160;</a></span>destroy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> Entity::destroy </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_entity_8cpp_source.html#l00024">24</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   24</span>                     {</div>
+<div class="line"><span class="lineno">   25</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html#a59732238c6e696afb21692a6427a36e6">ecs</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator.html#a25e94dc748db47f3a75490a135c015a1">markForDestruction</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html#aad526556c81664132d3ff68dff806329">ID</a>);</div>
+<div class="line"><span class="lineno">   26</span>}</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator_html_a25e94dc748db47f3a75490a135c015a1"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator.html#a25e94dc748db47f3a75490a135c015a1">GLESC::ECS::ECSCoordinator::markForDestruction</a></div><div class="ttdeci">void markForDestruction(EntityID entity)</div><div class="ttdoc">Mark entity to be destroyed.</div><div class="ttdef"><b>Definition</b> <a href="_e_c_s_8cpp_source.html#l00139">ECS.cpp:139</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_entity_8h_source.html#l00108">ecs</a>, <a class="el" href="_entity_8h_source.html#l00106">ID</a>, and <a class="el" href="_e_c_s_8cpp_source.html#l00139">GLESC::ECS::ECSCoordinator::markForDestruction()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_scene_8h_source.html#l00239">GLESC::Scene::Scene::destroyEntities()</a>, <a class="el" href="_scene_8h_source.html#l00193">GLESC::Scene::Scene::destroyEntity()</a>, and <a class="el" href="_scene_8h_source.html#l00180">GLESC::Scene::Scene::destroyEntity()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_a691dbe5f9ec930c27af2af0b97907a9e_cgraph.svg" width="403" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_a691dbe5f9ec930c27af2af0b97907a9e_icgraph.svg" width="356" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a14143b00be0701d787f043955c449e22" name="a14143b00be0701d787f043955c449e22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14143b00be0701d787f043955c449e22">&#9670;&#160;</a></span>getComponent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Component</a> &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Component</a> &amp; GLESC::ECS::Entity::getComponent </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns a reference to the component. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Component</td><td>The type of the component </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A reference to the component </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_entity_8h_source.html#l00125">125</a> of file <a class="el" href="_entity_8h_source.html">Entity.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  125</span>                                                        {</div>
+<div class="line"><span class="lineno">  126</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html#a59732238c6e696afb21692a6427a36e6">ecs</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator.html#a70c1d7a354e40af5426372cb3daaaaf1">getComponent</a>&lt;<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Component</a>&gt;(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html#aad526556c81664132d3ff68dff806329">ID</a>);</div>
+<div class="line"><span class="lineno">  127</span>    }</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator_html_a70c1d7a354e40af5426372cb3daaaaf1"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator.html#a70c1d7a354e40af5426372cb3daaaaf1">GLESC::ECS::ECSCoordinator::getComponent</a></div><div class="ttdeci">Component &amp; getComponent(EntityID entity) const</div><div class="ttdoc">Get the component of an entity by its Id.</div><div class="ttdef"><b>Definition</b> <a href="_e_c_s_8h_source.html#l00275">ECS.h:275</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_entity_8h_source.html#l00108">ecs</a>, <a class="el" href="_e_c_s_8h_source.html#l00275">GLESC::ECS::ECSCoordinator::getComponent()</a>, <a class="el" href="_entity_8h_source.html#l00106">ID</a>, and <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_g_l_e_s_c_8cpp_source.html#l00139">GLESC::Engine::createEngineEntities()</a>, <a class="el" href="_default_8cpp_source.html#l00019">Default::init()</a>, <a class="el" href="_engine_camera_8cpp_source.html#l00019">GLESC::EngineCamera::moveBackward()</a>, <a class="el" href="_engine_camera_8cpp_source.html#l00044">GLESC::EngineCamera::moveDown()</a>, <a class="el" href="_engine_camera_8cpp_source.html#l00024">GLESC::EngineCamera::moveForward()</a>, <a class="el" href="_engine_camera_8cpp_source.html#l00029">GLESC::EngineCamera::moveLeft()</a>, <a class="el" href="_engine_camera_8cpp_source.html#l00034">GLESC::EngineCamera::moveRight()</a>, <a class="el" href="_engine_camera_8cpp_source.html#l00039">GLESC::EngineCamera::moveUp()</a>, <a class="el" href="_engine_camera_8cpp_source.html#l00058">GLESC::EngineCamera::rotate()</a>, <a class="el" href="_engine_camera_8cpp_source.html#l00083">GLESC::EngineCamera::setupCamera()</a>, and <a class="el" href="_g_l_e_s_c_8cpp_source.html#l00079">GLESC::Engine::update()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_a14143b00be0701d787f043955c449e22_cgraph.svg" width="100%" height="390"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_a14143b00be0701d787f043955c449e22_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a0d93271e46989e6e67aca4dee5850451" name="a0d93271e46989e6e67aca4dee5850451"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d93271e46989e6e67aca4dee5850451">&#9670;&#160;</a></span>getID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a> GLESC::ECS::Entity::getID </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_entity_8h_source.html#l00034">34</a> of file <a class="el" href="_entity_8h_source.html">Entity.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   34</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html#aad526556c81664132d3ff68dff806329">ID</a>; }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_entity_8h_source.html#l00106">ID</a>.</p>
+
+</div>
+</div>
+<a id="a91142a433e526c7d2617dc1b312da153" name="a91142a433e526c7d2617dc1b312da153"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91142a433e526c7d2617dc1b312da153">&#9670;&#160;</a></span>getName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#ac71e39014c5b48ffb131e0e4abbfe5ed">EntityName</a> Entity::getName </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the entity's name. </p>
+<dl class="section return"><dt>Returns</dt><dd>The entity's name </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_entity_8cpp_source.html#l00028">28</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   28</span>                                 {</div>
+<div class="line"><span class="lineno">   29</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html#a59732238c6e696afb21692a6427a36e6">ecs</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator.html#a2c49b6ec20626dd4f84c939ec3750812">getEntityName</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html#aad526556c81664132d3ff68dff806329">ID</a>);</div>
+<div class="line"><span class="lineno">   30</span>}</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator_html_a2c49b6ec20626dd4f84c939ec3750812"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator.html#a2c49b6ec20626dd4f84c939ec3750812">GLESC::ECS::ECSCoordinator::getEntityName</a></div><div class="ttdeci">const EntityName &amp; getEntityName(EntityID entity) const</div><div class="ttdoc">Get the name of the entity given the ID.</div><div class="ttdef"><b>Definition</b> <a href="_e_c_s_8cpp_source.html#l00159">ECS.cpp:159</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_entity_8h_source.html#l00108">ecs</a>, <a class="el" href="_e_c_s_8cpp_source.html#l00159">GLESC::ECS::ECSCoordinator::getEntityName()</a>, and <a class="el" href="_entity_8h_source.html#l00106">ID</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_a91142a433e526c7d2617dc1b312da153_cgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a49f91266990cd9ae566c793684b0d447" name="a49f91266990cd9ae566c793684b0d447"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49f91266990cd9ae566c793684b0d447">&#9670;&#160;</a></span>hasComponent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Component</a> &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a> GLESC::ECS::Entity::hasComponent </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if the entity has a component. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Component</td><td>The type of the component </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the entity has the component, false otherwise </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_entity_8h_source.html#l00130">130</a> of file <a class="el" href="_entity_8h_source.html">Entity.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  130</span>                                    {</div>
+<div class="line"><span class="lineno">  131</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html#a59732238c6e696afb21692a6427a36e6">ecs</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator.html#a5aa06f9e5c8d53dfaa2cce1616eec531">hasComponent</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html#aad526556c81664132d3ff68dff806329">ID</a>, <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html#a59732238c6e696afb21692a6427a36e6">ecs</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator.html#a6efa8fa864d9eab4db6d85aba4657927">getComponentID</a>&lt;<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Component</a>&gt;());</div>
+<div class="line"><span class="lineno">  132</span>    }</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator_html_a5aa06f9e5c8d53dfaa2cce1616eec531"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator.html#a5aa06f9e5c8d53dfaa2cce1616eec531">GLESC::ECS::ECSCoordinator::hasComponent</a></div><div class="ttdeci">bool hasComponent(EntityID entity) const</div><div class="ttdoc">Check if an entity has a component, checking it's signature.</div><div class="ttdef"><b>Definition</b> <a href="_e_c_s_8h_source.html#l00301">ECS.h:301</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator_html_a6efa8fa864d9eab4db6d85aba4657927"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator.html#a6efa8fa864d9eab4db6d85aba4657927">GLESC::ECS::ECSCoordinator::getComponentID</a></div><div class="ttdeci">ComponentID getComponentID() const</div><div class="ttdoc">Get the ID of a component.</div><div class="ttdef"><b>Definition</b> <a href="_e_c_s_8h_source.html#l00281">ECS.h:281</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_entity_8h_source.html#l00108">ecs</a>, <a class="el" href="_e_c_s_8h_source.html#l00281">GLESC::ECS::ECSCoordinator::getComponentID()</a>, <a class="el" href="_e_c_s_8h_source.html#l00301">GLESC::ECS::ECSCoordinator::hasComponent()</a>, <a class="el" href="_entity_8h_source.html#l00106">ID</a>, and <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_a49f91266990cd9ae566c793684b0d447_cgraph.svg" width="100%" height="440"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="abadcf5fb781cafa3a9779091e210b96f" name="abadcf5fb781cafa3a9779091e210b96f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abadcf5fb781cafa3a9779091e210b96f">&#9670;&#160;</a></span>isAlive()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a> Entity::isAlive </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if the entity is alive (if the ID of the entity is valid) </p>
+
+<p class="definition">Definition at line <a class="el" href="_entity_8cpp_source.html#l00032">32</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   32</span>                           {</div>
+<div class="line"><span class="lineno">   33</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html#a59732238c6e696afb21692a6427a36e6">ecs</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator.html#a752199f3a60c3396f48873f904ec629e">isEntityAlive</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html#aad526556c81664132d3ff68dff806329">ID</a>);</div>
+<div class="line"><span class="lineno">   34</span>}</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator_html_a752199f3a60c3396f48873f904ec629e"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator.html#a752199f3a60c3396f48873f904ec629e">GLESC::ECS::ECSCoordinator::isEntityAlive</a></div><div class="ttdeci">bool isEntityAlive(EntityID entity) const</div><div class="ttdef"><b>Definition</b> <a href="_e_c_s_8cpp_source.html#l00163">ECS.cpp:163</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_entity_8h_source.html#l00108">ecs</a>, <a class="el" href="_entity_8h_source.html#l00106">ID</a>, and <a class="el" href="_e_c_s_8cpp_source.html#l00163">GLESC::ECS::ECSCoordinator::isEntityAlive()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_abadcf5fb781cafa3a9779091e210b96f_cgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a1ea00349d7b9b4eff7df34a75d2d64dd" name="a1ea00349d7b9b4eff7df34a75d2d64dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ea00349d7b9b4eff7df34a75d2d64dd">&#9670;&#160;</a></span>removeComponent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Component</a> &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html">Entity</a> &amp; GLESC::ECS::Entity::removeComponent </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Removes a component from the entity The entity signature is updated to reflect the removed component. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Component</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_entity_8h_source.html#l00119">119</a> of file <a class="el" href="_entity_8h_source.html">Entity.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  119</span>                                    {</div>
+<div class="line"><span class="lineno">  120</span>        <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html#a59732238c6e696afb21692a6427a36e6">ecs</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator.html#af2a3fb9a4f78b71f602de7f29bd7446f">removeComponent</a>&lt;<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Component</a>&gt;(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html#aad526556c81664132d3ff68dff806329">ID</a>);</div>
+<div class="line"><span class="lineno">  121</span>        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><span class="lineno">  122</span>    }</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator_html_af2a3fb9a4f78b71f602de7f29bd7446f"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator.html#af2a3fb9a4f78b71f602de7f29bd7446f">GLESC::ECS::ECSCoordinator::removeComponent</a></div><div class="ttdeci">void removeComponent(EntityID entity)</div><div class="ttdoc">Remove a component from an entity.</div><div class="ttdef"><b>Definition</b> <a href="_e_c_s_8h_source.html#l00262">ECS.h:262</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_entity_8h_source.html#l00108">ecs</a>, <a class="el" href="_entity_8h_source.html#l00106">ID</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_e_c_s_8h_source.html#l00262">GLESC::ECS::ECSCoordinator::removeComponent()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_a1ea00349d7b9b4eff7df34a75d2d64dd_cgraph.svg" width="100%" height="554"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Friends And Related Symbol Documentation</h2>
+<a id="a0431627fd9f9d731cc1bba31c9da7763" name="a0431627fd9f9d731cc1bba31c9da7763"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0431627fd9f9d731cc1bba31c9da7763">&#9670;&#160;</a></span>GLESC::ECS::EntityFactory</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">friend</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">class</a> <a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_factory.html">GLESC::ECS::EntityFactory</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The <a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_factory.html" title="The EntityFactory class is responsible for creating entity objects, this helps avoid the need to pass...">EntityFactory</a> class is a friend of the <a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html">Entity</a> class. </p>
+
+<p class="definition">Definition at line <a class="el" href="_entity_8h_source.html#l00025">25</a> of file <a class="el" href="_entity_8h_source.html">Entity.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a59732238c6e696afb21692a6427a36e6" name="a59732238c6e696afb21692a6427a36e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59732238c6e696afb21692a6427a36e6">&#9670;&#160;</a></span>ecs</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator.html">ECSCoordinator</a>&amp; GLESC::ECS::Entity::ecs</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_entity_8h_source.html#l00108">108</a> of file <a class="el" href="_entity_8h_source.html">Entity.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_entity_8h_source.html#l00113">addComponent()</a>, <a class="el" href="_entity_8cpp_source.html#l00024">destroy()</a>, <a class="el" href="_entity_8h_source.html#l00125">getComponent()</a>, <a class="el" href="_entity_8cpp_source.html#l00028">getName()</a>, <a class="el" href="_entity_8h_source.html#l00130">hasComponent()</a>, <a class="el" href="_entity_8cpp_source.html#l00032">isAlive()</a>, and <a class="el" href="_entity_8h_source.html#l00119">removeComponent()</a>.</p>
+
+</div>
+</div>
+<a id="aad526556c81664132d3ff68dff806329" name="aad526556c81664132d3ff68dff806329"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad526556c81664132d3ff68dff806329">&#9670;&#160;</a></span>ID</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a> GLESC::ECS::Entity::ID</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The entity's ID The ID is used to identify the entity in the <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html">ECS</a>. </p>
+
+<p class="definition">Definition at line <a class="el" href="_entity_8h_source.html#l00106">106</a> of file <a class="el" href="_entity_8h_source.html">Entity.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_entity_8h_source.html#l00113">addComponent()</a>, <a class="el" href="_entity_8cpp_source.html#l00024">destroy()</a>, <a class="el" href="_entity_8h_source.html#l00125">getComponent()</a>, <a class="el" href="_entity_8h_source.html#l00034">getID()</a>, <a class="el" href="_entity_8cpp_source.html#l00028">getName()</a>, <a class="el" href="_entity_8h_source.html#l00130">hasComponent()</a>, <a class="el" href="_entity_8cpp_source.html#l00032">isAlive()</a>, and <a class="el" href="_entity_8h_source.html#l00119">removeComponent()</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li><a class="el" href="_entity_8h_source.html">Entity.h</a></li>
+<li><a class="el" href="_entity_8cpp_source.html">Entity.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_g_l_e_s_c.html">GLESC</a></li><li class="navelem"><a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html">ECS</a></li><li class="navelem"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html">Entity</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

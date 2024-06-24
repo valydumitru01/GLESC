@@ -1,0 +1,35 @@
+<map id="GLESC::Math::VectorAlgorithms::vectorCopy" name="GLESC::Math::VectorAlgorithms::vectorCopy">
+<area shape="rect" id="Node000001" title=" " alt="" coords="1552,139,1762,181"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#ab36cd79dd250158c53ff31366014ba29" title="Copy constructor." alt="" coords="1324,5,1473,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1614,131,1562,96,1503,62,1472,50,1474,45,1505,58,1565,91,1617,127"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#a5c439f9d29f27650b07e74d4c1bf7817" title="Copy constructor." alt="" coords="1324,72,1473,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="1556,137,1473,115,1474,110,1557,132"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#aa8e2fb136942824db988e16dda34a893" title="Copy constructor for VectorData." alt="" coords="1324,139,1473,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="1536,163,1473,163,1473,157,1536,157"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#a0ac2336be4653468291125421bfb96ed" title="Homozenizes a vector." alt="" coords="1293,205,1504,248"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="1557,188,1485,207,1483,202,1556,183"/>
+<area shape="rect" id="Node000016" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#a3ce7afd2b16df9993c52db1af401b603" title="Copy assignment operator." alt="" coords="1324,272,1473,315"/>
+<area shape="poly" id="edge15_Node000001_Node000016" title=" " alt="" coords="1617,193,1565,229,1505,262,1474,275,1472,270,1503,258,1562,224,1614,189"/>
+<area shape="rect" id="Node000006" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#ae97c63da7362348a91413c64256df459" title="Homogenizes the vector." alt="" coords="1068,205,1216,248"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="1278,229,1217,229,1217,224,1278,224"/>
+<area shape="rect" id="Node000007" href="$class_g_l_e_s_c_1_1_transform_1_1_transformer.html#a0d20922989f21905e2113a48f4186c42" title="Transforms a position by a given matrix." alt="" coords="785,172,991,215"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="1052,218,991,209,992,204,1053,212"/>
+<area shape="rect" id="Node000014" href="$class_g_l_e_s_c_1_1_transform_1_1_transformer.html#a867084113e8ae0eaaf7473f9c1d0a80b" title="Transforms the world position to viewport coordinates." alt="" coords="785,272,991,315"/>
+<area shape="poly" id="edge13_Node000006_Node000014" title=" " alt="" coords="1053,253,973,274,971,269,1052,247"/>
+<area shape="rect" id="Node000008" href="$class_g_l_e_s_c_1_1_render_1_1_renderer.html#aa1a9e1d79bb96f79ee1e421dd245bbf1" title="This encapsulates the rendering of the lights, setting the uniforms." alt="" coords="546,88,721,131"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="807,169,736,145,701,134,703,129,738,140,809,164"/>
+<area shape="rect" id="Node000012" href="$class_g_l_e_s_c_1_1_transform_1_1_transformer.html#a179bf669dcc2ef0f72f369206f6f0f1d" title="Transforms a bounding volume by a given matrix matrix." alt="" coords="530,155,737,197"/>
+<area shape="poly" id="edge11_Node000007_Node000012" title=" " alt="" coords="769,188,737,186,737,180,769,183"/>
+<area shape="rect" id="Node000013" href="$class_g_l_e_s_c_1_1_transform_1_1_transformer.html#ac4210d1b111a51d877cbe9187cc057f1" title=" " alt="" coords="530,221,737,264"/>
+<area shape="poly" id="edge12_Node000007_Node000013" title=" " alt="" coords="770,219,738,225,737,220,769,214"/>
+<area shape="rect" id="Node000009" href="$class_g_l_e_s_c_1_1_render_1_1_renderer.html#a3244ebc15bf8310257ec613f62d00a33" title="This renders the frame." alt="" coords="308,88,482,131"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="531,112,483,112,483,107,531,107"/>
+<area shape="rect" id="Node000010" href="$class_g_l_e_s_c_1_1_engine.html#ab0a886855ca341089947b36b9c6f6e15" title="Processes the rendering of the game Can be called at variable intervals of time as it uses elapsed." alt="" coords="103,96,260,123"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="292,112,261,112,261,107,292,107"/>
+<area shape="rect" id="Node000011" href="$main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,96,55,123"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="87,112,55,112,55,107,87,107"/>
+<area shape="rect" id="Node000015" href="$class_g_l_e_s_c_1_1_h_u_d_1_1_debug_items.html#a071eef410cb7de5482dd9df35d468b68" title=" " alt="" coords="545,288,722,331"/>
+<area shape="poly" id="edge14_Node000014_Node000015" title=" " alt="" coords="769,303,723,306,722,301,769,298"/>
+<area shape="rect" id="Node000017" href="$struct_g_l_e_s_c_1_1_render_1_1_color_rgb_norm.html#aa37a423b2e1f2384830fcad1b961a10c" title=" " alt="" coords="1039,272,1245,315"/>
+<area shape="poly" id="edge16_Node000016_Node000017" title=" " alt="" coords="1309,296,1246,296,1246,291,1309,291"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="PolyhedronFactory::Common::rectangularCuboid" name="PolyhedronFactory::Common::rectangularCuboid">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,191,48"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a2faf49b75c093f68fad7ff9ab5d35510" title="Add a vertex to the polyhedron." alt="" coords="239,5,414,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="191,24,223,24,223,29,191,29"/>
+</map>

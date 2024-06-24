@@ -1,0 +1,21 @@
+<map id="GLESC::Render::ColorRgb::getRNormalized" name="GLESC::Render::ColorRgb::getRNormalized">
+<area shape="rect" id="Node000001" title=" " alt="" coords="1201,72,1377,115"/>
+<area shape="rect" id="Node000002" href="$struct_g_l_e_s_c_1_1_render_1_1_color_rgb.html#af0a993d6f6257b791729083f6b8e7ab3" title=" " alt="" coords="975,72,1153,115"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1186,96,1154,96,1154,91,1186,91"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_render_1_1_renderer.html#aa5273b3a3abbfed253e75ce5d7c2b73a" title="This encapsulates the application of the ambient light." alt="" coords="753,9,927,52"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="970,70,918,55,919,50,972,65"/>
+<area shape="rect" id="Node000008" href="$class_g_l_e_s_c_1_1_render_1_1_renderer.html#a8424374b350690f034c330a92393b182" title="This encapsulates the application of the material, setting all the uniforms of the material shader." alt="" coords="530,72,705,115"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="960,96,705,96,705,91,960,91"/>
+<area shape="rect" id="Node000009" href="$class_g_l_e_s_c_1_1_render_1_1_renderer.html#aa1a9e1d79bb96f79ee1e421dd245bbf1" title="This encapsulates the rendering of the lights, setting the uniforms." alt="" coords="753,131,927,173"/>
+<area shape="poly" id="edge9_Node000002_Node000009" title=" " alt="" coords="966,122,925,133,923,127,965,117"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_render_1_1_renderer.html#a41c9fb0bfbc6f92e90010a667652d027" title="This encapsulates the application of the sun, setting the uniforms." alt="" coords="530,5,705,48"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="737,31,705,31,705,26,737,26"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_render_1_1_renderer.html#a3244ebc15bf8310257ec613f62d00a33" title="This renders the frame." alt="" coords="308,72,482,115"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="531,55,470,74,468,69,529,50"/>
+<area shape="rect" id="Node000006" href="$class_g_l_e_s_c_1_1_engine.html#ab0a886855ca341089947b36b9c6f6e15" title="Processes the rendering of the game Can be called at variable intervals of time as it uses elapsed." alt="" coords="103,80,260,107"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="292,96,261,96,261,91,292,91"/>
+<area shape="rect" id="Node000007" href="$main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,80,55,107"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="87,96,55,96,55,91,87,91"/>
+<area shape="poly" id="edge8_Node000008_Node000005" title=" " alt="" coords="515,96,483,96,483,91,515,91"/>
+<area shape="poly" id="edge10_Node000009_Node000005" title=" " alt="" coords="737,150,637,143,530,129,475,118,476,113,531,124,637,138,738,145"/>
+</map>

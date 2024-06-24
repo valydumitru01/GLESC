@@ -1,0 +1,9 @@
+<map id="getTextureBitDepth" name="getTextureBitDepth">
+<area shape="rect" id="Node000001" title=" " alt="" coords="406,43,538,69"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_render_1_1_texture.html#a383842edfec57406497b503aa45956b4" title=" " alt="" coords="193,5,358,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="390,46,358,42,359,36,391,41"/>
+<area shape="rect" id="Node000003" href="$class_cubemap.html#abc04a2e84f22090e7a268343398e9a38" title=" " alt="" coords="221,72,330,99"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="391,71,330,80,329,75,390,65"/>
+<area shape="rect" id="Node000004" href="$class_cubemap.html#a2e27cdb50f45b084140bba7f850058e2" title=" " alt="" coords="5,72,145,99"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="205,88,145,88,145,83,205,83"/>
+</map>

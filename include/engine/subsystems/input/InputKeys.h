@@ -1,8 +1,12 @@
-/*******************************************************************************
+/**************************************************************************************************
+ * @file   InputKeys.h
+ * @author Valentin Dumitru
+ * @date   2024-04-17
+ * @brief  @TODO Add description of this file if needed
  *
- * Copyright (c) 2023.
- * Licensed under the MIT License. See LICENSE.txt in the project root for license information.
- ******************************************************************************/
+ * Copyright (c) 2024 Valentin Dumitru. Licensed under the MIT License.
+ * See LICENSE.txt in the project root for license information.
+ **************************************************************************************************/
 
 #pragma once
 
@@ -10,13 +14,21 @@
 #include "SDL2/SDL_mouse.h"
 
 namespace GLESC::Input {
-    
+    /**
+     * @brief Enum for the different actions a key can have.
+     * @details This is used to determine the action that should be taken when a key is pressed.
+     */
     enum class KeyAction {
         ONCE_RELEASED,
         ONCE_PRESSED,
         ONGOING_PRESSED,
         ONGOING_RELEASED,
     };
+
+    /**
+     * @brief Mapping of keys to SDL keycodes.
+     * @details This ensures the input subsystem of the engine is independent of the SDL library.
+     */
     enum class Key {
         LEFT_CLICK = SDL_BUTTON_LEFT,
         RIGHT_CLICK = SDL_BUTTON_RIGHT,

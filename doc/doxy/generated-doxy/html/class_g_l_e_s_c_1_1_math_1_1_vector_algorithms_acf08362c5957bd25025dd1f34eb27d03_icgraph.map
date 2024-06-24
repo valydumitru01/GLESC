@@ -1,0 +1,7 @@
+<map id="GLESC::Math::VectorAlgorithms::vectorScalarAdd" name="GLESC::Math::VectorAlgorithms::vectorScalarAdd">
+<area shape="rect" id="Node000001" title="Add a scalar to a vector." alt="" coords="202,39,412,81"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#a6cdca9dddb37af839a4bbbc2a9e0b80c" title="Overloads the &#39;+&#39; operator for scalar addition." alt="" coords="5,5,154,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="186,45,154,40,155,35,187,40"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#a63bb687fc9c169a9987d31830669b397" title="In&#45;place addition with a scalar." alt="" coords="5,72,154,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="187,80,155,85,154,80,186,75"/>
+</map>

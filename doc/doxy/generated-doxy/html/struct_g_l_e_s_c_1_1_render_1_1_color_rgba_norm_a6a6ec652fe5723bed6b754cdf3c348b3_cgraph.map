@@ -1,0 +1,16 @@
+<map id="GLESC::Render::ColorRgbaNorm::operator=" name="GLESC::Render::ColorRgbaNorm::operator=">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,105,188,148"/>
+<area shape="rect" id="Node000002" href="$struct_g_l_e_s_c_1_1_render_1_1_color_rgba.html#af2b4b8170aa22c13c48586eeae4d6056" title=" " alt="" coords="236,5,418,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="139,102,235,58,249,52,251,56,237,62,141,107"/>
+<area shape="rect" id="Node000004" href="$struct_g_l_e_s_c_1_1_render_1_1_color_rgba.html#a935d58b809245ada2a45360320a4527a" title=" " alt="" coords="236,72,418,115"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="187,111,220,106,220,111,188,116"/>
+<area shape="rect" id="Node000005" href="$struct_g_l_e_s_c_1_1_render_1_1_color_rgba.html#a9b819ff3fb0b92306a917fb728047704" title=" " alt="" coords="236,139,418,181"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="188,137,220,142,220,147,187,142"/>
+<area shape="rect" id="Node000006" href="$struct_g_l_e_s_c_1_1_render_1_1_color_rgba.html#ad9bb79e3a2a2afd95bd0e6df95fb2ec2" title=" " alt="" coords="236,205,418,248"/>
+<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="141,146,237,191,251,197,249,202,235,196,139,151"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_render_1_1_color_funcs.html#a4415bd4e262b54a2d95185ffee1c3eef" title="Normalizes a color to be between 0 and 1." alt="" coords="466,105,654,148"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="390,46,419,58,503,96,501,101,417,62,388,51"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="418,104,451,108,450,114,418,109"/>
+<area shape="poly" id="edge6_Node000005_Node000003" title=" " alt="" coords="418,144,450,140,451,145,418,150"/>
+<area shape="poly" id="edge8_Node000006_Node000003" title=" " alt="" coords="388,202,417,191,501,153,503,157,419,196,390,207"/>
+</map>

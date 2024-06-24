@@ -1,0 +1,35 @@
+<map id="GLESC::Math::min" name="GLESC::Math::min">
+<area shape="rect" id="Node000001" title="Calculates the min of two values." alt="" coords="716,240,848,267"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#a0d01fd26f33f057c5f63239124076f68" title="Construct a new Bounding Volume object." alt="" coords="460,13,668,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="767,227,730,153,701,112,667,77,638,59,640,54,670,73,705,109,734,150,772,224"/>
+<area shape="rect" id="Node000003" href="$namespace_g_l_e_s_c_1_1_math.html#ae9816249dbbdbb7c7affd0c3be77b8e2" title="Clamps a value between a minimum and maximum value." alt="" coords="492,131,637,157"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="751,233,712,205,667,178,620,160,622,155,669,174,715,200,754,228"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#ac725a821c1720b206c7e6b75390be67c" title=" " alt="" coords="202,5,412,48"/>
+<area shape="poly" id="edge10_Node000001_Node000004" title=" " alt="" coords="763,228,724,173,697,145,667,121,614,95,568,86,520,82,459,71,387,51,388,46,461,65,520,76,569,81,615,90,670,116,701,141,728,169,768,225"/>
+<area shape="rect" id="Node000006" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#a2b9416063831799aab10b6c3ba3ec074" title=" " alt="" coords="202,240,412,283"/>
+<area shape="poly" id="edge11_Node000001_Node000006" title=" " alt="" coords="729,237,668,223,610,215,564,213,460,223,374,242,373,237,460,217,564,208,610,210,669,217,730,232"/>
+<area shape="rect" id="Node000011" href="$namespace_g_l_e_s_c_1_1_math.html#a1c2f921dd6152a0f6dde2d36190f4809" title="Generates a compile time random number between min and max, specifically [min, max)" alt="" coords="461,232,668,275"/>
+<area shape="poly" id="edge12_Node000001_Node000011" title=" " alt="" coords="701,256,668,256,668,251,701,251"/>
+<area shape="rect" id="Node000012" href="$namespace_g_l_e_s_c_1_1_math.html#a514c8fd84566d9ba2d7b741cb7f7374f" title="Generates a random number between min and max, specifically [min, max)" alt="" coords="460,299,668,341"/>
+<area shape="poly" id="edge13_Node000001_Node000012" title=" " alt="" coords="722,274,637,301,636,295,720,269"/>
+<area shape="rect" id="Node000013" href="$struct_g_l_e_s_c_1_1_transform_1_1_interpolator.html#ac421b853892d9700f61a4f55d6f5582e" title="Interpolates between the current and the last transform." alt="" coords="463,365,665,408"/>
+<area shape="poly" id="edge14_Node000001_Node000013" title=" " alt="" coords="761,280,721,319,670,356,646,367,643,362,667,351,717,314,757,276"/>
+<area shape="rect" id="Node000014" href="$class_g_l_e_s_c_1_1_math_1_1_polyhedron_face.html#a958817b02687286fe25e69e874f3cecd" title="Checks if the current face intersects with the given face." alt="" coords="462,432,666,475"/>
+<area shape="poly" id="edge15_Node000001_Node000014" title=" " alt="" coords="771,283,733,352,704,390,670,422,651,434,648,429,667,418,700,386,728,349,767,280"/>
+<area shape="rect" id="Node000016" href="$class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#acde54378eb86d972d399a347c0a83e79" title="Set the volume of the bounding volume." alt="" coords="460,499,668,541"/>
+<area shape="poly" id="edge17_Node000001_Node000016" title=" " alt="" coords="777,282,765,327,743,383,712,439,693,466,670,489,654,500,651,496,667,485,689,462,708,437,739,380,760,326,772,281"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="484,127,459,114,443,101,434,88,425,75,410,62,389,51,392,46,414,58,429,71,438,85,447,97,461,110,487,122"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="487,166,461,178,447,191,438,203,429,217,414,230,392,242,389,237,410,226,425,213,434,200,443,187,459,174,484,161"/>
+<area shape="rect" id="Node000008" href="$class_default.html#a6e26da3ebf533b0f5d45266cd0ce9082" title="Initializes the scene. Must be implemented by the derived class." alt="" coords="264,72,350,99"/>
+<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="487,129,350,98,351,93,488,124"/>
+<area shape="rect" id="Node000009" href="$class_g_l_e_s_c_1_1_math_1_1_sphere.html#a375b95d18510299f26b1bb69d5f28116" title="Checks if the sphere intersects with an edge defined by two points." alt="" coords="231,123,383,165"/>
+<area shape="poly" id="edge8_Node000003_Node000009" title=" " alt="" coords="476,147,383,147,383,141,476,141"/>
+<area shape="rect" id="Node000010" href="$namespace_g_l_e_s_c_1_1_math.html#a9e9a2867723e2295b6656692b14e9e18" title="Remaps a value from one range to another, including support for reverse mapping." alt="" coords="234,189,380,216"/>
+<area shape="poly" id="edge9_Node000003_Node000010" title=" " alt="" coords="488,164,369,191,368,186,487,159"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#ae661d92e2842daa76f97ae80c76c0248" title="Clamps the vector to a given range." alt="" coords="5,5,154,48"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="186,29,154,29,154,24,186,24"/>
+<area shape="rect" id="Node000007" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#ae68049a5b68edf8771dcf22d2c30edd0" title="Clamps the vector to a given range." alt="" coords="5,240,154,283"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="186,264,154,264,154,259,186,259"/>
+<area shape="rect" id="Node000015" href="$class_g_l_e_s_c_1_1_math_1_1_polyhedron_face.html#acda5c36a9dc475202153436369828d53" title="Checks if the face intersects with a given line." alt="" coords="205,432,409,475"/>
+<area shape="poly" id="edge16_Node000014_Node000015" title=" " alt="" coords="446,456,410,456,410,451,446,451"/>
+</map>

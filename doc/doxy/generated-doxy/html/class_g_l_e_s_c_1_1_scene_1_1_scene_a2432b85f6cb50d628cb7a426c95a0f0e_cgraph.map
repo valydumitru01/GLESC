@@ -1,0 +1,5 @@
+<map id="GLESC::Scene::Scene::getSceneTimeMillis" name="GLESC::Scene::Scene::getSceneTimeMillis">
+<area shape="rect" id="Node000001" title="Gets the scene time in milliseconds." alt="" coords="5,5,161,48"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_timer.html#aea1134ef55fead90e70e537b189ccf57" title="Get the current time in milliseconds relative to the start time." alt="" coords="209,13,410,40"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="161,24,193,24,193,29,161,29"/>
+</map>

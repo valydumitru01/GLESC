@@ -1,0 +1,7 @@
+<map id="GLESC::Render::MeshFactory::cuboid" name="GLESC::Render::MeshFactory::cuboid">
+<area shape="rect" id="Node000001" title="Creates a cuboid mesh given a width, height, depth and a color." alt="" coords="386,5,584,48"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_render_1_1_mesh_factory.html#a4b07130768fe0a8e6720aa0550a7b5dd" title="Creates a cube mesh given a color and a radius." alt="" coords="140,5,338,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="370,29,339,29,339,24,370,24"/>
+<area shape="rect" id="Node000003" href="$class_default.html#a6e26da3ebf533b0f5d45266cd0ce9082" title="Initializes the scene. Must be implemented by the derived class." alt="" coords="5,13,92,40"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="124,29,92,29,92,24,124,24"/>
+</map>

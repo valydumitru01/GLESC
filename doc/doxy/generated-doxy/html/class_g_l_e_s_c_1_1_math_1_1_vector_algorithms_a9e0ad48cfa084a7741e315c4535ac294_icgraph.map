@@ -1,0 +1,7 @@
+<map id="GLESC::Math::VectorAlgorithms::vectorScalarSub" name="GLESC::Math::VectorAlgorithms::vectorScalarSub">
+<area shape="rect" id="Node000001" title="Subtracts a scalar from a vector." alt="" coords="202,39,412,81"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#a4af393f3c2a49b31865e71752d34abdd" title="Overloads the &#39;&#45;&#39; operator for scalar subtraction." alt="" coords="5,5,154,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="186,45,154,40,155,35,187,40"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#abe3d4276bcb4f8d78bbcb62bcc83482e" title="In&#45;place subtraction with a scalar." alt="" coords="5,72,154,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="187,80,155,85,154,80,186,75"/>
+</map>

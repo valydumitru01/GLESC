@@ -1,0 +1,11 @@
+<map id="Cubemap::Cubemap" name="Cubemap::Cubemap">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,56,145,83"/>
+<area shape="rect" id="Node000002" href="$class_cubemap.html#abc04a2e84f22090e7a268343398e9a38" title=" " alt="" coords="193,56,301,83"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="145,67,177,67,177,72,145,72"/>
+<area shape="rect" id="Node000003" href="$_gapi_8h.html#ab7514d88e65656ffa15ca33256518fe5" title="Returns the graphic API used by the engine." alt="" coords="390,5,460,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="296,53,374,30,375,35,297,58"/>
+<area shape="rect" id="Node000004" href="$_texture_adapter_8h.html#a57abcbbb65504dda9db17f4e8074ddb9" title=" " alt="" coords="359,56,491,83"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="301,67,343,67,343,72,301,72"/>
+<area shape="rect" id="Node000005" href="$_texture_adapter_8h.html#af8df9c072d5a12970464e59e90e63707" title=" " alt="" coords="349,107,500,133"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="297,81,362,99,360,105,296,86"/>
+</map>

@@ -2,7 +2,7 @@
  * @file   EngineComponent.h
  * @author Valentin Dumitru
  * @date   05/06/2024
- * @brief  Add description of this file if needed @TODO
+ * @brief  @TODO Add description of this file if needed
  *
  * Copyright (c) 2023 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
@@ -28,21 +28,46 @@ public:
 #ifndef NDEBUG_GLESC
     /**
      * @brief Set the owner name of the component for debugging purposes
+     * @details Having the owener associated with the component is specially useful when debugging, as it allows
+     * to know which entity the component belongs to no matter the context of debugging.
      * @param ownerName The name of the owner entity
      */
     void setOwnerName(const char* ownerName) {
         entityOwnerName = ownerName;
     }
 
+    /**
+     * @brief Get the owner name of the component for debugging purposes
+     * @details Having the owener associated with the component is specially useful when debugging, as it allows
+     * to know which entity the component belongs to no matter the context of debugging.
+     * @return The name of the owner entity
+     */
     [[nodiscard]] const char* getOwnerName() const {
         D_ASSERT_NOT_NULLPTR(entityOwnerName, "Owner name not set for EngineComponent");
         return entityOwnerName;
     }
 
+    /**
+     * @brief Get the debugging values of the component
+     * @details This function can be overriden by the derived class to return the debugging values of the component
+     * It starts as an empty vector, so that the components that accumulates all the debugging values can add the
+     * debugging values of the component even if the component does not have any debugging values (adding an empty
+     * array)
+     * @return A vector of debugging values
+     */
     [[nodiscard]] virtual std::vector<EntityStatsManager::Value> getDebuggingValues() {
         return {};
     }
 
+    /**
+     * @brief Get the updated debugging values of the component
+     * @details This function can be overriden by the derived class to return the updated debugging values of the
+     * component
+     * It starts as an empty vector, so that the components that accumulates all the debugging values can add the
+     * debugging values of the component even if the component does not have any debugging values (adding an empty
+     * array)
+     * @return A vector of debugging values
+     */
     [[nodiscard]] virtual std::vector<EntityStatsManager::Value> getUpdatedDebuggingValues() {
         return {};
     }

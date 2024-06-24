@@ -1,0 +1,19 @@
+<map id="GLESC::EngineCamera::rotate" name="GLESC::EngineCamera::rotate">
+<area shape="rect" id="Node000001" title="Rotates the camera based on the mouse movement." alt="" coords="5,56,164,99"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_render_1_1_intensity.html#a53940c748518c99fc3f50b5fa2d7e31a" title=" " alt="" coords="212,5,409,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="163,54,211,41,240,34,241,39,212,47,165,59"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html#a14143b00be0701d787f043955c449e22" title="Returns a reference to the component." alt="" coords="239,56,382,99"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="164,75,224,75,224,80,164,80"/>
+<area shape="rect" id="Node000009" href="$class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a7d49f885da5aee9871965a2e5c814608" title="Gets whether the mouse is relative or not." alt="" coords="217,123,404,165"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="160,97,221,115,220,120,158,102"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator.html#a70c1d7a354e40af5426372cb3daaaaf1" title="Get the component of an entity by its Id." alt="" coords="457,56,658,99"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="382,75,442,75,442,80,382,80"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a5145504091eb26170aa219acb60aca71" title="Check if the entity with the given name exists." alt="" coords="722,23,915,65"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="658,62,706,56,707,61,659,67"/>
+<area shape="rect" id="Node000006" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_component_manager.html#ac63a277ed5aed0640e808f20480d01a1" title="Get the component of an entity by its ID." alt="" coords="706,89,931,132"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="659,88,691,92,691,97,658,93"/>
+<area shape="rect" id="Node000007" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_component_manager.html#ab06d3e4aecbf882b3f75fa4943f561f2" title="Get the name of a component by its ID." alt="" coords="979,89,1203,132"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="931,108,963,108,963,113,931,113"/>
+<area shape="rect" id="Node000008" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_component_manager.html#af4b8c65d69d17052413005a7402bf116" title="Check if a component is registered." alt="" coords="1251,89,1475,132"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="1203,108,1235,108,1235,113,1203,113"/>
+</map>

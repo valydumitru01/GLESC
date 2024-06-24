@@ -1,0 +1,16 @@
+<map id="GLESC::Math::VectorAlgorithms::areParallel" name="GLESC::Math::VectorAlgorithms::areParallel">
+<area shape="rect" id="Node000001" title="Checks if two vectors are parallel." alt="" coords="5,73,216,116"/>
+<area shape="rect" id="Node000002" href="$namespace_g_l_e_s_c_1_1_math.html#a04db3782a0754ba2d22eb5d159dd681c" title="Calculates the absolute value of a number." alt="" coords="303,5,435,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="173,70,263,41,292,34,293,39,264,47,174,75"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#ae45bcff9b53fb60d513c53823418d97b" title="Computes the dot product of two vectors." alt="" coords="522,103,732,145"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="216,98,507,115,506,120,216,103"/>
+<area shape="rect" id="Node000004" href="$namespace_g_l_e_s_c_1_1_math.html#aee25910dbba06d09d9df14d03933ace1" title="Compares two values for equality." alt="" coords="307,56,431,83"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="216,82,291,74,292,80,216,87"/>
+<area shape="rect" id="Node000006" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#a96acaa670e780132720dd3ea6a6cdf97" title="Computes the length of a vector." alt="" coords="264,157,474,200"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="179,114,287,149,285,155,178,119"/>
+<area shape="rect" id="Node000005" href="$namespace_g_l_e_s_c_1_1_math.html#acd429163efe906cd22916cc75ccb2421" title="Epsilon getter with precision of a given template type." alt="" coords="552,52,703,79"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="431,66,536,64,536,69,431,71"/>
+<area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="472,154,508,147,509,152,474,159"/>
+<area shape="rect" id="Node000007" href="$namespace_g_l_e_s_c_1_1_math.html#ab2316a2512c43c18e29709201adf3fe5" title="Calculates the square root of a value." alt="" coords="561,169,693,196"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="475,178,546,179,545,184,474,183"/>
+</map>

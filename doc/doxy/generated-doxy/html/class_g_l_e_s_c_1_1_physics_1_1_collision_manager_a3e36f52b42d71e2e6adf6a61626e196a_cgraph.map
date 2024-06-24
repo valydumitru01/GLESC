@@ -1,0 +1,42 @@
+<map id="GLESC::Physics::CollisionManager::checkAndUpdateColliderInformation" name="GLESC::Physics::CollisionManager::checkAndUpdateColliderInformation">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,164,227,223"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_physics_1_1_collision_information.html#a0367ec2e690b08c8eda59528b6ff2e50" title=" " alt="" coords="281,5,464,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="144,162,201,109,236,82,273,58,283,53,286,57,276,62,239,86,204,113,147,166"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_physics_1_1_collider.html#a9c1db7727e33aef995260c528bd4a7e9" title=" " alt="" coords="287,72,458,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="184,161,274,124,290,118,292,123,276,129,186,166"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_physics_1_1_collider.html#a2b2f681446d7235b9d4741b1afbde44e" title=" " alt="" coords="287,139,458,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="227,176,271,170,272,176,227,182"/>
+<area shape="rect" id="Node000005" href="$struct_g_l_e_s_c_1_1_transform_1_1_transform.html#acd47a4a0a26749ef03c731a2d9d6a548" title=" " alt="" coords="275,205,470,248"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="227,205,260,209,259,215,227,210"/>
+<area shape="rect" id="Node000006" href="$_collision_manager_8cpp.html#a2ac513f9f1089540fb3395b6ab92baee" title=" " alt="" coords="564,272,653,299"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="176,221,224,241,275,257,348,271,421,279,548,284,548,289,421,284,347,276,274,263,222,246,174,226"/>
+<area shape="rect" id="Node000016" href="$class_g_l_e_s_c_1_1_physics_1_1_collision_manager.html#a27c5c28ac5363d15ea2f149fa618bb4f" title=" " alt="" coords="284,323,461,365"/>
+<area shape="poly" id="edge17_Node000001_Node000016" title=" " alt="" coords="156,221,211,261,276,302,300,314,297,318,273,306,209,266,153,225"/>
+<area shape="rect" id="Node000007" href="$class_g_l_e_s_c_1_1_physics_1_1_collider.html#a351f1d6ebe2a4ec8a9e7983260aff2b6" title=" " alt="" coords="764,152,935,195"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="629,269,681,237,745,204,760,198,762,203,747,209,684,242,632,274"/>
+<area shape="rect" id="Node000008" href="$struct_g_l_e_s_c_1_1_transform_1_1_transform.html#ab5c793c8be8f8f620a52a9e4a7edaf11" title="Returns the translation matrix of the transform." alt="" coords="752,219,947,261"/>
+<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="653,274,736,259,737,264,654,280"/>
+<area shape="rect" id="Node000010" href="$class_g_l_e_s_c_1_1_transform_1_1_transformer.html#ab1d19df9ad6722b545c0e3e0953c1edf" title="Transforms a bounding volume by a given transform." alt="" coords="746,309,953,352"/>
+<area shape="poly" id="edge9_Node000006_Node000010" title=" " alt="" coords="654,291,731,306,730,311,653,296"/>
+<area shape="rect" id="Node000009" href="$class_g_l_e_s_c_1_1_math_1_1_matrix.html#a5400caec6945b9587b621ac84e9f3714" title="Creates a translation matrix from the given position vector." alt="" coords="1018,219,1179,261"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="948,237,1003,237,1003,243,948,243"/>
+<area shape="poly" id="edge16_Node000010_Node000010" title=" " alt="" coords="804,309,802,299,810,290,826,285,850,283,875,285,891,291,889,296,874,290,849,288,827,290,813,295,807,301,809,308"/>
+<area shape="rect" id="Node000011" href="$struct_g_l_e_s_c_1_1_transform_1_1_transform.html#ace5eaadaa06308bac65203f413c3cb0c" title="Returns the model matrix of the transform." alt="" coords="1001,309,1196,352"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="953,328,985,328,985,333,953,333"/>
+<area shape="rect" id="Node000012" href="$class_g_l_e_s_c_1_1_math_1_1_matrix.html#a48f4279b33b5ca7cd12b424ff5fbf1a3" title="Creates a model matrix from the given position, rotation and scale vectors." alt="" coords="1245,276,1391,319"/>
+<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="1196,313,1229,308,1230,313,1197,318"/>
+<area shape="rect" id="Node000013" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#a058dd167ea8c84edda5fdeccdeebd5d5" title="Converts the vector to radians." alt="" coords="1244,343,1392,385"/>
+<area shape="poly" id="edge12_Node000011_Node000013" title=" " alt="" coords="1197,343,1229,348,1228,353,1196,348"/>
+<area shape="rect" id="Node000014" href="$namespace_g_l_e_s_c_1_1_math.html#a980ed967f85bef4bb539c9701701a877" title="Converts degrees to radians." alt="" coords="1440,351,1593,377"/>
+<area shape="poly" id="edge13_Node000013_Node000014" title=" " alt="" coords="1393,361,1425,361,1425,367,1393,367"/>
+<area shape="rect" id="Node000015" href="$namespace_g_l_e_s_c_1_1_math.html#a69598a72ef2c06e1caba0ea9613d65e6" title="Converts radians to degrees." alt="" coords="1641,351,1797,377"/>
+<area shape="poly" id="edge14_Node000014_Node000015" title=" " alt="" coords="1593,370,1626,370,1625,376,1593,375"/>
+<area shape="poly" id="edge15_Node000015_Node000014" title=" " alt="" coords="1641,358,1608,358,1608,352,1641,353"/>
+<area shape="poly" id="edge21_Node000016_Node000006" title=" " alt="" coords="460,320,548,297,549,303,461,325"/>
+<area shape="rect" id="Node000017" href="$namespace_g_l_e_s_c_1_1_math.html#aee25910dbba06d09d9df14d03933ace1" title="Compares two values for equality." alt="" coords="546,331,670,357"/>
+<area shape="poly" id="edge18_Node000016_Node000017" title=" " alt="" coords="461,341,530,341,530,347,461,347"/>
+<area shape="rect" id="Node000019" href="$class_g_l_e_s_c_1_1_physics_1_1_collision_manager.html#a08b533dc5dcfccae52648f2b7fa0c9b4" title=" " alt="" coords="518,381,698,424"/>
+<area shape="poly" id="edge20_Node000016_Node000019" title=" " alt="" coords="461,363,506,374,504,380,460,368"/>
+<area shape="rect" id="Node000018" href="$namespace_g_l_e_s_c_1_1_math.html#acd429163efe906cd22916cc75ccb2421" title="Epsilon getter with precision of a given template type." alt="" coords="774,376,925,403"/>
+<area shape="poly" id="edge19_Node000017_Node000018" title=" " alt="" coords="671,353,760,370,759,375,670,358"/>
+</map>

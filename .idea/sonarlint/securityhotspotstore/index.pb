@@ -15,8 +15,6 @@ g
 7include/engine/ecs/backend/component/ComponentManager.h,5\d\5d7c2d7812eb3f2b0966e330b10598b64e84d7c8
 h
 8include/engine/subsystems/input/debugger/InputDebugger.h,7\0\70425d7646cfd1b251ac127f4499f891ca8b2d78
-z
-Jinclude/engine/core/exceptions/core/low-level-renderer/GAPIInitException.h,0\3\03a7509f8fc463b7257157324d44882be3594fa7
 X
 (src/engine/subsystems/hud/HUDManager.cpp,a\d\ade15bade43e0f2e3e30908cf71dbade026d3130
 Z
@@ -33,8 +31,6 @@ F
 include/engine/GLESC.h,6\4\64364379a69d5b4c939af328ec4ff66d13b7fef9
 W
 'include/engine/core/debugger/Debugger.h,d\0\d0c0a520391af322d0292a638913289e86dfcd33
-`
-0include/engine/core/math/debugger/MathDebugger.h,6\2\6290e267af2680f6decff9eb6621017485d38e27
 l
 <include/engine/core/low-level-renderer/asserts/GAPIAsserts.h,b\3\b395799a207004d63ea22ce19d5d9d1efc2e88e1
 C

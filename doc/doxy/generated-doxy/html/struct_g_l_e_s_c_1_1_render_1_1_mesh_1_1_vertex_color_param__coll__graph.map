@@ -1,0 +1,9 @@
+<map id="GLESC::Render::Mesh&lt; VertexT &gt;::VertexColorParam" name="GLESC::Render::Mesh&lt; VertexT &gt;::VertexColorParam">
+<area shape="rect" id="Node000001" title="Struct with only color and position vertex." alt="" coords="21,699,217,784"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html" title=" " alt="" coords="5,336,145,635"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="104,634,112,682,107,683,98,635"/>
+<area shape="rect" id="Node000003" href="$struct_g_l_e_s_c_1_1_render_1_1_color_rgba.html" title="Color in RGBA values (x = [0] = R, y = [1] = G, z = [2] = B, w = [3] = A)" alt="" coords="170,344,343,627"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="199,628,172,676,166,686,161,684,168,673,194,625"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html" title=" " alt="" coords="203,5,311,288"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="259,303,259,344,254,344,254,303"/>
+</map>

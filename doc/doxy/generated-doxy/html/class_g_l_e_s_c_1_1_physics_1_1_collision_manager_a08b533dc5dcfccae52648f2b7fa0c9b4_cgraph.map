@@ -1,0 +1,16 @@
+<map id="GLESC::Physics::CollisionManager::getCollisionDepth" name="GLESC::Physics::CollisionManager::getCollisionDepth">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,115,186,157"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#a9b3fd07a8c1e26540af28d36450bcb82" title="Get the minimum point of the bounding volume." alt="" coords="234,5,442,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="136,112,233,64,262,52,264,57,235,69,138,117"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#a2641be423d1cbbe4654f30ad8ac671a1" title="Returns the x (first) value of the vector." alt="" coords="490,69,638,112"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="186,125,474,97,475,102,186,130"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#a26f58d2d5f126f43869c96a2f2b0d64a" title="Returns the y (second) value of the vector." alt="" coords="490,140,638,183"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="186,138,475,154,474,159,186,144"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#a8a188bb5d89dc318ea1867de5dc43c87" title="Returns the z (third) value of the vector." alt="" coords="490,215,638,257"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="121,155,171,194,202,212,234,225,295,240,358,246,419,247,474,244,474,250,419,253,358,252,294,245,233,231,199,217,168,198,118,160"/>
+<area shape="rect" id="Node000006" href="$class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#a12cfae8beb38d7f3ea1948f5bf8a2951" title="Get the intersection volume of the bounding volume with another bounding volume." alt="" coords="234,173,442,216"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="187,155,233,167,232,172,185,160"/>
+<area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="385,170,501,116,503,121,387,175"/>
+<area shape="poly" id="edge7_Node000006_Node000004" title=" " alt="" coords="442,177,475,172,475,177,443,182"/>
+<area shape="poly" id="edge8_Node000006_Node000005" title=" " alt="" coords="443,211,476,217,475,222,442,216"/>
+</map>

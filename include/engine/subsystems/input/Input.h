@@ -2,7 +2,7 @@
  * @file   Input.h
  * @author Valentin Dumitru
  * @date   15/05/2024
- * @brief  Add description of this file if needed @TODO
+ * @brief  @TODO Add description of this file if needed
  *
  * Copyright (c) 2023 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
@@ -15,6 +15,12 @@
 #include "engine/subsystems/ingame-debug/EntityStatsManager.h"
 
 namespace GLESC::Input {
+    /**
+     * @brief Class that stores the input from the user
+     * @details This is a entity component that stores all the input subscriptions to keys and the mouse movement.
+     * @details The benefits of this class is that we can store directly the commands with their functions that will be
+     * executed when the input condition is met.
+     */
     class Input {
     public:
         [[nodiscard]] std::string toString() const;

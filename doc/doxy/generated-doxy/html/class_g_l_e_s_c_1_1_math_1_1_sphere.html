@@ -1,0 +1,658 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="Doxygen Awesome" />
+<meta property="og:image" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+<meta property="og:description" content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
+<meta property="og:url" content="https://jothepro.github.io/doxygen-awesome-css/" />
+<!-- END opengraph metadata -->
+<!-- BEGIN twitter metadata -->
+<meta name="twitter:image:src" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+<meta name="twitter:title" content="Doxygen Awesome" />
+<meta name="twitter:description" content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
+<!-- END twitter metadata -->
+<title>GLESC: GLESC::Math::Sphere Class Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.drawio.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/ -->
+<a href="https://github.com/jothepro/doxygen-awesome-css" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="GLESC_logo_white_background.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">GLESC
+   &#160;<span id="projectnumber">1</span>
+   </div>
+   <div id="projectbrief">Game engine using ECS architecture</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('class_g_l_e_s_c_1_1_math_1_1_sphere.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="class_g_l_e_s_c_1_1_math_1_1_sphere-members.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">GLESC::Math::Sphere Class Reference</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_sphere_8h_source.html">Sphere.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for GLESC::Math::Sphere:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_math_1_1_sphere__inherit__graph.svg" width="154" height="454"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Collaboration diagram for GLESC::Math::Sphere:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_math_1_1_sphere__coll__graph.svg" width="312" height="571"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a60a90d68ee87eb4e1f7ad432f55600c9" id="r_a60a90d68ee87eb4e1f7ad432f55600c9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_math_1_1_sphere.html#a60a90d68ee87eb4e1f7ad432f55600c9">Sphere</a> (<a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a1ea271525883f12774755d7d62bea7ac">Point</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">centerParam</a>, <a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a41c67586ad532e578bb839ad5067d3ac">Distance</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">radiusParam</a>)</td></tr>
+<tr class="memdesc:a60a90d68ee87eb4e1f7ad432f55600c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a sphere with the given center and radius.  <br /></td></tr>
+<tr class="separator:a60a90d68ee87eb4e1f7ad432f55600c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af57e36ca525f974ffbf5bb25f041a3b0" id="r_af57e36ca525f974ffbf5bb25f041a3b0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_math_1_1_sphere.html#af57e36ca525f974ffbf5bb25f041a3b0">intersects</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="class_g_l_e_s_c_1_1_math_1_1_line.html">Line</a> &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">line</a>) <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">override</a></td></tr>
+<tr class="memdesc:af57e36ca525f974ffbf5bb25f041a3b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the figure intersects with the given line.  <br /></td></tr>
+<tr class="separator:af57e36ca525f974ffbf5bb25f041a3b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7f7086acf1a0ec5c04f8010beaa8924" id="r_ab7f7086acf1a0ec5c04f8010beaa8924"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_math_1_1_sphere.html#ab7f7086acf1a0ec5c04f8010beaa8924">intersects</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="class_g_l_e_s_c_1_1_math_1_1_plane.html">Plane</a> &amp;plane) <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">override</a></td></tr>
+<tr class="memdesc:ab7f7086acf1a0ec5c04f8010beaa8924"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the sphere intersects with the given plane.  <br /></td></tr>
+<tr class="separator:ab7f7086acf1a0ec5c04f8010beaa8924"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d50cb756c80a3852abf8165c610b035" id="r_a3d50cb756c80a3852abf8165c610b035"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_math_1_1_sphere.html#a3d50cb756c80a3852abf8165c610b035">intersects</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a1ea271525883f12774755d7d62bea7ac">Point</a> &amp;point) <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">override</a></td></tr>
+<tr class="memdesc:a3d50cb756c80a3852abf8165c610b035"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the sphere intersects with the given point.  <br /></td></tr>
+<tr class="separator:a3d50cb756c80a3852abf8165c610b035"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91c69748595dddb4eb732d65d0180625" id="r_a91c69748595dddb4eb732d65d0180625"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_math_1_1_sphere.html#a91c69748595dddb4eb732d65d0180625">intersects</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html">Polyhedron</a> &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">polyhedron</a>) <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">override</a></td></tr>
+<tr class="memdesc:a91c69748595dddb4eb732d65d0180625"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the sphere intersects with the given figure.  <br /></td></tr>
+<tr class="separator:a91c69748595dddb4eb732d65d0180625"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afae71303211a202967e7389fa613ca86" id="r_afae71303211a202967e7389fa613ca86"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_math_1_1_sphere.html#afae71303211a202967e7389fa613ca86">intersects</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="class_g_l_e_s_c_1_1_math_1_1_polyhedron_face.html">PolyhedronFace</a> &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">face</a>) <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">override</a></td></tr>
+<tr class="memdesc:afae71303211a202967e7389fa613ca86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the sphere intersects with the given face.  <br /></td></tr>
+<tr class="separator:afae71303211a202967e7389fa613ca86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_g_l_e_s_c_1_1_math_1_1_figure"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_g_l_e_s_c_1_1_math_1_1_figure')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_g_l_e_s_c_1_1_math_1_1_figure.html">GLESC::Math::Figure</a></td></tr>
+<tr class="memitem:a3c2340febb7bf21318939f8ec7cdef07 inherit pub_methods_class_g_l_e_s_c_1_1_math_1_1_figure" id="r_a3c2340febb7bf21318939f8ec7cdef07"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_math_1_1_figure.html#a3c2340febb7bf21318939f8ec7cdef07">~Figure</a> ()=<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">default</a></td></tr>
+<tr class="separator:a3c2340febb7bf21318939f8ec7cdef07 inherit pub_methods_class_g_l_e_s_c_1_1_math_1_1_figure"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a375b95d18510299f26b1bb69d5f28116" id="r_a375b95d18510299f26b1bb69d5f28116"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_math_1_1_sphere.html#a375b95d18510299f26b1bb69d5f28116">intersects</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a1ea271525883f12774755d7d62bea7ac">Point</a> &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">startPoint</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a1ea271525883f12774755d7d62bea7ac">Point</a> &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">endPoint</a>) <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a></td></tr>
+<tr class="memdesc:a375b95d18510299f26b1bb69d5f28116"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the sphere intersects with an edge defined by two points.  <br /></td></tr>
+<tr class="separator:a375b95d18510299f26b1bb69d5f28116"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:af99e0179207985dfda8f102561ab1b3a" id="r_af99e0179207985dfda8f102561ab1b3a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a1ea271525883f12774755d7d62bea7ac">Point</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_math_1_1_sphere.html#af99e0179207985dfda8f102561ab1b3a">center</a></td></tr>
+<tr class="memdesc:af99e0179207985dfda8f102561ab1b3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The center of the sphere.  <br /></td></tr>
+<tr class="separator:af99e0179207985dfda8f102561ab1b3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b2a77a0dafe536affd66fa771805823" id="r_a9b2a77a0dafe536affd66fa771805823"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_math_1_1_sphere.html#a9b2a77a0dafe536affd66fa771805823">radius</a></td></tr>
+<tr class="memdesc:a9b2a77a0dafe536affd66fa771805823"><td class="mdescLeft">&#160;</td><td class="mdescRight">The radius of the sphere.  <br /></td></tr>
+<tr class="separator:a9b2a77a0dafe536affd66fa771805823"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock">
+<p class="definition">Definition at line <a class="el" href="_sphere_8h_source.html#l00016">16</a> of file <a class="el" href="_sphere_8h_source.html">Sphere.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a60a90d68ee87eb4e1f7ad432f55600c9" name="a60a90d68ee87eb4e1f7ad432f55600c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60a90d68ee87eb4e1f7ad432f55600c9">&#9670;&#160;</a></span>Sphere()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Sphere::Sphere </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a1ea271525883f12774755d7d62bea7ac">Point</a>&#160;</td>
+          <td class="paramname"><em>centerParam</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a41c67586ad532e578bb839ad5067d3ac">Distance</a>&#160;</td>
+          <td class="paramname"><em>radiusParam</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a sphere with the given center and radius. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">centerParam</td><td>The center of the sphere </td></tr>
+    <tr><td class="paramname">radiusParam</td><td>The radius of the sphere </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_sphere_8cpp_source.html#l00014">14</a> of file <a class="el" href="_sphere_8cpp_source.html">Sphere.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   14</span>                                                      :</div>
+<div class="line"><span class="lineno">   15</span>        <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_sphere.html#af99e0179207985dfda8f102561ab1b3a">center</a>(std::move(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">centerParam</a>)), <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_sphere.html#a9b2a77a0dafe536affd66fa771805823">radius</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">radiusParam</a>) {}</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_sphere_html_a9b2a77a0dafe536affd66fa771805823"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_sphere.html#a9b2a77a0dafe536affd66fa771805823">GLESC::Math::Sphere::radius</a></div><div class="ttdeci">float radius</div><div class="ttdoc">The radius of the sphere.</div><div class="ttdef"><b>Definition</b> <a href="_sphere_8h_source.html#l00074">Sphere.h:74</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_sphere_html_af99e0179207985dfda8f102561ab1b3a"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_sphere.html#af99e0179207985dfda8f102561ab1b3a">GLESC::Math::Sphere::center</a></div><div class="ttdeci">Point center</div><div class="ttdoc">The center of the sphere.</div><div class="ttdef"><b>Definition</b> <a href="_sphere_8h_source.html#l00070">Sphere.h:70</a></div></div>
+<div class="ttc" id="anamespace_g_l_e_s_c_html_a7c64a4da2d1da1597f4ec563d00bb9f8"><div class="ttname"><a href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">GLESC::isIterable_v</a></div><div class="ttdeci">constexpr bool isIterable_v</div><div class="ttdef"><b>Definition</b> <a href="_stringer_8h_source.html#l00029">Stringer.h:29</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="af57e36ca525f974ffbf5bb25f041a3b0" name="af57e36ca525f974ffbf5bb25f041a3b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af57e36ca525f974ffbf5bb25f041a3b0">&#9670;&#160;</a></span>intersects() <span class="overload">[1/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a> Sphere::intersects </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="class_g_l_e_s_c_1_1_math_1_1_line.html">Line</a> &amp;&#160;</td>
+          <td class="paramname"><em>line</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks if the figure intersects with the given line. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">line</td><td>The line to check intersection with </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the figure intersects with the line, false otherwise </dd></dl>
+
+<p>Implements <a class="el" href="class_g_l_e_s_c_1_1_math_1_1_figure.html#aeb370d6ca18202bdc03a95f9c6618dae">GLESC::Math::Figure</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_sphere_8cpp_source.html#l00046">46</a> of file <a class="el" href="_sphere_8cpp_source.html">Sphere.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   46</span>                                              {</div>
+<div class="line"><span class="lineno">   47</span>    <span class="comment">// Find the vector from the line&#39;s point to the sphere&#39;s center</span></div>
+<div class="line"><span class="lineno">   48</span>    <a class="code hl_class" href="class_g_l_e_s_c_1_1_math_1_1_vector.html">Point</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">centerToLine</a> = <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_sphere.html#af99e0179207985dfda8f102561ab1b3a">center</a> - <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">line</a>.getPoint();</div>
+<div class="line"><span class="lineno">   49</span>    </div>
+<div class="line"><span class="lineno">   50</span>    <span class="comment">// Project this vector onto the line&#39;s direction</span></div>
+<div class="line"><span class="lineno">   51</span>    <a class="code hl_class" href="class_g_l_e_s_c_1_1_math_1_1_vector.html">Direction</a> projection = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">centerToLine</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_vector.html#afe0496b857816e05a61744e6a8c852bb">project</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">line</a>.getDirection());</div>
+<div class="line"><span class="lineno">   52</span>    </div>
+<div class="line"><span class="lineno">   53</span>    <span class="comment">// Find the closest point on the line to the sphere&#39;s center</span></div>
+<div class="line"><span class="lineno">   54</span>    <a class="code hl_class" href="class_g_l_e_s_c_1_1_math_1_1_vector.html">Point</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">closestPoint</a> = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">line</a>.getPoint() + projection;</div>
+<div class="line"><span class="lineno">   55</span>    </div>
+<div class="line"><span class="lineno">   56</span>    <span class="comment">// Check if the closest point is inside the sphere</span></div>
+<div class="line"><span class="lineno">   57</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_sphere.html#ab7f7086acf1a0ec5c04f8010beaa8924">intersects</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">closestPoint</a>);</div>
+<div class="line"><span class="lineno">   58</span>}</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_sphere_html_ab7f7086acf1a0ec5c04f8010beaa8924"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_sphere.html#ab7f7086acf1a0ec5c04f8010beaa8924">GLESC::Math::Sphere::intersects</a></div><div class="ttdeci">bool intersects(const Plane &amp;plane) const override</div><div class="ttdoc">Checks if the sphere intersects with the given plane.</div><div class="ttdef"><b>Definition</b> <a href="_sphere_8cpp_source.html#l00018">Sphere.cpp:18</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_vector_html"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_vector.html">GLESC::Math::Vector</a></div><div class="ttdef"><b>Definition</b> <a href="_vector_8h_source.html#l00025">Vector.h:25</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_vector_html_afe0496b857816e05a61744e6a8c852bb"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_vector.html#afe0496b857816e05a61744e6a8c852bb">GLESC::Math::Vector::project</a></div><div class="ttdeci">Vector project(const Vector &amp;other) const</div><div class="ttdoc">Projects the vector onto another vector.</div><div class="ttdef"><b>Definition</b> <a href="_vector_8h_source.html#l00932">Vector.h:932</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_sphere_8h_source.html#l00070">center</a>, <a class="el" href="_sphere_8cpp_source.html#l00018">intersects()</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_vector_8h_source.html#l00932">GLESC::Math::Vector&lt; Type, N &gt;::project()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_math_1_1_sphere_af57e36ca525f974ffbf5bb25f041a3b0_cgraph.svg" width="100%" height="470"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ab7f7086acf1a0ec5c04f8010beaa8924" name="ab7f7086acf1a0ec5c04f8010beaa8924"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7f7086acf1a0ec5c04f8010beaa8924">&#9670;&#160;</a></span>intersects() <span class="overload">[2/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a> Sphere::intersects </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="class_g_l_e_s_c_1_1_math_1_1_plane.html">Plane</a> &amp;&#160;</td>
+          <td class="paramname"><em>plane</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks if the sphere intersects with the given plane. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">plane</td><td>The plane to check intersection with </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the sphere intersects with the plane, false otherwise </dd></dl>
+
+<p>Implements <a class="el" href="class_g_l_e_s_c_1_1_math_1_1_figure.html#a454cc74078162e741e71ad5f5cc442b8">GLESC::Math::Figure</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_sphere_8cpp_source.html#l00018">18</a> of file <a class="el" href="_sphere_8cpp_source.html">Sphere.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   18</span>                                                {</div>
+<div class="line"><span class="lineno">   19</span>    <span class="keywordflow">return</span> plane.<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_plane.html#a11df2e06eb0ee48a7bb905050744bd45">distanceToPoint</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_sphere.html#af99e0179207985dfda8f102561ab1b3a">center</a>) &lt;= <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_sphere.html#a9b2a77a0dafe536affd66fa771805823">radius</a>;</div>
+<div class="line"><span class="lineno">   20</span>}</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_plane_html_a11df2e06eb0ee48a7bb905050744bd45"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_plane.html#a11df2e06eb0ee48a7bb905050744bd45">GLESC::Math::Plane::distanceToPoint</a></div><div class="ttdeci">Distance distanceToPoint(const Point &amp;point) const</div><div class="ttdoc">Calculate the distance from the plane to a point.</div><div class="ttdef"><b>Definition</b> <a href="_plane_8cpp_source.html#l00076">Plane.cpp:76</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_sphere_8h_source.html#l00070">center</a>, <a class="el" href="_plane_8cpp_source.html#l00076">GLESC::Math::Plane::distanceToPoint()</a>, and <a class="el" href="_sphere_8h_source.html#l00074">radius</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_sphere_8cpp_source.html#l00046">intersects()</a>, <a class="el" href="_sphere_8cpp_source.html#l00060">intersects()</a>, and <a class="el" href="_sphere_8cpp_source.html#l00023">intersects()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_math_1_1_sphere_ab7f7086acf1a0ec5c04f8010beaa8924_cgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_math_1_1_sphere_ab7f7086acf1a0ec5c04f8010beaa8924_icgraph.svg" width="362" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a3d50cb756c80a3852abf8165c610b035" name="a3d50cb756c80a3852abf8165c610b035"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d50cb756c80a3852abf8165c610b035">&#9670;&#160;</a></span>intersects() <span class="overload">[3/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a> Sphere::intersects </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a1ea271525883f12774755d7d62bea7ac">Point</a> &amp;&#160;</td>
+          <td class="paramname"><em>point</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks if the sphere intersects with the given point. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">point</td><td>The point to check intersection with </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the sphere intersects with the point, false otherwise </dd></dl>
+
+<p>Implements <a class="el" href="class_g_l_e_s_c_1_1_math_1_1_figure.html#a34011ed389e2d40211863e6d04dd4938">GLESC::Math::Figure</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_sphere_8cpp_source.html#l00070">70</a> of file <a class="el" href="_sphere_8cpp_source.html">Sphere.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   70</span>                                                {</div>
+<div class="line"><span class="lineno">   71</span>    <span class="keywordflow">return</span> (point - <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_sphere.html#af99e0179207985dfda8f102561ab1b3a">center</a>).length() &lt;= <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_sphere.html#a9b2a77a0dafe536affd66fa771805823">radius</a>;</div>
+<div class="line"><span class="lineno">   72</span>}</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_sphere_8h_source.html#l00070">center</a>, and <a class="el" href="_sphere_8h_source.html#l00074">radius</a>.</p>
+
+</div>
+</div>
+<a id="a375b95d18510299f26b1bb69d5f28116" name="a375b95d18510299f26b1bb69d5f28116"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a375b95d18510299f26b1bb69d5f28116">&#9670;&#160;</a></span>intersects() <span class="overload">[4/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a> Sphere::intersects </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a1ea271525883f12774755d7d62bea7ac">Point</a> &amp;&#160;</td>
+          <td class="paramname"><em>startPoint</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a1ea271525883f12774755d7d62bea7ac">Point</a> &amp;&#160;</td>
+          <td class="paramname"><em>endPoint</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks if the sphere intersects with an edge defined by two points. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">startPoint</td><td>The start point of the edge. </td></tr>
+    <tr><td class="paramname">endPoint</td><td>The end point of the edge. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the sphere intersects with the edge, false otherwise. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_sphere_8cpp_source.html#l00075">75</a> of file <a class="el" href="_sphere_8cpp_source.html">Sphere.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   75</span>                                                                            {</div>
+<div class="line"><span class="lineno">   76</span>    <a class="code hl_class" href="class_g_l_e_s_c_1_1_math_1_1_vector.html">Direction</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">edge</a> = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">endPoint</a> - <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">startPoint</a>;</div>
+<div class="line"><span class="lineno">   77</span>    <a class="code hl_class" href="class_g_l_e_s_c_1_1_math_1_1_vector.html">Direction</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">startToCenter</a> = <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_sphere.html#af99e0179207985dfda8f102561ab1b3a">center</a> - <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">startPoint</a>;</div>
+<div class="line"><span class="lineno">   78</span>    <a class="code hl_typedef" href="namespace_g_l_e_s_c_1_1_math.html#a41c67586ad532e578bb839ad5067d3ac">Distance</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">edgeLengthSquared</a> = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">edge</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_vector.html#ac66836b89bb27dc02a9fd0f43b019740">lengthSquared</a>();</div>
+<div class="line"><span class="lineno">   79</span>    <a class="code hl_typedef" href="namespace_g_l_e_s_c_1_1_math.html#a41c67586ad532e578bb839ad5067d3ac">Distance</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">t</a> = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">startToCenter</a>.dot(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">edge</a>) / <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">edgeLengthSquared</a>;</div>
+<div class="line"><span class="lineno">   80</span>    <span class="comment">// Clamping t to be within [0, 1]</span></div>
+<div class="line"><span class="lineno">   81</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">t</a> = <a class="code hl_function" href="namespace_g_l_e_s_c_1_1_math.html#ae9816249dbbdbb7c7affd0c3be77b8e2">clamp</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">t</a>, 0, 1);</div>
+<div class="line"><span class="lineno">   82</span>    <a class="code hl_class" href="class_g_l_e_s_c_1_1_math_1_1_vector.html">Point</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">closestPoint</a> = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">startPoint</a> + <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">edge</a> * <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">t</a>;</div>
+<div class="line"><span class="lineno">   83</span>    <span class="keywordflow">return</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">closestPoint</a> - <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_sphere.html#af99e0179207985dfda8f102561ab1b3a">center</a>).<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_vector.html#ac66836b89bb27dc02a9fd0f43b019740">lengthSquared</a>() &lt;= <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_sphere.html#a9b2a77a0dafe536affd66fa771805823">radius</a> * <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_sphere.html#a9b2a77a0dafe536affd66fa771805823">radius</a>;</div>
+<div class="line"><span class="lineno">   84</span>}</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_vector_html_ac66836b89bb27dc02a9fd0f43b019740"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_vector.html#ac66836b89bb27dc02a9fd0f43b019740">GLESC::Math::Vector::lengthSquared</a></div><div class="ttdeci">Type lengthSquared() const</div><div class="ttdoc">Returns the squared length of the vector.</div><div class="ttdef"><b>Definition</b> <a href="_vector_8h_source.html#l00888">Vector.h:888</a></div></div>
+<div class="ttc" id="anamespace_g_l_e_s_c_1_1_math_html_a41c67586ad532e578bb839ad5067d3ac"><div class="ttname"><a href="namespace_g_l_e_s_c_1_1_math.html#a41c67586ad532e578bb839ad5067d3ac">GLESC::Math::Distance</a></div><div class="ttdeci">float Distance</div><div class="ttdoc">Alias for the distance type.</div><div class="ttdef"><b>Definition</b> <a href="_geometry_types_8h_source.html#l00034">GeometryTypes.h:34</a></div></div>
+<div class="ttc" id="anamespace_g_l_e_s_c_1_1_math_html_ae9816249dbbdbb7c7affd0c3be77b8e2"><div class="ttname"><a href="namespace_g_l_e_s_c_1_1_math.html#ae9816249dbbdbb7c7affd0c3be77b8e2">GLESC::Math::clamp</a></div><div class="ttdeci">constexpr Type1 clamp(const Type1 &amp;value, const Type2 &amp;min, const Type3 &amp;max)</div><div class="ttdoc">Clamps a value between a minimum and maximum value.</div><div class="ttdef"><b>Definition</b> <a href="_math_8h_source.html#l00198">Math.h:198</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_sphere_8h_source.html#l00070">center</a>, <a class="el" href="_math_8h_source.html#l00198">GLESC::Math::clamp()</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, <a class="el" href="_vector_8h_source.html#l00888">GLESC::Math::Vector&lt; Type, N &gt;::lengthSquared()</a>, and <a class="el" href="_sphere_8h_source.html#l00074">radius</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_math_1_1_sphere_a375b95d18510299f26b1bb69d5f28116_cgraph.svg" width="100%" height="416"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a91c69748595dddb4eb732d65d0180625" name="a91c69748595dddb4eb732d65d0180625"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91c69748595dddb4eb732d65d0180625">&#9670;&#160;</a></span>intersects() <span class="overload">[5/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a> Sphere::intersects </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html">Polyhedron</a> &amp;&#160;</td>
+          <td class="paramname"><em>polyhedron</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks if the sphere intersects with the given figure. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">polyhedron</td><td>The figure to check intersection with </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the sphere intersects with the figure, false otherwise </dd></dl>
+
+<p>Implements <a class="el" href="class_g_l_e_s_c_1_1_math_1_1_figure.html#a0b33a44c8f5f9f137e6306f4ffc0674a">GLESC::Math::Figure</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_sphere_8cpp_source.html#l00060">60</a> of file <a class="el" href="_sphere_8cpp_source.html">Sphere.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   60</span>                                                          {</div>
+<div class="line"><span class="lineno">   61</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">face</a> : <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">polyhedron</a>.getFaces()) {</div>
+<div class="line"><span class="lineno">   62</span>        <span class="keywordflow">if</span> (<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_sphere.html#ab7f7086acf1a0ec5c04f8010beaa8924">intersects</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">face</a>)) {</div>
+<div class="line"><span class="lineno">   63</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   64</span>        }</div>
+<div class="line"><span class="lineno">   65</span>    }</div>
+<div class="line"><span class="lineno">   66</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">   67</span>}</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_sphere_8cpp_source.html#l00018">intersects()</a>, and <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_math_1_1_sphere_a91c69748595dddb4eb732d65d0180625_cgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="afae71303211a202967e7389fa613ca86" name="afae71303211a202967e7389fa613ca86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afae71303211a202967e7389fa613ca86">&#9670;&#160;</a></span>intersects() <span class="overload">[6/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a> Sphere::intersects </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="class_g_l_e_s_c_1_1_math_1_1_polyhedron_face.html">PolyhedronFace</a> &amp;&#160;</td>
+          <td class="paramname"><em>face</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks if the sphere intersects with the given face. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">face</td><td>The face to check intersection with. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the sphere intersects with the face, false otherwise. </dd></dl>
+
+<p>Implements <a class="el" href="class_g_l_e_s_c_1_1_math_1_1_figure.html#afae26c7242b1ea0ad2a18771387cd32e">GLESC::Math::Figure</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_sphere_8cpp_source.html#l00023">23</a> of file <a class="el" href="_sphere_8cpp_source.html">Sphere.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   23</span>                                                        {</div>
+<div class="line"><span class="lineno">   24</span>    std::vector&lt;Point&gt; vertices = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">face</a>.getPolyhedronVertices();</div>
+<div class="line"><span class="lineno">   25</span>    </div>
+<div class="line"><span class="lineno">   26</span>    <span class="comment">// Check if any vertex of the face is inside the sphere.</span></div>
+<div class="line"><span class="lineno">   27</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">index</a> : <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">face</a>.getVertexIndices()) {</div>
+<div class="line"><span class="lineno">   28</span>        <span class="keywordflow">if</span> (this-&gt;<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_sphere.html#ab7f7086acf1a0ec5c04f8010beaa8924">intersects</a>(vertices[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">index</a>])) {</div>
+<div class="line"><span class="lineno">   29</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   30</span>        }</div>
+<div class="line"><span class="lineno">   31</span>    }</div>
+<div class="line"><span class="lineno">   32</span>    </div>
+<div class="line"><span class="lineno">   33</span>    <span class="comment">// Check for edge-sphere intersection.</span></div>
+<div class="line"><span class="lineno">   34</span>    <span class="keyword">const</span> <span class="keyword">auto</span> &amp;indices = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">face</a>.getVertexIndices();</div>
+<div class="line"><span class="lineno">   35</span>    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">i</a> = 0; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">i</a> &lt; indices.size(); ++<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">i</a>) {</div>
+<div class="line"><span class="lineno">   36</span>        <span class="keyword">const</span> <a class="code hl_class" href="class_g_l_e_s_c_1_1_math_1_1_vector.html">Point</a> &amp;<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">startPoint</a> = vertices[indices[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">i</a>]];</div>
+<div class="line"><span class="lineno">   37</span>        <span class="keyword">const</span> <a class="code hl_class" href="class_g_l_e_s_c_1_1_math_1_1_vector.html">Point</a> &amp;<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">endPoint</a> = vertices[indices[(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">i</a> + 1) % indices.size()]];</div>
+<div class="line"><span class="lineno">   38</span>        <span class="keywordflow">if</span> (<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_sphere.html#ab7f7086acf1a0ec5c04f8010beaa8924">intersects</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">startPoint</a>, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">endPoint</a>)) {</div>
+<div class="line"><span class="lineno">   39</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   40</span>        }</div>
+<div class="line"><span class="lineno">   41</span>    }</div>
+<div class="line"><span class="lineno">   42</span>    </div>
+<div class="line"><span class="lineno">   43</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">   44</span>}</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_sphere_8cpp_source.html#l00018">intersects()</a>, and <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_math_1_1_sphere_afae71303211a202967e7389fa613ca86_cgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="af99e0179207985dfda8f102561ab1b3a" name="af99e0179207985dfda8f102561ab1b3a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af99e0179207985dfda8f102561ab1b3a">&#9670;&#160;</a></span>center</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a1ea271525883f12774755d7d62bea7ac">Point</a> GLESC::Math::Sphere::center</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The center of the sphere. </p>
+
+<p class="definition">Definition at line <a class="el" href="_sphere_8h_source.html#l00070">70</a> of file <a class="el" href="_sphere_8h_source.html">Sphere.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_sphere_8cpp_source.html#l00046">intersects()</a>, <a class="el" href="_sphere_8cpp_source.html#l00018">intersects()</a>, <a class="el" href="_sphere_8cpp_source.html#l00070">intersects()</a>, and <a class="el" href="_sphere_8cpp_source.html#l00075">intersects()</a>.</p>
+
+</div>
+</div>
+<a id="a9b2a77a0dafe536affd66fa771805823" name="a9b2a77a0dafe536affd66fa771805823"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b2a77a0dafe536affd66fa771805823">&#9670;&#160;</a></span>radius</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">float</a> GLESC::Math::Sphere::radius</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The radius of the sphere. </p>
+
+<p class="definition">Definition at line <a class="el" href="_sphere_8h_source.html#l00074">74</a> of file <a class="el" href="_sphere_8h_source.html">Sphere.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_sphere_8cpp_source.html#l00018">intersects()</a>, <a class="el" href="_sphere_8cpp_source.html#l00070">intersects()</a>, and <a class="el" href="_sphere_8cpp_source.html#l00075">intersects()</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li><a class="el" href="_sphere_8h_source.html">Sphere.h</a></li>
+<li><a class="el" href="_sphere_8cpp_source.html">Sphere.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_g_l_e_s_c.html">GLESC</a></li><li class="navelem"><a class="el" href="namespace_g_l_e_s_c_1_1_math.html">Math</a></li><li class="navelem"><a class="el" href="class_g_l_e_s_c_1_1_math_1_1_sphere.html">Sphere</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

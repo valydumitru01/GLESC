@@ -1,0 +1,17 @@
+<map id="GLESC::Math::VectorMixedAlgorithms::areCollinear" name="GLESC::Math::VectorMixedAlgorithms::areCollinear">
+<area shape="rect" id="Node000001" title="Checks if points are collinear." alt="" coords="5,72,189,115"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#ab041da9d339dfe80b80c6f0bdf5dbfd4" title="Computes the cross product of two vectors." alt="" coords="237,5,447,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="177,69,246,50,247,55,179,74"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#a679d94d73e405dc11ea9140e71f4ef4f" title="Checks if a vector is zero." alt="" coords="237,72,447,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="189,91,221,91,221,96,189,96"/>
+<area shape="rect" id="Node000008" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#a3d7793a7054aae76fe23e92368659e0b" title="Subtracts two vectors." alt="" coords="237,139,447,181"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="179,113,247,131,246,137,177,118"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#a3249cf40f6140efca533d2f041f909d3" title="Equality operator for vectors." alt="" coords="495,51,727,77"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="447,79,479,76,480,81,448,85"/>
+<area shape="rect" id="Node000007" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#a2f0bed018a4d5856d507a85de181de62" title=" " alt="" coords="506,101,716,144"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="448,102,491,107,490,112,447,107"/>
+<area shape="rect" id="Node000005" href="$namespace_g_l_e_s_c_1_1_math.html#aee25910dbba06d09d9df14d03933ace1" title="Compares two values for equality." alt="" coords="775,51,900,77"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="728,61,759,61,759,67,728,67"/>
+<area shape="rect" id="Node000006" href="$namespace_g_l_e_s_c_1_1_math.html#acd429163efe906cd22916cc75ccb2421" title="Epsilon getter with precision of a given template type." alt="" coords="948,51,1099,77"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="900,61,932,61,932,67,900,67"/>
+</map>

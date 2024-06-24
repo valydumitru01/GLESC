@@ -1,0 +1,43 @@
+<map id="HUDManager.h" name="HUDManager.h">
+<area shape="rect" id="Node000001" title="@TODO Add description of this file if needed" alt="" coords="300,5,409,32"/>
+<area shape="rect" id="Node000002" href="$_engine_h_u_d_manager_8h.html" title="@TODO Add description of this file if needed" alt="" coords="204,80,353,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="332,45,294,82,290,78,329,41"/>
+<area shape="rect" id="Node000005" href="$_g_l_e_s_c_8h.html" title=" " alt="" coords="403,379,480,405"/>
+<area shape="poly" id="edge15_Node000001_Node000005" title=" " alt="" coords="285,22,198,30,152,39,108,52,68,71,37,95,16,127,10,146,8,167,8,244,11,258,20,272,54,297,104,320,165,339,296,367,403,383,402,389,295,372,163,344,102,325,51,302,16,275,6,260,3,244,3,167,5,145,11,125,33,92,65,66,106,47,151,34,198,25,284,17"/>
+<area shape="rect" id="Node000013" href="$_h_u_d_manager_8cpp.html" title=" " alt="" coords="546,80,670,107"/>
+<area shape="poly" id="edge16_Node000001_Node000013" title=" " alt="" coords="414,34,564,77,563,82,412,39"/>
+<area shape="rect" id="Node000014" href="$_input_manager_8h.html" title="@TODO Add description of this file if needed" alt="" coords="412,80,522,107"/>
+<area shape="poly" id="edge17_Node000001_Node000014" title=" " alt="" coords="388,38,448,77,446,82,385,43"/>
+<area shape="rect" id="Node000003" href="$_engine_camera_8h.html" title="@TODO Add description of this file if needed" alt="" coords="312,155,429,181"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="308,114,356,152,353,156,305,119"/>
+<area shape="poly" id="edge14_Node000002_Node000005" title=" " alt="" coords="263,121,247,150,234,184,230,221,232,238,238,255,253,278,272,298,316,333,362,358,404,376,402,381,360,363,313,337,268,302,249,281,234,257,227,239,224,221,229,183,243,148,259,119"/>
+<area shape="rect" id="Node000012" href="$_engine_h_u_d_manager_8cpp.html" title="@TODO Add description of this file if needed" alt="" coords="42,155,206,181"/>
+<area shape="poly" id="edge13_Node000002_Node000012" title=" " alt="" coords="239,116,152,156,150,152,237,111"/>
+<area shape="rect" id="Node000004" href="$_engine_camera_8cpp.html" title="@TODO Add description of this file if needed" alt="" coords="248,229,379,256"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="353,195,325,231,321,227,349,192"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="382,195,393,229,440,377,435,379,388,230,377,197"/>
+<area shape="rect" id="Node000008" href="$_scene_8h.html" title="@TODO Add description of this file if needed" alt="" coords="532,229,601,256"/>
+<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="420,185,533,226,531,231,418,190"/>
+<area shape="rect" id="Node000006" href="$_g_l_e_s_c_8cpp.html" title=" " alt="" coords="619,453,709,480"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="495,408,626,450,624,455,493,413"/>
+<area shape="rect" id="Node000007" href="$main_8cpp.html" title=" " alt="" coords="404,453,479,480"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="444,421,444,453,439,453,439,421"/>
+<area shape="poly" id="edge10_Node000008_Node000006" title=" " alt="" coords="605,263,626,280,644,303,660,343,667,386,668,453,663,453,662,387,655,345,639,305,622,284,602,267"/>
+<area shape="rect" id="Node000009" href="$_default_8h.html" title="@TODO Add description of this file if needed" alt="" coords="707,304,779,331"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="612,260,713,301,711,306,610,265"/>
+<area shape="rect" id="Node000011" href="$_scene_container_8h.html" title="Class that stores and manages scenes." alt="" coords="505,304,629,331"/>
+<area shape="poly" id="edge11_Node000008_Node000011" title=" " alt="" coords="569,272,569,304,564,304,564,272"/>
+<area shape="rect" id="Node000010" href="$_default_8cpp.html" title="@TODO Add description of this file if needed" alt="" coords="701,379,787,405"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="746,346,746,378,741,378,741,347"/>
+<area shape="poly" id="edge12_Node000011_Node000005" title=" " alt="" coords="533,341,465,380,462,376,531,336"/>
+<area shape="poly" id="edge18_Node000014_Node000003" title=" " alt="" coords="440,118,389,156,386,152,437,114"/>
+<area shape="poly" id="edge19_Node000014_Node000005" title=" " alt="" coords="467,122,445,378,440,378,462,122"/>
+<area shape="poly" id="edge24_Node000014_Node000008" title=" " alt="" coords="486,118,560,227,556,230,481,121"/>
+<area shape="rect" id="Node000015" href="$_input_manager_8cpp.html" title=" " alt="" coords="806,155,930,181"/>
+<area shape="poly" id="edge20_Node000014_Node000015" title=" " alt="" coords="538,105,806,153,805,158,537,110"/>
+<area shape="rect" id="Node000016" href="$_input_system_8h.html" title="System that updates the input manager." alt="" coords="677,155,782,181"/>
+<area shape="poly" id="edge21_Node000014_Node000016" title=" " alt="" coords="528,109,684,151,683,157,526,114"/>
+<area shape="poly" id="edge22_Node000016_Node000006" title=" " alt="" coords="751,192,779,234,805,289,814,319,817,350,813,379,801,407,782,427,759,443,710,461,708,456,757,438,779,423,796,404,808,378,812,349,809,320,800,291,774,237,746,195"/>
+<area shape="rect" id="Node000017" href="$_input_system_8cpp.html" title=" " alt="" coords="862,229,981,256"/>
+<area shape="poly" id="edge23_Node000016_Node000017" title=" " alt="" coords="778,185,889,226,887,231,776,190"/>
+</map>
