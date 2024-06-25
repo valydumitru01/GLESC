@@ -47,6 +47,23 @@ public:
         return entityOwnerName;
     }
 
+#else
+
+    /**
+     * @brief In release mode, this function is empty
+     * @param ownerName The name of the owner entity
+     */
+    void setOwnerName(const char* ownerName) {}
+
+    /**
+     * @brief In release mode, this function is empty
+     * @return The name of the owner entity
+     */
+    [[nodiscard]] const char* getOwnerName() const {
+        return nullptr;
+    }
+
+#endif
     /**
      * @brief Get the debugging values of the component
      * @details This function can be overriden by the derived class to return the debugging values of the component
@@ -71,15 +88,6 @@ public:
     [[nodiscard]] virtual std::vector<EntityStatsManager::Value> getUpdatedDebuggingValues() {
         return {};
     }
-#else
-    /**
-     * @brief In release mode, this function is empty
-     * @param ownerName The name of the owner entity
-     */
-    void setOwnerName(const char* ownerName) {}
-
-#endif
-
 private:
 #ifndef NDEBUG_GLESC
     const char* entityOwnerName = nullptr;

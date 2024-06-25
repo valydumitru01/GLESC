@@ -26,7 +26,7 @@ namespace GLESC::Render {
          * @brief Sybox constructor. Is in charge of loading the cubemap, creating the textures, loading the buffers
          * and loading the shaders.
          */
-        Skybox();
+        explicit Skybox(const std::string& folderName = "default");
 
         /**
          * @brief Returns the average color of the skybox. It is cached so it is not recalculated every frame.

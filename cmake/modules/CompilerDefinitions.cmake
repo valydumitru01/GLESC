@@ -27,11 +27,15 @@ set(MY_DEFINITIONS
     # This is needed for glew to work statically
     GLEW_STATIC
     # This is the fragment shader file location
-    SHADER_PATH="${SHADER_DIR}"
-    # Here assets are stored
-    ASSETS_PATH="${ASSETS_DIR}"
+    SHADER_PATH="${ASSETS_SHADER_BIN_DIR}"
+    # Here all the assets are stored
+    ASSETS_PATH="${ASSETS_BIN_DIR}"
+    # Here are all the images stored
+    ASSETS_IMAGES_PATH="${ASSETS_IMAGES_BIN_DIR}"
+    # Here are all the cubes stored
+    ASSETS_CUBEMAPS_PATH="${ASSETS_IMAGES_CUBEMAPS_BIN_DIR}"
     # Here sounds are stored
-    SOUNDS_PATH="${SOUND_ASSETS_DIR}"
+    SOUNDS_PATH="${ASSETS_SOUND_BIN_DIR}"
     # This is the name of the executable
     PROJECT_NAME="${PROJECT_NAME}"
     # This is the binary directory of the project,

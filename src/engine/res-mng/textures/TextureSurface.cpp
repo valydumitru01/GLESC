@@ -101,8 +101,8 @@ Pixel TextureSurface::getPixel(unsigned int x, unsigned int y) const {
 
 void TextureSurface::load(const std::string& pathParam, bool flipTexture) {
     D_ASSERT_FALSE(pathParam.empty(), "File path is empty.");
-    SDL_SurfacePtr sdlSurface = TextureLoader::loadTexture(
-        ASSETS_PATH + std::string("/") + pathParam, flipTexture);
+    SDL_SurfacePtr sdlSurface =  TextureLoader::loadTexture(
+        ASSETS_IMAGES_PATH + std::string("/") + pathParam, flipTexture);
     initializeData(*sdlSurface);
     // Texture is now loaded, must be set to true right after the texture is loaded
     // the above functions will throw an error if the texture is not loaded

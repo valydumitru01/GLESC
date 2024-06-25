@@ -170,5 +170,17 @@ if (TARGET game_test)
 endif ()
 # ----------------------------------------------------------
 
+set(DIRECTORY_TO_EMPTY ${CMAKE_BINARY_DIR}${ASSETS_BIN_DIR})
+important_info("Copying assets from ${ASSETS_DEV_DIR} to ${DIRECTORY_TO_EMPTY}")
+file(COPY ${ASSETS_DEV_DIR} DESTINATION ${CMAKE_BINARY_DIR}${ASSETS_BIN_LOCATION} )
+success("Copied assets from ${ASSETS_DEV_DIR} to ${CMAKE_BINARY_DIR}${ASSETS_BIN_LOCATION}")
 
 
+important_info("Copying bins from ${BIN_DEV_DIR} to ${CMAKE_BINARY_DIR}${BIN_BIN_LOCATION}")
+file(GLOB_RECURSE BINS_TO_COPY ${BIN_DEV_DIR}/*)
+important_info("Copying files:")
+foreach (file ${BINS_TO_COPY})
+    file(COPY ${file} DESTINATION ${CMAKE_BINARY_DIR}${BIN_BIN_LOCATION})
+    success("Copied ${file} to ${CMAKE_BINARY_DIR}${BIN_BIN_LOCATION}")
+endforeach ()
+success("Copied bins from ${BIN_DEV_DIR} to ${CMAKE_BINARY_DIR}${BIN_BIN_LOCATION}")

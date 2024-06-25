@@ -65,6 +65,20 @@ else ()
             ${BIN_DIR}/release)
 endif ()
 
+set_new_dir(BIN_BIN_LOCATION /)
+
+set_new_dir(ASSETS_BIN_LOCATION /)
+set_new_dir(ASSETS_BIN_DIR /assets)
+set_new_dir(ASSETS_SOUND_BIN_DIR ${ASSETS_BIN_DIR}/sounds)
+set_new_dir(ASSETS_SHADER_BIN_DIR ${ASSETS_BIN_DIR}/shaders)
+set_new_dir(ASSETS_FONTS_BIN_DIR ${ASSETS_BIN_DIR}/fonts)
+set_new_dir(ASSETS_IMAGES_BIN_DIR ${ASSETS_BIN_DIR}/images)
+set_new_dir(ASSETS_IMAGES_CUBEMAPS_BIN_DIR ${ASSETS_IMAGES_BIN_DIR}/cubemaps)
+set_new_dir(ASSETS_IMAGES_TEXTURES_BIN_DIR ${ASSETS_IMAGES_BIN_DIR}/textures)
+set_new_dir(ASSETS_IMAGES_SPRITES_BIN_DIR ${ASSETS_IMAGES_BIN_DIR}/sprites)
+set_new_dir(ASSETS_IMAGES_ICONS_BIN_DIR ${ASSETS_IMAGES_BIN_DIR}/icons)
+set_new_dir(ASSETS_IMAGES_CUBEMAPS_BIN_DIR ${ASSETS_IMAGES_BIN_DIR}/cubemaps)
+set_new_dir(ASSETS_IMAGES_CUBEMAPS_SKYBOXES_BIN_DIR ${ASSETS_IMAGES_CUBEMAPS_BIN_DIR}/skybox)
 # ..........................................................
 
 # ..................... Project Dirs .......................
@@ -73,12 +87,23 @@ endif ()
 set_new_dir(SRC_DIR src)
 # Set the include directory, this is where the header files
 # are located
-set_new_dir(SHADER_DIR ${CMAKE_SOURCE_DIR}/src/engine/subsystems/renderer/shaders)
+set_new_dir(SHADER_DEV_DIR ${CMAKE_SOURCE_DIR}/src/engine/subsystems/renderer/shaders)
 # Set the assets directory, this is where the assets are
 # located
-set_new_dir(ASSETS_DIR /assets)
-set_new_dir(SOUND_ASSETS_DIR ${ASSETS_DIR}/sounds)
 set_new_dir(INCLUDE_DIR include)
+
+set_new_dir(BIN_DEV_DIR ${CMAKE_SOURCE_DIR}/lib/bin)
+
+set_new_dir(ASSETS_DEV_DIR ${CMAKE_SOURCE_DIR}/assets)
+set_new_dir(ASSETS_SOUND_DEV_DIR ${ASSETS_DEV_DIR}/sounds)
+set_new_dir(ASSETS_SHADER_DEV_DIR ${ASSETS_DEV_DIR}/shaders)
+set_new_dir(ASSETS_FONTS_DEV_DIR ${ASSETS_DEV_DIR}/fonts)
+set_new_dir(ASSETS_IMAGES_DEV_DIR ${ASSETS_DEV_DIR}/images)
+set_new_dir(ASSETS_IMAGES_CUBEMAPS_DEV_DIR ${ASSETS_IMAGES_DEV_DIR}/cubemaps)
+set_new_dir(ASSETS_IMAGES_TEXTURES_DEV_DIR ${ASSETS_IMAGES_DEV_DIR}/textures)
+set_new_dir(ASSETS_IMAGES_SPRITES_DEV_DIR ${ASSETS_IMAGES_DEV_DIR}/sprites)
+set_new_dir(ASSETS_IMAGES_ICONS_DEV_DIR ${ASSETS_IMAGES_DEV_DIR}/icons)
+set_new_dir(ASSETS_IMAGES_CUBEMAPS_DEV_DIR ${ASSETS_IMAGES_DEV_DIR}/cubemaps)
 # ..........................................................
 
 # ..................... Library Dirs .......................
@@ -91,13 +116,13 @@ set_new_dir(LIB_INCLUDE_DIR lib/include)
 set_new_dir(LIB_SRC_DIR ${LIB_INCLUDE_DIR})
 # Set the static library directory, this is where the static
 # library files (.a extension) are located.
+# These libraries will be linked to the project and will be
+# directly included in the binary increase the binary size.
 if (CMAKE_BUILD_TYPE STREQUAL "Release")
     set_new_dir(LIB_STATIC_DIR lib/lib)
 else ()
     set_new_dir(LIB_STATIC_DIR lib/lib)
 endif ()
-# Set the test directory, this is where the test files are
-# located
 # ..........................................................
 
 # ....................... Test Dirs ........................

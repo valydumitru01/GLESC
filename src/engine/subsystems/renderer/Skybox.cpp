@@ -10,59 +10,60 @@
 #include "engine/subsystems/renderer/Skybox.h"
 using namespace GLESC::Render;
 
-Skybox::Skybox() : skyboxCubemap(Cubemap(std::array<std::string, 6>{
-                       SKYBOX_PATH + std::string("right.png"),
-                       SKYBOX_PATH + std::string("left.png"),
-                       SKYBOX_PATH + std::string("top.png"),
-                       SKYBOX_PATH + std::string("bottom.png"),
-                       SKYBOX_PATH + std::string("front.png"),
-                       SKYBOX_PATH + std::string("back.png")
-                   })), skyboxShader("SkyboxShader.glsl"),
-                   skyboxVAOID{0}, skyboxVBOID{0},
-                   skyboxVertices{
-                       // positions
-                       -1.0f, 1.0f, -1.0f,
-                       -1.0f, -1.0f, -1.0f,
-                       1.0f, -1.0f, -1.0f,
-                       1.0f, -1.0f, -1.0f,
-                       1.0f, 1.0f, -1.0f,
-                       -1.0f, 1.0f, -1.0f,
+Skybox::Skybox(const std::string& folderName)
+    : skyboxCubemap(Cubemap(std::array<std::string, 6>{
+          "skyboxes/" + folderName + "/" + std::string("right.png"),
+          "skyboxes/" + folderName + "/" + std::string("left.png"),
+          "skyboxes/" + folderName + "/" + std::string("top.png"),
+          "skyboxes/" + folderName + "/" + std::string("bottom.png"),
+          "skyboxes/" + folderName + "/" + std::string("front.png"),
+          "skyboxes/" + folderName + "/" + std::string("back.png")
+      })), skyboxShader("SkyboxShader.glsl"),
+      skyboxVAOID{0}, skyboxVBOID{0},
+      skyboxVertices{
+          // positions
+          -1.0f, 1.0f, -1.0f,
+          -1.0f, -1.0f, -1.0f,
+          1.0f, -1.0f, -1.0f,
+          1.0f, -1.0f, -1.0f,
+          1.0f, 1.0f, -1.0f,
+          -1.0f, 1.0f, -1.0f,
 
-                       -1.0f, -1.0f, 1.0f,
-                       -1.0f, -1.0f, -1.0f,
-                       -1.0f, 1.0f, -1.0f,
-                       -1.0f, 1.0f, -1.0f,
-                       -1.0f, 1.0f, 1.0f,
-                       -1.0f, -1.0f, 1.0f,
+          -1.0f, -1.0f, 1.0f,
+          -1.0f, -1.0f, -1.0f,
+          -1.0f, 1.0f, -1.0f,
+          -1.0f, 1.0f, -1.0f,
+          -1.0f, 1.0f, 1.0f,
+          -1.0f, -1.0f, 1.0f,
 
-                       1.0f, -1.0f, -1.0f,
-                       1.0f, -1.0f, 1.0f,
-                       1.0f, 1.0f, 1.0f,
-                       1.0f, 1.0f, 1.0f,
-                       1.0f, 1.0f, -1.0f,
-                       1.0f, -1.0f, -1.0f,
+          1.0f, -1.0f, -1.0f,
+          1.0f, -1.0f, 1.0f,
+          1.0f, 1.0f, 1.0f,
+          1.0f, 1.0f, 1.0f,
+          1.0f, 1.0f, -1.0f,
+          1.0f, -1.0f, -1.0f,
 
-                       -1.0f, -1.0f, 1.0f,
-                       -1.0f, 1.0f, 1.0f,
-                       1.0f, 1.0f, 1.0f,
-                       1.0f, 1.0f, 1.0f,
-                       1.0f, -1.0f, 1.0f,
-                       -1.0f, -1.0f, 1.0f,
+          -1.0f, -1.0f, 1.0f,
+          -1.0f, 1.0f, 1.0f,
+          1.0f, 1.0f, 1.0f,
+          1.0f, 1.0f, 1.0f,
+          1.0f, -1.0f, 1.0f,
+          -1.0f, -1.0f, 1.0f,
 
-                       -1.0f, 1.0f, -1.0f,
-                       1.0f, 1.0f, -1.0f,
-                       1.0f, 1.0f, 1.0f,
-                       1.0f, 1.0f, 1.0f,
-                       -1.0f, 1.0f, 1.0f,
-                       -1.0f, 1.0f, -1.0f,
+          -1.0f, 1.0f, -1.0f,
+          1.0f, 1.0f, -1.0f,
+          1.0f, 1.0f, 1.0f,
+          1.0f, 1.0f, 1.0f,
+          -1.0f, 1.0f, 1.0f,
+          -1.0f, 1.0f, -1.0f,
 
-                       -1.0f, -1.0f, -1.0f,
-                       -1.0f, -1.0f, 1.0f,
-                       1.0f, -1.0f, -1.0f,
-                       1.0f, -1.0f, -1.0f,
-                       -1.0f, -1.0f, 1.0f,
-                       1.0f, -1.0f, 1.0f
-                   } {
+          -1.0f, -1.0f, -1.0f,
+          -1.0f, -1.0f, 1.0f,
+          1.0f, -1.0f, -1.0f,
+          1.0f, -1.0f, -1.0f,
+          -1.0f, -1.0f, 1.0f,
+          1.0f, -1.0f, 1.0f
+      } {
     size_t skyboxVerticesCount = sizeof(skyboxVertices) / sizeof(float);
     size_t skyboxVerticesSize = sizeof(float);
     calculateAverageColor();
@@ -77,7 +78,7 @@ Skybox::Skybox() : skyboxCubemap(Cubemap(std::array<std::string, 6>{
 
     VertexBufferLayout skyboxLayout;
     skyboxLayout.push(Enums::Types::Vec3F);
-    skyboxVAO->addBuffer(*skyboxVBO.get(), skyboxLayout);
+    skyboxVAO->addBuffer(*skyboxVBO, skyboxLayout);
 }
 
 
@@ -112,7 +113,7 @@ void Skybox::draw(const View& view, const Projection& projection) const {
     // change depth function so depth test passes when values are equal to depth buffer's content
     getGAPI().setDepthFunction(Enums::DepthFuncs::LessEqual);
     skyboxShader.bind();
-    skyboxShader.setUniform("uVPTranslationless", projection * viewTranslationless);
+    Shader::setUniform("uVPTranslationless", projection * viewTranslationless);
     skyboxVAO->bind();
     skyboxCubemap.bind();
     getGAPI().drawTriangles(0, 36);

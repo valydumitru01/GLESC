@@ -30,7 +30,7 @@ void Cubemap::load(const std::array<std::string, 6>& facePaths) {
                                         Enums::Texture::Filters::WrapMode::ClampToEdge,
                                         Enums::Texture::Filters::WrapMode::ClampToEdge);
     for (size_t i = 0; i < facePaths.size(); ++i) {
-        cubemapTextures[i].load(facePaths[i], false);
+        cubemapTextures[i].load("/cubemaps/"+facePaths[i], false);
         auto nextFaceEnumInt = static_cast<int>(Enums::Texture::Types::TextureCubeMapPositiveX) + i;
         auto nextFaceEnum = static_cast<Enums::Texture::Types>(nextFaceEnumInt);
         getGAPI().setTextureData(nextFaceEnum,

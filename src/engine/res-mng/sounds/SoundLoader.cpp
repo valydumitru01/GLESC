@@ -17,10 +17,11 @@
 using namespace GLESC;
 
 void SoundLoader::init() {
-    D_ASSERT_FALSE(SDL_Init(SDL_INIT_AUDIO) < 0,
+    [[maybe_unused]] int err = SDL_Init(SDL_INIT_AUDIO);
+    D_ASSERT_FALSE(err < 0,
                    std::string("SDL could not initialize! SDL Error: %s\n")+ SDL_GetError());
-
-    D_ASSERT_FALSE(Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0,
+    [[maybe_unused]] err = Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) ;
+    D_ASSERT_FALSE(err < 0,
                    std::string("SDL_mixer could not initialize! SDL_mixer Error: %s\n") + Mix_GetError());
 }
 

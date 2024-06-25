@@ -14,9 +14,10 @@
 #include "engine/core/low-level-renderer/shader/ShaderLoader.h"
 
 #include "engine/core/debugger/Stringer.h"
+#include "engine/core/file-system/BinPath.h"
 using namespace GLESC::GAPI;
 UInt ShaderLoader::loadShader(const std::string& fileName, const std::vector<std::string>& macros) {
-    std::string shaderPath = std::string(SHADER_PATH) + "/" + fileName;
+    std::string shaderPath = BinPath::getExecutableDirectory() + std::string(SHADER_PATH) + "/" + fileName;
     std::string shaderSource = FileManager::readFile(shaderPath);
     Logger::get().success("Shader file read successfully: " + shaderPath);
 
