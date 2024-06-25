@@ -7,7 +7,8 @@
 [![Build With][build-with-shield]][CMake-url]
 
 **Game example download links:**
-- [![Download][download-terrain-generator-shield]][download-terrain-generator-url]
+- [![Download][download-terrain-generator-shield-release]][download-terrain-generator-release-url]
+- [![Download][download-terrain-generator-shield-debug]][download-terrain-generator-debug-url]
 - [![Download][download-shoot-the-chicken-release-shield]][download-shoot-the-chicken-release-url]
 - [![Download][download-shoot-the-chicken-debug-shield]][download-shoot-the-chicken-debug-url]
 <a id="readme-top"></a>
@@ -961,7 +962,8 @@ I would like to thank the following people and resources for helping me with thi
 
 [pull-requests-shield]: https://img.shields.io/github/issues-pr/valydumitru01/GLESC?style=for-the-badge
 
-[download-terrain-generator-shield]: https://img.shields.io/badge/download-terrain_generator-blue?style=for-the-badge
+[download-terrain-generator-shield-release]: https://img.shields.io/badge/download-terrain_generator-blue?style=for-the-badge
+[download-terrain-generator-shield-debug]: https://img.shields.io/badge/download-terrain_generator_debug-blue?style=for-the-badge
 [download-shoot-the-chicken-release-shield]: https://img.shields.io/badge/download-shoot_the_chicken-blue?style=for-the-badge
 [download-shoot-the-chicken-debug-shield]: https://img.shields.io/badge/download-shoot_the_chicken_debug-blue?style=for-the-badge
 
@@ -977,7 +979,8 @@ I would like to thank the following people and resources for helping me with thi
 [pull-requests-url]: https://github.com/valydumitru01/GLESC/pulls/
 
 [project-url]: https://github.com/valydumitru01/GLESC/
-[download-terrain-generator-url]: https://github.com/valydumitru01/GLESC/releases/download/terrain_generator/terrain_generator_release.rar
+[download-terrain-generator-release-url]: https://github.com/valydumitru01/GLESC/releases/download/terrain_generator/terrain_generator_release.rar
+[download-terrain-generator-debug-url]: https://github.com/valydumitru01/GLESC/releases/download/terrain_generator_debug/terrain-generation-debug.zip
 [download-shoot-the-chicken-release-url]: https://github.com/valydumitru01/GLESC/releases/download/game/release.zip
 [download-shoot-the-chicken-debug-url]: https://github.com/valydumitru01/GLESC/releases/download/game_debug/debug.zip
 
