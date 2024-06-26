@@ -972,7 +972,7 @@ I would like to thank the following people and resources for helping me with thi
 [pull-requests-url]: https://github.com/valydumitru01/GLESC/pulls/
 
 [project-url]: https://github.com/valydumitru01/GLESC/
-[download-game-examples-url]: https://github.com/valydumitru01/GLESC/archive/refs/tags/terrain_generator_debug.zip
+[download-game-examples-url]: https://github.com/valydumitru01/GLESC/releases/download/GLESC_game_examples/GLESC_games.zip
 
 <!-- Dependencies download urls -->
 
