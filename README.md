@@ -78,7 +78,8 @@ Request Feature</a>
 
 ## About The Project
 
-[![GLESC game screenshot.png](doc/images/GLESC_game_screenshot.png)][project-url]
+[![GLESC_game_gif.gif](doc/gifs/GLESC_game_gif.gif)][GLESC_yt_video_url]
+> ⬆️⬆️⬆️ Click on the gif to see the full video presentation of the engine ⬆️⬆️⬆️
 
 GLESC is a game engine implemented in C++ using OpenGL and SDL2. It is a final degree project for the Bachelor's
 Degree in Computer Engineering at the University of Oviedo. It's development lasted 1 year and a half of
@@ -972,6 +973,8 @@ I would like to thank the following people and resources for helping me with thi
 [pull-requests-url]: https://github.com/valydumitru01/GLESC/pulls/
 
 [project-url]: https://github.com/valydumitru01/GLESC/
+
+[GLESC_yt_video_url]: https://www.youtube.com/watch?v=BUtPk38Kh0Y
 [download-game-examples-url]: https://github.com/valydumitru01/GLESC/releases/download/GLESC_game_examples/GLESC_games.zip
 
 <!-- Dependencies download urls -->
