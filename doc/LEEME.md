@@ -13,7 +13,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
-    <img style="width: 10em; left: 50%;" src="doc/images/GLESC_logo_white_background.png" alt="Logo"  >
+    <img style="width: 10em; left: 50%;" src="images/GLESC_logo_white_background.png" alt="Logo"  >
   </a>
 
 <h3 align="center">GLESC Game Engine</h3>
@@ -79,7 +79,7 @@ Solicitar una mejora</a>
 
 ## Acerca del Proyecto
 
-[![GLESC_game_gif.gif](doc/gifs/GLESC_game_gif.gif)][GLESC_yt_video_url]
+[![GLESC_game_gif.gif](gifs/GLESC_game_gif.gif)][GLESC_yt_video_url]
 > ⬆️⬆️⬆️ Haz clic en el gif para ver la presentación completa del motor ⬆️⬆️⬆️
 
 GLESC es un motor de juego implementado en C++ utilizando OpenGL y SDL2. Es un proyecto final de grado para el
@@ -253,7 +253,7 @@ void Game::init() {
 }
 ```
 
-![Scene creation](doc/images/scene-creation-folder.png)
+![Scene creation](images/scene-creation-folder.png)
 
 **Ejemplo de una clase de escena:**
 
@@ -736,7 +736,7 @@ Para poder alternar las ventanas de depuración, la entidad de la cámara está 
 está suscrita por defecto (incluso si no está en depuración) a la tecla `1` para alternar el ratón relativo.
 
 **Vista de ventana de depuración:**
-![alt text](doc/images/debug-window-view.png)
+![alt text](images/debug-window-view.png)
 
 #### Sonidos
 
@@ -1048,11 +1048,11 @@ Me gustaría agradecer a las siguientes personas y recursos por ayudarme con est
 
 [GLESC_logo]: doc/images/GLESC_logo.png
 
-[license-url]: LICENSE.txt
+[license-url]: ../LICENSE.txt
 
 [project-version]: 0.0.1
 
-[code-style-url]: doc/CODE_STYLE.md
+[code-style-url]: CODE_STYLE.md
 
 [documentation-url]: doc/TFG_GLESC_Documentation.pdf
 
