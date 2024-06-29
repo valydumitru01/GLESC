@@ -154,7 +154,7 @@ Here is a list of things you need to use the software and how to install them.
 
 
 - #### CLion (Optional but highly recommended)
-  In order to compile and edit the code CLion has been used. It facilitates all the tools needed for the project, such
+  To compile and edit the code CLion has been used. It facilitates all the tools needed for the project, such
   as CMake, ninja, mingw, the compiler, and the debugger. It is not necessary to use CLion, but it is highly
   recommended.
 
@@ -164,7 +164,7 @@ Here is a list of things you need to use the software and how to install them.
 
 - #### MinGW/GNU Compiler Collection (GCC)
 
-  In order to execute our code, we will require GNU utilities. This contains numerous compilers for various languages (
+  To execute our code, we will require GNU utilities. This contains numerous compilers for various languages (
   e.g. Fortran, C++ etc.) classified as the **GNU Compiler Collection (GCC)**, and their respective debuggers.
 
 MinGW includes a port of the **GNU Compiler Collection (GCC)**, GNU Binutils for Windows (assembler, linker, archive
@@ -189,7 +189,7 @@ of the Windows API, a Windows native build of the GNU Project's GNU Debugger, an
 - #### **CMake**
   CMake is an open-source, cross-platform family of tools designed to build, test, and package software. CMake is used
   to
-  control the software compilation process using simple platform and compiler-independent configuration files, and
+  control the software compilation process using simple platform and compiler-independent configuration files and
   generate native makefiles and workspaces that can be used in the compiler environment of your choice.
 
   > [**Download link**][CMake-download]
