@@ -1,3 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$class_g_l_e_s_c_1_1_scene_1_1_scene_manager.html" title="Manages the scenes of the game." alt="" coords="5,5,211,32"/>
+<area shape="rect" id="Node000000" href="$class_g_l_e_s_c_1_1_scene_1_1_scene.html" title="Contains all the classes and functions related to the scene management. Any scene of the game should ..." alt="" coords="5,5,161,32"/>
+<area shape="rect" id="Node000001" href="$class_default.html" title="Default scene." alt="" coords="209,5,270,32"/>
+<area shape="poly" id="edge41_Node000000_Node000001" title=" " alt="" coords="176,16,208,16,208,21,176,21"/>
 </map>

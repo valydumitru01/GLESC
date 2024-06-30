@@ -1,6 +1,6 @@
 var class_g_l_e_s_c_1_1_render_1_1_skybox =
 [
-    [ "Skybox", "class_g_l_e_s_c_1_1_render_1_1_skybox.html#a77a92db4492ed94ed4bd101b05ffb1f4", null ],
+    [ "Skybox", "class_g_l_e_s_c_1_1_render_1_1_skybox.html#ae4aedb73fb9a7df258e9076f6f49767c", null ],
     [ "calculateAverageColor", "class_g_l_e_s_c_1_1_render_1_1_skybox.html#ad9f7695fdc637e79ea1ae7cd5ecb5f5b", null ],
     [ "draw", "class_g_l_e_s_c_1_1_render_1_1_skybox.html#a297794252ba3f880d7312cd20ca443a7", null ],
     [ "getAverageColor", "class_g_l_e_s_c_1_1_render_1_1_skybox.html#a63695c959322438b5f64b70ba623c823", null ],

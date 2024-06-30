@@ -169,6 +169,8 @@ var hierarchy =
     [ "GLESC::Render::Intensity< float >", "class_g_l_e_s_c_1_1_render_1_1_intensity.html", null ],
     [ "GLESC::Render::Intensity< float >< float >", "class_g_l_e_s_c_1_1_render_1_1_intensity.html", null ],
     [ "Item", "_hud_items_manager_8h.html#struct_item", null ],
+    [ "GLESC::Math::Matrix< typename Type::ValueType, Type::Rows, Type::Cols >", "class_g_l_e_s_c_1_1_math_1_1_matrix.html", null ],
+    [ "MatrixType< T, N, M >", "struct_matrix_type.html", null ],
     [ "ModelLoader", "class_model_loader.html", null ],
     [ "Pixel", "struct_pixel.html", null ],
     [ "std::exception", null, [
@@ -222,5 +224,7 @@ var hierarchy =
     [ "TextureFactory", "class_texture_factory.html", null ],
     [ "GLESC::Math::Vector< bool, 3 >", "class_g_l_e_s_c_1_1_math_1_1_vector.html", null ],
     [ "GLESC::Math::Vector< float, 3 >", "class_g_l_e_s_c_1_1_math_1_1_vector.html", null ],
+    [ "GLESC::Math::Vector< typename Type::ValueType, Type::Size >", "class_g_l_e_s_c_1_1_math_1_1_vector.html", null ],
+    [ "VectorType< Type, N >", "struct_vector_type.html", null ],
     [ "VulkanAPI", "_vulkan_a_p_i_8h.html#class_vulkan_a_p_i", null ]
 ];

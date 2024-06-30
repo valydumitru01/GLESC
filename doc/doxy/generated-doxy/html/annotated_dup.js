@@ -202,10 +202,12 @@ var annotated_dup =
     [ "is_vector< GLESC::Math::Vector< T, N > >", "structis__vector_3_01_g_l_e_s_c_1_1_math_1_1_vector_3_01_t_00_01_n_01_4_01_4.html", null ],
     [ "Item", "_hud_items_manager_8h.html#struct_item", "_hud_items_manager_8h_struct_item" ],
     [ "MathException", "class_math_exception.html", "class_math_exception" ],
+    [ "MatrixType", "struct_matrix_type.html", "struct_matrix_type" ],
     [ "ModelLoader", "class_model_loader.html", "class_model_loader" ],
     [ "OpenException", "class_open_exception.html", "class_open_exception" ],
     [ "Pixel", "struct_pixel.html", "struct_pixel" ],
     [ "TerminalLogger", "class_terminal_logger.html", "class_terminal_logger" ],
     [ "TextureFactory", "class_texture_factory.html", "class_texture_factory" ],
+    [ "VectorType", "struct_vector_type.html", "struct_vector_type" ],
     [ "VulkanAPI", "_vulkan_a_p_i_8h.html#class_vulkan_a_p_i", null ]
 ];

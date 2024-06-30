@@ -1,5 +1,7 @@
 <map id="GLESC::Math::VectorAlgorithms::distanceSquared" name="GLESC::Math::VectorAlgorithms::distanceSquared">
-<area shape="rect" id="Node000001" title="Computes the squared distance between two vectors." alt="" coords="202,5,412,48"/>
+<area shape="rect" id="Node000001" title="Computes the squared distance between two vectors." alt="" coords="202,35,412,77"/>
 <area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#aa9d2cf1021e68de567a6df2ca104c473" title="Gives the squared distance between two vectors." alt="" coords="5,5,154,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="186,29,154,29,154,24,186,24"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="185,43,154,39,155,34,186,38"/>
+<area shape="rect" id="Node000003" href="$_vector_algorithms_tests_8cpp.html#ab24285add8f47dbd9acd45f2fe1be13a" title=" " alt="" coords="28,72,131,99"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="187,74,132,81,131,76,186,69"/>
 </map>

@@ -11,10 +11,10 @@
 <!-- Node0 -->
 <g id="Node000000" class="node">
 <title>Node0</title>
-<g id="a_Node000000"><a xlink:href="structstd_1_1hash_3_01_g_l_e_s_c_1_1_render_1_1_material_01_4.html" target="_top" xlink:title=" ">
+<g id="a_Node000000"><a xlink:href="structstd_1_1hash_3_01_g_l_e_s_c_1_1_render_1_1_color_rgba_norm_01_4.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="135.25,-32 0,-32 0,0 135.25,0 135.25,-32"/>
 <text text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">std::hash&lt; GLESC::Render</text>
-<text text-anchor="middle" x="67.62" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">::Material &gt;</text>
+<text text-anchor="middle" x="67.62" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">::ColorRgbaNorm &gt;</text>
 </a>
 </g>
 </g>

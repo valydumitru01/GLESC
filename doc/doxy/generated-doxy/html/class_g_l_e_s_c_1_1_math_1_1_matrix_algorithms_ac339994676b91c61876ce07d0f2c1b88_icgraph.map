@@ -1,32 +1,53 @@
 <map id="GLESC::Math::MatrixAlgorithms::matrixMatrixMulRowMaj" name="GLESC::Math::MatrixAlgorithms::matrixMatrixMulRowMaj">
-<area shape="rect" id="Node000001" title=" " alt="" coords="1304,189,1513,232"/>
-<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a9a320568d4cd85a382cb80f773e6e98f" title="Matrix division." alt="" coords="1048,72,1256,115"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1345,185,1200,118,1202,113,1347,180"/>
-<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#aa04e41ebccb8934ec715c81742f0d11f" title="Dot product matrix multiplication in place." alt="" coords="1048,189,1256,232"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="1289,213,1257,213,1257,208,1289,208"/>
-<area shape="rect" id="Node000015" href="$class_g_l_e_s_c_1_1_math_1_1_matrix.html#a2e1929e339f41f56dc91e1af07359ede" title="Multiplying Matrix by Matrix." alt="" coords="1079,256,1225,299"/>
-<area shape="poly" id="edge15_Node000001_Node000015" title=" " alt="" coords="1310,239,1227,261,1225,256,1308,234"/>
-<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_matrix.html#aadc4dae081d04d6df913d882ab4c7bb5" title="Matrix division by matrix." alt="" coords="823,5,970,48"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="1052,70,969,48,971,43,1054,65"/>
-<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_math_1_1_matrix.html#ae49bdfe2f706c9c73080948a9faa8114" title="In&#45;place division by another matrix." alt="" coords="823,72,970,115"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="1032,96,970,96,970,91,1032,91"/>
-<area shape="rect" id="Node000006" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_mixed_algorithms.html#a485f02d22191da3635105401351ec519" title="Calculate the model matrix from the position, rotation, and scale." alt="" coords="530,160,745,203"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="1051,188,1000,180,868,173,745,176,745,171,868,168,1000,175,1052,183"/>
-<area shape="rect" id="Node000007" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_mixed_algorithms.html#a67bdda15ead970e5074845bdf3fcf085" title=" " alt="" coords="793,256,1000,315"/>
-<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="1062,240,1000,258,998,253,1061,234"/>
-<area shape="rect" id="Node000013" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_mixed_algorithms.html#af2edbd12a5a8a4f225c1a811285d6414" title="Calculate the 3D rotation matrix from the rotation angles around the X, Y, and Z axes." alt="" coords="797,189,996,232"/>
-<area shape="poly" id="edge12_Node000005_Node000013" title=" " alt="" coords="1032,213,997,213,997,208,1032,208"/>
-<area shape="rect" id="Node000014" href="$class_g_l_e_s_c_1_1_math_1_1_matrix.html#ac83ec981fbeec3c85b0e080814e5a38b" title="In&#45;place element&#45;wise multiplication with another matrix." alt="" coords="823,339,970,381"/>
-<area shape="poly" id="edge14_Node000005_Node000014" title=" " alt="" coords="1054,243,1050,246,1034,266,1027,286,1019,308,1002,329,971,346,969,342,998,325,1014,305,1021,284,1029,263,1046,242,1051,238"/>
-<area shape="rect" id="Node000008" href="$class_g_l_e_s_c_1_1_math_1_1_matrix.html#a3c0812b3a24431dfc5bc68f394910d61" title="Creates a view matrix from the given position and rotation vectors." alt="" coords="553,264,722,307"/>
-<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="777,288,722,288,722,283,777,283"/>
-<area shape="rect" id="Node000009" href="$class_g_l_e_s_c_1_1_render_1_1_renderer.html#aaa4f270fc41e2f2a1f9ce7b979376eb1" title="Static method that creates the view matrix from a transform (transform of the camera)" alt="" coords="308,231,482,273"/>
-<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="537,274,483,267,483,261,538,269"/>
-<area shape="rect" id="Node000010" href="$class_g_l_e_s_c_1_1_render_1_1_renderer.html#a0f562e14a9fb4e13e03bc108b5dd1111" title="This starts the frame of rendering." alt="" coords="308,297,482,340"/>
-<area shape="poly" id="edge9_Node000008_Node000010" title=" " alt="" coords="538,302,483,309,483,304,537,296"/>
-<area shape="rect" id="Node000011" href="$class_g_l_e_s_c_1_1_engine.html#ab0a886855ca341089947b36b9c6f6e15" title="Processes the rendering of the game Can be called at variable intervals of time as it uses elapsed." alt="" coords="103,305,260,332"/>
-<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="292,321,261,321,261,316,292,316"/>
-<area shape="rect" id="Node000012" href="$main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,305,55,332"/>
-<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="87,321,55,321,55,316,87,316"/>
-<area shape="poly" id="edge13_Node000013_Node000006" title=" " alt="" coords="781,200,745,196,745,191,782,195"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="1304,411,1513,453"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a9a320568d4cd85a382cb80f773e6e98f" title="Matrix division." alt="" coords="1048,93,1256,136"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1378,400,1169,138,1173,135,1382,397"/>
+<area shape="rect" id="Node000006" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#aa04e41ebccb8934ec715c81742f0d11f" title="Dot product matrix multiplication in place." alt="" coords="1048,285,1256,328"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="1362,404,1312,372,1255,342,1227,331,1229,326,1257,338,1315,368,1365,400"/>
+<area shape="rect" id="Node000021" href="$class_g_l_e_s_c_1_1_math_1_1_matrix.html#a2e1929e339f41f56dc91e1af07359ede" title="Multiplying Matrix by Matrix." alt="" coords="1079,352,1225,395"/>
+<area shape="poly" id="edge22_Node000001_Node000021" title=" " alt="" coords="1297,409,1225,393,1226,387,1298,404"/>
+<area shape="rect" id="Node000022" href="$_matrix_algorithms_tests_8cpp.html#a81090a5ab28c0da227bc9edbe7b3eec3" title=" " alt="" coords="1101,419,1204,445"/>
+<area shape="poly" id="edge23_Node000001_Node000022" title=" " alt="" coords="1289,435,1204,435,1204,429,1289,429"/>
+<area shape="rect" id="Node000023" href="$_matrix_algorithms_tests_8cpp.html#ab7fa5918c968267970fce0de6f888b87" title=" " alt="" coords="1101,469,1204,496"/>
+<area shape="poly" id="edge24_Node000001_Node000023" title=" " alt="" coords="1290,458,1205,475,1204,470,1288,453"/>
+<area shape="rect" id="Node000024" href="$_matrix_algorithms_tests_8cpp.html#a98ce70af4f4c4091e87a4a1b13524f10" title=" " alt="" coords="1101,520,1204,547"/>
+<area shape="poly" id="edge25_Node000001_Node000024" title=" " alt="" coords="1358,464,1310,488,1257,511,1205,526,1204,521,1255,505,1307,483,1355,459"/>
+<area shape="rect" id="Node000025" href="$_matrix_tests_8cpp.html#a2a248f79c16dc0480e7608259b9feabb" title=" " alt="" coords="1101,571,1204,597"/>
+<area shape="poly" id="edge26_Node000001_Node000025" title=" " alt="" coords="1379,467,1325,516,1293,540,1257,561,1205,579,1203,574,1255,556,1290,536,1322,511,1375,463"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_matrix.html#aadc4dae081d04d6df913d882ab4c7bb5" title="Matrix division by matrix." alt="" coords="823,123,970,165"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="1033,131,970,138,970,133,1032,126"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_math_1_1_matrix.html#ae49bdfe2f706c9c73080948a9faa8114" title="In&#45;place division by another matrix." alt="" coords="823,5,970,48"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="1077,90,999,63,965,51,967,46,1001,57,1079,85"/>
+<area shape="rect" id="Node000005" href="$_matrix_tests_8cpp.html#a449ec0c9b3fc0e428b38ef6dbe185994" title=" " alt="" coords="845,72,948,99"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="1032,104,948,94,949,89,1033,98"/>
+<area shape="rect" id="Node000007" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_mixed_algorithms.html#a485f02d22191da3635105401351ec519" title="Calculate the model matrix from the position, rotation, and scale." alt="" coords="530,323,745,365"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="1067,336,1049,342,1025,354,1001,364,935,373,868,375,803,372,745,366,745,361,804,367,868,370,935,368,999,359,1023,350,1047,338,1065,331"/>
+<area shape="rect" id="Node000010" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_mixed_algorithms.html#a67bdda15ead970e5074845bdf3fcf085" title=" " alt="" coords="793,424,1000,483"/>
+<area shape="poly" id="edge9_Node000006_Node000010" title=" " alt="" coords="1056,338,1050,342,1034,357,1026,373,1017,390,1002,407,974,426,971,421,998,403,1013,387,1021,371,1030,354,1046,338,1053,333"/>
+<area shape="rect" id="Node000017" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_mixed_algorithms.html#af2edbd12a5a8a4f225c1a811285d6414" title="Calculate the 3D rotation matrix from the rotation angles around the X, Y, and Z axes." alt="" coords="797,189,996,232"/>
+<area shape="poly" id="edge17_Node000006_Node000017" title=" " alt="" coords="1086,281,999,246,966,235,968,230,1001,242,1088,276"/>
+<area shape="rect" id="Node000019" href="$class_g_l_e_s_c_1_1_math_1_1_matrix.html#ac83ec981fbeec3c85b0e080814e5a38b" title="In&#45;place element&#45;wise multiplication with another matrix." alt="" coords="823,256,970,299"/>
+<area shape="poly" id="edge20_Node000006_Node000019" title=" " alt="" coords="1032,296,970,288,970,283,1033,290"/>
+<area shape="rect" id="Node000020" href="$_matrix_tests_8cpp.html#a5d956badf1b4396200c20003b4654a2d" title=" " alt="" coords="845,323,948,349"/>
+<area shape="poly" id="edge21_Node000006_Node000020" title=" " alt="" coords="1033,323,949,333,948,327,1032,318"/>
+<area shape="rect" id="Node000008" href="$_matrix_algorithms_tests_8cpp.html#a6aae9903e037afac8518c1fcde662e2c" title=" " alt="" coords="369,331,422,357"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="515,347,422,347,422,341,515,341"/>
+<area shape="rect" id="Node000009" href="$_matrix_algorithms_tests_8cpp.html#ab325b7f490c714128caeb4bc7ea5cb8c" title=" " alt="" coords="369,396,422,423"/>
+<area shape="poly" id="edge8_Node000007_Node000009" title=" " alt="" coords="542,372,423,405,421,400,541,367"/>
+<area shape="poly" id="edge15_Node000010_Node000009" title=" " alt="" coords="777,450,530,431,422,416,422,411,531,425,778,445"/>
+<area shape="rect" id="Node000011" href="$class_g_l_e_s_c_1_1_math_1_1_matrix.html#a3c0812b3a24431dfc5bc68f394910d61" title="Creates a view matrix from the given position and rotation vectors." alt="" coords="553,491,722,533"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="778,483,723,495,722,490,777,478"/>
+<area shape="rect" id="Node000016" href="$_matrix_algorithms_tests_8cpp.html#a1b773a136d3c4948612da70d8d74b348" title=" " alt="" coords="611,389,664,416"/>
+<area shape="poly" id="edge16_Node000010_Node000016" title=" " alt="" coords="777,433,664,410,665,405,778,427"/>
+<area shape="rect" id="Node000012" href="$class_g_l_e_s_c_1_1_render_1_1_renderer.html#aaa4f270fc41e2f2a1f9ce7b979376eb1" title="Static method that creates the view matrix from a transform (transform of the camera)" alt="" coords="308,476,482,519"/>
+<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="537,509,483,505,483,500,538,503"/>
+<area shape="rect" id="Node000013" href="$class_g_l_e_s_c_1_1_render_1_1_renderer.html#a0f562e14a9fb4e13e03bc108b5dd1111" title="This starts the frame of rendering." alt="" coords="308,543,482,585"/>
+<area shape="poly" id="edge12_Node000011_Node000013" title=" " alt="" coords="539,536,484,548,482,543,538,531"/>
+<area shape="rect" id="Node000014" href="$class_g_l_e_s_c_1_1_engine.html#ab0a886855ca341089947b36b9c6f6e15" title="Processes the rendering of the game Can be called at variable intervals of time as it uses elapsed." alt="" coords="103,551,260,577"/>
+<area shape="poly" id="edge13_Node000013_Node000014" title=" " alt="" coords="292,567,261,567,261,561,292,561"/>
+<area shape="rect" id="Node000015" href="$src_2engine_2main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,551,55,577"/>
+<area shape="poly" id="edge14_Node000014_Node000015" title=" " alt="" coords="87,567,55,567,55,561,87,561"/>
+<area shape="poly" id="edge18_Node000017_Node000007" title=" " alt="" coords="807,241,794,246,725,285,669,324,666,320,723,281,791,242,804,236"/>
+<area shape="rect" id="Node000018" href="$_matrix_algorithms_tests_8cpp.html#a466d80b30a455c0fd1fc470745f544aa" title=" " alt="" coords="611,197,664,224"/>
+<area shape="poly" id="edge19_Node000017_Node000018" title=" " alt="" coords="781,213,665,213,665,208,781,208"/>
 </map>

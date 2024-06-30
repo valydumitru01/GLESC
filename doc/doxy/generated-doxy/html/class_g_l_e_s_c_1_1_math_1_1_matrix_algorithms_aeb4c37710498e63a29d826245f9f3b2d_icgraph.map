@@ -1,5 +1,7 @@
 <map id="GLESC::Math::MatrixAlgorithms::matrixMatrixMulNaiveRowMaj" name="GLESC::Math::MatrixAlgorithms::matrixMatrixMulNaiveRowMaj">
-<area shape="rect" id="Node000001" title=" " alt="" coords="262,5,470,48"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="262,35,470,77"/>
 <area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#afb01ae78baf775a22ac8dc10b7c74af3" title="Dot product matrix multiplication in place." alt="" coords="5,5,214,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="246,29,214,29,214,24,246,24"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="246,45,214,41,215,36,247,40"/>
+<area shape="rect" id="Node000003" href="$_matrix_algorithms_tests_8cpp.html#a81090a5ab28c0da227bc9edbe7b3eec3" title=" " alt="" coords="58,72,161,99"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="247,72,162,82,161,77,246,67"/>
 </map>

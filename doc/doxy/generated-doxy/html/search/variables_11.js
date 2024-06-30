@@ -18,7 +18,8 @@ var searchData=
   ['rowmajormatrix_15',['rowMajorMatrix',['../class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html#a0ad197a1ce607f9c166730ea752a08fa',1,'GLESC::GAPI::IGraphicInterface']]],
   ['rowmultipleadditions_16',['rowMultipleAdditions',['../class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a21b0bb6d30e78a6aee067636773e874d',1,'GLESC::Math::MatrixAlgorithms::GaussianEliminationTrackedResult']]],
   ['rowmultiplications_17',['rowMultiplications',['../class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a4e94cef5124a617c84de6b3eea1b0150',1,'GLESC::Math::MatrixAlgorithms::GaussianEliminationTrackedResult']]],
-  ['rowswaps_18',['rowSwaps',['../class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a1a70aef6e4d705137bcdb1f3e5c1a58f',1,'GLESC::Math::MatrixAlgorithms::GaussianEliminationTrackedResult']]],
-  ['rshift_19',['rShift',['../struct_format.html#ac78abd1cd15069f927e7c9ec21f3e4ee',1,'Format']]],
-  ['running_20',['running',['../class_g_l_e_s_c_1_1_engine.html#ae53baa1a953e98d284301d5b30916144',1,'GLESC::Engine']]]
+  ['rows_18',['Rows',['../struct_matrix_type.html#a75083f6c6cf1c0e9c1575ef0a201a41d',1,'MatrixType']]],
+  ['rowswaps_19',['rowSwaps',['../class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a1a70aef6e4d705137bcdb1f3e5c1a58f',1,'GLESC::Math::MatrixAlgorithms::GaussianEliminationTrackedResult']]],
+  ['rshift_20',['rShift',['../struct_format.html#ac78abd1cd15069f927e7c9ec21f3e4ee',1,'Format']]],
+  ['running_21',['running',['../class_g_l_e_s_c_1_1_engine.html#ae53baa1a953e98d284301d5b30916144',1,'GLESC::Engine']]]
 ];

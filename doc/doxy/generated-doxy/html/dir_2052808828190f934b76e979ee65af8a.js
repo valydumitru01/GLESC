@@ -7,6 +7,6 @@ var dir_2052808828190f934b76e979ee65af8a =
     [ "subsystems", "dir_dae283cde8a8f8ba1aab1ee8b3266bbb.html", "dir_dae283cde8a8f8ba1aab1ee8b3266bbb" ],
     [ "EngineCamera.cpp", "_engine_camera_8cpp.html", null ],
     [ "GLESC.cpp", "_g_l_e_s_c_8cpp.html", null ],
-    [ "main.cpp", "main_8cpp.html", "main_8cpp" ],
+    [ "main.cpp", "src_2engine_2main_8cpp.html", "src_2engine_2main_8cpp" ],
     [ "SceneManager.cpp", "_scene_manager_8cpp.html", null ]
 ];

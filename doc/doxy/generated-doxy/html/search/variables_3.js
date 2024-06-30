@@ -1,7 +1,7 @@
 var searchData=
 [
   ['darkbrown_0',['DarkBrown',['../struct_g_l_e_s_c_1_1_render_1_1_color_rgb.html#a497540f5db91283e28707569a2f9f89d',1,'GLESC::Render::ColorRgb']]],
-  ['darkgreen_1',['darkgreen',['../struct_g_l_e_s_c_1_1_render_1_1_color_rgb.html#aecef4b8bb650694908d4750a663d13f5',1,'GLESC::Render::ColorRgb::DarkGreen'],['../class_hud_look_and_feel.html#afbc2e5028f449e847b885dd5290d9cfd',1,'HudLookAndFeel::darkGreen']]],
+  ['darkgreen_1',['darkgreen',['../class_hud_look_and_feel.html#afbc2e5028f449e847b885dd5290d9cfd',1,'HudLookAndFeel::darkGreen'],['../struct_g_l_e_s_c_1_1_render_1_1_color_rgb.html#aecef4b8bb650694908d4750a663d13f5',1,'GLESC::Render::ColorRgb::DarkGreen']]],
   ['darkgrey_2',['DarkGrey',['../struct_g_l_e_s_c_1_1_render_1_1_color_rgb.html#a7ce995237f6bd2fd81159920984976d4',1,'GLESC::Render::ColorRgb']]],
   ['data_3',['data',['../class_g_l_e_s_c_1_1_math_1_1_matrix.html#a61efb38e4f917edc8065c12916dfdfe5',1,'GLESC::Math::Matrix::data'],['../class_g_l_e_s_c_1_1_math_1_1_vector.html#a7fee16e58f1c0969a39d757a08d7801a',1,'GLESC::Math::Vector::data'],['../class_entity_stats_manager.html#a77b1749cb9441b538fa8204cd1c99d30',1,'EntityStatsManager::Value::data']]],
   ['deadzone_4',['deadzone',['../class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a1318c099b578a773eeeb1be8c8389ae4',1,'GLESC::Input::InputManager']]],

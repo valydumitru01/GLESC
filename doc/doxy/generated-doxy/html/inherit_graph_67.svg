@@ -14,7 +14,7 @@
 <g id="a_Node000000"><a xlink:href="class_g_l_e_s_c_1_1_math_1_1_vector.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="111.25,-32 0,-32 0,0 111.25,0 111.25,-32"/>
 <text text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">GLESC::Math::Vector</text>
-<text text-anchor="middle" x="55.62" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; float, 3 &gt;</text>
+<text text-anchor="middle" x="55.62" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; bool, 3 &gt;</text>
 </a>
 </g>
 </g>

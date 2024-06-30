@@ -1,5 +1,7 @@
 <map id="GLESC::Math::VectorAlgorithms::neq" name="GLESC::Math::VectorAlgorithms::neq">
-<area shape="rect" id="Node000001" title=" " alt="" coords="202,13,441,40"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="202,43,441,69"/>
 <area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#accc0ad648b8921b68b62c06a01a8105a" title="Inequality operator for vectors." alt="" coords="5,5,154,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="186,29,154,29,154,24,186,24"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="191,43,154,38,154,33,191,38"/>
+<area shape="rect" id="Node000003" href="$_vector_algorithms_tests_8cpp.html#aecad0dd149137f15f77bc3dd3125d2b2" title=" " alt="" coords="28,72,131,99"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="192,74,132,82,131,76,191,69"/>
 </map>

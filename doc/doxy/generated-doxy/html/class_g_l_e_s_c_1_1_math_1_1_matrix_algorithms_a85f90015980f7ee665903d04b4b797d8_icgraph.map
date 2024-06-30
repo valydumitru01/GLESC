@@ -1,43 +1,55 @@
 <map id="GLESC::Math::MatrixAlgorithms::cofactor" name="GLESC::Math::MatrixAlgorithms::cofactor">
-<area shape="rect" id="Node000001" title="Calculates the cofactor of a matrix element." alt="" coords="1812,139,2020,181"/>
-<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a9670e25803284a303601766e75617acc" title="Calculates the determinant of any matrix using Laplace expansion." alt="" coords="1556,139,1764,181"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1797,172,1765,172,1765,166,1797,166"/>
-<area shape="poly" id="edge2_Node000002_Node000001" title=" " alt="" coords="1780,148,1812,148,1812,154,1780,154"/>
-<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_matrix.html#a543ab3eed1cbcb46bea5838f3a6687ac" title="Calculates the determinant of the matrix." alt="" coords="1330,72,1477,115"/>
-<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="1560,137,1477,115,1478,110,1561,132"/>
-<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a5d9d986d19eb1ff929b7c9c8f8cdbcdc" title="Checks if a matrix is invertible." alt="" coords="1299,139,1508,181"/>
-<area shape="poly" id="edge4_Node000002_Node000004" title=" " alt="" coords="1540,163,1508,163,1508,157,1540,157"/>
-<area shape="rect" id="Node000008" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a9a320568d4cd85a382cb80f773e6e98f" title="Matrix division." alt="" coords="530,249,739,292"/>
-<area shape="poly" id="edge22_Node000002_Node000008" title=" " alt="" coords="1576,189,1426,229,1339,248,1252,263,1113,276,974,281,739,279,739,273,974,276,1113,270,1251,257,1338,243,1425,224,1574,184"/>
-<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#aca5df3e27a085214d4d163ce91b38833" title="Calculates the inverse of a 2x2 matrix." alt="" coords="1043,139,1251,181"/>
-<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="1284,163,1252,163,1252,157,1284,157"/>
-<area shape="rect" id="Node000011" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a363b6f5195daf678e5cbe3923d0e0cfc" title="Calculates the inverse of a 3x3 matrix." alt="" coords="1043,205,1251,248"/>
-<area shape="poly" id="edge11_Node000004_Node000011" title=" " alt="" coords="1305,188,1233,207,1231,202,1303,183"/>
-<area shape="rect" id="Node000012" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a1380aa1364ae38a37a7e710d20cf90ec" title="Calculates the inverse of a 4x4 matrix." alt="" coords="1043,72,1251,115"/>
-<area shape="poly" id="edge13_Node000004_Node000012" title=" " alt="" coords="1303,137,1231,118,1233,113,1305,132"/>
-<area shape="rect" id="Node000018" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a8f87a5cd712e5f47531965d3c0d620f8" title="Checks if a matrix is a valid view matrix." alt="" coords="1043,5,1251,48"/>
-<area shape="poly" id="edge20_Node000004_Node000018" title=" " alt="" coords="1304,133,1298,129,1281,112,1273,94,1265,78,1250,62,1231,51,1234,46,1253,58,1269,75,1278,92,1286,109,1301,125,1307,129"/>
-<area shape="rect" id="Node000006" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a6926a06b307dbcaf08b77a7d1457b9cd" title="Calculates the inverse of any square matrix." alt="" coords="787,168,995,211"/>
-<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="1028,176,996,180,995,175,1027,171"/>
-<area shape="rect" id="Node000007" href="$class_g_l_e_s_c_1_1_math_1_1_matrix.html#a3509fbaa0df9cb3def4bd2adaa9a0600" title="Calculates the inverse of the matrix." alt="" coords="561,168,708,211"/>
-<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="771,192,708,192,708,187,771,187"/>
-<area shape="poly" id="edge8_Node000006_Node000008" title=" " alt="" coords="808,218,705,251,703,246,806,213"/>
-<area shape="rect" id="Node000009" href="$class_g_l_e_s_c_1_1_math_1_1_matrix.html#aadc4dae081d04d6df913d882ab4c7bb5" title="Matrix division by matrix." alt="" coords="322,283,468,325"/>
-<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="515,290,469,296,468,291,514,285"/>
-<area shape="rect" id="Node000010" href="$class_g_l_e_s_c_1_1_math_1_1_matrix.html#ae49bdfe2f706c9c73080948a9faa8114" title="In&#45;place division by another matrix." alt="" coords="322,216,468,259"/>
-<area shape="poly" id="edge10_Node000008_Node000010" title=" " alt="" coords="514,257,468,250,469,245,515,251"/>
-<area shape="poly" id="edge12_Node000011_Node000006" title=" " alt="" coords="1027,212,995,207,996,202,1028,207"/>
-<area shape="poly" id="edge19_Node000012_Node000006" title=" " alt="" coords="1063,122,1044,129,943,170,941,165,1042,124,1061,117"/>
-<area shape="rect" id="Node000013" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#af1fa0338a019e92e6bc2f76d521b4b6f" title="Calculates the normal matrix given the model&#45;view matrix." alt="" coords="787,72,995,115"/>
-<area shape="poly" id="edge14_Node000012_Node000013" title=" " alt="" coords="1028,96,996,96,996,91,1028,91"/>
-<area shape="rect" id="Node000014" href="$class_g_l_e_s_c_1_1_math_1_1_matrix.html#ab7f28dc98291b73ddc0ecd277f128649" title="Creates a normal matrix from the given model&#45;view matrix." alt="" coords="561,72,708,115"/>
-<area shape="poly" id="edge15_Node000013_Node000014" title=" " alt="" coords="771,96,708,96,708,91,771,91"/>
-<area shape="rect" id="Node000015" href="$class_g_l_e_s_c_1_1_render_1_1_renderer.html#a3244ebc15bf8310257ec613f62d00a33" title="This renders the frame." alt="" coords="308,72,482,115"/>
-<area shape="poly" id="edge16_Node000014_Node000015" title=" " alt="" coords="546,96,483,96,483,91,546,91"/>
-<area shape="rect" id="Node000016" href="$class_g_l_e_s_c_1_1_engine.html#ab0a886855ca341089947b36b9c6f6e15" title="Processes the rendering of the game Can be called at variable intervals of time as it uses elapsed." alt="" coords="103,80,260,107"/>
-<area shape="poly" id="edge17_Node000015_Node000016" title=" " alt="" coords="292,96,261,96,261,91,292,91"/>
-<area shape="rect" id="Node000017" href="$main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,80,55,107"/>
-<area shape="poly" id="edge18_Node000016_Node000017" title=" " alt="" coords="87,96,55,96,55,91,87,91"/>
-<area shape="rect" id="Node000019" href="$class_g_l_e_s_c_1_1_math_1_1_matrix.html#a7c3c653462162c2417092eaf575febfe" title="Checks if the matrix is a valid view matrix." alt="" coords="818,5,964,48"/>
-<area shape="poly" id="edge21_Node000018_Node000019" title=" " alt="" coords="1028,29,965,29,965,24,1028,24"/>
+<area shape="rect" id="Node000001" title="Calculates the cofactor of a matrix element." alt="" coords="1812,285,2020,328"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a9670e25803284a303601766e75617acc" title="Calculates the determinant of any matrix using Laplace expansion." alt="" coords="1556,285,1764,328"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1797,318,1765,318,1765,313,1797,313"/>
+<area shape="poly" id="edge2_Node000002_Node000001" title=" " alt="" coords="1780,295,1812,295,1812,300,1780,300"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_matrix.html#a543ab3eed1cbcb46bea5838f3a6687ac" title="Calculates the determinant of the matrix." alt="" coords="1330,127,1477,169"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="1626,277,1572,229,1506,184,1476,170,1478,165,1509,179,1576,225,1629,273"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a5d9d986d19eb1ff929b7c9c8f8cdbcdc" title="Checks if a matrix is invertible." alt="" coords="1299,193,1508,236"/>
+<area shape="poly" id="edge4_Node000002_Node000004" title=" " alt="" coords="1583,282,1464,239,1466,234,1585,277"/>
+<area shape="rect" id="Node000008" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a9a320568d4cd85a382cb80f773e6e98f" title="Matrix division." alt="" coords="530,293,739,336"/>
+<area shape="poly" id="edge26_Node000002_Node000008" title=" " alt="" coords="1541,310,739,317,739,311,1541,305"/>
+<area shape="rect" id="Node000024" href="$_matrix_algorithms_tests_8cpp.html#a186540000fedbd718c4287f20305cecb" title=" " alt="" coords="1377,344,1430,371"/>
+<area shape="poly" id="edge27_Node000002_Node000024" title=" " alt="" coords="1541,333,1431,355,1430,350,1540,328"/>
+<area shape="rect" id="Node000025" href="$_matrix_tests_8cpp.html#a68ee262d14b00fe1dcd8ec612464ffe9" title=" " alt="" coords="1352,395,1455,421"/>
+<area shape="poly" id="edge28_Node000002_Node000025" title=" " alt="" coords="1609,338,1561,363,1509,385,1456,400,1455,395,1507,380,1559,358,1607,333"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#aca5df3e27a085214d4d163ce91b38833" title="Calculates the inverse of a 2x2 matrix." alt="" coords="1043,160,1251,203"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="1284,202,1252,198,1252,192,1284,196"/>
+<area shape="rect" id="Node000014" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a363b6f5195daf678e5cbe3923d0e0cfc" title="Calculates the inverse of a 3x3 matrix." alt="" coords="1043,227,1251,269"/>
+<area shape="poly" id="edge14_Node000004_Node000014" title=" " alt="" coords="1284,233,1252,237,1252,232,1284,228"/>
+<area shape="rect" id="Node000015" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a1380aa1364ae38a37a7e710d20cf90ec" title="Calculates the inverse of a 4x4 matrix." alt="" coords="1043,93,1251,136"/>
+<area shape="poly" id="edge16_Node000004_Node000015" title=" " alt="" coords="1311,190,1298,184,1274,167,1250,150,1224,139,1226,134,1253,146,1277,162,1301,179,1313,185"/>
+<area shape="rect" id="Node000022" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a8f87a5cd712e5f47531965d3c0d620f8" title="Checks if a matrix is a valid view matrix." alt="" coords="1043,23,1251,65"/>
+<area shape="poly" id="edge24_Node000004_Node000022" title=" " alt="" coords="1301,187,1297,183,1286,171,1279,158,1273,132,1267,107,1260,95,1250,83,1227,68,1230,64,1253,79,1265,92,1272,105,1278,131,1284,156,1290,168,1301,179,1305,182"/>
+<area shape="rect" id="Node000006" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a6926a06b307dbcaf08b77a7d1457b9cd" title="Calculates the inverse of any square matrix." alt="" coords="787,176,995,219"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="1028,191,996,193,995,188,1027,186"/>
+<area shape="rect" id="Node000007" href="$class_g_l_e_s_c_1_1_math_1_1_matrix.html#a3509fbaa0df9cb3def4bd2adaa9a0600" title="Calculates the inverse of the matrix." alt="" coords="561,176,708,219"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="771,200,708,200,708,195,771,195"/>
+<area shape="poly" id="edge8_Node000006_Node000008" title=" " alt="" coords="843,229,794,257,740,284,710,295,709,290,738,279,792,252,841,225"/>
+<area shape="rect" id="Node000012" href="$_matrix_algorithms_tests_8cpp.html#a16fcb82c213d83fe32933fbb40048146" title=" " alt="" coords="608,243,661,269"/>
+<area shape="poly" id="edge12_Node000006_Node000012" title=" " alt="" coords="781,225,662,253,661,247,779,220"/>
+<area shape="rect" id="Node000013" href="$_matrix_tests_8cpp.html#a29f7caf02e99e591db86c6ef28ab527c" title=" " alt="" coords="583,125,686,152"/>
+<area shape="poly" id="edge13_Node000006_Node000013" title=" " alt="" coords="779,175,686,153,687,148,781,169"/>
+<area shape="rect" id="Node000009" href="$class_g_l_e_s_c_1_1_math_1_1_matrix.html#aadc4dae081d04d6df913d882ab4c7bb5" title="Matrix division by matrix." alt="" coords="322,293,468,336"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="515,317,469,317,469,312,515,312"/>
+<area shape="rect" id="Node000010" href="$class_g_l_e_s_c_1_1_math_1_1_matrix.html#ae49bdfe2f706c9c73080948a9faa8114" title="In&#45;place division by another matrix." alt="" coords="322,360,468,403"/>
+<area shape="poly" id="edge10_Node000008_Node000010" title=" " alt="" coords="542,343,470,363,468,358,540,338"/>
+<area shape="rect" id="Node000011" href="$_matrix_tests_8cpp.html#a449ec0c9b3fc0e428b38ef6dbe185994" title=" " alt="" coords="344,243,447,269"/>
+<area shape="poly" id="edge11_Node000008_Node000011" title=" " alt="" coords="529,292,447,271,448,266,531,286"/>
+<area shape="poly" id="edge15_Node000014_Node000006" title=" " alt="" coords="1027,227,995,221,996,215,1028,222"/>
+<area shape="poly" id="edge23_Node000015_Node000006" title=" " alt="" coords="1065,144,1044,151,960,178,958,173,1042,145,1063,139"/>
+<area shape="rect" id="Node000016" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#af1fa0338a019e92e6bc2f76d521b4b6f" title="Calculates the normal matrix given the model&#45;view matrix." alt="" coords="787,72,995,115"/>
+<area shape="poly" id="edge17_Node000015_Node000016" title=" " alt="" coords="1027,107,995,105,996,99,1028,102"/>
+<area shape="rect" id="Node000017" href="$class_g_l_e_s_c_1_1_math_1_1_matrix.html#ab7f28dc98291b73ddc0ecd277f128649" title="Creates a normal matrix from the given model&#45;view matrix." alt="" coords="561,8,708,51"/>
+<area shape="poly" id="edge18_Node000016_Node000017" title=" " alt="" coords="787,70,707,50,709,45,789,65"/>
+<area shape="rect" id="Node000021" href="$_matrix_algorithms_tests_8cpp.html#ab325b7f490c714128caeb4bc7ea5cb8c" title=" " alt="" coords="608,75,661,101"/>
+<area shape="poly" id="edge22_Node000016_Node000021" title=" " alt="" coords="771,94,662,91,662,86,771,88"/>
+<area shape="rect" id="Node000018" href="$class_g_l_e_s_c_1_1_render_1_1_renderer.html#a3244ebc15bf8310257ec613f62d00a33" title="This renders the frame." alt="" coords="308,8,482,51"/>
+<area shape="poly" id="edge19_Node000017_Node000018" title=" " alt="" coords="546,32,483,32,483,27,546,27"/>
+<area shape="rect" id="Node000019" href="$class_g_l_e_s_c_1_1_engine.html#ab0a886855ca341089947b36b9c6f6e15" title="Processes the rendering of the game Can be called at variable intervals of time as it uses elapsed." alt="" coords="103,16,260,43"/>
+<area shape="poly" id="edge20_Node000018_Node000019" title=" " alt="" coords="292,32,261,32,261,27,292,27"/>
+<area shape="rect" id="Node000020" href="$src_2engine_2main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,16,55,43"/>
+<area shape="poly" id="edge21_Node000019_Node000020" title=" " alt="" coords="87,32,55,32,55,27,87,27"/>
+<area shape="rect" id="Node000023" href="$class_g_l_e_s_c_1_1_math_1_1_matrix.html#a7c3c653462162c2417092eaf575febfe" title="Checks if the matrix is a valid view matrix." alt="" coords="818,5,964,48"/>
+<area shape="poly" id="edge25_Node000022_Node000023" title=" " alt="" coords="1028,39,964,34,965,29,1028,33"/>
 </map>

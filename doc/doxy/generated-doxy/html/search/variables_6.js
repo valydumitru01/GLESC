@@ -8,7 +8,7 @@ var searchData=
   ['gmask_5',['gMask',['../struct_format.html#ae89b28ccd841acae164a3951ed2de2bb',1,'Format']]],
   ['gravity_6',['gravity',['../class_g_l_e_s_c_1_1_physics_1_1_physics_manager.html#a53b1a0f0ef9619abcaf6dd990cc178a7',1,'GLESC::Physics::PhysicsManager']]],
   ['gray_7',['gray',['../class_hud_look_and_feel.html#ad393331c48ad015a230d9082dac70415',1,'HudLookAndFeel']]],
-  ['green_8',['green',['../struct_g_l_e_s_c_1_1_render_1_1_color_rgb.html#a0ecd9b0dde5ad294e84437156f1e4926',1,'GLESC::Render::ColorRgb::Green'],['../class_hud_look_and_feel.html#a746a5690fada00b541b4ce71fbbbeaf9',1,'HudLookAndFeel::green']]],
+  ['green_8',['green',['../class_hud_look_and_feel.html#a746a5690fada00b541b4ce71fbbbeaf9',1,'HudLookAndFeel::green'],['../struct_g_l_e_s_c_1_1_render_1_1_color_rgb.html#a0ecd9b0dde5ad294e84437156f1e4926',1,'GLESC::Render::ColorRgb::Green']]],
   ['grey_9',['Grey',['../struct_g_l_e_s_c_1_1_render_1_1_color_rgb.html#a22b5c7a465802daec6c409c874ea13ac',1,'GLESC::Render::ColorRgb']]],
   ['gshift_10',['gShift',['../struct_format.html#a980cba4b62f29d17ce243308df44e551',1,'Format']]]
 ];

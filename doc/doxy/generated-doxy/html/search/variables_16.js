@@ -2,7 +2,7 @@ var searchData=
 [
   ['warningcolor_0',['warningColor',['../class_g_l_e_s_c_1_1_h_u_d_1_1_debug_console_h_u_d.html#a3fa8d0f29d2780f9b31d71e0f8a47948',1,'GLESC::HUD::DebugConsoleHUD']]],
   ['wasdatasenttogpu_1',['wasDataSentToGpu',['../class_g_l_e_s_c_1_1_render_1_1_mesh.html#ab050ce60776236c63a10f3d989a4fcf9',1,'GLESC::Render::Mesh']]],
-  ['white_2',['white',['../struct_g_l_e_s_c_1_1_render_1_1_color_rgb.html#ab044a417a31539538070a67ccfcff672',1,'GLESC::Render::ColorRgb::White'],['../class_hud_look_and_feel.html#a7e4e15359509c5c99eca80aa3d5490f1',1,'HudLookAndFeel::white']]],
+  ['white_2',['white',['../class_hud_look_and_feel.html#a7e4e15359509c5c99eca80aa3d5490f1',1,'HudLookAndFeel::white'],['../struct_g_l_e_s_c_1_1_render_1_1_color_rgb.html#ab044a417a31539538070a67ccfcff672',1,'GLESC::Render::ColorRgb::White']]],
   ['width_3',['width',['../struct_g_l_e_s_c_1_1_g_a_p_i_1_1_viewport.html#a05cf1f06ca1ee95010c33a1a98701c3d',1,'GLESC::GAPI::Viewport::width'],['../struct_g_l_e_s_c_1_1_window_dimensions.html#a3fa1dacba5b6f3b5abf604ca6df43581',1,'GLESC::WindowDimensions::width'],['../class_g_l_e_s_c_1_1_res_mng_1_1_texture_1_1_texture_surface.html#af87d752d5a19ef8ff8f773b0fb6133ac',1,'GLESC::ResMng::Texture::TextureSurface::width']]],
   ['window_4',['window',['../class_g_l_e_s_c_1_1_window_manager.html#ab36d84030a76c48e125eb5b533225d81',1,'GLESC::WindowManager::window'],['../class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#a6e9b5e5d9ee58ac787f982b3060b9f4f',1,'GLESC::HUD::HUDManager::window']]],
   ['windowflags_5',['windowFlags',['../class_g_l_e_s_c_1_1_in_game_window.html#aec05ff84249a0581e078ef617875ab69',1,'GLESC::InGameWindow']]],

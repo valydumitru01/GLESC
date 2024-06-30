@@ -1,9 +1,15 @@
 <map id="GLESC::Math::VectorAlgorithms::sum" name="GLESC::Math::VectorAlgorithms::sum">
-<area shape="rect" id="Node000001" title="Computes the sum of all elements inside the vector." alt="" coords="475,39,718,65"/>
-<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#a53f1393d2d3db49287176da36e25541b" title=" " alt="" coords="202,13,427,40"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="459,42,427,39,428,34,460,37"/>
-<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#acc41dd048f8366466f9814b39dd1958a" title="Returns the sum of all the elements in the vector." alt="" coords="224,64,405,91"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="460,67,406,72,405,67,460,62"/>
+<area shape="rect" id="Node000001" title="Computes the sum of all elements inside the vector." alt="" coords="475,119,718,145"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#a53f1393d2d3db49287176da36e25541b" title=" " alt="" coords="202,43,427,69"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="537,116,426,84,380,73,381,67,428,79,538,111"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#acc41dd048f8366466f9814b39dd1958a" title="Returns the sum of all the elements in the vector." alt="" coords="224,93,405,120"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="460,122,405,117,406,112,460,117"/>
+<area shape="rect" id="Node000006" href="$_vector_algorithms_tests_8cpp.html#a821458bc0c911fa232ef9c24c7c94572" title=" " alt="" coords="263,144,366,171"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="460,147,367,155,366,150,459,142"/>
+<area shape="rect" id="Node000007" href="$_vector_tests_8cpp.html#a136d75f85d9ef42686d788cfbb0471bd" title=" " alt="" coords="263,195,366,221"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="538,153,428,185,367,200,366,195,426,180,537,148"/>
 <area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#a75ce89b190266e357ff98786bfae8d15" title="Less than operator for vectors." alt="" coords="5,5,154,48"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="186,29,154,29,154,24,186,24"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="187,43,154,39,155,33,188,37"/>
+<area shape="rect" id="Node000004" href="$_vector_algorithms_tests_8cpp.html#a4337998b0f7143c61a6ef73b12dca124" title=" " alt="" coords="28,72,131,99"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="188,75,132,82,131,76,187,69"/>
 </map>

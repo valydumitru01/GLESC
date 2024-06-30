@@ -1,5 +1,7 @@
 <map id="GLESC::Math::VectorAlgorithms::lt" name="GLESC::Math::VectorAlgorithms::lt">
-<area shape="rect" id="Node000001" title=" " alt="" coords="202,13,427,40"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="202,43,427,69"/>
 <area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#a75ce89b190266e357ff98786bfae8d15" title="Less than operator for vectors." alt="" coords="5,5,154,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="186,29,154,29,154,24,186,24"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="187,43,154,39,155,33,188,37"/>
+<area shape="rect" id="Node000003" href="$_vector_algorithms_tests_8cpp.html#a4337998b0f7143c61a6ef73b12dca124" title=" " alt="" coords="28,72,131,99"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="188,75,132,82,131,76,187,69"/>
 </map>

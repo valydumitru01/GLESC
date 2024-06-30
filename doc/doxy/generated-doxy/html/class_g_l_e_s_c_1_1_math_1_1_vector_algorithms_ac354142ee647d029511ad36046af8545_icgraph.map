@@ -1,11 +1,13 @@
 <map id="GLESC::Math::VectorAlgorithms::vectorMove" name="GLESC::Math::VectorAlgorithms::vectorMove">
-<area shape="rect" id="Node000001" title=" " alt="" coords="202,105,412,148"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="202,139,412,181"/>
 <area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#a6dea2aa5b69bfb8fd6e66da3e8b285fa" title="Move constructor, for vectors of different sizes." alt="" coords="5,5,154,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="241,101,129,51,131,46,244,96"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="262,132,152,62,130,51,133,46,155,58,265,127"/>
 <area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#ac8faa28ff3723b345fa19d567d2bcd36" title="Move constructor." alt="" coords="5,72,154,115"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="186,112,154,107,155,102,187,106"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="217,136,153,118,155,113,218,131"/>
 <area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#a46e0df01bfb0c0df56eea9b137f22763" title="Move constructor for VectorData." alt="" coords="5,139,154,181"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="187,147,155,152,154,146,186,142"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="186,163,154,163,154,157,186,157"/>
 <area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#a75a5df5ec73a418b1ef9d86454a4d838" title="Move assignment operator." alt="" coords="5,205,154,248"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="244,157,131,207,129,202,241,152"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="218,189,155,207,153,202,217,184"/>
+<area shape="rect" id="Node000006" href="$_vector_algorithms_tests_8cpp.html#aee3beb5c9c99215559bf6e6b13cb638a" title=" " alt="" coords="28,272,131,299"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="266,193,214,228,155,262,128,274,126,269,152,258,212,224,263,189"/>
 </map>

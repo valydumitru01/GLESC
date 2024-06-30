@@ -1,0 +1,94 @@
+<map id="TEST" name="TEST">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,264,59,291"/>
+<area shape="rect" id="Node000002" href="$_matrix_algorithms_tests_8cpp.html#a91c27130f2008b71b9af038c74492753" title=" " alt="" coords="130,47,298,73"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="35,262,58,199,79,161,105,125,134,99,167,79,169,83,138,103,109,128,83,163,63,201,40,264"/>
+<area shape="rect" id="Node000004" href="$_matrix_algorithms_tests_8cpp.html#a067178b4f9447447bd7140fb774087ce" title=" " alt="" coords="127,139,301,165"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="37,262,62,219,82,195,105,175,114,170,117,174,108,180,86,199,67,222,42,265"/>
+<area shape="rect" id="Node000005" href="$_matrix_algorithms_tests_8cpp.html#a7eef93bd607ce0d04bbb2637ef4b9dc3" title=" " alt="" coords="133,264,295,291"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="59,275,118,275,118,280,59,280"/>
+<area shape="rect" id="Node000007" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_mixed_algorithms.html#a485f02d22191da3635105401351ec519" title="Calculate the model matrix from the position, rotation, and scale." alt="" coords="107,592,321,635"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="41,290,67,361,109,452,150,520,189,578,185,581,145,523,104,455,62,363,36,292"/>
+<area shape="rect" id="Node000021" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a0b865437ed01525b5afafb74f755ffbb" title=" " alt="" coords="885,831,1093,873"/>
+<area shape="poly" id="edge54_Node000001_Node000021" title=" " alt="" coords="37,291,44,364,58,470,80,575,93,616,109,645,145,686,185,721,229,752,276,778,325,801,377,819,483,846,590,862,693,868,788,868,869,863,870,868,788,873,693,873,590,867,482,851,375,824,323,806,273,783,226,756,182,725,141,689,104,648,88,618,75,576,53,470,39,364,32,292"/>
+<area shape="rect" id="Node000028" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#af1fa0338a019e92e6bc2f76d521b4b6f" title="Calculates the normal matrix given the model&#45;view matrix." alt="" coords="110,189,318,232"/>
+<area shape="poly" id="edge33_Node000001_Node000028" title=" " alt="" coords="58,265,138,235,140,240,60,270"/>
+<area shape="rect" id="Node000038" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_mixed_algorithms.html#a67bdda15ead970e5074845bdf3fcf085" title=" " alt="" coords="110,383,318,441"/>
+<area shape="poly" id="edge46_Node000001_Node000038" title=" " alt="" coords="53,289,162,371,159,375,50,293"/>
+<area shape="rect" id="Node000003" href="$_matrix_algorithms_tests_8cpp.html#a39be7ba6c6c1afa948fa609c26f9f680" title=" " alt="" coords="389,5,560,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="298,44,373,32,373,37,299,49"/>
+<area shape="rect" id="Node000006" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#a7b10d54bc647ac05d41a9e025d5c9410" title="Negates a vector." alt="" coords="369,256,579,299"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="295,275,354,275,354,280,295,280"/>
+<area shape="rect" id="Node000008" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_mixed_algorithms.html#af2edbd12a5a8a4f225c1a811285d6414" title="Calculate the 3D rotation matrix from the rotation angles around the X, Y, and Z axes." alt="" coords="375,659,574,701"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="301,633,374,652,373,657,299,638"/>
+<area shape="rect" id="Node000019" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#aa04e41ebccb8934ec715c81742f0d11f" title="Dot product matrix multiplication in place." alt="" coords="627,732,836,775"/>
+<area shape="poly" id="edge30_Node000007_Node000019" title=" " alt="" coords="237,633,293,684,330,710,370,730,430,747,493,757,554,761,612,761,612,766,554,766,492,762,429,752,368,734,327,714,290,689,233,637"/>
+<area shape="rect" id="Node000023" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a5cea58a2eb5207b8282360179774f17b" title="Sets the diagonal of a matrix to a specific value." alt="" coords="627,645,836,688"/>
+<area shape="poly" id="edge31_Node000007_Node000023" title=" " alt="" coords="241,633,297,676,332,696,370,711,407,719,445,723,522,720,595,708,657,691,659,696,596,713,523,725,445,728,406,724,368,716,330,701,294,680,237,637"/>
+<area shape="rect" id="Node000024" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a053f9441ed78e43be28efcca0fc34283" title="Sets the values of a matrix to zero." alt="" coords="627,537,836,580"/>
+<area shape="poly" id="edge32_Node000007_Node000024" title=" " alt="" coords="305,589,369,577,494,565,612,558,612,564,494,570,369,583,306,594"/>
+<area shape="rect" id="Node000026" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#ac2a4e16d39a3e40fed2b4d7362c012a6" title="Gets the scale matrix." alt="" coords="370,475,578,517"/>
+<area shape="poly" id="edge25_Node000007_Node000026" title=" " alt="" coords="255,589,368,534,398,521,400,526,370,538,257,594"/>
+<area shape="rect" id="Node000027" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a0366e789adbfca31ea7a2bd82c77d676" title="Applies the translation to a model matrix." alt="" coords="370,592,578,635"/>
+<area shape="poly" id="edge27_Node000007_Node000027" title=" " alt="" coords="321,611,355,611,355,616,321,616"/>
+<area shape="rect" id="Node000009" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_mixed_algorithms.html#a88aadedf958ac6e320f73137e81aaf37" title="Rotate a 3D matrix around the X, Y, and Z axis." alt="" coords="632,391,831,449"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="562,656,578,645,590,631,598,617,605,589,610,558,625,524,652,489,682,458,685,462,656,492,630,527,615,560,610,590,603,619,594,634,581,649,565,660"/>
+<area shape="poly" id="edge18_Node000008_Node000019" title=" " alt="" coords="552,699,640,725,639,730,551,704"/>
+<area shape="poly" id="edge22_Node000008_Node000023" title=" " alt="" coords="574,672,611,670,612,676,574,677"/>
+<area shape="poly" id="edge23_Node000008_Node000024" title=" " alt="" coords="550,656,578,644,634,616,684,586,686,591,636,621,580,649,552,661"/>
+<area shape="rect" id="Node000010" href="$namespace_g_l_e_s_c_1_1_math.html#ac72fdbfd43b6a5770385dbfd805b687b" title="Calculates the cosine of a value." alt="" coords="923,319,1055,345"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="797,388,883,355,909,347,910,352,885,360,799,393"/>
+<area shape="rect" id="Node000011" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#a7ee5da5ffdabacb6faa895af42dd78c3" title="Normalizes a vector." alt="" coords="884,369,1094,412"/>
+<area shape="poly" id="edge10_Node000009_Node000011" title=" " alt="" coords="831,406,868,402,869,407,832,411"/>
+<area shape="rect" id="Node000017" href="$namespace_g_l_e_s_c_1_1_math.html#aa21a1aeaaa25e280f941221e165dffa4" title="Calculates the sine of a value." alt="" coords="925,436,1053,463"/>
+<area shape="poly" id="edge16_Node000009_Node000017" title=" " alt="" coords="832,429,910,438,910,443,831,434"/>
+<area shape="rect" id="Node000018" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#ae39d3eeb6fa078e77bb563ebc318e43a" title="Multiplies a vector by a scalar." alt="" coords="884,487,1094,529"/>
+<area shape="poly" id="edge17_Node000009_Node000018" title=" " alt="" coords="815,447,885,472,905,479,903,484,883,477,813,452"/>
+<area shape="rect" id="Node000012" href="$namespace_g_l_e_s_c_1_1_math.html#aee25910dbba06d09d9df14d03933ace1" title="Compares two values for equality." alt="" coords="1185,377,1309,404"/>
+<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="1095,388,1170,388,1170,393,1095,393"/>
+<area shape="rect" id="Node000014" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#a96acaa670e780132720dd3ea6a6cdf97" title="Computes the length of a vector." alt="" coords="1142,428,1352,471"/>
+<area shape="poly" id="edge13_Node000011_Node000014" title=" " alt="" coords="1086,410,1136,421,1134,427,1085,415"/>
+<area shape="rect" id="Node000013" href="$namespace_g_l_e_s_c_1_1_math.html#acd429163efe906cd22916cc75ccb2421" title="Epsilon getter with precision of a given template type." alt="" coords="1430,377,1581,404"/>
+<area shape="poly" id="edge12_Node000012_Node000013" title=" " alt="" coords="1310,388,1414,388,1414,393,1310,393"/>
+<area shape="rect" id="Node000015" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#ae45bcff9b53fb60d513c53823418d97b" title="Computes the dot product of two vectors." alt="" coords="1400,483,1611,525"/>
+<area shape="poly" id="edge14_Node000014_Node000015" title=" " alt="" coords="1352,469,1387,476,1386,481,1351,474"/>
+<area shape="rect" id="Node000016" href="$namespace_g_l_e_s_c_1_1_math.html#ab2316a2512c43c18e29709201adf3fe5" title="Calculates the square root of a value." alt="" coords="1439,432,1572,459"/>
+<area shape="poly" id="edge15_Node000014_Node000016" title=" " alt="" coords="1353,445,1424,444,1424,449,1353,450"/>
+<area shape="rect" id="Node000020" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#ab4ffc1744770577aea3a32c00c41b976" title="Copies the data from one matrix to another." alt="" coords="885,745,1093,788"/>
+<area shape="poly" id="edge19_Node000019_Node000020" title=" " alt="" coords="836,756,869,758,869,763,836,761"/>
+<area shape="poly" id="edge20_Node000019_Node000021" title=" " alt="" coords="790,773,918,822,916,827,788,778"/>
+<area shape="rect" id="Node000022" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#ac339994676b91c61876ce07d0f2c1b88" title=" " alt="" coords="885,679,1093,721"/>
+<area shape="poly" id="edge21_Node000019_Node000022" title=" " alt="" coords="836,729,869,722,870,727,837,734"/>
+<area shape="rect" id="Node000025" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a555b3e0f1eb9a546ec47951fa0f5e8da" title="Sets the values of a matrix to one." alt="" coords="885,553,1093,596"/>
+<area shape="poly" id="edge24_Node000024_Node000025" title=" " alt="" coords="836,562,869,565,869,570,836,568"/>
+<area shape="poly" id="edge26_Node000026_Node000024" title=" " alt="" coords="565,515,627,531,626,536,564,521"/>
+<area shape="poly" id="edge28_Node000027_Node000023" title=" " alt="" coords="579,632,612,639,611,644,578,638"/>
+<area shape="poly" id="edge29_Node000027_Node000024" title=" " alt="" coords="577,589,613,581,614,586,579,594"/>
+<area shape="rect" id="Node000029" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a1380aa1364ae38a37a7e710d20cf90ec" title="Calculates the inverse of a 4x4 matrix." alt="" coords="370,189,578,232"/>
+<area shape="poly" id="edge34_Node000028_Node000029" title=" " alt="" coords="318,208,354,208,354,213,318,213"/>
+<area shape="rect" id="Node000036" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#ac9c8254e9cef4455b19199963ed4be7e" title="Resizes a matrix." alt="" coords="370,56,578,99"/>
+<area shape="poly" id="edge44_Node000028_Node000036" title=" " alt="" coords="300,187,319,175,335,159,343,143,351,126,367,109,374,104,377,109,371,113,355,129,347,145,339,162,323,179,303,191"/>
+<area shape="rect" id="Node000037" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a132bed6acafb41906a156dae5f6f4d1f" title="Transposes a matrix." alt="" coords="370,123,578,165"/>
+<area shape="poly" id="edge45_Node000028_Node000037" title=" " alt="" coords="299,186,373,167,374,172,301,191"/>
+<area shape="rect" id="Node000030" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a972ac9793d405d0a5daca41591c1fb8c" title="Computes the determinant of a matrix 4x4." alt="" coords="1143,111,1351,153"/>
+<area shape="poly" id="edge35_Node000029_Node000030" title=" " alt="" coords="565,186,627,175,761,158,895,146,1127,133,1127,138,895,152,761,164,628,180,566,191"/>
+<area shape="rect" id="Node000031" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a5d9d986d19eb1ff929b7c9c8f8cdbcdc" title="Checks if a matrix is invertible." alt="" coords="627,189,836,232"/>
+<area shape="poly" id="edge36_Node000029_Node000031" title=" " alt="" coords="579,208,612,208,612,213,579,213"/>
+<area shape="poly" id="edge37_Node000031_Node000012" title=" " alt="" coords="837,228,984,263,1050,283,1095,304,1112,319,1120,335,1129,349,1143,363,1171,376,1169,381,1141,368,1124,353,1116,337,1107,323,1093,309,1048,288,983,268,835,233"/>
+<area shape="rect" id="Node000032" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a9670e25803284a303601766e75617acc" title="Calculates the determinant of any matrix using Laplace expansion." alt="" coords="885,181,1093,224"/>
+<area shape="poly" id="edge38_Node000031_Node000032" title=" " alt="" coords="836,205,869,204,869,209,836,210"/>
+<area shape="poly" id="edge43_Node000032_Node000030" title=" " alt="" coords="1069,178,1151,155,1152,161,1070,183"/>
+<area shape="rect" id="Node000033" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a85f90015980f7ee665903d04b4b797d8" title="Calculates the cofactor of a matrix element." alt="" coords="1143,177,1351,220"/>
+<area shape="poly" id="edge39_Node000032_Node000033" title=" " alt="" coords="1093,207,1127,207,1127,212,1093,213"/>
+<area shape="rect" id="Node000034" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#abd516042cc3d928eefae413db0725670" title="Calculates the determinant of a 2x2 matrix." alt="" coords="1143,244,1351,287"/>
+<area shape="poly" id="edge41_Node000032_Node000034" title=" " alt="" coords="1080,222,1142,237,1141,242,1079,227"/>
+<area shape="rect" id="Node000035" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a2217ee08c38b92c583d3f193b5a0da9b" title="Computes the determinant of a matrix 3x3." alt="" coords="1143,311,1351,353"/>
+<area shape="poly" id="edge42_Node000032_Node000035" title=" " alt="" coords="1042,222,1096,253,1119,276,1129,286,1143,296,1153,301,1150,306,1141,301,1126,290,1116,279,1092,257,1040,227"/>
+<area shape="poly" id="edge40_Node000033_Node000032" title=" " alt="" coords="1143,194,1109,194,1109,189,1143,189"/>
+<area shape="poly" id="edge53_Node000038_Node000006" title=" " alt="" coords="258,380,310,347,368,315,396,302,398,307,370,320,312,352,260,384"/>
+<area shape="poly" id="edge47_Node000038_Node000009" title=" " alt="" coords="304,379,369,365,474,355,521,357,580,365,645,382,644,388,579,371,520,362,474,360,369,371,305,385"/>
+<area shape="poly" id="edge50_Node000038_Node000019" title=" " alt="" coords="239,440,280,503,323,579,336,619,339,653,347,683,356,697,371,711,387,721,410,729,471,741,541,748,612,751,612,756,541,753,470,746,409,734,385,726,367,715,352,700,342,685,334,654,331,620,319,581,276,506,235,443"/>
+<area shape="poly" id="edge51_Node000038_Node000023" title=" " alt="" coords="318,418,479,437,545,448,581,460,596,476,604,491,610,523,614,556,619,573,629,590,652,614,679,635,675,639,649,618,625,594,614,575,608,557,605,524,599,493,591,479,578,465,543,453,478,442,317,424"/>
+<area shape="poly" id="edge52_Node000038_Node000024" title=" " alt="" coords="318,392,379,388,446,388,514,397,581,416,698,525,695,529,578,421,513,402,445,394,379,393,318,397"/>
+<area shape="poly" id="edge48_Node000038_Node000026" title=" " alt="" coords="308,439,392,467,390,472,306,445"/>
+<area shape="poly" id="edge49_Node000038_Node000027" title=" " alt="" coords="255,440,435,580,432,585,252,444"/>
+</map>

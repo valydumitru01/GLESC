@@ -1,0 +1,9 @@
+<map id="TYPED_TEST" name="TYPED_TEST">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,35,109,61"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#a404311d39e1e82c0ceef2a9c0e62d1fc" title="Gets an orthogonal vector to the input vector." alt="" coords="157,27,367,69"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="109,45,141,45,141,51,109,51"/>
+<area shape="rect" id="Node000003" href="$namespace_g_l_e_s_c_1_1_math.html#a04db3782a0754ba2d22eb5d159dd681c" title="Calculates the absolute value of a number." alt="" coords="455,5,586,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="367,33,438,25,439,30,368,39"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#ab041da9d339dfe80b80c6f0bdf5dbfd4" title="Computes the cross product of two vectors." alt="" coords="415,56,625,99"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="368,57,400,61,399,66,367,63"/>
+</map>
