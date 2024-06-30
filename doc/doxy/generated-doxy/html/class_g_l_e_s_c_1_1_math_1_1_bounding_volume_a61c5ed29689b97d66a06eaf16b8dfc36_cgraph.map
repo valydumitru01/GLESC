@@ -1,9 +1,0 @@
-<map id="GLESC::Math::BoundingVolume::updateBoundingBox" name="GLESC::Math::BoundingVolume::updateBoundingBox">
-<area shape="rect" id="Node000001" title="Updates the bounding volume to fit the points it encloses." alt="" coords="5,48,214,91"/>
-<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#a73cb0791e7c0aed79d07c35d2176394e" title="Returns the x (reference) value of the vector." alt="" coords="262,5,425,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="210,45,263,33,264,38,211,50"/>
-<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#a1db0ddecdb667904cff8c3ef7b23ef91" title="Returns the y (second) value of the vector." alt="" coords="262,56,425,83"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="214,67,246,67,246,72,214,72"/>
-<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#a89305032377489a1ac8c8322291f8af7" title="Returns the z (third) value of the vector." alt="" coords="262,107,425,133"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="211,89,264,100,263,105,210,94"/>
-</map>

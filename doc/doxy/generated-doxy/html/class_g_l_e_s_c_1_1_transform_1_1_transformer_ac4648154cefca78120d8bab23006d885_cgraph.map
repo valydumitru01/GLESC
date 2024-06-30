@@ -1,9 +1,0 @@
-<map id="GLESC::Transform::Transformer::NDCToViewport" name="GLESC::Transform::Transformer::NDCToViewport">
-<area shape="rect" id="Node000001" title="Transforms the normalized device coordinates to viewport coordinates." alt="" coords="5,72,212,115"/>
-<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#a2641be423d1cbbe4654f30ad8ac671a1" title="Returns the x (first) value of the vector." alt="" coords="260,5,408,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="182,69,244,50,245,56,184,74"/>
-<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#a26f58d2d5f126f43869c96a2f2b0d64a" title="Returns the y (second) value of the vector." alt="" coords="260,72,408,115"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="212,91,244,91,244,96,212,96"/>
-<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#a8a188bb5d89dc318ea1867de5dc43c87" title="Returns the z (third) value of the vector." alt="" coords="260,139,408,181"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="184,113,245,131,244,136,182,118"/>
-</map>

@@ -1,7 +1,0 @@
-<map id="GLESC::ECS::IComponent::toString" name="GLESC::ECS::IComponent::toString">
-<area shape="rect" id="Node000001" title="Each component must have a toString function." alt="" coords="504,5,681,48"/>
-<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator.html#a9986f9753dd8fc73c69787f3723d44b8" title="Print the status of the entity." alt="" coords="255,5,456,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="488,29,457,29,457,24,488,24"/>
-<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator.html#a511e3ef0ebeceb191a06db185e8fdc46" title="Print the status of the ECS." alt="" coords="5,5,207,48"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="239,29,207,29,207,24,239,24"/>
-</map>

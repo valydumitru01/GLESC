@@ -1,7 +1,0 @@
-<map id="GLESC::Math::Polyhedron::getVertices" name="GLESC::Math::Polyhedron::getVertices">
-<area shape="rect" id="Node000001" title="Get the vertices of the polyhedron." alt="" coords="229,39,404,81"/>
-<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#ab033e88c6958b7e99a8dc22b13f5fc28" title="Checks if the polyhedron has any vertex inside another polyhedron." alt="" coords="5,5,181,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="213,47,181,42,181,37,214,42"/>
-<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a81175ce4485ad13d4418d676e5adc13c" title="Checks if the polyhedron has any vertex inside another polyhedron." alt="" coords="5,72,181,115"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="214,78,181,83,181,78,213,73"/>
-</map>

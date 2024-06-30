@@ -221,23 +221,23 @@ Here is a step-by-step guide on how to install the project.
 ## Usage
 
 The following section is dedicated to explaining how to use the engine. I will be trying to exemplify how to create a
-video-game using the engine using the current implemented game (Shoot the chicken).
+videogame using the engine using the current implemented game (Shoot the chicken).
 
 > **Important Note:** This engine is hardcoded, there is absolutely no Data-Driven programming involved. This was a
 > conscious choice given the constraints. So one big issue of using this engine is having to wait for all the compile
 > times for each minor change.
 
 > **Important Note 2:** There is heavy use of strings in the engine. This is because of the lack of time to implement a
-> better system. And also, it's very useful for debugging and for UX. But it is not the best practice due to efficiency
-> reasons. In a normal, data oriented engine, strings would be just data and would not be part of the compiled code or
+> better system. And it's very useful for debugging and for UX. But it is not the best practice due to efficiency
+> reasons. In a normal, data-oriented engine, strings would be just data and would not be part of the compiled code or
 > logic.
 
 ### Creating a new game (or scene)
 
-Actually, the `Game` class only use is to handle the scenes. So you don't really need to touch the `Game` class more
+The `Game` class only use is to handle the scenes. So you don't really need to touch the `Game` class more
 than just insert the scenes you need.
 
-To create a new scene you need to create a new class that inherits from the `Scene` class. You can see an example of
+To create a new scene, you need to create a new class that inherits from the `Scene` class. You can see an example of
 this in the `ShootTheChickenGame` class.
 **How to register a scene:**
 
@@ -296,11 +296,10 @@ void ShootTheChickenGame::generateChickenEntities() {
         chickens.push_back(chicken.getID());
     }
 }
-
-
-To create an entity you need to call `createEntity("name", EntityMetadata)`. After that, you just attach the components
- and modify them directly.
 ```
+
+To create an entity, you need to call `createEntity("name", EntityMetadata)`. After that, you just attach the components
+ and modify them directly.
 
 **Example of retrieving an entity:** _(Extracted from ShootTheChickenGame, how the player entity was retrieved)_
 
@@ -308,7 +307,7 @@ To create an entity you need to call `createEntity("name", EntityMetadata)`. Aft
     ECS::Entity player = getEntity("player");
 ```
 
-To retrieve an entity you just need to call `getEntity("name")`. This will return the entity with that name.
+To retrieve an entity, you just need to call `getEntity("name")`. This will return the entity with that name.
 
 #### Components
 
@@ -321,7 +320,7 @@ Currently, the engine has the following components:
 - PhysicsComponent
 - RenderComponent
 
-> **Note:** It also has these other components, but should not be used as the engine don't currently support more than
+> **Note:** It also has these other components but should not be used as the engine don't currently support more than
 > one of each type, and they are hardcoded in the engine.
 > - CameraComponent
 > - SunComponent
@@ -600,7 +599,7 @@ namespace GLESC::ECS {
 The HUD is a system that is in charge of rendering the HUD of the game. It uses ImGUI, which is a very powerful library.
 My implementation only facilitates the window separation and implements a layout for the HUD.
 
-To create a HUD window you need to create a class that inherits from the `InGameWindow` and
+To create a HUD window, you need to create a class that inherits from the `InGameWindow` and
 override `void windowContent()` with the actual content of the window. The window content will be rendered by the engine
 for you.
 

@@ -1,9 +1,0 @@
-<map id="GLESC::ECS::Entity::getID" name="GLESC::ECS::Entity::getID">
-<area shape="rect" id="Node000001" title=" " alt="" coords="343,39,485,81"/>
-<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_scene_1_1_scene.html#ab44f2a6b0a556aced1bbd39e3426be7a" title="Creates an entity and adds it to the scene." alt="" coords="140,5,295,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="327,48,295,42,296,37,328,43"/>
-<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_scene_1_1_scene.html#aa60003c3501c2d08c156e738f86f2588" title="Destroys an entity by name." alt="" coords="140,72,295,115"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="328,77,296,83,295,78,327,72"/>
-<area shape="rect" id="Node000003" href="$class_default.html#a6e26da3ebf533b0f5d45266cd0ce9082" title="Initializes the scene. Must be implemented by the derived class." alt="" coords="5,13,92,40"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="124,29,92,29,92,24,124,24"/>
-</map>

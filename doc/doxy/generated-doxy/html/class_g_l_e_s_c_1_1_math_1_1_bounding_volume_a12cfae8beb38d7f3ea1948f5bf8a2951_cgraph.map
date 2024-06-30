@@ -1,9 +1,0 @@
-<map id="GLESC::Math::BoundingVolume::intersectionVolume" name="GLESC::Math::BoundingVolume::intersectionVolume">
-<area shape="rect" id="Node000001" title="Get the intersection volume of the bounding volume with another bounding volume." alt="" coords="5,72,214,115"/>
-<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#a2641be423d1cbbe4654f30ad8ac671a1" title="Returns the x (first) value of the vector." alt="" coords="262,5,410,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="183,69,246,50,248,55,185,74"/>
-<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#a26f58d2d5f126f43869c96a2f2b0d64a" title="Returns the y (second) value of the vector." alt="" coords="262,72,410,115"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="214,91,246,91,246,96,214,96"/>
-<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#a8a188bb5d89dc318ea1867de5dc43c87" title="Returns the z (third) value of the vector." alt="" coords="262,139,410,181"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="185,113,248,131,246,136,183,118"/>
-</map>
