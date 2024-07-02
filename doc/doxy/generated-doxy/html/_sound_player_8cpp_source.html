@@ -1,0 +1,264 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="Doxygen Awesome" />
+<meta property="og:image" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+<meta property="og:description" content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
+<meta property="og:url" content="https://jothepro.github.io/doxygen-awesome-css/" />
+<!-- END opengraph metadata -->
+<!-- BEGIN twitter metadata -->
+<meta name="twitter:image:src" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+<meta name="twitter:title" content="Doxygen Awesome" />
+<meta name="twitter:description" content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
+<!-- END twitter metadata -->
+<title>GLESC: SoundPlayer.cpp Source File</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.drawio.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/ -->
+<a href="https://github.com/jothepro/doxygen-awesome-css" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="GLESC_logo_white_background.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">GLESC
+   &#160;<span id="projectnumber">1</span>
+   </div>
+   <div id="projectbrief">Game engine using ECS architecture</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('_sound_player_8cpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">SoundPlayer.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_sound_player_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="_sound_player_8h.html">engine/subsystems/sound/SoundPlayer.h</a>&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="_sound_loader_8h.html">engine/res-mng/sounds/SoundLoader.h</a>&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="_transform_8h.html">engine/subsystems/transform/Transform.h</a>&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">using namespace </span><a class="code hl_namespace" href="namespace_g_l_e_s_c.html">GLESC</a>;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Mix_Music</a>* <a class="code hl_variable" href="class_g_l_e_s_c_1_1_sound_player.html#aea34022ed4e6f88cd96104c3eea6e498">SoundPlayer::currentMusic</a> = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><a class="code hl_class" href="class_g_l_e_s_c_1_1_sound_loader.html">SoundLoader</a> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_sound_player.html#a7543a080bedba963d74239df1423fa7d">SoundPlayer::soundLoader</a>{};</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="foldopen" id="foldopen00020" data-start="{" data-end="}">
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="class_g_l_e_s_c_1_1_sound_player.html#a9c058cfaa0ac6b511e681809e9a50030">   20</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_g_l_e_s_c_1_1_sound_player.html#a9c058cfaa0ac6b511e681809e9a50030">SoundPlayer::init</a>() {</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <a class="code hl_function" href="class_g_l_e_s_c_1_1_sound_loader.html#a99448c8c8a027a6625e4939038bf4551">SoundLoader::init</a>();</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>}</div>
+</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="foldopen" id="foldopen00024" data-start="{" data-end="}">
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="class_g_l_e_s_c_1_1_sound_player.html#a2b454b840eab97c546396d72f6754f39">   24</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_g_l_e_s_c_1_1_sound_player.html#a2b454b840eab97c546396d72f6754f39">SoundPlayer::cleanup</a>() {</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_sound_player.html#a7543a080bedba963d74239df1423fa7d">soundLoader</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_sound_loader.html#a82e5003b2e1f866660b364e0ed243db8">cleanup</a>();</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>}</div>
+</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="foldopen" id="foldopen00028" data-start="{" data-end="}">
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="class_g_l_e_s_c_1_1_sound_player.html#a5b123559c304d61892e2d69c98ae82b8">   28</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_g_l_e_s_c_1_1_sound_player.html#a5b123559c304d61892e2d69c98ae82b8">SoundPlayer::loadSong</a>(<span class="keyword">const</span> std::string&amp; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">filePath</a>, <span class="keyword">const</span> std::string&amp; name) {</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_sound_player.html#a7543a080bedba963d74239df1423fa7d">soundLoader</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_sound_loader.html#ad50e3d04a3c265532d571bd51ed8be92">loadMusic</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">filePath</a>, name);</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>}</div>
+</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="foldopen" id="foldopen00032" data-start="{" data-end="}">
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="class_g_l_e_s_c_1_1_sound_player.html#af853ca7b646ab7e809df681deee7fbd2">   32</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_g_l_e_s_c_1_1_sound_player.html#af853ca7b646ab7e809df681deee7fbd2">SoundPlayer::loadSound</a>(<span class="keyword">const</span> std::string&amp; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">filePath</a>, <span class="keyword">const</span> std::string&amp; name) {</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_sound_player.html#a7543a080bedba963d74239df1423fa7d">soundLoader</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_sound_loader.html#ac34d74e5fd12c3ff1834f0a4aa996da8">loadSound</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">filePath</a>, name);</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>}</div>
+</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="foldopen" id="foldopen00037" data-start="{" data-end="}">
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="class_g_l_e_s_c_1_1_sound_player.html#ab969a32bda09a239c109c9e66824760b">   37</a></span><a class="code hl_typedef" href="class_g_l_e_s_c_1_1_sound_player.html#a5e86c0ed1120e39a7e064b5f3da4993c">SoundPlayer::Channel</a> <a class="code hl_function" href="class_g_l_e_s_c_1_1_sound_player.html#ab969a32bda09a239c109c9e66824760b">SoundPlayer::playSound</a>(<span class="keyword">const</span> std::string&amp; name, <a class="code hl_typedef" href="class_g_l_e_s_c_1_1_sound_player.html#a4b10c56e134c355006a94218e75c36ed">Volume</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">volume</a>, <a class="code hl_typedef" href="class_g_l_e_s_c_1_1_sound_player.html#a59a43f547b8ef562ed2c6e0ae36a9207">Loops</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">loops</a>) {</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <a class="code hl_function" href="class_g_l_e_s_c_1_1_sound_player.html#a27978a079c31197b1079bbdc9ac5eecd">setMusicVolume</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">volume</a>);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Mix_Chunk</a>&amp; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">sound</a> = <a class="code hl_variable" href="class_g_l_e_s_c_1_1_sound_player.html#a7543a080bedba963d74239df1423fa7d">soundLoader</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_sound_loader.html#a7d8f17c839c3aeed9e1f39d7a0c9b7d2">getSound</a>(name);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Mix_PlayChannel</a>(-1, &amp;<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">sound</a>, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">loops</a>); <span class="comment">// Play on the first free channel</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>}</div>
+</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="foldopen" id="foldopen00044" data-start="{" data-end="}">
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="class_g_l_e_s_c_1_1_sound_player.html#abf4800d7917b03791dde67925c43149c">   44</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_g_l_e_s_c_1_1_sound_player.html#abf4800d7917b03791dde67925c43149c">SoundPlayer::play3DSound</a>(<span class="keyword">const</span> std::string&amp; name,</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>                              <span class="keyword">const</span> <a class="code hl_class" href="class_g_l_e_s_c_1_1_math_1_1_vector.html">Vec3F</a>&amp; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">listenerPos</a>,</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>                              <span class="keyword">const</span> <a class="code hl_class" href="class_g_l_e_s_c_1_1_math_1_1_vector.html">Vec3F</a>&amp; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">soundPos</a>) {</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="comment">// Calculate the distance between the listener and the sound</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <a class="code hl_class" href="class_g_l_e_s_c_1_1_math_1_1_vector.html">Vec3F</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">diff</a> = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">soundPos</a> - <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">listenerPos</a>;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keywordtype">float</span> distance = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">diff</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_vector.html#a1e7d79fa65198c1323e9ae2c4893ee95">length</a>();</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="comment">// Assuming maxDistance is the distance at which the sound is inaudible</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_sound_player.html#a17f455e777bede8a2b14bd690d45a257">maxDistance</a> = 100.0f;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">volume</a> = (<a class="code hl_variable" href="class_g_l_e_s_c_1_1_sound_player.html#a17f455e777bede8a2b14bd690d45a257">maxDistance</a> - distance) / <a class="code hl_variable" href="class_g_l_e_s_c_1_1_sound_player.html#a17f455e777bede8a2b14bd690d45a257">maxDistance</a>;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">volume</a> = std::max(0.0f, std::min(1.0f, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">volume</a>));</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="comment">// Calculate the panning based on the relative position on the x-axis</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">pan</a> = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">diff</a>.getX() / <a class="code hl_variable" href="class_g_l_e_s_c_1_1_sound_player.html#a17f455e777bede8a2b14bd690d45a257">maxDistance</a>;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">pan</a> = std::max(-1.0f, std::min(1.0f, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">pan</a>));</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="comment">// Convert volume and pan to SDL_mixer&#39;s format</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">sdlVolume</a> = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">volume</a> * <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">MIX_MAX_VOLUME</a>);</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">left</a> = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>((1.0f - <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">pan</a>) * <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">sdlVolume</a>));</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keywordtype">int</span> right = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>((1.0f + <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">pan</a>) * <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">sdlVolume</a>));</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <a class="code hl_typedef" href="class_g_l_e_s_c_1_1_sound_player.html#a5e86c0ed1120e39a7e064b5f3da4993c">Channel</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">channel</a> = <a class="code hl_function" href="class_g_l_e_s_c_1_1_sound_player.html#ab969a32bda09a239c109c9e66824760b">playSound</a>(name, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">sdlVolume</a>);</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Mix_SetPanning</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">channel</a>, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">left</a>, right);</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>}</div>
+</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="foldopen" id="foldopen00069" data-start="{" data-end="}">
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="class_g_l_e_s_c_1_1_sound_player.html#ac596d3152b344faf92e1dac3857a7070">   69</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_g_l_e_s_c_1_1_sound_player.html#ac596d3152b344faf92e1dac3857a7070">SoundPlayer::setMusic</a>(<span class="keyword">const</span> std::string&amp; name) {</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Mix_Music</a>&amp; music = <a class="code hl_variable" href="class_g_l_e_s_c_1_1_sound_player.html#a7543a080bedba963d74239df1423fa7d">soundLoader</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_sound_loader.html#a336f54c16328d4a892f3b9a170ccb99b">getMusic</a>(name);</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_sound_player.html#aea34022ed4e6f88cd96104c3eea6e498">currentMusic</a> = &amp;music;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>}</div>
+</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="foldopen" id="foldopen00074" data-start="{" data-end="}">
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="class_g_l_e_s_c_1_1_sound_player.html#aa5878d595526ea53f4393e657cf43f27">   74</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_g_l_e_s_c_1_1_sound_player.html#aa5878d595526ea53f4393e657cf43f27">SoundPlayer::playMusic</a>(<a class="code hl_typedef" href="class_g_l_e_s_c_1_1_sound_player.html#a59a43f547b8ef562ed2c6e0ae36a9207">Loops</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">loops</a>, <a class="code hl_typedef" href="class_g_l_e_s_c_1_1_sound_player.html#a4b10c56e134c355006a94218e75c36ed">Volume</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">volume</a>) {</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <a class="code hl_define" href="_asserts_8h.html#a89998838563ab1ba549ea052cdcd5bc2">D_ASSERT_NOT_NULLPTR</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_sound_player.html#aea34022ed4e6f88cd96104c3eea6e498">currentMusic</a>, <span class="stringliteral">&quot;No music set to play&quot;</span>);</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Mix_PlayMusic</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_sound_player.html#aea34022ed4e6f88cd96104c3eea6e498">currentMusic</a>, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">loops</a>);</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <a class="code hl_function" href="class_g_l_e_s_c_1_1_sound_player.html#a27978a079c31197b1079bbdc9ac5eecd">setMusicVolume</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">volume</a>);</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>}</div>
+</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="foldopen" id="foldopen00080" data-start="{" data-end="}">
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="class_g_l_e_s_c_1_1_sound_player.html#a27978a079c31197b1079bbdc9ac5eecd">   80</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_g_l_e_s_c_1_1_sound_player.html#a27978a079c31197b1079bbdc9ac5eecd">SoundPlayer::setMusicVolume</a>(<a class="code hl_typedef" href="class_g_l_e_s_c_1_1_sound_player.html#a4b10c56e134c355006a94218e75c36ed">Volume</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">volume</a>) {</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Mix_VolumeMusic</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">volume</a>);</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>}</div>
+</div>
+<div class="ttc" id="a_asserts_8h_html_a89998838563ab1ba549ea052cdcd5bc2"><div class="ttname"><a href="_asserts_8h.html#a89998838563ab1ba549ea052cdcd5bc2">D_ASSERT_NOT_NULLPTR</a></div><div class="ttdeci">#define D_ASSERT_NOT_NULLPTR(condition, message)</div><div class="ttdef"><b>Definition</b> <a href="_asserts_8h_source.html#l00023">Asserts.h:23</a></div></div>
+<div class="ttc" id="a_sound_loader_8h_html"><div class="ttname"><a href="_sound_loader_8h.html">SoundLoader.h</a></div><div class="ttdoc">@TODO Add description of this file if needed</div></div>
+<div class="ttc" id="a_sound_player_8h_html"><div class="ttname"><a href="_sound_player_8h.html">SoundPlayer.h</a></div><div class="ttdoc">@TODO Add description of this file if needed</div></div>
+<div class="ttc" id="a_transform_8h_html"><div class="ttname"><a href="_transform_8h.html">Transform.h</a></div><div class="ttdoc">@TODO Add description of this file if needed</div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_vector_html"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_vector.html">GLESC::Math::Vector</a></div><div class="ttdef"><b>Definition</b> <a href="_vector_8h_source.html#l00025">Vector.h:25</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_vector_html_a1e7d79fa65198c1323e9ae2c4893ee95"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_vector.html#a1e7d79fa65198c1323e9ae2c4893ee95">GLESC::Math::Vector::length</a></div><div class="ttdeci">Type length() const</div><div class="ttdoc">Returns the length of the vector.</div><div class="ttdef"><b>Definition</b> <a href="_vector_8h_source.html#l00837">Vector.h:837</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_sound_loader_html"><div class="ttname"><a href="class_g_l_e_s_c_1_1_sound_loader.html">GLESC::SoundLoader</a></div><div class="ttdoc">Class that loads and stores sounds and music.</div><div class="ttdef"><b>Definition</b> <a href="_sound_loader_8h_source.html#l00025">SoundLoader.h:25</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_sound_loader_html_a336f54c16328d4a892f3b9a170ccb99b"><div class="ttname"><a href="class_g_l_e_s_c_1_1_sound_loader.html#a336f54c16328d4a892f3b9a170ccb99b">GLESC::SoundLoader::getMusic</a></div><div class="ttdeci">Mix_Music &amp; getMusic(const std::string &amp;name)</div><div class="ttdoc">Gets a music by name.</div><div class="ttdef"><b>Definition</b> <a href="_sound_loader_8cpp_source.html#l00060">SoundLoader.cpp:60</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_sound_loader_html_a7d8f17c839c3aeed9e1f39d7a0c9b7d2"><div class="ttname"><a href="class_g_l_e_s_c_1_1_sound_loader.html#a7d8f17c839c3aeed9e1f39d7a0c9b7d2">GLESC::SoundLoader::getSound</a></div><div class="ttdeci">Mix_Chunk &amp; getSound(const std::string &amp;name)</div><div class="ttdoc">Gets a sound by name.</div><div class="ttdef"><b>Definition</b> <a href="_sound_loader_8cpp_source.html#l00066">SoundLoader.cpp:66</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_sound_loader_html_a82e5003b2e1f866660b364e0ed243db8"><div class="ttname"><a href="class_g_l_e_s_c_1_1_sound_loader.html#a82e5003b2e1f866660b364e0ed243db8">GLESC::SoundLoader::cleanup</a></div><div class="ttdeci">void cleanup()</div><div class="ttdoc">Cleans up the resources used by SDL and SDL_mixer.</div><div class="ttdef"><b>Definition</b> <a href="_sound_loader_8cpp_source.html#l00029">SoundLoader.cpp:29</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_sound_loader_html_a99448c8c8a027a6625e4939038bf4551"><div class="ttname"><a href="class_g_l_e_s_c_1_1_sound_loader.html#a99448c8c8a027a6625e4939038bf4551">GLESC::SoundLoader::init</a></div><div class="ttdeci">static void init()</div><div class="ttdoc">Initializes SDL and SDL_mixer.</div><div class="ttdef"><b>Definition</b> <a href="_sound_loader_8cpp_source.html#l00019">SoundLoader.cpp:19</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_sound_loader_html_ac34d74e5fd12c3ff1834f0a4aa996da8"><div class="ttname"><a href="class_g_l_e_s_c_1_1_sound_loader.html#ac34d74e5fd12c3ff1834f0a4aa996da8">GLESC::SoundLoader::loadSound</a></div><div class="ttdeci">void loadSound(const std::string &amp;filePath, const std::string &amp;name)</div><div class="ttdoc">Loads a sound from a file.</div><div class="ttdef"><b>Definition</b> <a href="_sound_loader_8cpp_source.html#l00043">SoundLoader.cpp:43</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_sound_loader_html_ad50e3d04a3c265532d571bd51ed8be92"><div class="ttname"><a href="class_g_l_e_s_c_1_1_sound_loader.html#ad50e3d04a3c265532d571bd51ed8be92">GLESC::SoundLoader::loadMusic</a></div><div class="ttdeci">void loadMusic(const std::string &amp;filePath, const std::string &amp;name)</div><div class="ttdoc">Loads a music from a file.</div><div class="ttdef"><b>Definition</b> <a href="_sound_loader_8cpp_source.html#l00052">SoundLoader.cpp:52</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_sound_player_html_a17f455e777bede8a2b14bd690d45a257"><div class="ttname"><a href="class_g_l_e_s_c_1_1_sound_player.html#a17f455e777bede8a2b14bd690d45a257">GLESC::SoundPlayer::maxDistance</a></div><div class="ttdeci">static constexpr float maxDistance</div><div class="ttdoc">Maximum distance for 3D sound.</div><div class="ttdef"><b>Definition</b> <a href="_sound_player_8h_source.html#l00099">SoundPlayer.h:99</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_sound_player_html_a27978a079c31197b1079bbdc9ac5eecd"><div class="ttname"><a href="class_g_l_e_s_c_1_1_sound_player.html#a27978a079c31197b1079bbdc9ac5eecd">GLESC::SoundPlayer::setMusicVolume</a></div><div class="ttdeci">static void setMusicVolume(int volume)</div><div class="ttdoc">Set the volume of the music.</div><div class="ttdef"><b>Definition</b> <a href="_sound_player_8cpp_source.html#l00080">SoundPlayer.cpp:80</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_sound_player_html_a2b454b840eab97c546396d72f6754f39"><div class="ttname"><a href="class_g_l_e_s_c_1_1_sound_player.html#a2b454b840eab97c546396d72f6754f39">GLESC::SoundPlayer::cleanup</a></div><div class="ttdeci">static void cleanup()</div><div class="ttdoc">Cleanup the sound player.</div><div class="ttdef"><b>Definition</b> <a href="_sound_player_8cpp_source.html#l00024">SoundPlayer.cpp:24</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_sound_player_html_a4b10c56e134c355006a94218e75c36ed"><div class="ttname"><a href="class_g_l_e_s_c_1_1_sound_player.html#a4b10c56e134c355006a94218e75c36ed">GLESC::SoundPlayer::Volume</a></div><div class="ttdeci">int Volume</div><div class="ttdef"><b>Definition</b> <a href="_sound_player_8h_source.html#l00026">SoundPlayer.h:26</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_sound_player_html_a59a43f547b8ef562ed2c6e0ae36a9207"><div class="ttname"><a href="class_g_l_e_s_c_1_1_sound_player.html#a59a43f547b8ef562ed2c6e0ae36a9207">GLESC::SoundPlayer::Loops</a></div><div class="ttdeci">int Loops</div><div class="ttdef"><b>Definition</b> <a href="_sound_player_8h_source.html#l00027">SoundPlayer.h:27</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_sound_player_html_a5b123559c304d61892e2d69c98ae82b8"><div class="ttname"><a href="class_g_l_e_s_c_1_1_sound_player.html#a5b123559c304d61892e2d69c98ae82b8">GLESC::SoundPlayer::loadSong</a></div><div class="ttdeci">static void loadSong(const std::string &amp;filePath, const std::string &amp;name)</div><div class="ttdoc">Load a song from a file.</div><div class="ttdef"><b>Definition</b> <a href="_sound_player_8cpp_source.html#l00028">SoundPlayer.cpp:28</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_sound_player_html_a5e86c0ed1120e39a7e064b5f3da4993c"><div class="ttname"><a href="class_g_l_e_s_c_1_1_sound_player.html#a5e86c0ed1120e39a7e064b5f3da4993c">GLESC::SoundPlayer::Channel</a></div><div class="ttdeci">int Channel</div><div class="ttdef"><b>Definition</b> <a href="_sound_player_8h_source.html#l00025">SoundPlayer.h:25</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_sound_player_html_a7543a080bedba963d74239df1423fa7d"><div class="ttname"><a href="class_g_l_e_s_c_1_1_sound_player.html#a7543a080bedba963d74239df1423fa7d">GLESC::SoundPlayer::soundLoader</a></div><div class="ttdeci">static SoundLoader soundLoader</div><div class="ttdoc">This handles all the loading and storing of sounds and music.</div><div class="ttdef"><b>Definition</b> <a href="_sound_player_8h_source.html#l00103">SoundPlayer.h:103</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_sound_player_html_a9c058cfaa0ac6b511e681809e9a50030"><div class="ttname"><a href="class_g_l_e_s_c_1_1_sound_player.html#a9c058cfaa0ac6b511e681809e9a50030">GLESC::SoundPlayer::init</a></div><div class="ttdeci">static void init()</div><div class="ttdoc">Initialize the sound player.</div><div class="ttdef"><b>Definition</b> <a href="_sound_player_8cpp_source.html#l00020">SoundPlayer.cpp:20</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_sound_player_html_aa5878d595526ea53f4393e657cf43f27"><div class="ttname"><a href="class_g_l_e_s_c_1_1_sound_player.html#aa5878d595526ea53f4393e657cf43f27">GLESC::SoundPlayer::playMusic</a></div><div class="ttdeci">static void playMusic(Loops loops=-1, Volume volume=128)</div><div class="ttdoc">Play the music.</div><div class="ttdef"><b>Definition</b> <a href="_sound_player_8cpp_source.html#l00074">SoundPlayer.cpp:74</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_sound_player_html_ab969a32bda09a239c109c9e66824760b"><div class="ttname"><a href="class_g_l_e_s_c_1_1_sound_player.html#ab969a32bda09a239c109c9e66824760b">GLESC::SoundPlayer::playSound</a></div><div class="ttdeci">static Channel playSound(const std::string &amp;name, Volume volume=128, Loops loops=0)</div><div class="ttdoc">Play a sound.</div><div class="ttdef"><b>Definition</b> <a href="_sound_player_8cpp_source.html#l00037">SoundPlayer.cpp:37</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_sound_player_html_abf4800d7917b03791dde67925c43149c"><div class="ttname"><a href="class_g_l_e_s_c_1_1_sound_player.html#abf4800d7917b03791dde67925c43149c">GLESC::SoundPlayer::play3DSound</a></div><div class="ttdeci">static void play3DSound(const std::string &amp;name, const Vec3F &amp;listenerPos, const Vec3F &amp;soundPos)</div><div class="ttdoc">Play a 3D sound.</div><div class="ttdef"><b>Definition</b> <a href="_sound_player_8cpp_source.html#l00044">SoundPlayer.cpp:44</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_sound_player_html_ac596d3152b344faf92e1dac3857a7070"><div class="ttname"><a href="class_g_l_e_s_c_1_1_sound_player.html#ac596d3152b344faf92e1dac3857a7070">GLESC::SoundPlayer::setMusic</a></div><div class="ttdeci">static void setMusic(const std::string &amp;name)</div><div class="ttdoc">Set the music to play.</div><div class="ttdef"><b>Definition</b> <a href="_sound_player_8cpp_source.html#l00069">SoundPlayer.cpp:69</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_sound_player_html_aea34022ed4e6f88cd96104c3eea6e498"><div class="ttname"><a href="class_g_l_e_s_c_1_1_sound_player.html#aea34022ed4e6f88cd96104c3eea6e498">GLESC::SoundPlayer::currentMusic</a></div><div class="ttdeci">static Mix_Music * currentMusic</div><div class="ttdoc">Pointer to the current music so it can be easily handled by the class.</div><div class="ttdef"><b>Definition</b> <a href="_sound_player_8h_source.html#l00093">SoundPlayer.h:93</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_sound_player_html_af853ca7b646ab7e809df681deee7fbd2"><div class="ttname"><a href="class_g_l_e_s_c_1_1_sound_player.html#af853ca7b646ab7e809df681deee7fbd2">GLESC::SoundPlayer::loadSound</a></div><div class="ttdeci">static void loadSound(const std::string &amp;filePath, const std::string &amp;name)</div><div class="ttdoc">Load a sound from a file.</div><div class="ttdef"><b>Definition</b> <a href="_sound_player_8cpp_source.html#l00032">SoundPlayer.cpp:32</a></div></div>
+<div class="ttc" id="anamespace_g_l_e_s_c_html"><div class="ttname"><a href="namespace_g_l_e_s_c.html">GLESC</a></div><div class="ttdef"><b>Definition</b> <a href="_timer_8h_source.html#l00013">Timer.h:13</a></div></div>
+<div class="ttc" id="anamespace_g_l_e_s_c_html_a7c64a4da2d1da1597f4ec563d00bb9f8"><div class="ttname"><a href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">GLESC::isIterable_v</a></div><div class="ttdeci">constexpr bool isIterable_v</div><div class="ttdef"><b>Definition</b> <a href="_stringer_8h_source.html#l00029">Stringer.h:29</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_2052808828190f934b76e979ee65af8a.html">engine</a></li><li class="navelem"><a class="el" href="dir_dae283cde8a8f8ba1aab1ee8b3266bbb.html">subsystems</a></li><li class="navelem"><a class="el" href="dir_999935b57c631f105dc54934ebf4556f.html">sound</a></li><li class="navelem"><a class="el" href="_sound_player_8cpp.html">SoundPlayer.cpp</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

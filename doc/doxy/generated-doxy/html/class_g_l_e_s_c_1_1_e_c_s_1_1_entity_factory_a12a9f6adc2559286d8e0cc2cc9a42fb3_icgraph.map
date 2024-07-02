@@ -1,0 +1,17 @@
+<map id="GLESC::ECS::EntityFactory::getEntity" name="GLESC::ECS::EntityFactory::getEntity">
+<area shape="rect" id="Node000001" title="Gets an entity by its name." alt="" coords="343,172,529,215"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_scene_1_1_scene.html#ab44f2a6b0a556aced1bbd39e3426be7a" title="Creates an entity and adds it to the scene." alt="" coords="140,5,295,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="404,162,355,112,293,62,274,51,276,46,297,58,359,108,408,158"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_scene_1_1_scene.html#ab7907f74548ba185b79eeee2fe01a632" title="Destroys all entities in the scene." alt="" coords="140,72,295,115"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="375,167,294,129,269,118,271,113,296,124,377,162"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_scene_1_1_scene.html#a86dac6c3276278aa4ea0e813c05669da" title="Destroys an entity by ID." alt="" coords="140,139,295,181"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="327,179,295,174,296,169,328,174"/>
+<area shape="rect" id="Node000006" href="$class_g_l_e_s_c_1_1_scene_1_1_scene.html#aa60003c3501c2d08c156e738f86f2588" title="Destroys an entity by name." alt="" coords="140,205,295,248"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="328,212,296,217,295,212,327,207"/>
+<area shape="rect" id="Node000007" href="$class_g_l_e_s_c_1_1_scene_1_1_scene.html#adccff352c1e8f278b471f7c9cecebd35" title="Gets an entity by ID." alt="" coords="140,272,295,315"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="377,224,296,262,271,274,269,269,294,258,375,220"/>
+<area shape="rect" id="Node000008" href="$class_g_l_e_s_c_1_1_scene_1_1_scene.html#abddfa0c1727c02f0a67fc761088131f8" title="Gets an entity by name." alt="" coords="140,339,295,381"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="408,228,359,279,297,329,276,340,274,336,293,324,355,275,404,225"/>
+<area shape="rect" id="Node000003" href="$class_default.html#a6e26da3ebf533b0f5d45266cd0ce9082" title="Initializes the scene. Must be implemented by the derived class." alt="" coords="5,13,92,40"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="124,29,92,29,92,24,124,24"/>
+</map>

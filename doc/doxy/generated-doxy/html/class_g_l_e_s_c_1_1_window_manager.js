@@ -1,0 +1,25 @@
+var class_g_l_e_s_c_1_1_window_manager =
+[
+    [ "WindowManager", "class_g_l_e_s_c_1_1_window_manager.html#a3a283b34c19aaa20296befaabad4d29b", null ],
+    [ "createWindow", "class_g_l_e_s_c_1_1_window_manager.html#a9370057566c68dd13f8caeab527c98df", null ],
+    [ "destroyWindow", "class_g_l_e_s_c_1_1_window_manager.html#a00b30a30b77f9938cef6412e9c54c076", null ],
+    [ "getPosition", "class_g_l_e_s_c_1_1_window_manager.html#a6c9251daff00c8e20a6197ebd8786265", null ],
+    [ "getRaisedFlags", "class_g_l_e_s_c_1_1_window_manager.html#a5fa6909bbbde941a8f87de1cc77a1cd2", null ],
+    [ "getSize", "class_g_l_e_s_c_1_1_window_manager.html#a9773451549202e2cee40c3106d8e5bbe", null ],
+    [ "getWindow", "class_g_l_e_s_c_1_1_window_manager.html#af5dd7200144f11ef52e1eab3a79aa5b9", null ],
+    [ "getWindowCenter", "class_g_l_e_s_c_1_1_window_manager.html#a6fe2acb7902f4375a0ebbe45fd90e5cd", null ],
+    [ "initSDL", "class_g_l_e_s_c_1_1_window_manager.html#ae794431588806a6fd3096e8ec795a724", null ],
+    [ "isBorderlessWindow", "class_g_l_e_s_c_1_1_window_manager.html#ad11dafdd77aef1db3058275fc6065ae7", null ],
+    [ "isFullscreen", "class_g_l_e_s_c_1_1_window_manager.html#a0dac5be218b6044970051616418d6e13", null ],
+    [ "isFullscreenBorderless", "class_g_l_e_s_c_1_1_window_manager.html#ad25d971c49e052fba360c7e42c0b06a2", null ],
+    [ "isResizable", "class_g_l_e_s_c_1_1_window_manager.html#ad7db01274157d63fbf3b178d6048f6df", null ],
+    [ "setBorderlessWindow", "class_g_l_e_s_c_1_1_window_manager.html#ae20f6eb53bfcbf400c3f699801cc8502", null ],
+    [ "setFullscreen", "class_g_l_e_s_c_1_1_window_manager.html#a2f485acb7a8436e2aee757180377e22c", null ],
+    [ "setFullscreenBorderless", "class_g_l_e_s_c_1_1_window_manager.html#a05e4326bac0661aaff616826e5db040f", null ],
+    [ "setIcon", "class_g_l_e_s_c_1_1_window_manager.html#a868610be619fc4bc72a387b7efc15ee4", null ],
+    [ "setPosition", "class_g_l_e_s_c_1_1_window_manager.html#a785dec72520879e2346fb7b4ebeda784", null ],
+    [ "setResizable", "class_g_l_e_s_c_1_1_window_manager.html#ac45acf6eede2f3fb3df5233ec04e7285", null ],
+    [ "setSize", "class_g_l_e_s_c_1_1_window_manager.html#ad11419a2237ad2bf992f8fdb08932389", null ],
+    [ "setWindowTitle", "class_g_l_e_s_c_1_1_window_manager.html#a2c3864d9a5b567c83b4799d97b38383a", null ],
+    [ "window", "class_g_l_e_s_c_1_1_window_manager.html#ab36d84030a76c48e125eb5b533225d81", null ]
+];

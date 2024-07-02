@@ -1,0 +1,18 @@
+<map id="GLESC::WindowManager::destroyWindow" name="GLESC::WindowManager::destroyWindow">
+<area shape="rect" id="Node000001" title="Destroy window and release resources." alt="" coords="5,48,175,91"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_logger.html#a9b12ce53593be134b7d7dea62607d22d" title=" " alt="" coords="238,5,377,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="174,47,232,33,233,39,176,52"/>
+<area shape="rect" id="Node000003" href="$_gapi_8h.html#ab7514d88e65656ffa15ca33256518fe5" title="Returns the graphic API used by the engine." alt="" coords="272,56,343,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="175,67,257,67,257,72,175,72"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_logger.html#accab43e8aa76342c5e58ac869f2f32d5" title="Display success information Background – Green Text – White Bold." alt="" coords="223,107,392,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="176,86,233,100,232,105,174,92"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_logger.html#adcc4730c087b2df0b97cccc15557e432" title=" " alt="" coords="440,40,623,83"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="361,104,432,85,433,90,362,109"/>
+<area shape="rect" id="Node000007" href="$_debug_entity_data_h_u_d_8cpp.html#a9acf295be457442cac6bccc0bf75112c" title=" " alt="" coords="729,103,772,129"/>
+<area shape="poly" id="edge8_Node000004_Node000007" title=" " alt="" coords="393,117,714,114,714,119,393,122"/>
+<area shape="rect" id="Node000008" href="$class_i_logger.html#a08a2761c749b766cb789f0dc8e256f95" title="Display success information Background – Green Text – White Bold." alt="" coords="472,157,592,184"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="370,131,457,151,456,156,369,137"/>
+<area shape="rect" id="Node000006" href="$class_concurrent_queue.html#a7d61d602747cee9adf97076d2781023c" title=" " alt="" coords="671,48,830,75"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="623,59,656,59,656,64,623,64"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="620,81,714,104,713,110,619,86"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="FPSManager.h" name="FPSManager.h">
+<area shape="rect" id="Node000001" title="Class that encapsulates the logic of managing the frames and the loop." alt="" coords="88,5,197,32"/>
+<area shape="rect" id="Node000002" href="$_f_p_s_averager_8h.html" title="Class to encapsulate the logic of averaging the FPS." alt="" coords="5,80,141,123"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="134,34,102,70,98,67,129,31"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="165,88,258,115"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="155,31,193,75,189,78,151,34"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="45,171,101,197"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="76,123,76,155,70,155,70,123"/>
+</map>

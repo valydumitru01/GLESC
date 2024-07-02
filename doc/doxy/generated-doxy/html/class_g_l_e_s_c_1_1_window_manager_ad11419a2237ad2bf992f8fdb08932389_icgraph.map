@@ -1,0 +1,13 @@
+<map id="GLESC::WindowManager::setSize" name="GLESC::WindowManager::setSize">
+<area shape="rect" id="Node000001" title="Callback function when window size is modified This will change the viewport with the new resolution." alt="" coords="817,39,986,81"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_window_manager.html#a3a283b34c19aaa20296befaabad4d29b" title=" " alt="" coords="590,5,760,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="801,48,760,42,760,36,802,43"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a5d7f2407f216bd6211aa80261edee52a" title=" " alt="" coords="581,72,769,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="802,77,769,82,769,77,801,72"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a2088e82ea6410ae3534a4fb8f7a0d891" title="Updates the input manager by processing the current input state." alt="" coords="346,72,533,115"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="565,96,534,96,534,91,565,91"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_engine.html#aa1aec35d59f1364a79c7a62c29640226" title="Processes the input of the game." alt="" coords="103,80,298,107"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="330,96,299,96,299,91,330,91"/>
+<area shape="rect" id="Node000006" href="$src_2engine_2main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,80,55,107"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="87,96,55,96,55,91,87,91"/>
+</map>

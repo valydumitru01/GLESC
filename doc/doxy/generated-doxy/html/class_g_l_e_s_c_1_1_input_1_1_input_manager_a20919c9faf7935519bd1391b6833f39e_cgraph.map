@@ -1,0 +1,7 @@
+<map id="GLESC::Input::InputManager::handleMouseMotion" name="GLESC::Input::InputManager::handleMouseMotion">
+<area shape="rect" id="Node000001" title="Handles the mouse motion event by updating the mouse position." alt="" coords="5,23,193,65"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#a73cb0791e7c0aed79d07c35d2176394e" title="Returns the x (reference) value of the vector." alt="" coords="241,5,404,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="193,31,225,27,225,32,194,36"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#a1db0ddecdb667904cff8c3ef7b23ef91" title="Returns the y (second) value of the vector." alt="" coords="241,56,404,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="194,52,225,56,225,61,193,57"/>
+</map>

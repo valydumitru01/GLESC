@@ -1,0 +1,11 @@
+<map id="GLESC::ECS::EntityFactory::createEntity" name="GLESC::ECS::EntityFactory::createEntity">
+<area shape="rect" id="Node000001" title="Creates an entity with a name and metadata." alt="" coords="460,39,646,81"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_engine.html#adb0bb222b1e702be0a95d55d8cfc915f" title=" " alt="" coords="215,5,412,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="444,48,412,43,413,38,445,42"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_scene_1_1_scene.html#ab44f2a6b0a556aced1bbd39e3426be7a" title="Creates an entity and adds it to the scene." alt="" coords="236,72,391,115"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="445,78,392,85,391,80,444,72"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_engine.html#a93e1621f9daf326a7c45d3b2a4c826c1" title="The constructor is private, the engine can only be created by the main function." alt="" coords="5,13,167,40"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="199,29,167,29,167,24,199,24"/>
+<area shape="rect" id="Node000005" href="$class_default.html#a6e26da3ebf533b0f5d45266cd0ce9082" title="Initializes the scene. Must be implemented by the derived class." alt="" coords="43,80,129,107"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="220,96,130,96,130,91,220,91"/>
+</map>

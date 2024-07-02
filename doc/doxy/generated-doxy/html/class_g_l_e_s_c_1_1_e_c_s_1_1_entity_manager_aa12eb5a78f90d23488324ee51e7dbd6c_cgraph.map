@@ -1,0 +1,13 @@
+<map id="GLESC::ECS::EntityManager::removeComponentFromEntity" name="GLESC::ECS::EntityManager::removeComponentFromEntity">
+<area shape="rect" id="Node000001" title="Remove a component from the entity. The entity must exist." alt="" coords="5,72,206,115"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#aab28983bdd04e1acf2dd7d94dbe4639d" title="Check if the entity has the given component. The entity must exist and the component must be in the r..." alt="" coords="254,72,446,115"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="206,91,238,91,238,96,206,96"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a54e81951030afee74dd6ea3c4e2b74e5" title="Check if the component ID is in the range of the signature." alt="" coords="494,101,686,144"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="189,113,254,124,370,130,479,128,479,133,370,136,253,129,188,118"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#af174dceb6b3d4ec490f5812ba128dd51" title="Check if the entity with the given ID is alive." alt="" coords="254,5,446,48"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="186,69,254,50,255,55,187,74"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a5145504091eb26170aa219acb60aca71" title="Check if the entity with the given name exists." alt="" coords="494,20,686,63"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="446,70,478,63,479,68,447,75"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="447,102,479,106,478,112,446,108"/>
+<area shape="poly" id="edge6_Node000005_Node000003" title=" " alt="" coords="447,30,479,32,478,37,446,35"/>
+</map>

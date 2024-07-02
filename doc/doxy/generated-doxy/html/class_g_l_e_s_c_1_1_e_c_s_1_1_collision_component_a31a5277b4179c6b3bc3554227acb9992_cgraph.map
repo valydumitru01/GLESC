@@ -1,0 +1,9 @@
+<map id="GLESC::ECS::CollisionComponent::setUpdatedDebuggingValues" name="GLESC::ECS::CollisionComponent::setUpdatedDebuggingValues">
+<area shape="rect" id="Node000001" title="Set the updated debugging values of the component." alt="" coords="5,27,229,69"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_physics_1_1_collider.html#af1e2829ea4c88c4fd683f257f8d6ba9e" title="Get the updated debugging values of the component." alt="" coords="277,27,473,69"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="229,45,261,45,261,51,229,51"/>
+<area shape="rect" id="Node000003" href="$class_engine_component.html#abd1566e4b3dc922636e3766bf91b466e" title="Get the owner name of the component for debugging purposes." alt="" coords="521,5,745,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="473,34,505,31,506,36,474,39"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_physics_1_1_collider.html#a50f70a178b6f9163b9591d6abed2a445" title=" " alt="" coords="548,56,719,99"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="474,57,532,63,531,68,473,62"/>
+</map>

@@ -1,0 +1,20 @@
+<map id="GLESC::GAPI::IGraphicInterface" name="GLESC::GAPI::IGraphicInterface">
+<area shape="rect" id="Node000001" title=" " alt="" coords="50,453,251,843"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,312,141,381"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="84,380,99,436,94,437,79,382"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="29,163,118,232"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="76,247,76,312,71,312,71,247"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="99,13,120,83"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="101,65,88,88,77,115,73,146,68,145,72,114,83,86,97,63"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="147,155,275,240"/>
+<area shape="poly" id="edge8_Node000008_Node000004" title=" " alt="" coords="122,63,175,140,171,143,118,66"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="165,304,293,389"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="221,390,208,438,203,436,216,388"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="323,163,394,232"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="354,233,345,258,331,282,308,304,305,301,327,278,341,256,349,231"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="300,5,417,91"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="361,106,361,163,356,163,356,106"/>
+<area shape="poly" id="edge7_Node000005_Node000008" title=" " alt="" coords="213,255,215,280,220,304,214,305,210,280,207,255"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="205,13,225,83"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="216,83,215,138,210,138,211,83"/>
+</map>

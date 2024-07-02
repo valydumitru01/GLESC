@@ -1,0 +1,913 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="Doxygen Awesome" />
+<meta property="og:image" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+<meta property="og:description" content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
+<meta property="og:url" content="https://jothepro.github.io/doxygen-awesome-css/" />
+<!-- END opengraph metadata -->
+<!-- BEGIN twitter metadata -->
+<meta name="twitter:image:src" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+<meta name="twitter:title" content="Doxygen Awesome" />
+<meta name="twitter:description" content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
+<!-- END twitter metadata -->
+<title>GLESC: GLESC::Transform::Transformer Class Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.drawio.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/ -->
+<a href="https://github.com/jothepro/doxygen-awesome-css" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="GLESC_logo_white_background.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">GLESC
+   &#160;<span id="projectnumber">1</span>
+   </div>
+   <div id="projectbrief">Game engine using ECS architecture</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('class_g_l_e_s_c_1_1_transform_1_1_transformer.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pri-static-methods">Static Private Member Functions</a> &#124;
+<a href="class_g_l_e_s_c_1_1_transform_1_1_transformer-members.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">GLESC::Transform::Transformer Class Reference</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Class that contains functions for transforming meshes and bounding volumes.  
+ <a href="class_g_l_e_s_c_1_1_transform_1_1_transformer.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_transform_8h_source.html">Transform.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for GLESC::Transform::Transformer:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_transform_1_1_transformer__coll__graph.svg" width="208" height="294"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a9539ec619440203589c9a2cc13145500" id="r_a9539ec619440203589c9a2cc13145500"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">static</a> <a class="el" href="namespace_g_l_e_s_c_1_1_transform.html#a82c60b4e6336fbfd7be65d86c5523c55">Position</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_transform_1_1_transformer.html#a9539ec619440203589c9a2cc13145500">clipToNDC</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_transform.html#aa00b6ed92d97747ea6c47ea61a96396e">HomogeneousPosition</a> &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">clipPos</a>)</td></tr>
+<tr class="memdesc:a9539ec619440203589c9a2cc13145500"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transforms the clip position to normalized device coordinates.  <br /></td></tr>
+<tr class="separator:a9539ec619440203589c9a2cc13145500"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4880807323f7c515dd37b15ba2a32acb" id="r_a4880807323f7c515dd37b15ba2a32acb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">static</a> <a class="el" href="namespace_g_l_e_s_c_1_1_transform.html#a995bb2de53c0b0a19c3c64c8cb727fd5">Rotation</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_transform_1_1_transformer.html#a4880807323f7c515dd37b15ba2a32acb">lookAt</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_transform.html#a82c60b4e6336fbfd7be65d86c5523c55">Position</a> &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">from</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_transform.html#a82c60b4e6336fbfd7be65d86c5523c55">Position</a> &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">to</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a9eadb18d7a162972604c1a6cefa0efa8">Math::Direction</a> &amp;up)</td></tr>
+<tr class="separator:a4880807323f7c515dd37b15ba2a32acb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4648154cefca78120d8bab23006d885" id="r_ac4648154cefca78120d8bab23006d885"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">static</a> <a class="el" href="namespace_g_l_e_s_c_1_1_transform.html#a82c60b4e6336fbfd7be65d86c5523c55">Position</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_transform_1_1_transformer.html#ac4648154cefca78120d8bab23006d885">NDCToViewport</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_transform.html#a82c60b4e6336fbfd7be65d86c5523c55">Position</a> &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">clipPos</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">float</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vpWidth</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">float</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vpHeight</a>)</td></tr>
+<tr class="memdesc:ac4648154cefca78120d8bab23006d885"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transforms the normalized device coordinates to viewport coordinates.  <br /></td></tr>
+<tr class="separator:ac4648154cefca78120d8bab23006d885"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5577240cc80f5b926c31d1b67da65de0" id="r_a5577240cc80f5b926c31d1b67da65de0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">static</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_transform_1_1_transformer.html#a5577240cc80f5b926c31d1b67da65de0">rotateMesh</a> (<a class="el" href="namespace_g_l_e_s_c_1_1_render.html#af8bcf92ffbe830249621aa223af8089d">Render::ColorMesh</a> &amp;mesh, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_transform.html#a995bb2de53c0b0a19c3c64c8cb727fd5">Rotation</a> &amp;rotationDegrees)</td></tr>
+<tr class="memdesc:a5577240cc80f5b926c31d1b67da65de0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotates a mesh by a given rotation.  <br /></td></tr>
+<tr class="separator:a5577240cc80f5b926c31d1b67da65de0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a179bf669dcc2ef0f72f369206f6f0f1d" id="r_a179bf669dcc2ef0f72f369206f6f0f1d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">static</a> <a class="el" href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html">Math::BoundingVolume</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_transform_1_1_transformer.html#a179bf669dcc2ef0f72f369206f6f0f1d">transformBoundingVolume</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html">Math::BoundingVolume</a> &amp;boundingVolume, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_render.html#a98611a278c89dce6500901cccf38a845">Render::Model</a> &amp;matrix)</td></tr>
+<tr class="memdesc:a179bf669dcc2ef0f72f369206f6f0f1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transforms a bounding volume by a given matrix matrix.  <br /></td></tr>
+<tr class="separator:a179bf669dcc2ef0f72f369206f6f0f1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1d19df9ad6722b545c0e3e0953c1edf" id="r_ab1d19df9ad6722b545c0e3e0953c1edf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">static</a> <a class="el" href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html">Math::BoundingVolume</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_transform_1_1_transformer.html#ab1d19df9ad6722b545c0e3e0953c1edf">transformBoundingVolume</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html">Math::BoundingVolume</a> &amp;boundingVolume, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="struct_g_l_e_s_c_1_1_transform_1_1_transform.html">Transform</a> &amp;transform)</td></tr>
+<tr class="memdesc:ab1d19df9ad6722b545c0e3e0953c1edf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transforms a bounding volume by a given transform.  <br /></td></tr>
+<tr class="separator:ab1d19df9ad6722b545c0e3e0953c1edf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a739096353c50719f0b19a2dc3586a4ab" id="r_a739096353c50719f0b19a2dc3586a4ab"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">static</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_transform_1_1_transformer.html#a739096353c50719f0b19a2dc3586a4ab">transformMesh</a> (<a class="el" href="namespace_g_l_e_s_c_1_1_render.html#af8bcf92ffbe830249621aa223af8089d">Render::ColorMesh</a> &amp;mesh, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="struct_g_l_e_s_c_1_1_transform_1_1_transform.html">Transform</a> &amp;transform)</td></tr>
+<tr class="memdesc:a739096353c50719f0b19a2dc3586a4ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scales a mesh by a given scale.  <br /></td></tr>
+<tr class="separator:a739096353c50719f0b19a2dc3586a4ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d20922989f21905e2113a48f4186c42" id="r_a0d20922989f21905e2113a48f4186c42"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">static</a> <a class="el" href="namespace_g_l_e_s_c_1_1_transform.html#a82c60b4e6336fbfd7be65d86c5523c55">Position</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_transform_1_1_transformer.html#a0d20922989f21905e2113a48f4186c42">transformVector</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_transform.html#a82c60b4e6336fbfd7be65d86c5523c55">Position</a> &amp;position, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_render.html#a98611a278c89dce6500901cccf38a845">Render::Model</a> &amp;matrix)</td></tr>
+<tr class="memdesc:a0d20922989f21905e2113a48f4186c42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transforms a position by a given matrix.  <br /></td></tr>
+<tr class="separator:a0d20922989f21905e2113a48f4186c42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23d9dfb2b4c5d47b0aeca15bdc34b83d" id="r_a23d9dfb2b4c5d47b0aeca15bdc34b83d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">static</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_transform_1_1_transformer.html#a23d9dfb2b4c5d47b0aeca15bdc34b83d">translateMesh</a> (<a class="el" href="namespace_g_l_e_s_c_1_1_render.html#af8bcf92ffbe830249621aa223af8089d">Render::ColorMesh</a> &amp;mesh, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_transform.html#a82c60b4e6336fbfd7be65d86c5523c55">Position</a> &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">translation</a>)</td></tr>
+<tr class="memdesc:a23d9dfb2b4c5d47b0aeca15bdc34b83d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Translates a mesh by a given position.  <br /></td></tr>
+<tr class="separator:a23d9dfb2b4c5d47b0aeca15bdc34b83d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a867084113e8ae0eaaf7473f9c1d0a80b" id="r_a867084113e8ae0eaaf7473f9c1d0a80b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">static</a> <a class="el" href="namespace_g_l_e_s_c_1_1_transform.html#a82c60b4e6336fbfd7be65d86c5523c55">Position</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_transform_1_1_transformer.html#a867084113e8ae0eaaf7473f9c1d0a80b">worldToViewport</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_transform.html#a82c60b4e6336fbfd7be65d86c5523c55">Position</a> &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">worldPos</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_render.html#a39559300a83b3e63c9ea85468501df65">Render::VP</a> &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">viewProj</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">float</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vpWidth</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">float</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vpHeight</a>)</td></tr>
+<tr class="memdesc:a867084113e8ae0eaaf7473f9c1d0a80b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transforms the world position to viewport coordinates.  <br /></td></tr>
+<tr class="separator:a867084113e8ae0eaaf7473f9c1d0a80b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-static-methods" name="pri-static-methods"></a>
+Static Private Member Functions</h2></td></tr>
+<tr class="memitem:ac4210d1b111a51d877cbe9187cc057f1" id="r_ac4210d1b111a51d877cbe9187cc057f1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">static</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_transform_1_1_transformer.html#ac4210d1b111a51d877cbe9187cc057f1">transformMesh</a> (<a class="el" href="namespace_g_l_e_s_c_1_1_render.html#af8bcf92ffbe830249621aa223af8089d">Render::ColorMesh</a> &amp;mesh, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="_matrix_8h.html#a10262c2c2e097ff9ae2636550b215ade">Mat4F</a> &amp;matrix)</td></tr>
+<tr class="separator:ac4210d1b111a51d877cbe9187cc057f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Class that contains functions for transforming meshes and bounding volumes. </p>
+<p>This allows transforming all the vertices or points of a mesh or bounding volume by a given transform. Iterating over all the elements and transforming them. </p>
+
+<p class="definition">Definition at line <a class="el" href="_transform_8h_source.html#l00351">351</a> of file <a class="el" href="_transform_8h_source.html">Transform.h</a>.</p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a9539ec619440203589c9a2cc13145500" name="a9539ec619440203589c9a2cc13145500"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9539ec619440203589c9a2cc13145500">&#9670;&#160;</a></span>clipToNDC()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c_1_1_transform.html#a82c60b4e6336fbfd7be65d86c5523c55">Position</a> Transformer::clipToNDC </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_transform.html#aa00b6ed92d97747ea6c47ea61a96396e">HomogeneousPosition</a> &amp;&#160;</td>
+          <td class="paramname"><em>clipPos</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Transforms the clip position to normalized device coordinates. </p>
+<p>This is done by just dehomogenizing the clip position. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">clipPos</td><td>The clip position to transform. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The normalized device coordinates. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_transform_8cpp_source.html#l00131">131</a> of file <a class="el" href="_transform_8cpp_source.html">Transform.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  131</span>                                                                  {</div>
+<div class="line"><span class="lineno">  132</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">clipPos</a>.dehomogenize();</div>
+<div class="line"><span class="lineno">  133</span>}</div>
+<div class="ttc" id="anamespace_g_l_e_s_c_html_a7c64a4da2d1da1597f4ec563d00bb9f8"><div class="ttname"><a href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">GLESC::isIterable_v</a></div><div class="ttdeci">constexpr bool isIterable_v</div><div class="ttdef"><b>Definition</b> <a href="_stringer_8h_source.html#l00029">Stringer.h:29</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_vector_8h_source.html#l00918">GLESC::Math::Vector&lt; Type, N &gt;::dehomogenize()</a>, and <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_transform_8cpp_source.html#l00146">worldToViewport()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_transform_1_1_transformer_a9539ec619440203589c9a2cc13145500_cgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_transform_1_1_transformer_a9539ec619440203589c9a2cc13145500_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a4880807323f7c515dd37b15ba2a32acb" name="a4880807323f7c515dd37b15ba2a32acb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4880807323f7c515dd37b15ba2a32acb">&#9670;&#160;</a></span>lookAt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c_1_1_transform.html#a995bb2de53c0b0a19c3c64c8cb727fd5">Rotation</a> Transformer::lookAt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_transform.html#a82c60b4e6336fbfd7be65d86c5523c55">Position</a> &amp;&#160;</td>
+          <td class="paramname"><em>from</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_transform.html#a82c60b4e6336fbfd7be65d86c5523c55">Position</a> &amp;&#160;</td>
+          <td class="paramname"><em>to</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a9eadb18d7a162972604c1a6cefa0efa8">Math::Direction</a> &amp;&#160;</td>
+          <td class="paramname"><em>up</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_transform_8cpp_source.html#l00103">103</a> of file <a class="el" href="_transform_8cpp_source.html">Transform.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  103</span>                                                                                              {</div>
+<div class="line"><span class="lineno">  104</span>    <a class="code hl_typedef" href="namespace_g_l_e_s_c_1_1_math.html#a9eadb18d7a162972604c1a6cefa0efa8">Math::Direction</a> forward = (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">to</a> - <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">from</a>).normalize();</div>
+<div class="line"><span class="lineno">  105</span>    <span class="keywordflow">return</span> forward.<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_vector.html#abafb1f7d66f1c7d8d624eb5fc9654d4c">vectorToEulerRotation</a>(up).<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_vector.html#a7785db862fec02c906596e20f79f057d">toDegrees</a>();</div>
+<div class="line"><span class="lineno">  106</span>}</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_vector_html_a7785db862fec02c906596e20f79f057d"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_vector.html#a7785db862fec02c906596e20f79f057d">GLESC::Math::Vector::toDegrees</a></div><div class="ttdeci">Vector toDegrees() const</div><div class="ttdoc">Converts the vector to degrees.</div><div class="ttdef"><b>Definition</b> <a href="_vector_8h_source.html#l00753">Vector.h:753</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_vector_html_abafb1f7d66f1c7d8d624eb5fc9654d4c"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_vector.html#abafb1f7d66f1c7d8d624eb5fc9654d4c">GLESC::Math::Vector::vectorToEulerRotation</a></div><div class="ttdeci">Vector &amp; vectorToEulerRotation(const Vector &amp;up)</div><div class="ttdoc">Converts the vector to euler angles.</div><div class="ttdef"><b>Definition</b> <a href="_vector_8h_source.html#l01030">Vector.h:1030</a></div></div>
+<div class="ttc" id="anamespace_g_l_e_s_c_1_1_math_html_a9eadb18d7a162972604c1a6cefa0efa8"><div class="ttname"><a href="namespace_g_l_e_s_c_1_1_math.html#a9eadb18d7a162972604c1a6cefa0efa8">GLESC::Math::Direction</a></div><div class="ttdeci">Vec3F Direction</div><div class="ttdoc">Alias for the direction type, directions are 3D vectors.</div><div class="ttdef"><b>Definition</b> <a href="_geometry_types_8h_source.html#l00030">GeometryTypes.h:30</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, <a class="el" href="_vector_8h_source.html#l00753">GLESC::Math::Vector&lt; Type, N &gt;::toDegrees()</a>, and <a class="el" href="_vector_8h_source.html#l01030">GLESC::Math::Vector&lt; Type, N &gt;::vectorToEulerRotation()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_transform_1_1_transformer_a4880807323f7c515dd37b15ba2a32acb_cgraph.svg" width="100%" height="551"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ac4648154cefca78120d8bab23006d885" name="ac4648154cefca78120d8bab23006d885"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4648154cefca78120d8bab23006d885">&#9670;&#160;</a></span>NDCToViewport()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c_1_1_transform.html#a82c60b4e6336fbfd7be65d86c5523c55">Position</a> Transformer::NDCToViewport </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_transform.html#a82c60b4e6336fbfd7be65d86c5523c55">Position</a> &amp;&#160;</td>
+          <td class="paramname"><em>clipPos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">float</a>&#160;</td>
+          <td class="paramname"><em>vpWidth</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">float</a>&#160;</td>
+          <td class="paramname"><em>vpHeight</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Transforms the normalized device coordinates to viewport coordinates. </p>
+<p>This is done by just scaling the clip position by the viewport width and height. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">clipPos</td><td>The normalized device coordinates to transform. </td></tr>
+    <tr><td class="paramname">vpWidth</td><td>The viewport width. </td></tr>
+    <tr><td class="paramname">vpHeight</td><td>The viewport height. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The viewport coordinates. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_transform_8cpp_source.html#l00136">136</a> of file <a class="el" href="_transform_8cpp_source.html">Transform.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  136</span>                                                                                         {</div>
+<div class="line"><span class="lineno">  137</span>    <span class="comment">// Map NDC to screen coordinates for x and y</span></div>
+<div class="line"><span class="lineno">  138</span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">screenX</a> = (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">ndcPos</a>.getX() + 1.0f) * <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vpWidth</a> / 2.0f;</div>
+<div class="line"><span class="lineno">  139</span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">screenY</a> = (1.0f - <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">ndcPos</a>.getY()) * <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vpHeight</a> / 2.0f;</div>
+<div class="line"><span class="lineno">  140</span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">screenZ</a> = (1.0f - <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">ndcPos</a>.getZ()) / 2;</div>
+<div class="line"><span class="lineno">  141</span> </div>
+<div class="line"><span class="lineno">  142</span>    <span class="keywordflow">return</span> {<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">screenX</a>, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">screenY</a>, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">screenZ</a>};</div>
+<div class="line"><span class="lineno">  143</span>}</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_transform_8cpp_source.html#l00146">worldToViewport()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_transform_1_1_transformer_ac4648154cefca78120d8bab23006d885_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a5577240cc80f5b926c31d1b67da65de0" name="a5577240cc80f5b926c31d1b67da65de0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5577240cc80f5b926c31d1b67da65de0">&#9670;&#160;</a></span>rotateMesh()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> Transformer::rotateMesh </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c_1_1_render.html#af8bcf92ffbe830249621aa223af8089d">Render::ColorMesh</a> &amp;&#160;</td>
+          <td class="paramname"><em>mesh</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_transform.html#a995bb2de53c0b0a19c3c64c8cb727fd5">Rotation</a> &amp;&#160;</td>
+          <td class="paramname"><em>rotationDegrees</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Rotates a mesh by a given rotation. </p>
+<p>This function will rotate all the vertices of the mesh by the given rotation, iterating over all of them and applying the rotation. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mesh</td><td>The mesh to rotate. </td></tr>
+    <tr><td class="paramname">rotationDegrees</td><td>The rotation to apply. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_transform_8cpp_source.html#l00090">90</a> of file <a class="el" href="_transform_8cpp_source.html">Transform.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   90</span>                                                                                   {</div>
+<div class="line"><span class="lineno">   91</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_g_l_e_s_c_1_1_math_1_1_vector.html">Rotation</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">rotation</a> = rotationDegrees.<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_vector.html#a058dd167ea8c84edda5fdeccdeebd5d5">toRads</a>();</div>
+<div class="line"><span class="lineno">   92</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vertex</a> : mesh.getModifiableVertices()) {</div>
+<div class="line"><span class="lineno">   93</span>        <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vertex</a>.getPosition().<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_vector.html#a59e384ea5a54361b8d985f67f7e3397c">rotate</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">rotation</a>);</div>
+<div class="line"><span class="lineno">   94</span>    }</div>
+<div class="line"><span class="lineno">   95</span>}</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_vector_html"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_vector.html">GLESC::Math::Vector</a></div><div class="ttdef"><b>Definition</b> <a href="_vector_8h_source.html#l00025">Vector.h:25</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_vector_html_a058dd167ea8c84edda5fdeccdeebd5d5"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_vector.html#a058dd167ea8c84edda5fdeccdeebd5d5">GLESC::Math::Vector::toRads</a></div><div class="ttdeci">Vector toRads() const</div><div class="ttdoc">Converts the vector to radians.</div><div class="ttdef"><b>Definition</b> <a href="_vector_8h_source.html#l00741">Vector.h:741</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_vector_html_a59e384ea5a54361b8d985f67f7e3397c"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_vector.html#a59e384ea5a54361b8d985f67f7e3397c">GLESC::Math::Vector::rotate</a></div><div class="ttdeci">Vector&lt; Type, 3 &gt; &amp; rotate(const Vector&lt; Type, 3 &gt; &amp;rotation)</div><div class="ttdoc">Rotates the vector by a given rotation.</div><div class="ttdef"><b>Definition</b> <a href="_vector_8h_source.html#l00980">Vector.h:980</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_mesh_8h_source.html#l00171">GLESC::Render::Mesh&lt; VertexT &gt;::getModifiableVertices()</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, <a class="el" href="_vector_8h_source.html#l00980">GLESC::Math::Vector&lt; Type, N &gt;::rotate()</a>, and <a class="el" href="_vector_8h_source.html#l00741">GLESC::Math::Vector&lt; Type, N &gt;::toRads()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_transform_1_1_transformer_a5577240cc80f5b926c31d1b67da65de0_cgraph.svg" width="100%" height="440"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a179bf669dcc2ef0f72f369206f6f0f1d" name="a179bf669dcc2ef0f72f369206f6f0f1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a179bf669dcc2ef0f72f369206f6f0f1d">&#9670;&#160;</a></span>transformBoundingVolume() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html">GLESC::Math::BoundingVolume</a> Transformer::transformBoundingVolume </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html">Math::BoundingVolume</a> &amp;&#160;</td>
+          <td class="paramname"><em>boundingVolume</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_render.html#a98611a278c89dce6500901cccf38a845">Render::Model</a> &amp;&#160;</td>
+          <td class="paramname"><em>matrix</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Transforms a bounding volume by a given matrix matrix. </p>
+<p>This function will transform all the points of the bounding volume by the given matrix, iterating over all of them and applying the matrix. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">boundingVolume</td><td>The bounding volume to transform. </td></tr>
+    <tr><td class="paramname">matrix</td><td>The model matrix to apply. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The transformed bounding volume. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_transform_8cpp_source.html#l00108">108</a> of file <a class="el" href="_transform_8cpp_source.html">Transform.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  109</span>                                                                                            {</div>
+<div class="line"><span class="lineno">  110</span>    <span class="keywordflow">return</span> {</div>
+<div class="line"><span class="lineno">  111</span>        <a class="code hl_function" href="class_g_l_e_s_c_1_1_transform_1_1_transformer.html#a0d20922989f21905e2113a48f4186c42">transformVector</a>(boundingVolume.getVolume().min, matrix),</div>
+<div class="line"><span class="lineno">  112</span>        <a class="code hl_function" href="class_g_l_e_s_c_1_1_transform_1_1_transformer.html#a0d20922989f21905e2113a48f4186c42">transformVector</a>(boundingVolume.getVolume().max, matrix)</div>
+<div class="line"><span class="lineno">  113</span>    };</div>
+<div class="line"><span class="lineno">  114</span>}</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_transform_1_1_transformer_html_a0d20922989f21905e2113a48f4186c42"><div class="ttname"><a href="class_g_l_e_s_c_1_1_transform_1_1_transformer.html#a0d20922989f21905e2113a48f4186c42">GLESC::Transform::Transformer::transformVector</a></div><div class="ttdeci">static Position transformVector(const Position &amp;position, const Render::Model &amp;matrix)</div><div class="ttdoc">Transforms a position by a given matrix.</div><div class="ttdef"><b>Definition</b> <a href="_transform_8cpp_source.html#l00123">Transform.cpp:123</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_bounding_volume_8h_source.html#l00055">GLESC::Math::BoundingVolume::getVolume()</a>, <a class="el" href="_bounding_volume_8h_source.html#l00029">GLESC::Math::BoundingVolume::AABB::max</a>, <a class="el" href="_bounding_volume_8h_source.html#l00028">GLESC::Math::BoundingVolume::AABB::min</a>, and <a class="el" href="_transform_8cpp_source.html#l00123">transformVector()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_transform_1_1_transformer_a179bf669dcc2ef0f72f369206f6f0f1d_cgraph.svg" width="100%" height="390"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ab1d19df9ad6722b545c0e3e0953c1edf" name="ab1d19df9ad6722b545c0e3e0953c1edf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1d19df9ad6722b545c0e3e0953c1edf">&#9670;&#160;</a></span>transformBoundingVolume() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html">GLESC::Math::BoundingVolume</a> Transformer::transformBoundingVolume </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html">Math::BoundingVolume</a> &amp;&#160;</td>
+          <td class="paramname"><em>boundingVolume</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="struct_g_l_e_s_c_1_1_transform_1_1_transform.html">Transform</a> &amp;&#160;</td>
+          <td class="paramname"><em>transform</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Transforms a bounding volume by a given transform. </p>
+<p>This function will transform all the points of the bounding volume by the given transform, iterating over all of them and applying the transform. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">boundingVolume</td><td>The bounding volume to transform. </td></tr>
+    <tr><td class="paramname">transform</td><td>The transform to apply. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The transformed bounding volume. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_transform_8cpp_source.html#l00116">116</a> of file <a class="el" href="_transform_8cpp_source.html">Transform.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  117</span>                                                                                             {</div>
+<div class="line"><span class="lineno">  118</span>    <a class="code hl_typedef" href="namespace_g_l_e_s_c_1_1_render.html#a98611a278c89dce6500901cccf38a845">Render::Model</a> modelMat = transform.<a class="code hl_function" href="struct_g_l_e_s_c_1_1_transform_1_1_transform.html#ace5eaadaa06308bac65203f413c3cb0c">getModelMatrix</a>();</div>
+<div class="line"><span class="lineno">  119</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="class_g_l_e_s_c_1_1_transform_1_1_transformer.html#ab1d19df9ad6722b545c0e3e0953c1edf">transformBoundingVolume</a>(boundingVolume, modelMat);</div>
+<div class="line"><span class="lineno">  120</span>}</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_transform_1_1_transformer_html_ab1d19df9ad6722b545c0e3e0953c1edf"><div class="ttname"><a href="class_g_l_e_s_c_1_1_transform_1_1_transformer.html#ab1d19df9ad6722b545c0e3e0953c1edf">GLESC::Transform::Transformer::transformBoundingVolume</a></div><div class="ttdeci">static Math::BoundingVolume transformBoundingVolume(const Math::BoundingVolume &amp;boundingVolume, const Transform &amp;transform)</div><div class="ttdoc">Transforms a bounding volume by a given transform.</div><div class="ttdef"><b>Definition</b> <a href="_transform_8cpp_source.html#l00116">Transform.cpp:116</a></div></div>
+<div class="ttc" id="anamespace_g_l_e_s_c_1_1_render_html_a98611a278c89dce6500901cccf38a845"><div class="ttname"><a href="namespace_g_l_e_s_c_1_1_render.html#a98611a278c89dce6500901cccf38a845">GLESC::Render::Model</a></div><div class="ttdeci">Mat4F Model</div><div class="ttdef"><b>Definition</b> <a href="_renderer_types_8h_source.html#l00098">RendererTypes.h:98</a></div></div>
+<div class="ttc" id="astruct_g_l_e_s_c_1_1_transform_1_1_transform_html_ace5eaadaa06308bac65203f413c3cb0c"><div class="ttname"><a href="struct_g_l_e_s_c_1_1_transform_1_1_transform.html#ace5eaadaa06308bac65203f413c3cb0c">GLESC::Transform::Transform::getModelMatrix</a></div><div class="ttdeci">Render::Model getModelMatrix() const</div><div class="ttdoc">Returns the model matrix of the transform.</div><div class="ttdef"><b>Definition</b> <a href="_transform_8h_source.html#l00186">Transform.h:186</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_transform_8h_source.html#l00186">GLESC::Transform::Transform::getModelMatrix()</a>, and <a class="el" href="_transform_8cpp_source.html#l00116">transformBoundingVolume()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_renderer_8cpp_source.html#l00180">GLESC::Render::Renderer::render()</a>, <a class="el" href="_transform_8cpp_source.html#l00116">transformBoundingVolume()</a>, <a class="el" href="_transform_8cpp_source.html#l00072">transformMesh()</a>, and <a class="el" href="_collision_manager_8cpp_source.html#l00016">translateBV()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_transform_1_1_transformer_ab1d19df9ad6722b545c0e3e0953c1edf_cgraph.svg" width="100%" height="390"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_transform_1_1_transformer_ab1d19df9ad6722b545c0e3e0953c1edf_icgraph.svg" width="100%" height="434"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ac4210d1b111a51d877cbe9187cc057f1" name="ac4210d1b111a51d877cbe9187cc057f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4210d1b111a51d877cbe9187cc057f1">&#9670;&#160;</a></span>transformMesh() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> Transformer::transformMesh </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c_1_1_render.html#af8bcf92ffbe830249621aa223af8089d">Render::ColorMesh</a> &amp;&#160;</td>
+          <td class="paramname"><em>mesh</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="_matrix_8h.html#a10262c2c2e097ff9ae2636550b215ade">Mat4F</a> &amp;&#160;</td>
+          <td class="paramname"><em>matrix</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_transform_8cpp_source.html#l00072">72</a> of file <a class="el" href="_transform_8cpp_source.html">Transform.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   72</span>                                                                          {</div>
+<div class="line"><span class="lineno">   73</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vertex</a> : mesh.getModifiableVertices()) {</div>
+<div class="line"><span class="lineno">   74</span>        <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vertex</a>.setPosition(<a class="code hl_function" href="class_g_l_e_s_c_1_1_transform_1_1_transformer.html#a0d20922989f21905e2113a48f4186c42">transformVector</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vertex</a>.getPosition(), matrix));</div>
+<div class="line"><span class="lineno">   75</span>    }</div>
+<div class="line"><span class="lineno">   76</span> </div>
+<div class="line"><span class="lineno">   77</span>    <a class="code hl_function" href="class_g_l_e_s_c_1_1_transform_1_1_transformer.html#ab1d19df9ad6722b545c0e3e0953c1edf">transformBoundingVolume</a>(mesh.getBoundingVolumeMutable(), matrix);</div>
+<div class="line"><span class="lineno">   78</span>}</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_mesh_8h_source.html#l00176">GLESC::Render::Mesh&lt; VertexT &gt;::getBoundingVolumeMutable()</a>, <a class="el" href="_mesh_8h_source.html#l00171">GLESC::Render::Mesh&lt; VertexT &gt;::getModifiableVertices()</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, <a class="el" href="_transform_8cpp_source.html#l00116">transformBoundingVolume()</a>, and <a class="el" href="_transform_8cpp_source.html#l00123">transformVector()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_transform_1_1_transformer_ac4210d1b111a51d877cbe9187cc057f1_cgraph.svg" width="100%" height="508"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a739096353c50719f0b19a2dc3586a4ab" name="a739096353c50719f0b19a2dc3586a4ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a739096353c50719f0b19a2dc3586a4ab">&#9670;&#160;</a></span>transformMesh() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> Transformer::transformMesh </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c_1_1_render.html#af8bcf92ffbe830249621aa223af8089d">Render::ColorMesh</a> &amp;&#160;</td>
+          <td class="paramname"><em>mesh</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="struct_g_l_e_s_c_1_1_transform_1_1_transform.html">Transform</a> &amp;&#160;</td>
+          <td class="paramname"><em>transform</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Scales a mesh by a given scale. </p>
+<p>This function will transform all the vertices of the mesh by the given transform, iterating over all of them and applying the scale. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mesh</td><td>The mesh to scale. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_transform_8cpp_source.html#l00098">98</a> of file <a class="el" href="_transform_8cpp_source.html">Transform.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   98</span>                                                                                 {</div>
+<div class="line"><span class="lineno">   99</span>    <a class="code hl_typedef" href="namespace_g_l_e_s_c_1_1_render.html#a98611a278c89dce6500901cccf38a845">Render::Model</a> modelMat = transform.<a class="code hl_function" href="struct_g_l_e_s_c_1_1_transform_1_1_transform.html#ace5eaadaa06308bac65203f413c3cb0c">getModelMatrix</a>();</div>
+<div class="line"><span class="lineno">  100</span>    <a class="code hl_function" href="class_g_l_e_s_c_1_1_transform_1_1_transformer.html#a739096353c50719f0b19a2dc3586a4ab">transformMesh</a>(mesh, modelMat);</div>
+<div class="line"><span class="lineno">  101</span>}</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_transform_1_1_transformer_html_a739096353c50719f0b19a2dc3586a4ab"><div class="ttname"><a href="class_g_l_e_s_c_1_1_transform_1_1_transformer.html#a739096353c50719f0b19a2dc3586a4ab">GLESC::Transform::Transformer::transformMesh</a></div><div class="ttdeci">static void transformMesh(Render::ColorMesh &amp;mesh, const Transform &amp;transform)</div><div class="ttdoc">Scales a mesh by a given scale.</div><div class="ttdef"><b>Definition</b> <a href="_transform_8cpp_source.html#l00098">Transform.cpp:98</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_transform_8h_source.html#l00186">GLESC::Transform::Transform::getModelMatrix()</a>, and <a class="el" href="_transform_8cpp_source.html#l00098">transformMesh()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_transform_8cpp_source.html#l00098">transformMesh()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_transform_1_1_transformer_a739096353c50719f0b19a2dc3586a4ab_cgraph.svg" width="100%" height="390"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_transform_1_1_transformer_a739096353c50719f0b19a2dc3586a4ab_icgraph.svg" width="218" height="78"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a0d20922989f21905e2113a48f4186c42" name="a0d20922989f21905e2113a48f4186c42"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d20922989f21905e2113a48f4186c42">&#9670;&#160;</a></span>transformVector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c_1_1_transform.html#a82c60b4e6336fbfd7be65d86c5523c55">Position</a> Transformer::transformVector </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_transform.html#a82c60b4e6336fbfd7be65d86c5523c55">Position</a> &amp;&#160;</td>
+          <td class="paramname"><em>position</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_render.html#a98611a278c89dce6500901cccf38a845">Render::Model</a> &amp;&#160;</td>
+          <td class="paramname"><em>matrix</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Transforms a position by a given matrix. </p>
+<p>It will just multiply the position by the matrix and return the result. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">position</td><td>The position to transform. </td></tr>
+    <tr><td class="paramname">matrix</td><td>The matrix to apply. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_transform_8cpp_source.html#l00123">123</a> of file <a class="el" href="_transform_8cpp_source.html">Transform.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  123</span>                                                                                         {</div>
+<div class="line"><span class="lineno">  124</span>    <span class="comment">// IMPORTANT! We use row major matrices but the data distribution is prepared to be column major for in GPU</span></div>
+<div class="line"><span class="lineno">  125</span>    <span class="comment">// operations. So for the CPU we need to transpose the matrices.</span></div>
+<div class="line"><span class="lineno">  126</span> </div>
+<div class="line"><span class="lineno">  127</span>    <a class="code hl_class" href="class_g_l_e_s_c_1_1_math_1_1_vector.html">Vec4F</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">transformedToWorldVertex</a> = matrix * position.<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_vector.html#ae97c63da7362348a91413c64256df459">homogenize</a>();</div>
+<div class="line"><span class="lineno">  128</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">transformedToWorldVertex</a>.dehomogenize();</div>
+<div class="line"><span class="lineno">  129</span>}</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_vector_html_ae97c63da7362348a91413c64256df459"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_vector.html#ae97c63da7362348a91413c64256df459">GLESC::Math::Vector::homogenize</a></div><div class="ttdeci">Vector&lt; Type, N+1 &gt; homogenize() const</div><div class="ttdoc">Homogenizes the vector.</div><div class="ttdef"><b>Definition</b> <a href="_vector_8h_source.html#l00906">Vector.h:906</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_vector_8h_source.html#l00906">GLESC::Math::Vector&lt; Type, N &gt;::homogenize()</a>, and <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_renderer_8cpp_source.html#l00095">GLESC::Render::Renderer::renderLights()</a>, <a class="el" href="_transform_8cpp_source.html#l00108">transformBoundingVolume()</a>, and <a class="el" href="_transform_8cpp_source.html#l00072">transformMesh()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_transform_1_1_transformer_a0d20922989f21905e2113a48f4186c42_cgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_transform_1_1_transformer_a0d20922989f21905e2113a48f4186c42_icgraph.svg" width="100%" height="440"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a23d9dfb2b4c5d47b0aeca15bdc34b83d" name="a23d9dfb2b4c5d47b0aeca15bdc34b83d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23d9dfb2b4c5d47b0aeca15bdc34b83d">&#9670;&#160;</a></span>translateMesh()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> Transformer::translateMesh </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c_1_1_render.html#af8bcf92ffbe830249621aa223af8089d">Render::ColorMesh</a> &amp;&#160;</td>
+          <td class="paramname"><em>mesh</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_transform.html#a82c60b4e6336fbfd7be65d86c5523c55">Position</a> &amp;&#160;</td>
+          <td class="paramname"><em>translation</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Translates a mesh by a given position. </p>
+<p>This function will translate all the vertices of the mesh by the given position, iterating over all of them and applying the translation. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mesh</td><td>The mesh to translate. </td></tr>
+    <tr><td class="paramname">translation</td><td>The translation to apply. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_transform_8cpp_source.html#l00080">80</a> of file <a class="el" href="_transform_8cpp_source.html">Transform.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   80</span>                                                                                  {</div>
+<div class="line"><span class="lineno">   81</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vertex</a> : mesh.getModifiableVertices()) {</div>
+<div class="line"><span class="lineno">   82</span>        <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vertex</a>.setPosition({</div>
+<div class="line"><span class="lineno">   83</span>            <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vertex</a>.getPosition().getX() + <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">translation</a>.getX(),</div>
+<div class="line"><span class="lineno">   84</span>            <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vertex</a>.getPosition().getY() + <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">translation</a>.getY(),</div>
+<div class="line"><span class="lineno">   85</span>            <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vertex</a>.getPosition().getZ() + <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">translation</a>.getZ()</div>
+<div class="line"><span class="lineno">   86</span>        });</div>
+<div class="line"><span class="lineno">   87</span>    }</div>
+<div class="line"><span class="lineno">   88</span>}</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_mesh_8h_source.html#l00171">GLESC::Render::Mesh&lt; VertexT &gt;::getModifiableVertices()</a>, and <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_transform_1_1_transformer_a23d9dfb2b4c5d47b0aeca15bdc34b83d_cgraph.svg" width="420" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a867084113e8ae0eaaf7473f9c1d0a80b" name="a867084113e8ae0eaaf7473f9c1d0a80b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a867084113e8ae0eaaf7473f9c1d0a80b">&#9670;&#160;</a></span>worldToViewport()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c_1_1_transform.html#a82c60b4e6336fbfd7be65d86c5523c55">Position</a> Transformer::worldToViewport </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_transform.html#a82c60b4e6336fbfd7be65d86c5523c55">Position</a> &amp;&#160;</td>
+          <td class="paramname"><em>worldPos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_render.html#a39559300a83b3e63c9ea85468501df65">Render::VP</a> &amp;&#160;</td>
+          <td class="paramname"><em>viewProj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">float</a>&#160;</td>
+          <td class="paramname"><em>vpWidth</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">float</a>&#160;</td>
+          <td class="paramname"><em>vpHeight</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Transforms the world position to viewport coordinates. </p>
+<p>This is done by transforming the world position to clip position, then to normalized device coordinates, and finally to viewport coordinates. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">worldPos</td><td>The world position to transform. </td></tr>
+    <tr><td class="paramname">viewProj</td><td>The view projection matrix. </td></tr>
+    <tr><td class="paramname">vpWidth</td><td>The viewport width. </td></tr>
+    <tr><td class="paramname">vpHeight</td><td>The viewport height. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The viewport coordinates. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_transform_8cpp_source.html#l00146">146</a> of file <a class="el" href="_transform_8cpp_source.html">Transform.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  147</span>                                                      {</div>
+<div class="line"><span class="lineno">  148</span>    <span class="comment">// IMPORTANT! We use row major matrices but the data distribution is prepared to be column major for in GPU</span></div>
+<div class="line"><span class="lineno">  149</span>    <span class="comment">// operations. So for the CPU we need to transpose the matrices.</span></div>
+<div class="line"><span class="lineno">  150</span>    <a class="code hl_class" href="class_g_l_e_s_c_1_1_math_1_1_vector.html">HomogeneousPosition</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">clipPos</a> = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">viewProj</a> * <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">worldPos</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_vector.html#ae97c63da7362348a91413c64256df459">homogenize</a>();</div>
+<div class="line"><span class="lineno">  151</span>    <a class="code hl_class" href="class_g_l_e_s_c_1_1_math_1_1_vector.html">Position</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">ndcPos</a> = <a class="code hl_function" href="class_g_l_e_s_c_1_1_transform_1_1_transformer.html#a9539ec619440203589c9a2cc13145500">clipToNDC</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">clipPos</a>);</div>
+<div class="line"><span class="lineno">  152</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="class_g_l_e_s_c_1_1_transform_1_1_transformer.html#ac4648154cefca78120d8bab23006d885">NDCToViewport</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">ndcPos</a>, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vpWidth</a>, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vpHeight</a>);</div>
+<div class="line"><span class="lineno">  153</span>}</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_transform_1_1_transformer_html_a9539ec619440203589c9a2cc13145500"><div class="ttname"><a href="class_g_l_e_s_c_1_1_transform_1_1_transformer.html#a9539ec619440203589c9a2cc13145500">GLESC::Transform::Transformer::clipToNDC</a></div><div class="ttdeci">static Position clipToNDC(const HomogeneousPosition &amp;clipPos)</div><div class="ttdoc">Transforms the clip position to normalized device coordinates.</div><div class="ttdef"><b>Definition</b> <a href="_transform_8cpp_source.html#l00131">Transform.cpp:131</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_transform_1_1_transformer_html_ac4648154cefca78120d8bab23006d885"><div class="ttname"><a href="class_g_l_e_s_c_1_1_transform_1_1_transformer.html#ac4648154cefca78120d8bab23006d885">GLESC::Transform::Transformer::NDCToViewport</a></div><div class="ttdeci">static Position NDCToViewport(const Position &amp;clipPos, float vpWidth, float vpHeight)</div><div class="ttdoc">Transforms the normalized device coordinates to viewport coordinates.</div><div class="ttdef"><b>Definition</b> <a href="_transform_8cpp_source.html#l00136">Transform.cpp:136</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_transform_8cpp_source.html#l00131">clipToNDC()</a>, <a class="el" href="_vector_8h_source.html#l00906">GLESC::Math::Vector&lt; Type, N &gt;::homogenize()</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_transform_8cpp_source.html#l00136">NDCToViewport()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_debug_items_h_u_d_8cpp_source.html#l00044">GLESC::HUD::DebugItems::windowContent()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_transform_1_1_transformer_a867084113e8ae0eaaf7473f9c1d0a80b_cgraph.svg" width="100%" height="440"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_transform_1_1_transformer_a867084113e8ae0eaaf7473f9c1d0a80b_icgraph.svg" width="443" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li><a class="el" href="_transform_8h_source.html">Transform.h</a></li>
+<li><a class="el" href="_transform_8cpp_source.html">Transform.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_g_l_e_s_c.html">GLESC</a></li><li class="navelem"><a class="el" href="namespace_g_l_e_s_c_1_1_transform.html">Transform</a></li><li class="navelem"><a class="el" href="class_g_l_e_s_c_1_1_transform_1_1_transformer.html">Transformer</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<map id="GLESC::GAPI::ShaderLoader::loadShader" name="GLESC::GAPI::ShaderLoader::loadShader">
+<area shape="rect" id="Node000001" title="Load the shader from the source code." alt="" coords="5,293,198,336"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#abee829a266c59b44c3a52933d7cb147a" title="Clean the shader loader." alt="" coords="257,139,450,181"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="121,291,174,241,208,214,244,191,255,185,258,190,247,196,211,219,177,245,125,295"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#a38404249ed0cc38fe19988e56b8584b0" title="Links the loaded shaders into the shader program." alt="" coords="257,205,450,248"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="157,290,245,257,264,251,266,256,247,263,159,295"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_logger.html#a9b12ce53593be134b7d7dea62607d22d" title=" " alt="" coords="284,272,423,299"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="198,301,268,293,269,298,198,306"/>
+<area shape="rect" id="Node000006" href="$class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#a444f971b50a619fe8ed0fe7625148764" title="Inserts the shader macros into the shader code." alt="" coords="257,323,450,365"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="198,323,242,328,241,334,198,329"/>
+<area shape="rect" id="Node000007" href="$class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#a9dd30109e00edd910d61759c5b68aa8f" title="Loads the fragment shader Calculates colors of pixels (a fragment is a pixel in OpenGL)" alt="" coords="257,5,450,48"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="106,292,123,244,151,181,191,115,216,85,244,58,249,54,252,59,247,62,220,88,195,118,156,183,128,246,111,294"/>
+<area shape="rect" id="Node000008" href="$class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#a463a9cb2ff635b6745c8f7a880f6b47f" title="Loads the vertex shader Sets the actual coordinates of the vertices in the GPU." alt="" coords="257,72,450,115"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="111,292,131,256,161,211,199,164,244,125,251,120,254,125,247,129,203,168,165,214,136,258,116,294"/>
+<area shape="rect" id="Node000009" href="$class_g_l_e_s_c_1_1_logger.html#adb7c11e4c440628db0d98f418fa57702" title="Display non important information Background – Black Text – Grey." alt="" coords="246,389,461,416"/>
+<area shape="poly" id="edge11_Node000001_Node000009" title=" " alt="" coords="148,334,247,375,272,382,270,387,245,380,146,339"/>
+<area shape="rect" id="Node000014" href="$class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#a8117811f44e6651fe0439052bf20880b" title="Prepends the GLSL version to the shader code." alt="" coords="257,491,450,533"/>
+<area shape="poly" id="edge17_Node000001_Node000014" title=" " alt="" coords="118,335,169,404,206,443,247,476,255,481,252,486,244,481,202,447,165,408,114,338"/>
+<area shape="rect" id="Node000016" href="$class_g_l_e_s_c_1_1_stringer.html#a4aef664d7491aaeaa7be1fafde3ef90e" title="Converts a string to a number." alt="" coords="269,557,438,584"/>
+<area shape="poly" id="edge19_Node000001_Node000016" title=" " alt="" coords="112,335,130,380,158,436,197,495,221,521,247,543,257,549,254,554,244,547,217,524,193,498,153,439,125,382,107,337"/>
+<area shape="rect" id="Node000017" href="$class_g_l_e_s_c_1_1_logger.html#accab43e8aa76342c5e58ac869f2f32d5" title="Display success information Background – Green Text – White Bold." alt="" coords="269,440,438,467"/>
+<area shape="poly" id="edge20_Node000001_Node000017" title=" " alt="" coords="126,334,178,381,211,405,247,426,262,432,260,437,244,430,208,410,175,385,122,338"/>
+<area shape="rect" id="Node000003" href="$_gapi_8h.html#ab7514d88e65656ffa15ca33256518fe5" title="Returns the graphic API used by the engine." alt="" coords="570,113,640,140"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="450,145,554,131,555,136,450,150"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="428,202,460,191,562,145,565,150,462,196,430,207"/>
+<area shape="poly" id="edge8_Node000007_Node000003" title=" " alt="" coords="430,46,462,58,565,104,562,109,460,62,428,51"/>
+<area shape="poly" id="edge10_Node000008_Node000003" title=" " alt="" coords="450,103,555,117,554,123,450,109"/>
+<area shape="rect" id="Node000010" href="$class_g_l_e_s_c_1_1_logger.html#adcc4730c087b2df0b97cccc15557e432" title=" " alt="" coords="514,381,697,424"/>
+<area shape="poly" id="edge12_Node000009_Node000010" title=" " alt="" coords="461,400,498,400,498,405,461,405"/>
+<area shape="rect" id="Node000012" href="$_debug_entity_data_h_u_d_8cpp.html#a9acf295be457442cac6bccc0bf75112c" title=" " alt="" coords="807,364,850,391"/>
+<area shape="poly" id="edge16_Node000009_Node000012" title=" " alt="" coords="413,386,509,367,605,362,701,367,791,372,791,377,701,372,605,368,509,372,414,391"/>
+<area shape="rect" id="Node000013" href="$class_i_logger.html#a809090b871104c0e4b00e1818fd48e6b" title="Display non important information Background – Black Text – Grey." alt="" coords="522,280,688,307"/>
+<area shape="poly" id="edge15_Node000009_Node000013" title=" " alt="" coords="435,386,460,375,474,363,483,350,492,337,507,323,532,310,534,315,511,328,496,340,487,353,478,367,462,380,437,391"/>
+<area shape="rect" id="Node000011" href="$class_concurrent_queue.html#a7d61d602747cee9adf97076d2781023c" title=" " alt="" coords="749,415,908,441"/>
+<area shape="poly" id="edge13_Node000010_Node000011" title=" " alt="" coords="697,410,734,415,733,420,697,416"/>
+<area shape="poly" id="edge14_Node000010_Node000012" title=" " alt="" coords="697,390,791,379,792,384,697,395"/>
+<area shape="rect" id="Node000015" href="$class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#af14e7519ed4f04e6bdffc793cd50ad9c" title="Gets the GLSL version string." alt="" coords="509,549,701,592"/>
+<area shape="poly" id="edge18_Node000014_Node000015" title=" " alt="" coords="448,531,496,543,495,548,447,537"/>
+<area shape="poly" id="edge21_Node000017_Node000010" title=" " alt="" coords="423,437,498,422,499,427,424,442"/>
+<area shape="poly" id="edge23_Node000017_Node000012" title=" " alt="" coords="414,465,509,484,565,494,610,504,630,505,652,503,674,497,700,484,711,476,717,467,724,446,731,423,748,401,769,388,791,381,793,386,771,393,751,405,735,425,729,448,722,469,715,480,703,489,676,502,653,509,630,511,609,509,564,499,509,489,413,470"/>
+<area shape="rect" id="Node000018" href="$class_i_logger.html#a08a2761c749b766cb789f0dc8e256f95" title="Display success information Background – Green Text – White Bold." alt="" coords="545,448,665,475"/>
+<area shape="poly" id="edge22_Node000017_Node000018" title=" " alt="" coords="438,453,529,456,529,462,438,459"/>
+</map>

@@ -1,0 +1,15 @@
+<map id="GLESC::Math::Plane::normalize" name="GLESC::Math::Plane::normalize">
+<area shape="rect" id="Node000001" title="Normalize the normal vector of the plane." alt="" coords="5,27,149,69"/>
+<area shape="rect" id="Node000002" href="$namespace_g_l_e_s_c_1_1_math.html#aee25910dbba06d09d9df14d03933ace1" title="Compares two values for equality." alt="" coords="209,5,333,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="149,35,193,28,194,33,149,40"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#a1e7d79fa65198c1323e9ae2c4893ee95" title="Returns the length of the vector." alt="" coords="197,56,345,99"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="149,56,182,61,181,67,149,61"/>
+<area shape="rect" id="Node000003" href="$namespace_g_l_e_s_c_1_1_math.html#acd429163efe906cd22916cc75ccb2421" title="Epsilon getter with precision of a given template type." alt="" coords="423,5,574,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="334,16,407,16,407,21,334,21"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#a96acaa670e780132720dd3ea6a6cdf97" title="Computes the length of a vector." alt="" coords="393,56,603,99"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="345,75,377,75,377,80,345,80"/>
+<area shape="rect" id="Node000006" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#ae45bcff9b53fb60d513c53823418d97b" title="Computes the dot product of two vectors." alt="" coords="651,27,862,69"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="604,63,635,59,636,64,604,68"/>
+<area shape="rect" id="Node000007" href="$namespace_g_l_e_s_c_1_1_math.html#ab2316a2512c43c18e29709201adf3fe5" title="Calculates the square root of a value." alt="" coords="690,93,823,120"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="604,87,675,95,675,100,604,92"/>
+</map>

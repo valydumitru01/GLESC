@@ -1,0 +1,9 @@
+<map id="GLESC::Math::Vector::getOrthogonal" name="GLESC::Math::Vector::getOrthogonal">
+<area shape="rect" id="Node000001" title="Get an orthogonal (or perpendicular) vector." alt="" coords="5,27,154,69"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#a404311d39e1e82c0ceef2a9c0e62d1fc" title="Gets an orthogonal vector to the input vector." alt="" coords="202,27,412,69"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="154,45,186,45,186,51,154,51"/>
+<area shape="rect" id="Node000003" href="$namespace_g_l_e_s_c_1_1_math.html#a04db3782a0754ba2d22eb5d159dd681c" title="Calculates the absolute value of a number." alt="" coords="500,5,631,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="412,33,483,25,484,30,413,39"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#ab041da9d339dfe80b80c6f0bdf5dbfd4" title="Computes the cross product of two vectors." alt="" coords="460,56,670,99"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="413,57,445,61,444,66,412,63"/>
+</map>

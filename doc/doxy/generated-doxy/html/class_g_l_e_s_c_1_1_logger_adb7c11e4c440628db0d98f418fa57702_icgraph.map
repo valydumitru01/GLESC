@@ -1,0 +1,9 @@
+<map id="GLESC::Logger::nonImportantInfo" name="GLESC::Logger::nonImportantInfo">
+<area shape="rect" id="Node000001" title="Display non important information Background – Black Text – Grey." alt="" coords="504,47,719,73"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#ac3a92c01f0308fd40e0f356d8454d192" title="Load the shader from the source code." alt="" coords="259,5,452,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="488,47,452,42,452,37,489,41"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator.html#a9986f9753dd8fc73c69787f3723d44b8" title="Print the status of the entity." alt="" coords="255,72,456,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="489,79,457,83,456,78,488,73"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator.html#a511e3ef0ebeceb191a06db185e8fdc46" title="Print the status of the ECS." alt="" coords="5,72,207,115"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="239,96,207,96,207,91,239,91"/>
+</map>

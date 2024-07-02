@@ -1,0 +1,9 @@
+<map id="GLESC::Math::VectorAlgorithms::areParallel" name="GLESC::Math::VectorAlgorithms::areParallel">
+<area shape="rect" id="Node000001" title="Checks if two vectors are parallel." alt="" coords="393,35,603,77"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#a04bde0db0fa6c404f5c9e1d6c0901c9a" title="Checks if the vector is parallel to another vector." alt="" coords="197,5,345,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="377,43,345,39,346,34,378,38"/>
+<area shape="rect" id="Node000004" href="$_vector_algorithms_tests_8cpp.html#a2cd7f94d0568aa1e6d392ce6af481fc6" title=" " alt="" coords="219,72,323,99"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="378,74,323,81,322,76,377,69"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_plane.html#a7ff29d08e781e1368153ec76635df34d" title=" " alt="" coords="5,5,149,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="181,29,149,29,149,24,181,24"/>
+</map>

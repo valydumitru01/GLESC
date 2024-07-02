@@ -1,0 +1,16 @@
+<map id="GLESC::WindowManager::initSDL" name="GLESC::WindowManager::initSDL">
+<area shape="rect" id="Node000001" title="Initialize SDL, checks if there is any error while doing it Must be called before creating windowMana..." alt="" coords="5,39,175,81"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_logger.html#a9b12ce53593be134b7d7dea62607d22d" title=" " alt="" coords="238,21,377,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="175,47,222,42,223,47,175,53"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_logger.html#accab43e8aa76342c5e58ac869f2f32d5" title="Display success information Background – Green Text – White Bold." alt="" coords="223,72,392,99"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="175,67,207,71,207,76,175,73"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_logger.html#adcc4730c087b2df0b97cccc15557e432" title=" " alt="" coords="440,5,623,48"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="361,69,432,50,433,55,362,74"/>
+<area shape="rect" id="Node000006" href="$_debug_entity_data_h_u_d_8cpp.html#a9acf295be457442cac6bccc0bf75112c" title=" " alt="" coords="729,68,772,95"/>
+<area shape="poly" id="edge7_Node000003_Node000006" title=" " alt="" coords="393,82,714,79,714,84,393,87"/>
+<area shape="rect" id="Node000007" href="$class_i_logger.html#a08a2761c749b766cb789f0dc8e256f95" title="Display success information Background – Green Text – White Bold." alt="" coords="472,123,592,149"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="370,97,457,116,456,122,369,102"/>
+<area shape="rect" id="Node000005" href="$class_concurrent_queue.html#a7d61d602747cee9adf97076d2781023c" title=" " alt="" coords="671,13,830,40"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="623,24,656,24,656,29,623,29"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="620,46,714,70,713,75,619,51"/>
+</map>

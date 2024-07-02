@@ -1,0 +1,14 @@
+<map id="GLESC::Render::Skybox::draw" name="GLESC::Render::Skybox::draw">
+<area shape="rect" id="Node000001" title="Renders the skybox around the player given the view and projection." alt="" coords="5,89,172,132"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader.html#aadbc0ca0d899238d547f87f19461dfeb" title="Binds the shader program of the object." alt="" coords="220,5,373,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="142,86,227,52,229,57,144,91"/>
+<area shape="rect" id="Node000003" href="$_gapi_8h.html#ab7514d88e65656ffa15ca33256518fe5" title="Returns the graphic API used by the engine." alt="" coords="421,97,491,124"/>
+<area shape="poly" id="edge5_Node000001_Node000003" title=" " alt="" coords="172,108,406,108,406,113,172,113"/>
+<area shape="rect" id="Node000004" href="$class_cubemap.html#ac9943df0cdf3a03e6e9c71b97b8d7830" title=" " alt="" coords="242,123,351,149"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="172,118,227,125,226,130,172,123"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader.html#a2af6148a4a3aca3519a20fdd877f6016" title="Sets a uniform value in the shader." alt="" coords="220,173,373,216"/>
+<area shape="poly" id="edge6_Node000001_Node000005" title=" " alt="" coords="144,130,229,165,227,170,142,135"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="340,46,374,64,417,87,414,92,372,69,338,51"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="350,125,405,116,406,121,351,130"/>
+<area shape="poly" id="edge7_Node000005_Node000003" title=" " alt="" coords="348,170,372,159,421,130,423,135,374,164,351,175"/>
+</map>

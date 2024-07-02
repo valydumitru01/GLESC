@@ -1,0 +1,7 @@
+<map id="GLESC::WindowManager::setSize" name="GLESC::WindowManager::setSize">
+<area shape="rect" id="Node000001" title="Callback function when window size is modified This will change the viewport with the new resolution." alt="" coords="5,27,175,69"/>
+<area shape="rect" id="Node000002" href="$_gapi_8h.html#ab7514d88e65656ffa15ca33256518fe5" title="Returns the graphic API used by the engine." alt="" coords="272,5,343,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="175,34,256,23,257,28,175,39"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_window_manager.html#ad7db01274157d63fbf3b178d6048f6df" title="Gets whether the window is resizable or not." alt="" coords="223,56,392,99"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="175,57,208,61,207,66,175,62"/>
+</map>

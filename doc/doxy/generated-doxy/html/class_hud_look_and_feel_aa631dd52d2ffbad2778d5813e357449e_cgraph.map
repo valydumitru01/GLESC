@@ -1,0 +1,5 @@
+<map id="HudLookAndFeel::setDefaultFontSize" name="HudLookAndFeel::setDefaultFontSize">
+<area shape="rect" id="Node000001" title="Sets the default font size." alt="" coords="5,5,192,48"/>
+<area shape="rect" id="Node000002" href="$class_hud_look_and_feel.html#a4149f1a2cdc165caa2973732e4960278" title=" " alt="" coords="240,5,411,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="192,24,224,24,224,29,192,29"/>
+</map>

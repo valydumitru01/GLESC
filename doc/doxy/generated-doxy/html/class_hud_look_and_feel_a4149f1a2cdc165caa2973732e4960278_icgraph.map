@@ -1,0 +1,18 @@
+<map id="HudLookAndFeel::validateFontSize" name="HudLookAndFeel::validateFontSize">
+<area shape="rect" id="Node000001" title=" " alt="" coords="1137,48,1308,91"/>
+<area shape="rect" id="Node000002" href="$class_hud_look_and_feel.html#a1466001b2e5e8963e55ff4be372c3e0e" title="Adds a font from a file with a size." alt="" coords="914,56,1089,83"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1122,72,1090,72,1090,67,1122,67"/>
+<area shape="rect" id="Node000003" href="$class_hud_look_and_feel.html#a815b718b209fe097df0cde4293dc39b8" title=" " alt="" coords="686,5,859,32"/>
+<area shape="poly" id="edge7_Node000001_Node000003" title=" " alt="" coords="1121,52,1089,47,969,34,859,26,859,20,969,28,1089,41,1122,46"/>
+<area shape="rect" id="Node000007" href="$class_hud_look_and_feel.html#aa631dd52d2ffbad2778d5813e357449e" title="Sets the default font size." alt="" coords="679,107,866,149"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="1122,92,1089,97,866,123,866,118,1089,92,1121,87"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="922,55,835,35,837,30,923,49"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#a4ff8b120db6eecaaa5e619b1477f58ed" title=" " alt="" coords="239,48,424,91"/>
+<area shape="poly" id="edge6_Node000002_Node000005" title=" " alt="" coords="898,72,424,72,424,67,898,67"/>
+<area shape="rect" id="Node000004" href="$class_hud_look_and_feel.html#ae1d994a42a7915cfa11a72a664dabc79" title="Applies the look and feel to ImGui." alt="" coords="472,5,631,32"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="671,21,632,21,632,16,671,16"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="476,39,425,51,424,45,475,33"/>
+<area shape="rect" id="Node000006" href="$class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#a025f565a5346b1cfdd80ce5fd79f8046" title="Constructor for the HUDManager." alt="" coords="5,48,191,91"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="223,72,191,72,191,67,223,67"/>
+<area shape="poly" id="edge9_Node000007_Node000005" title=" " alt="" coords="664,116,472,91,424,84,425,79,472,85,664,111"/>
+</map>

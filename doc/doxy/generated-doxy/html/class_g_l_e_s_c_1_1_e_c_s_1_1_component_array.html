@@ -1,0 +1,847 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="Doxygen Awesome" />
+<meta property="og:image" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+<meta property="og:description" content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
+<meta property="og:url" content="https://jothepro.github.io/doxygen-awesome-css/" />
+<!-- END opengraph metadata -->
+<!-- BEGIN twitter metadata -->
+<meta name="twitter:image:src" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+<meta name="twitter:title" content="Doxygen Awesome" />
+<meta name="twitter:description" content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
+<!-- END twitter metadata -->
+<title>GLESC: GLESC::ECS::ComponentArray&lt; Component &gt; Class Template Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.drawio.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/ -->
+<a href="https://github.com/jothepro/doxygen-awesome-css" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="GLESC_logo_white_background.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">GLESC
+   &#160;<span id="projectnumber">1</span>
+   </div>
+   <div id="projectbrief">Game engine using ECS architecture</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array-members.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">GLESC::ECS::ComponentArray&lt; Component &gt; Class Template Reference</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>The <a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html" title="The ComponentArray class is a template class that stores components of a specific type.">ComponentArray</a> class is a template class that stores components of a specific type.  
+ <a href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_component_array_8h_source.html">ComponentArray.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for GLESC::ECS::ComponentArray&lt; Component &gt;:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array__inherit__graph.svg" width="211" height="534"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Collaboration diagram for GLESC::ECS::ComponentArray&lt; Component &gt;:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array__coll__graph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:adc3bd4eec0f1c9cf6322d72830daaacf" id="r_adc3bd4eec0f1c9cf6322d72830daaacf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html#adc3bd4eec0f1c9cf6322d72830daaacf">ComponentArray</a> ()=<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">default</a></td></tr>
+<tr class="separator:adc3bd4eec0f1c9cf6322d72830daaacf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60caa0a4724c9c640a1fcad2a0b97124" id="r_a60caa0a4724c9c640a1fcad2a0b97124"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html#a60caa0a4724c9c640a1fcad2a0b97124">entityDestroyed</a> (<a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>) <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">override</a></td></tr>
+<tr class="memdesc:a60caa0a4724c9c640a1fcad2a0b97124"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when an entity is destroyed.  <br /></td></tr>
+<tr class="separator:a60caa0a4724c9c640a1fcad2a0b97124"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8d359a2aa7070bf050c1d68ae31668b" id="r_ad8d359a2aa7070bf050c1d68ae31668b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_g_l_e_s_c_1_1_e_c_s_1_1_i_component.html">IComponent</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html#ad8d359a2aa7070bf050c1d68ae31668b">getComponent</a> (<a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>) <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">override</a></td></tr>
+<tr class="memdesc:ad8d359a2aa7070bf050c1d68ae31668b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the component of the entity.  <br /></td></tr>
+<tr class="separator:ad8d359a2aa7070bf050c1d68ae31668b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa28c95a46e5381dcbd7e39bccd8d6769" id="r_aa28c95a46e5381dcbd7e39bccd8d6769"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Component</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html#aa28c95a46e5381dcbd7e39bccd8d6769">getData</a> (<a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>)</td></tr>
+<tr class="memdesc:aa28c95a46e5381dcbd7e39bccd8d6769"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the data of the entity.  <br /></td></tr>
+<tr class="separator:aa28c95a46e5381dcbd7e39bccd8d6769"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f10b46119ac15e368de87138e05d3c4" id="r_a0f10b46119ac15e368de87138e05d3c4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html#a0f10b46119ac15e368de87138e05d3c4">hasComponent</a> (<a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>) <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">override</a></td></tr>
+<tr class="memdesc:a0f10b46119ac15e368de87138e05d3c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the entity has a component of type T.  <br /></td></tr>
+<tr class="separator:a0f10b46119ac15e368de87138e05d3c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9db4cf3c670f01cb83613774e5987415" id="r_a9db4cf3c670f01cb83613774e5987415"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html#a9db4cf3c670f01cb83613774e5987415">insertData</a> (<a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Component</a> &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">component</a>)</td></tr>
+<tr class="memdesc:a9db4cf3c670f01cb83613774e5987415"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts the data of the entity into the array.  <br /></td></tr>
+<tr class="separator:a9db4cf3c670f01cb83613774e5987415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abae011b4d593a38c3ff5be1c6715733d" id="r_abae011b4d593a38c3ff5be1c6715733d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html#abae011b4d593a38c3ff5be1c6715733d">removeData</a> (<a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>)</td></tr>
+<tr class="memdesc:abae011b4d593a38c3ff5be1c6715733d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the data of the entity from the array The last element in the array is copied into the place of the removed element The maps are updated to reflect the changes.  <br /></td></tr>
+<tr class="separator:abae011b4d593a38c3ff5be1c6715733d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_g_l_e_s_c_1_1_e_c_s_1_1_i_component_array"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_g_l_e_s_c_1_1_e_c_s_1_1_i_component_array')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_i_component_array.html">GLESC::ECS::IComponentArray</a></td></tr>
+<tr class="memitem:a24f77e3348138f4ad82e13f40589635c inherit pub_methods_class_g_l_e_s_c_1_1_e_c_s_1_1_i_component_array" id="r_a24f77e3348138f4ad82e13f40589635c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_i_component_array.html#a24f77e3348138f4ad82e13f40589635c">~IComponentArray</a> ()=<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">default</a></td></tr>
+<tr class="separator:a24f77e3348138f4ad82e13f40589635c inherit pub_methods_class_g_l_e_s_c_1_1_e_c_s_1_1_i_component_array"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a9f35288822463dff3c0f08486fa0f8de" id="r_a9f35288822463dff3c0f08486fa0f8de"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">size_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html#a9f35288822463dff3c0f08486fa0f8de">getSize</a> () <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">override</a></td></tr>
+<tr class="separator:a9f35288822463dff3c0f08486fa0f8de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a374b3773c7b1c5e3b49e55cac9082434" id="r_a374b3773c7b1c5e3b49e55cac9082434"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html#a374b3773c7b1c5e3b49e55cac9082434">printStatus</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> std::string &amp;context)</td></tr>
+<tr class="memdesc:a374b3773c7b1c5e3b49e55cac9082434"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print the status of the component array.  <br /></td></tr>
+<tr class="separator:a374b3773c7b1c5e3b49e55cac9082434"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a1a17cc75cedb89a7f98d4f1c9e9e9f2c" id="r_a1a17cc75cedb89a7f98d4f1c9e9e9f2c"><td class="memItemLeft" align="right" valign="top">std::array&lt; <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Component</a>, <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a1482c2d17768df66e086ec8d59038446">maxEntities</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html#a1a17cc75cedb89a7f98d4f1c9e9e9f2c">componentArray</a></td></tr>
+<tr class="memdesc:a1a17cc75cedb89a7f98d4f1c9e9e9f2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The packed array of components (of generic type T), set to a specified maximum amount, matching the maximum number of entities allowed to exist simultaneously, so that each entity has a unique spot.  <br /></td></tr>
+<tr class="separator:a1a17cc75cedb89a7f98d4f1c9e9e9f2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0286723ef2b7586e2ba97237747781a6" id="r_a0286723ef2b7586e2ba97237747781a6"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">size_t</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html#a0286723ef2b7586e2ba97237747781a6">entityToIndexMap</a></td></tr>
+<tr class="memdesc:a0286723ef2b7586e2ba97237747781a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Map from an entity ID to an array index.  <br /></td></tr>
+<tr class="separator:a0286723ef2b7586e2ba97237747781a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f02cb67e625b3da834033ad0a090954" id="r_a7f02cb67e625b3da834033ad0a090954"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">size_t</a>, <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html#a7f02cb67e625b3da834033ad0a090954">indexToEntityMap</a></td></tr>
+<tr class="separator:a7f02cb67e625b3da834033ad0a090954"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11fc7c8bc42c255e1d36b339365b6d50" id="r_a11fc7c8bc42c255e1d36b339365b6d50"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">size_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html#a11fc7c8bc42c255e1d36b339365b6d50">size</a> {}</td></tr>
+<tr class="memdesc:a11fc7c8bc42c255e1d36b339365b6d50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Total size of valid entries in the array.  <br /></td></tr>
+<tr class="separator:a11fc7c8bc42c255e1d36b339365b6d50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><div class="compoundTemplParams">template&lt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Component</a>&gt;<br />
+class GLESC::ECS::ComponentArray&lt; Component &gt;</div><p>The <a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html" title="The ComponentArray class is a template class that stores components of a specific type.">ComponentArray</a> class is a template class that stores components of a specific type. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Component</td><td>The type of component to store </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_component_array_8h_source.html#l00044">44</a> of file <a class="el" href="_component_array_8h_source.html">ComponentArray.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="adc3bd4eec0f1c9cf6322d72830daaacf" name="adc3bd4eec0f1c9cf6322d72830daaacf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc3bd4eec0f1c9cf6322d72830daaacf">&#9670;&#160;</a></span>ComponentArray()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Component</a> &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html">GLESC::ECS::ComponentArray</a>&lt; <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Component</a> &gt;::ComponentArray </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a60caa0a4724c9c640a1fcad2a0b97124" name="a60caa0a4724c9c640a1fcad2a0b97124"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60caa0a4724c9c640a1fcad2a0b97124">&#9670;&#160;</a></span>entityDestroyed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Component</a> &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> <a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html">GLESC::ECS::ComponentArray</a>&lt; <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Component</a> &gt;::entityDestroyed </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a>&#160;</td>
+          <td class="paramname"><em>entity</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Called when an entity is destroyed. </p>
+<p>The entity is removed from the array </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entity</td><td>The entity that was destroyed </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_i_component_array.html#af0bea29235060c7fd4b591336fbac3b3">GLESC::ECS::IComponentArray</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_component_array_8h_source.html#l00148">148</a> of file <a class="el" href="_component_array_8h_source.html">ComponentArray.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  148</span>                                                       {</div>
+<div class="line"><span class="lineno">  149</span>            <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html#a0286723ef2b7586e2ba97237747781a6">entityToIndexMap</a>.find(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>) != <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html#a0286723ef2b7586e2ba97237747781a6">entityToIndexMap</a>.end()) {</div>
+<div class="line"><span class="lineno">  150</span>                <a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html#abae011b4d593a38c3ff5be1c6715733d">removeData</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>);</div>
+<div class="line"><span class="lineno">  151</span>            }</div>
+<div class="line"><span class="lineno">  152</span>        }</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_component_array_html_a0286723ef2b7586e2ba97237747781a6"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html#a0286723ef2b7586e2ba97237747781a6">GLESC::ECS::ComponentArray::entityToIndexMap</a></div><div class="ttdeci">std::unordered_map&lt; EntityID, size_t &gt; entityToIndexMap</div><div class="ttdoc">Map from an entity ID to an array index.</div><div class="ttdef"><b>Definition</b> <a href="_component_array_8h_source.html#l00190">ComponentArray.h:190</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_component_array_html_abae011b4d593a38c3ff5be1c6715733d"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html#abae011b4d593a38c3ff5be1c6715733d">GLESC::ECS::ComponentArray::removeData</a></div><div class="ttdeci">void removeData(EntityID entity)</div><div class="ttdoc">Removes the data of the entity from the array The last element in the array is copied into the place ...</div><div class="ttdef"><b>Definition</b> <a href="_component_array_8h_source.html#l00095">ComponentArray.h:95</a></div></div>
+<div class="ttc" id="anamespace_g_l_e_s_c_html_a7c64a4da2d1da1597f4ec563d00bb9f8"><div class="ttname"><a href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">GLESC::isIterable_v</a></div><div class="ttdeci">constexpr bool isIterable_v</div><div class="ttdef"><b>Definition</b> <a href="_stringer_8h_source.html#l00029">Stringer.h:29</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_component_array_8h_source.html#l00190">GLESC::ECS::ComponentArray&lt; Component &gt;::entityToIndexMap</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_component_array_8h_source.html#l00095">GLESC::ECS::ComponentArray&lt; Component &gt;::removeData()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array_a60caa0a4724c9c640a1fcad2a0b97124_cgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ad8d359a2aa7070bf050c1d68ae31668b" name="ad8d359a2aa7070bf050c1d68ae31668b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8d359a2aa7070bf050c1d68ae31668b">&#9670;&#160;</a></span>getComponent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Component</a> &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_g_l_e_s_c_1_1_e_c_s_1_1_i_component.html">IComponent</a> &amp; <a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html">GLESC::ECS::ComponentArray</a>&lt; <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Component</a> &gt;::getComponent </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a>&#160;</td>
+          <td class="paramname"><em>entity</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the component of the entity. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entity</td><td>The entity to get the component from </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The component of the entity </dd></dl>
+
+<p>Implements <a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_i_component_array.html#a102945f0b53c49a84af052e1e08efa89">GLESC::ECS::IComponentArray</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_component_array_8h_source.html#l00052">52</a> of file <a class="el" href="_component_array_8h_source.html">ComponentArray.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   52</span>                                                           {</div>
+<div class="line"><span class="lineno">   53</span>            <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html#a0f10b46119ac15e368de87138e05d3c4">hasComponent</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>), <span class="stringliteral">&quot;Entity does not have component&quot;</span>);</div>
+<div class="line"><span class="lineno">   54</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html#a1a17cc75cedb89a7f98d4f1c9e9e9f2c">componentArray</a>[<a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html#a0286723ef2b7586e2ba97237747781a6">entityToIndexMap</a>.at(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>)];</div>
+<div class="line"><span class="lineno">   55</span>        }</div>
+<div class="ttc" id="a_asserts_8h_html_a7c8157e57600c968442fc2ee80245d5a"><div class="ttname"><a href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a></div><div class="ttdeci">#define D_ASSERT_TRUE(condition, message)</div><div class="ttdef"><b>Definition</b> <a href="_asserts_8h_source.html#l00021">Asserts.h:21</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_component_array_html_a0f10b46119ac15e368de87138e05d3c4"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html#a0f10b46119ac15e368de87138e05d3c4">GLESC::ECS::ComponentArray::hasComponent</a></div><div class="ttdeci">bool hasComponent(EntityID entity) override</div><div class="ttdoc">Checks if the entity has a component of type T.</div><div class="ttdef"><b>Definition</b> <a href="_component_array_8h_source.html#l00139">ComponentArray.h:139</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_component_array_html_a1a17cc75cedb89a7f98d4f1c9e9e9f2c"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html#a1a17cc75cedb89a7f98d4f1c9e9e9f2c">GLESC::ECS::ComponentArray::componentArray</a></div><div class="ttdeci">std::array&lt; Component, maxEntities &gt; componentArray</div><div class="ttdoc">The packed array of components (of generic type T), set to a specified maximum amount,...</div><div class="ttdef"><b>Definition</b> <a href="_component_array_8h_source.html#l00184">ComponentArray.h:184</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_component_array_8h_source.html#l00184">GLESC::ECS::ComponentArray&lt; Component &gt;::componentArray</a>, <a class="el" href="_asserts_8h_source.html#l00021">D_ASSERT_TRUE</a>, <a class="el" href="_component_array_8h_source.html#l00190">GLESC::ECS::ComponentArray&lt; Component &gt;::entityToIndexMap</a>, <a class="el" href="_component_array_8h_source.html#l00139">GLESC::ECS::ComponentArray&lt; Component &gt;::hasComponent()</a>, and <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array_ad8d359a2aa7070bf050c1d68ae31668b_cgraph.svg" width="470" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aa28c95a46e5381dcbd7e39bccd8d6769" name="aa28c95a46e5381dcbd7e39bccd8d6769"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa28c95a46e5381dcbd7e39bccd8d6769">&#9670;&#160;</a></span>getData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Component</a> &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Component</a> &amp; <a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html">GLESC::ECS::ComponentArray</a>&lt; <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Component</a> &gt;::getData </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a>&#160;</td>
+          <td class="paramname"><em>entity</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the data of the entity. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entity</td><td>The entity to get the data from </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The data of the entity </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_component_array_8h_source.html#l00125">125</a> of file <a class="el" href="_component_array_8h_source.html">ComponentArray.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  125</span>                                            {</div>
+<div class="line"><span class="lineno">  126</span>            <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html#a0f10b46119ac15e368de87138e05d3c4">hasComponent</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>), <span class="stringliteral">&quot;Entity does not have component&quot;</span>);</div>
+<div class="line"><span class="lineno">  127</span> </div>
+<div class="line"><span class="lineno">  128</span>            <span class="comment">// Return a reference to the entity&#39;s component</span></div>
+<div class="line"><span class="lineno">  129</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html#a1a17cc75cedb89a7f98d4f1c9e9e9f2c">componentArray</a>[<a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html#a0286723ef2b7586e2ba97237747781a6">entityToIndexMap</a>[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>]];</div>
+<div class="line"><span class="lineno">  130</span>        }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_component_array_8h_source.html#l00184">GLESC::ECS::ComponentArray&lt; Component &gt;::componentArray</a>, <a class="el" href="_asserts_8h_source.html#l00021">D_ASSERT_TRUE</a>, <a class="el" href="_component_array_8h_source.html#l00190">GLESC::ECS::ComponentArray&lt; Component &gt;::entityToIndexMap</a>, <a class="el" href="_component_array_8h_source.html#l00139">GLESC::ECS::ComponentArray&lt; Component &gt;::hasComponent()</a>, and <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array_aa28c95a46e5381dcbd7e39bccd8d6769_cgraph.svg" width="470" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a9f35288822463dff3c0f08486fa0f8de" name="a9f35288822463dff3c0f08486fa0f8de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f35288822463dff3c0f08486fa0f8de">&#9670;&#160;</a></span>getSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Component</a> &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">size_t</a> <a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html">GLESC::ECS::ComponentArray</a>&lt; <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Component</a> &gt;::getSize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">private</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_i_component_array.html#ac48714da124157ca9b3aedfb922ece02">GLESC::ECS::IComponentArray</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_component_array_8h_source.html#l00199">199</a> of file <a class="el" href="_component_array_8h_source.html">ComponentArray.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  199</span>                                  {</div>
+<div class="line"><span class="lineno">  200</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html#a11fc7c8bc42c255e1d36b339365b6d50">size</a>;</div>
+<div class="line"><span class="lineno">  201</span>        }</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_component_array_html_a11fc7c8bc42c255e1d36b339365b6d50"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html#a11fc7c8bc42c255e1d36b339365b6d50">GLESC::ECS::ComponentArray::size</a></div><div class="ttdeci">size_t size</div><div class="ttdoc">Total size of valid entries in the array.</div><div class="ttdef"><b>Definition</b> <a href="_component_array_8h_source.html#l00197">ComponentArray.h:197</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_component_array_8h_source.html#l00197">GLESC::ECS::ComponentArray&lt; Component &gt;::size</a>.</p>
+
+</div>
+</div>
+<a id="a0f10b46119ac15e368de87138e05d3c4" name="a0f10b46119ac15e368de87138e05d3c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f10b46119ac15e368de87138e05d3c4">&#9670;&#160;</a></span>hasComponent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Component</a> &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a> <a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html">GLESC::ECS::ComponentArray</a>&lt; <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Component</a> &gt;::hasComponent </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a>&#160;</td>
+          <td class="paramname"><em>entity</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks if the entity has a component of type T. </p>
+<p>The check is useful to avoid adding or removing unnecessarily The remove and add components does not allow doing so, so this is a way to check </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entity</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p>Implements <a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_i_component_array.html#aa2b14bec8496a14e3878e0ab072eaf1a">GLESC::ECS::IComponentArray</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_component_array_8h_source.html#l00139">139</a> of file <a class="el" href="_component_array_8h_source.html">ComponentArray.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  139</span>                                                    {</div>
+<div class="line"><span class="lineno">  140</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html#a0286723ef2b7586e2ba97237747781a6">entityToIndexMap</a>.find(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>) != <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html#a0286723ef2b7586e2ba97237747781a6">entityToIndexMap</a>.end();</div>
+<div class="line"><span class="lineno">  141</span>        }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_component_array_8h_source.html#l00190">GLESC::ECS::ComponentArray&lt; Component &gt;::entityToIndexMap</a>, and <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_component_array_8h_source.html#l00052">GLESC::ECS::ComponentArray&lt; Component &gt;::getComponent()</a>, <a class="el" href="_component_array_8h_source.html#l00125">GLESC::ECS::ComponentArray&lt; Component &gt;::getData()</a>, <a class="el" href="_component_array_8h_source.html#l00064">GLESC::ECS::ComponentArray&lt; Component &gt;::insertData()</a>, and <a class="el" href="_component_array_8h_source.html#l00095">GLESC::ECS::ComponentArray&lt; Component &gt;::removeData()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array_a0f10b46119ac15e368de87138e05d3c4_icgraph.svg" width="100%" height="490"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a9db4cf3c670f01cb83613774e5987415" name="a9db4cf3c670f01cb83613774e5987415"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9db4cf3c670f01cb83613774e5987415">&#9670;&#160;</a></span>insertData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Component</a> &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> <a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html">GLESC::ECS::ComponentArray</a>&lt; <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Component</a> &gt;::insertData </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a>&#160;</td>
+          <td class="paramname"><em>entity</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Component</a> &amp;&#160;</td>
+          <td class="paramname"><em>component</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Inserts the data of the entity into the array. </p>
+<p>The entity is added to the end of the array It is also added to some maps for quick lookup </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entity</td><td>The entity to insert </td></tr>
+    <tr><td class="paramname">component</td><td>The component to insert </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_component_array_8h_source.html#l00064">64</a> of file <a class="el" href="_component_array_8h_source.html">ComponentArray.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   64</span>                                                                    {</div>
+<div class="line"><span class="lineno">   65</span>            <a class="code hl_define" href="_component_array_8h.html#a694fb803bb9beab16bade298e0b5a7f6">PRINT_COMPONENT_ARRAY_STATUS</a>(</div>
+<div class="line"><span class="lineno">   66</span>                <span class="stringliteral">&quot;Before inserting component:\n&quot;</span></div>
+<div class="line"><span class="lineno">   67</span>                <span class="stringliteral">&quot;\t&quot;</span> + <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">component</a>.toString() + <span class="stringliteral">&quot;\n&quot;</span></div>
+<div class="line"><span class="lineno">   68</span>                <span class="stringliteral">&quot;\tfrom entity &quot;</span> + std::to_string(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>));</div>
+<div class="line"><span class="lineno">   69</span> </div>
+<div class="line"><span class="lineno">   70</span>            <span class="comment">// If the entity already has a component in this array, do nothing</span></div>
+<div class="line"><span class="lineno">   71</span>            <span class="keywordflow">if</span> (<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html#a0f10b46119ac15e368de87138e05d3c4">hasComponent</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>)) <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">   72</span>            <span class="comment">// Put new entry at end and update the maps</span></div>
+<div class="line"><span class="lineno">   73</span>            <span class="keywordtype">size_t</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">newIndex</a> = <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html#a11fc7c8bc42c255e1d36b339365b6d50">size</a>;</div>
+<div class="line"><span class="lineno">   74</span>            <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html#a0286723ef2b7586e2ba97237747781a6">entityToIndexMap</a>[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>] = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">newIndex</a>;</div>
+<div class="line"><span class="lineno">   75</span>            <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html#a7f02cb67e625b3da834033ad0a090954">indexToEntityMap</a>[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">newIndex</a>] = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>;</div>
+<div class="line"><span class="lineno">   76</span>            <span class="comment">//componentArray[newIndex] = component;</span></div>
+<div class="line"><span class="lineno">   77</span> </div>
+<div class="line"><span class="lineno">   78</span>            <span class="keyword">new</span>(&amp;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html#a1a17cc75cedb89a7f98d4f1c9e9e9f2c">componentArray</a>[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">newIndex</a>]) <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Component</a>(std::move(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">component</a>));</div>
+<div class="line"><span class="lineno">   79</span>            ++<a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html#a11fc7c8bc42c255e1d36b339365b6d50">size</a>;</div>
+<div class="line"><span class="lineno">   80</span> </div>
+<div class="line"><span class="lineno">   81</span> </div>
+<div class="line"><span class="lineno">   82</span>            <a class="code hl_define" href="_component_array_8h.html#a694fb803bb9beab16bade298e0b5a7f6">PRINT_COMPONENT_ARRAY_STATUS</a>(</div>
+<div class="line"><span class="lineno">   83</span>                <span class="stringliteral">&quot;After inserting component:\n&quot;</span></div>
+<div class="line"><span class="lineno">   84</span>                <span class="stringliteral">&quot;\t&quot;</span> + <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">component</a>.toString() + <span class="stringliteral">&quot;\n&quot;</span></div>
+<div class="line"><span class="lineno">   85</span>                <span class="stringliteral">&quot;\tfrom entity &quot;</span> + std::to_string(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>));</div>
+<div class="line"><span class="lineno">   86</span>        }</div>
+<div class="ttc" id="a_component_array_8h_html_a694fb803bb9beab16bade298e0b5a7f6"><div class="ttname"><a href="_component_array_8h.html#a694fb803bb9beab16bade298e0b5a7f6">PRINT_COMPONENT_ARRAY_STATUS</a></div><div class="ttdeci">#define PRINT_COMPONENT_ARRAY_STATUS(contextMessage)</div><div class="ttdef"><b>Definition</b> <a href="_component_array_8h_source.html#l00019">ComponentArray.h:19</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_component_array_html_a7f02cb67e625b3da834033ad0a090954"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html#a7f02cb67e625b3da834033ad0a090954">GLESC::ECS::ComponentArray::indexToEntityMap</a></div><div class="ttdeci">std::unordered_map&lt; size_t, EntityID &gt; indexToEntityMap</div><div class="ttdef"><b>Definition</b> <a href="_component_array_8h_source.html#l00191">ComponentArray.h:191</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_component_array_8h_source.html#l00184">GLESC::ECS::ComponentArray&lt; Component &gt;::componentArray</a>, <a class="el" href="_component_array_8h_source.html#l00190">GLESC::ECS::ComponentArray&lt; Component &gt;::entityToIndexMap</a>, <a class="el" href="_component_array_8h_source.html#l00139">GLESC::ECS::ComponentArray&lt; Component &gt;::hasComponent()</a>, <a class="el" href="_component_array_8h_source.html#l00191">GLESC::ECS::ComponentArray&lt; Component &gt;::indexToEntityMap</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, <a class="el" href="_component_array_8h_source.html#l00019">PRINT_COMPONENT_ARRAY_STATUS</a>, and <a class="el" href="_component_array_8h_source.html#l00197">GLESC::ECS::ComponentArray&lt; Component &gt;::size</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array_a9db4cf3c670f01cb83613774e5987415_cgraph.svg" width="470" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a374b3773c7b1c5e3b49e55cac9082434" name="a374b3773c7b1c5e3b49e55cac9082434"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a374b3773c7b1c5e3b49e55cac9082434">&#9670;&#160;</a></span>printStatus()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Component</a> &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> <a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html">GLESC::ECS::ComponentArray</a>&lt; <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Component</a> &gt;::printStatus </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> std::string &amp;&#160;</td>
+          <td class="paramname"><em>context</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Print the status of the component array. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">context</td><td>The context of the status </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_component_array_8h_source.html#l00159">159</a> of file <a class="el" href="_component_array_8h_source.html">ComponentArray.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  159</span>                                                   {</div>
+<div class="line"><span class="lineno">  160</span>            <a class="code hl_function" href="class_g_l_e_s_c_1_1_logger.html#a9b12ce53593be134b7d7dea62607d22d">Logger::get</a>().<a class="code hl_function" href="class_g_l_e_s_c_1_1_logger.html#a2e78e5eb40e0fad6ac6fc1c3843f146e">importantInfoBlue</a>(<span class="stringliteral">&quot;ComponentArray Status Report - Context: &quot;</span> + context);</div>
+<div class="line"><span class="lineno">  161</span>            <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">componentName</a> = <span class="keyword">typeid</span>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Component</a>).name();</div>
+<div class="line"><span class="lineno">  162</span>            <a class="code hl_function" href="class_g_l_e_s_c_1_1_logger.html#a9b12ce53593be134b7d7dea62607d22d">Logger::get</a>().<a class="code hl_function" href="class_g_l_e_s_c_1_1_logger.html#a93fe7ba4cc02b4d3216040a66339d8fa">infoBlue</a>(<span class="stringliteral">&quot;Component Type: &quot;</span> + std::string(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">componentName</a>));</div>
+<div class="line"><span class="lineno">  163</span>            <a class="code hl_function" href="class_g_l_e_s_c_1_1_logger.html#a9b12ce53593be134b7d7dea62607d22d">Logger::get</a>().<a class="code hl_function" href="class_g_l_e_s_c_1_1_logger.html#a93fe7ba4cc02b4d3216040a66339d8fa">infoBlue</a>(<span class="stringliteral">&quot;Total Components: &quot;</span> + std::to_string(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html#a11fc7c8bc42c255e1d36b339365b6d50">size</a>));</div>
+<div class="line"><span class="lineno">  164</span> </div>
+<div class="line"><span class="lineno">  165</span>            <a class="code hl_function" href="class_g_l_e_s_c_1_1_logger.html#a9b12ce53593be134b7d7dea62607d22d">Logger::get</a>().<a class="code hl_function" href="class_g_l_e_s_c_1_1_logger.html#a93fe7ba4cc02b4d3216040a66339d8fa">infoBlue</a>(<span class="stringliteral">&quot;\tEntityToIndexMap size: &quot;</span> + std::to_string(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html#a0286723ef2b7586e2ba97237747781a6">entityToIndexMap</a>.size()));</div>
+<div class="line"><span class="lineno">  166</span>            <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entry</a> : <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html#a0286723ef2b7586e2ba97237747781a6">entityToIndexMap</a>) {</div>
+<div class="line"><span class="lineno">  167</span>                <a class="code hl_function" href="class_g_l_e_s_c_1_1_logger.html#a9b12ce53593be134b7d7dea62607d22d">Logger::get</a>().<a class="code hl_function" href="class_g_l_e_s_c_1_1_logger.html#a93fe7ba4cc02b4d3216040a66339d8fa">infoBlue</a>(</div>
+<div class="line"><span class="lineno">  168</span>                    <span class="stringliteral">&quot;\tEntity ID: &quot;</span> + std::to_string(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entry</a>.first) + <span class="stringliteral">&quot;, Array Index: &quot;</span> + std::to_string(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entry</a>.second));</div>
+<div class="line"><span class="lineno">  169</span>            }</div>
+<div class="line"><span class="lineno">  170</span> </div>
+<div class="line"><span class="lineno">  171</span>            <a class="code hl_function" href="class_g_l_e_s_c_1_1_logger.html#a9b12ce53593be134b7d7dea62607d22d">Logger::get</a>().<a class="code hl_function" href="class_g_l_e_s_c_1_1_logger.html#a93fe7ba4cc02b4d3216040a66339d8fa">infoBlue</a>(<span class="stringliteral">&quot;\tcomponent array with size &quot;</span> + std::to_string(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html#a11fc7c8bc42c255e1d36b339365b6d50">size</a>) + <span class="stringliteral">&quot;:&quot;</span>);</div>
+<div class="line"><span class="lineno">  172</span>            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">i</a> = 0; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">i</a> &lt; <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html#a11fc7c8bc42c255e1d36b339365b6d50">size</a>; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">i</a>++) {</div>
+<div class="line"><span class="lineno">  173</span>                <a class="code hl_function" href="class_g_l_e_s_c_1_1_logger.html#a9b12ce53593be134b7d7dea62607d22d">Logger::get</a>().<a class="code hl_function" href="class_g_l_e_s_c_1_1_logger.html#a93fe7ba4cc02b4d3216040a66339d8fa">infoBlue</a>(<span class="stringliteral">&quot;\t\t Component number &quot;</span> + <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">i</a>);</div>
+<div class="line"><span class="lineno">  174</span>                <a class="code hl_function" href="class_g_l_e_s_c_1_1_logger.html#a9b12ce53593be134b7d7dea62607d22d">Logger::get</a>().<a class="code hl_function" href="class_g_l_e_s_c_1_1_logger.html#a93fe7ba4cc02b4d3216040a66339d8fa">infoBlue</a>(<span class="stringliteral">&quot;\t\t&quot;</span> + <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html#a1a17cc75cedb89a7f98d4f1c9e9e9f2c">componentArray</a>[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">i</a>].<a class="code hl_function" href="namespace_g_l_e_s_c_1_1_g_a_p_i_1_1_enums.html#a2741454f6baed1d79502ce55557a7926">toString</a>()); <span class="comment">// All components have a toString()</span></div>
+<div class="line"><span class="lineno">  175</span>            }</div>
+<div class="line"><span class="lineno">  176</span>        }</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_logger_html_a2e78e5eb40e0fad6ac6fc1c3843f146e"><div class="ttname"><a href="class_g_l_e_s_c_1_1_logger.html#a2e78e5eb40e0fad6ac6fc1c3843f146e">GLESC::Logger::importantInfoBlue</a></div><div class="ttdeci">void importantInfoBlue(const std::string &amp;text) override</div><div class="ttdoc">Display important information Background – Light Blue Text – Black.</div><div class="ttdef"><b>Definition</b> <a href="_logger_8cpp_source.html#l00081">Logger.cpp:81</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_logger_html_a93fe7ba4cc02b4d3216040a66339d8fa"><div class="ttname"><a href="class_g_l_e_s_c_1_1_logger.html#a93fe7ba4cc02b4d3216040a66339d8fa">GLESC::Logger::infoBlue</a></div><div class="ttdeci">void infoBlue(const std::string &amp;text) override</div><div class="ttdoc">Display basic information Background – Black Text – Light Blue.</div><div class="ttdef"><b>Definition</b> <a href="_logger_8cpp_source.html#l00069">Logger.cpp:69</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_logger_html_a9b12ce53593be134b7d7dea62607d22d"><div class="ttname"><a href="class_g_l_e_s_c_1_1_logger.html#a9b12ce53593be134b7d7dea62607d22d">GLESC::Logger::get</a></div><div class="ttdeci">static Logger &amp; get()</div><div class="ttdef"><b>Definition</b> <a href="_logger_8cpp_source.html#l00030">Logger.cpp:30</a></div></div>
+<div class="ttc" id="anamespace_g_l_e_s_c_1_1_g_a_p_i_1_1_enums_html_a2741454f6baed1d79502ce55557a7926"><div class="ttname"><a href="namespace_g_l_e_s_c_1_1_g_a_p_i_1_1_enums.html#a2741454f6baed1d79502ce55557a7926">GLESC::GAPI::Enums::toString</a></div><div class="ttdeci">std::string toString(TypeCount typeCount)</div><div class="ttdoc">Converts the type count to string.</div><div class="ttdef"><b>Definition</b> <a href="debugger_2_g_a_p_i_debugger_8h_source.html#l00021">debugger/GAPIDebugger.h:21</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_component_array_8h_source.html#l00184">GLESC::ECS::ComponentArray&lt; Component &gt;::componentArray</a>, <a class="el" href="_component_array_8h_source.html#l00190">GLESC::ECS::ComponentArray&lt; Component &gt;::entityToIndexMap</a>, <a class="el" href="_logger_8cpp_source.html#l00030">GLESC::Logger::get()</a>, <a class="el" href="_logger_8cpp_source.html#l00081">GLESC::Logger::importantInfoBlue()</a>, <a class="el" href="_logger_8cpp_source.html#l00069">GLESC::Logger::infoBlue()</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_component_array_8h_source.html#l00197">GLESC::ECS::ComponentArray&lt; Component &gt;::size</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array_a374b3773c7b1c5e3b49e55cac9082434_cgraph.svg" width="100%" height="480"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="abae011b4d593a38c3ff5be1c6715733d" name="abae011b4d593a38c3ff5be1c6715733d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abae011b4d593a38c3ff5be1c6715733d">&#9670;&#160;</a></span>removeData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Component</a> &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> <a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html">GLESC::ECS::ComponentArray</a>&lt; <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Component</a> &gt;::removeData </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a>&#160;</td>
+          <td class="paramname"><em>entity</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Removes the data of the entity from the array The last element in the array is copied into the place of the removed element The maps are updated to reflect the changes. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entity</td><td>The entity to remove </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_component_array_8h_source.html#l00095">95</a> of file <a class="el" href="_component_array_8h_source.html">ComponentArray.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   95</span>                                         {</div>
+<div class="line"><span class="lineno">   96</span>            <a class="code hl_define" href="_component_array_8h.html#a694fb803bb9beab16bade298e0b5a7f6">PRINT_COMPONENT_ARRAY_STATUS</a>(<span class="stringliteral">&quot;Before removing data from entity &quot;</span> + std::to_string(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>));</div>
+<div class="line"><span class="lineno">   97</span>            <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html#a0f10b46119ac15e368de87138e05d3c4">hasComponent</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>), <span class="stringliteral">&quot;Entity does not have component&quot;</span>);</div>
+<div class="line"><span class="lineno">   98</span> </div>
+<div class="line"><span class="lineno">   99</span>            <span class="comment">// Copy element at end into deleted element&#39;s place to maintain density</span></div>
+<div class="line"><span class="lineno">  100</span>            <span class="keywordtype">size_t</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">indexOfRemovedEntity</a> = <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html#a0286723ef2b7586e2ba97237747781a6">entityToIndexMap</a>[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>];</div>
+<div class="line"><span class="lineno">  101</span>            <span class="keywordtype">size_t</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">indexOfLastElement</a> = <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html#a11fc7c8bc42c255e1d36b339365b6d50">size</a> - 1;</div>
+<div class="line"><span class="lineno">  102</span>            <span class="comment">// Call destructor on removed component, it is not called automatically causing bugs and memory leaks</span></div>
+<div class="line"><span class="lineno">  103</span>            <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html#a1a17cc75cedb89a7f98d4f1c9e9e9f2c">componentArray</a>[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">indexOfRemovedEntity</a>].~Component();</div>
+<div class="line"><span class="lineno">  104</span>            <span class="keyword">new</span>(&amp;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html#a1a17cc75cedb89a7f98d4f1c9e9e9f2c">componentArray</a>[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">indexOfRemovedEntity</a>]) <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Component</a>(std::move(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html#a1a17cc75cedb89a7f98d4f1c9e9e9f2c">componentArray</a>[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">indexOfLastElement</a>]));</div>
+<div class="line"><span class="lineno">  105</span> </div>
+<div class="line"><span class="lineno">  106</span>            <span class="comment">// Update map to point to moved spot</span></div>
+<div class="line"><span class="lineno">  107</span>            <a class="code hl_typedef" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entityOfLastElement</a> = <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html#a7f02cb67e625b3da834033ad0a090954">indexToEntityMap</a>[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">indexOfLastElement</a>];</div>
+<div class="line"><span class="lineno">  108</span> </div>
+<div class="line"><span class="lineno">  109</span>            <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html#a0286723ef2b7586e2ba97237747781a6">entityToIndexMap</a>[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entityOfLastElement</a>] = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">indexOfRemovedEntity</a>;</div>
+<div class="line"><span class="lineno">  110</span>            <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html#a7f02cb67e625b3da834033ad0a090954">indexToEntityMap</a>[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">indexOfRemovedEntity</a>] = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entityOfLastElement</a>;</div>
+<div class="line"><span class="lineno">  111</span> </div>
+<div class="line"><span class="lineno">  112</span>            <span class="comment">// Erase the entity from both maps</span></div>
+<div class="line"><span class="lineno">  113</span>            <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html#a0286723ef2b7586e2ba97237747781a6">entityToIndexMap</a>.erase(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>);</div>
+<div class="line"><span class="lineno">  114</span>            <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html#a7f02cb67e625b3da834033ad0a090954">indexToEntityMap</a>.erase(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">indexOfLastElement</a>);</div>
+<div class="line"><span class="lineno">  115</span>            --<a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html#a11fc7c8bc42c255e1d36b339365b6d50">size</a>;</div>
+<div class="line"><span class="lineno">  116</span> </div>
+<div class="line"><span class="lineno">  117</span>            <a class="code hl_define" href="_component_array_8h.html#a694fb803bb9beab16bade298e0b5a7f6">PRINT_COMPONENT_ARRAY_STATUS</a>(<span class="stringliteral">&quot;After removing data from entity &quot;</span> + std::to_string(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>));</div>
+<div class="line"><span class="lineno">  118</span>        }</div>
+<div class="ttc" id="anamespace_g_l_e_s_c_1_1_e_c_s_html_a7486db58d646954b2b475ff0af24a99b"><div class="ttname"><a href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">GLESC::ECS::EntityID</a></div><div class="ttdeci">std::uint16_t EntityID</div><div class="ttdoc">Type of each ID of each entity.</div><div class="ttdef"><b>Definition</b> <a href="_e_c_s_types_8h_source.html#l00026">ECSTypes.h:26</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_component_array_8h_source.html#l00184">GLESC::ECS::ComponentArray&lt; Component &gt;::componentArray</a>, <a class="el" href="_asserts_8h_source.html#l00021">D_ASSERT_TRUE</a>, <a class="el" href="_component_array_8h_source.html#l00190">GLESC::ECS::ComponentArray&lt; Component &gt;::entityToIndexMap</a>, <a class="el" href="_component_array_8h_source.html#l00139">GLESC::ECS::ComponentArray&lt; Component &gt;::hasComponent()</a>, <a class="el" href="_component_array_8h_source.html#l00191">GLESC::ECS::ComponentArray&lt; Component &gt;::indexToEntityMap</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, <a class="el" href="_component_array_8h_source.html#l00019">PRINT_COMPONENT_ARRAY_STATUS</a>, and <a class="el" href="_component_array_8h_source.html#l00197">GLESC::ECS::ComponentArray&lt; Component &gt;::size</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_component_array_8h_source.html#l00148">GLESC::ECS::ComponentArray&lt; Component &gt;::entityDestroyed()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array_abae011b4d593a38c3ff5be1c6715733d_cgraph.svg" width="470" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array_abae011b4d593a38c3ff5be1c6715733d_icgraph.svg" width="470" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a1a17cc75cedb89a7f98d4f1c9e9e9f2c" name="a1a17cc75cedb89a7f98d4f1c9e9e9f2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a17cc75cedb89a7f98d4f1c9e9e9f2c">&#9670;&#160;</a></span>componentArray</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Component</a> &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::array&lt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Component</a>, <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a1482c2d17768df66e086ec8d59038446">maxEntities</a>&gt; <a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html">GLESC::ECS::ComponentArray</a>&lt; <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Component</a> &gt;::componentArray</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The packed array of components (of generic type T), set to a specified maximum amount, matching the maximum number of entities allowed to exist simultaneously, so that each entity has a unique spot. </p>
+
+<p class="definition">Definition at line <a class="el" href="_component_array_8h_source.html#l00184">184</a> of file <a class="el" href="_component_array_8h_source.html">ComponentArray.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_component_array_8h_source.html#l00052">GLESC::ECS::ComponentArray&lt; Component &gt;::getComponent()</a>, <a class="el" href="_component_array_8h_source.html#l00125">GLESC::ECS::ComponentArray&lt; Component &gt;::getData()</a>, <a class="el" href="_component_array_8h_source.html#l00064">GLESC::ECS::ComponentArray&lt; Component &gt;::insertData()</a>, <a class="el" href="_component_array_8h_source.html#l00159">GLESC::ECS::ComponentArray&lt; Component &gt;::printStatus()</a>, and <a class="el" href="_component_array_8h_source.html#l00095">GLESC::ECS::ComponentArray&lt; Component &gt;::removeData()</a>.</p>
+
+</div>
+</div>
+<a id="a0286723ef2b7586e2ba97237747781a6" name="a0286723ef2b7586e2ba97237747781a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0286723ef2b7586e2ba97237747781a6">&#9670;&#160;</a></span>entityToIndexMap</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Component</a> &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt;<a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">size_t</a>&gt; <a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html">GLESC::ECS::ComponentArray</a>&lt; <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Component</a> &gt;::entityToIndexMap</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Map from an entity ID to an array index. </p>
+
+<p class="definition">Definition at line <a class="el" href="_component_array_8h_source.html#l00190">190</a> of file <a class="el" href="_component_array_8h_source.html">ComponentArray.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_component_array_8h_source.html#l00148">GLESC::ECS::ComponentArray&lt; Component &gt;::entityDestroyed()</a>, <a class="el" href="_component_array_8h_source.html#l00052">GLESC::ECS::ComponentArray&lt; Component &gt;::getComponent()</a>, <a class="el" href="_component_array_8h_source.html#l00125">GLESC::ECS::ComponentArray&lt; Component &gt;::getData()</a>, <a class="el" href="_component_array_8h_source.html#l00139">GLESC::ECS::ComponentArray&lt; Component &gt;::hasComponent()</a>, <a class="el" href="_component_array_8h_source.html#l00064">GLESC::ECS::ComponentArray&lt; Component &gt;::insertData()</a>, <a class="el" href="_component_array_8h_source.html#l00159">GLESC::ECS::ComponentArray&lt; Component &gt;::printStatus()</a>, and <a class="el" href="_component_array_8h_source.html#l00095">GLESC::ECS::ComponentArray&lt; Component &gt;::removeData()</a>.</p>
+
+</div>
+</div>
+<a id="a7f02cb67e625b3da834033ad0a090954" name="a7f02cb67e625b3da834033ad0a090954"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f02cb67e625b3da834033ad0a090954">&#9670;&#160;</a></span>indexToEntityMap</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Component</a> &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">size_t</a>, <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a>&gt; <a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html">GLESC::ECS::ComponentArray</a>&lt; <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Component</a> &gt;::indexToEntityMap</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_component_array_8h_source.html#l00191">191</a> of file <a class="el" href="_component_array_8h_source.html">ComponentArray.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_component_array_8h_source.html#l00064">GLESC::ECS::ComponentArray&lt; Component &gt;::insertData()</a>, and <a class="el" href="_component_array_8h_source.html#l00095">GLESC::ECS::ComponentArray&lt; Component &gt;::removeData()</a>.</p>
+
+</div>
+</div>
+<a id="a11fc7c8bc42c255e1d36b339365b6d50" name="a11fc7c8bc42c255e1d36b339365b6d50"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11fc7c8bc42c255e1d36b339365b6d50">&#9670;&#160;</a></span>size</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Component</a> &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">size_t</a> <a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html">GLESC::ECS::ComponentArray</a>&lt; <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Component</a> &gt;::size {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Total size of valid entries in the array. </p>
+
+<p class="definition">Definition at line <a class="el" href="_component_array_8h_source.html#l00197">197</a> of file <a class="el" href="_component_array_8h_source.html">ComponentArray.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  197</span>{};</div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="_component_array_8h_source.html#l00199">GLESC::ECS::ComponentArray&lt; Component &gt;::getSize()</a>, <a class="el" href="_component_array_8h_source.html#l00064">GLESC::ECS::ComponentArray&lt; Component &gt;::insertData()</a>, <a class="el" href="_component_array_8h_source.html#l00159">GLESC::ECS::ComponentArray&lt; Component &gt;::printStatus()</a>, and <a class="el" href="_component_array_8h_source.html#l00095">GLESC::ECS::ComponentArray&lt; Component &gt;::removeData()</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="_component_array_8h_source.html">ComponentArray.h</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_g_l_e_s_c.html">GLESC</a></li><li class="navelem"><a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html">ECS</a></li><li class="navelem"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html">ComponentArray</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

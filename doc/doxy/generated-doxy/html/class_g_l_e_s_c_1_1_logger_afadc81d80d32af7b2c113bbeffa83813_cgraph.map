@@ -1,0 +1,12 @@
+<map id="GLESC::Logger::error" name="GLESC::Logger::error">
+<area shape="rect" id="Node000001" title="Display error messages Background – Red Text – Black Bold." alt="" coords="5,64,152,91"/>
+<area shape="rect" id="Node000002" href="$class_i_logger.html#a706ee2794de85391d0fcad52d851d1ec" title="Display error messages Background – Red Text – Black Bold." alt="" coords="243,5,340,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="129,61,227,33,229,39,130,66"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_logger.html#adcc4730c087b2df0b97cccc15557e432" title=" " alt="" coords="200,56,383,99"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="152,75,184,75,184,80,152,80"/>
+<area shape="rect" id="Node000005" href="$_debug_entity_data_h_u_d_8cpp.html#a9acf295be457442cac6bccc0bf75112c" title=" " alt="" coords="489,119,532,145"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="122,89,200,108,276,118,352,125,473,129,473,135,351,130,275,124,199,113,121,94"/>
+<area shape="rect" id="Node000004" href="$class_concurrent_queue.html#a7d61d602747cee9adf97076d2781023c" title=" " alt="" coords="431,64,589,91"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="383,75,415,75,415,80,383,80"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="380,97,474,120,472,126,379,102"/>
+</map>

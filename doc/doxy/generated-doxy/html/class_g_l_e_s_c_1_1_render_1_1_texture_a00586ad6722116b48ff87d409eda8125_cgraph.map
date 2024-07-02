@@ -1,0 +1,46 @@
+<map id="GLESC::Render::Texture::Texture" name="GLESC::Render::Texture::Texture">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,36,171,79"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_render_1_1_texture.html#a884764b058185fdde8104fd43939b63c" title=" " alt="" coords="219,36,384,79"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="171,55,203,55,203,60,171,60"/>
+<area shape="poly" id="edge3_Node000002_Node000002" title=" " alt="" coords="261,36,259,26,266,17,280,11,301,9,324,12,338,18,336,23,323,17,301,15,281,17,269,21,264,27,266,35"/>
+<area shape="rect" id="Node000003" href="$_gapi_8h.html#ab7514d88e65656ffa15ca33256518fe5" title="Returns the graphic API used by the engine." alt="" coords="483,15,553,41"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="384,44,467,32,468,37,385,49"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_res_mng_1_1_texture_1_1_texture_surface.html#abeeeaee38f405f7a65752bd314116432" title="Loads the texture from the file system." alt="" coords="432,65,604,108"/>
+<area shape="poly" id="edge4_Node000002_Node000004" title=" " alt="" coords="385,66,417,70,416,76,384,71"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_res_mng_1_1_texture_1_1_texture_surface.html#abc4e23a2b2891ced4ea4f0747eb3633c" title=" " alt="" coords="652,32,851,75"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="604,72,637,67,638,72,605,77"/>
+<area shape="rect" id="Node000007" href="$class_g_l_e_s_c_1_1_texture_loader.html#aac677f140b0677673fe359a58bb962ac" title="Loads a texture from the file system." alt="" coords="674,99,829,141"/>
+<area shape="poly" id="edge7_Node000004_Node000007" title=" " alt="" coords="605,96,659,104,658,109,604,102"/>
+<area shape="rect" id="Node000006" href="$class_g_l_e_s_c_1_1_res_mng_1_1_texture_1_1_texture_surface.html#afd5901a1627292b495f7a1091574ef3a" title=" " alt="" coords="899,32,1098,75"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="851,51,883,51,883,56,851,56"/>
+<area shape="rect" id="Node000008" href="$class_g_l_e_s_c_1_1_texture_loader.html#aeaa6885a18099e63a698e0104874aa12" title="Creates a surface from a file, it is called by loadTexture." alt="" coords="921,99,1076,141"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="830,117,905,117,905,123,830,123"/>
+<area shape="rect" id="Node000019" href="$class_g_l_e_s_c_1_1_texture_loader.html#ac979d955b5fe7728c23e6bf142dd127c" title="Flips a surface." alt="" coords="921,165,1076,208"/>
+<area shape="poly" id="edge22_Node000007_Node000019" title=" " alt="" coords="830,138,906,159,905,164,829,144"/>
+<area shape="rect" id="Node000009" href="$class_g_l_e_s_c_1_1_logger.html#a9b12ce53593be134b7d7dea62607d22d" title=" " alt="" coords="1182,157,1320,184"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="1077,133,1167,151,1166,156,1076,138"/>
+<area shape="rect" id="Node000010" href="$class_bin_path.html#a518dec5500f3666c8ecc54023e0c229d" title=" " alt="" coords="1146,31,1356,57"/>
+<area shape="poly" id="edge10_Node000008_Node000010" title=" " alt="" coords="1071,95,1189,60,1190,65,1073,101"/>
+<area shape="rect" id="Node000012" href="$class_g_l_e_s_c_1_1_logger.html#a5fa42012f212a31fe7eb06c5ba93caba" title="Display basic information Background – Black Text – White." alt="" coords="1181,107,1321,133"/>
+<area shape="poly" id="edge12_Node000008_Node000012" title=" " alt="" coords="1076,117,1165,117,1165,123,1076,123"/>
+<area shape="rect" id="Node000017" href="$class_g_l_e_s_c_1_1_logger.html#accab43e8aa76342c5e58ac869f2f32d5" title="Display success information Background – Green Text – White Bold." alt="" coords="1167,208,1336,235"/>
+<area shape="poly" id="edge18_Node000008_Node000017" title=" " alt="" coords="1076,139,1099,151,1114,162,1124,173,1133,184,1147,194,1161,200,1158,205,1145,198,1130,188,1120,177,1111,166,1097,156,1073,144"/>
+<area shape="rect" id="Node000011" href="$class_bin_path.html#afc63e7a8201f134535b3531659dd97a3" title=" " alt="" coords="1404,5,1590,32"/>
+<area shape="poly" id="edge11_Node000010_Node000011" title=" " alt="" coords="1356,30,1389,27,1389,32,1357,36"/>
+<area shape="rect" id="Node000013" href="$class_g_l_e_s_c_1_1_logger.html#adcc4730c087b2df0b97cccc15557e432" title=" " alt="" coords="1405,157,1589,200"/>
+<area shape="poly" id="edge13_Node000012_Node000013" title=" " alt="" coords="1311,131,1391,151,1389,156,1310,136"/>
+<area shape="rect" id="Node000015" href="$_debug_entity_data_h_u_d_8cpp.html#a9acf295be457442cac6bccc0bf75112c" title=" " alt="" coords="1695,140,1739,167"/>
+<area shape="poly" id="edge17_Node000012_Node000015" title=" " alt="" coords="1322,122,1680,148,1679,153,1322,128"/>
+<area shape="rect" id="Node000016" href="$class_i_logger.html#af378b37a56de2bad5c4ce2d0f7572f9c" title="Display basic information Background – Black Text – White." alt="" coords="1451,56,1543,83"/>
+<area shape="poly" id="edge16_Node000012_Node000016" title=" " alt="" coords="1319,103,1435,79,1436,84,1320,109"/>
+<area shape="rect" id="Node000014" href="$class_concurrent_queue.html#a7d61d602747cee9adf97076d2781023c" title=" " alt="" coords="1638,191,1796,217"/>
+<area shape="poly" id="edge14_Node000013_Node000014" title=" " alt="" coords="1589,187,1622,190,1622,196,1589,192"/>
+<area shape="poly" id="edge15_Node000013_Node000015" title=" " alt="" coords="1589,165,1679,155,1680,160,1589,171"/>
+<area shape="poly" id="edge19_Node000017_Node000013" title=" " alt="" coords="1332,205,1390,195,1391,200,1333,210"/>
+<area shape="poly" id="edge21_Node000017_Node000015" title=" " alt="" coords="1336,229,1394,233,1458,232,1524,225,1589,209,1603,203,1613,195,1636,176,1680,160,1682,165,1639,181,1616,199,1606,207,1591,215,1525,230,1458,237,1393,238,1336,235"/>
+<area shape="rect" id="Node000018" href="$class_i_logger.html#a08a2761c749b766cb789f0dc8e256f95" title="Display success information Background – Green Text – White Bold." alt="" coords="1437,275,1557,301"/>
+<area shape="poly" id="edge20_Node000017_Node000018" title=" " alt="" coords="1304,233,1431,267,1429,273,1303,238"/>
+<area shape="poly" id="edge23_Node000019_Node000009" title=" " alt="" coords="1076,179,1166,173,1167,179,1077,184"/>
+<area shape="poly" id="edge24_Node000019_Node000012" title=" " alt="" coords="1075,162,1145,143,1176,135,1177,140,1147,148,1076,167"/>
+<area shape="poly" id="edge25_Node000019_Node000017" title=" " alt="" coords="1077,195,1152,205,1151,210,1076,200"/>
+</map>

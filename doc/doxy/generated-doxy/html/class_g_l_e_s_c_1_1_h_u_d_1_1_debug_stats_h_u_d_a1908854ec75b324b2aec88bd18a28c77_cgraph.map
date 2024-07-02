@@ -1,0 +1,7 @@
+<map id="GLESC::HUD::DebugStatsHUD::windowContent" name="GLESC::HUD::DebugStatsHUD::windowContent">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,27,209,69"/>
+<area shape="rect" id="Node000002" href="$class_hud_look_and_feel.html#a0ee2f510aa90c638dbac3b132d5da122" title="Returns the singleton instance of the class." alt="" coords="261,5,407,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="209,32,245,27,245,33,210,37"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_stats_manager.html#a2a4b7e1ba69cb0925fa69bf766711d8c" title=" " alt="" coords="257,56,411,99"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="210,59,241,63,241,68,209,64"/>
+</map>

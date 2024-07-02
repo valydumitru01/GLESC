@@ -1,0 +1,19 @@
+<map id="GLESC::Math::MatrixAlgorithms::GaussianEliminationTrackedResult&lt; Type, N, M &gt;" name="GLESC::Math::MatrixAlgorithms::GaussianEliminationTrackedResult&lt; Type, N, M &gt;">
+<area shape="rect" id="Node000001" title="Struct that holds the result of Gaussian elimination with tracking." alt="" coords="177,491,400,592"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,304,183,427"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="163,424,223,478,220,482,159,428"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="54,139,166,208"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="109,223,102,304,96,304,103,222"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="99,5,121,75"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="113,75,113,122,107,122,107,75"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="227,5,247,75"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="229,53,156,128,152,125,225,50"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="237,139,341,208"/>
+<area shape="poly" id="edge7_Node000007_Node000005" title=" " alt="" coords="249,65,272,122,267,124,244,67"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="207,323,370,408"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="291,408,291,474,286,474,286,408"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="291,223,291,323,286,323,286,223"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="395,323,527,408"/>
+<area shape="poly" id="edge9_Node000008_Node000007" title=" " alt="" coords="355,193,385,209,411,230,427,251,439,275,455,322,450,324,434,277,422,254,407,234,382,213,353,198"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="456,409,445,439,427,468,413,482,409,478,423,465,440,437,451,407"/>
+</map>

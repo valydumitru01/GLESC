@@ -1,0 +1,7 @@
+<map id="GLESC::ECS::RenderComponent::setUpdatedDebuggingValues" name="GLESC::ECS::RenderComponent::setUpdatedDebuggingValues">
+<area shape="rect" id="Node000001" title="Set the updated debugging values of the component." alt="" coords="5,5,221,48"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_render_1_1_mesh.html#a8782a2a59ff7d90495631db68ab52b78" title="Get the updated debugging values of the component." alt="" coords="269,5,465,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="221,24,253,24,253,29,221,29"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_render_1_1_mesh.html#aae32586a4e483fbed4008d8543490c4d" title=" " alt="" coords="513,5,667,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="466,24,497,24,497,29,466,29"/>
+</map>

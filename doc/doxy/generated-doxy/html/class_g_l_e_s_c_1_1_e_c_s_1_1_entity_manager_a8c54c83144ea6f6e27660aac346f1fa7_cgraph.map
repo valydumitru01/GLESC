@@ -1,0 +1,11 @@
+<map id="GLESC::ECS::EntityManager::addComponentToEntity" name="GLESC::ECS::EntityManager::addComponentToEntity">
+<area shape="rect" id="Node000001" title="Add a component to the entity. The entity must exist." alt="" coords="5,51,198,93"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a5145504091eb26170aa219acb60aca71" title="Check if the entity with the given name exists." alt="" coords="486,5,678,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="184,47,245,36,361,26,470,23,471,28,362,31,246,41,185,53"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#aab28983bdd04e1acf2dd7d94dbe4639d" title="Check if the entity has the given component. The entity must exist and the component must be in the r..." alt="" coords="246,51,438,93"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="198,69,230,69,230,75,198,75"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a54e81951030afee74dd6ea3c4e2b74e5" title="Check if the component ID is in the range of the signature." alt="" coords="486,84,678,127"/>
+<area shape="poly" id="edge5_Node000001_Node000004" title=" " alt="" coords="183,91,246,103,362,110,471,109,471,114,361,115,245,108,182,97"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="438,51,470,45,471,50,439,56"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="439,83,471,87,470,92,438,88"/>
+</map>

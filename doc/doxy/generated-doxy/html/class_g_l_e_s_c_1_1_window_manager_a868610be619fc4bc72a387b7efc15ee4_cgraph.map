@@ -1,0 +1,20 @@
+<map id="GLESC::WindowManager::setIcon" name="GLESC::WindowManager::setIcon">
+<area shape="rect" id="Node000001" title="Set the window icon. Updates the icon displayed in the window&#39;s title bar." alt="" coords="5,48,175,91"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_logger.html#a9b12ce53593be134b7d7dea62607d22d" title=" " alt="" coords="259,5,397,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="174,49,246,33,247,38,175,54"/>
+<area shape="rect" id="Node000003" href="$class_bin_path.html#a518dec5500f3666c8ecc54023e0c229d" title=" " alt="" coords="223,56,433,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="175,67,207,67,207,72,175,72"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_logger.html#a5fa42012f212a31fe7eb06c5ba93caba" title="Display basic information Background – Black Text – White." alt="" coords="258,125,398,152"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="166,89,266,118,264,123,165,94"/>
+<area shape="rect" id="Node000004" href="$class_bin_path.html#afc63e7a8201f134535b3531659dd97a3" title=" " alt="" coords="481,37,666,64"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="433,59,465,56,466,62,434,64"/>
+<area shape="rect" id="Node000006" href="$class_g_l_e_s_c_1_1_logger.html#adcc4730c087b2df0b97cccc15557e432" title=" " alt="" coords="482,88,665,131"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="398,128,466,119,467,125,399,133"/>
+<area shape="rect" id="Node000008" href="$_debug_entity_data_h_u_d_8cpp.html#a9acf295be457442cac6bccc0bf75112c" title=" " alt="" coords="772,151,815,177"/>
+<area shape="poly" id="edge9_Node000005_Node000008" title=" " alt="" coords="399,140,756,159,756,165,398,145"/>
+<area shape="rect" id="Node000009" href="$class_i_logger.html#af378b37a56de2bad5c4ce2d0f7572f9c" title="Display basic information Background – Black Text – White." alt="" coords="528,205,619,232"/>
+<area shape="poly" id="edge8_Node000005_Node000009" title=" " alt="" coords="372,150,517,198,515,203,371,155"/>
+<area shape="rect" id="Node000007" href="$class_concurrent_queue.html#a7d61d602747cee9adf97076d2781023c" title=" " alt="" coords="714,96,873,123"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="666,107,699,107,699,112,666,112"/>
+<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="663,129,758,153,756,158,661,134"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="GLESC::Physics::Collider::toString" name="GLESC::Physics::Collider::toString">
+<area shape="rect" id="Node000001" title=" " alt="" coords="548,39,719,81"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_physics_1_1_collider.html#af1e2829ea4c88c4fd683f257f8d6ba9e" title="Get the updated debugging values of the component." alt="" coords="290,5,487,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="532,49,487,43,487,37,533,44"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_collision_component.html#a5676acd06d648d85e671f8cf4f57b7d7" title="Each component must have a toString function." alt="" coords="277,72,500,115"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="533,76,501,81,500,75,532,71"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_collision_component.html#a31a5277b4179c6b3bc3554227acb9992" title="Set the updated debugging values of the component." alt="" coords="5,5,229,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="275,29,229,29,229,24,275,24"/>
+</map>

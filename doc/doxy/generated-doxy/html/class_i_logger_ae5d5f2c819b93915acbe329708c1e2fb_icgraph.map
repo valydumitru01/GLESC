@@ -1,0 +1,13 @@
+<map id="ILogger::importantInfoBlue" name="ILogger::importantInfoBlue">
+<area shape="rect" id="Node000001" title="Display important information Background – Light Blue Text – Black." alt="" coords="578,80,750,107"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_logger.html#a2e78e5eb40e0fad6ac6fc1c3843f146e" title="Display important information Background – Light Blue Text – Black." alt="" coords="356,72,530,115"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="563,96,531,96,531,91,563,91"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html#a374b3773c7b1c5e3b49e55cac9082434" title="Print the status of the component array." alt="" coords="103,5,308,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="350,70,284,51,285,46,351,65"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator.html#a511e3ef0ebeceb191a06db185e8fdc46" title="Print the status of the ECS." alt="" coords="105,72,306,115"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="340,96,306,96,306,91,340,91"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_engine.html#aa1aec35d59f1364a79c7a62c29640226" title="Processes the input of the game." alt="" coords="108,139,303,165"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="341,121,263,141,262,135,340,116"/>
+<area shape="rect" id="Node000006" href="$src_2engine_2main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,139,55,165"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="92,155,55,155,55,149,92,149"/>
+</map>
