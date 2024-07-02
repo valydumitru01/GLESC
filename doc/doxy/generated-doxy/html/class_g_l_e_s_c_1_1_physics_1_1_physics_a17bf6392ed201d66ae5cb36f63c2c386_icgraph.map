@@ -1,5 +1,0 @@
-<map id="GLESC::Physics::Physics::getDebuggingValues" name="GLESC::Physics::Physics::getDebuggingValues">
-<area shape="rect" id="Node000001" title="Get the debugging values of the component." alt="" coords="275,5,450,48"/>
-<area shape="rect" id="Node000002" href="$struct_g_l_e_s_c_1_1_e_c_s_1_1_physics_component.html#a72e76f9e95879161100ffe80d1fec217" title="Set the debugging values of the component." alt="" coords="5,5,227,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="259,29,227,29,227,24,259,24"/>
-</map>

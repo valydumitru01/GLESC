@@ -1,7 +1,0 @@
-<map id="GLESC::Render::BaseVertex" name="GLESC::Render::BaseVertex">
-<area shape="rect" id="Node000001" title="Represents the base Vertex in the mesh." alt="" coords="111,5,292,309"/>
-<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_render_1_1_color_vertex.html" title="Represents a vertex with color." alt="" coords="5,357,187,555"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="145,324,133,358,128,357,140,323"/>
-<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_render_1_1_texture_vertex.html" title="Represents a vertex with texture coordinates." alt="" coords="211,357,405,555"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="263,323,276,357,271,359,258,324"/>
-</map>

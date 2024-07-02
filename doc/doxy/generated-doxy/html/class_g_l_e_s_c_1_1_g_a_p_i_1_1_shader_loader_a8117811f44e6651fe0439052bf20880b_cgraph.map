@@ -1,5 +1,0 @@
-<map id="GLESC::GAPI::ShaderLoader::prependGLSLVersion" name="GLESC::GAPI::ShaderLoader::prependGLSLVersion">
-<area shape="rect" id="Node000001" title="Prepends the GLSL version to the shader code." alt="" coords="5,5,198,48"/>
-<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#af14e7519ed4f04e6bdffc793cd50ad9c" title="Gets the GLSL version string." alt="" coords="246,5,438,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="198,24,230,24,230,29,198,29"/>
-</map>

@@ -1,5 +1,0 @@
-<map id="Cubemap::bind" name="Cubemap::bind">
-<area shape="rect" id="Node000001" title=" " alt="" coords="220,13,328,40"/>
-<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_render_1_1_skybox.html#a297794252ba3f880d7312cd20ca443a7" title="Renders the skybox around the player given the view and projection." alt="" coords="5,5,172,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="204,29,172,29,172,24,204,24"/>
-</map>

@@ -1,9 +1,0 @@
-<map id="Cubemap::load" name="Cubemap::load">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,56,114,83"/>
-<area shape="rect" id="Node000002" href="$_gapi_8h.html#ab7514d88e65656ffa15ca33256518fe5" title="Returns the graphic API used by the engine." alt="" coords="202,5,273,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="108,53,187,30,188,35,110,58"/>
-<area shape="rect" id="Node000003" href="$_texture_adapter_8h.html#a57abcbbb65504dda9db17f4e8074ddb9" title=" " alt="" coords="171,56,304,83"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="114,67,156,67,156,72,114,72"/>
-<area shape="rect" id="Node000004" href="$_texture_adapter_8h.html#af8df9c072d5a12970464e59e90e63707" title=" " alt="" coords="162,107,313,133"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="110,81,174,99,173,105,108,86"/>
-</map>

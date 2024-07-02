@@ -1,5 +1,0 @@
-<map id="FPSManager::getUpdateFPS" name="FPSManager::getUpdateFPS">
-<area shape="rect" id="Node000001" title="Get the fps of the update." alt="" coords="5,13,196,40"/>
-<area shape="rect" id="Node000002" href="$class_f_p_s_manager.html#ae47a2614bf8ea4ccf52234e95980cc06" title="Get the constant speed in which our game updates." alt="" coords="244,5,436,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="196,24,228,24,228,29,196,29"/>
-</map>

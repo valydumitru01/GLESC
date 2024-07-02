@@ -1,9 +1,0 @@
-<map id="GLESC::ECS::PhysicsComponent::toString" name="GLESC::ECS::PhysicsComponent::toString">
-<area shape="rect" id="Node000001" title="Each component must have a toString function." alt="" coords="5,5,227,48"/>
-<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_physics_1_1_physics.html#a8ab4df7294cbaaa761c981e13188c369" title=" " alt="" coords="275,5,450,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="227,24,259,24,259,29,227,29"/>
-<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#a6a6098658d8dbebb1e3e73cd649074cc" title="Converts the vector to string." alt="" coords="498,5,646,48"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="450,24,482,24,482,29,450,29"/>
-<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#a8e6f808c717744d815310af0f439dbec" title="Generates a string representation of a vector." alt="" coords="694,5,905,48"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="646,24,679,24,679,29,646,29"/>
-</map>

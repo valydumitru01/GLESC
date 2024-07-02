@@ -1,5 +1,0 @@
-<map id="GLESC::Scene::Scene::getSceneEntities" name="GLESC::Scene::Scene::getSceneEntities">
-<area shape="rect" id="Node000001" title="Gets the scene entities." alt="" coords="209,5,364,48"/>
-<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_scene_1_1_scene.html#ab7907f74548ba185b79eeee2fe01a632" title="Destroys all entities in the scene." alt="" coords="5,5,161,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="193,29,161,29,161,24,193,24"/>
-</map>

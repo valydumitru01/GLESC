@@ -1,9 +1,0 @@
-<map id="GLESC::Math::Sphere::intersects" name="GLESC::Math::Sphere::intersects">
-<area shape="rect" id="Node000001" title="Checks if the sphere intersects with the given plane." alt="" coords="205,72,356,115"/>
-<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_sphere.html#af57e36ca525f974ffbf5bb25f041a3b0" title="Checks if the figure intersects with the given line." alt="" coords="5,5,157,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="199,69,146,51,148,46,201,64"/>
-<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_sphere.html#a91c69748595dddb4eb732d65d0180625" title="Checks if the sphere intersects with the given figure." alt="" coords="5,72,157,115"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="189,96,157,96,157,91,189,91"/>
-<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_math_1_1_sphere.html#afae71303211a202967e7389fa613ca86" title="Checks if the sphere intersects with the given face." alt="" coords="5,139,157,181"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="201,123,148,141,146,135,199,118"/>
-</map>

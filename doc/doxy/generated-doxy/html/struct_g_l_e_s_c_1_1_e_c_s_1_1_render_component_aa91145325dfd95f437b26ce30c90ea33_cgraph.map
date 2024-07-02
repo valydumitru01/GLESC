@@ -1,9 +1,0 @@
-<map id="GLESC::ECS::RenderComponent::setDebuggingValues" name="GLESC::ECS::RenderComponent::setDebuggingValues">
-<area shape="rect" id="Node000001" title="Set the debugging values of the component." alt="" coords="5,39,221,81"/>
-<area shape="rect" id="Node000002" href="$class_engine_component.html#af72d5975c473b7f638e068e824dc94cb" title="Get the debugging values of the component." alt="" coords="269,5,483,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="221,44,253,40,254,45,222,49"/>
-<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_render_1_1_material.html#aaff716327ed03d1943cca1ba5e4332ba" title=" " alt="" coords="292,72,460,115"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="222,71,277,78,276,83,221,76"/>
-<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_render_1_1_intensity.html#af799c45917e2a7f03eff0c19ed68377f" title=" " alt="" coords="531,72,702,115"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="460,91,515,91,515,96,460,96"/>
-</map>

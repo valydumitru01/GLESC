@@ -1,5 +1,0 @@
-<map id="GLESC::GAPI::Shader::setUniform" name="GLESC::GAPI::Shader::setUniform">
-<area shape="rect" id="Node000001" title="Sets a uniform value in the shader." alt="" coords="5,5,159,48"/>
-<area shape="rect" id="Node000002" href="$_gapi_8h.html#ab7514d88e65656ffa15ca33256518fe5" title="Returns the graphic API used by the engine." alt="" coords="207,13,277,40"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="159,24,191,24,191,29,159,29"/>
-</map>

@@ -1,7 +1,0 @@
-<map id="GLESC::Math::BoundingVolume::getBoundingBox" name="GLESC::Math::BoundingVolume::getBoundingBox">
-<area shape="rect" id="Node000001" title="Get the const bounding box of the bounding volume." alt="" coords="496,5,704,48"/>
-<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_physics_1_1_collider.html#a24c116fac1f15b148befabad0da4e7de" title="Get the debugging values of the component." alt="" coords="277,5,448,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="480,29,449,29,449,24,480,24"/>
-<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_collision_component.html#a1af29f3b4c805c1e3a2cda956c338573" title="Set the debugging values of the component." alt="" coords="5,5,229,48"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="261,29,229,29,229,24,261,24"/>
-</map>

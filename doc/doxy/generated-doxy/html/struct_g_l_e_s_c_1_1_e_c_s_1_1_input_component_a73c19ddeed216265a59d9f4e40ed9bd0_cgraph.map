@@ -1,7 +1,0 @@
-<map id="GLESC::ECS::InputComponent::toString" name="GLESC::ECS::InputComponent::toString">
-<area shape="rect" id="Node000001" title="Each component must have a toString function." alt="" coords="5,5,208,48"/>
-<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_input_1_1_input.html#a7ae6bf56db8395d9a0d41b856c3a12a5" title=" " alt="" coords="256,5,393,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="208,24,240,24,240,29,208,29"/>
-<area shape="rect" id="Node000003" href="$namespace_g_l_e_s_c_1_1_input.html#a163e374d947eb806002e97c8f18c81e8" title="Converts the key to a string." alt="" coords="441,13,619,40"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="393,24,425,24,425,29,393,29"/>
-</map>

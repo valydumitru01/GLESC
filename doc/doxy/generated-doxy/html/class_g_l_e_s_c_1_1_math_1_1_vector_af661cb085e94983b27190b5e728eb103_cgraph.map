@@ -1,7 +1,0 @@
-<map id="GLESC::Math::Vector::lerp" name="GLESC::Math::Vector::lerp">
-<area shape="rect" id="Node000001" title="Calculates the linear interpolation between two vectors using a factor." alt="" coords="5,5,154,48"/>
-<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#a5c4d9fdbfe7c5f3af132b3fdf3f1cb10" title=" " alt="" coords="202,5,412,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="154,24,186,24,186,29,154,29"/>
-<area shape="rect" id="Node000003" href="$namespace_g_l_e_s_c_1_1_math.html#a1f546879c71be9881c98dc8c4e3ee9a5" title="Linear interpolation between two values." alt="" coords="460,13,591,40"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="412,24,445,24,445,29,412,29"/>
-</map>

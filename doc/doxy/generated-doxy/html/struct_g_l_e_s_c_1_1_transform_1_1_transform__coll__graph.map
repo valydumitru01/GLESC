@@ -1,9 +1,0 @@
-<map id="GLESC::Transform::Transform" name="GLESC::Transform::Transform">
-<area shape="rect" id="Node000001" title="Struct that represents the position, rotation, and scale of an entity in the game world." alt="" coords="205,560,391,992"/>
-<area shape="rect" id="Node000002" href="$class_engine_component.html" title="Class that represents a component of the engine." alt="" coords="5,99,204,275"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="141,288,230,559,225,561,135,290"/>
-<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html" title=" " alt="" coords="228,37,368,336"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="301,336,301,543,295,543,295,336"/>
-<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_math_1_1_matrix.html" title="Matrix class. Represents a matrix of N rows and M columns." alt="" coords="392,5,532,368"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="440,368,423,453,402,537,399,546,394,544,397,535,418,452,435,367"/>
-</map>

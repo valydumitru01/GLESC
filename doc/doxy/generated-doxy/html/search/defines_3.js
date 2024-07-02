@@ -1,6 +1,0 @@
-var searchData=
-[
-  ['fonts_5fextension_0',['FONTS_EXTENSION',['../_h_u_d_look_and_feel_8cpp.html#a33e51bdc0efd924a13d1bb4e8dd29221',1,'HUDLookAndFeel.cpp']]],
-  ['fonts_5fpath_5ffrom_5fassets_1',['FONTS_PATH_FROM_ASSETS',['../_h_u_d_look_and_feel_8cpp.html#aa759bea36d73a5a4663d1d1dee12cbd0',1,'HUDLookAndFeel.cpp']]],
-  ['function_5fcall_5fstr_2',['FUNCTION_CALL_STR',['../_debugger_8h.html#a78de2d7bf9ec611021b41ff3cccc8ccf',1,'Debugger.h']]]
-];

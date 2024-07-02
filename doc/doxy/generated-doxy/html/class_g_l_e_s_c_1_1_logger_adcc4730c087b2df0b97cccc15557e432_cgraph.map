@@ -1,7 +1,0 @@
-<map id="GLESC::Logger::executeOnAllInputs" name="GLESC::Logger::executeOnAllInputs">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,23,189,65"/>
-<area shape="rect" id="Node000002" href="$class_concurrent_queue.html#a7d61d602747cee9adf97076d2781023c" title=" " alt="" coords="237,5,395,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="188,31,221,27,221,32,189,36"/>
-<area shape="rect" id="Node000003" href="$_debug_entity_data_h_u_d_8cpp.html#a9acf295be457442cac6bccc0bf75112c" title=" " alt="" coords="294,56,338,83"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="189,52,279,63,279,68,188,57"/>
-</map>

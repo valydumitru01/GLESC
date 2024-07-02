@@ -1,5 +1,0 @@
-<map id="GLESC::Render::Frustum::Frustum" name="GLESC::Render::Frustum::Frustum">
-<area shape="rect" id="Node000001" title="Constructs a frustum from a camera transform and perspective." alt="" coords="5,5,176,48"/>
-<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_render_1_1_frustum.html#affbb01d97893126a85345bd7d32a3451" title="Extracts the frustum planes from a combined view&#45;projection matrix. Uses Hartmann &amp; Gribbs method...." alt="" coords="224,5,394,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="176,24,208,24,208,29,176,29"/>
-</map>

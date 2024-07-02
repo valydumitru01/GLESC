@@ -1,8 +1,0 @@
-<map id="GLESC::Math::Matrix::makeViewMatrixEye" name="GLESC::Math::Matrix::makeViewMatrixEye">
-<area shape="rect" id="Node000001" title="Creates a view matrix from the given position, rotation and scale vectors." alt="" coords="5,29,154,72"/>
-<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_mixed_algorithms.html#a57083fb44983b254d7a676cd858c6786" title=" " alt="" coords="202,29,432,72"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="154,48,186,48,186,53,154,53"/>
-<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_mixed_algorithms.html#abb4b0b53bb6073f18415ccc96deb2c25" title=" " alt="" coords="480,29,661,72"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="432,48,464,48,464,53,432,53"/>
-<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="523,29,521,19,529,10,546,5,571,3,598,5,614,11,612,16,597,10,571,8,547,10,532,15,526,21,528,28"/>
-</map>

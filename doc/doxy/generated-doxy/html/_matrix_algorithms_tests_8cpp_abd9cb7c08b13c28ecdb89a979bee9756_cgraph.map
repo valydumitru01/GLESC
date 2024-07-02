@@ -1,8 +1,0 @@
-<map id="TEST" name="TEST">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,37,59,64"/>
-<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_mixed_algorithms.html#a57083fb44983b254d7a676cd858c6786" title=" " alt="" coords="107,29,337,72"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="59,48,91,48,91,53,59,53"/>
-<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_mixed_algorithms.html#abb4b0b53bb6073f18415ccc96deb2c25" title=" " alt="" coords="385,29,566,72"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="337,48,369,48,369,53,337,53"/>
-<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="428,29,426,19,434,10,451,5,476,3,503,5,519,11,517,16,502,10,476,8,452,10,437,15,431,21,433,28"/>
-</map>

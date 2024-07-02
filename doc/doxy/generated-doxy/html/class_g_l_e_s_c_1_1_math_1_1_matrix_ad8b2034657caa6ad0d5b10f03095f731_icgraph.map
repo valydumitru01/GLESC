@@ -1,5 +1,0 @@
-<map id="GLESC::Math::Matrix::makeRotationMatrix" name="GLESC::Math::Matrix::makeRotationMatrix">
-<area shape="rect" id="Node000001" title="Creates a rotation matrix from the given rotation vector." alt="" coords="249,5,395,48"/>
-<area shape="rect" id="Node000002" href="$struct_g_l_e_s_c_1_1_transform_1_1_transform.html#ab33cb83796cc9b761a2fac182d252190" title="Returns the rotation matrix of the transform." alt="" coords="5,5,201,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="233,29,201,29,201,24,233,24"/>
-</map>

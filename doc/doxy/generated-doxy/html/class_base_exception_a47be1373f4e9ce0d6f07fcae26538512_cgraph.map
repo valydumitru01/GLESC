@@ -1,7 +1,0 @@
-<map id="BaseException::BaseException" name="BaseException::BaseException">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,211,32"/>
-<area shape="rect" id="Node000002" href="$namespace_g_l_e_s_c.html#a8d9b5020e5eda5caa4a4fef6415bd1c7" title="Function to generate a stack trace." alt="" coords="259,5,448,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="211,16,243,16,243,21,211,21"/>
-<area shape="rect" id="Node000003" href="$namespace_g_l_e_s_c.html#a70928105022e5771539e4851612a30b3" title="Function to get the address of the function from the address of the function." alt="" coords="496,5,625,32"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="449,16,481,16,481,21,449,21"/>
-</map>

@@ -1,5 +1,0 @@
-<map id="GLESC::ECS::ECSCoordinator::getComponentID" name="GLESC::ECS::ECSCoordinator::getComponentID">
-<area shape="rect" id="Node000001" title="Get the ID of a component." alt="" coords="196,5,397,48"/>
-<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html#a49f91266990cd9ae566c793684b0d447" title="Checks if the entity has a component." alt="" coords="5,5,148,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="180,29,148,29,148,24,180,24"/>
-</map>

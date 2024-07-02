@@ -1,5 +1,0 @@
-<map id="GLESC::PolyhedronFactory::Common::rectangularCuboid" name="GLESC::PolyhedronFactory::Common::rectangularCuboid">
-<area shape="rect" id="Node000001" title="A rectangular cuboid is a polyhedron with 6 rectangular faces. It is also known as a rectangular hexa..." alt="" coords="236,5,429,48"/>
-<area shape="rect" id="Node000002" href="$namespace_g_l_e_s_c_1_1_polyhedron_factory_1_1_regular.html#aa2eb95d4f4d120d787307001578b3202" title="Regular polyhedron with 6 faces (cube, all faces are squares)" alt="" coords="5,5,188,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="220,29,188,29,188,24,220,24"/>
-</map>

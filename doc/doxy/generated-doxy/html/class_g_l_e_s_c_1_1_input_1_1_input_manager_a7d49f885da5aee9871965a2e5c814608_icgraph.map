@@ -1,9 +1,0 @@
-<map id="GLESC::Input::InputManager::isMouseRelative" name="GLESC::Input::InputManager::isMouseRelative">
-<area shape="rect" id="Node000001" title="Gets whether the mouse is relative or not." alt="" coords="627,5,815,48"/>
-<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_engine_camera.html#a63dae1933350d3e10798719c19db2870" title="Rotates the camera based on the mouse movement." alt="" coords="421,5,579,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="612,29,580,29,580,24,612,24"/>
-<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_engine_camera.html#a3f37b288117cbbf684843bf4b88acb72" title="Prepares the camera entity with its components and it&#39;s initial values." alt="" coords="215,5,373,48"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="406,29,373,29,373,24,406,24"/>
-<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_engine.html#a93e1621f9daf326a7c45d3b2a4c826c1" title="The constructor is private, the engine can only be created by the main function." alt="" coords="5,13,167,40"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="199,29,167,29,167,24,199,24"/>
-</map>

@@ -1,5 +1,0 @@
-<map id="GLESC::Scene::Scene::createEntity" name="GLESC::Scene::Scene::createEntity">
-<area shape="rect" id="Node000001" title="Creates an entity and adds it to the scene." alt="" coords="140,5,295,48"/>
-<area shape="rect" id="Node000002" href="$class_default.html#a6e26da3ebf533b0f5d45266cd0ce9082" title="Initializes the scene. Must be implemented by the derived class." alt="" coords="5,13,92,40"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="124,29,92,29,92,24,124,24"/>
-</map>

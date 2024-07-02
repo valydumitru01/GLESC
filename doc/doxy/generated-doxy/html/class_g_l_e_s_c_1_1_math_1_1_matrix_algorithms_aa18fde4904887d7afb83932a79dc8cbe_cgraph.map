@@ -1,7 +1,0 @@
-<map id="GLESC::Math::MatrixAlgorithms::gaussianEliminationAlgorithm" name="GLESC::Math::MatrixAlgorithms::gaussianEliminationAlgorithm">
-<area shape="rect" id="Node000001" title="Calculates gaussian elimination with partial pivoting and extracts the result." alt="" coords="5,39,214,81"/>
-<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#ab4ffc1744770577aea3a32c00c41b976" title="Copies the data from one matrix to another." alt="" coords="262,5,470,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="214,44,246,40,246,45,214,49"/>
-<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a74b99cd8f1ad4111dd2738a967cd74bb" title="Swaps two rows of a matrix." alt="" coords="262,72,470,115"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="214,71,246,75,246,80,214,76"/>
-</map>

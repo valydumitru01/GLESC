@@ -1,7 +1,0 @@
-<map id="TYPED_TEST" name="TYPED_TEST">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,47,109,73"/>
-<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#ab4ffc1744770577aea3a32c00c41b976" title="Copies the data from one matrix to another." alt="" coords="157,5,365,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="109,49,141,44,142,49,110,54"/>
-<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#aa6c7a32231a674f0c3d7de67507afb3c" title="Moves the data from one matrix to another. @deatails This function moves the data from the source mat..." alt="" coords="157,72,365,115"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="110,66,142,71,141,76,109,71"/>
-</map>

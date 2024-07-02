@@ -1,7 +1,0 @@
-<map id="GLESC::Math::VectorAlgorithms::makeUpVector" name="GLESC::Math::VectorAlgorithms::makeUpVector">
-<area shape="rect" id="Node000001" title="Makes an up vector from rotation angles." alt="" coords="5,23,216,65"/>
-<area shape="rect" id="Node000002" href="$namespace_g_l_e_s_c_1_1_math.html#ac72fdbfd43b6a5770385dbfd805b687b" title="Calculates the cosine of a value." alt="" coords="264,5,395,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="216,29,248,25,249,31,216,34"/>
-<area shape="rect" id="Node000003" href="$namespace_g_l_e_s_c_1_1_math.html#aa21a1aeaaa25e280f941221e165dffa4" title="Calculates the sine of a value." alt="" coords="266,56,393,83"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="216,54,251,58,250,63,216,59"/>
-</map>

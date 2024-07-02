@@ -1,9 +1,0 @@
-<map id="GLESC::ECS::SunComponent::setDebuggingValues" name="GLESC::ECS::SunComponent::setDebuggingValues">
-<area shape="rect" id="Node000001" title="Set the debugging values of the component." alt="" coords="5,39,203,81"/>
-<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_render_1_1_global_ambient_light.html#ac3a944c9a8e816cf72ebd195b2e89ae9" title=" " alt="" coords="251,5,458,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="203,44,235,40,235,45,204,49"/>
-<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_render_1_1_global_sun.html#aadb804df9c79b3beb36c84aa5279e978" title=" " alt="" coords="263,72,446,115"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="204,71,248,76,247,82,203,76"/>
-<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_render_1_1_intensity.html#af799c45917e2a7f03eff0c19ed68377f" title=" " alt="" coords="506,72,677,115"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="446,91,490,91,490,96,446,96"/>
-</map>

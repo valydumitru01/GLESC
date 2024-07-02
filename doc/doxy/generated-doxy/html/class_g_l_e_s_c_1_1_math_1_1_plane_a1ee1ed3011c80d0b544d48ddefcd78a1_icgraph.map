@@ -1,5 +1,0 @@
-<map id="GLESC::Math::Plane::calculateNormalFromPointAndLine" name="GLESC::Math::Plane::calculateNormalFromPointAndLine">
-<area shape="rect" id="Node000001" title="Calculate the normal vector of the plane defined by a point and a line." alt="" coords="197,5,379,64"/>
-<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_plane.html#a468fe79f91e1aa6ebe498e6ab3ce7674" title="Construct a new Plane object from a point and a line." alt="" coords="5,13,149,56"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="181,37,149,37,149,32,181,32"/>
-</map>

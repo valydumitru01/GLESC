@@ -1,7 +1,0 @@
-<map id="GLESC::Render::BaseVertex::toString" name="GLESC::Render::BaseVertex::toString">
-<area shape="rect" id="Node000001" title=" " alt="" coords="257,39,447,81"/>
-<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_render_1_1_color_vertex.html#a4b1ab1a73feb263350743a0393de6059" title=" " alt="" coords="12,5,202,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="241,48,202,42,203,37,242,42"/>
-<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_render_1_1_texture_vertex.html#a080b80430ee90d2ae970e7bb93ec2662" title=" " alt="" coords="5,72,209,115"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="242,78,210,82,209,77,241,72"/>
-</map>

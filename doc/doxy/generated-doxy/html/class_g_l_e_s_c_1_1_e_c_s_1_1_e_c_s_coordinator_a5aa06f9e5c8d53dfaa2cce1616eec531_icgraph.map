@@ -1,9 +1,0 @@
-<map id="GLESC::ECS::ECSCoordinator::hasComponent" name="GLESC::ECS::ECSCoordinator::hasComponent">
-<area shape="rect" id="Node000001" title="Check if an entity has a component, checking it&#39;s signature." alt="" coords="311,35,512,77"/>
-<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html#a49f91266990cd9ae566c793684b0d447" title="Checks if the entity has a component." alt="" coords="112,5,254,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="295,44,254,38,255,33,296,38"/>
-<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_engine.html#ad2ff110d5a86c1cd60b541d65915ac48" title="Processes the logic of the game Is called every frame, must be called at constant intervals of time a..." alt="" coords="103,72,263,99"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="296,74,264,78,263,72,295,68"/>
-<area shape="rect" id="Node000004" href="$src_2engine_2main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,72,55,99"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="87,88,55,88,55,83,87,83"/>
-</map>

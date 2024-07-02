@@ -1,7 +1,0 @@
-<map id="TransformSystem.h" name="TransformSystem.h">
-<area shape="rect" id="Node000001" title="System that updates the transform of the entities." alt="" coords="55,5,190,32"/>
-<area shape="rect" id="Node000002" href="$_g_l_e_s_c_8cpp.html" title=" " alt="" coords="5,80,96,107"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="101,45,65,81,61,78,97,41"/>
-<area shape="rect" id="Node000003" href="$_transform_system_8cpp.html" title="@TODO Add description of this file if needed" alt="" coords="120,80,269,107"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="148,41,184,78,180,81,144,45"/>
-</map>

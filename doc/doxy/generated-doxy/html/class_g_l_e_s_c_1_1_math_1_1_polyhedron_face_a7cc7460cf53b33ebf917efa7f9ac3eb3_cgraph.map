@@ -1,5 +1,0 @@
-<map id="GLESC::Math::PolyhedronFace::getNormal" name="GLESC::Math::PolyhedronFace::getNormal">
-<area shape="rect" id="Node000001" title="Returns the normal the face." alt="" coords="5,5,210,48"/>
-<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_plane.html#abd0df9ef1fc5a9d3ac8727d198cb781c" title="Get the normal vector of the plane." alt="" coords="258,5,401,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="210,24,242,24,242,29,210,29"/>
-</map>

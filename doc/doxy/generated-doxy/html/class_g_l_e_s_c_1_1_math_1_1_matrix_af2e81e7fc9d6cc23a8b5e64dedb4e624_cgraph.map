@@ -1,7 +1,0 @@
-<map id="GLESC::Math::Matrix::Matrix" name="GLESC::Math::Matrix::Matrix">
-<area shape="rect" id="Node000001" title="Constructor from MatrixData." alt="" coords="5,5,152,48"/>
-<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#ae0d10876b9f4aa46174d785f2b19e2f5" title="Sets the values of a matrix using a raw array." alt="" coords="200,5,408,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="152,24,184,24,184,29,152,29"/>
-<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#ab4ffc1744770577aea3a32c00c41b976" title="Copies the data from one matrix to another." alt="" coords="456,5,664,48"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="408,24,440,24,440,29,408,29"/>
-</map>

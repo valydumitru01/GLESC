@@ -1,7 +1,0 @@
-<map id="GLESC::Render::ColorRgbaNorm::getR" name="GLESC::Render::ColorRgbaNorm::getR">
-<area shape="rect" id="Node000001" title=" " alt="" coords="474,5,656,48"/>
-<area shape="rect" id="Node000002" href="$struct_g_l_e_s_c_1_1_render_1_1_color_rgba_norm.html#aa00d47a37b6494f1b3b1e7cdcd64b9b4" title=" " alt="" coords="244,5,426,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="459,29,427,29,427,24,459,24"/>
-<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_render_1_1_color_vertex.html#a4b1ab1a73feb263350743a0393de6059" title=" " alt="" coords="5,5,196,48"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="228,29,196,29,196,24,228,24"/>
-</map>

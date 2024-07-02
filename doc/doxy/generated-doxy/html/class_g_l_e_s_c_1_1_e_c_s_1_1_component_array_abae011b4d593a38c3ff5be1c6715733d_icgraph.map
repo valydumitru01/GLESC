@@ -1,5 +1,0 @@
-<map id="GLESC::ECS::ComponentArray::removeData" name="GLESC::ECS::ComponentArray::removeData">
-<area shape="rect" id="Node000001" title="Removes the data of the entity from the array The last element in the array is copied into the place ..." alt="" coords="259,5,464,48"/>
-<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html#a60caa0a4724c9c640a1fcad2a0b97124" title="Called when an entity is destroyed." alt="" coords="5,5,211,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="243,29,211,29,211,24,243,24"/>
-</map>

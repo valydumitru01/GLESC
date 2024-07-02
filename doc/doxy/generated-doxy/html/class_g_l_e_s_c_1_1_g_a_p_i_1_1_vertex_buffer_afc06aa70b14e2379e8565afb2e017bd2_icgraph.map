@@ -1,9 +1,0 @@
-<map id="GLESC::GAPI::VertexBuffer::bind" name="GLESC::GAPI::VertexBuffer::bind">
-<area shape="rect" id="Node000001" title=" " alt="" coords="253,72,436,115"/>
-<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_g_a_p_i_1_1_vertex_array.html#a54862ab9765af3f41852b907db92bdfa" title="Add a vertex buffer to the vertex array." alt="" coords="14,5,196,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="251,70,184,51,185,46,252,65"/>
-<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_g_a_p_i_1_1_vertex_instance_buffer.html#a4c8e092307d460d9f0f899fb12ebe5bb" title=" " alt="" coords="5,72,205,115"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="237,96,205,96,205,91,237,91"/>
-<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_g_a_p_i_1_1_vertex_instance_buffer.html#a9e44b82b4c7099174e2b307b4eb68dcd" title=" " alt="" coords="5,139,205,181"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="252,122,185,141,184,135,251,117"/>
-</map>

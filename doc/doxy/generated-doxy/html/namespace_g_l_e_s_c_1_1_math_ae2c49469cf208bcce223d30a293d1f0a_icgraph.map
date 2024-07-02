@@ -1,9 +1,0 @@
-<map id="GLESC::Math::tan" name="GLESC::Math::tan">
-<area shape="rect" id="Node000001" title="Calculates the tangent of a value." alt="" coords="518,43,646,69"/>
-<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a7d6f055c4124609ce2807b3d9d7b4330" title="Calculates the perspective projection matrix." alt="" coords="262,35,470,77"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="503,59,471,59,471,53,503,53"/>
-<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a5390e2f97f2b72719fe4080872beedb1" title="Calculates the perspective projection matrix." alt="" coords="5,5,214,48"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="246,45,214,41,215,36,247,40"/>
-<area shape="rect" id="Node000004" href="$_matrix_algorithms_tests_8cpp.html#a8afbf9c8915be9ae96e9d97f73a84a82" title=" " alt="" coords="83,72,136,99"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="247,72,137,85,136,80,246,67"/>
-</map>

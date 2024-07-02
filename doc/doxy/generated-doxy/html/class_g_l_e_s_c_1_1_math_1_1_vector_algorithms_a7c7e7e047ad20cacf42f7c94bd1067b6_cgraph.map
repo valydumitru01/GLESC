@@ -1,9 +1,0 @@
-<map id="GLESC::Math::VectorAlgorithms::areOrthogonal" name="GLESC::Math::VectorAlgorithms::areOrthogonal">
-<area shape="rect" id="Node000001" title="Checks if two vectors are orthogonal." alt="" coords="5,35,216,77"/>
-<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#ae45bcff9b53fb60d513c53823418d97b" title="Computes the dot product of two vectors." alt="" coords="264,5,474,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="216,41,248,38,248,43,216,47"/>
-<area shape="rect" id="Node000003" href="$namespace_g_l_e_s_c_1_1_math.html#aee25910dbba06d09d9df14d03933ace1" title="Compares two values for equality." alt="" coords="307,72,431,99"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="216,65,292,74,291,79,216,71"/>
-<area shape="rect" id="Node000004" href="$namespace_g_l_e_s_c_1_1_math.html#acd429163efe906cd22916cc75ccb2421" title="Epsilon getter with precision of a given template type." alt="" coords="522,72,673,99"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="431,83,506,83,506,88,431,88"/>
-</map>

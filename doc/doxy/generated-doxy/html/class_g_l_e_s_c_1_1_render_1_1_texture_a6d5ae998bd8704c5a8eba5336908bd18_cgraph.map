@@ -1,5 +1,0 @@
-<map id="GLESC::Render::Texture::bind" name="GLESC::Render::Texture::bind">
-<area shape="rect" id="Node000001" title="Bind the texture to the renderer to be used in the next draw calls." alt="" coords="5,5,171,48"/>
-<area shape="rect" id="Node000002" href="$_gapi_8h.html#ab7514d88e65656ffa15ca33256518fe5" title="Returns the graphic API used by the engine." alt="" coords="219,13,289,40"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="171,24,203,24,203,29,171,29"/>
-</map>

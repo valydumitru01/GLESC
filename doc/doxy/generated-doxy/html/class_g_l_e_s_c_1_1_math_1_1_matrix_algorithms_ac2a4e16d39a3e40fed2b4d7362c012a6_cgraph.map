@@ -1,7 +1,0 @@
-<map id="GLESC::Math::MatrixAlgorithms::getScaleMatrix" name="GLESC::Math::MatrixAlgorithms::getScaleMatrix">
-<area shape="rect" id="Node000001" title="Gets the scale matrix." alt="" coords="5,5,214,48"/>
-<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a053f9441ed78e43be28efcca0fc34283" title="Sets the values of a matrix to zero." alt="" coords="262,5,470,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="214,24,246,24,246,29,214,29"/>
-<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a555b3e0f1eb9a546ec47951fa0f5e8da" title="Sets the values of a matrix to one." alt="" coords="518,5,726,48"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="470,24,502,24,502,29,470,29"/>
-</map>

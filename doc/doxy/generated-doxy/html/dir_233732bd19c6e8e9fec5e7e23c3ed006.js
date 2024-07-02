@@ -1,4 +1,0 @@
-var dir_233732bd19c6e8e9fec5e7e23c3ed006 =
-[
-    [ "figures", "dir_93b1735605cf407854257e8be6a03517.html", "dir_93b1735605cf407854257e8be6a03517" ]
-];

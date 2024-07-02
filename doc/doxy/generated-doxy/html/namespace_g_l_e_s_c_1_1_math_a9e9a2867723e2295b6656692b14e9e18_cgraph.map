@@ -1,9 +1,0 @@
-<map id="GLESC::Math::remap" name="GLESC::Math::remap">
-<area shape="rect" id="Node000001" title="Remaps a value from one range to another, including support for reverse mapping." alt="" coords="5,31,152,57"/>
-<area shape="rect" id="Node000002" href="$namespace_g_l_e_s_c_1_1_math.html#ae9816249dbbdbb7c7affd0c3be77b8e2" title="Clamps a value between a minimum and maximum value." alt="" coords="200,31,345,57"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="152,41,184,41,184,47,152,47"/>
-<area shape="rect" id="Node000003" href="$namespace_g_l_e_s_c_1_1_math.html#a522e4f8e000cccddbf9d2f92280cfb6c" title="Calculates the max of two values." alt="" coords="393,5,528,32"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="345,32,377,27,378,32,346,37"/>
-<area shape="rect" id="Node000004" href="$namespace_g_l_e_s_c_1_1_math.html#ad2df75a6181d9d1d318d20d224a2866b" title="Calculates the min of two values." alt="" coords="395,56,526,83"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="346,51,380,56,379,61,345,56"/>
-</map>

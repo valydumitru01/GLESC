@@ -1,7 +1,0 @@
-<map id="EngineComponent::getOwnerName" name="EngineComponent::getOwnerName">
-<area shape="rect" id="Node000001" title="Get the owner name of the component for debugging purposes." alt="" coords="521,13,745,40"/>
-<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_physics_1_1_collider.html#af1e2829ea4c88c4fd683f257f8d6ba9e" title="Get the updated debugging values of the component." alt="" coords="277,5,473,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="505,29,474,29,474,24,505,24"/>
-<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_collision_component.html#a31a5277b4179c6b3bc3554227acb9992" title="Set the updated debugging values of the component." alt="" coords="5,5,229,48"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="261,29,229,29,229,24,261,24"/>
-</map>

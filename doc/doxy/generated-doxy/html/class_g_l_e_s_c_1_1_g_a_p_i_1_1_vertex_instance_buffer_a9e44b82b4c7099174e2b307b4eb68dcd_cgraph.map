@@ -1,8 +1,0 @@
-<map id="GLESC::GAPI::VertexInstanceBuffer::VertexBuffer" name="GLESC::GAPI::VertexInstanceBuffer::VertexBuffer">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,35,205,77"/>
-<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_g_a_p_i_1_1_vertex_buffer.html#afc06aa70b14e2379e8565afb2e017bd2" title=" " alt="" coords="253,5,436,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="205,41,237,37,238,42,206,46"/>
-<area shape="rect" id="Node000003" href="$_gapi_8h.html#ab7514d88e65656ffa15ca33256518fe5" title="Returns the graphic API used by the engine." alt="" coords="484,43,554,69"/>
-<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="205,56,436,57,468,56,469,61,436,63,205,62"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="437,39,469,45,468,50,436,45"/>
-</map>
