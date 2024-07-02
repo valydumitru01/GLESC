@@ -30,7 +30,7 @@ jobs:
       - name: Upload generated documentation
         uses: actions/upload-pages-artifact@v3
         with:
-          path: /
+          path: ./README.md
       
       - name: Deploy to GitHub Pages
         id: deployment
