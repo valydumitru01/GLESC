@@ -1,0 +1,6 @@
+<map id="GLESC::Math::generateRandomNumber" name="GLESC::Math::generateRandomNumber">
+<area shape="rect" id="Node000001" title="Generates a random number with the widest range possible for the type." alt="" coords="220,29,428,72"/>
+<area shape="poly" id="edge2_Node000001_Node000001" title=" " alt="" coords="362,16,348,10,324,8,302,10,288,15,283,21,284,28,279,29,277,19,285,10,300,5,324,3,349,5,364,11"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_render_1_1_skybox.html#ad9f7695fdc637e79ea1ae7cd5ecb5f5b" title="Calculates the average color of the skybox." alt="" coords="5,29,172,72"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="204,53,172,53,172,48,204,48"/>
+</map>

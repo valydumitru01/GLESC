@@ -1,0 +1,5 @@
+<map id="GLESC::Render::ColorRgba::getGNormalized" name="GLESC::Render::ColorRgba::getGNormalized">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,188,48"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_render_1_1_color_funcs.html#a4415bd4e262b54a2d95185ffee1c3eef" title="Normalizes a color to be between 0 and 1." alt="" coords="236,5,424,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="188,24,220,24,220,29,188,29"/>
+</map>

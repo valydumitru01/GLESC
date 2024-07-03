@@ -1,0 +1,5 @@
+<map id="GLESC::ECS::EntityManager::isEntityAlive" name="GLESC::ECS::EntityManager::isEntityAlive">
+<area shape="rect" id="Node000001" title="Check if the entity with the given ID is alive." alt="" coords="5,5,198,48"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a5145504091eb26170aa219acb60aca71" title="Check if the entity with the given name exists." alt="" coords="246,5,438,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="198,24,230,24,230,29,198,29"/>
+</map>

@@ -1,0 +1,9 @@
+<log>
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include\engine/core/counter/Timer.h" line="11" col="10" msg="&apos;SDL2/SDL_stdinc.h&apos; file not found" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/counter/Timer.cpp" line="11" col="10" msg="&apos;SDL2/SDL.h&apos; file not found" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/counter/Timer.cpp" line="14" col="17" msg="use of undeclared identifier &apos;SDL_GetTicks&apos;" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/counter/Timer.cpp" line="17" col="8" msg="no type named &apos;TimeMillis&apos; in namespace &apos;GLESC&apos;" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/counter/Timer.cpp" line="18" col="12" msg="use of undeclared identifier &apos;SDL_GetTicks&apos;" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/counter/Timer.cpp" line="21" col="8" msg="no type named &apos;TimeMillis&apos; in namespace &apos;GLESC&apos;" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/counter/Timer.cpp" line="22" col="12" msg="use of undeclared identifier &apos;SDL_GetTicks&apos;" />
+</log>

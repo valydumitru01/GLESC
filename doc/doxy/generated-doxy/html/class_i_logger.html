@@ -1,0 +1,790 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="Doxygen Awesome" />
+<meta property="og:image" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+<meta property="og:description" content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
+<meta property="og:url" content="https://jothepro.github.io/doxygen-awesome-css/" />
+<!-- END opengraph metadata -->
+<!-- BEGIN twitter metadata -->
+<meta name="twitter:image:src" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+<meta name="twitter:title" content="Doxygen Awesome" />
+<meta name="twitter:description" content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
+<!-- END twitter metadata -->
+<title>GLESC: ILogger Class Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.drawio.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/ -->
+<a href="https://github.com/jothepro/doxygen-awesome-css" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="GLESC_logo_white_background.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">GLESC
+   &#160;<span id="projectnumber">1</span>
+   </div>
+   <div id="projectbrief">Game engine using ECS architecture</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('class_i_logger.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="class_i_logger-members.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">ILogger Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_i_logger_8h_source.html">ILogger.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for ILogger:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_i_logger__inherit__graph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+Collaboration diagram for ILogger:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_i_logger__coll__graph.svg" width="154" height="358"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:ad5d37badb7f177d73bb0344109ff847d" id="r_ad5d37badb7f177d73bb0344109ff847d"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_logger.html#ad5d37badb7f177d73bb0344109ff847d">~ILogger</a> ()=default</td></tr>
+<tr class="separator:ad5d37badb7f177d73bb0344109ff847d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a706ee2794de85391d0fcad52d851d1ec" id="r_a706ee2794de85391d0fcad52d851d1ec"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_logger.html#a706ee2794de85391d0fcad52d851d1ec">error</a> (const std::string &amp;<a class="el" href="_debug_entity_data_h_u_d_8cpp.html#a9acf295be457442cac6bccc0bf75112c">text</a>)=0</td></tr>
+<tr class="memdesc:a706ee2794de85391d0fcad52d851d1ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display error messages Background &ndash; Red Text &ndash; Black Bold.  <br /></td></tr>
+<tr class="separator:a706ee2794de85391d0fcad52d851d1ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68ea0dc046bb472e45984114acea2adb" id="r_a68ea0dc046bb472e45984114acea2adb"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_logger.html#a68ea0dc046bb472e45984114acea2adb">importantInfo</a> (const std::string &amp;<a class="el" href="_debug_entity_data_h_u_d_8cpp.html#a9acf295be457442cac6bccc0bf75112c">text</a>)=0</td></tr>
+<tr class="memdesc:a68ea0dc046bb472e45984114acea2adb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display important information Background &ndash; White Text &ndash; Black.  <br /></td></tr>
+<tr class="separator:a68ea0dc046bb472e45984114acea2adb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5d5f2c819b93915acbe329708c1e2fb" id="r_ae5d5f2c819b93915acbe329708c1e2fb"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_logger.html#ae5d5f2c819b93915acbe329708c1e2fb">importantInfoBlue</a> (const std::string &amp;<a class="el" href="_debug_entity_data_h_u_d_8cpp.html#a9acf295be457442cac6bccc0bf75112c">text</a>)=0</td></tr>
+<tr class="memdesc:ae5d5f2c819b93915acbe329708c1e2fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display important information Background &ndash; Light Blue Text &ndash; Black.  <br /></td></tr>
+<tr class="separator:ae5d5f2c819b93915acbe329708c1e2fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33957e2c9d3152a81f7a6679599208e9" id="r_a33957e2c9d3152a81f7a6679599208e9"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_logger.html#a33957e2c9d3152a81f7a6679599208e9">importantInfoPurple</a> (const std::string &amp;<a class="el" href="_debug_entity_data_h_u_d_8cpp.html#a9acf295be457442cac6bccc0bf75112c">text</a>)=0</td></tr>
+<tr class="memdesc:a33957e2c9d3152a81f7a6679599208e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display important information Background &ndash; Light Purple Text &ndash; Black.  <br /></td></tr>
+<tr class="separator:a33957e2c9d3152a81f7a6679599208e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a799600e4c00ea9190e31743e3ee73a61" id="r_a799600e4c00ea9190e31743e3ee73a61"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_logger.html#a799600e4c00ea9190e31743e3ee73a61">importantInfoWhite</a> (const std::string &amp;<a class="el" href="_debug_entity_data_h_u_d_8cpp.html#a9acf295be457442cac6bccc0bf75112c">text</a>)=0</td></tr>
+<tr class="memdesc:a799600e4c00ea9190e31743e3ee73a61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display important information Background &ndash; White Text &ndash; Black.  <br /></td></tr>
+<tr class="separator:a799600e4c00ea9190e31743e3ee73a61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aedad47738a41b18b380cba0639a026c0" id="r_aedad47738a41b18b380cba0639a026c0"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_logger.html#aedad47738a41b18b380cba0639a026c0">importantSuccess</a> (const std::string &amp;<a class="el" href="_debug_entity_data_h_u_d_8cpp.html#a9acf295be457442cac6bccc0bf75112c">text</a>)=0</td></tr>
+<tr class="memdesc:aedad47738a41b18b380cba0639a026c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display important success information.  <br /></td></tr>
+<tr class="separator:aedad47738a41b18b380cba0639a026c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af378b37a56de2bad5c4ce2d0f7572f9c" id="r_af378b37a56de2bad5c4ce2d0f7572f9c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_logger.html#af378b37a56de2bad5c4ce2d0f7572f9c">info</a> (const std::string &amp;<a class="el" href="_debug_entity_data_h_u_d_8cpp.html#a9acf295be457442cac6bccc0bf75112c">text</a>)=0</td></tr>
+<tr class="memdesc:af378b37a56de2bad5c4ce2d0f7572f9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display basic information Background &ndash; Black Text &ndash; White.  <br /></td></tr>
+<tr class="separator:af378b37a56de2bad5c4ce2d0f7572f9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0865ea122828562ba5b6e66a367ddc4" id="r_ae0865ea122828562ba5b6e66a367ddc4"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_logger.html#ae0865ea122828562ba5b6e66a367ddc4">infoBlue</a> (const std::string &amp;<a class="el" href="_debug_entity_data_h_u_d_8cpp.html#a9acf295be457442cac6bccc0bf75112c">text</a>)=0</td></tr>
+<tr class="memdesc:ae0865ea122828562ba5b6e66a367ddc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display basic information Background &ndash; Black Text &ndash; Light Blue.  <br /></td></tr>
+<tr class="separator:ae0865ea122828562ba5b6e66a367ddc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac53f9e80cfc276e74df97c54a55d25e8" id="r_ac53f9e80cfc276e74df97c54a55d25e8"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_logger.html#ac53f9e80cfc276e74df97c54a55d25e8">infoPurple</a> (const std::string &amp;<a class="el" href="_debug_entity_data_h_u_d_8cpp.html#a9acf295be457442cac6bccc0bf75112c">text</a>)=0</td></tr>
+<tr class="memdesc:ac53f9e80cfc276e74df97c54a55d25e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display basic information Background &ndash; Black Text &ndash; Light Purple.  <br /></td></tr>
+<tr class="separator:ac53f9e80cfc276e74df97c54a55d25e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff12d697222beb37893b2b22c0689d8e" id="r_aff12d697222beb37893b2b22c0689d8e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_logger.html#aff12d697222beb37893b2b22c0689d8e">log</a> (const std::string &amp;<a class="el" href="_debug_entity_data_h_u_d_8cpp.html#a9acf295be457442cac6bccc0bf75112c">text</a>)=0</td></tr>
+<tr class="memdesc:aff12d697222beb37893b2b22c0689d8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display log messages Background and text default.  <br /></td></tr>
+<tr class="separator:aff12d697222beb37893b2b22c0689d8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a809090b871104c0e4b00e1818fd48e6b" id="r_a809090b871104c0e4b00e1818fd48e6b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_logger.html#a809090b871104c0e4b00e1818fd48e6b">nonImportantInfo</a> (const std::string &amp;<a class="el" href="_debug_entity_data_h_u_d_8cpp.html#a9acf295be457442cac6bccc0bf75112c">text</a>)=0</td></tr>
+<tr class="memdesc:a809090b871104c0e4b00e1818fd48e6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display non important information Background &ndash; Black Text &ndash; Grey.  <br /></td></tr>
+<tr class="separator:a809090b871104c0e4b00e1818fd48e6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08a2761c749b766cb789f0dc8e256f95" id="r_a08a2761c749b766cb789f0dc8e256f95"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_logger.html#a08a2761c749b766cb789f0dc8e256f95">success</a> (const std::string &amp;<a class="el" href="_debug_entity_data_h_u_d_8cpp.html#a9acf295be457442cac6bccc0bf75112c">text</a>)=0</td></tr>
+<tr class="memdesc:a08a2761c749b766cb789f0dc8e256f95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display success information Background &ndash; Green Text &ndash; White Bold.  <br /></td></tr>
+<tr class="separator:a08a2761c749b766cb789f0dc8e256f95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38d1604156288ad935f29c5435cab484" id="r_a38d1604156288ad935f29c5435cab484"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_logger.html#a38d1604156288ad935f29c5435cab484">warning</a> (const std::string &amp;<a class="el" href="_debug_entity_data_h_u_d_8cpp.html#a9acf295be457442cac6bccc0bf75112c">text</a>)=0</td></tr>
+<tr class="memdesc:a38d1604156288ad935f29c5435cab484"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display warning messages Background &ndash; Black Text &ndash; Yellow.  <br /></td></tr>
+<tr class="separator:a38d1604156288ad935f29c5435cab484"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock">
+<p class="definition">Definition at line <a class="el" href="_i_logger_8h_source.html#l00014">14</a> of file <a class="el" href="_i_logger_8h_source.html">ILogger.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ad5d37badb7f177d73bb0344109ff847d" name="ad5d37badb7f177d73bb0344109ff847d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5d37badb7f177d73bb0344109ff847d">&#9670;&#160;</a></span>~ILogger()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual ILogger::~ILogger </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a706ee2794de85391d0fcad52d851d1ec" name="a706ee2794de85391d0fcad52d851d1ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a706ee2794de85391d0fcad52d851d1ec">&#9670;&#160;</a></span>error()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void ILogger::error </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>text</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Display error messages Background &ndash; Red Text &ndash; Black Bold. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">text</td><td>printed text </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="class_file_logger.html#a6bb791796240816a1f02a499bf562af1">FileLogger</a>, <a class="el" href="class_terminal_logger.html#a7df5e88cfcf9260ac9fa162b26e4c708">TerminalLogger</a>, and <a class="el" href="class_g_l_e_s_c_1_1_logger.html#afadc81d80d32af7b2c113bbeffa83813">GLESC::Logger</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_logger_8cpp_source.html#l00053">GLESC::Logger::error()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_i_logger_a706ee2794de85391d0fcad52d851d1ec_icgraph.svg" width="303" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a68ea0dc046bb472e45984114acea2adb" name="a68ea0dc046bb472e45984114acea2adb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68ea0dc046bb472e45984114acea2adb">&#9670;&#160;</a></span>importantInfo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void ILogger::importantInfo </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>text</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Display important information Background &ndash; White Text &ndash; Black. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">text</td><td>printed text </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="class_file_logger.html#a7c59fff187516ae27d110bc999733c3e">FileLogger</a>, <a class="el" href="class_terminal_logger.html#ad520a37b75073ba6408d43cd921ef95b">TerminalLogger</a>, and <a class="el" href="class_g_l_e_s_c_1_1_logger.html#ae4ace5757e3bd2366095de93a147e14f">GLESC::Logger</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_logger_8cpp_source.html#l00077">GLESC::Logger::importantInfo()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_i_logger_a68ea0dc046bb472e45984114acea2adb_icgraph.svg" width="648" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ae5d5f2c819b93915acbe329708c1e2fb" name="ae5d5f2c819b93915acbe329708c1e2fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5d5f2c819b93915acbe329708c1e2fb">&#9670;&#160;</a></span>importantInfoBlue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void ILogger::importantInfoBlue </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>text</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Display important information Background &ndash; Light Blue Text &ndash; Black. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">text</td><td>printed text </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="class_file_logger.html#a1f04e3aff525f2e86fc33eb2e2ad9bb1">FileLogger</a>, <a class="el" href="class_terminal_logger.html#ac7677d0f38ab7ed313b24691ea09a942">TerminalLogger</a>, and <a class="el" href="class_g_l_e_s_c_1_1_logger.html#a2e78e5eb40e0fad6ac6fc1c3843f146e">GLESC::Logger</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_logger_8cpp_source.html#l00081">GLESC::Logger::importantInfoBlue()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_i_logger_ae5d5f2c819b93915acbe329708c1e2fb_icgraph.svg" width="100%" height="428"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a33957e2c9d3152a81f7a6679599208e9" name="a33957e2c9d3152a81f7a6679599208e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33957e2c9d3152a81f7a6679599208e9">&#9670;&#160;</a></span>importantInfoPurple()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void ILogger::importantInfoPurple </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>text</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Display important information Background &ndash; Light Purple Text &ndash; Black. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">text</td><td>printed text </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="class_file_logger.html#ab330bcb298f51494ec66464c09cd1667">FileLogger</a>, <a class="el" href="class_terminal_logger.html#afde3b0bd93aecd28372f9d8c8d0e0807">TerminalLogger</a>, and <a class="el" href="class_g_l_e_s_c_1_1_logger.html#a3354ed9440d7acc4ca989986be45c207">GLESC::Logger</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_logger_8cpp_source.html#l00085">GLESC::Logger::importantInfoPurple()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_i_logger_a33957e2c9d3152a81f7a6679599208e9_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a799600e4c00ea9190e31743e3ee73a61" name="a799600e4c00ea9190e31743e3ee73a61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a799600e4c00ea9190e31743e3ee73a61">&#9670;&#160;</a></span>importantInfoWhite()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void ILogger::importantInfoWhite </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>text</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Display important information Background &ndash; White Text &ndash; Black. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">text</td><td>printed text </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="class_file_logger.html#af89cdcdd13c87e94374c2866ff02875c">FileLogger</a>, <a class="el" href="class_terminal_logger.html#a05be37869d6e206e96327e19c6f0b8b5">TerminalLogger</a>, and <a class="el" href="class_g_l_e_s_c_1_1_logger.html#a71599c25da6f38408c0bf8caf994cda8">GLESC::Logger</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_logger_8cpp_source.html#l00089">GLESC::Logger::importantInfoWhite()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_i_logger_a799600e4c00ea9190e31743e3ee73a61_icgraph.svg" width="100%" height="378"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="aedad47738a41b18b380cba0639a026c0" name="aedad47738a41b18b380cba0639a026c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aedad47738a41b18b380cba0639a026c0">&#9670;&#160;</a></span>importantSuccess()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void ILogger::importantSuccess </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>text</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Display important success information. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">text</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="class_file_logger.html#a0f27c0ac8ed67a8c70c1d9b1854a2ea5">FileLogger</a>, <a class="el" href="class_terminal_logger.html#a6e00747b72187985def06bf34a6aad40">TerminalLogger</a>, and <a class="el" href="class_g_l_e_s_c_1_1_logger.html#a7e64f89c49b564c27dfdf2d2a71a0c86">GLESC::Logger</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_logger_8cpp_source.html#l00097">GLESC::Logger::importantSuccess()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_i_logger_aedad47738a41b18b380cba0639a026c0_icgraph.svg" width="552" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="af378b37a56de2bad5c4ce2d0f7572f9c" name="af378b37a56de2bad5c4ce2d0f7572f9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af378b37a56de2bad5c4ce2d0f7572f9c">&#9670;&#160;</a></span>info()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void ILogger::info </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>text</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Display basic information Background &ndash; Black Text &ndash; White. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">text</td><td>printed text </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="class_file_logger.html#aed5b39e9a16ac4322edcaf0387bed097">FileLogger</a>, <a class="el" href="class_terminal_logger.html#ac5deabc3073f3f61604579ee1481ba64">TerminalLogger</a>, and <a class="el" href="class_g_l_e_s_c_1_1_logger.html#a5fa42012f212a31fe7eb06c5ba93caba">GLESC::Logger</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_logger_8cpp_source.html#l00065">GLESC::Logger::info()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_i_logger_af378b37a56de2bad5c4ce2d0f7572f9c_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ae0865ea122828562ba5b6e66a367ddc4" name="ae0865ea122828562ba5b6e66a367ddc4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0865ea122828562ba5b6e66a367ddc4">&#9670;&#160;</a></span>infoBlue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void ILogger::infoBlue </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>text</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Display basic information Background &ndash; Black Text &ndash; Light Blue. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">text</td><td>printed text </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="class_file_logger.html#a87f46f4f15d0b7ceb90301d719e27008">FileLogger</a>, <a class="el" href="class_terminal_logger.html#a5517ecae14fdb11085a00aa5878069d0">TerminalLogger</a>, and <a class="el" href="class_g_l_e_s_c_1_1_logger.html#a93fe7ba4cc02b4d3216040a66339d8fa">GLESC::Logger</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_logger_8cpp_source.html#l00069">GLESC::Logger::infoBlue()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_i_logger_ae0865ea122828562ba5b6e66a367ddc4_icgraph.svg" width="596" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ac53f9e80cfc276e74df97c54a55d25e8" name="ac53f9e80cfc276e74df97c54a55d25e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac53f9e80cfc276e74df97c54a55d25e8">&#9670;&#160;</a></span>infoPurple()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void ILogger::infoPurple </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>text</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Display basic information Background &ndash; Black Text &ndash; Light Purple. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">text</td><td>printed text </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="class_file_logger.html#aca1d7386e09318ff2a8c7dd5a8e8d0af">FileLogger</a>, <a class="el" href="class_terminal_logger.html#abed4097a73c08bf69044a48f76b88e4a">TerminalLogger</a>, and <a class="el" href="class_g_l_e_s_c_1_1_logger.html#a63eba544e09bedf7140d14af14a62b53">GLESC::Logger</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_logger_8cpp_source.html#l00073">GLESC::Logger::infoPurple()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_i_logger_ac53f9e80cfc276e74df97c54a55d25e8_icgraph.svg" width="364" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aff12d697222beb37893b2b22c0689d8e" name="aff12d697222beb37893b2b22c0689d8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff12d697222beb37893b2b22c0689d8e">&#9670;&#160;</a></span>log()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void ILogger::log </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>text</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Display log messages Background and text default. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">text</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="class_file_logger.html#a74dbc6a75e4d51baa31748a6e611dbfb">FileLogger</a>, <a class="el" href="class_terminal_logger.html#ac797dd9fa71a0b8a018eda2f38f8f2f2">TerminalLogger</a>, and <a class="el" href="class_g_l_e_s_c_1_1_logger.html#a5b9254819cd6181dfe79662b5403bb97">GLESC::Logger</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_logger_8cpp_source.html#l00049">GLESC::Logger::log()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_i_logger_aff12d697222beb37893b2b22c0689d8e_icgraph.svg" width="284" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a809090b871104c0e4b00e1818fd48e6b" name="a809090b871104c0e4b00e1818fd48e6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a809090b871104c0e4b00e1818fd48e6b">&#9670;&#160;</a></span>nonImportantInfo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void ILogger::nonImportantInfo </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>text</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Display non important information Background &ndash; Black Text &ndash; Grey. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">text</td><td>printed text </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="class_file_logger.html#ac591f56a89782f04f01350b406170fff">FileLogger</a>, <a class="el" href="class_terminal_logger.html#ac684c9dc7d1f1156dc07d3e3b226f8ca">TerminalLogger</a>, and <a class="el" href="class_g_l_e_s_c_1_1_logger.html#adb7c11e4c440628db0d98f418fa57702">GLESC::Logger</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_logger_8cpp_source.html#l00061">GLESC::Logger::nonImportantInfo()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_i_logger_a809090b871104c0e4b00e1818fd48e6b_icgraph.svg" width="100%" height="390"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a08a2761c749b766cb789f0dc8e256f95" name="a08a2761c749b766cb789f0dc8e256f95"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08a2761c749b766cb789f0dc8e256f95">&#9670;&#160;</a></span>success()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void ILogger::success </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>text</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Display success information Background &ndash; Green Text &ndash; White Bold. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">text</td><td>printed text </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="class_file_logger.html#a3edc348d81d7eabc58b47cc95f7c8dbf">FileLogger</a>, <a class="el" href="class_terminal_logger.html#a5f911967135066b70463b12dc0c83929">TerminalLogger</a>, and <a class="el" href="class_g_l_e_s_c_1_1_logger.html#accab43e8aa76342c5e58ac869f2f32d5">GLESC::Logger</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_logger_8cpp_source.html#l00093">GLESC::Logger::success()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_i_logger_a08a2761c749b766cb789f0dc8e256f95_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a38d1604156288ad935f29c5435cab484" name="a38d1604156288ad935f29c5435cab484"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38d1604156288ad935f29c5435cab484">&#9670;&#160;</a></span>warning()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void ILogger::warning </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>text</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Display warning messages Background &ndash; Black Text &ndash; Yellow. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">text</td><td>printed text </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="class_file_logger.html#aa53f94d67c64a14624187fa97b641c32">FileLogger</a>, <a class="el" href="class_terminal_logger.html#abd9760fa694426d405bb7f75b82ee502">TerminalLogger</a>, and <a class="el" href="class_g_l_e_s_c_1_1_logger.html#ae11b2b5faa29ee3170b7d181faa23350">GLESC::Logger</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_logger_8cpp_source.html#l00057">GLESC::Logger::warning()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_i_logger_a38d1604156288ad935f29c5435cab484_icgraph.svg" width="100%" height="378"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="_i_logger_8h_source.html">ILogger.h</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="class_i_logger.html">ILogger</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

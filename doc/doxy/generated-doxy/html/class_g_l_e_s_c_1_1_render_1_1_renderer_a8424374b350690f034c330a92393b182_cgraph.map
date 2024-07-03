@@ -1,0 +1,28 @@
+<map id="GLESC::Render::Renderer::applyMaterial" name="GLESC::Render::Renderer::applyMaterial">
+<area shape="rect" id="Node000001" title="This encapsulates the application of the material, setting all the uniforms of the material shader." alt="" coords="5,205,180,248"/>
+<area shape="rect" id="Node000002" href="$struct_g_l_e_s_c_1_1_render_1_1_color_rgb.html#af0a993d6f6257b791729083f6b8e7ab3" title=" " alt="" coords="228,72,406,115"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="117,203,166,164,226,124,236,119,239,124,229,129,169,168,120,207"/>
+<area shape="rect" id="Node000007" href="$class_g_l_e_s_c_1_1_render_1_1_material.html#a443dac631732701962950d4d63b7d46b" title=" " alt="" coords="233,139,401,181"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="166,202,227,184,229,189,167,207"/>
+<area shape="rect" id="Node000009" href="$class_g_l_e_s_c_1_1_render_1_1_material.html#a3abfb90323b5f77396449d120a3e1a89" title=" " alt="" coords="233,205,401,248"/>
+<area shape="poly" id="edge10_Node000001_Node000009" title=" " alt="" coords="180,224,217,224,217,229,180,229"/>
+<area shape="rect" id="Node000010" href="$class_g_l_e_s_c_1_1_render_1_1_material.html#a43ac6591769079dc8e36b7db3dd2af47" title=" " alt="" coords="233,272,401,315"/>
+<area shape="poly" id="edge11_Node000001_Node000010" title=" " alt="" coords="167,246,229,264,227,270,166,251"/>
+<area shape="rect" id="Node000011" href="$class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader.html#a2af6148a4a3aca3519a20fdd877f6016" title="Sets a uniform value in the shader." alt="" coords="240,339,394,381"/>
+<area shape="poly" id="edge13_Node000001_Node000011" title=" " alt="" coords="120,246,169,285,229,324,239,329,236,334,226,329,166,290,117,251"/>
+<area shape="rect" id="Node000003" href="$struct_g_l_e_s_c_1_1_render_1_1_color_rgb.html#a674c5aa3d673ec1b4c583f7b3570b421" title=" " alt="" coords="465,5,640,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="394,69,459,50,460,55,395,74"/>
+<area shape="rect" id="Node000005" href="$struct_g_l_e_s_c_1_1_render_1_1_color_rgb.html#a1a34cffe125e0669b6f0f59c55641333" title=" " alt="" coords="465,72,640,115"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="406,91,450,91,450,96,406,96"/>
+<area shape="rect" id="Node000006" href="$struct_g_l_e_s_c_1_1_render_1_1_color_rgb.html#a52dce8aa77d51de1f0e38d8fcfa81ce9" title=" " alt="" coords="465,139,640,181"/>
+<area shape="poly" id="edge6_Node000002_Node000006" title=" " alt="" coords="395,113,460,131,459,136,394,118"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_render_1_1_color_funcs.html#a4415bd4e262b54a2d95185ffee1c3eef" title="Normalizes a color to be between 0 and 1." alt="" coords="699,72,888,115"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="633,46,700,65,698,70,631,51"/>
+<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="641,91,684,91,684,96,641,96"/>
+<area shape="poly" id="edge7_Node000006_Node000004" title=" " alt="" coords="631,136,698,117,700,122,633,141"/>
+<area shape="rect" id="Node000008" href="$class_g_l_e_s_c_1_1_render_1_1_intensity.html#a53940c748518c99fc3f50b5fa2d7e31a" title=" " alt="" coords="454,243,651,269"/>
+<area shape="poly" id="edge9_Node000007_Node000008" title=" " alt="" coords="378,179,407,191,507,234,505,238,405,196,376,184"/>
+<area shape="poly" id="edge12_Node000010_Node000008" title=" " alt="" coords="401,277,449,270,450,275,401,283"/>
+<area shape="rect" id="Node000012" href="$_gapi_8h.html#ab7514d88e65656ffa15ca33256518fe5" title="Returns the graphic API used by the engine." alt="" coords="518,347,588,373"/>
+<area shape="poly" id="edge14_Node000011_Node000012" title=" " alt="" coords="394,357,502,357,502,363,394,363"/>
+</map>

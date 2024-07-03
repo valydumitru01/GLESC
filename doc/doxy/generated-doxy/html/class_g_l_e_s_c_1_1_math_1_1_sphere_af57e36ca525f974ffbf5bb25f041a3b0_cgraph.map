@@ -1,0 +1,23 @@
+<map id="GLESC::Math::Sphere::intersects" name="GLESC::Math::Sphere::intersects">
+<area shape="rect" id="Node000001" title="Checks if the figure intersects with the given line." alt="" coords="5,55,157,97"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_sphere.html#ab7f7086acf1a0ec5c04f8010beaa8924" title="Checks if the sphere intersects with the given plane." alt="" coords="205,11,356,53"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="157,57,189,49,190,55,158,62"/>
+<area shape="rect" id="Node000006" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#afe0496b857816e05a61744e6a8c852bb" title="Projects the vector onto another vector." alt="" coords="206,88,355,131"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="158,86,191,92,190,97,157,91"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_plane.html#a11df2e06eb0ee48a7bb905050744bd45" title="Calculate the distance from the plane to a point." alt="" coords="438,5,581,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="356,28,422,26,422,31,356,33"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#ab7062a9b67c16d4e60413b625412b4eb" title="Returns the dot product of two vectors." alt="" coords="680,11,855,37"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="581,23,664,22,664,28,581,29"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#ae45bcff9b53fb60d513c53823418d97b" title="Computes the dot product of two vectors." alt="" coords="921,53,1131,96"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="840,35,906,48,905,54,839,41"/>
+<area shape="rect" id="Node000007" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#ae76427931423c05c656aa4b922e8bcdc" title="Projects a vector onto another vector." alt="" coords="404,109,614,152"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="355,114,389,117,388,122,355,119"/>
+<area shape="poly" id="edge7_Node000007_Node000005" title=" " alt="" coords="609,106,662,97,787,84,905,76,905,82,788,89,663,103,610,111"/>
+<area shape="rect" id="Node000008" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#a96acaa670e780132720dd3ea6a6cdf97" title="Computes the length of a vector." alt="" coords="662,112,873,155"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="615,129,646,129,646,135,615,134"/>
+<area shape="rect" id="Node000010" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#ae39d3eeb6fa078e77bb563ebc318e43a" title="Multiplies a vector by a scalar." alt="" coords="662,179,873,221"/>
+<area shape="poly" id="edge11_Node000007_Node000010" title=" " alt="" coords="592,150,671,172,670,177,591,155"/>
+<area shape="poly" id="edge9_Node000008_Node000005" title=" " alt="" coords="864,109,913,97,914,103,865,114"/>
+<area shape="rect" id="Node000009" href="$namespace_g_l_e_s_c_1_1_math.html#ab2316a2512c43c18e29709201adf3fe5" title="Calculates the square root of a value." alt="" coords="960,120,1092,147"/>
+<area shape="poly" id="edge10_Node000008_Node000009" title=" " alt="" coords="873,131,944,131,944,136,873,136"/>
+</map>

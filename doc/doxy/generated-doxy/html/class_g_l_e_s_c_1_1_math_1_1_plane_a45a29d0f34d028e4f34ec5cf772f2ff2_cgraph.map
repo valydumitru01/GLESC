@@ -1,0 +1,7 @@
+<map id="GLESC::Math::Plane::Plane" name="GLESC::Math::Plane::Plane">
+<area shape="rect" id="Node000001" title="Construct a new Plane object from a normal vector and a distance." alt="" coords="5,39,149,81"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_plane.html#aff56a2b955d40562e5a3c239d04e1e58" title="Set the distance from the origin to the plane." alt="" coords="197,5,340,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="149,45,181,39,182,44,150,50"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_plane.html#a08b064d3e2e9da2ceeeb7ddd9c68e6a6" title="Set the normal vector of the plane." alt="" coords="197,72,340,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="150,70,182,76,181,81,149,75"/>
+</map>

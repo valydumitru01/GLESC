@@ -1,0 +1,5 @@
+<map id="GLESC::Render::Mesh::addVertices" name="GLESC::Render::Mesh::addVertices">
+<area shape="rect" id="Node000001" title="Adds a list of vertices to the mesh." alt="" coords="5,5,160,48"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_render_1_1_mesh.html#a7d4ee0ef7799514b465c2e4f1e6806dc" title="Adds a vertex to the mesh." alt="" coords="208,5,362,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="160,24,192,24,192,29,160,29"/>
+</map>

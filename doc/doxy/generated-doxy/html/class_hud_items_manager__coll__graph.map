@@ -1,0 +1,15 @@
+<map id="HudItemsManager" name="HudItemsManager">
+<area shape="rect" id="Node000001" title="Class that manages the items that are displayed in the HUD." alt="" coords="137,635,254,747"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="73,501,195,571"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="150,569,169,618,164,620,145,571"/>
+<area shape="rect" id="Node000003" href="$_hud_items_manager_8h.html#struct_item" title=" " alt="" coords="61,368,109,437"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="87,436,94,477,99,486,94,488,89,478,81,437"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html" title=" " alt="" coords="5,5,145,304"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="84,304,85,351,80,351,78,304"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="138,368,242,437"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="172,452,151,502,146,500,167,450"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="185,120,205,189"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="197,189,194,351,188,351,192,189"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="219,501,294,571"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="246,571,226,620,221,618,241,569"/>
+</map>

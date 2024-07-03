@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cppdepend-plugin tool="Misra">
+<file path="c:\program files\cppdepend\defaulttoolchain\compiler\include\c++\iomanip"><violation beginline="224" begincolumn="3" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="194" begincolumn="3" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+</file><file path="c:\users\valyd\desktop\github_repos\tfg---opengl-engine\include\engine\core\debugger\stringer.h"><violation beginline="70" begincolumn="49" rule="Rule5-14-1" ruleset="Statements">
+</violation>
+<violation beginline="74" begincolumn="17" rule="Rule6-6-5" ruleset="Statements">
+</violation>
+<violation beginline="150" begincolumn="17" rule="Rule6-6-5" ruleset="Statements">
+</violation>
+</file><file path="c:\users\valyd\desktop\github_repos\tfg---opengl-engine\src\engine\core\debugger\stringer.cpp"><violation beginline="33" begincolumn="5" rule="Rule6-6-5" ruleset="Statements">
+</violation>
+</file></cppdepend-plugin>

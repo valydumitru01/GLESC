@@ -1,0 +1,13 @@
+<map id="GLESC::Math::Matrix::rank" name="GLESC::Math::Matrix::rank">
+<area shape="rect" id="Node000001" title="Calculates the rank of the matrix." alt="" coords="5,72,152,115"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#ae35d1a5907e775efb15cc5d6a4fd015e" title="Performs Gaussian elimination on a matrix. @TODO: Make this work (doesn&#39;t work for some reason)" alt="" coords="200,72,408,115"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="152,91,184,91,184,96,152,96"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#aa18fde4904887d7afb83932a79dc8cbe" title="Calculates gaussian elimination with partial pivoting and extracts the result." alt="" coords="456,39,664,81"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="408,77,440,73,441,78,409,82"/>
+<area shape="rect" id="Node000006" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a5cea58a2eb5207b8282360179774f17b" title="Sets the diagonal of a matrix to a specific value." alt="" coords="456,105,664,148"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="409,104,441,108,440,114,408,110"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#ab4ffc1744770577aea3a32c00c41b976" title="Copies the data from one matrix to another." alt="" coords="712,5,921,48"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="664,44,696,40,697,45,665,49"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a74b99cd8f1ad4111dd2738a967cd74bb" title="Swaps two rows of a matrix." alt="" coords="712,72,921,115"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="665,71,697,75,696,80,664,76"/>
+</map>

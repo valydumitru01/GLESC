@@ -1,0 +1,14 @@
+<map id="GLESC::Math::Matrix::determinant" name="GLESC::Math::Matrix::determinant">
+<area shape="rect" id="Node000001" title="Calculates the determinant of the matrix." alt="" coords="5,72,152,115"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a9670e25803284a303601766e75617acc" title="Calculates the determinant of any matrix using Laplace expansion." alt="" coords="200,72,408,115"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="152,91,184,91,184,96,152,96"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a85f90015980f7ee665903d04b4b797d8" title="Calculates the cofactor of a matrix element." alt="" coords="456,5,664,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="408,73,489,50,490,56,409,78"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#abd516042cc3d928eefae413db0725670" title="Calculates the determinant of a 2x2 matrix." alt="" coords="456,72,664,115"/>
+<area shape="poly" id="edge4_Node000002_Node000004" title=" " alt="" coords="408,91,440,91,440,96,408,96"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a2217ee08c38b92c583d3f193b5a0da9b" title="Computes the determinant of a matrix 3x3." alt="" coords="456,139,664,181"/>
+<area shape="poly" id="edge5_Node000002_Node000005" title=" " alt="" coords="389,113,461,132,460,137,388,118"/>
+<area shape="rect" id="Node000006" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a972ac9793d405d0a5daca41591c1fb8c" title="Computes the determinant of a matrix 4x4." alt="" coords="456,205,664,248"/>
+<area shape="poly" id="edge6_Node000002_Node000006" title=" " alt="" coords="334,113,390,152,457,191,470,197,468,202,455,196,387,156,331,117"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="456,48,375,70,374,64,455,42"/>
+</map>

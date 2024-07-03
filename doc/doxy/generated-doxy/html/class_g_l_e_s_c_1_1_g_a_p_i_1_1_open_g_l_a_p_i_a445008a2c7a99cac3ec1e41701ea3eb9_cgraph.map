@@ -1,0 +1,37 @@
+<map id="GLESC::GAPI::OpenGLAPI::getTextureData" name="GLESC::GAPI::OpenGLAPI::getTextureData">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,138,187,181"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_a_p_i.html#add338061fb9af187b42b2a20b2734777" title=" " alt="" coords="235,38,416,81"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="138,136,234,91,248,85,250,89,236,95,141,140"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_a_p_i.html#a791591ba90cb777ca1395778de95871b" title=" " alt="" coords="464,105,645,148"/>
+<area shape="poly" id="edge20_Node000001_Node000003" title=" " alt="" coords="109,136,130,109,159,77,193,47,234,24,283,7,325,3,366,9,417,24,447,37,476,54,523,92,520,96,473,58,445,42,415,29,365,14,325,8,284,13,236,29,197,51,162,81,134,112,114,140"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_a_p_i.html#aacefa7dc3b588f4ceef95531a3b71c14" title=" " alt="" coords="235,289,416,332"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="122,179,173,223,236,268,257,279,254,284,233,273,169,227,119,183"/>
+<area shape="rect" id="Node000011" href="$class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_a_p_i.html#a76a65fb1240cb2f9b4731829993238b0" title=" " alt="" coords="464,176,645,218"/>
+<area shape="poly" id="edge21_Node000001_Node000011" title=" " alt="" coords="133,179,180,204,235,224,291,232,348,232,404,228,455,219,455,225,404,233,348,238,291,237,234,229,178,209,130,184"/>
+<area shape="rect" id="Node000013" href="$class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_a_p_i.html#a89bf65df371d987ebf93fd56a9fab721" title=" " alt="" coords="235,105,416,148"/>
+<area shape="poly" id="edge14_Node000001_Node000013" title=" " alt="" coords="187,144,219,139,220,144,187,149"/>
+<area shape="rect" id="Node000014" href="$class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_a_p_i.html#aa00fea9ea279f8b0e10500b5d1bf436a" title=" " alt="" coords="235,172,416,214"/>
+<area shape="poly" id="edge17_Node000001_Node000014" title=" " alt="" coords="187,170,220,175,219,180,187,176"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="402,79,465,98,464,103,400,84"/>
+<area shape="poly" id="edge11_Node000004_Node000003" title=" " alt="" coords="350,287,414,225,436,192,446,177,462,162,475,153,478,158,466,166,450,181,441,195,418,228,354,290"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_logger.html#a9b12ce53593be134b7d7dea62607d22d" title=" " alt="" coords="486,246,624,273"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="416,288,476,274,477,279,417,293"/>
+<area shape="rect" id="Node000006" href="$class_g_l_e_s_c_1_1_logger.html#a5fa42012f212a31fe7eb06c5ba93caba" title="Display basic information Background – Black Text – White." alt="" coords="485,297,625,324"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="416,308,469,308,469,313,416,313"/>
+<area shape="poly" id="edge12_Node000004_Node000011" title=" " alt="" coords="379,286,415,268,438,250,463,232,480,223,482,228,465,237,442,254,417,273,382,291"/>
+<area shape="rect" id="Node000012" href="$namespace_g_l_e_s_c_1_1_g_a_p_i_1_1_enums.html#a2741454f6baed1d79502ce55557a7926" title="Converts the type count to string." alt="" coords="478,348,631,390"/>
+<area shape="poly" id="edge13_Node000004_Node000012" title=" " alt="" coords="412,330,463,343,462,348,410,335"/>
+<area shape="rect" id="Node000007" href="$class_g_l_e_s_c_1_1_logger.html#adcc4730c087b2df0b97cccc15557e432" title=" " alt="" coords="693,230,877,273"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="609,294,683,275,684,280,611,299"/>
+<area shape="rect" id="Node000009" href="$_debug_entity_data_h_u_d_8cpp.html#a9acf295be457442cac6bccc0bf75112c" title=" " alt="" coords="982,293,1026,320"/>
+<area shape="poly" id="edge10_Node000006_Node000009" title=" " alt="" coords="625,307,967,304,967,309,625,312"/>
+<area shape="rect" id="Node000010" href="$class_i_logger.html#af378b37a56de2bad5c4ce2d0f7572f9c" title="Display basic information Background – Black Text – White." alt="" coords="739,348,831,374"/>
+<area shape="poly" id="edge9_Node000006_Node000010" title=" " alt="" coords="619,322,725,345,723,350,618,327"/>
+<area shape="rect" id="Node000008" href="$class_concurrent_queue.html#a7d61d602747cee9adf97076d2781023c" title=" " alt="" coords="925,238,1083,265"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="877,249,909,249,909,254,877,254"/>
+<area shape="poly" id="edge8_Node000007_Node000009" title=" " alt="" coords="874,271,967,295,966,300,872,276"/>
+<area shape="poly" id="edge15_Node000013_Node000003" title=" " alt="" coords="416,124,449,124,449,129,416,129"/>
+<area shape="poly" id="edge16_Node000013_Node000011" title=" " alt="" coords="398,146,469,168,468,173,396,151"/>
+<area shape="poly" id="edge18_Node000014_Node000003" title=" " alt="" coords="400,169,464,150,465,155,402,174"/>
+<area shape="poly" id="edge19_Node000014_Node000011" title=" " alt="" coords="416,192,449,193,448,198,416,197"/>
+</map>

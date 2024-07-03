@@ -1,0 +1,8 @@
+<map id="GLESC::ECS::ECSCoordinator::registerSystem" name="GLESC::ECS::ECSCoordinator::registerSystem">
+<area shape="rect" id="Node000001" title="Registers the system in the system manager so it can be used and updated. If the system is already re..." alt="" coords="5,5,207,48"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#a32f415d7a7e0cefc9e1b5c71a4dc1be4" title="Checks if a system is registered." alt="" coords="506,5,709,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="207,21,255,20,458,20,490,21,490,26,458,25,255,25,207,26"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#aff492e867275d4474b3adbca6798f4b0" title="Registers a system in the system manager. It initializes the system data such as the signature and th..." alt="" coords="255,35,458,77"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="207,36,240,40,239,45,207,41"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="458,41,490,38,491,43,459,47"/>
+</map>

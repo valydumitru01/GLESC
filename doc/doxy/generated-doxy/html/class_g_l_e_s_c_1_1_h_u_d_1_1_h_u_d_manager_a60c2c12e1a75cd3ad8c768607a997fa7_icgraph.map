@@ -1,0 +1,7 @@
+<map id="GLESC::HUD::HUDManager::addWindow" name="GLESC::HUD::HUDManager::addWindow">
+<area shape="rect" id="Node000001" title="Add a new window to the HUD." alt="" coords="279,39,464,81"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_h_u_d_1_1_engine_h_u_d_manager.html#ad4808ab880ad1af66f621895e5797345" title=" " alt="" coords="5,5,231,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="263,48,231,44,232,39,263,43"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_scene_1_1_scene.html#a2f49a68363c7cc37dee02b595e093f2b" title="Adds a window to the scene." alt="" coords="40,72,196,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="264,77,196,86,196,80,263,72"/>
+</map>

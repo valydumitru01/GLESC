@@ -1,0 +1,9 @@
+<map id="GLESC::Math::VectorAlgorithms::makeUpVector" name="GLESC::Math::VectorAlgorithms::makeUpVector">
+<area shape="rect" id="Node000001" title="Makes an up vector from rotation angles." alt="" coords="710,5,921,48"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#a8aa2609d6e4eeabe42198d55d9c0877a" title="Returns the up vector of a rotation." alt="" coords="514,5,662,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="695,29,663,29,663,24,695,24"/>
+<area shape="rect" id="Node000003" href="$struct_g_l_e_s_c_1_1_transform_1_1_transform.html#a39474140c356e7fa09891e1c3d307578" title="Calculates the up vector using the rotation." alt="" coords="271,5,466,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="499,29,466,29,466,24,499,24"/>
+<area shape="rect" id="Node000004" href="$struct_g_l_e_s_c_1_1_transform_1_1_transform.html#a6d0f9441feeb9ac52b51f59be0e7b121" title="Calculates the up vector using the rotation." alt="" coords="5,13,223,40"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="255,29,223,29,223,24,255,24"/>
+</map>

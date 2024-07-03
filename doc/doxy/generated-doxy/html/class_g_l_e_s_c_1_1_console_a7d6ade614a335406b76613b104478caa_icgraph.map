@@ -1,0 +1,9 @@
+<map id="GLESC::Console::log" name="GLESC::Console::log">
+<area shape="rect" id="Node000001" title=" " alt="" coords="315,43,460,69"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_in_game_window.html#aee5f8d22dc2c5b0a1014f6bcb1197441" title="Render the window." alt="" coords="103,5,267,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="299,46,267,41,268,36,300,41"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_engine.html#ad2ff110d5a86c1cd60b541d65915ac48" title="Processes the logic of the game Is called every frame, must be called at constant intervals of time a..." alt="" coords="105,72,265,99"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="300,71,266,76,265,71,299,66"/>
+<area shape="rect" id="Node000004" href="$src_2engine_2main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,72,55,99"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="89,88,55,88,55,83,89,83"/>
+</map>

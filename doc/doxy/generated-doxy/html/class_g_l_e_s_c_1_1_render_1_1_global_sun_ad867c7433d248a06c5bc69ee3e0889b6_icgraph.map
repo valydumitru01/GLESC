@@ -1,0 +1,9 @@
+<map id="GLESC::Render::GlobalSun::setDirty" name="GLESC::Render::GlobalSun::setDirty">
+<area shape="rect" id="Node000001" title=" " alt="" coords="236,72,418,115"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_render_1_1_global_sun.html#a8d3ca9f6652595e72460cb45c506069a" title=" " alt="" coords="5,5,188,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="236,70,172,51,174,46,237,65"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_render_1_1_global_sun.html#ac2dea0a9eb60072bb8e896fe19959047" title=" " alt="" coords="5,72,188,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="220,96,188,96,188,91,220,91"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_render_1_1_global_sun.html#aec0440baa781478cad725d73d5337107" title=" " alt="" coords="5,139,188,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="237,122,174,141,172,135,236,117"/>
+</map>

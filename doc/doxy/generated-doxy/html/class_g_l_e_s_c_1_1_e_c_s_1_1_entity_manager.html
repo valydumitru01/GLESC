@@ -1,0 +1,1846 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="Doxygen Awesome" />
+<meta property="og:image" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+<meta property="og:description" content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
+<meta property="og:url" content="https://jothepro.github.io/doxygen-awesome-css/" />
+<!-- END opengraph metadata -->
+<!-- BEGIN twitter metadata -->
+<meta name="twitter:image:src" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+<meta name="twitter:title" content="Doxygen Awesome" />
+<meta name="twitter:description" content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
+<!-- END twitter metadata -->
+<title>GLESC: GLESC::ECS::EntityManager Class Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.drawio.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/ -->
+<a href="https://github.com/jothepro/doxygen-awesome-css" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="GLESC_logo_white_background.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">GLESC
+   &#160;<span id="projectnumber">1</span>
+   </div>
+   <div id="projectbrief">Game engine using ECS architecture</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
+<a href="#friends">Friends</a> &#124;
+<a href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager-members.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">GLESC::ECS::EntityManager Class Reference</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_entity_manager_8h_source.html">EntityManager.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for GLESC::ECS::EntityManager:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager__coll__graph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a7555637657d090171be6ceee8451de0a" id="r_a7555637657d090171be6ceee8451de0a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a7555637657d090171be6ceee8451de0a">EntityManager</a> ()</td></tr>
+<tr class="separator:a7555637657d090171be6ceee8451de0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9c4bccd99ab51e1da8275f0ea779400" id="r_ae9c4bccd99ab51e1da8275f0ea779400"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#ae9c4bccd99ab51e1da8275f0ea779400">~EntityManager</a> ()=<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">default</a></td></tr>
+<tr class="memdesc:ae9c4bccd99ab51e1da8275f0ea779400"><td class="mdescLeft">&#160;</td><td class="mdescRight">The default destructor is correct, no need to define it.  <br /></td></tr>
+<tr class="separator:ae9c4bccd99ab51e1da8275f0ea779400"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c54c83144ea6f6e27660aac346f1fa7" id="r_a8c54c83144ea6f6e27660aac346f1fa7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a8c54c83144ea6f6e27660aac346f1fa7">addComponentToEntity</a> (<a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>, <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a6f1821559d43fa39404231b6dcd5564b">ComponentID</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">componentID</a>)</td></tr>
+<tr class="memdesc:a8c54c83144ea6f6e27660aac346f1fa7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a component to the entity. The entity must exist.  <br /></td></tr>
+<tr class="separator:a8c54c83144ea6f6e27660aac346f1fa7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d64d3d7d14581391c821fc0aa8ff0a7" id="r_a1d64d3d7d14581391c821fc0aa8ff0a7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a1d64d3d7d14581391c821fc0aa8ff0a7">areThereLivingEntities</a> () <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a></td></tr>
+<tr class="separator:a1d64d3d7d14581391c821fc0aa8ff0a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa518a74c1ab88aef79bd5616999c9bb" id="r_afa518a74c1ab88aef79bd5616999c9bb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#afa518a74c1ab88aef79bd5616999c9bb">canEntityBeCreated</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#ac71e39014c5b48ffb131e0e4abbfe5ed">EntityName</a> &amp;name) <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a></td></tr>
+<tr class="memdesc:afa518a74c1ab88aef79bd5616999c9bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the entity can be created with the given name and the current state of the entity manager.  <br /></td></tr>
+<tr class="separator:afa518a74c1ab88aef79bd5616999c9bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9606d421c8a8a12ce9adf25b792138c6" id="r_a9606d421c8a8a12ce9adf25b792138c6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a9606d421c8a8a12ce9adf25b792138c6">createNextEntity</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#ac71e39014c5b48ffb131e0e4abbfe5ed">EntityName</a> &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">nameParam</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#struct_g_l_e_s_c_1_1_e_c_s_1_1_entity_metadata">EntityMetadata</a> &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">metadata</a>)</td></tr>
+<tr class="memdesc:a9606d421c8a8a12ce9adf25b792138c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create an entity with the given name. The name must be unique.  <br /></td></tr>
+<tr class="separator:a9606d421c8a8a12ce9adf25b792138c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a54b9843d83e416b479220d15f47230" id="r_a1a54b9843d83e416b479220d15f47230"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a1a54b9843d83e416b479220d15f47230">destroyEntity</a> (<a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>)</td></tr>
+<tr class="memdesc:a1a54b9843d83e416b479220d15f47230"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy the entity with the given ID. The entity must exist.  <br /></td></tr>
+<tr class="separator:a1a54b9843d83e416b479220d15f47230"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5145504091eb26170aa219acb60aca71" id="r_a5145504091eb26170aa219acb60aca71"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a5145504091eb26170aa219acb60aca71">doesEntityExist</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#ac71e39014c5b48ffb131e0e4abbfe5ed">EntityName</a> &amp;name) <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a></td></tr>
+<tr class="memdesc:a5145504091eb26170aa219acb60aca71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the entity with the given name exists.  <br /></td></tr>
+<tr class="separator:a5145504091eb26170aa219acb60aca71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e9756248ae4d11d5c7aae51641d5c7a" id="r_a8e9756248ae4d11d5c7aae51641d5c7a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a8e9756248ae4d11d5c7aae51641d5c7a">doesEntityExist</a> (<a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>) <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a></td></tr>
+<tr class="memdesc:a8e9756248ae4d11d5c7aae51641d5c7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the entity with the given ID exists.  <br /></td></tr>
+<tr class="separator:a8e9756248ae4d11d5c7aae51641d5c7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab28983bdd04e1acf2dd7d94dbe4639d" id="r_aab28983bdd04e1acf2dd7d94dbe4639d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#aab28983bdd04e1acf2dd7d94dbe4639d">doesEntityHaveComponent</a> (<a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>, <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a6f1821559d43fa39404231b6dcd5564b">ComponentID</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">componentID</a>) <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a></td></tr>
+<tr class="memdesc:aab28983bdd04e1acf2dd7d94dbe4639d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the entity has the given component. The entity must exist and the component must be in the range of the signature.  <br /></td></tr>
+<tr class="separator:aab28983bdd04e1acf2dd7d94dbe4639d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a694cd261ec90cd04663524de0c6742b9" id="r_a694cd261ec90cd04663524de0c6742b9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> std::queue&lt; <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a694cd261ec90cd04663524de0c6742b9">getAvailableEntities</a> () <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a></td></tr>
+<tr class="separator:a694cd261ec90cd04663524de0c6742b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac84959b1e67dd9cf67d6e5a811224ad9" id="r_ac84959b1e67dd9cf67d6e5a811224ad9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">unsigned</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">long</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">long</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#ac84959b1e67dd9cf67d6e5a811224ad9">getEntityCounter</a> () <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a></td></tr>
+<tr class="separator:ac84959b1e67dd9cf67d6e5a811224ad9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a331b9b5711f516647e4de67f9a256db3" id="r_a331b9b5711f516647e4de67f9a256db3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a331b9b5711f516647e4de67f9a256db3">getEntityID</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#ac71e39014c5b48ffb131e0e4abbfe5ed">EntityName</a> &amp;name) <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a></td></tr>
+<tr class="memdesc:a331b9b5711f516647e4de67f9a256db3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the entity ID from the entity name.  <br /></td></tr>
+<tr class="separator:a331b9b5711f516647e4de67f9a256db3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa357eed1c2259bdf529da1aa0476bd05" id="r_aa357eed1c2259bdf529da1aa0476bd05"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> std::unordered_map&lt; <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a>, <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#ac71e39014c5b48ffb131e0e4abbfe5ed">EntityName</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#aa357eed1c2259bdf529da1aa0476bd05">getEntityIDToName</a> () <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a></td></tr>
+<tr class="separator:aa357eed1c2259bdf529da1aa0476bd05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a763922e6d0025aadf5f9534679589354" id="r_a763922e6d0025aadf5f9534679589354"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#struct_g_l_e_s_c_1_1_e_c_s_1_1_entity_metadata">EntityMetadata</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a763922e6d0025aadf5f9534679589354">getEntityMetadata</a> (<a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>) <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a></td></tr>
+<tr class="memdesc:a763922e6d0025aadf5f9534679589354"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the entity metadata from the entity ID. The entity must exist.  <br /></td></tr>
+<tr class="separator:a763922e6d0025aadf5f9534679589354"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad75636a479815b1d3e5b1b26d2a1245c" id="r_ad75636a479815b1d3e5b1b26d2a1245c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#ac71e39014c5b48ffb131e0e4abbfe5ed">EntityName</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#ad75636a479815b1d3e5b1b26d2a1245c">getEntityName</a> (<a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>) <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a></td></tr>
+<tr class="memdesc:ad75636a479815b1d3e5b1b26d2a1245c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the entity name from the entity ID. The entity must exist.  <br /></td></tr>
+<tr class="separator:ad75636a479815b1d3e5b1b26d2a1245c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a17e65a79f5f0d6b465c5acdbacbcbc" id="r_a0a17e65a79f5f0d6b465c5acdbacbcbc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> std::unordered_map&lt; <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#ac71e39014c5b48ffb131e0e4abbfe5ed">EntityName</a>, <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a0a17e65a79f5f0d6b465c5acdbacbcbc">getEntityNameToID</a> () <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a></td></tr>
+<tr class="separator:a0a17e65a79f5f0d6b465c5acdbacbcbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95315991ba0fb8783dc00ca8c24e3354" id="r_a95315991ba0fb8783dc00ca8c24e3354"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> std::vector&lt; <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a95315991ba0fb8783dc00ca8c24e3354">getInstancedEntities</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#ac71e39014c5b48ffb131e0e4abbfe5ed">EntityName</a> &amp;name) <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a></td></tr>
+<tr class="separator:a95315991ba0fb8783dc00ca8c24e3354"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af066ac9e1f1f0ab284aa479f535b8fdf" id="r_af066ac9e1f1f0ab284aa479f535b8fdf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#af066ac9e1f1f0ab284aa479f535b8fdf">getLivingEntityCount</a> () <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a></td></tr>
+<tr class="separator:af066ac9e1f1f0ab284aa479f535b8fdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afed1028adc518bc27c8cc190832f2bf9" id="r_afed1028adc518bc27c8cc190832f2bf9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#aa6f8561a93cc99836c4eb4f422330fb4">Signature</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#afed1028adc518bc27c8cc190832f2bf9">getSignature</a> (<a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>) <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a></td></tr>
+<tr class="memdesc:afed1028adc518bc27c8cc190832f2bf9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the signature of the entity. The entity must exist.  <br /></td></tr>
+<tr class="separator:afed1028adc518bc27c8cc190832f2bf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18e773f5b22188f99c112ec0744d209d" id="r_a18e773f5b22188f99c112ec0744d209d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> std::array&lt; <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#aa6f8561a93cc99836c4eb4f422330fb4">Signature</a>, <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a1482c2d17768df66e086ec8d59038446">maxEntities</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a18e773f5b22188f99c112ec0744d209d">getSignatures</a> () <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a></td></tr>
+<tr class="separator:a18e773f5b22188f99c112ec0744d209d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54e81951030afee74dd6ea3c4e2b74e5" id="r_a54e81951030afee74dd6ea3c4e2b74e5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a54e81951030afee74dd6ea3c4e2b74e5">isComponentInRange</a> (<a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a6f1821559d43fa39404231b6dcd5564b">ComponentID</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">componentID</a>) <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a></td></tr>
+<tr class="memdesc:a54e81951030afee74dd6ea3c4e2b74e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the component ID is in the range of the signature.  <br /></td></tr>
+<tr class="separator:a54e81951030afee74dd6ea3c4e2b74e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77367b7afcc6f27618cab7d49e504fb7" id="r_a77367b7afcc6f27618cab7d49e504fb7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a77367b7afcc6f27618cab7d49e504fb7">isEntityAlive</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#ac71e39014c5b48ffb131e0e4abbfe5ed">EntityName</a> &amp;name) <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a></td></tr>
+<tr class="memdesc:a77367b7afcc6f27618cab7d49e504fb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the entity with the given name is alive.  <br /></td></tr>
+<tr class="separator:a77367b7afcc6f27618cab7d49e504fb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af174dceb6b3d4ec490f5812ba128dd51" id="r_af174dceb6b3d4ec490f5812ba128dd51"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#af174dceb6b3d4ec490f5812ba128dd51">isEntityAlive</a> (<a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>) <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a></td></tr>
+<tr class="memdesc:af174dceb6b3d4ec490f5812ba128dd51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the entity with the given ID is alive.  <br /></td></tr>
+<tr class="separator:af174dceb6b3d4ec490f5812ba128dd51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab206bffe5c3daf3f62226e2f585cb32e" id="r_ab206bffe5c3daf3f62226e2f585cb32e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#ab206bffe5c3daf3f62226e2f585cb32e">isEntityInstanced</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#ac71e39014c5b48ffb131e0e4abbfe5ed">EntityName</a> &amp;name) <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a></td></tr>
+<tr class="separator:ab206bffe5c3daf3f62226e2f585cb32e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa12eb5a78f90d23488324ee51e7dbd6c" id="r_aa12eb5a78f90d23488324ee51e7dbd6c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#aa12eb5a78f90d23488324ee51e7dbd6c">removeComponentFromEntity</a> (<a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>, <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a6f1821559d43fa39404231b6dcd5564b">ComponentID</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">componentID</a>)</td></tr>
+<tr class="memdesc:aa12eb5a78f90d23488324ee51e7dbd6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove a component from the entity. The entity must exist.  <br /></td></tr>
+<tr class="separator:aa12eb5a78f90d23488324ee51e7dbd6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb88a629b3c998948c75d64801a6f83f" id="r_adb88a629b3c998948c75d64801a6f83f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#adb88a629b3c998948c75d64801a6f83f">S_ASSERT_TRUE</a> (<a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#aa3141c2f66ee0d159de52510cc82af68">firstEntity</a>==0, &quot;First <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">must</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">be</a> 0, <a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html">ComponentArray</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">uses</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">the</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a> ID <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">as</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">index</a>, &quot; &quot;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">if</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">edited</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">this</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">it</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">needs</a> <a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html">ComponentArray</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">to</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">be</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">updated</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">as</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">well&quot;</a>)</td></tr>
+<tr class="separator:adb88a629b3c998948c75d64801a6f83f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95435313352faa0c2917e1297b4a0058" id="r_a95435313352faa0c2917e1297b4a0058"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a95435313352faa0c2917e1297b4a0058">tryGetEntity</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#ac71e39014c5b48ffb131e0e4abbfe5ed">EntityName</a> &amp;name) <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a></td></tr>
+<tr class="memdesc:a95435313352faa0c2917e1297b4a0058"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tries to get the entity ID from the entity name.  <br /></td></tr>
+<tr class="separator:a95435313352faa0c2917e1297b4a0058"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:a9b872bd1e0f88d7e2a66254fa56d085b" id="r_a9b872bd1e0f88d7e2a66254fa56d085b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#ac71e39014c5b48ffb131e0e4abbfe5ed">EntityName</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a9b872bd1e0f88d7e2a66254fa56d085b">nullEntityName</a> = <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#ac71e39014c5b48ffb131e0e4abbfe5ed">EntityName</a>{&quot;NULL_ENTITY&quot;}</td></tr>
+<tr class="separator:a9b872bd1e0f88d7e2a66254fa56d085b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:aa3141c2f66ee0d159de52510cc82af68" id="r_aa3141c2f66ee0d159de52510cc82af68"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">static</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">constexpr</a> <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#aa3141c2f66ee0d159de52510cc82af68">firstEntity</a> {0}</td></tr>
+<tr class="separator:aa3141c2f66ee0d159de52510cc82af68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f8d3b9a15bdcf39c67c305ba8850b98" id="r_a7f8d3b9a15bdcf39c67c305ba8850b98"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">static</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">constexpr</a> <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a7f8d3b9a15bdcf39c67c305ba8850b98">nullEntity</a> {std::numeric_limits&lt;<a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a>&gt;::max()}</td></tr>
+<tr class="memdesc:a7f8d3b9a15bdcf39c67c305ba8850b98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Null entity with ID 0. This is used to indicate that an entity does not exist.  <br /></td></tr>
+<tr class="separator:a7f8d3b9a15bdcf39c67c305ba8850b98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:ac8d08fdeca6fa8048ae5b12004a7ccb3" id="r_ac8d08fdeca6fa8048ae5b12004a7ccb3"><td class="memItemLeft" align="right" valign="top">std::queue&lt; <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#ac8d08fdeca6fa8048ae5b12004a7ccb3">availableEntities</a></td></tr>
+<tr class="memdesc:ac8d08fdeca6fa8048ae5b12004a7ccb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queue of the available entities, used to avoid iterating over all the entities.  <br /></td></tr>
+<tr class="separator:ac8d08fdeca6fa8048ae5b12004a7ccb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a277a3797edf7332f4f7e5588a92f851e" id="r_a277a3797edf7332f4f7e5588a92f851e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">unsigned</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">long</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">long</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a277a3797edf7332f4f7e5588a92f851e">entityCounter</a> {}</td></tr>
+<tr class="memdesc:a277a3797edf7332f4f7e5588a92f851e"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_counter.html">Counter</a> that counts all the entities that have ever been created. It's useful to be able to create entities without names, so we never create entities with the same name.  <br /></td></tr>
+<tr class="separator:a277a3797edf7332f4f7e5588a92f851e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a883968799cd2c8dc319c306b90f36b14" id="r_a883968799cd2c8dc319c306b90f36b14"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a>, <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#ac71e39014c5b48ffb131e0e4abbfe5ed">EntityName</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a883968799cd2c8dc319c306b90f36b14">entityIDToName</a></td></tr>
+<tr class="separator:a883968799cd2c8dc319c306b90f36b14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a042e8bc861140ae483988a46ec0ad23b" id="r_a042e8bc861140ae483988a46ec0ad23b"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a>, <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#struct_g_l_e_s_c_1_1_e_c_s_1_1_entity_metadata">EntityMetadata</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a042e8bc861140ae483988a46ec0ad23b">entityMetadata</a></td></tr>
+<tr class="separator:a042e8bc861140ae483988a46ec0ad23b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd6cb3d534adf8b7c5e44315dfe703c0" id="r_afd6cb3d534adf8b7c5e44315dfe703c0"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#ac71e39014c5b48ffb131e0e4abbfe5ed">EntityName</a>, <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#afd6cb3d534adf8b7c5e44315dfe703c0">entityNameToID</a></td></tr>
+<tr class="separator:afd6cb3d534adf8b7c5e44315dfe703c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3ffd29531570890e8b32825a6964ce2" id="r_ae3ffd29531570890e8b32825a6964ce2"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#ac71e39014c5b48ffb131e0e4abbfe5ed">EntityName</a>, std::vector&lt; <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#ae3ffd29531570890e8b32825a6964ce2">instancedEntities</a></td></tr>
+<tr class="separator:ae3ffd29531570890e8b32825a6964ce2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75d079eadd365ea965019b0d6ead410f" id="r_a75d079eadd365ea965019b0d6ead410f"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#ac71e39014c5b48ffb131e0e4abbfe5ed">EntityName</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">int</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a75d079eadd365ea965019b0d6ead410f">instancesNextID</a></td></tr>
+<tr class="separator:a75d079eadd365ea965019b0d6ead410f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab677fef21e85654397903405d5073b1d" id="r_ab677fef21e85654397903405d5073b1d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#ab677fef21e85654397903405d5073b1d">livingEntityCount</a> {}</td></tr>
+<tr class="memdesc:ab677fef21e85654397903405d5073b1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The number of living entities.  <br /></td></tr>
+<tr class="separator:ab677fef21e85654397903405d5073b1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6737b1aa49a0374bf9c92fd0df3aae8c" id="r_a6737b1aa49a0374bf9c92fd0df3aae8c"><td class="memItemLeft" align="right" valign="top">std::array&lt; <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#aa6f8561a93cc99836c4eb4f422330fb4">Signature</a>, <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a1482c2d17768df66e086ec8d59038446">maxEntities</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a6737b1aa49a0374bf9c92fd0df3aae8c">signatures</a></td></tr>
+<tr class="memdesc:a6737b1aa49a0374bf9c92fd0df3aae8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Array of the signatures of the entities.  <br /></td></tr>
+<tr class="separator:a6737b1aa49a0374bf9c92fd0df3aae8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:abed2e42fe630d246114c0d3d30516fab" id="r_abed2e42fe630d246114c0d3d30516fab"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">class</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#abed2e42fe630d246114c0d3d30516fab">ECS</a></td></tr>
+<tr class="separator:abed2e42fe630d246114c0d3d30516fab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock">
+<p class="definition">Definition at line <a class="el" href="_entity_manager_8h_source.html#l00028">28</a> of file <a class="el" href="_entity_manager_8h_source.html">EntityManager.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a7555637657d090171be6ceee8451de0a" name="a7555637657d090171be6ceee8451de0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7555637657d090171be6ceee8451de0a">&#9670;&#160;</a></span>EntityManager()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">EntityManager::EntityManager </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00020">20</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   20</span>                             {</div>
+<div class="line"><span class="lineno">   21</span>    <span class="comment">// Initialize the queue with all possible entity IDs</span></div>
+<div class="line"><span class="lineno">   22</span>    <span class="keywordflow">for</span> (<a class="code hl_typedef" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a> = <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#aa3141c2f66ee0d159de52510cc82af68">firstEntity</a>; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a> &lt; <a class="code hl_variable" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a1482c2d17768df66e086ec8d59038446">maxEntities</a> + <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#aa3141c2f66ee0d159de52510cc82af68">firstEntity</a>; ++<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>) {</div>
+<div class="line"><span class="lineno">   23</span>        <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#ac8d08fdeca6fa8048ae5b12004a7ccb3">availableEntities</a>.push(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>);</div>
+<div class="line"><span class="lineno">   24</span>    }</div>
+<div class="line"><span class="lineno">   25</span>}</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_html_aa3141c2f66ee0d159de52510cc82af68"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#aa3141c2f66ee0d159de52510cc82af68">GLESC::ECS::EntityManager::firstEntity</a></div><div class="ttdeci">static constexpr EntityID firstEntity</div><div class="ttdef"><b>Definition</b> <a href="_entity_manager_8h_source.html#l00036">EntityManager.h:36</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_html_ac8d08fdeca6fa8048ae5b12004a7ccb3"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#ac8d08fdeca6fa8048ae5b12004a7ccb3">GLESC::ECS::EntityManager::availableEntities</a></div><div class="ttdeci">std::queue&lt; EntityID &gt; availableEntities</div><div class="ttdoc">Queue of the available entities, used to avoid iterating over all the entities.</div><div class="ttdef"><b>Definition</b> <a href="_entity_manager_8h_source.html#l00182">EntityManager.h:182</a></div></div>
+<div class="ttc" id="anamespace_g_l_e_s_c_1_1_e_c_s_html_a1482c2d17768df66e086ec8d59038446"><div class="ttname"><a href="namespace_g_l_e_s_c_1_1_e_c_s.html#a1482c2d17768df66e086ec8d59038446">GLESC::ECS::maxEntities</a></div><div class="ttdeci">static const EntityID maxEntities</div><div class="ttdoc">Maximum amount of entities can there be at once.</div><div class="ttdef"><b>Definition</b> <a href="_e_c_s_types_8h_source.html#l00055">ECSTypes.h:55</a></div></div>
+<div class="ttc" id="anamespace_g_l_e_s_c_1_1_e_c_s_html_a7486db58d646954b2b475ff0af24a99b"><div class="ttname"><a href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">GLESC::ECS::EntityID</a></div><div class="ttdeci">std::uint16_t EntityID</div><div class="ttdoc">Type of each ID of each entity.</div><div class="ttdef"><b>Definition</b> <a href="_e_c_s_types_8h_source.html#l00026">ECSTypes.h:26</a></div></div>
+<div class="ttc" id="anamespace_g_l_e_s_c_html_a7c64a4da2d1da1597f4ec563d00bb9f8"><div class="ttname"><a href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">GLESC::isIterable_v</a></div><div class="ttdeci">constexpr bool isIterable_v</div><div class="ttdef"><b>Definition</b> <a href="_stringer_8h_source.html#l00029">Stringer.h:29</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_entity_manager_8h_source.html#l00182">availableEntities</a>, <a class="el" href="_entity_manager_8h_source.html#l00036">firstEntity</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_e_c_s_types_8h_source.html#l00055">GLESC::ECS::maxEntities</a>.</p>
+
+</div>
+</div>
+<a id="ae9c4bccd99ab51e1da8275f0ea779400" name="ae9c4bccd99ab51e1da8275f0ea779400"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9c4bccd99ab51e1da8275f0ea779400">&#9670;&#160;</a></span>~EntityManager()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLESC::ECS::EntityManager::~EntityManager </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The default destructor is correct, no need to define it. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a8c54c83144ea6f6e27660aac346f1fa7" name="a8c54c83144ea6f6e27660aac346f1fa7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c54c83144ea6f6e27660aac346f1fa7">&#9670;&#160;</a></span>addComponentToEntity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> EntityManager::addComponentToEntity </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a>&#160;</td>
+          <td class="paramname"><em>entity</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a6f1821559d43fa39404231b6dcd5564b">ComponentID</a>&#160;</td>
+          <td class="paramname"><em>componentID</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Add a component to the entity. The entity must exist. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entity</td><td>The ID of the entity </td></tr>
+    <tr><td class="paramname">componentID</td><td>The ID of the component </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00127">127</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  127</span>                                                                                 {</div>
+<div class="line"><span class="lineno">  128</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a5145504091eb26170aa219acb60aca71">doesEntityExist</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>), <span class="stringliteral">&quot;Entity must exist to add a component&quot;</span>);</div>
+<div class="line"><span class="lineno">  129</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a54e81951030afee74dd6ea3c4e2b74e5">isComponentInRange</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">componentID</a>), <span class="stringliteral">&quot;Component must be in range to be added&quot;</span>);</div>
+<div class="line"><span class="lineno">  130</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#aab28983bdd04e1acf2dd7d94dbe4639d">doesEntityHaveComponent</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">componentID</a>)) <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">  131</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a6737b1aa49a0374bf9c92fd0df3aae8c">signatures</a>[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>].set(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">componentID</a>);</div>
+<div class="line"><span class="lineno">  132</span>}</div>
+<div class="ttc" id="a_asserts_8h_html_a7c8157e57600c968442fc2ee80245d5a"><div class="ttname"><a href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a></div><div class="ttdeci">#define D_ASSERT_TRUE(condition, message)</div><div class="ttdef"><b>Definition</b> <a href="_asserts_8h_source.html#l00021">Asserts.h:21</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_html_a5145504091eb26170aa219acb60aca71"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a5145504091eb26170aa219acb60aca71">GLESC::ECS::EntityManager::doesEntityExist</a></div><div class="ttdeci">bool doesEntityExist(const EntityName &amp;name) const</div><div class="ttdoc">Check if the entity with the given name exists.</div><div class="ttdef"><b>Definition</b> <a href="_entity_manager_8cpp_source.html#l00134">EntityManager.cpp:134</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_html_a54e81951030afee74dd6ea3c4e2b74e5"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a54e81951030afee74dd6ea3c4e2b74e5">GLESC::ECS::EntityManager::isComponentInRange</a></div><div class="ttdeci">bool isComponentInRange(ComponentID componentID) const</div><div class="ttdoc">Check if the component ID is in the range of the signature.</div><div class="ttdef"><b>Definition</b> <a href="_entity_manager_8cpp_source.html#l00152">EntityManager.cpp:152</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_html_a6737b1aa49a0374bf9c92fd0df3aae8c"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a6737b1aa49a0374bf9c92fd0df3aae8c">GLESC::ECS::EntityManager::signatures</a></div><div class="ttdeci">std::array&lt; Signature, maxEntities &gt; signatures</div><div class="ttdoc">Array of the signatures of the entities.</div><div class="ttdef"><b>Definition</b> <a href="_entity_manager_8h_source.html#l00188">EntityManager.h:188</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_html_aab28983bdd04e1acf2dd7d94dbe4639d"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#aab28983bdd04e1acf2dd7d94dbe4639d">GLESC::ECS::EntityManager::doesEntityHaveComponent</a></div><div class="ttdeci">bool doesEntityHaveComponent(EntityID entity, ComponentID componentID) const</div><div class="ttdoc">Check if the entity has the given component. The entity must exist and the component must be in the r...</div><div class="ttdef"><b>Definition</b> <a href="_entity_manager_8cpp_source.html#l00084">EntityManager.cpp:84</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_asserts_8h_source.html#l00021">D_ASSERT_TRUE</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00134">doesEntityExist()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00084">doesEntityHaveComponent()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00152">isComponentInRange()</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_entity_manager_8h_source.html#l00188">signatures</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_e_c_s_8h_source.html#l00249">GLESC::ECS::ECSCoordinator::addComponent()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_a8c54c83144ea6f6e27660aac346f1fa7_cgraph.svg" width="100%" height="399"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_a8c54c83144ea6f6e27660aac346f1fa7_icgraph.svg" width="100%" height="428"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a1d64d3d7d14581391c821fc0aa8ff0a7" name="a1d64d3d7d14581391c821fc0aa8ff0a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d64d3d7d14581391c821fc0aa8ff0a7">&#9670;&#160;</a></span>areThereLivingEntities()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a> EntityManager::areThereLivingEntities </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00162">162</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  162</span>                                                 {</div>
+<div class="line"><span class="lineno">  163</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#ab677fef21e85654397903405d5073b1d">livingEntityCount</a> &gt; 0;</div>
+<div class="line"><span class="lineno">  164</span>}</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_html_ab677fef21e85654397903405d5073b1d"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#ab677fef21e85654397903405d5073b1d">GLESC::ECS::EntityManager::livingEntityCount</a></div><div class="ttdeci">EntityID livingEntityCount</div><div class="ttdoc">The number of living entities.</div><div class="ttdef"><b>Definition</b> <a href="_entity_manager_8h_source.html#l00200">EntityManager.h:200</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_entity_manager_8h_source.html#l00200">livingEntityCount</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_entity_manager_8cpp_source.html#l00051">destroyEntity()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_a1d64d3d7d14581391c821fc0aa8ff0a7_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="afa518a74c1ab88aef79bd5616999c9bb" name="afa518a74c1ab88aef79bd5616999c9bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa518a74c1ab88aef79bd5616999c9bb">&#9670;&#160;</a></span>canEntityBeCreated()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a> EntityManager::canEntityBeCreated </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#ac71e39014c5b48ffb131e0e4abbfe5ed">EntityName</a> &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check if the entity can be created with the given name and the current state of the entity manager. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>The name of the entity </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the entity can be created, false otherwise </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00156">156</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  156</span>                                                                   {</div>
+<div class="line"><span class="lineno">  157</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#ab677fef21e85654397903405d5073b1d">livingEntityCount</a> &lt; <a class="code hl_variable" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a1482c2d17768df66e086ec8d59038446">maxEntities</a></div>
+<div class="line"><span class="lineno">  158</span>        &amp;&amp; !<a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#ac8d08fdeca6fa8048ae5b12004a7ccb3">availableEntities</a>.empty()</div>
+<div class="line"><span class="lineno">  159</span>        &amp;&amp; <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#afd6cb3d534adf8b7c5e44315dfe703c0">entityNameToID</a>.find(name) == <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#afd6cb3d534adf8b7c5e44315dfe703c0">entityNameToID</a>.end();</div>
+<div class="line"><span class="lineno">  160</span>}</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_html_afd6cb3d534adf8b7c5e44315dfe703c0"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#afd6cb3d534adf8b7c5e44315dfe703c0">GLESC::ECS::EntityManager::entityNameToID</a></div><div class="ttdeci">std::unordered_map&lt; EntityName, EntityID &gt; entityNameToID</div><div class="ttdef"><b>Definition</b> <a href="_entity_manager_8h_source.html#l00191">EntityManager.h:191</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_entity_manager_8h_source.html#l00182">availableEntities</a>, <a class="el" href="_entity_manager_8h_source.html#l00191">entityNameToID</a>, <a class="el" href="_entity_manager_8h_source.html#l00200">livingEntityCount</a>, and <a class="el" href="_e_c_s_types_8h_source.html#l00055">GLESC::ECS::maxEntities</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_entity_manager_8cpp_source.html#l00027">createNextEntity()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_afa518a74c1ab88aef79bd5616999c9bb_icgraph.svg" width="100%" height="390"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a9606d421c8a8a12ce9adf25b792138c6" name="a9606d421c8a8a12ce9adf25b792138c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9606d421c8a8a12ce9adf25b792138c6">&#9670;&#160;</a></span>createNextEntity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a> EntityManager::createNextEntity </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#ac71e39014c5b48ffb131e0e4abbfe5ed">EntityName</a> &amp;&#160;</td>
+          <td class="paramname"><em>nameParam</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#struct_g_l_e_s_c_1_1_e_c_s_1_1_entity_metadata">EntityMetadata</a> &amp;&#160;</td>
+          <td class="paramname"><em>metadata</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Create an entity with the given name. The name must be unique. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nameParam</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00027">27</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   27</span>                                                                                                    {</div>
+<div class="line"><span class="lineno">   28</span>    <a class="code hl_typedef" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a> <span class="keywordtype">id</span> = <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#ac8d08fdeca6fa8048ae5b12004a7ccb3">availableEntities</a>.front();</div>
+<div class="line"><span class="lineno">   29</span> </div>
+<div class="line"><span class="lineno">   30</span>    <a class="code hl_typedef" href="namespace_g_l_e_s_c_1_1_e_c_s.html#ac71e39014c5b48ffb131e0e4abbfe5ed">EntityName</a> name = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">nameParam</a>;</div>
+<div class="line"><span class="lineno">   31</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">metadata</a>.type == <a class="code hl_enumvalue" href="namespace_g_l_e_s_c.html#a4c76efb6a8bcb81fb17743d8315c596bad9a17c1c9e8ef6866e4dbeef41c741b2">EntityType::Instance</a>) {</div>
+<div class="line"><span class="lineno">   32</span>        <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#ae3ffd29531570890e8b32825a6964ce2">instancedEntities</a>[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">nameParam</a>].push_back(<span class="keywordtype">id</span>);</div>
+<div class="line"><span class="lineno">   33</span>        name.append(std::to_string(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a75d079eadd365ea965019b0d6ead410f">instancesNextID</a>[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">nameParam</a>]));</div>
+<div class="line"><span class="lineno">   34</span>        <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a75d079eadd365ea965019b0d6ead410f">instancesNextID</a>[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">nameParam</a>]++;</div>
+<div class="line"><span class="lineno">   35</span>    }</div>
+<div class="line"><span class="lineno">   36</span> </div>
+<div class="line"><span class="lineno">   37</span> </div>
+<div class="line"><span class="lineno">   38</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#afa518a74c1ab88aef79bd5616999c9bb">canEntityBeCreated</a>(name), <span class="stringliteral">&quot;Entity must be able to be created&quot;</span>);</div>
+<div class="line"><span class="lineno">   39</span> </div>
+<div class="line"><span class="lineno">   40</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#ac8d08fdeca6fa8048ae5b12004a7ccb3">availableEntities</a>.pop();</div>
+<div class="line"><span class="lineno">   41</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a883968799cd2c8dc319c306b90f36b14">entityIDToName</a>.insert({<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">id</a>, name});</div>
+<div class="line"><span class="lineno">   42</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#afd6cb3d534adf8b7c5e44315dfe703c0">entityNameToID</a>.insert({name, <span class="keywordtype">id</span>});</div>
+<div class="line"><span class="lineno">   43</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a042e8bc861140ae483988a46ec0ad23b">entityMetadata</a>.insert({<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">id</a>, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">metadata</a>});</div>
+<div class="line"><span class="lineno">   44</span>    ++<a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#ab677fef21e85654397903405d5073b1d">livingEntityCount</a>;</div>
+<div class="line"><span class="lineno">   45</span>    ++<a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a277a3797edf7332f4f7e5588a92f851e">entityCounter</a>;</div>
+<div class="line"><span class="lineno">   46</span> </div>
+<div class="line"><span class="lineno">   47</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a5145504091eb26170aa219acb60aca71">doesEntityExist</a>(<span class="keywordtype">id</span>), <span class="stringliteral">&quot;Entity must exist after creation&quot;</span>);</div>
+<div class="line"><span class="lineno">   48</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">id</a>;</div>
+<div class="line"><span class="lineno">   49</span>}</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_html_a042e8bc861140ae483988a46ec0ad23b"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a042e8bc861140ae483988a46ec0ad23b">GLESC::ECS::EntityManager::entityMetadata</a></div><div class="ttdeci">std::unordered_map&lt; EntityID, EntityMetadata &gt; entityMetadata</div><div class="ttdef"><b>Definition</b> <a href="_entity_manager_8h_source.html#l00193">EntityManager.h:193</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_html_a277a3797edf7332f4f7e5588a92f851e"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a277a3797edf7332f4f7e5588a92f851e">GLESC::ECS::EntityManager::entityCounter</a></div><div class="ttdeci">unsigned long long entityCounter</div><div class="ttdoc">Counter that counts all the entities that have ever been created. It's useful to be able to create en...</div><div class="ttdef"><b>Definition</b> <a href="_entity_manager_8h_source.html#l00206">EntityManager.h:206</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_html_a75d079eadd365ea965019b0d6ead410f"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a75d079eadd365ea965019b0d6ead410f">GLESC::ECS::EntityManager::instancesNextID</a></div><div class="ttdeci">std::unordered_map&lt; EntityName, int &gt; instancesNextID</div><div class="ttdef"><b>Definition</b> <a href="_entity_manager_8h_source.html#l00195">EntityManager.h:195</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_html_a883968799cd2c8dc319c306b90f36b14"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a883968799cd2c8dc319c306b90f36b14">GLESC::ECS::EntityManager::entityIDToName</a></div><div class="ttdeci">std::unordered_map&lt; EntityID, EntityName &gt; entityIDToName</div><div class="ttdef"><b>Definition</b> <a href="_entity_manager_8h_source.html#l00192">EntityManager.h:192</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_html_ae3ffd29531570890e8b32825a6964ce2"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#ae3ffd29531570890e8b32825a6964ce2">GLESC::ECS::EntityManager::instancedEntities</a></div><div class="ttdeci">std::unordered_map&lt; EntityName, std::vector&lt; EntityID &gt; &gt; instancedEntities</div><div class="ttdef"><b>Definition</b> <a href="_entity_manager_8h_source.html#l00194">EntityManager.h:194</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_html_afa518a74c1ab88aef79bd5616999c9bb"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#afa518a74c1ab88aef79bd5616999c9bb">GLESC::ECS::EntityManager::canEntityBeCreated</a></div><div class="ttdeci">bool canEntityBeCreated(const EntityName &amp;name) const</div><div class="ttdoc">Check if the entity can be created with the given name and the current state of the entity manager.</div><div class="ttdef"><b>Definition</b> <a href="_entity_manager_8cpp_source.html#l00156">EntityManager.cpp:156</a></div></div>
+<div class="ttc" id="anamespace_g_l_e_s_c_1_1_e_c_s_html_ac71e39014c5b48ffb131e0e4abbfe5ed"><div class="ttname"><a href="namespace_g_l_e_s_c_1_1_e_c_s.html#ac71e39014c5b48ffb131e0e4abbfe5ed">GLESC::ECS::EntityName</a></div><div class="ttdeci">std::string EntityName</div><div class="ttdoc">Entity name.</div><div class="ttdef"><b>Definition</b> <a href="_e_c_s_types_8h_source.html#l00046">ECSTypes.h:46</a></div></div>
+<div class="ttc" id="anamespace_g_l_e_s_c_html_a4c76efb6a8bcb81fb17743d8315c596bad9a17c1c9e8ef6866e4dbeef41c741b2"><div class="ttname"><a href="namespace_g_l_e_s_c.html#a4c76efb6a8bcb81fb17743d8315c596bad9a17c1c9e8ef6866e4dbeef41c741b2">GLESC::EntityType::Instance</a></div><div class="ttdeci">@ Instance</div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_entity_manager_8h_source.html#l00182">availableEntities</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00156">canEntityBeCreated()</a>, <a class="el" href="_asserts_8h_source.html#l00021">D_ASSERT_TRUE</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00134">doesEntityExist()</a>, <a class="el" href="_entity_manager_8h_source.html#l00206">entityCounter</a>, <a class="el" href="_entity_manager_8h_source.html#l00192">entityIDToName</a>, <a class="el" href="_entity_manager_8h_source.html#l00193">entityMetadata</a>, <a class="el" href="_entity_manager_8h_source.html#l00191">entityNameToID</a>, <a class="el" href="namespace_g_l_e_s_c.html#a4c76efb6a8bcb81fb17743d8315c596bad9a17c1c9e8ef6866e4dbeef41c741b2">GLESC::Instance</a>, <a class="el" href="_entity_manager_8h_source.html#l00194">instancedEntities</a>, <a class="el" href="_entity_manager_8h_source.html#l00195">instancesNextID</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_entity_manager_8h_source.html#l00200">livingEntityCount</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_e_c_s_8cpp_source.html#l00120">GLESC::ECS::ECSCoordinator::createEntity()</a>, and <a class="el" href="_e_c_s_8cpp_source.html#l00107">GLESC::ECS::ECSCoordinator::createEntity()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_a9606d421c8a8a12ce9adf25b792138c6_cgraph.svg" width="444" height="120"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_a9606d421c8a8a12ce9adf25b792138c6_icgraph.svg" width="452" height="120"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a1a54b9843d83e416b479220d15f47230" name="a1a54b9843d83e416b479220d15f47230"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a54b9843d83e416b479220d15f47230">&#9670;&#160;</a></span>destroyEntity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> EntityManager::destroyEntity </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a>&#160;</td>
+          <td class="paramname"><em>entity</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Destroy the entity with the given ID. The entity must exist. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entity</td><td>The ID of the entity </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00051">51</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   51</span>                                                 {</div>
+<div class="line"><span class="lineno">   52</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a1d64d3d7d14581391c821fc0aa8ff0a7">areThereLivingEntities</a>(), <span class="stringliteral">&quot;There must be living entities to destroy one&quot;</span>);</div>
+<div class="line"><span class="lineno">   53</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a5145504091eb26170aa219acb60aca71">doesEntityExist</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>), <span class="stringliteral">&quot;Entity must exist before destruction&quot;</span>);</div>
+<div class="line"><span class="lineno">   54</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>((<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a> != <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a7f8d3b9a15bdcf39c67c305ba8850b98">GLESC::ECS::EntityManager::nullEntity</a>), <span class="stringliteral">&quot;Entity must not be nullEntity&quot;</span>);</div>
+<div class="line"><span class="lineno">   55</span> </div>
+<div class="line"><span class="lineno">   56</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#ab206bffe5c3daf3f62226e2f585cb32e">isEntityInstanced</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a883968799cd2c8dc319c306b90f36b14">entityIDToName</a>[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>])) {</div>
+<div class="line"><span class="lineno">   57</span>        <a class="code hl_typedef" href="namespace_g_l_e_s_c_1_1_e_c_s.html#ac71e39014c5b48ffb131e0e4abbfe5ed">EntityName</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">instanceName</a> = <a class="code hl_function" href="class_g_l_e_s_c_1_1_stringer.html#a664c9af6a77e075c21a6b0cff1329e4f">Stringer::strip</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a883968799cd2c8dc319c306b90f36b14">entityIDToName</a>[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>], <span class="stringliteral">&quot;1234567890&quot;</span>);</div>
+<div class="line"><span class="lineno">   58</span>        std::vector&lt;EntityID&gt;&amp; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">instancedList</a> = this-&gt;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#ae3ffd29531570890e8b32825a6964ce2">instancedEntities</a>[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">instanceName</a>];</div>
+<div class="line"><span class="lineno">   59</span> </div>
+<div class="line"><span class="lineno">   60</span>        <span class="keyword">auto</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">it</a> = std::find(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">instancedList</a>.begin(), <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">instancedList</a>.end(), <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>);</div>
+<div class="line"><span class="lineno">   61</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">it</a> != <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">instancedList</a>.end())</div>
+<div class="line"><span class="lineno">   62</span>            <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">instancedList</a>.erase(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">it</a>);</div>
+<div class="line"><span class="lineno">   63</span>    }</div>
+<div class="line"><span class="lineno">   64</span> </div>
+<div class="line"><span class="lineno">   65</span> </div>
+<div class="line"><span class="lineno">   66</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a6737b1aa49a0374bf9c92fd0df3aae8c">signatures</a>[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>].reset();</div>
+<div class="line"><span class="lineno">   67</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#ac8d08fdeca6fa8048ae5b12004a7ccb3">availableEntities</a>.push(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>);</div>
+<div class="line"><span class="lineno">   68</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#afd6cb3d534adf8b7c5e44315dfe703c0">entityNameToID</a>.erase(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a883968799cd2c8dc319c306b90f36b14">entityIDToName</a>[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>]);</div>
+<div class="line"><span class="lineno">   69</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a883968799cd2c8dc319c306b90f36b14">entityIDToName</a>.erase(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>);</div>
+<div class="line"><span class="lineno">   70</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a042e8bc861140ae483988a46ec0ad23b">entityMetadata</a>.erase(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>);</div>
+<div class="line"><span class="lineno">   71</span> </div>
+<div class="line"><span class="lineno">   72</span> </div>
+<div class="line"><span class="lineno">   73</span>    --<a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#ab677fef21e85654397903405d5073b1d">livingEntityCount</a>;</div>
+<div class="line"><span class="lineno">   74</span> </div>
+<div class="line"><span class="lineno">   75</span>    <a class="code hl_define" href="_asserts_8h.html#abc189a68f629f827fca1b31a8449cfdb">D_ASSERT_FALSE</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a5145504091eb26170aa219acb60aca71">doesEntityExist</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>), <span class="stringliteral">&quot;Entity must not exist after destruction&quot;</span>);</div>
+<div class="line"><span class="lineno">   76</span>    <a class="code hl_define" href="_asserts_8h.html#abc189a68f629f827fca1b31a8449cfdb">D_ASSERT_FALSE</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#af174dceb6b3d4ec490f5812ba128dd51">isEntityAlive</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>), <span class="stringliteral">&quot;Entity must not be alive after destruction&quot;</span>);</div>
+<div class="line"><span class="lineno">   77</span>}</div>
+<div class="ttc" id="a_asserts_8h_html_abc189a68f629f827fca1b31a8449cfdb"><div class="ttname"><a href="_asserts_8h.html#abc189a68f629f827fca1b31a8449cfdb">D_ASSERT_FALSE</a></div><div class="ttdeci">#define D_ASSERT_FALSE(condition, message)</div><div class="ttdef"><b>Definition</b> <a href="_asserts_8h_source.html#l00022">Asserts.h:22</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_html_a1d64d3d7d14581391c821fc0aa8ff0a7"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a1d64d3d7d14581391c821fc0aa8ff0a7">GLESC::ECS::EntityManager::areThereLivingEntities</a></div><div class="ttdeci">bool areThereLivingEntities() const</div><div class="ttdef"><b>Definition</b> <a href="_entity_manager_8cpp_source.html#l00162">EntityManager.cpp:162</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_html_a7f8d3b9a15bdcf39c67c305ba8850b98"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a7f8d3b9a15bdcf39c67c305ba8850b98">GLESC::ECS::EntityManager::nullEntity</a></div><div class="ttdeci">static constexpr EntityID nullEntity</div><div class="ttdoc">Null entity with ID 0. This is used to indicate that an entity does not exist.</div><div class="ttdef"><b>Definition</b> <a href="_entity_manager_8h_source.html#l00035">EntityManager.h:35</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_html_ab206bffe5c3daf3f62226e2f585cb32e"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#ab206bffe5c3daf3f62226e2f585cb32e">GLESC::ECS::EntityManager::isEntityInstanced</a></div><div class="ttdeci">bool isEntityInstanced(const EntityName &amp;name) const</div><div class="ttdef"><b>Definition</b> <a href="_entity_manager_8cpp_source.html#l00115">EntityManager.cpp:115</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_html_af174dceb6b3d4ec490f5812ba128dd51"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#af174dceb6b3d4ec490f5812ba128dd51">GLESC::ECS::EntityManager::isEntityAlive</a></div><div class="ttdeci">bool isEntityAlive(EntityID entity) const</div><div class="ttdoc">Check if the entity with the given ID is alive.</div><div class="ttdef"><b>Definition</b> <a href="_entity_manager_8cpp_source.html#l00142">EntityManager.cpp:142</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_stringer_html_a664c9af6a77e075c21a6b0cff1329e4f"><div class="ttname"><a href="class_g_l_e_s_c_1_1_stringer.html#a664c9af6a77e075c21a6b0cff1329e4f">GLESC::Stringer::strip</a></div><div class="ttdeci">static std::string strip(const std::string &amp;string, const std::string &amp;chars)</div><div class="ttdoc">Strips the string of the characters in the chars string.</div><div class="ttdef"><b>Definition</b> <a href="_stringer_8cpp_source.html#l00026">Stringer.cpp:26</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_entity_manager_8cpp_source.html#l00162">areThereLivingEntities()</a>, <a class="el" href="_entity_manager_8h_source.html#l00182">availableEntities</a>, <a class="el" href="_asserts_8h_source.html#l00022">D_ASSERT_FALSE</a>, <a class="el" href="_asserts_8h_source.html#l00021">D_ASSERT_TRUE</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00134">doesEntityExist()</a>, <a class="el" href="_entity_manager_8h_source.html#l00192">entityIDToName</a>, <a class="el" href="_entity_manager_8h_source.html#l00193">entityMetadata</a>, <a class="el" href="_entity_manager_8h_source.html#l00191">entityNameToID</a>, <a class="el" href="_entity_manager_8h_source.html#l00194">instancedEntities</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00142">isEntityAlive()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00115">isEntityInstanced()</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, <a class="el" href="_entity_manager_8h_source.html#l00200">livingEntityCount</a>, <a class="el" href="_entity_manager_8h_source.html#l00035">nullEntity</a>, <a class="el" href="_entity_manager_8h_source.html#l00188">signatures</a>, and <a class="el" href="_stringer_8cpp_source.html#l00026">GLESC::Stringer::strip()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_e_c_s_8cpp_source.html#l00144">GLESC::ECS::ECSCoordinator::destroyEntity()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_a1a54b9843d83e416b479220d15f47230_cgraph.svg" width="100%" height="501"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_a1a54b9843d83e416b479220d15f47230_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a5145504091eb26170aa219acb60aca71" name="a5145504091eb26170aa219acb60aca71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5145504091eb26170aa219acb60aca71">&#9670;&#160;</a></span>doesEntityExist() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a> EntityManager::doesEntityExist </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#ac71e39014c5b48ffb131e0e4abbfe5ed">EntityName</a> &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check if the entity with the given name exists. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>The name of the entity </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the entity exists, false otherwise </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00134">134</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  134</span>                                                                {</div>
+<div class="line"><span class="lineno">  135</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#afd6cb3d534adf8b7c5e44315dfe703c0">entityNameToID</a>.find(name) != <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#afd6cb3d534adf8b7c5e44315dfe703c0">entityNameToID</a>.end();</div>
+<div class="line"><span class="lineno">  136</span>}</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_entity_manager_8h_source.html#l00191">entityNameToID</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_entity_manager_8cpp_source.html#l00127">addComponentToEntity()</a>, <a class="el" href="_e_c_s_8cpp_source.html#l00120">GLESC::ECS::ECSCoordinator::createEntity()</a>, <a class="el" href="_e_c_s_8cpp_source.html#l00107">GLESC::ECS::ECSCoordinator::createEntity()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00027">createNextEntity()</a>, <a class="el" href="_e_c_s_8cpp_source.html#l00144">GLESC::ECS::ECSCoordinator::destroyEntity()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00051">destroyEntity()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00084">doesEntityHaveComponent()</a>, <a class="el" href="_e_c_s_8cpp_source.html#l00070">GLESC::ECS::ECSCoordinator::getAssociatedEntities()</a>, <a class="el" href="_e_c_s_8h_source.html#l00275">GLESC::ECS::ECSCoordinator::getComponent()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00100">getEntityID()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00095">getEntityMetadata()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00090">getEntityName()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00079">getSignature()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00142">isEntityAlive()</a>, and <a class="el" href="_entity_manager_8cpp_source.html#l00105">tryGetEntity()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_a5145504091eb26170aa219acb60aca71_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a8e9756248ae4d11d5c7aae51641d5c7a" name="a8e9756248ae4d11d5c7aae51641d5c7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e9756248ae4d11d5c7aae51641d5c7a">&#9670;&#160;</a></span>doesEntityExist() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a> EntityManager::doesEntityExist </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a>&#160;</td>
+          <td class="paramname"><em>entity</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check if the entity with the given ID exists. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entity</td><td>The ID of the entity </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the entity exists, false otherwise </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00138">138</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  138</span>                                                         {</div>
+<div class="line"><span class="lineno">  139</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a883968799cd2c8dc319c306b90f36b14">entityIDToName</a>.find(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>) != <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a883968799cd2c8dc319c306b90f36b14">entityIDToName</a>.end();</div>
+<div class="line"><span class="lineno">  140</span>}</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_entity_manager_8h_source.html#l00192">entityIDToName</a>, and <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
+
+</div>
+</div>
+<a id="aab28983bdd04e1acf2dd7d94dbe4639d" name="aab28983bdd04e1acf2dd7d94dbe4639d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab28983bdd04e1acf2dd7d94dbe4639d">&#9670;&#160;</a></span>doesEntityHaveComponent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a> EntityManager::doesEntityHaveComponent </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a>&#160;</td>
+          <td class="paramname"><em>entity</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a6f1821559d43fa39404231b6dcd5564b">ComponentID</a>&#160;</td>
+          <td class="paramname"><em>componentID</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check if the entity has the given component. The entity must exist and the component must be in the range of the signature. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entity</td><td></td></tr>
+    <tr><td class="paramname">componentID</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00084">84</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   84</span>                                                                                          {</div>
+<div class="line"><span class="lineno">   85</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a5145504091eb26170aa219acb60aca71">doesEntityExist</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>), <span class="stringliteral">&quot;Entity must exist to check if it has a component&quot;</span>);</div>
+<div class="line"><span class="lineno">   86</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a54e81951030afee74dd6ea3c4e2b74e5">isComponentInRange</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">componentID</a>), <span class="stringliteral">&quot;Component must be in range to check if entity has it&quot;</span>);</div>
+<div class="line"><span class="lineno">   87</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a6737b1aa49a0374bf9c92fd0df3aae8c">signatures</a>[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>][<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">componentID</a>];</div>
+<div class="line"><span class="lineno">   88</span>}</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_asserts_8h_source.html#l00021">D_ASSERT_TRUE</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00134">doesEntityExist()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00152">isComponentInRange()</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_entity_manager_8h_source.html#l00188">signatures</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_entity_manager_8cpp_source.html#l00127">addComponentToEntity()</a>, <a class="el" href="_e_c_s_8h_source.html#l00301">GLESC::ECS::ECSCoordinator::hasComponent()</a>, <a class="el" href="_e_c_s_8cpp_source.html#l00055">GLESC::ECS::ECSCoordinator::printEntity()</a>, and <a class="el" href="_entity_manager_8cpp_source.html#l00120">removeComponentFromEntity()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_aab28983bdd04e1acf2dd7d94dbe4639d_cgraph.svg" width="444" height="120"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_aab28983bdd04e1acf2dd7d94dbe4639d_icgraph.svg" width="100%" height="572"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a694cd261ec90cd04663524de0c6742b9" name="a694cd261ec90cd04663524de0c6742b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a694cd261ec90cd04663524de0c6742b9">&#9670;&#160;</a></span>getAvailableEntities()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> std::queue&lt; <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a> &gt; &amp; GLESC::ECS::EntityManager::getAvailableEntities </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_entity_manager_8h_source.html#l00051">51</a> of file <a class="el" href="_entity_manager_8h_source.html">EntityManager.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   51</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#ac8d08fdeca6fa8048ae5b12004a7ccb3">availableEntities</a>; }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_entity_manager_8h_source.html#l00182">availableEntities</a>.</p>
+
+</div>
+</div>
+<a id="ac84959b1e67dd9cf67d6e5a811224ad9" name="ac84959b1e67dd9cf67d6e5a811224ad9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac84959b1e67dd9cf67d6e5a811224ad9">&#9670;&#160;</a></span>getEntityCounter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">unsigned</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">long</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">long</a> &amp; GLESC::ECS::EntityManager::getEntityCounter </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_entity_manager_8h_source.html#l00054">54</a> of file <a class="el" href="_entity_manager_8h_source.html">EntityManager.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   54</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a277a3797edf7332f4f7e5588a92f851e">entityCounter</a>; }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_entity_manager_8h_source.html#l00206">entityCounter</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_e_c_s_8cpp_source.html#l00120">GLESC::ECS::ECSCoordinator::createEntity()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_ac84959b1e67dd9cf67d6e5a811224ad9_icgraph.svg" width="452" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a331b9b5711f516647e4de67f9a256db3" name="a331b9b5711f516647e4de67f9a256db3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a331b9b5711f516647e4de67f9a256db3">&#9670;&#160;</a></span>getEntityID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a> EntityManager::getEntityID </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#ac71e39014c5b48ffb131e0e4abbfe5ed">EntityName</a> &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the entity ID from the entity name. </p>
+<p>This will return the ID of the entity with the given name. The entity must exist. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>The name of the entity </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The ID of the entity </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00100">100</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  100</span>                                                                {</div>
+<div class="line"><span class="lineno">  101</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a5145504091eb26170aa219acb60aca71">doesEntityExist</a>(name), <span class="stringliteral">&quot;Entity must exist to get its ID&quot;</span>);</div>
+<div class="line"><span class="lineno">  102</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#afd6cb3d534adf8b7c5e44315dfe703c0">entityNameToID</a>.at(name);</div>
+<div class="line"><span class="lineno">  103</span>}</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_asserts_8h_source.html#l00021">D_ASSERT_TRUE</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00134">doesEntityExist()</a>, and <a class="el" href="_entity_manager_8h_source.html#l00191">entityNameToID</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_e_c_s_8cpp_source.html#l00155">GLESC::ECS::ECSCoordinator::getEntityID()</a>, and <a class="el" href="_entity_manager_8cpp_source.html#l00147">isEntityAlive()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_a331b9b5711f516647e4de67f9a256db3_cgraph.svg" width="444" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_a331b9b5711f516647e4de67f9a256db3_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="aa357eed1c2259bdf529da1aa0476bd05" name="aa357eed1c2259bdf529da1aa0476bd05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa357eed1c2259bdf529da1aa0476bd05">&#9670;&#160;</a></span>getEntityIDToName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> std::unordered_map&lt; <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a>, <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#ac71e39014c5b48ffb131e0e4abbfe5ed">EntityName</a> &gt; &amp; GLESC::ECS::EntityManager::getEntityIDToName </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_entity_manager_8h_source.html#l00050">50</a> of file <a class="el" href="_entity_manager_8h_source.html">EntityManager.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   50</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a883968799cd2c8dc319c306b90f36b14">entityIDToName</a>; }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_entity_manager_8h_source.html#l00192">entityIDToName</a>.</p>
+
+</div>
+</div>
+<a id="a763922e6d0025aadf5f9534679589354" name="a763922e6d0025aadf5f9534679589354"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a763922e6d0025aadf5f9534679589354">&#9670;&#160;</a></span>getEntityMetadata()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#struct_g_l_e_s_c_1_1_e_c_s_1_1_entity_metadata">EntityMetadata</a> &amp; EntityManager::getEntityMetadata </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a>&#160;</td>
+          <td class="paramname"><em>entity</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the entity metadata from the entity ID. The entity must exist. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entity</td><td>The ID of the entity </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The metadata of the entity </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00095">95</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   95</span>                                                                            {</div>
+<div class="line"><span class="lineno">   96</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a5145504091eb26170aa219acb60aca71">doesEntityExist</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>), <span class="stringliteral">&quot;Entity must exist to get its metadata&quot;</span>);</div>
+<div class="line"><span class="lineno">   97</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a042e8bc861140ae483988a46ec0ad23b">entityMetadata</a>.at(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>);</div>
+<div class="line"><span class="lineno">   98</span>}</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_asserts_8h_source.html#l00021">D_ASSERT_TRUE</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00134">doesEntityExist()</a>, <a class="el" href="_entity_manager_8h_source.html#l00193">entityMetadata</a>, and <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_e_c_s_8cpp_source.html#l00179">GLESC::ECS::ECSCoordinator::getEntityMetadata()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_a763922e6d0025aadf5f9534679589354_cgraph.svg" width="444" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_a763922e6d0025aadf5f9534679589354_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ad75636a479815b1d3e5b1b26d2a1245c" name="ad75636a479815b1d3e5b1b26d2a1245c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad75636a479815b1d3e5b1b26d2a1245c">&#9670;&#160;</a></span>getEntityName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#ac71e39014c5b48ffb131e0e4abbfe5ed">EntityName</a> &amp; EntityManager::getEntityName </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a>&#160;</td>
+          <td class="paramname"><em>entity</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the entity name from the entity ID. The entity must exist. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entity</td><td>The ID of the entity </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The name of the entity </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00090">90</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   90</span>                                                                    {</div>
+<div class="line"><span class="lineno">   91</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a5145504091eb26170aa219acb60aca71">doesEntityExist</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>), <span class="stringliteral">&quot;Entity must exist to get its name&quot;</span>);</div>
+<div class="line"><span class="lineno">   92</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a883968799cd2c8dc319c306b90f36b14">entityIDToName</a>.at(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>);</div>
+<div class="line"><span class="lineno">   93</span>}</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_asserts_8h_source.html#l00021">D_ASSERT_TRUE</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00134">doesEntityExist()</a>, <a class="el" href="_entity_manager_8h_source.html#l00192">entityIDToName</a>, and <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_e_c_s_8cpp_source.html#l00159">GLESC::ECS::ECSCoordinator::getEntityName()</a>, and <a class="el" href="_e_c_s_8cpp_source.html#l00055">GLESC::ECS::ECSCoordinator::printEntity()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_ad75636a479815b1d3e5b1b26d2a1245c_cgraph.svg" width="444" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_ad75636a479815b1d3e5b1b26d2a1245c_icgraph.svg" width="100%" height="578"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a0a17e65a79f5f0d6b465c5acdbacbcbc" name="a0a17e65a79f5f0d6b465c5acdbacbcbc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a17e65a79f5f0d6b465c5acdbacbcbc">&#9670;&#160;</a></span>getEntityNameToID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> std::unordered_map&lt; <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#ac71e39014c5b48ffb131e0e4abbfe5ed">EntityName</a>, <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a> &gt; &amp; GLESC::ECS::EntityManager::getEntityNameToID </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_entity_manager_8h_source.html#l00049">49</a> of file <a class="el" href="_entity_manager_8h_source.html">EntityManager.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   49</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#afd6cb3d534adf8b7c5e44315dfe703c0">entityNameToID</a>; }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_entity_manager_8h_source.html#l00191">entityNameToID</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_e_c_s_8cpp_source.html#l00084">GLESC::ECS::ECSCoordinator::getAllEntities()</a>, and <a class="el" href="_e_c_s_8cpp_source.html#l00021">GLESC::ECS::ECSCoordinator::printStatus()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_a0a17e65a79f5f0d6b465c5acdbacbcbc_icgraph.svg" width="100%" height="412"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a95315991ba0fb8783dc00ca8c24e3354" name="a95315991ba0fb8783dc00ca8c24e3354"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95315991ba0fb8783dc00ca8c24e3354">&#9670;&#160;</a></span>getInstancedEntities()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> std::vector&lt; <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a> &gt; &amp; EntityManager::getInstancedEntities </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#ac71e39014c5b48ffb131e0e4abbfe5ed">EntityName</a> &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00111">111</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  111</span>                                                                                           {</div>
+<div class="line"><span class="lineno">  112</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#ae3ffd29531570890e8b32825a6964ce2">instancedEntities</a>.at(name);</div>
+<div class="line"><span class="lineno">  113</span>}</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_entity_manager_8h_source.html#l00194">instancedEntities</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_e_c_s_8cpp_source.html#l00175">GLESC::ECS::ECSCoordinator::getInstancedEntities()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_a95315991ba0fb8783dc00ca8c24e3354_icgraph.svg" width="452" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="af066ac9e1f1f0ab284aa479f535b8fdf" name="af066ac9e1f1f0ab284aa479f535b8fdf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af066ac9e1f1f0ab284aa479f535b8fdf">&#9670;&#160;</a></span>getLivingEntityCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a> &amp; GLESC::ECS::EntityManager::getLivingEntityCount </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_entity_manager_8h_source.html#l00053">53</a> of file <a class="el" href="_entity_manager_8h_source.html">EntityManager.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   53</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#ab677fef21e85654397903405d5073b1d">livingEntityCount</a>; }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_entity_manager_8h_source.html#l00200">livingEntityCount</a>.</p>
+
+</div>
+</div>
+<a id="afed1028adc518bc27c8cc190832f2bf9" name="afed1028adc518bc27c8cc190832f2bf9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afed1028adc518bc27c8cc190832f2bf9">&#9670;&#160;</a></span>getSignature()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#aa6f8561a93cc99836c4eb4f422330fb4">Signature</a> EntityManager::getSignature </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a>&#160;</td>
+          <td class="paramname"><em>entity</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the signature of the entity. The entity must exist. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entity</td><td>The ID of the entity </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Copy of the signature of the entity </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00079">79</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   79</span>                                                           {</div>
+<div class="line"><span class="lineno">   80</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a5145504091eb26170aa219acb60aca71">doesEntityExist</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>), <span class="stringliteral">&quot;Entity must exist to get its signature&quot;</span>);</div>
+<div class="line"><span class="lineno">   81</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a6737b1aa49a0374bf9c92fd0df3aae8c">signatures</a>[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>];</div>
+<div class="line"><span class="lineno">   82</span>}</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_asserts_8h_source.html#l00021">D_ASSERT_TRUE</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00134">doesEntityExist()</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_entity_manager_8h_source.html#l00188">signatures</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_e_c_s_8h_source.html#l00249">GLESC::ECS::ECSCoordinator::addComponent()</a>, <a class="el" href="_e_c_s_8cpp_source.html#l00096">GLESC::ECS::ECSCoordinator::getComponents()</a>, <a class="el" href="_e_c_s_8cpp_source.html#l00055">GLESC::ECS::ECSCoordinator::printEntity()</a>, and <a class="el" href="_e_c_s_8h_source.html#l00262">GLESC::ECS::ECSCoordinator::removeComponent()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_afed1028adc518bc27c8cc190832f2bf9_cgraph.svg" width="444" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_afed1028adc518bc27c8cc190832f2bf9_icgraph.svg" width="100%" height="572"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a18e773f5b22188f99c112ec0744d209d" name="a18e773f5b22188f99c112ec0744d209d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18e773f5b22188f99c112ec0744d209d">&#9670;&#160;</a></span>getSignatures()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> std::array&lt; <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#aa6f8561a93cc99836c4eb4f422330fb4">Signature</a>, <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a1482c2d17768df66e086ec8d59038446">maxEntities</a> &gt; &amp; GLESC::ECS::EntityManager::getSignatures </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_entity_manager_8h_source.html#l00052">52</a> of file <a class="el" href="_entity_manager_8h_source.html">EntityManager.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   52</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a6737b1aa49a0374bf9c92fd0df3aae8c">signatures</a>; }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_entity_manager_8h_source.html#l00188">signatures</a>.</p>
+
+</div>
+</div>
+<a id="a54e81951030afee74dd6ea3c4e2b74e5" name="a54e81951030afee74dd6ea3c4e2b74e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54e81951030afee74dd6ea3c4e2b74e5">&#9670;&#160;</a></span>isComponentInRange()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a> EntityManager::isComponentInRange </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a6f1821559d43fa39404231b6dcd5564b">ComponentID</a>&#160;</td>
+          <td class="paramname"><em>componentID</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check if the component ID is in the range of the signature. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if the component ID is in the range of the signature, false otherwise </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00152">152</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  152</span>                                                                                     {</div>
+<div class="line"><span class="lineno">  153</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">componentID</a> &lt; <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a6737b1aa49a0374bf9c92fd0df3aae8c">signatures</a>[0].size();</div>
+<div class="line"><span class="lineno">  154</span>}</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_entity_manager_8h_source.html#l00188">signatures</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_entity_manager_8cpp_source.html#l00127">addComponentToEntity()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00084">doesEntityHaveComponent()</a>, and <a class="el" href="_entity_manager_8cpp_source.html#l00120">removeComponentFromEntity()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_a54e81951030afee74dd6ea3c4e2b74e5_icgraph.svg" width="100%" height="572"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a77367b7afcc6f27618cab7d49e504fb7" name="a77367b7afcc6f27618cab7d49e504fb7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77367b7afcc6f27618cab7d49e504fb7">&#9670;&#160;</a></span>isEntityAlive() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a> EntityManager::isEntityAlive </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#ac71e39014c5b48ffb131e0e4abbfe5ed">EntityName</a> &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check if the entity with the given name is alive. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>The name of the entity </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the entity is alive, false otherwise </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00147">147</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  147</span>                                                              {</div>
+<div class="line"><span class="lineno">  148</span>    <span class="comment">// Entity is alive if it has a signature that is not empty</span></div>
+<div class="line"><span class="lineno">  149</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#af174dceb6b3d4ec490f5812ba128dd51">isEntityAlive</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a331b9b5711f516647e4de67f9a256db3">getEntityID</a>(name));</div>
+<div class="line"><span class="lineno">  150</span>}</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_html_a331b9b5711f516647e4de67f9a256db3"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a331b9b5711f516647e4de67f9a256db3">GLESC::ECS::EntityManager::getEntityID</a></div><div class="ttdeci">EntityID getEntityID(const EntityName &amp;name) const</div><div class="ttdoc">Get the entity ID from the entity name.</div><div class="ttdef"><b>Definition</b> <a href="_entity_manager_8cpp_source.html#l00100">EntityManager.cpp:100</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_entity_manager_8cpp_source.html#l00100">getEntityID()</a>, and <a class="el" href="_entity_manager_8cpp_source.html#l00142">isEntityAlive()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_a77367b7afcc6f27618cab7d49e504fb7_cgraph.svg" width="100%" height="390"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="af174dceb6b3d4ec490f5812ba128dd51" name="af174dceb6b3d4ec490f5812ba128dd51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af174dceb6b3d4ec490f5812ba128dd51">&#9670;&#160;</a></span>isEntityAlive() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a> EntityManager::isEntityAlive </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a>&#160;</td>
+          <td class="paramname"><em>entity</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check if the entity with the given ID is alive. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entity</td><td>The ID of the entity </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the entity is alive, false otherwise </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00142">142</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  142</span>                                                       {</div>
+<div class="line"><span class="lineno">  143</span>    <span class="comment">// Entity is alive if it has a signature that is not empty</span></div>
+<div class="line"><span class="lineno">  144</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a5145504091eb26170aa219acb60aca71">doesEntityExist</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>) &amp;&amp; !<a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a6737b1aa49a0374bf9c92fd0df3aae8c">signatures</a>[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>].none();</div>
+<div class="line"><span class="lineno">  145</span>}</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_entity_manager_8cpp_source.html#l00134">doesEntityExist()</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_entity_manager_8h_source.html#l00188">signatures</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_entity_manager_8cpp_source.html#l00051">destroyEntity()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00147">isEntityAlive()</a>, <a class="el" href="_e_c_s_8cpp_source.html#l00163">GLESC::ECS::ECSCoordinator::isEntityAlive()</a>, and <a class="el" href="_entity_manager_8cpp_source.html#l00120">removeComponentFromEntity()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_af174dceb6b3d4ec490f5812ba128dd51_cgraph.svg" width="444" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_af174dceb6b3d4ec490f5812ba128dd51_icgraph.svg" width="100%" height="490"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ab206bffe5c3daf3f62226e2f585cb32e" name="ab206bffe5c3daf3f62226e2f585cb32e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab206bffe5c3daf3f62226e2f585cb32e">&#9670;&#160;</a></span>isEntityInstanced()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a> EntityManager::isEntityInstanced </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#ac71e39014c5b48ffb131e0e4abbfe5ed">EntityName</a> &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00115">115</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  115</span>                                                                  {</div>
+<div class="line"><span class="lineno">  116</span>    std::string <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">strippedName</a> = <a class="code hl_function" href="class_g_l_e_s_c_1_1_stringer.html#a664c9af6a77e075c21a6b0cff1329e4f">Stringer::strip</a>(name, <span class="stringliteral">&quot;1234567890&quot;</span>);</div>
+<div class="line"><span class="lineno">  117</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#ae3ffd29531570890e8b32825a6964ce2">instancedEntities</a>.find(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">strippedName</a>) != <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#ae3ffd29531570890e8b32825a6964ce2">instancedEntities</a>.end();</div>
+<div class="line"><span class="lineno">  118</span>}</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_entity_manager_8h_source.html#l00194">instancedEntities</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_stringer_8cpp_source.html#l00026">GLESC::Stringer::strip()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_entity_manager_8cpp_source.html#l00051">destroyEntity()</a>, and <a class="el" href="_e_c_s_8cpp_source.html#l00171">GLESC::ECS::ECSCoordinator::isEntityInstanced()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_ab206bffe5c3daf3f62226e2f585cb32e_cgraph.svg" width="403" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_ab206bffe5c3daf3f62226e2f585cb32e_icgraph.svg" width="100%" height="390"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="aa12eb5a78f90d23488324ee51e7dbd6c" name="aa12eb5a78f90d23488324ee51e7dbd6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa12eb5a78f90d23488324ee51e7dbd6c">&#9670;&#160;</a></span>removeComponentFromEntity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> EntityManager::removeComponentFromEntity </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a>&#160;</td>
+          <td class="paramname"><em>entity</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a6f1821559d43fa39404231b6dcd5564b">ComponentID</a>&#160;</td>
+          <td class="paramname"><em>componentID</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Remove a component from the entity. The entity must exist. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entity</td><td>The ID of the entity </td></tr>
+    <tr><td class="paramname">componentID</td><td>The ID of the component </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00120">120</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  120</span>                                                                                      {</div>
+<div class="line"><span class="lineno">  121</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#af174dceb6b3d4ec490f5812ba128dd51">isEntityAlive</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>), <span class="stringliteral">&quot;Entity must be alive to remove a component&quot;</span>);</div>
+<div class="line"><span class="lineno">  122</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a54e81951030afee74dd6ea3c4e2b74e5">isComponentInRange</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">componentID</a>), <span class="stringliteral">&quot;Component must be in range to be removed&quot;</span>);</div>
+<div class="line"><span class="lineno">  123</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#aab28983bdd04e1acf2dd7d94dbe4639d">doesEntityHaveComponent</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">componentID</a>), <span class="stringliteral">&quot;Entity must have the component to remove it&quot;</span>);</div>
+<div class="line"><span class="lineno">  124</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a6737b1aa49a0374bf9c92fd0df3aae8c">signatures</a>[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>].reset(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">componentID</a>);</div>
+<div class="line"><span class="lineno">  125</span>}</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_asserts_8h_source.html#l00021">D_ASSERT_TRUE</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00084">doesEntityHaveComponent()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00152">isComponentInRange()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00142">isEntityAlive()</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_entity_manager_8h_source.html#l00188">signatures</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_e_c_s_8h_source.html#l00262">GLESC::ECS::ECSCoordinator::removeComponent()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_aa12eb5a78f90d23488324ee51e7dbd6c_cgraph.svg" width="100%" height="412"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_aa12eb5a78f90d23488324ee51e7dbd6c_icgraph.svg" width="651" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="adb88a629b3c998948c75d64801a6f83f" name="adb88a629b3c998948c75d64801a6f83f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb88a629b3c998948c75d64801a6f83f">&#9670;&#160;</a></span>S_ASSERT_TRUE()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLESC::ECS::EntityManager::S_ASSERT_TRUE </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#aa3141c2f66ee0d159de52510cc82af68">firstEntity</a>&#160;</td>
+          <td class="paramname"> = <code>=0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;First <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">must</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">be</a>&#160;</td>
+          <td class="paramname"><em>0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html">ComponentArray</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">uses</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">the</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a> ID <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">as</a>&#160;</td>
+          <td class="paramname"><em>index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot; &quot;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">if</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">edited</a>&#160;</td>
+          <td class="paramname"><em>this</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">it</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">needs</a> <a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_array.html">ComponentArray</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">to</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">be</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">updated</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">as</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">well&quot;</a>&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a95435313352faa0c2917e1297b4a0058" name="a95435313352faa0c2917e1297b4a0058"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95435313352faa0c2917e1297b4a0058">&#9670;&#160;</a></span>tryGetEntity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a> EntityManager::tryGetEntity </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#ac71e39014c5b48ffb131e0e4abbfe5ed">EntityName</a> &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tries to get the entity ID from the entity name. </p>
+<p>This will return the ID of the entity with the given name. If the entity does not exist, it will return null entity (0). </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>The name of the entity </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The ID of the entity, or NULL_ENTITY if the entity does not exist </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00105">105</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  105</span>                                                                 {</div>
+<div class="line"><span class="lineno">  106</span>    <span class="keywordflow">if</span> (!<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a5145504091eb26170aa219acb60aca71">doesEntityExist</a>(name))</div>
+<div class="line"><span class="lineno">  107</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a7f8d3b9a15bdcf39c67c305ba8850b98">nullEntity</a>;</div>
+<div class="line"><span class="lineno">  108</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#afd6cb3d534adf8b7c5e44315dfe703c0">entityNameToID</a>.at(name);</div>
+<div class="line"><span class="lineno">  109</span>}</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_entity_manager_8cpp_source.html#l00134">doesEntityExist()</a>, <a class="el" href="_entity_manager_8h_source.html#l00191">entityNameToID</a>, and <a class="el" href="_entity_manager_8h_source.html#l00035">nullEntity</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_e_c_s_8cpp_source.html#l00167">GLESC::ECS::ECSCoordinator::tryGetEntityID()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_a95435313352faa0c2917e1297b4a0058_cgraph.svg" width="444" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_a95435313352faa0c2917e1297b4a0058_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Friends And Related Symbol Documentation</h2>
+<a id="abed2e42fe630d246114c0d3d30516fab" name="abed2e42fe630d246114c0d3d30516fab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abed2e42fe630d246114c0d3d30516fab">&#9670;&#160;</a></span>ECS</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">friend</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">class</a> ECS</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_entity_manager_8h_source.html#l00029">29</a> of file <a class="el" href="_entity_manager_8h_source.html">EntityManager.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="ac8d08fdeca6fa8048ae5b12004a7ccb3" name="ac8d08fdeca6fa8048ae5b12004a7ccb3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8d08fdeca6fa8048ae5b12004a7ccb3">&#9670;&#160;</a></span>availableEntities</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::queue&lt;<a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a>&gt; GLESC::ECS::EntityManager::availableEntities</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Queue of the available entities, used to avoid iterating over all the entities. </p>
+
+<p class="definition">Definition at line <a class="el" href="_entity_manager_8h_source.html#l00182">182</a> of file <a class="el" href="_entity_manager_8h_source.html">EntityManager.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_entity_manager_8cpp_source.html#l00020">EntityManager()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00156">canEntityBeCreated()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00027">createNextEntity()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00051">destroyEntity()</a>, and <a class="el" href="_entity_manager_8h_source.html#l00051">getAvailableEntities()</a>.</p>
+
+</div>
+</div>
+<a id="a277a3797edf7332f4f7e5588a92f851e" name="a277a3797edf7332f4f7e5588a92f851e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a277a3797edf7332f4f7e5588a92f851e">&#9670;&#160;</a></span>entityCounter</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">unsigned</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">long</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">long</a> GLESC::ECS::EntityManager::entityCounter {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_counter.html">Counter</a> that counts all the entities that have ever been created. It's useful to be able to create entities without names, so we never create entities with the same name. </p>
+
+<p class="definition">Definition at line <a class="el" href="_entity_manager_8h_source.html#l00206">206</a> of file <a class="el" href="_entity_manager_8h_source.html">EntityManager.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  206</span>{};</div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="_entity_manager_8cpp_source.html#l00027">createNextEntity()</a>, and <a class="el" href="_entity_manager_8h_source.html#l00054">getEntityCounter()</a>.</p>
+
+</div>
+</div>
+<a id="a883968799cd2c8dc319c306b90f36b14" name="a883968799cd2c8dc319c306b90f36b14"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a883968799cd2c8dc319c306b90f36b14">&#9670;&#160;</a></span>entityIDToName</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt;<a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a>, <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#ac71e39014c5b48ffb131e0e4abbfe5ed">EntityName</a>&gt; GLESC::ECS::EntityManager::entityIDToName</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_entity_manager_8h_source.html#l00192">192</a> of file <a class="el" href="_entity_manager_8h_source.html">EntityManager.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_entity_manager_8cpp_source.html#l00027">createNextEntity()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00051">destroyEntity()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00138">doesEntityExist()</a>, <a class="el" href="_entity_manager_8h_source.html#l00050">getEntityIDToName()</a>, and <a class="el" href="_entity_manager_8cpp_source.html#l00090">getEntityName()</a>.</p>
+
+</div>
+</div>
+<a id="a042e8bc861140ae483988a46ec0ad23b" name="a042e8bc861140ae483988a46ec0ad23b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a042e8bc861140ae483988a46ec0ad23b">&#9670;&#160;</a></span>entityMetadata</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt;<a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a>, <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#struct_g_l_e_s_c_1_1_e_c_s_1_1_entity_metadata">EntityMetadata</a>&gt; GLESC::ECS::EntityManager::entityMetadata</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_entity_manager_8h_source.html#l00193">193</a> of file <a class="el" href="_entity_manager_8h_source.html">EntityManager.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_entity_manager_8cpp_source.html#l00027">createNextEntity()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00051">destroyEntity()</a>, and <a class="el" href="_entity_manager_8cpp_source.html#l00095">getEntityMetadata()</a>.</p>
+
+</div>
+</div>
+<a id="afd6cb3d534adf8b7c5e44315dfe703c0" name="afd6cb3d534adf8b7c5e44315dfe703c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd6cb3d534adf8b7c5e44315dfe703c0">&#9670;&#160;</a></span>entityNameToID</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt;<a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#ac71e39014c5b48ffb131e0e4abbfe5ed">EntityName</a>, <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a>&gt; GLESC::ECS::EntityManager::entityNameToID</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_entity_manager_8h_source.html#l00191">191</a> of file <a class="el" href="_entity_manager_8h_source.html">EntityManager.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_entity_manager_8cpp_source.html#l00156">canEntityBeCreated()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00027">createNextEntity()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00051">destroyEntity()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00134">doesEntityExist()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00100">getEntityID()</a>, <a class="el" href="_entity_manager_8h_source.html#l00049">getEntityNameToID()</a>, and <a class="el" href="_entity_manager_8cpp_source.html#l00105">tryGetEntity()</a>.</p>
+
+</div>
+</div>
+<a id="aa3141c2f66ee0d159de52510cc82af68" name="aa3141c2f66ee0d159de52510cc82af68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3141c2f66ee0d159de52510cc82af68">&#9670;&#160;</a></span>firstEntity</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">constexpr</a> <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a> GLESC::ECS::EntityManager::firstEntity {0}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_entity_manager_8h_source.html#l00036">36</a> of file <a class="el" href="_entity_manager_8h_source.html">EntityManager.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   36</span>{0};</div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="_entity_manager_8cpp_source.html#l00020">EntityManager()</a>.</p>
+
+</div>
+</div>
+<a id="ae3ffd29531570890e8b32825a6964ce2" name="ae3ffd29531570890e8b32825a6964ce2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3ffd29531570890e8b32825a6964ce2">&#9670;&#160;</a></span>instancedEntities</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt;<a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#ac71e39014c5b48ffb131e0e4abbfe5ed">EntityName</a>, std::vector&lt;<a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a>&gt; &gt; GLESC::ECS::EntityManager::instancedEntities</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_entity_manager_8h_source.html#l00194">194</a> of file <a class="el" href="_entity_manager_8h_source.html">EntityManager.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_entity_manager_8cpp_source.html#l00027">createNextEntity()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00051">destroyEntity()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00111">getInstancedEntities()</a>, and <a class="el" href="_entity_manager_8cpp_source.html#l00115">isEntityInstanced()</a>.</p>
+
+</div>
+</div>
+<a id="a75d079eadd365ea965019b0d6ead410f" name="a75d079eadd365ea965019b0d6ead410f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75d079eadd365ea965019b0d6ead410f">&#9670;&#160;</a></span>instancesNextID</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt;<a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#ac71e39014c5b48ffb131e0e4abbfe5ed">EntityName</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">int</a>&gt; GLESC::ECS::EntityManager::instancesNextID</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_entity_manager_8h_source.html#l00195">195</a> of file <a class="el" href="_entity_manager_8h_source.html">EntityManager.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_entity_manager_8cpp_source.html#l00027">createNextEntity()</a>.</p>
+
+</div>
+</div>
+<a id="ab677fef21e85654397903405d5073b1d" name="ab677fef21e85654397903405d5073b1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab677fef21e85654397903405d5073b1d">&#9670;&#160;</a></span>livingEntityCount</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a> GLESC::ECS::EntityManager::livingEntityCount {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The number of living entities. </p>
+
+<p class="definition">Definition at line <a class="el" href="_entity_manager_8h_source.html#l00200">200</a> of file <a class="el" href="_entity_manager_8h_source.html">EntityManager.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  200</span>{};</div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="_entity_manager_8cpp_source.html#l00162">areThereLivingEntities()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00156">canEntityBeCreated()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00027">createNextEntity()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00051">destroyEntity()</a>, and <a class="el" href="_entity_manager_8h_source.html#l00053">getLivingEntityCount()</a>.</p>
+
+</div>
+</div>
+<a id="a7f8d3b9a15bdcf39c67c305ba8850b98" name="a7f8d3b9a15bdcf39c67c305ba8850b98"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f8d3b9a15bdcf39c67c305ba8850b98">&#9670;&#160;</a></span>nullEntity</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">constexpr</a> <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a> GLESC::ECS::EntityManager::nullEntity {std::numeric_limits&lt;<a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a>&gt;::max()}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Null entity with ID 0. This is used to indicate that an entity does not exist. </p>
+
+<p class="definition">Definition at line <a class="el" href="_entity_manager_8h_source.html#l00035">35</a> of file <a class="el" href="_entity_manager_8h_source.html">EntityManager.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   35</span>{std::numeric_limits&lt;EntityID&gt;::max()};</div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="_entity_manager_8cpp_source.html#l00051">destroyEntity()</a>, <a class="el" href="_entity_factory_8cpp_source.html#l00021">GLESC::ECS::EntityFactory::tryGetEntity()</a>, and <a class="el" href="_entity_manager_8cpp_source.html#l00105">tryGetEntity()</a>.</p>
+
+</div>
+</div>
+<a id="a9b872bd1e0f88d7e2a66254fa56d085b" name="a9b872bd1e0f88d7e2a66254fa56d085b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b872bd1e0f88d7e2a66254fa56d085b">&#9670;&#160;</a></span>nullEntityName</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#ac71e39014c5b48ffb131e0e4abbfe5ed">EntityName</a> GLESC::ECS::EntityManager::nullEntityName = <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#ac71e39014c5b48ffb131e0e4abbfe5ed">EntityName</a>{&quot;NULL_ENTITY&quot;}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_entity_manager_8h_source.html#l00039">39</a> of file <a class="el" href="_entity_manager_8h_source.html">EntityManager.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   39</span>{<span class="stringliteral">&quot;NULL_ENTITY&quot;</span>};</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a6737b1aa49a0374bf9c92fd0df3aae8c" name="a6737b1aa49a0374bf9c92fd0df3aae8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6737b1aa49a0374bf9c92fd0df3aae8c">&#9670;&#160;</a></span>signatures</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::array&lt;<a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#aa6f8561a93cc99836c4eb4f422330fb4">Signature</a>, <a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a1482c2d17768df66e086ec8d59038446">maxEntities</a>&gt; GLESC::ECS::EntityManager::signatures</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Array of the signatures of the entities. </p>
+<p>Signatures start all initialized to 0</p>
+<p>The index of the array is the ID of the entity. </p>
+
+<p class="definition">Definition at line <a class="el" href="_entity_manager_8h_source.html#l00188">188</a> of file <a class="el" href="_entity_manager_8h_source.html">EntityManager.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_entity_manager_8cpp_source.html#l00127">addComponentToEntity()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00051">destroyEntity()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00084">doesEntityHaveComponent()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00079">getSignature()</a>, <a class="el" href="_entity_manager_8h_source.html#l00052">getSignatures()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00152">isComponentInRange()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00142">isEntityAlive()</a>, and <a class="el" href="_entity_manager_8cpp_source.html#l00120">removeComponentFromEntity()</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li><a class="el" href="_entity_manager_8h_source.html">EntityManager.h</a></li>
+<li><a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_g_l_e_s_c.html">GLESC</a></li><li class="navelem"><a class="el" href="namespace_g_l_e_s_c_1_1_e_c_s.html">ECS</a></li><li class="navelem"><a class="el" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html">EntityManager</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

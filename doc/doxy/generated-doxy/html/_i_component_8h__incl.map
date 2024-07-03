@@ -1,0 +1,12 @@
+<map id="IComponent.h" name="IComponent.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="25,5,127,32"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,171,59,197"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="67,34,51,55,39,81,32,119,32,155,26,155,26,119,33,79,47,52,63,31"/>
+<area shape="rect" id="Node000003" href="$_entity_stats_manager_8h.html" title="Class that encapsulates the logic of the entity stats manager." alt="" coords="48,80,238,123"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="88,31,118,67,114,70,84,34"/>
+<area shape="poly" id="edge4_Node000003_Node000002" title=" " alt="" coords="116,125,63,164,60,159,113,121"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="94,171,170,197"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="143,124,138,156,133,155,137,123"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="194,171,249,197"/>
+<area shape="poly" id="edge5_Node000003_Node000005" title=" " alt="" coords="165,121,200,157,196,161,161,125"/>
+</map>

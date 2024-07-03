@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cppdepend-plugin tool="Misra">
+<file path="c:\program files\cppdepend\defaulttoolchain\compiler\include\c++\array"><violation beginline="94" begincolumn="5" rule="Rule11-0-1" ruleset="Classes">
+</violation>
+</file><file path="c:\program files\cppdepend\defaulttoolchain\compiler\include\c++\bits\basic_string.h"><violation beginline="6443" begincolumn="3" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="6443" begincolumn="3" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="6443" begincolumn="3" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="6443" begincolumn="3" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="6471" begincolumn="3" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="6471" begincolumn="3" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="6443" begincolumn="3" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="6471" begincolumn="3" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="6471" begincolumn="3" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="6443" begincolumn="3" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="6443" begincolumn="3" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="6443" begincolumn="3" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="6443" begincolumn="3" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+</file><file path="c:\program files\cppdepend\defaulttoolchain\compiler\include\c++\bits\stl_pair.h"><violation beginline="198" begincolumn="5" rule="Rule11-0-1" ruleset="Classes">
+</violation>
+</file><file path="c:\program files\cppdepend\defaulttoolchain\compiler\include\c++\iomanip"><violation beginline="224" begincolumn="3" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="194" begincolumn="3" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+</file><file path="c:\program files\cppdepend\defaulttoolchain\compiler\include\c++\limits"><violation beginline="928" begincolumn="7" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+</file><file path="c:\program files\cppdepend\defaulttoolchain\compiler\include\c++\typeinfo"><violation beginline="99" begincolumn="5" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="99" begincolumn="5" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="99" begincolumn="5" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="99" begincolumn="5" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="99" begincolumn="5" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="99" begincolumn="5" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="99" begincolumn="5" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="99" begincolumn="5" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="99" begincolumn="5" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="99" begincolumn="5" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="99" begincolumn="5" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+</file><file path="c:\users\valyd\desktop\github_repos\tfg---opengl-engine\include\engine\core\asserts\asserts.h"><violation beginline="85" begincolumn="54" rule="Rule5-14-1" ruleset="Statements">
+</violation>
+<violation beginline="94" begincolumn="52" rule="Rule5-14-1" ruleset="Statements">
+</violation>
+<violation beginline="95" begincolumn="9" rule="Rule6-6-5" ruleset="Statements">
+</violation>
+</file><file path="c:\users\valyd\desktop\github_repos\tfg---opengl-engine\include\engine\core\debugger\stringer.h"><violation beginline="70" begincolumn="49" rule="Rule5-14-1" ruleset="Statements">
+</violation>
+<violation beginline="74" begincolumn="17" rule="Rule6-6-5" ruleset="Statements">
+</violation>
+<violation beginline="150" begincolumn="17" rule="Rule6-6-5" ruleset="Statements">
+</violation>
+</file><file path="c:\users\valyd\desktop\github_repos\tfg---opengl-engine\include\engine\core\exceptions\baseexception.h"><violation beginline="18" begincolumn="19" rule="Rule10-3-2" ruleset="Classes">
+</violation>
+</file><file path="c:\users\valyd\desktop\github_repos\tfg---opengl-engine\include\engine\core\logger\logger.h"><violation beginline="35" begincolumn="9" rule="Rule10-3-2" ruleset="Classes">
+</violation>
+<violation beginline="36" begincolumn="9" rule="Rule10-3-2" ruleset="Classes">
+</violation>
+<violation beginline="37" begincolumn="9" rule="Rule10-3-2" ruleset="Classes">
+</violation>
+<violation beginline="38" begincolumn="9" rule="Rule10-3-2" ruleset="Classes">
+</violation>
+<violation beginline="39" begincolumn="9" rule="Rule10-3-2" ruleset="Classes">
+</violation>
+<violation beginline="40" begincolumn="9" rule="Rule10-3-2" ruleset="Classes">
+</violation>
+<violation beginline="41" begincolumn="9" rule="Rule10-3-2" ruleset="Classes">
+</violation>
+<violation beginline="42" begincolumn="9" rule="Rule10-3-2" ruleset="Classes">
+</violation>
+<violation beginline="43" begincolumn="9" rule="Rule10-3-2" ruleset="Classes">
+</violation>
+<violation beginline="44" begincolumn="9" rule="Rule10-3-2" ruleset="Classes">
+</violation>
+<violation beginline="45" begincolumn="9" rule="Rule10-3-2" ruleset="Classes">
+</violation>
+<violation beginline="46" begincolumn="9" rule="Rule10-3-2" ruleset="Classes">
+</violation>
+<violation beginline="47" begincolumn="9" rule="Rule10-3-2" ruleset="Classes">
+</violation>
+<violation beginline="51" begincolumn="9" rule="Rule10-3-2" ruleset="Classes">
+</violation>
+<violation beginline="43" begincolumn="9" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="29" begincolumn="9" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="40" begincolumn="9" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="29" begincolumn="9" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="40" begincolumn="9" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="29" begincolumn="9" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="40" begincolumn="9" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="29" begincolumn="9" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="40" begincolumn="9" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="29" begincolumn="9" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="40" begincolumn="9" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="29" begincolumn="9" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="40" begincolumn="9" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="29" begincolumn="9" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="40" begincolumn="9" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="29" begincolumn="9" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="37" begincolumn="9" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="29" begincolumn="9" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+</file><file path="c:\users\valyd\desktop\github_repos\tfg---opengl-engine\include\engine\ecs\backend\component\componentarray.h"><violation beginline="139" begincolumn="9" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="159" begincolumn="9" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="71" begincolumn="13" rule="Rule6-4-1" ruleset="Statements">
+</violation>
+<violation beginline="139" begincolumn="9" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="159" begincolumn="9" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="159" begincolumn="9" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="139" begincolumn="9" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="159" begincolumn="9" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="139" begincolumn="9" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="95" begincolumn="9" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+</file><file path="c:\users\valyd\desktop\github_repos\tfg---opengl-engine\include\engine\ecs\backend\component\icomponent.h"><violation beginline="23" begincolumn="5" rule="Rule11-0-1" ruleset="Classes">
+</violation>
+<violation beginline="52" begincolumn="13" rule="Rule6-4-1" ruleset="Statements">
+</violation>
+<violation beginline="86" begincolumn="9" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="54" begincolumn="13" rule="Rule6-6-5" ruleset="Statements">
+</violation>
+<violation beginline="95" begincolumn="9" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+</file><file path="c:\users\valyd\desktop\github_repos\tfg---opengl-engine\include\engine\ecs\backend\ecs.h"><violation beginline="212" begincolumn="9" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="212" begincolumn="9" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="212" begincolumn="9" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="212" begincolumn="9" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="212" begincolumn="9" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="212" begincolumn="9" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="306" begincolumn="9" rule="Rule6-6-5" ruleset="Statements">
+</violation>
+<violation beginline="43" begincolumn="9" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="49" begincolumn="9" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="56" begincolumn="9" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="78" begincolumn="9" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="80" begincolumn="9" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+</file><file path="c:\users\valyd\desktop\github_repos\tfg---opengl-engine\include\engine\ecs\backend\entity\entitymanager.h"><violation beginline="24" begincolumn="5" rule="Rule11-0-1" ruleset="Classes">
+</violation>
+<violation beginline="86" begincolumn="9" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="101" begincolumn="23" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="93" begincolumn="9" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="101" begincolumn="23" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="147" begincolumn="23" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="133" begincolumn="23" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+</file><file path="c:\users\valyd\desktop\github_repos\tfg---opengl-engine\include\engine\ecs\backend\system\systemmanager.h"><violation beginline="73" begincolumn="9" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="73" begincolumn="9" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="84" begincolumn="23" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="56" begincolumn="9" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+</file><file path="c:\users\valyd\desktop\github_repos\tfg---opengl-engine\include\engine\subsystems\ingame-debug\entitystatsmanager.h"><violation beginline="44" begincolumn="5" rule="Rule11-0-1" ruleset="Classes">
+</violation>
+<violation beginline="64" begincolumn="5" rule="Rule11-0-1" ruleset="Classes">
+</violation>
+<violation beginline="70" begincolumn="5" rule="Rule11-0-1" ruleset="Classes">
+</violation>
+<violation beginline="70" begincolumn="12" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+</file></cppdepend-plugin>

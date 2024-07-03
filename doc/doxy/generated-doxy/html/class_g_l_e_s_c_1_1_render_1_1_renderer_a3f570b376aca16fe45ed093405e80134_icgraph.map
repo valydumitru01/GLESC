@@ -1,0 +1,5 @@
+<map id="GLESC::Render::Renderer::clearMeshData" name="GLESC::Render::Renderer::clearMeshData">
+<area shape="rect" id="Node000001" title="This empties all the data from the renderer. Nothing will be rendered." alt="" coords="248,5,422,48"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_render_system.html#a3d3b423c0c5bf7a1e67e31e069374f93" title="Updates the system." alt="" coords="5,5,200,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="232,29,200,29,200,24,232,24"/>
+</map>

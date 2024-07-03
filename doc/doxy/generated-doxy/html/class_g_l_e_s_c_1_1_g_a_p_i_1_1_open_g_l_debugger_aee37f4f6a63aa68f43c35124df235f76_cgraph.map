@@ -1,0 +1,11 @@
+<map id="GLESC::GAPI::OpenGLDebugger::enableGlDebugCallback" name="GLESC::GAPI::OpenGLDebugger::enableGlDebugCallback">
+<area shape="rect" id="Node000001" title="Enables the OpenGL debug callback." alt="" coords="5,72,221,115"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_debugger.html#a302c60ac82d43fc3b4d16d3d2721dba9" title="The OpenGL debug callback." alt="" coords="269,72,484,115"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="221,91,253,91,253,96,221,96"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_debugger.html#a4130228f3d734d7a2425b88462917c27" title="Returns a string representation of the OpenGL error severity." alt="" coords="532,5,747,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="463,69,537,50,539,55,464,74"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_debugger.html#aa289fc434e30ea0bcd7d2b3edc302df7" title="Returns a string representation of the OpenGL error source." alt="" coords="532,72,747,115"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="484,91,517,91,517,96,484,96"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_debugger.html#a9fe3e29756a02664f9ccd64558ea5468" title="Returns a string representation of the OpenGL error type." alt="" coords="532,139,747,181"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="464,113,539,132,537,137,463,118"/>
+</map>

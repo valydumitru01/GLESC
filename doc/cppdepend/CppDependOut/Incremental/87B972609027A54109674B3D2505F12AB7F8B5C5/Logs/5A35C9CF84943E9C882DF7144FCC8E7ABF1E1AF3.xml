@@ -1,0 +1,6 @@
+<log>
+ <error level="warning" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include\engine/core/math/algebra/vector/VectorAlgorithms.h" line="362" col="20" msg="template parameter &apos;Type&apos; not found in the template declaration" />
+ <error level="warning" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/math/geometry/figures/plane/Plane.cpp" line="73" col="15" msg="empty paragraph passed to &apos;@param&apos; command" />
+ <error level="warning" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/math/geometry/figures/plane/Plane.cpp" line="74" col="11" msg="empty paragraph passed to &apos;@return&apos; command" />
+ <error level="warning" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/math/geometry/figures/plane/Plane.cpp" line="107" col="32" msg="implicit conversion increases floating-point precision: &apos;float&apos; to &apos;double&apos;" />
+</log>

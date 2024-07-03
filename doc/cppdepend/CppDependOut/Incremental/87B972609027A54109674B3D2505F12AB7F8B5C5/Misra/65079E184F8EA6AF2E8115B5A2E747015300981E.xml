@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cppdepend-plugin tool="Misra">
+<file path="c:\program files\cppdepend\defaulttoolchain\compiler\include\c++\array"><violation beginline="94" begincolumn="5" rule="Rule11-0-1" ruleset="Classes">
+</violation>
+</file><file path="c:\program files\cppdepend\defaulttoolchain\compiler\include\c++\bits\random.h"><violation beginline="1607" begincolumn="5" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+</file><file path="c:\program files\cppdepend\defaulttoolchain\compiler\include\c++\iomanip"><violation beginline="224" begincolumn="3" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="194" begincolumn="3" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+</file><file path="c:\program files\cppdepend\defaulttoolchain\compiler\include\c++\limits"><violation beginline="1676" begincolumn="7" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="1680" begincolumn="7" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="1676" begincolumn="7" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="1680" begincolumn="7" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+</file><file path="c:\users\valyd\desktop\github_repos\tfg---opengl-engine\include\engine\core\asserts\asserts.h"><violation beginline="85" begincolumn="54" rule="Rule5-14-1" ruleset="Statements">
+</violation>
+<violation beginline="94" begincolumn="52" rule="Rule5-14-1" ruleset="Statements">
+</violation>
+<violation beginline="95" begincolumn="9" rule="Rule6-6-5" ruleset="Statements">
+</violation>
+</file><file path="c:\users\valyd\desktop\github_repos\tfg---opengl-engine\include\engine\core\debugger\stringer.h"><violation beginline="70" begincolumn="49" rule="Rule5-14-1" ruleset="Statements">
+</violation>
+<violation beginline="74" begincolumn="17" rule="Rule6-6-5" ruleset="Statements">
+</violation>
+<violation beginline="150" begincolumn="17" rule="Rule6-6-5" ruleset="Statements">
+</violation>
+</file><file path="c:\users\valyd\desktop\github_repos\tfg---opengl-engine\include\engine\core\exceptions\baseexception.h"><violation beginline="18" begincolumn="19" rule="Rule10-3-2" ruleset="Classes">
+</violation>
+</file><file path="c:\users\valyd\desktop\github_repos\tfg---opengl-engine\include\engine\core\logger\logger.h"><violation beginline="35" begincolumn="9" rule="Rule10-3-2" ruleset="Classes">
+</violation>
+<violation beginline="36" begincolumn="9" rule="Rule10-3-2" ruleset="Classes">
+</violation>
+<violation beginline="37" begincolumn="9" rule="Rule10-3-2" ruleset="Classes">
+</violation>
+<violation beginline="38" begincolumn="9" rule="Rule10-3-2" ruleset="Classes">
+</violation>
+<violation beginline="39" begincolumn="9" rule="Rule10-3-2" ruleset="Classes">
+</violation>
+<violation beginline="40" begincolumn="9" rule="Rule10-3-2" ruleset="Classes">
+</violation>
+<violation beginline="41" begincolumn="9" rule="Rule10-3-2" ruleset="Classes">
+</violation>
+<violation beginline="42" begincolumn="9" rule="Rule10-3-2" ruleset="Classes">
+</violation>
+<violation beginline="43" begincolumn="9" rule="Rule10-3-2" ruleset="Classes">
+</violation>
+<violation beginline="44" begincolumn="9" rule="Rule10-3-2" ruleset="Classes">
+</violation>
+<violation beginline="45" begincolumn="9" rule="Rule10-3-2" ruleset="Classes">
+</violation>
+<violation beginline="46" begincolumn="9" rule="Rule10-3-2" ruleset="Classes">
+</violation>
+<violation beginline="47" begincolumn="9" rule="Rule10-3-2" ruleset="Classes">
+</violation>
+<violation beginline="51" begincolumn="9" rule="Rule10-3-2" ruleset="Classes">
+</violation>
+</file><file path="c:\users\valyd\desktop\github_repos\tfg---opengl-engine\include\engine\core\math\algebra\vector\vectoralgorithms.h"><violation beginline="46" begincolumn="13" rule="Rule6-4-1" ruleset="Statements">
+</violation>
+<violation beginline="246" begincolumn="13" rule="Rule6-6-5" ruleset="Statements">
+</violation>
+<violation beginline="478" begincolumn="46" rule="Rule5-14-1" ruleset="Statements">
+</violation>
+<violation beginline="483" begincolumn="13" rule="Rule6-3-1" ruleset="Statements">
+</violation>
+<violation beginline="583" begincolumn="63" rule="Rule5-14-1" ruleset="Statements">
+</violation>
+<violation beginline="596" begincolumn="75" rule="Rule5-14-1" ruleset="Statements">
+</violation>
+<violation beginline="596" begincolumn="46" rule="Rule5-14-1" ruleset="Statements">
+</violation>
+<violation beginline="644" begincolumn="13" rule="Rule6-4-1" ruleset="Statements">
+</violation>
+<violation beginline="782" begincolumn="13" rule="Rule6-4-2" ruleset="Statements">
+</violation>
+<violation beginline="787" begincolumn="18" rule="Rule6-4-2" ruleset="Statements">
+</violation>
+<violation beginline="793" begincolumn="17" rule="Rule6-4-1" ruleset="Statements">
+</violation>
+<violation beginline="793" begincolumn="17" rule="Rule6-4-1" ruleset="Statements">
+</violation>
+<violation beginline="834" begincolumn="17" rule="Rule6-4-2" ruleset="Statements">
+</violation>
+<violation beginline="846" begincolumn="21" rule="Rule6-6-5" ruleset="Statements">
+</violation>
+</file><file path="c:\users\valyd\desktop\github_repos\tfg---opengl-engine\include\engine\core\math\algebra\vector\vectormixedalgorithms.h"><violation beginline="64" begincolumn="49" rule="Rule5-14-1" ruleset="Statements">
+</violation>
+<violation beginline="73" begincolumn="13" rule="Rule6-6-5" ruleset="Statements">
+</violation>
+<violation beginline="99" begincolumn="25" rule="Rule6-6-5" ruleset="Statements">
+</violation>
+</file><file path="c:\users\valyd\desktop\github_repos\tfg---opengl-engine\include\engine\core\math\geometry\figures\line\line.h"><violation beginline="46" begincolumn="23" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="52" begincolumn="23" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="52" begincolumn="23" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="46" begincolumn="23" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+</file><file path="c:\users\valyd\desktop\github_repos\tfg---opengl-engine\include\engine\core\math\geometry\figures\plane\plane.h"><violation beginline="121" begincolumn="23" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="91" begincolumn="9" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="127" begincolumn="23" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="141" begincolumn="23" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+</file><file path="c:\users\valyd\desktop\github_repos\tfg---opengl-engine\include\engine\core\math\geometry\figures\polyhedron\polyhedronface.h"><violation beginline="53" begincolumn="23" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="53" begincolumn="23" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="53" begincolumn="23" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="53" begincolumn="23" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="53" begincolumn="23" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+</file><file path="c:\users\valyd\desktop\github_repos\tfg---opengl-engine\include\engine\core\math\math.h"><violation beginline="53" begincolumn="13" rule="Rule6-6-5" ruleset="Statements">
+</violation>
+<violation beginline="69" begincolumn="13" rule="Rule6-6-5" ruleset="Statements">
+</violation>
+<violation beginline="90" begincolumn="9" rule="Rule6-4-1" ruleset="Statements">
+</violation>
+<violation beginline="92" begincolumn="9" rule="Rule6-6-5" ruleset="Statements">
+</violation>
+<violation beginline="152" begincolumn="13" rule="Rule6-6-5" ruleset="Statements">
+</violation>
+<violation beginline="170" begincolumn="13" rule="Rule6-6-5" ruleset="Statements">
+</violation>
+<violation beginline="172" begincolumn="58" rule="Rule5-14-1" ruleset="Statements">
+</violation>
+<violation beginline="203" begincolumn="13" rule="Rule6-6-5" ruleset="Statements">
+</violation>
+<violation beginline="221" begincolumn="45" rule="Rule5-14-1" ruleset="Statements">
+</violation>
+<violation beginline="244" begincolumn="60" rule="Rule5-14-1" ruleset="Statements">
+</violation>
+<violation beginline="250" begincolumn="13" rule="Rule6-6-5" ruleset="Statements">
+</violation>
+<violation beginline="268" begincolumn="60" rule="Rule5-14-1" ruleset="Statements">
+</violation>
+<violation beginline="270" begincolumn="38" rule="Rule5-14-1" ruleset="Statements">
+</violation>
+<violation beginline="274" begincolumn="13" rule="Rule6-6-5" ruleset="Statements">
+</violation>
+<violation beginline="292" begincolumn="60" rule="Rule5-14-1" ruleset="Statements">
+</violation>
+<violation beginline="294" begincolumn="38" rule="Rule5-14-1" ruleset="Statements">
+</violation>
+<violation beginline="298" begincolumn="13" rule="Rule6-6-5" ruleset="Statements">
+</violation>
+<violation beginline="317" begincolumn="60" rule="Rule5-14-1" ruleset="Statements">
+</violation>
+<violation beginline="319" begincolumn="38" rule="Rule5-14-1" ruleset="Statements">
+</violation>
+<violation beginline="323" begincolumn="13" rule="Rule6-6-5" ruleset="Statements">
+</violation>
+<violation beginline="342" begincolumn="60" rule="Rule5-14-1" ruleset="Statements">
+</violation>
+<violation beginline="344" begincolumn="38" rule="Rule5-14-1" ruleset="Statements">
+</violation>
+<violation beginline="348" begincolumn="13" rule="Rule6-6-5" ruleset="Statements">
+</violation>
+<violation beginline="368" begincolumn="60" rule="Rule5-14-1" ruleset="Statements">
+</violation>
+<violation beginline="381" begincolumn="13" rule="Rule6-6-5" ruleset="Statements">
+</violation>
+<violation beginline="399" begincolumn="60" rule="Rule5-14-1" ruleset="Statements">
+</violation>
+<violation beginline="408" begincolumn="38" rule="Rule5-14-1" ruleset="Statements">
+</violation>
+<violation beginline="412" begincolumn="13" rule="Rule6-6-5" ruleset="Statements">
+</violation>
+<violation beginline="431" begincolumn="60" rule="Rule5-14-1" ruleset="Statements">
+</violation>
+<violation beginline="440" begincolumn="38" rule="Rule5-14-1" ruleset="Statements">
+</violation>
+<violation beginline="444" begincolumn="13" rule="Rule6-6-5" ruleset="Statements">
+</violation>
+<violation beginline="462" begincolumn="60" rule="Rule5-14-1" ruleset="Statements">
+</violation>
+<violation beginline="471" begincolumn="38" rule="Rule5-14-1" ruleset="Statements">
+</violation>
+<violation beginline="475" begincolumn="13" rule="Rule6-6-5" ruleset="Statements">
+</violation>
+<violation beginline="493" begincolumn="60" rule="Rule5-14-1" ruleset="Statements">
+</violation>
+<violation beginline="502" begincolumn="38" rule="Rule5-14-1" ruleset="Statements">
+</violation>
+<violation beginline="506" begincolumn="13" rule="Rule6-6-5" ruleset="Statements">
+</violation>
+<violation beginline="583" begincolumn="17" rule="Rule6-6-5" ruleset="Statements">
+</violation>
+<violation beginline="672" begincolumn="51" rule="Rule5-14-1" ruleset="Statements">
+</violation>
+<violation beginline="679" begincolumn="13" rule="Rule6-6-5" ruleset="Statements">
+</violation>
+</file><file path="c:\users\valyd\desktop\github_repos\tfg---opengl-engine\src\engine\core\math\geometry\figures\polyhedron\polyhedronface.cpp"><violation beginline="42" begincolumn="61" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="42" begincolumn="61" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="93" begincolumn="5" rule="Rule6-6-5" ruleset="Statements">
+</violation>
+<violation beginline="106" begincolumn="5" rule="Rule6-6-5" ruleset="Statements">
+</violation>
+<violation beginline="122" begincolumn="5" rule="Rule6-6-5" ruleset="Statements">
+</violation>
+<violation beginline="137" begincolumn="9" rule="Rule6-4-1" ruleset="Statements">
+</violation>
+<violation beginline="137" begincolumn="9" rule="Rule6-4-2" ruleset="Statements">
+</violation>
+<violation beginline="138" begincolumn="14" rule="Rule6-4-1" ruleset="Statements">
+</violation>
+<violation beginline="138" begincolumn="14" rule="Rule6-4-2" ruleset="Statements">
+</violation>
+<violation beginline="139" begincolumn="14" rule="Rule6-4-1" ruleset="Statements">
+</violation>
+<violation beginline="143" begincolumn="9" rule="Rule6-4-1" ruleset="Statements">
+</violation>
+<violation beginline="144" begincolumn="9" rule="Rule6-4-1" ruleset="Statements">
+</violation>
+<violation beginline="144" begincolumn="60" rule="Rule6-6-5" ruleset="Statements">
+</violation>
+<violation beginline="148" begincolumn="5" rule="Rule6-4-1" ruleset="Statements">
+</violation>
+</file></cppdepend-plugin>

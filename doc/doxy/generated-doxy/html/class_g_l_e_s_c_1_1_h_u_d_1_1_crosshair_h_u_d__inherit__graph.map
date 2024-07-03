@@ -1,0 +1,5 @@
+<map id="GLESC::HUD::CrosshairHUD" name="GLESC::HUD::CrosshairHUD">
+<area shape="rect" id="Node000001" title="Class to encapsulate the logic of the crosshair HUD." alt="" coords="5,784,187,896"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_in_game_window.html" title="Class to encapsulate the logic of an in&#45;game window." alt="" coords="18,5,174,736"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="99,751,99,784,93,784,93,751"/>
+</map>

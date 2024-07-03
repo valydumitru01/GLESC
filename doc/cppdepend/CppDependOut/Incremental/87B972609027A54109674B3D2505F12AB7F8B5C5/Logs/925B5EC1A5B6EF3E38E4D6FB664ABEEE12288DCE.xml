@@ -1,0 +1,4 @@
+<log>
+ <error level="warning" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/ecs/frontend/system/System.cpp" line="15" col="32" msg="constructor parameter &apos;ecs&apos; shadows the field &apos;ecs&apos; of &apos;System&apos;" />
+ <error level="warning" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/ecs/frontend/system/System.cpp" line="15" col="55" msg="constructor parameter &apos;name&apos; shadows the field &apos;name&apos; of &apos;System&apos;" />
+</log>

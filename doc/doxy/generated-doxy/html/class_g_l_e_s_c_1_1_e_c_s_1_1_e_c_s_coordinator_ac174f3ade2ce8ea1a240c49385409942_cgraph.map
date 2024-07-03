@@ -1,0 +1,22 @@
+<map id="GLESC::ECS::ECSCoordinator::addComponent" name="GLESC::ECS::ECSCoordinator::addComponent">
+<area shape="rect" id="Node000001" title="Add a component to an entity." alt="" coords="5,143,207,185"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a8c54c83144ea6f6e27660aac346f1fa7" title="Add a component to the entity. The entity must exist." alt="" coords="271,9,463,52"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="132,140,187,101,253,62,267,56,269,60,256,66,190,105,136,144"/>
+<area shape="rect" id="Node000006" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_component_manager.html#a74683fbd748d8c01e27b63a5eeab010d" title="Add a component to an entity." alt="" coords="255,76,479,119"/>
+<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="192,139,265,120,267,126,193,145"/>
+<area shape="rect" id="Node000007" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#a69e2b35d930bdb4505587279d31b9400" title="Adds the entity to the systems it is associated with and removes it from the systems it is no longer ..." alt="" coords="265,143,469,185"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="207,161,249,161,249,167,207,167"/>
+<area shape="rect" id="Node000008" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_component_manager.html#aa81ef6c48acdf07190ada035bfa9bd59" title="Get the ID of a component by its type." alt="" coords="255,209,479,252"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="193,183,267,202,265,208,192,189"/>
+<area shape="rect" id="Node000009" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#afed1028adc518bc27c8cc190832f2bf9" title="Get the signature of the entity. The entity must exist." alt="" coords="527,197,719,240"/>
+<area shape="poly" id="edge10_Node000001_Node000009" title=" " alt="" coords="132,184,185,226,219,246,255,261,316,276,366,278,415,272,478,261,552,243,553,248,480,267,416,277,366,283,316,281,254,267,217,251,182,231,128,188"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a5145504091eb26170aa219acb60aca71" title="Check if the entity with the given name exists." alt="" coords="767,97,960,140"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="451,50,480,62,504,77,528,91,584,105,642,114,752,121,751,126,641,120,583,110,526,96,501,82,478,66,449,55"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#aab28983bdd04e1acf2dd7d94dbe4639d" title="Check if the entity has the given component. The entity must exist and the component must be in the r..." alt="" coords="527,39,719,81"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="464,39,512,45,511,50,463,44"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a54e81951030afee74dd6ea3c4e2b74e5" title="Check if the component ID is in the range of the signature." alt="" coords="767,5,960,48"/>
+<area shape="poly" id="edge6_Node000002_Node000005" title=" " alt="" coords="463,25,527,24,751,23,751,29,527,29,464,31"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="714,79,759,90,758,96,713,85"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="719,44,751,40,752,45,720,49"/>
+<area shape="poly" id="edge11_Node000009_Node000003" title=" " alt="" coords="676,194,795,144,797,149,678,199"/>
+</map>

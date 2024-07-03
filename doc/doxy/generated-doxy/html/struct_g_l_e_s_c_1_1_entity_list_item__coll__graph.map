@@ -1,0 +1,7 @@
+<map id="GLESC::EntityListItem" name="GLESC::EntityListItem">
+<area shape="rect" id="Node000001" title="Struct that holds the name and type of an entity." alt="" coords="5,272,151,363"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="43,139,113,208"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="81,208,81,255,75,255,75,208"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="19,5,137,91"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="81,106,81,139,75,139,75,106"/>
+</map>

@@ -1,0 +1,11 @@
+<map id="TerminalLogger.cpp" name="TerminalLogger.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="49,5,183,32"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,96,80,123"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="107,34,65,86,61,82,103,31"/>
+<area shape="rect" id="Node000003" href="$_terminal_logger_8h.html" title="@TODO Add description of this file if needed" alt="" coords="103,80,278,139"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="129,31,159,66,154,70,124,34"/>
+<area shape="rect" id="Node000004" href="$_i_logger_8h.html" title="Class that encapsulates the look and feel of the HUD." alt="" coords="127,187,254,229"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="193,139,193,171,188,171,188,139"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="164,277,217,304"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="193,230,193,261,188,261,188,230"/>
+</map>

@@ -1,0 +1,108 @@
+<map id="GLESC::Math::eq" name="GLESC::Math::eq">
+<area shape="rect" id="Node000001" title="Compares two values for equality." alt="" coords="846,1119,971,1145"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#a7c7e7e047ad20cacf42f7c94bd1067b6" title="Checks if two vectors are orthogonal." alt="" coords="577,85,787,128"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="905,1103,903,919,891,641,877,496,858,361,831,248,815,204,796,170,775,147,748,131,751,126,778,143,800,166,820,202,836,247,863,360,883,495,896,641,908,918,910,1103"/>
+<area shape="rect" id="Node000006" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#abd445eb1a09f37b1dc51d28e9a7e6f28" title="Checks if two vectors are parallel." alt="" coords="577,275,787,317"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="905,1103,903,993,889,827,876,732,856,635,830,538,796,445,776,408,752,374,704,319,708,316,756,370,781,405,801,443,835,536,862,633,881,731,895,826,908,993,910,1103"/>
+<area shape="rect" id="Node000008" href="$class_g_l_e_s_c_1_1_math_1_1_plane.html#a7ff29d08e781e1368153ec76635df34d" title=" " alt="" coords="46,220,190,263"/>
+<area shape="poly" id="edge29_Node000001_Node000008" title=" " alt="" coords="903,1103,891,920,868,653,853,518,836,401,817,312,807,282,796,264,767,236,738,213,710,196,681,183,624,170,565,169,503,177,435,190,361,204,279,215,190,228,190,223,278,209,360,199,434,185,502,172,565,164,625,164,683,178,712,191,741,209,770,232,800,261,812,280,822,310,842,400,859,518,874,652,896,920,908,1103"/>
+<area shape="rect" id="Node000010" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#a3249cf40f6140efca533d2f041f909d3" title="Equality operator for vectors." alt="" coords="566,456,798,483"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="904,1103,897,973,880,790,866,697,848,612,825,543,811,516,796,497,782,485,785,481,800,493,816,514,830,541,853,611,872,696,886,790,903,973,909,1103"/>
+<area shape="rect" id="Node000027" href="$_custom_testing_framework_8h.html#a1beff8128e6963fb1f13c512fbf41f4f" title=" " alt="" coords="622,507,743,533"/>
+<area shape="poly" id="edge14_Node000001_Node000027" title=" " alt="" coords="903,1103,895,982,877,815,863,730,845,652,823,589,810,565,797,547,772,531,742,523,744,518,774,526,800,543,815,562,828,587,850,651,868,729,882,814,901,982,909,1103"/>
+<area shape="rect" id="Node000028" href="$_math_custom_testing_framework_8h.html#a188a0213fc0d063e24e90f13547fc043" title=" " alt="" coords="633,557,731,584"/>
+<area shape="poly" id="edge15_Node000001_Node000028" title=" " alt="" coords="903,1104,893,993,874,840,860,763,842,693,821,636,796,598,783,587,766,580,731,572,732,567,768,575,785,583,800,594,826,634,847,691,865,762,879,839,899,992,908,1103"/>
+<area shape="rect" id="Node000030" href="$namespace_g_l_e_s_c_1_1_math.html#ac79212d3f050008e356d88e6ee6068c0" title="Compares two values for greater than, calculates the epsilon automatically." alt="" coords="622,608,743,635"/>
+<area shape="poly" id="edge17_Node000001_Node000030" title=" " alt="" coords="902,1103,891,1002,870,865,856,796,839,733,819,682,796,649,772,633,743,625,744,619,774,628,800,645,824,680,844,732,861,794,876,864,896,1001,907,1103"/>
+<area shape="rect" id="Node000031" href="$namespace_g_l_e_s_c_1_1_math.html#a10dbf93b680c41ae82ff63e1df6dc114" title="Compares two values for greater than." alt="" coords="622,659,743,685"/>
+<area shape="poly" id="edge18_Node000001_Node000031" title=" " alt="" coords="901,1103,889,1011,867,889,852,828,836,773,817,729,796,699,772,683,742,675,744,670,774,679,800,695,822,726,841,772,857,827,872,888,894,1010,906,1102"/>
+<area shape="rect" id="Node000036" href="$namespace_g_l_e_s_c_1_1_math.html#a03531f87f588cdfa4a50337b7e4d51c2" title="Compares two values for greater than or equal." alt="" coords="618,760,746,787"/>
+<area shape="poly" id="edge25_Node000001_Node000036" title=" " alt="" coords="904,1103,899,1040,883,958,869,915,851,873,827,834,797,801,773,786,746,778,748,773,775,781,800,797,831,831,855,870,874,913,888,956,904,1039,909,1103"/>
+<area shape="rect" id="Node000037" href="$class_g_l_e_s_c_1_1_math_1_1_line.html#a54ec550807f8b505f6aef9da336d60f7" title="Check if a line intersects with another line." alt="" coords="611,811,753,853"/>
+<area shape="poly" id="edge26_Node000001_Node000037" title=" " alt="" coords="901,1104,891,1053,872,989,842,924,821,894,797,867,776,853,753,844,755,839,779,849,800,863,825,890,846,921,877,987,897,1052,906,1103"/>
+<area shape="rect" id="Node000038" href="$class_g_l_e_s_c_1_1_math_1_1_plane.html#adf3a9613b3c7820418e363fa2d2e7449" title="Checks if the plane intersects with a given line." alt="" coords="611,877,754,920"/>
+<area shape="poly" id="edge27_Node000001_Node000038" title=" " alt="" coords="897,1105,884,1066,863,1020,834,974,797,934,776,921,753,912,755,907,778,916,800,930,838,970,868,1018,889,1064,902,1103"/>
+<area shape="rect" id="Node000039" href="$class_g_l_e_s_c_1_1_math_1_1_polyhedron_face.html#acda5c36a9dc475202153436369828d53" title="Checks if the face intersects with a given line." alt="" coords="580,944,784,987"/>
+<area shape="poly" id="edge28_Node000001_Node000039" title=" " alt="" coords="890,1107,852,1053,826,1025,797,1001,776,990,778,985,800,996,830,1021,856,1049,894,1104"/>
+<area shape="rect" id="Node000040" href="$class_g_l_e_s_c_1_1_math_1_1_polyhedron_face.html#a5e161c4f595118ca63c8a6abd903ac5d" title="Checks if the face intersects with a given plane." alt="" coords="580,1011,784,1053"/>
+<area shape="poly" id="edge30_Node000001_Node000040" title=" " alt="" coords="875,1112,838,1089,797,1068,768,1056,769,1051,799,1063,841,1084,877,1108"/>
+<area shape="rect" id="Node000041" href="$class_g_l_e_s_c_1_1_math_1_1_plane.html#abc9e61a59f06bf63d05ebcb690ce264d" title=" " alt="" coords="611,1077,754,1120"/>
+<area shape="poly" id="edge31_Node000001_Node000041" title=" " alt="" coords="831,1123,754,1112,755,1107,831,1118"/>
+<area shape="rect" id="Node000043" href="$class_g_l_e_s_c_1_1_math_1_1_line.html#a18a1fdcbcbd3c1055df4cbc67d46914d" title="Check if a line intersects with a point." alt="" coords="611,1144,753,1187"/>
+<area shape="poly" id="edge33_Node000001_Node000043" title=" " alt="" coords="832,1146,754,1158,753,1152,831,1141"/>
+<area shape="rect" id="Node000044" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a5d9d986d19eb1ff929b7c9c8f8cdbcdc" title="Checks if a matrix is invertible." alt="" coords="578,1211,786,1253"/>
+<area shape="poly" id="edge34_Node000001_Node000044" title=" " alt="" coords="877,1156,841,1180,799,1201,769,1213,768,1208,797,1196,838,1175,875,1152"/>
+<area shape="rect" id="Node000064" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#a5ca9b3fe4499fe76edf688756943ac71" title="Checks if two vectors are collinear." alt="" coords="577,1277,787,1320"/>
+<area shape="poly" id="edge39_Node000001_Node000064" title=" " alt="" coords="894,1160,856,1215,830,1243,800,1268,778,1279,776,1274,797,1263,826,1239,852,1211,890,1157"/>
+<area shape="rect" id="Node000066" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#a244693e646eae8bd74830ccea54ad31d" title=" " alt="" coords="577,1344,787,1387"/>
+<area shape="poly" id="edge41_Node000001_Node000066" title=" " alt="" coords="902,1161,889,1200,868,1246,838,1294,800,1334,782,1346,779,1341,797,1330,834,1290,863,1244,884,1198,897,1159"/>
+<area shape="rect" id="Node000068" href="$namespace_g_l_e_s_c_1_1_math.html#ae365a2eab519b5d23cd982fdca322bc9" title="Compares two values for less than, calculates the epsilon automatically." alt="" coords="624,1411,741,1437"/>
+<area shape="poly" id="edge42_Node000001_Node000068" title=" " alt="" coords="907,1161,897,1213,879,1278,847,1344,826,1375,800,1401,772,1417,742,1425,741,1419,770,1412,797,1397,822,1371,843,1342,874,1276,892,1212,901,1160"/>
+<area shape="rect" id="Node000069" href="$namespace_g_l_e_s_c_1_1_math.html#a071e4c2a3c88d498f7a789a794585f45" title="Compares two values for less than." alt="" coords="624,709,741,736"/>
+<area shape="poly" id="edge43_Node000001_Node000069" title=" " alt="" coords="906,1103,903,1031,890,936,876,885,857,836,830,790,797,750,771,734,740,726,742,721,773,729,800,746,835,787,861,833,881,883,895,935,909,1031,911,1103"/>
+<area shape="rect" id="Node000070" href="$namespace_g_l_e_s_c_1_1_math.html#a04b354b725807d3f379b9962fca1cb0e" title="Compares two values for less than or equal, calculates the epsilon automatically." alt="" coords="620,1461,744,1488"/>
+<area shape="poly" id="edge46_Node000001_Node000070" title=" " alt="" coords="909,1162,903,1222,886,1301,872,1342,853,1382,830,1419,800,1451,774,1467,746,1475,744,1470,772,1462,797,1447,825,1416,849,1379,867,1340,881,1299,897,1222,904,1161"/>
+<area shape="rect" id="Node000071" href="$namespace_g_l_e_s_c_1_1_math.html#a34ffa872f3c169ea183d6b8b4eb4de21" title="Compares two values for less than or equal." alt="" coords="620,1512,744,1539"/>
+<area shape="poly" id="edge47_Node000001_Node000071" title=" " alt="" coords="910,1161,907,1231,893,1323,879,1372,860,1419,834,1463,800,1502,774,1518,745,1526,744,1521,772,1513,797,1498,829,1460,855,1417,874,1370,888,1322,902,1230,905,1161"/>
+<area shape="rect" id="Node000048" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a9a320568d4cd85a382cb80f773e6e98f" title="Matrix division." alt="" coords="578,1563,786,1605"/>
+<area shape="poly" id="edge48_Node000001_Node000048" title=" " alt="" coords="906,1161,892,1250,870,1367,839,1479,821,1522,800,1552,786,1564,783,1560,796,1549,816,1520,834,1477,865,1366,887,1249,901,1161"/>
+<area shape="rect" id="Node000072" href="$namespace_g_l_e_s_c_1_1_math.html#a2e5e3c15b80827a6065d1c676b54a9fb" title="Compares two values for greater than or equal, calculates the epsilon automatically." alt="" coords="616,1629,748,1656"/>
+<area shape="poly" id="edge49_Node000001_Node000072" title=" " alt="" coords="907,1161,896,1263,876,1400,861,1470,844,1532,824,1584,800,1619,777,1635,750,1644,748,1638,774,1630,796,1615,819,1582,839,1531,856,1468,870,1399,891,1262,902,1161"/>
+<area shape="rect" id="Node000073" href="$class_g_l_e_s_c_1_1_math_1_1_plane.html#a6e73a6db0f74741d99f1fc3d5e56dec3" title="Normalize the normal vector of the plane." alt="" coords="611,1680,754,1723"/>
+<area shape="poly" id="edge50_Node000001_Node000073" title=" " alt="" coords="908,1161,898,1272,878,1424,863,1501,846,1572,825,1630,800,1670,779,1686,755,1696,753,1691,777,1681,796,1666,820,1627,841,1570,858,1500,872,1423,892,1272,903,1161"/>
+<area shape="rect" id="Node000074" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#a7ee5da5ffdabacb6faa895af42dd78c3" title="Normalizes a vector." alt="" coords="577,1797,787,1840"/>
+<area shape="poly" id="edge51_Node000001_Node000074" title=" " alt="" coords="909,1161,901,1292,883,1477,869,1572,851,1658,828,1730,815,1759,800,1780,778,1799,775,1795,796,1777,810,1756,823,1728,846,1657,864,1571,878,1476,896,1292,903,1161"/>
+<area shape="rect" id="Node000100" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#a21ad8abd8b4058b6510dfa819f629f73" title="Converts a direction vector to Euler angles." alt="" coords="293,1768,504,1811"/>
+<area shape="poly" id="edge56_Node000001_Node000100" title=" " alt="" coords="909,1161,902,1286,885,1459,871,1547,853,1627,829,1692,816,1718,800,1737,785,1745,760,1752,685,1765,504,1784,504,1779,685,1759,759,1747,783,1740,797,1733,811,1715,825,1690,848,1626,866,1546,880,1458,897,1285,904,1161"/>
+<area shape="rect" id="Node000104" href="$class_g_l_e_s_c_1_1_math_1_1_matrix.html#ac3fae2ad16711955b43ad2a6b21ea2b3" title="Equality operator." alt="" coords="609,1864,755,1907"/>
+<area shape="poly" id="edge53_Node000001_Node000104" title=" " alt="" coords="909,1161,905,1305,889,1513,875,1619,857,1717,832,1798,817,1829,800,1854,780,1870,757,1880,755,1875,777,1865,796,1850,812,1827,827,1796,851,1716,870,1618,884,1512,899,1305,904,1161"/>
+<area shape="rect" id="Node000105" href="$class_g_l_e_s_c_1_1_math_1_1_plane.html#aad93f6caba75f34db450be42617f0e33" title="Compare two planes for equality." alt="" coords="611,1931,754,1973"/>
+<area shape="poly" id="edge54_Node000001_Node000105" title=" " alt="" coords="910,1161,907,1317,893,1544,880,1662,860,1770,834,1859,818,1894,800,1920,779,1937,755,1947,753,1942,777,1933,796,1917,814,1891,829,1857,855,1768,874,1661,888,1544,902,1317,905,1161"/>
+<area shape="rect" id="Node000106" href="$class_g_l_e_s_c_1_1_physics_1_1_collision_manager.html#a27c5c28ac5363d15ea2f149fa618bb4f" title=" " alt="" coords="594,1997,771,2040"/>
+<area shape="poly" id="edge55_Node000001_Node000106" title=" " alt="" coords="910,1161,909,1328,905,1447,897,1576,884,1704,864,1822,837,1920,820,1958,800,1987,773,2007,769,2003,796,1983,815,1955,832,1918,859,1821,879,1703,892,1575,900,1447,904,1328,905,1161"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#aa3deba140f71bc17c93c6ed9aa0fd5c3" title="Checks if the vector is orthogonal to another vector." alt="" coords="324,5,473,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="590,83,517,63,472,50,474,45,519,57,591,78"/>
+<area shape="rect" id="Node000004" href="$_vector_algorithms_tests_8cpp.html#a4c2542ac3dedb573034d8dbcec962c0b" title=" " alt="" coords="347,72,450,99"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="561,100,450,92,451,87,561,95"/>
+<area shape="rect" id="Node000005" href="$_vector_algorithms_tests_8cpp.html#a94a01cc630a1b870c735ee357dbc9ba6" title=" " alt="" coords="347,123,450,149"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="562,122,451,133,450,128,561,116"/>
+<area shape="rect" id="Node000007" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#a04bde0db0fa6c404f5c9e1d6c0901c9a" title="Checks if the vector is parallel to another vector." alt="" coords="324,275,473,317"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="561,299,473,299,473,293,561,293"/>
+<area shape="rect" id="Node000009" href="$_vector_algorithms_tests_8cpp.html#a2cd7f94d0568aa1e6d392ce6af481fc6" title=" " alt="" coords="347,224,450,251"/>
+<area shape="poly" id="edge8_Node000006_Node000009" title=" " alt="" coords="561,274,450,251,451,245,562,269"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="308,281,190,258,191,253,309,276"/>
+<area shape="rect" id="Node000011" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#a679d94d73e405dc11ea9140e71f4ef4f" title="Checks if a vector is zero." alt="" coords="293,509,504,552"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="602,489,501,511,500,506,601,484"/>
+<area shape="rect" id="Node000020" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#abc658ca0f5d30b48e1dd86a3db35c3ff" title=" " alt="" coords="279,341,518,368"/>
+<area shape="poly" id="edge11_Node000010_Node000020" title=" " alt="" coords="646,450,587,415,517,382,479,371,481,366,519,378,590,410,649,445"/>
+<area shape="rect" id="Node000023" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#aa01130535aede3a8d22dd6e16504dec2" title="Equality operator for vectors." alt="" coords="324,392,473,435"/>
+<area shape="poly" id="edge12_Node000010_Node000023" title=" " alt="" coords="595,455,472,431,473,425,596,450"/>
+<area shape="rect" id="Node000026" href="$_vector_algorithms_tests_8cpp.html#ab8072cf69fd072db2710b09bccaae8c4" title=" " alt="" coords="347,459,450,485"/>
+<area shape="poly" id="edge13_Node000010_Node000026" title=" " alt="" coords="551,473,451,474,451,469,551,468"/>
+<area shape="rect" id="Node000029" href="$_math_custom_testing_framework_8h.html#a7ac23099b1386407b9a3fc5ed13c1499" title=" " alt="" coords="349,576,448,603"/>
+<area shape="poly" id="edge16_Node000028_Node000029" title=" " alt="" coords="617,578,448,589,448,583,617,572"/>
+<area shape="rect" id="Node000032" href="$namespace_g_l_e_s_c_1_1_physics.html#a1621e2a03fff6c4be0436391e2bc6ef5" title=" " alt="" coords="299,768,498,795"/>
+<area shape="poly" id="edge19_Node000031_Node000032" title=" " alt="" coords="608,683,567,700,553,713,544,728,536,744,519,758,495,770,493,765,517,754,532,740,540,725,548,710,565,695,606,678"/>
+<area shape="rect" id="Node000033" href="$class_g_l_e_s_c_1_1_physics_1_1_physics_manager.html#a989f5035ba226da4a55a192cb42b8675" title=" " alt="" coords="5,701,231,744"/>
+<area shape="poly" id="edge21_Node000031_Node000033" title=" " alt="" coords="606,665,536,659,454,656,366,658,279,668,221,683,168,703,166,698,219,678,278,663,366,653,454,651,537,654,606,660"/>
+<area shape="rect" id="Node000035" href="$namespace_g_l_e_s_c_1_1_physics.html#ad4c6faf429a6e9c953e8d207d9cb1dff" title=" " alt="" coords="308,701,489,744"/>
+<area shape="poly" id="edge22_Node000031_Node000035" title=" " alt="" coords="606,688,490,709,489,704,606,683"/>
+<area shape="poly" id="edge20_Node000032_Node000033" title=" " alt="" coords="315,767,222,747,224,742,317,762"/>
+<area shape="poly" id="edge23_Node000035_Node000033" title=" " alt="" coords="292,725,231,725,231,720,292,720"/>
+<area shape="poly" id="edge24_Node000035_Node000035" title=" " alt="" coords="444,688,427,682,398,680,372,682,355,687,349,693,351,700,346,701,344,691,352,682,371,677,398,675,428,677,446,683"/>
+<area shape="rect" id="Node000042" href="$class_g_l_e_s_c_1_1_math_1_1_plane.html#aec2b6ec275b696fac6c899f782e32186" title="Checks if the plane intersects with a given line and sets the intersection point if it exists...." alt="" coords="327,1044,470,1087"/>
+<area shape="poly" id="edge32_Node000041_Node000042" title=" " alt="" coords="595,1091,470,1076,471,1071,595,1086"/>
+<area shape="rect" id="Node000045" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#aca5df3e27a085214d4d163ce91b38833" title="Calculates the inverse of a 2x2 matrix." alt="" coords="294,1311,503,1353"/>
+<area shape="poly" id="edge35_Node000044_Node000045" title=" " alt="" coords="581,1262,567,1268,544,1284,519,1301,490,1313,488,1308,517,1296,540,1280,565,1263,579,1257"/>
+<area shape="rect" id="Node000054" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a363b6f5195daf678e5cbe3923d0e0cfc" title="Calculates the inverse of a 3x3 matrix." alt="" coords="294,1111,503,1153"/>
+<area shape="poly" id="edge36_Node000044_Node000054" title=" " alt="" coords="579,1207,565,1201,540,1184,517,1168,488,1156,490,1151,519,1163,544,1180,567,1196,581,1202"/>
+<area shape="rect" id="Node000055" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a1380aa1364ae38a37a7e710d20cf90ec" title="Calculates the inverse of a 4x4 matrix." alt="" coords="294,1177,503,1220"/>
+<area shape="poly" id="edge37_Node000044_Node000055" title=" " alt="" coords="562,1221,503,1214,503,1208,563,1215"/>
+<area shape="rect" id="Node000062" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a8f87a5cd712e5f47531965d3c0d620f8" title="Checks if a matrix is a valid view matrix." alt="" coords="294,1244,503,1287"/>
+<area shape="poly" id="edge38_Node000044_Node000062" title=" " alt="" coords="563,1249,503,1256,503,1250,562,1243"/>
+<area shape="rect" id="Node000065" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#a854d6e06f8d39e247b42cd557258530f" title="Checks if the current vector is a scalar multiple of another vector." alt="" coords="324,1377,473,1420"/>
+<area shape="poly" id="edge40_Node000064_Node000065" title=" " alt="" coords="581,1328,567,1334,544,1351,519,1368,474,1385,472,1380,517,1363,540,1347,565,1330,579,1324"/>
+<area shape="poly" id="edge44_Node000069_Node000032" title=" " alt="" coords="609,740,467,770,466,765,607,735"/>
+<area shape="poly" id="edge45_Node000069_Node000035" title=" " alt="" coords="608,725,490,725,490,720,608,720"/>
+<area shape="poly" id="edge52_Node000074_Node000100" title=" " alt="" coords="561,1809,504,1803,504,1798,562,1804"/>
+</map>

@@ -1,0 +1,34 @@
+<map id="GLESC::EngineCamera::moveRight" name="GLESC::EngineCamera::moveRight">
+<area shape="rect" id="Node000001" title="Moves the camera to the right." alt="" coords="5,109,164,152"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html#a14143b00be0701d787f043955c449e22" title="Returns a reference to the component." alt="" coords="238,73,381,116"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="164,115,222,106,223,111,165,121"/>
+<area shape="rect" id="Node000008" href="$struct_g_l_e_s_c_1_1_transform_1_1_transform.html#a3ca12c0fcf34d42593d0e8a59a0e21d4" title="Calculates the right vector using the rotation." alt="" coords="212,143,407,185"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="165,140,197,145,196,150,164,145"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator.html#a70c1d7a354e40af5426372cb3daaaaf1" title="Get the component of an entity by its Id." alt="" coords="455,72,656,115"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="381,92,439,91,439,97,381,97"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a5145504091eb26170aa219acb60aca71" title="Check if the entity with the given name exists." alt="" coords="720,5,913,48"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="641,69,715,50,716,55,643,74"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_component_manager.html#ac63a277ed5aed0640e808f20480d01a1" title="Get the component of an entity by its ID." alt="" coords="704,72,929,115"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="657,91,689,91,689,96,657,96"/>
+<area shape="rect" id="Node000006" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_component_manager.html#ab06d3e4aecbf882b3f75fa4943f561f2" title="Get the name of a component by its ID." alt="" coords="977,72,1201,115"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="929,91,961,91,961,96,929,96"/>
+<area shape="rect" id="Node000007" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_component_manager.html#af4b8c65d69d17052413005a7402bf116" title="Check if a component is registered." alt="" coords="1249,71,1473,113"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="1201,90,1233,90,1233,95,1201,95"/>
+<area shape="rect" id="Node000009" href="$struct_g_l_e_s_c_1_1_transform_1_1_transform.html#a92fc8e586bd408d56f8f7edcdd0c6c48" title="Calculates the right vector using the rotation." alt="" coords="458,149,653,192"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="407,164,442,165,442,170,407,169"/>
+<area shape="rect" id="Node000010" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#a45143ffe5273f8e3ec870f864e03f20d" title="Returns the right vector of a rotation." alt="" coords="742,149,891,192"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="654,168,727,168,727,173,654,173"/>
+<area shape="rect" id="Node000014" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#a058dd167ea8c84edda5fdeccdeebd5d5" title="Converts the vector to radians." alt="" coords="742,217,891,260"/>
+<area shape="poly" id="edge13_Node000009_Node000014" title=" " alt="" coords="641,190,728,213,727,218,640,195"/>
+<area shape="rect" id="Node000011" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#a75d6e29326396451ea50687480ccb518" title="Makes a right vector from rotation angles." alt="" coords="984,149,1194,192"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="891,168,968,168,968,173,891,173"/>
+<area shape="rect" id="Node000012" href="$namespace_g_l_e_s_c_1_1_math.html#ac72fdbfd43b6a5770385dbfd805b687b" title="Calculates the cosine of a value." alt="" coords="1296,137,1427,164"/>
+<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="1194,160,1280,154,1280,159,1195,166"/>
+<area shape="rect" id="Node000013" href="$namespace_g_l_e_s_c_1_1_math.html#aa21a1aeaaa25e280f941221e165dffa4" title="Calculates the sine of a value." alt="" coords="1298,188,1425,215"/>
+<area shape="poly" id="edge12_Node000011_Node000013" title=" " alt="" coords="1195,180,1282,190,1282,195,1194,185"/>
+<area shape="rect" id="Node000015" href="$namespace_g_l_e_s_c_1_1_math.html#a980ed967f85bef4bb539c9701701a877" title="Converts degrees to radians." alt="" coords="1013,239,1165,265"/>
+<area shape="poly" id="edge14_Node000014_Node000015" title=" " alt="" coords="891,240,997,245,997,250,891,245"/>
+<area shape="rect" id="Node000016" href="$namespace_g_l_e_s_c_1_1_math.html#a69598a72ef2c06e1caba0ea9613d65e6" title="Converts radians to degrees." alt="" coords="1283,239,1439,265"/>
+<area shape="poly" id="edge15_Node000015_Node000016" title=" " alt="" coords="1166,258,1268,258,1268,263,1166,263"/>
+<area shape="poly" id="edge16_Node000016_Node000015" title=" " alt="" coords="1282,246,1181,246,1181,241,1283,241"/>
+</map>

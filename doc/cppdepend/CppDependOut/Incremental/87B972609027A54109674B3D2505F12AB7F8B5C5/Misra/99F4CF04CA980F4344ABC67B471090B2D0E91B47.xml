@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cppdepend-plugin tool="Misra">
+<file path="c:\program files\cppdepend\defaulttoolchain\compiler\include\c++\atomic"><violation beginline="77" begincolumn="5" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="85" begincolumn="5" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+</file><file path="c:\users\valyd\desktop\github_repos\tfg---opengl-engine\include\engine\core\logger\concrete-loggers\filelogger.h"><violation beginline="21" begincolumn="5" rule="Rule10-3-2" ruleset="Classes">
+</violation>
+<violation beginline="23" begincolumn="5" rule="Rule10-3-2" ruleset="Classes">
+</violation>
+<violation beginline="25" begincolumn="5" rule="Rule10-3-2" ruleset="Classes">
+</violation>
+<violation beginline="27" begincolumn="5" rule="Rule10-3-2" ruleset="Classes">
+</violation>
+<violation beginline="29" begincolumn="5" rule="Rule10-3-2" ruleset="Classes">
+</violation>
+<violation beginline="31" begincolumn="5" rule="Rule10-3-2" ruleset="Classes">
+</violation>
+<violation beginline="33" begincolumn="5" rule="Rule10-3-2" ruleset="Classes">
+</violation>
+<violation beginline="35" begincolumn="5" rule="Rule10-3-2" ruleset="Classes">
+</violation>
+<violation beginline="37" begincolumn="5" rule="Rule10-3-2" ruleset="Classes">
+</violation>
+<violation beginline="39" begincolumn="5" rule="Rule10-3-2" ruleset="Classes">
+</violation>
+<violation beginline="41" begincolumn="5" rule="Rule10-3-2" ruleset="Classes">
+</violation>
+<violation beginline="43" begincolumn="5" rule="Rule10-3-2" ruleset="Classes">
+</violation>
+<violation beginline="45" begincolumn="5" rule="Rule10-3-2" ruleset="Classes">
+</violation>
+<violation beginline="47" begincolumn="5" rule="Rule10-3-2" ruleset="Classes">
+</violation>
+</file><file path="c:\users\valyd\desktop\github_repos\tfg---opengl-engine\include\engine\core\logger\concrete-loggers\terminallogger.h"><violation beginline="19" begincolumn="5" rule="Rule10-3-2" ruleset="Classes">
+</violation>
+<violation beginline="21" begincolumn="5" rule="Rule10-3-2" ruleset="Classes">
+</violation>
+<violation beginline="23" begincolumn="5" rule="Rule10-3-2" ruleset="Classes">
+</violation>
+<violation beginline="25" begincolumn="5" rule="Rule10-3-2" ruleset="Classes">
+</violation>
+<violation beginline="27" begincolumn="5" rule="Rule10-3-2" ruleset="Classes">
+</violation>
+<violation beginline="29" begincolumn="5" rule="Rule10-3-2" ruleset="Classes">
+</violation>
+<violation beginline="31" begincolumn="5" rule="Rule10-3-2" ruleset="Classes">
+</violation>
+<violation beginline="33" begincolumn="5" rule="Rule10-3-2" ruleset="Classes">
+</violation>
+<violation beginline="35" begincolumn="5" rule="Rule10-3-2" ruleset="Classes">
+</violation>
+<violation beginline="37" begincolumn="5" rule="Rule10-3-2" ruleset="Classes">
+</violation>
+<violation beginline="39" begincolumn="5" rule="Rule10-3-2" ruleset="Classes">
+</violation>
+<violation beginline="41" begincolumn="5" rule="Rule10-3-2" ruleset="Classes">
+</violation>
+<violation beginline="43" begincolumn="5" rule="Rule10-3-2" ruleset="Classes">
+</violation>
+</file><file path="c:\users\valyd\desktop\github_repos\tfg---opengl-engine\include\engine\core\logger\logger.h"><violation beginline="31" begincolumn="9" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="31" begincolumn="9" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+</file></cppdepend-plugin>

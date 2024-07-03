@@ -1,0 +1,7 @@
+<map id="GLESC::Math::Plane::calculateDistanceFromPointAndNormal" name="GLESC::Math::Plane::calculateDistanceFromPointAndNormal">
+<area shape="rect" id="Node000001" title="Calculate the distance from the origin to the plane defined by a point on the plane and the plane&#39;s n..." alt="" coords="5,5,198,64"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#ab7062a9b67c16d4e60413b625412b4eb" title="Returns the dot product of two vectors." alt="" coords="246,21,420,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="198,32,230,32,230,37,198,37"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#ae45bcff9b53fb60d513c53823418d97b" title="Computes the dot product of two vectors." alt="" coords="468,13,678,56"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="421,32,452,32,452,37,421,37"/>
+</map>

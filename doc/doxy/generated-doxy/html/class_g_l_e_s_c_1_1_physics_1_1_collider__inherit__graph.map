@@ -1,0 +1,5 @@
+<map id="GLESC::Physics::Collider" name="GLESC::Physics::Collider">
+<area shape="rect" id="Node000001" title="The collider class component for entities." alt="" coords="5,229,207,661"/>
+<area shape="rect" id="Node000002" href="$class_engine_component.html" title="Class that represents a component of the engine." alt="" coords="7,5,205,181"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="109,196,109,229,103,229,103,196"/>
+</map>

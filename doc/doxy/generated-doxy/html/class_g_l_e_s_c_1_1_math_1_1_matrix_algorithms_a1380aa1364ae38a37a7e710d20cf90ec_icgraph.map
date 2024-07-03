@@ -1,0 +1,31 @@
+<map id="GLESC::Math::MatrixAlgorithms::inverse4x4" name="GLESC::Math::MatrixAlgorithms::inverse4x4">
+<area shape="rect" id="Node000001" title="Calculates the inverse of a 4x4 matrix." alt="" coords="1043,127,1251,169"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#af1fa0338a019e92e6bc2f76d521b4b6f" title="Calculates the normal matrix given the model&#45;view matrix." alt="" coords="787,64,995,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1042,125,980,110,981,105,1043,120"/>
+<area shape="rect" id="Node000008" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a6926a06b307dbcaf08b77a7d1457b9cd" title="Calculates the inverse of any square matrix." alt="" coords="787,189,995,232"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="1043,176,981,191,980,186,1042,171"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_matrix.html#ab7f28dc98291b73ddc0ecd277f128649" title="Creates a normal matrix from the given model&#45;view matrix." alt="" coords="561,5,708,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="779,63,707,46,709,41,781,57"/>
+<area shape="rect" id="Node000007" href="$_matrix_algorithms_tests_8cpp.html#ab325b7f490c714128caeb4bc7ea5cb8c" title=" " alt="" coords="608,72,661,99"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="771,88,662,88,662,83,771,83"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_render_1_1_renderer.html#a3244ebc15bf8310257ec613f62d00a33" title="This renders the frame." alt="" coords="308,5,482,48"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="546,29,483,29,483,24,546,24"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_engine.html#ab0a886855ca341089947b36b9c6f6e15" title="Processes the rendering of the game Can be called at variable intervals of time as it uses elapsed." alt="" coords="103,13,260,40"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="292,29,261,29,261,24,292,24"/>
+<area shape="rect" id="Node000006" href="$src_2engine_2main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,13,55,40"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="87,29,55,29,55,24,87,24"/>
+<area shape="rect" id="Node000009" href="$class_g_l_e_s_c_1_1_math_1_1_matrix.html#a3509fbaa0df9cb3def4bd2adaa9a0600" title="Calculates the inverse of the matrix." alt="" coords="561,123,708,165"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="791,187,708,166,709,160,792,182"/>
+<area shape="rect" id="Node000010" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a9a320568d4cd85a382cb80f773e6e98f" title="Matrix division." alt="" coords="530,189,739,232"/>
+<area shape="poly" id="edge9_Node000008_Node000010" title=" " alt="" coords="771,213,739,213,739,208,771,208"/>
+<area shape="rect" id="Node000014" href="$_matrix_algorithms_tests_8cpp.html#a16fcb82c213d83fe32933fbb40048146" title=" " alt="" coords="608,256,661,283"/>
+<area shape="poly" id="edge13_Node000008_Node000014" title=" " alt="" coords="781,239,662,266,661,261,779,233"/>
+<area shape="rect" id="Node000015" href="$_matrix_tests_8cpp.html#a29f7caf02e99e591db86c6ef28ab527c" title=" " alt="" coords="583,307,686,333"/>
+<area shape="poly" id="edge14_Node000008_Node000015" title=" " alt="" coords="845,243,795,271,740,297,687,313,686,308,738,292,793,266,842,238"/>
+<area shape="rect" id="Node000011" href="$class_g_l_e_s_c_1_1_math_1_1_matrix.html#aadc4dae081d04d6df913d882ab4c7bb5" title="Matrix division by matrix." alt="" coords="322,123,468,165"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="540,187,468,167,470,162,542,182"/>
+<area shape="rect" id="Node000012" href="$class_g_l_e_s_c_1_1_math_1_1_matrix.html#ae49bdfe2f706c9c73080948a9faa8114" title="In&#45;place division by another matrix." alt="" coords="322,189,468,232"/>
+<area shape="poly" id="edge11_Node000010_Node000012" title=" " alt="" coords="515,213,469,213,469,208,515,208"/>
+<area shape="rect" id="Node000013" href="$_matrix_tests_8cpp.html#a449ec0c9b3fc0e428b38ef6dbe185994" title=" " alt="" coords="344,256,447,283"/>
+<area shape="poly" id="edge12_Node000010_Node000013" title=" " alt="" coords="531,239,448,259,447,254,529,234"/>
+</map>

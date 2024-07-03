@@ -1,0 +1,8 @@
+<map id="GLESC::ECS::ComponentManager::getComponentIDs" name="GLESC::ECS::ComponentManager::getComponentIDs">
+<area shape="rect" id="Node000001" title=" " alt="" coords="504,35,728,77"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator.html#a9986f9753dd8fc73c69787f3723d44b8" title="Print the status of the entity." alt="" coords="255,5,456,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="488,44,456,41,457,35,489,39"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator.html#a511e3ef0ebeceb191a06db185e8fdc46" title="Print the status of the ECS." alt="" coords="5,35,207,77"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="489,62,456,63,255,63,207,62,207,56,255,57,456,57,489,57"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="239,43,207,47,207,41,239,38"/>
+</map>

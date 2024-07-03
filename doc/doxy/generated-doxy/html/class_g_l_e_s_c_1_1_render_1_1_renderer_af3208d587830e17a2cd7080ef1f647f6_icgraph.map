@@ -1,0 +1,16 @@
+<map id="GLESC::Render::Renderer::getView" name="GLESC::Render::Renderer::getView">
+<area shape="rect" id="Node000001" title=" " alt="" coords="774,48,948,91"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_engine.html#a3bc0e4b7fb38c3d5f3c6241e2be66d63" title=" " alt="" coords="530,5,726,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="758,50,692,35,693,30,759,45"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_render_1_1_renderer.html#a3244ebc15bf8310257ec613f62d00a33" title="This renders the frame." alt="" coords="308,81,482,124"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="759,79,483,99,483,94,758,74"/>
+<area shape="rect" id="Node000007" href="$class_g_l_e_s_c_1_1_render_1_1_renderer.html#aa1a9e1d79bb96f79ee1e421dd245bbf1" title="This encapsulates the rendering of the lights, setting the uniforms." alt="" coords="541,107,715,149"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="760,97,716,109,715,103,759,92"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_engine.html#a93e1621f9daf326a7c45d3b2a4c826c1" title="The constructor is private, the engine can only be created by the main function." alt="" coords="315,5,476,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="515,21,476,21,476,16,515,16"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_engine.html#ab0a886855ca341089947b36b9c6f6e15" title="Processes the rendering of the game Can be called at variable intervals of time as it uses elapsed." alt="" coords="103,89,260,116"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="292,105,261,105,261,100,292,100"/>
+<area shape="rect" id="Node000006" href="$src_2engine_2main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,89,55,116"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="87,105,55,105,55,100,87,100"/>
+<area shape="poly" id="edge7_Node000007_Node000004" title=" " alt="" coords="525,119,483,115,483,110,525,114"/>
+</map>

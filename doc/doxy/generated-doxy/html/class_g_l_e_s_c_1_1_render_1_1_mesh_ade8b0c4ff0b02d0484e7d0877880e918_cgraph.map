@@ -1,0 +1,5 @@
+<map id="GLESC::Render::Mesh::finishBuilding" name="GLESC::Render::Mesh::finishBuilding">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,160,48"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#a61c5ed29689b97d66a06eaf16b8dfc36" title="Updates the bounding volume to fit the points it encloses." alt="" coords="208,5,416,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="160,24,192,24,192,29,160,29"/>
+</map>

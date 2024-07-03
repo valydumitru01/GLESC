@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cppdepend-plugin tool="Misra">
+<file path="c:\users\valyd\desktop\github_repos\tfg---opengl-engine\include\engine\subsystems\ingame-debug\entitystatsmanager.h"><violation beginline="44" begincolumn="5" rule="Rule11-0-1" ruleset="Classes">
+</violation>
+<violation beginline="64" begincolumn="5" rule="Rule11-0-1" ruleset="Classes">
+</violation>
+<violation beginline="70" begincolumn="5" rule="Rule11-0-1" ruleset="Classes">
+</violation>
+<violation beginline="70" begincolumn="12" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+</file></cppdepend-plugin>

@@ -1,0 +1,11 @@
+<map id="GLESC::Math::Line::intersects" name="GLESC::Math::Line::intersects">
+<area shape="rect" id="Node000001" title="Check if a line intersects with another line." alt="" coords="5,35,148,77"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#ac4fe912b3001e4fad684c2cd4c56cf83" title="Calculates the cross product of two vectors." alt="" coords="196,5,344,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="148,43,180,38,181,43,149,48"/>
+<area shape="rect" id="Node000004" href="$namespace_g_l_e_s_c_1_1_math.html#aee25910dbba06d09d9df14d03933ace1" title="Compares two values for equality." alt="" coords="208,72,332,99"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="149,64,193,71,192,76,148,69"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#ab041da9d339dfe80b80c6f0bdf5dbfd4" title="Computes the cross product of two vectors." alt="" coords="392,5,602,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="344,24,376,24,376,29,344,29"/>
+<area shape="rect" id="Node000005" href="$namespace_g_l_e_s_c_1_1_math.html#acd429163efe906cd22916cc75ccb2421" title="Epsilon getter with precision of a given template type." alt="" coords="422,72,573,99"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="333,83,406,83,406,88,333,88"/>
+</map>

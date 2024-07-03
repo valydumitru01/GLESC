@@ -1,0 +1,1229 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="Doxygen Awesome" />
+<meta property="og:image" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+<meta property="og:description" content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
+<meta property="og:url" content="https://jothepro.github.io/doxygen-awesome-css/" />
+<!-- END opengraph metadata -->
+<!-- BEGIN twitter metadata -->
+<meta name="twitter:image:src" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+<meta name="twitter:title" content="Doxygen Awesome" />
+<meta name="twitter:description" content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
+<!-- END twitter metadata -->
+<title>GLESC: GLESC::GAPI::ShaderLoader Class Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.drawio.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/ -->
+<a href="https://github.com/jothepro/doxygen-awesome-css" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="GLESC_logo_white_background.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">GLESC
+   &#160;<span id="projectnumber">1</span>
+   </div>
+   <div id="projectbrief">Game engine using ECS architecture</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pri-static-methods">Static Private Member Functions</a> &#124;
+<a href="#pri-static-attribs">Static Private Attributes</a> &#124;
+<a href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader-members.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">GLESC::GAPI::ShaderLoader Class Reference</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_shader_loader_8h_source.html">ShaderLoader.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for GLESC::GAPI::ShaderLoader:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader__coll__graph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a04fbb025884beeae7fecaf367e869d7d" id="r_a04fbb025884beeae7fecaf367e869d7d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">static</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#a04fbb025884beeae7fecaf367e869d7d">loadShader</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> std::string &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">fileName</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> std::vector&lt; std::string &gt; &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">macros</a>={})</td></tr>
+<tr class="memdesc:a04fbb025884beeae7fecaf367e869d7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load the shader from a file.  <br /></td></tr>
+<tr class="separator:a04fbb025884beeae7fecaf367e869d7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3a92c01f0308fd40e0f356d8454d192" id="r_ac3a92c01f0308fd40e0f356d8454d192"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">static</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#ac3a92c01f0308fd40e0f356d8454d192">loadShader</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> std::string &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vertexShaderSourceParam</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> std::string &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">fragmentShaderSourceParam</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> std::vector&lt; std::string &gt; &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">macros</a>={})</td></tr>
+<tr class="memdesc:ac3a92c01f0308fd40e0f356d8454d192"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load the shader from the source code.  <br /></td></tr>
+<tr class="separator:ac3a92c01f0308fd40e0f356d8454d192"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-static-methods" name="pri-static-methods"></a>
+Static Private Member Functions</h2></td></tr>
+<tr class="memitem:abee829a266c59b44c3a52933d7cb147a" id="r_abee829a266c59b44c3a52933d7cb147a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">static</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#abee829a266c59b44c3a52933d7cb147a">clean</a> ()</td></tr>
+<tr class="memdesc:abee829a266c59b44c3a52933d7cb147a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clean the shader loader.  <br /></td></tr>
+<tr class="separator:abee829a266c59b44c3a52933d7cb147a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38404249ed0cc38fe19988e56b8584b0" id="r_a38404249ed0cc38fe19988e56b8584b0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">static</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#a38404249ed0cc38fe19988e56b8584b0">createShaderProgram</a> ()</td></tr>
+<tr class="memdesc:a38404249ed0cc38fe19988e56b8584b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Links the loaded shaders into the shader program.  <br /></td></tr>
+<tr class="separator:a38404249ed0cc38fe19988e56b8584b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83c52b81e9cf34be9b130e7aae6804e4" id="r_a83c52b81e9cf34be9b130e7aae6804e4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">static</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#a83c52b81e9cf34be9b130e7aae6804e4">extractShaderCode</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> std::string &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">shaderSource</a>, std::string &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vertexCode</a>, std::string &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">fragmentCode</a>)</td></tr>
+<tr class="memdesc:a83c52b81e9cf34be9b130e7aae6804e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extracts the shader code from the source.  <br /></td></tr>
+<tr class="separator:a83c52b81e9cf34be9b130e7aae6804e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af14e7519ed4f04e6bdffc793cd50ad9c" id="r_af14e7519ed4f04e6bdffc793cd50ad9c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">static</a> std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#af14e7519ed4f04e6bdffc793cd50ad9c">getGLSLVersionString</a> ()</td></tr>
+<tr class="memdesc:af14e7519ed4f04e6bdffc793cd50ad9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the GLSL version string.  <br /></td></tr>
+<tr class="separator:af14e7519ed4f04e6bdffc793cd50ad9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a444f971b50a619fe8ed0fe7625148764" id="r_a444f971b50a619fe8ed0fe7625148764"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">static</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#a444f971b50a619fe8ed0fe7625148764">insertShaderMacros</a> (std::string &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vertexCode</a>, std::string &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">fragmentCode</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> std::vector&lt; std::string &gt; &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">macros</a>)</td></tr>
+<tr class="memdesc:a444f971b50a619fe8ed0fe7625148764"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts the shader macros into the shader code.  <br /></td></tr>
+<tr class="separator:a444f971b50a619fe8ed0fe7625148764"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9dd30109e00edd910d61759c5b68aa8f" id="r_a9dd30109e00edd910d61759c5b68aa8f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">static</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#a9dd30109e00edd910d61759c5b68aa8f">loadFragmentShader</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> std::string &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">fragmentShaderSourceParam</a>)</td></tr>
+<tr class="memdesc:a9dd30109e00edd910d61759c5b68aa8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads the fragment shader Calculates colors of pixels (a fragment is a pixel in OpenGL)  <br /></td></tr>
+<tr class="separator:a9dd30109e00edd910d61759c5b68aa8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a463a9cb2ff635b6745c8f7a880f6b47f" id="r_a463a9cb2ff635b6745c8f7a880f6b47f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">static</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#a463a9cb2ff635b6745c8f7a880f6b47f">loadVertexShader</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> std::string &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vertexShaderSourceParam</a>)</td></tr>
+<tr class="memdesc:a463a9cb2ff635b6745c8f7a880f6b47f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads the vertex shader Sets the actual coordinates of the vertices in the GPU.  <br /></td></tr>
+<tr class="separator:a463a9cb2ff635b6745c8f7a880f6b47f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8117811f44e6651fe0439052bf20880b" id="r_a8117811f44e6651fe0439052bf20880b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">static</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#a8117811f44e6651fe0439052bf20880b">prependGLSLVersion</a> (std::string &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vertexCode</a>, std::string &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">fragmentCode</a>)</td></tr>
+<tr class="memdesc:a8117811f44e6651fe0439052bf20880b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepends the GLSL version to the shader code.  <br /></td></tr>
+<tr class="separator:a8117811f44e6651fe0439052bf20880b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf6bcba32db003d9058fe337a44a606f" id="r_acf6bcba32db003d9058fe337a44a606f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">static</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#acf6bcba32db003d9058fe337a44a606f">validateShaderCodes</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> std::string &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vertexCode</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> std::string &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">fragmentCode</a>)</td></tr>
+<tr class="memdesc:acf6bcba32db003d9058fe337a44a606f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Validates the shader codes.  <br /></td></tr>
+<tr class="separator:acf6bcba32db003d9058fe337a44a606f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96d2c82f9ba86fa9d21e466d8e99abc4" id="r_a96d2c82f9ba86fa9d21e466d8e99abc4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">static</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#a96d2c82f9ba86fa9d21e466d8e99abc4">validateShaderTokens</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">size_t</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vertexPos</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">size_t</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">fragmentPos</a>)</td></tr>
+<tr class="memdesc:a96d2c82f9ba86fa9d21e466d8e99abc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Validates the shader tokens.  <br /></td></tr>
+<tr class="separator:a96d2c82f9ba86fa9d21e466d8e99abc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-static-attribs" name="pri-static-attribs"></a>
+Static Private Attributes</h2></td></tr>
+<tr class="memitem:a9461a40d1365137e2f8fb5d491514f5e" id="r_a9461a40d1365137e2f8fb5d491514f5e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">static</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#a9461a40d1365137e2f8fb5d491514f5e">fragmentShader</a></td></tr>
+<tr class="memdesc:a9461a40d1365137e2f8fb5d491514f5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">ID reference to the fragment shader.  <br /></td></tr>
+<tr class="separator:a9461a40d1365137e2f8fb5d491514f5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04a57a04b3b9948509363ac8399c1cf2" id="r_a04a57a04b3b9948509363ac8399c1cf2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">static</a> std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#a04a57a04b3b9948509363ac8399c1cf2">fragmentShaderSource</a></td></tr>
+<tr class="memdesc:a04a57a04b3b9948509363ac8399c1cf2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Source of the fragment shader.  <br /></td></tr>
+<tr class="separator:a04a57a04b3b9948509363ac8399c1cf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9edbb42844a39aea1f3d705e200e09f4" id="r_a9edbb42844a39aea1f3d705e200e09f4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">static</a> std::unordered_map&lt; <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">unsigned</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">int</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">char</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#a9edbb42844a39aea1f3d705e200e09f4">shaderNamesMap</a></td></tr>
+<tr class="memdesc:a9edbb42844a39aea1f3d705e200e09f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Map of names of the shaders and their IDs.  <br /></td></tr>
+<tr class="separator:a9edbb42844a39aea1f3d705e200e09f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43ef3effddd1a69db6afb681ccce8131" id="r_a43ef3effddd1a69db6afb681ccce8131"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">static</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">constexpr</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">char</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#a43ef3effddd1a69db6afb681ccce8131">tokenFragment</a> = &quot;#shader <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">fragment&quot;</a></td></tr>
+<tr class="memdesc:a43ef3effddd1a69db6afb681ccce8131"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tokens used to separate the vertex and fragment shaders.  <br /></td></tr>
+<tr class="separator:a43ef3effddd1a69db6afb681ccce8131"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabd0fb386b1c7568240c26eab0e338cd" id="r_aabd0fb386b1c7568240c26eab0e338cd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">static</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">constexpr</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">char</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#aabd0fb386b1c7568240c26eab0e338cd">tokenVertex</a> = &quot;#shader <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vertex&quot;</a></td></tr>
+<tr class="memdesc:aabd0fb386b1c7568240c26eab0e338cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tokens used to separate the vertex and fragment shaders.  <br /></td></tr>
+<tr class="separator:aabd0fb386b1c7568240c26eab0e338cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc0e30e11f3a2f71d820b5b0d9780a10" id="r_acc0e30e11f3a2f71d820b5b0d9780a10"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">static</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#acc0e30e11f3a2f71d820b5b0d9780a10">vertexShader</a></td></tr>
+<tr class="memdesc:acc0e30e11f3a2f71d820b5b0d9780a10"><td class="mdescLeft">&#160;</td><td class="mdescRight">ID reference to the vertex shader.  <br /></td></tr>
+<tr class="separator:acc0e30e11f3a2f71d820b5b0d9780a10"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abdd4ed4f86d5ebd56e062ece776da6cf" id="r_abdd4ed4f86d5ebd56e062ece776da6cf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">static</a> std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#abdd4ed4f86d5ebd56e062ece776da6cf">vertexShaderSource</a></td></tr>
+<tr class="memdesc:abdd4ed4f86d5ebd56e062ece776da6cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Source of the vertex shader.  <br /></td></tr>
+<tr class="separator:abdd4ed4f86d5ebd56e062ece776da6cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock">
+<p class="definition">Definition at line <a class="el" href="_shader_loader_8h_source.html#l00018">18</a> of file <a class="el" href="_shader_loader_8h_source.html">ShaderLoader.h</a>.</p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="abee829a266c59b44c3a52933d7cb147a" name="abee829a266c59b44c3a52933d7cb147a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abee829a266c59b44c3a52933d7cb147a">&#9670;&#160;</a></span>clean()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> ShaderLoader::clean </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Clean the shader loader. </p>
+<p>Clean the shader loader Once the shaders are linked, they can be cleared as they are no longer needed.</p>
+<p>Once the shaders are linked, they can be cleared as they are no longer needed. </p>
+
+<p class="definition">Definition at line <a class="el" href="_shader_loader_8cpp_source.html#l00173">173</a> of file <a class="el" href="_shader_loader_8cpp_source.html">ShaderLoader.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  173</span>                         {</div>
+<div class="line"><span class="lineno">  174</span>    std::destroy(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#a9edbb42844a39aea1f3d705e200e09f4">shaderNamesMap</a>.begin(), <a class="code hl_variable" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#a9edbb42844a39aea1f3d705e200e09f4">shaderNamesMap</a>.end()); <span class="comment">//Delete pointers from map</span></div>
+<div class="line"><span class="lineno">  175</span>    <a class="code hl_function" href="_gapi_8h.html#ab7514d88e65656ffa15ca33256518fe5">getGAPI</a>().deleteShader(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#acc0e30e11f3a2f71d820b5b0d9780a10">vertexShader</a>);</div>
+<div class="line"><span class="lineno">  176</span>    <a class="code hl_function" href="_gapi_8h.html#ab7514d88e65656ffa15ca33256518fe5">getGAPI</a>().deleteShader(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#a9461a40d1365137e2f8fb5d491514f5e">fragmentShader</a>);</div>
+<div class="line"><span class="lineno">  177</span>}</div>
+<div class="ttc" id="a_gapi_8h_html_ab7514d88e65656ffa15ca33256518fe5"><div class="ttname"><a href="_gapi_8h.html#ab7514d88e65656ffa15ca33256518fe5">getGAPI</a></div><div class="ttdeci">auto &amp; getGAPI()</div><div class="ttdoc">Returns the graphic API used by the engine.</div><div class="ttdef"><b>Definition</b> <a href="_gapi_8h_source.html#l00028">Gapi.h:28</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader_html_a9461a40d1365137e2f8fb5d491514f5e"><div class="ttname"><a href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#a9461a40d1365137e2f8fb5d491514f5e">GLESC::GAPI::ShaderLoader::fragmentShader</a></div><div class="ttdeci">static UInt fragmentShader</div><div class="ttdoc">ID reference to the fragment shader.</div><div class="ttdef"><b>Definition</b> <a href="_shader_loader_8h_source.html#l00058">ShaderLoader.h:58</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader_html_a9edbb42844a39aea1f3d705e200e09f4"><div class="ttname"><a href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#a9edbb42844a39aea1f3d705e200e09f4">GLESC::GAPI::ShaderLoader::shaderNamesMap</a></div><div class="ttdeci">static std::unordered_map&lt; unsigned int, const char * &gt; shaderNamesMap</div><div class="ttdoc">Map of names of the shaders and their IDs.</div><div class="ttdef"><b>Definition</b> <a href="_shader_loader_8h_source.html#l00149">ShaderLoader.h:149</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader_html_acc0e30e11f3a2f71d820b5b0d9780a10"><div class="ttname"><a href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#acc0e30e11f3a2f71d820b5b0d9780a10">GLESC::GAPI::ShaderLoader::vertexShader</a></div><div class="ttdeci">static UInt vertexShader</div><div class="ttdoc">ID reference to the vertex shader.</div><div class="ttdef"><b>Definition</b> <a href="_shader_loader_8h_source.html#l00053">ShaderLoader.h:53</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_shader_loader_8h_source.html#l00058">fragmentShader</a>, <a class="el" href="_gapi_8h_source.html#l00028">getGAPI()</a>, <a class="el" href="_shader_loader_8h_source.html#l00149">shaderNamesMap</a>, and <a class="el" href="_shader_loader_8h_source.html#l00053">vertexShader</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_shader_loader_8cpp_source.html#l00032">loadShader()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader_abee829a266c59b44c3a52933d7cb147a_cgraph.svg" width="322" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader_abee829a266c59b44c3a52933d7cb147a_icgraph.svg" width="444" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a38404249ed0cc38fe19988e56b8584b0" name="a38404249ed0cc38fe19988e56b8584b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38404249ed0cc38fe19988e56b8584b0">&#9670;&#160;</a></span>createShaderProgram()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a> ShaderLoader::createShaderProgram </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Links the loaded shaders into the shader program. </p>
+
+<p class="definition">Definition at line <a class="el" href="_shader_loader_8cpp_source.html#l00161">161</a> of file <a class="el" href="_shader_loader_8cpp_source.html">ShaderLoader.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  161</span>                                       {</div>
+<div class="line"><span class="lineno">  162</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a> shaderProgram = <a class="code hl_function" href="_gapi_8h.html#ab7514d88e65656ffa15ca33256518fe5">getGAPI</a>().createShaderProgram(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#acc0e30e11f3a2f71d820b5b0d9780a10">vertexShader</a>, <a class="code hl_variable" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#a9461a40d1365137e2f8fb5d491514f5e">fragmentShader</a>);</div>
+<div class="line"><span class="lineno">  163</span>    <a class="code hl_define" href="_shader_asserts_8h.html#a186c0aa3576cdc5a8117ca8336d1605a">D_ASSERT_LINKING_OK</a>(shaderProgram);</div>
+<div class="line"><span class="lineno">  164</span>    <span class="keywordflow">return</span> shaderProgram;</div>
+<div class="line"><span class="lineno">  165</span>}</div>
+<div class="ttc" id="a_shader_asserts_8h_html_a186c0aa3576cdc5a8117ca8336d1605a"><div class="ttname"><a href="_shader_asserts_8h.html#a186c0aa3576cdc5a8117ca8336d1605a">D_ASSERT_LINKING_OK</a></div><div class="ttdeci">#define D_ASSERT_LINKING_OK(shaderProgram)</div><div class="ttdef"><b>Definition</b> <a href="_shader_asserts_8h_source.html#l00025">ShaderAsserts.h:25</a></div></div>
+<div class="ttc" id="anamespace_g_l_e_s_c_html_a7c64a4da2d1da1597f4ec563d00bb9f8"><div class="ttname"><a href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">GLESC::isIterable_v</a></div><div class="ttdeci">constexpr bool isIterable_v</div><div class="ttdef"><b>Definition</b> <a href="_stringer_8h_source.html#l00029">Stringer.h:29</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_shader_asserts_8h_source.html#l00025">D_ASSERT_LINKING_OK</a>, <a class="el" href="_shader_loader_8h_source.html#l00058">fragmentShader</a>, <a class="el" href="_gapi_8h_source.html#l00028">getGAPI()</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_shader_loader_8h_source.html#l00053">vertexShader</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_shader_loader_8cpp_source.html#l00032">loadShader()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader_a38404249ed0cc38fe19988e56b8584b0_cgraph.svg" width="322" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader_a38404249ed0cc38fe19988e56b8584b0_icgraph.svg" width="444" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a83c52b81e9cf34be9b130e7aae6804e4" name="a83c52b81e9cf34be9b130e7aae6804e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83c52b81e9cf34be9b130e7aae6804e4">&#9670;&#160;</a></span>extractShaderCode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> ShaderLoader::extractShaderCode </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> std::string &amp;&#160;</td>
+          <td class="paramname"><em>shaderSource</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"><em>vertexCode</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"><em>fragmentCode</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Extracts the shader code from the source. </p>
+<p>The shader source is split into the vertex and fragment shader code. They are separated by the tokens defined in tokenVertex and tokenFragment. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#aabd0fb386b1c7568240c26eab0e338cd" title="Tokens used to separate the vertex and fragment shaders.">tokenVertex</a> </dd>
+<dd>
+<a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#a43ef3effddd1a69db6afb681ccce8131" title="Tokens used to separate the vertex and fragment shaders.">tokenFragment</a> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">shaderSource</td><td>The source of the shader </td></tr>
+    <tr><td class="paramname">vertexCode</td><td>The extracted vertex shader code </td></tr>
+    <tr><td class="paramname">fragmentCode</td><td>The extracted fragment shader code </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_shader_loader_8cpp_source.html#l00068">68</a> of file <a class="el" href="_shader_loader_8cpp_source.html">ShaderLoader.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   70</span>                                                              {</div>
+<div class="line"><span class="lineno">   71</span> </div>
+<div class="line"><span class="lineno">   72</span>    <span class="keywordtype">size_t</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vertexPos</a> = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">shaderSource</a>.find(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#aabd0fb386b1c7568240c26eab0e338cd">tokenVertex</a>);</div>
+<div class="line"><span class="lineno">   73</span>    <span class="keywordtype">size_t</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">fragmentPos</a> = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">shaderSource</a>.find(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#a43ef3effddd1a69db6afb681ccce8131">tokenFragment</a>);</div>
+<div class="line"><span class="lineno">   74</span> </div>
+<div class="line"><span class="lineno">   75</span>    <a class="code hl_function" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#a96d2c82f9ba86fa9d21e466d8e99abc4">validateShaderTokens</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vertexPos</a>, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">fragmentPos</a>);</div>
+<div class="line"><span class="lineno">   76</span> </div>
+<div class="line"><span class="lineno">   77</span>    <span class="comment">// Extract shader codes</span></div>
+<div class="line"><span class="lineno">   78</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vertexPos</a> &lt; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">fragmentPos</a>) {</div>
+<div class="line"><span class="lineno">   79</span>        <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vertexCode</a> = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">shaderSource</a>.substr(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vertexPos</a> + <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">strlen</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#aabd0fb386b1c7568240c26eab0e338cd">tokenVertex</a>),</div>
+<div class="line"><span class="lineno">   80</span>                                         <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">fragmentPos</a> - <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vertexPos</a> - <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">strlen</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#aabd0fb386b1c7568240c26eab0e338cd">tokenVertex</a>));</div>
+<div class="line"><span class="lineno">   81</span>        <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">fragmentCode</a> = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">shaderSource</a>.substr(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">fragmentPos</a> + <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">strlen</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#a43ef3effddd1a69db6afb681ccce8131">tokenFragment</a>));</div>
+<div class="line"><span class="lineno">   82</span>    }</div>
+<div class="line"><span class="lineno">   83</span>    <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">   84</span>        <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">fragmentCode</a> = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">shaderSource</a>.substr(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">fragmentPos</a> + <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">strlen</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#a43ef3effddd1a69db6afb681ccce8131">tokenFragment</a>),</div>
+<div class="line"><span class="lineno">   85</span>                                           <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vertexPos</a> - <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">fragmentPos</a> - <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">strlen</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#a43ef3effddd1a69db6afb681ccce8131">tokenFragment</a>));</div>
+<div class="line"><span class="lineno">   86</span>        <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vertexCode</a> = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">shaderSource</a>.substr(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vertexPos</a> + <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">strlen</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#aabd0fb386b1c7568240c26eab0e338cd">tokenVertex</a>));</div>
+<div class="line"><span class="lineno">   87</span>    }</div>
+<div class="line"><span class="lineno">   88</span> </div>
+<div class="line"><span class="lineno">   89</span>    <a class="code hl_function" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#acf6bcba32db003d9058fe337a44a606f">validateShaderCodes</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vertexCode</a>, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">fragmentCode</a>);</div>
+<div class="line"><span class="lineno">   90</span>}</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader_html_a43ef3effddd1a69db6afb681ccce8131"><div class="ttname"><a href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#a43ef3effddd1a69db6afb681ccce8131">GLESC::GAPI::ShaderLoader::tokenFragment</a></div><div class="ttdeci">static constexpr const char * tokenFragment</div><div class="ttdoc">Tokens used to separate the vertex and fragment shaders.</div><div class="ttdef"><b>Definition</b> <a href="_shader_loader_8h_source.html#l00136">ShaderLoader.h:136</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader_html_a96d2c82f9ba86fa9d21e466d8e99abc4"><div class="ttname"><a href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#a96d2c82f9ba86fa9d21e466d8e99abc4">GLESC::GAPI::ShaderLoader::validateShaderTokens</a></div><div class="ttdeci">static void validateShaderTokens(size_t vertexPos, size_t fragmentPos)</div><div class="ttdoc">Validates the shader tokens.</div><div class="ttdef"><b>Definition</b> <a href="_shader_loader_8cpp_source.html#l00115">ShaderLoader.cpp:115</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader_html_aabd0fb386b1c7568240c26eab0e338cd"><div class="ttname"><a href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#aabd0fb386b1c7568240c26eab0e338cd">GLESC::GAPI::ShaderLoader::tokenVertex</a></div><div class="ttdeci">static constexpr const char * tokenVertex</div><div class="ttdoc">Tokens used to separate the vertex and fragment shaders.</div><div class="ttdef"><b>Definition</b> <a href="_shader_loader_8h_source.html#l00132">ShaderLoader.h:132</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader_html_acf6bcba32db003d9058fe337a44a606f"><div class="ttname"><a href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#acf6bcba32db003d9058fe337a44a606f">GLESC::GAPI::ShaderLoader::validateShaderCodes</a></div><div class="ttdeci">static void validateShaderCodes(const std::string &amp;vertexCode, const std::string &amp;fragmentCode)</div><div class="ttdoc">Validates the shader codes.</div><div class="ttdef"><b>Definition</b> <a href="_shader_loader_8cpp_source.html#l00125">ShaderLoader.cpp:125</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, <a class="el" href="_shader_loader_8h_source.html#l00136">tokenFragment</a>, <a class="el" href="_shader_loader_8h_source.html#l00132">tokenVertex</a>, <a class="el" href="_shader_loader_8cpp_source.html#l00125">validateShaderCodes()</a>, and <a class="el" href="_shader_loader_8cpp_source.html#l00115">validateShaderTokens()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_shader_loader_8cpp_source.html#l00019">loadShader()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader_a83c52b81e9cf34be9b130e7aae6804e4_cgraph.svg" width="444" height="120"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader_a83c52b81e9cf34be9b130e7aae6804e4_icgraph.svg" width="444" height="78"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="af14e7519ed4f04e6bdffc793cd50ad9c" name="af14e7519ed4f04e6bdffc793cd50ad9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af14e7519ed4f04e6bdffc793cd50ad9c">&#9670;&#160;</a></span>getGLSLVersionString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string ShaderLoader::getGLSLVersionString </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the GLSL version string. </p>
+<p>This obtains the GLSL version string based on the OpenGL version defined in the <a class="el" href="_config_8h.html" title="This file contains the configuration of the engine.">Config.h</a> </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="_config_8h.html" title="This file contains the configuration of the engine.">Config.h</a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The GLSL version string </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_shader_loader_8cpp_source.html#l00098">98</a> of file <a class="el" href="_shader_loader_8cpp_source.html">ShaderLoader.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   98</span>                                             {</div>
+<div class="line"><span class="lineno">   99</span><span class="preprocessor">#if GLESC_GLSL_CORE_PROFILE == true</span></div>
+<div class="line"><span class="lineno">  100</span>    std::string <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">glslCoreStr</a> = <span class="stringliteral">&quot;core&quot;</span>;</div>
+<div class="line"><span class="lineno">  101</span><span class="preprocessor">#else</span></div>
+<div class="line"><span class="lineno">  102</span>    std::string <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">glslCoreStr</a> = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><span class="lineno">  103</span><span class="preprocessor">#endif</span></div>
+<div class="line"><span class="lineno">  104</span>    <span class="comment">// check if minor version occupies 2 digits</span></div>
+<div class="line"><span class="lineno">  105</span><span class="preprocessor">#if GLESC_GLSL_MINOR_VERSION &lt; 10</span></div>
+<div class="line"><span class="lineno">  106</span>    std::string <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">glslMinorVersionStr</a> = std::to_string(<a class="code hl_define" href="_config_8h.html#adf565b5e7a7f3747424002e061b3a29a">GLESC_GLSL_MINOR_VERSION</a>) + <span class="stringliteral">&quot;0&quot;</span>;</div>
+<div class="line"><span class="lineno">  107</span><span class="preprocessor">#else</span></div>
+<div class="line"><span class="lineno">  108</span>    std::string <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">glslMinorVersionStr</a> = std::to_string(<a class="code hl_define" href="_config_8h.html#adf565b5e7a7f3747424002e061b3a29a">GLESC_GLSL_MINOR_VERSION</a>);</div>
+<div class="line"><span class="lineno">  109</span><span class="preprocessor">#endif</span></div>
+<div class="line"><span class="lineno">  110</span> </div>
+<div class="line"><span class="lineno">  111</span>    <span class="keywordflow">return</span> <span class="stringliteral">&quot;#version &quot;</span> + std::to_string(<a class="code hl_define" href="_config_8h.html#aaac5bd26c6958e59691d51aa25376615">GLESC_GLSL_MAJOR_VERSION</a>) +</div>
+<div class="line"><span class="lineno">  112</span>        <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">glslMinorVersionStr</a> + <span class="stringliteral">&quot; &quot;</span> + <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">glslCoreStr</a> + <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><span class="lineno">  113</span>}</div>
+<div class="ttc" id="a_config_8h_html_aaac5bd26c6958e59691d51aa25376615"><div class="ttname"><a href="_config_8h.html#aaac5bd26c6958e59691d51aa25376615">GLESC_GLSL_MAJOR_VERSION</a></div><div class="ttdeci">#define GLESC_GLSL_MAJOR_VERSION</div><div class="ttdef"><b>Definition</b> <a href="_config_8h_source.html#l00087">Config.h:87</a></div></div>
+<div class="ttc" id="a_config_8h_html_adf565b5e7a7f3747424002e061b3a29a"><div class="ttname"><a href="_config_8h.html#adf565b5e7a7f3747424002e061b3a29a">GLESC_GLSL_MINOR_VERSION</a></div><div class="ttdeci">#define GLESC_GLSL_MINOR_VERSION</div><div class="ttdef"><b>Definition</b> <a href="_config_8h_source.html#l00088">Config.h:88</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_config_8h_source.html#l00087">GLESC_GLSL_MAJOR_VERSION</a>, <a class="el" href="_config_8h_source.html#l00088">GLESC_GLSL_MINOR_VERSION</a>, and <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_shader_loader_8cpp_source.html#l00092">prependGLSLVersion()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader_af14e7519ed4f04e6bdffc793cd50ad9c_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a444f971b50a619fe8ed0fe7625148764" name="a444f971b50a619fe8ed0fe7625148764"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a444f971b50a619fe8ed0fe7625148764">&#9670;&#160;</a></span>insertShaderMacros()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> ShaderLoader::insertShaderMacros </td>
+          <td>(</td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"><em>vertexCode</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"><em>fragmentCode</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> std::vector&lt; std::string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>macros</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Inserts the shader macros into the shader code. </p>
+<p>This function append the macros to the shader code. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vertexCode</td><td>The vertex shader code </td></tr>
+    <tr><td class="paramname">fragmentCode</td><td>The fragment shader code </td></tr>
+    <tr><td class="paramname">macros</td><td>The macros to be inserted </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_shader_loader_8cpp_source.html#l00057">57</a> of file <a class="el" href="_shader_loader_8cpp_source.html">ShaderLoader.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   58</span>                                                                          {</div>
+<div class="line"><span class="lineno">   59</span>    std::string <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">macrosString</a>;</div>
+<div class="line"><span class="lineno">   60</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">macro</a> : <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">macros</a>) {</div>
+<div class="line"><span class="lineno">   61</span>        <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">macrosString</a> += <span class="stringliteral">&quot;#define &quot;</span> + <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">macro</a> + <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><span class="lineno">   62</span>    }</div>
+<div class="line"><span class="lineno">   63</span> </div>
+<div class="line"><span class="lineno">   64</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vertexCode</a> = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">macrosString</a> + <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vertexCode</a>;</div>
+<div class="line"><span class="lineno">   65</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">fragmentCode</a> = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">macrosString</a> + <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">fragmentCode</a>;</div>
+<div class="line"><span class="lineno">   66</span>}</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_shader_loader_8cpp_source.html#l00032">loadShader()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader_a444f971b50a619fe8ed0fe7625148764_icgraph.svg" width="444" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a9dd30109e00edd910d61759c5b68aa8f" name="a9dd30109e00edd910d61759c5b68aa8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9dd30109e00edd910d61759c5b68aa8f">&#9670;&#160;</a></span>loadFragmentShader()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a> ShaderLoader::loadFragmentShader </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> std::string &amp;&#160;</td>
+          <td class="paramname"><em>fragmentShaderSourceParam</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Loads the fragment shader Calculates colors of pixels (a fragment is a pixel in OpenGL) </p>
+
+<p class="definition">Definition at line <a class="el" href="_shader_loader_8cpp_source.html#l00152">152</a> of file <a class="el" href="_shader_loader_8cpp_source.html">ShaderLoader.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  152</span>                                                                                {</div>
+<div class="line"><span class="lineno">  153</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">fragShader</a> = <a class="code hl_function" href="_gapi_8h.html#ab7514d88e65656ffa15ca33256518fe5">getGAPI</a>()</div>
+<div class="line"><span class="lineno">  154</span>        .loadAndCompileShader(Enums::ShaderTypes::Fragment, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">fragmentShaderSourceParam</a>);</div>
+<div class="line"><span class="lineno">  155</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#a9edbb42844a39aea1f3d705e200e09f4">shaderNamesMap</a>.emplace(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">fragShader</a>, <span class="stringliteral">&quot;FRAGMENT&quot;</span>);</div>
+<div class="line"><span class="lineno">  156</span>    <a class="code hl_define" href="_shader_asserts_8h.html#a25ec7d68502992bf99ae1d1865bf0d37">D_ASSERT_COMPILATION_OK</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">fragShader</a>);</div>
+<div class="line"><span class="lineno">  157</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">fragShader</a>;</div>
+<div class="line"><span class="lineno">  158</span>}</div>
+<div class="ttc" id="a_shader_asserts_8h_html_a25ec7d68502992bf99ae1d1865bf0d37"><div class="ttname"><a href="_shader_asserts_8h.html#a25ec7d68502992bf99ae1d1865bf0d37">D_ASSERT_COMPILATION_OK</a></div><div class="ttdeci">#define D_ASSERT_COMPILATION_OK(shaderType)</div><div class="ttdef"><b>Definition</b> <a href="_shader_asserts_8h_source.html#l00018">ShaderAsserts.h:18</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_shader_asserts_8h_source.html#l00018">D_ASSERT_COMPILATION_OK</a>, <a class="el" href="_gapi_8h_source.html#l00028">getGAPI()</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_shader_loader_8h_source.html#l00149">shaderNamesMap</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_shader_loader_8cpp_source.html#l00032">loadShader()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader_a9dd30109e00edd910d61759c5b68aa8f_cgraph.svg" width="322" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader_a9dd30109e00edd910d61759c5b68aa8f_icgraph.svg" width="444" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a04fbb025884beeae7fecaf367e869d7d" name="a04fbb025884beeae7fecaf367e869d7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04fbb025884beeae7fecaf367e869d7d">&#9670;&#160;</a></span>loadShader() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a> ShaderLoader::loadShader </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> std::string &amp;&#160;</td>
+          <td class="paramname"><em>fileName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> std::vector&lt; std::string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>macros</em> = <code>{}</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Load the shader from a file. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fileName</td><td>The name of the file containing the shader </td></tr>
+    <tr><td class="paramname">macros</td><td>The macros to be used in the shader </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The ID of the shader program </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_shader_loader_8cpp_source.html#l00019">19</a> of file <a class="el" href="_shader_loader_8cpp_source.html">ShaderLoader.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   19</span>                                                                                           {</div>
+<div class="line"><span class="lineno">   20</span>    std::string <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">shaderPath</a> = <a class="code hl_function" href="class_bin_path.html#a518dec5500f3666c8ecc54023e0c229d">BinPath::getExecutableDirectory</a>() + std::string(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SHADER_PATH</a>) + <span class="stringliteral">&quot;/&quot;</span> + <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">fileName</a>;</div>
+<div class="line"><span class="lineno">   21</span>    std::string <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">shaderSource</a> = <a class="code hl_function" href="class_file_manager.html#a07e7d685fe7d75bb891b2c02baa9f964">FileManager::readFile</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">shaderPath</a>);</div>
+<div class="line"><span class="lineno">   22</span>    <a class="code hl_function" href="class_g_l_e_s_c_1_1_logger.html#a9b12ce53593be134b7d7dea62607d22d">Logger::get</a>().<a class="code hl_function" href="class_g_l_e_s_c_1_1_logger.html#accab43e8aa76342c5e58ac869f2f32d5">success</a>(<span class="stringliteral">&quot;Shader file read successfully: &quot;</span> + <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">shaderPath</a>);</div>
+<div class="line"><span class="lineno">   23</span> </div>
+<div class="line"><span class="lineno">   24</span>    std::string <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vertexShaderSourceTemp</a>;</div>
+<div class="line"><span class="lineno">   25</span>    std::string <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">fragmentShaderSourceTemp</a>;</div>
+<div class="line"><span class="lineno">   26</span> </div>
+<div class="line"><span class="lineno">   27</span>    <a class="code hl_function" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#a83c52b81e9cf34be9b130e7aae6804e4">extractShaderCode</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">shaderSource</a>, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vertexShaderSourceTemp</a>, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">fragmentShaderSourceTemp</a>);</div>
+<div class="line"><span class="lineno">   28</span> </div>
+<div class="line"><span class="lineno">   29</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#a04fbb025884beeae7fecaf367e869d7d">loadShader</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vertexShaderSourceTemp</a>, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">fragmentShaderSourceTemp</a>, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">macros</a>);</div>
+<div class="line"><span class="lineno">   30</span>}</div>
+<div class="ttc" id="aclass_bin_path_html_a518dec5500f3666c8ecc54023e0c229d"><div class="ttname"><a href="class_bin_path.html#a518dec5500f3666c8ecc54023e0c229d">BinPath::getExecutableDirectory</a></div><div class="ttdeci">static std::string getExecutableDirectory()</div><div class="ttdef"><b>Definition</b> <a href="_bin_path_8cpp_source.html#l00045">BinPath.cpp:45</a></div></div>
+<div class="ttc" id="aclass_file_manager_html_a07e7d685fe7d75bb891b2c02baa9f964"><div class="ttname"><a href="class_file_manager.html#a07e7d685fe7d75bb891b2c02baa9f964">FileManager::readFile</a></div><div class="ttdeci">static std::string readFile(const std::string &amp;path)</div><div class="ttdoc">Read a file from the disk.</div><div class="ttdef"><b>Definition</b> <a href="_file_manager_8cpp_source.html#l00016">FileManager.cpp:16</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader_html_a04fbb025884beeae7fecaf367e869d7d"><div class="ttname"><a href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#a04fbb025884beeae7fecaf367e869d7d">GLESC::GAPI::ShaderLoader::loadShader</a></div><div class="ttdeci">static UInt loadShader(const std::string &amp;fileName, const std::vector&lt; std::string &gt; &amp;macros={})</div><div class="ttdoc">Load the shader from a file.</div><div class="ttdef"><b>Definition</b> <a href="_shader_loader_8cpp_source.html#l00019">ShaderLoader.cpp:19</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader_html_a83c52b81e9cf34be9b130e7aae6804e4"><div class="ttname"><a href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#a83c52b81e9cf34be9b130e7aae6804e4">GLESC::GAPI::ShaderLoader::extractShaderCode</a></div><div class="ttdeci">static void extractShaderCode(const std::string &amp;shaderSource, std::string &amp;vertexCode, std::string &amp;fragmentCode)</div><div class="ttdoc">Extracts the shader code from the source.</div><div class="ttdef"><b>Definition</b> <a href="_shader_loader_8cpp_source.html#l00068">ShaderLoader.cpp:68</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_logger_html_a9b12ce53593be134b7d7dea62607d22d"><div class="ttname"><a href="class_g_l_e_s_c_1_1_logger.html#a9b12ce53593be134b7d7dea62607d22d">GLESC::Logger::get</a></div><div class="ttdeci">static Logger &amp; get()</div><div class="ttdef"><b>Definition</b> <a href="_logger_8cpp_source.html#l00030">Logger.cpp:30</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_logger_html_accab43e8aa76342c5e58ac869f2f32d5"><div class="ttname"><a href="class_g_l_e_s_c_1_1_logger.html#accab43e8aa76342c5e58ac869f2f32d5">GLESC::Logger::success</a></div><div class="ttdeci">void success(const std::string &amp;text) override</div><div class="ttdoc">Display success information Background – Green Text – White Bold.</div><div class="ttdef"><b>Definition</b> <a href="_logger_8cpp_source.html#l00093">Logger.cpp:93</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_shader_loader_8cpp_source.html#l00068">extractShaderCode()</a>, <a class="el" href="_logger_8cpp_source.html#l00030">GLESC::Logger::get()</a>, <a class="el" href="_bin_path_8cpp_source.html#l00045">BinPath::getExecutableDirectory()</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, <a class="el" href="_shader_loader_8cpp_source.html#l00019">loadShader()</a>, <a class="el" href="_file_manager_8cpp_source.html#l00016">FileManager::readFile()</a>, and <a class="el" href="_logger_8cpp_source.html#l00093">GLESC::Logger::success()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_shader_loader_8cpp_source.html#l00019">loadShader()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader_a04fbb025884beeae7fecaf367e869d7d_cgraph.svg" width="100%" height="571"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader_a04fbb025884beeae7fecaf367e869d7d_icgraph.svg" width="203" height="78"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ac3a92c01f0308fd40e0f356d8454d192" name="ac3a92c01f0308fd40e0f356d8454d192"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3a92c01f0308fd40e0f356d8454d192">&#9670;&#160;</a></span>loadShader() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a> ShaderLoader::loadShader </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> std::string &amp;&#160;</td>
+          <td class="paramname"><em>vertexShaderSourceParam</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> std::string &amp;&#160;</td>
+          <td class="paramname"><em>fragmentShaderSourceParam</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> std::vector&lt; std::string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>macros</em> = <code>{}</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Load the shader from the source code. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vertexShaderSourceParam</td><td>The source code of the vertex shader </td></tr>
+    <tr><td class="paramname">fragmentShaderSourceParam</td><td>The source code of the fragment shader </td></tr>
+    <tr><td class="paramname">macros</td><td>The macros to be used in the shader </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The ID of the shader program </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_shader_loader_8cpp_source.html#l00032">32</a> of file <a class="el" href="_shader_loader_8cpp_source.html">ShaderLoader.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   34</span>                                                                        {</div>
+<div class="line"><span class="lineno">   35</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#abdd4ed4f86d5ebd56e062ece776da6cf">vertexShaderSource</a> = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vertexShaderSourceParam</a>;</div>
+<div class="line"><span class="lineno">   36</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#a04a57a04b3b9948509363ac8399c1cf2">fragmentShaderSource</a> = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">fragmentShaderSourceParam</a>;</div>
+<div class="line"><span class="lineno">   37</span>    <a class="code hl_function" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#a444f971b50a619fe8ed0fe7625148764">insertShaderMacros</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#abdd4ed4f86d5ebd56e062ece776da6cf">vertexShaderSource</a>, <a class="code hl_variable" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#a04a57a04b3b9948509363ac8399c1cf2">fragmentShaderSource</a>, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">macros</a>);</div>
+<div class="line"><span class="lineno">   38</span>    <a class="code hl_function" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#a8117811f44e6651fe0439052bf20880b">prependGLSLVersion</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#abdd4ed4f86d5ebd56e062ece776da6cf">vertexShaderSource</a>, <a class="code hl_variable" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#a04a57a04b3b9948509363ac8399c1cf2">fragmentShaderSource</a>);</div>
+<div class="line"><span class="lineno">   39</span> </div>
+<div class="line"><span class="lineno">   40</span>    <a class="code hl_function" href="class_g_l_e_s_c_1_1_logger.html#a9b12ce53593be134b7d7dea62607d22d">Logger::get</a>().<a class="code hl_function" href="class_g_l_e_s_c_1_1_logger.html#adb7c11e4c440628db0d98f418fa57702">nonImportantInfo</a>(</div>
+<div class="line"><span class="lineno">   41</span>        <span class="stringliteral">&quot;Vertex Shader:\n\t&quot;</span> + <a class="code hl_function" href="class_g_l_e_s_c_1_1_stringer.html#a4aef664d7491aaeaa7be1fafde3ef90e">GLESC::Stringer::replace</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#abdd4ed4f86d5ebd56e062ece776da6cf">vertexShaderSource</a>, <span class="stringliteral">&quot;\n&quot;</span>, <span class="stringliteral">&quot;\n\t&quot;</span>));</div>
+<div class="line"><span class="lineno">   42</span>    <a class="code hl_function" href="class_g_l_e_s_c_1_1_logger.html#a9b12ce53593be134b7d7dea62607d22d">Logger::get</a>().<a class="code hl_function" href="class_g_l_e_s_c_1_1_logger.html#adb7c11e4c440628db0d98f418fa57702">nonImportantInfo</a>(</div>
+<div class="line"><span class="lineno">   43</span>        <span class="stringliteral">&quot;Fragment Shader:\n\t&quot;</span> + <a class="code hl_function" href="class_g_l_e_s_c_1_1_stringer.html#a4aef664d7491aaeaa7be1fafde3ef90e">GLESC::Stringer::replace</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#a04a57a04b3b9948509363ac8399c1cf2">fragmentShaderSource</a>, <span class="stringliteral">&quot;\n&quot;</span>, <span class="stringliteral">&quot;\n\t&quot;</span>));</div>
+<div class="line"><span class="lineno">   44</span> </div>
+<div class="line"><span class="lineno">   45</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#acc0e30e11f3a2f71d820b5b0d9780a10">vertexShader</a> = <a class="code hl_function" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#a463a9cb2ff635b6745c8f7a880f6b47f">loadVertexShader</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#abdd4ed4f86d5ebd56e062ece776da6cf">vertexShaderSource</a>);</div>
+<div class="line"><span class="lineno">   46</span>    <a class="code hl_function" href="class_g_l_e_s_c_1_1_logger.html#a9b12ce53593be134b7d7dea62607d22d">Logger::get</a>().<a class="code hl_function" href="class_g_l_e_s_c_1_1_logger.html#accab43e8aa76342c5e58ac869f2f32d5">success</a>(<span class="stringliteral">&quot;Vertex shader loaded successfully&quot;</span>);</div>
+<div class="line"><span class="lineno">   47</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#a9461a40d1365137e2f8fb5d491514f5e">fragmentShader</a> = <a class="code hl_function" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#a9dd30109e00edd910d61759c5b68aa8f">loadFragmentShader</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#a04a57a04b3b9948509363ac8399c1cf2">fragmentShaderSource</a>);</div>
+<div class="line"><span class="lineno">   48</span>    <a class="code hl_function" href="class_g_l_e_s_c_1_1_logger.html#a9b12ce53593be134b7d7dea62607d22d">Logger::get</a>().<a class="code hl_function" href="class_g_l_e_s_c_1_1_logger.html#accab43e8aa76342c5e58ac869f2f32d5">success</a>(<span class="stringliteral">&quot;Fragment shader loaded successfully&quot;</span>);</div>
+<div class="line"><span class="lineno">   49</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a> shaderProgram = <a class="code hl_function" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#a38404249ed0cc38fe19988e56b8584b0">createShaderProgram</a>();</div>
+<div class="line"><span class="lineno">   50</span>    <a class="code hl_function" href="class_g_l_e_s_c_1_1_logger.html#a9b12ce53593be134b7d7dea62607d22d">Logger::get</a>().<a class="code hl_function" href="class_g_l_e_s_c_1_1_logger.html#accab43e8aa76342c5e58ac869f2f32d5">success</a>(<span class="stringliteral">&quot;Shader program created successfully&quot;</span>);</div>
+<div class="line"><span class="lineno">   51</span> </div>
+<div class="line"><span class="lineno">   52</span>    <a class="code hl_function" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#abee829a266c59b44c3a52933d7cb147a">clean</a>();</div>
+<div class="line"><span class="lineno">   53</span>    <span class="keywordflow">return</span> shaderProgram;</div>
+<div class="line"><span class="lineno">   54</span>}</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader_html_a04a57a04b3b9948509363ac8399c1cf2"><div class="ttname"><a href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#a04a57a04b3b9948509363ac8399c1cf2">GLESC::GAPI::ShaderLoader::fragmentShaderSource</a></div><div class="ttdeci">static std::string fragmentShaderSource</div><div class="ttdoc">Source of the fragment shader.</div><div class="ttdef"><b>Definition</b> <a href="_shader_loader_8h_source.html#l00048">ShaderLoader.h:48</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader_html_a38404249ed0cc38fe19988e56b8584b0"><div class="ttname"><a href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#a38404249ed0cc38fe19988e56b8584b0">GLESC::GAPI::ShaderLoader::createShaderProgram</a></div><div class="ttdeci">static UInt createShaderProgram()</div><div class="ttdoc">Links the loaded shaders into the shader program.</div><div class="ttdef"><b>Definition</b> <a href="_shader_loader_8cpp_source.html#l00161">ShaderLoader.cpp:161</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader_html_a444f971b50a619fe8ed0fe7625148764"><div class="ttname"><a href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#a444f971b50a619fe8ed0fe7625148764">GLESC::GAPI::ShaderLoader::insertShaderMacros</a></div><div class="ttdeci">static void insertShaderMacros(std::string &amp;vertexCode, std::string &amp;fragmentCode, const std::vector&lt; std::string &gt; &amp;macros)</div><div class="ttdoc">Inserts the shader macros into the shader code.</div><div class="ttdef"><b>Definition</b> <a href="_shader_loader_8cpp_source.html#l00057">ShaderLoader.cpp:57</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader_html_a463a9cb2ff635b6745c8f7a880f6b47f"><div class="ttname"><a href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#a463a9cb2ff635b6745c8f7a880f6b47f">GLESC::GAPI::ShaderLoader::loadVertexShader</a></div><div class="ttdeci">static UInt loadVertexShader(const std::string &amp;vertexShaderSourceParam)</div><div class="ttdoc">Loads the vertex shader Sets the actual coordinates of the vertices in the GPU.</div><div class="ttdef"><b>Definition</b> <a href="_shader_loader_8cpp_source.html#l00144">ShaderLoader.cpp:144</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader_html_a8117811f44e6651fe0439052bf20880b"><div class="ttname"><a href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#a8117811f44e6651fe0439052bf20880b">GLESC::GAPI::ShaderLoader::prependGLSLVersion</a></div><div class="ttdeci">static void prependGLSLVersion(std::string &amp;vertexCode, std::string &amp;fragmentCode)</div><div class="ttdoc">Prepends the GLSL version to the shader code.</div><div class="ttdef"><b>Definition</b> <a href="_shader_loader_8cpp_source.html#l00092">ShaderLoader.cpp:92</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader_html_a9dd30109e00edd910d61759c5b68aa8f"><div class="ttname"><a href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#a9dd30109e00edd910d61759c5b68aa8f">GLESC::GAPI::ShaderLoader::loadFragmentShader</a></div><div class="ttdeci">static UInt loadFragmentShader(const std::string &amp;fragmentShaderSourceParam)</div><div class="ttdoc">Loads the fragment shader Calculates colors of pixels (a fragment is a pixel in OpenGL)</div><div class="ttdef"><b>Definition</b> <a href="_shader_loader_8cpp_source.html#l00152">ShaderLoader.cpp:152</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader_html_abdd4ed4f86d5ebd56e062ece776da6cf"><div class="ttname"><a href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#abdd4ed4f86d5ebd56e062ece776da6cf">GLESC::GAPI::ShaderLoader::vertexShaderSource</a></div><div class="ttdeci">static std::string vertexShaderSource</div><div class="ttdoc">Source of the vertex shader.</div><div class="ttdef"><b>Definition</b> <a href="_shader_loader_8h_source.html#l00043">ShaderLoader.h:43</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader_html_abee829a266c59b44c3a52933d7cb147a"><div class="ttname"><a href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#abee829a266c59b44c3a52933d7cb147a">GLESC::GAPI::ShaderLoader::clean</a></div><div class="ttdeci">static void clean()</div><div class="ttdoc">Clean the shader loader.</div><div class="ttdef"><b>Definition</b> <a href="_shader_loader_8cpp_source.html#l00173">ShaderLoader.cpp:173</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_logger_html_adb7c11e4c440628db0d98f418fa57702"><div class="ttname"><a href="class_g_l_e_s_c_1_1_logger.html#adb7c11e4c440628db0d98f418fa57702">GLESC::Logger::nonImportantInfo</a></div><div class="ttdeci">void nonImportantInfo(const std::string &amp;text) override</div><div class="ttdoc">Display non important information Background – Black Text – Grey.</div><div class="ttdef"><b>Definition</b> <a href="_logger_8cpp_source.html#l00061">Logger.cpp:61</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_stringer_html_a4aef664d7491aaeaa7be1fafde3ef90e"><div class="ttname"><a href="class_g_l_e_s_c_1_1_stringer.html#a4aef664d7491aaeaa7be1fafde3ef90e">GLESC::Stringer::replace</a></div><div class="ttdeci">static std::string replace(const std::string &amp;string, const std::string &amp;stringToReplace, const std::string &amp;replacement)</div><div class="ttdoc">Converts a string to a number.</div><div class="ttdef"><b>Definition</b> <a href="_stringer_8cpp_source.html#l00015">Stringer.cpp:15</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_shader_loader_8cpp_source.html#l00173">clean()</a>, <a class="el" href="_shader_loader_8cpp_source.html#l00161">createShaderProgram()</a>, <a class="el" href="_shader_loader_8h_source.html#l00058">fragmentShader</a>, <a class="el" href="_shader_loader_8h_source.html#l00048">fragmentShaderSource</a>, <a class="el" href="_logger_8cpp_source.html#l00030">GLESC::Logger::get()</a>, <a class="el" href="_shader_loader_8cpp_source.html#l00057">insertShaderMacros()</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, <a class="el" href="_shader_loader_8cpp_source.html#l00152">loadFragmentShader()</a>, <a class="el" href="_shader_loader_8cpp_source.html#l00144">loadVertexShader()</a>, <a class="el" href="_logger_8cpp_source.html#l00061">GLESC::Logger::nonImportantInfo()</a>, <a class="el" href="_shader_loader_8cpp_source.html#l00092">prependGLSLVersion()</a>, <a class="el" href="_stringer_8cpp_source.html#l00015">GLESC::Stringer::replace()</a>, <a class="el" href="_logger_8cpp_source.html#l00093">GLESC::Logger::success()</a>, <a class="el" href="_shader_loader_8h_source.html#l00053">vertexShader</a>, and <a class="el" href="_shader_loader_8h_source.html#l00043">vertexShaderSource</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader_ac3a92c01f0308fd40e0f356d8454d192_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a463a9cb2ff635b6745c8f7a880f6b47f" name="a463a9cb2ff635b6745c8f7a880f6b47f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a463a9cb2ff635b6745c8f7a880f6b47f">&#9670;&#160;</a></span>loadVertexShader()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a> ShaderLoader::loadVertexShader </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> std::string &amp;&#160;</td>
+          <td class="paramname"><em>vertexShaderSourceParam</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Loads the vertex shader Sets the actual coordinates of the vertices in the GPU. </p>
+
+<p class="definition">Definition at line <a class="el" href="_shader_loader_8cpp_source.html#l00144">144</a> of file <a class="el" href="_shader_loader_8cpp_source.html">ShaderLoader.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  144</span>                                                                            {</div>
+<div class="line"><span class="lineno">  145</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vertShader</a> = <a class="code hl_function" href="_gapi_8h.html#ab7514d88e65656ffa15ca33256518fe5">getGAPI</a>()</div>
+<div class="line"><span class="lineno">  146</span>        .loadAndCompileShader(Enums::ShaderTypes::Vertex, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vertexShaderSourceParam</a>);</div>
+<div class="line"><span class="lineno">  147</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#a9edbb42844a39aea1f3d705e200e09f4">shaderNamesMap</a>.emplace(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vertShader</a>, <span class="stringliteral">&quot;VERTEX&quot;</span>);</div>
+<div class="line"><span class="lineno">  148</span>    <a class="code hl_define" href="_shader_asserts_8h.html#a25ec7d68502992bf99ae1d1865bf0d37">D_ASSERT_COMPILATION_OK</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vertShader</a>);</div>
+<div class="line"><span class="lineno">  149</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vertShader</a>;</div>
+<div class="line"><span class="lineno">  150</span>}</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_shader_asserts_8h_source.html#l00018">D_ASSERT_COMPILATION_OK</a>, <a class="el" href="_gapi_8h_source.html#l00028">getGAPI()</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_shader_loader_8h_source.html#l00149">shaderNamesMap</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_shader_loader_8cpp_source.html#l00032">loadShader()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader_a463a9cb2ff635b6745c8f7a880f6b47f_cgraph.svg" width="322" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader_a463a9cb2ff635b6745c8f7a880f6b47f_icgraph.svg" width="444" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a8117811f44e6651fe0439052bf20880b" name="a8117811f44e6651fe0439052bf20880b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8117811f44e6651fe0439052bf20880b">&#9670;&#160;</a></span>prependGLSLVersion()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> ShaderLoader::prependGLSLVersion </td>
+          <td>(</td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"><em>vertexCode</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"><em>fragmentCode</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Prepends the GLSL version to the shader code. </p>
+<p>The GLSL version is prepended to the shader code. The version is obtained in <a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#af14e7519ed4f04e6bdffc793cd50ad9c" title="Gets the GLSL version string.">getGLSLVersionString()</a>. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#af14e7519ed4f04e6bdffc793cd50ad9c" title="Gets the GLSL version string.">getGLSLVersionString()</a> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vertexCode</td><td>The vertex shader code </td></tr>
+    <tr><td class="paramname">fragmentCode</td><td>The fragment shader code </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_shader_loader_8cpp_source.html#l00092">92</a> of file <a class="el" href="_shader_loader_8cpp_source.html">ShaderLoader.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   92</span>                                                                                    {</div>
+<div class="line"><span class="lineno">   93</span>    std::string <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">glslVersionStr</a> = <a class="code hl_function" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#af14e7519ed4f04e6bdffc793cd50ad9c">getGLSLVersionString</a>();</div>
+<div class="line"><span class="lineno">   94</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#abdd4ed4f86d5ebd56e062ece776da6cf">vertexShaderSource</a> = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">glslVersionStr</a> + <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vertexCode</a>;</div>
+<div class="line"><span class="lineno">   95</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#a04a57a04b3b9948509363ac8399c1cf2">fragmentShaderSource</a> = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">glslVersionStr</a> + <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">fragmentCode</a>;</div>
+<div class="line"><span class="lineno">   96</span>}</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader_html_af14e7519ed4f04e6bdffc793cd50ad9c"><div class="ttname"><a href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#af14e7519ed4f04e6bdffc793cd50ad9c">GLESC::GAPI::ShaderLoader::getGLSLVersionString</a></div><div class="ttdeci">static std::string getGLSLVersionString()</div><div class="ttdoc">Gets the GLSL version string.</div><div class="ttdef"><b>Definition</b> <a href="_shader_loader_8cpp_source.html#l00098">ShaderLoader.cpp:98</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_shader_loader_8h_source.html#l00048">fragmentShaderSource</a>, <a class="el" href="_shader_loader_8cpp_source.html#l00098">getGLSLVersionString()</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_shader_loader_8h_source.html#l00043">vertexShaderSource</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_shader_loader_8cpp_source.html#l00032">loadShader()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader_a8117811f44e6651fe0439052bf20880b_cgraph.svg" width="444" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader_a8117811f44e6651fe0439052bf20880b_icgraph.svg" width="444" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="acf6bcba32db003d9058fe337a44a606f" name="acf6bcba32db003d9058fe337a44a606f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf6bcba32db003d9058fe337a44a606f">&#9670;&#160;</a></span>validateShaderCodes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> ShaderLoader::validateShaderCodes </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> std::string &amp;&#160;</td>
+          <td class="paramname"><em>vertexCode</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> std::string &amp;&#160;</td>
+          <td class="paramname"><em>fragmentCode</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Validates the shader codes. </p>
+<p>The shader codes are validated to ensure that they are not empty. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vertexCode</td><td>The vertex shader code </td></tr>
+    <tr><td class="paramname">fragmentCode</td><td>The fragment shader code </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_shader_loader_8cpp_source.html#l00125">125</a> of file <a class="el" href="_shader_loader_8cpp_source.html">ShaderLoader.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  125</span>                                                                                                 {</div>
+<div class="line"><span class="lineno">  126</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vertexCode</a>.empty()) {</div>
+<div class="line"><span class="lineno">  127</span>        <a class="code hl_define" href="_shader_asserts_8h.html#a41bde6c6137e51ed7513d353d4d18bc6">D_ASSERT_SHADER_CODE_FOUND</a>(<span class="stringliteral">&quot;vertex&quot;</span>);</div>
+<div class="line"><span class="lineno">  128</span>    }</div>
+<div class="line"><span class="lineno">  129</span> </div>
+<div class="line"><span class="lineno">  130</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">fragmentCode</a>.empty()) {</div>
+<div class="line"><span class="lineno">  131</span>        <a class="code hl_define" href="_shader_asserts_8h.html#a41bde6c6137e51ed7513d353d4d18bc6">D_ASSERT_SHADER_CODE_FOUND</a>(<span class="stringliteral">&quot;fragment&quot;</span>);</div>
+<div class="line"><span class="lineno">  132</span>    }</div>
+<div class="line"><span class="lineno">  133</span>}</div>
+<div class="ttc" id="a_shader_asserts_8h_html_a41bde6c6137e51ed7513d353d4d18bc6"><div class="ttname"><a href="_shader_asserts_8h.html#a41bde6c6137e51ed7513d353d4d18bc6">D_ASSERT_SHADER_CODE_FOUND</a></div><div class="ttdeci">#define D_ASSERT_SHADER_CODE_FOUND(shader)</div><div class="ttdef"><b>Definition</b> <a href="_shader_asserts_8h_source.html#l00015">ShaderAsserts.h:15</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_shader_asserts_8h_source.html#l00015">D_ASSERT_SHADER_CODE_FOUND</a>, and <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_shader_loader_8cpp_source.html#l00068">extractShaderCode()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader_acf6bcba32db003d9058fe337a44a606f_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a96d2c82f9ba86fa9d21e466d8e99abc4" name="a96d2c82f9ba86fa9d21e466d8e99abc4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96d2c82f9ba86fa9d21e466d8e99abc4">&#9670;&#160;</a></span>validateShaderTokens()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> ShaderLoader::validateShaderTokens </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">size_t</a>&#160;</td>
+          <td class="paramname"><em>vertexPos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">size_t</a>&#160;</td>
+          <td class="paramname"><em>fragmentPos</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Validates the shader tokens. </p>
+<p>The shader tokens are validated to ensure that they are present in the shader source. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vertexPos</td><td>The position of the vertex token </td></tr>
+    <tr><td class="paramname">fragmentPos</td><td>The position of the fragment token </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_shader_loader_8cpp_source.html#l00115">115</a> of file <a class="el" href="_shader_loader_8cpp_source.html">ShaderLoader.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  115</span>                                                                            {</div>
+<div class="line"><span class="lineno">  116</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vertexPos</a> == std::string::npos) {</div>
+<div class="line"><span class="lineno">  117</span>        <a class="code hl_define" href="_shader_asserts_8h.html#ad53d8e35a664671a7df28cac74d00e21">D_ASSERT_SHADER_TOKEN_FOUND</a>(<span class="stringliteral">&quot;vertex&quot;</span>);</div>
+<div class="line"><span class="lineno">  118</span>    }</div>
+<div class="line"><span class="lineno">  119</span> </div>
+<div class="line"><span class="lineno">  120</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">fragmentPos</a> == std::string::npos) {</div>
+<div class="line"><span class="lineno">  121</span>        <a class="code hl_define" href="_shader_asserts_8h.html#ad53d8e35a664671a7df28cac74d00e21">D_ASSERT_SHADER_TOKEN_FOUND</a>(<span class="stringliteral">&quot;fragment&quot;</span>);</div>
+<div class="line"><span class="lineno">  122</span>    }</div>
+<div class="line"><span class="lineno">  123</span>}</div>
+<div class="ttc" id="a_shader_asserts_8h_html_ad53d8e35a664671a7df28cac74d00e21"><div class="ttname"><a href="_shader_asserts_8h.html#ad53d8e35a664671a7df28cac74d00e21">D_ASSERT_SHADER_TOKEN_FOUND</a></div><div class="ttdeci">#define D_ASSERT_SHADER_TOKEN_FOUND(shader)</div><div class="ttdef"><b>Definition</b> <a href="_shader_asserts_8h_source.html#l00012">ShaderAsserts.h:12</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_shader_asserts_8h_source.html#l00012">D_ASSERT_SHADER_TOKEN_FOUND</a>, and <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_shader_loader_8cpp_source.html#l00068">extractShaderCode()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader_a96d2c82f9ba86fa9d21e466d8e99abc4_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a9461a40d1365137e2f8fb5d491514f5e" name="a9461a40d1365137e2f8fb5d491514f5e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9461a40d1365137e2f8fb5d491514f5e">&#9670;&#160;</a></span>fragmentShader</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a> ShaderLoader::fragmentShader</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>ID reference to the fragment shader. </p>
+
+<p class="definition">Definition at line <a class="el" href="_shader_loader_8h_source.html#l00058">58</a> of file <a class="el" href="_shader_loader_8h_source.html">ShaderLoader.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_shader_loader_8cpp_source.html#l00173">clean()</a>, <a class="el" href="_shader_loader_8cpp_source.html#l00161">createShaderProgram()</a>, and <a class="el" href="_shader_loader_8cpp_source.html#l00032">loadShader()</a>.</p>
+
+</div>
+</div>
+<a id="a04a57a04b3b9948509363ac8399c1cf2" name="a04a57a04b3b9948509363ac8399c1cf2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04a57a04b3b9948509363ac8399c1cf2">&#9670;&#160;</a></span>fragmentShaderSource</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string ShaderLoader::fragmentShaderSource</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Source of the fragment shader. </p>
+
+<p class="definition">Definition at line <a class="el" href="_shader_loader_8h_source.html#l00048">48</a> of file <a class="el" href="_shader_loader_8h_source.html">ShaderLoader.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_shader_loader_8cpp_source.html#l00032">loadShader()</a>, and <a class="el" href="_shader_loader_8cpp_source.html#l00092">prependGLSLVersion()</a>.</p>
+
+</div>
+</div>
+<a id="a9edbb42844a39aea1f3d705e200e09f4" name="a9edbb42844a39aea1f3d705e200e09f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9edbb42844a39aea1f3d705e200e09f4">&#9670;&#160;</a></span>shaderNamesMap</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt; <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">unsigned</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">int</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">char</a> * &gt; ShaderLoader::shaderNamesMap</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Map of names of the shaders and their IDs. </p>
+<p>Once the shader is created, we assign the name to the ID This is used to identify the shader in case of handling an error </p>
+
+<p class="definition">Definition at line <a class="el" href="_shader_loader_8h_source.html#l00149">149</a> of file <a class="el" href="_shader_loader_8h_source.html">ShaderLoader.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_shader_loader_8cpp_source.html#l00173">clean()</a>, <a class="el" href="_shader_loader_8cpp_source.html#l00152">loadFragmentShader()</a>, and <a class="el" href="_shader_loader_8cpp_source.html#l00144">loadVertexShader()</a>.</p>
+
+</div>
+</div>
+<a id="a43ef3effddd1a69db6afb681ccce8131" name="a43ef3effddd1a69db6afb681ccce8131"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43ef3effddd1a69db6afb681ccce8131">&#9670;&#160;</a></span>tokenFragment</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">constexpr</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">char</a>* GLESC::GAPI::ShaderLoader::tokenFragment = &quot;#shader <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">fragment&quot;</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Tokens used to separate the vertex and fragment shaders. </p>
+
+<p class="definition">Definition at line <a class="el" href="_shader_loader_8h_source.html#l00136">136</a> of file <a class="el" href="_shader_loader_8h_source.html">ShaderLoader.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_shader_loader_8cpp_source.html#l00068">extractShaderCode()</a>.</p>
+
+</div>
+</div>
+<a id="aabd0fb386b1c7568240c26eab0e338cd" name="aabd0fb386b1c7568240c26eab0e338cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aabd0fb386b1c7568240c26eab0e338cd">&#9670;&#160;</a></span>tokenVertex</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">constexpr</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">char</a>* GLESC::GAPI::ShaderLoader::tokenVertex = &quot;#shader <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vertex&quot;</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Tokens used to separate the vertex and fragment shaders. </p>
+
+<p class="definition">Definition at line <a class="el" href="_shader_loader_8h_source.html#l00132">132</a> of file <a class="el" href="_shader_loader_8h_source.html">ShaderLoader.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_shader_loader_8cpp_source.html#l00068">extractShaderCode()</a>.</p>
+
+</div>
+</div>
+<a id="acc0e30e11f3a2f71d820b5b0d9780a10" name="acc0e30e11f3a2f71d820b5b0d9780a10"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc0e30e11f3a2f71d820b5b0d9780a10">&#9670;&#160;</a></span>vertexShader</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a> ShaderLoader::vertexShader</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>ID reference to the vertex shader. </p>
+
+<p class="definition">Definition at line <a class="el" href="_shader_loader_8h_source.html#l00053">53</a> of file <a class="el" href="_shader_loader_8h_source.html">ShaderLoader.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_shader_loader_8cpp_source.html#l00173">clean()</a>, <a class="el" href="_shader_loader_8cpp_source.html#l00161">createShaderProgram()</a>, and <a class="el" href="_shader_loader_8cpp_source.html#l00032">loadShader()</a>.</p>
+
+</div>
+</div>
+<a id="abdd4ed4f86d5ebd56e062ece776da6cf" name="abdd4ed4f86d5ebd56e062ece776da6cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abdd4ed4f86d5ebd56e062ece776da6cf">&#9670;&#160;</a></span>vertexShaderSource</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string ShaderLoader::vertexShaderSource</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Source of the vertex shader. </p>
+
+<p class="definition">Definition at line <a class="el" href="_shader_loader_8h_source.html#l00043">43</a> of file <a class="el" href="_shader_loader_8h_source.html">ShaderLoader.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_shader_loader_8cpp_source.html#l00032">loadShader()</a>, and <a class="el" href="_shader_loader_8cpp_source.html#l00092">prependGLSLVersion()</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li><a class="el" href="_shader_loader_8h_source.html">ShaderLoader.h</a></li>
+<li><a class="el" href="_shader_loader_8cpp_source.html">ShaderLoader.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_g_l_e_s_c.html">GLESC</a></li><li class="navelem"><a class="el" href="namespace_g_l_e_s_c_1_1_g_a_p_i.html">GAPI</a></li><li class="navelem"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html">ShaderLoader</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

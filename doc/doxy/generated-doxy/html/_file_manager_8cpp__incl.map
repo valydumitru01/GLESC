@@ -1,0 +1,20 @@
+<map id="FileManager.cpp" name="FileManager.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="106,5,223,32"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,88,70,115"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="146,35,71,82,69,77,143,30"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="94,88,162,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="161,34,142,75,137,73,156,31"/>
+<area shape="rect" id="Node000004" href="$_file_manager_8h.html" title="@TODO Add description of this file if needed" alt="" coords="121,171,258,213"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="169,32,177,80,188,155,183,155,172,80,164,33"/>
+<area shape="rect" id="Node000006" href="$_open_exception_8h.html" title="Exception class for when a resource cannot be opened." alt="" coords="258,80,444,123"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="194,30,290,71,288,76,192,35"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="212,336,266,363"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="198,213,233,320,228,322,193,214"/>
+<area shape="rect" id="Node000007" href="$_engine_exception_8h.html" title="Base exception class for any exception in the engine." alt="" coords="283,171,438,213"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="356,123,359,155,354,155,350,123"/>
+<area shape="rect" id="Node000008" href="$_base_exception_8h.html" title=" " alt="" coords="281,261,402,288"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="358,215,351,246,345,245,353,213"/>
+<area shape="poly" id="edge9_Node000008_Node000005" title=" " alt="" coords="325,291,271,329,268,324,322,286"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="302,336,381,363"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="344,289,344,320,339,320,339,289"/>
+</map>

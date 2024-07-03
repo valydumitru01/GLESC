@@ -1,0 +1,5 @@
+<map id="GLESC::HUD::DebugItems" name="GLESC::HUD::DebugItems">
+<area shape="rect" id="Node000001" title="Class that encapsulates the logic of the debug displaying of non visible items." alt="" coords="5,784,175,939"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_in_game_window.html" title="Class to encapsulate the logic of an in&#45;game window." alt="" coords="12,5,168,736"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="93,751,93,784,87,784,87,751"/>
+</map>

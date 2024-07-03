@@ -1,0 +1,5 @@
+<map id="GLESC::Render::TextureVertex" name="GLESC::Render::TextureVertex">
+<area shape="rect" id="Node000001" title="Represents a vertex with texture coordinates." alt="" coords="5,357,200,555"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_render_1_1_base_vertex.html" title="Represents the base Vertex in the mesh." alt="" coords="12,5,193,309"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="105,324,105,358,100,358,100,324"/>
+</map>

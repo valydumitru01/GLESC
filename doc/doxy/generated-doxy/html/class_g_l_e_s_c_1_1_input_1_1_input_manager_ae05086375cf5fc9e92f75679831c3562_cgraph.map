@@ -1,0 +1,5 @@
+<map id="GLESC::Input::InputManager::handleKeyEvent" name="GLESC::Input::InputManager::handleKeyEvent">
+<area shape="rect" id="Node000001" title="Handles the keyboard event by updating the key map with the current key state." alt="" coords="5,5,193,48"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_input_1_1_input_manager.html#afd599b8f124239a8f11fb6959e3c626a" title="Updates the state of a specific key in the key map." alt="" coords="241,5,428,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="193,24,225,24,225,29,193,29"/>
+</map>

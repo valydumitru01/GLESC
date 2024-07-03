@@ -1,0 +1,11 @@
+<map id="Console.h" name="Console.h">
+<area shape="rect" id="Node000001" title="Console class that encapsulates the logic of the console." alt="" coords="124,5,204,32"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,80,59,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="142,35,69,75,67,70,140,30"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="83,80,138,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="157,34,131,69,127,66,153,31"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="162,80,273,107"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="175,31,201,66,197,69,171,34"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="297,80,354,107"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="193,30,284,71,282,76,191,35"/>
+</map>

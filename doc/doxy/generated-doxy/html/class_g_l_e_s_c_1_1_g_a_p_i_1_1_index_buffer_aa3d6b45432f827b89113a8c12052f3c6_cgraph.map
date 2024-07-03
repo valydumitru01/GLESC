@@ -1,0 +1,8 @@
+<map id="GLESC::GAPI::IndexBuffer::IndexBuffer" name="GLESC::GAPI::IndexBuffer::IndexBuffer">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,35,182,77"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_g_a_p_i_1_1_index_buffer.html#ae9d8b583fd99e86874cc8c46f2ed1c17" title=" " alt="" coords="230,5,406,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="181,42,214,38,214,43,182,47"/>
+<area shape="rect" id="Node000003" href="$_gapi_8h.html#ab7514d88e65656ffa15ca33256518fe5" title="Returns the graphic API used by the engine." alt="" coords="454,43,524,69"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="182,56,230,57,406,57,438,56,439,61,406,63,230,63,182,62"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="407,39,439,45,438,50,406,44"/>
+</map>

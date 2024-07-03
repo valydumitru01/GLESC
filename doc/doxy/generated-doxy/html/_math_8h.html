@@ -1,0 +1,364 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="Doxygen Awesome" />
+<meta property="og:image" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+<meta property="og:description" content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
+<meta property="og:url" content="https://jothepro.github.io/doxygen-awesome-css/" />
+<!-- END opengraph metadata -->
+<!-- BEGIN twitter metadata -->
+<meta name="twitter:image:src" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+<meta name="twitter:title" content="Doxygen Awesome" />
+<meta name="twitter:description" content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
+<!-- END twitter metadata -->
+<title>GLESC: Math.h File Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.drawio.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/ -->
+<a href="https://github.com/jothepro/doxygen-awesome-css" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="GLESC_logo_white_background.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">GLESC
+   &#160;<span id="projectnumber">1</span>
+   </div>
+   <div id="projectbrief">Game engine using ECS architecture</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('_math_8h.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle"><div class="title">Math.h File Reference</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;type_traits&gt;</code><br />
+<code>#include &lt;random&gt;</code><br />
+<code>#include &lt;cstring&gt;</code><br />
+<code>#include &lt;cmath&gt;</code><br />
+<code>#include &quot;<a class="el" href="_asserts_8h_source.html">engine/core/asserts/Asserts.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for Math.h:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="_math_8h__incl.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="_math_8h__dep__incl.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</div>
+<p><a href="_math_8h_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:struct_g_l_e_s_c_1_1_math_1_1_select_smaller_floating_type" id="r_struct_g_l_e_s_c_1_1_math_1_1_select_smaller_floating_type"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c_1_1_math.html#struct_g_l_e_s_c_1_1_math_1_1_select_smaller_floating_type">GLESC::Math::SelectSmallerFloatingType&lt; T1, T2 &gt;</a></td></tr>
+<tr class="memdesc:struct_g_l_e_s_c_1_1_math_1_1_select_smaller_floating_type"><td class="mdescLeft">&#160;</td><td class="mdescRight">Selects the smaller floating-point type between two types.  <a href="namespace_g_l_e_s_c_1_1_math.html#struct_g_l_e_s_c_1_1_math_1_1_select_smaller_floating_type">More...</a><br /></td></tr>
+<tr class="separator:struct_g_l_e_s_c_1_1_math_1_1_select_smaller_floating_type"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:namespace_g_l_e_s_c" id="r_namespace_g_l_e_s_c"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c.html">GLESC</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespace_g_l_e_s_c_1_1_math" id="r_namespace_g_l_e_s_c_1_1_math"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c_1_1_math.html">GLESC::Math</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a04db3782a0754ba2d22eb5d159dd681c" id="r_a04db3782a0754ba2d22eb5d159dd681c"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Type</a> &gt; </td></tr>
+<tr class="memitem:a04db3782a0754ba2d22eb5d159dd681c"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">constexpr</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Type</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a04db3782a0754ba2d22eb5d159dd681c">GLESC::Math::abs</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Type</a> &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">value</a>)</td></tr>
+<tr class="memdesc:a04db3782a0754ba2d22eb5d159dd681c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the absolute value of a number.  <br /></td></tr>
+<tr class="separator:a04db3782a0754ba2d22eb5d159dd681c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbb5c115f33140c457c90cab04bb57c3" id="r_abbb5c115f33140c457c90cab04bb57c3"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Type</a> &gt; </td></tr>
+<tr class="memitem:abbb5c115f33140c457c90cab04bb57c3"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">auto</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c_1_1_math.html#abbb5c115f33140c457c90cab04bb57c3">GLESC::Math::atan2</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Type</a> &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">value1</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Type</a> &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">value2</a>)</td></tr>
+<tr class="memdesc:abbb5c115f33140c457c90cab04bb57c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the arctangent of a value.  <br /></td></tr>
+<tr class="separator:abbb5c115f33140c457c90cab04bb57c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9816249dbbdbb7c7affd0c3be77b8e2" id="r_ae9816249dbbdbb7c7affd0c3be77b8e2"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Type1</a> , <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Type2</a> , <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Type3</a> &gt; </td></tr>
+<tr class="memitem:ae9816249dbbdbb7c7affd0c3be77b8e2"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">constexpr</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Type1</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c_1_1_math.html#ae9816249dbbdbb7c7affd0c3be77b8e2">GLESC::Math::clamp</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Type1</a> &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">value</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Type2</a> &amp;<a class="el" href="namespace_g_l_e_s_c_1_1_math.html#ad2df75a6181d9d1d318d20d224a2866b">min</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Type3</a> &amp;<a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a522e4f8e000cccddbf9d2f92280cfb6c">max</a>)</td></tr>
+<tr class="memdesc:ae9816249dbbdbb7c7affd0c3be77b8e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clamps a value between a minimum and maximum value.  <br /></td></tr>
+<tr class="separator:ae9816249dbbdbb7c7affd0c3be77b8e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac72fdbfd43b6a5770385dbfd805b687b" id="r_ac72fdbfd43b6a5770385dbfd805b687b"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Type</a> &gt; </td></tr>
+<tr class="memitem:ac72fdbfd43b6a5770385dbfd805b687b"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">auto</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c_1_1_math.html#ac72fdbfd43b6a5770385dbfd805b687b">GLESC::Math::cos</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Type</a> &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">value</a>)</td></tr>
+<tr class="memdesc:ac72fdbfd43b6a5770385dbfd805b687b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the cosine of a value.  <br /></td></tr>
+<tr class="separator:ac72fdbfd43b6a5770385dbfd805b687b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69598a72ef2c06e1caba0ea9613d65e6" id="r_a69598a72ef2c06e1caba0ea9613d65e6"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Type</a> &gt; </td></tr>
+<tr class="memitem:a69598a72ef2c06e1caba0ea9613d65e6"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Type</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a69598a72ef2c06e1caba0ea9613d65e6">GLESC::Math::degrees</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Type</a> &amp;<a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a980ed967f85bef4bb539c9701701a877">radians</a>) <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">noexcept</a></td></tr>
+<tr class="memdesc:a69598a72ef2c06e1caba0ea9613d65e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts radians to degrees.  <br /></td></tr>
+<tr class="separator:a69598a72ef2c06e1caba0ea9613d65e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd429163efe906cd22916cc75ccb2421" id="r_acd429163efe906cd22916cc75ccb2421"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Type</a> &gt; </td></tr>
+<tr class="memitem:acd429163efe906cd22916cc75ccb2421"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">constexpr</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">auto</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c_1_1_math.html#acd429163efe906cd22916cc75ccb2421">GLESC::Math::epsilon</a> () <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">noexcept</a></td></tr>
+<tr class="memdesc:acd429163efe906cd22916cc75ccb2421"><td class="mdescLeft">&#160;</td><td class="mdescRight">Epsilon getter with precision of a given template type.  <br /></td></tr>
+<tr class="separator:acd429163efe906cd22916cc75ccb2421"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0637e3d0ce3a48661a6f8b07215e3c3" id="r_af0637e3d0ce3a48661a6f8b07215e3c3"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Type</a> &gt; </td></tr>
+<tr class="memitem:af0637e3d0ce3a48661a6f8b07215e3c3"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">constexpr</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Type</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c_1_1_math.html#af0637e3d0ce3a48661a6f8b07215e3c3">GLESC::Math::epsilon</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Type</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">valueParam</a>)</td></tr>
+<tr class="memdesc:af0637e3d0ce3a48661a6f8b07215e3c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Epsilon getter with precision of a given value.  <br /></td></tr>
+<tr class="separator:af0637e3d0ce3a48661a6f8b07215e3c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e5a6b65c1f80fbd3c151bb6088fe1eb" id="r_a6e5a6b65c1f80fbd3c151bb6088fe1eb"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">LValueT</a> , <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">RValueT</a> &gt; </td></tr>
+<tr class="memitem:a6e5a6b65c1f80fbd3c151bb6088fe1eb"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">constexpr</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a6e5a6b65c1f80fbd3c151bb6088fe1eb">GLESC::Math::eq</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">LValueT</a> &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">left</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">RValueT</a> &amp;right)</td></tr>
+<tr class="memdesc:a6e5a6b65c1f80fbd3c151bb6088fe1eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares two values for equality, calculates the epsilon automatically.  <br /></td></tr>
+<tr class="separator:a6e5a6b65c1f80fbd3c151bb6088fe1eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee25910dbba06d09d9df14d03933ace1" id="r_aee25910dbba06d09d9df14d03933ace1"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">LValueT</a> , <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">RValueT</a> &gt; </td></tr>
+<tr class="memitem:aee25910dbba06d09d9df14d03933ace1"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">constexpr</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c_1_1_math.html#aee25910dbba06d09d9df14d03933ace1">GLESC::Math::eq</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">LValueT</a> &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">left</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">RValueT</a> &amp;right, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">double</a> <a class="el" href="namespace_g_l_e_s_c_1_1_math.html#acd429163efe906cd22916cc75ccb2421">epsilon</a>)</td></tr>
+<tr class="memdesc:aee25910dbba06d09d9df14d03933ace1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares two values for equality.  <br /></td></tr>
+<tr class="separator:aee25910dbba06d09d9df14d03933ace1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c2f921dd6152a0f6dde2d36190f4809" id="r_a1c2f921dd6152a0f6dde2d36190f4809"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Type</a> , <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Type</a> min, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Type</a> max&gt; </td></tr>
+<tr class="memitem:a1c2f921dd6152a0f6dde2d36190f4809"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">constexpr</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Type</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a1c2f921dd6152a0f6dde2d36190f4809">GLESC::Math::generateCompileTimeRandomNumber</a> ()</td></tr>
+<tr class="memdesc:a1c2f921dd6152a0f6dde2d36190f4809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a compile time random number between min and max, specifically [min, max)  <br /></td></tr>
+<tr class="separator:a1c2f921dd6152a0f6dde2d36190f4809"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5f35aa0b91ea10181a5536a1d326e58" id="r_ab5f35aa0b91ea10181a5536a1d326e58"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Type</a> &gt; </td></tr>
+<tr class="memitem:ab5f35aa0b91ea10181a5536a1d326e58"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Type</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c_1_1_math.html#ab5f35aa0b91ea10181a5536a1d326e58">GLESC::Math::generateRandomNumber</a> ()</td></tr>
+<tr class="memdesc:ab5f35aa0b91ea10181a5536a1d326e58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random number with the widest range possible for the type.  <br /></td></tr>
+<tr class="separator:ab5f35aa0b91ea10181a5536a1d326e58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a514c8fd84566d9ba2d7b741cb7f7374f" id="r_a514c8fd84566d9ba2d7b741cb7f7374f"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Type</a> , <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a>  = std::enable_if_t&lt;std::is_arithmetic_v&lt;Type&gt;&gt;&gt; </td></tr>
+<tr class="memitem:a514c8fd84566d9ba2d7b741cb7f7374f"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Type</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a514c8fd84566d9ba2d7b741cb7f7374f">GLESC::Math::generateRandomNumber</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Type</a> <a class="el" href="namespace_g_l_e_s_c_1_1_math.html#ad2df75a6181d9d1d318d20d224a2866b">min</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Type</a> <a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a522e4f8e000cccddbf9d2f92280cfb6c">max</a>)</td></tr>
+<tr class="memdesc:a514c8fd84566d9ba2d7b741cb7f7374f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random number between min and max, specifically [min, max)  <br /></td></tr>
+<tr class="separator:a514c8fd84566d9ba2d7b741cb7f7374f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac79212d3f050008e356d88e6ee6068c0" id="r_ac79212d3f050008e356d88e6ee6068c0"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">LValueT</a> , <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">RValueT</a> &gt; </td></tr>
+<tr class="memitem:ac79212d3f050008e356d88e6ee6068c0"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">constexpr</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c_1_1_math.html#ac79212d3f050008e356d88e6ee6068c0">GLESC::Math::gt</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">LValueT</a> &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">left</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">RValueT</a> &amp;right)</td></tr>
+<tr class="memdesc:ac79212d3f050008e356d88e6ee6068c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares two values for greater than, calculates the epsilon automatically.  <br /></td></tr>
+<tr class="separator:ac79212d3f050008e356d88e6ee6068c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10dbf93b680c41ae82ff63e1df6dc114" id="r_a10dbf93b680c41ae82ff63e1df6dc114"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">LValueT</a> , <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">RValueT</a> &gt; </td></tr>
+<tr class="memitem:a10dbf93b680c41ae82ff63e1df6dc114"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">constexpr</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a10dbf93b680c41ae82ff63e1df6dc114">GLESC::Math::gt</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">LValueT</a> &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">left</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">RValueT</a> &amp;right, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">double</a> <a class="el" href="namespace_g_l_e_s_c_1_1_math.html#acd429163efe906cd22916cc75ccb2421">epsilon</a>)</td></tr>
+<tr class="memdesc:a10dbf93b680c41ae82ff63e1df6dc114"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares two values for greater than.  <br /></td></tr>
+<tr class="separator:a10dbf93b680c41ae82ff63e1df6dc114"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03531f87f588cdfa4a50337b7e4d51c2" id="r_a03531f87f588cdfa4a50337b7e4d51c2"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">LValueT</a> , <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">RValueT</a> &gt; </td></tr>
+<tr class="memitem:a03531f87f588cdfa4a50337b7e4d51c2"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">constexpr</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a03531f87f588cdfa4a50337b7e4d51c2">GLESC::Math::gte</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">LValueT</a> &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">left</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">RValueT</a> &amp;right, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">double</a> <a class="el" href="namespace_g_l_e_s_c_1_1_math.html#acd429163efe906cd22916cc75ccb2421">epsilon</a>)</td></tr>
+<tr class="memdesc:a03531f87f588cdfa4a50337b7e4d51c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares two values for greater than or equal.  <br /></td></tr>
+<tr class="separator:a03531f87f588cdfa4a50337b7e4d51c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f546879c71be9881c98dc8c4e3ee9a5" id="r_a1f546879c71be9881c98dc8c4e3ee9a5"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Type</a> , <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">TypeFactor</a> &gt; </td></tr>
+<tr class="memitem:a1f546879c71be9881c98dc8c4e3ee9a5"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">constexpr</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Type</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a1f546879c71be9881c98dc8c4e3ee9a5">GLESC::Math::lerp</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Type</a> &amp;start, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Type</a> &amp;end, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">TypeFactor</a> &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">factor</a>)</td></tr>
+<tr class="memdesc:a1f546879c71be9881c98dc8c4e3ee9a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Linear interpolation between two values.  <br /></td></tr>
+<tr class="separator:a1f546879c71be9881c98dc8c4e3ee9a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae365a2eab519b5d23cd982fdca322bc9" id="r_ae365a2eab519b5d23cd982fdca322bc9"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">LValueT</a> , <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">RValueT</a> &gt; </td></tr>
+<tr class="memitem:ae365a2eab519b5d23cd982fdca322bc9"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">constexpr</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c_1_1_math.html#ae365a2eab519b5d23cd982fdca322bc9">GLESC::Math::lt</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">LValueT</a> &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">left</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">RValueT</a> &amp;right)</td></tr>
+<tr class="memdesc:ae365a2eab519b5d23cd982fdca322bc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares two values for less than, calculates the epsilon automatically.  <br /></td></tr>
+<tr class="separator:ae365a2eab519b5d23cd982fdca322bc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a071e4c2a3c88d498f7a789a794585f45" id="r_a071e4c2a3c88d498f7a789a794585f45"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">LValueT</a> , <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">RValueT</a> &gt; </td></tr>
+<tr class="memitem:a071e4c2a3c88d498f7a789a794585f45"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">constexpr</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a071e4c2a3c88d498f7a789a794585f45">GLESC::Math::lt</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">LValueT</a> &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">left</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">RValueT</a> &amp;right, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">double</a> <a class="el" href="namespace_g_l_e_s_c_1_1_math.html#acd429163efe906cd22916cc75ccb2421">epsilon</a>)</td></tr>
+<tr class="memdesc:a071e4c2a3c88d498f7a789a794585f45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares two values for less than.  <br /></td></tr>
+<tr class="separator:a071e4c2a3c88d498f7a789a794585f45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04b354b725807d3f379b9962fca1cb0e" id="r_a04b354b725807d3f379b9962fca1cb0e"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">LValueT</a> , <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">RValueT</a> &gt; </td></tr>
+<tr class="memitem:a04b354b725807d3f379b9962fca1cb0e"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">constexpr</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a04b354b725807d3f379b9962fca1cb0e">GLESC::Math::lte</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">LValueT</a> &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">left</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">RValueT</a> &amp;right)</td></tr>
+<tr class="memdesc:a04b354b725807d3f379b9962fca1cb0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares two values for less than or equal, calculates the epsilon automatically.  <br /></td></tr>
+<tr class="separator:a04b354b725807d3f379b9962fca1cb0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34ffa872f3c169ea183d6b8b4eb4de21" id="r_a34ffa872f3c169ea183d6b8b4eb4de21"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">LValueT</a> , <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">RValueT</a> &gt; </td></tr>
+<tr class="memitem:a34ffa872f3c169ea183d6b8b4eb4de21"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">constexpr</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a34ffa872f3c169ea183d6b8b4eb4de21">GLESC::Math::lte</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">LValueT</a> &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">left</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">RValueT</a> &amp;right, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">double</a> <a class="el" href="namespace_g_l_e_s_c_1_1_math.html#acd429163efe906cd22916cc75ccb2421">epsilon</a>)</td></tr>
+<tr class="memdesc:a34ffa872f3c169ea183d6b8b4eb4de21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares two values for less than or equal.  <br /></td></tr>
+<tr class="separator:a34ffa872f3c169ea183d6b8b4eb4de21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a522e4f8e000cccddbf9d2f92280cfb6c" id="r_a522e4f8e000cccddbf9d2f92280cfb6c"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Type1</a> , <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Type2</a> &gt; </td></tr>
+<tr class="memitem:a522e4f8e000cccddbf9d2f92280cfb6c"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">constexpr</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">auto</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a522e4f8e000cccddbf9d2f92280cfb6c">GLESC::Math::max</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Type1</a> a, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Type2</a> b)</td></tr>
+<tr class="memdesc:a522e4f8e000cccddbf9d2f92280cfb6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the max of two values.  <br /></td></tr>
+<tr class="separator:a522e4f8e000cccddbf9d2f92280cfb6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2df75a6181d9d1d318d20d224a2866b" id="r_ad2df75a6181d9d1d318d20d224a2866b"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Type1</a> , <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Type2</a> &gt; </td></tr>
+<tr class="memitem:ad2df75a6181d9d1d318d20d224a2866b"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">constexpr</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">auto</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c_1_1_math.html#ad2df75a6181d9d1d318d20d224a2866b">GLESC::Math::min</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Type1</a> a, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Type2</a> b)</td></tr>
+<tr class="memdesc:ad2df75a6181d9d1d318d20d224a2866b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the min of two values.  <br /></td></tr>
+<tr class="separator:ad2df75a6181d9d1d318d20d224a2866b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45249a5e4e64d3ed1e33dc6a1a2ba051" id="r_a45249a5e4e64d3ed1e33dc6a1a2ba051"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Type</a> &gt; </td></tr>
+<tr class="memitem:a45249a5e4e64d3ed1e33dc6a1a2ba051"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Type</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a45249a5e4e64d3ed1e33dc6a1a2ba051">GLESC::Math::mod</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Type</a> &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">value</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Type</a> &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">divisor</a>)</td></tr>
+<tr class="memdesc:a45249a5e4e64d3ed1e33dc6a1a2ba051"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the square of a value.  <br /></td></tr>
+<tr class="separator:a45249a5e4e64d3ed1e33dc6a1a2ba051"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e5e3c15b80827a6065d1c676b54a9fb" id="r_a2e5e3c15b80827a6065d1c676b54a9fb"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">LValueT</a> , <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">RValueT</a> &gt; </td></tr>
+<tr class="memitem:a2e5e3c15b80827a6065d1c676b54a9fb"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">constexpr</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a2e5e3c15b80827a6065d1c676b54a9fb">GLESC::Math::mte</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">LValueT</a> &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">left</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">RValueT</a> &amp;right)</td></tr>
+<tr class="memdesc:a2e5e3c15b80827a6065d1c676b54a9fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares two values for greater than or equal, calculates the epsilon automatically.  <br /></td></tr>
+<tr class="separator:a2e5e3c15b80827a6065d1c676b54a9fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:affb0e463f130e7320dcda0fd95ce0983" id="r_affb0e463f130e7320dcda0fd95ce0983"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Type</a> &gt; </td></tr>
+<tr class="memitem:affb0e463f130e7320dcda0fd95ce0983"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">constexpr</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Type</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c_1_1_math.html#affb0e463f130e7320dcda0fd95ce0983">GLESC::Math::pi</a> () <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">noexcept</a></td></tr>
+<tr class="memdesc:affb0e463f130e7320dcda0fd95ce0983"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pi getter with precision of a given template type.  <br /></td></tr>
+<tr class="separator:affb0e463f130e7320dcda0fd95ce0983"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a980ed967f85bef4bb539c9701701a877" id="r_a980ed967f85bef4bb539c9701701a877"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Type</a> &gt; </td></tr>
+<tr class="memitem:a980ed967f85bef4bb539c9701701a877"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Type</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a980ed967f85bef4bb539c9701701a877">GLESC::Math::radians</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Type</a> &amp;<a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a69598a72ef2c06e1caba0ea9613d65e6">degrees</a>) <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">noexcept</a></td></tr>
+<tr class="memdesc:a980ed967f85bef4bb539c9701701a877"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts degrees to radians.  <br /></td></tr>
+<tr class="separator:a980ed967f85bef4bb539c9701701a877"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e9a2867723e2295b6656692b14e9e18" id="r_a9e9a2867723e2295b6656692b14e9e18"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">TypeX</a> , <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">TypeMin1</a> , <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">TypeMax1</a> , <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">TypeMin2</a> , <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">TypeMax2</a> &gt; </td></tr>
+<tr class="memitem:a9e9a2867723e2295b6656692b14e9e18"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">static</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">TypeX</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a9e9a2867723e2295b6656692b14e9e18">GLESC::Math::remap</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">TypeX</a> x, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">TypeMin1</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">min1</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">TypeMax1</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">max1</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">TypeMin2</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">min2</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">TypeMax2</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">max2</a>)</td></tr>
+<tr class="memdesc:a9e9a2867723e2295b6656692b14e9e18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remaps a value from one range to another, including support for reverse mapping.  <br /></td></tr>
+<tr class="separator:a9e9a2867723e2295b6656692b14e9e18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa21a1aeaaa25e280f941221e165dffa4" id="r_aa21a1aeaaa25e280f941221e165dffa4"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Type</a> &gt; </td></tr>
+<tr class="memitem:aa21a1aeaaa25e280f941221e165dffa4"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">auto</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c_1_1_math.html#aa21a1aeaaa25e280f941221e165dffa4">GLESC::Math::sin</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Type</a> &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">value</a>)</td></tr>
+<tr class="memdesc:aa21a1aeaaa25e280f941221e165dffa4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the sine of a value.  <br /></td></tr>
+<tr class="separator:aa21a1aeaaa25e280f941221e165dffa4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2316a2512c43c18e29709201adf3fe5" id="r_ab2316a2512c43c18e29709201adf3fe5"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Type</a> &gt; </td></tr>
+<tr class="memitem:ab2316a2512c43c18e29709201adf3fe5"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Type</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c_1_1_math.html#ab2316a2512c43c18e29709201adf3fe5">GLESC::Math::sqrt</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Type</a> &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">value</a>)</td></tr>
+<tr class="memdesc:ab2316a2512c43c18e29709201adf3fe5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the square root of a value.  <br /></td></tr>
+<tr class="separator:ab2316a2512c43c18e29709201adf3fe5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2c49469cf208bcce223d30a293d1f0a" id="r_ae2c49469cf208bcce223d30a293d1f0a"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Type</a> &gt; </td></tr>
+<tr class="memitem:ae2c49469cf208bcce223d30a293d1f0a"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">auto</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c_1_1_math.html#ae2c49469cf208bcce223d30a293d1f0a">GLESC::Math::tan</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Type</a> &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">value</a>)</td></tr>
+<tr class="memdesc:ae2c49469cf208bcce223d30a293d1f0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the tangent of a value.  <br /></td></tr>
+<tr class="separator:ae2c49469cf208bcce223d30a293d1f0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adcab95834e51f0c2d9db5f921b049732" id="r_adcab95834e51f0c2d9db5f921b049732"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Type</a> &gt; </td></tr>
+<tr class="memitem:adcab95834e51f0c2d9db5f921b049732"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c_1_1_math.html#adcab95834e51f0c2d9db5f921b049732">GLESC::Math::tossCoinWithChance</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Type</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">chance</a>)</td></tr>
+<tr class="memdesc:adcab95834e51f0c2d9db5f921b049732"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simulates a perfect coin toss with a given chance of success.  <br /></td></tr>
+<tr class="separator:adcab95834e51f0c2d9db5f921b049732"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a96ab96e804b51946131936c00ddc0b7a" id="r_a96ab96e804b51946131936c00ddc0b7a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">constexpr</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a96ab96e804b51946131936c00ddc0b7a">GLESC::Math::DOUBLE_COMPARISON_EPSILON</a> = 1<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">e</a>-10</td></tr>
+<tr class="memdesc:a96ab96e804b51946131936c00ddc0b7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The epsilon value for double comparison.  <br /></td></tr>
+<tr class="separator:a96ab96e804b51946131936c00ddc0b7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1373a121224e34dd35eeac5b7ba91a21" id="r_a1373a121224e34dd35eeac5b7ba91a21"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">constexpr</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a1373a121224e34dd35eeac5b7ba91a21">GLESC::Math::EPSILON_MULTIPLIER_FOR_EQUALITY</a> = 100</td></tr>
+<tr class="memdesc:a1373a121224e34dd35eeac5b7ba91a21"><td class="mdescLeft">&#160;</td><td class="mdescRight">The epsilon multiplier for equality comparison.  <br /></td></tr>
+<tr class="separator:a1373a121224e34dd35eeac5b7ba91a21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d55e4bf106f73daa11bd632a215c955" id="r_a1d55e4bf106f73daa11bd632a215c955"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">constexpr</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a1d55e4bf106f73daa11bd632a215c955">GLESC::Math::FLOAT_COMPARISON_EPSILON</a> = 1<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">e</a>-6<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">f</a></td></tr>
+<tr class="memdesc:a1d55e4bf106f73daa11bd632a215c955"><td class="mdescLeft">&#160;</td><td class="mdescRight">The epsilon value for floating point comparison.  <br /></td></tr>
+<tr class="separator:a1d55e4bf106f73daa11bd632a215c955"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6ffee700c80cc31c09f0db92461e9a7" id="r_ae6ffee700c80cc31c09f0db92461e9a7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">constexpr</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">long</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c_1_1_math.html#ae6ffee700c80cc31c09f0db92461e9a7">GLESC::Math::PI</a> = 3.14159265358979323846264338327950288419716939937510</td></tr>
+<tr class="memdesc:ae6ffee700c80cc31c09f0db92461e9a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">The value of PI.  <br /></td></tr>
+<tr class="separator:ae6ffee700c80cc31c09f0db92461e9a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><dl class="section author"><dt>Author</dt><dd>Valentin Dumitru </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2023-09-26 </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000010">Todo:</a></b></dt><dd>Add description of this file if needed</dd></dl>
+<p>Copyright (c) 2023 Valentin Dumitru. Licensed under the MIT License. See LICENSE.txt in the project root for license information. </p>
+
+<p class="definition">Definition in file <a class="el" href="_math_8h_source.html">Math.h</a>.</p>
+</div><hr/><h2 class="groupheader">Class Documentation</h2>
+<a name="struct_g_l_e_s_c_1_1_math_1_1_select_smaller_floating_type" id="struct_g_l_e_s_c_1_1_math_1_1_select_smaller_floating_type"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#struct_g_l_e_s_c_1_1_math_1_1_select_smaller_floating_type">&#9670;&#160;</a></span>GLESC::Math::SelectSmallerFloatingType</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct GLESC::Math::SelectSmallerFloatingType</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><div class="compoundTemplParams">template&lt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">T1</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typename</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">T2</a>&gt;<br />
+struct GLESC::Math::SelectSmallerFloatingType&lt; T1, T2 &gt;</div><p>Selects the smaller floating-point type between two types. </p>
+<p>The function selects the smaller floating-point type between two types. If both types are floating-point, it selects the type with the smaller size. If only one type is floating-point, it selects that type. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T1</td><td>The first type </td></tr>
+    <tr><td class="paramname">T2</td><td>The second type </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The smaller floating-point type between the two types </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_math_8h_source.html#l00219">219</a> of file <a class="el" href="_math_8h_source.html">Math.h</a>.</p>
+</div><div class="dynheader">
+Collaboration diagram for GLESC::Math::SelectSmallerFloatingType&lt; T1, T2 &gt;:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="struct_g_l_e_s_c_1_1_math_1_1_select_smaller_floating_type__coll__graph.svg" width="194" height="96"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<table class="fieldtable">
+<tr><th colspan="3">Class Members</th></tr>
+<tr><td class="fieldtype">
+<a id="ae246c8edc4f9bbb2b288d855e3980374" name="ae246c8edc4f9bbb2b288d855e3980374"></a><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typedef</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">conditional_t</a>&lt; <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">is_floating_point_v</a>&lt; <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">T1</a> &gt; &amp;&amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">is_floating_point_v</a>&lt; <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">T2</a> &gt;, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">conditional_t</a>&lt;(<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">sizeof</a>(<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">T1</a>)&lt; <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">sizeof</a>(<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">T2</a>)), <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">T1</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">T2</a> &gt;, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">conditional_t</a>&lt; <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">is_floating_point_v</a>&lt; <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">T1</a> &gt;, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">T1</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">T2</a> &gt; &gt;</td>
+<td class="fieldname">
+type</td>
+<td class="fielddoc">
+</td></tr>
+</table>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_a7f531b1c37460085cedd304cb8df01d.html">engine</a></li><li class="navelem"><a class="el" href="dir_7f643b58e2241519524527f42d96aecd.html">core</a></li><li class="navelem"><a class="el" href="dir_9b7a143a33eab80bc69bf9753c3bc0ec.html">math</a></li><li class="navelem"><a class="el" href="_math_8h.html">Math.h</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

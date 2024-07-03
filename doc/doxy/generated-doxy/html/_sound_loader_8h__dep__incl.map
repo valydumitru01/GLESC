@@ -1,0 +1,12 @@
+<map id="SoundLoader.h" name="SoundLoader.h">
+<area shape="rect" id="Node000001" title="@TODO Add description of this file if needed" alt="" coords="111,5,219,32"/>
+<area shape="rect" id="Node000002" href="$_sound_loader_8cpp.html" title="@TODO Add description of this file if needed" alt="" coords="5,80,128,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="137,44,85,82,82,77,134,39"/>
+<area shape="rect" id="Node000003" href="$_sound_player_8cpp.html" title="@TODO Add description of this file if needed" alt="" coords="105,155,225,181"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="168,48,168,154,163,154,163,48"/>
+<area shape="rect" id="Node000004" href="$_sound_player_8h.html" title="@TODO Add description of this file if needed" alt="" coords="203,80,309,107"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="194,40,242,78,239,82,191,44"/>
+<area shape="poly" id="edge5_Node000004_Node000003" title=" " alt="" coords="230,119,182,156,179,152,227,114"/>
+<area shape="rect" id="Node000005" href="$_g_l_e_s_c_8cpp.html" title=" " alt="" coords="249,155,340,181"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="272,119,290,153,285,156,267,122"/>
+</map>

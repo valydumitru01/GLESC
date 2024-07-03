@@ -1,0 +1,22 @@
+<map id="printGAPIInit" name="printGAPIInit">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,85,100,112"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_logger.html#a9b12ce53593be134b7d7dea62607d22d" title=" " alt="" coords="166,27,304,53"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="91,82,147,63,169,56,171,61,149,68,92,87"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_logger.html#a7e64f89c49b564c27dfdf2d2a71a0c86" title="Display important success information." alt="" coords="148,77,322,120"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="100,96,132,96,132,101,100,101"/>
+<area shape="rect" id="Node000008" href="$class_g_l_e_s_c_1_1_logger.html#accab43e8aa76342c5e58ac869f2f32d5" title="Display success information Background – Green Text – White Bold." alt="" coords="150,144,320,171"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="92,110,149,129,171,137,169,142,147,135,91,115"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_logger.html#adcc4730c087b2df0b97cccc15557e432" title=" " alt="" coords="370,107,553,149"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="323,107,355,112,354,117,322,113"/>
+<area shape="rect" id="Node000006" href="$_debug_entity_data_h_u_d_8cpp.html#a9acf295be457442cac6bccc0bf75112c" title=" " alt="" coords="659,89,702,116"/>
+<area shape="poly" id="edge7_Node000003_Node000006" title=" " alt="" coords="322,93,432,91,553,92,643,97,643,102,553,97,432,96,322,98"/>
+<area shape="rect" id="Node000007" href="$class_i_logger.html#aedad47738a41b18b380cba0639a026c0" title="Display important success information." alt="" coords="374,5,550,32"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="296,74,369,48,406,35,407,40,371,53,298,79"/>
+<area shape="rect" id="Node000005" href="$class_concurrent_queue.html#a7d61d602747cee9adf97076d2781023c" title=" " alt="" coords="601,140,760,167"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="554,136,586,140,585,145,553,141"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="553,115,643,104,644,109,554,120"/>
+<area shape="poly" id="edge9_Node000008_Node000004" title=" " alt="" coords="319,144,354,139,355,144,320,149"/>
+<area shape="poly" id="edge11_Node000008_Node000006" title=" " alt="" coords="261,169,316,196,391,222,432,229,474,231,514,225,552,210,563,201,569,192,576,171,583,148,600,126,621,113,643,106,645,111,623,118,603,130,587,151,581,173,574,195,567,205,555,214,516,230,474,236,432,235,390,227,314,201,258,174"/>
+<area shape="rect" id="Node000009" href="$class_i_logger.html#a08a2761c749b766cb789f0dc8e256f95" title="Display success information Background – Green Text – White Bold." alt="" coords="402,173,522,200"/>
+<area shape="poly" id="edge10_Node000008_Node000009" title=" " alt="" coords="320,166,386,174,386,180,319,171"/>
+</map>

@@ -1,0 +1,8 @@
+<map id="GLESC::Render::GlobalAmbientLight" name="GLESC::Render::GlobalAmbientLight">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,832,204,1088"/>
+<area shape="rect" id="Node000002" href="$struct_g_l_e_s_c_1_1_render_1_1_color_rgb.html" title="Color in RGB values." alt="" coords="21,336,188,768"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="107,768,107,815,102,815,102,768"/>
+<area shape="poly" id="edge3_Node000002_Node000002" title=" " alt="" coords="190,508,208,523,215,552,212,571,204,585,199,583,207,570,209,552,203,526,186,512"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html" title=" " alt="" coords="51,5,159,288"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="107,303,107,336,102,336,102,303"/>
+</map>

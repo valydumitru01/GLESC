@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cppdepend-plugin tool="Misra">
+<file path="c:\program files\cppdepend\defaulttoolchain\compiler\include\c++\array"><violation beginline="94" begincolumn="5" rule="Rule11-0-1" ruleset="Classes">
+</violation>
+</file><file path="c:\program files\cppdepend\defaulttoolchain\include\stdio.h"><violation beginline="862" begincolumn="1" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="671" begincolumn="1" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+</file><file path="c:\users\valyd\desktop\github_repos\tfg---opengl-engine\src\engine\core\debugger\stacktrace.cpp"><violation beginline="34" begincolumn="5" rule="Rule6-6-5" ruleset="Statements">
+</violation>
+</file></cppdepend-plugin>

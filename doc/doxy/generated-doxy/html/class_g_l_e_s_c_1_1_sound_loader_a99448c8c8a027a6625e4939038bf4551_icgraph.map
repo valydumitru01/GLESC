@@ -1,0 +1,7 @@
+<map id="GLESC::SoundLoader::init" name="GLESC::SoundLoader::init">
+<area shape="rect" id="Node000001" title="Initializes SDL and SDL_mixer." alt="" coords="410,5,559,48"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_sound_player.html#a9c058cfaa0ac6b511e681809e9a50030" title="Initialize the sound player." alt="" coords="215,5,362,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="395,29,363,29,363,24,395,24"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_engine.html#a93e1621f9daf326a7c45d3b2a4c826c1" title="The constructor is private, the engine can only be created by the main function." alt="" coords="5,13,167,40"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="199,29,167,29,167,24,199,24"/>
+</map>

@@ -1,0 +1,1361 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="Doxygen Awesome" />
+<meta property="og:image" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+<meta property="og:description" content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
+<meta property="og:url" content="https://jothepro.github.io/doxygen-awesome-css/" />
+<!-- END opengraph metadata -->
+<!-- BEGIN twitter metadata -->
+<meta name="twitter:image:src" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+<meta name="twitter:title" content="Doxygen Awesome" />
+<meta name="twitter:description" content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
+<!-- END twitter metadata -->
+<title>GLESC: GLESC::Render::Material Class Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.drawio.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/ -->
+<a href="https://github.com/jothepro/doxygen-awesome-css" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="GLESC_logo_white_background.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">GLESC
+   &#160;<span id="projectnumber">1</span>
+   </div>
+   <div id="projectbrief">Game engine using ECS architecture</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('class_g_l_e_s_c_1_1_render_1_1_material.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-types">Private Types</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="class_g_l_e_s_c_1_1_render_1_1_material-members.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">GLESC::Render::Material Class Reference</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Class inspired by the material class from open3D.  
+ <a href="class_g_l_e_s_c_1_1_render_1_1_material.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_material_8h_source.html">Material.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for GLESC::Render::Material:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_render_1_1_material__coll__graph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:ad86c9198eaa91c3fed3fd57653b9ab20" id="r_ad86c9198eaa91c3fed3fd57653b9ab20"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_render_1_1_material.html#ad86c9198eaa91c3fed3fd57653b9ab20">Material</a> ()</td></tr>
+<tr class="memdesc:ad86c9198eaa91c3fed3fd57653b9ab20"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_default.html" title="Default scene.">Default</a> constructor.  <br /></td></tr>
+<tr class="separator:ad86c9198eaa91c3fed3fd57653b9ab20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63d839f4eb62d17ae325642cc42b5009" id="r_a63d839f4eb62d17ae325642cc42b5009"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_render_1_1_material.html#a63d839f4eb62d17ae325642cc42b5009">Material</a> (<a class="el" href="struct_g_l_e_s_c_1_1_render_1_1_color_rgb.html">ColorRgb</a> <a class="el" href="class_g_l_e_s_c_1_1_render_1_1_material.html#ae36f0e95541150e588e2f95f82d54608">diffuseColor</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="class_g_l_e_s_c_1_1_render_1_1_material.html#a269cbe72c378ad2b5a8748b351cc2bd2">Intensity</a> &amp;<a class="el" href="class_g_l_e_s_c_1_1_render_1_1_material.html#a7e30121a8ffbaeb1b06ab5a55dd8b4ca">diffuseIntensity</a>, <a class="el" href="struct_g_l_e_s_c_1_1_render_1_1_color_rgb.html">ColorRgb</a> <a class="el" href="class_g_l_e_s_c_1_1_render_1_1_material.html#abbdde682b4f0ff651e6a888e870e8912">specularColor</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="class_g_l_e_s_c_1_1_render_1_1_material.html#a269cbe72c378ad2b5a8748b351cc2bd2">Intensity</a> &amp;<a class="el" href="class_g_l_e_s_c_1_1_render_1_1_material.html#adc4de6cba612964601f343585a340827">specularIntensity</a>, <a class="el" href="struct_g_l_e_s_c_1_1_render_1_1_color_rgb.html">ColorRgb</a> <a class="el" href="class_g_l_e_s_c_1_1_render_1_1_material.html#a01088d970cf1444fdca41d71e63d390d">emissionColor</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="class_g_l_e_s_c_1_1_render_1_1_material.html#a269cbe72c378ad2b5a8748b351cc2bd2">Intensity</a> &amp;<a class="el" href="class_g_l_e_s_c_1_1_render_1_1_material.html#ac662296ac734fae11cf36d705cbc4918">emissionIntensity</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="class_g_l_e_s_c_1_1_render_1_1_material.html#a269cbe72c378ad2b5a8748b351cc2bd2">Intensity</a> &amp;<a class="el" href="class_g_l_e_s_c_1_1_render_1_1_material.html#ab9bd6cd2d8e77432f8ca3b407058ddac">shininess</a>)</td></tr>
+<tr class="separator:a63d839f4eb62d17ae325642cc42b5009"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaff716327ed03d1943cca1ba5e4332ba" id="r_aaff716327ed03d1943cca1ba5e4332ba"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_entity_stats_manager.html#struct_entity_stats_manager_1_1_value">EntityStatsManager::Value</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_render_1_1_material.html#aaff716327ed03d1943cca1ba5e4332ba">getDebuggingValues</a> ()</td></tr>
+<tr class="separator:aaff716327ed03d1943cca1ba5e4332ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a629b5d2866ad5baf2b953910cb632360" id="r_a629b5d2866ad5baf2b953910cb632360"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="struct_g_l_e_s_c_1_1_render_1_1_color_rgb.html">ColorRgb</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_render_1_1_material.html#a629b5d2866ad5baf2b953910cb632360">getDiffuseColor</a> () <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a></td></tr>
+<tr class="separator:a629b5d2866ad5baf2b953910cb632360"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48434fb4dcf5bd105e462acd8ad4a1ee" id="r_a48434fb4dcf5bd105e462acd8ad4a1ee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_render_1_1_material.html#a48434fb4dcf5bd105e462acd8ad4a1ee">getDiffuseIntensity</a> () <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a></td></tr>
+<tr class="separator:a48434fb4dcf5bd105e462acd8ad4a1ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa526585317e7add55dba6df9dec08cf1" id="r_aa526585317e7add55dba6df9dec08cf1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="struct_g_l_e_s_c_1_1_render_1_1_color_rgb.html">ColorRgb</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_render_1_1_material.html#aa526585317e7add55dba6df9dec08cf1">getEmissionColor</a> () <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a></td></tr>
+<tr class="separator:aa526585317e7add55dba6df9dec08cf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2c848ad8a36da2259d71b0cccfb2ceb" id="r_aa2c848ad8a36da2259d71b0cccfb2ceb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_render_1_1_material.html#aa2c848ad8a36da2259d71b0cccfb2ceb">getEmissionIntensity</a> () <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a></td></tr>
+<tr class="separator:aa2c848ad8a36da2259d71b0cccfb2ceb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a443dac631732701962950d4d63b7d46b" id="r_a443dac631732701962950d4d63b7d46b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_render_1_1_material.html#a443dac631732701962950d4d63b7d46b">getShininess</a> () <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a></td></tr>
+<tr class="separator:a443dac631732701962950d4d63b7d46b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3abfb90323b5f77396449d120a3e1a89" id="r_a3abfb90323b5f77396449d120a3e1a89"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="struct_g_l_e_s_c_1_1_render_1_1_color_rgb.html">ColorRgb</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_render_1_1_material.html#a3abfb90323b5f77396449d120a3e1a89">getSpecularColor</a> () <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a></td></tr>
+<tr class="separator:a3abfb90323b5f77396449d120a3e1a89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43ac6591769079dc8e36b7db3dd2af47" id="r_a43ac6591769079dc8e36b7db3dd2af47"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">float</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_render_1_1_material.html#a43ac6591769079dc8e36b7db3dd2af47">getSpecularIntensity</a> () <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a></td></tr>
+<tr class="separator:a43ac6591769079dc8e36b7db3dd2af47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a031fafd09896d0507d54ef02d16c4261" id="r_a031fafd09896d0507d54ef02d16c4261"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_render_1_1_material.html#a031fafd09896d0507d54ef02d16c4261">isDirty</a> () <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a></td></tr>
+<tr class="separator:a031fafd09896d0507d54ef02d16c4261"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b70eacd94cc0b3fc9df1f4f8e86ff47" id="r_a8b70eacd94cc0b3fc9df1f4f8e86ff47"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_render_1_1_material.html#a8b70eacd94cc0b3fc9df1f4f8e86ff47">operator&lt;</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="class_g_l_e_s_c_1_1_render_1_1_material.html">Material</a> &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">other</a>) <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a></td></tr>
+<tr class="separator:a8b70eacd94cc0b3fc9df1f4f8e86ff47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa80b3dc8ec05ca53c9ee118d6f90f4be" id="r_aa80b3dc8ec05ca53c9ee118d6f90f4be"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_render_1_1_material.html#aa80b3dc8ec05ca53c9ee118d6f90f4be">operator==</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="class_g_l_e_s_c_1_1_render_1_1_material.html">Material</a> &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">other</a>) <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a></td></tr>
+<tr class="memdesc:aa80b3dc8ec05ca53c9ee118d6f90f4be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Equality operator.  <br /></td></tr>
+<tr class="separator:aa80b3dc8ec05ca53c9ee118d6f90f4be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21a9d83d54b03c3f7398a54a2c70f694" id="r_a21a9d83d54b03c3f7398a54a2c70f694"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_render_1_1_material.html#a21a9d83d54b03c3f7398a54a2c70f694">setClean</a> () <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a></td></tr>
+<tr class="separator:a21a9d83d54b03c3f7398a54a2c70f694"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04e68ec9c47d647cf5367eee2402ffd9" id="r_a04e68ec9c47d647cf5367eee2402ffd9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_render_1_1_material.html#a04e68ec9c47d647cf5367eee2402ffd9">setDiffuseColor</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="struct_g_l_e_s_c_1_1_render_1_1_color_rgb.html">ColorRgb</a> &amp;<a class="el" href="class_g_l_e_s_c_1_1_render_1_1_material.html#ae36f0e95541150e588e2f95f82d54608">diffuseColor</a>)</td></tr>
+<tr class="separator:a04e68ec9c47d647cf5367eee2402ffd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab118ba1674ba9adc14fe8b37882526be" id="r_ab118ba1674ba9adc14fe8b37882526be"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_render_1_1_material.html#ab118ba1674ba9adc14fe8b37882526be">setDiffuseIntensity</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">float</a> <a class="el" href="class_g_l_e_s_c_1_1_render_1_1_material.html#a7e30121a8ffbaeb1b06ab5a55dd8b4ca">diffuseIntensity</a>)</td></tr>
+<tr class="separator:ab118ba1674ba9adc14fe8b37882526be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5fd28b7ffd8b67b585057bbe1c0cd770" id="r_a5fd28b7ffd8b67b585057bbe1c0cd770"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_render_1_1_material.html#a5fd28b7ffd8b67b585057bbe1c0cd770">setEmissionColor</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="struct_g_l_e_s_c_1_1_render_1_1_color_rgb.html">ColorRgb</a> &amp;<a class="el" href="class_g_l_e_s_c_1_1_render_1_1_material.html#a01088d970cf1444fdca41d71e63d390d">emissionColor</a>)</td></tr>
+<tr class="separator:a5fd28b7ffd8b67b585057bbe1c0cd770"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1342b25808718085f779bf980d4ccb58" id="r_a1342b25808718085f779bf980d4ccb58"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_render_1_1_material.html#a1342b25808718085f779bf980d4ccb58">setEmmissionIntensity</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">float</a> <a class="el" href="class_g_l_e_s_c_1_1_render_1_1_material.html#ac662296ac734fae11cf36d705cbc4918">emissionIntensity</a>)</td></tr>
+<tr class="separator:a1342b25808718085f779bf980d4ccb58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23968b5f3b084373653707d8e9d06627" id="r_a23968b5f3b084373653707d8e9d06627"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_render_1_1_material.html#a23968b5f3b084373653707d8e9d06627">setShininess</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">float</a> <a class="el" href="class_g_l_e_s_c_1_1_render_1_1_material.html#ab9bd6cd2d8e77432f8ca3b407058ddac">shininess</a>)</td></tr>
+<tr class="separator:a23968b5f3b084373653707d8e9d06627"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad842b35707ac0ceb8f530ddc4d7b33cf" id="r_ad842b35707ac0ceb8f530ddc4d7b33cf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_render_1_1_material.html#ad842b35707ac0ceb8f530ddc4d7b33cf">setSpecularColor</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="struct_g_l_e_s_c_1_1_render_1_1_color_rgb.html">ColorRgb</a> &amp;<a class="el" href="class_g_l_e_s_c_1_1_render_1_1_material.html#abbdde682b4f0ff651e6a888e870e8912">specularColor</a>)</td></tr>
+<tr class="separator:ad842b35707ac0ceb8f530ddc4d7b33cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaeb4ee975b0ad979183bbe2980fc35d4" id="r_aaeb4ee975b0ad979183bbe2980fc35d4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_render_1_1_material.html#aaeb4ee975b0ad979183bbe2980fc35d4">setSpecularIntensity</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">float</a> <a class="el" href="class_g_l_e_s_c_1_1_render_1_1_material.html#adc4de6cba612964601f343585a340827">specularIntensity</a>)</td></tr>
+<tr class="separator:aaeb4ee975b0ad979183bbe2980fc35d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-types" name="pri-types"></a>
+Private Types</h2></td></tr>
+<tr class="memitem:a269cbe72c378ad2b5a8748b351cc2bd2" id="r_a269cbe72c378ad2b5a8748b351cc2bd2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_render_1_1_material.html#a269cbe72c378ad2b5a8748b351cc2bd2">Intensity</a> = <a class="el" href="class_g_l_e_s_c_1_1_render_1_1_material.html#a269cbe72c378ad2b5a8748b351cc2bd2">Intensity</a>&lt; <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">float</a> &gt;</td></tr>
+<tr class="separator:a269cbe72c378ad2b5a8748b351cc2bd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:ae36f0e95541150e588e2f95f82d54608" id="r_ae36f0e95541150e588e2f95f82d54608"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_g_l_e_s_c_1_1_render_1_1_color_rgb.html">ColorRgb</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_render_1_1_material.html#ae36f0e95541150e588e2f95f82d54608">diffuseColor</a></td></tr>
+<tr class="memdesc:ae36f0e95541150e588e2f95f82d54608"><td class="mdescLeft">&#160;</td><td class="mdescRight">The diffuse color of the material.  <br /></td></tr>
+<tr class="separator:ae36f0e95541150e588e2f95f82d54608"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e30121a8ffbaeb1b06ab5a55dd8b4ca" id="r_a7e30121a8ffbaeb1b06ab5a55dd8b4ca"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_l_e_s_c_1_1_render_1_1_material.html#a269cbe72c378ad2b5a8748b351cc2bd2">Intensity</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_render_1_1_material.html#a7e30121a8ffbaeb1b06ab5a55dd8b4ca">diffuseIntensity</a></td></tr>
+<tr class="memdesc:a7e30121a8ffbaeb1b06ab5a55dd8b4ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">The diffuse intensity of the material.  <br /></td></tr>
+<tr class="separator:a7e30121a8ffbaeb1b06ab5a55dd8b4ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c6752a741dfddae07c092def974efc0" id="r_a8c6752a741dfddae07c092def974efc0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_render_1_1_material.html#a8c6752a741dfddae07c092def974efc0">dirty</a> {<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">false</a>}</td></tr>
+<tr class="memdesc:a8c6752a741dfddae07c092def974efc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dirty flag, used to check if we need to resend the data to the GPU.  <br /></td></tr>
+<tr class="separator:a8c6752a741dfddae07c092def974efc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01088d970cf1444fdca41d71e63d390d" id="r_a01088d970cf1444fdca41d71e63d390d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_g_l_e_s_c_1_1_render_1_1_color_rgb.html">ColorRgb</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_render_1_1_material.html#a01088d970cf1444fdca41d71e63d390d">emissionColor</a></td></tr>
+<tr class="memdesc:a01088d970cf1444fdca41d71e63d390d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The emission color of the material.  <br /></td></tr>
+<tr class="separator:a01088d970cf1444fdca41d71e63d390d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac662296ac734fae11cf36d705cbc4918" id="r_ac662296ac734fae11cf36d705cbc4918"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_l_e_s_c_1_1_render_1_1_material.html#a269cbe72c378ad2b5a8748b351cc2bd2">Intensity</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_render_1_1_material.html#ac662296ac734fae11cf36d705cbc4918">emissionIntensity</a></td></tr>
+<tr class="memdesc:ac662296ac734fae11cf36d705cbc4918"><td class="mdescLeft">&#160;</td><td class="mdescRight">The emission intensity of the material.  <br /></td></tr>
+<tr class="separator:ac662296ac734fae11cf36d705cbc4918"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9bd6cd2d8e77432f8ca3b407058ddac" id="r_ab9bd6cd2d8e77432f8ca3b407058ddac"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_l_e_s_c_1_1_render_1_1_material.html#a269cbe72c378ad2b5a8748b351cc2bd2">Intensity</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_render_1_1_material.html#ab9bd6cd2d8e77432f8ca3b407058ddac">shininess</a></td></tr>
+<tr class="memdesc:ab9bd6cd2d8e77432f8ca3b407058ddac"><td class="mdescLeft">&#160;</td><td class="mdescRight">The shininess of the material.  <br /></td></tr>
+<tr class="separator:ab9bd6cd2d8e77432f8ca3b407058ddac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbdde682b4f0ff651e6a888e870e8912" id="r_abbdde682b4f0ff651e6a888e870e8912"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_g_l_e_s_c_1_1_render_1_1_color_rgb.html">ColorRgb</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_render_1_1_material.html#abbdde682b4f0ff651e6a888e870e8912">specularColor</a></td></tr>
+<tr class="memdesc:abbdde682b4f0ff651e6a888e870e8912"><td class="mdescLeft">&#160;</td><td class="mdescRight">The specular color of the material.  <br /></td></tr>
+<tr class="separator:abbdde682b4f0ff651e6a888e870e8912"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc4de6cba612964601f343585a340827" id="r_adc4de6cba612964601f343585a340827"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_l_e_s_c_1_1_render_1_1_material.html#a269cbe72c378ad2b5a8748b351cc2bd2">Intensity</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_render_1_1_material.html#adc4de6cba612964601f343585a340827">specularIntensity</a></td></tr>
+<tr class="memdesc:adc4de6cba612964601f343585a340827"><td class="mdescLeft">&#160;</td><td class="mdescRight">The specular intensity of the material.  <br /></td></tr>
+<tr class="separator:adc4de6cba612964601f343585a340827"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Class inspired by the material class from open3D. </p>
+
+<p class="definition">Definition at line <a class="el" href="_material_8h_source.html#l00021">21</a> of file <a class="el" href="_material_8h_source.html">Material.h</a>.</p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a269cbe72c378ad2b5a8748b351cc2bd2" name="a269cbe72c378ad2b5a8748b351cc2bd2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a269cbe72c378ad2b5a8748b351cc2bd2">&#9670;&#160;</a></span>Intensity</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">using</a> <a class="el" href="class_g_l_e_s_c_1_1_render_1_1_material.html#a269cbe72c378ad2b5a8748b351cc2bd2">GLESC::Render::Material::Intensity</a> =  <a class="el" href="class_g_l_e_s_c_1_1_render_1_1_material.html#a269cbe72c378ad2b5a8748b351cc2bd2">Intensity</a>&lt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">float</a>&gt;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_material_8h_source.html#l00022">22</a> of file <a class="el" href="_material_8h_source.html">Material.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ad86c9198eaa91c3fed3fd57653b9ab20" name="ad86c9198eaa91c3fed3fd57653b9ab20"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad86c9198eaa91c3fed3fd57653b9ab20">&#9670;&#160;</a></span>Material() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLESC::Render::Material::Material </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_default.html" title="Default scene.">Default</a> constructor. </p>
+<p>This is needed to be able to use the material in a map and to construct the render component which is also stored in a map </p>
+
+<p class="definition">Definition at line <a class="el" href="_material_8h_source.html#l00030">30</a> of file <a class="el" href="_material_8h_source.html">Material.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   30</span>                   :</div>
+<div class="line"><span class="lineno">   31</span>            <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_material.html#ae36f0e95541150e588e2f95f82d54608">diffuseColor</a>(ColorRgb(255, 255, 255)), <span class="comment">// Neutral, slightly bright diffuse reflection</span></div>
+<div class="line"><span class="lineno">   32</span>            <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_material.html#a7e30121a8ffbaeb1b06ab5a55dd8b4ca">diffuseIntensity</a>(1.0f), <span class="comment">// Full intensity of diffuse reflection</span></div>
+<div class="line"><span class="lineno">   33</span>            <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_material.html#abbdde682b4f0ff651e6a888e870e8912">specularColor</a>(ColorRgb(255, 255, 255)), <span class="comment">// Bright specular highlights</span></div>
+<div class="line"><span class="lineno">   34</span>            <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_material.html#adc4de6cba612964601f343585a340827">specularIntensity</a>(0.5f), <span class="comment">// Moderate intensity for specular highlights</span></div>
+<div class="line"><span class="lineno">   35</span>            <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_material.html#a01088d970cf1444fdca41d71e63d390d">emissionColor</a>(ColorRgb(0, 0, 0)), <span class="comment">// No emission by default</span></div>
+<div class="line"><span class="lineno">   36</span>            <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_material.html#ac662296ac734fae11cf36d705cbc4918">emissionIntensity</a>(0.0f), <span class="comment">// No intensity for emission</span></div>
+<div class="line"><span class="lineno">   37</span>            <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_material.html#ab9bd6cd2d8e77432f8ca3b407058ddac">shininess</a>(1) <span class="comment">// Moderately shiny;</span></div>
+<div class="line"><span class="lineno">   38</span>        {</div>
+<div class="line"><span class="lineno">   39</span>        }</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_render_1_1_material_html_a01088d970cf1444fdca41d71e63d390d"><div class="ttname"><a href="class_g_l_e_s_c_1_1_render_1_1_material.html#a01088d970cf1444fdca41d71e63d390d">GLESC::Render::Material::emissionColor</a></div><div class="ttdeci">ColorRgb emissionColor</div><div class="ttdoc">The emission color of the material.</div><div class="ttdef"><b>Definition</b> <a href="_material_8h_source.html#l00123">Material.h:123</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_render_1_1_material_html_a7e30121a8ffbaeb1b06ab5a55dd8b4ca"><div class="ttname"><a href="class_g_l_e_s_c_1_1_render_1_1_material.html#a7e30121a8ffbaeb1b06ab5a55dd8b4ca">GLESC::Render::Material::diffuseIntensity</a></div><div class="ttdeci">Intensity diffuseIntensity</div><div class="ttdoc">The diffuse intensity of the material.</div><div class="ttdef"><b>Definition</b> <a href="_material_8h_source.html#l00108">Material.h:108</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_render_1_1_material_html_ab9bd6cd2d8e77432f8ca3b407058ddac"><div class="ttname"><a href="class_g_l_e_s_c_1_1_render_1_1_material.html#ab9bd6cd2d8e77432f8ca3b407058ddac">GLESC::Render::Material::shininess</a></div><div class="ttdeci">Intensity shininess</div><div class="ttdoc">The shininess of the material.</div><div class="ttdef"><b>Definition</b> <a href="_material_8h_source.html#l00135">Material.h:135</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_render_1_1_material_html_abbdde682b4f0ff651e6a888e870e8912"><div class="ttname"><a href="class_g_l_e_s_c_1_1_render_1_1_material.html#abbdde682b4f0ff651e6a888e870e8912">GLESC::Render::Material::specularColor</a></div><div class="ttdeci">ColorRgb specularColor</div><div class="ttdoc">The specular color of the material.</div><div class="ttdef"><b>Definition</b> <a href="_material_8h_source.html#l00113">Material.h:113</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_render_1_1_material_html_ac662296ac734fae11cf36d705cbc4918"><div class="ttname"><a href="class_g_l_e_s_c_1_1_render_1_1_material.html#ac662296ac734fae11cf36d705cbc4918">GLESC::Render::Material::emissionIntensity</a></div><div class="ttdeci">Intensity emissionIntensity</div><div class="ttdoc">The emission intensity of the material.</div><div class="ttdef"><b>Definition</b> <a href="_material_8h_source.html#l00128">Material.h:128</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_render_1_1_material_html_adc4de6cba612964601f343585a340827"><div class="ttname"><a href="class_g_l_e_s_c_1_1_render_1_1_material.html#adc4de6cba612964601f343585a340827">GLESC::Render::Material::specularIntensity</a></div><div class="ttdeci">Intensity specularIntensity</div><div class="ttdoc">The specular intensity of the material.</div><div class="ttdef"><b>Definition</b> <a href="_material_8h_source.html#l00118">Material.h:118</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_render_1_1_material_html_ae36f0e95541150e588e2f95f82d54608"><div class="ttname"><a href="class_g_l_e_s_c_1_1_render_1_1_material.html#ae36f0e95541150e588e2f95f82d54608">GLESC::Render::Material::diffuseColor</a></div><div class="ttdeci">ColorRgb diffuseColor</div><div class="ttdoc">The diffuse color of the material.</div><div class="ttdef"><b>Definition</b> <a href="_material_8h_source.html#l00103">Material.h:103</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a63d839f4eb62d17ae325642cc42b5009" name="a63d839f4eb62d17ae325642cc42b5009"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63d839f4eb62d17ae325642cc42b5009">&#9670;&#160;</a></span>Material() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLESC::Render::Material::Material </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_g_l_e_s_c_1_1_render_1_1_color_rgb.html">ColorRgb</a>&#160;</td>
+          <td class="paramname"><em>diffuseColor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="class_g_l_e_s_c_1_1_render_1_1_material.html#a269cbe72c378ad2b5a8748b351cc2bd2">Intensity</a> &amp;&#160;</td>
+          <td class="paramname"><em>diffuseIntensity</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_g_l_e_s_c_1_1_render_1_1_color_rgb.html">ColorRgb</a>&#160;</td>
+          <td class="paramname"><em>specularColor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="class_g_l_e_s_c_1_1_render_1_1_material.html#a269cbe72c378ad2b5a8748b351cc2bd2">Intensity</a> &amp;&#160;</td>
+          <td class="paramname"><em>specularIntensity</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_g_l_e_s_c_1_1_render_1_1_color_rgb.html">ColorRgb</a>&#160;</td>
+          <td class="paramname"><em>emissionColor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="class_g_l_e_s_c_1_1_render_1_1_material.html#a269cbe72c378ad2b5a8748b351cc2bd2">Intensity</a> &amp;&#160;</td>
+          <td class="paramname"><em>emissionIntensity</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="class_g_l_e_s_c_1_1_render_1_1_material.html#a269cbe72c378ad2b5a8748b351cc2bd2">Intensity</a> &amp;&#160;</td>
+          <td class="paramname"><em>shininess</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_material_8h_source.html#l00041">41</a> of file <a class="el" href="_material_8h_source.html">Material.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   47</span>                                             :</div>
+<div class="line"><span class="lineno">   48</span>            <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_material.html#ae36f0e95541150e588e2f95f82d54608">diffuseColor</a>{std::move(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_material.html#ae36f0e95541150e588e2f95f82d54608">diffuseColor</a>)},</div>
+<div class="line"><span class="lineno">   49</span>            <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_material.html#a7e30121a8ffbaeb1b06ab5a55dd8b4ca">diffuseIntensity</a>{<a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_material.html#a7e30121a8ffbaeb1b06ab5a55dd8b4ca">diffuseIntensity</a>},</div>
+<div class="line"><span class="lineno">   50</span>            <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_material.html#abbdde682b4f0ff651e6a888e870e8912">specularColor</a>{std::move(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_material.html#abbdde682b4f0ff651e6a888e870e8912">specularColor</a>)},</div>
+<div class="line"><span class="lineno">   51</span>            <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_material.html#adc4de6cba612964601f343585a340827">specularIntensity</a>{<a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_material.html#adc4de6cba612964601f343585a340827">specularIntensity</a>},</div>
+<div class="line"><span class="lineno">   52</span>            <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_material.html#a01088d970cf1444fdca41d71e63d390d">emissionColor</a>{std::move(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_material.html#a01088d970cf1444fdca41d71e63d390d">emissionColor</a>)},</div>
+<div class="line"><span class="lineno">   53</span>            <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_material.html#ac662296ac734fae11cf36d705cbc4918">emissionIntensity</a>{<a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_material.html#ac662296ac734fae11cf36d705cbc4918">emissionIntensity</a>},</div>
+<div class="line"><span class="lineno">   54</span>            <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_material.html#ab9bd6cd2d8e77432f8ca3b407058ddac">shininess</a>{<a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_material.html#ab9bd6cd2d8e77432f8ca3b407058ddac">shininess</a>} {</div>
+<div class="line"><span class="lineno">   55</span>        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="aaff716327ed03d1943cca1ba5e4332ba" name="aaff716327ed03d1943cca1ba5e4332ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaff716327ed03d1943cca1ba5e4332ba">&#9670;&#160;</a></span>getDebuggingValues()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="class_entity_stats_manager.html#struct_entity_stats_manager_1_1_value">EntityStatsManager::Value</a> &gt; GLESC::Render::Material::getDebuggingValues </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_material_8cpp_source.html#l00014">14</a> of file <a class="el" href="_material_8cpp_source.html">Material.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   14</span>                                                                           {</div>
+<div class="line"><span class="lineno">   15</span>    std::vector&lt;EntityStatsManager::Value&gt; values;</div>
+<div class="line"><span class="lineno">   16</span>    <a class="code hl_struct" href="class_entity_stats_manager.html#struct_entity_stats_manager_1_1_value">EntityStatsManager::Value</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">diffuseColorValue</a>;</div>
+<div class="line"><span class="lineno">   17</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">diffuseColorValue</a>.<a class="code hl_variable" href="class_entity_stats_manager.html#a8c007fcaab6bce263fb0e0d80b8bbbb7">name</a> = <span class="stringliteral">&quot;Diffuse Color&quot;</span>;</div>
+<div class="line"><span class="lineno">   18</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">diffuseColorValue</a>.data = <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(&amp;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_material.html#ae36f0e95541150e588e2f95f82d54608">diffuseColor</a>);</div>
+<div class="line"><span class="lineno">   19</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">diffuseColorValue</a>.type = <a class="code hl_enumvalue" href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5a18814f886cf9f30ca199c1e81900fa03">EntityStatsManager::ValueType::VEC3F</a>;</div>
+<div class="line"><span class="lineno">   20</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">diffuseColorValue</a>.isModifiable = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   21</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">diffuseColorValue</a>.valueDirty = &amp;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_material.html#a8c6752a741dfddae07c092def974efc0">dirty</a>;</div>
+<div class="line"><span class="lineno">   22</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">diffuseColorValue</a>.usesSlider = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   23</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">diffuseColorValue</a>.min = 0.0f;</div>
+<div class="line"><span class="lineno">   24</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">diffuseColorValue</a>.max = 255.0f;</div>
+<div class="line"><span class="lineno">   25</span>    values.push_back(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">diffuseColorValue</a>);</div>
+<div class="line"><span class="lineno">   26</span> </div>
+<div class="line"><span class="lineno">   27</span>    <a class="code hl_struct" href="class_entity_stats_manager.html#struct_entity_stats_manager_1_1_value">EntityStatsManager::Value</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">diffuseIntensityValue</a>;</div>
+<div class="line"><span class="lineno">   28</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">diffuseIntensityValue</a>.<a class="code hl_variable" href="class_entity_stats_manager.html#a8c007fcaab6bce263fb0e0d80b8bbbb7">name</a> = <span class="stringliteral">&quot;Diffuse Intensity&quot;</span>;</div>
+<div class="line"><span class="lineno">   29</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">diffuseIntensityValue</a>.data = <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(&amp;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_material.html#a7e30121a8ffbaeb1b06ab5a55dd8b4ca">diffuseIntensity</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_render_1_1_intensity.html#af799c45917e2a7f03eff0c19ed68377f">getModifiable</a>());</div>
+<div class="line"><span class="lineno">   30</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">diffuseIntensityValue</a>.type = <a class="code hl_enumvalue" href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5ae738c26bf4ce1037fa81b039a915cbf6">EntityStatsManager::ValueType::FLOAT</a>;</div>
+<div class="line"><span class="lineno">   31</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">diffuseIntensityValue</a>.isModifiable = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   32</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">diffuseIntensityValue</a>.valueDirty = &amp;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_material.html#a8c6752a741dfddae07c092def974efc0">dirty</a>;</div>
+<div class="line"><span class="lineno">   33</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">diffuseIntensityValue</a>.usesSlider = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   34</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">diffuseIntensityValue</a>.min = 0.0f;</div>
+<div class="line"><span class="lineno">   35</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">diffuseIntensityValue</a>.max = 1.0f;</div>
+<div class="line"><span class="lineno">   36</span>    values.push_back(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">diffuseIntensityValue</a>);</div>
+<div class="line"><span class="lineno">   37</span> </div>
+<div class="line"><span class="lineno">   38</span>    <a class="code hl_struct" href="class_entity_stats_manager.html#struct_entity_stats_manager_1_1_value">EntityStatsManager::Value</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">specularColorValue</a>;</div>
+<div class="line"><span class="lineno">   39</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">specularColorValue</a>.<a class="code hl_variable" href="class_entity_stats_manager.html#a8c007fcaab6bce263fb0e0d80b8bbbb7">name</a> = <span class="stringliteral">&quot;Specular Color&quot;</span>;</div>
+<div class="line"><span class="lineno">   40</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">specularColorValue</a>.data = <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(&amp;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_material.html#abbdde682b4f0ff651e6a888e870e8912">specularColor</a>);</div>
+<div class="line"><span class="lineno">   41</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">specularColorValue</a>.type = <a class="code hl_enumvalue" href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5a18814f886cf9f30ca199c1e81900fa03">EntityStatsManager::ValueType::VEC3F</a>;</div>
+<div class="line"><span class="lineno">   42</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">specularColorValue</a>.isModifiable = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   43</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">specularColorValue</a>.valueDirty = &amp;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_material.html#a8c6752a741dfddae07c092def974efc0">dirty</a>;</div>
+<div class="line"><span class="lineno">   44</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">specularColorValue</a>.usesSlider = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   45</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">specularColorValue</a>.min = 0.0f;</div>
+<div class="line"><span class="lineno">   46</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">specularColorValue</a>.max = 255.0f;</div>
+<div class="line"><span class="lineno">   47</span>    values.push_back(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">specularColorValue</a>);</div>
+<div class="line"><span class="lineno">   48</span> </div>
+<div class="line"><span class="lineno">   49</span>    <a class="code hl_struct" href="class_entity_stats_manager.html#struct_entity_stats_manager_1_1_value">EntityStatsManager::Value</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">specularIntensityValue</a>;</div>
+<div class="line"><span class="lineno">   50</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">specularIntensityValue</a>.<a class="code hl_variable" href="class_entity_stats_manager.html#a8c007fcaab6bce263fb0e0d80b8bbbb7">name</a> = <span class="stringliteral">&quot;Specular Intensity&quot;</span>;</div>
+<div class="line"><span class="lineno">   51</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">specularIntensityValue</a>.data = <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(&amp;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_material.html#adc4de6cba612964601f343585a340827">specularIntensity</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_render_1_1_intensity.html#af799c45917e2a7f03eff0c19ed68377f">getModifiable</a>());</div>
+<div class="line"><span class="lineno">   52</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">specularIntensityValue</a>.type = <a class="code hl_enumvalue" href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5ae738c26bf4ce1037fa81b039a915cbf6">EntityStatsManager::ValueType::FLOAT</a>;</div>
+<div class="line"><span class="lineno">   53</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">specularIntensityValue</a>.isModifiable = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   54</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">specularIntensityValue</a>.valueDirty = &amp;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_material.html#a8c6752a741dfddae07c092def974efc0">dirty</a>;</div>
+<div class="line"><span class="lineno">   55</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">specularIntensityValue</a>.usesSlider = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   56</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">specularIntensityValue</a>.min = 0.0f;</div>
+<div class="line"><span class="lineno">   57</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">specularIntensityValue</a>.max = 1.0f;</div>
+<div class="line"><span class="lineno">   58</span>    values.push_back(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">specularIntensityValue</a>);</div>
+<div class="line"><span class="lineno">   59</span> </div>
+<div class="line"><span class="lineno">   60</span>    <a class="code hl_struct" href="class_entity_stats_manager.html#struct_entity_stats_manager_1_1_value">EntityStatsManager::Value</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">emissionColorValue</a>;</div>
+<div class="line"><span class="lineno">   61</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">emissionColorValue</a>.<a class="code hl_variable" href="class_entity_stats_manager.html#a8c007fcaab6bce263fb0e0d80b8bbbb7">name</a> = <span class="stringliteral">&quot;Emission Color&quot;</span>;</div>
+<div class="line"><span class="lineno">   62</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">emissionColorValue</a>.data = <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(&amp;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_material.html#a01088d970cf1444fdca41d71e63d390d">emissionColor</a>);</div>
+<div class="line"><span class="lineno">   63</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">emissionColorValue</a>.type = <a class="code hl_enumvalue" href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5a18814f886cf9f30ca199c1e81900fa03">EntityStatsManager::ValueType::VEC3F</a>;</div>
+<div class="line"><span class="lineno">   64</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">emissionColorValue</a>.isModifiable = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   65</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">emissionColorValue</a>.valueDirty = &amp;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_material.html#a8c6752a741dfddae07c092def974efc0">dirty</a>;</div>
+<div class="line"><span class="lineno">   66</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">emissionColorValue</a>.usesSlider = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   67</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">emissionColorValue</a>.min = 0.0f;</div>
+<div class="line"><span class="lineno">   68</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">emissionColorValue</a>.max = 255.0f;</div>
+<div class="line"><span class="lineno">   69</span> </div>
+<div class="line"><span class="lineno">   70</span>    values.push_back(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">emissionColorValue</a>);</div>
+<div class="line"><span class="lineno">   71</span> </div>
+<div class="line"><span class="lineno">   72</span>    <a class="code hl_struct" href="class_entity_stats_manager.html#struct_entity_stats_manager_1_1_value">EntityStatsManager::Value</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">emissionIntensityValue</a>;</div>
+<div class="line"><span class="lineno">   73</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">emissionIntensityValue</a>.<a class="code hl_variable" href="class_entity_stats_manager.html#a8c007fcaab6bce263fb0e0d80b8bbbb7">name</a> = <span class="stringliteral">&quot;Emission Intensity&quot;</span>;</div>
+<div class="line"><span class="lineno">   74</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">emissionIntensityValue</a>.data = <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(&amp;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_material.html#ac662296ac734fae11cf36d705cbc4918">emissionIntensity</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_render_1_1_intensity.html#af799c45917e2a7f03eff0c19ed68377f">getModifiable</a>());</div>
+<div class="line"><span class="lineno">   75</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">emissionIntensityValue</a>.type = <a class="code hl_enumvalue" href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5ae738c26bf4ce1037fa81b039a915cbf6">EntityStatsManager::ValueType::FLOAT</a>;</div>
+<div class="line"><span class="lineno">   76</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">emissionIntensityValue</a>.isModifiable = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   77</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">emissionIntensityValue</a>.valueDirty = &amp;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_material.html#a8c6752a741dfddae07c092def974efc0">dirty</a>;</div>
+<div class="line"><span class="lineno">   78</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">emissionIntensityValue</a>.usesSlider = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   79</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">emissionIntensityValue</a>.min = 0.0f;</div>
+<div class="line"><span class="lineno">   80</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">emissionIntensityValue</a>.max = 1.0f;</div>
+<div class="line"><span class="lineno">   81</span>    values.push_back(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">emissionIntensityValue</a>);</div>
+<div class="line"><span class="lineno">   82</span> </div>
+<div class="line"><span class="lineno">   83</span>    <a class="code hl_struct" href="class_entity_stats_manager.html#struct_entity_stats_manager_1_1_value">EntityStatsManager::Value</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">shininessValue</a>;</div>
+<div class="line"><span class="lineno">   84</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">shininessValue</a>.<a class="code hl_variable" href="class_entity_stats_manager.html#a8c007fcaab6bce263fb0e0d80b8bbbb7">name</a> = <span class="stringliteral">&quot;Shininess&quot;</span>;</div>
+<div class="line"><span class="lineno">   85</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">shininessValue</a>.data = <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(&amp;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_material.html#ab9bd6cd2d8e77432f8ca3b407058ddac">shininess</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_render_1_1_intensity.html#af799c45917e2a7f03eff0c19ed68377f">getModifiable</a>());</div>
+<div class="line"><span class="lineno">   86</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">shininessValue</a>.type = <a class="code hl_enumvalue" href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5ae738c26bf4ce1037fa81b039a915cbf6">EntityStatsManager::ValueType::FLOAT</a>;</div>
+<div class="line"><span class="lineno">   87</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">shininessValue</a>.isModifiable = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   88</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">shininessValue</a>.valueDirty = &amp;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_material.html#a8c6752a741dfddae07c092def974efc0">dirty</a>;</div>
+<div class="line"><span class="lineno">   89</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">shininessValue</a>.usesSlider = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   90</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">shininessValue</a>.min = 0.0f;</div>
+<div class="line"><span class="lineno">   91</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">shininessValue</a>.max = 1.0f;</div>
+<div class="line"><span class="lineno">   92</span>    values.push_back(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">shininessValue</a>);</div>
+<div class="line"><span class="lineno">   93</span> </div>
+<div class="line"><span class="lineno">   94</span>    <span class="keywordflow">return</span> values;</div>
+<div class="line"><span class="lineno">   95</span>}</div>
+<div class="ttc" id="aclass_entity_stats_manager_html_a8c007fcaab6bce263fb0e0d80b8bbbb7"><div class="ttname"><a href="class_entity_stats_manager.html#a8c007fcaab6bce263fb0e0d80b8bbbb7">EntityStatsManager::Value::name</a></div><div class="ttdeci">std::string name</div><div class="ttdef"><b>Definition</b> <a href="_entity_stats_manager_8h_source.html#l00045">EntityStatsManager.h:45</a></div></div>
+<div class="ttc" id="aclass_entity_stats_manager_html_a90c422bca5e42d1af36c4cc10d642ad5a18814f886cf9f30ca199c1e81900fa03"><div class="ttname"><a href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5a18814f886cf9f30ca199c1e81900fa03">EntityStatsManager::ValueType::VEC3F</a></div><div class="ttdeci">@ VEC3F</div></div>
+<div class="ttc" id="aclass_entity_stats_manager_html_a90c422bca5e42d1af36c4cc10d642ad5ae738c26bf4ce1037fa81b039a915cbf6"><div class="ttname"><a href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5ae738c26bf4ce1037fa81b039a915cbf6">EntityStatsManager::ValueType::FLOAT</a></div><div class="ttdeci">@ FLOAT</div></div>
+<div class="ttc" id="aclass_entity_stats_manager_html_struct_entity_stats_manager_1_1_value"><div class="ttname"><a href="class_entity_stats_manager.html#struct_entity_stats_manager_1_1_value">EntityStatsManager::Value</a></div><div class="ttdoc">Struct that holds the data of a value of a component.</div><div class="ttdef"><b>Definition</b> <a href="_entity_stats_manager_8h_source.html#l00044">EntityStatsManager.h:44</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_render_1_1_intensity_html_af799c45917e2a7f03eff0c19ed68377f"><div class="ttname"><a href="class_g_l_e_s_c_1_1_render_1_1_intensity.html#af799c45917e2a7f03eff0c19ed68377f">GLESC::Render::Intensity::getModifiable</a></div><div class="ttdeci">IntensityType &amp; getModifiable()</div><div class="ttdef"><b>Definition</b> <a href="_renderer_types_8h_source.html#l00166">RendererTypes.h:166</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_render_1_1_material_html_a8c6752a741dfddae07c092def974efc0"><div class="ttname"><a href="class_g_l_e_s_c_1_1_render_1_1_material.html#a8c6752a741dfddae07c092def974efc0">GLESC::Render::Material::dirty</a></div><div class="ttdeci">bool dirty</div><div class="ttdoc">Dirty flag, used to check if we need to resend the data to the GPU.</div><div class="ttdef"><b>Definition</b> <a href="_material_8h_source.html#l00139">Material.h:139</a></div></div>
+<div class="ttc" id="anamespace_g_l_e_s_c_html_a7c64a4da2d1da1597f4ec563d00bb9f8"><div class="ttname"><a href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">GLESC::isIterable_v</a></div><div class="ttdeci">constexpr bool isIterable_v</div><div class="ttdef"><b>Definition</b> <a href="_stringer_8h_source.html#l00029">Stringer.h:29</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_material_8h_source.html#l00103">diffuseColor</a>, <a class="el" href="_material_8h_source.html#l00108">diffuseIntensity</a>, <a class="el" href="_material_8h_source.html#l00139">dirty</a>, <a class="el" href="_material_8h_source.html#l00123">emissionColor</a>, <a class="el" href="_material_8h_source.html#l00128">emissionIntensity</a>, <a class="el" href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5ae738c26bf4ce1037fa81b039a915cbf6">EntityStatsManager::FLOAT</a>, <a class="el" href="_renderer_types_8h_source.html#l00166">GLESC::Render::Intensity&lt; IntensityType &gt;::getModifiable()</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, <a class="el" href="_entity_stats_manager_8h_source.html#l00045">EntityStatsManager::Value::name</a>, <a class="el" href="_material_8h_source.html#l00135">shininess</a>, <a class="el" href="_material_8h_source.html#l00113">specularColor</a>, <a class="el" href="_material_8h_source.html#l00118">specularIntensity</a>, and <a class="el" href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5a18814f886cf9f30ca199c1e81900fa03">EntityStatsManager::VEC3F</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_render_component_8h_source.html#l00028">GLESC::ECS::RenderComponent::setDebuggingValues()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_render_1_1_material_aaff716327ed03d1943cca1ba5e4332ba_cgraph.svg" width="399" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_render_1_1_material_aaff716327ed03d1943cca1ba5e4332ba_icgraph.svg" width="443" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a629b5d2866ad5baf2b953910cb632360" name="a629b5d2866ad5baf2b953910cb632360"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a629b5d2866ad5baf2b953910cb632360">&#9670;&#160;</a></span>getDiffuseColor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="struct_g_l_e_s_c_1_1_render_1_1_color_rgb.html">ColorRgb</a> &amp; GLESC::Render::Material::getDiffuseColor </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_material_8h_source.html#l00057">57</a> of file <a class="el" href="_material_8h_source.html">Material.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   57</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_material.html#ae36f0e95541150e588e2f95f82d54608">diffuseColor</a>; }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_material_8h_source.html#l00103">diffuseColor</a>.</p>
+
+</div>
+</div>
+<a id="a48434fb4dcf5bd105e462acd8ad4a1ee" name="a48434fb4dcf5bd105e462acd8ad4a1ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48434fb4dcf5bd105e462acd8ad4a1ee">&#9670;&#160;</a></span>getDiffuseIntensity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">float</a> GLESC::Render::Material::getDiffuseIntensity </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_material_8h_source.html#l00058">58</a> of file <a class="el" href="_material_8h_source.html">Material.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   58</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_material.html#a7e30121a8ffbaeb1b06ab5a55dd8b4ca">diffuseIntensity</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_render_1_1_intensity.html#a53940c748518c99fc3f50b5fa2d7e31a">get</a>(); }</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_render_1_1_intensity_html_a53940c748518c99fc3f50b5fa2d7e31a"><div class="ttname"><a href="class_g_l_e_s_c_1_1_render_1_1_intensity.html#a53940c748518c99fc3f50b5fa2d7e31a">GLESC::Render::Intensity::get</a></div><div class="ttdeci">IntensityType get() const</div><div class="ttdef"><b>Definition</b> <a href="_renderer_types_8h_source.html#l00162">RendererTypes.h:162</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_material_8h_source.html#l00108">diffuseIntensity</a>, and <a class="el" href="_renderer_types_8h_source.html#l00162">GLESC::Render::Intensity&lt; IntensityType &gt;::get()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_render_1_1_material_a48434fb4dcf5bd105e462acd8ad4a1ee_cgraph.svg" width="424" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aa526585317e7add55dba6df9dec08cf1" name="aa526585317e7add55dba6df9dec08cf1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa526585317e7add55dba6df9dec08cf1">&#9670;&#160;</a></span>getEmissionColor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="struct_g_l_e_s_c_1_1_render_1_1_color_rgb.html">ColorRgb</a> &amp; GLESC::Render::Material::getEmissionColor </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_material_8h_source.html#l00061">61</a> of file <a class="el" href="_material_8h_source.html">Material.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   61</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_material.html#a01088d970cf1444fdca41d71e63d390d">emissionColor</a>; }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_material_8h_source.html#l00123">emissionColor</a>.</p>
+
+</div>
+</div>
+<a id="aa2c848ad8a36da2259d71b0cccfb2ceb" name="aa2c848ad8a36da2259d71b0cccfb2ceb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2c848ad8a36da2259d71b0cccfb2ceb">&#9670;&#160;</a></span>getEmissionIntensity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">float</a> GLESC::Render::Material::getEmissionIntensity </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_material_8h_source.html#l00062">62</a> of file <a class="el" href="_material_8h_source.html">Material.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   62</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_material.html#ac662296ac734fae11cf36d705cbc4918">emissionIntensity</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_render_1_1_intensity.html#a53940c748518c99fc3f50b5fa2d7e31a">get</a>(); }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_material_8h_source.html#l00128">emissionIntensity</a>, and <a class="el" href="_renderer_types_8h_source.html#l00162">GLESC::Render::Intensity&lt; IntensityType &gt;::get()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_render_1_1_material_aa2c848ad8a36da2259d71b0cccfb2ceb_cgraph.svg" width="424" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a443dac631732701962950d4d63b7d46b" name="a443dac631732701962950d4d63b7d46b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a443dac631732701962950d4d63b7d46b">&#9670;&#160;</a></span>getShininess()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">float</a> GLESC::Render::Material::getShininess </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_material_8h_source.html#l00063">63</a> of file <a class="el" href="_material_8h_source.html">Material.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   63</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_material.html#ab9bd6cd2d8e77432f8ca3b407058ddac">shininess</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_render_1_1_intensity.html#a53940c748518c99fc3f50b5fa2d7e31a">get</a>(); }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_renderer_types_8h_source.html#l00162">GLESC::Render::Intensity&lt; IntensityType &gt;::get()</a>, and <a class="el" href="_material_8h_source.html#l00135">shininess</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_renderer_8cpp_source.html#l00162">GLESC::Render::Renderer::applyMaterial()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_render_1_1_material_a443dac631732701962950d4d63b7d46b_cgraph.svg" width="424" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_render_1_1_material_a443dac631732701962950d4d63b7d46b_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a3abfb90323b5f77396449d120a3e1a89" name="a3abfb90323b5f77396449d120a3e1a89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3abfb90323b5f77396449d120a3e1a89">&#9670;&#160;</a></span>getSpecularColor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="struct_g_l_e_s_c_1_1_render_1_1_color_rgb.html">ColorRgb</a> &amp; GLESC::Render::Material::getSpecularColor </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_material_8h_source.html#l00059">59</a> of file <a class="el" href="_material_8h_source.html">Material.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   59</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_material.html#abbdde682b4f0ff651e6a888e870e8912">specularColor</a>; }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_material_8h_source.html#l00113">specularColor</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_renderer_8cpp_source.html#l00162">GLESC::Render::Renderer::applyMaterial()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_render_1_1_material_a3abfb90323b5f77396449d120a3e1a89_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a43ac6591769079dc8e36b7db3dd2af47" name="a43ac6591769079dc8e36b7db3dd2af47"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43ac6591769079dc8e36b7db3dd2af47">&#9670;&#160;</a></span>getSpecularIntensity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">float</a> GLESC::Render::Material::getSpecularIntensity </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_material_8h_source.html#l00060">60</a> of file <a class="el" href="_material_8h_source.html">Material.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   60</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_material.html#adc4de6cba612964601f343585a340827">specularIntensity</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_render_1_1_intensity.html#a53940c748518c99fc3f50b5fa2d7e31a">get</a>(); }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_renderer_types_8h_source.html#l00162">GLESC::Render::Intensity&lt; IntensityType &gt;::get()</a>, and <a class="el" href="_material_8h_source.html#l00118">specularIntensity</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_renderer_8cpp_source.html#l00162">GLESC::Render::Renderer::applyMaterial()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_render_1_1_material_a43ac6591769079dc8e36b7db3dd2af47_cgraph.svg" width="424" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_render_1_1_material_a43ac6591769079dc8e36b7db3dd2af47_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a031fafd09896d0507d54ef02d16c4261" name="a031fafd09896d0507d54ef02d16c4261"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a031fafd09896d0507d54ef02d16c4261">&#9670;&#160;</a></span>isDirty()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a> &amp; GLESC::Render::Material::isDirty </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_material_8h_source.html#l00094">94</a> of file <a class="el" href="_material_8h_source.html">Material.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   94</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_material.html#a8c6752a741dfddae07c092def974efc0">dirty</a>; }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_material_8h_source.html#l00139">dirty</a>.</p>
+
+</div>
+</div>
+<a id="a8b70eacd94cc0b3fc9df1f4f8e86ff47" name="a8b70eacd94cc0b3fc9df1f4f8e86ff47"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b70eacd94cc0b3fc9df1f4f8e86ff47">&#9670;&#160;</a></span>operator&lt;()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a> GLESC::Render::Material::operator&lt; </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="class_g_l_e_s_c_1_1_render_1_1_material.html">Material</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_material_8h_source.html#l00073">73</a> of file <a class="el" href="_material_8h_source.html">Material.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   73</span>                                                                  {</div>
+<div class="line"><span class="lineno">   74</span>            <span class="keywordflow">return</span> std::tie(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_material.html#ae36f0e95541150e588e2f95f82d54608">diffuseColor</a>, <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_material.html#abbdde682b4f0ff651e6a888e870e8912">specularColor</a>, <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_material.html#a01088d970cf1444fdca41d71e63d390d">emissionColor</a>, <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_material.html#adc4de6cba612964601f343585a340827">specularIntensity</a>, <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_material.html#ab9bd6cd2d8e77432f8ca3b407058ddac">shininess</a>) &lt;</div>
+<div class="line"><span class="lineno">   75</span>                std::tie(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">other</a>.diffuseColor, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">other</a>.specularColor, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">other</a>.emissionColor,</div>
+<div class="line"><span class="lineno">   76</span>                         <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">other</a>.specularIntensity, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">other</a>.shininess);</div>
+<div class="line"><span class="lineno">   77</span>        }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_material_8h_source.html#l00103">diffuseColor</a>, <a class="el" href="_material_8h_source.html#l00123">emissionColor</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, <a class="el" href="_material_8h_source.html#l00135">shininess</a>, <a class="el" href="_material_8h_source.html#l00113">specularColor</a>, and <a class="el" href="_material_8h_source.html#l00118">specularIntensity</a>.</p>
+
+</div>
+</div>
+<a id="aa80b3dc8ec05ca53c9ee118d6f90f4be" name="aa80b3dc8ec05ca53c9ee118d6f90f4be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa80b3dc8ec05ca53c9ee118d6f90f4be">&#9670;&#160;</a></span>operator==()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a> GLESC::Render::Material::operator== </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="class_g_l_e_s_c_1_1_render_1_1_material.html">Material</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Equality operator. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>The other material </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the materials are equal, false otherwise </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_material_8h_source.html#l00085">85</a> of file <a class="el" href="_material_8h_source.html">Material.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   85</span>                                                     {</div>
+<div class="line"><span class="lineno">   86</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_material.html#ae36f0e95541150e588e2f95f82d54608">diffuseColor</a> == <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">other</a>.diffuseColor &amp;&amp;</div>
+<div class="line"><span class="lineno">   87</span>                <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_material.html#abbdde682b4f0ff651e6a888e870e8912">specularColor</a> == <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">other</a>.specularColor &amp;&amp;</div>
+<div class="line"><span class="lineno">   88</span>                <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_material.html#a01088d970cf1444fdca41d71e63d390d">emissionColor</a> == <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">other</a>.emissionColor &amp;&amp;</div>
+<div class="line"><span class="lineno">   89</span>                <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_material.html#adc4de6cba612964601f343585a340827">specularIntensity</a> == <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">other</a>.specularIntensity &amp;&amp;</div>
+<div class="line"><span class="lineno">   90</span>                <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_material.html#ab9bd6cd2d8e77432f8ca3b407058ddac">shininess</a> == <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">other</a>.shininess;</div>
+<div class="line"><span class="lineno">   91</span>        }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_material_8h_source.html#l00103">diffuseColor</a>, <a class="el" href="_material_8h_source.html#l00123">emissionColor</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, <a class="el" href="_material_8h_source.html#l00135">shininess</a>, <a class="el" href="_material_8h_source.html#l00113">specularColor</a>, and <a class="el" href="_material_8h_source.html#l00118">specularIntensity</a>.</p>
+
+</div>
+</div>
+<a id="a21a9d83d54b03c3f7398a54a2c70f694" name="a21a9d83d54b03c3f7398a54a2c70f694"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21a9d83d54b03c3f7398a54a2c70f694">&#9670;&#160;</a></span>setClean()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> GLESC::Render::Material::setClean </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_material_8h_source.html#l00095">95</a> of file <a class="el" href="_material_8h_source.html">Material.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   95</span>{ <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_material.html#a8c6752a741dfddae07c092def974efc0">dirty</a> = <span class="keyword">false</span>; }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_material_8h_source.html#l00139">dirty</a>.</p>
+
+</div>
+</div>
+<a id="a04e68ec9c47d647cf5367eee2402ffd9" name="a04e68ec9c47d647cf5367eee2402ffd9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04e68ec9c47d647cf5367eee2402ffd9">&#9670;&#160;</a></span>setDiffuseColor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> GLESC::Render::Material::setDiffuseColor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="struct_g_l_e_s_c_1_1_render_1_1_color_rgb.html">ColorRgb</a> &amp;&#160;</td>
+          <td class="paramname"><em>diffuseColor</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_material_8h_source.html#l00065">65</a> of file <a class="el" href="_material_8h_source.html">Material.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   65</span>{ this-&gt;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_material.html#ae36f0e95541150e588e2f95f82d54608">diffuseColor</a> = <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_material.html#ae36f0e95541150e588e2f95f82d54608">diffuseColor</a>; }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_material_8h_source.html#l00103">diffuseColor</a>.</p>
+
+</div>
+</div>
+<a id="ab118ba1674ba9adc14fe8b37882526be" name="ab118ba1674ba9adc14fe8b37882526be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab118ba1674ba9adc14fe8b37882526be">&#9670;&#160;</a></span>setDiffuseIntensity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> GLESC::Render::Material::setDiffuseIntensity </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">float</a>&#160;</td>
+          <td class="paramname"><em>diffuseIntensity</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_material_8h_source.html#l00066">66</a> of file <a class="el" href="_material_8h_source.html">Material.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   66</span>{ this-&gt;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_material.html#a7e30121a8ffbaeb1b06ab5a55dd8b4ca">diffuseIntensity</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_render_1_1_intensity.html#a7c00667b24457f8531c09abe6a8627dd">set</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_material.html#a7e30121a8ffbaeb1b06ab5a55dd8b4ca">diffuseIntensity</a>); }</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_render_1_1_intensity_html_a7c00667b24457f8531c09abe6a8627dd"><div class="ttname"><a href="class_g_l_e_s_c_1_1_render_1_1_intensity.html#a7c00667b24457f8531c09abe6a8627dd">GLESC::Render::Intensity::set</a></div><div class="ttdeci">void set(IntensityType intensityParam)</div><div class="ttdef"><b>Definition</b> <a href="_renderer_types_8h_source.html#l00170">RendererTypes.h:170</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_material_8h_source.html#l00108">diffuseIntensity</a>.</p>
+
+</div>
+</div>
+<a id="a5fd28b7ffd8b67b585057bbe1c0cd770" name="a5fd28b7ffd8b67b585057bbe1c0cd770"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fd28b7ffd8b67b585057bbe1c0cd770">&#9670;&#160;</a></span>setEmissionColor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> GLESC::Render::Material::setEmissionColor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="struct_g_l_e_s_c_1_1_render_1_1_color_rgb.html">ColorRgb</a> &amp;&#160;</td>
+          <td class="paramname"><em>emissionColor</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_material_8h_source.html#l00069">69</a> of file <a class="el" href="_material_8h_source.html">Material.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   69</span>{ this-&gt;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_material.html#a01088d970cf1444fdca41d71e63d390d">emissionColor</a> = <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_material.html#a01088d970cf1444fdca41d71e63d390d">emissionColor</a>; }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_material_8h_source.html#l00123">emissionColor</a>.</p>
+
+</div>
+</div>
+<a id="a1342b25808718085f779bf980d4ccb58" name="a1342b25808718085f779bf980d4ccb58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1342b25808718085f779bf980d4ccb58">&#9670;&#160;</a></span>setEmmissionIntensity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> GLESC::Render::Material::setEmmissionIntensity </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">float</a>&#160;</td>
+          <td class="paramname"><em>emissionIntensity</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_material_8h_source.html#l00070">70</a> of file <a class="el" href="_material_8h_source.html">Material.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   70</span>{ this-&gt;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_material.html#ac662296ac734fae11cf36d705cbc4918">emissionIntensity</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_render_1_1_intensity.html#a7c00667b24457f8531c09abe6a8627dd">set</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_material.html#ac662296ac734fae11cf36d705cbc4918">emissionIntensity</a>); }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_material_8h_source.html#l00128">emissionIntensity</a>.</p>
+
+</div>
+</div>
+<a id="a23968b5f3b084373653707d8e9d06627" name="a23968b5f3b084373653707d8e9d06627"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23968b5f3b084373653707d8e9d06627">&#9670;&#160;</a></span>setShininess()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> GLESC::Render::Material::setShininess </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">float</a>&#160;</td>
+          <td class="paramname"><em>shininess</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_material_8h_source.html#l00071">71</a> of file <a class="el" href="_material_8h_source.html">Material.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   71</span>{ this-&gt;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_material.html#ab9bd6cd2d8e77432f8ca3b407058ddac">shininess</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_render_1_1_intensity.html#a7c00667b24457f8531c09abe6a8627dd">set</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_material.html#ab9bd6cd2d8e77432f8ca3b407058ddac">shininess</a>); }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_material_8h_source.html#l00135">shininess</a>.</p>
+
+</div>
+</div>
+<a id="ad842b35707ac0ceb8f530ddc4d7b33cf" name="ad842b35707ac0ceb8f530ddc4d7b33cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad842b35707ac0ceb8f530ddc4d7b33cf">&#9670;&#160;</a></span>setSpecularColor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> GLESC::Render::Material::setSpecularColor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="struct_g_l_e_s_c_1_1_render_1_1_color_rgb.html">ColorRgb</a> &amp;&#160;</td>
+          <td class="paramname"><em>specularColor</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_material_8h_source.html#l00067">67</a> of file <a class="el" href="_material_8h_source.html">Material.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   67</span>{ this-&gt;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_material.html#abbdde682b4f0ff651e6a888e870e8912">specularColor</a> = <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_material.html#abbdde682b4f0ff651e6a888e870e8912">specularColor</a>; }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_material_8h_source.html#l00113">specularColor</a>.</p>
+
+</div>
+</div>
+<a id="aaeb4ee975b0ad979183bbe2980fc35d4" name="aaeb4ee975b0ad979183bbe2980fc35d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaeb4ee975b0ad979183bbe2980fc35d4">&#9670;&#160;</a></span>setSpecularIntensity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> GLESC::Render::Material::setSpecularIntensity </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">float</a>&#160;</td>
+          <td class="paramname"><em>specularIntensity</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_material_8h_source.html#l00068">68</a> of file <a class="el" href="_material_8h_source.html">Material.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   68</span>{ this-&gt;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_material.html#adc4de6cba612964601f343585a340827">specularIntensity</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_render_1_1_intensity.html#a7c00667b24457f8531c09abe6a8627dd">set</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_material.html#adc4de6cba612964601f343585a340827">specularIntensity</a>); }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_material_8h_source.html#l00118">specularIntensity</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="ae36f0e95541150e588e2f95f82d54608" name="ae36f0e95541150e588e2f95f82d54608"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae36f0e95541150e588e2f95f82d54608">&#9670;&#160;</a></span>diffuseColor</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_g_l_e_s_c_1_1_render_1_1_color_rgb.html">ColorRgb</a> GLESC::Render::Material::diffuseColor</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The diffuse color of the material. </p>
+<p>Diffuse color is the color that is reflected by the material.</p>
+<p>This is different than the color that is stored in the data of the mesh. The two will blend. </p>
+
+<p class="definition">Definition at line <a class="el" href="_material_8h_source.html#l00103">103</a> of file <a class="el" href="_material_8h_source.html">Material.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_material_8cpp_source.html#l00014">getDebuggingValues()</a>, <a class="el" href="_material_8h_source.html#l00057">getDiffuseColor()</a>, <a class="el" href="_material_8h_source.html#l00073">operator&lt;()</a>, <a class="el" href="_material_8h_source.html#l00085">operator==()</a>, and <a class="el" href="_material_8h_source.html#l00065">setDiffuseColor()</a>.</p>
+
+</div>
+</div>
+<a id="a7e30121a8ffbaeb1b06ab5a55dd8b4ca" name="a7e30121a8ffbaeb1b06ab5a55dd8b4ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e30121a8ffbaeb1b06ab5a55dd8b4ca">&#9670;&#160;</a></span>diffuseIntensity</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_g_l_e_s_c_1_1_render_1_1_material.html#a269cbe72c378ad2b5a8748b351cc2bd2">Intensity</a> GLESC::Render::Material::diffuseIntensity</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The diffuse intensity of the material. </p>
+<p>This is the intensity of the diffuse reflection </p>
+
+<p class="definition">Definition at line <a class="el" href="_material_8h_source.html#l00108">108</a> of file <a class="el" href="_material_8h_source.html">Material.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_material_8cpp_source.html#l00014">getDebuggingValues()</a>, <a class="el" href="_material_8h_source.html#l00058">getDiffuseIntensity()</a>, and <a class="el" href="_material_8h_source.html#l00066">setDiffuseIntensity()</a>.</p>
+
+</div>
+</div>
+<a id="a8c6752a741dfddae07c092def974efc0" name="a8c6752a741dfddae07c092def974efc0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c6752a741dfddae07c092def974efc0">&#9670;&#160;</a></span>dirty</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a> GLESC::Render::Material::dirty {<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">false</a>}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">mutable</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Dirty flag, used to check if we need to resend the data to the GPU. </p>
+
+<p class="definition">Definition at line <a class="el" href="_material_8h_source.html#l00139">139</a> of file <a class="el" href="_material_8h_source.html">Material.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  139</span>{<span class="keyword">false</span>};</div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="_material_8cpp_source.html#l00014">getDebuggingValues()</a>, <a class="el" href="_material_8h_source.html#l00094">isDirty()</a>, and <a class="el" href="_material_8h_source.html#l00095">setClean()</a>.</p>
+
+</div>
+</div>
+<a id="a01088d970cf1444fdca41d71e63d390d" name="a01088d970cf1444fdca41d71e63d390d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01088d970cf1444fdca41d71e63d390d">&#9670;&#160;</a></span>emissionColor</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_g_l_e_s_c_1_1_render_1_1_color_rgb.html">ColorRgb</a> GLESC::Render::Material::emissionColor</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The emission color of the material. </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000016">Todo:</a></b></dt><dd>doesnt work </dd></dl>
+<p>Emission color is the color that the material emits </p>
+
+<p class="definition">Definition at line <a class="el" href="_material_8h_source.html#l00123">123</a> of file <a class="el" href="_material_8h_source.html">Material.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_material_8cpp_source.html#l00014">getDebuggingValues()</a>, <a class="el" href="_material_8h_source.html#l00061">getEmissionColor()</a>, <a class="el" href="_material_8h_source.html#l00073">operator&lt;()</a>, <a class="el" href="_material_8h_source.html#l00085">operator==()</a>, and <a class="el" href="_material_8h_source.html#l00069">setEmissionColor()</a>.</p>
+
+</div>
+</div>
+<a id="ac662296ac734fae11cf36d705cbc4918" name="ac662296ac734fae11cf36d705cbc4918"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac662296ac734fae11cf36d705cbc4918">&#9670;&#160;</a></span>emissionIntensity</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_g_l_e_s_c_1_1_render_1_1_material.html#a269cbe72c378ad2b5a8748b351cc2bd2">Intensity</a> GLESC::Render::Material::emissionIntensity</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The emission intensity of the material. </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000017">Todo:</a></b></dt><dd>doesnt work </dd></dl>
+<p>This is the intensity of the emission </p>
+
+<p class="definition">Definition at line <a class="el" href="_material_8h_source.html#l00128">128</a> of file <a class="el" href="_material_8h_source.html">Material.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_material_8cpp_source.html#l00014">getDebuggingValues()</a>, <a class="el" href="_material_8h_source.html#l00062">getEmissionIntensity()</a>, and <a class="el" href="_material_8h_source.html#l00070">setEmmissionIntensity()</a>.</p>
+
+</div>
+</div>
+<a id="ab9bd6cd2d8e77432f8ca3b407058ddac" name="ab9bd6cd2d8e77432f8ca3b407058ddac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9bd6cd2d8e77432f8ca3b407058ddac">&#9670;&#160;</a></span>shininess</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_g_l_e_s_c_1_1_render_1_1_material.html#a269cbe72c378ad2b5a8748b351cc2bd2">Intensity</a> GLESC::Render::Material::shininess</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The shininess of the material. </p>
+<p>This is the shininess of the material, which is used to calculate the specular highlights The higher the shininess, the smaller the specular highlights. </p>
+
+<p class="definition">Definition at line <a class="el" href="_material_8h_source.html#l00135">135</a> of file <a class="el" href="_material_8h_source.html">Material.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_material_8cpp_source.html#l00014">getDebuggingValues()</a>, <a class="el" href="_material_8h_source.html#l00063">getShininess()</a>, <a class="el" href="_material_8h_source.html#l00073">operator&lt;()</a>, <a class="el" href="_material_8h_source.html#l00085">operator==()</a>, and <a class="el" href="_material_8h_source.html#l00071">setShininess()</a>.</p>
+
+</div>
+</div>
+<a id="abbdde682b4f0ff651e6a888e870e8912" name="abbdde682b4f0ff651e6a888e870e8912"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbdde682b4f0ff651e6a888e870e8912">&#9670;&#160;</a></span>specularColor</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_g_l_e_s_c_1_1_render_1_1_color_rgb.html">ColorRgb</a> GLESC::Render::Material::specularColor</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The specular color of the material. </p>
+<p>Specular color is the color of the specular highlights </p>
+
+<p class="definition">Definition at line <a class="el" href="_material_8h_source.html#l00113">113</a> of file <a class="el" href="_material_8h_source.html">Material.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_material_8cpp_source.html#l00014">getDebuggingValues()</a>, <a class="el" href="_material_8h_source.html#l00059">getSpecularColor()</a>, <a class="el" href="_material_8h_source.html#l00073">operator&lt;()</a>, <a class="el" href="_material_8h_source.html#l00085">operator==()</a>, and <a class="el" href="_material_8h_source.html#l00067">setSpecularColor()</a>.</p>
+
+</div>
+</div>
+<a id="adc4de6cba612964601f343585a340827" name="adc4de6cba612964601f343585a340827"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc4de6cba612964601f343585a340827">&#9670;&#160;</a></span>specularIntensity</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_g_l_e_s_c_1_1_render_1_1_material.html#a269cbe72c378ad2b5a8748b351cc2bd2">Intensity</a> GLESC::Render::Material::specularIntensity</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The specular intensity of the material. </p>
+<p>This is the intensity of the specular highlights </p>
+
+<p class="definition">Definition at line <a class="el" href="_material_8h_source.html#l00118">118</a> of file <a class="el" href="_material_8h_source.html">Material.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_material_8cpp_source.html#l00014">getDebuggingValues()</a>, <a class="el" href="_material_8h_source.html#l00060">getSpecularIntensity()</a>, <a class="el" href="_material_8h_source.html#l00073">operator&lt;()</a>, <a class="el" href="_material_8h_source.html#l00085">operator==()</a>, and <a class="el" href="_material_8h_source.html#l00068">setSpecularIntensity()</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li><a class="el" href="_material_8h_source.html">Material.h</a></li>
+<li><a class="el" href="_material_8cpp_source.html">Material.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_g_l_e_s_c.html">GLESC</a></li><li class="navelem"><a class="el" href="namespace_g_l_e_s_c_1_1_render.html">Render</a></li><li class="navelem"><a class="el" href="class_g_l_e_s_c_1_1_render_1_1_material.html">Material</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

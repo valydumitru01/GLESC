@@ -1,0 +1,7 @@
+<map id="GLESC::GAPI::VertexBuffer::~VertexBuffer" name="GLESC::GAPI::VertexBuffer::~VertexBuffer">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,189,48"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_g_a_p_i_1_1_vertex_buffer.html#a3d794a1e1f0df86091b386c6dca558be" title="This method destroys the vertex buffer object once. It is called from the destructor and the destroy ..." alt="" coords="237,5,420,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="189,24,221,24,221,29,189,29"/>
+<area shape="rect" id="Node000003" href="$_gapi_8h.html#ab7514d88e65656ffa15ca33256518fe5" title="Returns the graphic API used by the engine." alt="" coords="468,13,538,40"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="420,24,452,24,452,29,420,29"/>
+</map>

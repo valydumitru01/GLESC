@@ -1,0 +1,13 @@
+<log>
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include\engine/core/low-level-renderer/graphic-api/GapiEnums.h" line="26" col="10" msg="&apos;GL/glew.h&apos; file not found" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include\engine/core/low-level-renderer/graphic-api/GapiTypes.h" line="16" col="10" msg="&apos;GL/glew.h&apos; file not found" />
+ <error level="warning" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include\engine/core/math/algebra/vector/VectorAlgorithms.h" line="362" col="20" msg="template parameter &apos;Type&apos; not found in the template declaration" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include\engine/core/low-level-renderer/graphic-api/concrete-apis/opengl/OpenGLAPI.h" line="13" col="10" msg="&apos;GL/glew.h&apos; file not found" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include\engine/core/low-level-renderer/graphic-api/IGraphicInterface.h" line="15" col="10" msg="&apos;SDL2/SDL.h&apos; file not found" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include\engine/core/low-level-renderer/graphic-api/concrete-apis/opengl/debugger/OpenGLDebugger.h" line="15" col="10" msg="&apos;GL/glew.h&apos; file not found" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/low-level-renderer/buffers/VertexInstanceBuffer.cpp" line="16" col="86" msg="unknown type name &apos;UInt&apos;" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/low-level-renderer/buffers/VertexInstanceBuffer.cpp" line="18" col="5" msg="cannot initialize object parameter of type &apos;const GLESC::GAPI::VertexBuffer&apos; with an expression of type &apos;GLESC::GAPI::VertexInstanceBuffer&apos;" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/low-level-renderer/buffers/VertexInstanceBuffer.cpp" line="21" col="5" msg="unknown type name &apos;UInt&apos;" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/low-level-renderer/buffers/VertexInstanceBuffer.cpp" line="24" col="9" msg="unknown type name &apos;UInt&apos;" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/low-level-renderer/buffers/VertexInstanceBuffer.cpp" line="32" col="61" msg="unknown type name &apos;UInt&apos;" />
+</log>

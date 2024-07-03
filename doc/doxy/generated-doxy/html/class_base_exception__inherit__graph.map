@@ -1,0 +1,17 @@
+<map id="BaseException" name="BaseException">
+<area shape="rect" id="Node000001" title=" " alt="" coords="265,240,383,352"/>
+<area shape="rect" id="Node000004" href="$class_engine_exception.html" title=" " alt="" coords="259,400,389,469"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="327,367,327,400,321,400,321,367"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="267,123,381,192"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="327,207,327,240,321,240,321,207"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="277,5,371,75"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="327,90,327,123,321,123,321,90"/>
+<area shape="rect" id="Node000005" href="$class_assert_failed_exception.html" title=" " alt="" coords="5,517,168,587"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="247,476,157,520,154,515,245,471"/>
+<area shape="rect" id="Node000006" href="$class_g_a_p_i_exception.html" title=" " alt="" coords="192,517,312,587"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="297,484,275,519,271,516,293,481"/>
+<area shape="rect" id="Node000007" href="$class_math_exception.html" title=" " alt="" coords="337,517,455,587"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="355,481,377,516,373,519,351,484"/>
+<area shape="rect" id="Node000008" href="$class_open_exception.html" title=" " alt="" coords="480,517,600,587"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="401,474,482,517,479,521,399,479"/>
+</map>

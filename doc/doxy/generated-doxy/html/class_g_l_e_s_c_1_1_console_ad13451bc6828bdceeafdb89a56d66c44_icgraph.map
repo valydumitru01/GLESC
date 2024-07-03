@@ -1,0 +1,21 @@
+<map id="GLESC::Console::addMessage" name="GLESC::Console::addMessage">
+<area shape="rect" id="Node000001" title=" " alt="" coords="673,72,876,99"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_console.html#a91c693f8708bc40b80b737be16f86499" title=" " alt="" coords="471,72,625,99"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="658,88,625,88,625,83,658,83"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_console.html#a7d6ade614a335406b76613b104478caa" title=" " alt="" coords="475,21,620,48"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="696,71,610,51,611,46,697,65"/>
+<area shape="rect" id="Node000007" href="$class_g_l_e_s_c_1_1_console.html#a7ed2e6be9021ff98197fe923266d007f" title=" " alt="" coords="470,123,625,149"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="697,105,611,125,610,119,696,100"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_engine.html#ad2ff110d5a86c1cd60b541d65915ac48" title="Processes the logic of the game Is called every frame, must be called at constant intervals of time a..." alt="" coords="255,72,415,99"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="455,88,415,88,415,83,455,83"/>
+<area shape="rect" id="Node000004" href="$src_2engine_2main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="78,72,127,99"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="240,88,127,88,127,83,240,83"/>
+<area shape="poly" id="edge6_Node000005_Node000003" title=" " alt="" coords="474,55,395,74,393,69,473,50"/>
+<area shape="rect" id="Node000006" href="$class_g_l_e_s_c_1_1_in_game_window.html#aee5f8d22dc2c5b0a1014f6bcb1197441" title="Render the window." alt="" coords="253,5,417,48"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="460,34,417,32,417,27,460,29"/>
+<area shape="poly" id="edge10_Node000007_Node000003" title=" " alt="" coords="473,121,393,102,395,97,474,116"/>
+<area shape="rect" id="Node000008" href="$class_g_l_e_s_c_1_1_render_1_1_renderer.html#a91180f2e65fa787ef13cfd9dde7b749c" title="This sends the mesh data to the renderer so it can be rendered." alt="" coords="248,123,422,165"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="455,142,423,143,422,138,455,137"/>
+<area shape="rect" id="Node000009" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_render_system.html#a3d3b423c0c5bf7a1e67e31e069374f93" title="Updates the system." alt="" coords="5,123,200,165"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="232,147,200,147,200,141,232,141"/>
+</map>

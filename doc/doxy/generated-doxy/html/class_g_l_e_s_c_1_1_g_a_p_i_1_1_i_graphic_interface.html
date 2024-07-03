@@ -1,0 +1,2507 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="Doxygen Awesome" />
+<meta property="og:image" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+<meta property="og:description" content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
+<meta property="og:url" content="https://jothepro.github.io/doxygen-awesome-css/" />
+<!-- END opengraph metadata -->
+<!-- BEGIN twitter metadata -->
+<meta name="twitter:image:src" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+<meta name="twitter:title" content="Doxygen Awesome" />
+<meta name="twitter:description" content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
+<!-- END twitter metadata -->
+<title>GLESC: GLESC::GAPI::IGraphicInterface Class Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.drawio.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/ -->
+<a href="https://github.com/jothepro/doxygen-awesome-css" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="GLESC_logo_white_background.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">GLESC
+   &#160;<span id="projectnumber">1</span>
+   </div>
+   <div id="projectbrief">Game engine using ECS architecture</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
+<a href="#pro-static-attribs">Static Protected Attributes</a> &#124;
+<a href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface-members.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">GLESC::GAPI::IGraphicInterface Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_i_graphic_interface_8h_source.html">IGraphicInterface.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for GLESC::GAPI::IGraphicInterface:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface__inherit__graph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+Collaboration diagram for GLESC::GAPI::IGraphicInterface:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface__coll__graph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a0eb7f47e26aa4522c1386856b10694ef" id="r_a0eb7f47e26aa4522c1386856b10694ef"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html#a0eb7f47e26aa4522c1386856b10694ef">IGraphicInterface</a> ()=<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">default</a></td></tr>
+<tr class="separator:a0eb7f47e26aa4522c1386856b10694ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0832885066726787dd61ad6a86cd64a7" id="r_a0832885066726787dd61ad6a86cd64a7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html#a0832885066726787dd61ad6a86cd64a7">~IGraphicInterface</a> ()=<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">default</a></td></tr>
+<tr class="separator:a0832885066726787dd61ad6a86cd64a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e396d6b1ccfdae24870d5600ecc950a" id="r_a7e396d6b1ccfdae24870d5600ecc950a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html#a7e396d6b1ccfdae24870d5600ecc950a">bindBuffer</a> (Enums::BufferTypes <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bufferType</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">buffer</a>)=0</td></tr>
+<tr class="separator:a7e396d6b1ccfdae24870d5600ecc950a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ed429015bf4cec493a3b00ae242d571" id="r_a0ed429015bf4cec493a3b00ae242d571"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html#a0ed429015bf4cec493a3b00ae242d571">bindTexture</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">TextureID</a> textureID, Enums::Texture::Types <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">textureType</a>)=0</td></tr>
+<tr class="separator:a0ed429015bf4cec493a3b00ae242d571"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a015bc5f6ad1c0f6b07f28fb155cd7418" id="r_a015bc5f6ad1c0f6b07f28fb155cd7418"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html#a015bc5f6ad1c0f6b07f28fb155cd7418">bindTextureOnSlot</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">TextureID</a> textureID, Enums::Texture::Types <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">textureType</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">slot</a>)=0</td></tr>
+<tr class="separator:a015bc5f6ad1c0f6b07f28fb155cd7418"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1ad1ae4ace094fc1af089359000ba8d" id="r_ac1ad1ae4ace094fc1af089359000ba8d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html#ac1ad1ae4ace094fc1af089359000ba8d">bindVertexArray</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a> vertexArrayID)=0</td></tr>
+<tr class="separator:ac1ad1ae4ace094fc1af089359000ba8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a837be652789e4327c7b1c8500b168734" id="r_a837be652789e4327c7b1c8500b168734"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html#a837be652789e4327c7b1c8500b168734">clear</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> std::initializer_list&lt; Enums::ClearBits &gt; &amp;values)=0</td></tr>
+<tr class="separator:a837be652789e4327c7b1c8500b168734"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8b7d982a9e9d9a05cc32cefe273b822" id="r_ad8b7d982a9e9d9a05cc32cefe273b822"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html#ad8b7d982a9e9d9a05cc32cefe273b822">clearColor</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Float</a> r, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Float</a> g, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Float</a> b, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Float</a> a)=0</td></tr>
+<tr class="separator:ad8b7d982a9e9d9a05cc32cefe273b822"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa6fb696e0fc4a1fd5339a527252519f" id="r_aaa6fb696e0fc4a1fd5339a527252519f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html#aaa6fb696e0fc4a1fd5339a527252519f">compilationOK</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">shaderID</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Char</a> *message)=0</td></tr>
+<tr class="separator:aaa6fb696e0fc4a1fd5339a527252519f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57be8a80f7cb342345ca36866675ad4d" id="r_a57be8a80f7cb342345ca36866675ad4d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html#a57be8a80f7cb342345ca36866675ad4d">createContext</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_Window</a> &amp;window)=0</td></tr>
+<tr class="separator:a57be8a80f7cb342345ca36866675ad4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71f4c4a12859d6b627e779daf47d607c" id="r_a71f4c4a12859d6b627e779daf47d607c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html#a71f4c4a12859d6b627e779daf47d607c">createShaderProgram</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vertexShaderID</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">fragmentShaderID</a>)=0</td></tr>
+<tr class="separator:a71f4c4a12859d6b627e779daf47d607c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd64740e95df4bd308062ca4ffd8ccb7" id="r_acd64740e95df4bd308062ca4ffd8ccb7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">TextureID</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html#acd64740e95df4bd308062ca4ffd8ccb7">createTexture</a> (Enums::Texture::Types <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">textureType</a>, Enums::Texture::Filters::Min <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">minFilter</a>, Enums::Texture::Filters::Mag <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">magFilter</a>, Enums::Texture::Filters::WrapMode <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">wrapS</a>, Enums::Texture::Filters::WrapMode <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">wrapT</a>, Enums::Texture::Filters::WrapMode <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">wrapR</a>)=0</td></tr>
+<tr class="separator:acd64740e95df4bd308062ca4ffd8ccb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d1d8f1c4ca2a7d868c7fbdc527004c9" id="r_a4d1d8f1c4ca2a7d868c7fbdc527004c9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html#a4d1d8f1c4ca2a7d868c7fbdc527004c9">createVertexData</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a> vertexArray, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a> count, Enums::Types type, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Bool</a> isNormalized, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a> stride, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">offset</a>)=0</td></tr>
+<tr class="separator:a4d1d8f1c4ca2a7d868c7fbdc527004c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5fde32f826746486bdfcd042921566e8" id="r_a5fde32f826746486bdfcd042921566e8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html#a5fde32f826746486bdfcd042921566e8">deleteBuffer</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a> &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">buffer</a>)=0</td></tr>
+<tr class="separator:a5fde32f826746486bdfcd042921566e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb40ce597c362633ad88e83f04c9048b" id="r_acb40ce597c362633ad88e83f04c9048b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html#acb40ce597c362633ad88e83f04c9048b">deleteContext</a> ()=0</td></tr>
+<tr class="separator:acb40ce597c362633ad88e83f04c9048b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04f47ebc8fba12b596d432c824b4b060" id="r_a04f47ebc8fba12b596d432c824b4b060"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html#a04f47ebc8fba12b596d432c824b4b060">deleteShader</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">shaderID</a>)=0</td></tr>
+<tr class="separator:a04f47ebc8fba12b596d432c824b4b060"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5cb148417b0f0f17dbdf648f7f30ad68" id="r_a5cb148417b0f0f17dbdf648f7f30ad68"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html#a5cb148417b0f0f17dbdf648f7f30ad68">deleteShaderProgram</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a> shaderProgram)=0</td></tr>
+<tr class="separator:a5cb148417b0f0f17dbdf648f7f30ad68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad92a7d30d8f3111148e61bbbafc7685f" id="r_ad92a7d30d8f3111148e61bbbafc7685f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html#ad92a7d30d8f3111148e61bbbafc7685f">deleteTexture</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">TextureID</a> textureID)=0</td></tr>
+<tr class="separator:ad92a7d30d8f3111148e61bbbafc7685f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56707f5992e746c804b3dabdbb3d27c7" id="r_a56707f5992e746c804b3dabdbb3d27c7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html#a56707f5992e746c804b3dabdbb3d27c7">deleteVertexArray</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a> &amp;vertexArrayID)=0</td></tr>
+<tr class="separator:a56707f5992e746c804b3dabdbb3d27c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3597cf4b174aa1d7a57bbca7303ddf2" id="r_ad3597cf4b174aa1d7a57bbca7303ddf2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html#ad3597cf4b174aa1d7a57bbca7303ddf2">destroyShaderProgram</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a> shaderProgram)=0</td></tr>
+<tr class="separator:ad3597cf4b174aa1d7a57bbca7303ddf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3885615ffdce7825f44c9a4d197307ca" id="r_a3885615ffdce7825f44c9a4d197307ca"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html#a3885615ffdce7825f44c9a4d197307ca">drawTriangles</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a> start, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a> count)=0</td></tr>
+<tr class="separator:a3885615ffdce7825f44c9a4d197307ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a050d0fc5aeb99661aa51b19b1945b474" id="r_a050d0fc5aeb99661aa51b19b1945b474"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html#a050d0fc5aeb99661aa51b19b1945b474">drawTrianglesIndexed</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a> count)=0</td></tr>
+<tr class="separator:a050d0fc5aeb99661aa51b19b1945b474"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3456923fff7ba09d3778cddc4a6dd05" id="r_af3456923fff7ba09d3778cddc4a6dd05"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html#af3456923fff7ba09d3778cddc4a6dd05">drawTrianglesIndexedInstanced</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a> count, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">instanceCount</a>)=0</td></tr>
+<tr class="separator:af3456923fff7ba09d3778cddc4a6dd05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab031fc9e40ac228c70553042b1716195" id="r_ab031fc9e40ac228c70553042b1716195"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html#ab031fc9e40ac228c70553042b1716195">enableDepthBuffer</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Bool</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">enabled</a>)=0</td></tr>
+<tr class="separator:ab031fc9e40ac228c70553042b1716195"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb8c7c90938ab90ccf9000c2eb7a6183" id="r_adb8c7c90938ab90ccf9000c2eb7a6183"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html#adb8c7c90938ab90ccf9000c2eb7a6183">enableVertexData</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">index</a>)=0</td></tr>
+<tr class="separator:adb8c7c90938ab90ccf9000c2eb7a6183"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab273a8f7504bb91cbf2c748a9ca12154" id="r_ab273a8f7504bb91cbf2c748a9ca12154"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html#ab273a8f7504bb91cbf2c748a9ca12154">genBuffers</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">amount</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a> &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bufferID</a>)=0</td></tr>
+<tr class="separator:ab273a8f7504bb91cbf2c748a9ca12154"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a054735a632aa61f7fcdddbbd4d60eb06" id="r_a054735a632aa61f7fcdddbbd4d60eb06"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html#a054735a632aa61f7fcdddbbd4d60eb06">genVertexArray</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a> &amp;vertexArrayID)=0</td></tr>
+<tr class="separator:a054735a632aa61f7fcdddbbd4d60eb06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3101c2e291cda218af0fd88a66be0764" id="r_a3101c2e291cda218af0fd88a66be0764"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html#a3101c2e291cda218af0fd88a66be0764">getAllUniforms</a> () <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> =0</td></tr>
+<tr class="separator:a3101c2e291cda218af0fd88a66be0764"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac19581b48ebd260f34309e8eb45b7882" id="r_ac19581b48ebd260f34309e8eb45b7882"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> std::vector&lt; <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">float</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html#ac19581b48ebd260f34309e8eb45b7882">getBufferDataF</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bufferId</a>)=0</td></tr>
+<tr class="separator:ac19581b48ebd260f34309e8eb45b7882"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1670165d00c33ce7a2023aa52ae2bb89" id="r_a1670165d00c33ce7a2023aa52ae2bb89"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> std::vector&lt; <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">int</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html#a1670165d00c33ce7a2023aa52ae2bb89">getBufferDataI</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bufferId</a>)=0</td></tr>
+<tr class="separator:a1670165d00c33ce7a2023aa52ae2bb89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e293e4e7f9e3c8560a4cc6d5954a386" id="r_a5e293e4e7f9e3c8560a4cc6d5954a386"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> std::vector&lt; <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">unsigned</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">int</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html#a5e293e4e7f9e3c8560a4cc6d5954a386">getBufferDataUI</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bufferId</a>)=0</td></tr>
+<tr class="separator:a5e293e4e7f9e3c8560a4cc6d5954a386"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3018059703de3a91365eb3ef548ec16" id="r_aa3018059703de3a91365eb3ef548ec16"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> Enums::Texture::GPUBufferFormat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html#aa3018059703de3a91365eb3ef548ec16">getTextureColorFormat</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">TextureID</a> textureID)=0</td></tr>
+<tr class="separator:aa3018059703de3a91365eb3ef548ec16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a473e627ea4d44bfedf24e875b50a62ae" id="r_a473e627ea4d44bfedf24e875b50a62ae"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> std::vector&lt; <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UByte</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html#a473e627ea4d44bfedf24e875b50a62ae">getTextureData</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">TextureID</a> textureID, Enums::Texture::Types <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">textureType</a>)=0</td></tr>
+<tr class="separator:a473e627ea4d44bfedf24e875b50a62ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca254deedce89f5ef7df564654d939a6" id="r_aca254deedce89f5ef7df564654d939a6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html#aca254deedce89f5ef7df564654d939a6">getTextureHeight</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">TextureID</a> textureID)=0</td></tr>
+<tr class="separator:aca254deedce89f5ef7df564654d939a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ca5c89a00ac594b9094855372ba0e57" id="r_a9ca5c89a00ac594b9094855372ba0e57"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html#a9ca5c89a00ac594b9094855372ba0e57">getTextureWidth</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">TextureID</a> textureID)=0</td></tr>
+<tr class="separator:a9ca5c89a00ac594b9094855372ba0e57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9eb729ad14fee69f1f5593c5bd7b193" id="r_ae9eb729ad14fee69f1f5593c5bd7b193"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html#ae9eb729ad14fee69f1f5593c5bd7b193">getUniformLocation</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> std::string &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">uName</a>) <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> =0</td></tr>
+<tr class="memdesc:ae9eb729ad14fee69f1f5593c5bd7b193"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the uniform location is cached.  <br /></td></tr>
+<tr class="separator:ae9eb729ad14fee69f1f5593c5bd7b193"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80aecf978aeef6c0e0a01418a28ef9c4" id="r_a80aecf978aeef6c0e0a01418a28ef9c4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="struct_g_l_e_s_c_1_1_g_a_p_i_1_1_viewport.html">Viewport</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html#a80aecf978aeef6c0e0a01418a28ef9c4">getViewport</a> ()=0</td></tr>
+<tr class="separator:a80aecf978aeef6c0e0a01418a28ef9c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe353d0d74a45db60be3fbfd07485a00" id="r_abe353d0d74a45db60be3fbfd07485a00"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html#abe353d0d74a45db60be3fbfd07485a00">isBuffer</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bufferID</a>)=0</td></tr>
+<tr class="separator:abe353d0d74a45db60be3fbfd07485a00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4298f73ca0c8e47a36a5e2965744fa57" id="r_a4298f73ca0c8e47a36a5e2965744fa57"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html#a4298f73ca0c8e47a36a5e2965744fa57">isShaderProgram</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a> shaderProgram)=0</td></tr>
+<tr class="separator:a4298f73ca0c8e47a36a5e2965744fa57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2abf1e0ce6c92cb207c6eb0ed9a9cf4f" id="r_a2abf1e0ce6c92cb207c6eb0ed9a9cf4f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html#a2abf1e0ce6c92cb207c6eb0ed9a9cf4f">linkOK</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">programID</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Char</a> *message)=0</td></tr>
+<tr class="separator:a2abf1e0ce6c92cb207c6eb0ed9a9cf4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b4146809a094e131c18e7f95b31a488" id="r_a3b4146809a094e131c18e7f95b31a488"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html#a3b4146809a094e131c18e7f95b31a488">loadAndCompileShader</a> (Enums::ShaderTypes <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">shaderType</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> std::string &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">shaderSource</a>)=0</td></tr>
+<tr class="separator:a3b4146809a094e131c18e7f95b31a488"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3988feecd99b3c9afbb8cf63a4a0df72" id="r_a3988feecd99b3c9afbb8cf63a4a0df72"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html#a3988feecd99b3c9afbb8cf63a4a0df72">postWindowCreationInit</a> ()=0</td></tr>
+<tr class="separator:a3988feecd99b3c9afbb8cf63a4a0df72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e199cf37b338b245e64b054db519f0c" id="r_a7e199cf37b338b245e64b054db519f0c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html#a7e199cf37b338b245e64b054db519f0c">preWindowCreationInit</a> ()=0</td></tr>
+<tr class="separator:a7e199cf37b338b245e64b054db519f0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a671050a38a31da002c784fde476b0106" id="r_a671050a38a31da002c784fde476b0106"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="struct_g_l_e_s_c_1_1_g_a_p_i_1_1_r_g_b_a_color.html">RGBAColor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html#a671050a38a31da002c784fde476b0106">readPixelColor</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">int</a> x, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">int</a> y)=0</td></tr>
+<tr class="separator:a671050a38a31da002c784fde476b0106"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95978a883ff497c6a5c233fa0d06ce98" id="r_a95978a883ff497c6a5c233fa0d06ce98"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="struct_g_l_e_s_c_1_1_g_a_p_i_1_1_r_g_b_a_color_normalized.html">RGBAColorNormalized</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html#a95978a883ff497c6a5c233fa0d06ce98">readPixelColorNormalized</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a> x, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a> y)=0</td></tr>
+<tr class="separator:a95978a883ff497c6a5c233fa0d06ce98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8f2980002c4b1f025843f5a7a6339dd" id="r_ad8f2980002c4b1f025843f5a7a6339dd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html#ad8f2980002c4b1f025843f5a7a6339dd">setBufferData</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a> *data, Size count, Size size, Enums::BufferTypes <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bufferType</a>, Enums::BufferUsages <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bufferUsage</a>)=0</td></tr>
+<tr class="separator:ad8f2980002c4b1f025843f5a7a6339dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfbb259cfbf89c016110ba1ea7315709" id="r_adfbb259cfbf89c016110ba1ea7315709"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html#adfbb259cfbf89c016110ba1ea7315709">setDepthFunction</a> (Enums::DepthFuncs <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">depthFunction</a>)=0</td></tr>
+<tr class="separator:adfbb259cfbf89c016110ba1ea7315709"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9051ff71f84f47719bf4b118e94952ab" id="r_a9051ff71f84f47719bf4b118e94952ab"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html#a9051ff71f84f47719bf4b118e94952ab">setDynamicBufferData</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a> size, Enums::BufferTypes <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bufferType</a>)=0</td></tr>
+<tr class="separator:a9051ff71f84f47719bf4b118e94952ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d5706bcfd51eca464c9b1ad3351dd85" id="r_a7d5706bcfd51eca464c9b1ad3351dd85"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html#a7d5706bcfd51eca464c9b1ad3351dd85">setIndexBufferData</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a> *data, Size count, Enums::BufferUsages <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">buferUsage</a>)=0</td></tr>
+<tr class="separator:a7d5706bcfd51eca464c9b1ad3351dd85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aacfcdf47381e7626ffbf988961195185" id="r_aacfcdf47381e7626ffbf988961195185"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html#aacfcdf47381e7626ffbf988961195185">setTextureData</a> (Enums::Texture::Types <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">textureType</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Int</a> level, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a> width, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a> height, Enums::Texture::CPUBufferFormat <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">inputFormat</a>, Enums::Texture::BitDepth <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bitsPerPixel</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UByte</a> *<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">texelBuffer</a>)=0</td></tr>
+<tr class="separator:aacfcdf47381e7626ffbf988961195185"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2df0d3699759c01edbf00063f10d2384" id="r_a2df0d3699759c01edbf00063f10d2384"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html#a2df0d3699759c01edbf00063f10d2384">setVertexAttribDivisor</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">index</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">divisor</a>)=0</td></tr>
+<tr class="separator:a2df0d3699759c01edbf00063f10d2384"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada7396ed40b0f6e188d7d65e89319953" id="r_ada7396ed40b0f6e188d7d65e89319953"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html#ada7396ed40b0f6e188d7d65e89319953">setViewport</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Int</a> width, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Int</a> height)=0</td></tr>
+<tr class="separator:ada7396ed40b0f6e188d7d65e89319953"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58350ee1e173c35adcef01bca1eb5f7f" id="r_a58350ee1e173c35adcef01bca1eb5f7f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html#a58350ee1e173c35adcef01bca1eb5f7f">setViewport</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Int</a> x, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Int</a> y, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Int</a> width, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Int</a> height)=0</td></tr>
+<tr class="separator:a58350ee1e173c35adcef01bca1eb5f7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d92aa38d977b1b3b41b419e6d5cb391" id="r_a8d92aa38d977b1b3b41b419e6d5cb391"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html#a8d92aa38d977b1b3b41b419e6d5cb391">swapBuffers</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_Window</a> &amp;window)=0</td></tr>
+<tr class="separator:a8d92aa38d977b1b3b41b419e6d5cb391"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af73a8fa9e042d6f1ae0cda1c3fb83bc4" id="r_af73a8fa9e042d6f1ae0cda1c3fb83bc4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html#af73a8fa9e042d6f1ae0cda1c3fb83bc4">unbindBuffer</a> (Enums::BufferTypes <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bufferType</a>)=0</td></tr>
+<tr class="separator:af73a8fa9e042d6f1ae0cda1c3fb83bc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c7456085643d14c0474b59aa385996d" id="r_a5c7456085643d14c0474b59aa385996d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html#a5c7456085643d14c0474b59aa385996d">unbindTexture</a> (Enums::Texture::Types <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">textureType</a>)=0</td></tr>
+<tr class="separator:a5c7456085643d14c0474b59aa385996d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd5aba80c7eb85f7bbdceced9a17ae48" id="r_afd5aba80c7eb85f7bbdceced9a17ae48"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html#afd5aba80c7eb85f7bbdceced9a17ae48">unbindVertexArray</a> ()=0</td></tr>
+<tr class="separator:afd5aba80c7eb85f7bbdceced9a17ae48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a46006095ed03550a8a01ff4c4614b2" id="r_a9a46006095ed03550a8a01ff4c4614b2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html#a9a46006095ed03550a8a01ff4c4614b2">useShaderProgram</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a> shaderProgram)=0</td></tr>
+<tr class="separator:a9a46006095ed03550a8a01ff4c4614b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a4002cf0223c1285c007fe2cdbafa1ae0" id="r_a4002cf0223c1285c007fe2cdbafa1ae0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html#a4002cf0223c1285c007fe2cdbafa1ae0">anyTextureBound</a> ()=0</td></tr>
+<tr class="separator:a4002cf0223c1285c007fe2cdbafa1ae0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a3639f3bf1fb863ccff478823e60097" id="r_a6a3639f3bf1fb863ccff478823e60097"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html#a6a3639f3bf1fb863ccff478823e60097">isTexture</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a> textureID)=0</td></tr>
+<tr class="separator:a6a3639f3bf1fb863ccff478823e60097"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a163bade11f6b262d80b4888963441da6" id="r_a163bade11f6b262d80b4888963441da6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html#a163bade11f6b262d80b4888963441da6">isTextureBound</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a> textureID)=0</td></tr>
+<tr class="separator:a163bade11f6b262d80b4888963441da6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:a24995328f6c163af5f01d49580cb6257" id="r_a24995328f6c163af5f01d49580cb6257"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">ShaderProgramID</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html#a24995328f6c163af5f01d49580cb6257">boundShaderProgram</a> {}</td></tr>
+<tr class="separator:a24995328f6c163af5f01d49580cb6257"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0bb461efaf7d9f8a412c0df554757191" id="r_a0bb461efaf7d9f8a412c0df554757191"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">TextureID</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html#a0bb461efaf7d9f8a412c0df554757191">boundTexture</a> {}</td></tr>
+<tr class="separator:a0bb461efaf7d9f8a412c0df554757191"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e3683b492c8f9c46da9fbbc78347eab" id="r_a8e3683b492c8f9c46da9fbbc78347eab"><td class="memItemLeft" align="right" valign="top">std::set&lt; <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">TextureID</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html#a8e3683b492c8f9c46da9fbbc78347eab">textureCache</a> {}</td></tr>
+<tr class="separator:a8e3683b492c8f9c46da9fbbc78347eab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2a043baefd04150e31bb7da61152fd6" id="r_af2a043baefd04150e31bb7da61152fd6"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; std::string, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html#af2a043baefd04150e31bb7da61152fd6">uniformLocationsCache</a></td></tr>
+<tr class="separator:af2a043baefd04150e31bb7da61152fd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-static-attribs" name="pro-static-attribs"></a>
+Static Protected Attributes</h2></td></tr>
+<tr class="memitem:a0ad197a1ce607f9c166730ea752a08fa" id="r_a0ad197a1ce607f9c166730ea752a08fa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">static</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">constexpr</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html#a0ad197a1ce607f9c166730ea752a08fa">rowMajorMatrix</a> {<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">false</a>}</td></tr>
+<tr class="separator:a0ad197a1ce607f9c166730ea752a08fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock">
+<p class="definition">Definition at line <a class="el" href="_i_graphic_interface_8h_source.html#l00023">23</a> of file <a class="el" href="_i_graphic_interface_8h_source.html">IGraphicInterface.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a0eb7f47e26aa4522c1386856b10694ef" name="a0eb7f47e26aa4522c1386856b10694ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0eb7f47e26aa4522c1386856b10694ef">&#9670;&#160;</a></span>IGraphicInterface()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLESC::GAPI::IGraphicInterface::IGraphicInterface </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0832885066726787dd61ad6a86cd64a7" name="a0832885066726787dd61ad6a86cd64a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0832885066726787dd61ad6a86cd64a7">&#9670;&#160;</a></span>~IGraphicInterface()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> GLESC::GAPI::IGraphicInterface::~IGraphicInterface </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a4002cf0223c1285c007fe2cdbafa1ae0" name="a4002cf0223c1285c007fe2cdbafa1ae0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4002cf0223c1285c007fe2cdbafa1ae0">&#9670;&#160;</a></span>anyTextureBound()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Bool</a> GLESC::GAPI::IGraphicInterface::anyTextureBound </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_a_p_i.html#a20c77fabe9cc2091a97ff27c1ee4e1b8">GLESC::GAPI::OpenGLAPI</a>.</p>
+
+</div>
+</div>
+<a id="a7e396d6b1ccfdae24870d5600ecc950a" name="a7e396d6b1ccfdae24870d5600ecc950a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e396d6b1ccfdae24870d5600ecc950a">&#9670;&#160;</a></span>bindBuffer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a> GLESC::GAPI::IGraphicInterface::bindBuffer </td>
+          <td>(</td>
+          <td class="paramtype">Enums::BufferTypes&#160;</td>
+          <td class="paramname"><em>bufferType</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a>&#160;</td>
+          <td class="paramname"><em>buffer</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_a_p_i.html#a31d22e8586e3e12ac4f87235d51f2de0">GLESC::GAPI::OpenGLAPI</a>.</p>
+
+</div>
+</div>
+<a id="a0ed429015bf4cec493a3b00ae242d571" name="a0ed429015bf4cec493a3b00ae242d571"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ed429015bf4cec493a3b00ae242d571">&#9670;&#160;</a></span>bindTexture()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a> GLESC::GAPI::IGraphicInterface::bindTexture </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">TextureID</a>&#160;</td>
+          <td class="paramname"><em>textureID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Enums::Texture::Types&#160;</td>
+          <td class="paramname"><em>textureType</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_a_p_i.html#add338061fb9af187b42b2a20b2734777">GLESC::GAPI::OpenGLAPI</a>.</p>
+
+</div>
+</div>
+<a id="a015bc5f6ad1c0f6b07f28fb155cd7418" name="a015bc5f6ad1c0f6b07f28fb155cd7418"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a015bc5f6ad1c0f6b07f28fb155cd7418">&#9670;&#160;</a></span>bindTextureOnSlot()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a> GLESC::GAPI::IGraphicInterface::bindTextureOnSlot </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">TextureID</a>&#160;</td>
+          <td class="paramname"><em>textureID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Enums::Texture::Types&#160;</td>
+          <td class="paramname"><em>textureType</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a>&#160;</td>
+          <td class="paramname"><em>slot</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_a_p_i.html#a7a0b4c87b5f82a1ce46087827f7f6fbf">GLESC::GAPI::OpenGLAPI</a>.</p>
+
+</div>
+</div>
+<a id="ac1ad1ae4ace094fc1af089359000ba8d" name="ac1ad1ae4ace094fc1af089359000ba8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac1ad1ae4ace094fc1af089359000ba8d">&#9670;&#160;</a></span>bindVertexArray()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a> GLESC::GAPI::IGraphicInterface::bindVertexArray </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a>&#160;</td>
+          <td class="paramname"><em>vertexArrayID</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_a_p_i.html#ac8368a1c3088de7436c8af5a41128244">GLESC::GAPI::OpenGLAPI</a>.</p>
+
+</div>
+</div>
+<a id="a837be652789e4327c7b1c8500b168734" name="a837be652789e4327c7b1c8500b168734"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a837be652789e4327c7b1c8500b168734">&#9670;&#160;</a></span>clear()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a> GLESC::GAPI::IGraphicInterface::clear </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> std::initializer_list&lt; Enums::ClearBits &gt; &amp;&#160;</td>
+          <td class="paramname"><em>values</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_a_p_i.html#addab85e55bcb0d3ac5be95af5acb7b8c">GLESC::GAPI::OpenGLAPI</a>.</p>
+
+</div>
+</div>
+<a id="ad8b7d982a9e9d9a05cc32cefe273b822" name="ad8b7d982a9e9d9a05cc32cefe273b822"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8b7d982a9e9d9a05cc32cefe273b822">&#9670;&#160;</a></span>clearColor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a> GLESC::GAPI::IGraphicInterface::clearColor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Float</a>&#160;</td>
+          <td class="paramname"><em>r</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Float</a>&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Float</a>&#160;</td>
+          <td class="paramname"><em>b</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Float</a>&#160;</td>
+          <td class="paramname"><em>a</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_a_p_i.html#a21d4a175a19b69bd2a8c3912bcf1a070">GLESC::GAPI::OpenGLAPI</a>.</p>
+
+</div>
+</div>
+<a id="aaa6fb696e0fc4a1fd5339a527252519f" name="aaa6fb696e0fc4a1fd5339a527252519f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa6fb696e0fc4a1fd5339a527252519f">&#9670;&#160;</a></span>compilationOK()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a> GLESC::GAPI::IGraphicInterface::compilationOK </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a>&#160;</td>
+          <td class="paramname"><em>shaderID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Char</a> *&#160;</td>
+          <td class="paramname"><em>message</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_a_p_i.html#af8eb25b37244233428e68681e03094ee">GLESC::GAPI::OpenGLAPI</a>.</p>
+
+</div>
+</div>
+<a id="a57be8a80f7cb342345ca36866675ad4d" name="a57be8a80f7cb342345ca36866675ad4d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57be8a80f7cb342345ca36866675ad4d">&#9670;&#160;</a></span>createContext()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a> GLESC::GAPI::IGraphicInterface::createContext </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_Window</a> &amp;&#160;</td>
+          <td class="paramname"><em>window</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_a_p_i.html#add26500c19d6c5986b7a900a09ea4d7f">GLESC::GAPI::OpenGLAPI</a>.</p>
+
+</div>
+</div>
+<a id="a71f4c4a12859d6b627e779daf47d607c" name="a71f4c4a12859d6b627e779daf47d607c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71f4c4a12859d6b627e779daf47d607c">&#9670;&#160;</a></span>createShaderProgram()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a> GLESC::GAPI::IGraphicInterface::createShaderProgram </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a>&#160;</td>
+          <td class="paramname"><em>vertexShaderID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a>&#160;</td>
+          <td class="paramname"><em>fragmentShaderID</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_a_p_i.html#ab9afdb71ae11a55a03b56420708ad902">GLESC::GAPI::OpenGLAPI</a>.</p>
+
+</div>
+</div>
+<a id="acd64740e95df4bd308062ca4ffd8ccb7" name="acd64740e95df4bd308062ca4ffd8ccb7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd64740e95df4bd308062ca4ffd8ccb7">&#9670;&#160;</a></span>createTexture()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">TextureID</a> GLESC::GAPI::IGraphicInterface::createTexture </td>
+          <td>(</td>
+          <td class="paramtype">Enums::Texture::Types&#160;</td>
+          <td class="paramname"><em>textureType</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Enums::Texture::Filters::Min&#160;</td>
+          <td class="paramname"><em>minFilter</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Enums::Texture::Filters::Mag&#160;</td>
+          <td class="paramname"><em>magFilter</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Enums::Texture::Filters::WrapMode&#160;</td>
+          <td class="paramname"><em>wrapS</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Enums::Texture::Filters::WrapMode&#160;</td>
+          <td class="paramname"><em>wrapT</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Enums::Texture::Filters::WrapMode&#160;</td>
+          <td class="paramname"><em>wrapR</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_a_p_i.html#a13884f41efd000641a6c31a3595a3258">GLESC::GAPI::OpenGLAPI</a>.</p>
+
+</div>
+</div>
+<a id="a4d1d8f1c4ca2a7d868c7fbdc527004c9" name="a4d1d8f1c4ca2a7d868c7fbdc527004c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d1d8f1c4ca2a7d868c7fbdc527004c9">&#9670;&#160;</a></span>createVertexData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a> GLESC::GAPI::IGraphicInterface::createVertexData </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a>&#160;</td>
+          <td class="paramname"><em>vertexArray</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a>&#160;</td>
+          <td class="paramname"><em>count</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Enums::Types&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Bool</a>&#160;</td>
+          <td class="paramname"><em>isNormalized</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a>&#160;</td>
+          <td class="paramname"><em>stride</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a>&#160;</td>
+          <td class="paramname"><em>offset</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_a_p_i.html#af0b890fdc9a9ad305264b49c40f1f2f7">GLESC::GAPI::OpenGLAPI</a>.</p>
+
+</div>
+</div>
+<a id="a5fde32f826746486bdfcd042921566e8" name="a5fde32f826746486bdfcd042921566e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fde32f826746486bdfcd042921566e8">&#9670;&#160;</a></span>deleteBuffer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a> GLESC::GAPI::IGraphicInterface::deleteBuffer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a> &amp;&#160;</td>
+          <td class="paramname"><em>buffer</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_a_p_i.html#a43fe9cfe494d7dc221b03bf485434980">GLESC::GAPI::OpenGLAPI</a>.</p>
+
+</div>
+</div>
+<a id="acb40ce597c362633ad88e83f04c9048b" name="acb40ce597c362633ad88e83f04c9048b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb40ce597c362633ad88e83f04c9048b">&#9670;&#160;</a></span>deleteContext()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a> GLESC::GAPI::IGraphicInterface::deleteContext </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_a_p_i.html#a7aa7508b9b4b6db4f2ac30ce5b915e03">GLESC::GAPI::OpenGLAPI</a>.</p>
+
+</div>
+</div>
+<a id="a04f47ebc8fba12b596d432c824b4b060" name="a04f47ebc8fba12b596d432c824b4b060"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04f47ebc8fba12b596d432c824b4b060">&#9670;&#160;</a></span>deleteShader()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a> GLESC::GAPI::IGraphicInterface::deleteShader </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a>&#160;</td>
+          <td class="paramname"><em>shaderID</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_a_p_i.html#a155f2a4d432f4526bfc8bd168733b9a9">GLESC::GAPI::OpenGLAPI</a>.</p>
+
+</div>
+</div>
+<a id="a5cb148417b0f0f17dbdf648f7f30ad68" name="a5cb148417b0f0f17dbdf648f7f30ad68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5cb148417b0f0f17dbdf648f7f30ad68">&#9670;&#160;</a></span>deleteShaderProgram()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a> GLESC::GAPI::IGraphicInterface::deleteShaderProgram </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a>&#160;</td>
+          <td class="paramname"><em>shaderProgram</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_a_p_i.html#ae357c69565a8700eddd0767653059572">GLESC::GAPI::OpenGLAPI</a>.</p>
+
+</div>
+</div>
+<a id="ad92a7d30d8f3111148e61bbbafc7685f" name="ad92a7d30d8f3111148e61bbbafc7685f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad92a7d30d8f3111148e61bbbafc7685f">&#9670;&#160;</a></span>deleteTexture()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a> GLESC::GAPI::IGraphicInterface::deleteTexture </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">TextureID</a>&#160;</td>
+          <td class="paramname"><em>textureID</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_a_p_i.html#a3b1f43066f7d865700b815f4428d7f73">GLESC::GAPI::OpenGLAPI</a>.</p>
+
+</div>
+</div>
+<a id="a56707f5992e746c804b3dabdbb3d27c7" name="a56707f5992e746c804b3dabdbb3d27c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56707f5992e746c804b3dabdbb3d27c7">&#9670;&#160;</a></span>deleteVertexArray()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a> GLESC::GAPI::IGraphicInterface::deleteVertexArray </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a> &amp;&#160;</td>
+          <td class="paramname"><em>vertexArrayID</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_a_p_i.html#af6afe86f21e1c93d0369897de7c68f94">GLESC::GAPI::OpenGLAPI</a>.</p>
+
+</div>
+</div>
+<a id="ad3597cf4b174aa1d7a57bbca7303ddf2" name="ad3597cf4b174aa1d7a57bbca7303ddf2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3597cf4b174aa1d7a57bbca7303ddf2">&#9670;&#160;</a></span>destroyShaderProgram()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a> GLESC::GAPI::IGraphicInterface::destroyShaderProgram </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a>&#160;</td>
+          <td class="paramname"><em>shaderProgram</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_a_p_i.html#a698b71bb6a94c6d70a80e7ae0f41a403">GLESC::GAPI::OpenGLAPI</a>.</p>
+
+</div>
+</div>
+<a id="a3885615ffdce7825f44c9a4d197307ca" name="a3885615ffdce7825f44c9a4d197307ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3885615ffdce7825f44c9a4d197307ca">&#9670;&#160;</a></span>drawTriangles()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a> GLESC::GAPI::IGraphicInterface::drawTriangles </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a>&#160;</td>
+          <td class="paramname"><em>start</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a>&#160;</td>
+          <td class="paramname"><em>count</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_a_p_i.html#a3e097c65e0703c0934264936782c7743">GLESC::GAPI::OpenGLAPI</a>.</p>
+
+</div>
+</div>
+<a id="a050d0fc5aeb99661aa51b19b1945b474" name="a050d0fc5aeb99661aa51b19b1945b474"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a050d0fc5aeb99661aa51b19b1945b474">&#9670;&#160;</a></span>drawTrianglesIndexed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a> GLESC::GAPI::IGraphicInterface::drawTrianglesIndexed </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a>&#160;</td>
+          <td class="paramname"><em>count</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_a_p_i.html#ab103cab8d8cd4204fbc82be43a2a409a">GLESC::GAPI::OpenGLAPI</a>.</p>
+
+</div>
+</div>
+<a id="af3456923fff7ba09d3778cddc4a6dd05" name="af3456923fff7ba09d3778cddc4a6dd05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3456923fff7ba09d3778cddc4a6dd05">&#9670;&#160;</a></span>drawTrianglesIndexedInstanced()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a> GLESC::GAPI::IGraphicInterface::drawTrianglesIndexedInstanced </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a>&#160;</td>
+          <td class="paramname"><em>count</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a>&#160;</td>
+          <td class="paramname"><em>instanceCount</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_a_p_i.html#adcba97791040f2cd675b3e0d287d9568">GLESC::GAPI::OpenGLAPI</a>.</p>
+
+</div>
+</div>
+<a id="ab031fc9e40ac228c70553042b1716195" name="ab031fc9e40ac228c70553042b1716195"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab031fc9e40ac228c70553042b1716195">&#9670;&#160;</a></span>enableDepthBuffer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> GLESC::GAPI::IGraphicInterface::enableDepthBuffer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Bool</a>&#160;</td>
+          <td class="paramname"><em>enabled</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_a_p_i.html#aeb7d1ba557b67a1edfb5351d1a22a4a5">GLESC::GAPI::OpenGLAPI</a>.</p>
+
+</div>
+</div>
+<a id="adb8c7c90938ab90ccf9000c2eb7a6183" name="adb8c7c90938ab90ccf9000c2eb7a6183"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb8c7c90938ab90ccf9000c2eb7a6183">&#9670;&#160;</a></span>enableVertexData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a> GLESC::GAPI::IGraphicInterface::enableVertexData </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a>&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_a_p_i.html#ad6eb748feb1dc11dbef106cde77c6ffb">GLESC::GAPI::OpenGLAPI</a>.</p>
+
+</div>
+</div>
+<a id="ab273a8f7504bb91cbf2c748a9ca12154" name="ab273a8f7504bb91cbf2c748a9ca12154"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab273a8f7504bb91cbf2c748a9ca12154">&#9670;&#160;</a></span>genBuffers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a> GLESC::GAPI::IGraphicInterface::genBuffers </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a>&#160;</td>
+          <td class="paramname"><em>amount</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a> &amp;&#160;</td>
+          <td class="paramname"><em>bufferID</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_a_p_i.html#a9d31dcaac53ca16ec673808f3e1cb046">GLESC::GAPI::OpenGLAPI</a>.</p>
+
+</div>
+</div>
+<a id="a054735a632aa61f7fcdddbbd4d60eb06" name="a054735a632aa61f7fcdddbbd4d60eb06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a054735a632aa61f7fcdddbbd4d60eb06">&#9670;&#160;</a></span>genVertexArray()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a> GLESC::GAPI::IGraphicInterface::genVertexArray </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a> &amp;&#160;</td>
+          <td class="paramname"><em>vertexArrayID</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_a_p_i.html#a2b681cf1f82986468515d99efd37e2f3">GLESC::GAPI::OpenGLAPI</a>.</p>
+
+</div>
+</div>
+<a id="a3101c2e291cda218af0fd88a66be0764" name="a3101c2e291cda218af0fd88a66be0764"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3101c2e291cda218af0fd88a66be0764">&#9670;&#160;</a></span>getAllUniforms()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> std::vector&lt; std::string &gt; GLESC::GAPI::IGraphicInterface::getAllUniforms </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_a_p_i.html#a665c756376e7500ba71af47547b601d6">GLESC::GAPI::OpenGLAPI</a>.</p>
+
+</div>
+</div>
+<a id="ac19581b48ebd260f34309e8eb45b7882" name="ac19581b48ebd260f34309e8eb45b7882"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac19581b48ebd260f34309e8eb45b7882">&#9670;&#160;</a></span>getBufferDataF()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> std::vector&lt; <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">float</a> &gt; GLESC::GAPI::IGraphicInterface::getBufferDataF </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a>&#160;</td>
+          <td class="paramname"><em>bufferId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_a_p_i.html#af315b44e333035c370ae3ebe10c0330a">GLESC::GAPI::OpenGLAPI</a>.</p>
+
+</div>
+</div>
+<a id="a1670165d00c33ce7a2023aa52ae2bb89" name="a1670165d00c33ce7a2023aa52ae2bb89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1670165d00c33ce7a2023aa52ae2bb89">&#9670;&#160;</a></span>getBufferDataI()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> std::vector&lt; <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">int</a> &gt; GLESC::GAPI::IGraphicInterface::getBufferDataI </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a>&#160;</td>
+          <td class="paramname"><em>bufferId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_a_p_i.html#a61e7466528addf0e4a452f1123126590">GLESC::GAPI::OpenGLAPI</a>.</p>
+
+</div>
+</div>
+<a id="a5e293e4e7f9e3c8560a4cc6d5954a386" name="a5e293e4e7f9e3c8560a4cc6d5954a386"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e293e4e7f9e3c8560a4cc6d5954a386">&#9670;&#160;</a></span>getBufferDataUI()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> std::vector&lt; <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">unsigned</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">int</a> &gt; GLESC::GAPI::IGraphicInterface::getBufferDataUI </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a>&#160;</td>
+          <td class="paramname"><em>bufferId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_a_p_i.html#a3b5affe1f464afe0459e0923fa23c339">GLESC::GAPI::OpenGLAPI</a>.</p>
+
+</div>
+</div>
+<a id="aa3018059703de3a91365eb3ef548ec16" name="aa3018059703de3a91365eb3ef548ec16"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3018059703de3a91365eb3ef548ec16">&#9670;&#160;</a></span>getTextureColorFormat()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> Enums::Texture::GPUBufferFormat GLESC::GAPI::IGraphicInterface::getTextureColorFormat </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">TextureID</a>&#160;</td>
+          <td class="paramname"><em>textureID</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_a_p_i.html#aacefa7dc3b588f4ceef95531a3b71c14">GLESC::GAPI::OpenGLAPI</a>.</p>
+
+</div>
+</div>
+<a id="a473e627ea4d44bfedf24e875b50a62ae" name="a473e627ea4d44bfedf24e875b50a62ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a473e627ea4d44bfedf24e875b50a62ae">&#9670;&#160;</a></span>getTextureData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> std::vector&lt; <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UByte</a> &gt; GLESC::GAPI::IGraphicInterface::getTextureData </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">TextureID</a>&#160;</td>
+          <td class="paramname"><em>textureID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Enums::Texture::Types&#160;</td>
+          <td class="paramname"><em>textureType</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_a_p_i.html#a445008a2c7a99cac3ec1e41701ea3eb9">GLESC::GAPI::OpenGLAPI</a>.</p>
+
+</div>
+</div>
+<a id="aca254deedce89f5ef7df564654d939a6" name="aca254deedce89f5ef7df564654d939a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca254deedce89f5ef7df564654d939a6">&#9670;&#160;</a></span>getTextureHeight()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a> GLESC::GAPI::IGraphicInterface::getTextureHeight </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">TextureID</a>&#160;</td>
+          <td class="paramname"><em>textureID</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_a_p_i.html#a89bf65df371d987ebf93fd56a9fab721">GLESC::GAPI::OpenGLAPI</a>.</p>
+
+</div>
+</div>
+<a id="a9ca5c89a00ac594b9094855372ba0e57" name="a9ca5c89a00ac594b9094855372ba0e57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ca5c89a00ac594b9094855372ba0e57">&#9670;&#160;</a></span>getTextureWidth()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a> GLESC::GAPI::IGraphicInterface::getTextureWidth </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">TextureID</a>&#160;</td>
+          <td class="paramname"><em>textureID</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_a_p_i.html#aa00fea9ea279f8b0e10500b5d1bf436a">GLESC::GAPI::OpenGLAPI</a>.</p>
+
+</div>
+</div>
+<a id="ae9eb729ad14fee69f1f5593c5bd7b193" name="ae9eb729ad14fee69f1f5593c5bd7b193"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9eb729ad14fee69f1f5593c5bd7b193">&#9670;&#160;</a></span>getUniformLocation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Int</a> GLESC::GAPI::IGraphicInterface::getUniformLocation </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> std::string &amp;&#160;</td>
+          <td class="paramname"><em>uName</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Check if the uniform location is cached. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">uName</td><td>The name of the uniform </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>-1 if the uniform location is not cached, otherwise the uniform location </dd></dl>
+
+<p>Implemented in <a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_a_p_i.html#a31a5afca3eb4e7e8b42ecf1aab0b7708">GLESC::GAPI::OpenGLAPI</a>.</p>
+
+</div>
+</div>
+<a id="a80aecf978aeef6c0e0a01418a28ef9c4" name="a80aecf978aeef6c0e0a01418a28ef9c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80aecf978aeef6c0e0a01418a28ef9c4">&#9670;&#160;</a></span>getViewport()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="struct_g_l_e_s_c_1_1_g_a_p_i_1_1_viewport.html">Viewport</a> GLESC::GAPI::IGraphicInterface::getViewport </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_a_p_i.html#a3235dea674e52cef60d46c3d70de4104">GLESC::GAPI::OpenGLAPI</a>.</p>
+
+</div>
+</div>
+<a id="abe353d0d74a45db60be3fbfd07485a00" name="abe353d0d74a45db60be3fbfd07485a00"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe353d0d74a45db60be3fbfd07485a00">&#9670;&#160;</a></span>isBuffer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Bool</a> GLESC::GAPI::IGraphicInterface::isBuffer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a>&#160;</td>
+          <td class="paramname"><em>bufferID</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_a_p_i.html#a91a1a76e56646e45382c19a287be5e7f">GLESC::GAPI::OpenGLAPI</a>.</p>
+
+</div>
+</div>
+<a id="a4298f73ca0c8e47a36a5e2965744fa57" name="a4298f73ca0c8e47a36a5e2965744fa57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4298f73ca0c8e47a36a5e2965744fa57">&#9670;&#160;</a></span>isShaderProgram()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a> GLESC::GAPI::IGraphicInterface::isShaderProgram </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a>&#160;</td>
+          <td class="paramname"><em>shaderProgram</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_a_p_i.html#a6fd6342a6929708b251906d231385988">GLESC::GAPI::OpenGLAPI</a>.</p>
+
+</div>
+</div>
+<a id="a6a3639f3bf1fb863ccff478823e60097" name="a6a3639f3bf1fb863ccff478823e60097"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a3639f3bf1fb863ccff478823e60097">&#9670;&#160;</a></span>isTexture()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Bool</a> GLESC::GAPI::IGraphicInterface::isTexture </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a>&#160;</td>
+          <td class="paramname"><em>textureID</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a163bade11f6b262d80b4888963441da6" name="a163bade11f6b262d80b4888963441da6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a163bade11f6b262d80b4888963441da6">&#9670;&#160;</a></span>isTextureBound()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Bool</a> GLESC::GAPI::IGraphicInterface::isTextureBound </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a>&#160;</td>
+          <td class="paramname"><em>textureID</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2abf1e0ce6c92cb207c6eb0ed9a9cf4f" name="a2abf1e0ce6c92cb207c6eb0ed9a9cf4f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2abf1e0ce6c92cb207c6eb0ed9a9cf4f">&#9670;&#160;</a></span>linkOK()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a> GLESC::GAPI::IGraphicInterface::linkOK </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a>&#160;</td>
+          <td class="paramname"><em>programID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Char</a> *&#160;</td>
+          <td class="paramname"><em>message</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_a_p_i.html#a0700ff3c8f1f2cf7f0cee062b49924a3">GLESC::GAPI::OpenGLAPI</a>.</p>
+
+</div>
+</div>
+<a id="a3b4146809a094e131c18e7f95b31a488" name="a3b4146809a094e131c18e7f95b31a488"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b4146809a094e131c18e7f95b31a488">&#9670;&#160;</a></span>loadAndCompileShader()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a> GLESC::GAPI::IGraphicInterface::loadAndCompileShader </td>
+          <td>(</td>
+          <td class="paramtype">Enums::ShaderTypes&#160;</td>
+          <td class="paramname"><em>shaderType</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> std::string &amp;&#160;</td>
+          <td class="paramname"><em>shaderSource</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_a_p_i.html#ab102899d7c23424715063facad68b1b0">GLESC::GAPI::OpenGLAPI</a>.</p>
+
+</div>
+</div>
+<a id="a3988feecd99b3c9afbb8cf63a4a0df72" name="a3988feecd99b3c9afbb8cf63a4a0df72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3988feecd99b3c9afbb8cf63a4a0df72">&#9670;&#160;</a></span>postWindowCreationInit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a> GLESC::GAPI::IGraphicInterface::postWindowCreationInit </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_a_p_i.html#a7a055bae05a9440273e2f6b8390ed715">GLESC::GAPI::OpenGLAPI</a>.</p>
+
+</div>
+</div>
+<a id="a7e199cf37b338b245e64b054db519f0c" name="a7e199cf37b338b245e64b054db519f0c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e199cf37b338b245e64b054db519f0c">&#9670;&#160;</a></span>preWindowCreationInit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a> GLESC::GAPI::IGraphicInterface::preWindowCreationInit </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_a_p_i.html#a4e31c13322ee6fb42853c6a73763e61e">GLESC::GAPI::OpenGLAPI</a>.</p>
+
+</div>
+</div>
+<a id="a671050a38a31da002c784fde476b0106" name="a671050a38a31da002c784fde476b0106"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a671050a38a31da002c784fde476b0106">&#9670;&#160;</a></span>readPixelColor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="struct_g_l_e_s_c_1_1_g_a_p_i_1_1_r_g_b_a_color.html">RGBAColor</a> GLESC::GAPI::IGraphicInterface::readPixelColor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">int</a>&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">int</a>&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_a_p_i.html#a55f2d1e83635f2508542d798d7e87add">GLESC::GAPI::OpenGLAPI</a>.</p>
+
+</div>
+</div>
+<a id="a95978a883ff497c6a5c233fa0d06ce98" name="a95978a883ff497c6a5c233fa0d06ce98"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95978a883ff497c6a5c233fa0d06ce98">&#9670;&#160;</a></span>readPixelColorNormalized()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="struct_g_l_e_s_c_1_1_g_a_p_i_1_1_r_g_b_a_color_normalized.html">RGBAColorNormalized</a> GLESC::GAPI::IGraphicInterface::readPixelColorNormalized </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a>&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a>&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_a_p_i.html#a9061c827cf6a6a2a520d0453abcd661f">GLESC::GAPI::OpenGLAPI</a>.</p>
+
+</div>
+</div>
+<a id="ad8f2980002c4b1f025843f5a7a6339dd" name="ad8f2980002c4b1f025843f5a7a6339dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8f2980002c4b1f025843f5a7a6339dd">&#9670;&#160;</a></span>setBufferData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a> GLESC::GAPI::IGraphicInterface::setBufferData </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a> *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Size&#160;</td>
+          <td class="paramname"><em>count</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Size&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Enums::BufferTypes&#160;</td>
+          <td class="paramname"><em>bufferType</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Enums::BufferUsages&#160;</td>
+          <td class="paramname"><em>bufferUsage</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_a_p_i.html#a2cbfc8cadd5e1dca3f65df90066967ec">GLESC::GAPI::OpenGLAPI</a>.</p>
+
+</div>
+</div>
+<a id="adfbb259cfbf89c016110ba1ea7315709" name="adfbb259cfbf89c016110ba1ea7315709"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adfbb259cfbf89c016110ba1ea7315709">&#9670;&#160;</a></span>setDepthFunction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> GLESC::GAPI::IGraphicInterface::setDepthFunction </td>
+          <td>(</td>
+          <td class="paramtype">Enums::DepthFuncs&#160;</td>
+          <td class="paramname"><em>depthFunction</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_a_p_i.html#a1096d5eb6c19ae83db6bfb67dea0e44c">GLESC::GAPI::OpenGLAPI</a>.</p>
+
+</div>
+</div>
+<a id="a9051ff71f84f47719bf4b118e94952ab" name="a9051ff71f84f47719bf4b118e94952ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9051ff71f84f47719bf4b118e94952ab">&#9670;&#160;</a></span>setDynamicBufferData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a> GLESC::GAPI::IGraphicInterface::setDynamicBufferData </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a>&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Enums::BufferTypes&#160;</td>
+          <td class="paramname"><em>bufferType</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_a_p_i.html#a8391c852d7be0149583c75d7833aa5a2">GLESC::GAPI::OpenGLAPI</a>.</p>
+
+</div>
+</div>
+<a id="a7d5706bcfd51eca464c9b1ad3351dd85" name="a7d5706bcfd51eca464c9b1ad3351dd85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d5706bcfd51eca464c9b1ad3351dd85">&#9670;&#160;</a></span>setIndexBufferData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a> GLESC::GAPI::IGraphicInterface::setIndexBufferData </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a> *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Size&#160;</td>
+          <td class="paramname"><em>count</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Enums::BufferUsages&#160;</td>
+          <td class="paramname"><em>buferUsage</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_a_p_i.html#a71d8961b42dff70dd7c1297169029bcf">GLESC::GAPI::OpenGLAPI</a>.</p>
+
+</div>
+</div>
+<a id="aacfcdf47381e7626ffbf988961195185" name="aacfcdf47381e7626ffbf988961195185"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aacfcdf47381e7626ffbf988961195185">&#9670;&#160;</a></span>setTextureData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a> GLESC::GAPI::IGraphicInterface::setTextureData </td>
+          <td>(</td>
+          <td class="paramtype">Enums::Texture::Types&#160;</td>
+          <td class="paramname"><em>textureType</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Int</a>&#160;</td>
+          <td class="paramname"><em>level</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a>&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a>&#160;</td>
+          <td class="paramname"><em>height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Enums::Texture::CPUBufferFormat&#160;</td>
+          <td class="paramname"><em>inputFormat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Enums::Texture::BitDepth&#160;</td>
+          <td class="paramname"><em>bitsPerPixel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UByte</a> *&#160;</td>
+          <td class="paramname"><em>texelBuffer</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_a_p_i.html#abbc57517e7d4591c3f6e53a904b6d540">GLESC::GAPI::OpenGLAPI</a>.</p>
+
+</div>
+</div>
+<a id="a2df0d3699759c01edbf00063f10d2384" name="a2df0d3699759c01edbf00063f10d2384"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2df0d3699759c01edbf00063f10d2384">&#9670;&#160;</a></span>setVertexAttribDivisor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a> GLESC::GAPI::IGraphicInterface::setVertexAttribDivisor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a>&#160;</td>
+          <td class="paramname"><em>index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a>&#160;</td>
+          <td class="paramname"><em>divisor</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_a_p_i.html#aa1568cca99e2e9a6578f11d0cfafd585">GLESC::GAPI::OpenGLAPI</a>.</p>
+
+</div>
+</div>
+<a id="ada7396ed40b0f6e188d7d65e89319953" name="ada7396ed40b0f6e188d7d65e89319953"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada7396ed40b0f6e188d7d65e89319953">&#9670;&#160;</a></span>setViewport() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a> GLESC::GAPI::IGraphicInterface::setViewport </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Int</a>&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Int</a>&#160;</td>
+          <td class="paramname"><em>height</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_a_p_i.html#a2eb206e1a01f2c9db37d3144d804fc64">GLESC::GAPI::OpenGLAPI</a>.</p>
+
+</div>
+</div>
+<a id="a58350ee1e173c35adcef01bca1eb5f7f" name="a58350ee1e173c35adcef01bca1eb5f7f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58350ee1e173c35adcef01bca1eb5f7f">&#9670;&#160;</a></span>setViewport() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a> GLESC::GAPI::IGraphicInterface::setViewport </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Int</a>&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Int</a>&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Int</a>&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Int</a>&#160;</td>
+          <td class="paramname"><em>height</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_a_p_i.html#afeaf5791700df59c7c636ce1ead8a55b">GLESC::GAPI::OpenGLAPI</a>.</p>
+
+</div>
+</div>
+<a id="a8d92aa38d977b1b3b41b419e6d5cb391" name="a8d92aa38d977b1b3b41b419e6d5cb391"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d92aa38d977b1b3b41b419e6d5cb391">&#9670;&#160;</a></span>swapBuffers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a> GLESC::GAPI::IGraphicInterface::swapBuffers </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_Window</a> &amp;&#160;</td>
+          <td class="paramname"><em>window</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_a_p_i.html#a775c632ca1210e8ba3de71b140756d49">GLESC::GAPI::OpenGLAPI</a>.</p>
+
+</div>
+</div>
+<a id="af73a8fa9e042d6f1ae0cda1c3fb83bc4" name="af73a8fa9e042d6f1ae0cda1c3fb83bc4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af73a8fa9e042d6f1ae0cda1c3fb83bc4">&#9670;&#160;</a></span>unbindBuffer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a> GLESC::GAPI::IGraphicInterface::unbindBuffer </td>
+          <td>(</td>
+          <td class="paramtype">Enums::BufferTypes&#160;</td>
+          <td class="paramname"><em>bufferType</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_a_p_i.html#a2da45cac0a818a0f1d5765a306fb0a1f">GLESC::GAPI::OpenGLAPI</a>.</p>
+
+</div>
+</div>
+<a id="a5c7456085643d14c0474b59aa385996d" name="a5c7456085643d14c0474b59aa385996d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c7456085643d14c0474b59aa385996d">&#9670;&#160;</a></span>unbindTexture()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a> GLESC::GAPI::IGraphicInterface::unbindTexture </td>
+          <td>(</td>
+          <td class="paramtype">Enums::Texture::Types&#160;</td>
+          <td class="paramname"><em>textureType</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_a_p_i.html#ac884c64626f8cd034d41d3896cae0fd7">GLESC::GAPI::OpenGLAPI</a>.</p>
+
+</div>
+</div>
+<a id="afd5aba80c7eb85f7bbdceced9a17ae48" name="afd5aba80c7eb85f7bbdceced9a17ae48"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd5aba80c7eb85f7bbdceced9a17ae48">&#9670;&#160;</a></span>unbindVertexArray()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a> GLESC::GAPI::IGraphicInterface::unbindVertexArray </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_a_p_i.html#a4ea56a97fadf65a04a3400d7820a2289">GLESC::GAPI::OpenGLAPI</a>.</p>
+
+</div>
+</div>
+<a id="a9a46006095ed03550a8a01ff4c4614b2" name="a9a46006095ed03550a8a01ff4c4614b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a46006095ed03550a8a01ff4c4614b2">&#9670;&#160;</a></span>useShaderProgram()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">virtual</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Void</a> GLESC::GAPI::IGraphicInterface::useShaderProgram </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a>&#160;</td>
+          <td class="paramname"><em>shaderProgram</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_a_p_i.html#a86a7c82e90a019c4187eadc04ce7adca">GLESC::GAPI::OpenGLAPI</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a24995328f6c163af5f01d49580cb6257" name="a24995328f6c163af5f01d49580cb6257"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24995328f6c163af5f01d49580cb6257">&#9670;&#160;</a></span>boundShaderProgram</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">ShaderProgramID</a> GLESC::GAPI::IGraphicInterface::boundShaderProgram {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_i_graphic_interface_8h_source.html#l00203">203</a> of file <a class="el" href="_i_graphic_interface_8h_source.html">IGraphicInterface.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  203</span>{};</div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="_open_g_l_a_p_i_8h_source.html#l01006">GLESC::GAPI::OpenGLAPI::getAllUniforms()</a>, <a class="el" href="_open_g_l_a_p_i_8h_source.html#l00989">GLESC::GAPI::OpenGLAPI::getUniformLocation()</a>, <a class="el" href="_open_g_l_a_p_i_8h_source.html#l00857">GLESC::GAPI::OpenGLAPI::getUniformValue()</a>, and <a class="el" href="_open_g_l_a_p_i_8h_source.html#l00730">GLESC::GAPI::OpenGLAPI::useShaderProgram()</a>.</p>
+
+</div>
+</div>
+<a id="a0bb461efaf7d9f8a412c0df554757191" name="a0bb461efaf7d9f8a412c0df554757191"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0bb461efaf7d9f8a412c0df554757191">&#9670;&#160;</a></span>boundTexture</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">TextureID</a> GLESC::GAPI::IGraphicInterface::boundTexture {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_i_graphic_interface_8h_source.html#l00201">201</a> of file <a class="el" href="_i_graphic_interface_8h_source.html">IGraphicInterface.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  201</span>{};</div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="_open_g_l_a_p_i_8h_source.html#l01094">GLESC::GAPI::OpenGLAPI::anyTextureBound()</a>, <a class="el" href="_open_g_l_a_p_i_8h_source.html#l00418">GLESC::GAPI::OpenGLAPI::bindTexture()</a>, <a class="el" href="_open_g_l_a_p_i_8h_source.html#l01088">GLESC::GAPI::OpenGLAPI::isTextureBound()</a>, and <a class="el" href="_open_g_l_a_p_i_8h_source.html#l00439">GLESC::GAPI::OpenGLAPI::unbindTexture()</a>.</p>
+
+</div>
+</div>
+<a id="a0ad197a1ce607f9c166730ea752a08fa" name="a0ad197a1ce607f9c166730ea752a08fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ad197a1ce607f9c166730ea752a08fa">&#9670;&#160;</a></span>rowMajorMatrix</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">constexpr</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a> GLESC::GAPI::IGraphicInterface::rowMajorMatrix {<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">false</a>}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_i_graphic_interface_8h_source.html#l00205">205</a> of file <a class="el" href="_i_graphic_interface_8h_source.html">IGraphicInterface.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  205</span>{<span class="keyword">false</span>};</div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="_open_g_l_a_p_i_8h_source.html#l00857">GLESC::GAPI::OpenGLAPI::getUniformValue()</a>, and <a class="el" href="_open_g_l_a_p_i_8h_source.html#l00764">GLESC::GAPI::OpenGLAPI::setUniform()</a>.</p>
+
+</div>
+</div>
+<a id="a8e3683b492c8f9c46da9fbbc78347eab" name="a8e3683b492c8f9c46da9fbbc78347eab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e3683b492c8f9c46da9fbbc78347eab">&#9670;&#160;</a></span>textureCache</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::set&lt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">TextureID</a>&gt; GLESC::GAPI::IGraphicInterface::textureCache {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_i_graphic_interface_8h_source.html#l00197">197</a> of file <a class="el" href="_i_graphic_interface_8h_source.html">IGraphicInterface.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  197</span>{};</div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="_open_g_l_a_p_i_8h_source.html#l00217">GLESC::GAPI::OpenGLAPI::createTexture()</a>, <a class="el" href="_open_g_l_a_p_i_8h_source.html#l00270">GLESC::GAPI::OpenGLAPI::deleteTexture()</a>, and <a class="el" href="_open_g_l_a_p_i_8h_source.html#l01082">GLESC::GAPI::OpenGLAPI::isTexture()</a>.</p>
+
+</div>
+</div>
+<a id="af2a043baefd04150e31bb7da61152fd6" name="af2a043baefd04150e31bb7da61152fd6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2a043baefd04150e31bb7da61152fd6">&#9670;&#160;</a></span>uniformLocationsCache</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt;std::string, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a>&gt; GLESC::GAPI::IGraphicInterface::uniformLocationsCache</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">mutable</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_i_graphic_interface_8h_source.html#l00199">199</a> of file <a class="el" href="_i_graphic_interface_8h_source.html">IGraphicInterface.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_open_g_l_a_p_i_8h_source.html#l00989">GLESC::GAPI::OpenGLAPI::getUniformLocation()</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="_i_graphic_interface_8h_source.html">IGraphicInterface.h</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_g_l_e_s_c.html">GLESC</a></li><li class="navelem"><a class="el" href="namespace_g_l_e_s_c_1_1_g_a_p_i.html">GAPI</a></li><li class="navelem"><a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_i_graphic_interface.html">IGraphicInterface</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

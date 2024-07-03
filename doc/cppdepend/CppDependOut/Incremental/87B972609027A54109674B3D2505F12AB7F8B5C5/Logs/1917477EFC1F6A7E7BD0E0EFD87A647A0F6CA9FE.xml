@@ -1,0 +1,3 @@
+<log>
+ <error level="warning" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/input/KeyCommand.cpp" line="13" col="31" msg="constructor parameter &apos;action&apos; shadows the field &apos;action&apos; of &apos;KeyCommand&apos;" />
+</log>

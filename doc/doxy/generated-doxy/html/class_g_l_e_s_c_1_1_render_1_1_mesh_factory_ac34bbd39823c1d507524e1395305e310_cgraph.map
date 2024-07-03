@@ -1,0 +1,29 @@
+<map id="GLESC::Render::MeshFactory::sphere" name="GLESC::Render::MeshFactory::sphere">
+<area shape="rect" id="Node000001" title="Creates a sphere mesh given a number of slices, stacks, a radius and a color." alt="" coords="5,208,204,251"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_render_1_1_mesh.html#a2ad7899a1de4ee74a10854158b601a2c" title="Adds a quad to the mesh, quads are defined by 4 vertices." alt="" coords="252,29,406,72"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="121,206,175,146,211,112,250,82,257,78,260,82,253,86,215,116,179,150,125,209"/>
+<area shape="rect" id="Node000007" href="$class_g_l_e_s_c_1_1_render_1_1_mesh.html#ad2308e9137f51614b5d46416bc01deef" title="Adds a tris to the mesh, tris are defined by 3 vertices." alt="" coords="252,120,406,163"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="160,205,258,166,259,171,162,210"/>
+<area shape="rect" id="Node000008" href="$namespace_g_l_e_s_c_1_1_math.html#ac72fdbfd43b6a5770385dbfd805b687b" title="Calculates the cosine of a value." alt="" coords="263,187,395,213"/>
+<area shape="poly" id="edge11_Node000001_Node000008" title=" " alt="" coords="203,214,247,208,248,213,204,219"/>
+<area shape="rect" id="Node000009" href="$class_g_l_e_s_c_1_1_render_1_1_mesh.html#ade8b0c4ff0b02d0484e7d0877880e918" title=" " alt="" coords="252,237,406,280"/>
+<area shape="poly" id="edge12_Node000001_Node000009" title=" " alt="" coords="204,240,237,244,236,249,203,245"/>
+<area shape="rect" id="Node000011" href="$namespace_g_l_e_s_c_1_1_math.html#aa21a1aeaaa25e280f941221e165dffa4" title="Calculates the sine of a value." alt="" coords="265,304,393,331"/>
+<area shape="poly" id="edge14_Node000001_Node000011" title=" " alt="" coords="155,249,253,290,270,296,269,301,251,294,153,254"/>
+<area shape="rect" id="Node000012" href="$class_g_l_e_s_c_1_1_render_1_1_mesh.html#a9d11210ab41990859c0885c1e47603d9" title="Starts the building of the mesh." alt="" coords="252,355,406,397"/>
+<area shape="poly" id="edge15_Node000001_Node000012" title=" " alt="" coords="131,249,186,294,253,340,261,345,259,350,250,345,182,298,128,253"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="286,29,284,19,292,10,307,5,329,3,353,5,367,11,365,16,352,10,329,8,308,10,295,15,290,21,291,28"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_render_1_1_mesh.html#a7d4ee0ef7799514b465c2e4f1e6806dc" title="Adds a vertex to the mesh." alt="" coords="481,108,635,151"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="394,70,480,100,478,105,392,75"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_render_1_1_mesh.html#a78f09fa1a41f6e3ec496aae31c671e92" title="Helper function to automatically calculate the normal of a face with 3 points." alt="" coords="481,36,635,79"/>
+<area shape="poly" id="edge4_Node000002_Node000004" title=" " alt="" coords="406,50,466,52,466,57,406,56"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#ac4fe912b3001e4fad684c2cd4c56cf83" title="Calculates the cross product of two vectors." alt="" coords="710,36,859,79"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="636,55,695,55,695,60,636,60"/>
+<area shape="rect" id="Node000006" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#ab041da9d339dfe80b80c6f0bdf5dbfd4" title="Computes the cross product of two vectors." alt="" coords="907,36,1117,79"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="859,55,891,55,891,60,859,60"/>
+<area shape="poly" id="edge9_Node000007_Node000003" title=" " alt="" coords="406,135,466,131,466,137,406,140"/>
+<area shape="poly" id="edge10_Node000007_Node000004" title=" " alt="" coords="388,117,483,82,485,87,390,122"/>
+<area shape="poly" id="edge8_Node000007_Node000007" title=" " alt="" coords="286,120,284,110,292,101,307,95,329,93,353,96,367,102,365,107,352,101,329,99,308,101,295,105,290,111,291,119"/>
+<area shape="rect" id="Node000010" href="$class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#a61c5ed29689b97d66a06eaf16b8dfc36" title="Updates the bounding volume to fit the points it encloses." alt="" coords="454,237,662,280"/>
+<area shape="poly" id="edge13_Node000009_Node000010" title=" " alt="" coords="406,256,438,256,438,261,406,261"/>
+</map>

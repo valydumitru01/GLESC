@@ -1,0 +1,5 @@
+<map id="GLESC::Transform::Transform::getScaleMatrix" name="GLESC::Transform::Transform::getScaleMatrix">
+<area shape="rect" id="Node000001" title="Returns the scale matrix of the transform." alt="" coords="5,5,201,48"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_matrix.html#a05b24f48b170ee0bdec362e99532fefd" title="Creates a scale matrix from the given scale vector." alt="" coords="249,5,395,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="201,24,233,24,233,29,201,29"/>
+</map>

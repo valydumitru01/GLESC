@@ -1,0 +1,11 @@
+<log>
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include\engine/core/low-level-renderer/graphic-api/concrete-apis/opengl/OpenGLAPI.h" line="13" col="10" msg="&apos;GL/glew.h&apos; file not found" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include\engine/core/low-level-renderer/graphic-api/GapiEnums.h" line="26" col="10" msg="&apos;GL/glew.h&apos; file not found" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include\engine/core/low-level-renderer/graphic-api/IGraphicInterface.h" line="15" col="10" msg="&apos;SDL2/SDL.h&apos; file not found" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include\engine/core/low-level-renderer/graphic-api\GapiTypes.h" line="16" col="10" msg="&apos;GL/glew.h&apos; file not found" />
+ <error level="warning" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include\engine/core/math/algebra/vector/VectorAlgorithms.h" line="362" col="20" msg="template parameter &apos;Type&apos; not found in the template declaration" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include\engine/core/low-level-renderer/graphic-api/concrete-apis/opengl/debugger/OpenGLDebugger.h" line="15" col="10" msg="&apos;GL/glew.h&apos; file not found" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include\engine/core/window/WindowManager.h" line="14" col="10" msg="&apos;SDL2/SDL.h&apos; file not found" />
+ <error level="warning" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/ecs/frontend/system/systems/SunSystem.cpp" line="17" col="65" msg="constructor parameter &apos;renderer&apos; shadows the field &apos;renderer&apos; of &apos;SunSystem&apos;" />
+ <error level="warning" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/ecs/frontend/system/systems/SunSystem.cpp" line="21" col="6" msg="extra &apos;;&apos; outside of a function is incompatible with C++98" />
+</log>

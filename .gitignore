@@ -1,0 +1,20 @@
+# Ignore all files in the .vscode directory
+.vscode/
+
+.idea/
+
+# Except c_cpp_properties.json
+!.vscode/c_cpp_properties.json
+
+# Ingore executable
+bin/**
+/build/
+
+# Default ignored files
+/shelf/
+/workspace.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml

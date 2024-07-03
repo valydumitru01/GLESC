@@ -1,0 +1,12 @@
+<map id="GLESC::Math::VectorAlgorithms::project" name="GLESC::Math::VectorAlgorithms::project">
+<area shape="rect" id="Node000001" title="Projects a vector onto another vector." alt="" coords="5,64,216,107"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#ae45bcff9b53fb60d513c53823418d97b" title="Computes the dot product of two vectors." alt="" coords="522,5,732,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="201,61,263,49,388,36,506,28,507,33,389,41,264,55,202,66"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#a96acaa670e780132720dd3ea6a6cdf97" title="Computes the length of a vector." alt="" coords="264,64,474,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="216,83,248,83,248,88,216,88"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#ae39d3eeb6fa078e77bb563ebc318e43a" title="Multiplies a vector by a scalar." alt="" coords="264,131,474,173"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="197,105,269,124,268,129,195,110"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="465,61,514,49,516,55,466,66"/>
+<area shape="rect" id="Node000004" href="$namespace_g_l_e_s_c_1_1_math.html#ab2316a2512c43c18e29709201adf3fe5" title="Calculates the square root of a value." alt="" coords="561,72,693,99"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="475,83,545,83,545,88,475,88"/>
+</map>

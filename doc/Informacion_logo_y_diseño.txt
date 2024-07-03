@@ -1,0 +1,5 @@
+Fuente: Imprint MT Shadow
+Colores
+	verde 
+	RGB: 16 145 23
+	HEX: #109117

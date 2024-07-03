@@ -1,0 +1,15 @@
+<map id="FileLogger" name="FileLogger">
+<area shape="rect" id="Node000001" title=" " alt="" coords="48,917,191,1307"/>
+<area shape="rect" id="Node000002" href="$class_i_logger.html" title=" " alt="" coords="5,507,148,853"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="98,868,103,917,97,918,93,868"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="172,645,261,715"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="212,715,170,901,164,900,207,714"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="153,373,280,459"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="219,473,219,646,214,646,214,473"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="155,240,279,325"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="219,340,219,373,214,373,214,340"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="144,123,289,192"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="219,207,219,240,214,240,214,207"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="171,5,262,75"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="219,90,219,123,214,123,214,90"/>
+</map>

@@ -1,0 +1,310 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="Doxygen Awesome" />
+<meta property="og:image" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+<meta property="og:description" content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
+<meta property="og:url" content="https://jothepro.github.io/doxygen-awesome-css/" />
+<!-- END opengraph metadata -->
+<!-- BEGIN twitter metadata -->
+<meta name="twitter:image:src" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+<meta name="twitter:title" content="Doxygen Awesome" />
+<meta name="twitter:description" content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
+<!-- END twitter metadata -->
+<title>GLESC: HUDManager.cpp Source File</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.drawio.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/ -->
+<a href="https://github.com/jothepro/doxygen-awesome-css" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="GLESC_logo_white_background.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">GLESC
+   &#160;<span id="projectnumber">1</span>
+   </div>
+   <div id="projectbrief">Game engine using ECS architecture</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('_h_u_d_manager_8cpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">HUDManager.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_h_u_d_manager_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="_h_u_d_manager_8h.html">engine/subsystems/hud/HUDManager.h</a>&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;imgui/imgui.h&gt;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;imgui/imgui_impl_sdl2.h&gt;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="_config_8h.html">engine/Config.h</a>&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#ifdef GLESC_OPENGL</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &lt;imgui/imgui_impl_opengl3.h&gt;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &quot;<a class="code" href="_h_u_d_look_and_feel_8h.html">engine/subsystems/hud/HudLookAndFeel.h</a>&quot;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &quot;<a class="code" href="_gapi_8h.html">engine/core/low-level-renderer/graphic-api/Gapi.h</a>&quot;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keyword">using namespace </span><a class="code hl_namespace" href="namespace_g_l_e_s_c_1_1_h_u_d.html">GLESC::HUD</a>;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="foldopen" id="foldopen00024" data-start="{" data-end="}">
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#a025f565a5346b1cfdd80ce5fd79f8046">   24</a></span><a class="code hl_function" href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#a025f565a5346b1cfdd80ce5fd79f8046">HUDManager::HUDManager</a>(SDL_Window&amp; window) :</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    window(window) {</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <a class="code hl_function" href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#a4ff8b120db6eecaaa5e619b1477f58ed">initImGUI</a>();</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>}</div>
+</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="foldopen" id="foldopen00029" data-start="{" data-end="}">
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#a68c698b76a407cf0e7027b710e584285">   29</a></span><a class="code hl_function" href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#a68c698b76a407cf0e7027b710e584285">HUDManager::~HUDManager</a>() {</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#ifdef GLESC_OPENGL</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">ImGui_ImplOpenGL3_Shutdown</a>();</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">ImGui_ImplSDL2_Shutdown</a>();</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    ImGui::DestroyContext();</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>}</div>
+</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="foldopen" id="foldopen00037" data-start="{" data-end="}">
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#a3f8e206d3637391fafafe1126d9be92c">   37</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#a3f8e206d3637391fafafe1126d9be92c">HUDManager::processInput</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_Event</a>&amp; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">event</a>) {</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">ImGui_ImplSDL2_ProcessEvent</a>(&amp;<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">event</a>);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>}</div>
+</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="foldopen" id="foldopen00041" data-start="{" data-end="}">
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#a60c2c12e1a75cd3ad8c768607a997fa7">   41</a></span><a class="code hl_typedef" href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#a8ff436f2c9a38eff254ea1ab30934731">HUDManager::WindowID</a> <a class="code hl_function" href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#a60c2c12e1a75cd3ad8c768607a997fa7">HUDManager::addWindow</a>(<a class="code hl_class" href="class_g_l_e_s_c_1_1_in_game_window.html">GLESC::InGameWindow</a>&amp; window) {</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <a class="code hl_typedef" href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#a8ff436f2c9a38eff254ea1ab30934731">WindowID</a> <span class="keywordtype">id</span> = <a class="code hl_variable" href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#aa8ec06d14a2f3688d59edd2dd1a4ceec">nextWindowID</a>;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#ac24ad03e69ed2aff9bdf5e09360682a7">windows</a>.push_back(&amp;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#a6e9b5e5d9ee58ac787f982b3060b9f4f">window</a>);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#a8032f2c9f568bc1654fdc6e582a9d3f7">windowIDs</a>.insert(std::make_pair(<span class="keywordtype">id</span>, &amp;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#a6e9b5e5d9ee58ac787f982b3060b9f4f">window</a>));</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#aa8ec06d14a2f3688d59edd2dd1a4ceec">nextWindowID</a>++;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">id</a>;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>}</div>
+</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="foldopen" id="foldopen00049" data-start="{" data-end="}">
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#a02d6576e792db56d04be2431330e1c8c">   49</a></span><a class="code hl_class" href="class_g_l_e_s_c_1_1_in_game_window.html">GLESC::InGameWindow</a>&amp; <a class="code hl_function" href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#a02d6576e792db56d04be2431330e1c8c">HUDManager::getWindow</a>(<a class="code hl_typedef" href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#a8ff436f2c9a38eff254ea1ab30934731">WindowID</a> <span class="keywordtype">id</span>) {</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keywordflow">return</span> *<a class="code hl_variable" href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#a8032f2c9f568bc1654fdc6e582a9d3f7">windowIDs</a>[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">id</a>];</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>}</div>
+</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="foldopen" id="foldopen00053" data-start="{" data-end="}">
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#a910cc23f51c27ada6d345577c8430edd">   53</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#a910cc23f51c27ada6d345577c8430edd">HUDManager::removeWindow</a>(<a class="code hl_typedef" href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#a8ff436f2c9a38eff254ea1ab30934731">WindowID</a> <span class="keywordtype">id</span>) {</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keyword">auto</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">it</a> = <a class="code hl_variable" href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#a8032f2c9f568bc1654fdc6e582a9d3f7">windowIDs</a>.find(<span class="keywordtype">id</span>);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">it</a> != <a class="code hl_variable" href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#a8032f2c9f568bc1654fdc6e582a9d3f7">windowIDs</a>.end()) {</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <span class="comment">// Remove from vector</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <span class="keyword">auto</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">win_it</a> = std::find(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#ac24ad03e69ed2aff9bdf5e09360682a7">windows</a>.begin(), <a class="code hl_variable" href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#ac24ad03e69ed2aff9bdf5e09360682a7">windows</a>.end(), <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">it</a>-&gt;second);</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">win_it</a> != <a class="code hl_variable" href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#ac24ad03e69ed2aff9bdf5e09360682a7">windows</a>.end()) {</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>            <a class="code hl_variable" href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#ac24ad03e69ed2aff9bdf5e09360682a7">windows</a>.erase(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">win_it</a>);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        }</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        <span class="comment">// Remove from map</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <a class="code hl_variable" href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#a8032f2c9f568bc1654fdc6e582a9d3f7">windowIDs</a>.erase(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">it</a>);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<span class="keyword">false</span>, <span class="stringliteral">&quot;Window ID not found&quot;</span>);</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    }</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>}</div>
+</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="foldopen" id="foldopen00068" data-start="{" data-end="}">
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#a9efa5a417d03ac25447e3e033388f8bf">   68</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#a9efa5a417d03ac25447e3e033388f8bf">HUDManager::update</a>() {</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; <a class="code hl_variable" href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#a6e9b5e5d9ee58ac787f982b3060b9f4f">window</a> : <a class="code hl_variable" href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#ac24ad03e69ed2aff9bdf5e09360682a7">windows</a>) {</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        <a class="code hl_variable" href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#a6e9b5e5d9ee58ac787f982b3060b9f4f">window</a>-&gt;update();</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    }</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>}</div>
+</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="foldopen" id="foldopen00074" data-start="{" data-end="}">
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#ae33f9835adbdd3c1bc2e3e807ff66875">   74</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#ae33f9835adbdd3c1bc2e3e807ff66875">HUDManager::render</a>(<span class="keywordtype">double</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">timeOfFrame</a>) {</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <a class="code hl_function" href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#a17adbf707d0b959af934aabfe25bb5d6">newFrame</a>();</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; <a class="code hl_variable" href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#a6e9b5e5d9ee58ac787f982b3060b9f4f">window</a> : <a class="code hl_variable" href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#ac24ad03e69ed2aff9bdf5e09360682a7">windows</a>) {</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        <a class="code hl_variable" href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#a6e9b5e5d9ee58ac787f982b3060b9f4f">window</a>-&gt;render(<span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">timeOfFrame</a>));</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    }</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <a class="code hl_function" href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#af4da433fa69ed6bb4eb7c8a4b3ca27bc">endFrame</a>();</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>}</div>
+</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="foldopen" id="foldopen00082" data-start="{" data-end="}">
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#a17adbf707d0b959af934aabfe25bb5d6">   82</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#a17adbf707d0b959af934aabfe25bb5d6">HUDManager::newFrame</a>() {</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="preprocessor">#ifdef GLESC_OPENGL</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">ImGui_ImplOpenGL3_NewFrame</a>();</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">ImGui_ImplSDL2_NewFrame</a>(&amp;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#a6e9b5e5d9ee58ac787f982b3060b9f4f">window</a>);</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    ImGui::NewFrame();</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>}</div>
+</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="foldopen" id="foldopen00090" data-start="{" data-end="}">
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#af4da433fa69ed6bb4eb7c8a4b3ca27bc">   90</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#af4da433fa69ed6bb4eb7c8a4b3ca27bc">HUDManager::endFrame</a>() {</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    ImGui::EndFrame();</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    ImGui::Render();</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="preprocessor">#ifdef GLESC_OPENGL</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">ImGui_ImplOpenGL3_RenderDrawData</a>(ImGui::GetDrawData());</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>}</div>
+</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="foldopen" id="foldopen00099" data-start="{" data-end="}">
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno"><a class="line" href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#a4ff8b120db6eecaaa5e619b1477f58ed">   99</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#a4ff8b120db6eecaaa5e619b1477f58ed">HUDManager::initImGUI</a>() {</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <span class="comment">// Setup Dear ImGui context</span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">IMGUI_CHECKVERSION</a>();</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    ImGui::CreateContext();</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    ImGui::GetIO().ConfigFlags |= <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">ImGuiConfigFlags_NavEnableKeyboard</a>;</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    std::string <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">glslCoreStr</a> = <a class="code hl_define" href="_config_8h.html#afcd175fd461618725ccc3a7650c64199">GLESC_GLSL_CORE_PROFILE</a> ? <span class="stringliteral">&quot;core&quot;</span> : <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    std::string <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">glslVersionStr</a> = <span class="stringliteral">&quot;#version &quot;</span> + std::to_string(<a class="code hl_define" href="_config_8h.html#a59cb189f5c419f1bb1b46441398fdb0f">GLESC_GL_MAJOR_VERSION</a>) + <span class="stringliteral">&quot;&quot;</span> +</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        std::to_string(<a class="code hl_define" href="_config_8h.html#a95566ab199d3e0461d74136b4aeffb15">GLESC_GL_MINOR_VERSION</a>) + <span class="stringliteral">&quot;0 &quot;</span> + <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">glslCoreStr</a> + <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="preprocessor">#ifdef GLESC_OPENGL</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="comment">// Setup Platform/Renderer bindings</span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">ImGui_ImplSDL2_InitForOpenGL</a>(&amp;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#a6e9b5e5d9ee58ac787f982b3060b9f4f">window</a>, <a class="code hl_function" href="_gapi_8h.html#ab7514d88e65656ffa15ca33256518fe5">getGAPI</a>().getContext());</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">ImGui_ImplOpenGL3_Init</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">glslVersionStr</a>.c_str());</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <a class="code hl_function" href="class_hud_look_and_feel.html#a0ee2f510aa90c638dbac3b132d5da122">HudLookAndFeel::get</a>().<a class="code hl_function" href="class_hud_look_and_feel.html#a35c49a50988ddee5c65494d503b1ee0f">setDefaultFont</a>(<span class="stringliteral">&quot;PixelIntv&quot;</span>);</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <a class="code hl_function" href="class_hud_look_and_feel.html#a0ee2f510aa90c638dbac3b132d5da122">HudLookAndFeel::get</a>().<a class="code hl_function" href="class_hud_look_and_feel.html#aa631dd52d2ffbad2778d5813e357449e">setDefaultFontSize</a>(20);</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    <span class="comment">// This must be called after all the inits</span></div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">i</a> = 5; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">i</a> &lt; 40; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">i</a>++) {</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        <a class="code hl_function" href="class_hud_look_and_feel.html#a0ee2f510aa90c638dbac3b132d5da122">HudLookAndFeel::get</a>().<a class="code hl_function" href="class_hud_look_and_feel.html#a1466001b2e5e8963e55ff4be372c3e0e">addFont</a>(<a class="code hl_function" href="class_hud_look_and_feel.html#a0ee2f510aa90c638dbac3b132d5da122">HudLookAndFeel::get</a>().getDefaultFont(), <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">i</a>);</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    }</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    <a class="code hl_function" href="class_hud_look_and_feel.html#a0ee2f510aa90c638dbac3b132d5da122">HudLookAndFeel::get</a>().<a class="code hl_function" href="class_hud_look_and_feel.html#ae1d994a42a7915cfa11a72a664dabc79">apply</a>();</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>}</div>
+</div>
+<div class="ttc" id="a_asserts_8h_html_a7c8157e57600c968442fc2ee80245d5a"><div class="ttname"><a href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a></div><div class="ttdeci">#define D_ASSERT_TRUE(condition, message)</div><div class="ttdef"><b>Definition</b> <a href="_asserts_8h_source.html#l00021">Asserts.h:21</a></div></div>
+<div class="ttc" id="a_config_8h_html"><div class="ttname"><a href="_config_8h.html">Config.h</a></div><div class="ttdoc">This file contains the configuration of the engine.</div></div>
+<div class="ttc" id="a_config_8h_html_a59cb189f5c419f1bb1b46441398fdb0f"><div class="ttname"><a href="_config_8h.html#a59cb189f5c419f1bb1b46441398fdb0f">GLESC_GL_MAJOR_VERSION</a></div><div class="ttdeci">#define GLESC_GL_MAJOR_VERSION</div><div class="ttdef"><b>Definition</b> <a href="_config_8h_source.html#l00067">Config.h:67</a></div></div>
+<div class="ttc" id="a_config_8h_html_a95566ab199d3e0461d74136b4aeffb15"><div class="ttname"><a href="_config_8h.html#a95566ab199d3e0461d74136b4aeffb15">GLESC_GL_MINOR_VERSION</a></div><div class="ttdeci">#define GLESC_GL_MINOR_VERSION</div><div class="ttdef"><b>Definition</b> <a href="_config_8h_source.html#l00068">Config.h:68</a></div></div>
+<div class="ttc" id="a_config_8h_html_afcd175fd461618725ccc3a7650c64199"><div class="ttname"><a href="_config_8h.html#afcd175fd461618725ccc3a7650c64199">GLESC_GLSL_CORE_PROFILE</a></div><div class="ttdeci">#define GLESC_GLSL_CORE_PROFILE</div><div class="ttdef"><b>Definition</b> <a href="_config_8h_source.html#l00089">Config.h:89</a></div></div>
+<div class="ttc" id="a_gapi_8h_html"><div class="ttname"><a href="_gapi_8h.html">Gapi.h</a></div><div class="ttdoc">Abstracts the graphic API used by the engine.</div></div>
+<div class="ttc" id="a_gapi_8h_html_ab7514d88e65656ffa15ca33256518fe5"><div class="ttname"><a href="_gapi_8h.html#ab7514d88e65656ffa15ca33256518fe5">getGAPI</a></div><div class="ttdeci">auto &amp; getGAPI()</div><div class="ttdoc">Returns the graphic API used by the engine.</div><div class="ttdef"><b>Definition</b> <a href="_gapi_8h_source.html#l00028">Gapi.h:28</a></div></div>
+<div class="ttc" id="a_h_u_d_look_and_feel_8h_html"><div class="ttname"><a href="_h_u_d_look_and_feel_8h.html">HUDLookAndFeel.h</a></div><div class="ttdoc">Class that encapsulates the look and feel of the HUD.</div></div>
+<div class="ttc" id="a_h_u_d_manager_8h_html"><div class="ttname"><a href="_h_u_d_manager_8h.html">HUDManager.h</a></div><div class="ttdoc">@TODO Add description of this file if needed</div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager_html_a025f565a5346b1cfdd80ce5fd79f8046"><div class="ttname"><a href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#a025f565a5346b1cfdd80ce5fd79f8046">GLESC::HUD::HUDManager::HUDManager</a></div><div class="ttdeci">HUDManager(SDL_Window &amp;window)</div><div class="ttdoc">Constructor for the HUDManager.</div><div class="ttdef"><b>Definition</b> <a href="_h_u_d_manager_8cpp_source.html#l00024">HUDManager.cpp:24</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager_html_a02d6576e792db56d04be2431330e1c8c"><div class="ttname"><a href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#a02d6576e792db56d04be2431330e1c8c">GLESC::HUD::HUDManager::getWindow</a></div><div class="ttdeci">InGameWindow &amp; getWindow(WindowID id)</div><div class="ttdoc">Get a window by its ID.</div><div class="ttdef"><b>Definition</b> <a href="_h_u_d_manager_8cpp_source.html#l00049">HUDManager.cpp:49</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager_html_a17adbf707d0b959af934aabfe25bb5d6"><div class="ttname"><a href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#a17adbf707d0b959af934aabfe25bb5d6">GLESC::HUD::HUDManager::newFrame</a></div><div class="ttdeci">void newFrame()</div><div class="ttdef"><b>Definition</b> <a href="_h_u_d_manager_8cpp_source.html#l00082">HUDManager.cpp:82</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager_html_a3f8e206d3637391fafafe1126d9be92c"><div class="ttname"><a href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#a3f8e206d3637391fafafe1126d9be92c">GLESC::HUD::HUDManager::processInput</a></div><div class="ttdeci">void processInput(SDL_Event &amp;event)</div><div class="ttdoc">Process input for the HUD.</div><div class="ttdef"><b>Definition</b> <a href="_h_u_d_manager_8cpp_source.html#l00037">HUDManager.cpp:37</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager_html_a4ff8b120db6eecaaa5e619b1477f58ed"><div class="ttname"><a href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#a4ff8b120db6eecaaa5e619b1477f58ed">GLESC::HUD::HUDManager::initImGUI</a></div><div class="ttdeci">void initImGUI()</div><div class="ttdef"><b>Definition</b> <a href="_h_u_d_manager_8cpp_source.html#l00099">HUDManager.cpp:99</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager_html_a60c2c12e1a75cd3ad8c768607a997fa7"><div class="ttname"><a href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#a60c2c12e1a75cd3ad8c768607a997fa7">GLESC::HUD::HUDManager::addWindow</a></div><div class="ttdeci">WindowID addWindow(InGameWindow &amp;window)</div><div class="ttdoc">Add a new window to the HUD.</div><div class="ttdef"><b>Definition</b> <a href="_h_u_d_manager_8cpp_source.html#l00041">HUDManager.cpp:41</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager_html_a68c698b76a407cf0e7027b710e584285"><div class="ttname"><a href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#a68c698b76a407cf0e7027b710e584285">GLESC::HUD::HUDManager::~HUDManager</a></div><div class="ttdeci">~HUDManager()</div><div class="ttdoc">Destructor for the HUDManager.</div><div class="ttdef"><b>Definition</b> <a href="_h_u_d_manager_8cpp_source.html#l00029">HUDManager.cpp:29</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager_html_a6e9b5e5d9ee58ac787f982b3060b9f4f"><div class="ttname"><a href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#a6e9b5e5d9ee58ac787f982b3060b9f4f">GLESC::HUD::HUDManager::window</a></div><div class="ttdeci">SDL_Window &amp; window</div><div class="ttdef"><b>Definition</b> <a href="_h_u_d_manager_8h_source.html#l00083">HUDManager.h:83</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager_html_a8032f2c9f568bc1654fdc6e582a9d3f7"><div class="ttname"><a href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#a8032f2c9f568bc1654fdc6e582a9d3f7">GLESC::HUD::HUDManager::windowIDs</a></div><div class="ttdeci">std::unordered_map&lt; WindowID, GLESC::InGameWindow * &gt; windowIDs</div><div class="ttdef"><b>Definition</b> <a href="_h_u_d_manager_8h_source.html#l00086">HUDManager.h:86</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager_html_a8ff436f2c9a38eff254ea1ab30934731"><div class="ttname"><a href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#a8ff436f2c9a38eff254ea1ab30934731">GLESC::HUD::HUDManager::WindowID</a></div><div class="ttdeci">int WindowID</div><div class="ttdef"><b>Definition</b> <a href="_h_u_d_manager_8h_source.html#l00025">HUDManager.h:25</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager_html_a910cc23f51c27ada6d345577c8430edd"><div class="ttname"><a href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#a910cc23f51c27ada6d345577c8430edd">GLESC::HUD::HUDManager::removeWindow</a></div><div class="ttdeci">void removeWindow(WindowID id)</div><div class="ttdef"><b>Definition</b> <a href="_h_u_d_manager_8cpp_source.html#l00053">HUDManager.cpp:53</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager_html_a9efa5a417d03ac25447e3e033388f8bf"><div class="ttname"><a href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#a9efa5a417d03ac25447e3e033388f8bf">GLESC::HUD::HUDManager::update</a></div><div class="ttdeci">void update()</div><div class="ttdoc">Update the HUD.</div><div class="ttdef"><b>Definition</b> <a href="_h_u_d_manager_8cpp_source.html#l00068">HUDManager.cpp:68</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager_html_aa8ec06d14a2f3688d59edd2dd1a4ceec"><div class="ttname"><a href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#aa8ec06d14a2f3688d59edd2dd1a4ceec">GLESC::HUD::HUDManager::nextWindowID</a></div><div class="ttdeci">WindowID nextWindowID</div><div class="ttdef"><b>Definition</b> <a href="_h_u_d_manager_8h_source.html#l00084">HUDManager.h:84</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager_html_ac24ad03e69ed2aff9bdf5e09360682a7"><div class="ttname"><a href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#ac24ad03e69ed2aff9bdf5e09360682a7">GLESC::HUD::HUDManager::windows</a></div><div class="ttdeci">std::vector&lt; GLESC::InGameWindow * &gt; windows</div><div class="ttdef"><b>Definition</b> <a href="_h_u_d_manager_8h_source.html#l00085">HUDManager.h:85</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager_html_ae33f9835adbdd3c1bc2e3e807ff66875"><div class="ttname"><a href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#ae33f9835adbdd3c1bc2e3e807ff66875">GLESC::HUD::HUDManager::render</a></div><div class="ttdeci">void render(double timeOfFrame)</div><div class="ttdoc">Render the HUD.</div><div class="ttdef"><b>Definition</b> <a href="_h_u_d_manager_8cpp_source.html#l00074">HUDManager.cpp:74</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager_html_af4da433fa69ed6bb4eb7c8a4b3ca27bc"><div class="ttname"><a href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#af4da433fa69ed6bb4eb7c8a4b3ca27bc">GLESC::HUD::HUDManager::endFrame</a></div><div class="ttdeci">void endFrame()</div><div class="ttdef"><b>Definition</b> <a href="_h_u_d_manager_8cpp_source.html#l00090">HUDManager.cpp:90</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_in_game_window_html"><div class="ttname"><a href="class_g_l_e_s_c_1_1_in_game_window.html">GLESC::InGameWindow</a></div><div class="ttdoc">Class to encapsulate the logic of an in-game window.</div><div class="ttdef"><b>Definition</b> <a href="_in_game_window_8h_source.html#l00047">InGameWindow.h:47</a></div></div>
+<div class="ttc" id="aclass_hud_look_and_feel_html_a0ee2f510aa90c638dbac3b132d5da122"><div class="ttname"><a href="class_hud_look_and_feel.html#a0ee2f510aa90c638dbac3b132d5da122">HudLookAndFeel::get</a></div><div class="ttdeci">static HudLookAndFeel &amp; get()</div><div class="ttdoc">Returns the singleton instance of the class.</div><div class="ttdef"><b>Definition</b> <a href="_h_u_d_look_and_feel_8h_source.html#l00027">HUDLookAndFeel.h:27</a></div></div>
+<div class="ttc" id="aclass_hud_look_and_feel_html_a1466001b2e5e8963e55ff4be372c3e0e"><div class="ttname"><a href="class_hud_look_and_feel.html#a1466001b2e5e8963e55ff4be372c3e0e">HudLookAndFeel::addFont</a></div><div class="ttdeci">void addFont(const std::string &amp;fileName, FontSize size)</div><div class="ttdoc">Adds a font from a file with a size.</div><div class="ttdef"><b>Definition</b> <a href="_h_u_d_look_and_feel_8cpp_source.html#l00021">HUDLookAndFeel.cpp:21</a></div></div>
+<div class="ttc" id="aclass_hud_look_and_feel_html_a35c49a50988ddee5c65494d503b1ee0f"><div class="ttname"><a href="class_hud_look_and_feel.html#a35c49a50988ddee5c65494d503b1ee0f">HudLookAndFeel::setDefaultFont</a></div><div class="ttdeci">void setDefaultFont(const std::string &amp;fileName)</div><div class="ttdoc">Sets the default font.</div><div class="ttdef"><b>Definition</b> <a href="_h_u_d_look_and_feel_8cpp_source.html#l00046">HUDLookAndFeel.cpp:46</a></div></div>
+<div class="ttc" id="aclass_hud_look_and_feel_html_aa631dd52d2ffbad2778d5813e357449e"><div class="ttname"><a href="class_hud_look_and_feel.html#aa631dd52d2ffbad2778d5813e357449e">HudLookAndFeel::setDefaultFontSize</a></div><div class="ttdeci">void setDefaultFontSize(int size)</div><div class="ttdoc">Sets the default font size.</div><div class="ttdef"><b>Definition</b> <a href="_h_u_d_look_and_feel_8cpp_source.html#l00051">HUDLookAndFeel.cpp:51</a></div></div>
+<div class="ttc" id="aclass_hud_look_and_feel_html_ae1d994a42a7915cfa11a72a664dabc79"><div class="ttname"><a href="class_hud_look_and_feel.html#ae1d994a42a7915cfa11a72a664dabc79">HudLookAndFeel::apply</a></div><div class="ttdeci">void apply()</div><div class="ttdoc">Applies the look and feel to ImGui.</div><div class="ttdef"><b>Definition</b> <a href="_h_u_d_look_and_feel_8cpp_source.html#l00075">HUDLookAndFeel.cpp:75</a></div></div>
+<div class="ttc" id="anamespace_g_l_e_s_c_1_1_h_u_d_html"><div class="ttname"><a href="namespace_g_l_e_s_c_1_1_h_u_d.html">GLESC::HUD</a></div><div class="ttdef"><b>Definition</b> <a href="_crosshair_h_u_d_8h_source.html#l00014">CrosshairHUD.h:14</a></div></div>
+<div class="ttc" id="anamespace_g_l_e_s_c_html_a7c64a4da2d1da1597f4ec563d00bb9f8"><div class="ttname"><a href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">GLESC::isIterable_v</a></div><div class="ttdeci">constexpr bool isIterable_v</div><div class="ttdef"><b>Definition</b> <a href="_stringer_8h_source.html#l00029">Stringer.h:29</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_2052808828190f934b76e979ee65af8a.html">engine</a></li><li class="navelem"><a class="el" href="dir_dae283cde8a8f8ba1aab1ee8b3266bbb.html">subsystems</a></li><li class="navelem"><a class="el" href="dir_f3eab96852a714ea25bacc2e7d7e7fec.html">hud</a></li><li class="navelem"><a class="el" href="_h_u_d_manager_8cpp.html">HUDManager.cpp</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

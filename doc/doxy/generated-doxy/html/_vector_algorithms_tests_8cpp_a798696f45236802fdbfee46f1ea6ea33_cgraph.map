@@ -1,0 +1,17 @@
+<map id="TYPED_TEST" name="TYPED_TEST">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,101,109,128"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#ae45bcff9b53fb60d513c53823418d97b" title="Computes the dot product of two vectors." alt="" coords="673,64,884,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="109,110,658,88,658,93,109,115"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#a96acaa670e780132720dd3ea6a6cdf97" title="Computes the length of a vector." alt="" coords="415,5,625,48"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="80,99,115,80,156,64,217,49,280,38,399,27,400,32,281,44,218,54,157,69,117,85,82,103"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#ae76427931423c05c656aa4b922e8bcdc" title="Projects a vector onto another vector." alt="" coords="157,123,367,165"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="109,119,142,124,141,129,108,125"/>
+<area shape="rect" id="Node000006" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#ae39d3eeb6fa078e77bb563ebc318e43a" title="Multiplies a vector by a scalar." alt="" coords="415,179,625,221"/>
+<area shape="poly" id="edge9_Node000001_Node000006" title=" " alt="" coords="76,126,112,152,158,175,218,190,281,200,399,205,399,210,280,205,217,195,156,180,109,157,73,131"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="618,46,667,57,666,63,616,51"/>
+<area shape="rect" id="Node000004" href="$namespace_g_l_e_s_c_1_1_math.html#ab2316a2512c43c18e29709201adf3fe5" title="Calculates the square root of a value." alt="" coords="712,13,845,40"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="626,24,697,24,697,29,626,29"/>
+<area shape="poly" id="edge6_Node000005_Node000002" title=" " alt="" coords="367,130,625,101,658,97,658,103,626,107,368,135"/>
+<area shape="poly" id="edge7_Node000005_Node000003" title=" " alt="" coords="310,120,457,52,459,57,312,125"/>
+<area shape="poly" id="edge8_Node000005_Node000006" title=" " alt="" coords="364,163,405,172,404,177,363,169"/>
+</map>

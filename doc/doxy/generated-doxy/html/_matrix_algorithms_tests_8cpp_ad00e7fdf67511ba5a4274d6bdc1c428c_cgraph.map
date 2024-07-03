@@ -1,0 +1,23 @@
+<map id="TEST" name="TEST">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,93,59,120"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_mixed_algorithms.html#a88aadedf958ac6e320f73137e81aaf37" title="Rotate a 3D matrix around the X, Y, and Z axis." alt="" coords="107,77,306,136"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="59,104,91,104,91,109,59,109"/>
+<area shape="rect" id="Node000003" href="$namespace_g_l_e_s_c_1_1_math.html#ac72fdbfd43b6a5770385dbfd805b687b" title="Calculates the cosine of a value." alt="" coords="394,5,525,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="270,74,353,41,378,34,380,39,355,47,272,79"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#a7ee5da5ffdabacb6faa895af42dd78c3" title="Normalizes a vector." alt="" coords="354,56,564,99"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="306,92,338,89,339,94,307,98"/>
+<area shape="rect" id="Node000010" href="$namespace_g_l_e_s_c_1_1_math.html#aa21a1aeaaa25e280f941221e165dffa4" title="Calculates the sine of a value." alt="" coords="396,123,523,149"/>
+<area shape="poly" id="edge9_Node000002_Node000010" title=" " alt="" coords="307,116,380,124,380,130,306,121"/>
+<area shape="rect" id="Node000011" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#ae39d3eeb6fa078e77bb563ebc318e43a" title="Multiplies a vector by a scalar." alt="" coords="354,173,564,216"/>
+<area shape="poly" id="edge10_Node000002_Node000011" title=" " alt="" coords="287,134,355,159,374,165,373,170,353,164,285,139"/>
+<area shape="rect" id="Node000005" href="$namespace_g_l_e_s_c_1_1_math.html#aee25910dbba06d09d9df14d03933ace1" title="Compares two values for equality." alt="" coords="655,35,780,61"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="565,63,640,54,640,59,565,68"/>
+<area shape="rect" id="Node000007" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#a96acaa670e780132720dd3ea6a6cdf97" title="Computes the length of a vector." alt="" coords="612,85,823,128"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="565,87,597,90,596,96,565,92"/>
+<area shape="rect" id="Node000006" href="$namespace_g_l_e_s_c_1_1_math.html#acd429163efe906cd22916cc75ccb2421" title="Epsilon getter with precision of a given template type." alt="" coords="900,35,1052,61"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="780,45,885,45,885,51,780,51"/>
+<area shape="rect" id="Node000008" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#ae45bcff9b53fb60d513c53823418d97b" title="Computes the dot product of two vectors." alt="" coords="871,85,1081,128"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="823,104,855,104,855,109,823,109"/>
+<area shape="rect" id="Node000009" href="$namespace_g_l_e_s_c_1_1_math.html#ab2316a2512c43c18e29709201adf3fe5" title="Calculates the square root of a value." alt="" coords="910,152,1042,179"/>
+<area shape="poly" id="edge8_Node000007_Node000009" title=" " alt="" coords="815,126,899,145,898,151,814,131"/>
+</map>

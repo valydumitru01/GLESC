@@ -1,0 +1,7 @@
+<map id="GLESC::ECS::LightComponent::setDebuggingValues" name="GLESC::ECS::LightComponent::setDebuggingValues">
+<area shape="rect" id="Node000001" title="Set the debugging values of the component." alt="" coords="5,5,208,48"/>
+<area shape="rect" id="Node000002" href="$struct_g_l_e_s_c_1_1_render_1_1_light_point.html#aec5ed5b234791dbf23aa2e727da5d5ad" title=" " alt="" coords="256,5,436,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="208,24,240,24,240,29,208,29"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_render_1_1_intensity.html#af799c45917e2a7f03eff0c19ed68377f" title=" " alt="" coords="484,5,655,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="436,24,468,24,468,29,436,29"/>
+</map>

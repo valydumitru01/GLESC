@@ -1,0 +1,6 @@
+<log>
+ <error level="warning" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include\engine/core/math/algebra/vector/VectorAlgorithms.h" line="362" col="20" msg="template parameter &apos;Type&apos; not found in the template declaration" />
+ <error level="warning" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/physics/Collider.cpp" line="78" col="81" msg="implicit conversion changes signedness: &apos;int&apos; to &apos;size_type&apos; (aka &apos;unsigned long long&apos;)" />
+ <error level="warning" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/physics/Collider.cpp" line="79" col="79" msg="implicit conversion changes signedness: &apos;int&apos; to &apos;size_type&apos; (aka &apos;unsigned long long&apos;)" />
+ <error level="warning" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/physics/Collider.cpp" line="77" col="23" msg="comparison of integers of different signs: &apos;int&apos; and &apos;size_type&apos; (aka &apos;unsigned long long&apos;)" />
+</log>

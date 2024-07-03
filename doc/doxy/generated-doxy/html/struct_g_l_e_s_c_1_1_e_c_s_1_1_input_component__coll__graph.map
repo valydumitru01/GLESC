@@ -1,0 +1,32 @@
+<map id="GLESC::ECS::InputComponent" name="GLESC::ECS::InputComponent">
+<area shape="rect" id="Node000001" title=" " alt="" coords="335,1099,529,1211"/>
+<area shape="rect" id="Node000002" href="$struct_g_l_e_s_c_1_1_e_c_s_1_1_i_component.html" title="Base class for all components." alt="" coords="234,816,433,1013"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="382,1026,412,1098,407,1100,377,1028"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="124,616,273,701"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="223,700,276,800,271,802,218,703"/>
+<area shape="rect" id="Node000004" href="$class_entity_stats_manager.html#struct_entity_stats_manager_1_1_value" title="Struct that holds the data of a value of a component." alt="" coords="5,288,133,523"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="105,521,132,577,149,602,145,605,127,580,101,523"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="34,139,105,208"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="72,208,72,271,67,271,67,208"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="11,5,128,91"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="72,106,72,139,67,139,67,106"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="157,371,261,440"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="208,455,202,547,201,616,196,616,197,547,203,454"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="247,139,267,208"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="250,185,230,205,213,233,206,263,202,295,204,354,199,354,197,294,200,262,209,231,226,202,246,181"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="296,363,424,448"/>
+<area shape="poly" id="edge14_Node000013_Node000008" title=" " alt="" coords="270,196,337,346,332,348,265,198"/>
+<area shape="rect" id="Node000009" href="$class_g_l_e_s_c_1_1_input_1_1_input.html" title="Class that stores the input from the user." alt="" coords="479,795,630,1035"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="496,1036,470,1085,466,1083,491,1033"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="455,608,654,709"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="557,709,557,778,552,778,552,709"/>
+<area shape="rect" id="Node000011" href="$struct_g_l_e_s_c_1_1_input_1_1_key_input.html" title="This is a struct that encapsulates the key and its action for subscribing to the input system." alt="" coords="501,349,653,461"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="575,461,563,591,558,591,570,461"/>
+<area shape="rect" id="Node000012" href="$class_g_l_e_s_c_1_1_input_1_1_key_command.html" title="Key command that stores the action and executes it when needed." alt="" coords="678,349,861,461"/>
+<area shape="poly" id="edge11_Node000010_Node000012" title=" " alt="" coords="725,463,610,597,606,594,721,459"/>
+<area shape="poly" id="edge12_Node000010_Node000013" title=" " alt="" coords="352,463,350,491,352,521,359,551,372,577,389,596,409,612,457,635,454,640,407,617,385,600,368,580,354,553,347,522,345,491,346,462"/>
+<area shape="rect" id="Node000014" title=" " alt="" coords="391,139,412,208"/>
+<area shape="poly" id="edge13_Node000013_Node000014" title=" " alt="" coords="398,208,373,347,368,346,393,207"/>
+<area shape="rect" id="Node000015" href="$class_g_l_e_s_c_1_1_input_1_1_mouse_command.html" title="Mouse command executes the command every action with the position as a parameter." alt="" coords="678,603,877,715"/>
+<area shape="poly" id="edge15_Node000009_Node000015" title=" " alt="" coords="732,716,643,817,639,813,728,713"/>
+</map>

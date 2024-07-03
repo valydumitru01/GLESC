@@ -1,0 +1,25 @@
+<log>
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include\engine/core/low-level-renderer/graphic-api/concrete-apis/opengl/OpenGLAPI.h" line="13" col="10" msg="&apos;GL/glew.h&apos; file not found" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include\engine/core/low-level-renderer/graphic-api/GapiEnums.h" line="26" col="10" msg="&apos;GL/glew.h&apos; file not found" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include\engine/core/low-level-renderer/graphic-api/IGraphicInterface.h" line="15" col="10" msg="&apos;SDL2/SDL.h&apos; file not found" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include\engine/core/low-level-renderer/graphic-api\GapiTypes.h" line="16" col="10" msg="&apos;GL/glew.h&apos; file not found" />
+ <error level="warning" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include\engine/core/math/algebra/vector/VectorAlgorithms.h" line="362" col="20" msg="template parameter &apos;Type&apos; not found in the template declaration" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include\engine/core/low-level-renderer/graphic-api/concrete-apis/opengl/debugger/OpenGLDebugger.h" line="15" col="10" msg="&apos;GL/glew.h&apos; file not found" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include\engine/res-mng/textures/TextureLoader.h" line="14" col="10" msg="&apos;SDL2/SDL_image.h&apos; file not found" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/res-mng/textures/TextureSurface.cpp" line="20" col="37" msg="unknown type name &apos;SDL_Surface&apos;" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/res-mng/textures/TextureSurface.cpp" line="52" col="25" msg="unknown type name &apos;UInt&apos;" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/res-mng/textures/TextureSurface.cpp" line="53" col="26" msg="unknown type name &apos;UInt&apos;" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/res-mng/textures/TextureSurface.cpp" line="73" col="34" msg="unknown type name &apos;UInt&apos;" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/res-mng/textures/TextureSurface.cpp" line="78" col="5" msg="unknown type name &apos;Uint32&apos;" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/res-mng/textures/TextureSurface.cpp" line="80" col="10" msg="unknown type name &apos;UInt&apos;" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/res-mng/textures/TextureSurface.cpp" line="81" col="35" msg="unknown type name &apos;Uint32&apos;" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/res-mng/textures/TextureSurface.cpp" line="85" col="26" msg="unknown type name &apos;Uint8&apos;" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/res-mng/textures/TextureSurface.cpp" line="86" col="26" msg="unknown type name &apos;Uint8&apos;" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/res-mng/textures/TextureSurface.cpp" line="87" col="26" msg="unknown type name &apos;Uint8&apos;" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/res-mng/textures/TextureSurface.cpp" line="88" col="5" msg="unknown type name &apos;Uint8&apos;" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/res-mng/textures/TextureSurface.cpp" line="89" col="33" msg="unknown type name &apos;Uint8&apos;" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/res-mng/textures/TextureSurface.cpp" line="104" col="5" msg="unknown type name &apos;SDL_SurfacePtr&apos;" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/res-mng/textures/TextureSurface.cpp" line="105" col="9" msg="use of undeclared identifier &apos;ASSETS_IMAGES_PATH&apos;" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/res-mng/textures/TextureSurface.cpp" line="133" col="10" msg="unknown type name &apos;UInt&apos;" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/res-mng/textures/TextureSurface.cpp" line="134" col="14" msg="unknown type name &apos;UInt&apos;" />
+</log>

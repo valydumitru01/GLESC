@@ -1,0 +1,15 @@
+<map id="GLESC::ECS::ECSCoordinator::markForDestruction" name="GLESC::ECS::ECSCoordinator::markForDestruction">
+<area shape="rect" id="Node000001" title="Mark entity to be destroyed." alt="" coords="417,135,618,177"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html#a691dbe5f9ec930c27af2af0b97907a9e" title=" " alt="" coords="218,89,360,132"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="401,136,360,127,361,122,402,130"/>
+<area shape="rect" id="Node000006" href="$class_g_l_e_s_c_1_1_engine.html#ad2ff110d5a86c1cd60b541d65915ac48" title="Processes the logic of the game Is called every frame, must be called at constant intervals of time a..." alt="" coords="209,172,369,199"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="402,174,370,178,369,172,401,168"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_scene_1_1_scene.html#ab7907f74548ba185b79eeee2fe01a632" title="Destroys all entities in the scene." alt="" coords="5,5,161,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="219,85,136,51,138,46,222,80"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_scene_1_1_scene.html#a86dac6c3276278aa4ea0e813c05669da" title="Destroys an entity by ID." alt="" coords="5,72,161,115"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="202,106,161,103,162,97,202,101"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_scene_1_1_scene.html#aa60003c3501c2d08c156e738f86f2588" title="Destroys an entity by name." alt="" coords="5,139,161,181"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="203,134,162,144,161,139,202,129"/>
+<area shape="rect" id="Node000007" href="$src_2engine_2main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="58,205,108,232"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="194,203,109,217,108,212,193,198"/>
+</map>

@@ -1,0 +1,11 @@
+<map id="GLESC::GAPI::VertexBufferLayout" name="GLESC::GAPI::VertexBufferLayout">
+<area shape="rect" id="Node000001" title=" " alt="" coords="53,475,228,624"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="45,325,236,411"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="143,410,143,458,138,458,138,410"/>
+<area shape="rect" id="Node000003" href="$namespace_g_l_e_s_c_1_1_g_a_p_i.html#struct_g_l_e_s_c_1_1_g_a_p_i_1_1_vertex_buffer_element" title=" " alt="" coords="5,139,180,245"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="110,244,127,308,122,310,104,246"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="205,157,309,227"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="234,241,195,303,177,327,173,324,190,300,229,238"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="247,5,267,75"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="259,74,259,140,254,140,254,74"/>
+</map>

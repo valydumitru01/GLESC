@@ -1,0 +1,13 @@
+<map id="GLESC::Math::Plane::Plane" name="GLESC::Math::Plane::Plane">
+<area shape="rect" id="Node000001" title="Construct a new Plane object from a point and a normal vector." alt="" coords="5,88,149,131"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_plane.html#a130561905558d078afeacfa347c59361" title="Calculate the distance from the origin to the plane defined by a point on the plane and the plane&#39;s n..." alt="" coords="197,5,389,64"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="140,85,191,67,193,72,142,90"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_math_1_1_plane.html#aff56a2b955d40562e5a3c239d04e1e58" title="Set the distance from the origin to the plane." alt="" coords="221,88,365,131"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="149,107,206,107,206,112,149,112"/>
+<area shape="rect" id="Node000006" href="$class_g_l_e_s_c_1_1_math_1_1_plane.html#a08b064d3e2e9da2ceeeb7ddd9c68e6a6" title="Set the normal vector of the plane." alt="" coords="221,155,365,197"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="149,129,207,147,206,152,147,134"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#ab7062a9b67c16d4e60413b625412b4eb" title="Returns the dot product of two vectors." alt="" coords="437,21,611,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="389,32,421,32,421,37,389,37"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#ae45bcff9b53fb60d513c53823418d97b" title="Computes the dot product of two vectors." alt="" coords="659,13,870,56"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="612,32,644,32,644,37,612,37"/>
+</map>

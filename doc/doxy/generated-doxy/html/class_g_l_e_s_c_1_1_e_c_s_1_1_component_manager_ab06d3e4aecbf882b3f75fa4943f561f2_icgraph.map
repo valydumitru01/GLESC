@@ -1,0 +1,58 @@
+<map id="GLESC::ECS::ComponentManager::getComponentName" name="GLESC::ECS::ComponentManager::getComponentName">
+<area shape="rect" id="Node000001" title="Get the name of a component by its ID." alt="" coords="1502,698,1727,741"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_component_manager.html#ac63a277ed5aed0640e808f20480d01a1" title="Get the component of an entity by its ID." alt="" coords="1230,698,1454,741"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1487,722,1455,722,1455,717,1487,717"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator.html#a70c1d7a354e40af5426372cb3daaaaf1" title="Get the component of an entity by its Id." alt="" coords="981,602,1182,645"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="1267,695,1141,648,1142,643,1269,690"/>
+<area shape="rect" id="Node000019" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator.html#a6cd97a4b3b3617b8cef2e62493b59574" title="Get the components of an entity." alt="" coords="981,698,1182,741"/>
+<area shape="poly" id="edge27_Node000002_Node000019" title=" " alt="" coords="1214,722,1182,722,1182,717,1214,717"/>
+<area shape="rect" id="Node000023" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator.html#a9986f9753dd8fc73c69787f3723d44b8" title="Print the status of the entity." alt="" coords="981,765,1182,807"/>
+<area shape="poly" id="edge31_Node000002_Node000023" title=" " alt="" coords="1242,748,1168,767,1167,761,1241,742"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html#a14143b00be0701d787f043955c449e22" title="Returns a reference to the component." alt="" coords="761,314,903,357"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="1050,592,850,359,854,355,1054,589"/>
+<area shape="rect" id="Node000016" href="$class_g_l_e_s_c_1_1_engine.html#ad2ff110d5a86c1cd60b541d65915ac48" title="Processes the logic of the game Is called every frame, must be called at constant intervals of time a..." alt="" coords="498,614,658,641"/>
+<area shape="poly" id="edge26_Node000003_Node000016" title=" " alt="" coords="965,623,933,622,731,622,659,625,659,620,731,617,933,617,965,617"/>
+<area shape="rect" id="Node000018" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_system.html#ac82c9a21b62935e81ade0e6b98b466d3" title="Gets the component of an entity." alt="" coords="755,631,909,674"/>
+<area shape="poly" id="edge25_Node000003_Node000018" title=" " alt="" coords="965,640,910,646,909,641,965,634"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_engine.html#adb0bb222b1e702be0a95d55d8cfc915f" title=" " alt="" coords="221,101,419,143"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="823,299,809,238,783,164,764,127,742,92,714,62,682,36,654,21,629,12,606,9,583,9,533,19,474,37,439,49,405,66,350,103,347,98,402,62,436,44,472,31,532,14,582,4,606,3,630,7,656,16,685,32,718,58,746,89,769,125,788,162,814,237,828,298"/>
+<area shape="rect" id="Node000007" href="$class_default.html#a6e26da3ebf533b0f5d45266cd0ce9082" title="Initializes the scene. Must be implemented by the derived class." alt="" coords="535,46,621,73"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="817,300,798,251,770,193,731,135,708,109,682,87,653,72,621,65,622,59,654,67,685,82,712,106,735,132,775,191,803,249,822,298"/>
+<area shape="rect" id="Node000008" href="$class_g_l_e_s_c_1_1_engine_camera.html#a97a3af009cfc6a81b42d4a61d43e36e2" title="Moves the camera backwards." alt="" coords="499,97,657,139"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="808,302,756,231,721,193,682,160,649,142,652,137,685,156,724,189,760,228,812,299"/>
+<area shape="rect" id="Node000009" href="$class_g_l_e_s_c_1_1_engine_camera.html#a3f37b288117cbbf684843bf4b88acb72" title="Prepares the camera entity with its components and it&#39;s initial values." alt="" coords="241,281,399,323"/>
+<area shape="poly" id="edge22_Node000004_Node000009" title=" " alt="" coords="804,304,752,249,719,224,682,204,626,187,579,182,532,189,474,205,437,220,402,240,346,282,343,278,399,235,434,215,472,199,531,183,579,177,627,181,684,200,722,219,756,245,808,300"/>
+<area shape="rect" id="Node000010" href="$class_g_l_e_s_c_1_1_engine_camera.html#ab1754eb155a149e9ee93e62e9b1b2002" title="Moves the camera downwards." alt="" coords="499,214,657,257"/>
+<area shape="poly" id="edge10_Node000004_Node000010" title=" " alt="" coords="771,309,682,271,650,260,652,255,684,266,773,305"/>
+<area shape="rect" id="Node000011" href="$class_g_l_e_s_c_1_1_engine_camera.html#a335ed43ca73bdbc5527ea0ec49a00dd2" title="Moves the camera forwards." alt="" coords="499,281,657,323"/>
+<area shape="poly" id="edge12_Node000004_Node000011" title=" " alt="" coords="745,327,657,315,658,310,746,321"/>
+<area shape="rect" id="Node000012" href="$class_g_l_e_s_c_1_1_engine_camera.html#acd6cb2233c367b37d1888d8c6fa743db" title="Moves the camera to the left." alt="" coords="499,347,657,390"/>
+<area shape="poly" id="edge14_Node000004_Node000012" title=" " alt="" coords="746,349,658,361,657,356,745,344"/>
+<area shape="rect" id="Node000013" href="$class_g_l_e_s_c_1_1_engine_camera.html#a26c75b09b36ddc554f1d8cabd314a9be" title="Moves the camera to the right." alt="" coords="499,414,657,457"/>
+<area shape="poly" id="edge16_Node000004_Node000013" title=" " alt="" coords="773,366,684,404,652,416,650,411,682,400,771,361"/>
+<area shape="rect" id="Node000014" href="$class_g_l_e_s_c_1_1_engine_camera.html#ad7633b5892a3e8d8490642726e3bb0a9" title="Moves the camera upwards." alt="" coords="499,481,657,523"/>
+<area shape="poly" id="edge18_Node000004_Node000014" title=" " alt="" coords="804,370,752,421,719,448,685,471,659,483,656,479,682,466,716,444,748,418,800,366"/>
+<area shape="rect" id="Node000015" href="$class_g_l_e_s_c_1_1_engine_camera.html#a63dae1933350d3e10798719c19db2870" title="Rotates the camera based on the mouse movement." alt="" coords="499,547,657,590"/>
+<area shape="poly" id="edge20_Node000004_Node000015" title=" " alt="" coords="816,371,794,410,765,455,728,499,685,538,659,552,656,547,682,533,724,495,761,451,790,407,811,369"/>
+<area shape="poly" id="edge23_Node000004_Node000016" title=" " alt="" coords="823,373,805,425,777,488,737,551,713,579,685,604,660,618,657,613,682,600,709,576,733,548,772,485,800,423,818,371"/>
+<area shape="rect" id="Node000006" href="$class_g_l_e_s_c_1_1_engine.html#a93e1621f9daf326a7c45d3b2a4c826c1" title="The constructor is private, the engine can only be created by the main function." alt="" coords="5,199,167,226"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="249,152,124,201,122,196,247,147"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="496,148,474,160,434,189,397,222,341,282,337,278,394,219,431,185,472,156,493,144"/>
+<area shape="poly" id="edge9_Node000009_Node000006" title=" " alt="" coords="247,277,123,229,124,224,249,272"/>
+<area shape="poly" id="edge11_Node000010_Node000009" title=" " alt="" coords="484,262,400,284,399,279,483,257"/>
+<area shape="poly" id="edge13_Node000011_Node000009" title=" " alt="" coords="483,305,399,305,399,299,483,299"/>
+<area shape="poly" id="edge15_Node000012_Node000009" title=" " alt="" coords="483,347,399,325,400,320,484,342"/>
+<area shape="poly" id="edge17_Node000013_Node000009" title=" " alt="" coords="485,410,472,404,403,365,347,326,350,321,406,361,474,400,488,406"/>
+<area shape="poly" id="edge19_Node000014_Node000009" title=" " alt="" coords="484,478,472,471,427,436,388,396,333,325,337,322,392,393,431,432,474,466,486,473"/>
+<area shape="poly" id="edge21_Node000015_Node000009" title=" " alt="" coords="483,545,471,537,444,513,419,486,377,427,347,369,327,325,332,323,351,367,382,424,423,483,448,510,475,533,486,541"/>
+<area shape="rect" id="Node000017" href="$src_2engine_2main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="295,614,345,641"/>
+<area shape="poly" id="edge24_Node000016_Node000017" title=" " alt="" coords="482,630,345,630,345,625,482,625"/>
+<area shape="rect" id="Node000020" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_system.html#a0f0beac61bee827158f9d8ed8b2ddaca" title="Gets the components of an entity." alt="" coords="755,698,909,741"/>
+<area shape="poly" id="edge28_Node000019_Node000020" title=" " alt="" coords="965,722,909,722,909,717,965,717"/>
+<area shape="rect" id="Node000021" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_debug_info_system.html#ab3dac8d716449db82bd6f95f55077d1c" title=" " alt="" coords="473,698,683,741"/>
+<area shape="poly" id="edge29_Node000020_Node000021" title=" " alt="" coords="740,722,684,722,684,717,740,717"/>
+<area shape="rect" id="Node000022" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_debug_info_system.html#af0f60d4a863a70a744d562649e26c394" title="Updates the system." alt="" coords="215,698,425,741"/>
+<area shape="poly" id="edge30_Node000021_Node000022" title=" " alt="" coords="457,722,426,722,426,717,457,717"/>
+<area shape="rect" id="Node000024" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator.html#a511e3ef0ebeceb191a06db185e8fdc46" title="Print the status of the ECS." alt="" coords="731,765,933,807"/>
+<area shape="poly" id="edge32_Node000023_Node000024" title=" " alt="" coords="965,789,933,789,933,783,965,783"/>
+</map>

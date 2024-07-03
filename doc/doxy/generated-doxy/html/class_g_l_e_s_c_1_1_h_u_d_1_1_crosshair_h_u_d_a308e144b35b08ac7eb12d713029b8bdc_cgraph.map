@@ -1,0 +1,11 @@
+<map id="GLESC::HUD::CrosshairHUD::windowContent" name="GLESC::HUD::CrosshairHUD::windowContent">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,105,196,148"/>
+<area shape="rect" id="Node000002" href="$struct_g_l_e_s_c_1_1_render_1_1_color_rgba.html#ac69fa43c18968a7ee35f3a382a9d399c" title=" " alt="" coords="244,5,426,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="145,102,243,58,257,52,259,57,245,62,147,107"/>
+<area shape="rect" id="Node000003" href="$struct_g_l_e_s_c_1_1_render_1_1_color_rgba.html#aaa9812d3da986b15de2583ec1ca28365" title=" " alt="" coords="244,72,426,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="196,110,228,106,228,111,196,116"/>
+<area shape="rect" id="Node000004" href="$struct_g_l_e_s_c_1_1_render_1_1_color_rgba.html#a4fb065645eac7b9b8402d173a84d62f2" title=" " alt="" coords="244,139,426,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="196,138,228,142,228,147,196,143"/>
+<area shape="rect" id="Node000005" href="$struct_g_l_e_s_c_1_1_render_1_1_color_rgba.html#a106c8433bd5b377975767326ea4efaee" title=" " alt="" coords="244,205,426,248"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="147,146,245,191,259,197,257,202,243,196,145,151"/>
+</map>

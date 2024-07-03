@@ -1,0 +1,9 @@
+<map id="GLESC::Math::generateRandomNumber" name="GLESC::Math::generateRandomNumber">
+<area shape="rect" id="Node000001" title="Generates a random number between min and max, specifically [min, max)" alt="" coords="5,48,214,91"/>
+<area shape="rect" id="Node000002" href="$namespace_g_l_e_s_c_1_1_math.html#a04db3782a0754ba2d22eb5d159dd681c" title="Calculates the absolute value of a number." alt="" coords="264,5,395,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="204,45,253,33,254,39,205,50"/>
+<area shape="rect" id="Node000003" href="$namespace_g_l_e_s_c_1_1_math.html#a522e4f8e000cccddbf9d2f92280cfb6c" title="Calculates the max of two values." alt="" coords="262,56,397,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="214,67,246,67,246,72,214,72"/>
+<area shape="rect" id="Node000004" href="$namespace_g_l_e_s_c_1_1_math.html#ad2df75a6181d9d1d318d20d224a2866b" title="Calculates the min of two values." alt="" coords="264,107,395,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="205,89,254,100,253,105,204,94"/>
+</map>

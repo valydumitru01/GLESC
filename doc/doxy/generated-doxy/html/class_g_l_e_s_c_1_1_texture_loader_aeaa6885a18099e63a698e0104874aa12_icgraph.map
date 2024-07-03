@@ -1,0 +1,14 @@
+<map id="GLESC::TextureLoader::createSurface" name="GLESC::TextureLoader::createSurface">
+<area shape="rect" id="Node000001" title="Creates a surface from a file, it is called by loadTexture." alt="" coords="902,51,1057,93"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_texture_loader.html#aac677f140b0677673fe359a58bb962ac" title="Loads a texture from the file system." alt="" coords="698,51,854,93"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="886,75,854,75,854,69,886,69"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_res_mng_1_1_texture_1_1_texture_surface.html#abeeeaee38f405f7a65752bd314116432" title="Loads the texture from the file system." alt="" coords="478,51,650,93"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="683,75,651,75,651,69,683,69"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_res_mng_1_1_texture_1_1_texture_surface.html#aa2655d9f545c8a3bec0a33da2d80f775" title="Loader constructor. This constructor will initialize the texture with the data from the file." alt="" coords="219,5,430,48"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="462,55,430,49,431,44,463,50"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_render_1_1_texture.html#a884764b058185fdde8104fd43939b63c" title=" " alt="" coords="242,96,407,139"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="463,94,408,104,407,99,462,88"/>
+<area shape="poly" id="edge6_Node000005_Node000005" title=" " alt="" coords="363,83,348,77,324,75,302,77,288,81,283,87,285,95,280,96,278,86,285,77,301,71,324,69,350,72,365,78"/>
+<area shape="rect" id="Node000006" href="$class_g_l_e_s_c_1_1_render_1_1_texture.html#a00586ad6722116b48ff87d409eda8125" title=" " alt="" coords="5,96,171,139"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="226,120,171,120,171,115,226,115"/>
+</map>

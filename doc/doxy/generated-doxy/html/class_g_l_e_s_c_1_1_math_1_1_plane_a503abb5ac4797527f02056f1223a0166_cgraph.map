@@ -1,0 +1,35 @@
+<map id="GLESC::Math::Plane::Plane" name="GLESC::Math::Plane::Plane">
+<area shape="rect" id="Node000001" title="Construct a new Plane object from three distinct points." alt="" coords="5,248,149,291"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_vector_mixed_algorithms.html#a017c78aceeac4cc6bacc66d88f3ba7b4" title="Checks if points are collinear." alt="" coords="205,116,388,159"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="109,245,195,190,239,164,242,169,198,194,112,250"/>
+<area shape="rect" id="Node000010" href="$class_g_l_e_s_c_1_1_math_1_1_plane.html#ae96d9fee2db6f87847e5b65756d575f0" title="Calculate the distance from the origin to the plane defined by three distinct points." alt="" coords="197,248,396,291"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="149,267,181,267,181,272,149,272"/>
+<area shape="rect" id="Node000011" href="$class_g_l_e_s_c_1_1_math_1_1_plane.html#aae9eef06b7ad6587a7d0f45eab38cdc8" title="Calculate the normal vector of the plane defined by three distinct points." alt="" coords="455,219,644,261"/>
+<area shape="poly" id="edge15_Node000001_Node000011" title=" " alt="" coords="143,245,196,233,259,227,322,225,439,228,439,233,322,230,259,233,197,239,145,250"/>
+<area shape="rect" id="Node000015" href="$class_g_l_e_s_c_1_1_math_1_1_plane.html#aff56a2b955d40562e5a3c239d04e1e58" title="Set the distance from the origin to the plane." alt="" coords="225,315,368,357"/>
+<area shape="poly" id="edge16_Node000001_Node000015" title=" " alt="" coords="150,289,211,307,209,312,148,294"/>
+<area shape="rect" id="Node000016" href="$class_g_l_e_s_c_1_1_math_1_1_plane.html#a08b064d3e2e9da2ceeeb7ddd9c68e6a6" title="Set the normal vector of the plane." alt="" coords="225,381,368,424"/>
+<area shape="poly" id="edge17_Node000001_Node000016" title=" " alt="" coords="101,289,144,329,198,367,212,374,209,379,195,372,140,333,97,293"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#ab041da9d339dfe80b80c6f0bdf5dbfd4" title="Computes the cross product of two vectors." alt="" coords="983,189,1193,232"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="389,147,444,153,726,180,968,199,967,205,725,185,444,159,388,152"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#a679d94d73e405dc11ea9140e71f4ef4f" title="Checks if a vector is zero." alt="" coords="444,35,654,77"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="363,113,443,87,464,80,466,85,445,92,365,118"/>
+<area shape="rect" id="Node000009" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#a3d7793a7054aae76fe23e92368659e0b" title="Subtracts two vectors." alt="" coords="444,101,654,144"/>
+<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="388,129,428,127,428,132,388,135"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#a3249cf40f6140efca533d2f041f909d3" title="Equality operator for vectors." alt="" coords="702,72,935,99"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="655,65,687,68,687,74,654,70"/>
+<area shape="rect" id="Node000008" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#a2f0bed018a4d5856d507a85de181de62" title=" " alt="" coords="713,5,924,48"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="654,42,698,37,698,42,655,47"/>
+<area shape="rect" id="Node000006" href="$namespace_g_l_e_s_c_1_1_math.html#aee25910dbba06d09d9df14d03933ace1" title="Compares two values for equality." alt="" coords="1026,72,1150,99"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="935,83,1010,83,1010,88,935,88"/>
+<area shape="rect" id="Node000007" href="$namespace_g_l_e_s_c_1_1_math.html#acd429163efe906cd22916cc75ccb2421" title="Epsilon getter with precision of a given template type." alt="" coords="1241,72,1392,99"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="1150,83,1225,83,1225,88,1150,88"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="396,255,439,250,439,255,397,260"/>
+<area shape="rect" id="Node000013" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#ab7062a9b67c16d4e60413b625412b4eb" title="Returns the dot product of two vectors." alt="" coords="462,289,636,316"/>
+<area shape="poly" id="edge13_Node000010_Node000013" title=" " alt="" coords="397,280,447,287,446,292,396,285"/>
+<area shape="rect" id="Node000012" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html#ac4fe912b3001e4fad684c2cd4c56cf83" title="Calculates the cross product of two vectors." alt="" coords="744,219,893,261"/>
+<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="644,237,729,237,729,243,644,243"/>
+<area shape="poly" id="edge12_Node000012_Node000003" title=" " alt="" coords="893,229,967,221,968,226,893,235"/>
+<area shape="rect" id="Node000014" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#ae45bcff9b53fb60d513c53823418d97b" title="Computes the dot product of two vectors." alt="" coords="713,285,924,328"/>
+<area shape="poly" id="edge14_Node000013_Node000014" title=" " alt="" coords="637,301,698,302,698,308,637,307"/>
+</map>

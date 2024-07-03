@@ -1,0 +1,7 @@
+<map id="GLESC::Transform::Transform::getRotation" name="GLESC::Transform::Transform::getRotation">
+<area shape="rect" id="Node000001" title=" " alt="" coords="256,39,451,81"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_render_1_1_renderer.html#aaa4f270fc41e2f2a1f9ce7b979376eb1" title="Static method that creates the view matrix from a transform (transform of the camera)" alt="" coords="19,5,194,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="240,47,194,41,195,36,241,42"/>
+<area shape="rect" id="Node000003" href="$struct_g_l_e_s_c_1_1_transform_1_1_interpolator.html#ac421b853892d9700f61a4f55d6f5582e" title="Interpolates between the current and the last transform." alt="" coords="5,72,208,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="241,78,209,82,208,77,240,73"/>
+</map>

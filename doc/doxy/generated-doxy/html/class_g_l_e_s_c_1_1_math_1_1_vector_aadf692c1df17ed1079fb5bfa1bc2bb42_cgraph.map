@@ -1,0 +1,9 @@
+<map id="GLESC::Math::Vector::rotate" name="GLESC::Math::Vector::rotate">
+<area shape="rect" id="Node000001" title="Rotates the vector by a given rotation." alt="" coords="5,23,154,65"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#a6ca52869ac900565e8b829736d266ea5" title="Rotates a 3D vector by the given rotation angles." alt="" coords="202,23,412,65"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="154,41,186,41,186,47,154,47"/>
+<area shape="rect" id="Node000003" href="$namespace_g_l_e_s_c_1_1_math.html#ac72fdbfd43b6a5770385dbfd805b687b" title="Calculates the cosine of a value." alt="" coords="460,5,591,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="412,29,444,25,445,31,413,34"/>
+<area shape="rect" id="Node000004" href="$namespace_g_l_e_s_c_1_1_math.html#aa21a1aeaaa25e280f941221e165dffa4" title="Calculates the sine of a value." alt="" coords="462,56,589,83"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="413,54,447,58,447,63,412,59"/>
+</map>

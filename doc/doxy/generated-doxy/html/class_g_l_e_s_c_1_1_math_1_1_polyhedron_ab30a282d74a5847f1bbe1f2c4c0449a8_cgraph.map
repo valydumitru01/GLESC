@@ -1,0 +1,8 @@
+<map id="GLESC::Math::Polyhedron::addQuad" name="GLESC::Math::Polyhedron::addQuad">
+<area shape="rect" id="Node000001" title="Add a quad to the polyhedron. The quad is defined by the indices of the vertices." alt="" coords="5,29,181,72"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a7d974bf2202337714b156a874c440d93" title="Add a face to the polyhedron. The face is defined by the indices of the vertices." alt="" coords="229,29,404,72"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="181,48,213,48,213,53,181,53"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#abcbb3db03df72c7e0a6af459c982e5ea" title="Checks if the list of face indices are out of bounds with the current size of the vertices." alt="" coords="452,29,627,72"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="404,48,437,48,437,53,404,53"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="497,29,496,19,503,10,517,5,540,3,564,5,578,11,576,16,562,10,540,8,519,10,506,15,501,21,502,28"/>
+</map>

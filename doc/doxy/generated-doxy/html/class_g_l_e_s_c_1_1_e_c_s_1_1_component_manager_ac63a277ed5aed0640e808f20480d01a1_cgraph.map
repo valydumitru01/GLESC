@@ -1,0 +1,7 @@
+<map id="GLESC::ECS::ComponentManager::getComponent" name="GLESC::ECS::ComponentManager::getComponent">
+<area shape="rect" id="Node000001" title="Get the component of an entity by its ID." alt="" coords="5,5,230,48"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_component_manager.html#ab06d3e4aecbf882b3f75fa4943f561f2" title="Get the name of a component by its ID." alt="" coords="278,5,502,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="230,24,262,24,262,29,230,29"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_component_manager.html#af4b8c65d69d17052413005a7402bf116" title="Check if a component is registered." alt="" coords="550,5,774,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="502,24,534,24,534,29,502,29"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="GLESC::PolyhedronFactory::Regular::icos" name="GLESC::PolyhedronFactory::Regular::icos">
+<area shape="rect" id="Node000001" title="Regular polyhedron with 20 faces (icosahedron, all faces are triangles, looks like a 20 side dice in ..." alt="" coords="5,35,188,77"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a2faf49b75c093f68fad7ff9ab5d35510" title="Add a vertex to the polyhedron." alt="" coords="236,5,411,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="187,42,220,37,220,43,188,47"/>
+<area shape="rect" id="Node000003" href="$namespace_g_l_e_s_c_1_1_math.html#ab2316a2512c43c18e29709201adf3fe5" title="Calculates the square root of a value." alt="" coords="257,72,390,99"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="188,65,242,72,241,77,187,70"/>
+</map>

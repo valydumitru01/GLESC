@@ -1,0 +1,11 @@
+<map id="TYPED_TEST" name="TYPED_TEST">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,43,109,69"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#ae45bcff9b53fb60d513c53823418d97b" title="Computes the dot product of two vectors." alt="" coords="415,5,625,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="90,40,121,28,156,20,218,13,281,10,399,12,399,18,282,15,219,18,157,25,123,34,91,45"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#a96acaa670e780132720dd3ea6a6cdf97" title="Computes the length of a vector." alt="" coords="157,35,367,77"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="109,53,141,53,141,59,109,59"/>
+<area shape="rect" id="Node000004" href="$namespace_g_l_e_s_c_1_1_math.html#ab2316a2512c43c18e29709201adf3fe5" title="Calculates the square root of a value." alt="" coords="454,87,586,113"/>
+<area shape="poly" id="edge5_Node000001_Node000004" title=" " alt="" coords="92,67,157,87,231,97,306,102,438,102,438,107,306,107,230,102,156,92,91,73"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="367,41,399,38,400,43,368,47"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="368,71,440,84,439,89,367,77"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="EntityStatsManager.h" name="EntityStatsManager.h">
+<area shape="rect" id="Node000001" title="Class that encapsulates the logic of the entity stats manager." alt="" coords="59,5,207,32"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,80,82,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="119,35,72,72,69,68,116,30"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="106,80,160,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="136,33,136,64,130,64,130,33"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="184,80,239,107"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="148,31,189,67,185,71,145,35"/>
+</map>

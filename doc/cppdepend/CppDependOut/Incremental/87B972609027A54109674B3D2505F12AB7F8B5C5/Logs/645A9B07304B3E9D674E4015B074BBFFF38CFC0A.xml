@@ -1,0 +1,17 @@
+<log>
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests\unit/CustomTestingFramework.h" line="14" col="10" msg="&apos;gtest/gtest.h&apos; file not found" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests/unit/CustomTestingFrameworkTest.cpp" line="12" col="10" msg="&apos;gtest/gtest.h&apos; file not found" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests/unit/CustomTestingFrameworkTest.cpp" line="16" col="43" msg="use of undeclared identifier &apos;testing&apos;" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests/unit/CustomTestingFrameworkTest.cpp" line="16" col="52" msg="expected class name" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests/unit/CustomTestingFrameworkTest.cpp" line="22" col="21" msg="use of undeclared identifier &apos;testing&apos;" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests/unit/CustomTestingFrameworkTest.cpp" line="23" col="18" msg="use of class template &apos;CustomTestingFrameworkTest&apos; requires template arguments; argument deduction not allowed in function prototype" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests/unit/CustomTestingFrameworkTest.cpp" line="23" col="46" msg="unknown type name &apos;TypesToTest&apos;" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests/unit/CustomTestingFrameworkTest.cpp" line="23" col="1" msg="a type specifier is required for all declarations" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests/unit/CustomTestingFrameworkTest.cpp" line="26" col="12" msg="use of class template &apos;CustomTestingFrameworkTest&apos; requires template arguments; argument deduction not allowed in function prototype" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests/unit/CustomTestingFrameworkTest.cpp" line="26" col="40" msg="unknown type name &apos;ExpectEqualCustomWithRandomNumbers&apos;" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests/unit/CustomTestingFrameworkTest.cpp" line="26" col="1" msg="a type specifier is required for all declarations" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests/unit/CustomTestingFrameworkTest.cpp" line="27" col="25" msg="invalid use of &apos;this&apos; outside of a non-static member function" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests/unit/CustomTestingFrameworkTest.cpp" line="28" col="52" msg="use of undeclared identifier &apos;TypeParam&apos;" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests/unit/CustomTestingFrameworkTest.cpp" line="29" col="9" msg="unknown type name &apos;TypeParam&apos;" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests/unit/CustomTestingFrameworkTest.cpp" line="34" col="47" msg="use of undeclared identifier &apos;TypeParam&apos;" />
+</log>

@@ -1,0 +1,13 @@
+<map id="GLESC::HUD::DebugStatsHUD::DebugStatsHUD" name="GLESC::HUD::DebugStatsHUD::DebugStatsHUD">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,139,209,181"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_in_game_window.html#aeb67baa3459917edf2c8a40eaf889075" title=" " alt="" coords="257,5,421,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="135,136,190,98,255,58,265,53,268,57,258,62,193,102,138,140"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_in_game_window.html#a1c5d730cac88e6109f725d06a9ae1102" title="Set the center of the window." alt="" coords="257,72,421,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="183,136,247,117,248,122,184,141"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_in_game_window.html#a02919a86639b476e23aa8a06c20f879c" title="Set the layout position of the window." alt="" coords="257,139,421,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="209,157,241,157,241,163,209,163"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_in_game_window.html#ad53c4781df5e967788027a706dfa5121" title="Set the size of the window as a fraction of the screen size." alt="" coords="257,205,421,248"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="184,179,248,198,247,203,183,184"/>
+<area shape="rect" id="Node000006" href="$class_g_l_e_s_c_1_1_in_game_window.html#aa9ba7dc63d125d4337efdbf920294f41" title=" " alt="" coords="257,272,421,315"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="138,180,193,218,258,258,268,263,265,267,255,262,190,222,135,184"/>
+</map>

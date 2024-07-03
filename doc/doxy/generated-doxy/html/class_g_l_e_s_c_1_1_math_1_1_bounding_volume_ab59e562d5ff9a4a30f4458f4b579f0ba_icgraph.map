@@ -1,0 +1,5 @@
+<map id="GLESC::Math::BoundingVolume::buildBoundingVolume" name="GLESC::Math::BoundingVolume::buildBoundingVolume">
+<area shape="rect" id="Node000001" title="Builds the bounding volume from the minimum and maximum points." alt="" coords="262,5,470,48"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#a0d01fd26f33f057c5f63239124076f68" title="Construct a new Bounding Volume object." alt="" coords="5,5,214,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="246,29,214,29,214,24,246,24"/>
+</map>

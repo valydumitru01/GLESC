@@ -1,0 +1,1049 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="Doxygen Awesome" />
+<meta property="og:image" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+<meta property="og:description" content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
+<meta property="og:url" content="https://jothepro.github.io/doxygen-awesome-css/" />
+<!-- END opengraph metadata -->
+<!-- BEGIN twitter metadata -->
+<meta name="twitter:image:src" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+<meta name="twitter:title" content="Doxygen Awesome" />
+<meta name="twitter:description" content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
+<!-- END twitter metadata -->
+<title>GLESC: FPSManager Class Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.drawio.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/ -->
+<a href="https://github.com/jothepro/doxygen-awesome-css" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="GLESC_logo_white_background.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">GLESC
+   &#160;<span id="projectnumber">1</span>
+   </div>
+   <div id="projectbrief">Game engine using ECS architecture</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('class_f_p_s_manager.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#pri-static-attribs">Static Private Attributes</a> &#124;
+<a href="class_f_p_s_manager-members.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">FPSManager Class Reference</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_f_p_s_manager_8h_source.html">FPSManager.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for FPSManager:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_f_p_s_manager__coll__graph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a0ab2077f0a13d1780b470452f758739f" id="r_a0ab2077f0a13d1780b470452f758739f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_f_p_s_manager.html#a0ab2077f0a13d1780b470452f758739f">FPSManager</a> (<a class="el" href="_f_p_s_manager_8h.html#a57c13eec8f140043bc5de3febe146dd3">FpsRates</a> maxFPS)</td></tr>
+<tr class="separator:a0ab2077f0a13d1780b470452f758739f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16aeb66b6730404aa5199290a021cbb4" id="r_a16aeb66b6730404aa5199290a021cbb4"><td class="memItemLeft" align="right" valign="top">Uint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_f_p_s_manager.html#a16aeb66b6730404aa5199290a021cbb4">getAverageRenderTimeMillis</a> () const</td></tr>
+<tr class="memdesc:a16aeb66b6730404aa5199290a021cbb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the average time it took to render the frame.  <br /></td></tr>
+<tr class="separator:a16aeb66b6730404aa5199290a021cbb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a114f9419715529967e3126e3677120e2" id="r_a114f9419715529967e3126e3677120e2"><td class="memItemLeft" align="right" valign="top">Uint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_f_p_s_manager.html#a114f9419715529967e3126e3677120e2">getCurrentRenderTimeMillis</a> () const</td></tr>
+<tr class="memdesc:a114f9419715529967e3126e3677120e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the time it took to render the frame.  <br /></td></tr>
+<tr class="separator:a114f9419715529967e3126e3677120e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafbdbb7916fe683ecca823ed7638c370" id="r_aafbdbb7916fe683ecca823ed7638c370"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_f_p_s_manager.html#aafbdbb7916fe683ecca823ed7638c370">getRenderFPS</a> () const</td></tr>
+<tr class="memdesc:aafbdbb7916fe683ecca823ed7638c370"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the average fps of the last 60 frames.  <br /></td></tr>
+<tr class="separator:aafbdbb7916fe683ecca823ed7638c370"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69b2f540e0469bfcd4ba9cca0910843b" id="r_a69b2f540e0469bfcd4ba9cca0910843b"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_f_p_s_manager.html#a69b2f540e0469bfcd4ba9cca0910843b">getTimeOfFrameAfterUpdate</a> () const</td></tr>
+<tr class="memdesc:a69b2f540e0469bfcd4ba9cca0910843b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the amount of frame it has passed since the beginning. The value is normalized between 0.0 and 1.0. It is used to interpolate rendering to avoid stutter.  <br /></td></tr>
+<tr class="separator:a69b2f540e0469bfcd4ba9cca0910843b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae6362e31331ad9f94d63020a0395c73" id="r_aae6362e31331ad9f94d63020a0395c73"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_f_p_s_manager.html#aae6362e31331ad9f94d63020a0395c73">getUpdateFPS</a> () const</td></tr>
+<tr class="memdesc:aae6362e31331ad9f94d63020a0395c73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the fps of the update.  <br /></td></tr>
+<tr class="separator:aae6362e31331ad9f94d63020a0395c73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae47a2614bf8ea4ccf52234e95980cc06" id="r_ae47a2614bf8ea4ccf52234e95980cc06"><td class="memItemLeft" align="right" valign="top">Uint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_f_p_s_manager.html#ae47a2614bf8ea4ccf52234e95980cc06">getUpdateTimeMillis</a> () const</td></tr>
+<tr class="memdesc:ae47a2614bf8ea4ccf52234e95980cc06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the constant speed in which our game updates.  <br /></td></tr>
+<tr class="separator:ae47a2614bf8ea4ccf52234e95980cc06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2fbccbcca1c84f9db712a7c310f2894c" id="r_a2fbccbcca1c84f9db712a7c310f2894c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_f_p_s_manager.html#a2fbccbcca1c84f9db712a7c310f2894c">hasSpiralOfDeathBeenReached</a> () const</td></tr>
+<tr class="separator:a2fbccbcca1c84f9db712a7c310f2894c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2293812478c7c40b51762e86a27054b9" id="r_a2293812478c7c40b51762e86a27054b9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_f_p_s_manager.html#a2293812478c7c40b51762e86a27054b9">isUpdateLagged</a> () const</td></tr>
+<tr class="memdesc:a2293812478c7c40b51762e86a27054b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is the game time behind real time?  <br /></td></tr>
+<tr class="separator:a2293812478c7c40b51762e86a27054b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a007c4b90cf2db9e58b6a73ecbc5bc95e" id="r_a007c4b90cf2db9e58b6a73ecbc5bc95e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_f_p_s_manager.html#a007c4b90cf2db9e58b6a73ecbc5bc95e">refreshUpdateLag</a> ()</td></tr>
+<tr class="memdesc:a007c4b90cf2db9e58b6a73ecbc5bc95e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reduce the accumulated lag by a constant. Must be called each time update is called.  <br /></td></tr>
+<tr class="separator:a007c4b90cf2db9e58b6a73ecbc5bc95e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6eda5c4346a47df26d00437a9c96ec7d" id="r_a6eda5c4346a47df26d00437a9c96ec7d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_f_p_s_manager.html#a6eda5c4346a47df26d00437a9c96ec7d">startFrame</a> ()</td></tr>
+<tr class="memdesc:a6eda5c4346a47df26d00437a9c96ec7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">measures the frame, remembering the old frame.  <br /></td></tr>
+<tr class="separator:a6eda5c4346a47df26d00437a9c96ec7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:aa81047af00a87059468b39b3ef524e77" id="r_aa81047af00a87059468b39b3ef524e77"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_f_p_s_manager.html#aa81047af00a87059468b39b3ef524e77">delay</a> () const</td></tr>
+<tr class="separator:aa81047af00a87059468b39b3ef524e77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a73203d4afc5cbec2ed238c9d20b22ecc" id="r_a73203d4afc5cbec2ed238c9d20b22ecc"><td class="memItemLeft" align="right" valign="top">Uint64&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_f_p_s_manager.html#a73203d4afc5cbec2ed238c9d20b22ecc">current</a> {}</td></tr>
+<tr class="memdesc:a73203d4afc5cbec2ed238c9d20b22ecc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Time recorded at the beginning of the loop iteration.  <br /></td></tr>
+<tr class="separator:a73203d4afc5cbec2ed238c9d20b22ecc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4570d9bfc9faf40bf5a3e78dafe5c8d6" id="r_a4570d9bfc9faf40bf5a3e78dafe5c8d6"><td class="memItemLeft" align="right" valign="top">Uint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_f_p_s_manager.html#a4570d9bfc9faf40bf5a3e78dafe5c8d6">elapsed</a> {}</td></tr>
+<tr class="memdesc:a4570d9bfc9faf40bf5a3e78dafe5c8d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">The actual time it elapses.  <br /></td></tr>
+<tr class="separator:a4570d9bfc9faf40bf5a3e78dafe5c8d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28f8f0b21bd9c7547194318540ed67f0" id="r_a28f8f0b21bd9c7547194318540ed67f0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_f_p_s_averager.html">FPSAverager</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_f_p_s_manager.html#a28f8f0b21bd9c7547194318540ed67f0">fpsAverager</a></td></tr>
+<tr class="memdesc:a28f8f0b21bd9c7547194318540ed67f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">The averager to calculate the average fps.  <br /></td></tr>
+<tr class="separator:a28f8f0b21bd9c7547194318540ed67f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96a16bd2bd91abfa86a0b63f9301831d" id="r_a96a16bd2bd91abfa86a0b63f9301831d"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_f_p_s_manager.html#a96a16bd2bd91abfa86a0b63f9301831d">fpsList</a> [<a class="el" href="class_f_p_s_manager.html#a736c506f7cc7adf19ab66da5c194630e">averageFpsListSize</a>] {}</td></tr>
+<tr class="memdesc:a96a16bd2bd91abfa86a0b63f9301831d"><td class="mdescLeft">&#160;</td><td class="mdescRight">List of the last 60 frames to calculate the average fps.  <br /></td></tr>
+<tr class="separator:a96a16bd2bd91abfa86a0b63f9301831d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef22b3c28ef796e9520075a071fd6428" id="r_aef22b3c28ef796e9520075a071fd6428"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_f_p_s_manager.html#aef22b3c28ef796e9520075a071fd6428">fpsListIndex</a> {0}</td></tr>
+<tr class="memdesc:aef22b3c28ef796e9520075a071fd6428"><td class="mdescLeft">&#160;</td><td class="mdescRight">Index of the fpsList.  <br /></td></tr>
+<tr class="separator:aef22b3c28ef796e9520075a071fd6428"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3e3fe09f20d7107af0118bf89062f3e" id="r_aa3e3fe09f20d7107af0118bf89062f3e"><td class="memItemLeft" align="right" valign="top">Uint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_f_p_s_manager.html#aa3e3fe09f20d7107af0118bf89062f3e">fpsMs</a></td></tr>
+<tr class="memdesc:aa3e3fe09f20d7107af0118bf89062f3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The max time (milliseconds) can elapse between frames.  <br /></td></tr>
+<tr class="separator:aa3e3fe09f20d7107af0118bf89062f3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb179a88ebb74c3a2edf2c4672da0549" id="r_afb179a88ebb74c3a2edf2c4672da0549"><td class="memItemLeft" align="right" valign="top">Uint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_f_p_s_manager.html#afb179a88ebb74c3a2edf2c4672da0549">lag</a> {}</td></tr>
+<tr class="memdesc:afb179a88ebb74c3a2edf2c4672da0549"><td class="mdescLeft">&#160;</td><td class="mdescRight">Amount of time game time is behind real time.  <br /></td></tr>
+<tr class="separator:afb179a88ebb74c3a2edf2c4672da0549"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af46018f627884d1630f250149cb13309" id="r_af46018f627884d1630f250149cb13309"><td class="memItemLeft" align="right" valign="top">const Uint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_f_p_s_manager.html#af46018f627884d1630f250149cb13309">msPerUpdate</a></td></tr>
+<tr class="memdesc:af46018f627884d1630f250149cb13309"><td class="mdescLeft">&#160;</td><td class="mdescRight">constant speed (in ms) in which our game updates  <br /></td></tr>
+<tr class="separator:af46018f627884d1630f250149cb13309"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62123b81d7f00d5cd1e4638871726719" id="r_a62123b81d7f00d5cd1e4638871726719"><td class="memItemLeft" align="right" valign="top">Uint64&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_f_p_s_manager.html#a62123b81d7f00d5cd1e4638871726719">previous</a> {}</td></tr>
+<tr class="memdesc:a62123b81d7f00d5cd1e4638871726719"><td class="mdescLeft">&#160;</td><td class="mdescRight">Time recorded at the end of the loop iteration.  <br /></td></tr>
+<tr class="separator:a62123b81d7f00d5cd1e4638871726719"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7ef76ba7703876ea2df7e30345c82d8" id="r_ab7ef76ba7703876ea2df7e30345c82d8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_f_p_s_manager.html#ab7ef76ba7703876ea2df7e30345c82d8">updateCounter</a> {}</td></tr>
+<tr class="memdesc:ab7ef76ba7703876ea2df7e30345c82d8"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_counter.html">Counter</a> to check if the game is stuck in a loop.  <br /></td></tr>
+<tr class="separator:ab7ef76ba7703876ea2df7e30345c82d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-static-attribs" name="pri-static-attribs"></a>
+Static Private Attributes</h2></td></tr>
+<tr class="memitem:a736c506f7cc7adf19ab66da5c194630e" id="r_a736c506f7cc7adf19ab66da5c194630e"><td class="memItemLeft" align="right" valign="top">static constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_f_p_s_manager.html#a736c506f7cc7adf19ab66da5c194630e">averageFpsListSize</a> = 60</td></tr>
+<tr class="separator:a736c506f7cc7adf19ab66da5c194630e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad6f78589950fccb7922e24c8115dc03" id="r_aad6f78589950fccb7922e24c8115dc03"><td class="memItemLeft" align="right" valign="top">static constexpr Uint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_f_p_s_manager.html#aad6f78589950fccb7922e24c8115dc03">msInASecond</a> {1000}</td></tr>
+<tr class="separator:aad6f78589950fccb7922e24c8115dc03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97c20d0314bfbeb0319155d6594eaa97" id="r_a97c20d0314bfbeb0319155d6594eaa97"><td class="memItemLeft" align="right" valign="top">static constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_f_p_s_manager.html#a97c20d0314bfbeb0319155d6594eaa97">spiralOfDeathLimit</a> = 500</td></tr>
+<tr class="memdesc:a97c20d0314bfbeb0319155d6594eaa97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Threshold to check if the game is stuck in a loop- If the amount of updates is greater than this value, the game is stuck in a loop.  <br /></td></tr>
+<tr class="separator:a97c20d0314bfbeb0319155d6594eaa97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock">
+<p class="definition">Definition at line <a class="el" href="_f_p_s_manager_8h_source.html#l00029">29</a> of file <a class="el" href="_f_p_s_manager_8h_source.html">FPSManager.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a0ab2077f0a13d1780b470452f758739f" name="a0ab2077f0a13d1780b470452f758739f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ab2077f0a13d1780b470452f758739f">&#9670;&#160;</a></span>FPSManager()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">FPSManager::FPSManager </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_f_p_s_manager_8h.html#a57c13eec8f140043bc5de3febe146dd3">FpsRates</a>&#160;</td>
+          <td class="paramname"><em>maxFPS</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_f_p_s_manager_8cpp_source.html#l00016">16</a> of file <a class="el" href="_f_p_s_manager_8cpp_source.html">FPSManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   17</span>    : <a class="code hl_variable" href="class_f_p_s_manager.html#aa3e3fe09f20d7107af0118bf89062f3e">fpsMs</a>(<a class="code hl_variable" href="class_f_p_s_manager.html#aad6f78589950fccb7922e24c8115dc03">msInASecond</a> / <span class="keyword">static_cast&lt;</span>Uint32<span class="keyword">&gt;</span>(maxFPS)),</div>
+<div class="line"><span class="lineno">   18</span>      <a class="code hl_variable" href="class_f_p_s_manager.html#af46018f627884d1630f250149cb13309">msPerUpdate</a>(<a class="code hl_variable" href="class_f_p_s_manager.html#aad6f78589950fccb7922e24c8115dc03">msInASecond</a> / 60) {</div>
+<div class="line"><span class="lineno">   19</span>}</div>
+<div class="ttc" id="aclass_f_p_s_manager_html_aa3e3fe09f20d7107af0118bf89062f3e"><div class="ttname"><a href="class_f_p_s_manager.html#aa3e3fe09f20d7107af0118bf89062f3e">FPSManager::fpsMs</a></div><div class="ttdeci">Uint32 fpsMs</div><div class="ttdoc">The max time (milliseconds) can elapse between frames.</div><div class="ttdef"><b>Definition</b> <a href="_f_p_s_manager_8h_source.html#l00107">FPSManager.h:107</a></div></div>
+<div class="ttc" id="aclass_f_p_s_manager_html_aad6f78589950fccb7922e24c8115dc03"><div class="ttname"><a href="class_f_p_s_manager.html#aad6f78589950fccb7922e24c8115dc03">FPSManager::msInASecond</a></div><div class="ttdeci">static constexpr Uint32 msInASecond</div><div class="ttdef"><b>Definition</b> <a href="_f_p_s_manager_8h_source.html#l00102">FPSManager.h:102</a></div></div>
+<div class="ttc" id="aclass_f_p_s_manager_html_af46018f627884d1630f250149cb13309"><div class="ttname"><a href="class_f_p_s_manager.html#af46018f627884d1630f250149cb13309">FPSManager::msPerUpdate</a></div><div class="ttdeci">const Uint32 msPerUpdate</div><div class="ttdoc">constant speed (in ms) in which our game updates</div><div class="ttdef"><b>Definition</b> <a href="_f_p_s_manager_8h_source.html#l00112">FPSManager.h:112</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="aa81047af00a87059468b39b3ef524e77" name="aa81047af00a87059468b39b3ef524e77"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa81047af00a87059468b39b3ef524e77">&#9670;&#160;</a></span>delay()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FPSManager::delay </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_f_p_s_manager_8cpp_source.html#l00065">65</a> of file <a class="el" href="_f_p_s_manager_8cpp_source.html">FPSManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   65</span>                             {</div>
+<div class="line"><span class="lineno">   66</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_f_p_s_manager.html#aa3e3fe09f20d7107af0118bf89062f3e">fpsMs</a> &gt; 0) {</div>
+<div class="line"><span class="lineno">   67</span>        <span class="keyword">auto</span> dif = <span class="keyword">static_cast&lt;</span>int32_t<span class="keyword">&gt;</span>(<a class="code hl_variable" href="class_f_p_s_manager.html#aa3e3fe09f20d7107af0118bf89062f3e">fpsMs</a> - <a class="code hl_variable" href="class_f_p_s_manager.html#a4570d9bfc9faf40bf5a3e78dafe5c8d6">elapsed</a>);</div>
+<div class="line"><span class="lineno">   68</span>        <span class="keywordflow">if</span> (dif &gt; 0)</div>
+<div class="line"><span class="lineno">   69</span>            SDL_Delay(dif); <span class="comment">// Cap the Counter, wait until we get to minimum frame time</span></div>
+<div class="line"><span class="lineno">   70</span>    }</div>
+<div class="line"><span class="lineno">   71</span>}</div>
+<div class="ttc" id="aclass_f_p_s_manager_html_a4570d9bfc9faf40bf5a3e78dafe5c8d6"><div class="ttname"><a href="class_f_p_s_manager.html#a4570d9bfc9faf40bf5a3e78dafe5c8d6">FPSManager::elapsed</a></div><div class="ttdeci">Uint32 elapsed</div><div class="ttdoc">The actual time it elapses.</div><div class="ttdef"><b>Definition</b> <a href="_f_p_s_manager_8h_source.html#l00128">FPSManager.h:128</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_f_p_s_manager_8h_source.html#l00128">elapsed</a>, and <a class="el" href="_f_p_s_manager_8h_source.html#l00107">fpsMs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_f_p_s_manager_8cpp_source.html#l00021">startFrame()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_f_p_s_manager_aa81047af00a87059468b39b3ef524e77_icgraph.svg" width="462" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a16aeb66b6730404aa5199290a021cbb4" name="a16aeb66b6730404aa5199290a021cbb4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16aeb66b6730404aa5199290a021cbb4">&#9670;&#160;</a></span>getAverageRenderTimeMillis()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Uint32 FPSManager::getAverageRenderTimeMillis </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the average time it took to render the frame. </p>
+<dl class="section return"><dt>Returns</dt><dd>Uint32 </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_f_p_s_manager_8cpp_source.html#l00052">52</a> of file <a class="el" href="_f_p_s_manager_8cpp_source.html">FPSManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   52</span>                                                    {</div>
+<div class="line"><span class="lineno">   53</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_f_p_s_manager.html#a28f8f0b21bd9c7547194318540ed67f0">fpsAverager</a>.<a class="code hl_function" href="class_f_p_s_averager.html#a65fbef47fb0f7b3c97ec55741811c251">getAverage</a>();</div>
+<div class="line"><span class="lineno">   54</span>}</div>
+<div class="ttc" id="aclass_f_p_s_averager_html_a65fbef47fb0f7b3c97ec55741811c251"><div class="ttname"><a href="class_f_p_s_averager.html#a65fbef47fb0f7b3c97ec55741811c251">FPSAverager::getAverage</a></div><div class="ttdeci">long unsigned int getAverage() const</div><div class="ttdef"><b>Definition</b> <a href="_f_p_s_averager_8h_source.html#l00035">FPSAverager.h:35</a></div></div>
+<div class="ttc" id="aclass_f_p_s_manager_html_a28f8f0b21bd9c7547194318540ed67f0"><div class="ttname"><a href="class_f_p_s_manager.html#a28f8f0b21bd9c7547194318540ed67f0">FPSManager::fpsAverager</a></div><div class="ttdeci">FPSAverager fpsAverager</div><div class="ttdoc">The averager to calculate the average fps.</div><div class="ttdef"><b>Definition</b> <a href="_f_p_s_manager_8h_source.html#l00158">FPSManager.h:158</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_f_p_s_manager_8h_source.html#l00158">fpsAverager</a>, and <a class="el" href="_f_p_s_averager_8h_source.html#l00035">FPSAverager::getAverage()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_f_p_s_manager_8cpp_source.html#l00060">getRenderFPS()</a>, and <a class="el" href="_g_l_e_s_c_8cpp_source.html#l00161">GLESC::Engine::registerStats()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_f_p_s_manager_a16aeb66b6730404aa5199290a021cbb4_cgraph.svg" width="439" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_f_p_s_manager_a16aeb66b6730404aa5199290a021cbb4_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a114f9419715529967e3126e3677120e2" name="a114f9419715529967e3126e3677120e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a114f9419715529967e3126e3677120e2">&#9670;&#160;</a></span>getCurrentRenderTimeMillis()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Uint32 FPSManager::getCurrentRenderTimeMillis </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the time it took to render the frame. </p>
+<dl class="section return"><dt>Returns</dt><dd>Uint32 </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_f_p_s_manager_8cpp_source.html#l00048">48</a> of file <a class="el" href="_f_p_s_manager_8cpp_source.html">FPSManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   48</span>                                                    {</div>
+<div class="line"><span class="lineno">   49</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_f_p_s_manager.html#a4570d9bfc9faf40bf5a3e78dafe5c8d6">elapsed</a>;</div>
+<div class="line"><span class="lineno">   50</span>}</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_f_p_s_manager_8h_source.html#l00128">elapsed</a>.</p>
+
+</div>
+</div>
+<a id="aafbdbb7916fe683ecca823ed7638c370" name="aafbdbb7916fe683ecca823ed7638c370"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aafbdbb7916fe683ecca823ed7638c370">&#9670;&#160;</a></span>getRenderFPS()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float FPSManager::getRenderFPS </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the average fps of the last 60 frames. </p>
+<dl class="section return"><dt>Returns</dt><dd>float </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_f_p_s_manager_8cpp_source.html#l00060">60</a> of file <a class="el" href="_f_p_s_manager_8cpp_source.html">FPSManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   60</span>                                     {</div>
+<div class="line"><span class="lineno">   61</span>    <span class="keywordflow">return</span> 1000.0f / <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(<a class="code hl_function" href="class_f_p_s_manager.html#a16aeb66b6730404aa5199290a021cbb4">getAverageRenderTimeMillis</a>());</div>
+<div class="line"><span class="lineno">   62</span>}</div>
+<div class="ttc" id="aclass_f_p_s_manager_html_a16aeb66b6730404aa5199290a021cbb4"><div class="ttname"><a href="class_f_p_s_manager.html#a16aeb66b6730404aa5199290a021cbb4">FPSManager::getAverageRenderTimeMillis</a></div><div class="ttdeci">Uint32 getAverageRenderTimeMillis() const</div><div class="ttdoc">Get the average time it took to render the frame.</div><div class="ttdef"><b>Definition</b> <a href="_f_p_s_manager_8cpp_source.html#l00052">FPSManager.cpp:52</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_f_p_s_manager_8cpp_source.html#l00052">getAverageRenderTimeMillis()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_g_l_e_s_c_8cpp_source.html#l00161">GLESC::Engine::registerStats()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_f_p_s_manager_aafbdbb7916fe683ecca823ed7638c370_cgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_f_p_s_manager_aafbdbb7916fe683ecca823ed7638c370_icgraph.svg" width="654" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a69b2f540e0469bfcd4ba9cca0910843b" name="a69b2f540e0469bfcd4ba9cca0910843b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69b2f540e0469bfcd4ba9cca0910843b">&#9670;&#160;</a></span>getTimeOfFrameAfterUpdate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double FPSManager::getTimeOfFrameAfterUpdate </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the amount of frame it has passed since the beginning. The value is normalized between 0.0 and 1.0. It is used to interpolate rendering to avoid stutter. </p>
+<dl class="section return"><dt>Returns</dt><dd>double between 0.0 - 1.0 </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_f_p_s_manager_8cpp_source.html#l00073">73</a> of file <a class="el" href="_f_p_s_manager_8cpp_source.html">FPSManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   73</span>                                                   {</div>
+<div class="line"><span class="lineno">   74</span>    <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(<a class="code hl_variable" href="class_f_p_s_manager.html#afb179a88ebb74c3a2edf2c4672da0549">lag</a>) / <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(<a class="code hl_variable" href="class_f_p_s_manager.html#af46018f627884d1630f250149cb13309">msPerUpdate</a>);</div>
+<div class="line"><span class="lineno">   75</span>}</div>
+<div class="ttc" id="aclass_f_p_s_manager_html_afb179a88ebb74c3a2edf2c4672da0549"><div class="ttname"><a href="class_f_p_s_manager.html#afb179a88ebb74c3a2edf2c4672da0549">FPSManager::lag</a></div><div class="ttdeci">Uint32 lag</div><div class="ttdoc">Amount of time game time is behind real time.</div><div class="ttdef"><b>Definition</b> <a href="_f_p_s_manager_8h_source.html#l00133">FPSManager.h:133</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_f_p_s_manager_8h_source.html#l00133">lag</a>, and <a class="el" href="_f_p_s_manager_8h_source.html#l00112">msPerUpdate</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="src_2engine_2main_8cpp_source.html#l00015">main()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_f_p_s_manager_a69b2f540e0469bfcd4ba9cca0910843b_icgraph.svg" width="310" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aae6362e31331ad9f94d63020a0395c73" name="aae6362e31331ad9f94d63020a0395c73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae6362e31331ad9f94d63020a0395c73">&#9670;&#160;</a></span>getUpdateFPS()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float FPSManager::getUpdateFPS </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the fps of the update. </p>
+<dl class="section return"><dt>Returns</dt><dd>float </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_f_p_s_manager_8cpp_source.html#l00056">56</a> of file <a class="el" href="_f_p_s_manager_8cpp_source.html">FPSManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   56</span>                                     {</div>
+<div class="line"><span class="lineno">   57</span>    <span class="keywordflow">return</span> 1000.0f / <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(<a class="code hl_function" href="class_f_p_s_manager.html#ae47a2614bf8ea4ccf52234e95980cc06">getUpdateTimeMillis</a>());</div>
+<div class="line"><span class="lineno">   58</span>}</div>
+<div class="ttc" id="aclass_f_p_s_manager_html_ae47a2614bf8ea4ccf52234e95980cc06"><div class="ttname"><a href="class_f_p_s_manager.html#ae47a2614bf8ea4ccf52234e95980cc06">FPSManager::getUpdateTimeMillis</a></div><div class="ttdeci">Uint32 getUpdateTimeMillis() const</div><div class="ttdoc">Get the constant speed in which our game updates.</div><div class="ttdef"><b>Definition</b> <a href="_f_p_s_manager_8cpp_source.html#l00039">FPSManager.cpp:39</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_f_p_s_manager_8cpp_source.html#l00039">getUpdateTimeMillis()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_g_l_e_s_c_8cpp_source.html#l00161">GLESC::Engine::registerStats()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_f_p_s_manager_aae6362e31331ad9f94d63020a0395c73_cgraph.svg" width="442" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_f_p_s_manager_aae6362e31331ad9f94d63020a0395c73_icgraph.svg" width="654" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ae47a2614bf8ea4ccf52234e95980cc06" name="ae47a2614bf8ea4ccf52234e95980cc06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae47a2614bf8ea4ccf52234e95980cc06">&#9670;&#160;</a></span>getUpdateTimeMillis()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Uint32 FPSManager::getUpdateTimeMillis </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the constant speed in which our game updates. </p>
+<dl class="section return"><dt>Returns</dt><dd>Uint32 </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_f_p_s_manager_8cpp_source.html#l00039">39</a> of file <a class="el" href="_f_p_s_manager_8cpp_source.html">FPSManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   39</span>                                             {</div>
+<div class="line"><span class="lineno">   40</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_f_p_s_manager.html#af46018f627884d1630f250149cb13309">msPerUpdate</a>;</div>
+<div class="line"><span class="lineno">   41</span>}</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_f_p_s_manager_8h_source.html#l00112">msPerUpdate</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_f_p_s_manager_8cpp_source.html#l00056">getUpdateFPS()</a>, and <a class="el" href="_g_l_e_s_c_8cpp_source.html#l00161">GLESC::Engine::registerStats()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_f_p_s_manager_ae47a2614bf8ea4ccf52234e95980cc06_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a2fbccbcca1c84f9db712a7c310f2894c" name="a2fbccbcca1c84f9db712a7c310f2894c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2fbccbcca1c84f9db712a7c310f2894c">&#9670;&#160;</a></span>hasSpiralOfDeathBeenReached()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool FPSManager::hasSpiralOfDeathBeenReached </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_f_p_s_manager_8cpp_source.html#l00043">43</a> of file <a class="el" href="_f_p_s_manager_8cpp_source.html">FPSManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   43</span>                                                  {</div>
+<div class="line"><span class="lineno">   44</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_f_p_s_manager.html#ab7ef76ba7703876ea2df7e30345c82d8">updateCounter</a> &gt; <a class="code hl_variable" href="class_f_p_s_manager.html#a97c20d0314bfbeb0319155d6594eaa97">spiralOfDeathLimit</a>;</div>
+<div class="line"><span class="lineno">   45</span>}</div>
+<div class="ttc" id="aclass_f_p_s_manager_html_a97c20d0314bfbeb0319155d6594eaa97"><div class="ttname"><a href="class_f_p_s_manager.html#a97c20d0314bfbeb0319155d6594eaa97">FPSManager::spiralOfDeathLimit</a></div><div class="ttdeci">static constexpr int spiralOfDeathLimit</div><div class="ttdoc">Threshold to check if the game is stuck in a loop- If the amount of updates is greater than this valu...</div><div class="ttdef"><b>Definition</b> <a href="_f_p_s_manager_8h_source.html#l00139">FPSManager.h:139</a></div></div>
+<div class="ttc" id="aclass_f_p_s_manager_html_ab7ef76ba7703876ea2df7e30345c82d8"><div class="ttname"><a href="class_f_p_s_manager.html#ab7ef76ba7703876ea2df7e30345c82d8">FPSManager::updateCounter</a></div><div class="ttdeci">int updateCounter</div><div class="ttdoc">Counter to check if the game is stuck in a loop.</div><div class="ttdef"><b>Definition</b> <a href="_f_p_s_manager_8h_source.html#l00143">FPSManager.h:143</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_f_p_s_manager_8h_source.html#l00139">spiralOfDeathLimit</a>, and <a class="el" href="_f_p_s_manager_8h_source.html#l00143">updateCounter</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="src_2engine_2main_8cpp_source.html#l00015">main()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_f_p_s_manager_a2fbccbcca1c84f9db712a7c310f2894c_icgraph.svg" width="315" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a2293812478c7c40b51762e86a27054b9" name="a2293812478c7c40b51762e86a27054b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2293812478c7c40b51762e86a27054b9">&#9670;&#160;</a></span>isUpdateLagged()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool FPSManager::isUpdateLagged </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Is the game time behind real time? </p>
+<dl class="section return"><dt>Returns</dt><dd>true - if accumulated lag is greater than a constant </dd>
+<dd>
+false - if accumulated lag is not greater than a constant </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_f_p_s_manager_8cpp_source.html#l00030">30</a> of file <a class="el" href="_f_p_s_manager_8cpp_source.html">FPSManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   30</span>                                      {</div>
+<div class="line"><span class="lineno">   31</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_f_p_s_manager.html#afb179a88ebb74c3a2edf2c4672da0549">lag</a> &gt;= <a class="code hl_variable" href="class_f_p_s_manager.html#af46018f627884d1630f250149cb13309">msPerUpdate</a>;</div>
+<div class="line"><span class="lineno">   32</span>}</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_f_p_s_manager_8h_source.html#l00133">lag</a>, and <a class="el" href="_f_p_s_manager_8h_source.html#l00112">msPerUpdate</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="src_2engine_2main_8cpp_source.html#l00015">main()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_f_p_s_manager_a2293812478c7c40b51762e86a27054b9_icgraph.svg" width="307" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a007c4b90cf2db9e58b6a73ecbc5bc95e" name="a007c4b90cf2db9e58b6a73ecbc5bc95e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a007c4b90cf2db9e58b6a73ecbc5bc95e">&#9670;&#160;</a></span>refreshUpdateLag()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FPSManager::refreshUpdateLag </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reduce the accumulated lag by a constant. Must be called each time update is called. </p>
+
+<p class="definition">Definition at line <a class="el" href="_f_p_s_manager_8cpp_source.html#l00034">34</a> of file <a class="el" href="_f_p_s_manager_8cpp_source.html">FPSManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   34</span>                                  {</div>
+<div class="line"><span class="lineno">   35</span>    <a class="code hl_variable" href="class_f_p_s_manager.html#afb179a88ebb74c3a2edf2c4672da0549">lag</a> -= <a class="code hl_variable" href="class_f_p_s_manager.html#af46018f627884d1630f250149cb13309">msPerUpdate</a>;</div>
+<div class="line"><span class="lineno">   36</span>    <a class="code hl_variable" href="class_f_p_s_manager.html#ab7ef76ba7703876ea2df7e30345c82d8">updateCounter</a>++;</div>
+<div class="line"><span class="lineno">   37</span>}</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_f_p_s_manager_8h_source.html#l00133">lag</a>, <a class="el" href="_f_p_s_manager_8h_source.html#l00112">msPerUpdate</a>, and <a class="el" href="_f_p_s_manager_8h_source.html#l00143">updateCounter</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="src_2engine_2main_8cpp_source.html#l00015">main()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_f_p_s_manager_a007c4b90cf2db9e58b6a73ecbc5bc95e_icgraph.svg" width="315" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a6eda5c4346a47df26d00437a9c96ec7d" name="a6eda5c4346a47df26d00437a9c96ec7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6eda5c4346a47df26d00437a9c96ec7d">&#9670;&#160;</a></span>startFrame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FPSManager::startFrame </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>measures the frame, remembering the old frame. </p>
+
+<p class="definition">Definition at line <a class="el" href="_f_p_s_manager_8cpp_source.html#l00021">21</a> of file <a class="el" href="_f_p_s_manager_8cpp_source.html">FPSManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   21</span>                            {</div>
+<div class="line"><span class="lineno">   22</span>    <a class="code hl_variable" href="class_f_p_s_manager.html#a73203d4afc5cbec2ed238c9d20b22ecc">current</a> = SDL_GetTicks(); <span class="comment">// Update the current frame-time</span></div>
+<div class="line"><span class="lineno">   23</span>    <a class="code hl_variable" href="class_f_p_s_manager.html#a4570d9bfc9faf40bf5a3e78dafe5c8d6">elapsed</a> = <a class="code hl_variable" href="class_f_p_s_manager.html#a73203d4afc5cbec2ed238c9d20b22ecc">current</a> - <a class="code hl_variable" href="class_f_p_s_manager.html#a62123b81d7f00d5cd1e4638871726719">previous</a>;</div>
+<div class="line"><span class="lineno">   24</span>    <a class="code hl_variable" href="class_f_p_s_manager.html#a62123b81d7f00d5cd1e4638871726719">previous</a> = <a class="code hl_variable" href="class_f_p_s_manager.html#a73203d4afc5cbec2ed238c9d20b22ecc">current</a>; <span class="comment">// Updates the previous frame-time</span></div>
+<div class="line"><span class="lineno">   25</span>    <a class="code hl_variable" href="class_f_p_s_manager.html#afb179a88ebb74c3a2edf2c4672da0549">lag</a> += <a class="code hl_variable" href="class_f_p_s_manager.html#a4570d9bfc9faf40bf5a3e78dafe5c8d6">elapsed</a>; <span class="comment">// Accumulate the elapsed time inside lag</span></div>
+<div class="line"><span class="lineno">   26</span>    <a class="code hl_variable" href="class_f_p_s_manager.html#a28f8f0b21bd9c7547194318540ed67f0">fpsAverager</a>.<a class="code hl_function" href="class_f_p_s_averager.html#ab0d9f806182972339bcf66952978923e">addFrame</a>(<a class="code hl_variable" href="class_f_p_s_manager.html#a4570d9bfc9faf40bf5a3e78dafe5c8d6">elapsed</a>);</div>
+<div class="line"><span class="lineno">   27</span>    <a class="code hl_function" href="class_f_p_s_manager.html#aa81047af00a87059468b39b3ef524e77">delay</a>();</div>
+<div class="line"><span class="lineno">   28</span>}</div>
+<div class="ttc" id="aclass_f_p_s_averager_html_ab0d9f806182972339bcf66952978923e"><div class="ttname"><a href="class_f_p_s_averager.html#ab0d9f806182972339bcf66952978923e">FPSAverager::addFrame</a></div><div class="ttdeci">void addFrame(long unsigned int frameTime)</div><div class="ttdoc">Adds a frame to the FPS averager.</div><div class="ttdef"><b>Definition</b> <a href="_f_p_s_averager_8h_source.html#l00029">FPSAverager.h:29</a></div></div>
+<div class="ttc" id="aclass_f_p_s_manager_html_a62123b81d7f00d5cd1e4638871726719"><div class="ttname"><a href="class_f_p_s_manager.html#a62123b81d7f00d5cd1e4638871726719">FPSManager::previous</a></div><div class="ttdeci">Uint64 previous</div><div class="ttdoc">Time recorded at the end of the loop iteration.</div><div class="ttdef"><b>Definition</b> <a href="_f_p_s_manager_8h_source.html#l00123">FPSManager.h:123</a></div></div>
+<div class="ttc" id="aclass_f_p_s_manager_html_a73203d4afc5cbec2ed238c9d20b22ecc"><div class="ttname"><a href="class_f_p_s_manager.html#a73203d4afc5cbec2ed238c9d20b22ecc">FPSManager::current</a></div><div class="ttdeci">Uint64 current</div><div class="ttdoc">Time recorded at the beginning of the loop iteration.</div><div class="ttdef"><b>Definition</b> <a href="_f_p_s_manager_8h_source.html#l00118">FPSManager.h:118</a></div></div>
+<div class="ttc" id="aclass_f_p_s_manager_html_aa81047af00a87059468b39b3ef524e77"><div class="ttname"><a href="class_f_p_s_manager.html#aa81047af00a87059468b39b3ef524e77">FPSManager::delay</a></div><div class="ttdeci">void delay() const</div><div class="ttdef"><b>Definition</b> <a href="_f_p_s_manager_8cpp_source.html#l00065">FPSManager.cpp:65</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_f_p_s_averager_8h_source.html#l00029">FPSAverager::addFrame()</a>, <a class="el" href="_f_p_s_manager_8h_source.html#l00118">current</a>, <a class="el" href="_f_p_s_manager_8cpp_source.html#l00065">delay()</a>, <a class="el" href="_f_p_s_manager_8h_source.html#l00128">elapsed</a>, <a class="el" href="_f_p_s_manager_8h_source.html#l00158">fpsAverager</a>, <a class="el" href="_f_p_s_manager_8h_source.html#l00133">lag</a>, and <a class="el" href="_f_p_s_manager_8h_source.html#l00123">previous</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="src_2engine_2main_8cpp_source.html#l00015">main()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_f_p_s_manager_a6eda5c4346a47df26d00437a9c96ec7d_cgraph.svg" width="391" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_f_p_s_manager_a6eda5c4346a47df26d00437a9c96ec7d_icgraph.svg" width="276" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a736c506f7cc7adf19ab66da5c194630e" name="a736c506f7cc7adf19ab66da5c194630e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a736c506f7cc7adf19ab66da5c194630e">&#9670;&#160;</a></span>averageFpsListSize</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr int FPSManager::averageFpsListSize = 60</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_f_p_s_manager_8h_source.html#l00145">145</a> of file <a class="el" href="_f_p_s_manager_8h_source.html">FPSManager.h</a>.</p>
+
+</div>
+</div>
+<a id="a73203d4afc5cbec2ed238c9d20b22ecc" name="a73203d4afc5cbec2ed238c9d20b22ecc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73203d4afc5cbec2ed238c9d20b22ecc">&#9670;&#160;</a></span>current</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Uint64 FPSManager::current {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Time recorded at the beginning of the loop iteration. </p>
+
+<p class="definition">Definition at line <a class="el" href="_f_p_s_manager_8h_source.html#l00118">118</a> of file <a class="el" href="_f_p_s_manager_8h_source.html">FPSManager.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  118</span>{};</div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="_f_p_s_manager_8cpp_source.html#l00021">startFrame()</a>.</p>
+
+</div>
+</div>
+<a id="a4570d9bfc9faf40bf5a3e78dafe5c8d6" name="a4570d9bfc9faf40bf5a3e78dafe5c8d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4570d9bfc9faf40bf5a3e78dafe5c8d6">&#9670;&#160;</a></span>elapsed</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Uint32 FPSManager::elapsed {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The actual time it elapses. </p>
+
+<p class="definition">Definition at line <a class="el" href="_f_p_s_manager_8h_source.html#l00128">128</a> of file <a class="el" href="_f_p_s_manager_8h_source.html">FPSManager.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  128</span>{};</div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="_f_p_s_manager_8cpp_source.html#l00065">delay()</a>, <a class="el" href="_f_p_s_manager_8cpp_source.html#l00048">getCurrentRenderTimeMillis()</a>, and <a class="el" href="_f_p_s_manager_8cpp_source.html#l00021">startFrame()</a>.</p>
+
+</div>
+</div>
+<a id="a28f8f0b21bd9c7547194318540ed67f0" name="a28f8f0b21bd9c7547194318540ed67f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28f8f0b21bd9c7547194318540ed67f0">&#9670;&#160;</a></span>fpsAverager</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_f_p_s_averager.html">FPSAverager</a> FPSManager::fpsAverager</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The averager to calculate the average fps. </p>
+
+<p class="definition">Definition at line <a class="el" href="_f_p_s_manager_8h_source.html#l00158">158</a> of file <a class="el" href="_f_p_s_manager_8h_source.html">FPSManager.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_f_p_s_manager_8cpp_source.html#l00052">getAverageRenderTimeMillis()</a>, and <a class="el" href="_f_p_s_manager_8cpp_source.html#l00021">startFrame()</a>.</p>
+
+</div>
+</div>
+<a id="a96a16bd2bd91abfa86a0b63f9301831d" name="a96a16bd2bd91abfa86a0b63f9301831d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96a16bd2bd91abfa86a0b63f9301831d">&#9670;&#160;</a></span>fpsList</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float FPSManager::fpsList[<a class="el" href="class_f_p_s_manager.html#a736c506f7cc7adf19ab66da5c194630e">averageFpsListSize</a>] {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>List of the last 60 frames to calculate the average fps. </p>
+
+<p class="definition">Definition at line <a class="el" href="_f_p_s_manager_8h_source.html#l00149">149</a> of file <a class="el" href="_f_p_s_manager_8h_source.html">FPSManager.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  149</span>{};</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="aef22b3c28ef796e9520075a071fd6428" name="aef22b3c28ef796e9520075a071fd6428"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef22b3c28ef796e9520075a071fd6428">&#9670;&#160;</a></span>fpsListIndex</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FPSManager::fpsListIndex {0}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Index of the fpsList. </p>
+
+<p class="definition">Definition at line <a class="el" href="_f_p_s_manager_8h_source.html#l00153">153</a> of file <a class="el" href="_f_p_s_manager_8h_source.html">FPSManager.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  153</span>{0};</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="aa3e3fe09f20d7107af0118bf89062f3e" name="aa3e3fe09f20d7107af0118bf89062f3e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3e3fe09f20d7107af0118bf89062f3e">&#9670;&#160;</a></span>fpsMs</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Uint32 FPSManager::fpsMs</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The max time (milliseconds) can elapse between frames. </p>
+
+<p class="definition">Definition at line <a class="el" href="_f_p_s_manager_8h_source.html#l00107">107</a> of file <a class="el" href="_f_p_s_manager_8h_source.html">FPSManager.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_f_p_s_manager_8cpp_source.html#l00065">delay()</a>.</p>
+
+</div>
+</div>
+<a id="afb179a88ebb74c3a2edf2c4672da0549" name="afb179a88ebb74c3a2edf2c4672da0549"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb179a88ebb74c3a2edf2c4672da0549">&#9670;&#160;</a></span>lag</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Uint32 FPSManager::lag {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Amount of time game time is behind real time. </p>
+
+<p class="definition">Definition at line <a class="el" href="_f_p_s_manager_8h_source.html#l00133">133</a> of file <a class="el" href="_f_p_s_manager_8h_source.html">FPSManager.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  133</span>{};</div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="_f_p_s_manager_8cpp_source.html#l00073">getTimeOfFrameAfterUpdate()</a>, <a class="el" href="_f_p_s_manager_8cpp_source.html#l00030">isUpdateLagged()</a>, <a class="el" href="_f_p_s_manager_8cpp_source.html#l00034">refreshUpdateLag()</a>, and <a class="el" href="_f_p_s_manager_8cpp_source.html#l00021">startFrame()</a>.</p>
+
+</div>
+</div>
+<a id="aad6f78589950fccb7922e24c8115dc03" name="aad6f78589950fccb7922e24c8115dc03"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad6f78589950fccb7922e24c8115dc03">&#9670;&#160;</a></span>msInASecond</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr Uint32 FPSManager::msInASecond {1000}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_f_p_s_manager_8h_source.html#l00102">102</a> of file <a class="el" href="_f_p_s_manager_8h_source.html">FPSManager.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  102</span>{1000};</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="af46018f627884d1630f250149cb13309" name="af46018f627884d1630f250149cb13309"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af46018f627884d1630f250149cb13309">&#9670;&#160;</a></span>msPerUpdate</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const Uint32 FPSManager::msPerUpdate</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>constant speed (in ms) in which our game updates </p>
+
+<p class="definition">Definition at line <a class="el" href="_f_p_s_manager_8h_source.html#l00112">112</a> of file <a class="el" href="_f_p_s_manager_8h_source.html">FPSManager.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_f_p_s_manager_8cpp_source.html#l00073">getTimeOfFrameAfterUpdate()</a>, <a class="el" href="_f_p_s_manager_8cpp_source.html#l00039">getUpdateTimeMillis()</a>, <a class="el" href="_f_p_s_manager_8cpp_source.html#l00030">isUpdateLagged()</a>, and <a class="el" href="_f_p_s_manager_8cpp_source.html#l00034">refreshUpdateLag()</a>.</p>
+
+</div>
+</div>
+<a id="a62123b81d7f00d5cd1e4638871726719" name="a62123b81d7f00d5cd1e4638871726719"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62123b81d7f00d5cd1e4638871726719">&#9670;&#160;</a></span>previous</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Uint64 FPSManager::previous {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Time recorded at the end of the loop iteration. </p>
+
+<p class="definition">Definition at line <a class="el" href="_f_p_s_manager_8h_source.html#l00123">123</a> of file <a class="el" href="_f_p_s_manager_8h_source.html">FPSManager.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  123</span>{};</div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="_f_p_s_manager_8cpp_source.html#l00021">startFrame()</a>.</p>
+
+</div>
+</div>
+<a id="a97c20d0314bfbeb0319155d6594eaa97" name="a97c20d0314bfbeb0319155d6594eaa97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97c20d0314bfbeb0319155d6594eaa97">&#9670;&#160;</a></span>spiralOfDeathLimit</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr int FPSManager::spiralOfDeathLimit = 500</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Threshold to check if the game is stuck in a loop- If the amount of updates is greater than this value, the game is stuck in a loop. </p>
+
+<p class="definition">Definition at line <a class="el" href="_f_p_s_manager_8h_source.html#l00139">139</a> of file <a class="el" href="_f_p_s_manager_8h_source.html">FPSManager.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_f_p_s_manager_8cpp_source.html#l00043">hasSpiralOfDeathBeenReached()</a>.</p>
+
+</div>
+</div>
+<a id="ab7ef76ba7703876ea2df7e30345c82d8" name="ab7ef76ba7703876ea2df7e30345c82d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7ef76ba7703876ea2df7e30345c82d8">&#9670;&#160;</a></span>updateCounter</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FPSManager::updateCounter {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_counter.html">Counter</a> to check if the game is stuck in a loop. </p>
+
+<p class="definition">Definition at line <a class="el" href="_f_p_s_manager_8h_source.html#l00143">143</a> of file <a class="el" href="_f_p_s_manager_8h_source.html">FPSManager.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  143</span>{};</div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="_f_p_s_manager_8cpp_source.html#l00043">hasSpiralOfDeathBeenReached()</a>, and <a class="el" href="_f_p_s_manager_8cpp_source.html#l00034">refreshUpdateLag()</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li><a class="el" href="_f_p_s_manager_8h_source.html">FPSManager.h</a></li>
+<li><a class="el" href="_f_p_s_manager_8cpp_source.html">FPSManager.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="class_f_p_s_manager.html">FPSManager</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

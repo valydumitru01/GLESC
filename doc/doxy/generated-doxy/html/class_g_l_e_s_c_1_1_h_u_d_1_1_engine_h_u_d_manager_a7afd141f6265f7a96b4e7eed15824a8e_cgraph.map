@@ -1,0 +1,5 @@
+<map id="GLESC::HUD::EngineHUDManager::toggle" name="GLESC::HUD::EngineHUDManager::toggle">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,231,48"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_in_game_window.html#a087040fce7c52c32069a6df3370ce7c6" title=" " alt="" coords="279,5,443,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="231,24,263,24,263,29,231,29"/>
+</map>

@@ -1,0 +1,29 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,413,107,440"/>
+<area shape="rect" id="Node000001" href="$struct_g_l_e_s_c_1_1_g_a_p_i_1_1is_graphics_type_3_01_g_a_p_i_1_1_float_01_4.html" title=" " alt="" coords="155,5,357,48"/>
+<area shape="poly" id="edge56_Node000000_Node000001" title=" " alt="" coords="54,398,56,330,68,239,81,191,98,143,122,98,153,58,167,46,170,51,157,62,126,101,103,145,86,192,74,240,61,330,59,398"/>
+<area shape="rect" id="Node000002" href="$struct_g_l_e_s_c_1_1_g_a_p_i_1_1is_graphics_type_3_01_g_a_p_i_1_1_int_01_4.html" title=" " alt="" coords="155,72,357,115"/>
+<area shape="poly" id="edge57_Node000000_Node000002" title=" " alt="" coords="56,397,62,341,77,268,89,229,106,192,127,156,153,125,168,113,171,117,157,129,131,159,111,194,94,231,82,269,67,341,61,398"/>
+<area shape="rect" id="Node000003" href="$struct_g_l_e_s_c_1_1_g_a_p_i_1_1is_graphics_type_3_01_g_a_p_i_1_1_u_char_01_4.html" title=" " alt="" coords="155,139,357,181"/>
+<area shape="poly" id="edge58_Node000000_Node000003" title=" " alt="" coords="59,397,69,352,86,297,114,241,132,215,153,191,169,180,172,184,156,195,136,218,118,243,91,299,74,354,64,398"/>
+<area shape="rect" id="Node000004" href="$struct_g_l_e_s_c_1_1_g_a_p_i_1_1is_graphics_type_3_01_g_a_p_i_1_1_u_int_01_4.html" title=" " alt="" coords="155,205,357,248"/>
+<area shape="poly" id="edge59_Node000000_Node000004" title=" " alt="" coords="64,397,96,328,122,290,153,258,171,246,174,251,156,262,126,294,101,330,69,399"/>
+<area shape="rect" id="Node000005" href="$struct_g_l_e_s_c_1_1_g_a_p_i_1_1is_graphics_type_3_01_g_a_p_i_1_1_u_short_01_4.html" title=" " alt="" coords="155,272,357,315"/>
+<area shape="poly" id="edge60_Node000000_Node000005" title=" " alt="" coords="74,399,109,361,153,324,175,313,178,318,156,329,112,365,78,403"/>
+<area shape="rect" id="Node000006" href="$struct_g_l_e_s_c_1_1_g_a_p_i_1_1is_graphics_type_3_01_mat2_f_01_4.html" title=" " alt="" coords="155,339,357,381"/>
+<area shape="poly" id="edge61_Node000000_Node000006" title=" " alt="" coords="111,405,154,391,188,379,189,385,156,396,113,410"/>
+<area shape="rect" id="Node000007" href="$struct_g_l_e_s_c_1_1_g_a_p_i_1_1is_graphics_type_3_01_mat3_f_01_4.html" title=" " alt="" coords="155,405,357,448"/>
+<area shape="poly" id="edge62_Node000000_Node000007" title=" " alt="" coords="122,424,154,424,154,429,122,429"/>
+<area shape="rect" id="Node000008" href="$struct_g_l_e_s_c_1_1_g_a_p_i_1_1is_graphics_type_3_01_mat4_f_01_4.html" title=" " alt="" coords="155,472,357,515"/>
+<area shape="poly" id="edge63_Node000000_Node000008" title=" " alt="" coords="113,443,156,457,189,469,188,474,154,463,111,448"/>
+<area shape="rect" id="Node000009" href="$struct_g_l_e_s_c_1_1_g_a_p_i_1_1is_graphics_type_3_01_vec2_f_01_4.html" title=" " alt="" coords="155,539,357,581"/>
+<area shape="poly" id="edge64_Node000000_Node000009" title=" " alt="" coords="78,451,112,489,156,524,178,536,175,540,153,529,109,492,74,454"/>
+<area shape="rect" id="Node000010" href="$struct_g_l_e_s_c_1_1_g_a_p_i_1_1is_graphics_type_3_01_vec3_f_01_4.html" title=" " alt="" coords="155,605,357,648"/>
+<area shape="poly" id="edge65_Node000000_Node000010" title=" " alt="" coords="69,454,101,523,126,560,156,591,174,603,171,607,153,595,122,563,96,525,64,456"/>
+<area shape="rect" id="Node000011" href="$struct_g_l_e_s_c_1_1_g_a_p_i_1_1is_graphics_type_3_01_vec4_f_01_4.html" title=" " alt="" coords="155,672,357,715"/>
+<area shape="poly" id="edge66_Node000000_Node000011" title=" " alt="" coords="64,455,74,500,91,554,118,610,136,635,156,658,172,669,169,674,153,662,132,639,114,613,86,556,69,501,59,456"/>
+<area shape="rect" id="Node000012" href="$struct_g_l_e_s_c_1_1is_iterable_3_01_t_00_01std_1_1void__t_3_01decltype_07std_1_1declval_3_01_t_2c6fe44a4dd1f6ad5748cd9c04374dd8.html" title=" " alt="" coords="174,739,338,829"/>
+<area shape="poly" id="edge67_Node000000_Node000012" title=" " alt="" coords="62,455,70,510,87,581,115,656,134,692,157,725,175,743,172,747,153,728,129,695,110,658,82,582,65,511,57,456"/>
+<area shape="rect" id="Node000013" href="$structis__vector_3_01_g_l_e_s_c_1_1_math_1_1_vector_3_01_t_00_01_n_01_4_01_4.html" title="Specialization of the is_vector type trait for the Vector class." alt="" coords="173,853,339,896"/>
+<area shape="poly" id="edge68_Node000000_Node000013" title=" " alt="" coords="63,455,74,543,94,658,122,768,138,810,157,840,174,854,171,858,153,843,134,813,117,769,89,659,69,543,58,456"/>
+</map>

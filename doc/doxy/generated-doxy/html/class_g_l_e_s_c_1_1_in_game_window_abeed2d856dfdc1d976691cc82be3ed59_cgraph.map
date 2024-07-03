@@ -1,0 +1,7 @@
+<map id="GLESC::InGameWindow::update" name="GLESC::InGameWindow::update">
+<area shape="rect" id="Node000001" title="Update the window position and size." alt="" coords="5,39,170,81"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_in_game_window.html#ada63f6f77376fb3612e19b55c02c0b6f" title=" " alt="" coords="218,5,382,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="169,44,202,39,203,45,170,50"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_in_game_window.html#aa9d97df9583bbe049c1bcb9559944255" title=" " alt="" coords="218,72,382,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="170,70,203,75,202,81,169,76"/>
+</map>

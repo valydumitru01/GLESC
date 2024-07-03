@@ -1,0 +1,262 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="Doxygen Awesome" />
+<meta property="og:image" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+<meta property="og:description" content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
+<meta property="og:url" content="https://jothepro.github.io/doxygen-awesome-css/" />
+<!-- END opengraph metadata -->
+<!-- BEGIN twitter metadata -->
+<meta name="twitter:image:src" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+<meta name="twitter:title" content="Doxygen Awesome" />
+<meta name="twitter:description" content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
+<!-- END twitter metadata -->
+<title>GLESC: EntityStatsManager.h Source File</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.drawio.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/ -->
+<a href="https://github.com/jothepro/doxygen-awesome-css" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="GLESC_logo_white_background.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">GLESC
+   &#160;<span id="projectnumber">1</span>
+   </div>
+   <div id="projectbrief">Game engine using ECS architecture</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('_entity_stats_manager_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">EntityStatsManager.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_entity_stats_manager_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;functional&gt;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="class_entity_stats_manager.html#a8445a29d5b04f1091e8c627cfad75989">   14</a></span> </div>
+<div class="foldopen" id="foldopen00020" data-start="{" data-end="};">
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="class_entity_stats_manager.html">   20</a></span><span class="keyword">class </span><a class="code hl_class" href="class_entity_stats_manager.html">EntityStatsManager</a> {</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="foldopen" id="foldopen00023" data-start="{" data-end="};">
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5">   23</a></span>    <span class="keyword">enum class</span> <a class="code hl_enumeration" href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5">ValueType</a> {</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        <a class="code hl_enumvalue" href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5a53f93baa3057821107c750323892fa92">INT</a>,</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        <a class="code hl_enumvalue" href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5ae738c26bf4ce1037fa81b039a915cbf6">FLOAT</a>,</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        <a class="code hl_enumvalue" href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5a63b588d5559f64f89a416e656880b949">STRING</a>,</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        <a class="code hl_enumvalue" href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5aa97b2c144243b2b9d2c593ec268b62f5">BOOL</a>,</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        <a class="code hl_enumvalue" href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5add7222e7029b92693a7f0d900c070d5e">VEC2F</a>,</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        <a class="code hl_enumvalue" href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5a18814f886cf9f30ca199c1e81900fa03">VEC3F</a>,</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        <a class="code hl_enumvalue" href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5a4bf4a3b0dd50ca982c6d8f671593cbe9">VEC4F</a>,</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        <a class="code hl_enumvalue" href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5a1bf240fe844319d5d5cc9787faee381f">VEC2I</a>,</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <a class="code hl_enumvalue" href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5aa6bcf9fee9475744e601dc2fa3113d28">VEC3I</a>,</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        <a class="code hl_enumvalue" href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5a5ddf1085a9925cb77ed7ee4ce3c70f26">VEC4I</a>,</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        <a class="code hl_enumvalue" href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5af0bf79d8f671dfbd014cf0caf39bb485">MAT2F</a>,</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        <a class="code hl_enumvalue" href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5a0a92450b2700e7d052d2aef72a260e91">MAT3F</a>,</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        <a class="code hl_enumvalue" href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5a9603c55ac7060615c6c36f81708855e2">MAT4F</a>,</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        <a class="code hl_enumvalue" href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5ae287cbe9ed013bf9a3edfecf5ace1aac">VEC2B</a>,</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        <a class="code hl_enumvalue" href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5a92d429d16852840bb3dd3b0923b84c27">VEC3B</a>,</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        <a class="code hl_enumvalue" href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5ae39567b870465d2210bf207dc9d24ee4">VEC4B</a>,</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    };</div>
+</div>
+<div class="foldopen" id="foldopen00044" data-start="{" data-end="};">
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="class_entity_stats_manager.html">   44</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="class_entity_stats_manager.html#struct_entity_stats_manager_1_1_value">Value</a> {</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="class_entity_stats_manager.html#a8c007fcaab6bce263fb0e0d80b8bbbb7">   45</a></span>        std::string <a class="code hl_variable" href="class_entity_stats_manager.html#a8c007fcaab6bce263fb0e0d80b8bbbb7">name</a>;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="class_entity_stats_manager.html#a2773885fc2fa1b949ce6ae816516eed4">   46</a></span>        std::string <a class="code hl_variable" href="class_entity_stats_manager.html#a2773885fc2fa1b949ce6ae816516eed4">stringData</a>;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="class_entity_stats_manager.html#af1495ee5d2fd84a321a28b6914425a43">   47</a></span>        <span class="keywordtype">bool</span> <a class="code hl_variable" href="class_entity_stats_manager.html#af1495ee5d2fd84a321a28b6914425a43">isString</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="class_entity_stats_manager.html#a77b1749cb9441b538fa8204cd1c99d30">   49</a></span>        <span class="keywordtype">void</span>* <a class="code hl_variable" href="class_entity_stats_manager.html#a77b1749cb9441b538fa8204cd1c99d30">data</a> = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="class_entity_stats_manager.html#acbbae649ee29eab15c53310618f5bc1c">   50</a></span>        <span class="keywordtype">bool</span>* <a class="code hl_variable" href="class_entity_stats_manager.html#acbbae649ee29eab15c53310618f5bc1c">valueDirty</a> = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="class_entity_stats_manager.html#ae1ad6da826ba52258dab33baf40a5525">   51</a></span>        <a class="code hl_enumeration" href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5">ValueType</a> <a class="code hl_variable" href="class_entity_stats_manager.html#ae1ad6da826ba52258dab33baf40a5525">type</a>;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="class_entity_stats_manager.html#a7311e28e99567685f0adc131db3d88af">   53</a></span>        <span class="keywordtype">float</span> <a class="code hl_variable" href="class_entity_stats_manager.html#a7311e28e99567685f0adc131db3d88af">min</a> = 0.0f;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="class_entity_stats_manager.html#adbf6792584ab1457aa035ca90507a805">   54</a></span>        <span class="keywordtype">float</span> <a class="code hl_variable" href="class_entity_stats_manager.html#adbf6792584ab1457aa035ca90507a805">max</a> = 1.0f;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="class_entity_stats_manager.html#a418aa60745cecc37f5f1269e55f2c30e">   58</a></span>        <span class="keywordtype">bool</span> <a class="code hl_variable" href="class_entity_stats_manager.html#a418aa60745cecc37f5f1269e55f2c30e">usesSlider</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="class_entity_stats_manager.html#a285d0c4315b2f09968607387885fe125">   59</a></span>        <span class="keywordtype">bool</span> <a class="code hl_variable" href="class_entity_stats_manager.html#a285d0c4315b2f09968607387885fe125">isModifiable</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    };</div>
+</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="foldopen" id="foldopen00064" data-start="{" data-end="};">
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="class_entity_stats_manager.html">   64</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="class_entity_stats_manager.html#struct_entity_stats_manager_1_1_component_data">ComponentData</a> {</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="class_entity_stats_manager.html#a0e1c66c6036dce5d4f33561895b972bf">   65</a></span>        std::string <a class="code hl_variable" href="class_entity_stats_manager.html#a0e1c66c6036dce5d4f33561895b972bf">name</a>;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="class_entity_stats_manager.html#ae5b91cc316f4f83ed3fba70a05d525bc">   66</a></span>        std::vector&lt;Value&gt;* <a class="code hl_variable" href="class_entity_stats_manager.html#ae5b91cc316f4f83ed3fba70a05d525bc">values</a>;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="class_entity_stats_manager.html#af83262b39d127372f726e71323076b84">   67</a></span>        std::function&lt;std::vector&lt;Value&gt;()&gt; <a class="code hl_variable" href="class_entity_stats_manager.html#af83262b39d127372f726e71323076b84">getUpdatedValues</a>;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    };</div>
+</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="foldopen" id="foldopen00070" data-start="{" data-end="};">
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="class_entity_stats_manager.html">   70</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="class_entity_stats_manager.html#struct_entity_stats_manager_1_1_entity_data">EntityData</a> {</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="class_entity_stats_manager.html#a6d6f2f045ccea0dd5fd2e5c4b2f01947">   71</a></span>        std::string <a class="code hl_variable" href="class_entity_stats_manager.html#a6d6f2f045ccea0dd5fd2e5c4b2f01947">name</a>;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="class_entity_stats_manager.html#a9e666ec62e167606308585cd4aad37b1">   72</a></span>        std::vector&lt;ComponentData&gt; <a class="code hl_variable" href="class_entity_stats_manager.html#a9e666ec62e167606308585cd4aad37b1">components</a>;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    };</div>
+</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="preprocessor">#ifndef NDEBUG_GLESC</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="class_entity_stats_manager.html#a05fa0370e81d17a2261aa0f3d924022e">   76</a></span>    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_entity_stats_manager.html#a05fa0370e81d17a2261aa0f3d924022e">setEntityData</a>(<a class="code hl_struct" href="class_entity_stats_manager.html#struct_entity_stats_manager_1_1_entity_data">EntityData</a> data) { <a class="code hl_variable" href="class_entity_stats_manager.html#a8445a29d5b04f1091e8c627cfad75989">entityData</a> = data; }</div>
+<div class="foldopen" id="foldopen00077" data-start="{" data-end="}">
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="class_entity_stats_manager.html#a37a90cfba2ee36225b973f2099081603">   77</a></span>    <span class="keyword">static</span> <a class="code hl_struct" href="class_entity_stats_manager.html#struct_entity_stats_manager_1_1_entity_data">EntityData</a>&amp; <a class="code hl_function" href="class_entity_stats_manager.html#a37a90cfba2ee36225b973f2099081603">getEntityData</a>(){</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="class_entity_stats_manager.html#a8445a29d5b04f1091e8c627cfad75989">entityData</a>;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    }</div>
+</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="preprocessor">#else</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_entity_stats_manager.html#a05fa0370e81d17a2261aa0f3d924022e">setEntityData</a>(<span class="keyword">const</span> EntityData&amp; data) { (void)data; }</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="keyword">static</span> EntityData <a class="code hl_function" href="class_entity_stats_manager.html#a37a90cfba2ee36225b973f2099081603">getEntityData</a>() { <span class="keywordflow">return</span> {}; }</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="keyword">static</span> EntityData <a class="code hl_variable" href="class_entity_stats_manager.html#a8445a29d5b04f1091e8c627cfad75989">entityData</a>;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>}; <span class="comment">// class EntityStatsManager</span></div>
+</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="ttc" id="aclass_entity_stats_manager_html"><div class="ttname"><a href="class_entity_stats_manager.html">EntityStatsManager</a></div><div class="ttdoc">Class that encapsulates the logic of the entity stats manager.</div><div class="ttdef"><b>Definition</b> <a href="_entity_stats_manager_8h_source.html#l00020">EntityStatsManager.h:20</a></div></div>
+<div class="ttc" id="aclass_entity_stats_manager_html_a05fa0370e81d17a2261aa0f3d924022e"><div class="ttname"><a href="class_entity_stats_manager.html#a05fa0370e81d17a2261aa0f3d924022e">EntityStatsManager::setEntityData</a></div><div class="ttdeci">static void setEntityData(EntityData data)</div><div class="ttdef"><b>Definition</b> <a href="_entity_stats_manager_8h_source.html#l00076">EntityStatsManager.h:76</a></div></div>
+<div class="ttc" id="aclass_entity_stats_manager_html_a0e1c66c6036dce5d4f33561895b972bf"><div class="ttname"><a href="class_entity_stats_manager.html#a0e1c66c6036dce5d4f33561895b972bf">EntityStatsManager::ComponentData::name</a></div><div class="ttdeci">std::string name</div><div class="ttdef"><b>Definition</b> <a href="_entity_stats_manager_8h_source.html#l00065">EntityStatsManager.h:65</a></div></div>
+<div class="ttc" id="aclass_entity_stats_manager_html_a2773885fc2fa1b949ce6ae816516eed4"><div class="ttname"><a href="class_entity_stats_manager.html#a2773885fc2fa1b949ce6ae816516eed4">EntityStatsManager::Value::stringData</a></div><div class="ttdeci">std::string stringData</div><div class="ttdef"><b>Definition</b> <a href="_entity_stats_manager_8h_source.html#l00046">EntityStatsManager.h:46</a></div></div>
+<div class="ttc" id="aclass_entity_stats_manager_html_a285d0c4315b2f09968607387885fe125"><div class="ttname"><a href="class_entity_stats_manager.html#a285d0c4315b2f09968607387885fe125">EntityStatsManager::Value::isModifiable</a></div><div class="ttdeci">bool isModifiable</div><div class="ttdef"><b>Definition</b> <a href="_entity_stats_manager_8h_source.html#l00059">EntityStatsManager.h:59</a></div></div>
+<div class="ttc" id="aclass_entity_stats_manager_html_a37a90cfba2ee36225b973f2099081603"><div class="ttname"><a href="class_entity_stats_manager.html#a37a90cfba2ee36225b973f2099081603">EntityStatsManager::getEntityData</a></div><div class="ttdeci">static EntityData &amp; getEntityData()</div><div class="ttdef"><b>Definition</b> <a href="_entity_stats_manager_8h_source.html#l00077">EntityStatsManager.h:77</a></div></div>
+<div class="ttc" id="aclass_entity_stats_manager_html_a418aa60745cecc37f5f1269e55f2c30e"><div class="ttname"><a href="class_entity_stats_manager.html#a418aa60745cecc37f5f1269e55f2c30e">EntityStatsManager::Value::usesSlider</a></div><div class="ttdeci">bool usesSlider</div><div class="ttdoc">It only affects number values, including vectors.</div><div class="ttdef"><b>Definition</b> <a href="_entity_stats_manager_8h_source.html#l00058">EntityStatsManager.h:58</a></div></div>
+<div class="ttc" id="aclass_entity_stats_manager_html_a6d6f2f045ccea0dd5fd2e5c4b2f01947"><div class="ttname"><a href="class_entity_stats_manager.html#a6d6f2f045ccea0dd5fd2e5c4b2f01947">EntityStatsManager::EntityData::name</a></div><div class="ttdeci">std::string name</div><div class="ttdef"><b>Definition</b> <a href="_entity_stats_manager_8h_source.html#l00071">EntityStatsManager.h:71</a></div></div>
+<div class="ttc" id="aclass_entity_stats_manager_html_a7311e28e99567685f0adc131db3d88af"><div class="ttname"><a href="class_entity_stats_manager.html#a7311e28e99567685f0adc131db3d88af">EntityStatsManager::Value::min</a></div><div class="ttdeci">float min</div><div class="ttdef"><b>Definition</b> <a href="_entity_stats_manager_8h_source.html#l00053">EntityStatsManager.h:53</a></div></div>
+<div class="ttc" id="aclass_entity_stats_manager_html_a77b1749cb9441b538fa8204cd1c99d30"><div class="ttname"><a href="class_entity_stats_manager.html#a77b1749cb9441b538fa8204cd1c99d30">EntityStatsManager::Value::data</a></div><div class="ttdeci">void * data</div><div class="ttdef"><b>Definition</b> <a href="_entity_stats_manager_8h_source.html#l00049">EntityStatsManager.h:49</a></div></div>
+<div class="ttc" id="aclass_entity_stats_manager_html_a8445a29d5b04f1091e8c627cfad75989"><div class="ttname"><a href="class_entity_stats_manager.html#a8445a29d5b04f1091e8c627cfad75989">EntityStatsManager::entityData</a></div><div class="ttdeci">static EntityData entityData</div><div class="ttdef"><b>Definition</b> <a href="_entity_stats_manager_8h_source.html#l00014">EntityStatsManager.h:14</a></div></div>
+<div class="ttc" id="aclass_entity_stats_manager_html_a8c007fcaab6bce263fb0e0d80b8bbbb7"><div class="ttname"><a href="class_entity_stats_manager.html#a8c007fcaab6bce263fb0e0d80b8bbbb7">EntityStatsManager::Value::name</a></div><div class="ttdeci">std::string name</div><div class="ttdef"><b>Definition</b> <a href="_entity_stats_manager_8h_source.html#l00045">EntityStatsManager.h:45</a></div></div>
+<div class="ttc" id="aclass_entity_stats_manager_html_a90c422bca5e42d1af36c4cc10d642ad5"><div class="ttname"><a href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5">EntityStatsManager::ValueType</a></div><div class="ttdeci">ValueType</div><div class="ttdef"><b>Definition</b> <a href="_entity_stats_manager_8h_source.html#l00023">EntityStatsManager.h:23</a></div></div>
+<div class="ttc" id="aclass_entity_stats_manager_html_a90c422bca5e42d1af36c4cc10d642ad5a0a92450b2700e7d052d2aef72a260e91"><div class="ttname"><a href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5a0a92450b2700e7d052d2aef72a260e91">EntityStatsManager::ValueType::MAT3F</a></div><div class="ttdeci">@ MAT3F</div></div>
+<div class="ttc" id="aclass_entity_stats_manager_html_a90c422bca5e42d1af36c4cc10d642ad5a18814f886cf9f30ca199c1e81900fa03"><div class="ttname"><a href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5a18814f886cf9f30ca199c1e81900fa03">EntityStatsManager::ValueType::VEC3F</a></div><div class="ttdeci">@ VEC3F</div></div>
+<div class="ttc" id="aclass_entity_stats_manager_html_a90c422bca5e42d1af36c4cc10d642ad5a1bf240fe844319d5d5cc9787faee381f"><div class="ttname"><a href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5a1bf240fe844319d5d5cc9787faee381f">EntityStatsManager::ValueType::VEC2I</a></div><div class="ttdeci">@ VEC2I</div></div>
+<div class="ttc" id="aclass_entity_stats_manager_html_a90c422bca5e42d1af36c4cc10d642ad5a4bf4a3b0dd50ca982c6d8f671593cbe9"><div class="ttname"><a href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5a4bf4a3b0dd50ca982c6d8f671593cbe9">EntityStatsManager::ValueType::VEC4F</a></div><div class="ttdeci">@ VEC4F</div></div>
+<div class="ttc" id="aclass_entity_stats_manager_html_a90c422bca5e42d1af36c4cc10d642ad5a53f93baa3057821107c750323892fa92"><div class="ttname"><a href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5a53f93baa3057821107c750323892fa92">EntityStatsManager::ValueType::INT</a></div><div class="ttdeci">@ INT</div></div>
+<div class="ttc" id="aclass_entity_stats_manager_html_a90c422bca5e42d1af36c4cc10d642ad5a5ddf1085a9925cb77ed7ee4ce3c70f26"><div class="ttname"><a href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5a5ddf1085a9925cb77ed7ee4ce3c70f26">EntityStatsManager::ValueType::VEC4I</a></div><div class="ttdeci">@ VEC4I</div></div>
+<div class="ttc" id="aclass_entity_stats_manager_html_a90c422bca5e42d1af36c4cc10d642ad5a63b588d5559f64f89a416e656880b949"><div class="ttname"><a href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5a63b588d5559f64f89a416e656880b949">EntityStatsManager::ValueType::STRING</a></div><div class="ttdeci">@ STRING</div></div>
+<div class="ttc" id="aclass_entity_stats_manager_html_a90c422bca5e42d1af36c4cc10d642ad5a92d429d16852840bb3dd3b0923b84c27"><div class="ttname"><a href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5a92d429d16852840bb3dd3b0923b84c27">EntityStatsManager::ValueType::VEC3B</a></div><div class="ttdeci">@ VEC3B</div></div>
+<div class="ttc" id="aclass_entity_stats_manager_html_a90c422bca5e42d1af36c4cc10d642ad5a9603c55ac7060615c6c36f81708855e2"><div class="ttname"><a href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5a9603c55ac7060615c6c36f81708855e2">EntityStatsManager::ValueType::MAT4F</a></div><div class="ttdeci">@ MAT4F</div></div>
+<div class="ttc" id="aclass_entity_stats_manager_html_a90c422bca5e42d1af36c4cc10d642ad5aa6bcf9fee9475744e601dc2fa3113d28"><div class="ttname"><a href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5aa6bcf9fee9475744e601dc2fa3113d28">EntityStatsManager::ValueType::VEC3I</a></div><div class="ttdeci">@ VEC3I</div></div>
+<div class="ttc" id="aclass_entity_stats_manager_html_a90c422bca5e42d1af36c4cc10d642ad5aa97b2c144243b2b9d2c593ec268b62f5"><div class="ttname"><a href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5aa97b2c144243b2b9d2c593ec268b62f5">EntityStatsManager::ValueType::BOOL</a></div><div class="ttdeci">@ BOOL</div></div>
+<div class="ttc" id="aclass_entity_stats_manager_html_a90c422bca5e42d1af36c4cc10d642ad5add7222e7029b92693a7f0d900c070d5e"><div class="ttname"><a href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5add7222e7029b92693a7f0d900c070d5e">EntityStatsManager::ValueType::VEC2F</a></div><div class="ttdeci">@ VEC2F</div></div>
+<div class="ttc" id="aclass_entity_stats_manager_html_a90c422bca5e42d1af36c4cc10d642ad5ae287cbe9ed013bf9a3edfecf5ace1aac"><div class="ttname"><a href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5ae287cbe9ed013bf9a3edfecf5ace1aac">EntityStatsManager::ValueType::VEC2B</a></div><div class="ttdeci">@ VEC2B</div></div>
+<div class="ttc" id="aclass_entity_stats_manager_html_a90c422bca5e42d1af36c4cc10d642ad5ae39567b870465d2210bf207dc9d24ee4"><div class="ttname"><a href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5ae39567b870465d2210bf207dc9d24ee4">EntityStatsManager::ValueType::VEC4B</a></div><div class="ttdeci">@ VEC4B</div></div>
+<div class="ttc" id="aclass_entity_stats_manager_html_a90c422bca5e42d1af36c4cc10d642ad5ae738c26bf4ce1037fa81b039a915cbf6"><div class="ttname"><a href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5ae738c26bf4ce1037fa81b039a915cbf6">EntityStatsManager::ValueType::FLOAT</a></div><div class="ttdeci">@ FLOAT</div></div>
+<div class="ttc" id="aclass_entity_stats_manager_html_a90c422bca5e42d1af36c4cc10d642ad5af0bf79d8f671dfbd014cf0caf39bb485"><div class="ttname"><a href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5af0bf79d8f671dfbd014cf0caf39bb485">EntityStatsManager::ValueType::MAT2F</a></div><div class="ttdeci">@ MAT2F</div></div>
+<div class="ttc" id="aclass_entity_stats_manager_html_a9e666ec62e167606308585cd4aad37b1"><div class="ttname"><a href="class_entity_stats_manager.html#a9e666ec62e167606308585cd4aad37b1">EntityStatsManager::EntityData::components</a></div><div class="ttdeci">std::vector&lt; ComponentData &gt; components</div><div class="ttdef"><b>Definition</b> <a href="_entity_stats_manager_8h_source.html#l00072">EntityStatsManager.h:72</a></div></div>
+<div class="ttc" id="aclass_entity_stats_manager_html_acbbae649ee29eab15c53310618f5bc1c"><div class="ttname"><a href="class_entity_stats_manager.html#acbbae649ee29eab15c53310618f5bc1c">EntityStatsManager::Value::valueDirty</a></div><div class="ttdeci">bool * valueDirty</div><div class="ttdef"><b>Definition</b> <a href="_entity_stats_manager_8h_source.html#l00050">EntityStatsManager.h:50</a></div></div>
+<div class="ttc" id="aclass_entity_stats_manager_html_adbf6792584ab1457aa035ca90507a805"><div class="ttname"><a href="class_entity_stats_manager.html#adbf6792584ab1457aa035ca90507a805">EntityStatsManager::Value::max</a></div><div class="ttdeci">float max</div><div class="ttdef"><b>Definition</b> <a href="_entity_stats_manager_8h_source.html#l00054">EntityStatsManager.h:54</a></div></div>
+<div class="ttc" id="aclass_entity_stats_manager_html_ae1ad6da826ba52258dab33baf40a5525"><div class="ttname"><a href="class_entity_stats_manager.html#ae1ad6da826ba52258dab33baf40a5525">EntityStatsManager::Value::type</a></div><div class="ttdeci">ValueType type</div><div class="ttdef"><b>Definition</b> <a href="_entity_stats_manager_8h_source.html#l00051">EntityStatsManager.h:51</a></div></div>
+<div class="ttc" id="aclass_entity_stats_manager_html_ae5b91cc316f4f83ed3fba70a05d525bc"><div class="ttname"><a href="class_entity_stats_manager.html#ae5b91cc316f4f83ed3fba70a05d525bc">EntityStatsManager::ComponentData::values</a></div><div class="ttdeci">std::vector&lt; Value &gt; * values</div><div class="ttdef"><b>Definition</b> <a href="_entity_stats_manager_8h_source.html#l00066">EntityStatsManager.h:66</a></div></div>
+<div class="ttc" id="aclass_entity_stats_manager_html_af1495ee5d2fd84a321a28b6914425a43"><div class="ttname"><a href="class_entity_stats_manager.html#af1495ee5d2fd84a321a28b6914425a43">EntityStatsManager::Value::isString</a></div><div class="ttdeci">bool isString</div><div class="ttdef"><b>Definition</b> <a href="_entity_stats_manager_8h_source.html#l00047">EntityStatsManager.h:47</a></div></div>
+<div class="ttc" id="aclass_entity_stats_manager_html_af83262b39d127372f726e71323076b84"><div class="ttname"><a href="class_entity_stats_manager.html#af83262b39d127372f726e71323076b84">EntityStatsManager::ComponentData::getUpdatedValues</a></div><div class="ttdeci">std::function&lt; std::vector&lt; Value &gt;()&gt; getUpdatedValues</div><div class="ttdef"><b>Definition</b> <a href="_entity_stats_manager_8h_source.html#l00067">EntityStatsManager.h:67</a></div></div>
+<div class="ttc" id="aclass_entity_stats_manager_html_struct_entity_stats_manager_1_1_component_data"><div class="ttname"><a href="class_entity_stats_manager.html#struct_entity_stats_manager_1_1_component_data">EntityStatsManager::ComponentData</a></div><div class="ttdef"><b>Definition</b> <a href="_entity_stats_manager_8h_source.html#l00064">EntityStatsManager.h:64</a></div></div>
+<div class="ttc" id="aclass_entity_stats_manager_html_struct_entity_stats_manager_1_1_entity_data"><div class="ttname"><a href="class_entity_stats_manager.html#struct_entity_stats_manager_1_1_entity_data">EntityStatsManager::EntityData</a></div><div class="ttdef"><b>Definition</b> <a href="_entity_stats_manager_8h_source.html#l00070">EntityStatsManager.h:70</a></div></div>
+<div class="ttc" id="aclass_entity_stats_manager_html_struct_entity_stats_manager_1_1_value"><div class="ttname"><a href="class_entity_stats_manager.html#struct_entity_stats_manager_1_1_value">EntityStatsManager::Value</a></div><div class="ttdoc">Struct that holds the data of a value of a component.</div><div class="ttdef"><b>Definition</b> <a href="_entity_stats_manager_8h_source.html#l00044">EntityStatsManager.h:44</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_a7f531b1c37460085cedd304cb8df01d.html">engine</a></li><li class="navelem"><a class="el" href="dir_4b5fd699f9c934d21be1ae6684f38785.html">subsystems</a></li><li class="navelem"><a class="el" href="dir_24a26c8217237aa7ccf3ddfb61f2d23e.html">ingame-debug</a></li><li class="navelem"><a class="el" href="_entity_stats_manager_8h.html">EntityStatsManager.h</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

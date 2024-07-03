@@ -1,0 +1,7 @@
+<map id="GLESC::GAPI::OpenGLDebugger::errorStringFromSeverity" name="GLESC::GAPI::OpenGLDebugger::errorStringFromSeverity">
+<area shape="rect" id="Node000001" title="Returns a string representation of the OpenGL error severity." alt="" coords="532,5,747,48"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_debugger.html#a302c60ac82d43fc3b4d16d3d2721dba9" title="The OpenGL debug callback." alt="" coords="269,5,484,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="516,29,484,29,484,24,516,24"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_debugger.html#aee37f4f6a63aa68f43c35124df235f76" title="Enables the OpenGL debug callback." alt="" coords="5,5,221,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="253,29,221,29,221,24,253,24"/>
+</map>

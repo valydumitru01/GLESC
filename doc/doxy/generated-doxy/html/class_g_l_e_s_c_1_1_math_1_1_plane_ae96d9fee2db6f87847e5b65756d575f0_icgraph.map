@@ -1,0 +1,5 @@
+<map id="GLESC::Math::Plane::calculateDistanceFromPoints" name="GLESC::Math::Plane::calculateDistanceFromPoints">
+<area shape="rect" id="Node000001" title="Calculate the distance from the origin to the plane defined by three distinct points." alt="" coords="197,5,396,48"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_plane.html#a503abb5ac4797527f02056f1223a0166" title="Construct a new Plane object from three distinct points." alt="" coords="5,5,149,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="181,29,149,29,149,24,181,24"/>
+</map>

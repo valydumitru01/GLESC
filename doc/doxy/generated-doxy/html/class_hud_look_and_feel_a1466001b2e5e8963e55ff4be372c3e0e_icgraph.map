@@ -1,0 +1,12 @@
+<map id="HudLookAndFeel::addFont" name="HudLookAndFeel::addFont">
+<area shape="rect" id="Node000001" title="Adds a font from a file with a size." alt="" coords="900,31,1075,57"/>
+<area shape="rect" id="Node000002" href="$class_hud_look_and_feel.html#a815b718b209fe097df0cde4293dc39b8" title=" " alt="" coords="679,5,852,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="884,35,852,31,852,26,885,30"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#a4ff8b120db6eecaaa5e619b1477f58ed" title=" " alt="" coords="239,23,424,65"/>
+<area shape="poly" id="edge5_Node000001_Node000004" title=" " alt="" coords="884,47,425,47,425,41,884,41"/>
+<area shape="rect" id="Node000003" href="$class_hud_look_and_feel.html#ae1d994a42a7915cfa11a72a664dabc79" title="Applies the look and feel to ImGui." alt="" coords="472,5,631,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="664,21,632,21,632,16,664,16"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="457,32,425,36,424,31,456,27"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#a025f565a5346b1cfdd80ce5fd79f8046" title="Constructor for the HUDManager." alt="" coords="5,23,191,65"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="223,47,191,47,191,41,223,41"/>
+</map>

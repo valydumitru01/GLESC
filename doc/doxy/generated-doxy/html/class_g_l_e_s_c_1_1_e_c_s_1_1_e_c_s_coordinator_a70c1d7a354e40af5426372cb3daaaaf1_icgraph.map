@@ -1,0 +1,42 @@
+<map id="GLESC::ECS::ECSCoordinator::getComponent" name="GLESC::ECS::ECSCoordinator::getComponent">
+<area shape="rect" id="Node000001" title="Get the component of an entity by its Id." alt="" coords="870,465,1071,508"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html#a14143b00be0701d787f043955c449e22" title="Returns a reference to the component." alt="" coords="674,307,816,349"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="925,458,776,352,779,348,928,454"/>
+<area shape="rect" id="Node000014" href="$class_g_l_e_s_c_1_1_engine.html#ad2ff110d5a86c1cd60b541d65915ac48" title="Processes the logic of the game Is called every frame, must be called at constant intervals of time a..." alt="" coords="460,607,620,633"/>
+<area shape="poly" id="edge24_Node000001_Node000014" title=" " alt="" coords="854,475,808,475,760,481,713,493,670,514,653,532,646,553,639,575,622,597,603,608,600,604,619,593,634,572,641,551,648,529,667,510,711,488,759,476,807,470,854,469"/>
+<area shape="rect" id="Node000016" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_system.html#ac82c9a21b62935e81ade0e6b98b466d3" title="Gets the component of an entity." alt="" coords="668,524,822,567"/>
+<area shape="poly" id="edge23_Node000001_Node000016" title=" " alt="" coords="872,515,823,528,822,523,871,510"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_engine.html#adb0bb222b1e702be0a95d55d8cfc915f" title=" " alt="" coords="215,93,412,136"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="739,291,729,231,709,157,694,120,674,85,649,54,619,29,584,13,547,8,508,12,469,24,432,40,398,58,343,95,340,90,395,54,430,35,468,18,507,7,547,3,586,8,622,24,653,51,678,82,699,118,714,155,735,229,744,290"/>
+<area shape="rect" id="Node000005" href="$class_default.html#a6e26da3ebf533b0f5d45266cd0ce9082" title="Initializes the scene. Must be implemented by the derived class." alt="" coords="497,39,583,65"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="733,292,718,244,695,187,662,129,642,102,619,79,602,68,583,61,585,56,604,64,622,75,646,99,667,126,700,184,723,242,738,290"/>
+<area shape="rect" id="Node000006" href="$class_g_l_e_s_c_1_1_engine_camera.html#a97a3af009cfc6a81b42d4a61d43e36e2" title="Moves the camera backwards." alt="" coords="461,89,619,132"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="724,294,681,224,652,186,619,153,592,135,595,130,622,148,656,183,685,221,729,292"/>
+<area shape="rect" id="Node000007" href="$class_g_l_e_s_c_1_1_engine_camera.html#a3f37b288117cbbf684843bf4b88acb72" title="Prepares the camera entity with its components and it&#39;s initial values." alt="" coords="234,273,393,316"/>
+<area shape="poly" id="edge20_Node000002_Node000007" title=" " alt="" coords="721,295,679,241,651,216,619,197,577,182,541,179,505,184,461,197,425,212,392,232,339,275,335,271,389,228,423,207,459,192,504,179,541,173,578,177,621,192,654,212,683,237,726,292"/>
+<area shape="rect" id="Node000008" href="$class_g_l_e_s_c_1_1_engine_camera.html#ab1754eb155a149e9ee93e62e9b1b2002" title="Moves the camera downwards." alt="" coords="461,207,619,249"/>
+<area shape="poly" id="edge8_Node000002_Node000008" title=" " alt="" coords="691,301,619,264,594,252,596,247,622,259,693,296"/>
+<area shape="rect" id="Node000009" href="$class_g_l_e_s_c_1_1_engine_camera.html#a335ed43ca73bdbc5527ea0ec49a00dd2" title="Moves the camera forwards." alt="" coords="461,273,619,316"/>
+<area shape="poly" id="edge10_Node000002_Node000009" title=" " alt="" coords="658,316,619,310,620,305,659,311"/>
+<area shape="rect" id="Node000010" href="$class_g_l_e_s_c_1_1_engine_camera.html#acd6cb2233c367b37d1888d8c6fa743db" title="Moves the camera to the left." alt="" coords="461,340,619,383"/>
+<area shape="poly" id="edge12_Node000002_Node000010" title=" " alt="" coords="659,344,620,351,619,346,658,339"/>
+<area shape="rect" id="Node000011" href="$class_g_l_e_s_c_1_1_engine_camera.html#a26c75b09b36ddc554f1d8cabd314a9be" title="Moves the camera to the right." alt="" coords="461,407,619,449"/>
+<area shape="poly" id="edge14_Node000002_Node000011" title=" " alt="" coords="693,359,622,397,596,408,594,403,619,392,691,355"/>
+<area shape="rect" id="Node000012" href="$class_g_l_e_s_c_1_1_engine_camera.html#ad7633b5892a3e8d8490642726e3bb0a9" title="Moves the camera upwards." alt="" coords="461,473,619,516"/>
+<area shape="poly" id="edge16_Node000002_Node000012" title=" " alt="" coords="721,363,678,414,651,440,622,463,602,475,600,470,619,459,647,436,674,410,717,360"/>
+<area shape="rect" id="Node000013" href="$class_g_l_e_s_c_1_1_engine_camera.html#a63dae1933350d3e10798719c19db2870" title="Rotates the camera based on the mouse movement." alt="" coords="461,540,619,583"/>
+<area shape="poly" id="edge18_Node000002_Node000013" title=" " alt="" coords="728,364,676,457,647,501,622,530,605,541,602,537,619,526,643,497,671,454,723,361"/>
+<area shape="poly" id="edge21_Node000002_Node000014" title=" " alt="" coords="726,364,671,469,659,506,654,537,645,566,622,596,605,608,602,604,618,593,640,564,649,536,654,504,666,467,721,361"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_engine.html#a93e1621f9daf326a7c45d3b2a4c826c1" title="The constructor is private, the engine can only be created by the main function." alt="" coords="5,192,167,219"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="245,144,123,194,121,189,243,140"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="478,142,462,153,424,183,389,216,335,275,331,271,385,212,420,179,458,148,475,137"/>
+<area shape="poly" id="edge7_Node000007_Node000004" title=" " alt="" coords="242,269,121,222,123,217,244,265"/>
+<area shape="poly" id="edge9_Node000008_Node000007" title=" " alt="" coords="452,256,389,275,388,270,451,251"/>
+<area shape="poly" id="edge11_Node000009_Node000007" title=" " alt="" coords="445,297,393,297,393,292,445,292"/>
+<area shape="poly" id="edge13_Node000010_Node000007" title=" " alt="" coords="451,338,388,319,389,314,452,333"/>
+<area shape="poly" id="edge15_Node000011_Node000007" title=" " alt="" coords="468,402,459,397,394,357,341,318,344,314,397,352,461,392,471,397"/>
+<area shape="poly" id="edge17_Node000012_Node000007" title=" " alt="" coords="464,467,458,463,417,428,380,388,327,318,331,315,384,384,420,424,462,459,467,463"/>
+<area shape="poly" id="edge19_Node000013_Node000007" title=" " alt="" coords="462,533,458,530,409,477,369,417,339,361,320,317,325,315,344,359,374,415,413,474,462,526,466,529"/>
+<area shape="rect" id="Node000015" href="$src_2engine_2main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="289,607,338,633"/>
+<area shape="poly" id="edge22_Node000014_Node000015" title=" " alt="" coords="444,623,338,623,338,617,444,617"/>
+</map>

@@ -1,0 +1,13 @@
+<map id="GLESC::ECS::CollisionComponent::setDebuggingValues" name="GLESC::ECS::CollisionComponent::setDebuggingValues">
+<area shape="rect" id="Node000001" title="Set the debugging values of the component." alt="" coords="5,105,229,148"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_physics_1_1_collider.html#a24c116fac1f15b148befabad0da4e7de" title="Get the debugging values of the component." alt="" coords="277,105,448,148"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="229,124,261,124,261,129,229,129"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#a08cec61a230e442cfdb83f31e2cc8597" title="Get the const bounding box of the bounding volume." alt="" coords="496,5,704,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="402,103,495,58,511,51,513,56,497,62,404,107"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_physics_1_1_collision_information.html#a06717513ce34e3a3857391a66b847539" title=" " alt="" coords="508,72,693,115"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="448,112,492,106,492,111,449,117"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_physics_1_1_collision_information.html#a157f2b49a6baea37d2965603494d6a74" title=" " alt="" coords="512,139,689,181"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="449,136,496,143,496,148,448,141"/>
+<area shape="rect" id="Node000006" href="$class_g_l_e_s_c_1_1_physics_1_1_collision_information.html#a163522f651d4dc18e642cd6ccf29c78e" title=" " alt="" coords="512,205,689,248"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="404,146,497,191,513,197,511,202,495,196,402,151"/>
+</map>

@@ -1,0 +1,11 @@
+<map id="GLESC::HUD::CrosshairHUD::CrosshairHUD" name="GLESC::HUD::CrosshairHUD::CrosshairHUD">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,105,196,148"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_in_game_window.html#aeb67baa3459917edf2c8a40eaf889075" title=" " alt="" coords="244,5,408,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="146,102,243,58,255,52,258,57,245,62,148,107"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_in_game_window.html#a1c5d730cac88e6109f725d06a9ae1102" title="Set the center of the window." alt="" coords="244,72,408,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="196,110,228,105,229,110,197,115"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_in_game_window.html#a02919a86639b476e23aa8a06c20f879c" title="Set the layout position of the window." alt="" coords="244,139,408,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="197,138,229,143,228,148,196,143"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_in_game_window.html#ad53c4781df5e967788027a706dfa5121" title="Set the size of the window as a fraction of the screen size." alt="" coords="244,205,408,248"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="148,146,245,191,258,196,255,201,243,196,146,151"/>
+</map>

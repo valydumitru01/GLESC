@@ -1,0 +1,17 @@
+<map id="GLESC::Math::MatrixAlgorithms::matrixScalarMul" name="GLESC::Math::MatrixAlgorithms::matrixScalarMul">
+<area shape="rect" id="Node000001" title="Multiplies a matrix by a scalar, element&#45;wise." alt="" coords="456,172,664,215"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a140edb9017c0563b2691e75138f7664b" title="Divides a matrix by a scalar." alt="" coords="200,39,408,81"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="518,165,466,129,407,96,380,84,382,79,409,91,469,125,521,160"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_math_1_1_matrix.html#a072dc418e47feb5e620ce1a8e05813b3" title="Multiplying Matrix by scalar." alt="" coords="231,105,377,148"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="460,170,377,148,378,143,461,165"/>
+<area shape="rect" id="Node000006" href="$class_g_l_e_s_c_1_1_math_1_1_matrix.html#a323b0b2d2ebb945946e8860bbfceee2a" title="In&#45;place scalar multiplication." alt="" coords="231,172,377,215"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="441,196,378,196,378,191,441,191"/>
+<area shape="rect" id="Node000007" href="$class_g_l_e_s_c_1_1_math_1_1_matrix.html#ac776de4e7d9cab5e33a2b49a1937e441" title="Negating the matrix." alt="" coords="231,239,377,281"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="461,222,378,244,377,238,460,217"/>
+<area shape="rect" id="Node000008" href="$_matrix_tests_8cpp.html#a7943ba0a336f79da2f98cdd230fd0595" title=" " alt="" coords="252,305,356,332"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="522,227,470,263,409,296,357,312,355,307,407,291,467,258,519,222"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_matrix.html#a09bffe00c2a8e35f5b8aa1b08a8bfce4" title="Division of matrix by scalar." alt="" coords="5,5,152,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="184,45,151,40,152,35,185,40"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_math_1_1_matrix.html#a4c0f482078636d4df6ce5191774336b9" title="In&#45;place scalar division." alt="" coords="5,72,152,115"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="185,80,152,85,151,80,184,75"/>
+</map>

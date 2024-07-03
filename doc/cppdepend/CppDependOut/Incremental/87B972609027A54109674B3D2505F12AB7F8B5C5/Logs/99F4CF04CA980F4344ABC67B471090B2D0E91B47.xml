@@ -1,0 +1,4 @@
+<log>
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/logger/Logger.cpp" line="36" col="26" msg="no member named &apos;mutex&apos; in namespace &apos;std&apos;" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/logger/Logger.cpp" line="42" col="30" msg="no member named &apos;mutex&apos; in namespace &apos;std&apos;" />
+</log>

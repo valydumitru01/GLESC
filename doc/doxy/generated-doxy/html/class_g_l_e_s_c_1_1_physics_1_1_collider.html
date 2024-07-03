@@ -1,0 +1,1040 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="Doxygen Awesome" />
+<meta property="og:image" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+<meta property="og:description" content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
+<meta property="og:url" content="https://jothepro.github.io/doxygen-awesome-css/" />
+<!-- END opengraph metadata -->
+<!-- BEGIN twitter metadata -->
+<meta name="twitter:image:src" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+<meta name="twitter:title" content="Doxygen Awesome" />
+<meta name="twitter:description" content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
+<!-- END twitter metadata -->
+<title>GLESC: GLESC::Physics::Collider Class Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.drawio.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/ -->
+<a href="https://github.com/jothepro/doxygen-awesome-css" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="GLESC_logo_white_background.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">GLESC
+   &#160;<span id="projectnumber">1</span>
+   </div>
+   <div id="projectbrief">Game engine using ECS architecture</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('class_g_l_e_s_c_1_1_physics_1_1_collider.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-types">Private Types</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#friends">Friends</a> &#124;
+<a href="class_g_l_e_s_c_1_1_physics_1_1_collider-members.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">GLESC::Physics::Collider Class Reference</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>The collider class component for entities.  
+ <a href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_collider_8h_source.html">Collider.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for GLESC::Physics::Collider:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_physics_1_1_collider__inherit__graph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+Collaboration diagram for GLESC::Physics::Collider:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_physics_1_1_collider__coll__graph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:af046c3e2d9d683f7ad8a93544aff43b2" id="r_af046c3e2d9d683f7ad8a93544aff43b2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#af046c3e2d9d683f7ad8a93544aff43b2">Collider</a> ()=<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">default</a></td></tr>
+<tr class="separator:af046c3e2d9d683f7ad8a93544aff43b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e51f0f64fb06685f3a563d504946f48" id="r_a5e51f0f64fb06685f3a563d504946f48"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#a5e51f0f64fb06685f3a563d504946f48">~Collider</a> () <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">override</a>=<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">default</a></td></tr>
+<tr class="separator:a5e51f0f64fb06685f3a563d504946f48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a351f1d6ebe2a4ec8a9e7983260aff2b6" id="r_a351f1d6ebe2a4ec8a9e7983260aff2b6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html">Math::BoundingVolume</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#a351f1d6ebe2a4ec8a9e7983260aff2b6">getBoundingVolume</a> () <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a></td></tr>
+<tr class="separator:a351f1d6ebe2a4ec8a9e7983260aff2b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c1db7727e33aef995260c528bd4a7e9" id="r_a9c1db7727e33aef995260c528bd4a7e9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_collision_information.html">CollisionInformation</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#a9c1db7727e33aef995260c528bd4a7e9">getCollisionInformation</a> () <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a></td></tr>
+<tr class="separator:a9c1db7727e33aef995260c528bd4a7e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24c116fac1f15b148befabad0da4e7de" id="r_a24c116fac1f15b148befabad0da4e7de"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_entity_stats_manager.html#struct_entity_stats_manager_1_1_value">EntityStatsManager::Value</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#a24c116fac1f15b148befabad0da4e7de">getDebuggingValues</a> () <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">override</a></td></tr>
+<tr class="memdesc:a24c116fac1f15b148befabad0da4e7de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the debugging values of the component.  <br /></td></tr>
+<tr class="separator:a24c116fac1f15b148befabad0da4e7de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adabc3c789d62508f85bfa4c7133a3c32" id="r_adabc3c789d62508f85bfa4c7133a3c32"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#a1f5876b3abac2b7b834c444541c8260b">CollisionCallback</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#adabc3c789d62508f85bfa4c7133a3c32">getGeneralCollisionCallback</a> () <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a></td></tr>
+<tr class="separator:adabc3c789d62508f85bfa4c7133a3c32"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f18266dc8ca4d524665b4e740971480" id="r_a5f18266dc8ca4d524665b4e740971480"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#a630f95847571f35f1e10437a7e1d45b3">SpecificCollisionCallbacks</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#a5f18266dc8ca4d524665b4e740971480">getSpecificCollisionCallbacks</a> () <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a></td></tr>
+<tr class="separator:a5f18266dc8ca4d524665b4e740971480"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1e2829ea4c88c4fd683f257f8d6ba9e" id="r_af1e2829ea4c88c4fd683f257f8d6ba9e"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_entity_stats_manager.html#struct_entity_stats_manager_1_1_value">EntityStatsManager::Value</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#af1e2829ea4c88c4fd683f257f8d6ba9e">getUpdatedDebuggingValues</a> () <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">override</a></td></tr>
+<tr class="memdesc:af1e2829ea4c88c4fd683f257f8d6ba9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the updated debugging values of the component.  <br /></td></tr>
+<tr class="separator:af1e2829ea4c88c4fd683f257f8d6ba9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b2f681446d7235b9d4741b1afbde44e" id="r_a2b2f681446d7235b9d4741b1afbde44e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#a2b2f681446d7235b9d4741b1afbde44e">isSolid</a> () <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a></td></tr>
+<tr class="separator:a2b2f681446d7235b9d4741b1afbde44e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad30fa68b00afaef366a8adb2906862fd" id="r_ad30fa68b00afaef366a8adb2906862fd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#ad30fa68b00afaef366a8adb2906862fd">setBoundingVolume</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html">Math::BoundingVolume</a> &amp;<a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#a04ce94ad441c619e2c9cd3a2e9e95072">boundingVolume</a>)</td></tr>
+<tr class="separator:ad30fa68b00afaef366a8adb2906862fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aadc31a7f95f48877a0dea560864b1022" id="r_aadc31a7f95f48877a0dea560864b1022"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#aadc31a7f95f48877a0dea560864b1022">setCollisionCallback</a> (std::function&lt; <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>(<a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html">Collider</a> &amp;)&gt; <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">callback</a>)</td></tr>
+<tr class="separator:aadc31a7f95f48877a0dea560864b1022"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a179899d913b801fcc764dc2c9c144d2b" id="r_a179899d913b801fcc764dc2c9c144d2b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#a179899d913b801fcc764dc2c9c144d2b">setCollisionInformation</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_collision_information.html">CollisionInformation</a> &amp;<a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#a3dd879cf10ef2d3ff2ee767434259e36">collisionInformation</a>)</td></tr>
+<tr class="separator:a179899d913b801fcc764dc2c9c144d2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a803742c7761e3e85fedafe5f316de9e1" id="r_a803742c7761e3e85fedafe5f316de9e1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#a803742c7761e3e85fedafe5f316de9e1">setSolid</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a> <a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#a96085cb04643da39f796f5083df546d2">solid</a>)</td></tr>
+<tr class="separator:a803742c7761e3e85fedafe5f316de9e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50f70a178b6f9163b9591d6abed2a445" id="r_a50f70a178b6f9163b9591d6abed2a445"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#a50f70a178b6f9163b9591d6abed2a445">toString</a> () <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">override</a></td></tr>
+<tr class="separator:a50f70a178b6f9163b9591d6abed2a445"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_engine_component"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_engine_component')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_engine_component.html">EngineComponent</a></td></tr>
+<tr class="memitem:a13970a4e4fc6a3e5d31062e76aa85bf5 inherit pub_methods_class_engine_component" id="r_a13970a4e4fc6a3e5d31062e76aa85bf5"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_component.html#a13970a4e4fc6a3e5d31062e76aa85bf5">~EngineComponent</a> ()=default</td></tr>
+<tr class="separator:a13970a4e4fc6a3e5d31062e76aa85bf5 inherit pub_methods_class_engine_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd1566e4b3dc922636e3766bf91b466e inherit pub_methods_class_engine_component" id="r_abd1566e4b3dc922636e3766bf91b466e"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_component.html#abd1566e4b3dc922636e3766bf91b466e">getOwnerName</a> () const</td></tr>
+<tr class="memdesc:abd1566e4b3dc922636e3766bf91b466e inherit pub_methods_class_engine_component"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the owner name of the component for debugging purposes.  <br /></td></tr>
+<tr class="separator:abd1566e4b3dc922636e3766bf91b466e inherit pub_methods_class_engine_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa079758a5e816b81d667a52c320b92c0 inherit pub_methods_class_engine_component" id="r_aa079758a5e816b81d667a52c320b92c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_component.html#aa079758a5e816b81d667a52c320b92c0">setOwnerName</a> (const char *ownerName)</td></tr>
+<tr class="memdesc:aa079758a5e816b81d667a52c320b92c0 inherit pub_methods_class_engine_component"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the owner name of the component for debugging purposes.  <br /></td></tr>
+<tr class="separator:aa079758a5e816b81d667a52c320b92c0 inherit pub_methods_class_engine_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-types" name="pri-types"></a>
+Private Types</h2></td></tr>
+<tr class="memitem:a1f5876b3abac2b7b834c444541c8260b" id="r_a1f5876b3abac2b7b834c444541c8260b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#a1f5876b3abac2b7b834c444541c8260b">CollisionCallback</a> = std::function&lt; <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>(<a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html">Collider</a> &amp;)&gt;</td></tr>
+<tr class="separator:a1f5876b3abac2b7b834c444541c8260b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a630f95847571f35f1e10437a7e1d45b3" id="r_a630f95847571f35f1e10437a7e1d45b3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#a630f95847571f35f1e10437a7e1d45b3">SpecificCollisionCallbacks</a> = std::unordered_map&lt; <a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html">Collider</a> *, <a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#a1f5876b3abac2b7b834c444541c8260b">CollisionCallback</a> &gt;</td></tr>
+<tr class="separator:a630f95847571f35f1e10437a7e1d45b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a04ce94ad441c619e2c9cd3a2e9e95072" id="r_a04ce94ad441c619e2c9cd3a2e9e95072"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html">Math::BoundingVolume</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#a04ce94ad441c619e2c9cd3a2e9e95072">boundingVolume</a></td></tr>
+<tr class="separator:a04ce94ad441c619e2c9cd3a2e9e95072"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6959cadd5f337f716802e08b23022851" id="r_a6959cadd5f337f716802e08b23022851"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#a1f5876b3abac2b7b834c444541c8260b">CollisionCallback</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#a6959cadd5f337f716802e08b23022851">collisionCallback</a></td></tr>
+<tr class="separator:a6959cadd5f337f716802e08b23022851"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d7bf6c2ce198829c6f67bda011e8e11" id="r_a6d7bf6c2ce198829c6f67bda011e8e11"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#a630f95847571f35f1e10437a7e1d45b3">SpecificCollisionCallbacks</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#a6d7bf6c2ce198829c6f67bda011e8e11">collisionCallbacks</a></td></tr>
+<tr class="separator:a6d7bf6c2ce198829c6f67bda011e8e11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3dd879cf10ef2d3ff2ee767434259e36" id="r_a3dd879cf10ef2d3ff2ee767434259e36"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_collision_information.html">CollisionInformation</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#a3dd879cf10ef2d3ff2ee767434259e36">collisionInformation</a></td></tr>
+<tr class="separator:a3dd879cf10ef2d3ff2ee767434259e36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96085cb04643da39f796f5083df546d2" id="r_a96085cb04643da39f796f5083df546d2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#a96085cb04643da39f796f5083df546d2">solid</a> = <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">true</a></td></tr>
+<tr class="separator:a96085cb04643da39f796f5083df546d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:ada571d1392469161e357c21f21d53e2d" id="r_ada571d1392469161e357c21f21d53e2d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">class</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#ada571d1392469161e357c21f21d53e2d">CollisionManager</a></td></tr>
+<tr class="separator:ada571d1392469161e357c21f21d53e2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>The collider class component for entities. </p>
+<p>This class handles all the data of the collider and the information of the collision itself (such as the position or the depth of the collision). Also stores the callbacks for the collision. </p>
+
+<p class="definition">Definition at line <a class="el" href="_collider_8h_source.html#l00028">28</a> of file <a class="el" href="_collider_8h_source.html">Collider.h</a>.</p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a1f5876b3abac2b7b834c444541c8260b" name="a1f5876b3abac2b7b834c444541c8260b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f5876b3abac2b7b834c444541c8260b">&#9670;&#160;</a></span>CollisionCallback</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">using</a> <a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#a1f5876b3abac2b7b834c444541c8260b">GLESC::Physics::Collider::CollisionCallback</a> =  std::function&lt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>(<a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html">Collider</a>&amp;)&gt;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_collider_8h_source.html#l00029">29</a> of file <a class="el" href="_collider_8h_source.html">Collider.h</a>.</p>
+
+</div>
+</div>
+<a id="a630f95847571f35f1e10437a7e1d45b3" name="a630f95847571f35f1e10437a7e1d45b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a630f95847571f35f1e10437a7e1d45b3">&#9670;&#160;</a></span>SpecificCollisionCallbacks</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">using</a> <a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#a630f95847571f35f1e10437a7e1d45b3">GLESC::Physics::Collider::SpecificCollisionCallbacks</a> =  std::unordered_map&lt;<a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html">Collider</a>*, <a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#a1f5876b3abac2b7b834c444541c8260b">CollisionCallback</a>&gt;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_collider_8h_source.html#l00030">30</a> of file <a class="el" href="_collider_8h_source.html">Collider.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="af046c3e2d9d683f7ad8a93544aff43b2" name="af046c3e2d9d683f7ad8a93544aff43b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af046c3e2d9d683f7ad8a93544aff43b2">&#9670;&#160;</a></span>Collider()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLESC::Physics::Collider::Collider </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5e51f0f64fb06685f3a563d504946f48" name="a5e51f0f64fb06685f3a563d504946f48"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e51f0f64fb06685f3a563d504946f48">&#9670;&#160;</a></span>~Collider()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLESC::Physics::Collider::~Collider </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a351f1d6ebe2a4ec8a9e7983260aff2b6" name="a351f1d6ebe2a4ec8a9e7983260aff2b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a351f1d6ebe2a4ec8a9e7983260aff2b6">&#9670;&#160;</a></span>getBoundingVolume()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html">Math::BoundingVolume</a> &amp; GLESC::Physics::Collider::getBoundingVolume </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_collider_8h_source.html#l00050">50</a> of file <a class="el" href="_collider_8h_source.html">Collider.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   50</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#a04ce94ad441c619e2c9cd3a2e9e95072">boundingVolume</a>; }</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_physics_1_1_collider_html_a04ce94ad441c619e2c9cd3a2e9e95072"><div class="ttname"><a href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#a04ce94ad441c619e2c9cd3a2e9e95072">GLESC::Physics::Collider::boundingVolume</a></div><div class="ttdeci">Math::BoundingVolume boundingVolume</div><div class="ttdef"><b>Definition</b> <a href="_collider_8h_source.html#l00060">Collider.h:60</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_collider_8h_source.html#l00060">boundingVolume</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_collision_manager_8cpp_source.html#l00016">translateBV()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_physics_1_1_collider_a351f1d6ebe2a4ec8a9e7983260aff2b6_icgraph.svg" width="100%" height="368"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a9c1db7727e33aef995260c528bd4a7e9" name="a9c1db7727e33aef995260c528bd4a7e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c1db7727e33aef995260c528bd4a7e9">&#9670;&#160;</a></span>getCollisionInformation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_collision_information.html">CollisionInformation</a> &amp; GLESC::Physics::Collider::getCollisionInformation </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_collider_8h_source.html#l00046">46</a> of file <a class="el" href="_collider_8h_source.html">Collider.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   46</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#a3dd879cf10ef2d3ff2ee767434259e36">collisionInformation</a>; }</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_physics_1_1_collider_html_a3dd879cf10ef2d3ff2ee767434259e36"><div class="ttname"><a href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#a3dd879cf10ef2d3ff2ee767434259e36">GLESC::Physics::Collider::collisionInformation</a></div><div class="ttdeci">CollisionInformation collisionInformation</div><div class="ttdef"><b>Definition</b> <a href="_collider_8h_source.html#l00061">Collider.h:61</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_collider_8h_source.html#l00061">collisionInformation</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_collision_manager_8cpp_source.html#l00023">GLESC::Physics::CollisionManager::checkAndUpdateColliderInformation()</a>, <a class="el" href="_physics_manager_8cpp_source.html#l00071">GLESC::Physics::getAxisFree()</a>, and <a class="el" href="_physics_manager_8cpp_source.html#l00115">GLESC::Physics::PhysicsManager::handleCollisions()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_physics_1_1_collider_a9c1db7727e33aef995260c528bd4a7e9_icgraph.svg" width="100%" height="402"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a24c116fac1f15b148befabad0da4e7de" name="a24c116fac1f15b148befabad0da4e7de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24c116fac1f15b148befabad0da4e7de">&#9670;&#160;</a></span>getDebuggingValues()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="class_entity_stats_manager.html#struct_entity_stats_manager_1_1_value">EntityStatsManager::Value</a> &gt; GLESC::Physics::Collider::getDebuggingValues </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the debugging values of the component. </p>
+<p>This function can be overriden by the derived class to return the debugging values of the component It starts as an empty vector, so that the components that accumulates all the debugging values can add the debugging values of the component even if the component does not have any debugging values (adding an empty array) </p><dl class="section return"><dt>Returns</dt><dd>A vector of debugging values </dd></dl>
+
+<p>Reimplemented from <a class="el" href="class_engine_component.html#af72d5975c473b7f638e068e824dc94cb">EngineComponent</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_collider_8cpp_source.html#l00017">17</a> of file <a class="el" href="_collider_8cpp_source.html">Collider.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   17</span>                                                                            {</div>
+<div class="line"><span class="lineno">   18</span>    std::vector&lt;EntityStatsManager::Value&gt; values;</div>
+<div class="line"><span class="lineno">   19</span>    <a class="code hl_struct" href="class_entity_stats_manager.html#struct_entity_stats_manager_1_1_value">EntityStatsManager::Value</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">solidValue</a>;</div>
+<div class="line"><span class="lineno">   20</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">solidValue</a>.<a class="code hl_variable" href="class_entity_stats_manager.html#a8c007fcaab6bce263fb0e0d80b8bbbb7">name</a> = <span class="stringliteral">&quot;Solid&quot;</span>;</div>
+<div class="line"><span class="lineno">   21</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">solidValue</a>.data = <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(&amp;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#a96085cb04643da39f796f5083df546d2">solid</a>);</div>
+<div class="line"><span class="lineno">   22</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">solidValue</a>.type = <a class="code hl_enumvalue" href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5aa97b2c144243b2b9d2c593ec268b62f5">EntityStatsManager::ValueType::BOOL</a>;</div>
+<div class="line"><span class="lineno">   23</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">solidValue</a>.isModifiable = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   24</span>    values.push_back(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">solidValue</a>);</div>
+<div class="line"><span class="lineno">   25</span> </div>
+<div class="line"><span class="lineno">   26</span> </div>
+<div class="line"><span class="lineno">   27</span>    <a class="code hl_struct" href="class_entity_stats_manager.html#struct_entity_stats_manager_1_1_value">EntityStatsManager::Value</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">boundingVolumeValueMin</a>;</div>
+<div class="line"><span class="lineno">   28</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">boundingVolumeValueMin</a>.<a class="code hl_variable" href="class_entity_stats_manager.html#a8c007fcaab6bce263fb0e0d80b8bbbb7">name</a> = <span class="stringliteral">&quot;Bounding Volume Min&quot;</span>;</div>
+<div class="line"><span class="lineno">   29</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">boundingVolumeValueMin</a>.data = <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(&amp;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#a04ce94ad441c619e2c9cd3a2e9e95072">boundingVolume</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#a08cec61a230e442cfdb83f31e2cc8597">getBoundingBox</a>().<a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#aa5f0994267dfc364ef2a72daeabb215c">min</a>);</div>
+<div class="line"><span class="lineno">   30</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">boundingVolumeValueMin</a>.type = <a class="code hl_enumvalue" href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5a18814f886cf9f30ca199c1e81900fa03">EntityStatsManager::ValueType::VEC3F</a>;</div>
+<div class="line"><span class="lineno">   31</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">boundingVolumeValueMin</a>.usesSlider = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   32</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">boundingVolumeValueMin</a>.min = -1000.0F;</div>
+<div class="line"><span class="lineno">   33</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">boundingVolumeValueMin</a>.max = 1000.0F;</div>
+<div class="line"><span class="lineno">   34</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">boundingVolumeValueMin</a>.isModifiable = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   35</span>    values.push_back(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">boundingVolumeValueMin</a>);</div>
+<div class="line"><span class="lineno">   36</span> </div>
+<div class="line"><span class="lineno">   37</span>    <a class="code hl_struct" href="class_entity_stats_manager.html#struct_entity_stats_manager_1_1_value">EntityStatsManager::Value</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">boundingVolumeValueMax</a>;</div>
+<div class="line"><span class="lineno">   38</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">boundingVolumeValueMax</a>.<a class="code hl_variable" href="class_entity_stats_manager.html#a8c007fcaab6bce263fb0e0d80b8bbbb7">name</a> = <span class="stringliteral">&quot;Bounding Volume Max&quot;</span>;</div>
+<div class="line"><span class="lineno">   39</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">boundingVolumeValueMax</a>.data = <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(&amp;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#a04ce94ad441c619e2c9cd3a2e9e95072">boundingVolume</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#a08cec61a230e442cfdb83f31e2cc8597">getBoundingBox</a>().<a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#afe880873b7f74cfc4963a0c439049c2e">max</a>);</div>
+<div class="line"><span class="lineno">   40</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">boundingVolumeValueMax</a>.type = <a class="code hl_enumvalue" href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5a18814f886cf9f30ca199c1e81900fa03">EntityStatsManager::ValueType::VEC3F</a>;</div>
+<div class="line"><span class="lineno">   41</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">boundingVolumeValueMax</a>.usesSlider = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   42</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">boundingVolumeValueMax</a>.min = -1000.0F;</div>
+<div class="line"><span class="lineno">   43</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">boundingVolumeValueMax</a>.max = 1000.0F;</div>
+<div class="line"><span class="lineno">   44</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">boundingVolumeValueMax</a>.isModifiable = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   45</span>    values.push_back(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">boundingVolumeValueMax</a>);</div>
+<div class="line"><span class="lineno">   46</span> </div>
+<div class="line"><span class="lineno">   47</span>    <a class="code hl_struct" href="class_entity_stats_manager.html#struct_entity_stats_manager_1_1_value">EntityStatsManager::Value</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">isCollidingValue</a>;</div>
+<div class="line"><span class="lineno">   48</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">isCollidingValue</a>.<a class="code hl_variable" href="class_entity_stats_manager.html#a8c007fcaab6bce263fb0e0d80b8bbbb7">name</a> = <span class="stringliteral">&quot;Is Colliding&quot;</span>;</div>
+<div class="line"><span class="lineno">   49</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">isCollidingValue</a>.data = <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(&amp;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#a3dd879cf10ef2d3ff2ee767434259e36">collisionInformation</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_physics_1_1_collision_information.html#a157f2b49a6baea37d2965603494d6a74">isColliding</a>());</div>
+<div class="line"><span class="lineno">   50</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">isCollidingValue</a>.type = <a class="code hl_enumvalue" href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5aa97b2c144243b2b9d2c593ec268b62f5">EntityStatsManager::ValueType::BOOL</a>;</div>
+<div class="line"><span class="lineno">   51</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">isCollidingValue</a>.isModifiable = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">   52</span>    values.push_back(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">isCollidingValue</a>);</div>
+<div class="line"><span class="lineno">   53</span> </div>
+<div class="line"><span class="lineno">   54</span>    <a class="code hl_struct" href="class_entity_stats_manager.html#struct_entity_stats_manager_1_1_value">EntityStatsManager::Value</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">isCollidingWithAxisValue</a>;</div>
+<div class="line"><span class="lineno">   55</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">isCollidingWithAxisValue</a>.<a class="code hl_variable" href="class_entity_stats_manager.html#a8c007fcaab6bce263fb0e0d80b8bbbb7">name</a> = <span class="stringliteral">&quot;Is Colliding with axis&quot;</span>;</div>
+<div class="line"><span class="lineno">   56</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">isCollidingWithAxisValue</a>.data = <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(&amp;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#a3dd879cf10ef2d3ff2ee767434259e36">collisionInformation</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_physics_1_1_collision_information.html#a06717513ce34e3a3857391a66b847539">getCollidingAxis</a>());</div>
+<div class="line"><span class="lineno">   57</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">isCollidingWithAxisValue</a>.type = <a class="code hl_enumvalue" href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5a92d429d16852840bb3dd3b0923b84c27">EntityStatsManager::ValueType::VEC3B</a>;</div>
+<div class="line"><span class="lineno">   58</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">isCollidingWithAxisValue</a>.isModifiable = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   59</span>    values.push_back(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">isCollidingWithAxisValue</a>);</div>
+<div class="line"><span class="lineno">   60</span> </div>
+<div class="line"><span class="lineno">   61</span>    <a class="code hl_struct" href="class_entity_stats_manager.html#struct_entity_stats_manager_1_1_value">EntityStatsManager::Value</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">onAirValue</a>;</div>
+<div class="line"><span class="lineno">   62</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">onAirValue</a>.<a class="code hl_variable" href="class_entity_stats_manager.html#a8c007fcaab6bce263fb0e0d80b8bbbb7">name</a> = <span class="stringliteral">&quot;Is on ground&quot;</span>;</div>
+<div class="line"><span class="lineno">   63</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">onAirValue</a>.data = <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(&amp;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#a3dd879cf10ef2d3ff2ee767434259e36">collisionInformation</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_physics_1_1_collision_information.html#a163522f651d4dc18e642cd6ccf29c78e">isOnGround</a>());</div>
+<div class="line"><span class="lineno">   64</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">onAirValue</a>.type = <a class="code hl_enumvalue" href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5aa97b2c144243b2b9d2c593ec268b62f5">EntityStatsManager::ValueType::BOOL</a>;</div>
+<div class="line"><span class="lineno">   65</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">onAirValue</a>.isModifiable = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   66</span>    values.push_back(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">onAirValue</a>);</div>
+<div class="line"><span class="lineno">   67</span> </div>
+<div class="line"><span class="lineno">   68</span> </div>
+<div class="line"><span class="lineno">   69</span>    <span class="keywordflow">return</span> values;</div>
+<div class="line"><span class="lineno">   70</span>}</div>
+<div class="ttc" id="aclass_entity_stats_manager_html_a8c007fcaab6bce263fb0e0d80b8bbbb7"><div class="ttname"><a href="class_entity_stats_manager.html#a8c007fcaab6bce263fb0e0d80b8bbbb7">EntityStatsManager::Value::name</a></div><div class="ttdeci">std::string name</div><div class="ttdef"><b>Definition</b> <a href="_entity_stats_manager_8h_source.html#l00045">EntityStatsManager.h:45</a></div></div>
+<div class="ttc" id="aclass_entity_stats_manager_html_a90c422bca5e42d1af36c4cc10d642ad5a18814f886cf9f30ca199c1e81900fa03"><div class="ttname"><a href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5a18814f886cf9f30ca199c1e81900fa03">EntityStatsManager::ValueType::VEC3F</a></div><div class="ttdeci">@ VEC3F</div></div>
+<div class="ttc" id="aclass_entity_stats_manager_html_a90c422bca5e42d1af36c4cc10d642ad5a92d429d16852840bb3dd3b0923b84c27"><div class="ttname"><a href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5a92d429d16852840bb3dd3b0923b84c27">EntityStatsManager::ValueType::VEC3B</a></div><div class="ttdeci">@ VEC3B</div></div>
+<div class="ttc" id="aclass_entity_stats_manager_html_a90c422bca5e42d1af36c4cc10d642ad5aa97b2c144243b2b9d2c593ec268b62f5"><div class="ttname"><a href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5aa97b2c144243b2b9d2c593ec268b62f5">EntityStatsManager::ValueType::BOOL</a></div><div class="ttdeci">@ BOOL</div></div>
+<div class="ttc" id="aclass_entity_stats_manager_html_struct_entity_stats_manager_1_1_value"><div class="ttname"><a href="class_entity_stats_manager.html#struct_entity_stats_manager_1_1_value">EntityStatsManager::Value</a></div><div class="ttdoc">Struct that holds the data of a value of a component.</div><div class="ttdef"><b>Definition</b> <a href="_entity_stats_manager_8h_source.html#l00044">EntityStatsManager.h:44</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_bounding_volume_html_a08cec61a230e442cfdb83f31e2cc8597"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#a08cec61a230e442cfdb83f31e2cc8597">GLESC::Math::BoundingVolume::getBoundingBox</a></div><div class="ttdeci">const AABB &amp; getBoundingBox() const</div><div class="ttdoc">Get the const bounding box of the bounding volume.</div><div class="ttdef"><b>Definition</b> <a href="_bounding_volume_8h_source.html#l00092">BoundingVolume.h:92</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_bounding_volume_html_aa5f0994267dfc364ef2a72daeabb215c"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#aa5f0994267dfc364ef2a72daeabb215c">GLESC::Math::BoundingVolume::AABB::min</a></div><div class="ttdeci">Vec3F min</div><div class="ttdef"><b>Definition</b> <a href="_bounding_volume_8h_source.html#l00028">BoundingVolume.h:28</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_bounding_volume_html_afe880873b7f74cfc4963a0c439049c2e"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#afe880873b7f74cfc4963a0c439049c2e">GLESC::Math::BoundingVolume::AABB::max</a></div><div class="ttdeci">Vec3F max</div><div class="ttdef"><b>Definition</b> <a href="_bounding_volume_8h_source.html#l00029">BoundingVolume.h:29</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_physics_1_1_collider_html_a96085cb04643da39f796f5083df546d2"><div class="ttname"><a href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#a96085cb04643da39f796f5083df546d2">GLESC::Physics::Collider::solid</a></div><div class="ttdeci">bool solid</div><div class="ttdef"><b>Definition</b> <a href="_collider_8h_source.html#l00063">Collider.h:63</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_physics_1_1_collision_information_html_a06717513ce34e3a3857391a66b847539"><div class="ttname"><a href="class_g_l_e_s_c_1_1_physics_1_1_collision_information.html#a06717513ce34e3a3857391a66b847539">GLESC::Physics::CollisionInformation::getCollidingAxis</a></div><div class="ttdeci">Vec3B &amp; getCollidingAxis()</div><div class="ttdef"><b>Definition</b> <a href="_collision_information_8h_source.html#l00039">CollisionInformation.h:39</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_physics_1_1_collision_information_html_a157f2b49a6baea37d2965603494d6a74"><div class="ttname"><a href="class_g_l_e_s_c_1_1_physics_1_1_collision_information.html#a157f2b49a6baea37d2965603494d6a74">GLESC::Physics::CollisionInformation::isColliding</a></div><div class="ttdeci">bool &amp; isColliding()</div><div class="ttdef"><b>Definition</b> <a href="_collision_information_8h_source.html#l00055">CollisionInformation.h:55</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_physics_1_1_collision_information_html_a163522f651d4dc18e642cd6ccf29c78e"><div class="ttname"><a href="class_g_l_e_s_c_1_1_physics_1_1_collision_information.html#a163522f651d4dc18e642cd6ccf29c78e">GLESC::Physics::CollisionInformation::isOnGround</a></div><div class="ttdeci">bool &amp; isOnGround()</div><div class="ttdef"><b>Definition</b> <a href="_collision_information_8h_source.html#l00059">CollisionInformation.h:59</a></div></div>
+<div class="ttc" id="anamespace_g_l_e_s_c_html_a7c64a4da2d1da1597f4ec563d00bb9f8"><div class="ttname"><a href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">GLESC::isIterable_v</a></div><div class="ttdeci">constexpr bool isIterable_v</div><div class="ttdef"><b>Definition</b> <a href="_stringer_8h_source.html#l00029">Stringer.h:29</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5aa97b2c144243b2b9d2c593ec268b62f5">EntityStatsManager::BOOL</a>, <a class="el" href="_collider_8h_source.html#l00060">boundingVolume</a>, <a class="el" href="_collider_8h_source.html#l00061">collisionInformation</a>, <a class="el" href="_bounding_volume_8h_source.html#l00092">GLESC::Math::BoundingVolume::getBoundingBox()</a>, <a class="el" href="_collision_information_8h_source.html#l00039">GLESC::Physics::CollisionInformation::getCollidingAxis()</a>, <a class="el" href="_collision_information_8h_source.html#l00055">GLESC::Physics::CollisionInformation::isColliding()</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, <a class="el" href="_collision_information_8h_source.html#l00059">GLESC::Physics::CollisionInformation::isOnGround()</a>, <a class="el" href="_bounding_volume_8h_source.html#l00029">GLESC::Math::BoundingVolume::AABB::max</a>, <a class="el" href="_bounding_volume_8h_source.html#l00028">GLESC::Math::BoundingVolume::AABB::min</a>, <a class="el" href="_entity_stats_manager_8h_source.html#l00045">EntityStatsManager::Value::name</a>, <a class="el" href="_collider_8h_source.html#l00063">solid</a>, <a class="el" href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5a92d429d16852840bb3dd3b0923b84c27">EntityStatsManager::VEC3B</a>, and <a class="el" href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5a18814f886cf9f30ca199c1e81900fa03">EntityStatsManager::VEC3F</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_collision_component_8h_source.html#l00027">GLESC::ECS::CollisionComponent::setDebuggingValues()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_physics_1_1_collider_a24c116fac1f15b148befabad0da4e7de_cgraph.svg" width="439" height="254"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_physics_1_1_collider_a24c116fac1f15b148befabad0da4e7de_icgraph.svg" width="454" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="adabc3c789d62508f85bfa4c7133a3c32" name="adabc3c789d62508f85bfa4c7133a3c32"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adabc3c789d62508f85bfa4c7133a3c32">&#9670;&#160;</a></span>getGeneralCollisionCallback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#a1f5876b3abac2b7b834c444541c8260b">CollisionCallback</a> &amp; GLESC::Physics::Collider::getGeneralCollisionCallback </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_collider_8h_source.html#l00047">47</a> of file <a class="el" href="_collider_8h_source.html">Collider.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   47</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#a6959cadd5f337f716802e08b23022851">collisionCallback</a>; }</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_physics_1_1_collider_html_a6959cadd5f337f716802e08b23022851"><div class="ttname"><a href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#a6959cadd5f337f716802e08b23022851">GLESC::Physics::Collider::collisionCallback</a></div><div class="ttdeci">CollisionCallback collisionCallback</div><div class="ttdef"><b>Definition</b> <a href="_collider_8h_source.html#l00058">Collider.h:58</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_collider_8h_source.html#l00058">collisionCallback</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_physics_manager_8cpp_source.html#l00050">GLESC::Physics::PhysicsManager::executeCallbacks()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_physics_1_1_collider_adabc3c789d62508f85bfa4c7133a3c32_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a5f18266dc8ca4d524665b4e740971480" name="a5f18266dc8ca4d524665b4e740971480"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f18266dc8ca4d524665b4e740971480">&#9670;&#160;</a></span>getSpecificCollisionCallbacks()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#a630f95847571f35f1e10437a7e1d45b3">SpecificCollisionCallbacks</a> &amp; GLESC::Physics::Collider::getSpecificCollisionCallbacks </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_collider_8h_source.html#l00048">48</a> of file <a class="el" href="_collider_8h_source.html">Collider.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   48</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#a6d7bf6c2ce198829c6f67bda011e8e11">collisionCallbacks</a>; }</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_physics_1_1_collider_html_a6d7bf6c2ce198829c6f67bda011e8e11"><div class="ttname"><a href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#a6d7bf6c2ce198829c6f67bda011e8e11">GLESC::Physics::Collider::collisionCallbacks</a></div><div class="ttdeci">SpecificCollisionCallbacks collisionCallbacks</div><div class="ttdef"><b>Definition</b> <a href="_collider_8h_source.html#l00059">Collider.h:59</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_collider_8h_source.html#l00059">collisionCallbacks</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_physics_manager_8cpp_source.html#l00050">GLESC::Physics::PhysicsManager::executeCallbacks()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_physics_1_1_collider_a5f18266dc8ca4d524665b4e740971480_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="af1e2829ea4c88c4fd683f257f8d6ba9e" name="af1e2829ea4c88c4fd683f257f8d6ba9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1e2829ea4c88c4fd683f257f8d6ba9e">&#9670;&#160;</a></span>getUpdatedDebuggingValues()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="class_entity_stats_manager.html#struct_entity_stats_manager_1_1_value">EntityStatsManager::Value</a> &gt; GLESC::Physics::Collider::getUpdatedDebuggingValues </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the updated debugging values of the component. </p>
+<p>This function can be overriden by the derived class to return the updated debugging values of the component It starts as an empty vector, so that the components that accumulates all the debugging values can add the debugging values of the component even if the component does not have any debugging values (adding an empty array) </p><dl class="section return"><dt>Returns</dt><dd>A vector of debugging values </dd></dl>
+
+<p>Reimplemented from <a class="el" href="class_engine_component.html#a46c52232911ea456e2a28caa49e053a1">EngineComponent</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_collider_8cpp_source.html#l00072">72</a> of file <a class="el" href="_collider_8cpp_source.html">Collider.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   72</span>                                                                                   {</div>
+<div class="line"><span class="lineno">   73</span>    std::vector&lt;EntityStatsManager::Value&gt; values;</div>
+<div class="line"><span class="lineno">   74</span>    <a class="code hl_struct" href="class_entity_stats_manager.html#struct_entity_stats_manager_1_1_value">EntityStatsManager::Value</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">colliderNamesValue</a>;</div>
+<div class="line"><span class="lineno">   75</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">colliderNamesValue</a>.<a class="code hl_variable" href="class_entity_stats_manager.html#a8c007fcaab6bce263fb0e0d80b8bbbb7">name</a> = <span class="stringliteral">&quot;Colliders&quot;</span>;</div>
+<div class="line"><span class="lineno">   76</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">colliderNamesValue</a>.isString = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   77</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">i</a> = 0; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">i</a> &lt; <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#a3dd879cf10ef2d3ff2ee767434259e36">collisionInformation</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_physics_1_1_collision_information.html#af5c2ae7ab555c00ca7133119949532cc">getCollisionDepthForAxis</a>().size(); <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">i</a>++) {</div>
+<div class="line"><span class="lineno">   78</span>        <a class="code hl_class" href="class_g_l_e_s_c_1_1_math_1_1_vector.html">Vec3F</a>&amp; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">collisionDepth</a> = <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#a3dd879cf10ef2d3ff2ee767434259e36">collisionInformation</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_physics_1_1_collision_information.html#af5c2ae7ab555c00ca7133119949532cc">getCollisionDepthForAxis</a>()[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">i</a>];</div>
+<div class="line"><span class="lineno">   79</span>        <a class="code hl_function" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#af046c3e2d9d683f7ad8a93544aff43b2">Collider</a>* collider = <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#a3dd879cf10ef2d3ff2ee767434259e36">collisionInformation</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_physics_1_1_collision_information.html#a3c20e0c553ac4006af127f778d700b1f">getCollidingWithColliders</a>()[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">i</a>];</div>
+<div class="line"><span class="lineno">   80</span>        <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">colliderNamesValue</a>.stringData += std::string(collider-&gt;getOwnerName()) +</div>
+<div class="line"><span class="lineno">   81</span>            <span class="stringliteral">&quot; depth: &quot;</span> + <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">collisionDepth</a>.toString() + <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><span class="lineno">   82</span>    }</div>
+<div class="line"><span class="lineno">   83</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">colliderNamesValue</a>.type = <a class="code hl_enumvalue" href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5a63b588d5559f64f89a416e656880b949">EntityStatsManager::ValueType::STRING</a>;</div>
+<div class="line"><span class="lineno">   84</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">colliderNamesValue</a>.isModifiable = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">   85</span>    values.push_back(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">colliderNamesValue</a>);</div>
+<div class="line"><span class="lineno">   86</span> </div>
+<div class="line"><span class="lineno">   87</span> </div>
+<div class="line"><span class="lineno">   88</span>    <span class="keywordflow">return</span> values;</div>
+<div class="line"><span class="lineno">   89</span>}</div>
+<div class="ttc" id="aclass_entity_stats_manager_html_a90c422bca5e42d1af36c4cc10d642ad5a63b588d5559f64f89a416e656880b949"><div class="ttname"><a href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5a63b588d5559f64f89a416e656880b949">EntityStatsManager::ValueType::STRING</a></div><div class="ttdeci">@ STRING</div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_vector_html"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_vector.html">GLESC::Math::Vector</a></div><div class="ttdef"><b>Definition</b> <a href="_vector_8h_source.html#l00025">Vector.h:25</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_physics_1_1_collider_html_af046c3e2d9d683f7ad8a93544aff43b2"><div class="ttname"><a href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#af046c3e2d9d683f7ad8a93544aff43b2">GLESC::Physics::Collider::Collider</a></div><div class="ttdeci">Collider()=default</div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_physics_1_1_collision_information_html_a3c20e0c553ac4006af127f778d700b1f"><div class="ttname"><a href="class_g_l_e_s_c_1_1_physics_1_1_collision_information.html#a3c20e0c553ac4006af127f778d700b1f">GLESC::Physics::CollisionInformation::getCollidingWithColliders</a></div><div class="ttdeci">std::vector&lt; Collider * &gt; &amp; getCollidingWithColliders()</div><div class="ttdef"><b>Definition</b> <a href="_collision_information_8h_source.html#l00047">CollisionInformation.h:47</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_physics_1_1_collision_information_html_af5c2ae7ab555c00ca7133119949532cc"><div class="ttname"><a href="class_g_l_e_s_c_1_1_physics_1_1_collision_information.html#af5c2ae7ab555c00ca7133119949532cc">GLESC::Physics::CollisionInformation::getCollisionDepthForAxis</a></div><div class="ttdeci">std::vector&lt; Vec3F &gt; &amp; getCollisionDepthForAxis()</div><div class="ttdef"><b>Definition</b> <a href="_collision_information_8h_source.html#l00043">CollisionInformation.h:43</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_engine_component_8h_source.html#l00045">EngineComponent::getOwnerName()</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, <a class="el" href="_entity_stats_manager_8h_source.html#l00045">EntityStatsManager::Value::name</a>, <a class="el" href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5a63b588d5559f64f89a416e656880b949">EntityStatsManager::STRING</a>, and <a class="el" href="_collider_8cpp_source.html#l00093">toString()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_collision_component_8h_source.html#l00033">GLESC::ECS::CollisionComponent::setUpdatedDebuggingValues()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_physics_1_1_collider_af1e2829ea4c88c4fd683f257f8d6ba9e_cgraph.svg" width="480" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_physics_1_1_collider_af1e2829ea4c88c4fd683f257f8d6ba9e_icgraph.svg" width="479" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a2b2f681446d7235b9d4741b1afbde44e" name="a2b2f681446d7235b9d4741b1afbde44e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b2f681446d7235b9d4741b1afbde44e">&#9670;&#160;</a></span>isSolid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a> GLESC::Physics::Collider::isSolid </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_collider_8h_source.html#l00049">49</a> of file <a class="el" href="_collider_8h_source.html">Collider.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   49</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#a96085cb04643da39f796f5083df546d2">solid</a>; }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_collider_8h_source.html#l00063">solid</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_collision_manager_8cpp_source.html#l00023">GLESC::Physics::CollisionManager::checkAndUpdateColliderInformation()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_physics_1_1_collider_a2b2f681446d7235b9d4741b1afbde44e_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ad30fa68b00afaef366a8adb2906862fd" name="ad30fa68b00afaef366a8adb2906862fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad30fa68b00afaef366a8adb2906862fd">&#9670;&#160;</a></span>setBoundingVolume()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> GLESC::Physics::Collider::setBoundingVolume </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html">Math::BoundingVolume</a> &amp;&#160;</td>
+          <td class="paramname"><em>boundingVolume</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_collider_8h_source.html#l00037">37</a> of file <a class="el" href="_collider_8h_source.html">Collider.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   37</span>{ this-&gt;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#a04ce94ad441c619e2c9cd3a2e9e95072">boundingVolume</a> = <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#a04ce94ad441c619e2c9cd3a2e9e95072">boundingVolume</a>; }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_collider_8h_source.html#l00060">boundingVolume</a>.</p>
+
+</div>
+</div>
+<a id="aadc31a7f95f48877a0dea560864b1022" name="aadc31a7f95f48877a0dea560864b1022"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aadc31a7f95f48877a0dea560864b1022">&#9670;&#160;</a></span>setCollisionCallback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> GLESC::Physics::Collider::setCollisionCallback </td>
+          <td>(</td>
+          <td class="paramtype">std::function&lt; <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>(<a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html">Collider</a> &amp;)&gt;&#160;</td>
+          <td class="paramname"><em>callback</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_collider_8h_source.html#l00038">38</a> of file <a class="el" href="_collider_8h_source.html">Collider.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   38</span>{ <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#a6959cadd5f337f716802e08b23022851">collisionCallback</a> = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">callback</a>; }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_collider_8h_source.html#l00058">collisionCallback</a>, and <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
+
+</div>
+</div>
+<a id="a179899d913b801fcc764dc2c9c144d2b" name="a179899d913b801fcc764dc2c9c144d2b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a179899d913b801fcc764dc2c9c144d2b">&#9670;&#160;</a></span>setCollisionInformation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> GLESC::Physics::Collider::setCollisionInformation </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_collision_information.html">CollisionInformation</a> &amp;&#160;</td>
+          <td class="paramname"><em>collisionInformation</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_collider_8h_source.html#l00041">41</a> of file <a class="el" href="_collider_8h_source.html">Collider.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   41</span>                                                                                       {</div>
+<div class="line"><span class="lineno">   42</span>            this-&gt;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#a3dd879cf10ef2d3ff2ee767434259e36">collisionInformation</a> = <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#a3dd879cf10ef2d3ff2ee767434259e36">collisionInformation</a>;</div>
+<div class="line"><span class="lineno">   43</span>        }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_collider_8h_source.html#l00061">collisionInformation</a>.</p>
+
+</div>
+</div>
+<a id="a803742c7761e3e85fedafe5f316de9e1" name="a803742c7761e3e85fedafe5f316de9e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a803742c7761e3e85fedafe5f316de9e1">&#9670;&#160;</a></span>setSolid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> GLESC::Physics::Collider::setSolid </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a>&#160;</td>
+          <td class="paramname"><em>solid</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_collider_8h_source.html#l00039">39</a> of file <a class="el" href="_collider_8h_source.html">Collider.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   39</span>{ this-&gt;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#a96085cb04643da39f796f5083df546d2">solid</a> = <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#a96085cb04643da39f796f5083df546d2">solid</a>; }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_collider_8h_source.html#l00063">solid</a>.</p>
+
+</div>
+</div>
+<a id="a50f70a178b6f9163b9591d6abed2a445" name="a50f70a178b6f9163b9591d6abed2a445"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50f70a178b6f9163b9591d6abed2a445">&#9670;&#160;</a></span>toString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string GLESC::Physics::Collider::toString </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="class_engine_component.html#a5c270b03e00b65e00739a4a3d01c0829">EngineComponent</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_collider_8cpp_source.html#l00093">93</a> of file <a class="el" href="_collider_8cpp_source.html">Collider.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   93</span>                                               {</div>
+<div class="line"><span class="lineno">   94</span>    <span class="comment">// TODO: Improve this if needed (missing stuff)</span></div>
+<div class="line"><span class="lineno">   95</span>    std::stringstream <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">ss</a>;</div>
+<div class="line"><span class="lineno">   96</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">ss</a> &lt;&lt; <span class="stringliteral">&quot;AABB max:&quot;</span> + <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#a04ce94ad441c619e2c9cd3a2e9e95072">boundingVolume</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#a89c8c2393df446464f13d60cb031fd51">getMax</a>().<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_vector.html#a6a6098658d8dbebb1e3e73cd649074cc">toString</a>() + <span class="stringliteral">&quot; min:&quot;</span> + <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#a04ce94ad441c619e2c9cd3a2e9e95072">boundingVolume</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#a9b3fd07a8c1e26540af28d36450bcb82">getMin</a>().<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_vector.html#a6a6098658d8dbebb1e3e73cd649074cc">toString</a>();</div>
+<div class="line"><span class="lineno">   97</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">ss</a> &lt;&lt; <span class="stringliteral">&quot; Solid:&quot;</span> &lt;&lt; <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#a96085cb04643da39f796f5083df546d2">solid</a>;</div>
+<div class="line"><span class="lineno">   98</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">ss</a> &lt;&lt; <span class="stringliteral">&quot; On Air:&quot;</span> &lt;&lt; <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#a3dd879cf10ef2d3ff2ee767434259e36">collisionInformation</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_physics_1_1_collision_information.html#a163522f651d4dc18e642cd6ccf29c78e">isOnGround</a>();</div>
+<div class="line"><span class="lineno">   99</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">ss</a> &lt;&lt; <span class="stringliteral">&quot; Collides Axis:&quot;</span> &lt;&lt; <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#a3dd879cf10ef2d3ff2ee767434259e36">collisionInformation</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_physics_1_1_collision_information.html#a06717513ce34e3a3857391a66b847539">getCollidingAxis</a>().<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_vector.html#a6a6098658d8dbebb1e3e73cd649074cc">toString</a>();</div>
+<div class="line"><span class="lineno">  100</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">ss</a>.str();</div>
+<div class="line"><span class="lineno">  101</span>}</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_bounding_volume_html_a89c8c2393df446464f13d60cb031fd51"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#a89c8c2393df446464f13d60cb031fd51">GLESC::Math::BoundingVolume::getMax</a></div><div class="ttdeci">const Vec3F &amp; getMax() const</div><div class="ttdoc">Get the maximum point of the bounding volume.</div><div class="ttdef"><b>Definition</b> <a href="_bounding_volume_8h_source.html#l00110">BoundingVolume.h:110</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_bounding_volume_html_a9b3fd07a8c1e26540af28d36450bcb82"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html#a9b3fd07a8c1e26540af28d36450bcb82">GLESC::Math::BoundingVolume::getMin</a></div><div class="ttdeci">const Vec3F &amp; getMin() const</div><div class="ttdoc">Get the minimum point of the bounding volume.</div><div class="ttdef"><b>Definition</b> <a href="_bounding_volume_8h_source.html#l00104">BoundingVolume.h:104</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_vector_html_a6a6098658d8dbebb1e3e73cd649074cc"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_vector.html#a6a6098658d8dbebb1e3e73cd649074cc">GLESC::Math::Vector::toString</a></div><div class="ttdeci">std::string toString() const</div><div class="ttdoc">Converts the vector to string.</div><div class="ttdef"><b>Definition</b> <a href="_vector_8h_source.html#l01136">Vector.h:1136</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_collider_8cpp_source.html#l00072">getUpdatedDebuggingValues()</a>, and <a class="el" href="_collision_component_8h_source.html#l00019">GLESC::ECS::CollisionComponent::toString()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_physics_1_1_collider_a50f70a178b6f9163b9591d6abed2a445_icgraph.svg" width="100%" height="390"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Friends And Related Symbol Documentation</h2>
+<a id="ada571d1392469161e357c21f21d53e2d" name="ada571d1392469161e357c21f21d53e2d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada571d1392469161e357c21f21d53e2d">&#9670;&#160;</a></span>CollisionManager</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">friend</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">class</a> <a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_collision_manager.html">CollisionManager</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_collider_8h_source.html#l00031">31</a> of file <a class="el" href="_collider_8h_source.html">Collider.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a04ce94ad441c619e2c9cd3a2e9e95072" name="a04ce94ad441c619e2c9cd3a2e9e95072"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04ce94ad441c619e2c9cd3a2e9e95072">&#9670;&#160;</a></span>boundingVolume</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html">Math::BoundingVolume</a> GLESC::Physics::Collider::boundingVolume</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_collider_8h_source.html#l00060">60</a> of file <a class="el" href="_collider_8h_source.html">Collider.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_collider_8h_source.html#l00050">getBoundingVolume()</a>, <a class="el" href="_collider_8cpp_source.html#l00017">getDebuggingValues()</a>, and <a class="el" href="_collider_8h_source.html#l00037">setBoundingVolume()</a>.</p>
+
+</div>
+</div>
+<a id="a6959cadd5f337f716802e08b23022851" name="a6959cadd5f337f716802e08b23022851"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6959cadd5f337f716802e08b23022851">&#9670;&#160;</a></span>collisionCallback</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#a1f5876b3abac2b7b834c444541c8260b">CollisionCallback</a> GLESC::Physics::Collider::collisionCallback</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_collider_8h_source.html#l00058">58</a> of file <a class="el" href="_collider_8h_source.html">Collider.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_collider_8h_source.html#l00047">getGeneralCollisionCallback()</a>, and <a class="el" href="_collider_8h_source.html#l00038">setCollisionCallback()</a>.</p>
+
+</div>
+</div>
+<a id="a6d7bf6c2ce198829c6f67bda011e8e11" name="a6d7bf6c2ce198829c6f67bda011e8e11"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d7bf6c2ce198829c6f67bda011e8e11">&#9670;&#160;</a></span>collisionCallbacks</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#a630f95847571f35f1e10437a7e1d45b3">SpecificCollisionCallbacks</a> GLESC::Physics::Collider::collisionCallbacks</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_collider_8h_source.html#l00059">59</a> of file <a class="el" href="_collider_8h_source.html">Collider.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_collider_8h_source.html#l00048">getSpecificCollisionCallbacks()</a>.</p>
+
+</div>
+</div>
+<a id="a3dd879cf10ef2d3ff2ee767434259e36" name="a3dd879cf10ef2d3ff2ee767434259e36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3dd879cf10ef2d3ff2ee767434259e36">&#9670;&#160;</a></span>collisionInformation</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_collision_information.html">CollisionInformation</a> GLESC::Physics::Collider::collisionInformation</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">mutable</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_collider_8h_source.html#l00061">61</a> of file <a class="el" href="_collider_8h_source.html">Collider.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_collider_8h_source.html#l00046">getCollisionInformation()</a>, <a class="el" href="_collider_8cpp_source.html#l00017">getDebuggingValues()</a>, and <a class="el" href="_collider_8h_source.html#l00041">setCollisionInformation()</a>.</p>
+
+</div>
+</div>
+<a id="a96085cb04643da39f796f5083df546d2" name="a96085cb04643da39f796f5083df546d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96085cb04643da39f796f5083df546d2">&#9670;&#160;</a></span>solid</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a> GLESC::Physics::Collider::solid = <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">true</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_collider_8h_source.html#l00063">63</a> of file <a class="el" href="_collider_8h_source.html">Collider.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_collider_8cpp_source.html#l00017">getDebuggingValues()</a>, <a class="el" href="_collider_8h_source.html#l00049">isSolid()</a>, and <a class="el" href="_collider_8h_source.html#l00039">setSolid()</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li><a class="el" href="_collider_8h_source.html">Collider.h</a></li>
+<li><a class="el" href="_collider_8cpp_source.html">Collider.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_g_l_e_s_c.html">GLESC</a></li><li class="navelem"><a class="el" href="namespace_g_l_e_s_c_1_1_physics.html">Physics</a></li><li class="navelem"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html">Collider</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

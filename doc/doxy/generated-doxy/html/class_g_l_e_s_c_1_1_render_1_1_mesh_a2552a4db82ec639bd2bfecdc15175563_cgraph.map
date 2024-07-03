@@ -1,0 +1,15 @@
+<map id="GLESC::Render::Mesh::sendToGpuBuffers" name="GLESC::Render::Mesh::sendToGpuBuffers">
+<area shape="rect" id="Node000001" title="This method creates GPU buffers and sends the data to the GPU." alt="" coords="5,172,160,215"/>
+<area shape="rect" id="Node000002" href="$namespace_g_l_e_s_c_1_1_render.html#abf0ba7a8a1d7a71fc7140708adcbaf55" title="This maps the enum of the renderer to the enum of the graphic api." alt="" coords="213,5,386,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="97,170,142,115,172,84,206,58,214,53,217,58,209,62,176,88,146,118,101,173"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_render_1_1_mesh.html#a381eebee8232da309c65aa1942ac1756" title=" " alt="" coords="222,72,377,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="120,169,207,124,220,118,222,123,209,129,122,174"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_render_1_1_mesh.html#a6e11ed4a4df7573e35af2eb1841501f3" title=" " alt="" coords="222,139,377,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="160,179,207,172,207,177,160,184"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_render_1_1_mesh.html#ab475354d57affde05d36bcd71668d9aa" title=" " alt="" coords="222,205,377,248"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="160,203,207,210,207,215,160,208"/>
+<area shape="rect" id="Node000006" href="$class_g_l_e_s_c_1_1_render_1_1_mesh.html#a863d2c05d8b7b9d10fe946ca1c5f1c21" title=" " alt="" coords="222,272,377,315"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="122,213,209,258,222,263,220,268,207,262,120,218"/>
+<area shape="rect" id="Node000007" href="$class_g_l_e_s_c_1_1_g_a_p_i_1_1_vertex_buffer_layout.html#a768342e4b77057309288e192fce23031" title=" " alt="" coords="208,339,391,381"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="101,214,146,269,176,298,209,324,217,329,214,334,206,329,172,302,142,272,97,217"/>
+</map>

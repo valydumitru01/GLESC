@@ -1,0 +1,18 @@
+<map id="GLESC::Render::Mesh::addTris" name="GLESC::Render::Mesh::addTris">
+<area shape="rect" id="Node000001" title="Adds a tris to the mesh, tris are defined by 3 vertices." alt="" coords="386,172,540,215"/>
+<area shape="poly" id="edge3_Node000001_Node000001" title=" " alt="" coords="499,159,486,153,463,151,442,153,429,157,424,163,426,171,420,172,419,162,426,153,441,147,463,145,487,148,502,154"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_render_1_1_mesh.html#aae4b61c752ff29970ff6bb6a2b08abb2" title="Adds a quad to the mesh, quads are defined by 4 vertices." alt="" coords="162,5,316,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="436,161,393,110,366,85,337,62,315,51,317,46,339,58,369,80,397,107,440,158"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_render_1_1_mesh.html#aaae30a265886c96c91daa8e59f67b3ea" title="Adds a tris to the mesh, tris are defined by 3 vertices." alt="" coords="162,72,316,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="411,166,337,129,308,118,310,113,339,124,413,162"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_render_1_1_mesh.html#aaeba541999c321e65620b52780298e14" title="Attaches a mesh to the current mesh." alt="" coords="162,139,316,181"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="370,182,316,174,317,169,371,177"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_render_1_1_mesh_factory.html#aefd29f32b084155c54dd3d91fef99aba" title=" " alt="" coords="140,205,338,248"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="371,210,339,215,338,209,370,204"/>
+<area shape="rect" id="Node000006" href="$class_g_l_e_s_c_1_1_render_1_1_mesh_factory.html#ac34bbd39823c1d507524e1395305e310" title="Creates a sphere mesh given a number of slices, stacks, a radius and a color." alt="" coords="140,272,338,315"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="413,225,339,262,310,274,308,269,337,258,411,220"/>
+<area shape="rect" id="Node000008" href="$class_g_l_e_s_c_1_1_render_1_1_mesh_factory.html#a1e3caaf52ad95406520b1ad999bd357b" title=" " alt="" coords="140,339,338,381"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="440,229,397,280,369,306,339,329,318,340,315,336,337,324,366,302,393,276,436,226"/>
+<area shape="rect" id="Node000007" href="$class_default.html#a6e26da3ebf533b0f5d45266cd0ce9082" title="Initializes the scene. Must be implemented by the derived class." alt="" coords="5,280,92,307"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="124,296,92,296,92,291,124,291"/>
+</map>

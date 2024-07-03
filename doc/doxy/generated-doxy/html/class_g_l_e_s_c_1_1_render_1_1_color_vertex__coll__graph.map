@@ -1,0 +1,18 @@
+<map id="GLESC::Render::ColorVertex" name="GLESC::Render::ColorVertex">
+<area shape="rect" id="Node000001" title="Represents a vertex with color." alt="" coords="133,976,314,1152"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_render_1_1_base_vertex.html" title="Represents the base Vertex in the mesh." alt="" coords="133,651,314,912"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="226,927,226,976,221,976,221,927"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,379,129,464"/>
+<area shape="poly" id="edge8_Node000001_Node000003" title=" " alt="" coords="61,464,48,549,40,662,42,725,48,788,60,851,80,911,99,945,123,977,119,980,94,948,75,913,55,852,42,789,36,725,35,662,43,548,56,463"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="88,463,163,634,158,636,83,465"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="15,139,119,208"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="70,223,70,379,65,379,65,223"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="57,5,77,75"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="70,75,70,122,65,122,65,75"/>
+<area shape="rect" id="Node000006" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html" title=" " alt="" coords="153,272,293,571"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="226,571,226,634,221,634,221,571"/>
+<area shape="rect" id="Node000007" href="$struct_g_l_e_s_c_1_1_render_1_1_color_rgba_norm.html" title="Color in normalized values." alt="" coords="338,651,543,912"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="343,913,303,964,299,961,338,910"/>
+<area shape="rect" id="Node000008" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html" title=" " alt="" coords="387,280,495,563"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="443,578,443,651,438,651,438,578"/>
+</map>

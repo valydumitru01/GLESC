@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cppdepend-plugin tool="Misra">
+<file path="c:\users\valyd\desktop\github_repos\tfg---opengl-engine\src\engine\subsystems\ingame-debug\entitylistmanager.cpp"><violation beginline="23" begincolumn="5" rule="Rule6-4-1" ruleset="Statements">
+</violation>
+</file></cppdepend-plugin>

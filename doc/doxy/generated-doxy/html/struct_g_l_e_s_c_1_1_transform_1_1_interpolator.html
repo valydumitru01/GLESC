@@ -1,0 +1,376 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="Doxygen Awesome" />
+<meta property="og:image" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+<meta property="og:description" content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
+<meta property="og:url" content="https://jothepro.github.io/doxygen-awesome-css/" />
+<!-- END opengraph metadata -->
+<!-- BEGIN twitter metadata -->
+<meta name="twitter:image:src" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+<meta name="twitter:title" content="Doxygen Awesome" />
+<meta name="twitter:description" content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
+<!-- END twitter metadata -->
+<title>GLESC: GLESC::Transform::Interpolator Struct Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.drawio.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/ -->
+<a href="https://github.com/jothepro/doxygen-awesome-css" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="GLESC_logo_white_background.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">GLESC
+   &#160;<span id="projectnumber">1</span>
+   </div>
+   <div id="projectbrief">Game engine using ECS architecture</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('struct_g_l_e_s_c_1_1_transform_1_1_interpolator.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="struct_g_l_e_s_c_1_1_transform_1_1_interpolator-members.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">GLESC::Transform::Interpolator Struct Reference</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Class that contains functions for interpolating between two transforms.  
+ <a href="struct_g_l_e_s_c_1_1_transform_1_1_interpolator.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_transform_8h_source.html">Transform.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for GLESC::Transform::Interpolator:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="struct_g_l_e_s_c_1_1_transform_1_1_interpolator__coll__graph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a346b0a2df1229e4c1085ed60cbcabf39" id="r_a346b0a2df1229e4c1085ed60cbcabf39"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_g_l_e_s_c_1_1_transform_1_1_interpolator.html#a346b0a2df1229e4c1085ed60cbcabf39">Interpolator</a> ()=<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">default</a></td></tr>
+<tr class="separator:a346b0a2df1229e4c1085ed60cbcabf39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac421b853892d9700f61a4f55d6f5582e" id="r_ac421b853892d9700f61a4f55d6f5582e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_g_l_e_s_c_1_1_transform_1_1_transform.html">Transform</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_g_l_e_s_c_1_1_transform_1_1_interpolator.html#ac421b853892d9700f61a4f55d6f5582e">interpolate</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">float</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">alphaParam</a>) <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a></td></tr>
+<tr class="memdesc:ac421b853892d9700f61a4f55d6f5582e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interpolates between the current and the last transform.  <br /></td></tr>
+<tr class="separator:ac421b853892d9700f61a4f55d6f5582e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a594cf0ebd253815096437cfbbe2a8d9f" id="r_a594cf0ebd253815096437cfbbe2a8d9f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_g_l_e_s_c_1_1_transform_1_1_interpolator.html#a594cf0ebd253815096437cfbbe2a8d9f">pushTransform</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="struct_g_l_e_s_c_1_1_transform_1_1_transform.html">Transform</a> &amp;transform)</td></tr>
+<tr class="memdesc:a594cf0ebd253815096437cfbbe2a8d9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pushes a new transform to the interpolator.  <br /></td></tr>
+<tr class="separator:a594cf0ebd253815096437cfbbe2a8d9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:af5fab59dba45a3443b3746e8eee450ce" id="r_af5fab59dba45a3443b3746e8eee450ce"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_g_l_e_s_c_1_1_transform_1_1_transform.html">Transform</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_g_l_e_s_c_1_1_transform_1_1_interpolator.html#af5fab59dba45a3443b3746e8eee450ce">currentTransform</a> {}</td></tr>
+<tr class="separator:af5fab59dba45a3443b3746e8eee450ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad64afa75f8ad5fb3734bb32dbd8acde0" id="r_ad64afa75f8ad5fb3734bb32dbd8acde0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_g_l_e_s_c_1_1_transform_1_1_transform.html">Transform</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_g_l_e_s_c_1_1_transform_1_1_interpolator.html#ad64afa75f8ad5fb3734bb32dbd8acde0">lastTransform</a> {}</td></tr>
+<tr class="separator:ad64afa75f8ad5fb3734bb32dbd8acde0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Class that contains functions for interpolating between two transforms. </p>
+<p>This allows interpolating between two transforms to get a smooth transition between two states. It contains two transforms, the current and the last one. Once there is two transforms, the next time you call interpolate, it will return a transform that is between the two. </p>
+
+<p class="definition">Definition at line <a class="el" href="_transform_8h_source.html#l00448">448</a> of file <a class="el" href="_transform_8h_source.html">Transform.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a346b0a2df1229e4c1085ed60cbcabf39" name="a346b0a2df1229e4c1085ed60cbcabf39"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a346b0a2df1229e4c1085ed60cbcabf39">&#9670;&#160;</a></span>Interpolator()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLESC::Transform::Interpolator::Interpolator </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ac421b853892d9700f61a4f55d6f5582e" name="ac421b853892d9700f61a4f55d6f5582e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac421b853892d9700f61a4f55d6f5582e">&#9670;&#160;</a></span>interpolate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_g_l_e_s_c_1_1_transform_1_1_transform.html">Transform</a> Interpolator::interpolate </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">float</a>&#160;</td>
+          <td class="paramname"><em>alphaParam</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Interpolates between the current and the last transform. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">alphaParam</td><td>The alpha value of the interpolation (alpha is a value between 0 and 1 and represents the percentage of the interpolation). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The interpolated transform. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_transform_8cpp_source.html#l00167">167</a> of file <a class="el" href="_transform_8cpp_source.html">Transform.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  167</span>                                                          {</div>
+<div class="line"><span class="lineno">  168</span>    <span class="comment">// If rotation difference is more than 180 degrees, don&#39;t interpolate</span></div>
+<div class="line"><span class="lineno">  169</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="namespace_g_l_e_s_c_1_1_math.html#a04db3782a0754ba2d22eb5d159dd681c">Math::abs</a>(<a class="code hl_variable" href="struct_g_l_e_s_c_1_1_transform_1_1_interpolator.html#ad64afa75f8ad5fb3734bb32dbd8acde0">lastTransform</a>.<a class="code hl_function" href="struct_g_l_e_s_c_1_1_transform_1_1_transform.html#a18dfe1f0c2516d6dbd95389836633737">getRotation</a>().<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_vector.html#a2641be423d1cbbe4654f30ad8ac671a1">getX</a>() - <a class="code hl_variable" href="struct_g_l_e_s_c_1_1_transform_1_1_interpolator.html#af5fab59dba45a3443b3746e8eee450ce">currentTransform</a>.<a class="code hl_function" href="struct_g_l_e_s_c_1_1_transform_1_1_transform.html#a18dfe1f0c2516d6dbd95389836633737">getRotation</a>().<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_vector.html#a2641be423d1cbbe4654f30ad8ac671a1">getX</a>()) &gt; 180.0f ||</div>
+<div class="line"><span class="lineno">  170</span>        <a class="code hl_function" href="namespace_g_l_e_s_c_1_1_math.html#a04db3782a0754ba2d22eb5d159dd681c">Math::abs</a>(<a class="code hl_variable" href="struct_g_l_e_s_c_1_1_transform_1_1_interpolator.html#ad64afa75f8ad5fb3734bb32dbd8acde0">lastTransform</a>.<a class="code hl_function" href="struct_g_l_e_s_c_1_1_transform_1_1_transform.html#a18dfe1f0c2516d6dbd95389836633737">getRotation</a>().<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_vector.html#a26f58d2d5f126f43869c96a2f2b0d64a">getY</a>() - <a class="code hl_variable" href="struct_g_l_e_s_c_1_1_transform_1_1_interpolator.html#af5fab59dba45a3443b3746e8eee450ce">currentTransform</a>.<a class="code hl_function" href="struct_g_l_e_s_c_1_1_transform_1_1_transform.html#a18dfe1f0c2516d6dbd95389836633737">getRotation</a>().<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_vector.html#a26f58d2d5f126f43869c96a2f2b0d64a">getY</a>()) &gt; 180.0f ||</div>
+<div class="line"><span class="lineno">  171</span>        <a class="code hl_function" href="namespace_g_l_e_s_c_1_1_math.html#a04db3782a0754ba2d22eb5d159dd681c">Math::abs</a>(<a class="code hl_variable" href="struct_g_l_e_s_c_1_1_transform_1_1_interpolator.html#ad64afa75f8ad5fb3734bb32dbd8acde0">lastTransform</a>.<a class="code hl_function" href="struct_g_l_e_s_c_1_1_transform_1_1_transform.html#a18dfe1f0c2516d6dbd95389836633737">getRotation</a>().<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_vector.html#a8a188bb5d89dc318ea1867de5dc43c87">getZ</a>() - <a class="code hl_variable" href="struct_g_l_e_s_c_1_1_transform_1_1_interpolator.html#af5fab59dba45a3443b3746e8eee450ce">currentTransform</a>.<a class="code hl_function" href="struct_g_l_e_s_c_1_1_transform_1_1_transform.html#a18dfe1f0c2516d6dbd95389836633737">getRotation</a>().<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_vector.html#a8a188bb5d89dc318ea1867de5dc43c87">getZ</a>()) &gt; 180.0f) {</div>
+<div class="line"><span class="lineno">  172</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="struct_g_l_e_s_c_1_1_transform_1_1_interpolator.html#af5fab59dba45a3443b3746e8eee450ce">currentTransform</a>;</div>
+<div class="line"><span class="lineno">  173</span>    }</div>
+<div class="line"><span class="lineno">  174</span>    <span class="comment">// Clamp alpha to [0, 1]</span></div>
+<div class="line"><span class="lineno">  175</span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">alpha</a> = <a class="code hl_function" href="namespace_g_l_e_s_c_1_1_math.html#ad2df75a6181d9d1d318d20d224a2866b">Math::min</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">alphaParam</a>, 1.0f);</div>
+<div class="line"><span class="lineno">  176</span>    <a class="code hl_struct" href="struct_g_l_e_s_c_1_1_transform_1_1_transform.html">Transform</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">interpolatedTransform</a>;</div>
+<div class="line"><span class="lineno">  177</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">interpolatedTransform</a>.<a class="code hl_function" href="struct_g_l_e_s_c_1_1_transform_1_1_transform.html#acd47a4a0a26749ef03c731a2d9d6a548">setPosition</a>(</div>
+<div class="line"><span class="lineno">  178</span>        <a class="code hl_variable" href="struct_g_l_e_s_c_1_1_transform_1_1_interpolator.html#ad64afa75f8ad5fb3734bb32dbd8acde0">lastTransform</a>.<a class="code hl_function" href="struct_g_l_e_s_c_1_1_transform_1_1_transform.html#ae4a8dc1a83ab6390a3bb642c736658fb">getPosition</a>().<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_vector.html#af661cb085e94983b27190b5e728eb103">lerp</a>(<a class="code hl_variable" href="struct_g_l_e_s_c_1_1_transform_1_1_interpolator.html#af5fab59dba45a3443b3746e8eee450ce">currentTransform</a>.<a class="code hl_function" href="struct_g_l_e_s_c_1_1_transform_1_1_transform.html#ae4a8dc1a83ab6390a3bb642c736658fb">getPosition</a>(), <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">alpha</a>));</div>
+<div class="line"><span class="lineno">  179</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">interpolatedTransform</a>.setRotation(</div>
+<div class="line"><span class="lineno">  180</span>        <a class="code hl_variable" href="struct_g_l_e_s_c_1_1_transform_1_1_interpolator.html#ad64afa75f8ad5fb3734bb32dbd8acde0">lastTransform</a>.<a class="code hl_function" href="struct_g_l_e_s_c_1_1_transform_1_1_transform.html#a18dfe1f0c2516d6dbd95389836633737">getRotation</a>().<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_vector.html#af661cb085e94983b27190b5e728eb103">lerp</a>(<a class="code hl_variable" href="struct_g_l_e_s_c_1_1_transform_1_1_interpolator.html#af5fab59dba45a3443b3746e8eee450ce">currentTransform</a>.<a class="code hl_function" href="struct_g_l_e_s_c_1_1_transform_1_1_transform.html#a18dfe1f0c2516d6dbd95389836633737">getRotation</a>(), <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">alpha</a>));</div>
+<div class="line"><span class="lineno">  181</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">interpolatedTransform</a>.setScale(</div>
+<div class="line"><span class="lineno">  182</span>        <a class="code hl_variable" href="struct_g_l_e_s_c_1_1_transform_1_1_interpolator.html#ad64afa75f8ad5fb3734bb32dbd8acde0">lastTransform</a>.<a class="code hl_function" href="struct_g_l_e_s_c_1_1_transform_1_1_transform.html#ab57c46efd7dc4ca23620a8030b8bd9dc">getScale</a>().<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_vector.html#af661cb085e94983b27190b5e728eb103">lerp</a>(<a class="code hl_variable" href="struct_g_l_e_s_c_1_1_transform_1_1_interpolator.html#af5fab59dba45a3443b3746e8eee450ce">currentTransform</a>.<a class="code hl_function" href="struct_g_l_e_s_c_1_1_transform_1_1_transform.html#ab57c46efd7dc4ca23620a8030b8bd9dc">getScale</a>(), <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">alpha</a>));</div>
+<div class="line"><span class="lineno">  183</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">interpolatedTransform</a>;</div>
+<div class="line"><span class="lineno">  184</span>}</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_vector_html_a2641be423d1cbbe4654f30ad8ac671a1"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_vector.html#a2641be423d1cbbe4654f30ad8ac671a1">GLESC::Math::Vector::getX</a></div><div class="ttdeci">const Type &amp; getX() const</div><div class="ttdoc">Returns the x (first) value of the vector.</div><div class="ttdef"><b>Definition</b> <a href="_vector_8h_source.html#l00204">Vector.h:204</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_vector_html_a26f58d2d5f126f43869c96a2f2b0d64a"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_vector.html#a26f58d2d5f126f43869c96a2f2b0d64a">GLESC::Math::Vector::getY</a></div><div class="ttdeci">Type getY() const</div><div class="ttdoc">Returns the y (second) value of the vector.</div><div class="ttdef"><b>Definition</b> <a href="_vector_8h_source.html#l00245">Vector.h:245</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_vector_html_a8a188bb5d89dc318ea1867de5dc43c87"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_vector.html#a8a188bb5d89dc318ea1867de5dc43c87">GLESC::Math::Vector::getZ</a></div><div class="ttdeci">Type getZ() const</div><div class="ttdoc">Returns the z (third) value of the vector.</div><div class="ttdef"><b>Definition</b> <a href="_vector_8h_source.html#l00286">Vector.h:286</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_vector_html_af661cb085e94983b27190b5e728eb103"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_vector.html#af661cb085e94983b27190b5e728eb103">GLESC::Math::Vector::lerp</a></div><div class="ttdeci">Vector lerp(const Vector &amp;other, Type factor) const</div><div class="ttdoc">Calculates the linear interpolation between two vectors using a factor.</div><div class="ttdef"><b>Definition</b> <a href="_vector_8h_source.html#l00806">Vector.h:806</a></div></div>
+<div class="ttc" id="anamespace_g_l_e_s_c_1_1_math_html_a04db3782a0754ba2d22eb5d159dd681c"><div class="ttname"><a href="namespace_g_l_e_s_c_1_1_math.html#a04db3782a0754ba2d22eb5d159dd681c">GLESC::Math::abs</a></div><div class="ttdeci">constexpr Type abs(const Type &amp;value)</div><div class="ttdoc">Calculates the absolute value of a number.</div><div class="ttdef"><b>Definition</b> <a href="_math_8h_source.html#l00164">Math.h:164</a></div></div>
+<div class="ttc" id="anamespace_g_l_e_s_c_1_1_math_html_ad2df75a6181d9d1d318d20d224a2866b"><div class="ttname"><a href="namespace_g_l_e_s_c_1_1_math.html#ad2df75a6181d9d1d318d20d224a2866b">GLESC::Math::min</a></div><div class="ttdeci">constexpr auto min(const Type1 a, const Type2 b)</div><div class="ttdoc">Calculates the min of two values.</div><div class="ttdef"><b>Definition</b> <a href="_math_8h_source.html#l00520">Math.h:520</a></div></div>
+<div class="ttc" id="anamespace_g_l_e_s_c_html_a7c64a4da2d1da1597f4ec563d00bb9f8"><div class="ttname"><a href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">GLESC::isIterable_v</a></div><div class="ttdeci">constexpr bool isIterable_v</div><div class="ttdef"><b>Definition</b> <a href="_stringer_8h_source.html#l00029">Stringer.h:29</a></div></div>
+<div class="ttc" id="astruct_g_l_e_s_c_1_1_transform_1_1_interpolator_html_ad64afa75f8ad5fb3734bb32dbd8acde0"><div class="ttname"><a href="struct_g_l_e_s_c_1_1_transform_1_1_interpolator.html#ad64afa75f8ad5fb3734bb32dbd8acde0">GLESC::Transform::Interpolator::lastTransform</a></div><div class="ttdeci">Transform lastTransform</div><div class="ttdef"><b>Definition</b> <a href="_transform_8h_source.html#l00465">Transform.h:465</a></div></div>
+<div class="ttc" id="astruct_g_l_e_s_c_1_1_transform_1_1_interpolator_html_af5fab59dba45a3443b3746e8eee450ce"><div class="ttname"><a href="struct_g_l_e_s_c_1_1_transform_1_1_interpolator.html#af5fab59dba45a3443b3746e8eee450ce">GLESC::Transform::Interpolator::currentTransform</a></div><div class="ttdeci">Transform currentTransform</div><div class="ttdef"><b>Definition</b> <a href="_transform_8h_source.html#l00464">Transform.h:464</a></div></div>
+<div class="ttc" id="astruct_g_l_e_s_c_1_1_transform_1_1_transform_html"><div class="ttname"><a href="struct_g_l_e_s_c_1_1_transform_1_1_transform.html">GLESC::Transform::Transform</a></div><div class="ttdoc">Struct that represents the position, rotation, and scale of an entity in the game world.</div><div class="ttdef"><b>Definition</b> <a href="_transform_8h_source.html#l00045">Transform.h:45</a></div></div>
+<div class="ttc" id="astruct_g_l_e_s_c_1_1_transform_1_1_transform_html_a18dfe1f0c2516d6dbd95389836633737"><div class="ttname"><a href="struct_g_l_e_s_c_1_1_transform_1_1_transform.html#a18dfe1f0c2516d6dbd95389836633737">GLESC::Transform::Transform::getRotation</a></div><div class="ttdeci">const Rotation &amp; getRotation() const</div><div class="ttdef"><b>Definition</b> <a href="_transform_8h_source.html#l00064">Transform.h:64</a></div></div>
+<div class="ttc" id="astruct_g_l_e_s_c_1_1_transform_1_1_transform_html_ab57c46efd7dc4ca23620a8030b8bd9dc"><div class="ttname"><a href="struct_g_l_e_s_c_1_1_transform_1_1_transform.html#ab57c46efd7dc4ca23620a8030b8bd9dc">GLESC::Transform::Transform::getScale</a></div><div class="ttdeci">const Scale &amp; getScale() const</div><div class="ttdef"><b>Definition</b> <a href="_transform_8h_source.html#l00065">Transform.h:65</a></div></div>
+<div class="ttc" id="astruct_g_l_e_s_c_1_1_transform_1_1_transform_html_acd47a4a0a26749ef03c731a2d9d6a548"><div class="ttname"><a href="struct_g_l_e_s_c_1_1_transform_1_1_transform.html#acd47a4a0a26749ef03c731a2d9d6a548">GLESC::Transform::Transform::setPosition</a></div><div class="ttdeci">void setPosition(const Position &amp;position)</div><div class="ttdef"><b>Definition</b> <a href="_transform_8h_source.html#l00067">Transform.h:67</a></div></div>
+<div class="ttc" id="astruct_g_l_e_s_c_1_1_transform_1_1_transform_html_ae4a8dc1a83ab6390a3bb642c736658fb"><div class="ttname"><a href="struct_g_l_e_s_c_1_1_transform_1_1_transform.html#ae4a8dc1a83ab6390a3bb642c736658fb">GLESC::Transform::Transform::getPosition</a></div><div class="ttdeci">const Position &amp; getPosition() const</div><div class="ttdef"><b>Definition</b> <a href="_transform_8h_source.html#l00063">Transform.h:63</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_math_8h_source.html#l00164">GLESC::Math::abs()</a>, <a class="el" href="_transform_8h_source.html#l00464">currentTransform</a>, <a class="el" href="_transform_8h_source.html#l00063">GLESC::Transform::Transform::getPosition()</a>, <a class="el" href="_transform_8h_source.html#l00064">GLESC::Transform::Transform::getRotation()</a>, <a class="el" href="_transform_8h_source.html#l00065">GLESC::Transform::Transform::getScale()</a>, <a class="el" href="_vector_8h_source.html#l00204">GLESC::Math::Vector&lt; Type, N &gt;::getX()</a>, <a class="el" href="_vector_8h_source.html#l00245">GLESC::Math::Vector&lt; Type, N &gt;::getY()</a>, <a class="el" href="_vector_8h_source.html#l00286">GLESC::Math::Vector&lt; Type, N &gt;::getZ()</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, <a class="el" href="_transform_8h_source.html#l00465">lastTransform</a>, <a class="el" href="_vector_8h_source.html#l00806">GLESC::Math::Vector&lt; Type, N &gt;::lerp()</a>, <a class="el" href="_math_8h_source.html#l00520">GLESC::Math::min()</a>, and <a class="el" href="_transform_8h_source.html#l00067">GLESC::Transform::Transform::setPosition()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="struct_g_l_e_s_c_1_1_transform_1_1_interpolator_ac421b853892d9700f61a4f55d6f5582e_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a594cf0ebd253815096437cfbbe2a8d9f" name="a594cf0ebd253815096437cfbbe2a8d9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a594cf0ebd253815096437cfbbe2a8d9f">&#9670;&#160;</a></span>pushTransform()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> Interpolator::pushTransform </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="struct_g_l_e_s_c_1_1_transform_1_1_transform.html">Transform</a> &amp;&#160;</td>
+          <td class="paramname"><em>transform</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Pushes a new transform to the interpolator. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">transform</td><td>The transform to push. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_transform_8cpp_source.html#l00156">156</a> of file <a class="el" href="_transform_8cpp_source.html">Transform.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  156</span>                                                           {</div>
+<div class="line"><span class="lineno">  157</span>    <span class="comment">// Check if the transform has changed significantly</span></div>
+<div class="line"><span class="lineno">  158</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="namespace_g_l_e_s_c_1_1_math.html#a04db3782a0754ba2d22eb5d159dd681c">Math::abs</a>(transform.<a class="code hl_function" href="struct_g_l_e_s_c_1_1_transform_1_1_transform.html#ae4a8dc1a83ab6390a3bb642c736658fb">getPosition</a>().<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_vector.html#a1e7d79fa65198c1323e9ae2c4893ee95">length</a>() - <a class="code hl_variable" href="struct_g_l_e_s_c_1_1_transform_1_1_interpolator.html#ad64afa75f8ad5fb3734bb32dbd8acde0">lastTransform</a>.<a class="code hl_function" href="struct_g_l_e_s_c_1_1_transform_1_1_transform.html#ae4a8dc1a83ab6390a3bb642c736658fb">getPosition</a>().<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_vector.html#a1e7d79fa65198c1323e9ae2c4893ee95">length</a>()) &gt; 100.f) {</div>
+<div class="line"><span class="lineno">  159</span>        <a class="code hl_variable" href="struct_g_l_e_s_c_1_1_transform_1_1_interpolator.html#ad64afa75f8ad5fb3734bb32dbd8acde0">lastTransform</a> = transform;</div>
+<div class="line"><span class="lineno">  160</span>        <a class="code hl_variable" href="struct_g_l_e_s_c_1_1_transform_1_1_interpolator.html#af5fab59dba45a3443b3746e8eee450ce">currentTransform</a> = transform;</div>
+<div class="line"><span class="lineno">  161</span>    }</div>
+<div class="line"><span class="lineno">  162</span> </div>
+<div class="line"><span class="lineno">  163</span>    <a class="code hl_variable" href="struct_g_l_e_s_c_1_1_transform_1_1_interpolator.html#ad64afa75f8ad5fb3734bb32dbd8acde0">lastTransform</a> = <a class="code hl_variable" href="struct_g_l_e_s_c_1_1_transform_1_1_interpolator.html#af5fab59dba45a3443b3746e8eee450ce">currentTransform</a>;</div>
+<div class="line"><span class="lineno">  164</span>    <a class="code hl_variable" href="struct_g_l_e_s_c_1_1_transform_1_1_interpolator.html#af5fab59dba45a3443b3746e8eee450ce">currentTransform</a> = transform;</div>
+<div class="line"><span class="lineno">  165</span>}</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_vector_html_a1e7d79fa65198c1323e9ae2c4893ee95"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_vector.html#a1e7d79fa65198c1323e9ae2c4893ee95">GLESC::Math::Vector::length</a></div><div class="ttdeci">Type length() const</div><div class="ttdoc">Returns the length of the vector.</div><div class="ttdef"><b>Definition</b> <a href="_vector_8h_source.html#l00837">Vector.h:837</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_math_8h_source.html#l00164">GLESC::Math::abs()</a>, <a class="el" href="_transform_8h_source.html#l00464">currentTransform</a>, <a class="el" href="_transform_8h_source.html#l00063">GLESC::Transform::Transform::getPosition()</a>, <a class="el" href="_transform_8h_source.html#l00465">lastTransform</a>, and <a class="el" href="_vector_8h_source.html#l00837">GLESC::Math::Vector&lt; Type, N &gt;::length()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="struct_g_l_e_s_c_1_1_transform_1_1_interpolator_a594cf0ebd253815096437cfbbe2a8d9f_cgraph.svg" width="100%" height="444"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="af5fab59dba45a3443b3746e8eee450ce" name="af5fab59dba45a3443b3746e8eee450ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5fab59dba45a3443b3746e8eee450ce">&#9670;&#160;</a></span>currentTransform</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_g_l_e_s_c_1_1_transform_1_1_transform.html">Transform</a> GLESC::Transform::Interpolator::currentTransform {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_transform_8h_source.html#l00464">464</a> of file <a class="el" href="_transform_8h_source.html">Transform.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  464</span>{};</div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="_transform_8cpp_source.html#l00167">interpolate()</a>, and <a class="el" href="_transform_8cpp_source.html#l00156">pushTransform()</a>.</p>
+
+</div>
+</div>
+<a id="ad64afa75f8ad5fb3734bb32dbd8acde0" name="ad64afa75f8ad5fb3734bb32dbd8acde0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad64afa75f8ad5fb3734bb32dbd8acde0">&#9670;&#160;</a></span>lastTransform</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_g_l_e_s_c_1_1_transform_1_1_transform.html">Transform</a> GLESC::Transform::Interpolator::lastTransform {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_transform_8h_source.html#l00465">465</a> of file <a class="el" href="_transform_8h_source.html">Transform.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  465</span>{};</div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="_transform_8cpp_source.html#l00167">interpolate()</a>, and <a class="el" href="_transform_8cpp_source.html#l00156">pushTransform()</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following files:<ul>
+<li><a class="el" href="_transform_8h_source.html">Transform.h</a></li>
+<li><a class="el" href="_transform_8cpp_source.html">Transform.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_g_l_e_s_c.html">GLESC</a></li><li class="navelem"><a class="el" href="namespace_g_l_e_s_c_1_1_transform.html">Transform</a></li><li class="navelem"><a class="el" href="struct_g_l_e_s_c_1_1_transform_1_1_interpolator.html">Interpolator</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,11 @@
+<map id="GLESC::Math::Polyhedron::addVertex" name="GLESC::Math::Polyhedron::addVertex">
+<area shape="rect" id="Node000001" title="Add a vertex to the polyhedron." alt="" coords="477,72,652,115"/>
+<area shape="rect" id="Node000002" href="$namespace_g_l_e_s_c_1_1_polyhedron_factory_1_1_regular.html#a4ad27160ee9b5db67ec78fe4ec6d9bd9" title="Regular polyhedron with 20 faces (icosahedron, all faces are triangles, looks like a 20 side dice in ..." alt="" coords="241,5,424,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="473,70,409,51,410,46,474,65"/>
+<area shape="rect" id="Node000003" href="$namespace_g_l_e_s_c_1_1_polyhedron_factory_1_1_regular.html#ac45e1a9f6ddb3e136083bdcb2e022f4a" title="Regular polyhedron with 8 faces (octahedron, all faces are triangles, looks like two pyramids glued t..." alt="" coords="241,72,424,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="461,96,424,96,424,91,461,91"/>
+<area shape="rect" id="Node000004" href="$namespace_g_l_e_s_c_1_1_polyhedron_factory_1_1_common.html#af60a86f9bcd3407c268bdf067c8a7f67" title="A rectangular cuboid is a polyhedron with 6 rectangular faces. It is also known as a rectangular hexa..." alt="" coords="236,139,429,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="474,122,410,141,409,135,473,117"/>
+<area shape="rect" id="Node000005" href="$namespace_g_l_e_s_c_1_1_polyhedron_factory_1_1_regular.html#aa2eb95d4f4d120d787307001578b3202" title="Regular polyhedron with 6 faces (cube, all faces are squares)" alt="" coords="5,139,188,181"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="220,163,188,163,188,157,220,157"/>
+</map>

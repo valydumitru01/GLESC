@@ -1,0 +1,15 @@
+<map id="GLESC::EngineCamera::moveDown" name="GLESC::EngineCamera::moveDown">
+<area shape="rect" id="Node000001" title="Moves the camera downwards." alt="" coords="5,39,164,81"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity.html#a14143b00be0701d787f043955c449e22" title="Returns a reference to the component." alt="" coords="212,39,354,81"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="164,57,196,57,196,63,164,63"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator.html#a70c1d7a354e40af5426372cb3daaaaf1" title="Get the component of an entity by its Id." alt="" coords="402,39,603,81"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="354,57,386,57,386,63,354,63"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a5145504091eb26170aa219acb60aca71" title="Check if the entity with the given name exists." alt="" coords="667,5,860,48"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="603,44,651,38,652,44,604,50"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_component_manager.html#ac63a277ed5aed0640e808f20480d01a1" title="Get the component of an entity by its ID." alt="" coords="651,72,876,115"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="604,70,636,74,636,80,603,76"/>
+<area shape="rect" id="Node000006" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_component_manager.html#ab06d3e4aecbf882b3f75fa4943f561f2" title="Get the name of a component by its ID." alt="" coords="924,72,1148,115"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="876,91,908,91,908,96,876,96"/>
+<area shape="rect" id="Node000007" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_component_manager.html#af4b8c65d69d17052413005a7402bf116" title="Check if a component is registered." alt="" coords="1196,72,1420,115"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="1148,91,1180,91,1180,96,1148,96"/>
+</map>

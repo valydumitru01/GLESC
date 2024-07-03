@@ -1,0 +1,6 @@
+<log>
+ <error level="warning" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/ingame-debug/EntityListManager.cpp" line="14" col="45" msg="declaration requires an exit-time destructor" />
+ <error level="warning" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/ingame-debug/EntityListManager.cpp" line="14" col="45" msg="declaration requires a global destructor" />
+ <error level="warning" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/ingame-debug/EntityListManager.cpp" line="15" col="32" msg="declaration requires an exit-time destructor" />
+ <error level="warning" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/ingame-debug/EntityListManager.cpp" line="15" col="32" msg="declaration requires a global destructor" />
+</log>

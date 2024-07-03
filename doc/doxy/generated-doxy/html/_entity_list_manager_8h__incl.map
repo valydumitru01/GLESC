@@ -1,0 +1,9 @@
+<map id="EntityListManager.h" name="EntityListManager.h">
+<area shape="rect" id="Node000001" title="Class that manages the list of entities in the scene." alt="" coords="124,5,262,32"/>
+<area shape="rect" id="Node000002" href="$_entity_types_8h.html" title="@TODO Add description of this file if needed" alt="" coords="5,80,149,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="174,35,112,74,109,69,171,30"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="173,80,213,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="196,33,196,64,190,64,190,33"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="237,80,290,107"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="207,31,243,67,239,71,203,34"/>
+</map>

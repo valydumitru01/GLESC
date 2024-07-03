@@ -1,0 +1,9 @@
+<map id="GLESC::Math::MatrixAlgorithms::getTranslationMatrix" name="GLESC::Math::MatrixAlgorithms::getTranslationMatrix">
+<area shape="rect" id="Node000001" title="Applies the translation to a model matrix." alt="" coords="5,39,214,81"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a5cea58a2eb5207b8282360179774f17b" title="Sets the diagonal of a matrix to a specific value." alt="" coords="262,5,470,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="214,44,246,40,246,45,214,49"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a053f9441ed78e43be28efcca0fc34283" title="Sets the values of a matrix to zero." alt="" coords="262,72,470,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="214,71,246,75,246,80,214,76"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a555b3e0f1eb9a546ec47951fa0f5e8da" title="Sets the values of a matrix to one." alt="" coords="518,72,726,115"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="470,91,502,91,502,96,470,96"/>
+</map>

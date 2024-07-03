@@ -1,0 +1,11 @@
+<map id="GLESC::Math::VectorAlgorithms::isZero" name="GLESC::Math::VectorAlgorithms::isZero">
+<area shape="rect" id="Node000001" title="Checks if a vector is zero." alt="" coords="5,27,216,69"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#a3249cf40f6140efca533d2f041f909d3" title="Equality operator for vectors." alt="" coords="264,5,496,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="216,34,248,30,248,36,216,39"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#a2f0bed018a4d5856d507a85de181de62" title=" " alt="" coords="275,56,485,99"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="216,57,260,62,259,67,216,62"/>
+<area shape="rect" id="Node000003" href="$namespace_g_l_e_s_c_1_1_math.html#aee25910dbba06d09d9df14d03933ace1" title="Compares two values for equality." alt="" coords="544,5,668,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="496,16,528,16,528,21,496,21"/>
+<area shape="rect" id="Node000004" href="$namespace_g_l_e_s_c_1_1_math.html#acd429163efe906cd22916cc75ccb2421" title="Epsilon getter with precision of a given template type." alt="" coords="716,5,868,32"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="668,16,701,16,701,21,668,21"/>
+</map>

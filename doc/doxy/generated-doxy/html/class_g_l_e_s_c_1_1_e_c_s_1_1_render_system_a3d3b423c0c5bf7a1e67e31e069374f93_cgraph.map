@@ -1,0 +1,39 @@
+<map id="GLESC::ECS::RenderSystem::update" name="GLESC::ECS::RenderSystem::update">
+<area shape="rect" id="Node000001" title="Updates the system." alt="" coords="5,191,200,234"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_render_1_1_renderer.html#a3f570b376aca16fe45ed093405e80134" title="This empties all the data from the renderer. Nothing will be rendered." alt="" coords="270,58,444,100"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="128,189,181,149,246,110,260,104,262,109,249,115,184,154,131,193"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_system.html#a9b4f36ba29354a976dc23a598ec85952" title="Gets the entities associated with the system." alt="" coords="279,124,435,167"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="186,188,263,168,264,173,187,193"/>
+<area shape="rect" id="Node000009" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_system.html#adbd8144d4b95771844546e2391cd49ad" title="Gets the name of an entity." alt="" coords="280,191,434,234"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="200,210,265,210,265,215,200,215"/>
+<area shape="rect" id="Node000012" href="$class_g_l_e_s_c_1_1_render_1_1_renderer.html#a23d2e380d523e7de98bc73c91881d306" title=" " alt="" coords="248,258,466,300"/>
+<area shape="poly" id="edge13_Node000001_Node000012" title=" " alt="" coords="187,232,259,251,258,256,186,237"/>
+<area shape="rect" id="Node000013" href="$class_g_l_e_s_c_1_1_render_1_1_renderer.html#a91180f2e65fa787ef13cfd9dde7b749c" title="This sends the mesh data to the renderer so it can be rendered." alt="" coords="270,324,444,367"/>
+<area shape="poly" id="edge14_Node000001_Node000013" title=" " alt="" coords="131,232,184,271,249,310,262,316,260,321,246,315,181,276,128,236"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator.html#a73636f46c1a9f0bd7f380524210cf4b4" title="Get the entities associated with a system." alt="" coords="514,99,715,142"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="435,136,499,129,499,135,436,141"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a5145504091eb26170aa219acb60aca71" title="Check if the entity with the given name exists." alt="" coords="1031,191,1224,234"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="709,140,764,151,1016,194,1015,199,763,156,708,145"/>
+<area shape="rect" id="Node000006" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#a283c04f81e82970a822c9696ddab2319" title="Gets the entities associated with a system. The system must be registered." alt="" coords="763,99,978,142"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="716,118,748,118,748,123,716,123"/>
+<area shape="rect" id="Node000007" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#a32f415d7a7e0cefc9e1b5c71a4dc1be4" title="Checks if a system is registered." alt="" coords="1026,36,1229,79"/>
+<area shape="poly" id="edge8_Node000004_Node000007" title=" " alt="" coords="637,96,691,54,726,33,763,18,799,9,837,5,913,5,985,15,1047,29,1046,35,984,20,912,10,837,10,800,14,764,23,728,38,694,58,640,101"/>
+<area shape="rect" id="Node000008" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#abe8641c2514be36e652e7f77d0ed87a5" title="Checks if an entity is associated with a system." alt="" coords="765,32,976,75"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="699,96,771,77,772,82,700,101"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="960,96,1022,81,1023,86,961,101"/>
+<area shape="rect" id="Node000010" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_e_c_s_coordinator.html#a2c49b6ec20626dd4f84c939ec3750812" title="Get the name of the entity given the ID." alt="" coords="514,192,715,235"/>
+<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="434,210,499,211,499,216,434,216"/>
+<area shape="rect" id="Node000011" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#ad75636a479815b1d3e5b1b26d2a1245c" title="Get the entity name from the entity ID. The entity must exist." alt="" coords="774,216,967,259"/>
+<area shape="poly" id="edge11_Node000010_Node000011" title=" " alt="" coords="716,221,759,225,758,230,715,226"/>
+<area shape="poly" id="edge12_Node000011_Node000005" title=" " alt="" coords="967,226,1015,221,1016,226,967,231"/>
+<area shape="rect" id="Node000014" href="$class_g_l_e_s_c_1_1_render_1_1_mesh.html#a6e11ed4a4df7573e35af2eb1841501f3" title=" " alt="" coords="538,380,692,423"/>
+<area shape="poly" id="edge15_Node000013_Node000014" title=" " alt="" coords="445,362,522,379,521,384,444,367"/>
+<area shape="rect" id="Node000015" href="$class_g_l_e_s_c_1_1_render_1_1_mesh.html#a863d2c05d8b7b9d10fe946ca1c5f1c21" title=" " alt="" coords="538,447,692,490"/>
+<area shape="poly" id="edge16_Node000013_Node000015" title=" " alt="" coords="393,365,449,399,515,433,529,439,527,443,513,438,447,404,390,370"/>
+<area shape="rect" id="Node000016" href="$class_g_l_e_s_c_1_1_render_1_1_mesh.html#a9ddd143cc0aea52acf7649b1dc7f1d07" title=" " alt="" coords="538,263,692,306"/>
+<area shape="poly" id="edge17_Node000013_Node000016" title=" " alt="" coords="444,322,522,304,523,309,445,328"/>
+<area shape="rect" id="Node000017" href="$class_g_l_e_s_c_1_1_console.html#a7ed2e6be9021ff98197fe923266d007f" title=" " alt="" coords="537,330,692,356"/>
+<area shape="poly" id="edge18_Node000013_Node000017" title=" " alt="" coords="445,342,521,341,521,347,445,348"/>
+<area shape="rect" id="Node000018" href="$class_g_l_e_s_c_1_1_console.html#ad13451bc6828bdceeafdb89a56d66c44" title=" " alt="" coords="769,330,972,356"/>
+<area shape="poly" id="edge19_Node000017_Node000018" title=" " alt="" coords="693,340,754,340,754,346,693,346"/>
+</map>

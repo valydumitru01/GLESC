@@ -1,0 +1,14 @@
+<map id="TYPED_TEST" name="TYPED_TEST">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,80,109,107"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a9670e25803284a303601766e75617acc" title="Calculates the determinant of any matrix using Laplace expansion." alt="" coords="157,72,365,115"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="109,91,141,91,141,96,109,96"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a85f90015980f7ee665903d04b4b797d8" title="Calculates the cofactor of a matrix element." alt="" coords="413,5,621,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="365,73,446,50,447,56,366,78"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#abd516042cc3d928eefae413db0725670" title="Calculates the determinant of a 2x2 matrix." alt="" coords="413,72,621,115"/>
+<area shape="poly" id="edge4_Node000002_Node000004" title=" " alt="" coords="365,91,397,91,397,96,365,96"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a2217ee08c38b92c583d3f193b5a0da9b" title="Computes the determinant of a matrix 3x3." alt="" coords="413,139,621,181"/>
+<area shape="poly" id="edge5_Node000002_Node000005" title=" " alt="" coords="346,113,418,132,417,137,345,118"/>
+<area shape="rect" id="Node000006" href="$class_g_l_e_s_c_1_1_math_1_1_matrix_algorithms.html#a972ac9793d405d0a5daca41591c1fb8c" title="Computes the determinant of a matrix 4x4." alt="" coords="413,205,621,248"/>
+<area shape="poly" id="edge6_Node000002_Node000006" title=" " alt="" coords="291,113,347,152,414,191,427,197,425,202,412,196,344,156,288,117"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="413,48,332,70,331,64,412,42"/>
+</map>

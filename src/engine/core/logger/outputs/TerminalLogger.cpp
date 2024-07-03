@@ -1,0 +1,65 @@
+/******************************************************************************
+ * @file   TerminalLogger.cpp
+ * @author Valentin Dumitru
+ * @date   2023-09-26
+ * @brief @todo Add description of this file if needed
+ *
+ * Copyright (c) 2023 Valentin Dumitru. Licensed under the MIT License.
+ * See LICENSE.txt in the project root for license information.
+ ******************************************************************************/
+
+#include "color.hpp"
+#include "engine/core/logger/concrete-loggers/TerminalLogger.h"
+
+TerminalLogger::TerminalLogger() = default;
+
+void TerminalLogger::log(const std::string &text){
+    std::cout << text << std::endl;
+}
+
+void TerminalLogger::error(const std::string &text){
+    std::cout << dye::black_on_red(text) << std::endl;
+}
+
+void TerminalLogger::warning(const std::string &text){
+    std::cout << dye::black_on_yellow(text) << std::endl;
+}
+
+void TerminalLogger::nonImportantInfo(const std::string& text) {
+    std::cout << dye::grey(text) << std::endl;
+}
+
+void TerminalLogger::info(const std::string &text){
+    std::cout << dye::white(text) << std::endl;
+}
+
+void TerminalLogger::infoBlue(const std::string &text){
+    std::cout << dye::light_blue(text) << std::endl;
+}
+
+void TerminalLogger::infoPurple(const std::string &text){
+    std::cout << dye::light_purple(text) << std::endl;
+}
+
+void TerminalLogger::importantInfo(const std::string &text) {
+    std::cout << dye::blue_on_grey(text) << std::endl;
+}
+
+void TerminalLogger::importantInfoBlue(const std::string &text) {
+    std::cout << dye::blue_on_light_blue(text) << std::endl;
+}
+
+void TerminalLogger::importantInfoPurple(const std::string &text) {
+    std::cout << dye::black_on_purple(text) << std::endl;
+}
+
+void TerminalLogger::importantInfoWhite(const std::string &text) {
+    std::cout << dye::black_on_white(text) << std::endl;
+}
+void TerminalLogger::importantSuccess(const std::string &text) {
+    std::cout << dye::black_on_green(text) << std::endl;
+}
+void TerminalLogger::success(const std::string &text) {
+    std::cout << dye::green_on_black(text) << std::endl;
+}
+

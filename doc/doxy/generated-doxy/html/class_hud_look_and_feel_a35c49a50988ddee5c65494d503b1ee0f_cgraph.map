@@ -1,0 +1,7 @@
+<map id="HudLookAndFeel::setDefaultFont" name="HudLookAndFeel::setDefaultFont">
+<area shape="rect" id="Node000001" title="Sets the default font." alt="" coords="5,13,218,40"/>
+<area shape="rect" id="Node000002" href="$class_hud_look_and_feel.html#a6186621c1bacc784027bfc788baa41c1" title=" " alt="" coords="266,5,437,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="218,24,250,24,250,29,218,29"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_stringer.html#ae6ebbc41fe6bedb05cea879bb93fd378" title="Checks if a string contains a substring." alt="" coords="485,13,660,40"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="437,24,469,24,469,29,437,29"/>
+</map>

@@ -1,0 +1,2078 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="Doxygen Awesome" />
+<meta property="og:image" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+<meta property="og:description" content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
+<meta property="og:url" content="https://jothepro.github.io/doxygen-awesome-css/" />
+<!-- END opengraph metadata -->
+<!-- BEGIN twitter metadata -->
+<meta name="twitter:image:src" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+<meta name="twitter:title" content="Doxygen Awesome" />
+<meta name="twitter:description" content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
+<!-- END twitter metadata -->
+<title>GLESC: GLESC::Physics::Physics Class Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.drawio.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/ -->
+<a href="https://github.com/jothepro/doxygen-awesome-css" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="GLESC_logo_white_background.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">GLESC
+   &#160;<span id="projectnumber">1</span>
+   </div>
+   <div id="projectbrief">Game engine using ECS architecture</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('class_g_l_e_s_c_1_1_physics_1_1_physics.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="class_g_l_e_s_c_1_1_physics_1_1_physics-members.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">GLESC::Physics::Physics Class Reference</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_physics_8h_source.html">Physics.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for GLESC::Physics::Physics:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_physics_1_1_physics__inherit__graph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+Collaboration diagram for GLESC::Physics::Physics:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_physics_1_1_physics__coll__graph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:af0decbe73e2a59b7061bb18a266d09ab" id="r_af0decbe73e2a59b7061bb18a266d09ab"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#af0decbe73e2a59b7061bb18a266d09ab">Physics</a> ()=<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">default</a></td></tr>
+<tr class="separator:af0decbe73e2a59b7061bb18a266d09ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43dc7ff04706273c73fcbed1fd362308" id="r_a43dc7ff04706273c73fcbed1fd362308"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a43dc7ff04706273c73fcbed1fd362308">addAcceleration</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_physics.html#ae4fd353bd7c23d17d28bacc7b0f9ec65">Acceleration</a> &amp;<a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#afb69d407abd506bbc7d855a73d43065c">acceleration</a>)</td></tr>
+<tr class="separator:a43dc7ff04706273c73fcbed1fd362308"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28ea05924738ff56235411ca37a96088" id="r_a28ea05924738ff56235411ca37a96088"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a28ea05924738ff56235411ca37a96088">addAirFriction</a> (<a class="el" href="namespace_g_l_e_s_c_1_1_physics.html#a99b2d6885e3fd9713a4f9f0b1723acf2">Friction</a> <a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a17745500cc267d6c9bfec518edcec233">airFriction</a>)</td></tr>
+<tr class="separator:a28ea05924738ff56235411ca37a96088"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3d8d8204380083784df973a862caf02" id="r_ab3d8d8204380083784df973a862caf02"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#ab3d8d8204380083784df973a862caf02">addAngularAcceleration</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_physics.html#aec98e312b4a77f4aa764abbb0489959d">AngularAcceleration</a> &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">angAccelParam</a>)</td></tr>
+<tr class="separator:ab3d8d8204380083784df973a862caf02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adff1935e66dca7aa68b3232dfb8d3239" id="r_adff1935e66dca7aa68b3232dfb8d3239"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#adff1935e66dca7aa68b3232dfb8d3239">addAngularVelocity</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_physics.html#a0f33da04071773b5651a0bce97390c37">AngularVelocity</a> &amp;<a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a2d936c66d50ed0aab4deb69779399df3">angularVelocity</a>)</td></tr>
+<tr class="separator:adff1935e66dca7aa68b3232dfb8d3239"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9d516625d89fa86430d24f09e46e652" id="r_ad9d516625d89fa86430d24f09e46e652"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#ad9d516625d89fa86430d24f09e46e652">addDirectionalAcceleration</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a9eadb18d7a162972604c1a6cefa0efa8">Math::Direction</a> &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">dir</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">float</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">speed</a>)</td></tr>
+<tr class="separator:ad9d516625d89fa86430d24f09e46e652"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60b0c3e1f8d71e9b79ef384d6c330405" id="r_a60b0c3e1f8d71e9b79ef384d6c330405"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a60b0c3e1f8d71e9b79ef384d6c330405">addDirectionalForce</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a9eadb18d7a162972604c1a6cefa0efa8">Math::Direction</a> &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">dir</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">float</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">forceParam</a>)</td></tr>
+<tr class="separator:a60b0c3e1f8d71e9b79ef384d6c330405"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b381856878a12762b15b7edf828e39d" id="r_a7b381856878a12762b15b7edf828e39d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a7b381856878a12762b15b7edf828e39d">addDirectionalVelocity</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a9eadb18d7a162972604c1a6cefa0efa8">Math::Direction</a> &amp;direction, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">float</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">speed</a>)</td></tr>
+<tr class="separator:a7b381856878a12762b15b7edf828e39d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e18ddc87e177c5c11f2adbc941899f1" id="r_a4e18ddc87e177c5c11f2adbc941899f1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a4e18ddc87e177c5c11f2adbc941899f1">addForce</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_physics.html#a3aa7b2f3c9e74053989a1a5837a79ed7">Force</a> &amp;<a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#afb23bf989920f5a2e07726c07b4b3ab1">force</a>)</td></tr>
+<tr class="separator:a4e18ddc87e177c5c11f2adbc941899f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc3bc303240c19b3ec0e7ee706336299" id="r_adc3bc303240c19b3ec0e7ee706336299"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#adc3bc303240c19b3ec0e7ee706336299">addFriciton</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">float</a> <a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#afb8a0b6dd8eae927d2f23ac6e61c05d9">friction</a>)</td></tr>
+<tr class="separator:adc3bc303240c19b3ec0e7ee706336299"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad46980c5dc0c774b3900cf4b095ed20f" id="r_ad46980c5dc0c774b3900cf4b095ed20f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#ad46980c5dc0c774b3900cf4b095ed20f">addMass</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_physics.html#ab3186578a515ae1e6c4f94060737ee3c">Mass</a> &amp;<a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#af2d98d3c198d277541867567ffbd03d9">mass</a>)</td></tr>
+<tr class="separator:ad46980c5dc0c774b3900cf4b095ed20f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95ef23b3ccfa25157b1b605664a760be" id="r_a95ef23b3ccfa25157b1b605664a760be"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a95ef23b3ccfa25157b1b605664a760be">addVelocity</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_physics.html#a88cd8369de6bf12d7bbe0f4614fed506">Velocity</a> &amp;<a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a331cbe367fa86bf1e3b5ee8b98d3acdd">velocity</a>)</td></tr>
+<tr class="separator:a95ef23b3ccfa25157b1b605664a760be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab15872b83afc4a3bed06cc6799c11015" id="r_ab15872b83afc4a3bed06cc6799c11015"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c_1_1_physics.html#ae4fd353bd7c23d17d28bacc7b0f9ec65">Acceleration</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#ab15872b83afc4a3bed06cc6799c11015">getAcceleration</a> () <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a></td></tr>
+<tr class="separator:ab15872b83afc4a3bed06cc6799c11015"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc9ffbfd9d7efe9912a2dcf97e3c9a92" id="r_acc9ffbfd9d7efe9912a2dcf97e3c9a92"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c_1_1_physics.html#a99b2d6885e3fd9713a4f9f0b1723acf2">Friction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#acc9ffbfd9d7efe9912a2dcf97e3c9a92">getAirFriction</a> () <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a></td></tr>
+<tr class="separator:acc9ffbfd9d7efe9912a2dcf97e3c9a92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02ef5eea77fe49e0815f84e16e48b4b5" id="r_a02ef5eea77fe49e0815f84e16e48b4b5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c_1_1_physics.html#aec98e312b4a77f4aa764abbb0489959d">AngularAcceleration</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a02ef5eea77fe49e0815f84e16e48b4b5">getAngularAcceleration</a> () <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a></td></tr>
+<tr class="separator:a02ef5eea77fe49e0815f84e16e48b4b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e53bdf943a132b0fbe067429b80adae" id="r_a3e53bdf943a132b0fbe067429b80adae"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c_1_1_physics.html#a68b672f7395961a8dc43682f339c0696">AngularForce</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a3e53bdf943a132b0fbe067429b80adae">getAngularForce</a> () <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a></td></tr>
+<tr class="separator:a3e53bdf943a132b0fbe067429b80adae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafc49acc3ea86adf194b82ee856eee60" id="r_aafc49acc3ea86adf194b82ee856eee60"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c_1_1_physics.html#a0f33da04071773b5651a0bce97390c37">AngularVelocity</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#aafc49acc3ea86adf194b82ee856eee60">getAngularVelocity</a> () <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a></td></tr>
+<tr class="separator:aafc49acc3ea86adf194b82ee856eee60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17bf6392ed201d66ae5cb36f63c2c386" id="r_a17bf6392ed201d66ae5cb36f63c2c386"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_entity_stats_manager.html#struct_entity_stats_manager_1_1_value">EntityStatsManager::Value</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a17bf6392ed201d66ae5cb36f63c2c386">getDebuggingValues</a> () <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">override</a></td></tr>
+<tr class="memdesc:a17bf6392ed201d66ae5cb36f63c2c386"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the debugging values of the component.  <br /></td></tr>
+<tr class="separator:a17bf6392ed201d66ae5cb36f63c2c386"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a773297212554430f835e10158077f123" id="r_a773297212554430f835e10158077f123"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c_1_1_physics.html#a3aa7b2f3c9e74053989a1a5837a79ed7">Force</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a773297212554430f835e10158077f123">getForce</a> () <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a></td></tr>
+<tr class="separator:a773297212554430f835e10158077f123"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a257a1a4ed7427558c6306e175f173e41" id="r_a257a1a4ed7427558c6306e175f173e41"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c_1_1_physics.html#a99b2d6885e3fd9713a4f9f0b1723acf2">Friction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a257a1a4ed7427558c6306e175f173e41">getFriction</a> () <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a></td></tr>
+<tr class="separator:a257a1a4ed7427558c6306e175f173e41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af20497987041c033490ea2925471fb85" id="r_af20497987041c033490ea2925471fb85"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c_1_1_physics.html#ab3186578a515ae1e6c4f94060737ee3c">Mass</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#af20497987041c033490ea2925471fb85">getMass</a> () <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a></td></tr>
+<tr class="separator:af20497987041c033490ea2925471fb85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeed383c88b7de8cd6711a4ee390516f1" id="r_aeed383c88b7de8cd6711a4ee390516f1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c_1_1_physics.html#a88cd8369de6bf12d7bbe0f4614fed506">Velocity</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#aeed383c88b7de8cd6711a4ee390516f1">getVelocity</a> () <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a></td></tr>
+<tr class="separator:aeed383c88b7de8cd6711a4ee390516f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4d902c3204d073617b7edc208137b23" id="r_ae4d902c3204d073617b7edc208137b23"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#ae4d902c3204d073617b7edc208137b23">giveAngularForce</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_physics.html#a68b672f7395961a8dc43682f339c0696">AngularForce</a> &amp;<a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a59a0f9bf1a53e3458ea3cb08b3f7d4c0">angularForce</a>)</td></tr>
+<tr class="separator:ae4d902c3204d073617b7edc208137b23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91de5d378ee31aaa79e59862a66d59dc" id="r_a91de5d378ee31aaa79e59862a66d59dc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a91de5d378ee31aaa79e59862a66d59dc">isAffectedByGravity</a> () <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a></td></tr>
+<tr class="separator:a91de5d378ee31aaa79e59862a66d59dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b219f3bad20152277aa986c50d9a827" id="r_a5b219f3bad20152277aa986c50d9a827"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a5b219f3bad20152277aa986c50d9a827">isStatic</a> () <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a></td></tr>
+<tr class="separator:a5b219f3bad20152277aa986c50d9a827"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada4e4ed5e76c8615ef54ba392cb2ed23" id="r_ada4e4ed5e76c8615ef54ba392cb2ed23"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#ada4e4ed5e76c8615ef54ba392cb2ed23">setAcceleration</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_physics.html#ae4fd353bd7c23d17d28bacc7b0f9ec65">Acceleration</a> &amp;<a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#afb69d407abd506bbc7d855a73d43065c">acceleration</a>)</td></tr>
+<tr class="separator:ada4e4ed5e76c8615ef54ba392cb2ed23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b81e86ba9733ccc488889d596afcfaa" id="r_a1b81e86ba9733ccc488889d596afcfaa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a1b81e86ba9733ccc488889d596afcfaa">setAffectedByGravity</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a> <a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a660f04e1dd0ebc055f58b8aad7484140">affectedByGravity</a>)</td></tr>
+<tr class="separator:a1b81e86ba9733ccc488889d596afcfaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49eeb3a2a6a1b8afb0b68e366c30d8e1" id="r_a49eeb3a2a6a1b8afb0b68e366c30d8e1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a49eeb3a2a6a1b8afb0b68e366c30d8e1">setAirFriction</a> (<a class="el" href="namespace_g_l_e_s_c_1_1_physics.html#a99b2d6885e3fd9713a4f9f0b1723acf2">Friction</a> <a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a17745500cc267d6c9bfec518edcec233">airFriction</a>)</td></tr>
+<tr class="separator:a49eeb3a2a6a1b8afb0b68e366c30d8e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1358e9d9ff45b2bcfb441bddfb25b037" id="r_a1358e9d9ff45b2bcfb441bddfb25b037"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a1358e9d9ff45b2bcfb441bddfb25b037">setAngularAcceleration</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_physics.html#aec98e312b4a77f4aa764abbb0489959d">AngularAcceleration</a> &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">angAccelParam</a>)</td></tr>
+<tr class="separator:a1358e9d9ff45b2bcfb441bddfb25b037"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81d9032a355dda2e8f08462f7f58443e" id="r_a81d9032a355dda2e8f08462f7f58443e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a81d9032a355dda2e8f08462f7f58443e">setAngularVelocity</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_physics.html#a0f33da04071773b5651a0bce97390c37">AngularVelocity</a> &amp;<a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a2d936c66d50ed0aab4deb69779399df3">angularVelocity</a>)</td></tr>
+<tr class="separator:a81d9032a355dda2e8f08462f7f58443e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a7e6572ced5941aa9ae0c1f27dc13d9" id="r_a4a7e6572ced5941aa9ae0c1f27dc13d9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a4a7e6572ced5941aa9ae0c1f27dc13d9">setDirectionalAcceleration</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a9eadb18d7a162972604c1a6cefa0efa8">Math::Direction</a> &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">dir</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">float</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">speed</a>)</td></tr>
+<tr class="separator:a4a7e6572ced5941aa9ae0c1f27dc13d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85d939326103291b0f421e43aee1c921" id="r_a85d939326103291b0f421e43aee1c921"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a85d939326103291b0f421e43aee1c921">setDirectionalForce</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a9eadb18d7a162972604c1a6cefa0efa8">Math::Direction</a> &amp;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">dir</a>, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">float</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">forceParam</a>)</td></tr>
+<tr class="separator:a85d939326103291b0f421e43aee1c921"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a934af15e59be863a483d524308dcdb2a" id="r_a934af15e59be863a483d524308dcdb2a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a934af15e59be863a483d524308dcdb2a">setDirectionalVelocity</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a9eadb18d7a162972604c1a6cefa0efa8">Math::Direction</a> &amp;direction, <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">float</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">speed</a>)</td></tr>
+<tr class="separator:a934af15e59be863a483d524308dcdb2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07201d9b062d3282415a37a02dfcf7ba" id="r_a07201d9b062d3282415a37a02dfcf7ba"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a07201d9b062d3282415a37a02dfcf7ba">setForce</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_physics.html#a3aa7b2f3c9e74053989a1a5837a79ed7">Force</a> &amp;<a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#afb23bf989920f5a2e07726c07b4b3ab1">force</a>)</td></tr>
+<tr class="separator:a07201d9b062d3282415a37a02dfcf7ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a952b53dc472ad9762571e5d902227907" id="r_a952b53dc472ad9762571e5d902227907"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a952b53dc472ad9762571e5d902227907">setFriction</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">float</a> <a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#afb8a0b6dd8eae927d2f23ac6e61c05d9">friction</a>)</td></tr>
+<tr class="separator:a952b53dc472ad9762571e5d902227907"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a712144e46bad5e060ccd5d65219cc2" id="r_a3a712144e46bad5e060ccd5d65219cc2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a3a712144e46bad5e060ccd5d65219cc2">setMass</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_physics.html#ab3186578a515ae1e6c4f94060737ee3c">Mass</a> &amp;<a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#af2d98d3c198d277541867567ffbd03d9">mass</a>)</td></tr>
+<tr class="separator:a3a712144e46bad5e060ccd5d65219cc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b021a629383a0bc7ed01c29989e99c5" id="r_a6b021a629383a0bc7ed01c29989e99c5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a6b021a629383a0bc7ed01c29989e99c5">setMass</a> (<a class="el" href="namespace_g_l_e_s_c_1_1_physics.html#ab3186578a515ae1e6c4f94060737ee3c">Mass</a> &amp;<a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#af2d98d3c198d277541867567ffbd03d9">mass</a>)</td></tr>
+<tr class="separator:a6b021a629383a0bc7ed01c29989e99c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5245e88ba34354a0d4758a5b195c38df" id="r_a5245e88ba34354a0d4758a5b195c38df"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a5245e88ba34354a0d4758a5b195c38df">setStatic</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a> <a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a5b219f3bad20152277aa986c50d9a827">isStatic</a>)</td></tr>
+<tr class="separator:a5245e88ba34354a0d4758a5b195c38df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a287320c54b7811781366b7e65f071cc5" id="r_a287320c54b7811781366b7e65f071cc5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a287320c54b7811781366b7e65f071cc5">setVelocity</a> (<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_physics.html#a88cd8369de6bf12d7bbe0f4614fed506">Velocity</a> &amp;<a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a331cbe367fa86bf1e3b5ee8b98d3acdd">velocity</a>)</td></tr>
+<tr class="separator:a287320c54b7811781366b7e65f071cc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ab4df7294cbaaa761c981e13188c369" id="r_a8ab4df7294cbaaa761c981e13188c369"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a8ab4df7294cbaaa761c981e13188c369">toString</a> () <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">override</a></td></tr>
+<tr class="separator:a8ab4df7294cbaaa761c981e13188c369"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_engine_component"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_engine_component')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_engine_component.html">EngineComponent</a></td></tr>
+<tr class="memitem:a13970a4e4fc6a3e5d31062e76aa85bf5 inherit pub_methods_class_engine_component" id="r_a13970a4e4fc6a3e5d31062e76aa85bf5"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_component.html#a13970a4e4fc6a3e5d31062e76aa85bf5">~EngineComponent</a> ()=default</td></tr>
+<tr class="separator:a13970a4e4fc6a3e5d31062e76aa85bf5 inherit pub_methods_class_engine_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd1566e4b3dc922636e3766bf91b466e inherit pub_methods_class_engine_component" id="r_abd1566e4b3dc922636e3766bf91b466e"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_component.html#abd1566e4b3dc922636e3766bf91b466e">getOwnerName</a> () const</td></tr>
+<tr class="memdesc:abd1566e4b3dc922636e3766bf91b466e inherit pub_methods_class_engine_component"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the owner name of the component for debugging purposes.  <br /></td></tr>
+<tr class="separator:abd1566e4b3dc922636e3766bf91b466e inherit pub_methods_class_engine_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46c52232911ea456e2a28caa49e053a1 inherit pub_methods_class_engine_component" id="r_a46c52232911ea456e2a28caa49e053a1"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; <a class="el" href="class_entity_stats_manager.html#struct_entity_stats_manager_1_1_value">EntityStatsManager::Value</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_component.html#a46c52232911ea456e2a28caa49e053a1">getUpdatedDebuggingValues</a> ()</td></tr>
+<tr class="memdesc:a46c52232911ea456e2a28caa49e053a1 inherit pub_methods_class_engine_component"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the updated debugging values of the component.  <br /></td></tr>
+<tr class="separator:a46c52232911ea456e2a28caa49e053a1 inherit pub_methods_class_engine_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa079758a5e816b81d667a52c320b92c0 inherit pub_methods_class_engine_component" id="r_aa079758a5e816b81d667a52c320b92c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_component.html#aa079758a5e816b81d667a52c320b92c0">setOwnerName</a> (const char *ownerName)</td></tr>
+<tr class="memdesc:aa079758a5e816b81d667a52c320b92c0 inherit pub_methods_class_engine_component"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the owner name of the component for debugging purposes.  <br /></td></tr>
+<tr class="separator:aa079758a5e816b81d667a52c320b92c0 inherit pub_methods_class_engine_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:afb69d407abd506bbc7d855a73d43065c" id="r_afb69d407abd506bbc7d855a73d43065c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c_1_1_physics.html#ae4fd353bd7c23d17d28bacc7b0f9ec65">Acceleration</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#afb69d407abd506bbc7d855a73d43065c">acceleration</a> {0, 0, 0}</td></tr>
+<tr class="separator:afb69d407abd506bbc7d855a73d43065c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a660f04e1dd0ebc055f58b8aad7484140" id="r_a660f04e1dd0ebc055f58b8aad7484140"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a660f04e1dd0ebc055f58b8aad7484140">affectedByGravity</a> {<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">true</a>}</td></tr>
+<tr class="separator:a660f04e1dd0ebc055f58b8aad7484140"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17745500cc267d6c9bfec518edcec233" id="r_a17745500cc267d6c9bfec518edcec233"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c_1_1_physics.html#a99b2d6885e3fd9713a4f9f0b1723acf2">Friction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a17745500cc267d6c9bfec518edcec233">airFriction</a> {-1.<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">f</a>}</td></tr>
+<tr class="separator:a17745500cc267d6c9bfec518edcec233"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5651a50aee09576b9a6b3acdf86cd87" id="r_ae5651a50aee09576b9a6b3acdf86cd87"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c_1_1_physics.html#aec98e312b4a77f4aa764abbb0489959d">AngularAcceleration</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#ae5651a50aee09576b9a6b3acdf86cd87">angAccel</a> {0, 0, 0}</td></tr>
+<tr class="separator:ae5651a50aee09576b9a6b3acdf86cd87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59a0f9bf1a53e3458ea3cb08b3f7d4c0" id="r_a59a0f9bf1a53e3458ea3cb08b3f7d4c0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c_1_1_physics.html#a68b672f7395961a8dc43682f339c0696">AngularForce</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a59a0f9bf1a53e3458ea3cb08b3f7d4c0">angularForce</a> {0, 0, 0}</td></tr>
+<tr class="separator:a59a0f9bf1a53e3458ea3cb08b3f7d4c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d936c66d50ed0aab4deb69779399df3" id="r_a2d936c66d50ed0aab4deb69779399df3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c_1_1_physics.html#a0f33da04071773b5651a0bce97390c37">AngularVelocity</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a2d936c66d50ed0aab4deb69779399df3">angularVelocity</a> {0, 0, 0}</td></tr>
+<tr class="separator:a2d936c66d50ed0aab4deb69779399df3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb23bf989920f5a2e07726c07b4b3ab1" id="r_afb23bf989920f5a2e07726c07b4b3ab1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c_1_1_physics.html#a3aa7b2f3c9e74053989a1a5837a79ed7">Force</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#afb23bf989920f5a2e07726c07b4b3ab1">force</a> {0, 0, 0}</td></tr>
+<tr class="separator:afb23bf989920f5a2e07726c07b4b3ab1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb8a0b6dd8eae927d2f23ac6e61c05d9" id="r_afb8a0b6dd8eae927d2f23ac6e61c05d9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c_1_1_physics.html#a99b2d6885e3fd9713a4f9f0b1723acf2">Friction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#afb8a0b6dd8eae927d2f23ac6e61c05d9">friction</a> {0.01<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">f</a>}</td></tr>
+<tr class="separator:afb8a0b6dd8eae927d2f23ac6e61c05d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2d98d3c198d277541867567ffbd03d9" id="r_af2d98d3c198d277541867567ffbd03d9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c_1_1_physics.html#ab3186578a515ae1e6c4f94060737ee3c">Mass</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#af2d98d3c198d277541867567ffbd03d9">mass</a> {1.0F}</td></tr>
+<tr class="separator:af2d98d3c198d277541867567ffbd03d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32f828927d1698cf8f928c6022a1b517" id="r_a32f828927d1698cf8f928c6022a1b517"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a32f828927d1698cf8f928c6022a1b517">staticObj</a> {<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">false</a>}</td></tr>
+<tr class="separator:a32f828927d1698cf8f928c6022a1b517"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a331cbe367fa86bf1e3b5ee8b98d3acdd" id="r_a331cbe367fa86bf1e3b5ee8b98d3acdd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c_1_1_physics.html#a88cd8369de6bf12d7bbe0f4614fed506">Velocity</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a331cbe367fa86bf1e3b5ee8b98d3acdd">velocity</a> {0, 0, 0}</td></tr>
+<tr class="separator:a331cbe367fa86bf1e3b5ee8b98d3acdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock">
+<p class="definition">Definition at line <a class="el" href="_physics_8h_source.html#l00017">17</a> of file <a class="el" href="_physics_8h_source.html">Physics.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="af0decbe73e2a59b7061bb18a266d09ab" name="af0decbe73e2a59b7061bb18a266d09ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0decbe73e2a59b7061bb18a266d09ab">&#9670;&#160;</a></span>Physics()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLESC::Physics::Physics::Physics </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a43dc7ff04706273c73fcbed1fd362308" name="a43dc7ff04706273c73fcbed1fd362308"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43dc7ff04706273c73fcbed1fd362308">&#9670;&#160;</a></span>addAcceleration()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> GLESC::Physics::Physics::addAcceleration </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_physics.html#ae4fd353bd7c23d17d28bacc7b0f9ec65">Acceleration</a> &amp;&#160;</td>
+          <td class="paramname"><em>acceleration</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_physics_8h_source.html#l00041">41</a> of file <a class="el" href="_physics_8h_source.html">Physics.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   41</span>{ this-&gt;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#afb69d407abd506bbc7d855a73d43065c">acceleration</a> += <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#afb69d407abd506bbc7d855a73d43065c">acceleration</a>; }</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_physics_1_1_physics_html_afb69d407abd506bbc7d855a73d43065c"><div class="ttname"><a href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#afb69d407abd506bbc7d855a73d43065c">GLESC::Physics::Physics::acceleration</a></div><div class="ttdeci">Acceleration acceleration</div><div class="ttdef"><b>Definition</b> <a href="_physics_8h_source.html#l00086">Physics.h:86</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_physics_8h_source.html#l00086">acceleration</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_physics_manager_8cpp_source.html#l00014">GLESC::Physics::PhysicsManager::applyForces()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_physics_1_1_physics_a43dc7ff04706273c73fcbed1fd362308_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a28ea05924738ff56235411ca37a96088" name="a28ea05924738ff56235411ca37a96088"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28ea05924738ff56235411ca37a96088">&#9670;&#160;</a></span>addAirFriction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> GLESC::Physics::Physics::addAirFriction </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c_1_1_physics.html#a99b2d6885e3fd9713a4f9f0b1723acf2">Friction</a>&#160;</td>
+          <td class="paramname"><em>airFriction</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_physics_8h_source.html#l00029">29</a> of file <a class="el" href="_physics_8h_source.html">Physics.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   29</span>{ this-&gt;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a17745500cc267d6c9bfec518edcec233">airFriction</a> += <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a17745500cc267d6c9bfec518edcec233">airFriction</a>; }</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_physics_1_1_physics_html_a17745500cc267d6c9bfec518edcec233"><div class="ttname"><a href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a17745500cc267d6c9bfec518edcec233">GLESC::Physics::Physics::airFriction</a></div><div class="ttdeci">Friction airFriction</div><div class="ttdef"><b>Definition</b> <a href="_physics_8h_source.html#l00084">Physics.h:84</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_physics_8h_source.html#l00084">airFriction</a>.</p>
+
+</div>
+</div>
+<a id="ab3d8d8204380083784df973a862caf02" name="ab3d8d8204380083784df973a862caf02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3d8d8204380083784df973a862caf02">&#9670;&#160;</a></span>addAngularAcceleration()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> GLESC::Physics::Physics::addAngularAcceleration </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_physics.html#aec98e312b4a77f4aa764abbb0489959d">AngularAcceleration</a> &amp;&#160;</td>
+          <td class="paramname"><em>angAccelParam</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_physics_8h_source.html#l00046">46</a> of file <a class="el" href="_physics_8h_source.html">Physics.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   46</span>{ this-&gt;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#ae5651a50aee09576b9a6b3acdf86cd87">angAccel</a> += <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">angAccelParam</a>; }</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_physics_1_1_physics_html_ae5651a50aee09576b9a6b3acdf86cd87"><div class="ttname"><a href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#ae5651a50aee09576b9a6b3acdf86cd87">GLESC::Physics::Physics::angAccel</a></div><div class="ttdeci">AngularAcceleration angAccel</div><div class="ttdef"><b>Definition</b> <a href="_physics_8h_source.html#l00090">Physics.h:90</a></div></div>
+<div class="ttc" id="anamespace_g_l_e_s_c_html_a7c64a4da2d1da1597f4ec563d00bb9f8"><div class="ttname"><a href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">GLESC::isIterable_v</a></div><div class="ttdeci">constexpr bool isIterable_v</div><div class="ttdef"><b>Definition</b> <a href="_stringer_8h_source.html#l00029">Stringer.h:29</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_physics_8h_source.html#l00090">angAccel</a>, and <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
+
+</div>
+</div>
+<a id="adff1935e66dca7aa68b3232dfb8d3239" name="adff1935e66dca7aa68b3232dfb8d3239"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adff1935e66dca7aa68b3232dfb8d3239">&#9670;&#160;</a></span>addAngularVelocity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> GLESC::Physics::Physics::addAngularVelocity </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_physics.html#a0f33da04071773b5651a0bce97390c37">AngularVelocity</a> &amp;&#160;</td>
+          <td class="paramname"><em>angularVelocity</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_physics_8h_source.html#l00039">39</a> of file <a class="el" href="_physics_8h_source.html">Physics.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   39</span>{ this-&gt;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a2d936c66d50ed0aab4deb69779399df3">angularVelocity</a> += <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a2d936c66d50ed0aab4deb69779399df3">angularVelocity</a>; }</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_physics_1_1_physics_html_a2d936c66d50ed0aab4deb69779399df3"><div class="ttname"><a href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a2d936c66d50ed0aab4deb69779399df3">GLESC::Physics::Physics::angularVelocity</a></div><div class="ttdeci">AngularVelocity angularVelocity</div><div class="ttdef"><b>Definition</b> <a href="_physics_8h_source.html#l00091">Physics.h:91</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_physics_8h_source.html#l00091">angularVelocity</a>.</p>
+
+</div>
+</div>
+<a id="ad9d516625d89fa86430d24f09e46e652" name="ad9d516625d89fa86430d24f09e46e652"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9d516625d89fa86430d24f09e46e652">&#9670;&#160;</a></span>addDirectionalAcceleration()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> GLESC::Physics::Physics::addDirectionalAcceleration </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a9eadb18d7a162972604c1a6cefa0efa8">Math::Direction</a> &amp;&#160;</td>
+          <td class="paramname"><em>dir</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">float</a>&#160;</td>
+          <td class="paramname"><em>speed</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_physics_8h_source.html#l00043">43</a> of file <a class="el" href="_physics_8h_source.html">Physics.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   43</span>{ <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#afb69d407abd506bbc7d855a73d43065c">acceleration</a> += <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">dir</a> * <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">speed</a>; }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_physics_8h_source.html#l00086">acceleration</a>, and <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
+
+</div>
+</div>
+<a id="a60b0c3e1f8d71e9b79ef384d6c330405" name="a60b0c3e1f8d71e9b79ef384d6c330405"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60b0c3e1f8d71e9b79ef384d6c330405">&#9670;&#160;</a></span>addDirectionalForce()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> GLESC::Physics::Physics::addDirectionalForce </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a9eadb18d7a162972604c1a6cefa0efa8">Math::Direction</a> &amp;&#160;</td>
+          <td class="paramname"><em>dir</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">float</a>&#160;</td>
+          <td class="paramname"><em>forceParam</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_physics_8h_source.html#l00051">51</a> of file <a class="el" href="_physics_8h_source.html">Physics.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   51</span>{ <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#afb23bf989920f5a2e07726c07b4b3ab1">force</a> += <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">dir</a> * <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">forceParam</a>; }</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_physics_1_1_physics_html_afb23bf989920f5a2e07726c07b4b3ab1"><div class="ttname"><a href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#afb23bf989920f5a2e07726c07b4b3ab1">GLESC::Physics::Physics::force</a></div><div class="ttdeci">Force force</div><div class="ttdef"><b>Definition</b> <a href="_physics_8h_source.html#l00087">Physics.h:87</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_physics_8h_source.html#l00087">force</a>, and <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
+
+</div>
+</div>
+<a id="a7b381856878a12762b15b7edf828e39d" name="a7b381856878a12762b15b7edf828e39d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b381856878a12762b15b7edf828e39d">&#9670;&#160;</a></span>addDirectionalVelocity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> GLESC::Physics::Physics::addDirectionalVelocity </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a9eadb18d7a162972604c1a6cefa0efa8">Math::Direction</a> &amp;&#160;</td>
+          <td class="paramname"><em>direction</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">float</a>&#160;</td>
+          <td class="paramname"><em>speed</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_physics_8h_source.html#l00037">37</a> of file <a class="el" href="_physics_8h_source.html">Physics.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   37</span>{ <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a331cbe367fa86bf1e3b5ee8b98d3acdd">velocity</a> += direction * <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">speed</a>; }</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_physics_1_1_physics_html_a331cbe367fa86bf1e3b5ee8b98d3acdd"><div class="ttname"><a href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a331cbe367fa86bf1e3b5ee8b98d3acdd">GLESC::Physics::Physics::velocity</a></div><div class="ttdeci">Velocity velocity</div><div class="ttdef"><b>Definition</b> <a href="_physics_8h_source.html#l00085">Physics.h:85</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_physics_8h_source.html#l00085">velocity</a>.</p>
+
+</div>
+</div>
+<a id="a4e18ddc87e177c5c11f2adbc941899f1" name="a4e18ddc87e177c5c11f2adbc941899f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e18ddc87e177c5c11f2adbc941899f1">&#9670;&#160;</a></span>addForce()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> GLESC::Physics::Physics::addForce </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_physics.html#a3aa7b2f3c9e74053989a1a5837a79ed7">Force</a> &amp;&#160;</td>
+          <td class="paramname"><em>force</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_physics_8h_source.html#l00049">49</a> of file <a class="el" href="_physics_8h_source.html">Physics.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   49</span>{ this-&gt;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#afb23bf989920f5a2e07726c07b4b3ab1">force</a> += <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#afb23bf989920f5a2e07726c07b4b3ab1">force</a>; }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_physics_8h_source.html#l00087">force</a>.</p>
+
+</div>
+</div>
+<a id="adc3bc303240c19b3ec0e7ee706336299" name="adc3bc303240c19b3ec0e7ee706336299"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc3bc303240c19b3ec0e7ee706336299">&#9670;&#160;</a></span>addFriciton()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> GLESC::Physics::Physics::addFriciton </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">float</a>&#160;</td>
+          <td class="paramname"><em>friction</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_physics_8h_source.html#l00031">31</a> of file <a class="el" href="_physics_8h_source.html">Physics.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   31</span>{ this-&gt;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#afb8a0b6dd8eae927d2f23ac6e61c05d9">friction</a> += <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#afb8a0b6dd8eae927d2f23ac6e61c05d9">friction</a>; }</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_physics_1_1_physics_html_afb8a0b6dd8eae927d2f23ac6e61c05d9"><div class="ttname"><a href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#afb8a0b6dd8eae927d2f23ac6e61c05d9">GLESC::Physics::Physics::friction</a></div><div class="ttdeci">Friction friction</div><div class="ttdef"><b>Definition</b> <a href="_physics_8h_source.html#l00080">Physics.h:80</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_physics_8h_source.html#l00080">friction</a>.</p>
+
+</div>
+</div>
+<a id="ad46980c5dc0c774b3900cf4b095ed20f" name="ad46980c5dc0c774b3900cf4b095ed20f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad46980c5dc0c774b3900cf4b095ed20f">&#9670;&#160;</a></span>addMass()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> GLESC::Physics::Physics::addMass </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_physics.html#ab3186578a515ae1e6c4f94060737ee3c">Mass</a> &amp;&#160;</td>
+          <td class="paramname"><em>mass</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_physics_8h_source.html#l00026">26</a> of file <a class="el" href="_physics_8h_source.html">Physics.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   26</span>{ this-&gt;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#af2d98d3c198d277541867567ffbd03d9">mass</a> += <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#af2d98d3c198d277541867567ffbd03d9">mass</a>; }</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_physics_1_1_physics_html_af2d98d3c198d277541867567ffbd03d9"><div class="ttname"><a href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#af2d98d3c198d277541867567ffbd03d9">GLESC::Physics::Physics::mass</a></div><div class="ttdeci">Mass mass</div><div class="ttdef"><b>Definition</b> <a href="_physics_8h_source.html#l00079">Physics.h:79</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_physics_8h_source.html#l00079">mass</a>.</p>
+
+</div>
+</div>
+<a id="a95ef23b3ccfa25157b1b605664a760be" name="a95ef23b3ccfa25157b1b605664a760be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95ef23b3ccfa25157b1b605664a760be">&#9670;&#160;</a></span>addVelocity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> GLESC::Physics::Physics::addVelocity </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_physics.html#a88cd8369de6bf12d7bbe0f4614fed506">Velocity</a> &amp;&#160;</td>
+          <td class="paramname"><em>velocity</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_physics_8h_source.html#l00034">34</a> of file <a class="el" href="_physics_8h_source.html">Physics.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   34</span>{ this-&gt;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a331cbe367fa86bf1e3b5ee8b98d3acdd">velocity</a> += <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a331cbe367fa86bf1e3b5ee8b98d3acdd">velocity</a>; }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_physics_8h_source.html#l00085">velocity</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_physics_manager_8cpp_source.html#l00014">GLESC::Physics::PhysicsManager::applyForces()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_physics_1_1_physics_a95ef23b3ccfa25157b1b605664a760be_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ab15872b83afc4a3bed06cc6799c11015" name="ab15872b83afc4a3bed06cc6799c11015"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab15872b83afc4a3bed06cc6799c11015">&#9670;&#160;</a></span>getAcceleration()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c_1_1_physics.html#ae4fd353bd7c23d17d28bacc7b0f9ec65">Acceleration</a> GLESC::Physics::Physics::getAcceleration </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_physics_8h_source.html#l00063">63</a> of file <a class="el" href="_physics_8h_source.html">Physics.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   63</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#afb69d407abd506bbc7d855a73d43065c">acceleration</a>; }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_physics_8h_source.html#l00086">acceleration</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_physics_manager_8cpp_source.html#l00014">GLESC::Physics::PhysicsManager::applyForces()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_physics_1_1_physics_ab15872b83afc4a3bed06cc6799c11015_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="acc9ffbfd9d7efe9912a2dcf97e3c9a92" name="acc9ffbfd9d7efe9912a2dcf97e3c9a92"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc9ffbfd9d7efe9912a2dcf97e3c9a92">&#9670;&#160;</a></span>getAirFriction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c_1_1_physics.html#a99b2d6885e3fd9713a4f9f0b1723acf2">Friction</a> GLESC::Physics::Physics::getAirFriction </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_physics_8h_source.html#l00060">60</a> of file <a class="el" href="_physics_8h_source.html">Physics.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   60</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a17745500cc267d6c9bfec518edcec233">airFriction</a>; }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_physics_8h_source.html#l00084">airFriction</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_physics_manager_8cpp_source.html#l00014">GLESC::Physics::PhysicsManager::applyForces()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_physics_1_1_physics_acc9ffbfd9d7efe9912a2dcf97e3c9a92_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a02ef5eea77fe49e0815f84e16e48b4b5" name="a02ef5eea77fe49e0815f84e16e48b4b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02ef5eea77fe49e0815f84e16e48b4b5">&#9670;&#160;</a></span>getAngularAcceleration()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c_1_1_physics.html#aec98e312b4a77f4aa764abbb0489959d">AngularAcceleration</a> GLESC::Physics::Physics::getAngularAcceleration </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_physics_8h_source.html#l00070">70</a> of file <a class="el" href="_physics_8h_source.html">Physics.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   70</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#ae5651a50aee09576b9a6b3acdf86cd87">angAccel</a>; }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_physics_8h_source.html#l00090">angAccel</a>.</p>
+
+</div>
+</div>
+<a id="a3e53bdf943a132b0fbe067429b80adae" name="a3e53bdf943a132b0fbe067429b80adae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e53bdf943a132b0fbe067429b80adae">&#9670;&#160;</a></span>getAngularForce()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c_1_1_physics.html#a68b672f7395961a8dc43682f339c0696">AngularForce</a> GLESC::Physics::Physics::getAngularForce </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_physics_8h_source.html#l00069">69</a> of file <a class="el" href="_physics_8h_source.html">Physics.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   69</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a59a0f9bf1a53e3458ea3cb08b3f7d4c0">angularForce</a>; }</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_physics_1_1_physics_html_a59a0f9bf1a53e3458ea3cb08b3f7d4c0"><div class="ttname"><a href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a59a0f9bf1a53e3458ea3cb08b3f7d4c0">GLESC::Physics::Physics::angularForce</a></div><div class="ttdeci">AngularForce angularForce</div><div class="ttdef"><b>Definition</b> <a href="_physics_8h_source.html#l00089">Physics.h:89</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_physics_8h_source.html#l00089">angularForce</a>.</p>
+
+</div>
+</div>
+<a id="aafc49acc3ea86adf194b82ee856eee60" name="aafc49acc3ea86adf194b82ee856eee60"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aafc49acc3ea86adf194b82ee856eee60">&#9670;&#160;</a></span>getAngularVelocity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c_1_1_physics.html#a0f33da04071773b5651a0bce97390c37">AngularVelocity</a> GLESC::Physics::Physics::getAngularVelocity </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_physics_8h_source.html#l00071">71</a> of file <a class="el" href="_physics_8h_source.html">Physics.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   71</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a2d936c66d50ed0aab4deb69779399df3">angularVelocity</a>; }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_physics_8h_source.html#l00091">angularVelocity</a>.</p>
+
+</div>
+</div>
+<a id="a17bf6392ed201d66ae5cb36f63c2c386" name="a17bf6392ed201d66ae5cb36f63c2c386"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17bf6392ed201d66ae5cb36f63c2c386">&#9670;&#160;</a></span>getDebuggingValues()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="class_entity_stats_manager.html#struct_entity_stats_manager_1_1_value">EntityStatsManager::Value</a> &gt; Physics::getDebuggingValues </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the debugging values of the component. </p>
+<p>This function can be overriden by the derived class to return the debugging values of the component It starts as an empty vector, so that the components that accumulates all the debugging values can add the debugging values of the component even if the component does not have any debugging values (adding an empty array) </p><dl class="section return"><dt>Returns</dt><dd>A vector of debugging values </dd></dl>
+
+<p>Reimplemented from <a class="el" href="class_engine_component.html#af72d5975c473b7f638e068e824dc94cb">EngineComponent</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_physics_8cpp_source.html#l00023">23</a> of file <a class="el" href="_physics_8cpp_source.html">Physics.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   23</span>                                                                             {</div>
+<div class="line"><span class="lineno">   24</span>    std::vector&lt;EntityStatsManager::Value&gt; values;</div>
+<div class="line"><span class="lineno">   25</span>    <a class="code hl_struct" href="class_entity_stats_manager.html#struct_entity_stats_manager_1_1_value">EntityStatsManager::Value</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">massValue</a>;</div>
+<div class="line"><span class="lineno">   26</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">massValue</a>.<a class="code hl_variable" href="class_entity_stats_manager.html#a8c007fcaab6bce263fb0e0d80b8bbbb7">name</a> = <span class="stringliteral">&quot;Mass&quot;</span>;</div>
+<div class="line"><span class="lineno">   27</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">massValue</a>.data = <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(&amp;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#af2d98d3c198d277541867567ffbd03d9">mass</a>);</div>
+<div class="line"><span class="lineno">   28</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">massValue</a>.type = <a class="code hl_enumvalue" href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5ae738c26bf4ce1037fa81b039a915cbf6">EntityStatsManager::ValueType::FLOAT</a>;</div>
+<div class="line"><span class="lineno">   29</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">massValue</a>.isModifiable = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   30</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">massValue</a>.usesSlider = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   31</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">massValue</a>.min = 0.0F;</div>
+<div class="line"><span class="lineno">   32</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">massValue</a>.max = 10000.0F;</div>
+<div class="line"><span class="lineno">   33</span>    values.push_back(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">massValue</a>);</div>
+<div class="line"><span class="lineno">   34</span> </div>
+<div class="line"><span class="lineno">   35</span>    <a class="code hl_struct" href="class_entity_stats_manager.html#struct_entity_stats_manager_1_1_value">EntityStatsManager::Value</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">velocityValue</a>;</div>
+<div class="line"><span class="lineno">   36</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">velocityValue</a>.<a class="code hl_variable" href="class_entity_stats_manager.html#a8c007fcaab6bce263fb0e0d80b8bbbb7">name</a> = <span class="stringliteral">&quot;Velocity&quot;</span>;</div>
+<div class="line"><span class="lineno">   37</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">velocityValue</a>.data = <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(&amp;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a331cbe367fa86bf1e3b5ee8b98d3acdd">velocity</a>);</div>
+<div class="line"><span class="lineno">   38</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">velocityValue</a>.type = <a class="code hl_enumvalue" href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5a18814f886cf9f30ca199c1e81900fa03">EntityStatsManager::ValueType::VEC3F</a>;</div>
+<div class="line"><span class="lineno">   39</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">velocityValue</a>.isModifiable = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   40</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">velocityValue</a>.usesSlider = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   41</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">velocityValue</a>.min = -1000.0F;</div>
+<div class="line"><span class="lineno">   42</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">velocityValue</a>.max = 1000.0F;</div>
+<div class="line"><span class="lineno">   43</span>    values.push_back(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">velocityValue</a>);</div>
+<div class="line"><span class="lineno">   44</span> </div>
+<div class="line"><span class="lineno">   45</span>    <a class="code hl_struct" href="class_entity_stats_manager.html#struct_entity_stats_manager_1_1_value">EntityStatsManager::Value</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">forceValue</a>;</div>
+<div class="line"><span class="lineno">   46</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">forceValue</a>.<a class="code hl_variable" href="class_entity_stats_manager.html#a8c007fcaab6bce263fb0e0d80b8bbbb7">name</a> = <span class="stringliteral">&quot;Force&quot;</span>;</div>
+<div class="line"><span class="lineno">   47</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">forceValue</a>.data = <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(&amp;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#afb23bf989920f5a2e07726c07b4b3ab1">force</a>);</div>
+<div class="line"><span class="lineno">   48</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">forceValue</a>.type = <a class="code hl_enumvalue" href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5a18814f886cf9f30ca199c1e81900fa03">EntityStatsManager::ValueType::VEC3F</a>;</div>
+<div class="line"><span class="lineno">   49</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">forceValue</a>.isModifiable = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   50</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">forceValue</a>.usesSlider = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   51</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">forceValue</a>.min = -1000.0F;</div>
+<div class="line"><span class="lineno">   52</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">forceValue</a>.max = 1000.0F;</div>
+<div class="line"><span class="lineno">   53</span>    values.push_back(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">forceValue</a>);</div>
+<div class="line"><span class="lineno">   54</span> </div>
+<div class="line"><span class="lineno">   55</span>    <a class="code hl_struct" href="class_entity_stats_manager.html#struct_entity_stats_manager_1_1_value">EntityStatsManager::Value</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">accelerationValue</a>;</div>
+<div class="line"><span class="lineno">   56</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">accelerationValue</a>.<a class="code hl_variable" href="class_entity_stats_manager.html#a8c007fcaab6bce263fb0e0d80b8bbbb7">name</a> = <span class="stringliteral">&quot;Acceleration&quot;</span>;</div>
+<div class="line"><span class="lineno">   57</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">accelerationValue</a>.data = <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(&amp;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#afb69d407abd506bbc7d855a73d43065c">acceleration</a>);</div>
+<div class="line"><span class="lineno">   58</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">accelerationValue</a>.type = <a class="code hl_enumvalue" href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5a18814f886cf9f30ca199c1e81900fa03">EntityStatsManager::ValueType::VEC3F</a>;</div>
+<div class="line"><span class="lineno">   59</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">accelerationValue</a>.isModifiable = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   60</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">accelerationValue</a>.usesSlider = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   61</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">accelerationValue</a>.min = -1000.0F;</div>
+<div class="line"><span class="lineno">   62</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">accelerationValue</a>.max = 1000.0F;</div>
+<div class="line"><span class="lineno">   63</span>    values.push_back(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">accelerationValue</a>);</div>
+<div class="line"><span class="lineno">   64</span> </div>
+<div class="line"><span class="lineno">   65</span>    <a class="code hl_struct" href="class_entity_stats_manager.html#struct_entity_stats_manager_1_1_value">EntityStatsManager::Value</a> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a660f04e1dd0ebc055f58b8aad7484140">affectedByGravity</a>;</div>
+<div class="line"><span class="lineno">   66</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a660f04e1dd0ebc055f58b8aad7484140">affectedByGravity</a>.<a class="code hl_variable" href="class_entity_stats_manager.html#a8c007fcaab6bce263fb0e0d80b8bbbb7">name</a> = <span class="stringliteral">&quot;Affected by gravity&quot;</span>;</div>
+<div class="line"><span class="lineno">   67</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a660f04e1dd0ebc055f58b8aad7484140">affectedByGravity</a>.data = <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(&amp;this-&gt;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a660f04e1dd0ebc055f58b8aad7484140">affectedByGravity</a>);</div>
+<div class="line"><span class="lineno">   68</span>    affectedByGravity.<a class="code hl_variable" href="class_entity_stats_manager.html#ae1ad6da826ba52258dab33baf40a5525">type</a> = <a class="code hl_enumvalue" href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5aa97b2c144243b2b9d2c593ec268b62f5">EntityStatsManager::ValueType::BOOL</a>;</div>
+<div class="line"><span class="lineno">   69</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a660f04e1dd0ebc055f58b8aad7484140">affectedByGravity</a>.isModifiable = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   70</span>    values.push_back(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a660f04e1dd0ebc055f58b8aad7484140">affectedByGravity</a>);</div>
+<div class="line"><span class="lineno">   71</span> </div>
+<div class="line"><span class="lineno">   72</span>    <a class="code hl_struct" href="class_entity_stats_manager.html#struct_entity_stats_manager_1_1_value">EntityStatsManager::Value</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">frictionValue</a>;</div>
+<div class="line"><span class="lineno">   73</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">frictionValue</a>.<a class="code hl_variable" href="class_entity_stats_manager.html#a8c007fcaab6bce263fb0e0d80b8bbbb7">name</a> = <span class="stringliteral">&quot;Friction&quot;</span>;</div>
+<div class="line"><span class="lineno">   74</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">frictionValue</a>.data = <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(&amp;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#afb8a0b6dd8eae927d2f23ac6e61c05d9">friction</a>);</div>
+<div class="line"><span class="lineno">   75</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">frictionValue</a>.type = <a class="code hl_enumvalue" href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5ae738c26bf4ce1037fa81b039a915cbf6">EntityStatsManager::ValueType::FLOAT</a>;</div>
+<div class="line"><span class="lineno">   76</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">frictionValue</a>.isModifiable = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   77</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">frictionValue</a>.usesSlider = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   78</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">frictionValue</a>.min = 0.0F;</div>
+<div class="line"><span class="lineno">   79</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">frictionValue</a>.max = 1.0F;</div>
+<div class="line"><span class="lineno">   80</span>    values.push_back(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">frictionValue</a>);</div>
+<div class="line"><span class="lineno">   81</span> </div>
+<div class="line"><span class="lineno">   82</span>    <span class="keywordflow">return</span> values;</div>
+<div class="line"><span class="lineno">   83</span>}</div>
+<div class="ttc" id="aclass_entity_stats_manager_html_a8c007fcaab6bce263fb0e0d80b8bbbb7"><div class="ttname"><a href="class_entity_stats_manager.html#a8c007fcaab6bce263fb0e0d80b8bbbb7">EntityStatsManager::Value::name</a></div><div class="ttdeci">std::string name</div><div class="ttdef"><b>Definition</b> <a href="_entity_stats_manager_8h_source.html#l00045">EntityStatsManager.h:45</a></div></div>
+<div class="ttc" id="aclass_entity_stats_manager_html_a90c422bca5e42d1af36c4cc10d642ad5a18814f886cf9f30ca199c1e81900fa03"><div class="ttname"><a href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5a18814f886cf9f30ca199c1e81900fa03">EntityStatsManager::ValueType::VEC3F</a></div><div class="ttdeci">@ VEC3F</div></div>
+<div class="ttc" id="aclass_entity_stats_manager_html_a90c422bca5e42d1af36c4cc10d642ad5aa97b2c144243b2b9d2c593ec268b62f5"><div class="ttname"><a href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5aa97b2c144243b2b9d2c593ec268b62f5">EntityStatsManager::ValueType::BOOL</a></div><div class="ttdeci">@ BOOL</div></div>
+<div class="ttc" id="aclass_entity_stats_manager_html_a90c422bca5e42d1af36c4cc10d642ad5ae738c26bf4ce1037fa81b039a915cbf6"><div class="ttname"><a href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5ae738c26bf4ce1037fa81b039a915cbf6">EntityStatsManager::ValueType::FLOAT</a></div><div class="ttdeci">@ FLOAT</div></div>
+<div class="ttc" id="aclass_entity_stats_manager_html_ae1ad6da826ba52258dab33baf40a5525"><div class="ttname"><a href="class_entity_stats_manager.html#ae1ad6da826ba52258dab33baf40a5525">EntityStatsManager::Value::type</a></div><div class="ttdeci">ValueType type</div><div class="ttdef"><b>Definition</b> <a href="_entity_stats_manager_8h_source.html#l00051">EntityStatsManager.h:51</a></div></div>
+<div class="ttc" id="aclass_entity_stats_manager_html_struct_entity_stats_manager_1_1_value"><div class="ttname"><a href="class_entity_stats_manager.html#struct_entity_stats_manager_1_1_value">EntityStatsManager::Value</a></div><div class="ttdoc">Struct that holds the data of a value of a component.</div><div class="ttdef"><b>Definition</b> <a href="_entity_stats_manager_8h_source.html#l00044">EntityStatsManager.h:44</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_physics_1_1_physics_html_a660f04e1dd0ebc055f58b8aad7484140"><div class="ttname"><a href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a660f04e1dd0ebc055f58b8aad7484140">GLESC::Physics::Physics::affectedByGravity</a></div><div class="ttdeci">bool affectedByGravity</div><div class="ttdef"><b>Definition</b> <a href="_physics_8h_source.html#l00094">Physics.h:94</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_physics_8h_source.html#l00086">acceleration</a>, <a class="el" href="_physics_8h_source.html#l00094">affectedByGravity</a>, <a class="el" href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5aa97b2c144243b2b9d2c593ec268b62f5">EntityStatsManager::BOOL</a>, <a class="el" href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5ae738c26bf4ce1037fa81b039a915cbf6">EntityStatsManager::FLOAT</a>, <a class="el" href="_physics_8h_source.html#l00087">force</a>, <a class="el" href="_physics_8h_source.html#l00080">friction</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, <a class="el" href="_physics_8h_source.html#l00079">mass</a>, <a class="el" href="_entity_stats_manager_8h_source.html#l00045">EntityStatsManager::Value::name</a>, <a class="el" href="_entity_stats_manager_8h_source.html#l00051">EntityStatsManager::Value::type</a>, <a class="el" href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5a18814f886cf9f30ca199c1e81900fa03">EntityStatsManager::VEC3F</a>, and <a class="el" href="_physics_8h_source.html#l00085">velocity</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_physics_component_8h_source.html#l00038">GLESC::ECS::PhysicsComponent::setDebuggingValues()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_physics_1_1_physics_a17bf6392ed201d66ae5cb36f63c2c386_icgraph.svg" width="456" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a773297212554430f835e10158077f123" name="a773297212554430f835e10158077f123"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a773297212554430f835e10158077f123">&#9670;&#160;</a></span>getForce()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c_1_1_physics.html#a3aa7b2f3c9e74053989a1a5837a79ed7">Force</a> GLESC::Physics::Physics::getForce </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_physics_8h_source.html#l00062">62</a> of file <a class="el" href="_physics_8h_source.html">Physics.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   62</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#afb23bf989920f5a2e07726c07b4b3ab1">force</a>; }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_physics_8h_source.html#l00087">force</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_physics_manager_8cpp_source.html#l00014">GLESC::Physics::PhysicsManager::applyForces()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_physics_1_1_physics_a773297212554430f835e10158077f123_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a257a1a4ed7427558c6306e175f173e41" name="a257a1a4ed7427558c6306e175f173e41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a257a1a4ed7427558c6306e175f173e41">&#9670;&#160;</a></span>getFriction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c_1_1_physics.html#a99b2d6885e3fd9713a4f9f0b1723acf2">Friction</a> GLESC::Physics::Physics::getFriction </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_physics_8h_source.html#l00059">59</a> of file <a class="el" href="_physics_8h_source.html">Physics.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   59</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#afb8a0b6dd8eae927d2f23ac6e61c05d9">friction</a>; }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_physics_8h_source.html#l00080">friction</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_physics_manager_8cpp_source.html#l00089">GLESC::Physics::getVelocityWithFriction()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_physics_1_1_physics_a257a1a4ed7427558c6306e175f173e41_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="af20497987041c033490ea2925471fb85" name="af20497987041c033490ea2925471fb85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af20497987041c033490ea2925471fb85">&#9670;&#160;</a></span>getMass()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c_1_1_physics.html#ab3186578a515ae1e6c4f94060737ee3c">Mass</a> GLESC::Physics::Physics::getMass </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_physics_8h_source.html#l00058">58</a> of file <a class="el" href="_physics_8h_source.html">Physics.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   58</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#af2d98d3c198d277541867567ffbd03d9">mass</a>; }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_physics_8h_source.html#l00079">mass</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_physics_manager_8cpp_source.html#l00014">GLESC::Physics::PhysicsManager::applyForces()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_physics_1_1_physics_af20497987041c033490ea2925471fb85_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="aeed383c88b7de8cd6711a4ee390516f1" name="aeed383c88b7de8cd6711a4ee390516f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeed383c88b7de8cd6711a4ee390516f1">&#9670;&#160;</a></span>getVelocity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c_1_1_physics.html#a88cd8369de6bf12d7bbe0f4614fed506">Velocity</a> GLESC::Physics::Physics::getVelocity </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_physics_8h_source.html#l00061">61</a> of file <a class="el" href="_physics_8h_source.html">Physics.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   61</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a331cbe367fa86bf1e3b5ee8b98d3acdd">velocity</a>; }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_physics_8h_source.html#l00085">velocity</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_physics_manager_8cpp_source.html#l00014">GLESC::Physics::PhysicsManager::applyForces()</a>, <a class="el" href="_physics_manager_8cpp_source.html#l00089">GLESC::Physics::getVelocityWithFriction()</a>, <a class="el" href="_physics_manager_8cpp_source.html#l00115">GLESC::Physics::PhysicsManager::handleCollisions()</a>, <a class="el" href="_physics_manager_8cpp_source.html#l00104">GLESC::Physics::isFrictionApplied()</a>, and <a class="el" href="_physics_manager_8cpp_source.html#l00044">GLESC::Physics::PhysicsManager::updateTransform()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_physics_1_1_physics_aeed383c88b7de8cd6711a4ee390516f1_icgraph.svg" width="100%" height="546"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ae4d902c3204d073617b7edc208137b23" name="ae4d902c3204d073617b7edc208137b23"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4d902c3204d073617b7edc208137b23">&#9670;&#160;</a></span>giveAngularForce()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> GLESC::Physics::Physics::giveAngularForce </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_physics.html#a68b672f7395961a8dc43682f339c0696">AngularForce</a> &amp;&#160;</td>
+          <td class="paramname"><em>angularForce</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_physics_8h_source.html#l00052">52</a> of file <a class="el" href="_physics_8h_source.html">Physics.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   52</span>{ this-&gt;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a59a0f9bf1a53e3458ea3cb08b3f7d4c0">angularForce</a> = <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a59a0f9bf1a53e3458ea3cb08b3f7d4c0">angularForce</a>; }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_physics_8h_source.html#l00089">angularForce</a>.</p>
+
+</div>
+</div>
+<a id="a91de5d378ee31aaa79e59862a66d59dc" name="a91de5d378ee31aaa79e59862a66d59dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91de5d378ee31aaa79e59862a66d59dc">&#9670;&#160;</a></span>isAffectedByGravity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a> GLESC::Physics::Physics::isAffectedByGravity </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_physics_8h_source.html#l00066">66</a> of file <a class="el" href="_physics_8h_source.html">Physics.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   66</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a660f04e1dd0ebc055f58b8aad7484140">affectedByGravity</a>; }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_physics_8h_source.html#l00094">affectedByGravity</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_physics_manager_8cpp_source.html#l00014">GLESC::Physics::PhysicsManager::applyForces()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_physics_1_1_physics_a91de5d378ee31aaa79e59862a66d59dc_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a5b219f3bad20152277aa986c50d9a827" name="a5b219f3bad20152277aa986c50d9a827"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b219f3bad20152277aa986c50d9a827">&#9670;&#160;</a></span>isStatic()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a> GLESC::Physics::Physics::isStatic </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_physics_8h_source.html#l00067">67</a> of file <a class="el" href="_physics_8h_source.html">Physics.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   67</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a32f828927d1698cf8f928c6022a1b517">staticObj</a>; }</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_physics_1_1_physics_html_a32f828927d1698cf8f928c6022a1b517"><div class="ttname"><a href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a32f828927d1698cf8f928c6022a1b517">GLESC::Physics::Physics::staticObj</a></div><div class="ttdeci">bool staticObj</div><div class="ttdef"><b>Definition</b> <a href="_physics_8h_source.html#l00093">Physics.h:93</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_physics_8h_source.html#l00093">staticObj</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_physics_manager_8cpp_source.html#l00014">GLESC::Physics::PhysicsManager::applyForces()</a>, <a class="el" href="_physics_manager_8cpp_source.html#l00115">GLESC::Physics::PhysicsManager::handleCollisions()</a>, and <a class="el" href="_physics_8h_source.html#l00055">setStatic()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_physics_1_1_physics_a5b219f3bad20152277aa986c50d9a827_icgraph.svg" width="100%" height="440"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ada4e4ed5e76c8615ef54ba392cb2ed23" name="ada4e4ed5e76c8615ef54ba392cb2ed23"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada4e4ed5e76c8615ef54ba392cb2ed23">&#9670;&#160;</a></span>setAcceleration()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> GLESC::Physics::Physics::setAcceleration </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_physics.html#ae4fd353bd7c23d17d28bacc7b0f9ec65">Acceleration</a> &amp;&#160;</td>
+          <td class="paramname"><em>acceleration</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_physics_8h_source.html#l00042">42</a> of file <a class="el" href="_physics_8h_source.html">Physics.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   42</span>{ this-&gt;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#afb69d407abd506bbc7d855a73d43065c">acceleration</a> = <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#afb69d407abd506bbc7d855a73d43065c">acceleration</a>; }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_physics_8h_source.html#l00086">acceleration</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_physics_manager_8cpp_source.html#l00014">GLESC::Physics::PhysicsManager::applyForces()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_physics_1_1_physics_ada4e4ed5e76c8615ef54ba392cb2ed23_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a1b81e86ba9733ccc488889d596afcfaa" name="a1b81e86ba9733ccc488889d596afcfaa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b81e86ba9733ccc488889d596afcfaa">&#9670;&#160;</a></span>setAffectedByGravity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> GLESC::Physics::Physics::setAffectedByGravity </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a>&#160;</td>
+          <td class="paramname"><em>affectedByGravity</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_physics_8h_source.html#l00054">54</a> of file <a class="el" href="_physics_8h_source.html">Physics.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   54</span>{ this-&gt;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a660f04e1dd0ebc055f58b8aad7484140">affectedByGravity</a> = <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a660f04e1dd0ebc055f58b8aad7484140">affectedByGravity</a>; }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_physics_8h_source.html#l00094">affectedByGravity</a>.</p>
+
+</div>
+</div>
+<a id="a49eeb3a2a6a1b8afb0b68e366c30d8e1" name="a49eeb3a2a6a1b8afb0b68e366c30d8e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49eeb3a2a6a1b8afb0b68e366c30d8e1">&#9670;&#160;</a></span>setAirFriction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> GLESC::Physics::Physics::setAirFriction </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c_1_1_physics.html#a99b2d6885e3fd9713a4f9f0b1723acf2">Friction</a>&#160;</td>
+          <td class="paramname"><em>airFriction</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_physics_8h_source.html#l00028">28</a> of file <a class="el" href="_physics_8h_source.html">Physics.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   28</span>{ this-&gt;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a17745500cc267d6c9bfec518edcec233">airFriction</a> = <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a17745500cc267d6c9bfec518edcec233">airFriction</a>; }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_physics_8h_source.html#l00084">airFriction</a>.</p>
+
+</div>
+</div>
+<a id="a1358e9d9ff45b2bcfb441bddfb25b037" name="a1358e9d9ff45b2bcfb441bddfb25b037"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1358e9d9ff45b2bcfb441bddfb25b037">&#9670;&#160;</a></span>setAngularAcceleration()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> GLESC::Physics::Physics::setAngularAcceleration </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_physics.html#aec98e312b4a77f4aa764abbb0489959d">AngularAcceleration</a> &amp;&#160;</td>
+          <td class="paramname"><em>angAccelParam</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_physics_8h_source.html#l00045">45</a> of file <a class="el" href="_physics_8h_source.html">Physics.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   45</span>{ this-&gt;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#ae5651a50aee09576b9a6b3acdf86cd87">angAccel</a> = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">angAccelParam</a>; }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_physics_8h_source.html#l00090">angAccel</a>, and <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
+
+</div>
+</div>
+<a id="a81d9032a355dda2e8f08462f7f58443e" name="a81d9032a355dda2e8f08462f7f58443e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81d9032a355dda2e8f08462f7f58443e">&#9670;&#160;</a></span>setAngularVelocity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> GLESC::Physics::Physics::setAngularVelocity </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_physics.html#a0f33da04071773b5651a0bce97390c37">AngularVelocity</a> &amp;&#160;</td>
+          <td class="paramname"><em>angularVelocity</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_physics_8h_source.html#l00038">38</a> of file <a class="el" href="_physics_8h_source.html">Physics.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   38</span>{ this-&gt;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a2d936c66d50ed0aab4deb69779399df3">angularVelocity</a> = <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a2d936c66d50ed0aab4deb69779399df3">angularVelocity</a>; }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_physics_8h_source.html#l00091">angularVelocity</a>.</p>
+
+</div>
+</div>
+<a id="a4a7e6572ced5941aa9ae0c1f27dc13d9" name="a4a7e6572ced5941aa9ae0c1f27dc13d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a7e6572ced5941aa9ae0c1f27dc13d9">&#9670;&#160;</a></span>setDirectionalAcceleration()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> GLESC::Physics::Physics::setDirectionalAcceleration </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a9eadb18d7a162972604c1a6cefa0efa8">Math::Direction</a> &amp;&#160;</td>
+          <td class="paramname"><em>dir</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">float</a>&#160;</td>
+          <td class="paramname"><em>speed</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_physics_8h_source.html#l00044">44</a> of file <a class="el" href="_physics_8h_source.html">Physics.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   44</span>{ <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#afb69d407abd506bbc7d855a73d43065c">acceleration</a> = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">dir</a> * <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">speed</a>; }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_physics_8h_source.html#l00086">acceleration</a>, and <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
+
+</div>
+</div>
+<a id="a85d939326103291b0f421e43aee1c921" name="a85d939326103291b0f421e43aee1c921"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85d939326103291b0f421e43aee1c921">&#9670;&#160;</a></span>setDirectionalForce()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> GLESC::Physics::Physics::setDirectionalForce </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a9eadb18d7a162972604c1a6cefa0efa8">Math::Direction</a> &amp;&#160;</td>
+          <td class="paramname"><em>dir</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">float</a>&#160;</td>
+          <td class="paramname"><em>forceParam</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_physics_8h_source.html#l00050">50</a> of file <a class="el" href="_physics_8h_source.html">Physics.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   50</span>{ <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#afb23bf989920f5a2e07726c07b4b3ab1">force</a> = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">dir</a> * <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">forceParam</a>; }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_physics_8h_source.html#l00087">force</a>, and <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
+
+</div>
+</div>
+<a id="a934af15e59be863a483d524308dcdb2a" name="a934af15e59be863a483d524308dcdb2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a934af15e59be863a483d524308dcdb2a">&#9670;&#160;</a></span>setDirectionalVelocity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> GLESC::Physics::Physics::setDirectionalVelocity </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_math.html#a9eadb18d7a162972604c1a6cefa0efa8">Math::Direction</a> &amp;&#160;</td>
+          <td class="paramname"><em>direction</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">float</a>&#160;</td>
+          <td class="paramname"><em>speed</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_physics_8h_source.html#l00036">36</a> of file <a class="el" href="_physics_8h_source.html">Physics.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   36</span>{ <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a331cbe367fa86bf1e3b5ee8b98d3acdd">velocity</a> = direction * <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">speed</a>; }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_physics_8h_source.html#l00085">velocity</a>.</p>
+
+</div>
+</div>
+<a id="a07201d9b062d3282415a37a02dfcf7ba" name="a07201d9b062d3282415a37a02dfcf7ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07201d9b062d3282415a37a02dfcf7ba">&#9670;&#160;</a></span>setForce()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> GLESC::Physics::Physics::setForce </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_physics.html#a3aa7b2f3c9e74053989a1a5837a79ed7">Force</a> &amp;&#160;</td>
+          <td class="paramname"><em>force</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_physics_8h_source.html#l00048">48</a> of file <a class="el" href="_physics_8h_source.html">Physics.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   48</span>{ this-&gt;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#afb23bf989920f5a2e07726c07b4b3ab1">force</a> = <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#afb23bf989920f5a2e07726c07b4b3ab1">force</a>; }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_physics_8h_source.html#l00087">force</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_physics_manager_8cpp_source.html#l00014">GLESC::Physics::PhysicsManager::applyForces()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_physics_1_1_physics_a07201d9b062d3282415a37a02dfcf7ba_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a952b53dc472ad9762571e5d902227907" name="a952b53dc472ad9762571e5d902227907"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a952b53dc472ad9762571e5d902227907">&#9670;&#160;</a></span>setFriction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> GLESC::Physics::Physics::setFriction </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">float</a>&#160;</td>
+          <td class="paramname"><em>friction</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_physics_8h_source.html#l00030">30</a> of file <a class="el" href="_physics_8h_source.html">Physics.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   30</span>{ this-&gt;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#afb8a0b6dd8eae927d2f23ac6e61c05d9">friction</a> = <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#afb8a0b6dd8eae927d2f23ac6e61c05d9">friction</a>; }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_physics_8h_source.html#l00080">friction</a>.</p>
+
+</div>
+</div>
+<a id="a3a712144e46bad5e060ccd5d65219cc2" name="a3a712144e46bad5e060ccd5d65219cc2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a712144e46bad5e060ccd5d65219cc2">&#9670;&#160;</a></span>setMass() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> GLESC::Physics::Physics::setMass </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_physics.html#ab3186578a515ae1e6c4f94060737ee3c">Mass</a> &amp;&#160;</td>
+          <td class="paramname"><em>mass</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_physics_8h_source.html#l00021">21</a> of file <a class="el" href="_physics_8h_source.html">Physics.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   21</span>                                       {</div>
+<div class="line"><span class="lineno">   22</span>            <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#af2d98d3c198d277541867567ffbd03d9">mass</a> &gt; 0.0F, <span class="stringliteral">&quot;Mass must be greater than 0&quot;</span>);</div>
+<div class="line"><span class="lineno">   23</span>            this-&gt;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#af2d98d3c198d277541867567ffbd03d9">mass</a> = <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#af2d98d3c198d277541867567ffbd03d9">mass</a>;</div>
+<div class="line"><span class="lineno">   24</span>        }</div>
+<div class="ttc" id="a_asserts_8h_html_a7c8157e57600c968442fc2ee80245d5a"><div class="ttname"><a href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a></div><div class="ttdeci">#define D_ASSERT_TRUE(condition, message)</div><div class="ttdef"><b>Definition</b> <a href="_asserts_8h_source.html#l00021">Asserts.h:21</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_asserts_8h_source.html#l00021">D_ASSERT_TRUE</a>, and <a class="el" href="_physics_8h_source.html#l00079">mass</a>.</p>
+
+</div>
+</div>
+<a id="a6b021a629383a0bc7ed01c29989e99c5" name="a6b021a629383a0bc7ed01c29989e99c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b021a629383a0bc7ed01c29989e99c5">&#9670;&#160;</a></span>setMass() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> GLESC::Physics::Physics::setMass </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c_1_1_physics.html#ab3186578a515ae1e6c4f94060737ee3c">Mass</a> &amp;&#160;</td>
+          <td class="paramname"><em>mass</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_physics_8h_source.html#l00027">27</a> of file <a class="el" href="_physics_8h_source.html">Physics.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   27</span>{ this-&gt;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#af2d98d3c198d277541867567ffbd03d9">mass</a> = <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#af2d98d3c198d277541867567ffbd03d9">mass</a>; }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_physics_8h_source.html#l00079">mass</a>.</p>
+
+</div>
+</div>
+<a id="a5245e88ba34354a0d4758a5b195c38df" name="a5245e88ba34354a0d4758a5b195c38df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5245e88ba34354a0d4758a5b195c38df">&#9670;&#160;</a></span>setStatic()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> GLESC::Physics::Physics::setStatic </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a>&#160;</td>
+          <td class="paramname"><em>isStatic</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_physics_8h_source.html#l00055">55</a> of file <a class="el" href="_physics_8h_source.html">Physics.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   55</span>{ this-&gt;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a32f828927d1698cf8f928c6022a1b517">staticObj</a> = <a class="code hl_function" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a5b219f3bad20152277aa986c50d9a827">isStatic</a>; }</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_physics_1_1_physics_html_a5b219f3bad20152277aa986c50d9a827"><div class="ttname"><a href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a5b219f3bad20152277aa986c50d9a827">GLESC::Physics::Physics::isStatic</a></div><div class="ttdeci">bool isStatic() const</div><div class="ttdef"><b>Definition</b> <a href="_physics_8h_source.html#l00067">Physics.h:67</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_physics_8h_source.html#l00067">isStatic()</a>, and <a class="el" href="_physics_8h_source.html#l00093">staticObj</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_physics_1_1_physics_a5245e88ba34354a0d4758a5b195c38df_cgraph.svg" width="410" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a287320c54b7811781366b7e65f071cc5" name="a287320c54b7811781366b7e65f071cc5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a287320c54b7811781366b7e65f071cc5">&#9670;&#160;</a></span>setVelocity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a> GLESC::Physics::Physics::setVelocity </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">const</a> <a class="el" href="namespace_g_l_e_s_c_1_1_physics.html#a88cd8369de6bf12d7bbe0f4614fed506">Velocity</a> &amp;&#160;</td>
+          <td class="paramname"><em>velocity</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_physics_8h_source.html#l00035">35</a> of file <a class="el" href="_physics_8h_source.html">Physics.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   35</span>{ this-&gt;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a331cbe367fa86bf1e3b5ee8b98d3acdd">velocity</a> = <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a331cbe367fa86bf1e3b5ee8b98d3acdd">velocity</a>; }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_physics_8h_source.html#l00085">velocity</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_physics_manager_8cpp_source.html#l00014">GLESC::Physics::PhysicsManager::applyForces()</a>, and <a class="el" href="_physics_manager_8cpp_source.html#l00115">GLESC::Physics::PhysicsManager::handleCollisions()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_physics_1_1_physics_a287320c54b7811781366b7e65f071cc5_icgraph.svg" width="100%" height="390"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a8ab4df7294cbaaa761c981e13188c369" name="a8ab4df7294cbaaa761c981e13188c369"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ab4df7294cbaaa761c981e13188c369">&#9670;&#160;</a></span>toString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Physics::toString </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="class_engine_component.html#a5c270b03e00b65e00739a4a3d01c0829">EngineComponent</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_physics_8cpp_source.html#l00014">14</a> of file <a class="el" href="_physics_8cpp_source.html">Physics.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   14</span>                                                {</div>
+<div class="line"><span class="lineno">   15</span>    <span class="keywordflow">return</span> <span class="stringliteral">&quot;Physics: &quot;</span> +</div>
+<div class="line"><span class="lineno">   16</span>        std::to_string(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#af2d98d3c198d277541867567ffbd03d9">mass</a>) + <span class="stringliteral">&quot; &quot;</span> +</div>
+<div class="line"><span class="lineno">   17</span>        <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a331cbe367fa86bf1e3b5ee8b98d3acdd">velocity</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_vector.html#a6a6098658d8dbebb1e3e73cd649074cc">toString</a>() + <span class="stringliteral">&quot; &quot;</span> +</div>
+<div class="line"><span class="lineno">   18</span>        <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#afb69d407abd506bbc7d855a73d43065c">acceleration</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_vector.html#a6a6098658d8dbebb1e3e73cd649074cc">toString</a>() + <span class="stringliteral">&quot; &quot;</span> +</div>
+<div class="line"><span class="lineno">   19</span>        <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#afb23bf989920f5a2e07726c07b4b3ab1">force</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_vector.html#a6a6098658d8dbebb1e3e73cd649074cc">toString</a>() + <span class="stringliteral">&quot; &quot;</span> +</div>
+<div class="line"><span class="lineno">   20</span>        std::to_string(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a660f04e1dd0ebc055f58b8aad7484140">affectedByGravity</a>);</div>
+<div class="line"><span class="lineno">   21</span>}</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_vector_html_a6a6098658d8dbebb1e3e73cd649074cc"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_vector.html#a6a6098658d8dbebb1e3e73cd649074cc">GLESC::Math::Vector::toString</a></div><div class="ttdeci">std::string toString() const</div><div class="ttdoc">Converts the vector to string.</div><div class="ttdef"><b>Definition</b> <a href="_vector_8h_source.html#l01136">Vector.h:1136</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_physics_8h_source.html#l00086">acceleration</a>, <a class="el" href="_physics_8h_source.html#l00094">affectedByGravity</a>, <a class="el" href="_physics_8h_source.html#l00087">force</a>, <a class="el" href="_physics_8h_source.html#l00079">mass</a>, <a class="el" href="_vector_8h_source.html#l01136">GLESC::Math::Vector&lt; Type, N &gt;::toString()</a>, and <a class="el" href="_physics_8h_source.html#l00085">velocity</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_physics_component_8h_source.html#l00033">GLESC::ECS::PhysicsComponent::toString()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_physics_1_1_physics_a8ab4df7294cbaaa761c981e13188c369_cgraph.svg" width="642" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_g_l_e_s_c_1_1_physics_1_1_physics_a8ab4df7294cbaaa761c981e13188c369_icgraph.svg" width="456" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="afb69d407abd506bbc7d855a73d43065c" name="afb69d407abd506bbc7d855a73d43065c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb69d407abd506bbc7d855a73d43065c">&#9670;&#160;</a></span>acceleration</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c_1_1_physics.html#ae4fd353bd7c23d17d28bacc7b0f9ec65">Acceleration</a> GLESC::Physics::Physics::acceleration {0, 0, 0}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_physics_8h_source.html#l00086">86</a> of file <a class="el" href="_physics_8h_source.html">Physics.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   86</span>{0, 0, 0};</div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="_physics_8h_source.html#l00041">addAcceleration()</a>, <a class="el" href="_physics_8h_source.html#l00043">addDirectionalAcceleration()</a>, <a class="el" href="_physics_8h_source.html#l00063">getAcceleration()</a>, <a class="el" href="_physics_8cpp_source.html#l00023">getDebuggingValues()</a>, <a class="el" href="_physics_8h_source.html#l00042">setAcceleration()</a>, <a class="el" href="_physics_8h_source.html#l00044">setDirectionalAcceleration()</a>, and <a class="el" href="_physics_8cpp_source.html#l00014">toString()</a>.</p>
+
+</div>
+</div>
+<a id="a660f04e1dd0ebc055f58b8aad7484140" name="a660f04e1dd0ebc055f58b8aad7484140"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a660f04e1dd0ebc055f58b8aad7484140">&#9670;&#160;</a></span>affectedByGravity</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a> GLESC::Physics::Physics::affectedByGravity {<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">true</a>}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_physics_8h_source.html#l00094">94</a> of file <a class="el" href="_physics_8h_source.html">Physics.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   94</span>{<span class="keyword">true</span>};</div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="_physics_8cpp_source.html#l00023">getDebuggingValues()</a>, <a class="el" href="_physics_8h_source.html#l00066">isAffectedByGravity()</a>, <a class="el" href="_physics_8h_source.html#l00054">setAffectedByGravity()</a>, and <a class="el" href="_physics_8cpp_source.html#l00014">toString()</a>.</p>
+
+</div>
+</div>
+<a id="a17745500cc267d6c9bfec518edcec233" name="a17745500cc267d6c9bfec518edcec233"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17745500cc267d6c9bfec518edcec233">&#9670;&#160;</a></span>airFriction</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c_1_1_physics.html#a99b2d6885e3fd9713a4f9f0b1723acf2">Friction</a> GLESC::Physics::Physics::airFriction {-1.<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">f</a>}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>While its negative, it will be the default value for air friction defined in the physics manager </p>
+
+<p class="definition">Definition at line <a class="el" href="_physics_8h_source.html#l00084">84</a> of file <a class="el" href="_physics_8h_source.html">Physics.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   84</span>{-1.f};</div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="_physics_8h_source.html#l00029">addAirFriction()</a>, <a class="el" href="_physics_8h_source.html#l00060">getAirFriction()</a>, and <a class="el" href="_physics_8h_source.html#l00028">setAirFriction()</a>.</p>
+
+</div>
+</div>
+<a id="ae5651a50aee09576b9a6b3acdf86cd87" name="ae5651a50aee09576b9a6b3acdf86cd87"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5651a50aee09576b9a6b3acdf86cd87">&#9670;&#160;</a></span>angAccel</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c_1_1_physics.html#aec98e312b4a77f4aa764abbb0489959d">AngularAcceleration</a> GLESC::Physics::Physics::angAccel {0, 0, 0}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_physics_8h_source.html#l00090">90</a> of file <a class="el" href="_physics_8h_source.html">Physics.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   90</span>{0, 0, 0};</div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="_physics_8h_source.html#l00046">addAngularAcceleration()</a>, <a class="el" href="_physics_8h_source.html#l00070">getAngularAcceleration()</a>, and <a class="el" href="_physics_8h_source.html#l00045">setAngularAcceleration()</a>.</p>
+
+</div>
+</div>
+<a id="a59a0f9bf1a53e3458ea3cb08b3f7d4c0" name="a59a0f9bf1a53e3458ea3cb08b3f7d4c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59a0f9bf1a53e3458ea3cb08b3f7d4c0">&#9670;&#160;</a></span>angularForce</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c_1_1_physics.html#a68b672f7395961a8dc43682f339c0696">AngularForce</a> GLESC::Physics::Physics::angularForce {0, 0, 0}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_physics_8h_source.html#l00089">89</a> of file <a class="el" href="_physics_8h_source.html">Physics.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   89</span>{0, 0, 0};</div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="_physics_8h_source.html#l00069">getAngularForce()</a>, and <a class="el" href="_physics_8h_source.html#l00052">giveAngularForce()</a>.</p>
+
+</div>
+</div>
+<a id="a2d936c66d50ed0aab4deb69779399df3" name="a2d936c66d50ed0aab4deb69779399df3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d936c66d50ed0aab4deb69779399df3">&#9670;&#160;</a></span>angularVelocity</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c_1_1_physics.html#a0f33da04071773b5651a0bce97390c37">AngularVelocity</a> GLESC::Physics::Physics::angularVelocity {0, 0, 0}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_physics_8h_source.html#l00091">91</a> of file <a class="el" href="_physics_8h_source.html">Physics.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   91</span>{0, 0, 0};</div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="_physics_8h_source.html#l00039">addAngularVelocity()</a>, <a class="el" href="_physics_8h_source.html#l00071">getAngularVelocity()</a>, and <a class="el" href="_physics_8h_source.html#l00038">setAngularVelocity()</a>.</p>
+
+</div>
+</div>
+<a id="afb23bf989920f5a2e07726c07b4b3ab1" name="afb23bf989920f5a2e07726c07b4b3ab1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb23bf989920f5a2e07726c07b4b3ab1">&#9670;&#160;</a></span>force</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c_1_1_physics.html#a3aa7b2f3c9e74053989a1a5837a79ed7">Force</a> GLESC::Physics::Physics::force {0, 0, 0}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_physics_8h_source.html#l00087">87</a> of file <a class="el" href="_physics_8h_source.html">Physics.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   87</span>{0, 0, 0};</div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="_physics_8h_source.html#l00051">addDirectionalForce()</a>, <a class="el" href="_physics_8h_source.html#l00049">addForce()</a>, <a class="el" href="_physics_8cpp_source.html#l00023">getDebuggingValues()</a>, <a class="el" href="_physics_8h_source.html#l00062">getForce()</a>, <a class="el" href="_physics_8h_source.html#l00050">setDirectionalForce()</a>, <a class="el" href="_physics_8h_source.html#l00048">setForce()</a>, and <a class="el" href="_physics_8cpp_source.html#l00014">toString()</a>.</p>
+
+</div>
+</div>
+<a id="afb8a0b6dd8eae927d2f23ac6e61c05d9" name="afb8a0b6dd8eae927d2f23ac6e61c05d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb8a0b6dd8eae927d2f23ac6e61c05d9">&#9670;&#160;</a></span>friction</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c_1_1_physics.html#a99b2d6885e3fd9713a4f9f0b1723acf2">Friction</a> GLESC::Physics::Physics::friction {0.01<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">f</a>}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_physics_8h_source.html#l00080">80</a> of file <a class="el" href="_physics_8h_source.html">Physics.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   80</span>{0.01f};</div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="_physics_8h_source.html#l00031">addFriciton()</a>, <a class="el" href="_physics_8cpp_source.html#l00023">getDebuggingValues()</a>, <a class="el" href="_physics_8h_source.html#l00059">getFriction()</a>, and <a class="el" href="_physics_8h_source.html#l00030">setFriction()</a>.</p>
+
+</div>
+</div>
+<a id="af2d98d3c198d277541867567ffbd03d9" name="af2d98d3c198d277541867567ffbd03d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2d98d3c198d277541867567ffbd03d9">&#9670;&#160;</a></span>mass</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c_1_1_physics.html#ab3186578a515ae1e6c4f94060737ee3c">Mass</a> GLESC::Physics::Physics::mass {1.0F}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_physics_8h_source.html#l00079">79</a> of file <a class="el" href="_physics_8h_source.html">Physics.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   79</span>{1.0F};</div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="_physics_8h_source.html#l00026">addMass()</a>, <a class="el" href="_physics_8cpp_source.html#l00023">getDebuggingValues()</a>, <a class="el" href="_physics_8h_source.html#l00058">getMass()</a>, <a class="el" href="_physics_8h_source.html#l00021">setMass()</a>, <a class="el" href="_physics_8h_source.html#l00027">setMass()</a>, and <a class="el" href="_physics_8cpp_source.html#l00014">toString()</a>.</p>
+
+</div>
+</div>
+<a id="a32f828927d1698cf8f928c6022a1b517" name="a32f828927d1698cf8f928c6022a1b517"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32f828927d1698cf8f928c6022a1b517">&#9670;&#160;</a></span>staticObj</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bool</a> GLESC::Physics::Physics::staticObj {<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">false</a>}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_physics_8h_source.html#l00093">93</a> of file <a class="el" href="_physics_8h_source.html">Physics.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   93</span>{<span class="keyword">false</span>};</div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="_physics_8h_source.html#l00067">isStatic()</a>, and <a class="el" href="_physics_8h_source.html#l00055">setStatic()</a>.</p>
+
+</div>
+</div>
+<a id="a331cbe367fa86bf1e3b5ee8b98d3acdd" name="a331cbe367fa86bf1e3b5ee8b98d3acdd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a331cbe367fa86bf1e3b5ee8b98d3acdd">&#9670;&#160;</a></span>velocity</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_l_e_s_c_1_1_physics.html#a88cd8369de6bf12d7bbe0f4614fed506">Velocity</a> GLESC::Physics::Physics::velocity {0, 0, 0}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_physics_8h_source.html#l00085">85</a> of file <a class="el" href="_physics_8h_source.html">Physics.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   85</span>{0, 0, 0};</div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="_physics_8h_source.html#l00037">addDirectionalVelocity()</a>, <a class="el" href="_physics_8h_source.html#l00034">addVelocity()</a>, <a class="el" href="_physics_8cpp_source.html#l00023">getDebuggingValues()</a>, <a class="el" href="_physics_8h_source.html#l00061">getVelocity()</a>, <a class="el" href="_physics_8h_source.html#l00036">setDirectionalVelocity()</a>, <a class="el" href="_physics_8h_source.html#l00035">setVelocity()</a>, and <a class="el" href="_physics_8cpp_source.html#l00014">toString()</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li><a class="el" href="_physics_8h_source.html">Physics.h</a></li>
+<li><a class="el" href="_physics_8cpp_source.html">Physics.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_g_l_e_s_c.html">GLESC</a></li><li class="navelem"><a class="el" href="namespace_g_l_e_s_c_1_1_physics.html">Physics</a></li><li class="navelem"><a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html">Physics</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

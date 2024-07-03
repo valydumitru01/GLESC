@@ -1,0 +1,21 @@
+<map id="GLESC::ECS::IComponent" name="GLESC::ECS::IComponent">
+<area shape="rect" id="Node000001" title="Base class for all components." alt="" coords="906,5,1105,224"/>
+<area shape="rect" id="Node000002" href="$struct_g_l_e_s_c_1_1_e_c_s_1_1_camera_component.html" title=" " alt="" coords="5,357,216,491"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="891,132,724,154,531,186,437,206,352,227,281,250,229,274,206,292,184,313,149,359,144,356,180,309,202,288,227,270,279,245,351,222,436,200,530,181,723,149,891,126"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_collision_component.html" title=" " alt="" coords="241,357,455,491"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="892,131,795,148,685,176,573,218,519,244,468,274,424,314,388,359,384,356,420,310,465,270,516,239,570,213,684,171,794,143,891,126"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_fog_component.html" title=" " alt="" coords="479,368,667,480"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="893,156,785,205,731,237,680,274,638,320,604,370,600,367,633,317,677,270,728,232,783,200,891,151"/>
+<area shape="rect" id="Node000005" href="$struct_g_l_e_s_c_1_1_e_c_s_1_1_input_component.html" title=" " alt="" coords="691,368,885,480"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="923,237,829,370,824,367,918,234"/>
+<area shape="rect" id="Node000006" href="$struct_g_l_e_s_c_1_1_e_c_s_1_1_light_component.html" title=" " alt="" coords="909,368,1102,480"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="1008,239,1008,368,1003,368,1003,239"/>
+<area shape="rect" id="Node000007" href="$struct_g_l_e_s_c_1_1_e_c_s_1_1_physics_component.html" title=" " alt="" coords="1127,347,1340,501"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="1097,234,1179,345,1175,349,1092,237"/>
+<area shape="rect" id="Node000008" href="$struct_g_l_e_s_c_1_1_e_c_s_1_1_render_component.html" title=" " alt="" coords="1365,272,1571,576"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="1119,148,1176,170,1237,198,1298,231,1354,270,1367,281,1363,285,1350,274,1295,236,1235,203,1174,175,1117,153"/>
+<area shape="rect" id="Node000009" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_sun_component.html" title=" " alt="" coords="1596,357,1785,491"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="1120,121,1225,136,1346,164,1409,183,1471,207,1530,236,1586,270,1608,288,1628,310,1660,356,1656,359,1624,313,1604,292,1582,274,1527,240,1468,212,1407,188,1345,169,1224,142,1119,127"/>
+<area shape="rect" id="Node000010" href="$struct_g_l_e_s_c_1_1_e_c_s_1_1_transform_component.html" title=" " alt="" coords="1810,368,2033,480"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="1120,126,1291,149,1488,181,1584,201,1671,222,1745,245,1799,270,1827,290,1852,315,1892,366,1888,370,1848,318,1823,294,1796,274,1743,250,1670,227,1583,206,1487,186,1290,154,1119,132"/>
+</map>

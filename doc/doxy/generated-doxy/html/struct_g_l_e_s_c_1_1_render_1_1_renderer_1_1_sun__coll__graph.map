@@ -1,0 +1,26 @@
+<map id="GLESC::Render::Renderer::Sun" name="GLESC::Render::Renderer::Sun">
+<area shape="rect" id="Node000001" title=" " alt="" coords="274,1488,471,1557"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_render_1_1_global_sun.html" title=" " alt="" coords="286,1045,459,1371"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="375,1370,375,1471,370,1471,370,1370"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_render_1_1_intensity.html" title=" " alt="" coords="291,435,454,733"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="375,733,375,1028,370,1028,370,733"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_render_1_1_intensity.html" title="Intensity class, to encapsulate values between 0 and 1." alt="" coords="291,5,454,304"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="375,319,375,435,370,435,370,319"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html" title=" " alt="" coords="479,435,619,733"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="509,734,426,1029,420,1028,504,732"/>
+<area shape="rect" id="Node000009" href="$struct_g_l_e_s_c_1_1_transform_1_1_transform.html" title="Struct that represents the position, rotation, and scale of an entity in the game world." alt="" coords="569,992,755,1424"/>
+<area shape="poly" id="edge12_Node000009_Node000005" title=" " alt="" coords="567,733,582,848,602,968,603,975,598,976,597,968,576,849,561,734"/>
+<area shape="rect" id="Node000006" href="$struct_g_l_e_s_c_1_1_render_1_1_color_rgb.html" title="Color in RGB values." alt="" coords="5,368,172,800"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="174,766,294,1029,289,1031,170,769"/>
+<area shape="poly" id="edge7_Node000006_Node000006" title=" " alt="" coords="174,539,191,554,197,568,199,584,196,604,188,618,183,616,191,602,193,584,192,569,187,557,170,543"/>
+<area shape="rect" id="Node000008" href="$class_g_l_e_s_c_1_1_render_1_1_global_ambient_light.html" title=" " alt="" coords="44,1080,243,1336"/>
+<area shape="poly" id="edge9_Node000008_Node000006" title=" " alt="" coords="110,799,133,1063,128,1064,105,800"/>
+<area shape="rect" id="Node000007" href="$class_g_l_e_s_c_1_1_math_1_1_vector.html" title=" " alt="" coords="35,13,143,296"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="91,311,91,368,86,368,86,311"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="198,1334,236,1401,283,1462,298,1476,294,1480,279,1466,232,1404,193,1337"/>
+<area shape="poly" id="edge10_Node000001_Node000009" title=" " alt="" coords="571,1319,473,1426,422,1478,418,1474,469,1422,567,1315"/>
+<area shape="rect" id="Node000010" href="$class_engine_component.html" title="Class that represents a component of the engine." alt="" coords="643,496,841,672"/>
+<area shape="poly" id="edge11_Node000009_Node000010" title=" " alt="" coords="735,687,703,968,700,992,695,992,698,968,730,686"/>
+<area shape="rect" id="Node000011" href="$class_g_l_e_s_c_1_1_math_1_1_matrix.html" title="Matrix class. Represents a matrix of N rows and M columns." alt="" coords="865,403,1005,765"/>
+<area shape="poly" id="edge13_Node000009_Node000011" title=" " alt="" coords="871,766,856,801,765,1003,760,1000,852,799,866,764"/>
+</map>

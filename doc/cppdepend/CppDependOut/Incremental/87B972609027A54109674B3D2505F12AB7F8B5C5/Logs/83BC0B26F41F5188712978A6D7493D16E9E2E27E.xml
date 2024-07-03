@@ -1,0 +1,9 @@
+<log>
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include\engine/subsystems/input\InputKeys.h" line="13" col="10" msg="&apos;SDL2/SDL_keycode.h&apos; file not found" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include\engine/subsystems/input\InputKeys.h" line="14" col="10" msg="&apos;SDL2/SDL_mouse.h&apos; file not found" />
+ <error level="warning" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include\engine/core/math/algebra/vector/VectorAlgorithms.h" line="362" col="20" msg="template parameter &apos;Type&apos; not found in the template declaration" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include\engine/core/window/WindowManager.h" line="14" col="10" msg="&apos;SDL2/SDL.h&apos; file not found" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include\engine/subsystems/hud/HUDManager.h" line="14" col="10" msg="&apos;SDL2/SDL.h&apos; file not found" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include\engine/subsystems/hud/InGameWindow.h" line="11" col="10" msg="&apos;imgui/imgui.h&apos; file not found" />
+ <error level="warning" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/ecs/frontend/system/systems/InputSystem.cpp" line="16" col="47" msg="constructor parameter &apos;inputManager&apos; shadows the field &apos;inputManager&apos; of &apos;InputSystem&apos;" />
+</log>

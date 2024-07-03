@@ -1,0 +1,9 @@
+<map id="GLESC::ECS::ECSCoordinator::getAllEntities" name="GLESC::ECS::ECSCoordinator::getAllEntities">
+<area shape="rect" id="Node000001" title="Get all the entities in the ECS." alt="" coords="311,35,512,77"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_system.html#a62a66691691263ef6b07c69ec0a9b7e6" title="Gets all the entities in the ECS." alt="" coords="106,5,260,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="295,44,260,39,260,34,296,38"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_engine.html#ad2ff110d5a86c1cd60b541d65915ac48" title="Processes the logic of the game Is called every frame, must be called at constant intervals of time a..." alt="" coords="103,72,263,99"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="296,74,264,78,263,72,295,68"/>
+<area shape="rect" id="Node000004" href="$src_2engine_2main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,72,55,99"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="87,88,55,88,55,83,87,83"/>
+</map>

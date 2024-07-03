@@ -1,0 +1,12 @@
+<map id="GLESC::ECS::ECSCoordinator::getAssociatedEntities" name="GLESC::ECS::ECSCoordinator::getAssociatedEntities">
+<area shape="rect" id="Node000001" title="Get the entities associated with a system." alt="" coords="5,101,207,144"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a5145504091eb26170aa219acb60aca71" title="Check if the entity with the given name exists." alt="" coords="266,5,458,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="154,98,254,58,273,51,275,56,256,62,156,103"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#a283c04f81e82970a822c9696ddab2319" title="Gets the entities associated with a system. The system must be registered." alt="" coords="255,72,469,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="207,108,239,105,239,110,207,114"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#a32f415d7a7e0cefc9e1b5c71a4dc1be4" title="Checks if a system is registered." alt="" coords="517,101,720,144"/>
+<area shape="poly" id="edge5_Node000001_Node000004" title=" " alt="" coords="207,123,255,124,469,124,501,123,501,129,469,129,255,129,207,128"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#abe8641c2514be36e652e7f77d0ed87a5" title="Checks if an entity is associated with a system." alt="" coords="257,189,467,232"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="171,142,284,181,283,186,170,147"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="470,103,502,107,501,112,469,108"/>
+</map>

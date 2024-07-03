@@ -1,0 +1,264 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="Doxygen Awesome" />
+<meta property="og:image" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+<meta property="og:description" content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
+<meta property="og:url" content="https://jothepro.github.io/doxygen-awesome-css/" />
+<!-- END opengraph metadata -->
+<!-- BEGIN twitter metadata -->
+<meta name="twitter:image:src" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+<meta name="twitter:title" content="Doxygen Awesome" />
+<meta name="twitter:description" content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
+<!-- END twitter metadata -->
+<title>GLESC: RendererTypes.h File Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.drawio.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/ -->
+<a href="https://github.com/jothepro/doxygen-awesome-css" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="GLESC_logo_white_background.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">GLESC
+   &#160;<span id="projectnumber">1</span>
+   </div>
+   <div id="projectbrief">Game engine using ECS architecture</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('_renderer_types_8h.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
+<a href="#func-members">Functions</a>  </div>
+  <div class="headertitle"><div class="title">RendererTypes.h File Reference</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>@TODO Add description of this file if needed  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="_stringer_8h_source.html">engine/core/debugger/Stringer.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_vertex_array_8h_source.html">engine/core/low-level-renderer/buffers/VertexArray.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_hasher_8h_source.html">engine/core/hash/Hasher.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for RendererTypes.h:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="_renderer_types_8h__incl.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="_renderer_types_8h__dep__incl.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</div>
+<p><a href="_renderer_types_8h_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_render_1_1_color_funcs.html">GLESC::Render::ColorFuncs</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Color functions, utility static class for color operations.  <a href="class_g_l_e_s_c_1_1_render_1_1_color_funcs.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_g_l_e_s_c_1_1_render_1_1_color_rgb.html">GLESC::Render::ColorRgb</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Color in RGB values.  <a href="struct_g_l_e_s_c_1_1_render_1_1_color_rgb.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_g_l_e_s_c_1_1_render_1_1_color_rgba.html">GLESC::Render::ColorRgba</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Color in RGBA values (x = [0] = R, y = [1] = G, z = [2] = B, w = [3] = A)  <a href="struct_g_l_e_s_c_1_1_render_1_1_color_rgba.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_g_l_e_s_c_1_1_render_1_1_color_rgba_norm.html">GLESC::Render::ColorRgbaNorm</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Color in normalized values.  <a href="struct_g_l_e_s_c_1_1_render_1_1_color_rgba_norm.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_g_l_e_s_c_1_1_render_1_1_color_rgb_norm.html">GLESC::Render::ColorRgbNorm</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Color in normalized values.  <a href="struct_g_l_e_s_c_1_1_render_1_1_color_rgb_norm.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_l_e_s_c_1_1_render_1_1_intensity.html">GLESC::Render::Intensity&lt; IntensityType &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_g_l_e_s_c_1_1_render_1_1_intensity.html" title="Intensity class, to encapsulate values between 0 and 1.">Intensity</a> class, to encapsulate values between 0 and 1.  <a href="class_g_l_e_s_c_1_1_render_1_1_intensity.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstd_1_1hash_3_01_g_l_e_s_c_1_1_render_1_1_color_rgb_01_4.html">std::hash&lt; GLESC::Render::ColorRgb &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstd_1_1hash_3_01_g_l_e_s_c_1_1_render_1_1_color_rgba_01_4.html">std::hash&lt; GLESC::Render::ColorRgba &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstd_1_1hash_3_01_g_l_e_s_c_1_1_render_1_1_color_rgba_norm_01_4.html">std::hash&lt; GLESC::Render::ColorRgbaNorm &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstd_1_1hash_3_01_g_l_e_s_c_1_1_render_1_1_color_rgb_norm_01_4.html">std::hash&lt; GLESC::Render::ColorRgbNorm &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:namespace_g_l_e_s_c" id="r_namespace_g_l_e_s_c"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c.html">GLESC</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespace_g_l_e_s_c_1_1_render" id="r_namespace_g_l_e_s_c_1_1_render"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c_1_1_render.html">GLESC::Render</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespacestd" id="r_namespacestd"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestd.html">std</a></td></tr>
+<tr class="memdesc:namespacestd"><td class="mdescLeft">&#160;</td><td class="mdescRight">STL namespace. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a65da5105aff5537da9b04fcda16edea9" id="r_a65da5105aff5537da9b04fcda16edea9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c_1_1_render.html#a65da5105aff5537da9b04fcda16edea9">GLESC::Render::Color</a> = <a class="el" href="_vector_8h.html#a3e80bb50ddfaadcbd7ac8311468a887c">Vec4F</a></td></tr>
+<tr class="separator:a65da5105aff5537da9b04fcda16edea9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98611a278c89dce6500901cccf38a845" id="r_a98611a278c89dce6500901cccf38a845"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c_1_1_render.html#a98611a278c89dce6500901cccf38a845">GLESC::Render::Model</a> = <a class="el" href="_matrix_8h.html#a10262c2c2e097ff9ae2636550b215ade">Mat4F</a></td></tr>
+<tr class="separator:a98611a278c89dce6500901cccf38a845"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfac411a20e7140255303f8a7dfca797" id="r_abfac411a20e7140255303f8a7dfca797"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c_1_1_render.html#abfac411a20e7140255303f8a7dfca797">GLESC::Render::MV</a> = <a class="el" href="_matrix_8h.html#a10262c2c2e097ff9ae2636550b215ade">Mat4F</a></td></tr>
+<tr class="separator:abfac411a20e7140255303f8a7dfca797"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b604ed9abecbadb6e28a3118662f190" id="r_a0b604ed9abecbadb6e28a3118662f190"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c_1_1_render.html#a0b604ed9abecbadb6e28a3118662f190">GLESC::Render::MVP</a> = <a class="el" href="_matrix_8h.html#a10262c2c2e097ff9ae2636550b215ade">Mat4F</a></td></tr>
+<tr class="separator:a0b604ed9abecbadb6e28a3118662f190"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ad873d5da25be9d50ad1e03aee0d8db" id="r_a7ad873d5da25be9d50ad1e03aee0d8db"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c_1_1_render.html#a7ad873d5da25be9d50ad1e03aee0d8db">GLESC::Render::Normal</a> = <a class="el" href="_vector_8h.html#a5daba7afb5c94aa954510a1f02f39394">Vec3F</a></td></tr>
+<tr class="separator:a7ad873d5da25be9d50ad1e03aee0d8db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6a1535b080decb572f57dfd10bfdc34" id="r_ab6a1535b080decb572f57dfd10bfdc34"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c_1_1_render.html#ab6a1535b080decb572f57dfd10bfdc34">GLESC::Render::NormalMat</a> = <a class="el" href="_matrix_8h.html#ac6ef3c26497160f2e2cd22ca2a3527fa">Mat3F</a></td></tr>
+<tr class="separator:ab6a1535b080decb572f57dfd10bfdc34"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8cf62ca6046159ddb71feb403e22c6d" id="r_af8cf62ca6046159ddb71feb403e22c6d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c_1_1_render.html#af8cf62ca6046159ddb71feb403e22c6d">GLESC::Render::Position</a> = <a class="el" href="_vector_8h.html#a5daba7afb5c94aa954510a1f02f39394">Vec3F</a></td></tr>
+<tr class="separator:af8cf62ca6046159ddb71feb403e22c6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2eb1dee428a25744e102510c7c413515" id="r_a2eb1dee428a25744e102510c7c413515"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c_1_1_render.html#a2eb1dee428a25744e102510c7c413515">GLESC::Render::Projection</a> = <a class="el" href="_matrix_8h.html#a10262c2c2e097ff9ae2636550b215ade">Mat4F</a></td></tr>
+<tr class="separator:a2eb1dee428a25744e102510c7c413515"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2297f68ee78bbbf441d7104c145072d6" id="r_a2297f68ee78bbbf441d7104c145072d6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c_1_1_render.html#a2297f68ee78bbbf441d7104c145072d6">GLESC::Render::RotateMat</a> = <a class="el" href="_matrix_8h.html#a10262c2c2e097ff9ae2636550b215ade">Mat4F</a></td></tr>
+<tr class="separator:a2297f68ee78bbbf441d7104c145072d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acfc27ec5202c4ebfad335d5a09bd1f1c" id="r_acfc27ec5202c4ebfad335d5a09bd1f1c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c_1_1_render.html#acfc27ec5202c4ebfad335d5a09bd1f1c">GLESC::Render::ScaleMat</a> = <a class="el" href="_matrix_8h.html#a10262c2c2e097ff9ae2636550b215ade">Mat4F</a></td></tr>
+<tr class="separator:acfc27ec5202c4ebfad335d5a09bd1f1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3a33d936270341b826abd0e8de6dc3d" id="r_ae3a33d936270341b826abd0e8de6dc3d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c_1_1_render.html#ae3a33d936270341b826abd0e8de6dc3d">GLESC::Render::TranslateMat</a> = <a class="el" href="_matrix_8h.html#a10262c2c2e097ff9ae2636550b215ade">Mat4F</a></td></tr>
+<tr class="separator:ae3a33d936270341b826abd0e8de6dc3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad074a0eb7eb08d9bcbdfba358fd6ccd8" id="r_ad074a0eb7eb08d9bcbdfba358fd6ccd8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c_1_1_render.html#ad074a0eb7eb08d9bcbdfba358fd6ccd8">GLESC::Render::UV</a> = <a class="el" href="_vector_8h.html#af864ae683148412dbb77227084f173df">Vec2F</a></td></tr>
+<tr class="separator:ad074a0eb7eb08d9bcbdfba358fd6ccd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72b3a788069d83584603f0b9d9acebab" id="r_a72b3a788069d83584603f0b9d9acebab"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c_1_1_render.html#a72b3a788069d83584603f0b9d9acebab">GLESC::Render::VertexArrayPtr</a> = std::unique_ptr&lt; <a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_vertex_array.html">GAPI::VertexArray</a> &gt;</td></tr>
+<tr class="memdesc:a72b3a788069d83584603f0b9d9acebab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vertex Array Object.  <br /></td></tr>
+<tr class="separator:a72b3a788069d83584603f0b9d9acebab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9520155c868635c4b3e1b3db7451cf7c" id="r_a9520155c868635c4b3e1b3db7451cf7c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c_1_1_render.html#a9520155c868635c4b3e1b3db7451cf7c">GLESC::Render::View</a> = <a class="el" href="_matrix_8h.html#a10262c2c2e097ff9ae2636550b215ade">Mat4F</a></td></tr>
+<tr class="separator:a9520155c868635c4b3e1b3db7451cf7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39559300a83b3e63c9ea85468501df65" id="r_a39559300a83b3e63c9ea85468501df65"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c_1_1_render.html#a39559300a83b3e63c9ea85468501df65">GLESC::Render::VP</a> = <a class="el" href="_matrix_8h.html#a10262c2c2e097ff9ae2636550b215ade">Mat4F</a></td></tr>
+<tr class="separator:a39559300a83b3e63c9ea85468501df65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:a2c883f22f46bbef137114ad174f338ea" id="r_a2c883f22f46bbef137114ad174f338ea"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c_1_1_render.html#a2c883f22f46bbef137114ad174f338ea">GLESC::Render::RenderType</a> { <br />
+&#160;&#160;<a class="el" href="namespace_g_l_e_s_c_1_1_render.html#a2c883f22f46bbef137114ad174f338eaa91539f22ebddb9f056f5ed9a2d39a9fb">GLESC::Render::SingleDrawStatic</a>
+, <a class="el" href="namespace_g_l_e_s_c_1_1_render.html#a2c883f22f46bbef137114ad174f338eaab27b2d4f93644b3ea38ff9b3ac826a77">GLESC::Render::SingleDrawDynamic</a>
+, <a class="el" href="namespace_g_l_e_s_c_1_1_render.html#a2c883f22f46bbef137114ad174f338eaa0ee4d98165d5f2e8f588bba4bd839b8d">GLESC::Render::InstancedStatic</a>
+, <a class="el" href="namespace_g_l_e_s_c_1_1_render.html#a2c883f22f46bbef137114ad174f338eaa5d06a511db8295f51e4cfc524aa62f2f">GLESC::Render::InstancedDynamic</a>
+, <br />
+&#160;&#160;<a class="el" href="namespace_g_l_e_s_c_1_1_render.html#a2c883f22f46bbef137114ad174f338eaa65af877be725693f078fe75c27e2abc0">GLESC::Render::BatchedStatic</a>
+, <a class="el" href="namespace_g_l_e_s_c_1_1_render.html#a2c883f22f46bbef137114ad174f338eaa43bf1043a9c09a1510c16456d3fa0e9e">GLESC::Render::BatchedDynamic</a>
+<br />
+ }</td></tr>
+<tr class="memdesc:a2c883f22f46bbef137114ad174f338ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the possible rendering types for a mesh.  <a href="namespace_g_l_e_s_c_1_1_render.html#a2c883f22f46bbef137114ad174f338ea">More...</a><br /></td></tr>
+<tr class="separator:a2c883f22f46bbef137114ad174f338ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:abf0ba7a8a1d7a71fc7140708adcbaf55" id="r_abf0ba7a8a1d7a71fc7140708adcbaf55"><td class="memItemLeft" align="right" valign="top">GAPI::Enums::BufferUsages&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_l_e_s_c_1_1_render.html#abf0ba7a8a1d7a71fc7140708adcbaf55">GLESC::Render::getBufferUsage</a> (<a class="el" href="namespace_g_l_e_s_c_1_1_render.html#a2c883f22f46bbef137114ad174f338ea">RenderType</a> renderType)</td></tr>
+<tr class="memdesc:abf0ba7a8a1d7a71fc7140708adcbaf55"><td class="mdescLeft">&#160;</td><td class="mdescRight">This maps the enum of the renderer to the enum of the graphic api.  <br /></td></tr>
+<tr class="separator:abf0ba7a8a1d7a71fc7140708adcbaf55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>@TODO Add description of this file if needed </p>
+<dl class="section author"><dt>Author</dt><dd>Valentin Dumitru </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>21/02/2024 </dd></dl>
+<p>Copyright (c) 2024 Valentin Dumitru. Licensed under the MIT License. See LICENSE.txt in the project root for license information. </p>
+
+<p class="definition">Definition in file <a class="el" href="_renderer_types_8h_source.html">RendererTypes.h</a>.</p>
+</div></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_a7f531b1c37460085cedd304cb8df01d.html">engine</a></li><li class="navelem"><a class="el" href="dir_4b5fd699f9c934d21be1ae6684f38785.html">subsystems</a></li><li class="navelem"><a class="el" href="dir_7b2853ac289dbefc8188ab306d151d75.html">renderer</a></li><li class="navelem"><a class="el" href="_renderer_types_8h.html">RendererTypes.h</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

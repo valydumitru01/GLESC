@@ -1,0 +1,6 @@
+<map id="FileManager::readFile" name="FileManager::readFile">
+<area shape="rect" id="Node000001" title="Read a file from the disk." alt="" coords="246,37,392,64"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_loader.html#a04fbb025884beeae7fecaf367e869d7d" title="Load the shader from a file." alt="" coords="5,29,198,72"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="230,53,198,53,198,48,230,48"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="137,16,123,10,101,8,81,10,69,15,64,21,65,28,60,29,58,19,65,10,80,5,102,3,125,5,139,11"/>
+</map>

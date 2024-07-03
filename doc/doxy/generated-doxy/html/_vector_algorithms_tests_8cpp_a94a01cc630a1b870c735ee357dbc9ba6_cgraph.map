@@ -1,0 +1,17 @@
+<map id="TYPED_TEST" name="TYPED_TEST">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,97,109,124"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#a7c7e7e047ad20cacf42f7c94bd1067b6" title="Checks if two vectors are orthogonal." alt="" coords="157,56,367,99"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="108,100,141,94,142,100,109,105"/>
+<area shape="rect" id="Node000006" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#a404311d39e1e82c0ceef2a9c0e62d1fc" title="Gets an orthogonal vector to the input vector." alt="" coords="157,123,367,165"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="109,116,142,122,141,127,108,122"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#ae45bcff9b53fb60d513c53823418d97b" title="Computes the dot product of two vectors." alt="" coords="415,5,625,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="367,54,399,48,400,53,368,59"/>
+<area shape="rect" id="Node000004" href="$namespace_g_l_e_s_c_1_1_math.html#aee25910dbba06d09d9df14d03933ace1" title="Compares two values for equality." alt="" coords="458,72,582,99"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="368,78,443,80,443,86,367,83"/>
+<area shape="rect" id="Node000005" href="$namespace_g_l_e_s_c_1_1_math.html#acd429163efe906cd22916cc75ccb2421" title="Epsilon getter with precision of a given template type." alt="" coords="673,72,825,99"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="583,83,658,83,658,88,583,88"/>
+<area shape="rect" id="Node000007" href="$namespace_g_l_e_s_c_1_1_math.html#a04db3782a0754ba2d22eb5d159dd681c" title="Calculates the absolute value of a number." alt="" coords="455,127,586,153"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="367,140,439,139,439,144,368,145"/>
+<area shape="rect" id="Node000008" href="$class_g_l_e_s_c_1_1_math_1_1_vector_algorithms.html#ab041da9d339dfe80b80c6f0bdf5dbfd4" title="Computes the cross product of two vectors." alt="" coords="415,177,625,220"/>
+<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="367,163,402,171,401,176,365,169"/>
+</map>

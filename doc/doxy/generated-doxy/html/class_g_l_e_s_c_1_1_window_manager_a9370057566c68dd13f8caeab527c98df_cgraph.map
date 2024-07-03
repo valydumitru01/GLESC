@@ -1,0 +1,18 @@
+<map id="GLESC::WindowManager::createWindow" name="GLESC::WindowManager::createWindow">
+<area shape="rect" id="Node000001" title="Initialize the windowManager with its title, setting its flags Checks if there is any error while doi..." alt="" coords="5,56,175,99"/>
+<area shape="rect" id="Node000002" href="$class_g_l_e_s_c_1_1_logger.html#a9b12ce53593be134b7d7dea62607d22d" title=" " alt="" coords="238,5,377,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="171,53,240,34,241,39,172,58"/>
+<area shape="rect" id="Node000003" href="$class_g_l_e_s_c_1_1_window_manager.html#a5fa6909bbbde941a8f87de1cc77a1cd2" title="Initialize SDL_Window flags." alt="" coords="223,56,392,99"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="175,75,207,75,207,80,175,80"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_logger.html#accab43e8aa76342c5e58ac869f2f32d5" title="Display success information Background – Green Text – White Bold." alt="" coords="223,123,392,149"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="172,97,241,116,240,121,171,102"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_logger.html#adcc4730c087b2df0b97cccc15557e432" title=" " alt="" coords="440,56,623,99"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="361,120,432,101,433,106,362,125"/>
+<area shape="rect" id="Node000007" href="$_debug_entity_data_h_u_d_8cpp.html#a9acf295be457442cac6bccc0bf75112c" title=" " alt="" coords="729,119,772,145"/>
+<area shape="poly" id="edge8_Node000004_Node000007" title=" " alt="" coords="393,133,714,130,714,135,393,138"/>
+<area shape="rect" id="Node000008" href="$class_i_logger.html#a08a2761c749b766cb789f0dc8e256f95" title="Display success information Background – Green Text – White Bold." alt="" coords="472,173,592,200"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="370,147,457,167,456,172,369,153"/>
+<area shape="rect" id="Node000006" href="$class_concurrent_queue.html#a7d61d602747cee9adf97076d2781023c" title=" " alt="" coords="671,64,830,91"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="623,75,656,75,656,80,623,80"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="620,97,714,120,713,126,619,102"/>
+</map>
