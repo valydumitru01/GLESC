@@ -1,0 +1,7 @@
+<log>
+ <error level="warning" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include\engine/core/math/algebra/vector/VectorAlgorithms.h" line="362" col="20" msg="template parameter &apos;Type&apos; not found in the template declaration" />
+ <error level="warning" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/math/geometry/figures/polyhedron/PolyhedronFace.cpp" line="77" col="62" msg="implicit conversion increases floating-point precision: &apos;float&apos; to &apos;double&apos;" />
+ <error level="warning" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/math/geometry/figures/polyhedron/PolyhedronFace.cpp" line="82" col="67" msg="implicit conversion increases floating-point precision: &apos;float&apos; to &apos;double&apos;" />
+ <error level="warning" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/math/geometry/figures/polyhedron/PolyhedronFace.cpp" line="134" col="44" msg="implicit conversion loses floating-point precision: &apos;double&apos; to &apos;const Distance&apos; (aka &apos;const float&apos;)" />
+ <error level="warning" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/math/geometry/figures/polyhedron/PolyhedronFace.cpp" line="137" col="28" msg="implicit conversion increases floating-point precision: &apos;const Distance&apos; (aka &apos;const float&apos;) to &apos;double&apos;" />
+</log>

@@ -1,0 +1,19 @@
+<log>
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include\engine/res-mng/textures/TextureLoader.h" line="14" col="10" msg="&apos;SDL2/SDL_image.h&apos; file not found" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include\engine/core/low-level-renderer/graphic-api/GapiTypes.h" line="16" col="10" msg="&apos;GL/glew.h&apos; file not found" />
+ <error level="warning" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include\engine/core/math/algebra/vector/VectorAlgorithms.h" line="362" col="20" msg="template parameter &apos;Type&apos; not found in the template declaration" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/res-mng/textures/TextureLoader.cpp" line="18" col="1" msg="unknown type name &apos;SDL_SurfacePtr&apos;" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/res-mng/textures/TextureLoader.cpp" line="23" col="5" msg="unknown type name &apos;SDL_SurfacePtr&apos;" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/res-mng/textures/TextureLoader.cpp" line="23" col="31" msg="use of undeclared identifier &apos;IMG_Load&apos;" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/res-mng/textures/TextureLoader.cpp" line="23" col="65" msg="use of undeclared identifier &apos;SDL_FreeSurface&apos;" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/res-mng/textures/TextureLoader.cpp" line="25" col="5" msg="use of undeclared identifier &apos;SDL_ClearError&apos;" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/res-mng/textures/TextureLoader.cpp" line="27" col="5" msg="use of undeclared identifier &apos;SDL_GetError&apos;" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/res-mng/textures/TextureLoader.cpp" line="40" col="1" msg="unknown type name &apos;SDL_SurfacePtr&apos;" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/res-mng/textures/TextureLoader.cpp" line="43" col="5" msg="unknown type name &apos;SDL_SurfacePtr&apos;" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/res-mng/textures/TextureLoader.cpp" line="52" col="1" msg="unknown type name &apos;SDL_SurfacePtr&apos;" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/res-mng/textures/TextureLoader.cpp" line="52" col="43" msg="unknown type name &apos;SDL_Surface&apos;" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/res-mng/textures/TextureLoader.cpp" line="53" col="5" msg="unknown type name &apos;SDL_SurfacePtr&apos;" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/res-mng/textures/TextureLoader.cpp" line="53" col="53" msg="use of undeclared identifier &apos;SDL_Surface&apos;" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/res-mng/textures/TextureLoader.cpp" line="57" col="14" msg="use of undeclared identifier &apos;SDL_FreeSurface&apos;" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/res-mng/textures/TextureLoader.cpp" line="59" col="5" msg="use of undeclared identifier &apos;SDL_GetError&apos;" />
+</log>

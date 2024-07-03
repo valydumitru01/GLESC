@@ -1,0 +1,11 @@
+<log>
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include\engine/core/low-level-renderer/graphic-api/concrete-apis/opengl/OpenGLAPI.h" line="13" col="10" msg="&apos;GL/glew.h&apos; file not found" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include\engine/core/low-level-renderer/graphic-api/GapiEnums.h" line="26" col="10" msg="&apos;GL/glew.h&apos; file not found" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include\engine/core/low-level-renderer/graphic-api/IGraphicInterface.h" line="15" col="10" msg="&apos;SDL2/SDL.h&apos; file not found" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include\engine/core/low-level-renderer/graphic-api\GapiTypes.h" line="16" col="10" msg="&apos;GL/glew.h&apos; file not found" />
+ <error level="warning" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include\engine/core/math/algebra/vector/VectorAlgorithms.h" line="362" col="20" msg="template parameter &apos;Type&apos; not found in the template declaration" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include\engine/core/low-level-renderer/graphic-api/concrete-apis/opengl/debugger/OpenGLDebugger.h" line="15" col="10" msg="&apos;GL/glew.h&apos; file not found" />
+ <error level="warning" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/ingame-debug/HudItemsManager.cpp" line="13" col="38" msg="declaration requires an exit-time destructor" />
+ <error level="warning" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/ingame-debug/HudItemsManager.cpp" line="13" col="38" msg="declaration requires a global destructor" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/subsystems/ingame-debug/HudItemsManager.cpp" line="14" col="6" msg="no type named &apos;mutex&apos; in namespace &apos;std&apos;" />
+</log>

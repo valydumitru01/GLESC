@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cppdepend-plugin tool="Misra">
+<file path="c:\program files\cppdepend\defaulttoolchain\compiler\include\c++\bits\stl_pair.h"><violation beginline="198" begincolumn="5" rule="Rule11-0-1" ruleset="Classes">
+</violation>
+</file><file path="c:\users\valyd\desktop\github_repos\tfg---opengl-engine\include\engine\subsystems\ingame-debug\console.h"><violation beginline="24" begincolumn="5" rule="Rule11-0-1" ruleset="Classes">
+</violation>
+<violation beginline="55" begincolumn="9" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="55" begincolumn="9" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="55" begincolumn="9" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+</file></cppdepend-plugin>

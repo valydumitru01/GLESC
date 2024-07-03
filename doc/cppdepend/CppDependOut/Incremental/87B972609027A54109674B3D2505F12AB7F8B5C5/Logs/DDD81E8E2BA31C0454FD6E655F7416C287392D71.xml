@@ -1,0 +1,6 @@
+<log>
+ <error level="warning" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include\engine/core/math/algebra/vector/VectorAlgorithms.h" line="362" col="20" msg="template parameter &apos;Type&apos; not found in the template declaration" />
+ <error level="warning" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/math/geometry/figures/polyhedron/Polyhedron.cpp" line="16" col="31" msg="constructor parameter &apos;vertices&apos; shadows the field &apos;vertices&apos; of &apos;Polyhedron&apos;" />
+ <error level="warning" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/math/geometry/figures/polyhedron/Polyhedron.cpp" line="16" col="73" msg="constructor parameter &apos;faces&apos; shadows the field &apos;faces&apos; of &apos;Polyhedron&apos;" />
+ <error level="warning" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/math/geometry/figures/polyhedron/Polyhedron.cpp" line="159" col="64" msg="declaration shadows a field of &apos;GLESC::Math::Polyhedron&apos;" />
+</log>

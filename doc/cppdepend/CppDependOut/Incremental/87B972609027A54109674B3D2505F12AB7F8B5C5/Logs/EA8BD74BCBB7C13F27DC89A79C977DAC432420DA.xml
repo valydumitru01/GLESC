@@ -1,0 +1,6 @@
+<log>
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/debugger/Stacktrace.cpp" line="15" col="10" msg="&apos;boost/stacktrace.hpp&apos; file not found" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/debugger/Stacktrace.cpp" line="39" col="26" msg="use of undeclared identifier &apos;PROJECT_BINARY_DIR&apos;" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/debugger/Stacktrace.cpp" line="40" col="38" msg="use of undeclared identifier &apos;PROJECT_NAME&apos;" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/debugger/Stacktrace.cpp" line="42" col="21" msg="use of undeclared identifier &apos;boost&apos;" />
+</log>

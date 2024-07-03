@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cppdepend-plugin tool="Misra">
+<file path="c:\users\valyd\desktop\github_repos\tfg---opengl-engine\src\engine\core\file-system\binpath.cpp"><violation beginline="25" begincolumn="22" rule="Rule5-14-1" ruleset="Statements">
+</violation>
+</file></cppdepend-plugin>

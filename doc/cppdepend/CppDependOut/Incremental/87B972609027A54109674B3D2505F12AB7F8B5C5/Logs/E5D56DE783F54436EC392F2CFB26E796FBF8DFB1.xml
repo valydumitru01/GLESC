@@ -1,0 +1,5 @@
+<log>
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests/main.cpp" line="1" col="10" msg="&apos;gtest/gtest.h&apos; file not found" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests/main.cpp" line="6" col="7" msg="no member named &apos;testing&apos; in the global namespace" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/tests/main.cpp" line="7" col="12" msg="use of undeclared identifier &apos;RUN_ALL_TESTS&apos;" />
+</log>

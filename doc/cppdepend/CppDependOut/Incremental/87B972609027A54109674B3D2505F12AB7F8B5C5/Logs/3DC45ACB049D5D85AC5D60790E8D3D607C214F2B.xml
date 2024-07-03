@@ -1,0 +1,15 @@
+<log>
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include\engine/res-mng/sounds/SoundLoader.h" line="11" col="10" msg="&apos;SDL2/SDL_mixer.h&apos; file not found" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/res-mng/sounds/SoundLoader.cpp" line="13" col="10" msg="&apos;SDL2/SDL.h&apos; file not found" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/res-mng/sounds/SoundLoader.cpp" line="20" col="41" msg="use of undeclared identifier &apos;SDL_INIT_AUDIO&apos;" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/res-mng/sounds/SoundLoader.cpp" line="21" col="5" msg="use of undeclared identifier &apos;SDL_GetError&apos;" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/res-mng/sounds/SoundLoader.cpp" line="23" col="49" msg="use of undeclared identifier &apos;MIX_DEFAULT_FORMAT&apos;" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/res-mng/sounds/SoundLoader.cpp" line="24" col="5" msg="use of undeclared identifier &apos;Mix_GetError&apos;" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/res-mng/sounds/SoundLoader.cpp" line="40" col="5" msg="use of undeclared identifier &apos;Mix_Quit&apos;" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/res-mng/sounds/SoundLoader.cpp" line="45" col="5" msg="unknown type name &apos;Mix_Chunk&apos;" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/res-mng/sounds/SoundLoader.cpp" line="45" col="24" msg="use of undeclared identifier &apos;Mix_LoadWAV&apos;" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/res-mng/sounds/SoundLoader.cpp" line="54" col="5" msg="unknown type name &apos;Mix_Music&apos;" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/res-mng/sounds/SoundLoader.cpp" line="54" col="20" msg="use of undeclared identifier &apos;Mix_LoadMUS&apos;" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/res-mng/sounds/SoundLoader.cpp" line="60" col="1" msg="unknown type name &apos;Mix_Music&apos;" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/res-mng/sounds/SoundLoader.cpp" line="66" col="1" msg="unknown type name &apos;Mix_Chunk&apos;" />
+</log>

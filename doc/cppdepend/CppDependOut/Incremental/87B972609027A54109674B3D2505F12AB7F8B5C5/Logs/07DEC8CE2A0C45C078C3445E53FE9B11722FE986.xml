@@ -1,0 +1,9 @@
+<log>
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/include\engine/core/counter/FPSManager.h" line="13" col="10" msg="&apos;SDL2/SDL.h&apos; file not found" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/counter/FPSManager.cpp" line="17" col="39" msg="unknown type name &apos;Uint32&apos;" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/counter/FPSManager.cpp" line="22" col="15" msg="use of undeclared identifier &apos;SDL_GetTicks&apos;" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/counter/FPSManager.cpp" line="39" col="1" msg="unknown type name &apos;Uint32&apos;" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/counter/FPSManager.cpp" line="48" col="1" msg="unknown type name &apos;Uint32&apos;" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/counter/FPSManager.cpp" line="52" col="1" msg="unknown type name &apos;Uint32&apos;" />
+ <error level="warning" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/counter/FPSManager.cpp" line="53" col="24" msg="implicit conversion changes signedness: &apos;unsigned long&apos; to &apos;int&apos;" />
+</log>

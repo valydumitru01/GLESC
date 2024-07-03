@@ -1,0 +1,260 @@
+<Index><File path="C:\Users\valyd\Desktop\Github_Repos\TFG---OpenGL-Engine\src\engine\ecs\backend\entity\EntityManager.cpp" id="13" stamp="1719244688"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\functional" id="43" stamp="1547491261"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\mingw32\bits\c++config.h" id="44" stamp="1547491262"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\mingw32\bits\os_defines.h" id="45" stamp="1547491262"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\mingw32\bits\cpu_defines.h" id="46" stamp="1547491262"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\stl_function.h" id="47" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\move.h" id="48" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\concept_check.h" id="49" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\type_traits" id="14" stamp="1547491262"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\backward\binders.h" id="50" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\new" id="51" stamp="1547491263"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\exception" id="52" stamp="1547491263"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\exception.h" id="16" stamp="1547491263"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\exception_ptr.h" id="53" stamp="1547491263"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\exception_defines.h" id="54" stamp="1547491263"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\cxxabi_init_exception.h" id="55" stamp="1547491263"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\stddef.h" id="56" stamp="1547488189"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\typeinfo" id="57" stamp="1547491263"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\hash_bytes.h" id="58" stamp="1547491263"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\nested_exception.h" id="59" stamp="1547491263"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\tuple" id="60" stamp="1547491262"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\utility" id="61" stamp="1547491262"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\stl_relops.h" id="62" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\stl_pair.h" id="17" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\initializer_list" id="63" stamp="1547491263"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\array" id="26" stamp="1547491261"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\stdexcept" id="25" stamp="1547491261"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\string" id="64" stamp="1547491262"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\stringfwd.h" id="19" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\memoryfwd.h" id="18" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\char_traits.h" id="21" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\stl_algobase.h" id="65" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\functexcept.h" id="66" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\cpp_type_traits.h" id="67" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\ext\type_traits.h" id="68" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\ext\numeric_traits.h" id="69" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\stl_iterator_base_types.h" id="70" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\stl_iterator_base_funcs.h" id="71" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\debug\assertions.h" id="72" stamp="1547491262"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\stl_iterator.h" id="15" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\ptr_traits.h" id="73" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\debug\debug.h" id="74" stamp="1547491262"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\predefined_ops.h" id="75" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\postypes.h" id="76" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\cwchar" id="77" stamp="1547491261"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\include\wchar.h" id="78" stamp="1548162050"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\include\_mingw.h" id="79" stamp="1548162050"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\include\msvcrtver.h" id="80" stamp="1548162050"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\include\w32api.h" id="81" stamp="1548162064"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\include\sdkddkver.h" id="82" stamp="1548162064"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\include\features.h" id="83" stamp="1553702634"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\include\wctype.h" id="84" stamp="1548162050"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\include\sys\types.h" id="85" stamp="1548162050"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\include\stdio.h" id="86" stamp="1548162050"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\include\stdlib.h" id="87" stamp="1548162050"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\include\direct.h" id="88" stamp="1548162050"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\include\sys\stat.h" id="89" stamp="1548162050"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\include\conio.h" id="90" stamp="1548162050"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\include\io.h" id="91" stamp="1548162050"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\include\stdint.h" id="92" stamp="1548162050"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\include\time.h" id="93" stamp="1548162050"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\include\locale.h" id="94" stamp="1548162050"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\include\process.h" id="95" stamp="1548162050"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\cstdint" id="96" stamp="1547491261"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\allocator.h" id="22" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\mingw32\bits\c++allocator.h" id="97" stamp="1547491262"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\ext\new_allocator.h" id="98" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\localefwd.h" id="99" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\mingw32\bits\c++locale.h" id="100" stamp="1547491262"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\clocale" id="101" stamp="1547491261"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\iosfwd" id="23" stamp="1547491261"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\cctype" id="102" stamp="1547491261"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\include\ctype.h" id="103" stamp="1548162050"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\ostream_insert.h" id="104" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\cxxabi_forced.h" id="105" stamp="1547491263"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\range_access.h" id="106" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\basic_string.h" id="24" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\ext\atomicity.h" id="107" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\mingw32\bits\gthr.h" id="108" stamp="1547491262"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\mingw32\bits\gthr-default.h" id="109" stamp="1547491262"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\include\errno.h" id="110" stamp="1548162050"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\mingw32\bits\atomic_word.h" id="111" stamp="1547491262"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\ext\alloc_traits.h" id="112" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\alloc_traits.h" id="113" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\string_view" id="114" stamp="1547491262"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\limits" id="20" stamp="1547491261"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\functional_hash.h" id="115" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\string_view.tcc" id="116" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\ext\string_conversions.h" id="117" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\cstdlib" id="118" stamp="1547491261"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\tr1\stdlib.h" id="119" stamp="1547491261"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\tr1\cstdlib" id="120" stamp="1547491261"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\std_abs.h" id="121" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\cstdio" id="122" stamp="1547491261"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\cerrno" id="123" stamp="1547491261"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\basic_string.tcc" id="38" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\uses_allocator.h" id="124" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\invoke.h" id="125" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\refwrap.h" id="126" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\std_function.h" id="27" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\unordered_map" id="127" stamp="1547491262"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\ext\aligned_buffer.h" id="128" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\hashtable.h" id="129" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\hashtable_policy.h" id="39" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\node_handle.h" id="130" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\optional" id="131" stamp="1547491261"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\enable_special_members.h" id="132" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\unordered_map.h" id="30" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\vector" id="133" stamp="1547491262"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\stl_construct.h" id="134" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\stl_uninitialized.h" id="135" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\stl_vector.h" id="31" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\stl_bvector.h" id="136" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\vector.tcc" id="137" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\stl_algo.h" id="40" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\algorithmfwd.h" id="138" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\stl_heap.h" id="139" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\stl_tempbuf.h" id="140" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\uniform_int_dist.h" id="141" stamp="1547491258"  exclude="false"/><File path="C:\Users\valyd\Desktop\Github_Repos\TFG---OpenGL-Engine\include\engine\ecs\backend\entity\EntityManager.h" id="12" stamp="1719244689"  exclude="false" include="true" bind="true"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\queue" id="142" stamp="1547491261"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\deque" id="143" stamp="1547491261"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\stl_deque.h" id="144" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\deque.tcc" id="145" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\stl_queue.h" id="32" stamp="1547491258"  exclude="false"/><File path="C:\Users\valyd\Desktop\Github_Repos\TFG---OpenGL-Engine\include\engine\core\asserts\Asserts.h" id="8" stamp="1719150515"  exclude="false" include="true"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\cmath" id="146" stamp="1547491261"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\tr1\math.h" id="147" stamp="1547491261"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\tr1\cmath" id="148" stamp="1547491261"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\specfun.h" id="149" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\tr1\gamma.tcc" id="150" stamp="1547491261"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\tr1\special_function_util.h" id="151" stamp="1547491261"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\tr1\bessel_function.tcc" id="152" stamp="1547491261"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\tr1\beta_function.tcc" id="153" stamp="1547491261"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\tr1\ell_integral.tcc" id="154" stamp="1547491261"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\tr1\exp_integral.tcc" id="155" stamp="1547491261"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\tr1\hypergeometric.tcc" id="156" stamp="1547491261"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\tr1\legendre_function.tcc" id="157" stamp="1547491261"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\tr1\modified_bessel_func.tcc" id="158" stamp="1547491261"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\tr1\poly_hermite.tcc" id="159" stamp="1547491261"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\tr1\poly_laguerre.tcc" id="160" stamp="1547491261"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\tr1\riemann_zeta.tcc" id="161" stamp="1547491261"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\sstream" id="34" stamp="1547491261"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\istream" id="162" stamp="1547491261"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\ios" id="163" stamp="1547491261"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\ios_base.h" id="41" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\locale_classes.h" id="164" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\locale_classes.tcc" id="165" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\system_error" id="166" stamp="1547491262"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\mingw32\bits\error_constants.h" id="167" stamp="1547491262"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\streambuf" id="168" stamp="1547491262"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\streambuf.tcc" id="169" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\basic_ios.h" id="170" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\locale_facets.h" id="171" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\cwctype" id="172" stamp="1547491261"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\mingw32\bits\ctype_base.h" id="173" stamp="1547491262"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\streambuf_iterator.h" id="174" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\mingw32\bits\ctype_inline.h" id="175" stamp="1547491262"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\locale_facets.tcc" id="176" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\basic_ios.tcc" id="177" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\ostream" id="33" stamp="1547491261"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\ostream.tcc" id="178" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\istream.tcc" id="179" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\sstream.tcc" id="180" stamp="1547491258"  exclude="false"/><File path="C:\Users\valyd\Desktop\Github_Repos\TFG---OpenGL-Engine\include\engine\core\exceptions\core\AssertFailedException.h" id="3" stamp="1719244860"  exclude="false"/><File path="C:\Users\valyd\Desktop\Github_Repos\TFG---OpenGL-Engine\include\engine\core\exceptions\EngineException.h" id="2" stamp="1719151449"  exclude="false"/><File path="C:\Users\valyd\Desktop\Github_Repos\TFG---OpenGL-Engine\include\engine\core\exceptions\BaseException.h" id="1" stamp="1719151471"  exclude="false"/><File path="C:\Users\valyd\Desktop\Github_Repos\TFG---OpenGL-Engine\include\engine\core\debugger\Stringer.h" id="4" stamp="1719151449"  exclude="false" include="true"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\iomanip" id="42" stamp="1547491261"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\locale" id="181" stamp="1547491261"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\locale_facets_nonio.h" id="182" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\ctime" id="183" stamp="1547491261"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\mingw32\bits\time_members.h" id="184" stamp="1547491262"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\mingw32\bits\messages_members.h" id="185" stamp="1547491262"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\codecvt.h" id="186" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\locale_facets_nonio.tcc" id="187" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\locale_conv.h" id="188" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\unique_ptr.h" id="35" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\quoted_string.h" id="189" stamp="1547491258"  exclude="false"/><File path="C:\Users\valyd\Desktop\Github_Repos\TFG---OpenGL-Engine\include\engine\core\logger\Logger.h" id="7" stamp="1719244906"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\memory" id="190" stamp="1547491261"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\stl_raw_storage_iter.h" id="191" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\ext\concurrence.h" id="192" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\shared_ptr.h" id="29" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\shared_ptr_base.h" id="193" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\allocated_ptr.h" id="194" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\shared_ptr_atomic.h" id="195" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\atomic_base.h" id="196" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\atomic_lockfree_defines.h" id="197" stamp="1547491263"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\backward\auto_ptr.h" id="198" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\atomic" id="36" stamp="1547491261"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\thread" id="199" stamp="1547491262"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\chrono" id="200" stamp="1547491261"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\ratio" id="201" stamp="1547491261"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\parse_numbers.h" id="202" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\mutex" id="203" stamp="1547491261"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\std_mutex.h" id="204" stamp="1547491258"  exclude="false"/><File path="C:\Users\valyd\Desktop\Github_Repos\TFG---OpenGL-Engine\include\engine\core\logger\ILogger.h" id="5" stamp="1719244778"  exclude="false"/><File path="C:\Users\valyd\Desktop\Github_Repos\TFG---OpenGL-Engine\include\engine\core\logger\ConcurrentQueue.h" id="6" stamp="1718825755"  exclude="false" include="true"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\condition_variable" id="205" stamp="1547491261"  exclude="false"/><File path="C:\Users\valyd\Desktop\Github_Repos\TFG---OpenGL-Engine\include\engine\ecs\ECSTypes.h" id="9" stamp="1719244950"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bitset" id="28" stamp="1547491261"  exclude="false"/><File path="C:\Users\valyd\Desktop\Github_Repos\TFG---OpenGL-Engine\include\engine\Config.h" id="206" stamp="1718825755"  exclude="false"/><File path="C:\Users\valyd\Desktop\Github_Repos\TFG---OpenGL-Engine\include\engine\subsystems\ingame-debug\EntityListManager.h" id="11" stamp="1719176306"  exclude="false"/><File path="C:\Users\valyd\Desktop\Github_Repos\TFG---OpenGL-Engine\include\engine\EntityTypes.h" id="10" stamp="1719244859"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\set" id="207" stamp="1547491261"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\stl_tree.h" id="208" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\stl_set.h" id="209" stamp="1547491258"  exclude="false"/><File path="C:\Program Files\CppDepend\DefaultToolchain\compiler\include\c++\bits\stl_multiset.h" id="37" stamp="1547491258"  exclude="false"/>
+<Comments>
+<c f="8" b="1" e="12" />
+<c f="8" b="14" e="0" />
+<c f="8" b="17" e="17" />
+<c f="8" b="18" e="18" />
+<c f="8" b="19" e="19" />
+<c f="8" b="21" e="0" />
+<c f="8" b="54" e="54" />
+<c f="8" b="55" e="55" />
+<c f="8" b="57" e="64" />
+<c f="8" b="65" e="0" />
+<c f="8" b="69" e="81" />
+<c f="8" b="82" e="0" />
+<c f="8" b="84" e="84" />
+<c f="8" b="85" e="0" />
+<c f="8" b="93" e="93" />
+<c f="8" b="94" e="0" />
+<c f="8" b="97" e="97" />
+<c f="8" b="98" e="0" />
+<c f="8" b="178" e="178" />
+<c f="8" b="179" e="179" />
+<c f="8" b="181" e="0" />
+</Comments>
+<Macros />
+<Comments>
+<c f="4" b="1" e="9" />
+<c f="4" b="10" e="0" />
+<c f="4" b="31" e="31" />
+<c f="4" b="32" e="0" />
+<c f="4" b="35" e="35" />
+<c f="4" b="36" e="0" />
+<c f="4" b="39" e="39" />
+<c f="4" b="40" e="0" />
+<c f="4" b="46" e="48" />
+<c f="4" b="49" e="0" />
+<c f="4" b="51" e="54" />
+<c f="4" b="55" e="0" />
+<c f="4" b="58" e="67" />
+<c f="4" b="68" e="0" />
+<c f="4" b="78" e="82" />
+<c f="4" b="83" e="0" />
+<c f="4" b="87" e="92" />
+<c f="4" b="93" e="0" />
+<c f="4" b="94" e="99" />
+<c f="4" b="100" e="0" />
+<c f="4" b="104" e="108" />
+<c f="4" b="109" e="0" />
+<c f="4" b="115" e="115" />
+<c f="4" b="116" e="0" />
+<c f="4" b="134" e="134" />
+<c f="4" b="135" e="0" />
+<c f="4" b="144" e="144" />
+<c f="4" b="145" e="0" />
+<c f="4" b="149" e="149" />
+<c f="4" b="150" e="0" />
+<c f="4" b="153" e="153" />
+<c f="4" b="154" e="0" />
+<c f="4" b="157" e="157" />
+<c f="4" b="158" e="0" />
+<c f="4" b="162" e="166" />
+<c f="4" b="167" e="0" />
+<c f="4" b="183" e="183" />
+<c f="4" b="184" e="0" />
+<c f="4" b="184" e="184" />
+</Comments>
+<Macros>
+<m f="4" bl="76" bc="30" el="76" ec="30" />
+</Macros>
+<Comments>
+<c f="1" b="1" e="9" />
+<c f="1" b="11" e="0" />
+</Comments>
+<Macros />
+<Comments>
+<c f="3" b="1" e="9" />
+<c f="3" b="10" e="0" />
+<c f="3" b="16" e="16" />
+</Comments>
+<Macros />
+<Comments>
+<c f="2" b="1" e="9" />
+<c f="2" b="10" e="0" />
+</Comments>
+<Macros />
+<Comments>
+<c f="6" b="1" e="8" />
+<c f="6" b="10" e="0" />
+</Comments>
+<Macros />
+<Comments>
+<c f="5" b="1" e="9" />
+<c f="5" b="11" e="0" />
+<c f="5" b="17" e="21" />
+<c f="5" b="22" e="0" />
+<c f="5" b="23" e="29" />
+<c f="5" b="30" e="0" />
+<c f="5" b="32" e="38" />
+<c f="5" b="39" e="0" />
+<c f="5" b="41" e="47" />
+<c f="5" b="48" e="0" />
+<c f="5" b="50" e="56" />
+<c f="5" b="57" e="0" />
+<c f="5" b="60" e="66" />
+<c f="5" b="67" e="0" />
+<c f="5" b="69" e="75" />
+<c f="5" b="77" e="0" />
+<c f="5" b="78" e="84" />
+<c f="5" b="85" e="0" />
+<c f="5" b="86" e="92" />
+<c f="5" b="94" e="0" />
+<c f="5" b="96" e="102" />
+<c f="5" b="103" e="0" />
+<c f="5" b="105" e="111" />
+<c f="5" b="112" e="0" />
+<c f="5" b="114" e="117" />
+<c f="5" b="118" e="0" />
+<c f="5" b="120" e="126" />
+<c f="5" b="127" e="0" />
+</Comments>
+<Macros />
+<Comments>
+<c f="7" b="1" e="9" />
+<c f="7" b="11" e="0" />
+</Comments>
+<Macros />
+<Comments>
+<c f="12" b="1" e="9" />
+<c f="12" b="11" e="0" />
+<c f="12" b="32" e="34" />
+<c f="12" b="35" e="0" />
+<c f="12" b="43" e="45" />
+<c f="12" b="46" e="0" />
+<c f="12" b="56" e="60" />
+<c f="12" b="61" e="0" />
+<c f="12" b="63" e="69" />
+<c f="12" b="70" e="0" />
+<c f="12" b="75" e="78" />
+<c f="12" b="79" e="0" />
+<c f="12" b="81" e="85" />
+<c f="12" b="86" e="0" />
+<c f="12" b="88" e="92" />
+<c f="12" b="93" e="0" />
+<c f="12" b="96" e="100" />
+<c f="12" b="101" e="0" />
+<c f="12" b="103" e="107" />
+<c f="12" b="108" e="0" />
+<c f="12" b="110" e="114" />
+<c f="12" b="115" e="0" />
+<c f="12" b="117" e="122" />
+<c f="12" b="123" e="0" />
+<c f="12" b="126" e="132" />
+<c f="12" b="133" e="0" />
+<c f="12" b="135" e="139" />
+<c f="12" b="140" e="0" />
+<c f="12" b="142" e="146" />
+<c f="12" b="147" e="0" />
+<c f="12" b="149" e="153" />
+<c f="12" b="154" e="0" />
+<c f="12" b="156" e="160" />
+<c f="12" b="161" e="0" />
+<c f="12" b="163" e="166" />
+<c f="12" b="167" e="0" />
+<c f="12" b="169" e="173" />
+<c f="12" b="174" e="0" />
+<c f="12" b="179" e="181" />
+<c f="12" b="182" e="0" />
+<c f="12" b="183" e="187" />
+<c f="12" b="188" e="0" />
+<c f="12" b="189" e="189" />
+<c f="12" b="190" e="190" />
+<c f="12" b="191" e="0" />
+<c f="12" b="197" e="199" />
+<c f="12" b="200" e="0" />
+<c f="12" b="201" e="205" />
+<c f="12" b="206" e="0" />
+<c f="12" b="207" e="207" />
+<c f="12" b="208" e="0" />
+<c f="12" b="208" e="208" />
+</Comments>
+<Macros>
+<m f="12" bl="37" bc="9" el="38" ec="86" />
+</Macros>
+<Comments>
+<c f="9" b="1" e="9" />
+<c f="9" b="11" e="0" />
+<c f="9" b="23" e="25" />
+<c f="9" b="26" e="0" />
+<c f="9" b="27" e="29" />
+<c f="9" b="30" e="0" />
+<c f="9" b="31" e="33" />
+<c f="9" b="34" e="0" />
+<c f="9" b="35" e="37" />
+<c f="9" b="38" e="0" />
+<c f="9" b="39" e="41" />
+<c f="9" b="42" e="0" />
+<c f="9" b="43" e="45" />
+<c f="9" b="46" e="0" />
+<c f="9" b="47" e="50" />
+<c f="9" b="51" e="0" />
+<c f="9" b="52" e="54" />
+<c f="9" b="55" e="0" />
+<c f="9" b="56" e="58" />
+<c f="9" b="59" e="0" />
+<c f="9" b="61" e="66" />
+<c f="9" b="67" e="0" />
+<c f="9" b="68" e="68" />
+</Comments>
+<Macros>
+<m f="9" bl="55" bc="41" el="55" ec="41" />
+<m f="9" bl="59" bc="46" el="59" ec="46" />
+</Macros>
+<Comments>
+<c f="10" b="1" e="9" />
+<c f="10" b="10" e="0" />
+<c f="10" b="12" e="15" />
+<c f="10" b="16" e="0" />
+</Comments>
+<Macros />
+<Comments>
+<c f="11" b="1" e="9" />
+<c f="11" b="10" e="0" />
+<c f="11" b="18" e="20" />
+<c f="11" b="21" e="0" />
+<c f="11" b="34" e="39" />
+<c f="11" b="40" e="0" />
+<c f="11" b="51" e="51" />
+<c f="11" b="52" e="0" />
+</Comments>
+<Macros />
+<Comments>
+<c f="13" b="1" e="9" />
+<c f="13" b="11" e="0" />
+<c f="13" b="21" e="21" />
+<c f="13" b="22" e="0" />
+<c f="13" b="143" e="143" />
+<c f="13" b="144" e="0" />
+<c f="13" b="148" e="148" />
+<c f="13" b="149" e="0" />
+</Comments>
+<Macros>
+<m f="13" bl="38" bc="5" el="38" ec="80" />
+<m f="13" bl="47" bc="5" el="47" ec="74" />
+<m f="13" bl="52" bc="5" el="52" ec="91" />
+<m f="13" bl="53" bc="5" el="53" ec="82" />
+<m f="13" bl="54" bc="5" el="54" ec="101" />
+<m f="13" bl="75" bc="5" el="75" ec="86" />
+<m f="13" bl="76" bc="5" el="76" ec="87" />
+<m f="13" bl="80" bc="5" el="80" ec="84" />
+<m f="13" bl="85" bc="5" el="85" ec="94" />
+<m f="13" bl="86" bc="5" el="86" ec="106" />
+<m f="13" bl="91" bc="5" el="91" ec="79" />
+<m f="13" bl="96" bc="5" el="96" ec="83" />
+<m f="13" bl="101" bc="5" el="101" ec="75" />
+<m f="13" bl="121" bc="5" el="121" ec="86" />
+<m f="13" bl="122" bc="5" el="122" ec="94" />
+<m f="13" bl="123" bc="5" el="123" ec="110" />
+<m f="13" bl="128" bc="5" el="128" ec="82" />
+<m f="13" bl="129" bc="5" el="129" ec="92" />
+</Macros></Index>

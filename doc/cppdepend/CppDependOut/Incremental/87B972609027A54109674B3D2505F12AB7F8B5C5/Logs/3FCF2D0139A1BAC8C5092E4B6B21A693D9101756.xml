@@ -1,0 +1,4 @@
+<log>
+ <error level="warning" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/ecs/backend/ECS.cpp" line="72" col="16" msg="returning reference to local temporary object" />
+ <error level="warning" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/ecs/backend/ECS.cpp" line="101" col="73" msg="implicit conversion loses integer precision: &apos;size_t&apos; (aka &apos;unsigned long long&apos;) to &apos;ComponentID&apos; (aka &apos;unsigned char&apos;)" />
+</log>

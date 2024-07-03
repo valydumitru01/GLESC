@@ -1,0 +1,1 @@
+﻿<?xml version='1.0' encoding='UTF-8'?><Solution><Project name="GLESC" path="C:\Users\valyd\Desktop\Github_Repos\TFG---OpenGL-Engine\GLESC.proj" /></Solution>

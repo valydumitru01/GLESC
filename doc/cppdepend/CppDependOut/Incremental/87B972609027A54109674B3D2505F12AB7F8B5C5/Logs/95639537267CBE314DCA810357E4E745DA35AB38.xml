@@ -1,0 +1,5 @@
+<log>
+ <error level="warning" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/ecs/frontend/entity/Entity.cpp" line="14" col="88" msg="constructor parameter &apos;ecs&apos; shadows the field &apos;ecs&apos; of &apos;Entity&apos;" />
+ <error level="warning" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/ecs/frontend/entity/Entity.cpp" line="18" col="32" msg="constructor parameter &apos;ecs&apos; shadows the field &apos;ecs&apos; of &apos;Entity&apos;" />
+ <error level="warning" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/ecs/frontend/entity/Entity.cpp" line="21" col="45" msg="constructor parameter &apos;ecs&apos; shadows the field &apos;ecs&apos; of &apos;Entity&apos;" />
+</log>

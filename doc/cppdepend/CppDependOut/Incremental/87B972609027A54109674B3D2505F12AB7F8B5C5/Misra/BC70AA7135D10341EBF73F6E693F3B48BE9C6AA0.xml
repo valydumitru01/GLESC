@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cppdepend-plugin tool="Misra">
+<file path="c:\users\valyd\desktop\github_repos\tfg---opengl-engine\include\engine\subsystems\hud\hudlookandfeel.h"><violation beginline="39" begincolumn="5" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="27" begincolumn="5" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="59" begincolumn="5" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="27" begincolumn="5" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+<violation beginline="27" begincolumn="5" rule="Rule7-5-4" ruleset="Declarations">
+</violation>
+</file></cppdepend-plugin>

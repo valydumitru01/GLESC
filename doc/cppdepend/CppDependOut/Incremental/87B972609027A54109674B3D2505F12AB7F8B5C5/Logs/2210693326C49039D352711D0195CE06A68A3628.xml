@@ -1,0 +1,6 @@
+<log>
+ <error level="warning" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/file-system/BinPath.cpp" line="14" col="7" msg="&apos;__MAC__&apos; is not defined, evaluates to 0" />
+ <error level="warning" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/file-system/BinPath.cpp" line="16" col="7" msg="&apos;__LINUX__&apos; is not defined, evaluates to 0" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/file-system/BinPath.cpp" line="24" col="5" msg="unknown type name &apos;DWORD&apos;" />
+ <error level="error" id="clang-tidy" file="C:/Users/valyd/Desktop/Github_Repos/TFG---OpenGL-Engine/src/engine/core/file-system/BinPath.cpp" line="24" col="18" msg="use of undeclared identifier &apos;GetModuleFileName&apos;" />
+</log>
