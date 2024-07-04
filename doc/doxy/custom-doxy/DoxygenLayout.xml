@@ -1,0 +1,13 @@
+<doxygenlayout version="1.0">
+    <navindex>
+        <!-- Add other layout definitions here -->
+        <tab type="mainpage" visible="yes" title="Main Page"/>
+        <tab type="modules" visible="yes" title="Modules"/>
+        <tab type="namespaces" visible="yes" title="Namespaces"/>
+        <tab type="classes" visible="yes" title="Classes"/>
+        <tab type="files" visible="yes" title="Files"/>
+        <!-- Add your custom tab -->
+        <tab type="user" visible="yes" url="../../../directory-documentation/folder-structure.html"
+             title="Folder Descriptions"/>
+    </navindex>
+</doxygenlayout>

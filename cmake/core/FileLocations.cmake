@@ -65,9 +65,9 @@ else ()
             ${BIN_DIR}/release)
 endif ()
 
-set_new_dir(BIN_BIN_LOCATION /)
+set_new_dir(BIN_BIN_LOCATION .)
 
-set_new_dir(ASSETS_BIN_LOCATION /)
+set_new_dir(ASSETS_BIN_LOCATION .)
 set_new_dir(ASSETS_BIN_DIR /assets)
 set_new_dir(ASSETS_SOUND_BIN_DIR ${ASSETS_BIN_DIR}/sounds)
 set_new_dir(ASSETS_SHADER_BIN_DIR ${ASSETS_BIN_DIR}/shaders)

@@ -1,5 +1,6 @@
 var _matrix_tests_8cpp =
 [
+    [ "RENDERING_INTEGRATION_TESTING", "_matrix_tests_8cpp.html#a4f37edd45e638489625b2c37a7577516", null ],
     [ "TEST", "_matrix_tests_8cpp.html#a587c0aeac54699528ba962dab07d5e4a", null ],
     [ "textMatrixWithGlm", "_matrix_tests_8cpp.html#a4fddb071190e10b479848706aca02cc1", null ],
     [ "TYPED_TEST", "_matrix_tests_8cpp.html#aaf0a7fa7fde432263c929eb55f8eeea4", null ],

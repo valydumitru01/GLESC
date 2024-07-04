@@ -9,7 +9,7 @@
 
 # ··················Module Dependencies·····················
 
-include_cmake_once(modules/FileLocations.cmake)
+include_cmake_once(core/FileLocations.cmake)
 
 # ··························································
 

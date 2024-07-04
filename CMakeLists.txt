@@ -25,10 +25,10 @@ set(CMAKE_MESSAGE_LOG_LEVEL DEBUG)
 # Core functionality, needed to build the project
 # Using the regular include, because the custom
 # include_once might depend on these
-include(cmake/core/Printing.cmake)
-include(cmake/core/ErrorChecking.cmake)
-include(cmake/core/Including.cmake)
-include(cmake/core/PlatformDetection.cmake)
+include(cmake/modules/Printing.cmake)
+include(cmake/modules/ErrorChecking.cmake)
+include(cmake/modules/Including.cmake)
+include(cmake/modules/PlatformDetection.cmake)
 important_info("CMake Version: ${CMAKE_VERSION}")
 
 # Main project name
@@ -37,12 +37,12 @@ project(game)
 set(CMAKE_CXX_STANDARD 17)
 important_info("C++ Version: ${CMAKE_CXX_STANDARD}")
 
-include_cmake_once(modules/FindPackages.cmake)
-include_cmake_once(modules/FileLocations.cmake)
-include_cmake_once(modules/LinkLibraries.cmake)
-include_cmake_once(modules/CompilerDefinitions.cmake)
-include_cmake_once(modules/CompilerFlags.cmake)
-include_cmake_once(modules/Testing.cmake)
+include_cmake_once(core/FindPackages.cmake)
+include_cmake_once(core/FileLocations.cmake)
+include_cmake_once(core/LinkLibraries.cmake)
+include_cmake_once(core/CompilerDefinitions.cmake)
+include_cmake_once(core/CompilerFlags.cmake)
+include_cmake_once(core/Testing.cmake)
 
 if (CMAKE_BUILD_TYPE STREQUAL "Debug")
     # Defining all the targets of the project

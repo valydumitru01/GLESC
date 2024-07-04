@@ -611,7 +611,7 @@ while (x == y)
   [Formatting](#formatting)
 - **Functions**: Define reusable functions for common tasks to avoid redundancy.
 - **Error Handling**: Use the common functions for error handling defined in
-  [`ErrorChecking.cmake`](../cmake/core/ErrorChecking.cmake).
+  [`ErrorChecking.cmake`](../cmake/modules/ErrorChecking.cmake).
 - **Including Files**: Use `include_once()` to include files to avoid multiple inclusions, defined in
   [`Include.cmake`](../cmake/core/Include.cmake).
 
