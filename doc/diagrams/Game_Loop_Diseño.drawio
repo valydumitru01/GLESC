@@ -1,0 +1,57 @@
+<mxfile host="Electron" modified="2024-07-03T20:34:16.228Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.5.3 Chrome/124.0.6367.207 Electron/30.0.6 Safari/537.36" etag="KmOee31j2Eqqq1NmDzSZ" version="24.5.3" type="device">
+  <diagram name="Página-1" id="2lp4uydA60VJKY2f_2jK">
+    <mxGraphModel dx="161" dy="-575" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="U_L3LUjmjr-v7UIAmGIo-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="U_L3LUjmjr-v7UIAmGIo-2" target="U_L3LUjmjr-v7UIAmGIo-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="U_L3LUjmjr-v7UIAmGIo-2" value="Engine::processInput()" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="930" y="1280" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="U_L3LUjmjr-v7UIAmGIo-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="U_L3LUjmjr-v7UIAmGIo-3" target="U_L3LUjmjr-v7UIAmGIo-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="U_L3LUjmjr-v7UIAmGIo-3" value="Engine::update()" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1121" y="1280" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="U_L3LUjmjr-v7UIAmGIo-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;curved=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="U_L3LUjmjr-v7UIAmGIo-4" target="U_L3LUjmjr-v7UIAmGIo-2">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1430" y="1280" as="sourcePoint" />
+            <mxPoint x="920" y="1395" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1430" y="1310" />
+              <mxPoint x="1430" y="1400" />
+              <mxPoint x="910" y="1400" />
+              <mxPoint x="910" y="1310" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="U_L3LUjmjr-v7UIAmGIo-4" value="Engine::render()" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1280" y="1280" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="U_L3LUjmjr-v7UIAmGIo-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;curved=1;" edge="1" parent="1" source="U_L3LUjmjr-v7UIAmGIo-3" target="U_L3LUjmjr-v7UIAmGIo-3">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1121" y="1300" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1260" y="1295" />
+              <mxPoint x="1260" y="1240" />
+              <mxPoint x="1100" y="1240" />
+              <mxPoint x="1100" y="1295" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="U_L3LUjmjr-v7UIAmGIo-13" value="while (lag &amp;lt; MS_PER_UPDATE)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1081" y="1205" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="U_L3LUjmjr-v7UIAmGIo-14" value="lag - timeOfUppdate" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1116" y="1340" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="U_L3LUjmjr-v7UIAmGIo-15" value="while(Engine::isRunning)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="1410" width="160" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

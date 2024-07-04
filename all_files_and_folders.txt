@@ -1,0 +1,515 @@
+.
+├── assets
+│   ├── fonts
+│   ├── images
+│   │   ├── cubemaps
+│   │   │   └── skyboxes
+│   │   │       ├── default
+│   │   │       └── sea-day
+│   │   ├── icons
+│   │   ├── sprites
+│   │   │   └── engine-debug
+│   │   └── textures
+│   ├── shaders
+│   └── sounds
+├── bin
+│   ├── debug
+│   │   ├── CMakeFiles
+│   │   │   ├── 3.28.1
+│   │   │   │   ├── CompilerIdC
+│   │   │   │   │   └── tmp
+│   │   │   │   └── CompilerIdCXX
+│   │   │   │       └── tmp
+│   │   │   ├── CMakeScratch
+│   │   │   ├── FindOpenMP
+│   │   │   ├── game.dir
+│   │   │   │   ├── lib
+│   │   │   │   │   └── include
+│   │   │   │   │       ├── glm
+│   │   │   │   │       │   └── detail
+│   │   │   │   │       └── imgui
+│   │   │   │   └── src
+│   │   │   │       ├── engine
+│   │   │   │       │   ├── core
+│   │   │   │       │   │   ├── counter
+│   │   │   │       │   │   ├── debugger
+│   │   │   │       │   │   ├── exceptions
+│   │   │   │       │   │   ├── file-system
+│   │   │   │       │   │   ├── logger
+│   │   │   │       │   │   │   └── outputs
+│   │   │   │       │   │   ├── low-level-renderer
+│   │   │   │       │   │   │   ├── buffers
+│   │   │   │       │   │   │   ├── graphic-api
+│   │   │   │       │   │   │   │   └── concrete-apis
+│   │   │   │       │   │   │   │       ├── opengl
+│   │   │   │       │   │   │   │       └── vulkan
+│   │   │   │       │   │   │   └── shader
+│   │   │   │       │   │   ├── math
+│   │   │   │       │   │   │   └── geometry
+│   │   │   │       │   │   │       └── figures
+│   │   │   │       │   │   │           ├── line
+│   │   │   │       │   │   │           ├── plane
+│   │   │   │       │   │   │           ├── polyhedron
+│   │   │   │       │   │   │           └── sphere
+│   │   │   │       │   │   └── window
+│   │   │   │       │   ├── ecs
+│   │   │   │       │   │   ├── backend
+│   │   │   │       │   │   │   ├── component
+│   │   │   │       │   │   │   ├── entity
+│   │   │   │       │   │   │   └── system
+│   │   │   │       │   │   └── frontend
+│   │   │   │       │   │       ├── entity
+│   │   │   │       │   │       └── system
+│   │   │   │       │   │           └── systems
+│   │   │   │       │   ├── res-mng
+│   │   │   │       │   │   ├── files
+│   │   │   │       │   │   ├── sounds
+│   │   │   │       │   │   └── textures
+│   │   │   │       │   ├── scene
+│   │   │   │       │   │   └── engine-scenes
+│   │   │   │       │   └── subsystems
+│   │   │   │       │       ├── hud
+│   │   │   │       │       │   └── engine-hud
+│   │   │   │       │       ├── ingame-debug
+│   │   │   │       │       ├── input
+│   │   │   │       │       ├── physics
+│   │   │   │       │       ├── renderer
+│   │   │   │       │       │   ├── camera
+│   │   │   │       │       │   ├── fog
+│   │   │   │       │       │   ├── lightning
+│   │   │   │       │       │   ├── material
+│   │   │   │       │       │   ├── math
+│   │   │   │       │       │   ├── mesh
+│   │   │   │       │       │   └── texture
+│   │   │   │       │       ├── sound
+│   │   │   │       │       └── transform
+│   │   │   │       └── game
+│   │   │   │           └── scenes
+│   │   │   │               ├── shoot-chicken
+│   │   │   │               └── terrain
+│   │   │   ├── game_test.dir
+│   │   │   │   ├── lib
+│   │   │   │   │   └── include
+│   │   │   │   │       ├── glm
+│   │   │   │   │       │   └── detail
+│   │   │   │   │       └── imgui
+│   │   │   │   ├── src
+│   │   │   │   │   ├── engine
+│   │   │   │   │   │   ├── core
+│   │   │   │   │   │   │   ├── counter
+│   │   │   │   │   │   │   ├── debugger
+│   │   │   │   │   │   │   ├── exceptions
+│   │   │   │   │   │   │   ├── file-system
+│   │   │   │   │   │   │   ├── logger
+│   │   │   │   │   │   │   │   └── outputs
+│   │   │   │   │   │   │   ├── low-level-renderer
+│   │   │   │   │   │   │   │   ├── buffers
+│   │   │   │   │   │   │   │   ├── graphic-api
+│   │   │   │   │   │   │   │   │   └── concrete-apis
+│   │   │   │   │   │   │   │   │       ├── opengl
+│   │   │   │   │   │   │   │   │       └── vulkan
+│   │   │   │   │   │   │   │   └── shader
+│   │   │   │   │   │   │   ├── math
+│   │   │   │   │   │   │   │   └── geometry
+│   │   │   │   │   │   │   │       └── figures
+│   │   │   │   │   │   │   │           ├── line
+│   │   │   │   │   │   │   │           ├── plane
+│   │   │   │   │   │   │   │           ├── polyhedron
+│   │   │   │   │   │   │   │           └── sphere
+│   │   │   │   │   │   │   └── window
+│   │   │   │   │   │   ├── ecs
+│   │   │   │   │   │   │   ├── backend
+│   │   │   │   │   │   │   │   ├── component
+│   │   │   │   │   │   │   │   ├── entity
+│   │   │   │   │   │   │   │   └── system
+│   │   │   │   │   │   │   └── frontend
+│   │   │   │   │   │   │       ├── entity
+│   │   │   │   │   │   │       └── system
+│   │   │   │   │   │   │           └── systems
+│   │   │   │   │   │   ├── res-mng
+│   │   │   │   │   │   │   ├── files
+│   │   │   │   │   │   │   ├── sounds
+│   │   │   │   │   │   │   └── textures
+│   │   │   │   │   │   ├── scene
+│   │   │   │   │   │   │   └── engine-scenes
+│   │   │   │   │   │   └── subsystems
+│   │   │   │   │   │       ├── hud
+│   │   │   │   │   │       │   └── engine-hud
+│   │   │   │   │   │       ├── ingame-debug
+│   │   │   │   │   │       ├── input
+│   │   │   │   │   │       ├── physics
+│   │   │   │   │   │       ├── renderer
+│   │   │   │   │   │       │   ├── camera
+│   │   │   │   │   │       │   ├── fog
+│   │   │   │   │   │       │   ├── lightning
+│   │   │   │   │   │       │   ├── material
+│   │   │   │   │   │       │   ├── math
+│   │   │   │   │   │       │   ├── mesh
+│   │   │   │   │   │       │   └── texture
+│   │   │   │   │   │       ├── sound
+│   │   │   │   │   │       └── transform
+│   │   │   │   │   └── game
+│   │   │   │   │       └── scenes
+│   │   │   │   │           ├── shoot-chicken
+│   │   │   │   │           └── terrain
+│   │   │   │   └── tests
+│   │   │   │       └── unit
+│   │   │   │           └── engine
+│   │   │   │               ├── core
+│   │   │   │               │   ├── math
+│   │   │   │               │   │   ├── algebra
+│   │   │   │               │   │   │   ├── matrix
+│   │   │   │               │   │   │   └── vector
+│   │   │   │               │   │   ├── geometry
+│   │   │   │               │   │   └── random-generator
+│   │   │   │               │   └── window
+│   │   │   │               └── ecs
+│   │   │   │                   └── backend
+│   │   │   └── pkgRedirects
+│   │   ├── Testing
+│   │   │   └── Temporary
+│   │   ├── _deps
+│   │   │   ├── googletest-build
+│   │   │   │   ├── CMakeFiles
+│   │   │   │   ├── googlemock
+│   │   │   │   │   └── CMakeFiles
+│   │   │   │   │       ├── gmock.dir
+│   │   │   │   │       │   └── src
+│   │   │   │   │       └── gmock_main.dir
+│   │   │   │   │           └── src
+│   │   │   │   └── googletest
+│   │   │   │       ├── CMakeFiles
+│   │   │   │       │   ├── Export
+│   │   │   │       │   │   └── 0c08b8e77dd885bfe55a19a9659d9fc1
+│   │   │   │       │   ├── gtest.dir
+│   │   │   │       │   │   └── src
+│   │   │   │       │   └── gtest_main.dir
+│   │   │   │       │       └── src
+│   │   │   │       └── generated
+│   │   │   ├── googletest-src
+│   │   │   │   ├── ci
+│   │   │   │   ├── docs
+│   │   │   │   │   ├── _data
+│   │   │   │   │   ├── _layouts
+│   │   │   │   │   ├── _sass
+│   │   │   │   │   ├── assets
+│   │   │   │   │   │   └── css
+│   │   │   │   │   └── reference
+│   │   │   │   ├── googlemock
+│   │   │   │   │   ├── cmake
+│   │   │   │   │   ├── docs
+│   │   │   │   │   ├── include
+│   │   │   │   │   │   └── gmock
+│   │   │   │   │   │       └── internal
+│   │   │   │   │   │           └── custom
+│   │   │   │   │   ├── src
+│   │   │   │   │   └── test
+│   │   │   │   └── googletest
+│   │   │   │       ├── cmake
+│   │   │   │       ├── docs
+│   │   │   │       ├── include
+│   │   │   │       │   └── gtest
+│   │   │   │       │       └── internal
+│   │   │   │       │           └── custom
+│   │   │   │       ├── samples
+│   │   │   │       ├── src
+│   │   │   │       └── test
+│   │   │   └── googletest-subbuild
+│   │   │       ├── CMakeFiles
+│   │   │       │   ├── 3.28.1
+│   │   │       │   ├── googletest-populate.dir
+│   │   │       │   └── pkgRedirects
+│   │   │       └── googletest-populate-prefix
+│   │   │           ├── src
+│   │   │           │   └── googletest-populate-stamp
+│   │   │           └── tmp
+│   │   ├── assets
+│   │   │   ├── fonts
+│   │   │   ├── images
+│   │   │   │   ├── cubemaps
+│   │   │   │   │   └── skyboxes
+│   │   │   │   │       ├── default
+│   │   │   │   │       └── sea-day
+│   │   │   │   ├── icons
+│   │   │   │   ├── sprites
+│   │   │   │   │   └── engine-debug
+│   │   │   │   └── textures
+│   │   │   ├── shaders
+│   │   │   └── sounds
+│   │   ├── bin
+│   │   └── lib
+│   └── release
+│       ├── CMakeFiles
+│       │   ├── 3.28.1
+│       │   │   ├── CompilerIdC
+│       │   │   │   └── tmp
+│       │   │   └── CompilerIdCXX
+│       │   │       └── tmp
+│       │   ├── CMakeScratch
+│       │   ├── FindOpenMP
+│       │   ├── game.dir
+│       │   │   ├── lib
+│       │   │   │   └── include
+│       │   │   │       ├── glm
+│       │   │   │       │   └── detail
+│       │   │   │       └── imgui
+│       │   │   └── src
+│       │   │       ├── engine
+│       │   │       │   ├── core
+│       │   │       │   │   ├── counter
+│       │   │       │   │   ├── debugger
+│       │   │       │   │   ├── exceptions
+│       │   │       │   │   ├── file-system
+│       │   │       │   │   ├── logger
+│       │   │       │   │   │   └── outputs
+│       │   │       │   │   ├── low-level-renderer
+│       │   │       │   │   │   ├── buffers
+│       │   │       │   │   │   ├── graphic-api
+│       │   │       │   │   │   │   └── concrete-apis
+│       │   │       │   │   │   │       ├── opengl
+│       │   │       │   │   │   │       └── vulkan
+│       │   │       │   │   │   └── shader
+│       │   │       │   │   ├── math
+│       │   │       │   │   │   └── geometry
+│       │   │       │   │   │       └── figures
+│       │   │       │   │   │           ├── line
+│       │   │       │   │   │           ├── plane
+│       │   │       │   │   │           ├── polyhedron
+│       │   │       │   │   │           └── sphere
+│       │   │       │   │   └── window
+│       │   │       │   ├── ecs
+│       │   │       │   │   ├── backend
+│       │   │       │   │   │   ├── component
+│       │   │       │   │   │   ├── entity
+│       │   │       │   │   │   └── system
+│       │   │       │   │   └── frontend
+│       │   │       │   │       ├── entity
+│       │   │       │   │       └── system
+│       │   │       │   │           └── systems
+│       │   │       │   ├── res-mng
+│       │   │       │   │   ├── files
+│       │   │       │   │   ├── sounds
+│       │   │       │   │   └── textures
+│       │   │       │   ├── scene
+│       │   │       │   │   └── engine-scenes
+│       │   │       │   └── subsystems
+│       │   │       │       ├── hud
+│       │   │       │       │   └── engine-hud
+│       │   │       │       ├── ingame-debug
+│       │   │       │       ├── input
+│       │   │       │       ├── physics
+│       │   │       │       ├── renderer
+│       │   │       │       │   ├── camera
+│       │   │       │       │   ├── fog
+│       │   │       │       │   ├── lightning
+│       │   │       │       │   ├── material
+│       │   │       │       │   ├── math
+│       │   │       │       │   ├── mesh
+│       │   │       │       │   └── texture
+│       │   │       │       ├── sound
+│       │   │       │       └── transform
+│       │   │       └── game
+│       │   │           └── scenes
+│       │   │               ├── shoot-chicken
+│       │   │               └── terrain
+│       │   └── pkgRedirects
+│       ├── Testing
+│       │   └── Temporary
+│       └── assets
+│           ├── fonts
+│           ├── images
+│           │   ├── cubemaps
+│           │   │   └── skyboxes
+│           │   │       ├── default
+│           │   │       └── sea-day
+│           │   ├── icons
+│           │   ├── sprites
+│           │   │   └── engine-debug
+│           │   └── textures
+│           ├── shaders
+│           └── sounds
+├── cmake
+│   ├── core
+│   └── modules
+├── doc
+│   ├── cppdepend
+│   ├── diagrams
+│   ├── directory-documentation
+│   ├── doxy
+│   │   └── custom-doxy
+│   ├── gifs
+│   └── images
+├── include
+│   ├── engine
+│   │   ├── core
+│   │   │   ├── asserts
+│   │   │   ├── counter
+│   │   │   ├── debugger
+│   │   │   ├── exceptions
+│   │   │   │   ├── core
+│   │   │   │   │   ├── low-level-renderer
+│   │   │   │   │   └── math
+│   │   │   │   └── resources
+│   │   │   ├── file-system
+│   │   │   ├── hash
+│   │   │   ├── logger
+│   │   │   │   └── concrete-loggers
+│   │   │   ├── low-level-renderer
+│   │   │   │   ├── asserts
+│   │   │   │   ├── buffers
+│   │   │   │   ├── graphic-api
+│   │   │   │   │   ├── concrete-apis
+│   │   │   │   │   │   ├── debugger
+│   │   │   │   │   │   ├── directx
+│   │   │   │   │   │   ├── opengl
+│   │   │   │   │   │   │   └── debugger
+│   │   │   │   │   │   └── vulkan
+│   │   │   │   │   └── debugger
+│   │   │   │   └── shader
+│   │   │   ├── math
+│   │   │   │   ├── algebra
+│   │   │   │   │   ├── matrix
+│   │   │   │   │   └── vector
+│   │   │   │   ├── asserts
+│   │   │   │   └── geometry
+│   │   │   │       └── figures
+│   │   │   │           ├── line
+│   │   │   │           ├── plane
+│   │   │   │           ├── polyhedron
+│   │   │   │           └── sphere
+│   │   │   └── window
+│   │   ├── ecs
+│   │   │   ├── backend
+│   │   │   │   ├── component
+│   │   │   │   ├── entity
+│   │   │   │   └── system
+│   │   │   └── frontend
+│   │   │       ├── component
+│   │   │       ├── entity
+│   │   │       └── system
+│   │   │           └── systems
+│   │   ├── res-mng
+│   │   │   ├── files
+│   │   │   ├── models
+│   │   │   ├── sounds
+│   │   │   └── textures
+│   │   ├── scene
+│   │   │   └── engine-scenes
+│   │   └── subsystems
+│   │       ├── hud
+│   │       │   └── engine-hud
+│   │       ├── ingame-debug
+│   │       ├── input
+│   │       │   └── debugger
+│   │       ├── physics
+│   │       ├── renderer
+│   │       │   ├── camera
+│   │       │   ├── fog
+│   │       │   ├── lighting
+│   │       │   ├── material
+│   │       │   ├── math
+│   │       │   ├── mesh
+│   │       │   └── texture
+│   │       ├── sound
+│   │       └── transform
+│   └── game
+│       ├── ecs
+│       │   ├── components
+│       │   └── systems
+│       └── scenes
+│           ├── shoot-chicken
+│           └── terrain
+├── lib
+│   ├── bin
+│   ├── include
+│   │   ├── GL
+│   │   ├── SDL2
+│   │   ├── assimp
+│   │   │   ├── Compiler
+│   │   │   └── port
+│   │   │       └── AndroidJNI
+│   │   ├── glm
+│   │   │   ├── detail
+│   │   │   ├── ext
+│   │   │   ├── gtc
+│   │   │   ├── gtx
+│   │   │   └── simd
+│   │   └── imgui
+│   └── lib
+├── src
+│   ├── engine
+│   │   ├── core
+│   │   │   ├── counter
+│   │   │   ├── debug
+│   │   │   ├── debugger
+│   │   │   ├── exceptions
+│   │   │   ├── file-system
+│   │   │   ├── logger
+│   │   │   │   └── outputs
+│   │   │   ├── low-level-renderer
+│   │   │   │   ├── buffers
+│   │   │   │   ├── graphic-api
+│   │   │   │   │   └── concrete-apis
+│   │   │   │   │       ├── directx
+│   │   │   │   │       ├── opengl
+│   │   │   │   │       └── vulkan
+│   │   │   │   └── shader
+│   │   │   ├── math
+│   │   │   │   └── geometry
+│   │   │   │       └── figures
+│   │   │   │           ├── line
+│   │   │   │           ├── plane
+│   │   │   │           ├── polyhedron
+│   │   │   │           └── sphere
+│   │   │   └── window
+│   │   ├── ecs
+│   │   │   ├── backend
+│   │   │   │   ├── component
+│   │   │   │   ├── entity
+│   │   │   │   └── system
+│   │   │   └── frontend
+│   │   │       ├── component
+│   │   │       ├── entity
+│   │   │       └── system
+│   │   │           └── systems
+│   │   ├── res-mng
+│   │   │   ├── files
+│   │   │   ├── sounds
+│   │   │   └── textures
+│   │   ├── scene
+│   │   │   └── engine-scenes
+│   │   └── subsystems
+│   │       ├── hud
+│   │       │   └── engine-hud
+│   │       ├── ingame-debug
+│   │       ├── input
+│   │       ├── physics
+│   │       ├── renderer
+│   │       │   ├── camera
+│   │       │   ├── fog
+│   │       │   ├── lightning
+│   │       │   ├── material
+│   │       │   ├── math
+│   │       │   ├── mesh
+│   │       │   └── texture
+│   │       ├── sound
+│   │       └── transform
+│   └── game
+│       └── scenes
+│           ├── shoot-chicken
+│           └── terrain
+└── tests
+    └── unit
+        └── engine
+            ├── core
+            │   ├── math
+            │   │   ├── algebra
+            │   │   │   ├── matrix
+            │   │   │   └── vector
+            │   │   ├── geometry
+            │   │   └── random-generator
+            │   └── window
+            └── ecs
+                └── backend
+
+512 directories
