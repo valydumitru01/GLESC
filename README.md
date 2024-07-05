@@ -753,8 +753,20 @@ To play a song you need first to set the music and then play it. To play a sound
 <!-- ROADMAP -->
 
 ## Roadmap
-
+- [x] Implement math
+    - [x] Create matrix class abstraction
+    - [x] Create vertex class abstraction
+    - [x] Create implementation methods for the classes
+    - [ ] Use SIMD for the implementation
+- [x] Create documentation
+    - [x] Generate doxygen documentation
+    - [x] Generate folder documentation
+    - [x] Generate CppDepend report
+    - [x] Create developer manual (README)
+    - [x] Crete installation manual (README)
 - [x] Implement CMake builder
+    - [x] Implement Debug build
+    - [x] Implement Release build 
 - [x] Add graphic api abstraction layer
     - [ ] Add Vulkan support
     - [ ] Add DirectX support
@@ -772,6 +784,9 @@ To play a song you need first to set the music and then play it. To play a sound
         - [x] Create plane class
 - [x] Add custom ECS architecture
 - [x] Add renderer
+    - [x] Add rendering interpolation 
+    - [x] Add frustum culling
+    - [ ] Add occlusion culling 
     - [x] Add mesh abstraction
         - [x] Add mesh class
         - [ ] Add assimp mesh loader
@@ -794,9 +809,10 @@ To play a song you need first to set the music and then play it. To play a sound
     - [ ] Fluid dynamics
     - [ ] Cloth physics
 - [x] Add HUD window system (using imgui)
+    - [x] Add custom window abstraction
+    - [x] Support custom layout
 - [x] Add collisions
     - [x] Add AABB
-    - [ ] Add OBB with SAT
     - [ ] Add convex colliders with SAT
     - [ ] Add GJK for convex colliders
     - [ ] Add quadtree or octree for broad-phase
