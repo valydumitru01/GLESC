@@ -1,12 +1,3 @@
-/**************************************************************************************************
- * @file   FogSystem.cpp
- * @author Valentin Dumitru
- * @date   05/05/2024
- * @brief  @TODO Add description of this file if needed
- *
- * Copyright (c) 2023 Valentin Dumitru. Licensed under the MIT License.
- * See LICENSE.txt in the project root for license information.
- **************************************************************************************************/
 #include "engine/ecs/frontend/system/systems/FogSystem.h"
 
 #include "engine/ecs/frontend/component/FogComponent.h"

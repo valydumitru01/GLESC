@@ -1,12 +1,3 @@
-/******************************************************************************
- * @file   VertexArray.cpp
- * @author Valentin Dumitru
- * @date   2023-11-07
- * @brief  * @brief @todo Add description of this file if needed
- *
- * Copyright (c) 2023 Valentin Dumitru. Licensed under the MIT License.
- * See LICENSE.txt in the project root for license information.
- ******************************************************************************/
 #include "engine/core/low-level-renderer/buffers/VertexArray.h"
 
 using namespace GLESC::GAPI;

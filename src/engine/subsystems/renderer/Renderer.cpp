@@ -1,12 +1,3 @@
-/******************************************************************************
- * @file   Renderer.cpp
- * @author Valentin Dumitru
- * @date   2023-09-26
- * @brief @todo Add description of this file if needed
- *
- * Copyright (c) 2023 Valentin Dumitru. Licensed under the MIT License.
- * See LICENSE.txt in the project root for license information.
- ******************************************************************************/
 #include <omp.h>
 #include "engine/subsystems/renderer/Renderer.h"
 
@@ -185,6 +176,7 @@ void Renderer::render(double timeOfFrame) {
     shader.bind(); // Activate the shader program before transform, material and lighting setup
     frustum.update(viewProjMat);
 
+    // TODO: Fix parallelization, it is not working, flickering is happening and meshes get swapped
 //#pragma omp parallel for default(shared) schedule(dynamic)
     for (int meshIndex = 0; meshIndex < meshesToRender.size(); meshIndex++) {
         const ColorMesh& mesh = *meshesToRender[meshIndex];

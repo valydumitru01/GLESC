@@ -1,25 +1,13 @@
-/******************************************************************************
- * @file   FPSManager.cpp
- * @author Valentin Dumitru
- * @date   2023-09-26
- * @brief @todo Add description of this file if needed
- *
- * Copyright (c) 2023 Valentin Dumitru. Licensed under the MIT License.
- * See LICENSE.txt in the project root for license information.
- ******************************************************************************/
 
 #include "engine/core/counter/FPSManager.h"
 
-#include "engine/core/math/Math.h"
-
-
-FPSManager::FPSManager(FpsRates maxFPS)
-    : fpsMs(msInASecond / static_cast<Uint32>(maxFPS)),
-      msPerUpdate(msInASecond / 60) {
+FPSManager::FPSManager(FpsRates renderFPS, FpsRates updateFPS)
+    : msPerRender(renderFPS == Unlimitted ? 0 : msInASecond / static_cast<Millis>(renderFPS)),
+      msPerUpdate(msInASecond / static_cast<Millis>(updateFPS)) {
 }
 
 void FPSManager::startFrame() {
-    current = SDL_GetTicks(); // Update the current frame-time
+    current = static_cast<Millis>(SDL_GetTicks()); // Update the current frame-time
     elapsed = current - previous;
     previous = current; // Updates the previous frame-time
     lag += elapsed; // Accumulate the elapsed time inside lag
@@ -36,35 +24,35 @@ void FPSManager::refreshUpdateLag() {
     updateCounter++;
 }
 
-Uint32 FPSManager::getUpdateTimeMillis() const {
+FPSManager::Millis FPSManager::getUpdateTimeMillis() const {
     return msPerUpdate;
 }
 
-bool FPSManager::hasSpiralOfDeathBeenReached() const{
+bool FPSManager::hasSpiralOfDeathBeenReached() const {
     return updateCounter > spiralOfDeathLimit;
 }
 
 
-Uint32 FPSManager::getCurrentRenderTimeMillis() const {
+FPSManager::Millis FPSManager::getCurrentRenderTimeMillis() const {
     return elapsed;
 }
 
-Uint32 FPSManager::getAverageRenderTimeMillis() const {
+FPSManager::Millis FPSManager::getAverageRenderTimeMillis() const {
     return fpsAverager.getAverage();
 }
 
 float FPSManager::getUpdateFPS() const {
-    return 1000.0f / static_cast<float>(getUpdateTimeMillis());
+    return msInASecond / getUpdateTimeMillis();
 }
 
 float FPSManager::getRenderFPS() const {
-    return 1000.0f / static_cast<float>(getAverageRenderTimeMillis());
+    return msInASecond / getAverageRenderTimeMillis();
 }
 
 
 void FPSManager::delay() const {
-    if (fpsMs > 0) {
-        auto dif = static_cast<int32_t>(fpsMs - elapsed);
+    if (msPerRender > 0) {
+        double dif = msPerRender - elapsed;
         if (dif > 0)
             SDL_Delay(dif); // Cap the Counter, wait until we get to minimum frame time
     }

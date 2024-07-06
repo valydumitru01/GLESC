@@ -1,12 +1,3 @@
-/**************************************************************************************************
- * @file   ShaderLoader.cpp
- * @author Valentin Dumitru
- * @date   2023-11-08
- * @brief  @TODO Add description of this file if needed
- *
- * Copyright (c) 2023 Valentin Dumitru. Licensed under the MIT License.
- * See LICENSE.txt in the project root for license information.
- **************************************************************************************************/
 #include "engine/core/logger/Logger.h"
 #include "engine/core/low-level-renderer/asserts/ShaderAsserts.h"
 #include "engine/core/low-level-renderer/graphic-api/Gapi.h"

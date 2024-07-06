@@ -1,12 +1,3 @@
-/**************************************************************************************************
- * @file   SunSystem.cpp
- * @author Valentin Dumitru
- * @date   2024-04-30
- * @brief  @TODO Add description of this file if needed
- *
- * Copyright (c) 2024 Valentin Dumitru. Licensed under the MIT License.
- * See LICENSE.txt in the project root for license information.
- **************************************************************************************************/
 #include "engine/ecs/frontend/system/systems/SunSystem.h"
 
 #include "engine/ecs/frontend/component/TransformComponent.h"

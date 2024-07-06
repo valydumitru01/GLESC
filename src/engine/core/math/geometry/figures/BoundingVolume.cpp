@@ -1,12 +1,3 @@
-/**************************************************************************************************
- * @file   BoundingVolume.cpp
- * @author Valentin Dumitru
- * @date   23/06/2024
- * @brief  @TODO Add description of this file if needed
- *
- * Copyright (c) 2023 Valentin Dumitru. Licensed under the MIT License.
- * See LICENSE.txt in the project root for license information.
- **************************************************************************************************/
 
 #include "engine/core/math/geometry/figures/BoundingVolume.h"
 

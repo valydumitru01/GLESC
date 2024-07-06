@@ -26,20 +26,20 @@ public:
      * @brief Adds a frame to the FPS averager.
      * @param frameTime - the time it took to render the frame.
      */
-    void addFrame(long unsigned int frameTime) {
+    void addFrame(float frameTime) {
         frames.push_back(frameTime);
         if (frames.size() > AVERAGE_FPS_COUNT) {
             frames.pop_front();
         }
     }
-    [[nodiscard]] long unsigned int getAverage() const {
+    [[nodiscard]] float getAverage() const {
         if (frames.empty()) return 0;
-        long unsigned int sum = 0;
+        float sum = 0;
         for (auto& frame : frames) {
             sum += frame;
         }
-        return static_cast<long unsigned int>(static_cast<double>(sum) / static_cast<double>(frames.size()));
+        return sum / static_cast<float>(frames.size());
     }
 private:
-    std::deque<long unsigned int> frames;
+    std::deque<float> frames;
 }; // class FPSAverage

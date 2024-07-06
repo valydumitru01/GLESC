@@ -1,12 +1,3 @@
-/**************************************************************************************************
- * @file   Physics.cpp
- * @author Valentin Dumitru
- * @date   2024-05-15
- * @brief  @TODO Add description of this file if needed
- *
- * Copyright (c) 2024 Valentin Dumitru. Licensed under the MIT License.
- * See LICENSE.txt in the project root for license information.
- **************************************************************************************************/
 #include "engine/subsystems/physics/Physics.h"
 using namespace GLESC::Physics;
 

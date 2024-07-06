@@ -1,12 +1,3 @@
-/******************************************************************************
- * @file   PhysicsSystem.cpp
- * @author Valentin Dumitru
- * @date   2023-09-26
- * @brief @todo Add description of this file if needed
- *
- * Copyright (c) 2023 Valentin Dumitru. Licensed under the MIT License.
- * See LICENSE.txt in the project root for license information.
- ******************************************************************************/
 
 #include "engine/ecs/frontend/system/systems/PhysicsCollisionSystem.h"
 

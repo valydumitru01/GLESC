@@ -1,12 +1,3 @@
-/**************************************************************************************************
- * @file   DebugEntityDataHUD.cpp
- * @author Valentin Dumitru
- * @date   09/03/2024
- * @brief  @TODO Add description of this file if needed
- *
- * Copyright (c) 2024 Valentin Dumitru. Licensed under the MIT License.
- * See LICENSE.txt in the project root for license information.
- **************************************************************************************************/
 #ifndef NDEBUG_GLESC
 #include "engine/subsystems/hud/engine-hud/DebugEntityDataHUD.h"
 

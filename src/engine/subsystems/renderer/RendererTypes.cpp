@@ -1,12 +1,3 @@
-/**************************************************************************************************
- * @file   RendererTypes.cpp
- * @author Valentin Dumitru
- * @date   2024-05-02
- * @brief  @TODO Add description of this file if needed
- *
- * Copyright (c) 2024 Valentin Dumitru. Licensed under the MIT License.
- * See LICENSE.txt in the project root for license information.
- **************************************************************************************************/
 #include "engine/subsystems/renderer/RendererTypes.h"
 using namespace GLESC::Render;
 ColorRgb::ColorRgb(const ColorRgba& other) noexcept {

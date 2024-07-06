@@ -1,12 +1,3 @@
-/**************************************************************************************************
- * @file   VertexInstanceBuffer.cpp
- * @author Valentin Dumitru
- * @date   13/03/2024
- * @brief  @TODO Add description of this file if needed
- *
- * Copyright (c) 2024 Valentin Dumitru. Licensed under the MIT License.
- * See LICENSE.txt in the project root for license information.
- **************************************************************************************************/
 
 #include "engine/core/low-level-renderer/buffers/VertexInstanceBuffer.h"
 #include "engine/core/low-level-renderer/graphic-api/Gapi.h"
