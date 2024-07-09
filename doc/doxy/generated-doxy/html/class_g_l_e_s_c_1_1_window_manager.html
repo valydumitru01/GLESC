@@ -218,7 +218,7 @@ Private Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_window_manager_8h_source.html#l00029">29</a> of file <a class="el" href="_window_manager_8h_source.html">WindowManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_window_manager_8h_source.html#l00033">33</a> of file <a class="el" href="_window_manager_8h_source.html">WindowManager.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a3a283b34c19aaa20296befaabad4d29b" name="a3a283b34c19aaa20296befaabad4d29b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3a283b34c19aaa20296befaabad4d29b">&#9670;&#160;</a></span>WindowManager()</h2>
@@ -235,28 +235,28 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_window_manager_8cpp_source.html#l00020">20</a> of file <a class="el" href="_window_manager_8cpp_source.html">WindowManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   20</span>                             {</div>
-<div class="line"><span class="lineno">   21</span>    <a class="code hl_function" href="class_g_l_e_s_c_1_1_window_manager.html#ae794431588806a6fd3096e8ec795a724">initSDL</a>();</div>
-<div class="line"><span class="lineno">   22</span>    <a class="code hl_function" href="_gapi_8h.html#ab7514d88e65656ffa15ca33256518fe5">getGAPI</a>().preWindowCreationInit();</div>
-<div class="line"><span class="lineno">   23</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_window_manager.html#ab36d84030a76c48e125eb5b533225d81">window</a> = <a class="code hl_function" href="class_g_l_e_s_c_1_1_window_manager.html#a9370057566c68dd13f8caeab527c98df">createWindow</a>(<a class="code hl_define" href="_config_8h.html#ac6b9eb9880d5ffb6e6103bd93d36c63f">GLESC_WINDOW_TITLE</a>);</div>
-<div class="line"><span class="lineno">   24</span>    <span class="keyword">auto</span> x = <a class="code hl_define" href="_config_8h.html#ab42b8165d4f7d067808a6420426127f8">GLESC_WINDOW_X</a>;</div>
-<div class="line"><span class="lineno">   25</span>    <span class="keyword">auto</span> y = <a class="code hl_define" href="_config_8h.html#af3096e72165933a93935177f5ca30f46">GLESC_WINDOW_Y</a>;</div>
-<div class="line"><span class="lineno">   26</span>    <span class="keyword">auto</span> width = <span class="keyword">static_cast&lt;</span><span class="keywordtype">unsigned</span> <span class="keywordtype">short</span><span class="keyword">&gt;</span>(<a class="code hl_define" href="_config_8h.html#acac9999ad914b39d3c6b157e3fc35cfd">GLESC_WINDOW_WIDTH</a>);</div>
-<div class="line"><span class="lineno">   27</span>    <span class="keyword">auto</span> height = <span class="keyword">static_cast&lt;</span><span class="keywordtype">unsigned</span> <span class="keywordtype">short</span><span class="keyword">&gt;</span>(<a class="code hl_define" href="_config_8h.html#a179827450aaddf2f6546283061f27e35">GLESC_WINDOW_HEIGHT</a>);</div>
-<div class="line"><span class="lineno">   28</span>    <span class="keyword">auto</span> <a class="code hl_function" href="class_g_l_e_s_c_1_1_window_manager.html#a0dac5be218b6044970051616418d6e13">isFullscreen</a> = <a class="code hl_define" href="_config_8h.html#ae1bab46345815b5f345a11469a894c54">GLESC_WINDOW_FULLSCREEN</a>;</div>
-<div class="line"><span class="lineno">   29</span> </div>
-<div class="line"><span class="lineno">   30</span>    <a class="code hl_function" href="class_g_l_e_s_c_1_1_window_manager.html#a2f485acb7a8436e2aee757180377e22c">setFullscreen</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_window_manager.html#a0dac5be218b6044970051616418d6e13">isFullscreen</a>);</div>
-<div class="line"><span class="lineno">   31</span>    <a class="code hl_function" href="class_g_l_e_s_c_1_1_window_manager.html#ad11419a2237ad2bf992f8fdb08932389">setSize</a>(width, height);</div>
-<div class="line"><span class="lineno">   32</span>    <a class="code hl_function" href="class_g_l_e_s_c_1_1_window_manager.html#a785dec72520879e2346fb7b4ebeda784">setPosition</a>(x, y);</div>
-<div class="line"><span class="lineno">   33</span>    <a class="code hl_function" href="_gapi_8h.html#ab7514d88e65656ffa15ca33256518fe5">getGAPI</a>().createContext(*<a class="code hl_variable" href="class_g_l_e_s_c_1_1_window_manager.html#ab36d84030a76c48e125eb5b533225d81">window</a>);</div>
-<div class="line"><span class="lineno">   34</span>    <a class="code hl_function" href="_gapi_8h.html#ab7514d88e65656ffa15ca33256518fe5">getGAPI</a>().postWindowCreationInit();</div>
-<div class="line"><span class="lineno">   35</span> </div>
-<div class="line"><span class="lineno">   36</span>    <span class="comment">// Enable mouse relative mode</span></div>
-<div class="line"><span class="lineno">   37</span>    <span class="comment">// This will make the mouse cursor invisible and locked in the middle of the screen</span></div>
-<div class="line"><span class="lineno">   38</span>    <span class="comment">//setMouseRelative(true);</span></div>
-<div class="line"><span class="lineno">   39</span>    <a class="code hl_function" href="class_g_l_e_s_c_1_1_window_manager.html#a868610be619fc4bc72a387b7efc15ee4">setIcon</a>(<span class="stringliteral">&quot;images/icons/TinyLogo.bmp&quot;</span>);</div>
-<div class="line"><span class="lineno">   40</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_window_manager_8cpp_source.html#l00011">11</a> of file <a class="el" href="_window_manager_8cpp_source.html">WindowManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   11</span>                             {</div>
+<div class="line"><span class="lineno">   12</span>    <a class="code hl_function" href="class_g_l_e_s_c_1_1_window_manager.html#ae794431588806a6fd3096e8ec795a724">initSDL</a>();</div>
+<div class="line"><span class="lineno">   13</span>    <a class="code hl_function" href="_gapi_8h.html#ab7514d88e65656ffa15ca33256518fe5">getGAPI</a>().preWindowCreationInit();</div>
+<div class="line"><span class="lineno">   14</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_window_manager.html#ab36d84030a76c48e125eb5b533225d81">window</a> = <a class="code hl_function" href="class_g_l_e_s_c_1_1_window_manager.html#a9370057566c68dd13f8caeab527c98df">createWindow</a>(<a class="code hl_define" href="_config_8h.html#ac6b9eb9880d5ffb6e6103bd93d36c63f">GLESC_WINDOW_TITLE</a>);</div>
+<div class="line"><span class="lineno">   15</span>    <span class="keyword">auto</span> x = <a class="code hl_define" href="_config_8h.html#ab42b8165d4f7d067808a6420426127f8">GLESC_WINDOW_X</a>;</div>
+<div class="line"><span class="lineno">   16</span>    <span class="keyword">auto</span> y = <a class="code hl_define" href="_config_8h.html#af3096e72165933a93935177f5ca30f46">GLESC_WINDOW_Y</a>;</div>
+<div class="line"><span class="lineno">   17</span>    <span class="keyword">auto</span> width = <span class="keyword">static_cast&lt;</span><span class="keywordtype">unsigned</span> <span class="keywordtype">short</span><span class="keyword">&gt;</span>(<a class="code hl_define" href="_config_8h.html#acac9999ad914b39d3c6b157e3fc35cfd">GLESC_WINDOW_WIDTH</a>);</div>
+<div class="line"><span class="lineno">   18</span>    <span class="keyword">auto</span> height = <span class="keyword">static_cast&lt;</span><span class="keywordtype">unsigned</span> <span class="keywordtype">short</span><span class="keyword">&gt;</span>(<a class="code hl_define" href="_config_8h.html#a179827450aaddf2f6546283061f27e35">GLESC_WINDOW_HEIGHT</a>);</div>
+<div class="line"><span class="lineno">   19</span>    <span class="keyword">auto</span> <a class="code hl_function" href="class_g_l_e_s_c_1_1_window_manager.html#a0dac5be218b6044970051616418d6e13">isFullscreen</a> = <a class="code hl_define" href="_config_8h.html#ae1bab46345815b5f345a11469a894c54">GLESC_WINDOW_FULLSCREEN</a>;</div>
+<div class="line"><span class="lineno">   20</span> </div>
+<div class="line"><span class="lineno">   21</span>    <a class="code hl_function" href="class_g_l_e_s_c_1_1_window_manager.html#a2f485acb7a8436e2aee757180377e22c">setFullscreen</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_window_manager.html#a0dac5be218b6044970051616418d6e13">isFullscreen</a>);</div>
+<div class="line"><span class="lineno">   22</span>    <a class="code hl_function" href="class_g_l_e_s_c_1_1_window_manager.html#ad11419a2237ad2bf992f8fdb08932389">setSize</a>(width, height);</div>
+<div class="line"><span class="lineno">   23</span>    <a class="code hl_function" href="class_g_l_e_s_c_1_1_window_manager.html#a785dec72520879e2346fb7b4ebeda784">setPosition</a>(x, y);</div>
+<div class="line"><span class="lineno">   24</span>    <a class="code hl_function" href="_gapi_8h.html#ab7514d88e65656ffa15ca33256518fe5">getGAPI</a>().createContext(*<a class="code hl_variable" href="class_g_l_e_s_c_1_1_window_manager.html#ab36d84030a76c48e125eb5b533225d81">window</a>);</div>
+<div class="line"><span class="lineno">   25</span>    <a class="code hl_function" href="_gapi_8h.html#ab7514d88e65656ffa15ca33256518fe5">getGAPI</a>().postWindowCreationInit();</div>
+<div class="line"><span class="lineno">   26</span> </div>
+<div class="line"><span class="lineno">   27</span>    <span class="comment">// Enable mouse relative mode</span></div>
+<div class="line"><span class="lineno">   28</span>    <span class="comment">// This will make the mouse cursor invisible and locked in the middle of the screen</span></div>
+<div class="line"><span class="lineno">   29</span>    <span class="comment">//setMouseRelative(true);</span></div>
+<div class="line"><span class="lineno">   30</span>    <a class="code hl_function" href="class_g_l_e_s_c_1_1_window_manager.html#a868610be619fc4bc72a387b7efc15ee4">setIcon</a>(<span class="stringliteral">&quot;images/icons/TinyLogo.bmp&quot;</span>);</div>
+<div class="line"><span class="lineno">   31</span>}</div>
 <div class="ttc" id="a_config_8h_html_a179827450aaddf2f6546283061f27e35"><div class="ttname"><a href="_config_8h.html#a179827450aaddf2f6546283061f27e35">GLESC_WINDOW_HEIGHT</a></div><div class="ttdeci">#define GLESC_WINDOW_HEIGHT</div><div class="ttdef"><b>Definition</b> <a href="_config_8h_source.html#l00028">Config.h:28</a></div></div>
 <div class="ttc" id="a_config_8h_html_ab42b8165d4f7d067808a6420426127f8"><div class="ttname"><a href="_config_8h.html#ab42b8165d4f7d067808a6420426127f8">GLESC_WINDOW_X</a></div><div class="ttdeci">#define GLESC_WINDOW_X</div><div class="ttdef"><b>Definition</b> <a href="_config_8h_source.html#l00030">Config.h:30</a></div></div>
 <div class="ttc" id="a_config_8h_html_ac6b9eb9880d5ffb6e6103bd93d36c63f"><div class="ttname"><a href="_config_8h.html#ac6b9eb9880d5ffb6e6103bd93d36c63f">GLESC_WINDOW_TITLE</a></div><div class="ttdeci">#define GLESC_WINDOW_TITLE</div><div class="ttdef"><b>Definition</b> <a href="_config_8h_source.html#l00033">Config.h:33</a></div></div>
@@ -264,16 +264,16 @@ Private Attributes</h2></td></tr>
 <div class="ttc" id="a_config_8h_html_ae1bab46345815b5f345a11469a894c54"><div class="ttname"><a href="_config_8h.html#ae1bab46345815b5f345a11469a894c54">GLESC_WINDOW_FULLSCREEN</a></div><div class="ttdeci">#define GLESC_WINDOW_FULLSCREEN</div><div class="ttdef"><b>Definition</b> <a href="_config_8h_source.html#l00034">Config.h:34</a></div></div>
 <div class="ttc" id="a_config_8h_html_af3096e72165933a93935177f5ca30f46"><div class="ttname"><a href="_config_8h.html#af3096e72165933a93935177f5ca30f46">GLESC_WINDOW_Y</a></div><div class="ttdeci">#define GLESC_WINDOW_Y</div><div class="ttdef"><b>Definition</b> <a href="_config_8h_source.html#l00031">Config.h:31</a></div></div>
 <div class="ttc" id="a_gapi_8h_html_ab7514d88e65656ffa15ca33256518fe5"><div class="ttname"><a href="_gapi_8h.html#ab7514d88e65656ffa15ca33256518fe5">getGAPI</a></div><div class="ttdeci">auto &amp; getGAPI()</div><div class="ttdoc">Returns the graphic API used by the engine.</div><div class="ttdef"><b>Definition</b> <a href="_gapi_8h_source.html#l00028">Gapi.h:28</a></div></div>
-<div class="ttc" id="aclass_g_l_e_s_c_1_1_window_manager_html_a0dac5be218b6044970051616418d6e13"><div class="ttname"><a href="class_g_l_e_s_c_1_1_window_manager.html#a0dac5be218b6044970051616418d6e13">GLESC::WindowManager::isFullscreen</a></div><div class="ttdeci">bool isFullscreen()</div><div class="ttdoc">Gets whether the windowManager is fullscreen or not.</div><div class="ttdef"><b>Definition</b> <a href="_window_manager_8cpp_source.html#l00089">WindowManager.cpp:89</a></div></div>
-<div class="ttc" id="aclass_g_l_e_s_c_1_1_window_manager_html_a2f485acb7a8436e2aee757180377e22c"><div class="ttname"><a href="class_g_l_e_s_c_1_1_window_manager.html#a2f485acb7a8436e2aee757180377e22c">GLESC::WindowManager::setFullscreen</a></div><div class="ttdeci">void setFullscreen(bool isFullScreen)</div><div class="ttdoc">Turn fullscreen on or off This will change the flags of the windowManager object.</div><div class="ttdef"><b>Definition</b> <a href="_window_manager_8cpp_source.html#l00055">WindowManager.cpp:55</a></div></div>
-<div class="ttc" id="aclass_g_l_e_s_c_1_1_window_manager_html_a785dec72520879e2346fb7b4ebeda784"><div class="ttname"><a href="class_g_l_e_s_c_1_1_window_manager.html#a785dec72520879e2346fb7b4ebeda784">GLESC::WindowManager::setPosition</a></div><div class="ttdeci">void setPosition(unsigned int windowX, unsigned int windowY)</div><div class="ttdoc">Set the position of the window. Changes the location of the window on the screen.</div><div class="ttdef"><b>Definition</b> <a href="_window_manager_8cpp_source.html#l00095">WindowManager.cpp:95</a></div></div>
-<div class="ttc" id="aclass_g_l_e_s_c_1_1_window_manager_html_a868610be619fc4bc72a387b7efc15ee4"><div class="ttname"><a href="class_g_l_e_s_c_1_1_window_manager.html#a868610be619fc4bc72a387b7efc15ee4">GLESC::WindowManager::setIcon</a></div><div class="ttdeci">void setIcon(const std::string &amp;iconFile)</div><div class="ttdoc">Set the window icon. Updates the icon displayed in the window's title bar.</div><div class="ttdef"><b>Definition</b> <a href="_window_manager_8cpp_source.html#l00105">WindowManager.cpp:105</a></div></div>
-<div class="ttc" id="aclass_g_l_e_s_c_1_1_window_manager_html_a9370057566c68dd13f8caeab527c98df"><div class="ttname"><a href="class_g_l_e_s_c_1_1_window_manager.html#a9370057566c68dd13f8caeab527c98df">GLESC::WindowManager::createWindow</a></div><div class="ttdeci">SDL_Window * createWindow(const char *title)</div><div class="ttdoc">Initialize the windowManager with its title, setting its flags Checks if there is any error while doi...</div><div class="ttdef"><b>Definition</b> <a href="_window_manager_8cpp_source.html#l00173">WindowManager.cpp:173</a></div></div>
-<div class="ttc" id="aclass_g_l_e_s_c_1_1_window_manager_html_ab36d84030a76c48e125eb5b533225d81"><div class="ttname"><a href="class_g_l_e_s_c_1_1_window_manager.html#ab36d84030a76c48e125eb5b533225d81">GLESC::WindowManager::window</a></div><div class="ttdeci">SDL_Window * window</div><div class="ttdoc">The SDL window struct pointer.</div><div class="ttdef"><b>Definition</b> <a href="_window_manager_8h_source.html#l00178">WindowManager.h:178</a></div></div>
-<div class="ttc" id="aclass_g_l_e_s_c_1_1_window_manager_html_ad11419a2237ad2bf992f8fdb08932389"><div class="ttname"><a href="class_g_l_e_s_c_1_1_window_manager.html#ad11419a2237ad2bf992f8fdb08932389">GLESC::WindowManager::setSize</a></div><div class="ttdeci">void setSize(uint16_t windowWidth, uint16_t windowHeight)</div><div class="ttdoc">Callback function when window size is modified This will change the viewport with the new resolution.</div><div class="ttdef"><b>Definition</b> <a href="_window_manager_8cpp_source.html#l00043">WindowManager.cpp:43</a></div></div>
-<div class="ttc" id="aclass_g_l_e_s_c_1_1_window_manager_html_ae794431588806a6fd3096e8ec795a724"><div class="ttname"><a href="class_g_l_e_s_c_1_1_window_manager.html#ae794431588806a6fd3096e8ec795a724">GLESC::WindowManager::initSDL</a></div><div class="ttdeci">static void initSDL()</div><div class="ttdoc">Initialize SDL, checks if there is any error while doing it Must be called before creating windowMana...</div><div class="ttdef"><b>Definition</b> <a href="_window_manager_8cpp_source.html#l00165">WindowManager.cpp:165</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_window_manager_html_a0dac5be218b6044970051616418d6e13"><div class="ttname"><a href="class_g_l_e_s_c_1_1_window_manager.html#a0dac5be218b6044970051616418d6e13">GLESC::WindowManager::isFullscreen</a></div><div class="ttdeci">bool isFullscreen()</div><div class="ttdoc">Gets whether the windowManager is fullscreen or not.</div><div class="ttdef"><b>Definition</b> <a href="_window_manager_8cpp_source.html#l00080">WindowManager.cpp:80</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_window_manager_html_a2f485acb7a8436e2aee757180377e22c"><div class="ttname"><a href="class_g_l_e_s_c_1_1_window_manager.html#a2f485acb7a8436e2aee757180377e22c">GLESC::WindowManager::setFullscreen</a></div><div class="ttdeci">void setFullscreen(bool isFullScreen)</div><div class="ttdoc">Turn fullscreen on or off This will change the flags of the windowManager object.</div><div class="ttdef"><b>Definition</b> <a href="_window_manager_8cpp_source.html#l00046">WindowManager.cpp:46</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_window_manager_html_a785dec72520879e2346fb7b4ebeda784"><div class="ttname"><a href="class_g_l_e_s_c_1_1_window_manager.html#a785dec72520879e2346fb7b4ebeda784">GLESC::WindowManager::setPosition</a></div><div class="ttdeci">void setPosition(unsigned int windowX, unsigned int windowY)</div><div class="ttdoc">Set the position of the window. Changes the location of the window on the screen.</div><div class="ttdef"><b>Definition</b> <a href="_window_manager_8cpp_source.html#l00086">WindowManager.cpp:86</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_window_manager_html_a868610be619fc4bc72a387b7efc15ee4"><div class="ttname"><a href="class_g_l_e_s_c_1_1_window_manager.html#a868610be619fc4bc72a387b7efc15ee4">GLESC::WindowManager::setIcon</a></div><div class="ttdeci">void setIcon(const std::string &amp;iconFile)</div><div class="ttdoc">Set the window icon. Updates the icon displayed in the window's title bar.</div><div class="ttdef"><b>Definition</b> <a href="_window_manager_8cpp_source.html#l00096">WindowManager.cpp:96</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_window_manager_html_a9370057566c68dd13f8caeab527c98df"><div class="ttname"><a href="class_g_l_e_s_c_1_1_window_manager.html#a9370057566c68dd13f8caeab527c98df">GLESC::WindowManager::createWindow</a></div><div class="ttdeci">SDL_Window * createWindow(const char *title)</div><div class="ttdoc">Initialize the windowManager with its title, setting its flags Checks if there is any error while doi...</div><div class="ttdef"><b>Definition</b> <a href="_window_manager_8cpp_source.html#l00164">WindowManager.cpp:164</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_window_manager_html_ab36d84030a76c48e125eb5b533225d81"><div class="ttname"><a href="class_g_l_e_s_c_1_1_window_manager.html#ab36d84030a76c48e125eb5b533225d81">GLESC::WindowManager::window</a></div><div class="ttdeci">SDL_Window * window</div><div class="ttdoc">The SDL window struct pointer.</div><div class="ttdef"><b>Definition</b> <a href="_window_manager_8h_source.html#l00182">WindowManager.h:182</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_window_manager_html_ad11419a2237ad2bf992f8fdb08932389"><div class="ttname"><a href="class_g_l_e_s_c_1_1_window_manager.html#ad11419a2237ad2bf992f8fdb08932389">GLESC::WindowManager::setSize</a></div><div class="ttdeci">void setSize(uint16_t windowWidth, uint16_t windowHeight)</div><div class="ttdoc">Callback function when window size is modified This will change the viewport with the new resolution.</div><div class="ttdef"><b>Definition</b> <a href="_window_manager_8cpp_source.html#l00034">WindowManager.cpp:34</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_window_manager_html_ae794431588806a6fd3096e8ec795a724"><div class="ttname"><a href="class_g_l_e_s_c_1_1_window_manager.html#ae794431588806a6fd3096e8ec795a724">GLESC::WindowManager::initSDL</a></div><div class="ttdeci">static void initSDL()</div><div class="ttdoc">Initialize SDL, checks if there is any error while doing it Must be called before creating windowMana...</div><div class="ttdef"><b>Definition</b> <a href="_window_manager_8cpp_source.html#l00156">WindowManager.cpp:156</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_window_manager_8cpp_source.html#l00173">createWindow()</a>, <a class="el" href="_gapi_8h_source.html#l00028">getGAPI()</a>, <a class="el" href="_config_8h_source.html#l00034">GLESC_WINDOW_FULLSCREEN</a>, <a class="el" href="_config_8h_source.html#l00028">GLESC_WINDOW_HEIGHT</a>, <a class="el" href="_config_8h_source.html#l00033">GLESC_WINDOW_TITLE</a>, <a class="el" href="_config_8h_source.html#l00027">GLESC_WINDOW_WIDTH</a>, <a class="el" href="_config_8h_source.html#l00030">GLESC_WINDOW_X</a>, <a class="el" href="_config_8h_source.html#l00031">GLESC_WINDOW_Y</a>, <a class="el" href="_window_manager_8cpp_source.html#l00165">initSDL()</a>, <a class="el" href="_window_manager_8cpp_source.html#l00089">isFullscreen()</a>, <a class="el" href="_window_manager_8cpp_source.html#l00055">setFullscreen()</a>, <a class="el" href="_window_manager_8cpp_source.html#l00105">setIcon()</a>, <a class="el" href="_window_manager_8cpp_source.html#l00095">setPosition()</a>, <a class="el" href="_window_manager_8cpp_source.html#l00043">setSize()</a>, and <a class="el" href="_window_manager_8h_source.html#l00178">window</a>.</p>
+<p class="reference">References <a class="el" href="_window_manager_8cpp_source.html#l00164">createWindow()</a>, <a class="el" href="_gapi_8h_source.html#l00028">getGAPI()</a>, <a class="el" href="_config_8h_source.html#l00034">GLESC_WINDOW_FULLSCREEN</a>, <a class="el" href="_config_8h_source.html#l00028">GLESC_WINDOW_HEIGHT</a>, <a class="el" href="_config_8h_source.html#l00033">GLESC_WINDOW_TITLE</a>, <a class="el" href="_config_8h_source.html#l00027">GLESC_WINDOW_WIDTH</a>, <a class="el" href="_config_8h_source.html#l00030">GLESC_WINDOW_X</a>, <a class="el" href="_config_8h_source.html#l00031">GLESC_WINDOW_Y</a>, <a class="el" href="_window_manager_8cpp_source.html#l00156">initSDL()</a>, <a class="el" href="_window_manager_8cpp_source.html#l00080">isFullscreen()</a>, <a class="el" href="_window_manager_8cpp_source.html#l00046">setFullscreen()</a>, <a class="el" href="_window_manager_8cpp_source.html#l00096">setIcon()</a>, <a class="el" href="_window_manager_8cpp_source.html#l00086">setPosition()</a>, <a class="el" href="_window_manager_8cpp_source.html#l00034">setSize()</a>, and <a class="el" href="_window_manager_8h_source.html#l00182">window</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -309,31 +309,31 @@ Here is the call graph for this function:</div>
 
 <p>Initialize the windowManager with its title, setting its flags Checks if there is any error while doing it. </p>
 
-<p class="definition">Definition at line <a class="el" href="_window_manager_8cpp_source.html#l00173">173</a> of file <a class="el" href="_window_manager_8cpp_source.html">WindowManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  173</span>                                                         {</div>
-<div class="line"><span class="lineno">  174</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">uint32_t</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">flags</a> = <a class="code hl_function" href="class_g_l_e_s_c_1_1_window_manager.html#a5fa6909bbbde941a8f87de1cc77a1cd2">getRaisedFlags</a>();</div>
-<div class="line"><span class="lineno">  175</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_Window</a>* <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">tempWindow</a> = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_CreateWindow</a>(title, <a class="code hl_define" href="_config_8h.html#ab42b8165d4f7d067808a6420426127f8">GLESC_WINDOW_X</a>, <a class="code hl_define" href="_config_8h.html#af3096e72165933a93935177f5ca30f46">GLESC_WINDOW_Y</a>,</div>
-<div class="line"><span class="lineno">  176</span>                                              <a class="code hl_define" href="_config_8h.html#acac9999ad914b39d3c6b157e3fc35cfd">GLESC_WINDOW_WIDTH</a>, <a class="code hl_define" href="_config_8h.html#a179827450aaddf2f6546283061f27e35">GLESC_WINDOW_HEIGHT</a>, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">flags</a>);</div>
-<div class="line"><span class="lineno">  177</span>    <a class="code hl_define" href="_debugger_8h.html#a8382f511f68dec7d4c75710279e73213">postSDLCall</a>;</div>
-<div class="line"><span class="lineno">  178</span>    <a class="code hl_define" href="_asserts_8h.html#a89998838563ab1ba549ea052cdcd5bc2">D_ASSERT_NOT_NULLPTR</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">tempWindow</a>, <span class="stringliteral">&quot;Unable to create windowManager: &quot;</span> + std::string(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_GetError</a>()));</div>
-<div class="line"><span class="lineno">  179</span>    <a class="code hl_function" href="class_g_l_e_s_c_1_1_logger.html#a9b12ce53593be134b7d7dea62607d22d">Logger::get</a>().<a class="code hl_function" href="class_g_l_e_s_c_1_1_logger.html#accab43e8aa76342c5e58ac869f2f32d5">success</a>(<span class="stringliteral">&quot;Window created!&quot;</span>);</div>
-<div class="line"><span class="lineno">  180</span>    <a class="code hl_define" href="_debugger_8h.html#a7aa759a7d3fa02caf8872ad0b18d30d3">SDLCall</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_SetWindowMinimumSize</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">tempWindow</a>, <a class="code hl_variable" href="_window_manager_8h.html#af82cf81c5ee8ad0504a4cbefe9df6fde">windowMinWidth</a>, <a class="code hl_variable" href="_window_manager_8h.html#acc9d2a00b83343a6aa83abd5e2c89080">windowMinHeight</a>));</div>
-<div class="line"><span class="lineno">  181</span> </div>
-<div class="line"><span class="lineno">  182</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">tempWindow</a>;</div>
-<div class="line"><span class="lineno">  183</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_window_manager_8cpp_source.html#l00164">164</a> of file <a class="el" href="_window_manager_8cpp_source.html">WindowManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  164</span>                                                         {</div>
+<div class="line"><span class="lineno">  165</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">uint32_t</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">flags</a> = <a class="code hl_function" href="class_g_l_e_s_c_1_1_window_manager.html#a5fa6909bbbde941a8f87de1cc77a1cd2">getRaisedFlags</a>();</div>
+<div class="line"><span class="lineno">  166</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_Window</a>* <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">tempWindow</a> = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_CreateWindow</a>(title, <a class="code hl_define" href="_config_8h.html#ab42b8165d4f7d067808a6420426127f8">GLESC_WINDOW_X</a>, <a class="code hl_define" href="_config_8h.html#af3096e72165933a93935177f5ca30f46">GLESC_WINDOW_Y</a>,</div>
+<div class="line"><span class="lineno">  167</span>                                              <a class="code hl_define" href="_config_8h.html#acac9999ad914b39d3c6b157e3fc35cfd">GLESC_WINDOW_WIDTH</a>, <a class="code hl_define" href="_config_8h.html#a179827450aaddf2f6546283061f27e35">GLESC_WINDOW_HEIGHT</a>, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">flags</a>);</div>
+<div class="line"><span class="lineno">  168</span>    <a class="code hl_define" href="_debugger_8h.html#a8382f511f68dec7d4c75710279e73213">postSDLCall</a>;</div>
+<div class="line"><span class="lineno">  169</span>    <a class="code hl_define" href="_asserts_8h.html#a89998838563ab1ba549ea052cdcd5bc2">D_ASSERT_NOT_NULLPTR</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">tempWindow</a>, <span class="stringliteral">&quot;Unable to create windowManager: &quot;</span> + std::string(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_GetError</a>()));</div>
+<div class="line"><span class="lineno">  170</span>    <a class="code hl_function" href="class_g_l_e_s_c_1_1_logger.html#a9b12ce53593be134b7d7dea62607d22d">Logger::get</a>().<a class="code hl_function" href="class_g_l_e_s_c_1_1_logger.html#accab43e8aa76342c5e58ac869f2f32d5">success</a>(<span class="stringliteral">&quot;Window created!&quot;</span>);</div>
+<div class="line"><span class="lineno">  171</span>    <a class="code hl_define" href="_debugger_8h.html#a7aa759a7d3fa02caf8872ad0b18d30d3">SDLCall</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_SetWindowMinimumSize</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">tempWindow</a>, <a class="code hl_variable" href="_window_manager_8h.html#af82cf81c5ee8ad0504a4cbefe9df6fde">windowMinWidth</a>, <a class="code hl_variable" href="_window_manager_8h.html#acc9d2a00b83343a6aa83abd5e2c89080">windowMinHeight</a>));</div>
+<div class="line"><span class="lineno">  172</span> </div>
+<div class="line"><span class="lineno">  173</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">tempWindow</a>;</div>
+<div class="line"><span class="lineno">  174</span>}</div>
 <div class="ttc" id="a_asserts_8h_html_a89998838563ab1ba549ea052cdcd5bc2"><div class="ttname"><a href="_asserts_8h.html#a89998838563ab1ba549ea052cdcd5bc2">D_ASSERT_NOT_NULLPTR</a></div><div class="ttdeci">#define D_ASSERT_NOT_NULLPTR(condition, message)</div><div class="ttdef"><b>Definition</b> <a href="_asserts_8h_source.html#l00023">Asserts.h:23</a></div></div>
 <div class="ttc" id="a_debugger_8h_html_a7aa759a7d3fa02caf8872ad0b18d30d3"><div class="ttname"><a href="_debugger_8h.html#a7aa759a7d3fa02caf8872ad0b18d30d3">SDLCall</a></div><div class="ttdeci">#define SDLCall(call)</div><div class="ttdoc">Macro to call an SDL function and check for errors.</div><div class="ttdef"><b>Definition</b> <a href="_debugger_8h_source.html#l00018">Debugger.h:18</a></div></div>
 <div class="ttc" id="a_debugger_8h_html_a8382f511f68dec7d4c75710279e73213"><div class="ttname"><a href="_debugger_8h.html#a8382f511f68dec7d4c75710279e73213">postSDLCall</a></div><div class="ttdeci">#define postSDLCall</div><div class="ttdoc">Macro to call after an SDL function to check for errors. It's used instead of SDLCall if the function...</div><div class="ttdef"><b>Definition</b> <a href="_debugger_8h_source.html#l00019">Debugger.h:19</a></div></div>
-<div class="ttc" id="a_window_manager_8h_html_acc9d2a00b83343a6aa83abd5e2c89080"><div class="ttname"><a href="_window_manager_8h.html#acc9d2a00b83343a6aa83abd5e2c89080">windowMinHeight</a></div><div class="ttdeci">constexpr int windowMinHeight</div><div class="ttdef"><b>Definition</b> <a href="_window_manager_8h_source.html#l00026">WindowManager.h:26</a></div></div>
-<div class="ttc" id="a_window_manager_8h_html_af82cf81c5ee8ad0504a4cbefe9df6fde"><div class="ttname"><a href="_window_manager_8h.html#af82cf81c5ee8ad0504a4cbefe9df6fde">windowMinWidth</a></div><div class="ttdeci">constexpr int windowMinWidth</div><div class="ttdef"><b>Definition</b> <a href="_window_manager_8h_source.html#l00025">WindowManager.h:25</a></div></div>
-<div class="ttc" id="aclass_g_l_e_s_c_1_1_logger_html_a9b12ce53593be134b7d7dea62607d22d"><div class="ttname"><a href="class_g_l_e_s_c_1_1_logger.html#a9b12ce53593be134b7d7dea62607d22d">GLESC::Logger::get</a></div><div class="ttdeci">static Logger &amp; get()</div><div class="ttdef"><b>Definition</b> <a href="_logger_8cpp_source.html#l00030">Logger.cpp:30</a></div></div>
-<div class="ttc" id="aclass_g_l_e_s_c_1_1_logger_html_accab43e8aa76342c5e58ac869f2f32d5"><div class="ttname"><a href="class_g_l_e_s_c_1_1_logger.html#accab43e8aa76342c5e58ac869f2f32d5">GLESC::Logger::success</a></div><div class="ttdeci">void success(const std::string &amp;text) override</div><div class="ttdoc">Display success information Background – Green Text – White Bold.</div><div class="ttdef"><b>Definition</b> <a href="_logger_8cpp_source.html#l00093">Logger.cpp:93</a></div></div>
-<div class="ttc" id="aclass_g_l_e_s_c_1_1_window_manager_html_a5fa6909bbbde941a8f87de1cc77a1cd2"><div class="ttname"><a href="class_g_l_e_s_c_1_1_window_manager.html#a5fa6909bbbde941a8f87de1cc77a1cd2">GLESC::WindowManager::getRaisedFlags</a></div><div class="ttdeci">static uint32_t getRaisedFlags()</div><div class="ttdoc">Initialize SDL_Window flags.</div><div class="ttdef"><b>Definition</b> <a href="_window_manager_8cpp_source.html#l00140">WindowManager.cpp:140</a></div></div>
+<div class="ttc" id="a_window_manager_8h_html_acc9d2a00b83343a6aa83abd5e2c89080"><div class="ttname"><a href="_window_manager_8h.html#acc9d2a00b83343a6aa83abd5e2c89080">windowMinHeight</a></div><div class="ttdeci">constexpr int windowMinHeight</div><div class="ttdef"><b>Definition</b> <a href="_window_manager_8h_source.html#l00030">WindowManager.h:30</a></div></div>
+<div class="ttc" id="a_window_manager_8h_html_af82cf81c5ee8ad0504a4cbefe9df6fde"><div class="ttname"><a href="_window_manager_8h.html#af82cf81c5ee8ad0504a4cbefe9df6fde">windowMinWidth</a></div><div class="ttdeci">constexpr int windowMinWidth</div><div class="ttdef"><b>Definition</b> <a href="_window_manager_8h_source.html#l00029">WindowManager.h:29</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_logger_html_a9b12ce53593be134b7d7dea62607d22d"><div class="ttname"><a href="class_g_l_e_s_c_1_1_logger.html#a9b12ce53593be134b7d7dea62607d22d">GLESC::Logger::get</a></div><div class="ttdeci">static Logger &amp; get()</div><div class="ttdef"><b>Definition</b> <a href="_logger_8cpp_source.html#l00022">Logger.cpp:22</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_logger_html_accab43e8aa76342c5e58ac869f2f32d5"><div class="ttname"><a href="class_g_l_e_s_c_1_1_logger.html#accab43e8aa76342c5e58ac869f2f32d5">GLESC::Logger::success</a></div><div class="ttdeci">void success(const std::string &amp;text) override</div><div class="ttdoc">Display success information Background – Green Text – White Bold.</div><div class="ttdef"><b>Definition</b> <a href="_logger_8cpp_source.html#l00085">Logger.cpp:85</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_window_manager_html_a5fa6909bbbde941a8f87de1cc77a1cd2"><div class="ttname"><a href="class_g_l_e_s_c_1_1_window_manager.html#a5fa6909bbbde941a8f87de1cc77a1cd2">GLESC::WindowManager::getRaisedFlags</a></div><div class="ttdeci">static uint32_t getRaisedFlags()</div><div class="ttdoc">Initialize SDL_Window flags.</div><div class="ttdef"><b>Definition</b> <a href="_window_manager_8cpp_source.html#l00131">WindowManager.cpp:131</a></div></div>
 <div class="ttc" id="anamespace_g_l_e_s_c_html_a7c64a4da2d1da1597f4ec563d00bb9f8"><div class="ttname"><a href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">GLESC::isIterable_v</a></div><div class="ttdeci">constexpr bool isIterable_v</div><div class="ttdef"><b>Definition</b> <a href="_stringer_8h_source.html#l00029">Stringer.h:29</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_asserts_8h_source.html#l00023">D_ASSERT_NOT_NULLPTR</a>, <a class="el" href="_logger_8cpp_source.html#l00030">GLESC::Logger::get()</a>, <a class="el" href="_window_manager_8cpp_source.html#l00140">getRaisedFlags()</a>, <a class="el" href="_config_8h_source.html#l00028">GLESC_WINDOW_HEIGHT</a>, <a class="el" href="_config_8h_source.html#l00027">GLESC_WINDOW_WIDTH</a>, <a class="el" href="_config_8h_source.html#l00030">GLESC_WINDOW_X</a>, <a class="el" href="_config_8h_source.html#l00031">GLESC_WINDOW_Y</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, <a class="el" href="_debugger_8h_source.html#l00019">postSDLCall</a>, <a class="el" href="_debugger_8h_source.html#l00018">SDLCall</a>, <a class="el" href="_logger_8cpp_source.html#l00093">GLESC::Logger::success()</a>, <a class="el" href="_window_manager_8h_source.html#l00026">windowMinHeight</a>, and <a class="el" href="_window_manager_8h_source.html#l00025">windowMinWidth</a>.</p>
+<p class="reference">References <a class="el" href="_asserts_8h_source.html#l00023">D_ASSERT_NOT_NULLPTR</a>, <a class="el" href="_logger_8cpp_source.html#l00022">GLESC::Logger::get()</a>, <a class="el" href="_window_manager_8cpp_source.html#l00131">getRaisedFlags()</a>, <a class="el" href="_config_8h_source.html#l00028">GLESC_WINDOW_HEIGHT</a>, <a class="el" href="_config_8h_source.html#l00027">GLESC_WINDOW_WIDTH</a>, <a class="el" href="_config_8h_source.html#l00030">GLESC_WINDOW_X</a>, <a class="el" href="_config_8h_source.html#l00031">GLESC_WINDOW_Y</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, <a class="el" href="_debugger_8h_source.html#l00019">postSDLCall</a>, <a class="el" href="_debugger_8h_source.html#l00018">SDLCall</a>, <a class="el" href="_logger_8cpp_source.html#l00085">GLESC::Logger::success()</a>, <a class="el" href="_window_manager_8h_source.html#l00030">windowMinHeight</a>, and <a class="el" href="_window_manager_8h_source.html#l00029">windowMinWidth</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_window_manager_8cpp_source.html#l00020">WindowManager()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_window_manager_8cpp_source.html#l00011">WindowManager()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -364,15 +364,15 @@ Here is the caller graph for this function:</div>
 
 <p>Destroy window and release resources. </p>
 
-<p class="definition">Definition at line <a class="el" href="_window_manager_8cpp_source.html#l00185">185</a> of file <a class="el" href="_window_manager_8cpp_source.html">WindowManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  185</span>                                  {</div>
-<div class="line"><span class="lineno">  186</span>    <a class="code hl_function" href="_gapi_8h.html#ab7514d88e65656ffa15ca33256518fe5">getGAPI</a>().deleteContext();</div>
-<div class="line"><span class="lineno">  187</span>    <a class="code hl_define" href="_debugger_8h.html#a7aa759a7d3fa02caf8872ad0b18d30d3">SDLCall</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_DestroyWindow</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_window_manager.html#ab36d84030a76c48e125eb5b533225d81">window</a>));</div>
-<div class="line"><span class="lineno">  188</span>    <a class="code hl_define" href="_debugger_8h.html#a7aa759a7d3fa02caf8872ad0b18d30d3">SDLCall</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_Quit</a>());</div>
-<div class="line"><span class="lineno">  189</span>    <a class="code hl_function" href="class_g_l_e_s_c_1_1_logger.html#a9b12ce53593be134b7d7dea62607d22d">Logger::get</a>().<a class="code hl_function" href="class_g_l_e_s_c_1_1_logger.html#accab43e8aa76342c5e58ac869f2f32d5">success</a>(<span class="stringliteral">&quot;Window destroyed!&quot;</span>);</div>
-<div class="line"><span class="lineno">  190</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_window_manager_8cpp_source.html#l00176">176</a> of file <a class="el" href="_window_manager_8cpp_source.html">WindowManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  176</span>                                  {</div>
+<div class="line"><span class="lineno">  177</span>    <a class="code hl_function" href="_gapi_8h.html#ab7514d88e65656ffa15ca33256518fe5">getGAPI</a>().deleteContext();</div>
+<div class="line"><span class="lineno">  178</span>    <a class="code hl_define" href="_debugger_8h.html#a7aa759a7d3fa02caf8872ad0b18d30d3">SDLCall</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_DestroyWindow</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_window_manager.html#ab36d84030a76c48e125eb5b533225d81">window</a>));</div>
+<div class="line"><span class="lineno">  179</span>    <a class="code hl_define" href="_debugger_8h.html#a7aa759a7d3fa02caf8872ad0b18d30d3">SDLCall</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_Quit</a>());</div>
+<div class="line"><span class="lineno">  180</span>    <a class="code hl_function" href="class_g_l_e_s_c_1_1_logger.html#a9b12ce53593be134b7d7dea62607d22d">Logger::get</a>().<a class="code hl_function" href="class_g_l_e_s_c_1_1_logger.html#accab43e8aa76342c5e58ac869f2f32d5">success</a>(<span class="stringliteral">&quot;Window destroyed!&quot;</span>);</div>
+<div class="line"><span class="lineno">  181</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_logger_8cpp_source.html#l00030">GLESC::Logger::get()</a>, <a class="el" href="_gapi_8h_source.html#l00028">getGAPI()</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, <a class="el" href="_debugger_8h_source.html#l00018">SDLCall</a>, <a class="el" href="_logger_8cpp_source.html#l00093">GLESC::Logger::success()</a>, and <a class="el" href="_window_manager_8h_source.html#l00178">window</a>.</p>
+<p class="reference">References <a class="el" href="_logger_8cpp_source.html#l00022">GLESC::Logger::get()</a>, <a class="el" href="_gapi_8h_source.html#l00028">getGAPI()</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, <a class="el" href="_debugger_8h_source.html#l00018">SDLCall</a>, <a class="el" href="_logger_8cpp_source.html#l00085">GLESC::Logger::success()</a>, and <a class="el" href="_window_manager_8h_source.html#l00182">window</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -399,15 +399,15 @@ Here is the call graph for this function:</div>
 <p>Get the position of the window. </p>
 <dl class="section return"><dt>Returns</dt><dd>Vec2I -&gt; x: position on X axis, y: position on Y axis </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_window_manager_8cpp_source.html#l00099">99</a> of file <a class="el" href="_window_manager_8cpp_source.html">WindowManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   99</span>                                 {</div>
-<div class="line"><span class="lineno">  100</span>    <span class="keywordtype">int</span> x, y;</div>
-<div class="line"><span class="lineno">  101</span>    <a class="code hl_define" href="_debugger_8h.html#a7aa759a7d3fa02caf8872ad0b18d30d3">SDLCall</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_GetWindowPosition</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_window_manager.html#ab36d84030a76c48e125eb5b533225d81">window</a>, &amp;x, &amp;y));</div>
-<div class="line"><span class="lineno">  102</span>    <span class="keywordflow">return</span> <a class="code hl_class" href="class_g_l_e_s_c_1_1_math_1_1_vector.html">Vec2I</a>{x, y};</div>
-<div class="line"><span class="lineno">  103</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_window_manager_8cpp_source.html#l00090">90</a> of file <a class="el" href="_window_manager_8cpp_source.html">WindowManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   90</span>                                 {</div>
+<div class="line"><span class="lineno">   91</span>    <span class="keywordtype">int</span> x, y;</div>
+<div class="line"><span class="lineno">   92</span>    <a class="code hl_define" href="_debugger_8h.html#a7aa759a7d3fa02caf8872ad0b18d30d3">SDLCall</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_GetWindowPosition</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_window_manager.html#ab36d84030a76c48e125eb5b533225d81">window</a>, &amp;x, &amp;y));</div>
+<div class="line"><span class="lineno">   93</span>    <span class="keywordflow">return</span> <a class="code hl_class" href="class_g_l_e_s_c_1_1_math_1_1_vector.html">Vec2I</a>{x, y};</div>
+<div class="line"><span class="lineno">   94</span>}</div>
 <div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_vector_html"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_vector.html">GLESC::Math::Vector</a></div><div class="ttdef"><b>Definition</b> <a href="_vector_8h_source.html#l00025">Vector.h:25</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, <a class="el" href="_debugger_8h_source.html#l00018">SDLCall</a>, and <a class="el" href="_window_manager_8h_source.html#l00178">window</a>.</p>
+<p class="reference">References <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, <a class="el" href="_debugger_8h_source.html#l00018">SDLCall</a>, and <a class="el" href="_window_manager_8h_source.html#l00182">window</a>.</p>
 
 </div>
 </div>
@@ -437,34 +437,34 @@ Here is the call graph for this function:</div>
 <p>Initialize SDL_Window flags. </p>
 <dl class="section return"><dt>Returns</dt><dd>int the flags </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_window_manager_8cpp_source.html#l00140">140</a> of file <a class="el" href="_window_manager_8cpp_source.html">WindowManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  140</span>                                       {</div>
-<div class="line"><span class="lineno">  141</span>    <span class="comment">// Flags that are needed to be passed to the windowManager * to configure it.</span></div>
-<div class="line"><span class="lineno">  142</span>    <span class="comment">// To add more flags we need to use the binary OR ( | )</span></div>
-<div class="line"><span class="lineno">  143</span>    <span class="comment">// More info: https://wiki.libsdl.org/SDL_WindowFlags</span></div>
-<div class="line"><span class="lineno">  144</span> </div>
-<div class="line"><span class="lineno">  145</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">uint32_t</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">flags</a> = 0;</div>
-<div class="line"><span class="lineno">  146</span><span class="preprocessor">#if GLESC_RENDER_API == OpenGLAPI</span></div>
-<div class="line"><span class="lineno">  147</span>    <span class="comment">// Flag to allow SDL windowManager work with OpenGL</span></div>
-<div class="line"><span class="lineno">  148</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">flags</a> |= <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_WINDOW_OPENGL</a>;</div>
-<div class="line"><span class="lineno">  149</span><span class="preprocessor">#elif GLESC_RENDER_API == VulkanAPI</span></div>
-<div class="line"><span class="lineno">  150</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">flags</a> |= <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_WINDOW_VULKAN</a>;</div>
-<div class="line"><span class="lineno">  151</span><span class="preprocessor">#endif</span></div>
-<div class="line"><span class="lineno">  152</span>    <span class="comment">// Window has no borders</span></div>
-<div class="line"><span class="lineno">  153</span>    <span class="comment">// flags |= SDL_WINDOW_BORDERLESS;</span></div>
-<div class="line"><span class="lineno">  154</span>    <span class="comment">// Window grabs input focus</span></div>
-<div class="line"><span class="lineno">  155</span>    <span class="comment">// flags |= SDL_WINDOW_INPUT_GRABBED;</span></div>
-<div class="line"><span class="lineno">  156</span>    <span class="comment">// Window enables High pixel density if supported by monitor</span></div>
-<div class="line"><span class="lineno">  157</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">flags</a> |= <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_WINDOW_ALLOW_HIGHDPI</a>;</div>
-<div class="line"><span class="lineno">  158</span>    <span class="comment">// Window is resizable</span></div>
-<div class="line"><span class="lineno">  159</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">flags</a> |= <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_WINDOW_RESIZABLE</a>;</div>
-<div class="line"><span class="lineno">  160</span> </div>
-<div class="line"><span class="lineno">  161</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">flags</a>;</div>
-<div class="line"><span class="lineno">  162</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_window_manager_8cpp_source.html#l00131">131</a> of file <a class="el" href="_window_manager_8cpp_source.html">WindowManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  131</span>                                       {</div>
+<div class="line"><span class="lineno">  132</span>    <span class="comment">// Flags that are needed to be passed to the windowManager * to configure it.</span></div>
+<div class="line"><span class="lineno">  133</span>    <span class="comment">// To add more flags we need to use the binary OR ( | )</span></div>
+<div class="line"><span class="lineno">  134</span>    <span class="comment">// More info: https://wiki.libsdl.org/SDL_WindowFlags</span></div>
+<div class="line"><span class="lineno">  135</span> </div>
+<div class="line"><span class="lineno">  136</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">uint32_t</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">flags</a> = 0;</div>
+<div class="line"><span class="lineno">  137</span><span class="preprocessor">#if GLESC_RENDER_API == OpenGLAPI</span></div>
+<div class="line"><span class="lineno">  138</span>    <span class="comment">// Flag to allow SDL windowManager work with OpenGL</span></div>
+<div class="line"><span class="lineno">  139</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">flags</a> |= <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_WINDOW_OPENGL</a>;</div>
+<div class="line"><span class="lineno">  140</span><span class="preprocessor">#elif GLESC_RENDER_API == VulkanAPI</span></div>
+<div class="line"><span class="lineno">  141</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">flags</a> |= <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_WINDOW_VULKAN</a>;</div>
+<div class="line"><span class="lineno">  142</span><span class="preprocessor">#endif</span></div>
+<div class="line"><span class="lineno">  143</span>    <span class="comment">// Window has no borders</span></div>
+<div class="line"><span class="lineno">  144</span>    <span class="comment">// flags |= SDL_WINDOW_BORDERLESS;</span></div>
+<div class="line"><span class="lineno">  145</span>    <span class="comment">// Window grabs input focus</span></div>
+<div class="line"><span class="lineno">  146</span>    <span class="comment">// flags |= SDL_WINDOW_INPUT_GRABBED;</span></div>
+<div class="line"><span class="lineno">  147</span>    <span class="comment">// Window enables High pixel density if supported by monitor</span></div>
+<div class="line"><span class="lineno">  148</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">flags</a> |= <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_WINDOW_ALLOW_HIGHDPI</a>;</div>
+<div class="line"><span class="lineno">  149</span>    <span class="comment">// Window is resizable</span></div>
+<div class="line"><span class="lineno">  150</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">flags</a> |= <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_WINDOW_RESIZABLE</a>;</div>
+<div class="line"><span class="lineno">  151</span> </div>
+<div class="line"><span class="lineno">  152</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">flags</a>;</div>
+<div class="line"><span class="lineno">  153</span>}</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_window_manager_8cpp_source.html#l00173">createWindow()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_window_manager_8cpp_source.html#l00164">createWindow()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -491,24 +491,24 @@ Here is the caller graph for this function:</div>
 <p>Get the width and height of the window. </p>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="struct_g_l_e_s_c_1_1_window_dimensions.html">WindowDimensions</a> -&gt; width: width of the window, height: height of the window </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_window_manager_8cpp_source.html#l00122">122</a> of file <a class="el" href="_window_manager_8cpp_source.html">WindowManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  122</span>                                                   {</div>
-<div class="line"><span class="lineno">  123</span>    <a class="code hl_struct" href="struct_g_l_e_s_c_1_1_window_dimensions.html">WindowDimensions</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">dimensions</a>{};</div>
-<div class="line"><span class="lineno">  124</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Uint32</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">flags</a> = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_GetWindowFlags</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_window_manager.html#ab36d84030a76c48e125eb5b533225d81">window</a>);</div>
-<div class="line"><span class="lineno">  125</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">flags</a> &amp; (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_WINDOW_MINIMIZED</a> | <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_WINDOW_HIDDEN</a>)) {</div>
-<div class="line"><span class="lineno">  126</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">dimensions</a>;</div>
-<div class="line"><span class="lineno">  127</span>    }</div>
-<div class="line"><span class="lineno">  128</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_g_l_e_s_c_1_1_window_manager.html#ab36d84030a76c48e125eb5b533225d81">window</a> == <span class="keyword">nullptr</span>) {</div>
-<div class="line"><span class="lineno">  129</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">dimensions</a>;</div>
-<div class="line"><span class="lineno">  130</span>    }</div>
-<div class="line"><span class="lineno">  131</span>    <a class="code hl_define" href="_debugger_8h.html#a7aa759a7d3fa02caf8872ad0b18d30d3">SDLCall</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_GetWindowSize</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_window_manager.html#ab36d84030a76c48e125eb5b533225d81">window</a>, &amp;<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">dimensions</a>.width, &amp;<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">dimensions</a>.height));</div>
-<div class="line"><span class="lineno">  132</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">dimensions</a>;</div>
-<div class="line"><span class="lineno">  133</span>}</div>
-<div class="ttc" id="astruct_g_l_e_s_c_1_1_window_dimensions_html"><div class="ttname"><a href="struct_g_l_e_s_c_1_1_window_dimensions.html">GLESC::WindowDimensions</a></div><div class="ttdef"><b>Definition</b> <a href="_window_structs_8h_source.html#l00013">WindowStructs.h:13</a></div></div>
+<p class="definition">Definition at line <a class="el" href="_window_manager_8cpp_source.html#l00113">113</a> of file <a class="el" href="_window_manager_8cpp_source.html">WindowManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  113</span>                                                   {</div>
+<div class="line"><span class="lineno">  114</span>    <a class="code hl_struct" href="struct_g_l_e_s_c_1_1_window_dimensions.html">WindowDimensions</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">dimensions</a>{};</div>
+<div class="line"><span class="lineno">  115</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Uint32</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">flags</a> = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_GetWindowFlags</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_window_manager.html#ab36d84030a76c48e125eb5b533225d81">window</a>);</div>
+<div class="line"><span class="lineno">  116</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">flags</a> &amp; (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_WINDOW_MINIMIZED</a> | <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_WINDOW_HIDDEN</a>)) {</div>
+<div class="line"><span class="lineno">  117</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">dimensions</a>;</div>
+<div class="line"><span class="lineno">  118</span>    }</div>
+<div class="line"><span class="lineno">  119</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_g_l_e_s_c_1_1_window_manager.html#ab36d84030a76c48e125eb5b533225d81">window</a> == <span class="keyword">nullptr</span>) {</div>
+<div class="line"><span class="lineno">  120</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">dimensions</a>;</div>
+<div class="line"><span class="lineno">  121</span>    }</div>
+<div class="line"><span class="lineno">  122</span>    <a class="code hl_define" href="_debugger_8h.html#a7aa759a7d3fa02caf8872ad0b18d30d3">SDLCall</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_GetWindowSize</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_window_manager.html#ab36d84030a76c48e125eb5b533225d81">window</a>, &amp;<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">dimensions</a>.width, &amp;<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">dimensions</a>.height));</div>
+<div class="line"><span class="lineno">  123</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">dimensions</a>;</div>
+<div class="line"><span class="lineno">  124</span>}</div>
+<div class="ttc" id="astruct_g_l_e_s_c_1_1_window_dimensions_html"><div class="ttname"><a href="struct_g_l_e_s_c_1_1_window_dimensions.html">GLESC::WindowDimensions</a></div><div class="ttdef"><b>Definition</b> <a href="_window_structs_8h_source.html#l00015">WindowStructs.h:15</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, <a class="el" href="_debugger_8h_source.html#l00018">SDLCall</a>, and <a class="el" href="_window_manager_8h_source.html#l00178">window</a>.</p>
+<p class="reference">References <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, <a class="el" href="_debugger_8h_source.html#l00018">SDLCall</a>, and <a class="el" href="_window_manager_8h_source.html#l00182">window</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_renderer_8h_source.html#l00082">GLESC::Render::Renderer::getViewportSize()</a>, <a class="el" href="_window_manager_8cpp_source.html#l00135">getWindowCenter()</a>, <a class="el" href="_engine_camera_8cpp_source.html#l00083">GLESC::EngineCamera::setupCamera()</a>, and <a class="el" href="_camera_system_8cpp_source.html#l00023">GLESC::ECS::CameraSystem::update()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_renderer_8h_source.html#l00082">GLESC::Render::Renderer::getViewportSize()</a>, <a class="el" href="_window_manager_8cpp_source.html#l00126">getWindowCenter()</a>, <a class="el" href="_engine_camera_8cpp_source.html#l00072">GLESC::EngineCamera::setupCamera()</a>, and <a class="el" href="_camera_system_8cpp_source.html#l00014">GLESC::ECS::CameraSystem::update()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -535,14 +535,14 @@ Here is the caller graph for this function:</div>
 <p>Get the Window object. </p>
 <dl class="section return"><dt>Returns</dt><dd>SDL_Window* the windowManager object </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_window_manager_8cpp_source.html#l00118">118</a> of file <a class="el" href="_window_manager_8cpp_source.html">WindowManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  118</span>                                     {</div>
-<div class="line"><span class="lineno">  119</span>    <span class="keywordflow">return</span> *<a class="code hl_variable" href="class_g_l_e_s_c_1_1_window_manager.html#ab36d84030a76c48e125eb5b533225d81">window</a>;</div>
-<div class="line"><span class="lineno">  120</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_window_manager_8cpp_source.html#l00109">109</a> of file <a class="el" href="_window_manager_8cpp_source.html">WindowManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  109</span>                                     {</div>
+<div class="line"><span class="lineno">  110</span>    <span class="keywordflow">return</span> *<a class="code hl_variable" href="class_g_l_e_s_c_1_1_window_manager.html#ab36d84030a76c48e125eb5b533225d81">window</a>;</div>
+<div class="line"><span class="lineno">  111</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_window_manager_8h_source.html#l00178">window</a>.</p>
+<p class="reference">References <a class="el" href="_window_manager_8h_source.html#l00182">window</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_renderer_8cpp_source.html#l00066">GLESC::Render::Renderer::swapBuffers()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_renderer_8cpp_source.html#l00057">GLESC::Render::Renderer::swapBuffers()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -568,14 +568,14 @@ Here is the caller graph for this function:</div>
 
 <p>Get the center of the window. </p>
 
-<p class="definition">Definition at line <a class="el" href="_window_manager_8cpp_source.html#l00135">135</a> of file <a class="el" href="_window_manager_8cpp_source.html">WindowManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  135</span>                                            {</div>
-<div class="line"><span class="lineno">  136</span>    <span class="keyword">auto</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">dimensions</a> = <a class="code hl_function" href="class_g_l_e_s_c_1_1_window_manager.html#a9773451549202e2cee40c3106d8e5bbe">getSize</a>();</div>
-<div class="line"><span class="lineno">  137</span>    <span class="keywordflow">return</span> <a class="code hl_class" href="class_g_l_e_s_c_1_1_math_1_1_vector.html">Vec2UI</a>{<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">dimensions</a>.width / 2, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">dimensions</a>.height / 2};</div>
-<div class="line"><span class="lineno">  138</span>}</div>
-<div class="ttc" id="aclass_g_l_e_s_c_1_1_window_manager_html_a9773451549202e2cee40c3106d8e5bbe"><div class="ttname"><a href="class_g_l_e_s_c_1_1_window_manager.html#a9773451549202e2cee40c3106d8e5bbe">GLESC::WindowManager::getSize</a></div><div class="ttdeci">WindowDimensions getSize() const</div><div class="ttdoc">Get the width and height of the window.</div><div class="ttdef"><b>Definition</b> <a href="_window_manager_8cpp_source.html#l00122">WindowManager.cpp:122</a></div></div>
+<p class="definition">Definition at line <a class="el" href="_window_manager_8cpp_source.html#l00126">126</a> of file <a class="el" href="_window_manager_8cpp_source.html">WindowManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  126</span>                                            {</div>
+<div class="line"><span class="lineno">  127</span>    <span class="keyword">auto</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">dimensions</a> = <a class="code hl_function" href="class_g_l_e_s_c_1_1_window_manager.html#a9773451549202e2cee40c3106d8e5bbe">getSize</a>();</div>
+<div class="line"><span class="lineno">  128</span>    <span class="keywordflow">return</span> <a class="code hl_class" href="class_g_l_e_s_c_1_1_math_1_1_vector.html">Vec2UI</a>{<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">dimensions</a>.width / 2, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">dimensions</a>.height / 2};</div>
+<div class="line"><span class="lineno">  129</span>}</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_window_manager_html_a9773451549202e2cee40c3106d8e5bbe"><div class="ttname"><a href="class_g_l_e_s_c_1_1_window_manager.html#a9773451549202e2cee40c3106d8e5bbe">GLESC::WindowManager::getSize</a></div><div class="ttdeci">WindowDimensions getSize() const</div><div class="ttdoc">Get the width and height of the window.</div><div class="ttdef"><b>Definition</b> <a href="_window_manager_8cpp_source.html#l00113">WindowManager.cpp:113</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_window_manager_8cpp_source.html#l00122">getSize()</a>, and <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
+<p class="reference">References <a class="el" href="_window_manager_8cpp_source.html#l00113">getSize()</a>, and <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -609,18 +609,18 @@ Here is the call graph for this function:</div>
 
 <p>Initialize SDL, checks if there is any error while doing it Must be called before creating windowManager. </p>
 
-<p class="definition">Definition at line <a class="el" href="_window_manager_8cpp_source.html#l00165">165</a> of file <a class="el" href="_window_manager_8cpp_source.html">WindowManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  165</span>                            {</div>
-<div class="line"><span class="lineno">  166</span>    <span class="keywordtype">int</span> result = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_Init</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_INIT_EVERYTHING</a>);</div>
-<div class="line"><span class="lineno">  167</span>    <a class="code hl_define" href="_debugger_8h.html#a8382f511f68dec7d4c75710279e73213">postSDLCall</a>;</div>
-<div class="line"><span class="lineno">  168</span>    <a class="code hl_define" href="_asserts_8h.html#a659770558f0b48f6df4368b39ae2a65c">D_ASSERT_EQUAL</a>(result, 0, <span class="stringliteral">&quot;Unable to initialize SDL: &quot;</span> + std::string(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_GetError</a>()));</div>
-<div class="line"><span class="lineno">  169</span>    <a class="code hl_function" href="class_g_l_e_s_c_1_1_logger.html#a9b12ce53593be134b7d7dea62607d22d">Logger::get</a>().<a class="code hl_function" href="class_g_l_e_s_c_1_1_logger.html#accab43e8aa76342c5e58ac869f2f32d5">success</a>(<span class="stringliteral">&quot;SDL Initialized!&quot;</span>);</div>
-<div class="line"><span class="lineno">  170</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_window_manager_8cpp_source.html#l00156">156</a> of file <a class="el" href="_window_manager_8cpp_source.html">WindowManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  156</span>                            {</div>
+<div class="line"><span class="lineno">  157</span>    <span class="keywordtype">int</span> result = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_Init</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_INIT_EVERYTHING</a>);</div>
+<div class="line"><span class="lineno">  158</span>    <a class="code hl_define" href="_debugger_8h.html#a8382f511f68dec7d4c75710279e73213">postSDLCall</a>;</div>
+<div class="line"><span class="lineno">  159</span>    <a class="code hl_define" href="_asserts_8h.html#a659770558f0b48f6df4368b39ae2a65c">D_ASSERT_EQUAL</a>(result, 0, <span class="stringliteral">&quot;Unable to initialize SDL: &quot;</span> + std::string(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_GetError</a>()));</div>
+<div class="line"><span class="lineno">  160</span>    <a class="code hl_function" href="class_g_l_e_s_c_1_1_logger.html#a9b12ce53593be134b7d7dea62607d22d">Logger::get</a>().<a class="code hl_function" href="class_g_l_e_s_c_1_1_logger.html#accab43e8aa76342c5e58ac869f2f32d5">success</a>(<span class="stringliteral">&quot;SDL Initialized!&quot;</span>);</div>
+<div class="line"><span class="lineno">  161</span>}</div>
 <div class="ttc" id="a_asserts_8h_html_a659770558f0b48f6df4368b39ae2a65c"><div class="ttname"><a href="_asserts_8h.html#a659770558f0b48f6df4368b39ae2a65c">D_ASSERT_EQUAL</a></div><div class="ttdeci">#define D_ASSERT_EQUAL(condition, expected, message)</div><div class="ttdef"><b>Definition</b> <a href="_asserts_8h_source.html#l00025">Asserts.h:25</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_asserts_8h_source.html#l00025">D_ASSERT_EQUAL</a>, <a class="el" href="_logger_8cpp_source.html#l00030">GLESC::Logger::get()</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, <a class="el" href="_debugger_8h_source.html#l00019">postSDLCall</a>, and <a class="el" href="_logger_8cpp_source.html#l00093">GLESC::Logger::success()</a>.</p>
+<p class="reference">References <a class="el" href="_asserts_8h_source.html#l00025">D_ASSERT_EQUAL</a>, <a class="el" href="_logger_8cpp_source.html#l00022">GLESC::Logger::get()</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, <a class="el" href="_debugger_8h_source.html#l00019">postSDLCall</a>, and <a class="el" href="_logger_8cpp_source.html#l00085">GLESC::Logger::success()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_window_manager_8cpp_source.html#l00020">WindowManager()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_window_manager_8cpp_source.html#l00011">WindowManager()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -652,13 +652,13 @@ Here is the caller graph for this function:</div>
 <p>Gets whether the window is borderless or not. </p>
 <dl class="section return"><dt>Returns</dt><dd>true if window is borderless, false otherwise </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_window_manager_8cpp_source.html#l00075">75</a> of file <a class="el" href="_window_manager_8cpp_source.html">WindowManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   75</span>                                       {</div>
-<div class="line"><span class="lineno">   76</span>    <span class="keyword">auto</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">flags</a> = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_GetWindowFlags</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_window_manager.html#ab36d84030a76c48e125eb5b533225d81">window</a>);</div>
-<div class="line"><span class="lineno">   77</span>    <span class="keywordflow">return</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">flags</a> &amp; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_WINDOW_BORDERLESS</a>) != 0;</div>
-<div class="line"><span class="lineno">   78</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_window_manager_8cpp_source.html#l00066">66</a> of file <a class="el" href="_window_manager_8cpp_source.html">WindowManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   66</span>                                       {</div>
+<div class="line"><span class="lineno">   67</span>    <span class="keyword">auto</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">flags</a> = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_GetWindowFlags</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_window_manager.html#ab36d84030a76c48e125eb5b533225d81">window</a>);</div>
+<div class="line"><span class="lineno">   68</span>    <span class="keywordflow">return</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">flags</a> &amp; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_WINDOW_BORDERLESS</a>) != 0;</div>
+<div class="line"><span class="lineno">   69</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_window_manager_8h_source.html#l00178">window</a>.</p>
+<p class="reference">References <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_window_manager_8h_source.html#l00182">window</a>.</p>
 
 </div>
 </div>
@@ -680,15 +680,15 @@ Here is the caller graph for this function:</div>
 <p>Gets whether the windowManager is fullscreen or not. </p>
 <dl class="section return"><dt>Returns</dt><dd>true if windowManager is fullscreen, false otherwise </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_window_manager_8cpp_source.html#l00089">89</a> of file <a class="el" href="_window_manager_8cpp_source.html">WindowManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   89</span>                                 {</div>
-<div class="line"><span class="lineno">   90</span>    <span class="keyword">auto</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">flags</a> = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_GetWindowFlags</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_window_manager.html#ab36d84030a76c48e125eb5b533225d81">window</a>);</div>
-<div class="line"><span class="lineno">   91</span>    <span class="keywordflow">return</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">flags</a> &amp; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_WINDOW_FULLSCREEN</a>) != 0;</div>
-<div class="line"><span class="lineno">   92</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_window_manager_8cpp_source.html#l00080">80</a> of file <a class="el" href="_window_manager_8cpp_source.html">WindowManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   80</span>                                 {</div>
+<div class="line"><span class="lineno">   81</span>    <span class="keyword">auto</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">flags</a> = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_GetWindowFlags</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_window_manager.html#ab36d84030a76c48e125eb5b533225d81">window</a>);</div>
+<div class="line"><span class="lineno">   82</span>    <span class="keywordflow">return</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">flags</a> &amp; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_WINDOW_FULLSCREEN</a>) != 0;</div>
+<div class="line"><span class="lineno">   83</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_window_manager_8h_source.html#l00178">window</a>.</p>
+<p class="reference">References <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_window_manager_8h_source.html#l00182">window</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_window_manager_8cpp_source.html#l00020">WindowManager()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_window_manager_8cpp_source.html#l00011">WindowManager()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -715,13 +715,13 @@ Here is the caller graph for this function:</div>
 <p>Gets whether the window is fullscreen borderless or not. </p>
 <dl class="section return"><dt>Returns</dt><dd>true if window is fullscreen borderless, false otherwise </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_window_manager_8cpp_source.html#l00065">65</a> of file <a class="el" href="_window_manager_8cpp_source.html">WindowManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   65</span>                                           {</div>
-<div class="line"><span class="lineno">   66</span>    <span class="keyword">auto</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">flags</a> = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_GetWindowFlags</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_window_manager.html#ab36d84030a76c48e125eb5b533225d81">window</a>);</div>
-<div class="line"><span class="lineno">   67</span>    <span class="keywordflow">return</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">flags</a> &amp; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_WINDOW_FULLSCREEN_DESKTOP</a>) != 0;</div>
-<div class="line"><span class="lineno">   68</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_window_manager_8cpp_source.html#l00056">56</a> of file <a class="el" href="_window_manager_8cpp_source.html">WindowManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   56</span>                                           {</div>
+<div class="line"><span class="lineno">   57</span>    <span class="keyword">auto</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">flags</a> = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_GetWindowFlags</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_window_manager.html#ab36d84030a76c48e125eb5b533225d81">window</a>);</div>
+<div class="line"><span class="lineno">   58</span>    <span class="keywordflow">return</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">flags</a> &amp; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_WINDOW_FULLSCREEN_DESKTOP</a>) != 0;</div>
+<div class="line"><span class="lineno">   59</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_window_manager_8h_source.html#l00178">window</a>.</p>
+<p class="reference">References <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_window_manager_8h_source.html#l00182">window</a>.</p>
 
 </div>
 </div>
@@ -743,15 +743,15 @@ Here is the caller graph for this function:</div>
 <p>Gets whether the window is resizable or not. </p>
 <dl class="section return"><dt>Returns</dt><dd>true if window is resizable, false otherwise </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_window_manager_8cpp_source.html#l00084">84</a> of file <a class="el" href="_window_manager_8cpp_source.html">WindowManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   84</span>                                {</div>
-<div class="line"><span class="lineno">   85</span>    <span class="keyword">auto</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">flags</a> = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_GetWindowFlags</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_window_manager.html#ab36d84030a76c48e125eb5b533225d81">window</a>);</div>
-<div class="line"><span class="lineno">   86</span>    <span class="keywordflow">return</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">flags</a> &amp; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_WINDOW_RESIZABLE</a>) != 0;</div>
-<div class="line"><span class="lineno">   87</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_window_manager_8cpp_source.html#l00075">75</a> of file <a class="el" href="_window_manager_8cpp_source.html">WindowManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   75</span>                                {</div>
+<div class="line"><span class="lineno">   76</span>    <span class="keyword">auto</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">flags</a> = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_GetWindowFlags</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_window_manager.html#ab36d84030a76c48e125eb5b533225d81">window</a>);</div>
+<div class="line"><span class="lineno">   77</span>    <span class="keywordflow">return</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">flags</a> &amp; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_WINDOW_RESIZABLE</a>) != 0;</div>
+<div class="line"><span class="lineno">   78</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_window_manager_8h_source.html#l00178">window</a>.</p>
+<p class="reference">References <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_window_manager_8h_source.html#l00182">window</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_window_manager_8cpp_source.html#l00080">setResizable()</a>, and <a class="el" href="_window_manager_8cpp_source.html#l00043">setSize()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_window_manager_8cpp_source.html#l00071">setResizable()</a>, and <a class="el" href="_window_manager_8cpp_source.html#l00034">setSize()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -784,12 +784,12 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_window_manager_8cpp_source.html#l00071">71</a> of file <a class="el" href="_window_manager_8cpp_source.html">WindowManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   71</span>                                                         {</div>
-<div class="line"><span class="lineno">   72</span>    <a class="code hl_define" href="_debugger_8h.html#a7aa759a7d3fa02caf8872ad0b18d30d3">SDLCall</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_SetWindowBordered</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_window_manager.html#ab36d84030a76c48e125eb5b533225d81">window</a>, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">isBorderless</a> ? <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_FALSE</a> : <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_TRUE</a>));</div>
-<div class="line"><span class="lineno">   73</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_window_manager_8cpp_source.html#l00062">62</a> of file <a class="el" href="_window_manager_8cpp_source.html">WindowManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   62</span>                                                         {</div>
+<div class="line"><span class="lineno">   63</span>    <a class="code hl_define" href="_debugger_8h.html#a7aa759a7d3fa02caf8872ad0b18d30d3">SDLCall</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_SetWindowBordered</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_window_manager.html#ab36d84030a76c48e125eb5b533225d81">window</a>, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">isBorderless</a> ? <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_FALSE</a> : <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_TRUE</a>));</div>
+<div class="line"><span class="lineno">   64</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, <a class="el" href="_debugger_8h_source.html#l00018">SDLCall</a>, and <a class="el" href="_window_manager_8h_source.html#l00178">window</a>.</p>
+<p class="reference">References <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, <a class="el" href="_debugger_8h_source.html#l00018">SDLCall</a>, and <a class="el" href="_window_manager_8h_source.html#l00182">window</a>.</p>
 
 </div>
 </div>
@@ -811,15 +811,15 @@ Here is the caller graph for this function:</div>
 
 <p>Turn fullscreen on or off This will change the flags of the windowManager object. </p>
 
-<p class="definition">Definition at line <a class="el" href="_window_manager_8cpp_source.html#l00055">55</a> of file <a class="el" href="_window_manager_8cpp_source.html">WindowManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   55</span>                                                   {</div>
-<div class="line"><span class="lineno">   56</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Uint32</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">flag</a> = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">isFullScreen</a> ? <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_WINDOW_FULLSCREEN</a> : 0;</div>
-<div class="line"><span class="lineno">   57</span>    <a class="code hl_define" href="_debugger_8h.html#a7aa759a7d3fa02caf8872ad0b18d30d3">SDLCall</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_SetWindowFullscreen</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_window_manager.html#ab36d84030a76c48e125eb5b533225d81">window</a>, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">flag</a>));</div>
-<div class="line"><span class="lineno">   58</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_window_manager_8cpp_source.html#l00046">46</a> of file <a class="el" href="_window_manager_8cpp_source.html">WindowManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   46</span>                                                   {</div>
+<div class="line"><span class="lineno">   47</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Uint32</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">flag</a> = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">isFullScreen</a> ? <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_WINDOW_FULLSCREEN</a> : 0;</div>
+<div class="line"><span class="lineno">   48</span>    <a class="code hl_define" href="_debugger_8h.html#a7aa759a7d3fa02caf8872ad0b18d30d3">SDLCall</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_SetWindowFullscreen</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_window_manager.html#ab36d84030a76c48e125eb5b533225d81">window</a>, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">flag</a>));</div>
+<div class="line"><span class="lineno">   49</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, <a class="el" href="_debugger_8h_source.html#l00018">SDLCall</a>, and <a class="el" href="_window_manager_8h_source.html#l00178">window</a>.</p>
+<p class="reference">References <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, <a class="el" href="_debugger_8h_source.html#l00018">SDLCall</a>, and <a class="el" href="_window_manager_8h_source.html#l00182">window</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_window_manager_8cpp_source.html#l00020">WindowManager()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_window_manager_8cpp_source.html#l00011">WindowManager()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -852,13 +852,13 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_window_manager_8cpp_source.html#l00060">60</a> of file <a class="el" href="_window_manager_8cpp_source.html">WindowManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   60</span>                                                             {</div>
-<div class="line"><span class="lineno">   61</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Uint32</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">flag</a> = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">isFullScreen</a> ? <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_WINDOW_FULLSCREEN_DESKTOP</a> : 0;</div>
-<div class="line"><span class="lineno">   62</span>    <a class="code hl_define" href="_debugger_8h.html#a7aa759a7d3fa02caf8872ad0b18d30d3">SDLCall</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_SetWindowFullscreen</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_window_manager.html#ab36d84030a76c48e125eb5b533225d81">window</a>, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">flag</a>));</div>
-<div class="line"><span class="lineno">   63</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_window_manager_8cpp_source.html#l00051">51</a> of file <a class="el" href="_window_manager_8cpp_source.html">WindowManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   51</span>                                                             {</div>
+<div class="line"><span class="lineno">   52</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">Uint32</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">flag</a> = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">isFullScreen</a> ? <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_WINDOW_FULLSCREEN_DESKTOP</a> : 0;</div>
+<div class="line"><span class="lineno">   53</span>    <a class="code hl_define" href="_debugger_8h.html#a7aa759a7d3fa02caf8872ad0b18d30d3">SDLCall</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_SetWindowFullscreen</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_window_manager.html#ab36d84030a76c48e125eb5b533225d81">window</a>, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">flag</a>));</div>
+<div class="line"><span class="lineno">   54</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, <a class="el" href="_debugger_8h_source.html#l00018">SDLCall</a>, and <a class="el" href="_window_manager_8h_source.html#l00178">window</a>.</p>
+<p class="reference">References <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, <a class="el" href="_debugger_8h_source.html#l00018">SDLCall</a>, and <a class="el" href="_window_manager_8h_source.html#l00182">window</a>.</p>
 
 </div>
 </div>
@@ -886,24 +886,24 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_window_manager_8cpp_source.html#l00105">105</a> of file <a class="el" href="_window_manager_8cpp_source.html">WindowManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  105</span>                                                     {</div>
-<div class="line"><span class="lineno">  106</span>    std::string <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">iconPath</a> = <a class="code hl_function" href="class_bin_path.html#a518dec5500f3666c8ecc54023e0c229d">BinPath::getExecutableDirectory</a>() + std::string(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">ASSETS_PATH</a>) + <span class="stringliteral">&quot;/&quot;</span> + <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">iconFile</a>;</div>
-<div class="line"><span class="lineno">  107</span>    <a class="code hl_function" href="class_g_l_e_s_c_1_1_logger.html#a9b12ce53593be134b7d7dea62607d22d">Logger::get</a>().<a class="code hl_function" href="class_g_l_e_s_c_1_1_logger.html#a5fa42012f212a31fe7eb06c5ba93caba">info</a>(<span class="stringliteral">&quot;Loading icon: &quot;</span> + <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">iconPath</a>);</div>
-<div class="line"><span class="lineno">  108</span> </div>
-<div class="line"><span class="lineno">  109</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_Surface</a>* <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">iconSurface</a> = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_LoadBMP</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">iconPath</a>.c_str());</div>
-<div class="line"><span class="lineno">  110</span>    <a class="code hl_define" href="_asserts_8h.html#a89998838563ab1ba549ea052cdcd5bc2">D_ASSERT_NOT_NULLPTR</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">iconSurface</a>, <span class="stringliteral">&quot;Unable to load icon with path: &quot;</span> + <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">iconPath</a> + <span class="stringliteral">&quot; SDL_Error: &quot;</span> +</div>
-<div class="line"><span class="lineno">  111</span>                         std::string(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_GetError</a>()));</div>
-<div class="line"><span class="lineno">  112</span> </div>
-<div class="line"><span class="lineno">  113</span>    <a class="code hl_define" href="_debugger_8h.html#a7aa759a7d3fa02caf8872ad0b18d30d3">SDLCall</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_SetWindowIcon</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_window_manager.html#ab36d84030a76c48e125eb5b533225d81">window</a>, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">iconSurface</a>));</div>
-<div class="line"><span class="lineno">  114</span>    <a class="code hl_define" href="_debugger_8h.html#a7aa759a7d3fa02caf8872ad0b18d30d3">SDLCall</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_FreeSurface</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">iconSurface</a>));</div>
-<div class="line"><span class="lineno">  115</span>}</div>
-<div class="ttc" id="aclass_bin_path_html_a518dec5500f3666c8ecc54023e0c229d"><div class="ttname"><a href="class_bin_path.html#a518dec5500f3666c8ecc54023e0c229d">BinPath::getExecutableDirectory</a></div><div class="ttdeci">static std::string getExecutableDirectory()</div><div class="ttdef"><b>Definition</b> <a href="_bin_path_8cpp_source.html#l00045">BinPath.cpp:45</a></div></div>
-<div class="ttc" id="aclass_g_l_e_s_c_1_1_logger_html_a5fa42012f212a31fe7eb06c5ba93caba"><div class="ttname"><a href="class_g_l_e_s_c_1_1_logger.html#a5fa42012f212a31fe7eb06c5ba93caba">GLESC::Logger::info</a></div><div class="ttdeci">void info(const std::string &amp;text) override</div><div class="ttdoc">Display basic information Background – Black Text – White.</div><div class="ttdef"><b>Definition</b> <a href="_logger_8cpp_source.html#l00065">Logger.cpp:65</a></div></div>
+<p class="definition">Definition at line <a class="el" href="_window_manager_8cpp_source.html#l00096">96</a> of file <a class="el" href="_window_manager_8cpp_source.html">WindowManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   96</span>                                                     {</div>
+<div class="line"><span class="lineno">   97</span>    std::string <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">iconPath</a> = <a class="code hl_function" href="class_bin_path.html#a518dec5500f3666c8ecc54023e0c229d">BinPath::getExecutableDirectory</a>() + std::string(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">ASSETS_PATH</a>) + <span class="stringliteral">&quot;/&quot;</span> + <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">iconFile</a>;</div>
+<div class="line"><span class="lineno">   98</span>    <a class="code hl_function" href="class_g_l_e_s_c_1_1_logger.html#a9b12ce53593be134b7d7dea62607d22d">Logger::get</a>().<a class="code hl_function" href="class_g_l_e_s_c_1_1_logger.html#a5fa42012f212a31fe7eb06c5ba93caba">info</a>(<span class="stringliteral">&quot;Loading icon: &quot;</span> + <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">iconPath</a>);</div>
+<div class="line"><span class="lineno">   99</span> </div>
+<div class="line"><span class="lineno">  100</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_Surface</a>* <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">iconSurface</a> = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_LoadBMP</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">iconPath</a>.c_str());</div>
+<div class="line"><span class="lineno">  101</span>    <a class="code hl_define" href="_asserts_8h.html#a89998838563ab1ba549ea052cdcd5bc2">D_ASSERT_NOT_NULLPTR</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">iconSurface</a>, <span class="stringliteral">&quot;Unable to load icon with path: &quot;</span> + <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">iconPath</a> + <span class="stringliteral">&quot; SDL_Error: &quot;</span> +</div>
+<div class="line"><span class="lineno">  102</span>                         std::string(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_GetError</a>()));</div>
+<div class="line"><span class="lineno">  103</span> </div>
+<div class="line"><span class="lineno">  104</span>    <a class="code hl_define" href="_debugger_8h.html#a7aa759a7d3fa02caf8872ad0b18d30d3">SDLCall</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_SetWindowIcon</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_window_manager.html#ab36d84030a76c48e125eb5b533225d81">window</a>, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">iconSurface</a>));</div>
+<div class="line"><span class="lineno">  105</span>    <a class="code hl_define" href="_debugger_8h.html#a7aa759a7d3fa02caf8872ad0b18d30d3">SDLCall</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_FreeSurface</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">iconSurface</a>));</div>
+<div class="line"><span class="lineno">  106</span>}</div>
+<div class="ttc" id="aclass_bin_path_html_a518dec5500f3666c8ecc54023e0c229d"><div class="ttname"><a href="class_bin_path.html#a518dec5500f3666c8ecc54023e0c229d">BinPath::getExecutableDirectory</a></div><div class="ttdeci">static std::string getExecutableDirectory()</div><div class="ttdef"><b>Definition</b> <a href="_bin_path_8cpp_source.html#l00036">BinPath.cpp:36</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_logger_html_a5fa42012f212a31fe7eb06c5ba93caba"><div class="ttname"><a href="class_g_l_e_s_c_1_1_logger.html#a5fa42012f212a31fe7eb06c5ba93caba">GLESC::Logger::info</a></div><div class="ttdeci">void info(const std::string &amp;text) override</div><div class="ttdoc">Display basic information Background – Black Text – White.</div><div class="ttdef"><b>Definition</b> <a href="_logger_8cpp_source.html#l00057">Logger.cpp:57</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_asserts_8h_source.html#l00023">D_ASSERT_NOT_NULLPTR</a>, <a class="el" href="_logger_8cpp_source.html#l00030">GLESC::Logger::get()</a>, <a class="el" href="_bin_path_8cpp_source.html#l00045">BinPath::getExecutableDirectory()</a>, <a class="el" href="_logger_8cpp_source.html#l00065">GLESC::Logger::info()</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, <a class="el" href="_debugger_8h_source.html#l00018">SDLCall</a>, and <a class="el" href="_window_manager_8h_source.html#l00178">window</a>.</p>
+<p class="reference">References <a class="el" href="_asserts_8h_source.html#l00023">D_ASSERT_NOT_NULLPTR</a>, <a class="el" href="_logger_8cpp_source.html#l00022">GLESC::Logger::get()</a>, <a class="el" href="_bin_path_8cpp_source.html#l00036">BinPath::getExecutableDirectory()</a>, <a class="el" href="_logger_8cpp_source.html#l00057">GLESC::Logger::info()</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, <a class="el" href="_debugger_8h_source.html#l00018">SDLCall</a>, and <a class="el" href="_window_manager_8h_source.html#l00182">window</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_window_manager_8cpp_source.html#l00020">WindowManager()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_window_manager_8cpp_source.html#l00011">WindowManager()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -952,14 +952,14 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_window_manager_8cpp_source.html#l00095">95</a> of file <a class="el" href="_window_manager_8cpp_source.html">WindowManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   95</span>                                                                          {</div>
-<div class="line"><span class="lineno">   96</span>    <a class="code hl_define" href="_debugger_8h.html#a7aa759a7d3fa02caf8872ad0b18d30d3">SDLCall</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_SetWindowPosition</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_window_manager.html#ab36d84030a76c48e125eb5b533225d81">window</a>, <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">windowX</a>), <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">windowY</a>)));</div>
-<div class="line"><span class="lineno">   97</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_window_manager_8cpp_source.html#l00086">86</a> of file <a class="el" href="_window_manager_8cpp_source.html">WindowManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   86</span>                                                                          {</div>
+<div class="line"><span class="lineno">   87</span>    <a class="code hl_define" href="_debugger_8h.html#a7aa759a7d3fa02caf8872ad0b18d30d3">SDLCall</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_SetWindowPosition</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_window_manager.html#ab36d84030a76c48e125eb5b533225d81">window</a>, <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">windowX</a>), <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">windowY</a>)));</div>
+<div class="line"><span class="lineno">   88</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, <a class="el" href="_debugger_8h_source.html#l00018">SDLCall</a>, and <a class="el" href="_window_manager_8h_source.html#l00178">window</a>.</p>
+<p class="reference">References <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, <a class="el" href="_debugger_8h_source.html#l00018">SDLCall</a>, and <a class="el" href="_window_manager_8h_source.html#l00182">window</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_window_manager_8cpp_source.html#l00020">WindowManager()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_window_manager_8cpp_source.html#l00011">WindowManager()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -992,13 +992,13 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_window_manager_8cpp_source.html#l00080">80</a> of file <a class="el" href="_window_manager_8cpp_source.html">WindowManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   80</span>                                                 {</div>
-<div class="line"><span class="lineno">   81</span>    <a class="code hl_define" href="_debugger_8h.html#a7aa759a7d3fa02caf8872ad0b18d30d3">SDLCall</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_SetWindowResizable</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_window_manager.html#ab36d84030a76c48e125eb5b533225d81">window</a>, <span class="keyword">static_cast&lt;</span><a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_bool</a><span class="keyword">&gt;</span>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_window_manager.html#ad7db01274157d63fbf3b178d6048f6df">isResizable</a>)));</div>
-<div class="line"><span class="lineno">   82</span>}</div>
-<div class="ttc" id="aclass_g_l_e_s_c_1_1_window_manager_html_ad7db01274157d63fbf3b178d6048f6df"><div class="ttname"><a href="class_g_l_e_s_c_1_1_window_manager.html#ad7db01274157d63fbf3b178d6048f6df">GLESC::WindowManager::isResizable</a></div><div class="ttdeci">bool isResizable()</div><div class="ttdoc">Gets whether the window is resizable or not.</div><div class="ttdef"><b>Definition</b> <a href="_window_manager_8cpp_source.html#l00084">WindowManager.cpp:84</a></div></div>
+<p class="definition">Definition at line <a class="el" href="_window_manager_8cpp_source.html#l00071">71</a> of file <a class="el" href="_window_manager_8cpp_source.html">WindowManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   71</span>                                                 {</div>
+<div class="line"><span class="lineno">   72</span>    <a class="code hl_define" href="_debugger_8h.html#a7aa759a7d3fa02caf8872ad0b18d30d3">SDLCall</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_SetWindowResizable</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_window_manager.html#ab36d84030a76c48e125eb5b533225d81">window</a>, <span class="keyword">static_cast&lt;</span><a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_bool</a><span class="keyword">&gt;</span>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_window_manager.html#ad7db01274157d63fbf3b178d6048f6df">isResizable</a>)));</div>
+<div class="line"><span class="lineno">   73</span>}</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_window_manager_html_ad7db01274157d63fbf3b178d6048f6df"><div class="ttname"><a href="class_g_l_e_s_c_1_1_window_manager.html#ad7db01274157d63fbf3b178d6048f6df">GLESC::WindowManager::isResizable</a></div><div class="ttdeci">bool isResizable()</div><div class="ttdoc">Gets whether the window is resizable or not.</div><div class="ttdef"><b>Definition</b> <a href="_window_manager_8cpp_source.html#l00075">WindowManager.cpp:75</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, <a class="el" href="_window_manager_8cpp_source.html#l00084">isResizable()</a>, <a class="el" href="_debugger_8h_source.html#l00018">SDLCall</a>, and <a class="el" href="_window_manager_8h_source.html#l00178">window</a>.</p>
+<p class="reference">References <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, <a class="el" href="_window_manager_8cpp_source.html#l00075">isResizable()</a>, <a class="el" href="_debugger_8h_source.html#l00018">SDLCall</a>, and <a class="el" href="_window_manager_8h_source.html#l00182">window</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1035,17 +1035,17 @@ Here is the call graph for this function:</div>
 
 <p>Callback function when window size is modified This will change the viewport with the new resolution. </p>
 
-<p class="definition">Definition at line <a class="el" href="_window_manager_8cpp_source.html#l00043">43</a> of file <a class="el" href="_window_manager_8cpp_source.html">WindowManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   43</span>                                                                       {</div>
-<div class="line"><span class="lineno">   44</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="class_g_l_e_s_c_1_1_window_manager.html#ad7db01274157d63fbf3b178d6048f6df">isResizable</a>()) {</div>
-<div class="line"><span class="lineno">   45</span>        <a class="code hl_define" href="_debugger_8h.html#a7aa759a7d3fa02caf8872ad0b18d30d3">SDLCall</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_SetWindowSize</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_window_manager.html#ab36d84030a76c48e125eb5b533225d81">window</a>, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">windowWidth</a>, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">windowHeight</a>));</div>
-<div class="line"><span class="lineno">   46</span>        <a class="code hl_function" href="_gapi_8h.html#ab7514d88e65656ffa15ca33256518fe5">getGAPI</a>().setViewport(0, 0, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">windowWidth</a>, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">windowHeight</a>);</div>
-<div class="line"><span class="lineno">   47</span>    }</div>
-<div class="line"><span class="lineno">   48</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_window_manager_8cpp_source.html#l00034">34</a> of file <a class="el" href="_window_manager_8cpp_source.html">WindowManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   34</span>                                                                       {</div>
+<div class="line"><span class="lineno">   35</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="class_g_l_e_s_c_1_1_window_manager.html#ad7db01274157d63fbf3b178d6048f6df">isResizable</a>()) {</div>
+<div class="line"><span class="lineno">   36</span>        <a class="code hl_define" href="_debugger_8h.html#a7aa759a7d3fa02caf8872ad0b18d30d3">SDLCall</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_SetWindowSize</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_window_manager.html#ab36d84030a76c48e125eb5b533225d81">window</a>, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">windowWidth</a>, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">windowHeight</a>));</div>
+<div class="line"><span class="lineno">   37</span>        <a class="code hl_function" href="_gapi_8h.html#ab7514d88e65656ffa15ca33256518fe5">getGAPI</a>().setViewport(0, 0, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">windowWidth</a>, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">windowHeight</a>);</div>
+<div class="line"><span class="lineno">   38</span>    }</div>
+<div class="line"><span class="lineno">   39</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_gapi_8h_source.html#l00028">getGAPI()</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, <a class="el" href="_window_manager_8cpp_source.html#l00084">isResizable()</a>, <a class="el" href="_debugger_8h_source.html#l00018">SDLCall</a>, and <a class="el" href="_window_manager_8h_source.html#l00178">window</a>.</p>
+<p class="reference">References <a class="el" href="_gapi_8h_source.html#l00028">getGAPI()</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, <a class="el" href="_window_manager_8cpp_source.html#l00075">isResizable()</a>, <a class="el" href="_debugger_8h_source.html#l00018">SDLCall</a>, and <a class="el" href="_window_manager_8h_source.html#l00182">window</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_window_manager_8cpp_source.html#l00020">WindowManager()</a>, and <a class="el" href="_input_manager_8cpp_source.html#l00023">GLESC::Input::InputManager::handleWindowEvent()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_window_manager_8cpp_source.html#l00011">WindowManager()</a>, and <a class="el" href="_input_manager_8cpp_source.html#l00014">GLESC::Input::InputManager::handleWindowEvent()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1083,12 +1083,12 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_window_manager_8cpp_source.html#l00050">50</a> of file <a class="el" href="_window_manager_8cpp_source.html">WindowManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   50</span>                                                         {</div>
-<div class="line"><span class="lineno">   51</span>    <a class="code hl_define" href="_debugger_8h.html#a7aa759a7d3fa02caf8872ad0b18d30d3">SDLCall</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_SetWindowTitle</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_window_manager.html#ab36d84030a76c48e125eb5b533225d81">window</a>, title.c_str()));</div>
-<div class="line"><span class="lineno">   52</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_window_manager_8cpp_source.html#l00041">41</a> of file <a class="el" href="_window_manager_8cpp_source.html">WindowManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   41</span>                                                         {</div>
+<div class="line"><span class="lineno">   42</span>    <a class="code hl_define" href="_debugger_8h.html#a7aa759a7d3fa02caf8872ad0b18d30d3">SDLCall</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_SetWindowTitle</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_window_manager.html#ab36d84030a76c48e125eb5b533225d81">window</a>, title.c_str()));</div>
+<div class="line"><span class="lineno">   43</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, <a class="el" href="_debugger_8h_source.html#l00018">SDLCall</a>, and <a class="el" href="_window_manager_8h_source.html#l00178">window</a>.</p>
+<p class="reference">References <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, <a class="el" href="_debugger_8h_source.html#l00018">SDLCall</a>, and <a class="el" href="_window_manager_8h_source.html#l00182">window</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="_scene_manager_8h_source.html#l00034">GLESC::Scene::SceneManager::switchScene()</a>.</p>
 <div class="dynheader">
@@ -1122,9 +1122,9 @@ Here is the caller graph for this function:</div>
 
 <p>The SDL window struct pointer. </p>
 
-<p class="definition">Definition at line <a class="el" href="_window_manager_8h_source.html#l00178">178</a> of file <a class="el" href="_window_manager_8h_source.html">WindowManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_window_manager_8h_source.html#l00182">182</a> of file <a class="el" href="_window_manager_8h_source.html">WindowManager.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_window_manager_8cpp_source.html#l00020">WindowManager()</a>, <a class="el" href="_window_manager_8cpp_source.html#l00185">destroyWindow()</a>, <a class="el" href="_window_manager_8cpp_source.html#l00099">getPosition()</a>, <a class="el" href="_window_manager_8cpp_source.html#l00122">getSize()</a>, <a class="el" href="_window_manager_8cpp_source.html#l00118">getWindow()</a>, <a class="el" href="_window_manager_8cpp_source.html#l00075">isBorderlessWindow()</a>, <a class="el" href="_window_manager_8cpp_source.html#l00089">isFullscreen()</a>, <a class="el" href="_window_manager_8cpp_source.html#l00065">isFullscreenBorderless()</a>, <a class="el" href="_window_manager_8cpp_source.html#l00084">isResizable()</a>, <a class="el" href="_window_manager_8cpp_source.html#l00071">setBorderlessWindow()</a>, <a class="el" href="_window_manager_8cpp_source.html#l00055">setFullscreen()</a>, <a class="el" href="_window_manager_8cpp_source.html#l00060">setFullscreenBorderless()</a>, <a class="el" href="_window_manager_8cpp_source.html#l00105">setIcon()</a>, <a class="el" href="_window_manager_8cpp_source.html#l00095">setPosition()</a>, <a class="el" href="_window_manager_8cpp_source.html#l00080">setResizable()</a>, <a class="el" href="_window_manager_8cpp_source.html#l00043">setSize()</a>, and <a class="el" href="_window_manager_8cpp_source.html#l00050">setWindowTitle()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_window_manager_8cpp_source.html#l00011">WindowManager()</a>, <a class="el" href="_window_manager_8cpp_source.html#l00176">destroyWindow()</a>, <a class="el" href="_window_manager_8cpp_source.html#l00090">getPosition()</a>, <a class="el" href="_window_manager_8cpp_source.html#l00113">getSize()</a>, <a class="el" href="_window_manager_8cpp_source.html#l00109">getWindow()</a>, <a class="el" href="_window_manager_8cpp_source.html#l00066">isBorderlessWindow()</a>, <a class="el" href="_window_manager_8cpp_source.html#l00080">isFullscreen()</a>, <a class="el" href="_window_manager_8cpp_source.html#l00056">isFullscreenBorderless()</a>, <a class="el" href="_window_manager_8cpp_source.html#l00075">isResizable()</a>, <a class="el" href="_window_manager_8cpp_source.html#l00062">setBorderlessWindow()</a>, <a class="el" href="_window_manager_8cpp_source.html#l00046">setFullscreen()</a>, <a class="el" href="_window_manager_8cpp_source.html#l00051">setFullscreenBorderless()</a>, <a class="el" href="_window_manager_8cpp_source.html#l00096">setIcon()</a>, <a class="el" href="_window_manager_8cpp_source.html#l00086">setPosition()</a>, <a class="el" href="_window_manager_8cpp_source.html#l00071">setResizable()</a>, <a class="el" href="_window_manager_8cpp_source.html#l00034">setSize()</a>, and <a class="el" href="_window_manager_8cpp_source.html#l00041">setWindowTitle()</a>.</p>
 
 </div>
 </div>

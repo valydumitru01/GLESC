@@ -31,10 +31,10 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_vertex_array.html#a54862ab9765af3f41852b907db92bdfa" target="_top" xlink:title="Add a vertex buffer to the vertex array.">
-<polygon fill="white" stroke="#666666" points="142.75,-132 6.75,-132 6.75,-100 142.75,-100 142.75,-132"/>
-<text text-anchor="start" x="14.75" y="-118.5" font-family="Helvetica,sans-Serif" font-size="10.00">GLESC::GAPI::VertexArray</text>
-<text text-anchor="middle" x="74.75" y="-106.5" font-family="Helvetica,sans-Serif" font-size="10.00">::addBuffer</text>
+<g id="a_Node000002"><a xlink:href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_vertex_buffer.html#a9e44b82b4c7099174e2b307b4eb68dcd" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="#666666" points="143.5,-132 6,-132 6,-100 143.5,-100 143.5,-132"/>
+<text text-anchor="start" x="14" y="-118.5" font-family="Helvetica,sans-Serif" font-size="10.00">GLESC::GAPI::VertexBuffer</text>
+<text text-anchor="middle" x="74.75" y="-106.5" font-family="Helvetica,sans-Serif" font-size="10.00">::VertexBuffer</text>
 </a>
 </g>
 </g>
@@ -50,10 +50,10 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_vertex_instance_buffer.html#a4c8e092307d460d9f0f899fb12ebe5bb" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="#666666" points="149.5,-82 0,-82 0,-50 149.5,-50 149.5,-82"/>
-<text text-anchor="start" x="8" y="-68.5" font-family="Helvetica,sans-Serif" font-size="10.00">GLESC::GAPI::VertexInstance</text>
-<text text-anchor="middle" x="74.75" y="-56.5" font-family="Helvetica,sans-Serif" font-size="10.00">Buffer::setupInstanceAttributes</text>
+<g id="a_Node000003"><a xlink:href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_vertex_array.html#a54862ab9765af3f41852b907db92bdfa" target="_top" xlink:title="Add a vertex buffer to the vertex array.">
+<polygon fill="white" stroke="#666666" points="142.75,-82 6.75,-82 6.75,-50 142.75,-50 142.75,-82"/>
+<text text-anchor="start" x="14.75" y="-68.5" font-family="Helvetica,sans-Serif" font-size="10.00">GLESC::GAPI::VertexArray</text>
+<text text-anchor="middle" x="74.75" y="-56.5" font-family="Helvetica,sans-Serif" font-size="10.00">::addBuffer</text>
 </a>
 </g>
 </g>
@@ -61,7 +61,7 @@
 <g id="edge2_Node000001_Node000003" class="edge">
 <title>Node1&#45;&gt;Node3</title>
 <g id="a_edge2_Node000001_Node000003"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M173.65,-66C165.74,-66 157.73,-66 149.89,-66"/>
+<path fill="none" stroke="#63b8ff" d="M173.7,-66C163.48,-66 153.1,-66 143.1,-66"/>
 <polygon fill="#63b8ff" stroke="#63b8ff" points="173.62,-69.5 183.62,-66 173.62,-62.5 173.62,-69.5"/>
 </a>
 </g>
@@ -69,10 +69,10 @@
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_vertex_instance_buffer.html#a9e44b82b4c7099174e2b307b4eb68dcd" target="_top" xlink:title=" ">
+<g id="a_Node000004"><a xlink:href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_vertex_instance_buffer.html#a4c8e092307d460d9f0f899fb12ebe5bb" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="149.5,-32 0,-32 0,0 149.5,0 149.5,-32"/>
 <text text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">GLESC::GAPI::VertexInstance</text>
-<text text-anchor="middle" x="74.75" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">Buffer::VertexBuffer</text>
+<text text-anchor="middle" x="74.75" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">Buffer::setupInstanceAttributes</text>
 </a>
 </g>
 </g>

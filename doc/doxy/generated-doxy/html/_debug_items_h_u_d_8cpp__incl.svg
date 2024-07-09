@@ -57,7 +57,7 @@ var sectionId = 'dynsection-0';
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000001"><a xlink:title=" ">
 <polygon fill="#999999" stroke="#666666" points="2669.12,-792 2562.38,-792 2562.38,-772 2669.12,-772 2669.12,-792"/>
 <text text-anchor="middle" x="2615.75" y="-778.5" font-family="Helvetica,sans-Serif" font-size="10.00">DebugItemsHUD.cpp</text>
 </a>
@@ -429,7 +429,7 @@ var sectionId = 'dynsection-0';
 <!-- Node53 -->
 <g id="Node000053" class="node">
 <title>Node53</title>
-<g id="a_Node000053"><a xlink:href="_shader_8h.html" target="_top" xlink:title="Class for handling shaders.">
+<g id="a_Node000053"><a xlink:href="_shader_8h.html" target="_top" xlink:title="Class for managing and utilizing shader programs in the graphics pipeline.">
 <polygon fill="white" stroke="#666666" points="2564,-384 2435.5,-384 2435.5,-352 2564,-352 2564,-384"/>
 <text text-anchor="start" x="2443.5" y="-370.5" font-family="Helvetica,sans-Serif" font-size="10.00">engine/core/low&#45;level</text>
 <text text-anchor="middle" x="2499.75" y="-358.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;renderer/shader/Shader.h</text>
@@ -448,7 +448,7 @@ var sectionId = 'dynsection-0';
 <!-- Node62 -->
 <g id="Node000062" class="node">
 <title>Node62</title>
-<g id="a_Node000062"><a xlink:href="_window_manager_8h.html" target="_top" xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000062"><a xlink:href="_window_manager_8h.html" target="_top" xlink:title="Manages the main application window and its properties.">
 <polygon fill="white" stroke="#666666" points="655.12,-162 554.38,-162 554.38,-130 655.12,-130 655.12,-162"/>
 <text text-anchor="start" x="562.38" y="-148.5" font-family="Helvetica,sans-Serif" font-size="10.00">engine/core/window</text>
 <text text-anchor="middle" x="604.75" y="-136.5" font-family="Helvetica,sans-Serif" font-size="10.00">/WindowManager.h</text>
@@ -768,7 +768,7 @@ var sectionId = 'dynsection-0';
 <!-- Node64 -->
 <g id="Node000064" class="node">
 <title>Node64</title>
-<g id="a_Node000064"><a xlink:href="_window_structs_8h.html" target="_top" xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000064"><a xlink:href="_window_structs_8h.html" target="_top" xlink:title="Defines structures related to window properties.">
 <polygon fill="white" stroke="#666666" points="649.88,-82 559.62,-82 559.62,-62 649.88,-62 649.88,-82"/>
 <text text-anchor="middle" x="604.75" y="-68.5" font-family="Helvetica,sans-Serif" font-size="10.00">WindowStructs.h</text>
 </a>

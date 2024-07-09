@@ -19,7 +19,7 @@ using namespace GLESC::Physics;
     massValue.type = EntityStatsManager::ValueType::FLOAT;
     massValue.isModifiable = true;
     massValue.usesSlider = true;
-    massValue.min = 0.0F;
+    massValue.min = 0.1F; // Lower value crashes <= 0
     massValue.max = 10000.0F;
     values.push_back(massValue);
 

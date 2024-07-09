@@ -127,9 +127,6 @@ $(document).ready(function(){initNavTree('_collision_manager_8cpp.html',''); ini
   <div class="headertitle"><div class="title">CollisionManager.cpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>@TODO Add description of this file if needed  
-<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="_collision_manager_8h_source.html">engine/subsystems/physics/CollisionManager.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for CollisionManager.cpp:</div>
@@ -144,14 +141,7 @@ Functions</h2></td></tr>
 <tr class="memitem:a2ac513f9f1089540fb3395b6ab92baee" id="r_a2ac513f9f1089540fb3395b6ab92baee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_l_e_s_c_1_1_math_1_1_bounding_volume.html">GLESC::Math::BoundingVolume</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_collision_manager_8cpp.html#a2ac513f9f1089540fb3395b6ab92baee">translateBV</a> (const <a class="el" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html">Collider</a> &amp;colliderWithBV, const <a class="el" href="struct_g_l_e_s_c_1_1_transform_1_1_transform.html">GLESC::Transform::Transform</a> &amp;transform)</td></tr>
 <tr class="separator:a2ac513f9f1089540fb3395b6ab92baee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>@TODO Add description of this file if needed </p>
-<dl class="section author"><dt>Author</dt><dd>Valentin Dumitru </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>06/06/2024 </dd></dl>
-<p>Copyright (c) 2023 Valentin Dumitru. Licensed under the MIT License. See LICENSE.txt in the project root for license information. </p>
-
-<p class="definition">Definition in file <a class="el" href="_collision_manager_8cpp_source.html">CollisionManager.cpp</a>.</p>
-</div><h2 class="groupheader">Function Documentation</h2>
+<h2 class="groupheader">Function Documentation</h2>
 <a id="a2ac513f9f1089540fb3395b6ab92baee" name="a2ac513f9f1089540fb3395b6ab92baee"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2ac513f9f1089540fb3395b6ab92baee">&#9670;&#160;</a></span>translateBV()</h2>
 
@@ -178,18 +168,18 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_collision_manager_8cpp_source.html#l00016">16</a> of file <a class="el" href="_collision_manager_8cpp_source.html">CollisionManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   17</span>                                                                                  {</div>
-<div class="line"><span class="lineno">   18</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="class_g_l_e_s_c_1_1_transform_1_1_transformer.html#ab1d19df9ad6722b545c0e3e0953c1edf">GLESC::Transform::Transformer::transformBoundingVolume</a>(colliderWithBV.<a class="code hl_function" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#a351f1d6ebe2a4ec8a9e7983260aff2b6">getBoundingVolume</a>(),</div>
-<div class="line"><span class="lineno">   19</span>                                                                  transform.<a class="code hl_function" href="struct_g_l_e_s_c_1_1_transform_1_1_transform.html#ab5c793c8be8f8f620a52a9e4a7edaf11">getTranslationMatrix</a>());</div>
-<div class="line"><span class="lineno">   20</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_collision_manager_8cpp_source.html#l00007">7</a> of file <a class="el" href="_collision_manager_8cpp_source.html">CollisionManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">    8</span>                                                                                  {</div>
+<div class="line"><span class="lineno">    9</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="class_g_l_e_s_c_1_1_transform_1_1_transformer.html#ab1d19df9ad6722b545c0e3e0953c1edf">GLESC::Transform::Transformer::transformBoundingVolume</a>(colliderWithBV.<a class="code hl_function" href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#a351f1d6ebe2a4ec8a9e7983260aff2b6">getBoundingVolume</a>(),</div>
+<div class="line"><span class="lineno">   10</span>                                                                  transform.<a class="code hl_function" href="struct_g_l_e_s_c_1_1_transform_1_1_transform.html#ab5c793c8be8f8f620a52a9e4a7edaf11">getTranslationMatrix</a>());</div>
+<div class="line"><span class="lineno">   11</span>}</div>
 <div class="ttc" id="aclass_g_l_e_s_c_1_1_physics_1_1_collider_html_a351f1d6ebe2a4ec8a9e7983260aff2b6"><div class="ttname"><a href="class_g_l_e_s_c_1_1_physics_1_1_collider.html#a351f1d6ebe2a4ec8a9e7983260aff2b6">GLESC::Physics::Collider::getBoundingVolume</a></div><div class="ttdeci">const Math::BoundingVolume &amp; getBoundingVolume() const</div><div class="ttdef"><b>Definition</b> <a href="_collider_8h_source.html#l00050">Collider.h:50</a></div></div>
 <div class="ttc" id="aclass_g_l_e_s_c_1_1_transform_1_1_transformer_html_ab1d19df9ad6722b545c0e3e0953c1edf"><div class="ttname"><a href="class_g_l_e_s_c_1_1_transform_1_1_transformer.html#ab1d19df9ad6722b545c0e3e0953c1edf">GLESC::Transform::Transformer::transformBoundingVolume</a></div><div class="ttdeci">static Math::BoundingVolume transformBoundingVolume(const Math::BoundingVolume &amp;boundingVolume, const Transform &amp;transform)</div><div class="ttdoc">Transforms a bounding volume by a given transform.</div><div class="ttdef"><b>Definition</b> <a href="_transform_8cpp_source.html#l00116">Transform.cpp:116</a></div></div>
 <div class="ttc" id="astruct_g_l_e_s_c_1_1_transform_1_1_transform_html_ab5c793c8be8f8f620a52a9e4a7edaf11"><div class="ttname"><a href="struct_g_l_e_s_c_1_1_transform_1_1_transform.html#ab5c793c8be8f8f620a52a9e4a7edaf11">GLESC::Transform::Transform::getTranslationMatrix</a></div><div class="ttdeci">Render::TranslateMat getTranslationMatrix() const</div><div class="ttdoc">Returns the translation matrix of the transform.</div><div class="ttdef"><b>Definition</b> <a href="_transform_8h_source.html#l00200">Transform.h:200</a></div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_collider_8h_source.html#l00050">GLESC::Physics::Collider::getBoundingVolume()</a>, <a class="el" href="_transform_8h_source.html#l00200">GLESC::Transform::Transform::getTranslationMatrix()</a>, and <a class="el" href="_transform_8cpp_source.html#l00116">GLESC::Transform::Transformer::transformBoundingVolume()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_collision_manager_8cpp_source.html#l00023">GLESC::Physics::CollisionManager::checkAndUpdateColliderInformation()</a>, and <a class="el" href="_collision_manager_8cpp_source.html#l00065">GLESC::Physics::CollisionManager::updateCollider()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_collision_manager_8cpp_source.html#l00014">GLESC::Physics::CollisionManager::checkAndUpdateColliderInformation()</a>, and <a class="el" href="_collision_manager_8cpp_source.html#l00056">GLESC::Physics::CollisionManager::updateCollider()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">

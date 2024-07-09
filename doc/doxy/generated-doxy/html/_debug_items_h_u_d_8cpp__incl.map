@@ -1,5 +1,5 @@
 <map id="DebugItemsHUD.cpp" name="DebugItemsHUD.cpp">
-<area shape="rect" id="Node000001" title="@TODO Add description of this file if needed" alt="" coords="3422,5,3564,32"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="3422,5,3564,32"/>
 <area shape="rect" id="Node000002" href="$_debug_items_h_u_d_8h.html" title="@TODO Add description of this file if needed" alt="" coords="3463,80,3662,123"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="3506,31,3537,67,3533,70,3502,34"/>
 <area shape="rect" id="Node000016" href="$_hud_items_manager_8h.html" title="@TODO Add description of this file if needed" alt="" coords="3344,261,3525,304"/>
@@ -39,9 +39,9 @@
 <area shape="poly" id="edge19_Node000051_Node000017" title=" " alt="" coords="1733,192,2108,198,2609,211,3059,231,3210,244,3257,251,3282,259,3305,277,3324,299,3353,350,3372,401,3382,443,3377,444,3367,402,3348,352,3320,302,3301,281,3280,264,3256,256,3209,249,3059,236,2609,216,2108,204,1732,197"/>
 <area shape="rect" id="Node000052" href="$_counter_8h.html" title="Class to encapsulate the logic of counting." alt="" coords="3133,261,3269,304"/>
 <area shape="poly" id="edge20_Node000051_Node000052" title=" " alt="" coords="1733,193,2428,214,2825,234,2989,246,3115,259,3119,259,3118,265,3114,264,2989,251,2824,239,2427,220,1732,198"/>
-<area shape="rect" id="Node000053" href="$_shader_8h.html" title="Class for handling shaders." alt="" coords="3253,549,3424,592"/>
+<area shape="rect" id="Node000053" href="$_shader_8h.html" title="Class for managing and utilizing shader programs in the graphics pipeline." alt="" coords="3253,549,3424,592"/>
 <area shape="poly" id="edge21_Node000051_Node000053" title=" " alt="" coords="1733,194,2016,210,2391,239,2582,259,2759,284,2909,314,2971,331,3021,350,3037,360,3047,371,3057,382,3072,392,3116,409,3154,414,3192,420,3213,428,3236,441,3315,536,3311,539,3233,445,3211,432,3191,425,3153,419,3115,414,3069,397,3053,386,3043,374,3034,364,3019,354,2969,336,2908,320,2758,290,2581,265,2390,244,2015,215,1733,200"/>
-<area shape="rect" id="Node000062" href="$_window_manager_8h.html" title="@TODO Add description of this file if needed" alt="" coords="745,845,879,888"/>
+<area shape="rect" id="Node000062" href="$_window_manager_8h.html" title="Manages the main application window and its properties." alt="" coords="745,845,879,888"/>
 <area shape="poly" id="edge27_Node000051_Node000062" title=" " alt="" coords="1547,196,1237,206,1038,220,829,241,627,272,533,292,446,316,369,342,303,372,250,406,212,444,191,482,183,519,186,553,201,586,224,618,256,648,295,676,339,703,439,750,544,790,645,821,730,844,729,849,644,826,543,795,437,755,337,707,292,680,253,652,220,621,196,589,181,554,177,518,186,480,208,441,247,402,300,368,367,337,444,310,531,287,626,267,829,236,1038,214,1237,201,1547,191"/>
 <area shape="rect" id="Node000065" href="$_renderer_types_8h.html" title="@TODO Add description of this file if needed" alt="" coords="1543,549,1728,592"/>
 <area shape="poly" id="edge32_Node000051_Node000065" title=" " alt="" coords="1629,215,1618,237,1609,262,1603,299,1600,337,1604,412,1615,480,1628,534,1623,535,1610,481,1599,413,1595,337,1597,298,1604,261,1613,235,1624,213"/>
@@ -75,7 +75,7 @@
 <area shape="poly" id="edge30_Node000062_Node000019" title=" " alt="" coords="879,870,2021,954,2020,959,879,876"/>
 <area shape="rect" id="Node000063" title=" " alt="" coords="634,952,728,979"/>
 <area shape="poly" id="edge29_Node000062_Node000063" title=" " alt="" coords="786,891,711,945,708,941,782,886"/>
-<area shape="rect" id="Node000064" href="$_window_structs_8h.html" title="@TODO Add description of this file if needed" alt="" coords="752,952,872,979"/>
+<area shape="rect" id="Node000064" href="$_window_structs_8h.html" title="Defines structures related to window properties." alt="" coords="752,952,872,979"/>
 <area shape="poly" id="edge31_Node000062_Node000064" title=" " alt="" coords="814,888,814,937,809,937,809,888"/>
 <area shape="rect" id="Node000031" href="$_stringer_8h.html" title="A set of functions for converting objects to strings." alt="" coords="1639,648,1784,691"/>
 <area shape="poly" id="edge33_Node000065_Node000031" title=" " alt="" coords="1654,591,1688,634,1684,637,1650,594"/>

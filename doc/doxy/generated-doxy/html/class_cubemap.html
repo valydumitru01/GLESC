@@ -231,13 +231,13 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_cubemap_8cpp_source.html#l00014">14</a> of file <a class="el" href="_cubemap_8cpp_source.html">Cubemap.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   14</span>                                                        {</div>
-<div class="line"><span class="lineno">   15</span>    <a class="code hl_function" href="class_cubemap.html#abc04a2e84f22090e7a268343398e9a38">load</a>(facePaths);</div>
-<div class="line"><span class="lineno">   16</span>}</div>
-<div class="ttc" id="aclass_cubemap_html_abc04a2e84f22090e7a268343398e9a38"><div class="ttname"><a href="class_cubemap.html#abc04a2e84f22090e7a268343398e9a38">Cubemap::load</a></div><div class="ttdeci">void load(const std::array&lt; std::string, 6 &gt; &amp;facePaths)</div><div class="ttdef"><b>Definition</b> <a href="_cubemap_8cpp_source.html#l00025">Cubemap.cpp:25</a></div></div>
+<p class="definition">Definition at line <a class="el" href="_cubemap_8cpp_source.html#l00005">5</a> of file <a class="el" href="_cubemap_8cpp_source.html">Cubemap.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">    5</span>                                                        {</div>
+<div class="line"><span class="lineno">    6</span>    <a class="code hl_function" href="class_cubemap.html#abc04a2e84f22090e7a268343398e9a38">load</a>(facePaths);</div>
+<div class="line"><span class="lineno">    7</span>}</div>
+<div class="ttc" id="aclass_cubemap_html_abc04a2e84f22090e7a268343398e9a38"><div class="ttname"><a href="class_cubemap.html#abc04a2e84f22090e7a268343398e9a38">Cubemap::load</a></div><div class="ttdeci">void load(const std::array&lt; std::string, 6 &gt; &amp;facePaths)</div><div class="ttdef"><b>Definition</b> <a href="_cubemap_8cpp_source.html#l00016">Cubemap.cpp:16</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_cubemap_8cpp_source.html#l00025">load()</a>.</p>
+<p class="reference">References <a class="el" href="_cubemap_8cpp_source.html#l00016">load()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -261,19 +261,19 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_cubemap_8cpp_source.html#l00018">18</a> of file <a class="el" href="_cubemap_8cpp_source.html">Cubemap.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   18</span>                  {</div>
-<div class="line"><span class="lineno">   19</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_cubemap.html#abe0beba771b5e5ae73fc3a795c0ba05f">hasLoaded</a>) {</div>
-<div class="line"><span class="lineno">   20</span>        <a class="code hl_function" href="class_cubemap.html#a5392d14270b7ca22d64626cf4886e969">release</a>();</div>
-<div class="line"><span class="lineno">   21</span>        <a class="code hl_function" href="_gapi_8h.html#ab7514d88e65656ffa15ca33256518fe5">getGAPI</a>().deleteTexture(<a class="code hl_variable" href="class_cubemap.html#a9d4718fe33779d3b22e00126868bfc6b">textureID</a>);</div>
-<div class="line"><span class="lineno">   22</span>    }</div>
-<div class="line"><span class="lineno">   23</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_cubemap_8cpp_source.html#l00009">9</a> of file <a class="el" href="_cubemap_8cpp_source.html">Cubemap.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">    9</span>                  {</div>
+<div class="line"><span class="lineno">   10</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_cubemap.html#abe0beba771b5e5ae73fc3a795c0ba05f">hasLoaded</a>) {</div>
+<div class="line"><span class="lineno">   11</span>        <a class="code hl_function" href="class_cubemap.html#a5392d14270b7ca22d64626cf4886e969">release</a>();</div>
+<div class="line"><span class="lineno">   12</span>        <a class="code hl_function" href="_gapi_8h.html#ab7514d88e65656ffa15ca33256518fe5">getGAPI</a>().deleteTexture(<a class="code hl_variable" href="class_cubemap.html#a9d4718fe33779d3b22e00126868bfc6b">textureID</a>);</div>
+<div class="line"><span class="lineno">   13</span>    }</div>
+<div class="line"><span class="lineno">   14</span>}</div>
 <div class="ttc" id="a_gapi_8h_html_ab7514d88e65656ffa15ca33256518fe5"><div class="ttname"><a href="_gapi_8h.html#ab7514d88e65656ffa15ca33256518fe5">getGAPI</a></div><div class="ttdeci">auto &amp; getGAPI()</div><div class="ttdoc">Returns the graphic API used by the engine.</div><div class="ttdef"><b>Definition</b> <a href="_gapi_8h_source.html#l00028">Gapi.h:28</a></div></div>
-<div class="ttc" id="aclass_cubemap_html_a5392d14270b7ca22d64626cf4886e969"><div class="ttname"><a href="class_cubemap.html#a5392d14270b7ca22d64626cf4886e969">Cubemap::release</a></div><div class="ttdeci">void release()</div><div class="ttdef"><b>Definition</b> <a href="_cubemap_8cpp_source.html#l00055">Cubemap.cpp:55</a></div></div>
+<div class="ttc" id="aclass_cubemap_html_a5392d14270b7ca22d64626cf4886e969"><div class="ttname"><a href="class_cubemap.html#a5392d14270b7ca22d64626cf4886e969">Cubemap::release</a></div><div class="ttdeci">void release()</div><div class="ttdef"><b>Definition</b> <a href="_cubemap_8cpp_source.html#l00046">Cubemap.cpp:46</a></div></div>
 <div class="ttc" id="aclass_cubemap_html_a9d4718fe33779d3b22e00126868bfc6b"><div class="ttname"><a href="class_cubemap.html#a9d4718fe33779d3b22e00126868bfc6b">Cubemap::textureID</a></div><div class="ttdeci">TextureID textureID</div><div class="ttdef"><b>Definition</b> <a href="_cubemap_8h_source.html#l00046">Cubemap.h:46</a></div></div>
 <div class="ttc" id="aclass_cubemap_html_abe0beba771b5e5ae73fc3a795c0ba05f"><div class="ttname"><a href="class_cubemap.html#abe0beba771b5e5ae73fc3a795c0ba05f">Cubemap::hasLoaded</a></div><div class="ttdeci">bool hasLoaded</div><div class="ttdef"><b>Definition</b> <a href="_cubemap_8h_source.html#l00045">Cubemap.h:45</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_gapi_8h_source.html#l00028">getGAPI()</a>, <a class="el" href="_cubemap_8h_source.html#l00045">hasLoaded</a>, <a class="el" href="_cubemap_8cpp_source.html#l00055">release()</a>, and <a class="el" href="_cubemap_8h_source.html#l00046">textureID</a>.</p>
+<p class="reference">References <a class="el" href="_gapi_8h_source.html#l00028">getGAPI()</a>, <a class="el" href="_cubemap_8h_source.html#l00045">hasLoaded</a>, <a class="el" href="_cubemap_8cpp_source.html#l00046">release()</a>, and <a class="el" href="_cubemap_8h_source.html#l00046">textureID</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -298,16 +298,16 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_cubemap_8cpp_source.html#l00063">63</a> of file <a class="el" href="_cubemap_8cpp_source.html">Cubemap.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   63</span>                         {</div>
-<div class="line"><span class="lineno">   64</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<a class="code hl_variable" href="class_cubemap.html#abe0beba771b5e5ae73fc3a795c0ba05f">hasLoaded</a>, <span class="stringliteral">&quot;Cubemap not loaded&quot;</span>);</div>
-<div class="line"><span class="lineno">   65</span>    <a class="code hl_function" href="_gapi_8h.html#ab7514d88e65656ffa15ca33256518fe5">getGAPI</a>().bindTextureOnSlot(<a class="code hl_variable" href="class_cubemap.html#a9d4718fe33779d3b22e00126868bfc6b">textureID</a>, Enums::Texture::Types::TextureCubeMap, 0);</div>
-<div class="line"><span class="lineno">   66</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_cubemap_8cpp_source.html#l00054">54</a> of file <a class="el" href="_cubemap_8cpp_source.html">Cubemap.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   54</span>                         {</div>
+<div class="line"><span class="lineno">   55</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<a class="code hl_variable" href="class_cubemap.html#abe0beba771b5e5ae73fc3a795c0ba05f">hasLoaded</a>, <span class="stringliteral">&quot;Cubemap not loaded&quot;</span>);</div>
+<div class="line"><span class="lineno">   56</span>    <a class="code hl_function" href="_gapi_8h.html#ab7514d88e65656ffa15ca33256518fe5">getGAPI</a>().bindTextureOnSlot(<a class="code hl_variable" href="class_cubemap.html#a9d4718fe33779d3b22e00126868bfc6b">textureID</a>, Enums::Texture::Types::TextureCubeMap, 0);</div>
+<div class="line"><span class="lineno">   57</span>}</div>
 <div class="ttc" id="a_asserts_8h_html_a7c8157e57600c968442fc2ee80245d5a"><div class="ttname"><a href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a></div><div class="ttdeci">#define D_ASSERT_TRUE(condition, message)</div><div class="ttdef"><b>Definition</b> <a href="_asserts_8h_source.html#l00021">Asserts.h:21</a></div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_asserts_8h_source.html#l00021">D_ASSERT_TRUE</a>, <a class="el" href="_gapi_8h_source.html#l00028">getGAPI()</a>, <a class="el" href="_cubemap_8h_source.html#l00045">hasLoaded</a>, and <a class="el" href="_cubemap_8h_source.html#l00046">textureID</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_skybox_8cpp_source.html#l00109">GLESC::Render::Skybox::draw()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_skybox_8cpp_source.html#l00100">GLESC::Render::Skybox::draw()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -384,7 +384,7 @@ Here is the caller graph for this function:</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_cubemap_8h_source.html#l00047">cubemapTextures</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_skybox_8cpp_source.html#l00087">GLESC::Render::Skybox::calculateAverageColor()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_skybox_8cpp_source.html#l00078">GLESC::Render::Skybox::calculateAverageColor()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -419,18 +419,18 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_cubemap_8cpp_source.html#l00047">47</a> of file <a class="el" href="_cubemap_8cpp_source.html">Cubemap.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   47</span>                                                                            {</div>
-<div class="line"><span class="lineno">   48</span>    std::array&lt;Pixel, 6&gt; pixels{};</div>
-<div class="line"><span class="lineno">   49</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 6; i++) {</div>
-<div class="line"><span class="lineno">   50</span>        pixels[i] = <a class="code hl_variable" href="class_cubemap.html#a0b22b6b416bc01b793bfeba5785f2b27">cubemapTextures</a>[i].getPixel(x, y);</div>
-<div class="line"><span class="lineno">   51</span>    }</div>
-<div class="line"><span class="lineno">   52</span>    <span class="keywordflow">return</span> pixels;</div>
-<div class="line"><span class="lineno">   53</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_cubemap_8cpp_source.html#l00038">38</a> of file <a class="el" href="_cubemap_8cpp_source.html">Cubemap.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   38</span>                                                                            {</div>
+<div class="line"><span class="lineno">   39</span>    std::array&lt;Pixel, 6&gt; pixels{};</div>
+<div class="line"><span class="lineno">   40</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 6; i++) {</div>
+<div class="line"><span class="lineno">   41</span>        pixels[i] = <a class="code hl_variable" href="class_cubemap.html#a0b22b6b416bc01b793bfeba5785f2b27">cubemapTextures</a>[i].getPixel(x, y);</div>
+<div class="line"><span class="lineno">   42</span>    }</div>
+<div class="line"><span class="lineno">   43</span>    <span class="keywordflow">return</span> pixels;</div>
+<div class="line"><span class="lineno">   44</span>}</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_cubemap_8h_source.html#l00047">cubemapTextures</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_skybox_8cpp_source.html#l00087">GLESC::Render::Skybox::calculateAverageColor()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_skybox_8cpp_source.html#l00078">GLESC::Render::Skybox::calculateAverageColor()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -485,34 +485,34 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_cubemap_8cpp_source.html#l00025">25</a> of file <a class="el" href="_cubemap_8cpp_source.html">Cubemap.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   25</span>                                                          {</div>
-<div class="line"><span class="lineno">   26</span>    <a class="code hl_variable" href="class_cubemap.html#a9d4718fe33779d3b22e00126868bfc6b">textureID</a> = <a class="code hl_function" href="_gapi_8h.html#ab7514d88e65656ffa15ca33256518fe5">getGAPI</a>().createTexture(Enums::Texture::Types::TextureCubeMap,</div>
-<div class="line"><span class="lineno">   27</span>                                        Enums::Texture::Filters::Min::Linear,</div>
-<div class="line"><span class="lineno">   28</span>                                        Enums::Texture::Filters::Mag::Linear,</div>
-<div class="line"><span class="lineno">   29</span>                                        Enums::Texture::Filters::WrapMode::ClampToEdge,</div>
-<div class="line"><span class="lineno">   30</span>                                        Enums::Texture::Filters::WrapMode::ClampToEdge,</div>
-<div class="line"><span class="lineno">   31</span>                                        Enums::Texture::Filters::WrapMode::ClampToEdge);</div>
-<div class="line"><span class="lineno">   32</span>    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; facePaths.size(); ++i) {</div>
-<div class="line"><span class="lineno">   33</span>        <a class="code hl_variable" href="class_cubemap.html#a0b22b6b416bc01b793bfeba5785f2b27">cubemapTextures</a>[i].load(<span class="stringliteral">&quot;/cubemaps/&quot;</span>+facePaths[i], <span class="keyword">false</span>);</div>
-<div class="line"><span class="lineno">   34</span>        <span class="keyword">auto</span> nextFaceEnumInt = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(Enums::Texture::Types::TextureCubeMapPositiveX) + i;</div>
-<div class="line"><span class="lineno">   35</span>        <span class="keyword">auto</span> nextFaceEnum = <span class="keyword">static_cast&lt;</span>Enums::Texture::Types<span class="keyword">&gt;</span>(nextFaceEnumInt);</div>
-<div class="line"><span class="lineno">   36</span>        <a class="code hl_function" href="_gapi_8h.html#ab7514d88e65656ffa15ca33256518fe5">getGAPI</a>().setTextureData(nextFaceEnum,</div>
-<div class="line"><span class="lineno">   37</span>                                 0,</div>
-<div class="line"><span class="lineno">   38</span>                                 <a class="code hl_variable" href="class_cubemap.html#a0b22b6b416bc01b793bfeba5785f2b27">cubemapTextures</a>[i].getWidth(),</div>
-<div class="line"><span class="lineno">   39</span>                                 <a class="code hl_variable" href="class_cubemap.html#a0b22b6b416bc01b793bfeba5785f2b27">cubemapTextures</a>[i].getHeight(),</div>
-<div class="line"><span class="lineno">   40</span>                                 <a class="code hl_function" href="_texture_adapter_8h.html#af8df9c072d5a12970464e59e90e63707">getTextureInputFormat</a>(<a class="code hl_variable" href="class_cubemap.html#a0b22b6b416bc01b793bfeba5785f2b27">cubemapTextures</a>[i].getFormat().colorFormat),</div>
-<div class="line"><span class="lineno">   41</span>                                 <a class="code hl_function" href="_texture_adapter_8h.html#a57abcbbb65504dda9db17f4e8074ddb9">getTextureBitDepth</a>(<a class="code hl_variable" href="class_cubemap.html#a0b22b6b416bc01b793bfeba5785f2b27">cubemapTextures</a>[i].getFormat().bitDepth),</div>
-<div class="line"><span class="lineno">   42</span>                                 <a class="code hl_variable" href="class_cubemap.html#a0b22b6b416bc01b793bfeba5785f2b27">cubemapTextures</a>[i].getPixels().data());</div>
-<div class="line"><span class="lineno">   43</span>    }</div>
-<div class="line"><span class="lineno">   44</span>    <a class="code hl_variable" href="class_cubemap.html#abe0beba771b5e5ae73fc3a795c0ba05f">hasLoaded</a> = <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">   45</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_cubemap_8cpp_source.html#l00016">16</a> of file <a class="el" href="_cubemap_8cpp_source.html">Cubemap.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   16</span>                                                          {</div>
+<div class="line"><span class="lineno">   17</span>    <a class="code hl_variable" href="class_cubemap.html#a9d4718fe33779d3b22e00126868bfc6b">textureID</a> = <a class="code hl_function" href="_gapi_8h.html#ab7514d88e65656ffa15ca33256518fe5">getGAPI</a>().createTexture(Enums::Texture::Types::TextureCubeMap,</div>
+<div class="line"><span class="lineno">   18</span>                                        Enums::Texture::Filters::Min::Linear,</div>
+<div class="line"><span class="lineno">   19</span>                                        Enums::Texture::Filters::Mag::Linear,</div>
+<div class="line"><span class="lineno">   20</span>                                        Enums::Texture::Filters::WrapMode::ClampToEdge,</div>
+<div class="line"><span class="lineno">   21</span>                                        Enums::Texture::Filters::WrapMode::ClampToEdge,</div>
+<div class="line"><span class="lineno">   22</span>                                        Enums::Texture::Filters::WrapMode::ClampToEdge);</div>
+<div class="line"><span class="lineno">   23</span>    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; facePaths.size(); ++i) {</div>
+<div class="line"><span class="lineno">   24</span>        <a class="code hl_variable" href="class_cubemap.html#a0b22b6b416bc01b793bfeba5785f2b27">cubemapTextures</a>[i].load(<span class="stringliteral">&quot;/cubemaps/&quot;</span>+facePaths[i], <span class="keyword">false</span>);</div>
+<div class="line"><span class="lineno">   25</span>        <span class="keyword">auto</span> nextFaceEnumInt = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(Enums::Texture::Types::TextureCubeMapPositiveX) + i;</div>
+<div class="line"><span class="lineno">   26</span>        <span class="keyword">auto</span> nextFaceEnum = <span class="keyword">static_cast&lt;</span>Enums::Texture::Types<span class="keyword">&gt;</span>(nextFaceEnumInt);</div>
+<div class="line"><span class="lineno">   27</span>        <a class="code hl_function" href="_gapi_8h.html#ab7514d88e65656ffa15ca33256518fe5">getGAPI</a>().setTextureData(nextFaceEnum,</div>
+<div class="line"><span class="lineno">   28</span>                                 0,</div>
+<div class="line"><span class="lineno">   29</span>                                 <a class="code hl_variable" href="class_cubemap.html#a0b22b6b416bc01b793bfeba5785f2b27">cubemapTextures</a>[i].getWidth(),</div>
+<div class="line"><span class="lineno">   30</span>                                 <a class="code hl_variable" href="class_cubemap.html#a0b22b6b416bc01b793bfeba5785f2b27">cubemapTextures</a>[i].getHeight(),</div>
+<div class="line"><span class="lineno">   31</span>                                 <a class="code hl_function" href="_texture_adapter_8h.html#af8df9c072d5a12970464e59e90e63707">getTextureInputFormat</a>(<a class="code hl_variable" href="class_cubemap.html#a0b22b6b416bc01b793bfeba5785f2b27">cubemapTextures</a>[i].getFormat().colorFormat),</div>
+<div class="line"><span class="lineno">   32</span>                                 <a class="code hl_function" href="_texture_adapter_8h.html#a57abcbbb65504dda9db17f4e8074ddb9">getTextureBitDepth</a>(<a class="code hl_variable" href="class_cubemap.html#a0b22b6b416bc01b793bfeba5785f2b27">cubemapTextures</a>[i].getFormat().bitDepth),</div>
+<div class="line"><span class="lineno">   33</span>                                 <a class="code hl_variable" href="class_cubemap.html#a0b22b6b416bc01b793bfeba5785f2b27">cubemapTextures</a>[i].getPixels().data());</div>
+<div class="line"><span class="lineno">   34</span>    }</div>
+<div class="line"><span class="lineno">   35</span>    <a class="code hl_variable" href="class_cubemap.html#abe0beba771b5e5ae73fc3a795c0ba05f">hasLoaded</a> = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   36</span>}</div>
 <div class="ttc" id="a_texture_adapter_8h_html_a57abcbbb65504dda9db17f4e8074ddb9"><div class="ttname"><a href="_texture_adapter_8h.html#a57abcbbb65504dda9db17f4e8074ddb9">getTextureBitDepth</a></div><div class="ttdeci">static Enums::Texture::BitDepth getTextureBitDepth(const GLESC::ResMng::Texture::BitDepth bitDepth)</div><div class="ttdef"><b>Definition</b> <a href="_texture_adapter_8h_source.html#l00029">TextureAdapter.h:29</a></div></div>
 <div class="ttc" id="a_texture_adapter_8h_html_af8df9c072d5a12970464e59e90e63707"><div class="ttname"><a href="_texture_adapter_8h.html#af8df9c072d5a12970464e59e90e63707">getTextureInputFormat</a></div><div class="ttdeci">static Enums::Texture::CPUBufferFormat getTextureInputFormat(const GLESC::ResMng::Texture::ColorFormat format)</div><div class="ttdef"><b>Definition</b> <a href="_texture_adapter_8h_source.html#l00015">TextureAdapter.h:15</a></div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_cubemap_8h_source.html#l00047">cubemapTextures</a>, <a class="el" href="_gapi_8h_source.html#l00028">getGAPI()</a>, <a class="el" href="_texture_adapter_8h_source.html#l00029">getTextureBitDepth()</a>, <a class="el" href="_texture_adapter_8h_source.html#l00015">getTextureInputFormat()</a>, <a class="el" href="_cubemap_8h_source.html#l00045">hasLoaded</a>, and <a class="el" href="_cubemap_8h_source.html#l00046">textureID</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_cubemap_8cpp_source.html#l00014">Cubemap()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_cubemap_8cpp_source.html#l00005">Cubemap()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -541,18 +541,18 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_cubemap_8cpp_source.html#l00055">55</a> of file <a class="el" href="_cubemap_8cpp_source.html">Cubemap.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   55</span>                      {</div>
-<div class="line"><span class="lineno">   56</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_cubemap.html#abe0beba771b5e5ae73fc3a795c0ba05f">hasLoaded</a>) {</div>
-<div class="line"><span class="lineno">   57</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; texture : <a class="code hl_variable" href="class_cubemap.html#a0b22b6b416bc01b793bfeba5785f2b27">cubemapTextures</a>) {</div>
-<div class="line"><span class="lineno">   58</span>            texture.release();</div>
-<div class="line"><span class="lineno">   59</span>        }</div>
-<div class="line"><span class="lineno">   60</span>    }</div>
-<div class="line"><span class="lineno">   61</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_cubemap_8cpp_source.html#l00046">46</a> of file <a class="el" href="_cubemap_8cpp_source.html">Cubemap.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   46</span>                      {</div>
+<div class="line"><span class="lineno">   47</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_cubemap.html#abe0beba771b5e5ae73fc3a795c0ba05f">hasLoaded</a>) {</div>
+<div class="line"><span class="lineno">   48</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; texture : <a class="code hl_variable" href="class_cubemap.html#a0b22b6b416bc01b793bfeba5785f2b27">cubemapTextures</a>) {</div>
+<div class="line"><span class="lineno">   49</span>            texture.release();</div>
+<div class="line"><span class="lineno">   50</span>        }</div>
+<div class="line"><span class="lineno">   51</span>    }</div>
+<div class="line"><span class="lineno">   52</span>}</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_cubemap_8h_source.html#l00047">cubemapTextures</a>, and <a class="el" href="_cubemap_8h_source.html#l00045">hasLoaded</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_cubemap_8cpp_source.html#l00018">~Cubemap()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_cubemap_8cpp_source.html#l00009">~Cubemap()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -576,11 +576,11 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_cubemap_8cpp_source.html#l00068">68</a> of file <a class="el" href="_cubemap_8cpp_source.html">Cubemap.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   68</span>                           {</div>
-<div class="line"><span class="lineno">   69</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<a class="code hl_variable" href="class_cubemap.html#abe0beba771b5e5ae73fc3a795c0ba05f">hasLoaded</a>, <span class="stringliteral">&quot;Cubemap not loaded&quot;</span>);</div>
-<div class="line"><span class="lineno">   70</span>    <a class="code hl_function" href="_gapi_8h.html#ab7514d88e65656ffa15ca33256518fe5">getGAPI</a>().unbindTexture(Enums::Texture::Types::TextureCubeMap);</div>
-<div class="line"><span class="lineno">   71</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_cubemap_8cpp_source.html#l00059">59</a> of file <a class="el" href="_cubemap_8cpp_source.html">Cubemap.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   59</span>                           {</div>
+<div class="line"><span class="lineno">   60</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<a class="code hl_variable" href="class_cubemap.html#abe0beba771b5e5ae73fc3a795c0ba05f">hasLoaded</a>, <span class="stringliteral">&quot;Cubemap not loaded&quot;</span>);</div>
+<div class="line"><span class="lineno">   61</span>    <a class="code hl_function" href="_gapi_8h.html#ab7514d88e65656ffa15ca33256518fe5">getGAPI</a>().unbindTexture(Enums::Texture::Types::TextureCubeMap);</div>
+<div class="line"><span class="lineno">   62</span>}</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_asserts_8h_source.html#l00021">D_ASSERT_TRUE</a>, <a class="el" href="_gapi_8h_source.html#l00028">getGAPI()</a>, and <a class="el" href="_cubemap_8h_source.html#l00045">hasLoaded</a>.</p>
 <div class="dynheader">
@@ -615,7 +615,7 @@ Here is the call graph for this function:</div>
 <p class="definition">Definition at line <a class="el" href="_cubemap_8h_source.html#l00047">47</a> of file <a class="el" href="_cubemap_8h_source.html">Cubemap.h</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   47</span>{};</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="_cubemap_8h_source.html#l00033">getCubemapTextures()</a>, <a class="el" href="_cubemap_8h_source.html#l00029">getCubemapTextures()</a>, <a class="el" href="_cubemap_8cpp_source.html#l00047">getPixelsAtCoords()</a>, <a class="el" href="_cubemap_8cpp_source.html#l00025">load()</a>, and <a class="el" href="_cubemap_8cpp_source.html#l00055">release()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_cubemap_8h_source.html#l00033">getCubemapTextures()</a>, <a class="el" href="_cubemap_8h_source.html#l00029">getCubemapTextures()</a>, <a class="el" href="_cubemap_8cpp_source.html#l00038">getPixelsAtCoords()</a>, <a class="el" href="_cubemap_8cpp_source.html#l00016">load()</a>, and <a class="el" href="_cubemap_8cpp_source.html#l00046">release()</a>.</p>
 
 </div>
 </div>
@@ -642,7 +642,7 @@ Here is the call graph for this function:</div>
 <p class="definition">Definition at line <a class="el" href="_cubemap_8h_source.html#l00045">45</a> of file <a class="el" href="_cubemap_8h_source.html">Cubemap.h</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   45</span>{<span class="keyword">false</span>};</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="_cubemap_8cpp_source.html#l00018">~Cubemap()</a>, <a class="el" href="_cubemap_8cpp_source.html#l00063">bind()</a>, <a class="el" href="_cubemap_8h_source.html#l00027">hasBeenLoaded()</a>, <a class="el" href="_cubemap_8cpp_source.html#l00025">load()</a>, <a class="el" href="_cubemap_8cpp_source.html#l00055">release()</a>, and <a class="el" href="_cubemap_8cpp_source.html#l00068">unbind()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_cubemap_8cpp_source.html#l00009">~Cubemap()</a>, <a class="el" href="_cubemap_8cpp_source.html#l00054">bind()</a>, <a class="el" href="_cubemap_8h_source.html#l00027">hasBeenLoaded()</a>, <a class="el" href="_cubemap_8cpp_source.html#l00016">load()</a>, <a class="el" href="_cubemap_8cpp_source.html#l00046">release()</a>, and <a class="el" href="_cubemap_8cpp_source.html#l00059">unbind()</a>.</p>
 
 </div>
 </div>
@@ -669,7 +669,7 @@ Here is the call graph for this function:</div>
 <p class="definition">Definition at line <a class="el" href="_cubemap_8h_source.html#l00046">46</a> of file <a class="el" href="_cubemap_8h_source.html">Cubemap.h</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   46</span>{0};</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="_cubemap_8cpp_source.html#l00018">~Cubemap()</a>, <a class="el" href="_cubemap_8cpp_source.html#l00063">bind()</a>, and <a class="el" href="_cubemap_8cpp_source.html#l00025">load()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_cubemap_8cpp_source.html#l00009">~Cubemap()</a>, <a class="el" href="_cubemap_8cpp_source.html#l00054">bind()</a>, and <a class="el" href="_cubemap_8cpp_source.html#l00016">load()</a>.</p>
 
 </div>
 </div>

@@ -11,7 +11,7 @@ std::vector<EntityStatsManager::Value> GLESC::Render::CameraPerspective::getDebu
     fovValue.isModifiable = true;
     fovValue.usesSlider = true;
     fovValue.valueDirty = &dirty;
-    fovValue.min = 0.0f;
+    fovValue.min = 0.1f; // Lower value crashes
     fovValue.max = 180.0f;
     values.push_back(fovValue);
 
@@ -22,7 +22,7 @@ std::vector<EntityStatsManager::Value> GLESC::Render::CameraPerspective::getDebu
     viewWidthValue.isModifiable = true;
     viewWidthValue.usesSlider = true;
     viewWidthValue.valueDirty = &dirty;
-    viewWidthValue.min = 0.0f;
+    viewWidthValue.min = 0.1f;
     viewWidthValue.max = 1000.0f;
     values.push_back(viewWidthValue);
 
@@ -33,7 +33,7 @@ std::vector<EntityStatsManager::Value> GLESC::Render::CameraPerspective::getDebu
     viewHeightValue.isModifiable = true;
     viewHeightValue.usesSlider = true;
     viewHeightValue.valueDirty = &dirty;
-    viewHeightValue.min = 0.0f;
+    viewHeightValue.min = 0.1f;
     viewHeightValue.max = 1000.0f;
     values.push_back(viewHeightValue);
 
@@ -44,7 +44,7 @@ std::vector<EntityStatsManager::Value> GLESC::Render::CameraPerspective::getDebu
     nearPlaneValue.isModifiable = true;
     nearPlaneValue.usesSlider = true;
     nearPlaneValue.valueDirty = &dirty;
-    nearPlaneValue.min = 0.0001f;
+    nearPlaneValue.min = 0.1f; // Lower value crashes
     nearPlaneValue.max = 1000.0f;
     values.push_back(nearPlaneValue);
 
@@ -55,7 +55,7 @@ std::vector<EntityStatsManager::Value> GLESC::Render::CameraPerspective::getDebu
     farPlaneValue.isModifiable = true;
     farPlaneValue.usesSlider = true;
     farPlaneValue.valueDirty = &dirty;
-    farPlaneValue.min = 0.0f;
+    farPlaneValue.min = 0.2f;
     farPlaneValue.max = 1000.0f;
     values.push_back(farPlaneValue);
 

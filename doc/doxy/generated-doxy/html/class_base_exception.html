@@ -184,19 +184,19 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_base_exception_8cpp_source.html#l00014">14</a> of file <a class="el" href="_base_exception_8cpp_source.html">BaseException.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   14</span>                                                     :</div>
-<div class="line"><span class="lineno">   15</span>        runtime_error(message) {</div>
-<div class="line"><span class="lineno">   16</span>    <a class="code hl_variable" href="class_base_exception.html#ae89898088f8bce65e33c70405882cad9">stacktrace</a> = <a class="code hl_function" href="namespace_g_l_e_s_c.html#a8d9b5020e5eda5caa4a4fef6415bd1c7">GLESC::generateStackTrace</a>();</div>
-<div class="line"><span class="lineno">   17</span>    <a class="code hl_variable" href="class_base_exception.html#a0ae437638cc0e5bb97246c302f97ae2f">fullMessage</a> = std::string(std::runtime_error::what() + std::string(<span class="stringliteral">&quot;\n&quot;</span>)) +</div>
-<div class="line"><span class="lineno">   18</span>                  std::string(<span class="stringliteral">&quot;stacktrace:\n&quot;</span>)</div>
-<div class="line"><span class="lineno">   19</span>                  + std::string(<a class="code hl_variable" href="class_base_exception.html#ae89898088f8bce65e33c70405882cad9">stacktrace</a>);</div>
-<div class="line"><span class="lineno">   20</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_base_exception_8cpp_source.html#l00005">5</a> of file <a class="el" href="_base_exception_8cpp_source.html">BaseException.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">    5</span>                                                     :</div>
+<div class="line"><span class="lineno">    6</span>        runtime_error(message) {</div>
+<div class="line"><span class="lineno">    7</span>    <a class="code hl_variable" href="class_base_exception.html#ae89898088f8bce65e33c70405882cad9">stacktrace</a> = <a class="code hl_function" href="namespace_g_l_e_s_c.html#a8d9b5020e5eda5caa4a4fef6415bd1c7">GLESC::generateStackTrace</a>();</div>
+<div class="line"><span class="lineno">    8</span>    <a class="code hl_variable" href="class_base_exception.html#a0ae437638cc0e5bb97246c302f97ae2f">fullMessage</a> = std::string(std::runtime_error::what() + std::string(<span class="stringliteral">&quot;\n&quot;</span>)) +</div>
+<div class="line"><span class="lineno">    9</span>                  std::string(<span class="stringliteral">&quot;stacktrace:\n&quot;</span>)</div>
+<div class="line"><span class="lineno">   10</span>                  + std::string(<a class="code hl_variable" href="class_base_exception.html#ae89898088f8bce65e33c70405882cad9">stacktrace</a>);</div>
+<div class="line"><span class="lineno">   11</span>}</div>
 <div class="ttc" id="aclass_base_exception_html_a0ae437638cc0e5bb97246c302f97ae2f"><div class="ttname"><a href="class_base_exception.html#a0ae437638cc0e5bb97246c302f97ae2f">BaseException::fullMessage</a></div><div class="ttdeci">std::string fullMessage</div><div class="ttdef"><b>Definition</b> <a href="_base_exception_8h_source.html#l00025">BaseException.h:25</a></div></div>
 <div class="ttc" id="aclass_base_exception_html_ae89898088f8bce65e33c70405882cad9"><div class="ttname"><a href="class_base_exception.html#ae89898088f8bce65e33c70405882cad9">BaseException::stacktrace</a></div><div class="ttdeci">std::string stacktrace</div><div class="ttdef"><b>Definition</b> <a href="_base_exception_8h_source.html#l00024">BaseException.h:24</a></div></div>
-<div class="ttc" id="anamespace_g_l_e_s_c_html_a8d9b5020e5eda5caa4a4fef6415bd1c7"><div class="ttname"><a href="namespace_g_l_e_s_c.html#a8d9b5020e5eda5caa4a4fef6415bd1c7">GLESC::generateStackTrace</a></div><div class="ttdeci">std::string generateStackTrace()</div><div class="ttdoc">Function to generate a stack trace.</div><div class="ttdef"><b>Definition</b> <a href="_stacktrace_8cpp_source.html#l00038">Stacktrace.cpp:38</a></div></div>
+<div class="ttc" id="anamespace_g_l_e_s_c_html_a8d9b5020e5eda5caa4a4fef6415bd1c7"><div class="ttname"><a href="namespace_g_l_e_s_c.html#a8d9b5020e5eda5caa4a4fef6415bd1c7">GLESC::generateStackTrace</a></div><div class="ttdeci">std::string generateStackTrace()</div><div class="ttdoc">Function to generate a stack trace.</div><div class="ttdef"><b>Definition</b> <a href="_stacktrace_8cpp_source.html#l00029">Stacktrace.cpp:29</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_base_exception_8h_source.html#l00025">fullMessage</a>, <a class="el" href="_stacktrace_8cpp_source.html#l00038">GLESC::generateStackTrace()</a>, and <a class="el" href="_base_exception_8h_source.html#l00024">stacktrace</a>.</p>
+<p class="reference">References <a class="el" href="_base_exception_8h_source.html#l00025">fullMessage</a>, <a class="el" href="_stacktrace_8cpp_source.html#l00029">GLESC::generateStackTrace()</a>, and <a class="el" href="_base_exception_8h_source.html#l00024">stacktrace</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -229,10 +229,10 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_base_exception_8cpp_source.html#l00023">23</a> of file <a class="el" href="_base_exception_8cpp_source.html">BaseException.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   23</span>                                               {</div>
-<div class="line"><span class="lineno">   24</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_base_exception.html#a0ae437638cc0e5bb97246c302f97ae2f">fullMessage</a>.c_str();</div>
-<div class="line"><span class="lineno">   25</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_base_exception_8cpp_source.html#l00014">14</a> of file <a class="el" href="_base_exception_8cpp_source.html">BaseException.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   14</span>                                               {</div>
+<div class="line"><span class="lineno">   15</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_base_exception.html#a0ae437638cc0e5bb97246c302f97ae2f">fullMessage</a>.c_str();</div>
+<div class="line"><span class="lineno">   16</span>}</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_base_exception_8h_source.html#l00025">fullMessage</a>.</p>
 
@@ -261,7 +261,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="_base_exception_8h_source.html#l00025">25</a> of file <a class="el" href="_base_exception_8h_source.html">BaseException.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_base_exception_8cpp_source.html#l00014">BaseException()</a>, and <a class="el" href="_base_exception_8cpp_source.html#l00023">what()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_base_exception_8cpp_source.html#l00005">BaseException()</a>, and <a class="el" href="_base_exception_8cpp_source.html#l00014">what()</a>.</p>
 
 </div>
 </div>
@@ -287,7 +287,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="_base_exception_8h_source.html#l00024">24</a> of file <a class="el" href="_base_exception_8h_source.html">BaseException.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_base_exception_8cpp_source.html#l00014">BaseException()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_base_exception_8cpp_source.html#l00005">BaseException()</a>.</p>
 
 </div>
 </div>

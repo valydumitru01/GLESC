@@ -1,8 +1,10 @@
 /***************************************************************************************************
  * @file   Shader.h
  * @author Valentin Dumitru
- * @date   2023-11-07
- * @brief  Class for handling shaders.
+ * @brief Class for managing and utilizing shader programs in the graphics pipeline.
+ * @details This class encapsulates the functionality for creating, binding, and manipulating shader programs.
+ * It supports setting and retrieving uniform values and allows the use of shader macros to customize the shader
+ * behavior. The class offers constructors for initializing shaders from source code or from files.
  *
  * Copyright (c) 2023 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.

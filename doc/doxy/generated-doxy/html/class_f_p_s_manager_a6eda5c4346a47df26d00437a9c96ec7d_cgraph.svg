@@ -30,7 +30,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_f_p_s_averager.html#ab0d9f806182972339bcf66952978923e" target="_top" xlink:title="Adds a frame to the FPS averager.">
+<g id="a_Node000002"><a xlink:href="class_f_p_s_averager.html#a8b1dbd46b79230bc481e60819035f8d0" target="_top" xlink:title="Adds a frame to the FPS averager.">
 <polygon fill="white" stroke="#666666" points="284.75,-58 162.25,-58 162.25,-38 284.75,-38 284.75,-58"/>
 <text text-anchor="middle" x="223.5" y="-44.5" font-family="Helvetica,sans-Serif" font-size="10.00">FPSAverager::addFrame</text>
 </a>

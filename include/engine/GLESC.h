@@ -70,7 +70,7 @@ namespace GLESC {
         /**
          * @brief Processes the input of the game
          */
-        void processInput();
+        void processInput(float timeOfFrame);
 
         /**
          * @brief Processes the rendering of the game

@@ -259,10 +259,10 @@ Private Attributes</h2></td></tr>
 
 <p>Constructs an instance of the <a class="el" href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html" title="The InputManager class handles user input events such as keyboard and mouse events....">InputManager</a> class. </p>
 
-<p class="definition">Definition at line <a class="el" href="_input_manager_8cpp_source.html#l00019">19</a> of file <a class="el" href="_input_manager_8cpp_source.html">InputManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   19</span>                                                                                  : <a class="code hl_variable" href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#aa5eec95c433d4ba419a41d657af817ae">hudManager</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#aa5eec95c433d4ba419a41d657af817ae">hudManager</a>),</div>
-<div class="line"><span class="lineno">   20</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#aca941300db61d6a3187c748c9a63ce57">windowManager</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#aca941300db61d6a3187c748c9a63ce57">windowManager</a>) {</div>
-<div class="line"><span class="lineno">   21</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_input_manager_8cpp_source.html#l00010">10</a> of file <a class="el" href="_input_manager_8cpp_source.html">InputManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   10</span>                                                                                  : <a class="code hl_variable" href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#aa5eec95c433d4ba419a41d657af817ae">hudManager</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#aa5eec95c433d4ba419a41d657af817ae">hudManager</a>),</div>
+<div class="line"><span class="lineno">   11</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#aca941300db61d6a3187c748c9a63ce57">windowManager</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#aca941300db61d6a3187c748c9a63ce57">windowManager</a>) {</div>
+<div class="line"><span class="lineno">   12</span>}</div>
 <div class="ttc" id="aclass_g_l_e_s_c_1_1_input_1_1_input_manager_html_aa5eec95c433d4ba419a41d657af817ae"><div class="ttname"><a href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#aa5eec95c433d4ba419a41d657af817ae">GLESC::Input::InputManager::hudManager</a></div><div class="ttdeci">HUD::HUDManager &amp; hudManager</div><div class="ttdoc">The HUDManager instance used to handle HUD events.</div><div class="ttdef"><b>Definition</b> <a href="_input_manager_8h_source.html#l00177">InputManager.h:177</a></div></div>
 <div class="ttc" id="aclass_g_l_e_s_c_1_1_input_1_1_input_manager_html_aca941300db61d6a3187c748c9a63ce57"><div class="ttname"><a href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#aca941300db61d6a3187c748c9a63ce57">GLESC::Input::InputManager::windowManager</a></div><div class="ttdeci">WindowManager &amp; windowManager</div><div class="ttdef"><b>Definition</b> <a href="_input_manager_8h_source.html#l00171">InputManager.h:171</a></div></div>
 </div><!-- fragment -->
@@ -339,20 +339,20 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_input_manager_8cpp_source.html#l00096">96</a> of file <a class="el" href="_input_manager_8cpp_source.html">InputManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   96</span>                                                   {</div>
-<div class="line"><span class="lineno">   97</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a8e3555c0084fa83a0ff4b6782af814e9">deltaBuffer</a>.size() &gt;= <a class="code hl_variable" href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a75a970357480b57461f45e08bd3bd613">bufferSize</a>) {</div>
-<div class="line"><span class="lineno">   98</span>        <a class="code hl_variable" href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a8e3555c0084fa83a0ff4b6782af814e9">deltaBuffer</a>.pop_front();</div>
-<div class="line"><span class="lineno">   99</span>    }</div>
-<div class="line"><span class="lineno">  100</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a8e3555c0084fa83a0ff4b6782af814e9">deltaBuffer</a>.emplace_back(<span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">posDx</a>) * 0.1f, <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">posDy</a>) * 0.1f);</div>
-<div class="line"><span class="lineno">  101</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_input_manager_8cpp_source.html#l00087">87</a> of file <a class="el" href="_input_manager_8cpp_source.html">InputManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   87</span>                                                   {</div>
+<div class="line"><span class="lineno">   88</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a8e3555c0084fa83a0ff4b6782af814e9">deltaBuffer</a>.size() &gt;= <a class="code hl_variable" href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a75a970357480b57461f45e08bd3bd613">bufferSize</a>) {</div>
+<div class="line"><span class="lineno">   89</span>        <a class="code hl_variable" href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a8e3555c0084fa83a0ff4b6782af814e9">deltaBuffer</a>.pop_front();</div>
+<div class="line"><span class="lineno">   90</span>    }</div>
+<div class="line"><span class="lineno">   91</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a8e3555c0084fa83a0ff4b6782af814e9">deltaBuffer</a>.emplace_back(<span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">posDx</a>) * 0.1f, <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">posDy</a>) * 0.1f);</div>
+<div class="line"><span class="lineno">   92</span>}</div>
 <div class="ttc" id="aclass_g_l_e_s_c_1_1_input_1_1_input_manager_html_a75a970357480b57461f45e08bd3bd613"><div class="ttname"><a href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a75a970357480b57461f45e08bd3bd613">GLESC::Input::InputManager::bufferSize</a></div><div class="ttdeci">const size_t bufferSize</div><div class="ttdoc">The size of the buffer used to store the delta values of the mouse position.</div><div class="ttdef"><b>Definition</b> <a href="_input_manager_8h_source.html#l00117">InputManager.h:117</a></div></div>
 <div class="ttc" id="aclass_g_l_e_s_c_1_1_input_1_1_input_manager_html_a8e3555c0084fa83a0ff4b6782af814e9"><div class="ttname"><a href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a8e3555c0084fa83a0ff4b6782af814e9">GLESC::Input::InputManager::deltaBuffer</a></div><div class="ttdeci">std::deque&lt; Vec2F &gt; deltaBuffer</div><div class="ttdoc">The buffer used to store the delta values of the mouse position.</div><div class="ttdef"><b>Definition</b> <a href="_input_manager_8h_source.html#l00113">InputManager.h:113</a></div></div>
 <div class="ttc" id="anamespace_g_l_e_s_c_html_a7c64a4da2d1da1597f4ec563d00bb9f8"><div class="ttname"><a href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">GLESC::isIterable_v</a></div><div class="ttdeci">constexpr bool isIterable_v</div><div class="ttdef"><b>Definition</b> <a href="_stringer_8h_source.html#l00029">Stringer.h:29</a></div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_input_manager_8h_source.html#l00117">bufferSize</a>, <a class="el" href="_input_manager_8h_source.html#l00113">deltaBuffer</a>, and <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_input_manager_8cpp_source.html#l00036">update()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_input_manager_8cpp_source.html#l00027">update()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -386,32 +386,32 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if the key is pressed, false otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_input_manager_8cpp_source.html#l00161">161</a> of file <a class="el" href="_input_manager_8cpp_source.html">InputManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  161</span>                                                          {</div>
-<div class="line"><span class="lineno">  162</span>    <span class="keyword">auto</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">it</a> = <a class="code hl_variable" href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a1bdfac0054c376e7e382813164c056bc">keyMap</a>.find(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">keyInput</a>.key);</div>
-<div class="line"><span class="lineno">  163</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">it</a> != <a class="code hl_variable" href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a1bdfac0054c376e7e382813164c056bc">keyMap</a>.end()) {</div>
-<div class="line"><span class="lineno">  164</span>        <span class="keyword">auto</span>&amp; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">state</a> = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">it</a>-&gt;second;</div>
-<div class="line"><span class="lineno">  165</span>        <span class="keywordflow">switch</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">keyInput</a>.action) {</div>
-<div class="line"><span class="lineno">  166</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="namespace_g_l_e_s_c_1_1_input.html#af35c9b988fc3d369e1cc7c8327dac6eeac34d934ff7c78db81a6edd18e561b94b">KeyAction::ONGOING_PRESSED</a>:</div>
-<div class="line"><span class="lineno">  167</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">state</a>.pressed;</div>
-<div class="line"><span class="lineno">  168</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="namespace_g_l_e_s_c_1_1_input.html#af35c9b988fc3d369e1cc7c8327dac6eeabaf344cb5d2c082416d9242a1767f258">KeyAction::ONCE_PRESSED</a>:</div>
-<div class="line"><span class="lineno">  169</span>            <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">state</a>.justPressed) {</div>
-<div class="line"><span class="lineno">  170</span>                <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">state</a>.justPressed = <span class="keyword">false</span>; <span class="comment">// Reset the flag</span></div>
-<div class="line"><span class="lineno">  171</span>                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  172</span>            }</div>
-<div class="line"><span class="lineno">  173</span>            <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  174</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="namespace_g_l_e_s_c_1_1_input.html#af35c9b988fc3d369e1cc7c8327dac6eea75e8f1d5306e9a6b22038a6add1a0f14">KeyAction::ONCE_RELEASED</a>:</div>
-<div class="line"><span class="lineno">  175</span>            <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">state</a>.justReleased) {</div>
-<div class="line"><span class="lineno">  176</span>                <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">state</a>.justReleased = <span class="keyword">false</span>; <span class="comment">// Reset the flag</span></div>
-<div class="line"><span class="lineno">  177</span>                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  178</span>            }</div>
-<div class="line"><span class="lineno">  179</span>            <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  180</span>        <span class="keywordflow">default</span>:</div>
-<div class="line"><span class="lineno">  181</span>            <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  182</span>        }</div>
-<div class="line"><span class="lineno">  183</span>    }</div>
-<div class="line"><span class="lineno">  184</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  185</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_input_manager_8cpp_source.html#l00152">152</a> of file <a class="el" href="_input_manager_8cpp_source.html">InputManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  152</span>                                                          {</div>
+<div class="line"><span class="lineno">  153</span>    <span class="keyword">auto</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">it</a> = <a class="code hl_variable" href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a1bdfac0054c376e7e382813164c056bc">keyMap</a>.find(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">keyInput</a>.key);</div>
+<div class="line"><span class="lineno">  154</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">it</a> != <a class="code hl_variable" href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a1bdfac0054c376e7e382813164c056bc">keyMap</a>.end()) {</div>
+<div class="line"><span class="lineno">  155</span>        <span class="keyword">auto</span>&amp; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">state</a> = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">it</a>-&gt;second;</div>
+<div class="line"><span class="lineno">  156</span>        <span class="keywordflow">switch</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">keyInput</a>.action) {</div>
+<div class="line"><span class="lineno">  157</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="namespace_g_l_e_s_c_1_1_input.html#af35c9b988fc3d369e1cc7c8327dac6eeac34d934ff7c78db81a6edd18e561b94b">KeyAction::ONGOING_PRESSED</a>:</div>
+<div class="line"><span class="lineno">  158</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">state</a>.pressed;</div>
+<div class="line"><span class="lineno">  159</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="namespace_g_l_e_s_c_1_1_input.html#af35c9b988fc3d369e1cc7c8327dac6eeabaf344cb5d2c082416d9242a1767f258">KeyAction::ONCE_PRESSED</a>:</div>
+<div class="line"><span class="lineno">  160</span>            <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">state</a>.justPressed) {</div>
+<div class="line"><span class="lineno">  161</span>                <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">state</a>.justPressed = <span class="keyword">false</span>; <span class="comment">// Reset the flag</span></div>
+<div class="line"><span class="lineno">  162</span>                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  163</span>            }</div>
+<div class="line"><span class="lineno">  164</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  165</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="namespace_g_l_e_s_c_1_1_input.html#af35c9b988fc3d369e1cc7c8327dac6eea75e8f1d5306e9a6b22038a6add1a0f14">KeyAction::ONCE_RELEASED</a>:</div>
+<div class="line"><span class="lineno">  166</span>            <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">state</a>.justReleased) {</div>
+<div class="line"><span class="lineno">  167</span>                <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">state</a>.justReleased = <span class="keyword">false</span>; <span class="comment">// Reset the flag</span></div>
+<div class="line"><span class="lineno">  168</span>                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  169</span>            }</div>
+<div class="line"><span class="lineno">  170</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  171</span>        <span class="keywordflow">default</span>:</div>
+<div class="line"><span class="lineno">  172</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  173</span>        }</div>
+<div class="line"><span class="lineno">  174</span>    }</div>
+<div class="line"><span class="lineno">  175</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  176</span>}</div>
 <div class="ttc" id="aclass_g_l_e_s_c_1_1_input_1_1_input_manager_html_a1bdfac0054c376e7e382813164c056bc"><div class="ttname"><a href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a1bdfac0054c376e7e382813164c056bc">GLESC::Input::InputManager::keyMap</a></div><div class="ttdeci">KeyMap keyMap</div><div class="ttdoc">The key map used to store the state of each key.</div><div class="ttdef"><b>Definition</b> <a href="_input_manager_8h_source.html#l00159">InputManager.h:159</a></div></div>
 <div class="ttc" id="anamespace_g_l_e_s_c_1_1_input_html_af35c9b988fc3d369e1cc7c8327dac6eea75e8f1d5306e9a6b22038a6add1a0f14"><div class="ttname"><a href="namespace_g_l_e_s_c_1_1_input.html#af35c9b988fc3d369e1cc7c8327dac6eea75e8f1d5306e9a6b22038a6add1a0f14">GLESC::Input::KeyAction::ONCE_RELEASED</a></div><div class="ttdeci">@ ONCE_RELEASED</div></div>
 <div class="ttc" id="anamespace_g_l_e_s_c_1_1_input_html_af35c9b988fc3d369e1cc7c8327dac6eeabaf344cb5d2c082416d9242a1767f258"><div class="ttname"><a href="namespace_g_l_e_s_c_1_1_input.html#af35c9b988fc3d369e1cc7c8327dac6eeabaf344cb5d2c082416d9242a1767f258">GLESC::Input::KeyAction::ONCE_PRESSED</a></div><div class="ttdeci">@ ONCE_PRESSED</div></div>
@@ -419,7 +419,7 @@ Here is the caller graph for this function:</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, <a class="el" href="_input_manager_8h_source.html#l00159">keyMap</a>, <a class="el" href="namespace_g_l_e_s_c_1_1_input.html#af35c9b988fc3d369e1cc7c8327dac6eeabaf344cb5d2c082416d9242a1767f258">GLESC::Input::ONCE_PRESSED</a>, <a class="el" href="namespace_g_l_e_s_c_1_1_input.html#af35c9b988fc3d369e1cc7c8327dac6eea75e8f1d5306e9a6b22038a6add1a0f14">GLESC::Input::ONCE_RELEASED</a>, and <a class="el" href="namespace_g_l_e_s_c_1_1_input.html#af35c9b988fc3d369e1cc7c8327dac6eeac34d934ff7c78db81a6edd18e561b94b">GLESC::Input::ONGOING_PRESSED</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_input_system_8cpp_source.html#l00021">GLESC::ECS::InputSystem::update()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_input_system_8cpp_source.html#l00012">GLESC::ECS::InputSystem::update()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -454,29 +454,29 @@ Here is the caller graph for this function:</div>
 <p>Calculates the average postion of the mouse from the delta buffer. If the position is less than the deadzone, it will be set to 0. </p>
 <dl class="section return"><dt>Returns</dt><dd>the average mouse position of the mouse </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_input_manager_8cpp_source.html#l00136">136</a> of file <a class="el" href="_input_manager_8cpp_source.html">InputManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  136</span>                                                 {</div>
-<div class="line"><span class="lineno">  137</span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">sumX</a> = 0, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">sumY</a> = 0;</div>
-<div class="line"><span class="lineno">  138</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">delta</a> : <a class="code hl_variable" href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a8e3555c0084fa83a0ff4b6782af814e9">deltaBuffer</a>) {</div>
-<div class="line"><span class="lineno">  139</span>        <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">sumX</a> += <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">delta</a>.getX();</div>
-<div class="line"><span class="lineno">  140</span>        <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">sumY</a> += <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">delta</a>.getY();</div>
+<p class="definition">Definition at line <a class="el" href="_input_manager_8cpp_source.html#l00127">127</a> of file <a class="el" href="_input_manager_8cpp_source.html">InputManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  127</span>                                                 {</div>
+<div class="line"><span class="lineno">  128</span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">sumX</a> = 0, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">sumY</a> = 0;</div>
+<div class="line"><span class="lineno">  129</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">delta</a> : <a class="code hl_variable" href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a8e3555c0084fa83a0ff4b6782af814e9">deltaBuffer</a>) {</div>
+<div class="line"><span class="lineno">  130</span>        <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">sumX</a> += <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">delta</a>.getX();</div>
+<div class="line"><span class="lineno">  131</span>        <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">sumY</a> += <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">delta</a>.getY();</div>
+<div class="line"><span class="lineno">  132</span>    }</div>
+<div class="line"><span class="lineno">  133</span>    <span class="keywordflow">if</span> (!<a class="code hl_variable" href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a8e3555c0084fa83a0ff4b6782af814e9">deltaBuffer</a>.empty()) {</div>
+<div class="line"><span class="lineno">  134</span>        <span class="keywordtype">float</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">avgX</a> = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">sumX</a> / <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a8e3555c0084fa83a0ff4b6782af814e9">deltaBuffer</a>.size());</div>
+<div class="line"><span class="lineno">  135</span>        <span class="keywordtype">float</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">avgY</a> = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">sumY</a> / <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a8e3555c0084fa83a0ff4b6782af814e9">deltaBuffer</a>.size());</div>
+<div class="line"><span class="lineno">  136</span> </div>
+<div class="line"><span class="lineno">  137</span>        <span class="keywordflow">return</span> <a class="code hl_class" href="class_g_l_e_s_c_1_1_math_1_1_vector.html">MousePosition</a>{</div>
+<div class="line"><span class="lineno">  138</span>            <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">avgX</a>,</div>
+<div class="line"><span class="lineno">  139</span>            <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">avgY</a></div>
+<div class="line"><span class="lineno">  140</span>        };</div>
 <div class="line"><span class="lineno">  141</span>    }</div>
-<div class="line"><span class="lineno">  142</span>    <span class="keywordflow">if</span> (!<a class="code hl_variable" href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a8e3555c0084fa83a0ff4b6782af814e9">deltaBuffer</a>.empty()) {</div>
-<div class="line"><span class="lineno">  143</span>        <span class="keywordtype">float</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">avgX</a> = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">sumX</a> / <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a8e3555c0084fa83a0ff4b6782af814e9">deltaBuffer</a>.size());</div>
-<div class="line"><span class="lineno">  144</span>        <span class="keywordtype">float</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">avgY</a> = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">sumY</a> / <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a8e3555c0084fa83a0ff4b6782af814e9">deltaBuffer</a>.size());</div>
-<div class="line"><span class="lineno">  145</span> </div>
-<div class="line"><span class="lineno">  146</span>        <span class="keywordflow">return</span> <a class="code hl_class" href="class_g_l_e_s_c_1_1_math_1_1_vector.html">MousePosition</a>{</div>
-<div class="line"><span class="lineno">  147</span>            <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">avgX</a>,</div>
-<div class="line"><span class="lineno">  148</span>            <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">avgY</a></div>
-<div class="line"><span class="lineno">  149</span>        };</div>
-<div class="line"><span class="lineno">  150</span>    }</div>
-<div class="line"><span class="lineno">  151</span>    <span class="keywordflow">return</span> <a class="code hl_class" href="class_g_l_e_s_c_1_1_math_1_1_vector.html">MousePosition</a>{0, 0};</div>
-<div class="line"><span class="lineno">  152</span>}</div>
+<div class="line"><span class="lineno">  142</span>    <span class="keywordflow">return</span> <a class="code hl_class" href="class_g_l_e_s_c_1_1_math_1_1_vector.html">MousePosition</a>{0, 0};</div>
+<div class="line"><span class="lineno">  143</span>}</div>
 <div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_vector_html"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_vector.html">GLESC::Math::Vector</a></div><div class="ttdef"><b>Definition</b> <a href="_vector_8h_source.html#l00025">Vector.h:25</a></div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_input_manager_8h_source.html#l00113">deltaBuffer</a>, <a class="el" href="_vector_8h_source.html#l00204">GLESC::Math::Vector&lt; Type, N &gt;::getX()</a>, and <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_input_manager_8cpp_source.html#l00036">update()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_input_manager_8cpp_source.html#l00027">update()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -522,7 +522,7 @@ Here is the caller graph for this function:</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_input_manager_8h_source.html#l00127">mousePos</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_g_l_e_s_c_8cpp_source.html#l00161">GLESC::Engine::registerStats()</a>, and <a class="el" href="_input_system_8cpp_source.html#l00021">GLESC::ECS::InputSystem::update()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_g_l_e_s_c_8cpp_source.html#l00152">GLESC::Engine::registerStats()</a>, and <a class="el" href="_input_system_8cpp_source.html#l00012">GLESC::ECS::InputSystem::update()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -549,20 +549,20 @@ Here is the caller graph for this function:</div>
 <p>Get the current pressed keys. </p>
 <dl class="section return"><dt>Returns</dt><dd>A vector of all keys that are currently pressed </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_input_manager_8cpp_source.html#l00126">126</a> of file <a class="el" href="_input_manager_8cpp_source.html">InputManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  126</span>                                                  {</div>
-<div class="line"><span class="lineno">  127</span>    std::vector&lt;Key&gt; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">pressedKeys</a>;</div>
-<div class="line"><span class="lineno">  128</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; [key, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">state</a>] : <a class="code hl_variable" href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a1bdfac0054c376e7e382813164c056bc">keyMap</a>) {</div>
-<div class="line"><span class="lineno">  129</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">state</a>.pressed) {</div>
-<div class="line"><span class="lineno">  130</span>            <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">pressedKeys</a>.push_back(key);</div>
-<div class="line"><span class="lineno">  131</span>        }</div>
-<div class="line"><span class="lineno">  132</span>    }</div>
-<div class="line"><span class="lineno">  133</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">pressedKeys</a>;</div>
-<div class="line"><span class="lineno">  134</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_input_manager_8cpp_source.html#l00117">117</a> of file <a class="el" href="_input_manager_8cpp_source.html">InputManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  117</span>                                                  {</div>
+<div class="line"><span class="lineno">  118</span>    std::vector&lt;Key&gt; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">pressedKeys</a>;</div>
+<div class="line"><span class="lineno">  119</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; [key, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">state</a>] : <a class="code hl_variable" href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a1bdfac0054c376e7e382813164c056bc">keyMap</a>) {</div>
+<div class="line"><span class="lineno">  120</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">state</a>.pressed) {</div>
+<div class="line"><span class="lineno">  121</span>            <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">pressedKeys</a>.push_back(key);</div>
+<div class="line"><span class="lineno">  122</span>        }</div>
+<div class="line"><span class="lineno">  123</span>    }</div>
+<div class="line"><span class="lineno">  124</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">pressedKeys</a>;</div>
+<div class="line"><span class="lineno">  125</span>}</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_input_manager_8h_source.html#l00159">keyMap</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_g_l_e_s_c_8cpp_source.html#l00161">GLESC::Engine::registerStats()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_g_l_e_s_c_8cpp_source.html#l00152">GLESC::Engine::registerStats()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -603,18 +603,18 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_input_manager_8cpp_source.html#l00074">74</a> of file <a class="el" href="_input_manager_8cpp_source.html">InputManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   74</span>                                                        {</div>
-<div class="line"><span class="lineno">   75</span>    <span class="keyword">auto</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">keycode</a> = <span class="keyword">static_cast&lt;</span><a class="code hl_enumeration" href="namespace_g_l_e_s_c_1_1_input.html#a9bc216591bdc7642ff0966a71a5f52dc">Key</a><span class="keyword">&gt;</span>(<span class="keyword">event</span>.key.keysym.sym);</div>
-<div class="line"><span class="lineno">   76</span>    <span class="keywordtype">bool</span> pressed = <span class="keyword">event</span>.type == <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_KEYDOWN</a>;</div>
-<div class="line"><span class="lineno">   77</span>    <a class="code hl_function" href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#afd599b8f124239a8f11fb6959e3c626a">updateKeyState</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">keycode</a>, pressed);</div>
-<div class="line"><span class="lineno">   78</span>}</div>
-<div class="ttc" id="aclass_g_l_e_s_c_1_1_input_1_1_input_manager_html_afd599b8f124239a8f11fb6959e3c626a"><div class="ttname"><a href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#afd599b8f124239a8f11fb6959e3c626a">GLESC::Input::InputManager::updateKeyState</a></div><div class="ttdeci">void updateKeyState(Key key, bool pressed)</div><div class="ttdoc">Updates the state of a specific key in the key map.</div><div class="ttdef"><b>Definition</b> <a href="_input_manager_8cpp_source.html#l00103">InputManager.cpp:103</a></div></div>
+<p class="definition">Definition at line <a class="el" href="_input_manager_8cpp_source.html#l00065">65</a> of file <a class="el" href="_input_manager_8cpp_source.html">InputManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   65</span>                                                        {</div>
+<div class="line"><span class="lineno">   66</span>    <span class="keyword">auto</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">keycode</a> = <span class="keyword">static_cast&lt;</span><a class="code hl_enumeration" href="namespace_g_l_e_s_c_1_1_input.html#a9bc216591bdc7642ff0966a71a5f52dc">Key</a><span class="keyword">&gt;</span>(<span class="keyword">event</span>.key.keysym.sym);</div>
+<div class="line"><span class="lineno">   67</span>    <span class="keywordtype">bool</span> pressed = <span class="keyword">event</span>.type == <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_KEYDOWN</a>;</div>
+<div class="line"><span class="lineno">   68</span>    <a class="code hl_function" href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#afd599b8f124239a8f11fb6959e3c626a">updateKeyState</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">keycode</a>, pressed);</div>
+<div class="line"><span class="lineno">   69</span>}</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_input_1_1_input_manager_html_afd599b8f124239a8f11fb6959e3c626a"><div class="ttname"><a href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#afd599b8f124239a8f11fb6959e3c626a">GLESC::Input::InputManager::updateKeyState</a></div><div class="ttdeci">void updateKeyState(Key key, bool pressed)</div><div class="ttdoc">Updates the state of a specific key in the key map.</div><div class="ttdef"><b>Definition</b> <a href="_input_manager_8cpp_source.html#l00094">InputManager.cpp:94</a></div></div>
 <div class="ttc" id="anamespace_g_l_e_s_c_1_1_input_html_a9bc216591bdc7642ff0966a71a5f52dc"><div class="ttname"><a href="namespace_g_l_e_s_c_1_1_input.html#a9bc216591bdc7642ff0966a71a5f52dc">GLESC::Input::Key</a></div><div class="ttdeci">Key</div><div class="ttdoc">Mapping of keys to SDL keycodes.</div><div class="ttdef"><b>Definition</b> <a href="_input_keys_8h_source.html#l00032">InputKeys.h:32</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_input_manager_8cpp_source.html#l00103">updateKeyState()</a>.</p>
+<p class="reference">References <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_input_manager_8cpp_source.html#l00094">updateKeyState()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_input_manager_8cpp_source.html#l00036">update()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_input_manager_8cpp_source.html#l00027">update()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -660,18 +660,18 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_input_manager_8cpp_source.html#l00080">80</a> of file <a class="el" href="_input_manager_8cpp_source.html">InputManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   80</span>                                                           {</div>
-<div class="line"><span class="lineno">   81</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">event</a>.type == <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_MOUSEBUTTONDOWN</a> || <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">event</a>.type == <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_MOUSEBUTTONUP</a>, <span class="stringliteral">&quot;Invalid event type&quot;</span>);</div>
-<div class="line"><span class="lineno">   82</span>    <span class="keyword">auto</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">mouseButton</a> = <span class="keyword">static_cast&lt;</span><a class="code hl_enumeration" href="namespace_g_l_e_s_c_1_1_input.html#a9bc216591bdc7642ff0966a71a5f52dc">Key</a><span class="keyword">&gt;</span>(<span class="keyword">event</span>.button.button);</div>
-<div class="line"><span class="lineno">   83</span>    <span class="keywordtype">bool</span> pressed = <span class="keyword">event</span>.type == <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_MOUSEBUTTONDOWN</a>;</div>
-<div class="line"><span class="lineno">   84</span>    <a class="code hl_function" href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#afd599b8f124239a8f11fb6959e3c626a">updateKeyState</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">mouseButton</a>, pressed);</div>
-<div class="line"><span class="lineno">   85</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_input_manager_8cpp_source.html#l00071">71</a> of file <a class="el" href="_input_manager_8cpp_source.html">InputManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   71</span>                                                           {</div>
+<div class="line"><span class="lineno">   72</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">event</a>.type == <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_MOUSEBUTTONDOWN</a> || <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">event</a>.type == <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_MOUSEBUTTONUP</a>, <span class="stringliteral">&quot;Invalid event type&quot;</span>);</div>
+<div class="line"><span class="lineno">   73</span>    <span class="keyword">auto</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">mouseButton</a> = <span class="keyword">static_cast&lt;</span><a class="code hl_enumeration" href="namespace_g_l_e_s_c_1_1_input.html#a9bc216591bdc7642ff0966a71a5f52dc">Key</a><span class="keyword">&gt;</span>(<span class="keyword">event</span>.button.button);</div>
+<div class="line"><span class="lineno">   74</span>    <span class="keywordtype">bool</span> pressed = <span class="keyword">event</span>.type == <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_MOUSEBUTTONDOWN</a>;</div>
+<div class="line"><span class="lineno">   75</span>    <a class="code hl_function" href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#afd599b8f124239a8f11fb6959e3c626a">updateKeyState</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">mouseButton</a>, pressed);</div>
+<div class="line"><span class="lineno">   76</span>}</div>
 <div class="ttc" id="a_asserts_8h_html_a7c8157e57600c968442fc2ee80245d5a"><div class="ttname"><a href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a></div><div class="ttdeci">#define D_ASSERT_TRUE(condition, message)</div><div class="ttdef"><b>Definition</b> <a href="_asserts_8h_source.html#l00021">Asserts.h:21</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_asserts_8h_source.html#l00021">D_ASSERT_TRUE</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_input_manager_8cpp_source.html#l00103">updateKeyState()</a>.</p>
+<p class="reference">References <a class="el" href="_asserts_8h_source.html#l00021">D_ASSERT_TRUE</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_input_manager_8cpp_source.html#l00094">updateKeyState()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_input_manager_8cpp_source.html#l00036">update()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_input_manager_8cpp_source.html#l00027">update()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -717,21 +717,21 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_input_manager_8cpp_source.html#l00087">87</a> of file <a class="el" href="_input_manager_8cpp_source.html">InputManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   87</span>                                                           {</div>
-<div class="line"><span class="lineno">   88</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_GetRelativeMouseMode</a>() == <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_FALSE</a>) {</div>
-<div class="line"><span class="lineno">   89</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">event</a>.type == <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_MOUSEMOTION</a>) {</div>
-<div class="line"><span class="lineno">   90</span>            <a class="code hl_variable" href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a4c9a431617ce9f84066d69c6af29c982">mousePos</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_vector.html#a73cb0791e7c0aed79d07c35d2176394e">x</a>() = <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(<span class="keyword">event</span>.motion.x);</div>
-<div class="line"><span class="lineno">   91</span>            <a class="code hl_variable" href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a4c9a431617ce9f84066d69c6af29c982">mousePos</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_vector.html#a1db0ddecdb667904cff8c3ef7b23ef91">y</a>() = <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(<span class="keyword">event</span>.motion.y);</div>
-<div class="line"><span class="lineno">   92</span>        }</div>
-<div class="line"><span class="lineno">   93</span>    }</div>
-<div class="line"><span class="lineno">   94</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_input_manager_8cpp_source.html#l00078">78</a> of file <a class="el" href="_input_manager_8cpp_source.html">InputManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   78</span>                                                           {</div>
+<div class="line"><span class="lineno">   79</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_GetRelativeMouseMode</a>() == <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_FALSE</a>) {</div>
+<div class="line"><span class="lineno">   80</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">event</a>.type == <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_MOUSEMOTION</a>) {</div>
+<div class="line"><span class="lineno">   81</span>            <a class="code hl_variable" href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a4c9a431617ce9f84066d69c6af29c982">mousePos</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_vector.html#a73cb0791e7c0aed79d07c35d2176394e">x</a>() = <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(<span class="keyword">event</span>.motion.x);</div>
+<div class="line"><span class="lineno">   82</span>            <a class="code hl_variable" href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a4c9a431617ce9f84066d69c6af29c982">mousePos</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_vector.html#a1db0ddecdb667904cff8c3ef7b23ef91">y</a>() = <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(<span class="keyword">event</span>.motion.y);</div>
+<div class="line"><span class="lineno">   83</span>        }</div>
+<div class="line"><span class="lineno">   84</span>    }</div>
+<div class="line"><span class="lineno">   85</span>}</div>
 <div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_vector_html_a1db0ddecdb667904cff8c3ef7b23ef91"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_vector.html#a1db0ddecdb667904cff8c3ef7b23ef91">GLESC::Math::Vector::y</a></div><div class="ttdeci">Type &amp; y()</div><div class="ttdoc">Returns the y (second) value of the vector.</div><div class="ttdef"><b>Definition</b> <a href="_vector_8h_source.html#l00225">Vector.h:225</a></div></div>
 <div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_vector_html_a73cb0791e7c0aed79d07c35d2176394e"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_vector.html#a73cb0791e7c0aed79d07c35d2176394e">GLESC::Math::Vector::x</a></div><div class="ttdeci">Type &amp; x()</div><div class="ttdoc">Returns the x (reference) value of the vector.</div><div class="ttdef"><b>Definition</b> <a href="_vector_8h_source.html#l00184">Vector.h:184</a></div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, <a class="el" href="_input_manager_8h_source.html#l00127">mousePos</a>, <a class="el" href="_vector_8h_source.html#l00184">GLESC::Math::Vector&lt; Type, N &gt;::x()</a>, and <a class="el" href="_vector_8h_source.html#l00225">GLESC::Math::Vector&lt; Type, N &gt;::y()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_input_manager_8cpp_source.html#l00036">update()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_input_manager_8cpp_source.html#l00027">update()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -769,24 +769,24 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_input_manager_8cpp_source.html#l00023">23</a> of file <a class="el" href="_input_manager_8cpp_source.html">InputManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   23</span>                                                           {</div>
-<div class="line"><span class="lineno">   24</span>    <span class="keywordflow">switch</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">event</a>.window.event) {</div>
-<div class="line"><span class="lineno">   25</span>    <span class="keywordflow">case</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_WINDOWEVENT_RESIZED</a>:</div>
-<div class="line"><span class="lineno">   26</span>    <span class="keywordflow">case</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_WINDOWEVENT_SIZE_CHANGED</a>:</div>
-<div class="line"><span class="lineno">   27</span>        <span class="comment">// Update the internal size in the window manager.</span></div>
-<div class="line"><span class="lineno">   28</span>        <a class="code hl_variable" href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#aca941300db61d6a3187c748c9a63ce57">windowManager</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_window_manager.html#ad11419a2237ad2bf992f8fdb08932389">setSize</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">event</a>.window.data1, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">event</a>.window.data2);</div>
-<div class="line"><span class="lineno">   29</span>        <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">   30</span> </div>
-<div class="line"><span class="lineno">   31</span>    <span class="keywordflow">default</span>:</div>
-<div class="line"><span class="lineno">   32</span>        <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">   33</span>    }</div>
-<div class="line"><span class="lineno">   34</span>}</div>
-<div class="ttc" id="aclass_g_l_e_s_c_1_1_window_manager_html_ad11419a2237ad2bf992f8fdb08932389"><div class="ttname"><a href="class_g_l_e_s_c_1_1_window_manager.html#ad11419a2237ad2bf992f8fdb08932389">GLESC::WindowManager::setSize</a></div><div class="ttdeci">void setSize(uint16_t windowWidth, uint16_t windowHeight)</div><div class="ttdoc">Callback function when window size is modified This will change the viewport with the new resolution.</div><div class="ttdef"><b>Definition</b> <a href="_window_manager_8cpp_source.html#l00043">WindowManager.cpp:43</a></div></div>
+<p class="definition">Definition at line <a class="el" href="_input_manager_8cpp_source.html#l00014">14</a> of file <a class="el" href="_input_manager_8cpp_source.html">InputManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   14</span>                                                           {</div>
+<div class="line"><span class="lineno">   15</span>    <span class="keywordflow">switch</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">event</a>.window.event) {</div>
+<div class="line"><span class="lineno">   16</span>    <span class="keywordflow">case</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_WINDOWEVENT_RESIZED</a>:</div>
+<div class="line"><span class="lineno">   17</span>    <span class="keywordflow">case</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_WINDOWEVENT_SIZE_CHANGED</a>:</div>
+<div class="line"><span class="lineno">   18</span>        <span class="comment">// Update the internal size in the window manager.</span></div>
+<div class="line"><span class="lineno">   19</span>        <a class="code hl_variable" href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#aca941300db61d6a3187c748c9a63ce57">windowManager</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_window_manager.html#ad11419a2237ad2bf992f8fdb08932389">setSize</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">event</a>.window.data1, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">event</a>.window.data2);</div>
+<div class="line"><span class="lineno">   20</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">   21</span> </div>
+<div class="line"><span class="lineno">   22</span>    <span class="keywordflow">default</span>:</div>
+<div class="line"><span class="lineno">   23</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">   24</span>    }</div>
+<div class="line"><span class="lineno">   25</span>}</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_window_manager_html_ad11419a2237ad2bf992f8fdb08932389"><div class="ttname"><a href="class_g_l_e_s_c_1_1_window_manager.html#ad11419a2237ad2bf992f8fdb08932389">GLESC::WindowManager::setSize</a></div><div class="ttdeci">void setSize(uint16_t windowWidth, uint16_t windowHeight)</div><div class="ttdoc">Callback function when window size is modified This will change the viewport with the new resolution.</div><div class="ttdef"><b>Definition</b> <a href="_window_manager_8cpp_source.html#l00034">WindowManager.cpp:34</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, <a class="el" href="_window_manager_8cpp_source.html#l00043">GLESC::WindowManager::setSize()</a>, and <a class="el" href="_input_manager_8h_source.html#l00171">windowManager</a>.</p>
+<p class="reference">References <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, <a class="el" href="_window_manager_8cpp_source.html#l00034">GLESC::WindowManager::setSize()</a>, and <a class="el" href="_input_manager_8h_source.html#l00171">windowManager</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_input_manager_8cpp_source.html#l00036">update()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_input_manager_8cpp_source.html#l00027">update()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -818,14 +818,14 @@ Here is the caller graph for this function:</div>
 <p>Gets whether the mouse is relative or not. </p>
 <dl class="section return"><dt>Returns</dt><dd>true if mouse is relative, false otherwise </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_input_manager_8cpp_source.html#l00199">199</a> of file <a class="el" href="_input_manager_8cpp_source.html">InputManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  199</span>                                   {</div>
-<div class="line"><span class="lineno">  200</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_GetRelativeMouseMode</a>() == <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_TRUE</a>;</div>
-<div class="line"><span class="lineno">  201</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_input_manager_8cpp_source.html#l00190">190</a> of file <a class="el" href="_input_manager_8cpp_source.html">InputManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  190</span>                                   {</div>
+<div class="line"><span class="lineno">  191</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_GetRelativeMouseMode</a>() == <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_TRUE</a>;</div>
+<div class="line"><span class="lineno">  192</span>}</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_engine_camera_8cpp_source.html#l00058">GLESC::EngineCamera::rotate()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_engine_camera_8cpp_source.html#l00049">GLESC::EngineCamera::rotate()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -877,17 +877,17 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_input_manager_8cpp_source.html#l00154">154</a> of file <a class="el" href="_input_manager_8cpp_source.html">InputManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  154</span>                                                                                                     {</div>
-<div class="line"><span class="lineno">  155</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">oldMousePos</a> = <a class="code hl_variable" href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#ad6e0f3d9112ab4a050cb09185a4a6f4e">targetMousePos</a>;</div>
-<div class="line"><span class="lineno">  156</span>    <span class="comment">//oldMousePos.setX(Math::lerp(oldMousePos.getX(), targetMousePos.getX(), mouseSmoothFactor));</span></div>
-<div class="line"><span class="lineno">  157</span>    <span class="comment">//oldMousePos.setY(Math::lerp(oldMousePos.getY(), targetMousePos.getY(), mouseSmoothFactor));</span></div>
-<div class="line"><span class="lineno">  158</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_input_manager_8cpp_source.html#l00145">145</a> of file <a class="el" href="_input_manager_8cpp_source.html">InputManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  145</span>                                                                                                     {</div>
+<div class="line"><span class="lineno">  146</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">oldMousePos</a> = <a class="code hl_variable" href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#ad6e0f3d9112ab4a050cb09185a4a6f4e">targetMousePos</a>;</div>
+<div class="line"><span class="lineno">  147</span>    <span class="comment">//oldMousePos.setX(Math::lerp(oldMousePos.getX(), targetMousePos.getX(), mouseSmoothFactor));</span></div>
+<div class="line"><span class="lineno">  148</span>    <span class="comment">//oldMousePos.setY(Math::lerp(oldMousePos.getY(), targetMousePos.getY(), mouseSmoothFactor));</span></div>
+<div class="line"><span class="lineno">  149</span>}</div>
 <div class="ttc" id="aclass_g_l_e_s_c_1_1_input_1_1_input_manager_html_ad6e0f3d9112ab4a050cb09185a4a6f4e"><div class="ttname"><a href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#ad6e0f3d9112ab4a050cb09185a4a6f4e">GLESC::Input::InputManager::targetMousePos</a></div><div class="ttdeci">MousePosition targetMousePos</div><div class="ttdoc">The target mouse position used to smooth out the mouse movement.</div><div class="ttdef"><b>Definition</b> <a href="_input_manager_8h_source.html#l00131">InputManager.h:131</a></div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_input_manager_8h_source.html#l00131">targetMousePos</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_input_manager_8cpp_source.html#l00036">update()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_input_manager_8cpp_source.html#l00027">update()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -920,18 +920,18 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_input_manager_8cpp_source.html#l00187">187</a> of file <a class="el" href="_input_manager_8cpp_source.html">InputManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  187</span>                                                {</div>
-<div class="line"><span class="lineno">  188</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_SetRelativeMouseMode</a>(<span class="keyword">static_cast&lt;</span><a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_bool</a><span class="keyword">&gt;</span>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">enabled</a>)) != 0) {</div>
-<div class="line"><span class="lineno">  189</span>        std::string action = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">enabled</a> ? <span class="stringliteral">&quot;enable&quot;</span> : <span class="stringliteral">&quot;disable&quot;</span>;</div>
-<div class="line"><span class="lineno">  190</span>        <span class="keywordflow">throw</span> <a class="code hl_class" href="class_engine_exception.html">EngineException</a>(</div>
-<div class="line"><span class="lineno">  191</span>            <span class="stringliteral">&quot;Unable to &quot;</span> + action + <span class="stringliteral">&quot; mouse relative mode: &quot;</span> + std::string(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_GetError</a>())</div>
-<div class="line"><span class="lineno">  192</span>        );</div>
-<div class="line"><span class="lineno">  193</span>    }</div>
-<div class="line"><span class="lineno">  194</span>    <span class="comment">// Reset the mouse position, looks like it&#39;s not done by SDL</span></div>
-<div class="line"><span class="lineno">  195</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a4c9a431617ce9f84066d69c6af29c982">mousePos</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_vector.html#a73cb0791e7c0aed79d07c35d2176394e">x</a>() = 0;</div>
-<div class="line"><span class="lineno">  196</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a4c9a431617ce9f84066d69c6af29c982">mousePos</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_vector.html#a1db0ddecdb667904cff8c3ef7b23ef91">y</a>() = 0;</div>
-<div class="line"><span class="lineno">  197</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_input_manager_8cpp_source.html#l00178">178</a> of file <a class="el" href="_input_manager_8cpp_source.html">InputManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  178</span>                                                {</div>
+<div class="line"><span class="lineno">  179</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_SetRelativeMouseMode</a>(<span class="keyword">static_cast&lt;</span><a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_bool</a><span class="keyword">&gt;</span>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">enabled</a>)) != 0) {</div>
+<div class="line"><span class="lineno">  180</span>        std::string action = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">enabled</a> ? <span class="stringliteral">&quot;enable&quot;</span> : <span class="stringliteral">&quot;disable&quot;</span>;</div>
+<div class="line"><span class="lineno">  181</span>        <span class="keywordflow">throw</span> <a class="code hl_class" href="class_engine_exception.html">EngineException</a>(</div>
+<div class="line"><span class="lineno">  182</span>            <span class="stringliteral">&quot;Unable to &quot;</span> + action + <span class="stringliteral">&quot; mouse relative mode: &quot;</span> + std::string(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_GetError</a>())</div>
+<div class="line"><span class="lineno">  183</span>        );</div>
+<div class="line"><span class="lineno">  184</span>    }</div>
+<div class="line"><span class="lineno">  185</span>    <span class="comment">// Reset the mouse position, looks like it&#39;s not done by SDL</span></div>
+<div class="line"><span class="lineno">  186</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a4c9a431617ce9f84066d69c6af29c982">mousePos</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_vector.html#a73cb0791e7c0aed79d07c35d2176394e">x</a>() = 0;</div>
+<div class="line"><span class="lineno">  187</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a4c9a431617ce9f84066d69c6af29c982">mousePos</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_vector.html#a1db0ddecdb667904cff8c3ef7b23ef91">y</a>() = 0;</div>
+<div class="line"><span class="lineno">  188</span>}</div>
 <div class="ttc" id="aclass_engine_exception_html"><div class="ttname"><a href="class_engine_exception.html">EngineException</a></div><div class="ttdef"><b>Definition</b> <a href="_engine_exception_8h_source.html#l00015">EngineException.h:15</a></div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, <a class="el" href="_input_manager_8h_source.html#l00127">mousePos</a>, <a class="el" href="_vector_8h_source.html#l00184">GLESC::Math::Vector&lt; Type, N &gt;::x()</a>, and <a class="el" href="_vector_8h_source.html#l00225">GLESC::Math::Vector&lt; Type, N &gt;::y()</a>.</p>
@@ -961,55 +961,55 @@ Here is the call graph for this function:</div>
 
 <p>Updates the input manager by processing the current input state. </p>
 
-<p class="definition">Definition at line <a class="el" href="_input_manager_8cpp_source.html#l00036">36</a> of file <a class="el" href="_input_manager_8cpp_source.html">InputManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   36</span>                                       {</div>
-<div class="line"><span class="lineno">   37</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_Point</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">sdlMousePos</a> = {0, 0};</div>
-<div class="line"><span class="lineno">   38</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_Event</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">event</a>;</div>
-<div class="line"><span class="lineno">   39</span>    <span class="keywordflow">while</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_PollEvent</a>(&amp;<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">event</a>)) {</div>
-<div class="line"><span class="lineno">   40</span>        <a class="code hl_variable" href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#aa5eec95c433d4ba419a41d657af817ae">hudManager</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#a3f8e206d3637391fafafe1126d9be92c">processInput</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">event</a>);</div>
-<div class="line"><span class="lineno">   41</span>        <span class="keywordflow">switch</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">event</a>.type) {</div>
-<div class="line"><span class="lineno">   42</span>        <span class="keywordflow">case</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_QUIT</a>:</div>
-<div class="line"><span class="lineno">   43</span>            running = <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">   44</span>            <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">   45</span>        <span class="keywordflow">case</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_WINDOWEVENT</a>:</div>
-<div class="line"><span class="lineno">   46</span>            <a class="code hl_function" href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a5d7f2407f216bd6211aa80261edee52a">handleWindowEvent</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">event</a>);</div>
-<div class="line"><span class="lineno">   47</span>            <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">   48</span>        <span class="keywordflow">case</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_KEYDOWN</a>:</div>
-<div class="line"><span class="lineno">   49</span>        <span class="keywordflow">case</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_KEYUP</a>:</div>
-<div class="line"><span class="lineno">   50</span>            <a class="code hl_function" href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#ae05086375cf5fc9e92f75679831c3562">handleKeyEvent</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">event</a>);</div>
-<div class="line"><span class="lineno">   51</span>            <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">   52</span>        <span class="keywordflow">case</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_MOUSEBUTTONDOWN</a>:</div>
-<div class="line"><span class="lineno">   53</span>        <span class="keywordflow">case</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_MOUSEBUTTONUP</a>:</div>
-<div class="line"><span class="lineno">   54</span>            <a class="code hl_function" href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a89301a457ade75c8f2ed479016606221">handleMouseButton</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">event</a>);</div>
-<div class="line"><span class="lineno">   55</span>            <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">   56</span>        <span class="keywordflow">case</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_MOUSEMOTION</a>:</div>
-<div class="line"><span class="lineno">   57</span>            <a class="code hl_function" href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a20919c9faf7935519bd1391b6833f39e">handleMouseMotion</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">event</a>);</div>
-<div class="line"><span class="lineno">   58</span>            <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_GetRelativeMouseMode</a>() == <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_TRUE</a>) {</div>
-<div class="line"><span class="lineno">   59</span>                <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">sdlMousePos</a> = {<span class="keyword">event</span>.motion.xrel, <span class="keyword">event</span>.motion.yrel};</div>
-<div class="line"><span class="lineno">   60</span>            }</div>
-<div class="line"><span class="lineno">   61</span>            <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">   62</span>        <span class="keywordflow">default</span>:</div>
-<div class="line"><span class="lineno">   63</span>            <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">   64</span>        }</div>
-<div class="line"><span class="lineno">   65</span>    }</div>
-<div class="line"><span class="lineno">   66</span>    <span class="comment">// When no input is given to the mouse, send a 0,0 movement to the buffer and lerp the mouse position</span></div>
-<div class="line"><span class="lineno">   67</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_GetRelativeMouseMode</a>() == <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_TRUE</a>) {</div>
-<div class="line"><span class="lineno">   68</span>        <a class="code hl_function" href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a5ad53f7f1e1769227e17577e71a0af03">addToBuffer</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">sdlMousePos</a>.x, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">sdlMousePos</a>.y);</div>
-<div class="line"><span class="lineno">   69</span>        <a class="code hl_function" href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a27a5abc14f6e4a67de733ad6ea07a2ad">lerpMousePos</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a4c9a431617ce9f84066d69c6af29c982">mousePos</a>, <a class="code hl_function" href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a8796655cbd47657f1d277bbedf4c0d4c">getAvgMousePos</a>());</div>
-<div class="line"><span class="lineno">   70</span>    }</div>
-<div class="line"><span class="lineno">   71</span>}</div>
-<div class="ttc" id="aclass_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager_html_a3f8e206d3637391fafafe1126d9be92c"><div class="ttname"><a href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#a3f8e206d3637391fafafe1126d9be92c">GLESC::HUD::HUDManager::processInput</a></div><div class="ttdeci">void processInput(SDL_Event &amp;event)</div><div class="ttdoc">Process input for the HUD.</div><div class="ttdef"><b>Definition</b> <a href="_h_u_d_manager_8cpp_source.html#l00037">HUDManager.cpp:37</a></div></div>
-<div class="ttc" id="aclass_g_l_e_s_c_1_1_input_1_1_input_manager_html_a20919c9faf7935519bd1391b6833f39e"><div class="ttname"><a href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a20919c9faf7935519bd1391b6833f39e">GLESC::Input::InputManager::handleMouseMotion</a></div><div class="ttdeci">void handleMouseMotion(const SDL_Event &amp;event)</div><div class="ttdoc">Handles the mouse motion event by updating the mouse position.</div><div class="ttdef"><b>Definition</b> <a href="_input_manager_8cpp_source.html#l00087">InputManager.cpp:87</a></div></div>
-<div class="ttc" id="aclass_g_l_e_s_c_1_1_input_1_1_input_manager_html_a27a5abc14f6e4a67de733ad6ea07a2ad"><div class="ttname"><a href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a27a5abc14f6e4a67de733ad6ea07a2ad">GLESC::Input::InputManager::lerpMousePos</a></div><div class="ttdeci">void lerpMousePos(MousePosition &amp;oldMousePos, const MousePosition &amp;targetMousePos) const</div><div class="ttdoc">Linearly interpolates the mouse position to smooth out the mouse movement.</div><div class="ttdef"><b>Definition</b> <a href="_input_manager_8cpp_source.html#l00154">InputManager.cpp:154</a></div></div>
-<div class="ttc" id="aclass_g_l_e_s_c_1_1_input_1_1_input_manager_html_a5ad53f7f1e1769227e17577e71a0af03"><div class="ttname"><a href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a5ad53f7f1e1769227e17577e71a0af03">GLESC::Input::InputManager::addToBuffer</a></div><div class="ttdeci">void addToBuffer(int posDx, int posDy)</div><div class="ttdoc">Adds the delta values of the mouse position to the delta buffer.</div><div class="ttdef"><b>Definition</b> <a href="_input_manager_8cpp_source.html#l00096">InputManager.cpp:96</a></div></div>
-<div class="ttc" id="aclass_g_l_e_s_c_1_1_input_1_1_input_manager_html_a5d7f2407f216bd6211aa80261edee52a"><div class="ttname"><a href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a5d7f2407f216bd6211aa80261edee52a">GLESC::Input::InputManager::handleWindowEvent</a></div><div class="ttdeci">void handleWindowEvent(const SDL_Event &amp;event)</div><div class="ttdef"><b>Definition</b> <a href="_input_manager_8cpp_source.html#l00023">InputManager.cpp:23</a></div></div>
-<div class="ttc" id="aclass_g_l_e_s_c_1_1_input_1_1_input_manager_html_a8796655cbd47657f1d277bbedf4c0d4c"><div class="ttname"><a href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a8796655cbd47657f1d277bbedf4c0d4c">GLESC::Input::InputManager::getAvgMousePos</a></div><div class="ttdeci">MousePosition getAvgMousePos() const</div><div class="ttdoc">Calculates the average postion of the mouse from the delta buffer. If the position is less than the d...</div><div class="ttdef"><b>Definition</b> <a href="_input_manager_8cpp_source.html#l00136">InputManager.cpp:136</a></div></div>
-<div class="ttc" id="aclass_g_l_e_s_c_1_1_input_1_1_input_manager_html_a89301a457ade75c8f2ed479016606221"><div class="ttname"><a href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a89301a457ade75c8f2ed479016606221">GLESC::Input::InputManager::handleMouseButton</a></div><div class="ttdeci">void handleMouseButton(const SDL_Event &amp;event)</div><div class="ttdoc">Handles the mouse button event by updating the key map with the current key state.</div><div class="ttdef"><b>Definition</b> <a href="_input_manager_8cpp_source.html#l00080">InputManager.cpp:80</a></div></div>
-<div class="ttc" id="aclass_g_l_e_s_c_1_1_input_1_1_input_manager_html_ae05086375cf5fc9e92f75679831c3562"><div class="ttname"><a href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#ae05086375cf5fc9e92f75679831c3562">GLESC::Input::InputManager::handleKeyEvent</a></div><div class="ttdeci">void handleKeyEvent(const SDL_Event &amp;event)</div><div class="ttdoc">Handles the keyboard event by updating the key map with the current key state.</div><div class="ttdef"><b>Definition</b> <a href="_input_manager_8cpp_source.html#l00074">InputManager.cpp:74</a></div></div>
+<p class="definition">Definition at line <a class="el" href="_input_manager_8cpp_source.html#l00027">27</a> of file <a class="el" href="_input_manager_8cpp_source.html">InputManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   27</span>                                       {</div>
+<div class="line"><span class="lineno">   28</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_Point</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">sdlMousePos</a> = {0, 0};</div>
+<div class="line"><span class="lineno">   29</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_Event</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">event</a>;</div>
+<div class="line"><span class="lineno">   30</span>    <span class="keywordflow">while</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_PollEvent</a>(&amp;<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">event</a>)) {</div>
+<div class="line"><span class="lineno">   31</span>        <a class="code hl_variable" href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#aa5eec95c433d4ba419a41d657af817ae">hudManager</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#a3f8e206d3637391fafafe1126d9be92c">processInput</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">event</a>);</div>
+<div class="line"><span class="lineno">   32</span>        <span class="keywordflow">switch</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">event</a>.type) {</div>
+<div class="line"><span class="lineno">   33</span>        <span class="keywordflow">case</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_QUIT</a>:</div>
+<div class="line"><span class="lineno">   34</span>            running = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">   35</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">   36</span>        <span class="keywordflow">case</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_WINDOWEVENT</a>:</div>
+<div class="line"><span class="lineno">   37</span>            <a class="code hl_function" href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a5d7f2407f216bd6211aa80261edee52a">handleWindowEvent</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">event</a>);</div>
+<div class="line"><span class="lineno">   38</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">   39</span>        <span class="keywordflow">case</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_KEYDOWN</a>:</div>
+<div class="line"><span class="lineno">   40</span>        <span class="keywordflow">case</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_KEYUP</a>:</div>
+<div class="line"><span class="lineno">   41</span>            <a class="code hl_function" href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#ae05086375cf5fc9e92f75679831c3562">handleKeyEvent</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">event</a>);</div>
+<div class="line"><span class="lineno">   42</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">   43</span>        <span class="keywordflow">case</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_MOUSEBUTTONDOWN</a>:</div>
+<div class="line"><span class="lineno">   44</span>        <span class="keywordflow">case</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_MOUSEBUTTONUP</a>:</div>
+<div class="line"><span class="lineno">   45</span>            <a class="code hl_function" href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a89301a457ade75c8f2ed479016606221">handleMouseButton</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">event</a>);</div>
+<div class="line"><span class="lineno">   46</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">   47</span>        <span class="keywordflow">case</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_MOUSEMOTION</a>:</div>
+<div class="line"><span class="lineno">   48</span>            <a class="code hl_function" href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a20919c9faf7935519bd1391b6833f39e">handleMouseMotion</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">event</a>);</div>
+<div class="line"><span class="lineno">   49</span>            <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_GetRelativeMouseMode</a>() == <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_TRUE</a>) {</div>
+<div class="line"><span class="lineno">   50</span>                <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">sdlMousePos</a> = {<span class="keyword">event</span>.motion.xrel, <span class="keyword">event</span>.motion.yrel};</div>
+<div class="line"><span class="lineno">   51</span>            }</div>
+<div class="line"><span class="lineno">   52</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">   53</span>        <span class="keywordflow">default</span>:</div>
+<div class="line"><span class="lineno">   54</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">   55</span>        }</div>
+<div class="line"><span class="lineno">   56</span>    }</div>
+<div class="line"><span class="lineno">   57</span>    <span class="comment">// When no input is given to the mouse, send a 0,0 movement to the buffer and lerp the mouse position</span></div>
+<div class="line"><span class="lineno">   58</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_GetRelativeMouseMode</a>() == <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">SDL_TRUE</a>) {</div>
+<div class="line"><span class="lineno">   59</span>        <a class="code hl_function" href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a5ad53f7f1e1769227e17577e71a0af03">addToBuffer</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">sdlMousePos</a>.x, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">sdlMousePos</a>.y);</div>
+<div class="line"><span class="lineno">   60</span>        <a class="code hl_function" href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a27a5abc14f6e4a67de733ad6ea07a2ad">lerpMousePos</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a4c9a431617ce9f84066d69c6af29c982">mousePos</a>, <a class="code hl_function" href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a8796655cbd47657f1d277bbedf4c0d4c">getAvgMousePos</a>());</div>
+<div class="line"><span class="lineno">   61</span>    }</div>
+<div class="line"><span class="lineno">   62</span>}</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager_html_a3f8e206d3637391fafafe1126d9be92c"><div class="ttname"><a href="class_g_l_e_s_c_1_1_h_u_d_1_1_h_u_d_manager.html#a3f8e206d3637391fafafe1126d9be92c">GLESC::HUD::HUDManager::processInput</a></div><div class="ttdeci">void processInput(SDL_Event &amp;event)</div><div class="ttdoc">Process input for the HUD.</div><div class="ttdef"><b>Definition</b> <a href="_h_u_d_manager_8cpp_source.html#l00028">HUDManager.cpp:28</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_input_1_1_input_manager_html_a20919c9faf7935519bd1391b6833f39e"><div class="ttname"><a href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a20919c9faf7935519bd1391b6833f39e">GLESC::Input::InputManager::handleMouseMotion</a></div><div class="ttdeci">void handleMouseMotion(const SDL_Event &amp;event)</div><div class="ttdoc">Handles the mouse motion event by updating the mouse position.</div><div class="ttdef"><b>Definition</b> <a href="_input_manager_8cpp_source.html#l00078">InputManager.cpp:78</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_input_1_1_input_manager_html_a27a5abc14f6e4a67de733ad6ea07a2ad"><div class="ttname"><a href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a27a5abc14f6e4a67de733ad6ea07a2ad">GLESC::Input::InputManager::lerpMousePos</a></div><div class="ttdeci">void lerpMousePos(MousePosition &amp;oldMousePos, const MousePosition &amp;targetMousePos) const</div><div class="ttdoc">Linearly interpolates the mouse position to smooth out the mouse movement.</div><div class="ttdef"><b>Definition</b> <a href="_input_manager_8cpp_source.html#l00145">InputManager.cpp:145</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_input_1_1_input_manager_html_a5ad53f7f1e1769227e17577e71a0af03"><div class="ttname"><a href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a5ad53f7f1e1769227e17577e71a0af03">GLESC::Input::InputManager::addToBuffer</a></div><div class="ttdeci">void addToBuffer(int posDx, int posDy)</div><div class="ttdoc">Adds the delta values of the mouse position to the delta buffer.</div><div class="ttdef"><b>Definition</b> <a href="_input_manager_8cpp_source.html#l00087">InputManager.cpp:87</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_input_1_1_input_manager_html_a5d7f2407f216bd6211aa80261edee52a"><div class="ttname"><a href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a5d7f2407f216bd6211aa80261edee52a">GLESC::Input::InputManager::handleWindowEvent</a></div><div class="ttdeci">void handleWindowEvent(const SDL_Event &amp;event)</div><div class="ttdef"><b>Definition</b> <a href="_input_manager_8cpp_source.html#l00014">InputManager.cpp:14</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_input_1_1_input_manager_html_a8796655cbd47657f1d277bbedf4c0d4c"><div class="ttname"><a href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a8796655cbd47657f1d277bbedf4c0d4c">GLESC::Input::InputManager::getAvgMousePos</a></div><div class="ttdeci">MousePosition getAvgMousePos() const</div><div class="ttdoc">Calculates the average postion of the mouse from the delta buffer. If the position is less than the d...</div><div class="ttdef"><b>Definition</b> <a href="_input_manager_8cpp_source.html#l00127">InputManager.cpp:127</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_input_1_1_input_manager_html_a89301a457ade75c8f2ed479016606221"><div class="ttname"><a href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a89301a457ade75c8f2ed479016606221">GLESC::Input::InputManager::handleMouseButton</a></div><div class="ttdeci">void handleMouseButton(const SDL_Event &amp;event)</div><div class="ttdoc">Handles the mouse button event by updating the key map with the current key state.</div><div class="ttdef"><b>Definition</b> <a href="_input_manager_8cpp_source.html#l00071">InputManager.cpp:71</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_input_1_1_input_manager_html_ae05086375cf5fc9e92f75679831c3562"><div class="ttname"><a href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#ae05086375cf5fc9e92f75679831c3562">GLESC::Input::InputManager::handleKeyEvent</a></div><div class="ttdeci">void handleKeyEvent(const SDL_Event &amp;event)</div><div class="ttdoc">Handles the keyboard event by updating the key map with the current key state.</div><div class="ttdef"><b>Definition</b> <a href="_input_manager_8cpp_source.html#l00065">InputManager.cpp:65</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_input_manager_8cpp_source.html#l00096">addToBuffer()</a>, <a class="el" href="_input_manager_8cpp_source.html#l00136">getAvgMousePos()</a>, <a class="el" href="_input_manager_8cpp_source.html#l00074">handleKeyEvent()</a>, <a class="el" href="_input_manager_8cpp_source.html#l00080">handleMouseButton()</a>, <a class="el" href="_input_manager_8cpp_source.html#l00087">handleMouseMotion()</a>, <a class="el" href="_input_manager_8cpp_source.html#l00023">handleWindowEvent()</a>, <a class="el" href="_input_manager_8h_source.html#l00177">hudManager</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, <a class="el" href="_input_manager_8cpp_source.html#l00154">lerpMousePos()</a>, <a class="el" href="_input_manager_8h_source.html#l00127">mousePos</a>, and <a class="el" href="_h_u_d_manager_8cpp_source.html#l00037">GLESC::HUD::HUDManager::processInput()</a>.</p>
+<p class="reference">References <a class="el" href="_input_manager_8cpp_source.html#l00087">addToBuffer()</a>, <a class="el" href="_input_manager_8cpp_source.html#l00127">getAvgMousePos()</a>, <a class="el" href="_input_manager_8cpp_source.html#l00065">handleKeyEvent()</a>, <a class="el" href="_input_manager_8cpp_source.html#l00071">handleMouseButton()</a>, <a class="el" href="_input_manager_8cpp_source.html#l00078">handleMouseMotion()</a>, <a class="el" href="_input_manager_8cpp_source.html#l00014">handleWindowEvent()</a>, <a class="el" href="_input_manager_8h_source.html#l00177">hudManager</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, <a class="el" href="_input_manager_8cpp_source.html#l00145">lerpMousePos()</a>, <a class="el" href="_input_manager_8h_source.html#l00127">mousePos</a>, and <a class="el" href="_h_u_d_manager_8cpp_source.html#l00028">GLESC::HUD::HUDManager::processInput()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_g_l_e_s_c_8cpp_source.html#l00064">GLESC::Engine::processInput()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_g_l_e_s_c_8cpp_source.html#l00055">GLESC::Engine::processInput()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1066,33 +1066,33 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_input_manager_8cpp_source.html#l00103">103</a> of file <a class="el" href="_input_manager_8cpp_source.html">InputManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  103</span>                                                       {</div>
-<div class="line"><span class="lineno">  104</span>    <span class="keyword">auto</span>&amp; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">keyState</a> = <a class="code hl_variable" href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a1bdfac0054c376e7e382813164c056bc">keyMap</a>[key];</div>
-<div class="line"><span class="lineno">  105</span>    <span class="keywordflow">if</span> (pressed) {</div>
-<div class="line"><span class="lineno">  106</span>        <span class="keywordflow">if</span> (!<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">keyState</a>.pressed) {</div>
-<div class="line"><span class="lineno">  107</span>            <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">keyState</a>.justPressed = <span class="keyword">true</span>;</div>
+<p class="definition">Definition at line <a class="el" href="_input_manager_8cpp_source.html#l00094">94</a> of file <a class="el" href="_input_manager_8cpp_source.html">InputManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   94</span>                                                       {</div>
+<div class="line"><span class="lineno">   95</span>    <span class="keyword">auto</span>&amp; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">keyState</a> = <a class="code hl_variable" href="class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a1bdfac0054c376e7e382813164c056bc">keyMap</a>[key];</div>
+<div class="line"><span class="lineno">   96</span>    <span class="keywordflow">if</span> (pressed) {</div>
+<div class="line"><span class="lineno">   97</span>        <span class="keywordflow">if</span> (!<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">keyState</a>.pressed) {</div>
+<div class="line"><span class="lineno">   98</span>            <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">keyState</a>.justPressed = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   99</span>        }</div>
+<div class="line"><span class="lineno">  100</span>        <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  101</span>            <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">keyState</a>.justPressed = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  102</span>        }</div>
+<div class="line"><span class="lineno">  103</span>        <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">keyState</a>.pressed = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  104</span>    }</div>
+<div class="line"><span class="lineno">  105</span>    <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  106</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">keyState</a>.pressed) {</div>
+<div class="line"><span class="lineno">  107</span>            <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">keyState</a>.justReleased = <span class="keyword">true</span>;</div>
 <div class="line"><span class="lineno">  108</span>        }</div>
 <div class="line"><span class="lineno">  109</span>        <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  110</span>            <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">keyState</a>.justPressed = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  110</span>            <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">keyState</a>.justReleased = <span class="keyword">false</span>;</div>
 <div class="line"><span class="lineno">  111</span>        }</div>
-<div class="line"><span class="lineno">  112</span>        <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">keyState</a>.pressed = <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  113</span>    }</div>
-<div class="line"><span class="lineno">  114</span>    <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  115</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">keyState</a>.pressed) {</div>
-<div class="line"><span class="lineno">  116</span>            <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">keyState</a>.justReleased = <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  117</span>        }</div>
-<div class="line"><span class="lineno">  118</span>        <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  119</span>            <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">keyState</a>.justReleased = <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  120</span>        }</div>
-<div class="line"><span class="lineno">  121</span>        <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">keyState</a>.pressed = <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  122</span>        <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">keyState</a>.justPressed = <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  123</span>    }</div>
-<div class="line"><span class="lineno">  124</span>}</div>
+<div class="line"><span class="lineno">  112</span>        <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">keyState</a>.pressed = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  113</span>        <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">keyState</a>.justPressed = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  114</span>    }</div>
+<div class="line"><span class="lineno">  115</span>}</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_input_manager_8h_source.html#l00159">keyMap</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_input_manager_8cpp_source.html#l00074">handleKeyEvent()</a>, and <a class="el" href="_input_manager_8cpp_source.html#l00080">handleMouseButton()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_input_manager_8cpp_source.html#l00065">handleKeyEvent()</a>, and <a class="el" href="_input_manager_8cpp_source.html#l00071">handleMouseButton()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1126,7 +1126,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="_input_manager_8h_source.html#l00117">117</a> of file <a class="el" href="_input_manager_8h_source.html">InputManager.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_input_manager_8cpp_source.html#l00096">addToBuffer()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_input_manager_8cpp_source.html#l00087">addToBuffer()</a>.</p>
 
 </div>
 </div>
@@ -1182,7 +1182,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="_input_manager_8h_source.html#l00113">113</a> of file <a class="el" href="_input_manager_8h_source.html">InputManager.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_input_manager_8cpp_source.html#l00096">addToBuffer()</a>, and <a class="el" href="_input_manager_8cpp_source.html#l00136">getAvgMousePos()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_input_manager_8cpp_source.html#l00087">addToBuffer()</a>, and <a class="el" href="_input_manager_8cpp_source.html#l00127">getAvgMousePos()</a>.</p>
 
 </div>
 </div>
@@ -1210,7 +1210,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="_input_manager_8h_source.html#l00177">177</a> of file <a class="el" href="_input_manager_8h_source.html">InputManager.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_input_manager_8cpp_source.html#l00036">update()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_input_manager_8cpp_source.html#l00027">update()</a>.</p>
 
 </div>
 </div>
@@ -1239,7 +1239,7 @@ Here is the caller graph for this function:</div>
 <p class="definition">Definition at line <a class="el" href="_input_manager_8h_source.html#l00159">159</a> of file <a class="el" href="_input_manager_8h_source.html">InputManager.h</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  159</span>{};</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="_input_manager_8cpp_source.html#l00161">checkKeyAction()</a>, <a class="el" href="_input_manager_8cpp_source.html#l00126">getPressedKeys()</a>, and <a class="el" href="_input_manager_8cpp_source.html#l00103">updateKeyState()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_input_manager_8cpp_source.html#l00152">checkKeyAction()</a>, <a class="el" href="_input_manager_8cpp_source.html#l00117">getPressedKeys()</a>, and <a class="el" href="_input_manager_8cpp_source.html#l00094">updateKeyState()</a>.</p>
 
 </div>
 </div>
@@ -1268,7 +1268,7 @@ Here is the caller graph for this function:</div>
 <p class="definition">Definition at line <a class="el" href="_input_manager_8h_source.html#l00127">127</a> of file <a class="el" href="_input_manager_8h_source.html">InputManager.h</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  127</span>{};</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="_input_manager_8h_source.html#l00054">getMousePosition()</a>, <a class="el" href="_input_manager_8cpp_source.html#l00087">handleMouseMotion()</a>, <a class="el" href="_input_manager_8cpp_source.html#l00187">setMouseRelative()</a>, and <a class="el" href="_input_manager_8cpp_source.html#l00036">update()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_input_manager_8h_source.html#l00054">getMousePosition()</a>, <a class="el" href="_input_manager_8cpp_source.html#l00078">handleMouseMotion()</a>, <a class="el" href="_input_manager_8cpp_source.html#l00178">setMouseRelative()</a>, and <a class="el" href="_input_manager_8cpp_source.html#l00027">update()</a>.</p>
 
 </div>
 </div>
@@ -1350,7 +1350,7 @@ Here is the caller graph for this function:</div>
 <p class="definition">Definition at line <a class="el" href="_input_manager_8h_source.html#l00131">131</a> of file <a class="el" href="_input_manager_8h_source.html">InputManager.h</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  131</span>{};</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="_input_manager_8cpp_source.html#l00154">lerpMousePos()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_input_manager_8cpp_source.html#l00145">lerpMousePos()</a>.</p>
 
 </div>
 </div>
@@ -1376,7 +1376,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="_input_manager_8h_source.html#l00171">171</a> of file <a class="el" href="_input_manager_8h_source.html">InputManager.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_input_manager_8cpp_source.html#l00023">handleWindowEvent()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_input_manager_8cpp_source.html#l00014">handleWindowEvent()</a>.</p>
 
 </div>
 </div>

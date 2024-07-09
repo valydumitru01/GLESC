@@ -192,20 +192,20 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_input_8cpp_source.html#l00018">18</a> of file <a class="el" href="_input_8cpp_source.html">Input.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   18</span>                                                             {</div>
-<div class="line"><span class="lineno">   19</span>    std::vector&lt;EntityStatsManager::Value&gt; values;</div>
-<div class="line"><span class="lineno">   20</span>    <a class="code hl_struct" href="class_entity_stats_manager.html#struct_entity_stats_manager_1_1_value">EntityStatsManager::Value</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">subscribedKeysValue</a>;</div>
-<div class="line"><span class="lineno">   21</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">subscribedKeysValue</a>.<a class="code hl_variable" href="class_entity_stats_manager.html#a8c007fcaab6bce263fb0e0d80b8bbbb7">name</a> = <span class="stringliteral">&quot;Subscribed keys&quot;</span>;</div>
-<div class="line"><span class="lineno">   22</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">subscribedKeysValue</a>.isString = <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">   23</span>    std::stringstream <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">ss</a>;</div>
-<div class="line"><span class="lineno">   24</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; [key, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">command</a>] : <a class="code hl_variable" href="class_g_l_e_s_c_1_1_input_1_1_input.html#ab6263f8b26c12d86687123553e069426">subscribedKeys</a>) {</div>
-<div class="line"><span class="lineno">   25</span>        <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">ss</a> &lt;&lt; <a class="code hl_function" href="namespace_g_l_e_s_c_1_1_input.html#a163e374d947eb806002e97c8f18c81e8">keyToString</a>(key.key) &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><span class="lineno">   26</span>    }</div>
-<div class="line"><span class="lineno">   27</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">subscribedKeysValue</a>.stringData = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">ss</a>.str();</div>
-<div class="line"><span class="lineno">   28</span>    values.push_back(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">subscribedKeysValue</a>);</div>
-<div class="line"><span class="lineno">   29</span>    <span class="keywordflow">return</span> values;</div>
-<div class="line"><span class="lineno">   30</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_input_8cpp_source.html#l00009">9</a> of file <a class="el" href="_input_8cpp_source.html">Input.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">    9</span>                                                             {</div>
+<div class="line"><span class="lineno">   10</span>    std::vector&lt;EntityStatsManager::Value&gt; values;</div>
+<div class="line"><span class="lineno">   11</span>    <a class="code hl_struct" href="class_entity_stats_manager.html#struct_entity_stats_manager_1_1_value">EntityStatsManager::Value</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">subscribedKeysValue</a>;</div>
+<div class="line"><span class="lineno">   12</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">subscribedKeysValue</a>.<a class="code hl_variable" href="class_entity_stats_manager.html#a8c007fcaab6bce263fb0e0d80b8bbbb7">name</a> = <span class="stringliteral">&quot;Subscribed keys&quot;</span>;</div>
+<div class="line"><span class="lineno">   13</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">subscribedKeysValue</a>.isString = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   14</span>    std::stringstream <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">ss</a>;</div>
+<div class="line"><span class="lineno">   15</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; [key, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">command</a>] : <a class="code hl_variable" href="class_g_l_e_s_c_1_1_input_1_1_input.html#ab6263f8b26c12d86687123553e069426">subscribedKeys</a>) {</div>
+<div class="line"><span class="lineno">   16</span>        <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">ss</a> &lt;&lt; <a class="code hl_function" href="namespace_g_l_e_s_c_1_1_input.html#a163e374d947eb806002e97c8f18c81e8">keyToString</a>(key.key) &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><span class="lineno">   17</span>    }</div>
+<div class="line"><span class="lineno">   18</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">subscribedKeysValue</a>.stringData = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">ss</a>.str();</div>
+<div class="line"><span class="lineno">   19</span>    values.push_back(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">subscribedKeysValue</a>);</div>
+<div class="line"><span class="lineno">   20</span>    <span class="keywordflow">return</span> values;</div>
+<div class="line"><span class="lineno">   21</span>}</div>
 <div class="ttc" id="aclass_entity_stats_manager_html_a8c007fcaab6bce263fb0e0d80b8bbbb7"><div class="ttname"><a href="class_entity_stats_manager.html#a8c007fcaab6bce263fb0e0d80b8bbbb7">EntityStatsManager::Value::name</a></div><div class="ttdeci">std::string name</div><div class="ttdef"><b>Definition</b> <a href="_entity_stats_manager_8h_source.html#l00045">EntityStatsManager.h:45</a></div></div>
 <div class="ttc" id="aclass_entity_stats_manager_html_struct_entity_stats_manager_1_1_value"><div class="ttname"><a href="class_entity_stats_manager.html#struct_entity_stats_manager_1_1_value">EntityStatsManager::Value</a></div><div class="ttdoc">Struct that holds the data of a value of a component.</div><div class="ttdef"><b>Definition</b> <a href="_entity_stats_manager_8h_source.html#l00044">EntityStatsManager.h:44</a></div></div>
 <div class="ttc" id="aclass_g_l_e_s_c_1_1_input_1_1_input_html_ab6263f8b26c12d86687123553e069426"><div class="ttname"><a href="class_g_l_e_s_c_1_1_input_1_1_input.html#ab6263f8b26c12d86687123553e069426">GLESC::Input::Input::subscribedKeys</a></div><div class="ttdeci">std::unordered_map&lt; KeyInput, KeyCommand &gt; subscribedKeys</div><div class="ttdoc">Vector of pairs, subscribed keys and bool,true if they are pressed.</div><div class="ttdef"><b>Definition</b> <a href="_input_8h_source.html#l00065">Input.h:65</a></div></div>
@@ -448,15 +448,15 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_input_8cpp_source.html#l00033">33</a> of file <a class="el" href="_input_8cpp_source.html">Input.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   33</span>                                     {</div>
-<div class="line"><span class="lineno">   34</span>    std::stringstream <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">ss</a>;</div>
-<div class="line"><span class="lineno">   35</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">ss</a> &lt;&lt; <span class="stringliteral">&quot;Subscribed keys:\n&quot;</span>;</div>
-<div class="line"><span class="lineno">   36</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; [key, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">command</a>] : <a class="code hl_variable" href="class_g_l_e_s_c_1_1_input_1_1_input.html#ab6263f8b26c12d86687123553e069426">subscribedKeys</a>) {</div>
-<div class="line"><span class="lineno">   37</span>        <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">ss</a> &lt;&lt; <a class="code hl_function" href="namespace_g_l_e_s_c_1_1_input.html#a163e374d947eb806002e97c8f18c81e8">keyToString</a>(key.key) &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><span class="lineno">   38</span>    }</div>
-<div class="line"><span class="lineno">   39</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">ss</a>.str();</div>
-<div class="line"><span class="lineno">   40</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_input_8cpp_source.html#l00024">24</a> of file <a class="el" href="_input_8cpp_source.html">Input.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   24</span>                                     {</div>
+<div class="line"><span class="lineno">   25</span>    std::stringstream <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">ss</a>;</div>
+<div class="line"><span class="lineno">   26</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">ss</a> &lt;&lt; <span class="stringliteral">&quot;Subscribed keys:\n&quot;</span>;</div>
+<div class="line"><span class="lineno">   27</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; [key, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">command</a>] : <a class="code hl_variable" href="class_g_l_e_s_c_1_1_input_1_1_input.html#ab6263f8b26c12d86687123553e069426">subscribedKeys</a>) {</div>
+<div class="line"><span class="lineno">   28</span>        <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">ss</a> &lt;&lt; <a class="code hl_function" href="namespace_g_l_e_s_c_1_1_input.html#a163e374d947eb806002e97c8f18c81e8">keyToString</a>(key.key) &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><span class="lineno">   29</span>    }</div>
+<div class="line"><span class="lineno">   30</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">ss</a>.str();</div>
+<div class="line"><span class="lineno">   31</span>}</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_input_debugger_8h_source.html#l00040">GLESC::Input::keyToString()</a>.</p>
 
@@ -561,7 +561,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="_input_8h_source.html#l00065">65</a> of file <a class="el" href="_input_8h_source.html">Input.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_input_8cpp_source.html#l00018">getDebuggingValues()</a>, <a class="el" href="_input_8h_source.html#l00035">getSubscribedKeys()</a>, <a class="el" href="_input_8h_source.html#l00031">getSubscribedKeys()</a>, <a class="el" href="_input_8h_source.html#l00047">subscribeKey()</a>, and <a class="el" href="_input_8h_source.html#l00051">unsubscribeKey()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_input_8cpp_source.html#l00009">getDebuggingValues()</a>, <a class="el" href="_input_8h_source.html#l00035">getSubscribedKeys()</a>, <a class="el" href="_input_8h_source.html#l00031">getSubscribedKeys()</a>, <a class="el" href="_input_8h_source.html#l00047">subscribeKey()</a>, and <a class="el" href="_input_8h_source.html#l00051">unsubscribeKey()</a>.</p>
 
 </div>
 </div>

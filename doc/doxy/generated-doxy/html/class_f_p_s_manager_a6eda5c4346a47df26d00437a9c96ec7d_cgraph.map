@@ -1,6 +1,6 @@
 <map id="FPSManager::startFrame" name="FPSManager::startFrame">
 <area shape="rect" id="Node000001" title="measures the frame, remembering the old frame." alt="" coords="5,31,174,57"/>
-<area shape="rect" id="Node000002" href="$class_f_p_s_averager.html#ab0d9f806182972339bcf66952978923e" title="Adds a frame to the FPS averager." alt="" coords="222,5,385,32"/>
+<area shape="rect" id="Node000002" href="$class_f_p_s_averager.html#a8b1dbd46b79230bc481e60819035f8d0" title="Adds a frame to the FPS averager." alt="" coords="222,5,385,32"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="174,31,206,28,207,33,175,37"/>
 <area shape="rect" id="Node000003" href="$class_f_p_s_manager.html#aa81047af00a87059468b39b3ef524e77" title=" " alt="" coords="235,56,372,83"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="175,51,220,57,219,62,174,57"/>

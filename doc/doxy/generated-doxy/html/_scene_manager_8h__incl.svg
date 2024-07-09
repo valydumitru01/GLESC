@@ -84,7 +84,7 @@ var sectionId = 'dynsection-0';
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="_window_manager_8h.html" target="_top" xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000004"><a xlink:href="_window_manager_8h.html" target="_top" xlink:title="Manages the main application window and its properties.">
 <polygon fill="white" stroke="#666666" points="958.38,-508 857.62,-508 857.62,-476 958.38,-476 958.38,-508"/>
 <text text-anchor="start" x="865.62" y="-494.5" font-family="Helvetica,sans-Serif" font-size="10.00">engine/core/window</text>
 <text text-anchor="middle" x="908" y="-482.5" font-family="Helvetica,sans-Serif" font-size="10.00">/WindowManager.h</text>
@@ -213,7 +213,7 @@ var sectionId = 'dynsection-0';
 <!-- Node42 -->
 <g id="Node000042" class="node">
 <title>Node42</title>
-<g id="a_Node000042"><a xlink:href="_window_structs_8h.html" target="_top" xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000042"><a xlink:href="_window_structs_8h.html" target="_top" xlink:title="Defines structures related to window properties.">
 <polygon fill="white" stroke="#666666" points="1026.12,-434 935.88,-434 935.88,-414 1026.12,-414 1026.12,-434"/>
 <text text-anchor="middle" x="981" y="-420.5" font-family="Helvetica,sans-Serif" font-size="10.00">WindowStructs.h</text>
 </a>

@@ -1,8 +1,8 @@
 <map id="Shader.cpp" name="Shader.cpp">
-<area shape="rect" id="Node000001" title="@TODO Add description of this file if needed" alt="" coords="1075,5,1162,32"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="1075,5,1162,32"/>
 <area shape="rect" id="Node000002" href="$_gapi_8h.html" title="Abstracts the graphic API used by the engine." alt="" coords="1025,171,1166,229"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1119,33,1104,155,1098,155,1114,32"/>
-<area shape="rect" id="Node000004" href="$_shader_8h.html" title="Class for handling shaders." alt="" coords="910,80,1081,123"/>
+<area shape="rect" id="Node000004" href="$_shader_8h.html" title="Class for managing and utilizing shader programs in the graphics pipeline." alt="" coords="910,80,1081,123"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="1101,35,1041,74,1038,69,1098,30"/>
 <area shape="rect" id="Node000050" href="$_shader_loader_8h.html" title=" " alt="" coords="1636,80,1846,123"/>
 <area shape="poly" id="edge89_Node000001_Node000050" title=" " alt="" coords="1163,23,1621,82,1620,87,1162,28"/>

@@ -56,7 +56,7 @@
 <!-- Node50 -->
 <g id="Node000050" class="node">
 <title>Node50</title>
-<g id="a_Node000050"><a xlink:href="_open_g_l_a_p_i_8h.html" target="_top" xlink:title="OpenGL API implementation.">
+<g id="a_Node000050"><a xlink:href="_open_g_l_a_p_i_8h.html" target="_top" xlink:title="Implementation of the OpenGL graphics API.">
 <polygon fill="white" stroke="#666666" points="2070.88,-244 1994.88,-244 1994.88,-224 2070.88,-224 2070.88,-244"/>
 <text text-anchor="middle" x="2032.88" y="-230.5" font-family="Helvetica,sans-Serif" font-size="10.00">OpenGLAPI.h</text>
 </a>
@@ -515,7 +515,7 @@
 <!-- Node51 -->
 <g id="Node000051" class="node">
 <title>Node51</title>
-<g id="a_Node000051"><a xlink:href="_open_g_l_debugger_8cpp.html" target="_top" xlink:title="A debugger for OpenGL. Includes a callback function for OpenGL errors and some helper functions.">
+<g id="a_Node000051"><a xlink:href="_open_g_l_debugger_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="2139.88,-356 2027.88,-356 2027.88,-336 2139.88,-336 2139.88,-356"/>
 <text text-anchor="middle" x="2083.88" y="-342.5" font-family="Helvetica,sans-Serif" font-size="10.00">OpenGLDebugger.cpp</text>
 </a>
@@ -569,7 +569,7 @@
 <!-- Node55 -->
 <g id="Node000055" class="node">
 <title>Node55</title>
-<g id="a_Node000055"><a xlink:href="_shader_8cpp.html" target="_top" xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000055"><a xlink:href="_shader_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="1218.62,-300 1153.12,-300 1153.12,-280 1218.62,-280 1218.62,-300"/>
 <text text-anchor="middle" x="1185.88" y="-286.5" font-family="Helvetica,sans-Serif" font-size="10.00">Shader.cpp</text>
 </a>
@@ -587,7 +587,7 @@
 <!-- Node56 -->
 <g id="Node000056" class="node">
 <title>Node56</title>
-<g id="a_Node000056"><a xlink:href="_shader_8h.html" target="_top" xlink:title="Class for handling shaders.">
+<g id="a_Node000056"><a xlink:href="_shader_8h.html" target="_top" xlink:title="Class for managing and utilizing shader programs in the graphics pipeline.">
 <polygon fill="white" stroke="#666666" points="1339.38,-356 1284.38,-356 1284.38,-336 1339.38,-336 1339.38,-356"/>
 <text text-anchor="middle" x="1311.88" y="-342.5" font-family="Helvetica,sans-Serif" font-size="10.00">Shader.h</text>
 </a>
@@ -605,7 +605,7 @@
 <!-- Node65 -->
 <g id="Node000065" class="node">
 <title>Node65</title>
-<g id="a_Node000065"><a xlink:href="_shader_loader_8cpp.html" target="_top" xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000065"><a xlink:href="_shader_loader_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="1120.25,-300 1025.5,-300 1025.5,-280 1120.25,-280 1120.25,-300"/>
 <text text-anchor="middle" x="1072.88" y="-286.5" font-family="Helvetica,sans-Serif" font-size="10.00">ShaderLoader.cpp</text>
 </a>
@@ -695,7 +695,7 @@
 <!-- Node115 -->
 <g id="Node000115" class="node">
 <title>Node115</title>
-<g id="a_Node000115"><a xlink:href="_vertex_instance_buffer_8cpp.html" target="_top" xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000115"><a xlink:href="_vertex_instance_buffer_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="897.25,-356 772.5,-356 772.5,-336 897.25,-336 897.25,-356"/>
 <text text-anchor="middle" x="834.88" y="-342.5" font-family="Helvetica,sans-Serif" font-size="10.00">VertexInstanceBuffer.cpp</text>
 </a>
@@ -830,7 +830,7 @@
 <!-- Node75 -->
 <g id="Node000075" class="node">
 <title>Node75</title>
-<g id="a_Node000075"><a xlink:href="_texture_surface_8cpp.html" target="_top" xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000075"><a xlink:href="_texture_surface_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="977.88,-300 877.88,-300 877.88,-280 977.88,-280 977.88,-300"/>
 <text text-anchor="middle" x="927.88" y="-286.5" font-family="Helvetica,sans-Serif" font-size="10.00">TextureSurface.cpp</text>
 </a>

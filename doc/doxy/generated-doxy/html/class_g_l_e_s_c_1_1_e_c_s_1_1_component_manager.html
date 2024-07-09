@@ -367,17 +367,17 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_component_manager_8cpp_source.html#l00014">14</a> of file <a class="el" href="_component_manager_8cpp_source.html">ComponentManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   14</span>                                                      {</div>
-<div class="line"><span class="lineno">   15</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span> &amp;[name, array] : <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_manager.html#a1e0eca029acd0f8c92734c7552a85d31">componentArrays</a>) {</div>
-<div class="line"><span class="lineno">   16</span>        array-&gt;entityDestroyed(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>);</div>
-<div class="line"><span class="lineno">   17</span>    }</div>
-<div class="line"><span class="lineno">   18</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_component_manager_8cpp_source.html#l00005">5</a> of file <a class="el" href="_component_manager_8cpp_source.html">ComponentManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">    5</span>                                                      {</div>
+<div class="line"><span class="lineno">    6</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span> &amp;[name, array] : <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_manager.html#a1e0eca029acd0f8c92734c7552a85d31">componentArrays</a>) {</div>
+<div class="line"><span class="lineno">    7</span>        array-&gt;entityDestroyed(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>);</div>
+<div class="line"><span class="lineno">    8</span>    }</div>
+<div class="line"><span class="lineno">    9</span>}</div>
 <div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_component_manager_html_a1e0eca029acd0f8c92734c7552a85d31"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_manager.html#a1e0eca029acd0f8c92734c7552a85d31">GLESC::ECS::ComponentManager::componentArrays</a></div><div class="ttdeci">std::unordered_map&lt; ComponentName, IComponentArrayPtr &gt; componentArrays</div><div class="ttdoc">Map from the name of a component to a component array that stores all the components of that type.</div><div class="ttdef"><b>Definition</b> <a href="_component_manager_8h_source.html#l00141">ComponentManager.h:141</a></div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_component_manager_8h_source.html#l00141">componentArrays</a>, and <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_e_c_s_8cpp_source.html#l00144">GLESC::ECS::ECSCoordinator::destroyEntity()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_e_c_s_8cpp_source.html#l00135">GLESC::ECS::ECSCoordinator::destroyEntity()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -473,21 +473,21 @@ template&lt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec5
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The component. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_component_manager_8cpp_source.html#l00030">30</a> of file <a class="el" href="_component_manager_8cpp_source.html">ComponentManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   30</span>                                                                                         {</div>
-<div class="line"><span class="lineno">   31</span>    <a class="code hl_typedef" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a6a96f25cafc26a7679be033f631065f4">ComponentName</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">componentName</a> = <a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_manager.html#ab06d3e4aecbf882b3f75fa4943f561f2">getComponentName</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">componentID</a>);</div>
-<div class="line"><span class="lineno">   32</span>    <a class="code hl_typedef" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a8169540308c3b29fe03007173b81c8e2">IComponentArrayPtr</a> componentArray = <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_manager.html#a1e0eca029acd0f8c92734c7552a85d31">componentArrays</a>.at(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">componentName</a>);</div>
-<div class="line"><span class="lineno">   33</span>    <a class="code hl_struct" href="struct_g_l_e_s_c_1_1_e_c_s_1_1_i_component.html">IComponent</a>&amp; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">component</a> = componentArray-&gt;getComponent(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>);</div>
-<div class="line"><span class="lineno">   34</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">component</a>;</div>
-<div class="line"><span class="lineno">   35</span>}</div>
-<div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_component_manager_html_ab06d3e4aecbf882b3f75fa4943f561f2"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_manager.html#ab06d3e4aecbf882b3f75fa4943f561f2">GLESC::ECS::ComponentManager::getComponentName</a></div><div class="ttdeci">ComponentName getComponentName(ComponentID componentID) const</div><div class="ttdoc">Get the name of a component by its ID.</div><div class="ttdef"><b>Definition</b> <a href="_component_manager_8cpp_source.html#l00024">ComponentManager.cpp:24</a></div></div>
+<p class="definition">Definition at line <a class="el" href="_component_manager_8cpp_source.html#l00021">21</a> of file <a class="el" href="_component_manager_8cpp_source.html">ComponentManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   21</span>                                                                                         {</div>
+<div class="line"><span class="lineno">   22</span>    <a class="code hl_typedef" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a6a96f25cafc26a7679be033f631065f4">ComponentName</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">componentName</a> = <a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_manager.html#ab06d3e4aecbf882b3f75fa4943f561f2">getComponentName</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">componentID</a>);</div>
+<div class="line"><span class="lineno">   23</span>    <a class="code hl_typedef" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a8169540308c3b29fe03007173b81c8e2">IComponentArrayPtr</a> componentArray = <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_manager.html#a1e0eca029acd0f8c92734c7552a85d31">componentArrays</a>.at(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">componentName</a>);</div>
+<div class="line"><span class="lineno">   24</span>    <a class="code hl_struct" href="struct_g_l_e_s_c_1_1_e_c_s_1_1_i_component.html">IComponent</a>&amp; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">component</a> = componentArray-&gt;getComponent(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>);</div>
+<div class="line"><span class="lineno">   25</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">component</a>;</div>
+<div class="line"><span class="lineno">   26</span>}</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_component_manager_html_ab06d3e4aecbf882b3f75fa4943f561f2"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_manager.html#ab06d3e4aecbf882b3f75fa4943f561f2">GLESC::ECS::ComponentManager::getComponentName</a></div><div class="ttdeci">ComponentName getComponentName(ComponentID componentID) const</div><div class="ttdoc">Get the name of a component by its ID.</div><div class="ttdef"><b>Definition</b> <a href="_component_manager_8cpp_source.html#l00015">ComponentManager.cpp:15</a></div></div>
 <div class="ttc" id="anamespace_g_l_e_s_c_1_1_e_c_s_html_a6a96f25cafc26a7679be033f631065f4"><div class="ttname"><a href="namespace_g_l_e_s_c_1_1_e_c_s.html#a6a96f25cafc26a7679be033f631065f4">GLESC::ECS::ComponentName</a></div><div class="ttdeci">std::string ComponentName</div><div class="ttdoc">Component name.</div><div class="ttdef"><b>Definition</b> <a href="_e_c_s_types_8h_source.html#l00038">ECSTypes.h:38</a></div></div>
 <div class="ttc" id="anamespace_g_l_e_s_c_1_1_e_c_s_html_a8169540308c3b29fe03007173b81c8e2"><div class="ttname"><a href="namespace_g_l_e_s_c_1_1_e_c_s.html#a8169540308c3b29fe03007173b81c8e2">GLESC::ECS::IComponentArrayPtr</a></div><div class="ttdeci">std::shared_ptr&lt; IComponentArray &gt; IComponentArrayPtr</div><div class="ttdoc">Redefinition of the type of the pointer to the component array to reduce verbosity.</div><div class="ttdef"><b>Definition</b> <a href="_e_c_s_types_8h_source.html#l00051">ECSTypes.h:51</a></div></div>
 <div class="ttc" id="astruct_g_l_e_s_c_1_1_e_c_s_1_1_i_component_html"><div class="ttname"><a href="struct_g_l_e_s_c_1_1_e_c_s_1_1_i_component.html">GLESC::ECS::IComponent</a></div><div class="ttdoc">Base class for all components.</div><div class="ttdef"><b>Definition</b> <a href="_i_component_8h_source.html#l00023">IComponent.h:23</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_component_manager_8h_source.html#l00141">componentArrays</a>, <a class="el" href="_component_manager_8cpp_source.html#l00024">getComponentName()</a>, and <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
+<p class="reference">References <a class="el" href="_component_manager_8h_source.html#l00141">componentArrays</a>, <a class="el" href="_component_manager_8cpp_source.html#l00015">getComponentName()</a>, and <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_e_c_s_8h_source.html#l00275">GLESC::ECS::ECSCoordinator::getComponent()</a>, <a class="el" href="_e_c_s_8cpp_source.html#l00096">GLESC::ECS::ECSCoordinator::getComponents()</a>, and <a class="el" href="_e_c_s_8cpp_source.html#l00055">GLESC::ECS::ECSCoordinator::printEntity()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_e_c_s_8h_source.html#l00275">GLESC::ECS::ECSCoordinator::getComponent()</a>, <a class="el" href="_e_c_s_8cpp_source.html#l00087">GLESC::ECS::ECSCoordinator::getComponents()</a>, and <a class="el" href="_e_c_s_8cpp_source.html#l00046">GLESC::ECS::ECSCoordinator::printEntity()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -656,7 +656,7 @@ Here is the caller graph for this function:</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_component_manager_8h_source.html#l00145">componentIDs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_e_c_s_8cpp_source.html#l00055">GLESC::ECS::ECSCoordinator::printEntity()</a>, and <a class="el" href="_e_c_s_8cpp_source.html#l00021">GLESC::ECS::ECSCoordinator::printStatus()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_e_c_s_8cpp_source.html#l00046">GLESC::ECS::ECSCoordinator::printEntity()</a>, and <a class="el" href="_e_c_s_8cpp_source.html#l00012">GLESC::ECS::ECSCoordinator::printStatus()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -690,18 +690,18 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The name of the component. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_component_manager_8cpp_source.html#l00024">24</a> of file <a class="el" href="_component_manager_8cpp_source.html">ComponentManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   24</span>                                                                              {</div>
-<div class="line"><span class="lineno">   25</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_manager.html#af4b8c65d69d17052413005a7402bf116">isComponentRegistered</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">componentID</a>), <span class="stringliteral">&quot;Component must be registered to get its name&quot;</span>);</div>
-<div class="line"><span class="lineno">   26</span> </div>
-<div class="line"><span class="lineno">   27</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_manager.html#a351372c0b97bcc06c05abd2e1abdc3da">componentNames</a>.at(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">componentID</a>);</div>
-<div class="line"><span class="lineno">   28</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_component_manager_8cpp_source.html#l00015">15</a> of file <a class="el" href="_component_manager_8cpp_source.html">ComponentManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   15</span>                                                                              {</div>
+<div class="line"><span class="lineno">   16</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_manager.html#af4b8c65d69d17052413005a7402bf116">isComponentRegistered</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">componentID</a>), <span class="stringliteral">&quot;Component must be registered to get its name&quot;</span>);</div>
+<div class="line"><span class="lineno">   17</span> </div>
+<div class="line"><span class="lineno">   18</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_manager.html#a351372c0b97bcc06c05abd2e1abdc3da">componentNames</a>.at(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">componentID</a>);</div>
+<div class="line"><span class="lineno">   19</span>}</div>
 <div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_component_manager_html_a351372c0b97bcc06c05abd2e1abdc3da"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_manager.html#a351372c0b97bcc06c05abd2e1abdc3da">GLESC::ECS::ComponentManager::componentNames</a></div><div class="ttdeci">std::unordered_map&lt; ComponentID, ComponentName &gt; componentNames</div><div class="ttdoc">Map from the ID of a component to the name of that component.</div><div class="ttdef"><b>Definition</b> <a href="_component_manager_8h_source.html#l00149">ComponentManager.h:149</a></div></div>
 <div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_component_manager_html_af4b8c65d69d17052413005a7402bf116"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_manager.html#af4b8c65d69d17052413005a7402bf116">GLESC::ECS::ComponentManager::isComponentRegistered</a></div><div class="ttdeci">bool isComponentRegistered() const</div><div class="ttdoc">Check if a component is registered.</div><div class="ttdef"><b>Definition</b> <a href="_component_manager_8h_source.html#l00179">ComponentManager.h:179</a></div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_component_manager_8h_source.html#l00149">componentNames</a>, <a class="el" href="_asserts_8h_source.html#l00021">D_ASSERT_TRUE</a>, <a class="el" href="_component_manager_8h_source.html#l00179">isComponentRegistered()</a>, and <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_component_manager_8cpp_source.html#l00030">getComponent()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_component_manager_8cpp_source.html#l00021">getComponent()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -783,7 +783,7 @@ template&lt;<a class="el" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec5
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_component_manager_8h_source.html#l00141">componentArrays</a>, and <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_component_manager_8cpp_source.html#l00024">getComponentName()</a>, and <a class="el" href="_e_c_s_8h_source.html#l00301">GLESC::ECS::ECSCoordinator::hasComponent()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_component_manager_8cpp_source.html#l00015">getComponentName()</a>, and <a class="el" href="_e_c_s_8h_source.html#l00301">GLESC::ECS::ECSCoordinator::hasComponent()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -817,10 +817,10 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if the component is registered, false otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_component_manager_8cpp_source.html#l00020">20</a> of file <a class="el" href="_component_manager_8cpp_source.html">ComponentManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   20</span>                                                                          {</div>
-<div class="line"><span class="lineno">   21</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_manager.html#a351372c0b97bcc06c05abd2e1abdc3da">componentNames</a>.find(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">componentID</a>) != <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_manager.html#a351372c0b97bcc06c05abd2e1abdc3da">componentNames</a>.end();</div>
-<div class="line"><span class="lineno">   22</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_component_manager_8cpp_source.html#l00011">11</a> of file <a class="el" href="_component_manager_8cpp_source.html">ComponentManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   11</span>                                                                          {</div>
+<div class="line"><span class="lineno">   12</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_manager.html#a351372c0b97bcc06c05abd2e1abdc3da">componentNames</a>.find(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">componentID</a>) != <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_component_manager.html#a351372c0b97bcc06c05abd2e1abdc3da">componentNames</a>.end();</div>
+<div class="line"><span class="lineno">   13</span>}</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_component_manager_8h_source.html#l00149">componentNames</a>, and <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
 
@@ -1016,7 +1016,7 @@ Here is the caller graph for this function:</div>
 <p class="definition">Definition at line <a class="el" href="_component_manager_8h_source.html#l00141">141</a> of file <a class="el" href="_component_manager_8h_source.html">ComponentManager.h</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  141</span>{};</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="_component_manager_8cpp_source.html#l00014">entityDestroyed()</a>, <a class="el" href="_component_manager_8cpp_source.html#l00030">getComponent()</a>, <a class="el" href="_component_manager_8h_source.html#l00235">getComponentArray()</a>, <a class="el" href="_component_manager_8h_source.html#l00030">getComponentArrays()</a>, <a class="el" href="_component_manager_8h_source.html#l00179">isComponentRegistered()</a>, and <a class="el" href="_component_manager_8h_source.html#l00195">registerComponent()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_component_manager_8cpp_source.html#l00005">entityDestroyed()</a>, <a class="el" href="_component_manager_8cpp_source.html#l00021">getComponent()</a>, <a class="el" href="_component_manager_8h_source.html#l00235">getComponentArray()</a>, <a class="el" href="_component_manager_8h_source.html#l00030">getComponentArrays()</a>, <a class="el" href="_component_manager_8h_source.html#l00179">isComponentRegistered()</a>, and <a class="el" href="_component_manager_8h_source.html#l00195">registerComponent()</a>.</p>
 
 </div>
 </div>
@@ -1074,7 +1074,7 @@ Here is the caller graph for this function:</div>
 <p class="definition">Definition at line <a class="el" href="_component_manager_8h_source.html#l00149">149</a> of file <a class="el" href="_component_manager_8h_source.html">ComponentManager.h</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  149</span>{};</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="_component_manager_8cpp_source.html#l00024">getComponentName()</a>, <a class="el" href="_component_manager_8cpp_source.html#l00020">isComponentRegistered()</a>, and <a class="el" href="_component_manager_8h_source.html#l00195">registerComponent()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_component_manager_8cpp_source.html#l00015">getComponentName()</a>, <a class="el" href="_component_manager_8cpp_source.html#l00011">isComponentRegistered()</a>, and <a class="el" href="_component_manager_8h_source.html#l00195">registerComponent()</a>.</p>
 
 </div>
 </div>

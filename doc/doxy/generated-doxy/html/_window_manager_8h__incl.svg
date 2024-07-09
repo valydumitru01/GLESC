@@ -57,7 +57,7 @@ var sectionId = 'dynsection-0';
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000001"><a xlink:title="Manages the main application window and its properties.">
 <polygon fill="#999999" stroke="#666666" points="196.12,-608 99.88,-608 99.88,-588 196.12,-588 196.12,-608"/>
 <text text-anchor="middle" x="148" y="-594.5" font-family="Helvetica,sans-Serif" font-size="10.00">WindowManager.h</text>
 </a>
@@ -121,7 +121,7 @@ var sectionId = 'dynsection-0';
 <!-- Node40 -->
 <g id="Node000040" class="node">
 <title>Node40</title>
-<g id="a_Node000040"><a xlink:href="_window_structs_8h.html" target="_top" xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000040"><a xlink:href="_window_structs_8h.html" target="_top" xlink:title="Defines structures related to window properties.">
 <polygon fill="white" stroke="#666666" points="377.12,-546 286.88,-546 286.88,-526 377.12,-526 377.12,-546"/>
 <text text-anchor="middle" x="332" y="-532.5" font-family="Helvetica,sans-Serif" font-size="10.00">WindowStructs.h</text>
 </a>

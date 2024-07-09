@@ -2,14 +2,18 @@
  * @file   SystemManagerTests.cpp
  * @author Valentin Dumitru
  * @date   29/02/2024
- * @brief  @TODO Add description of this file if needed
+ * @brief Integration tests for the SystemManager class.
+ * @details This file contains Integration tests for the SystemManager class using the Google Test framework.
+ * The tests cover scenarios such as checking the initial state, registering systems, adding component
+ * requirements, handling entity signature changes, and managing multiple systems with multiple entities.
+
  *
  * Copyright (c) 2024 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
  **************************************************************************************************/
 
 #include "TestsConfig.h"
-#if ECS_BACKEND_UNIT_TESTING
+#if ECS_BACKEND_INTEGRATION_TESTING
 #include <gtest/gtest.h>
 #include "engine/ecs/backend/system/SystemManager.h"
 #include "unit/CustomTestingFramework.h"

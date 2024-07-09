@@ -128,7 +128,7 @@
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="_debug_entity_data_h_u_d_8cpp.html" target="_top" xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000004"><a xlink:href="_debug_entity_data_h_u_d_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="1596.95,-256 1468.45,-256 1468.45,-236 1596.95,-236 1596.95,-256"/>
 <text text-anchor="middle" x="1532.7" y="-242.5" font-family="Helvetica,sans-Serif" font-size="10.00">DebugEntityDataHUD.cpp</text>
 </a>
@@ -272,7 +272,7 @@
 <!-- Node58 -->
 <g id="Node000058" class="node">
 <title>Node58</title>
-<g id="a_Node000058"><a xlink:href="_shader_8h.html" target="_top" xlink:title="Class for handling shaders.">
+<g id="a_Node000058"><a xlink:href="_shader_8h.html" target="_top" xlink:title="Class for managing and utilizing shader programs in the graphics pipeline.">
 <polygon fill="#fff0f0" stroke="red" points="1093.2,-194 1038.2,-194 1038.2,-174 1093.2,-174 1093.2,-194"/>
 <text text-anchor="middle" x="1065.7" y="-180.5" font-family="Helvetica,sans-Serif" font-size="10.00">Shader.h</text>
 </a>
@@ -353,7 +353,7 @@
 <!-- Node8 -->
 <g id="Node000008" class="node">
 <title>Node8</title>
-<g id="a_Node000008"><a xlink:href="_open_g_l_a_p_i_8h.html" target="_top" xlink:title="OpenGL API implementation.">
+<g id="a_Node000008"><a xlink:href="_open_g_l_a_p_i_8h.html" target="_top" xlink:title="Implementation of the OpenGL graphics API.">
 <polygon fill="white" stroke="#666666" points="1201.7,-76 1125.7,-76 1125.7,-56 1201.7,-56 1201.7,-76"/>
 <text text-anchor="middle" x="1163.7" y="-62.5" font-family="Helvetica,sans-Serif" font-size="10.00">OpenGLAPI.h</text>
 </a>
@@ -831,7 +831,7 @@
 <!-- Node144 -->
 <g id="Node000144" class="node">
 <title>Node144</title>
-<g id="a_Node000144"><a xlink:href="_window_manager_8h.html" target="_top" xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000144"><a xlink:href="_window_manager_8h.html" target="_top" xlink:title="Manages the main application window and its properties.">
 <polygon fill="#fff0f0" stroke="red" points="1116.82,-312 1020.57,-312 1020.57,-292 1116.82,-292 1116.82,-312"/>
 <text text-anchor="middle" x="1068.7" y="-298.5" font-family="Helvetica,sans-Serif" font-size="10.00">WindowManager.h</text>
 </a>
@@ -858,7 +858,7 @@
 <!-- Node103 -->
 <g id="Node000103" class="node">
 <title>Node103</title>
-<g id="a_Node000103"><a xlink:href="_bounding_volume_8cpp.html" target="_top" xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000103"><a xlink:href="_bounding_volume_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="849.82,-256 741.57,-256 741.57,-236 849.82,-236 849.82,-256"/>
 <text text-anchor="middle" x="795.7" y="-242.5" font-family="Helvetica,sans-Serif" font-size="10.00">BoundingVolume.cpp</text>
 </a>
@@ -957,7 +957,7 @@
 <!-- Node43 -->
 <g id="Node000043" class="node">
 <title>Node43</title>
-<g id="a_Node000043"><a xlink:href="_collision_manager_8cpp.html" target="_top" xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000043"><a xlink:href="_collision_manager_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="626.2,-132 517.2,-132 517.2,-112 626.2,-112 626.2,-132"/>
 <text text-anchor="middle" x="571.7" y="-118.5" font-family="Helvetica,sans-Serif" font-size="10.00">CollisionManager.cpp</text>
 </a>
@@ -1218,7 +1218,7 @@
 <!-- Node121 -->
 <g id="Node000121" class="node">
 <title>Node121</title>
-<g id="a_Node000121"><a xlink:href="_polyhedron_8cpp.html" target="_top" xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000121"><a xlink:href="_polyhedron_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="1774.45,-368 1690.95,-368 1690.95,-348 1774.45,-348 1774.45,-368"/>
 <text text-anchor="middle" x="1732.7" y="-354.5" font-family="Helvetica,sans-Serif" font-size="10.00">Polyhedron.cpp</text>
 </a>

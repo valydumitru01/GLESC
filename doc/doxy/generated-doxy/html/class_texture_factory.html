@@ -204,27 +204,27 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_texture_factory_8cpp_source.html#l00029">29</a> of file <a class="el" href="_texture_factory_8cpp_source.html">TextureFactory.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   29</span>                                                                            {</div>
-<div class="line"><span class="lineno">   30</span>    <a class="code hl_define" href="_asserts_8h.html#abc189a68f629f827fca1b31a8449cfdb">D_ASSERT_FALSE</a>(facePaths.empty(), <span class="stringliteral">&quot;Face paths are empty&quot;</span>);</div>
-<div class="line"><span class="lineno">   31</span>    <a class="code hl_typedef" href="namespace_g_l_e_s_c_1_1_hasher.html#a91fa18658238623f5db2d2295e7b65c4">GLESC::Hasher::Hash</a> hash = 0;</div>
-<div class="line"><span class="lineno">   32</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; path : facePaths) {</div>
-<div class="line"><span class="lineno">   33</span>        <a class="code hl_function" href="namespace_g_l_e_s_c_1_1_hasher.html#a6a2fdfc12181b6f4643e164af60bae0c">GLESC::Hasher::hashCombine</a>(hash, std::hash&lt;std::string&gt;{}(path));</div>
-<div class="line"><span class="lineno">   34</span>    }</div>
-<div class="line"><span class="lineno">   35</span> </div>
-<div class="line"><span class="lineno">   36</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_texture_factory.html#a8bd0db7a405e451a34f637505417c90d">cubemaps</a>.find(hash) != <a class="code hl_variable" href="class_texture_factory.html#a8bd0db7a405e451a34f637505417c90d">cubemaps</a>.end()) {</div>
-<div class="line"><span class="lineno">   37</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="class_texture_factory.html#a8bd0db7a405e451a34f637505417c90d">cubemaps</a>[hash];</div>
-<div class="line"><span class="lineno">   38</span>    }</div>
-<div class="line"><span class="lineno">   39</span> </div>
-<div class="line"><span class="lineno">   40</span>    <span class="comment">// Use emplace to construct the Cubemap in-place</span></div>
-<div class="line"><span class="lineno">   41</span>    <span class="keyword">auto</span> [newIt, inserted] = <a class="code hl_variable" href="class_texture_factory.html#a8bd0db7a405e451a34f637505417c90d">cubemaps</a>.emplace(std::piecewise_construct,</div>
-<div class="line"><span class="lineno">   42</span>                                              std::forward_as_tuple(hash),</div>
-<div class="line"><span class="lineno">   43</span>                                              std::forward_as_tuple());</div>
-<div class="line"><span class="lineno">   44</span>    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; facePaths.size(); ++i) {</div>
-<div class="line"><span class="lineno">   45</span>        newIt-&gt;second.getCubemapTextures()[i].load(facePaths[i], <span class="keyword">false</span>);</div>
-<div class="line"><span class="lineno">   46</span>    }</div>
-<div class="line"><span class="lineno">   47</span>    <span class="keywordflow">return</span> newIt-&gt;second;</div>
-<div class="line"><span class="lineno">   48</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_texture_factory_8cpp_source.html#l00020">20</a> of file <a class="el" href="_texture_factory_8cpp_source.html">TextureFactory.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   20</span>                                                                            {</div>
+<div class="line"><span class="lineno">   21</span>    <a class="code hl_define" href="_asserts_8h.html#abc189a68f629f827fca1b31a8449cfdb">D_ASSERT_FALSE</a>(facePaths.empty(), <span class="stringliteral">&quot;Face paths are empty&quot;</span>);</div>
+<div class="line"><span class="lineno">   22</span>    <a class="code hl_typedef" href="namespace_g_l_e_s_c_1_1_hasher.html#a91fa18658238623f5db2d2295e7b65c4">GLESC::Hasher::Hash</a> hash = 0;</div>
+<div class="line"><span class="lineno">   23</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; path : facePaths) {</div>
+<div class="line"><span class="lineno">   24</span>        <a class="code hl_function" href="namespace_g_l_e_s_c_1_1_hasher.html#a6a2fdfc12181b6f4643e164af60bae0c">GLESC::Hasher::hashCombine</a>(hash, std::hash&lt;std::string&gt;{}(path));</div>
+<div class="line"><span class="lineno">   25</span>    }</div>
+<div class="line"><span class="lineno">   26</span> </div>
+<div class="line"><span class="lineno">   27</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_texture_factory.html#a8bd0db7a405e451a34f637505417c90d">cubemaps</a>.find(hash) != <a class="code hl_variable" href="class_texture_factory.html#a8bd0db7a405e451a34f637505417c90d">cubemaps</a>.end()) {</div>
+<div class="line"><span class="lineno">   28</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="class_texture_factory.html#a8bd0db7a405e451a34f637505417c90d">cubemaps</a>[hash];</div>
+<div class="line"><span class="lineno">   29</span>    }</div>
+<div class="line"><span class="lineno">   30</span> </div>
+<div class="line"><span class="lineno">   31</span>    <span class="comment">// Use emplace to construct the Cubemap in-place</span></div>
+<div class="line"><span class="lineno">   32</span>    <span class="keyword">auto</span> [newIt, inserted] = <a class="code hl_variable" href="class_texture_factory.html#a8bd0db7a405e451a34f637505417c90d">cubemaps</a>.emplace(std::piecewise_construct,</div>
+<div class="line"><span class="lineno">   33</span>                                              std::forward_as_tuple(hash),</div>
+<div class="line"><span class="lineno">   34</span>                                              std::forward_as_tuple());</div>
+<div class="line"><span class="lineno">   35</span>    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; facePaths.size(); ++i) {</div>
+<div class="line"><span class="lineno">   36</span>        newIt-&gt;second.getCubemapTextures()[i].load(facePaths[i], <span class="keyword">false</span>);</div>
+<div class="line"><span class="lineno">   37</span>    }</div>
+<div class="line"><span class="lineno">   38</span>    <span class="keywordflow">return</span> newIt-&gt;second;</div>
+<div class="line"><span class="lineno">   39</span>}</div>
 <div class="ttc" id="a_asserts_8h_html_abc189a68f629f827fca1b31a8449cfdb"><div class="ttname"><a href="_asserts_8h.html#abc189a68f629f827fca1b31a8449cfdb">D_ASSERT_FALSE</a></div><div class="ttdeci">#define D_ASSERT_FALSE(condition, message)</div><div class="ttdef"><b>Definition</b> <a href="_asserts_8h_source.html#l00022">Asserts.h:22</a></div></div>
 <div class="ttc" id="aclass_texture_factory_html_a8bd0db7a405e451a34f637505417c90d"><div class="ttname"><a href="class_texture_factory.html#a8bd0db7a405e451a34f637505417c90d">TextureFactory::cubemaps</a></div><div class="ttdeci">std::unordered_map&lt; GLESC::Hasher::Hash, Cubemap &gt; cubemaps</div><div class="ttdef"><b>Definition</b> <a href="_texture_factory_8h_source.html#l00037">TextureFactory.h:37</a></div></div>
 <div class="ttc" id="anamespace_g_l_e_s_c_1_1_hasher_html_a6a2fdfc12181b6f4643e164af60bae0c"><div class="ttname"><a href="namespace_g_l_e_s_c_1_1_hasher.html#a6a2fdfc12181b6f4643e164af60bae0c">GLESC::Hasher::hashCombine</a></div><div class="ttdeci">static void hashCombine(std::size_t seed, std::size_t hash)</div><div class="ttdef"><b>Definition</b> <a href="_hasher_8h_source.html#l00021">Hasher.h:21</a></div></div>
@@ -267,26 +267,26 @@ Here is the call graph for this function:</div>
 
 <p>Factory for GPU textures, its flipped by default as OpenGL expects the texture to be flipped. </p>
 
-<p class="definition">Definition at line <a class="el" href="_texture_factory_8cpp_source.html#l00014">14</a> of file <a class="el" href="_texture_factory_8cpp_source.html">TextureFactory.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   14</span>                                                                                             {</div>
-<div class="line"><span class="lineno">   15</span>    <a class="code hl_define" href="_asserts_8h.html#abc189a68f629f827fca1b31a8449cfdb">D_ASSERT_FALSE</a>(path.empty(), <span class="stringliteral">&quot;Path is empty&quot;</span>);</div>
-<div class="line"><span class="lineno">   16</span>    <a class="code hl_typedef" href="namespace_g_l_e_s_c_1_1_hasher.html#a91fa18658238623f5db2d2295e7b65c4">GLESC::Hasher::Hash</a> hash = std::hash&lt;std::string&gt;{}(path);</div>
-<div class="line"><span class="lineno">   17</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_texture_factory.html#a86b8900040ac0cca80f723d712981f4e">textures</a>.find(hash) != <a class="code hl_variable" href="class_texture_factory.html#a86b8900040ac0cca80f723d712981f4e">textures</a>.end()) {</div>
-<div class="line"><span class="lineno">   18</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="class_texture_factory.html#a86b8900040ac0cca80f723d712981f4e">textures</a>[hash];</div>
-<div class="line"><span class="lineno">   19</span>    }</div>
-<div class="line"><span class="lineno">   20</span> </div>
-<div class="line"><span class="lineno">   21</span>    <span class="comment">// Use emplace to construct the Texture in-place</span></div>
-<div class="line"><span class="lineno">   22</span>    <span class="keyword">auto</span> [newIt, inserted] = <a class="code hl_variable" href="class_texture_factory.html#a86b8900040ac0cca80f723d712981f4e">textures</a>.emplace(std::piecewise_construct,</div>
-<div class="line"><span class="lineno">   23</span>                                              std::forward_as_tuple(hash),</div>
-<div class="line"><span class="lineno">   24</span>                                              std::forward_as_tuple());</div>
-<div class="line"><span class="lineno">   25</span>    newIt-&gt;second.load(path, flipTexture);</div>
-<div class="line"><span class="lineno">   26</span>    <span class="keywordflow">return</span> newIt-&gt;second;</div>
-<div class="line"><span class="lineno">   27</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_texture_factory_8cpp_source.html#l00005">5</a> of file <a class="el" href="_texture_factory_8cpp_source.html">TextureFactory.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">    5</span>                                                                                             {</div>
+<div class="line"><span class="lineno">    6</span>    <a class="code hl_define" href="_asserts_8h.html#abc189a68f629f827fca1b31a8449cfdb">D_ASSERT_FALSE</a>(path.empty(), <span class="stringliteral">&quot;Path is empty&quot;</span>);</div>
+<div class="line"><span class="lineno">    7</span>    <a class="code hl_typedef" href="namespace_g_l_e_s_c_1_1_hasher.html#a91fa18658238623f5db2d2295e7b65c4">GLESC::Hasher::Hash</a> hash = std::hash&lt;std::string&gt;{}(path);</div>
+<div class="line"><span class="lineno">    8</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_texture_factory.html#a86b8900040ac0cca80f723d712981f4e">textures</a>.find(hash) != <a class="code hl_variable" href="class_texture_factory.html#a86b8900040ac0cca80f723d712981f4e">textures</a>.end()) {</div>
+<div class="line"><span class="lineno">    9</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="class_texture_factory.html#a86b8900040ac0cca80f723d712981f4e">textures</a>[hash];</div>
+<div class="line"><span class="lineno">   10</span>    }</div>
+<div class="line"><span class="lineno">   11</span> </div>
+<div class="line"><span class="lineno">   12</span>    <span class="comment">// Use emplace to construct the Texture in-place</span></div>
+<div class="line"><span class="lineno">   13</span>    <span class="keyword">auto</span> [newIt, inserted] = <a class="code hl_variable" href="class_texture_factory.html#a86b8900040ac0cca80f723d712981f4e">textures</a>.emplace(std::piecewise_construct,</div>
+<div class="line"><span class="lineno">   14</span>                                              std::forward_as_tuple(hash),</div>
+<div class="line"><span class="lineno">   15</span>                                              std::forward_as_tuple());</div>
+<div class="line"><span class="lineno">   16</span>    newIt-&gt;second.load(path, flipTexture);</div>
+<div class="line"><span class="lineno">   17</span>    <span class="keywordflow">return</span> newIt-&gt;second;</div>
+<div class="line"><span class="lineno">   18</span>}</div>
 <div class="ttc" id="aclass_texture_factory_html_a86b8900040ac0cca80f723d712981f4e"><div class="ttname"><a href="class_texture_factory.html#a86b8900040ac0cca80f723d712981f4e">TextureFactory::textures</a></div><div class="ttdeci">std::unordered_map&lt; GLESC::Hasher::Hash, GLESC::Render::Texture &gt; textures</div><div class="ttdef"><b>Definition</b> <a href="_texture_factory_8h_source.html#l00036">TextureFactory.h:36</a></div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_asserts_8h_source.html#l00022">D_ASSERT_FALSE</a>, and <a class="el" href="_texture_factory_8h_source.html#l00036">textures</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_debug_items_h_u_d_8cpp_source.html#l00017">GLESC::HUD::DebugItems::DebugItems()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_debug_items_h_u_d_8cpp_source.html#l00008">GLESC::HUD::DebugItems::DebugItems()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -318,7 +318,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="_texture_factory_8h_source.html#l00037">37</a> of file <a class="el" href="_texture_factory_8h_source.html">TextureFactory.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_texture_factory_8cpp_source.html#l00029">loadCubemap()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_texture_factory_8cpp_source.html#l00020">loadCubemap()</a>.</p>
 
 </div>
 </div>
@@ -344,7 +344,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="_texture_factory_8h_source.html#l00036">36</a> of file <a class="el" href="_texture_factory_8h_source.html">TextureFactory.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_texture_factory_8cpp_source.html#l00014">loadTexture()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_texture_factory_8cpp_source.html#l00005">loadTexture()</a>.</p>
 
 </div>
 </div>

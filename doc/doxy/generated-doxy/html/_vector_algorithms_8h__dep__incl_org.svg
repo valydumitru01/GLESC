@@ -110,7 +110,7 @@
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="_debug_entity_data_h_u_d_8cpp.html" target="_top" xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000004"><a xlink:href="_debug_entity_data_h_u_d_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="653.25,-356 524.75,-356 524.75,-336 653.25,-336 653.25,-356"/>
 <text text-anchor="middle" x="589" y="-342.5" font-family="Helvetica,sans-Serif" font-size="10.00">DebugEntityDataHUD.cpp</text>
 </a>
@@ -254,7 +254,7 @@
 <!-- Node58 -->
 <g id="Node000058" class="node">
 <title>Node58</title>
-<g id="a_Node000058"><a xlink:href="_shader_8h.html" target="_top" xlink:title="Class for handling shaders.">
+<g id="a_Node000058"><a xlink:href="_shader_8h.html" target="_top" xlink:title="Class for managing and utilizing shader programs in the graphics pipeline.">
 <polygon fill="#fff0f0" stroke="red" points="1022.5,-300 967.5,-300 967.5,-280 1022.5,-280 1022.5,-300"/>
 <text text-anchor="middle" x="995" y="-286.5" font-family="Helvetica,sans-Serif" font-size="10.00">Shader.h</text>
 </a>
@@ -335,7 +335,7 @@
 <!-- Node8 -->
 <g id="Node000008" class="node">
 <title>Node8</title>
-<g id="a_Node000008"><a xlink:href="_open_g_l_a_p_i_8h.html" target="_top" xlink:title="OpenGL API implementation.">
+<g id="a_Node000008"><a xlink:href="_open_g_l_a_p_i_8h.html" target="_top" xlink:title="Implementation of the OpenGL graphics API.">
 <polygon fill="white" stroke="#666666" points="2103,-188 2027,-188 2027,-168 2103,-168 2103,-188"/>
 <text text-anchor="middle" x="2065" y="-174.5" font-family="Helvetica,sans-Serif" font-size="10.00">OpenGLAPI.h</text>
 </a>
@@ -452,7 +452,7 @@
 <!-- Node43 -->
 <g id="Node000043" class="node">
 <title>Node43</title>
-<g id="a_Node000043"><a xlink:href="_collision_manager_8cpp.html" target="_top" xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000043"><a xlink:href="_collision_manager_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="1771.5,-76 1662.5,-76 1662.5,-56 1771.5,-56 1771.5,-76"/>
 <text text-anchor="middle" x="1717" y="-62.5" font-family="Helvetica,sans-Serif" font-size="10.00">CollisionManager.cpp</text>
 </a>
@@ -821,7 +821,7 @@
 <!-- Node142 -->
 <g id="Node000142" class="node">
 <title>Node142</title>
-<g id="a_Node000142"><a xlink:href="_window_manager_8h.html" target="_top" xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000142"><a xlink:href="_window_manager_8h.html" target="_top" xlink:title="Manages the main application window and its properties.">
 <polygon fill="#fff0f0" stroke="red" points="2250.12,-412 2153.88,-412 2153.88,-392 2250.12,-392 2250.12,-412"/>
 <text text-anchor="middle" x="2202" y="-398.5" font-family="Helvetica,sans-Serif" font-size="10.00">WindowManager.h</text>
 </a>
@@ -857,7 +857,7 @@
 <!-- Node101 -->
 <g id="Node000101" class="node">
 <title>Node101</title>
-<g id="a_Node000101"><a xlink:href="_bounding_volume_8cpp.html" target="_top" xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000101"><a xlink:href="_bounding_volume_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="1585.12,-244 1476.88,-244 1476.88,-224 1585.12,-224 1585.12,-244"/>
 <text text-anchor="middle" x="1531" y="-230.5" font-family="Helvetica,sans-Serif" font-size="10.00">BoundingVolume.cpp</text>
 </a>
@@ -1109,7 +1109,7 @@
 <!-- Node119 -->
 <g id="Node000119" class="node">
 <title>Node119</title>
-<g id="a_Node000119"><a xlink:href="_polyhedron_8cpp.html" target="_top" xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000119"><a xlink:href="_polyhedron_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="466.75,-132 383.25,-132 383.25,-112 466.75,-112 466.75,-132"/>
 <text text-anchor="middle" x="425" y="-118.5" font-family="Helvetica,sans-Serif" font-size="10.00">Polyhedron.cpp</text>
 </a>

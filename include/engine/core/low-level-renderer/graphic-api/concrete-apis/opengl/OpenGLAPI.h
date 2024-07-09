@@ -2,7 +2,11 @@
  * @file   OpenGLAPI.h
  * @author Valentin Dumitru
  * @date   2023-09-26
- * @brief OpenGL API implementation.
+ * @brief Implementation of the OpenGL graphics API.
+ * @details This class provides an implementation for interfacing with the OpenGL graphics API.
+ * It includes methods for managing OpenGL contexts, setting viewports, handling textures, buffers,
+ * and shaders, and performing various rendering tasks. The class ensures that OpenGL functions
+ * are called correctly and logs the operations for debugging purposes.
  *
  * Copyright (c) 2023 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.

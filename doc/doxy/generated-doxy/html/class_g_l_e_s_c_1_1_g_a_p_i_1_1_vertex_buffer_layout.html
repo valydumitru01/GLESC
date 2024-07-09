@@ -218,7 +218,7 @@ Private Attributes</h2></td></tr>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_vertex_buffer_layout_8h_source.html#l00031">elements</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_vertex_array_8cpp_source.html#l00035">GLESC::GAPI::VertexArray::addBuffer()</a>, and <a class="el" href="_vertex_instance_buffer_8cpp_source.html#l00016">GLESC::GAPI::VertexInstanceBuffer::setupInstanceAttributes()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_vertex_array_8cpp_source.html#l00026">GLESC::GAPI::VertexArray::addBuffer()</a>, and <a class="el" href="_vertex_instance_buffer_8cpp_source.html#l00007">GLESC::GAPI::VertexInstanceBuffer::setupInstanceAttributes()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -255,7 +255,7 @@ Here is the caller graph for this function:</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_vertex_buffer_layout_8h_source.html#l00032">stride</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_vertex_array_8cpp_source.html#l00035">GLESC::GAPI::VertexArray::addBuffer()</a>, and <a class="el" href="_vertex_instance_buffer_8cpp_source.html#l00016">GLESC::GAPI::VertexInstanceBuffer::setupInstanceAttributes()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_vertex_array_8cpp_source.html#l00026">GLESC::GAPI::VertexArray::addBuffer()</a>, and <a class="el" href="_vertex_instance_buffer_8cpp_source.html#l00007">GLESC::GAPI::VertexInstanceBuffer::setupInstanceAttributes()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -290,13 +290,13 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vertex_buffer_layout_8cpp_source.html#l00015">15</a> of file <a class="el" href="_vertex_buffer_layout_8cpp_source.html">VertexBufferLayout.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   15</span>                                                              {</div>
-<div class="line"><span class="lineno">   16</span>    <span class="keyword">auto</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typeSize</a> = getTypeSize(type);</div>
-<div class="line"><span class="lineno">   17</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_vertex_buffer_layout.html#a66c427bdcc2a1185360e9c021df69e5c">elements</a>.push_back({type, normalized});</div>
-<div class="line"><span class="lineno">   18</span> </div>
-<div class="line"><span class="lineno">   19</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_vertex_buffer_layout.html#ac9b12ece36543aac3aca3e41e27e11c9">stride</a> += <span class="keyword">static_cast&lt;</span><a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a><span class="keyword">&gt;</span>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typeSize</a>);</div>
-<div class="line"><span class="lineno">   20</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_vertex_buffer_layout_8cpp_source.html#l00006">6</a> of file <a class="el" href="_vertex_buffer_layout_8cpp_source.html">VertexBufferLayout.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">    6</span>                                                              {</div>
+<div class="line"><span class="lineno">    7</span>    <span class="keyword">auto</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typeSize</a> = getTypeSize(type);</div>
+<div class="line"><span class="lineno">    8</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_vertex_buffer_layout.html#a66c427bdcc2a1185360e9c021df69e5c">elements</a>.push_back({type, normalized});</div>
+<div class="line"><span class="lineno">    9</span> </div>
+<div class="line"><span class="lineno">   10</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_vertex_buffer_layout.html#ac9b12ece36543aac3aca3e41e27e11c9">stride</a> += <span class="keyword">static_cast&lt;</span><a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">UInt</a><span class="keyword">&gt;</span>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typeSize</a>);</div>
+<div class="line"><span class="lineno">   11</span>}</div>
 <div class="ttc" id="anamespace_g_l_e_s_c_html_a7c64a4da2d1da1597f4ec563d00bb9f8"><div class="ttname"><a href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">GLESC::isIterable_v</a></div><div class="ttdeci">constexpr bool isIterable_v</div><div class="ttdef"><b>Definition</b> <a href="_stringer_8h_source.html#l00029">Stringer.h:29</a></div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_vertex_buffer_layout_8h_source.html#l00031">elements</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_vertex_buffer_layout_8h_source.html#l00032">stride</a>.</p>
@@ -333,7 +333,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="_vertex_buffer_layout_8h_source.html#l00031">31</a> of file <a class="el" href="_vertex_buffer_layout_8h_source.html">VertexBufferLayout.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_vertex_buffer_layout_8h_source.html#l00025">getElements()</a>, and <a class="el" href="_vertex_buffer_layout_8cpp_source.html#l00015">push()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_vertex_buffer_layout_8h_source.html#l00025">getElements()</a>, and <a class="el" href="_vertex_buffer_layout_8cpp_source.html#l00006">push()</a>.</p>
 
 </div>
 </div>
@@ -359,7 +359,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="_vertex_buffer_layout_8h_source.html#l00032">32</a> of file <a class="el" href="_vertex_buffer_layout_8h_source.html">VertexBufferLayout.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_vertex_buffer_layout_8h_source.html#l00026">getStride()</a>, and <a class="el" href="_vertex_buffer_layout_8cpp_source.html#l00015">push()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_vertex_buffer_layout_8h_source.html#l00026">getStride()</a>, and <a class="el" href="_vertex_buffer_layout_8cpp_source.html#l00006">push()</a>.</p>
 
 </div>
 </div>

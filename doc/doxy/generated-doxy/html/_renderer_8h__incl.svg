@@ -103,7 +103,7 @@ var sectionId = 'dynsection-0';
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="_shader_8h.html" target="_top" xlink:title="Class for handling shaders.">
+<g id="a_Node000004"><a xlink:href="_shader_8h.html" target="_top" xlink:title="Class for managing and utilizing shader programs in the graphics pipeline.">
 <polygon fill="white" stroke="#666666" points="2000.25,-496 1871.75,-496 1871.75,-464 2000.25,-464 2000.25,-496"/>
 <text text-anchor="start" x="1879.75" y="-482.5" font-family="Helvetica,sans-Serif" font-size="10.00">engine/core/low&#45;level</text>
 <text text-anchor="middle" x="1936" y="-470.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;renderer/shader/Shader.h</text>
@@ -122,7 +122,7 @@ var sectionId = 'dynsection-0';
 <!-- Node51 -->
 <g id="Node000051" class="node">
 <title>Node51</title>
-<g id="a_Node000051"><a xlink:href="_window_manager_8h.html" target="_top" xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000051"><a xlink:href="_window_manager_8h.html" target="_top" xlink:title="Manages the main application window and its properties.">
 <polygon fill="white" stroke="#666666" points="353.38,-348 252.62,-348 252.62,-316 353.38,-316 353.38,-348"/>
 <text text-anchor="start" x="260.62" y="-334.5" font-family="Helvetica,sans-Serif" font-size="10.00">engine/core/window</text>
 <text text-anchor="middle" x="303" y="-322.5" font-family="Helvetica,sans-Serif" font-size="10.00">/WindowManager.h</text>
@@ -719,7 +719,7 @@ var sectionId = 'dynsection-0';
 <!-- Node53 -->
 <g id="Node000053" class="node">
 <title>Node53</title>
-<g id="a_Node000053"><a xlink:href="_window_structs_8h.html" target="_top" xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000053"><a xlink:href="_window_structs_8h.html" target="_top" xlink:title="Defines structures related to window properties.">
 <polygon fill="white" stroke="#666666" points="348.12,-274 257.88,-274 257.88,-254 348.12,-254 348.12,-274"/>
 <text text-anchor="middle" x="303" y="-260.5" font-family="Helvetica,sans-Serif" font-size="10.00">WindowStructs.h</text>
 </a>

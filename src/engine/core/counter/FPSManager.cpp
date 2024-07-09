@@ -2,16 +2,16 @@
 #include "engine/core/counter/FPSManager.h"
 
 FPSManager::FPSManager(FpsRates renderFPS, FpsRates updateFPS)
-    : msPerRender(renderFPS == Unlimitted ? 0 : msInASecond / static_cast<Millis>(renderFPS)),
-      msPerUpdate(msInASecond / static_cast<Millis>(updateFPS)) {
+    : msPerRender(renderFPS == Unlimitted ? 0 : msInASecond / static_cast<UIntMillis>(renderFPS)),
+      msPerUpdate(msInASecond / static_cast<UIntMillis>(updateFPS)) {
 }
 
 void FPSManager::startFrame() {
-    current = static_cast<Millis>(SDL_GetTicks()); // Update the current frame-time
+    current = static_cast<UIntMillis>(SDL_GetTicks()); // Update the current frame-time
     elapsed = current - previous;
     previous = current; // Updates the previous frame-time
     lag += elapsed; // Accumulate the elapsed time inside lag
-    fpsAverager.addFrame(elapsed);
+    renderFpsAverager.addFrame(elapsed);
     delay();
 }
 
@@ -24,7 +24,7 @@ void FPSManager::refreshUpdateLag() {
     updateCounter++;
 }
 
-FPSManager::Millis FPSManager::getUpdateTimeMillis() const {
+UIntMillis FPSManager::getUpdateTimeMillis() const {
     return msPerUpdate;
 }
 
@@ -33,26 +33,26 @@ bool FPSManager::hasSpiralOfDeathBeenReached() const {
 }
 
 
-FPSManager::Millis FPSManager::getCurrentRenderTimeMillis() const {
+UIntMillis FPSManager::getCurrentRenderTimeMillis() const {
     return elapsed;
 }
 
-FPSManager::Millis FPSManager::getAverageRenderTimeMillis() const {
-    return fpsAverager.getAverage();
+FPSFloatingPoint FPSManager::getAverageRenderTimeMillis() const {
+    return renderFpsAverager.getAverage();
 }
 
-float FPSManager::getUpdateFPS() const {
-    return msInASecond / getUpdateTimeMillis();
+FPSFloatingPoint FPSManager::getUpdateFPS() const {
+    return static_cast<FPSFloatingPoint>(msInASecond / getUpdateTimeMillis());
 }
 
-float FPSManager::getRenderFPS() const {
+FPSFloatingPoint FPSManager::getRenderFPS() const {
     return msInASecond / getAverageRenderTimeMillis();
 }
 
 
 void FPSManager::delay() const {
     if (msPerRender > 0) {
-        double dif = msPerRender - elapsed;
+        UIntMillis dif = msPerRender - elapsed;
         if (dif > 0)
             SDL_Delay(dif); // Cap the Counter, wait until we get to minimum frame time
     }

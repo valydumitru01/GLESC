@@ -6,5 +6,6 @@ var searchData=
   ['forwardacceleration_3',['ForwardAcceleration',['../namespace_g_l_e_s_c_1_1_physics.html#ab7e6ccc3fbfb3151ccbdb846513c7d8a',1,'GLESC::Physics']]],
   ['forwardforce_4',['ForwardForce',['../namespace_g_l_e_s_c_1_1_physics.html#a8d4ba213ec52d72eeddd279d4378f231',1,'GLESC::Physics']]],
   ['forwardvelocity_5',['ForwardVelocity',['../namespace_g_l_e_s_c_1_1_physics.html#a80db96673df93be4ea92b95b45c813de',1,'GLESC::Physics']]],
-  ['friction_6',['Friction',['../namespace_g_l_e_s_c_1_1_physics.html#a99b2d6885e3fd9713a4f9f0b1723acf2',1,'GLESC::Physics']]]
+  ['fpsfloatingpoint_6',['FPSFloatingPoint',['../_fps_types_8h.html#accffaf2bd51e53d814bcc77629f3ee2c',1,'FpsTypes.h']]],
+  ['friction_7',['Friction',['../namespace_g_l_e_s_c_1_1_physics.html#a99b2d6885e3fd9713a4f9f0b1723acf2',1,'GLESC::Physics']]]
 ];

@@ -9,8 +9,6 @@ Y
 +include/engine/ecs/frontend/entity/Entity.h,6\8\68de6552e64998e01a7b7d9d9e0069c32182baa7
 a
 1include/engine/ecs/backend/entity/EntityManager.h,d\e\deaa665a80215e4622d217c68fb436f7394d728b
-J
-scripts/py/static_check.py,e\1\e139eb2bf2cb6ede69f37bf3a619ad8f6dce27b0
 g
 7include/engine/ecs/backend/component/ComponentManager.h,5\d\5d7c2d7812eb3f2b0966e330b10598b64e84d7c8
 h

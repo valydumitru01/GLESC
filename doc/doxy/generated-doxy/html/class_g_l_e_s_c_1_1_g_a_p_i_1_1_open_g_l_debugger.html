@@ -202,10 +202,10 @@ Static Private Member Functions</h2></td></tr>
 <div class="line"><span class="lineno">   39</span>            <span class="comment">// Enable all OpenGL debug messages</span></div>
 <div class="line"><span class="lineno">   40</span>            <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">glDebugMessageControl</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">GL_DONT_CARE</a>, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">GL_DONT_CARE</a>, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">GL_DONT_CARE</a>, 0, <span class="keyword">nullptr</span>, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">GL_TRUE</a>);</div>
 <div class="line"><span class="lineno">   41</span>        }</div>
-<div class="ttc" id="aclass_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_debugger_html_a302c60ac82d43fc3b4d16d3d2721dba9"><div class="ttname"><a href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_debugger.html#a302c60ac82d43fc3b4d16d3d2721dba9">GLESC::GAPI::OpenGLDebugger::glDebugCallback</a></div><div class="ttdeci">static void glDebugCallback(GLenum source, GLenum type, GLuint errorCode, GLenum severity, GLsizei length, const GLchar *message, const void *userParam)</div><div class="ttdoc">The OpenGL debug callback.</div><div class="ttdef"><b>Definition</b> <a href="_open_g_l_debugger_8cpp_source.html#l00018">OpenGLDebugger.cpp:18</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_debugger_html_a302c60ac82d43fc3b4d16d3d2721dba9"><div class="ttname"><a href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_debugger.html#a302c60ac82d43fc3b4d16d3d2721dba9">GLESC::GAPI::OpenGLDebugger::glDebugCallback</a></div><div class="ttdeci">static void glDebugCallback(GLenum source, GLenum type, GLuint errorCode, GLenum severity, GLsizei length, const GLchar *message, const void *userParam)</div><div class="ttdoc">The OpenGL debug callback.</div><div class="ttdef"><b>Definition</b> <a href="_open_g_l_debugger_8cpp_source.html#l00009">OpenGLDebugger.cpp:9</a></div></div>
 <div class="ttc" id="anamespace_g_l_e_s_c_html_a7c64a4da2d1da1597f4ec563d00bb9f8"><div class="ttname"><a href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">GLESC::isIterable_v</a></div><div class="ttdeci">constexpr bool isIterable_v</div><div class="ttdef"><b>Definition</b> <a href="_stringer_8h_source.html#l00029">Stringer.h:29</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_open_g_l_debugger_8cpp_source.html#l00018">glDebugCallback()</a>, and <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
+<p class="reference">References <a class="el" href="_open_g_l_debugger_8cpp_source.html#l00009">glDebugCallback()</a>, and <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -247,28 +247,28 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_open_g_l_debugger_8cpp_source.html#l00088">88</a> of file <a class="el" href="_open_g_l_debugger_8cpp_source.html">OpenGLDebugger.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   88</span>                                                                 {</div>
-<div class="line"><span class="lineno">   89</span>    std::string <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">severityString</a>;</div>
-<div class="line"><span class="lineno">   90</span>    </div>
-<div class="line"><span class="lineno">   91</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">severityString</a> += <span class="stringliteral">&quot;Severity: &quot;</span>;</div>
-<div class="line"><span class="lineno">   92</span>    <span class="keywordflow">switch</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">severity</a>) {</div>
-<div class="line"><span class="lineno">   93</span>        <span class="keywordflow">case</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">GL_DEBUG_SEVERITY_HIGH</a>:</div>
-<div class="line"><span class="lineno">   94</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">severityString</a> + <span class="stringliteral">&quot;High&quot;</span>;</div>
-<div class="line"><span class="lineno">   95</span>        <span class="keywordflow">case</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">GL_DEBUG_SEVERITY_MEDIUM</a>:</div>
-<div class="line"><span class="lineno">   96</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">severityString</a> + <span class="stringliteral">&quot;Medium&quot;</span>;</div>
-<div class="line"><span class="lineno">   97</span>        <span class="keywordflow">case</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">GL_DEBUG_SEVERITY_LOW</a>:</div>
-<div class="line"><span class="lineno">   98</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">severityString</a> + <span class="stringliteral">&quot;Low&quot;</span>;</div>
-<div class="line"><span class="lineno">   99</span>        <span class="keywordflow">case</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">GL_DEBUG_SEVERITY_NOTIFICATION</a>:</div>
-<div class="line"><span class="lineno">  100</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">severityString</a> + <span class="stringliteral">&quot;Notification&quot;</span>;</div>
-<div class="line"><span class="lineno">  101</span>        <span class="keywordflow">default</span>:</div>
-<div class="line"><span class="lineno">  102</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">severityString</a> + <span class="stringliteral">&quot;Unknown&quot;</span>;</div>
-<div class="line"><span class="lineno">  103</span>    }</div>
-<div class="line"><span class="lineno">  104</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_open_g_l_debugger_8cpp_source.html#l00079">79</a> of file <a class="el" href="_open_g_l_debugger_8cpp_source.html">OpenGLDebugger.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   79</span>                                                                 {</div>
+<div class="line"><span class="lineno">   80</span>    std::string <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">severityString</a>;</div>
+<div class="line"><span class="lineno">   81</span>    </div>
+<div class="line"><span class="lineno">   82</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">severityString</a> += <span class="stringliteral">&quot;Severity: &quot;</span>;</div>
+<div class="line"><span class="lineno">   83</span>    <span class="keywordflow">switch</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">severity</a>) {</div>
+<div class="line"><span class="lineno">   84</span>        <span class="keywordflow">case</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">GL_DEBUG_SEVERITY_HIGH</a>:</div>
+<div class="line"><span class="lineno">   85</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">severityString</a> + <span class="stringliteral">&quot;High&quot;</span>;</div>
+<div class="line"><span class="lineno">   86</span>        <span class="keywordflow">case</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">GL_DEBUG_SEVERITY_MEDIUM</a>:</div>
+<div class="line"><span class="lineno">   87</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">severityString</a> + <span class="stringliteral">&quot;Medium&quot;</span>;</div>
+<div class="line"><span class="lineno">   88</span>        <span class="keywordflow">case</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">GL_DEBUG_SEVERITY_LOW</a>:</div>
+<div class="line"><span class="lineno">   89</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">severityString</a> + <span class="stringliteral">&quot;Low&quot;</span>;</div>
+<div class="line"><span class="lineno">   90</span>        <span class="keywordflow">case</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">GL_DEBUG_SEVERITY_NOTIFICATION</a>:</div>
+<div class="line"><span class="lineno">   91</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">severityString</a> + <span class="stringliteral">&quot;Notification&quot;</span>;</div>
+<div class="line"><span class="lineno">   92</span>        <span class="keywordflow">default</span>:</div>
+<div class="line"><span class="lineno">   93</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">severityString</a> + <span class="stringliteral">&quot;Unknown&quot;</span>;</div>
+<div class="line"><span class="lineno">   94</span>    }</div>
+<div class="line"><span class="lineno">   95</span>}</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_open_g_l_debugger_8cpp_source.html#l00018">glDebugCallback()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_open_g_l_debugger_8cpp_source.html#l00009">glDebugCallback()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -310,34 +310,34 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_open_g_l_debugger_8cpp_source.html#l00035">35</a> of file <a class="el" href="_open_g_l_debugger_8cpp_source.html">OpenGLDebugger.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   35</span>                                                             {</div>
-<div class="line"><span class="lineno">   36</span>    </div>
-<div class="line"><span class="lineno">   37</span>    std::string <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">sourceString</a>;</div>
-<div class="line"><span class="lineno">   38</span>    </div>
-<div class="line"><span class="lineno">   39</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">sourceString</a> += <span class="stringliteral">&quot;Source: &quot;</span>;</div>
-<div class="line"><span class="lineno">   40</span>    </div>
-<div class="line"><span class="lineno">   41</span>    <span class="keywordflow">switch</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">source</a>) {</div>
-<div class="line"><span class="lineno">   42</span>        <span class="keywordflow">case</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">GL_DEBUG_SOURCE_API</a>:</div>
-<div class="line"><span class="lineno">   43</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">sourceString</a> + <span class="stringliteral">&quot;API&quot;</span>;</div>
-<div class="line"><span class="lineno">   44</span>        <span class="keywordflow">case</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">GL_DEBUG_SOURCE_WINDOW_SYSTEM</a>:</div>
-<div class="line"><span class="lineno">   45</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">sourceString</a> + <span class="stringliteral">&quot;Window System&quot;</span>;</div>
-<div class="line"><span class="lineno">   46</span>        <span class="keywordflow">case</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">GL_DEBUG_SOURCE_SHADER_COMPILER</a>:</div>
-<div class="line"><span class="lineno">   47</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">sourceString</a> + <span class="stringliteral">&quot;Shader Compiler&quot;</span>;</div>
-<div class="line"><span class="lineno">   48</span>        <span class="keywordflow">case</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">GL_DEBUG_SOURCE_THIRD_PARTY</a>:</div>
-<div class="line"><span class="lineno">   49</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">sourceString</a> + <span class="stringliteral">&quot;Third Party&quot;</span>;</div>
-<div class="line"><span class="lineno">   50</span>        <span class="keywordflow">case</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">GL_DEBUG_SOURCE_APPLICATION</a>:</div>
-<div class="line"><span class="lineno">   51</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">sourceString</a> + <span class="stringliteral">&quot;Application&quot;</span>;</div>
-<div class="line"><span class="lineno">   52</span>        <span class="keywordflow">case</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">GL_DEBUG_SOURCE_OTHER</a>:</div>
-<div class="line"><span class="lineno">   53</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">sourceString</a> + <span class="stringliteral">&quot;Other&quot;</span>;</div>
-<div class="line"><span class="lineno">   54</span>        <span class="keywordflow">default</span>:</div>
-<div class="line"><span class="lineno">   55</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">sourceString</a> + <span class="stringliteral">&quot;Unknown&quot;</span>;</div>
-<div class="line"><span class="lineno">   56</span>    }</div>
-<div class="line"><span class="lineno">   57</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_open_g_l_debugger_8cpp_source.html#l00026">26</a> of file <a class="el" href="_open_g_l_debugger_8cpp_source.html">OpenGLDebugger.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   26</span>                                                             {</div>
+<div class="line"><span class="lineno">   27</span>    </div>
+<div class="line"><span class="lineno">   28</span>    std::string <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">sourceString</a>;</div>
+<div class="line"><span class="lineno">   29</span>    </div>
+<div class="line"><span class="lineno">   30</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">sourceString</a> += <span class="stringliteral">&quot;Source: &quot;</span>;</div>
+<div class="line"><span class="lineno">   31</span>    </div>
+<div class="line"><span class="lineno">   32</span>    <span class="keywordflow">switch</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">source</a>) {</div>
+<div class="line"><span class="lineno">   33</span>        <span class="keywordflow">case</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">GL_DEBUG_SOURCE_API</a>:</div>
+<div class="line"><span class="lineno">   34</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">sourceString</a> + <span class="stringliteral">&quot;API&quot;</span>;</div>
+<div class="line"><span class="lineno">   35</span>        <span class="keywordflow">case</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">GL_DEBUG_SOURCE_WINDOW_SYSTEM</a>:</div>
+<div class="line"><span class="lineno">   36</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">sourceString</a> + <span class="stringliteral">&quot;Window System&quot;</span>;</div>
+<div class="line"><span class="lineno">   37</span>        <span class="keywordflow">case</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">GL_DEBUG_SOURCE_SHADER_COMPILER</a>:</div>
+<div class="line"><span class="lineno">   38</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">sourceString</a> + <span class="stringliteral">&quot;Shader Compiler&quot;</span>;</div>
+<div class="line"><span class="lineno">   39</span>        <span class="keywordflow">case</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">GL_DEBUG_SOURCE_THIRD_PARTY</a>:</div>
+<div class="line"><span class="lineno">   40</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">sourceString</a> + <span class="stringliteral">&quot;Third Party&quot;</span>;</div>
+<div class="line"><span class="lineno">   41</span>        <span class="keywordflow">case</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">GL_DEBUG_SOURCE_APPLICATION</a>:</div>
+<div class="line"><span class="lineno">   42</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">sourceString</a> + <span class="stringliteral">&quot;Application&quot;</span>;</div>
+<div class="line"><span class="lineno">   43</span>        <span class="keywordflow">case</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">GL_DEBUG_SOURCE_OTHER</a>:</div>
+<div class="line"><span class="lineno">   44</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">sourceString</a> + <span class="stringliteral">&quot;Other&quot;</span>;</div>
+<div class="line"><span class="lineno">   45</span>        <span class="keywordflow">default</span>:</div>
+<div class="line"><span class="lineno">   46</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">sourceString</a> + <span class="stringliteral">&quot;Unknown&quot;</span>;</div>
+<div class="line"><span class="lineno">   47</span>    }</div>
+<div class="line"><span class="lineno">   48</span>}</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_open_g_l_debugger_8cpp_source.html#l00018">glDebugCallback()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_open_g_l_debugger_8cpp_source.html#l00009">glDebugCallback()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -379,39 +379,39 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_open_g_l_debugger_8cpp_source.html#l00059">59</a> of file <a class="el" href="_open_g_l_debugger_8cpp_source.html">OpenGLDebugger.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   59</span>                                                         {</div>
-<div class="line"><span class="lineno">   60</span>    std::string <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typeString</a>;</div>
-<div class="line"><span class="lineno">   61</span>    </div>
-<div class="line"><span class="lineno">   62</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typeString</a> += <span class="stringliteral">&quot;Type: &quot;</span>;</div>
-<div class="line"><span class="lineno">   63</span>    </div>
-<div class="line"><span class="lineno">   64</span>    <span class="keywordflow">switch</span> (type) {</div>
-<div class="line"><span class="lineno">   65</span>        <span class="keywordflow">case</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">GL_DEBUG_TYPE_ERROR</a>:</div>
-<div class="line"><span class="lineno">   66</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typeString</a> + <span class="stringliteral">&quot;Error&quot;</span>;</div>
-<div class="line"><span class="lineno">   67</span>        <span class="keywordflow">case</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR</a>:</div>
-<div class="line"><span class="lineno">   68</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typeString</a> + <span class="stringliteral">&quot;Deprecated Behaviour&quot;</span>;</div>
-<div class="line"><span class="lineno">   69</span>        <span class="keywordflow">case</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR</a>:</div>
-<div class="line"><span class="lineno">   70</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typeString</a> + <span class="stringliteral">&quot;Undefined Behaviour&quot;</span>;</div>
-<div class="line"><span class="lineno">   71</span>        <span class="keywordflow">case</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">GL_DEBUG_TYPE_PORTABILITY</a>:</div>
-<div class="line"><span class="lineno">   72</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typeString</a> + <span class="stringliteral">&quot;Portability&quot;</span>;</div>
-<div class="line"><span class="lineno">   73</span>        <span class="keywordflow">case</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">GL_DEBUG_TYPE_PERFORMANCE</a>:</div>
-<div class="line"><span class="lineno">   74</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typeString</a> + <span class="stringliteral">&quot;Performance&quot;</span>;</div>
-<div class="line"><span class="lineno">   75</span>        <span class="keywordflow">case</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">GL_DEBUG_TYPE_MARKER</a>:</div>
-<div class="line"><span class="lineno">   76</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typeString</a> + <span class="stringliteral">&quot;Marker&quot;</span>;</div>
-<div class="line"><span class="lineno">   77</span>        <span class="keywordflow">case</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">GL_DEBUG_TYPE_PUSH_GROUP</a>:</div>
-<div class="line"><span class="lineno">   78</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typeString</a> + <span class="stringliteral">&quot;push Group&quot;</span>;</div>
-<div class="line"><span class="lineno">   79</span>        <span class="keywordflow">case</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">GL_DEBUG_TYPE_POP_GROUP</a>:</div>
-<div class="line"><span class="lineno">   80</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typeString</a> + <span class="stringliteral">&quot;Pop Group&quot;</span>;</div>
-<div class="line"><span class="lineno">   81</span>        <span class="keywordflow">case</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">GL_DEBUG_TYPE_OTHER</a>:</div>
-<div class="line"><span class="lineno">   82</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typeString</a> + <span class="stringliteral">&quot;Other&quot;</span>;</div>
-<div class="line"><span class="lineno">   83</span>        <span class="keywordflow">default</span>:</div>
-<div class="line"><span class="lineno">   84</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typeString</a> + <span class="stringliteral">&quot;Unknown&quot;</span>;</div>
-<div class="line"><span class="lineno">   85</span>    }</div>
-<div class="line"><span class="lineno">   86</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_open_g_l_debugger_8cpp_source.html#l00050">50</a> of file <a class="el" href="_open_g_l_debugger_8cpp_source.html">OpenGLDebugger.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   50</span>                                                         {</div>
+<div class="line"><span class="lineno">   51</span>    std::string <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typeString</a>;</div>
+<div class="line"><span class="lineno">   52</span>    </div>
+<div class="line"><span class="lineno">   53</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typeString</a> += <span class="stringliteral">&quot;Type: &quot;</span>;</div>
+<div class="line"><span class="lineno">   54</span>    </div>
+<div class="line"><span class="lineno">   55</span>    <span class="keywordflow">switch</span> (type) {</div>
+<div class="line"><span class="lineno">   56</span>        <span class="keywordflow">case</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">GL_DEBUG_TYPE_ERROR</a>:</div>
+<div class="line"><span class="lineno">   57</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typeString</a> + <span class="stringliteral">&quot;Error&quot;</span>;</div>
+<div class="line"><span class="lineno">   58</span>        <span class="keywordflow">case</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR</a>:</div>
+<div class="line"><span class="lineno">   59</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typeString</a> + <span class="stringliteral">&quot;Deprecated Behaviour&quot;</span>;</div>
+<div class="line"><span class="lineno">   60</span>        <span class="keywordflow">case</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR</a>:</div>
+<div class="line"><span class="lineno">   61</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typeString</a> + <span class="stringliteral">&quot;Undefined Behaviour&quot;</span>;</div>
+<div class="line"><span class="lineno">   62</span>        <span class="keywordflow">case</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">GL_DEBUG_TYPE_PORTABILITY</a>:</div>
+<div class="line"><span class="lineno">   63</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typeString</a> + <span class="stringliteral">&quot;Portability&quot;</span>;</div>
+<div class="line"><span class="lineno">   64</span>        <span class="keywordflow">case</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">GL_DEBUG_TYPE_PERFORMANCE</a>:</div>
+<div class="line"><span class="lineno">   65</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typeString</a> + <span class="stringliteral">&quot;Performance&quot;</span>;</div>
+<div class="line"><span class="lineno">   66</span>        <span class="keywordflow">case</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">GL_DEBUG_TYPE_MARKER</a>:</div>
+<div class="line"><span class="lineno">   67</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typeString</a> + <span class="stringliteral">&quot;Marker&quot;</span>;</div>
+<div class="line"><span class="lineno">   68</span>        <span class="keywordflow">case</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">GL_DEBUG_TYPE_PUSH_GROUP</a>:</div>
+<div class="line"><span class="lineno">   69</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typeString</a> + <span class="stringliteral">&quot;push Group&quot;</span>;</div>
+<div class="line"><span class="lineno">   70</span>        <span class="keywordflow">case</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">GL_DEBUG_TYPE_POP_GROUP</a>:</div>
+<div class="line"><span class="lineno">   71</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typeString</a> + <span class="stringliteral">&quot;Pop Group&quot;</span>;</div>
+<div class="line"><span class="lineno">   72</span>        <span class="keywordflow">case</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">GL_DEBUG_TYPE_OTHER</a>:</div>
+<div class="line"><span class="lineno">   73</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typeString</a> + <span class="stringliteral">&quot;Other&quot;</span>;</div>
+<div class="line"><span class="lineno">   74</span>        <span class="keywordflow">default</span>:</div>
+<div class="line"><span class="lineno">   75</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">typeString</a> + <span class="stringliteral">&quot;Unknown&quot;</span>;</div>
+<div class="line"><span class="lineno">   76</span>    }</div>
+<div class="line"><span class="lineno">   77</span>}</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_open_g_l_debugger_8cpp_source.html#l00018">glDebugCallback()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_open_g_l_debugger_8cpp_source.html#l00009">glDebugCallback()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -498,27 +498,27 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_open_g_l_debugger_8cpp_source.html#l00018">18</a> of file <a class="el" href="_open_g_l_debugger_8cpp_source.html">OpenGLDebugger.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   20</span>                                                                                   {</div>
-<div class="line"><span class="lineno">   21</span>    <span class="comment">// ignore non-significant error/warning codes</span></div>
-<div class="line"><span class="lineno">   22</span>    <span class="keyword">const</span> std::set&lt;GLuint&gt; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">nonSignificantErrorCodes</a> = {131169, 131185, 131218, 131204};</div>
-<div class="line"><span class="lineno">   23</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">nonSignificantErrorCodes</a>.find(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">errorCode</a>) != <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">nonSignificantErrorCodes</a>.end())</div>
-<div class="line"><span class="lineno">   24</span>        <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">   25</span>    </div>
-<div class="line"><span class="lineno">   26</span>    <a class="code hl_define" href="_g_a_p_i_asserts_8h.html#a03c4744316a37e16a583c3efd1c70a85">D_ASSERT_GL_CALL_IS_CORRECT</a>(<span class="keyword">false</span>,</div>
-<div class="line"><span class="lineno">   27</span>                              <span class="stringliteral">&quot;Debug message (&quot;</span> +</div>
-<div class="line"><span class="lineno">   28</span>                              std::to_string(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">errorCode</a>) + <span class="stringliteral">&quot;): \n Message:&quot;</span> + message +</div>
-<div class="line"><span class="lineno">   29</span>                              <span class="stringliteral">&quot;\n | &quot;</span> + <a class="code hl_function" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_debugger.html#aa289fc434e30ea0bcd7d2b3edc302df7">errorStringFromSource</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">source</a>) +</div>
-<div class="line"><span class="lineno">   30</span>                              <span class="stringliteral">&quot;\n | &quot;</span> + <a class="code hl_function" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_debugger.html#a9fe3e29756a02664f9ccd64558ea5468">errorStringFromType</a>(type) +</div>
-<div class="line"><span class="lineno">   31</span>                              <span class="stringliteral">&quot;\n | &quot;</span> + <a class="code hl_function" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_debugger.html#a4130228f3d734d7a2425b88462917c27">errorStringFromSeverity</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">severity</a>));</div>
-<div class="line"><span class="lineno">   32</span>    </div>
-<div class="line"><span class="lineno">   33</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_open_g_l_debugger_8cpp_source.html#l00009">9</a> of file <a class="el" href="_open_g_l_debugger_8cpp_source.html">OpenGLDebugger.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   11</span>                                                                                   {</div>
+<div class="line"><span class="lineno">   12</span>    <span class="comment">// ignore non-significant error/warning codes</span></div>
+<div class="line"><span class="lineno">   13</span>    <span class="keyword">const</span> std::set&lt;GLuint&gt; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">nonSignificantErrorCodes</a> = {131169, 131185, 131218, 131204};</div>
+<div class="line"><span class="lineno">   14</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">nonSignificantErrorCodes</a>.find(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">errorCode</a>) != <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">nonSignificantErrorCodes</a>.end())</div>
+<div class="line"><span class="lineno">   15</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">   16</span>    </div>
+<div class="line"><span class="lineno">   17</span>    <a class="code hl_define" href="_g_a_p_i_asserts_8h.html#a03c4744316a37e16a583c3efd1c70a85">D_ASSERT_GL_CALL_IS_CORRECT</a>(<span class="keyword">false</span>,</div>
+<div class="line"><span class="lineno">   18</span>                              <span class="stringliteral">&quot;Debug message (&quot;</span> +</div>
+<div class="line"><span class="lineno">   19</span>                              std::to_string(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">errorCode</a>) + <span class="stringliteral">&quot;): \n Message:&quot;</span> + message +</div>
+<div class="line"><span class="lineno">   20</span>                              <span class="stringliteral">&quot;\n | &quot;</span> + <a class="code hl_function" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_debugger.html#aa289fc434e30ea0bcd7d2b3edc302df7">errorStringFromSource</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">source</a>) +</div>
+<div class="line"><span class="lineno">   21</span>                              <span class="stringliteral">&quot;\n | &quot;</span> + <a class="code hl_function" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_debugger.html#a9fe3e29756a02664f9ccd64558ea5468">errorStringFromType</a>(type) +</div>
+<div class="line"><span class="lineno">   22</span>                              <span class="stringliteral">&quot;\n | &quot;</span> + <a class="code hl_function" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_debugger.html#a4130228f3d734d7a2425b88462917c27">errorStringFromSeverity</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">severity</a>));</div>
+<div class="line"><span class="lineno">   23</span>    </div>
+<div class="line"><span class="lineno">   24</span>}</div>
 <div class="ttc" id="a_g_a_p_i_asserts_8h_html_a03c4744316a37e16a583c3efd1c70a85"><div class="ttname"><a href="_g_a_p_i_asserts_8h.html#a03c4744316a37e16a583c3efd1c70a85">D_ASSERT_GL_CALL_IS_CORRECT</a></div><div class="ttdeci">#define D_ASSERT_GL_CALL_IS_CORRECT(isCorrect, message)</div><div class="ttdef"><b>Definition</b> <a href="_g_a_p_i_asserts_8h_source.html#l00017">GAPIAsserts.h:17</a></div></div>
-<div class="ttc" id="aclass_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_debugger_html_a4130228f3d734d7a2425b88462917c27"><div class="ttname"><a href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_debugger.html#a4130228f3d734d7a2425b88462917c27">GLESC::GAPI::OpenGLDebugger::errorStringFromSeverity</a></div><div class="ttdeci">static std::string errorStringFromSeverity(GLenum severity)</div><div class="ttdoc">Returns a string representation of the OpenGL error severity.</div><div class="ttdef"><b>Definition</b> <a href="_open_g_l_debugger_8cpp_source.html#l00088">OpenGLDebugger.cpp:88</a></div></div>
-<div class="ttc" id="aclass_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_debugger_html_a9fe3e29756a02664f9ccd64558ea5468"><div class="ttname"><a href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_debugger.html#a9fe3e29756a02664f9ccd64558ea5468">GLESC::GAPI::OpenGLDebugger::errorStringFromType</a></div><div class="ttdeci">static std::string errorStringFromType(GLenum type)</div><div class="ttdoc">Returns a string representation of the OpenGL error type.</div><div class="ttdef"><b>Definition</b> <a href="_open_g_l_debugger_8cpp_source.html#l00059">OpenGLDebugger.cpp:59</a></div></div>
-<div class="ttc" id="aclass_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_debugger_html_aa289fc434e30ea0bcd7d2b3edc302df7"><div class="ttname"><a href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_debugger.html#aa289fc434e30ea0bcd7d2b3edc302df7">GLESC::GAPI::OpenGLDebugger::errorStringFromSource</a></div><div class="ttdeci">static std::string errorStringFromSource(GLenum source)</div><div class="ttdoc">Returns a string representation of the OpenGL error source.</div><div class="ttdef"><b>Definition</b> <a href="_open_g_l_debugger_8cpp_source.html#l00035">OpenGLDebugger.cpp:35</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_debugger_html_a4130228f3d734d7a2425b88462917c27"><div class="ttname"><a href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_debugger.html#a4130228f3d734d7a2425b88462917c27">GLESC::GAPI::OpenGLDebugger::errorStringFromSeverity</a></div><div class="ttdeci">static std::string errorStringFromSeverity(GLenum severity)</div><div class="ttdoc">Returns a string representation of the OpenGL error severity.</div><div class="ttdef"><b>Definition</b> <a href="_open_g_l_debugger_8cpp_source.html#l00079">OpenGLDebugger.cpp:79</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_debugger_html_a9fe3e29756a02664f9ccd64558ea5468"><div class="ttname"><a href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_debugger.html#a9fe3e29756a02664f9ccd64558ea5468">GLESC::GAPI::OpenGLDebugger::errorStringFromType</a></div><div class="ttdeci">static std::string errorStringFromType(GLenum type)</div><div class="ttdoc">Returns a string representation of the OpenGL error type.</div><div class="ttdef"><b>Definition</b> <a href="_open_g_l_debugger_8cpp_source.html#l00050">OpenGLDebugger.cpp:50</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_debugger_html_aa289fc434e30ea0bcd7d2b3edc302df7"><div class="ttname"><a href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_open_g_l_debugger.html#aa289fc434e30ea0bcd7d2b3edc302df7">GLESC::GAPI::OpenGLDebugger::errorStringFromSource</a></div><div class="ttdeci">static std::string errorStringFromSource(GLenum source)</div><div class="ttdoc">Returns a string representation of the OpenGL error source.</div><div class="ttdef"><b>Definition</b> <a href="_open_g_l_debugger_8cpp_source.html#l00026">OpenGLDebugger.cpp:26</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_g_a_p_i_asserts_8h_source.html#l00017">D_ASSERT_GL_CALL_IS_CORRECT</a>, <a class="el" href="_open_g_l_debugger_8cpp_source.html#l00088">errorStringFromSeverity()</a>, <a class="el" href="_open_g_l_debugger_8cpp_source.html#l00035">errorStringFromSource()</a>, <a class="el" href="_open_g_l_debugger_8cpp_source.html#l00059">errorStringFromType()</a>, and <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
+<p class="reference">References <a class="el" href="_g_a_p_i_asserts_8h_source.html#l00017">D_ASSERT_GL_CALL_IS_CORRECT</a>, <a class="el" href="_open_g_l_debugger_8cpp_source.html#l00079">errorStringFromSeverity()</a>, <a class="el" href="_open_g_l_debugger_8cpp_source.html#l00026">errorStringFromSource()</a>, <a class="el" href="_open_g_l_debugger_8cpp_source.html#l00050">errorStringFromType()</a>, and <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="_open_g_l_debugger_8h_source.html#l00032">enableGlDebugCallback()</a>.</p>
 <div class="dynheader">

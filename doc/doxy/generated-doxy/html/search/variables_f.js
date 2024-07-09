@@ -16,7 +16,7 @@ var searchData=
   ['positionfraction_13',['positionFraction',['../class_g_l_e_s_c_1_1_in_game_window.html#a643b4115704e6303b29c9594f89af52b',1,'GLESC::InGameWindow']]],
   ['pressed_14',['pressed',['../_input_types_8h.html#a5b9e6b735d5a2b116449b401ec840b26',1,'InputState']]],
   ['pressedoncedetection_15',['pressedOnceDetection',['../class_g_l_e_s_c_1_1_input_1_1_input_manager.html#a4c85549b4046248f7fab6836a5211866',1,'GLESC::Input::InputManager']]],
-  ['previous_16',['previous',['../class_f_p_s_manager.html#a62123b81d7f00d5cd1e4638871726719',1,'FPSManager']]],
+  ['previous_16',['previous',['../class_f_p_s_manager.html#a4be190383a05df5440960e2b67ee964d',1,'FPSManager']]],
   ['projection_17',['projection',['../class_g_l_e_s_c_1_1_render_1_1_renderer.html#ac07a1d1c02f90349e224ead112aa08d3',1,'GLESC::Render::Renderer']]],
   ['purple_18',['Purple',['../struct_g_l_e_s_c_1_1_render_1_1_color_rgb.html#a3124bf57856189b78494013b8aa0ca52',1,'GLESC::Render::ColorRgb']]]
 ];

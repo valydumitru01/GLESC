@@ -280,19 +280,19 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_polyhedron_8cpp_source.html#l00016">16</a> of file <a class="el" href="_polyhedron_8cpp_source.html">Polyhedron.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   16</span>                                                                           :</div>
-<div class="line"><span class="lineno">   17</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a29346ea2c5eaf681b8526644204b0607">vertices</a>(std::move(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a29346ea2c5eaf681b8526644204b0607">vertices</a>)) {</div>
-<div class="line"><span class="lineno">   18</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">face</a> : <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a3826d79c14352e73bd18840ed3783117">faces</a>) {</div>
-<div class="line"><span class="lineno">   19</span>        <a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a7d974bf2202337714b156a874c440d93">addFace</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">face</a>);</div>
-<div class="line"><span class="lineno">   20</span>    }</div>
-<div class="line"><span class="lineno">   21</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_polyhedron_8cpp_source.html#l00007">7</a> of file <a class="el" href="_polyhedron_8cpp_source.html">Polyhedron.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">    7</span>                                                                           :</div>
+<div class="line"><span class="lineno">    8</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a29346ea2c5eaf681b8526644204b0607">vertices</a>(std::move(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a29346ea2c5eaf681b8526644204b0607">vertices</a>)) {</div>
+<div class="line"><span class="lineno">    9</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">face</a> : <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a3826d79c14352e73bd18840ed3783117">faces</a>) {</div>
+<div class="line"><span class="lineno">   10</span>        <a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a7d974bf2202337714b156a874c440d93">addFace</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">face</a>);</div>
+<div class="line"><span class="lineno">   11</span>    }</div>
+<div class="line"><span class="lineno">   12</span>}</div>
 <div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_polyhedron_html_a29346ea2c5eaf681b8526644204b0607"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a29346ea2c5eaf681b8526644204b0607">GLESC::Math::Polyhedron::vertices</a></div><div class="ttdeci">std::vector&lt; Vec3F &gt; vertices</div><div class="ttdef"><b>Definition</b> <a href="_polyhedron_8h_source.html#l00165">Polyhedron.h:165</a></div></div>
 <div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_polyhedron_html_a3826d79c14352e73bd18840ed3783117"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a3826d79c14352e73bd18840ed3783117">GLESC::Math::Polyhedron::faces</a></div><div class="ttdeci">std::vector&lt; PolyhedronFace &gt; faces</div><div class="ttdef"><b>Definition</b> <a href="_polyhedron_8h_source.html#l00166">Polyhedron.h:166</a></div></div>
-<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_polyhedron_html_a7d974bf2202337714b156a874c440d93"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a7d974bf2202337714b156a874c440d93">GLESC::Math::Polyhedron::addFace</a></div><div class="ttdeci">void addFace(const FaceIndices &amp;faceParam)</div><div class="ttdoc">Add a face to the polyhedron. The face is defined by the indices of the vertices.</div><div class="ttdef"><b>Definition</b> <a href="_polyhedron_8cpp_source.html#l00033">Polyhedron.cpp:33</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_polyhedron_html_a7d974bf2202337714b156a874c440d93"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a7d974bf2202337714b156a874c440d93">GLESC::Math::Polyhedron::addFace</a></div><div class="ttdeci">void addFace(const FaceIndices &amp;faceParam)</div><div class="ttdoc">Add a face to the polyhedron. The face is defined by the indices of the vertices.</div><div class="ttdef"><b>Definition</b> <a href="_polyhedron_8cpp_source.html#l00024">Polyhedron.cpp:24</a></div></div>
 <div class="ttc" id="anamespace_g_l_e_s_c_html_a7c64a4da2d1da1597f4ec563d00bb9f8"><div class="ttname"><a href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">GLESC::isIterable_v</a></div><div class="ttdeci">constexpr bool isIterable_v</div><div class="ttdef"><b>Definition</b> <a href="_stringer_8h_source.html#l00029">Stringer.h:29</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_polyhedron_8cpp_source.html#l00033">addFace()</a>, <a class="el" href="_polyhedron_8h_source.html#l00166">faces</a>, and <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
+<p class="reference">References <a class="el" href="_polyhedron_8cpp_source.html#l00024">addFace()</a>, <a class="el" href="_polyhedron_8h_source.html#l00166">faces</a>, and <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -326,27 +326,27 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_polyhedron_8cpp_source.html#l00033">33</a> of file <a class="el" href="_polyhedron_8cpp_source.html">Polyhedron.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   33</span>                                                     {</div>
-<div class="line"><span class="lineno">   34</span>    <span class="comment">// Check for repeated vertices</span></div>
-<div class="line"><span class="lineno">   35</span>    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">i</a> = 0; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">i</a> &lt; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">faceParam</a>.size(); ++<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">i</a>) {</div>
-<div class="line"><span class="lineno">   36</span>        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">j</a> = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">i</a> + 1; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">j</a> &lt; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">faceParam</a>.size(); ++<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">j</a>) {</div>
-<div class="line"><span class="lineno">   37</span>            <a class="code hl_define" href="_asserts_8h.html#abc189a68f629f827fca1b31a8449cfdb">D_ASSERT_FALSE</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">faceParam</a>[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">i</a>] == <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">faceParam</a>[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">j</a>], <span class="stringliteral">&quot;Face must not have repeated vertices.&quot;</span>);</div>
-<div class="line"><span class="lineno">   38</span>        }</div>
-<div class="line"><span class="lineno">   39</span>    }</div>
-<div class="line"><span class="lineno">   40</span>    <span class="comment">// Check for out of bounds indices</span></div>
-<div class="line"><span class="lineno">   41</span>    <a class="code hl_define" href="_asserts_8h.html#abc189a68f629f827fca1b31a8449cfdb">D_ASSERT_FALSE</a>(this-&gt;<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#abcbb3db03df72c7e0a6af459c982e5ea">isOutOfBounds</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">faceParam</a>), <span class="stringliteral">&quot;Face must not have out of bounds indices.&quot;</span>);</div>
-<div class="line"><span class="lineno">   42</span> </div>
-<div class="line"><span class="lineno">   43</span>    <a class="code hl_class" href="class_g_l_e_s_c_1_1_math_1_1_polyhedron_face.html">PolyhedronFace</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">face</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">faceParam</a>, <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a29346ea2c5eaf681b8526644204b0607">vertices</a>);</div>
-<div class="line"><span class="lineno">   44</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a3826d79c14352e73bd18840ed3783117">faces</a>.push_back(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">face</a>);</div>
-<div class="line"><span class="lineno">   45</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_polyhedron_8cpp_source.html#l00024">24</a> of file <a class="el" href="_polyhedron_8cpp_source.html">Polyhedron.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   24</span>                                                     {</div>
+<div class="line"><span class="lineno">   25</span>    <span class="comment">// Check for repeated vertices</span></div>
+<div class="line"><span class="lineno">   26</span>    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">i</a> = 0; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">i</a> &lt; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">faceParam</a>.size(); ++<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">i</a>) {</div>
+<div class="line"><span class="lineno">   27</span>        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">j</a> = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">i</a> + 1; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">j</a> &lt; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">faceParam</a>.size(); ++<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">j</a>) {</div>
+<div class="line"><span class="lineno">   28</span>            <a class="code hl_define" href="_asserts_8h.html#abc189a68f629f827fca1b31a8449cfdb">D_ASSERT_FALSE</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">faceParam</a>[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">i</a>] == <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">faceParam</a>[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">j</a>], <span class="stringliteral">&quot;Face must not have repeated vertices.&quot;</span>);</div>
+<div class="line"><span class="lineno">   29</span>        }</div>
+<div class="line"><span class="lineno">   30</span>    }</div>
+<div class="line"><span class="lineno">   31</span>    <span class="comment">// Check for out of bounds indices</span></div>
+<div class="line"><span class="lineno">   32</span>    <a class="code hl_define" href="_asserts_8h.html#abc189a68f629f827fca1b31a8449cfdb">D_ASSERT_FALSE</a>(this-&gt;<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#abcbb3db03df72c7e0a6af459c982e5ea">isOutOfBounds</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">faceParam</a>), <span class="stringliteral">&quot;Face must not have out of bounds indices.&quot;</span>);</div>
+<div class="line"><span class="lineno">   33</span> </div>
+<div class="line"><span class="lineno">   34</span>    <a class="code hl_class" href="class_g_l_e_s_c_1_1_math_1_1_polyhedron_face.html">PolyhedronFace</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">face</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">faceParam</a>, <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a29346ea2c5eaf681b8526644204b0607">vertices</a>);</div>
+<div class="line"><span class="lineno">   35</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a3826d79c14352e73bd18840ed3783117">faces</a>.push_back(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">face</a>);</div>
+<div class="line"><span class="lineno">   36</span>}</div>
 <div class="ttc" id="a_asserts_8h_html_abc189a68f629f827fca1b31a8449cfdb"><div class="ttname"><a href="_asserts_8h.html#abc189a68f629f827fca1b31a8449cfdb">D_ASSERT_FALSE</a></div><div class="ttdeci">#define D_ASSERT_FALSE(condition, message)</div><div class="ttdef"><b>Definition</b> <a href="_asserts_8h_source.html#l00022">Asserts.h:22</a></div></div>
 <div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_polyhedron_face_html"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_polyhedron_face.html">GLESC::Math::PolyhedronFace</a></div><div class="ttdef"><b>Definition</b> <a href="_polyhedron_face_8h_source.html#l00020">PolyhedronFace.h:20</a></div></div>
-<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_polyhedron_html_abcbb3db03df72c7e0a6af459c982e5ea"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#abcbb3db03df72c7e0a6af459c982e5ea">GLESC::Math::Polyhedron::isOutOfBounds</a></div><div class="ttdeci">bool isOutOfBounds(const std::vector&lt; FaceIndices &gt; &amp;faces) const</div><div class="ttdoc">Checks if the list of face indices are out of bounds with the current size of the vertices.</div><div class="ttdef"><b>Definition</b> <a href="_polyhedron_8cpp_source.html#l00159">Polyhedron.cpp:159</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_polyhedron_html_abcbb3db03df72c7e0a6af459c982e5ea"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#abcbb3db03df72c7e0a6af459c982e5ea">GLESC::Math::Polyhedron::isOutOfBounds</a></div><div class="ttdeci">bool isOutOfBounds(const std::vector&lt; FaceIndices &gt; &amp;faces) const</div><div class="ttdoc">Checks if the list of face indices are out of bounds with the current size of the vertices.</div><div class="ttdef"><b>Definition</b> <a href="_polyhedron_8cpp_source.html#l00150">Polyhedron.cpp:150</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_asserts_8h_source.html#l00022">D_ASSERT_FALSE</a>, <a class="el" href="_polyhedron_8h_source.html#l00166">faces</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, <a class="el" href="_polyhedron_8cpp_source.html#l00159">isOutOfBounds()</a>, and <a class="el" href="_polyhedron_8h_source.html#l00165">vertices</a>.</p>
+<p class="reference">References <a class="el" href="_asserts_8h_source.html#l00022">D_ASSERT_FALSE</a>, <a class="el" href="_polyhedron_8h_source.html#l00166">faces</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, <a class="el" href="_polyhedron_8cpp_source.html#l00150">isOutOfBounds()</a>, and <a class="el" href="_polyhedron_8h_source.html#l00165">vertices</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_polyhedron_8cpp_source.html#l00016">Polyhedron()</a>, and <a class="el" href="_polyhedron_8cpp_source.html#l00047">addQuad()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_polyhedron_8cpp_source.html#l00007">Polyhedron()</a>, and <a class="el" href="_polyhedron_8cpp_source.html#l00038">addQuad()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -384,27 +384,27 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_polyhedron_8cpp_source.html#l00047">47</a> of file <a class="el" href="_polyhedron_8cpp_source.html">Polyhedron.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   47</span>                                                     {</div>
-<div class="line"><span class="lineno">   48</span>    <a class="code hl_typedef" href="namespace_g_l_e_s_c_1_1_math.html#a1a2e87e8565735c5aaa6bc4b65c6751b">FaceIndices</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">face1</a>;</div>
-<div class="line"><span class="lineno">   49</span>    <a class="code hl_typedef" href="namespace_g_l_e_s_c_1_1_math.html#a1a2e87e8565735c5aaa6bc4b65c6751b">FaceIndices</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">face2</a>;</div>
-<div class="line"><span class="lineno">   50</span> </div>
-<div class="line"><span class="lineno">   51</span>    <span class="comment">// First triangle</span></div>
-<div class="line"><span class="lineno">   52</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">face1</a>[0] = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">faceParam</a>[0];</div>
-<div class="line"><span class="lineno">   53</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">face1</a>[1] = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">faceParam</a>[1];</div>
-<div class="line"><span class="lineno">   54</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">face1</a>[2] = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">faceParam</a>[2];</div>
-<div class="line"><span class="lineno">   55</span> </div>
-<div class="line"><span class="lineno">   56</span>    <span class="comment">// Second triangle</span></div>
-<div class="line"><span class="lineno">   57</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">face2</a>[0] = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">faceParam</a>[0];</div>
-<div class="line"><span class="lineno">   58</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">face2</a>[1] = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">faceParam</a>[2];</div>
-<div class="line"><span class="lineno">   59</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">face2</a>[2] = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">faceParam</a>[3];</div>
-<div class="line"><span class="lineno">   60</span> </div>
-<div class="line"><span class="lineno">   61</span>    <a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a7d974bf2202337714b156a874c440d93">addFace</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">face1</a>);</div>
-<div class="line"><span class="lineno">   62</span>    <a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a7d974bf2202337714b156a874c440d93">addFace</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">face2</a>);</div>
-<div class="line"><span class="lineno">   63</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_polyhedron_8cpp_source.html#l00038">38</a> of file <a class="el" href="_polyhedron_8cpp_source.html">Polyhedron.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   38</span>                                                     {</div>
+<div class="line"><span class="lineno">   39</span>    <a class="code hl_typedef" href="namespace_g_l_e_s_c_1_1_math.html#a1a2e87e8565735c5aaa6bc4b65c6751b">FaceIndices</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">face1</a>;</div>
+<div class="line"><span class="lineno">   40</span>    <a class="code hl_typedef" href="namespace_g_l_e_s_c_1_1_math.html#a1a2e87e8565735c5aaa6bc4b65c6751b">FaceIndices</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">face2</a>;</div>
+<div class="line"><span class="lineno">   41</span> </div>
+<div class="line"><span class="lineno">   42</span>    <span class="comment">// First triangle</span></div>
+<div class="line"><span class="lineno">   43</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">face1</a>[0] = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">faceParam</a>[0];</div>
+<div class="line"><span class="lineno">   44</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">face1</a>[1] = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">faceParam</a>[1];</div>
+<div class="line"><span class="lineno">   45</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">face1</a>[2] = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">faceParam</a>[2];</div>
+<div class="line"><span class="lineno">   46</span> </div>
+<div class="line"><span class="lineno">   47</span>    <span class="comment">// Second triangle</span></div>
+<div class="line"><span class="lineno">   48</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">face2</a>[0] = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">faceParam</a>[0];</div>
+<div class="line"><span class="lineno">   49</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">face2</a>[1] = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">faceParam</a>[2];</div>
+<div class="line"><span class="lineno">   50</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">face2</a>[2] = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">faceParam</a>[3];</div>
+<div class="line"><span class="lineno">   51</span> </div>
+<div class="line"><span class="lineno">   52</span>    <a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a7d974bf2202337714b156a874c440d93">addFace</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">face1</a>);</div>
+<div class="line"><span class="lineno">   53</span>    <a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a7d974bf2202337714b156a874c440d93">addFace</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">face2</a>);</div>
+<div class="line"><span class="lineno">   54</span>}</div>
 <div class="ttc" id="anamespace_g_l_e_s_c_1_1_math_html_a1a2e87e8565735c5aaa6bc4b65c6751b"><div class="ttname"><a href="namespace_g_l_e_s_c_1_1_math.html#a1a2e87e8565735c5aaa6bc4b65c6751b">GLESC::Math::FaceIndices</a></div><div class="ttdeci">std::array&lt; Index, 3 &gt; FaceIndices</div><div class="ttdoc">Alias for the face indices type, a face is defined by 3 indices.</div><div class="ttdef"><b>Definition</b> <a href="_geometry_types_8h_source.html#l00042">GeometryTypes.h:42</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_polyhedron_8cpp_source.html#l00033">addFace()</a>, and <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
+<p class="reference">References <a class="el" href="_polyhedron_8cpp_source.html#l00024">addFace()</a>, and <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -437,14 +437,14 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_polyhedron_8cpp_source.html#l00023">23</a> of file <a class="el" href="_polyhedron_8cpp_source.html">Polyhedron.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   23</span>                                              {</div>
-<div class="line"><span class="lineno">   24</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a29346ea2c5eaf681b8526644204b0607">vertices</a>.push_back(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vertex</a>);</div>
-<div class="line"><span class="lineno">   25</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_polyhedron_8cpp_source.html#l00014">14</a> of file <a class="el" href="_polyhedron_8cpp_source.html">Polyhedron.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   14</span>                                              {</div>
+<div class="line"><span class="lineno">   15</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a29346ea2c5eaf681b8526644204b0607">vertices</a>.push_back(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vertex</a>);</div>
+<div class="line"><span class="lineno">   16</span>}</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_polyhedron_8h_source.html#l00165">vertices</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_polyhedron_factory_8cpp_source.html#l00071">GLESC::PolyhedronFactory::Regular::icos()</a>, <a class="el" href="_polyhedron_factory_8cpp_source.html#l00041">GLESC::PolyhedronFactory::Regular::octa()</a>, and <a class="el" href="_polyhedron_factory_8cpp_source.html#l00118">GLESC::PolyhedronFactory::Common::rectangularCuboid()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_polyhedron_factory_8cpp_source.html#l00062">GLESC::PolyhedronFactory::Regular::icos()</a>, <a class="el" href="_polyhedron_factory_8cpp_source.html#l00032">GLESC::PolyhedronFactory::Regular::octa()</a>, and <a class="el" href="_polyhedron_factory_8cpp_source.html#l00109">GLESC::PolyhedronFactory::Common::rectangularCuboid()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -470,11 +470,11 @@ Here is the caller graph for this function:</div>
 
 <p>Clear the polyhedron. Erase all vertices and faces. </p>
 
-<p class="definition">Definition at line <a class="el" href="_polyhedron_8cpp_source.html#l00027">27</a> of file <a class="el" href="_polyhedron_8cpp_source.html">Polyhedron.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   27</span>                       {</div>
-<div class="line"><span class="lineno">   28</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a29346ea2c5eaf681b8526644204b0607">vertices</a> = std::vector&lt;Point&gt;();</div>
-<div class="line"><span class="lineno">   29</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a3826d79c14352e73bd18840ed3783117">faces</a> = std::vector&lt;PolyhedronFace&gt;();</div>
-<div class="line"><span class="lineno">   30</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_polyhedron_8cpp_source.html#l00018">18</a> of file <a class="el" href="_polyhedron_8cpp_source.html">Polyhedron.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   18</span>                       {</div>
+<div class="line"><span class="lineno">   19</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a29346ea2c5eaf681b8526644204b0607">vertices</a> = std::vector&lt;Point&gt;();</div>
+<div class="line"><span class="lineno">   20</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a3826d79c14352e73bd18840ed3783117">faces</a> = std::vector&lt;PolyhedronFace&gt;();</div>
+<div class="line"><span class="lineno">   21</span>}</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_polyhedron_8h_source.html#l00166">faces</a>, and <a class="el" href="_polyhedron_8h_source.html#l00165">vertices</a>.</p>
 
@@ -498,15 +498,15 @@ Here is the caller graph for this function:</div>
 <p>Get the center of the polyhedron. </p>
 <dl class="section return"><dt>Returns</dt><dd>Point The center of the polyhedron. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_polyhedron_8cpp_source.html#l00065">65</a> of file <a class="el" href="_polyhedron_8cpp_source.html">Polyhedron.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   65</span>                                  {</div>
-<div class="line"><span class="lineno">   66</span>    <a class="code hl_class" href="class_g_l_e_s_c_1_1_math_1_1_vector.html">Point</a> center;</div>
-<div class="line"><span class="lineno">   67</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vertex</a> : <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a29346ea2c5eaf681b8526644204b0607">vertices</a>) {</div>
-<div class="line"><span class="lineno">   68</span>        center += <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vertex</a>;</div>
-<div class="line"><span class="lineno">   69</span>    }</div>
-<div class="line"><span class="lineno">   70</span>    center /= <span class="keyword">static_cast&lt;</span><a class="code hl_typedef" href="namespace_g_l_e_s_c_1_1_math.html#a41c67586ad532e578bb839ad5067d3ac">Distance</a><span class="keyword">&gt;</span>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a29346ea2c5eaf681b8526644204b0607">vertices</a>.size());</div>
-<div class="line"><span class="lineno">   71</span>    <span class="keywordflow">return</span> center;</div>
-<div class="line"><span class="lineno">   72</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_polyhedron_8cpp_source.html#l00056">56</a> of file <a class="el" href="_polyhedron_8cpp_source.html">Polyhedron.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   56</span>                                  {</div>
+<div class="line"><span class="lineno">   57</span>    <a class="code hl_class" href="class_g_l_e_s_c_1_1_math_1_1_vector.html">Point</a> center;</div>
+<div class="line"><span class="lineno">   58</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vertex</a> : <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a29346ea2c5eaf681b8526644204b0607">vertices</a>) {</div>
+<div class="line"><span class="lineno">   59</span>        center += <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vertex</a>;</div>
+<div class="line"><span class="lineno">   60</span>    }</div>
+<div class="line"><span class="lineno">   61</span>    center /= <span class="keyword">static_cast&lt;</span><a class="code hl_typedef" href="namespace_g_l_e_s_c_1_1_math.html#a41c67586ad532e578bb839ad5067d3ac">Distance</a><span class="keyword">&gt;</span>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a29346ea2c5eaf681b8526644204b0607">vertices</a>.size());</div>
+<div class="line"><span class="lineno">   62</span>    <span class="keywordflow">return</span> center;</div>
+<div class="line"><span class="lineno">   63</span>}</div>
 <div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_vector_html"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_vector.html">GLESC::Math::Vector</a></div><div class="ttdef"><b>Definition</b> <a href="_vector_8h_source.html#l00025">Vector.h:25</a></div></div>
 <div class="ttc" id="anamespace_g_l_e_s_c_1_1_math_html_a41c67586ad532e578bb839ad5067d3ac"><div class="ttname"><a href="namespace_g_l_e_s_c_1_1_math.html#a41c67586ad532e578bb839ad5067d3ac">GLESC::Math::Distance</a></div><div class="ttdeci">float Distance</div><div class="ttdoc">Alias for the distance type.</div><div class="ttdef"><b>Definition</b> <a href="_geometry_types_8h_source.html#l00034">GeometryTypes.h:34</a></div></div>
 </div><!-- fragment -->
@@ -532,10 +532,10 @@ Here is the caller graph for this function:</div>
 <p>Get the faces of the polyhedron. </p>
 <dl class="section return"><dt>Returns</dt><dd>const std::vector&lt;PolyhedronFace&gt;&amp; The faces of the polyhedron. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_polyhedron_8cpp_source.html#l00074">74</a> of file <a class="el" href="_polyhedron_8cpp_source.html">Polyhedron.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   74</span>                                                                          {</div>
-<div class="line"><span class="lineno">   75</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a3826d79c14352e73bd18840ed3783117">faces</a>;</div>
-<div class="line"><span class="lineno">   76</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_polyhedron_8cpp_source.html#l00065">65</a> of file <a class="el" href="_polyhedron_8cpp_source.html">Polyhedron.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   65</span>                                                                          {</div>
+<div class="line"><span class="lineno">   66</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a3826d79c14352e73bd18840ed3783117">faces</a>;</div>
+<div class="line"><span class="lineno">   67</span>}</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_polyhedron_8h_source.html#l00166">faces</a>.</p>
 
@@ -559,10 +559,10 @@ Here is the caller graph for this function:</div>
 <p>Get the vertices of the polyhedron. </p>
 <dl class="section return"><dt>Returns</dt><dd>const std::vector&lt;Point&gt;&amp; The vertices of the polyhedron. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_polyhedron_8cpp_source.html#l00079">79</a> of file <a class="el" href="_polyhedron_8cpp_source.html">Polyhedron.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   79</span>                                                                    {</div>
-<div class="line"><span class="lineno">   80</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a29346ea2c5eaf681b8526644204b0607">vertices</a>;</div>
-<div class="line"><span class="lineno">   81</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_polyhedron_8cpp_source.html#l00070">70</a> of file <a class="el" href="_polyhedron_8cpp_source.html">Polyhedron.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   70</span>                                                                    {</div>
+<div class="line"><span class="lineno">   71</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a29346ea2c5eaf681b8526644204b0607">vertices</a>;</div>
+<div class="line"><span class="lineno">   72</span>}</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_polyhedron_8h_source.html#l00165">vertices</a>.</p>
 
@@ -586,10 +586,10 @@ Here is the caller graph for this function:</div>
 <p>Get the vertices of the polyhedron. </p>
 <dl class="section return"><dt>Returns</dt><dd>std::vector&lt;Point&gt;&amp; The vertices of the polyhedron. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_polyhedron_8cpp_source.html#l00083">83</a> of file <a class="el" href="_polyhedron_8cpp_source.html">Polyhedron.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   83</span>                                                               {</div>
-<div class="line"><span class="lineno">   84</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a29346ea2c5eaf681b8526644204b0607">vertices</a>;</div>
-<div class="line"><span class="lineno">   85</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_polyhedron_8cpp_source.html#l00074">74</a> of file <a class="el" href="_polyhedron_8cpp_source.html">Polyhedron.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   74</span>                                                               {</div>
+<div class="line"><span class="lineno">   75</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a29346ea2c5eaf681b8526644204b0607">vertices</a>;</div>
+<div class="line"><span class="lineno">   76</span>}</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_polyhedron_8h_source.html#l00165">vertices</a>.</p>
 
@@ -620,19 +620,19 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if the polyhedron has any vertex inside the other polyhedron, false otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_polyhedron_8cpp_source.html#l00112">112</a> of file <a class="el" href="_polyhedron_8cpp_source.html">Polyhedron.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  112</span>                                                                                    {</div>
-<div class="line"><span class="lineno">  113</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vertex</a> : <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">polyhedron</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a23e7f04fbee1089a6bb69b5f153284a4">getVertices</a>()) {</div>
-<div class="line"><span class="lineno">  114</span>        <span class="keywordflow">if</span> (<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a77d5b42b8005d1984e0894e94dc1b006">hasInside</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vertex</a>)) {</div>
-<div class="line"><span class="lineno">  115</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  116</span>        }</div>
-<div class="line"><span class="lineno">  117</span>    }</div>
-<div class="line"><span class="lineno">  118</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  119</span>}</div>
-<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_polyhedron_html_a23e7f04fbee1089a6bb69b5f153284a4"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a23e7f04fbee1089a6bb69b5f153284a4">GLESC::Math::Polyhedron::getVertices</a></div><div class="ttdeci">const std::vector&lt; Point &gt; &amp; getVertices() const</div><div class="ttdoc">Get the vertices of the polyhedron.</div><div class="ttdef"><b>Definition</b> <a href="_polyhedron_8cpp_source.html#l00079">Polyhedron.cpp:79</a></div></div>
-<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_polyhedron_html_a77d5b42b8005d1984e0894e94dc1b006"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a77d5b42b8005d1984e0894e94dc1b006">GLESC::Math::Polyhedron::hasInside</a></div><div class="ttdeci">bool hasInside(const Point &amp;point) const</div><div class="ttdoc">Checks if a point is inside the polyhedron.</div><div class="ttdef"><b>Definition</b> <a href="_polyhedron_8cpp_source.html#l00098">Polyhedron.cpp:98</a></div></div>
+<p class="definition">Definition at line <a class="el" href="_polyhedron_8cpp_source.html#l00103">103</a> of file <a class="el" href="_polyhedron_8cpp_source.html">Polyhedron.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  103</span>                                                                                    {</div>
+<div class="line"><span class="lineno">  104</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vertex</a> : <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">polyhedron</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a23e7f04fbee1089a6bb69b5f153284a4">getVertices</a>()) {</div>
+<div class="line"><span class="lineno">  105</span>        <span class="keywordflow">if</span> (<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a77d5b42b8005d1984e0894e94dc1b006">hasInside</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vertex</a>)) {</div>
+<div class="line"><span class="lineno">  106</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  107</span>        }</div>
+<div class="line"><span class="lineno">  108</span>    }</div>
+<div class="line"><span class="lineno">  109</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  110</span>}</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_polyhedron_html_a23e7f04fbee1089a6bb69b5f153284a4"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a23e7f04fbee1089a6bb69b5f153284a4">GLESC::Math::Polyhedron::getVertices</a></div><div class="ttdeci">const std::vector&lt; Point &gt; &amp; getVertices() const</div><div class="ttdoc">Get the vertices of the polyhedron.</div><div class="ttdef"><b>Definition</b> <a href="_polyhedron_8cpp_source.html#l00070">Polyhedron.cpp:70</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_polyhedron_html_a77d5b42b8005d1984e0894e94dc1b006"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a77d5b42b8005d1984e0894e94dc1b006">GLESC::Math::Polyhedron::hasInside</a></div><div class="ttdeci">bool hasInside(const Point &amp;point) const</div><div class="ttdoc">Checks if a point is inside the polyhedron.</div><div class="ttdef"><b>Definition</b> <a href="_polyhedron_8cpp_source.html#l00089">Polyhedron.cpp:89</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_polyhedron_8cpp_source.html#l00098">hasInside()</a>, and <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
+<p class="reference">References <a class="el" href="_polyhedron_8cpp_source.html#l00089">hasInside()</a>, and <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -666,16 +666,16 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if the point is inside the polyhedron, false otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_polyhedron_8cpp_source.html#l00098">98</a> of file <a class="el" href="_polyhedron_8cpp_source.html">Polyhedron.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   98</span>                                                                 {</div>
-<div class="line"><span class="lineno">   99</span>    (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>)point;</div>
-<div class="line"><span class="lineno">  100</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<span class="keyword">false</span>, <span class="stringliteral">&quot;Not implemented&quot;</span>);</div>
-<div class="line"><span class="lineno">  101</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_polyhedron_8cpp_source.html#l00089">89</a> of file <a class="el" href="_polyhedron_8cpp_source.html">Polyhedron.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   89</span>                                                                 {</div>
+<div class="line"><span class="lineno">   90</span>    (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">void</a>)point;</div>
+<div class="line"><span class="lineno">   91</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<span class="keyword">false</span>, <span class="stringliteral">&quot;Not implemented&quot;</span>);</div>
+<div class="line"><span class="lineno">   92</span>}</div>
 <div class="ttc" id="a_asserts_8h_html_a7c8157e57600c968442fc2ee80245d5a"><div class="ttname"><a href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a></div><div class="ttdeci">#define D_ASSERT_TRUE(condition, message)</div><div class="ttdef"><b>Definition</b> <a href="_asserts_8h_source.html#l00021">Asserts.h:21</a></div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_asserts_8h_source.html#l00021">D_ASSERT_TRUE</a>, and <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_polyhedron_8cpp_source.html#l00112">hasAnyVertexInside()</a>, <a class="el" href="_polyhedron_8cpp_source.html#l00121">hasInside()</a>, and <a class="el" href="_polyhedron_8cpp_source.html#l00103">hasInside()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_polyhedron_8cpp_source.html#l00103">hasAnyVertexInside()</a>, <a class="el" href="_polyhedron_8cpp_source.html#l00112">hasInside()</a>, and <a class="el" href="_polyhedron_8cpp_source.html#l00094">hasInside()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -709,17 +709,17 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if the polyhedron has any vertex inside the other polyhedron, false otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_polyhedron_8cpp_source.html#l00121">121</a> of file <a class="el" href="_polyhedron_8cpp_source.html">Polyhedron.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  121</span>                                                                           {</div>
-<div class="line"><span class="lineno">  122</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vertex</a> : <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">polyhedron</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a23e7f04fbee1089a6bb69b5f153284a4">getVertices</a>()) {</div>
-<div class="line"><span class="lineno">  123</span>        <span class="keywordflow">if</span> (!<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a77d5b42b8005d1984e0894e94dc1b006">hasInside</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vertex</a>)) {</div>
-<div class="line"><span class="lineno">  124</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  125</span>        }</div>
-<div class="line"><span class="lineno">  126</span>    }</div>
-<div class="line"><span class="lineno">  127</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  128</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_polyhedron_8cpp_source.html#l00112">112</a> of file <a class="el" href="_polyhedron_8cpp_source.html">Polyhedron.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  112</span>                                                                           {</div>
+<div class="line"><span class="lineno">  113</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vertex</a> : <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">polyhedron</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a23e7f04fbee1089a6bb69b5f153284a4">getVertices</a>()) {</div>
+<div class="line"><span class="lineno">  114</span>        <span class="keywordflow">if</span> (!<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a77d5b42b8005d1984e0894e94dc1b006">hasInside</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vertex</a>)) {</div>
+<div class="line"><span class="lineno">  115</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  116</span>        }</div>
+<div class="line"><span class="lineno">  117</span>    }</div>
+<div class="line"><span class="lineno">  118</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  119</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_polyhedron_8cpp_source.html#l00098">hasInside()</a>, and <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
+<p class="reference">References <a class="el" href="_polyhedron_8cpp_source.html#l00089">hasInside()</a>, and <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -753,17 +753,17 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if the face is inside the polyhedron, false otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_polyhedron_8cpp_source.html#l00103">103</a> of file <a class="el" href="_polyhedron_8cpp_source.html">Polyhedron.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  103</span>                                                                   {</div>
-<div class="line"><span class="lineno">  104</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vertex</a> : <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">face</a>.getPolyhedronVertices()) {</div>
-<div class="line"><span class="lineno">  105</span>        <span class="keywordflow">if</span> (!<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a77d5b42b8005d1984e0894e94dc1b006">hasInside</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vertex</a>)) {</div>
-<div class="line"><span class="lineno">  106</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  107</span>        }</div>
-<div class="line"><span class="lineno">  108</span>    }</div>
-<div class="line"><span class="lineno">  109</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  110</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_polyhedron_8cpp_source.html#l00094">94</a> of file <a class="el" href="_polyhedron_8cpp_source.html">Polyhedron.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   94</span>                                                                   {</div>
+<div class="line"><span class="lineno">   95</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vertex</a> : <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">face</a>.getPolyhedronVertices()) {</div>
+<div class="line"><span class="lineno">   96</span>        <span class="keywordflow">if</span> (!<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a77d5b42b8005d1984e0894e94dc1b006">hasInside</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">vertex</a>)) {</div>
+<div class="line"><span class="lineno">   97</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">   98</span>        }</div>
+<div class="line"><span class="lineno">   99</span>    }</div>
+<div class="line"><span class="lineno">  100</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  101</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_polyhedron_8cpp_source.html#l00098">hasInside()</a>, and <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
+<p class="reference">References <a class="el" href="_polyhedron_8cpp_source.html#l00089">hasInside()</a>, and <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -797,15 +797,15 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if the polyhedron intersects with the line, false otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_polyhedron_8cpp_source.html#l00130">130</a> of file <a class="el" href="_polyhedron_8cpp_source.html">Polyhedron.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  130</span>                                                                {</div>
-<div class="line"><span class="lineno">  131</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">face</a> : <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a3826d79c14352e73bd18840ed3783117">faces</a>) {</div>
-<div class="line"><span class="lineno">  132</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">face</a>.intersects(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">line</a>)) {</div>
-<div class="line"><span class="lineno">  133</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  134</span>        }</div>
-<div class="line"><span class="lineno">  135</span>    }</div>
-<div class="line"><span class="lineno">  136</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  137</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_polyhedron_8cpp_source.html#l00121">121</a> of file <a class="el" href="_polyhedron_8cpp_source.html">Polyhedron.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  121</span>                                                                {</div>
+<div class="line"><span class="lineno">  122</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">face</a> : <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a3826d79c14352e73bd18840ed3783117">faces</a>) {</div>
+<div class="line"><span class="lineno">  123</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">face</a>.intersects(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">line</a>)) {</div>
+<div class="line"><span class="lineno">  124</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  125</span>        }</div>
+<div class="line"><span class="lineno">  126</span>    }</div>
+<div class="line"><span class="lineno">  127</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  128</span>}</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_polyhedron_8h_source.html#l00166">faces</a>, and <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
 
@@ -836,15 +836,15 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if the polyhedron intersects with the plane, false otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_polyhedron_8cpp_source.html#l00148">148</a> of file <a class="el" href="_polyhedron_8cpp_source.html">Polyhedron.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  148</span>                                                                  {</div>
-<div class="line"><span class="lineno">  149</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">face</a> : <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a3826d79c14352e73bd18840ed3783117">faces</a>) {</div>
-<div class="line"><span class="lineno">  150</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">face</a>.intersects(plane)) {</div>
-<div class="line"><span class="lineno">  151</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  152</span>        }</div>
-<div class="line"><span class="lineno">  153</span>    }</div>
-<div class="line"><span class="lineno">  154</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  155</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_polyhedron_8cpp_source.html#l00139">139</a> of file <a class="el" href="_polyhedron_8cpp_source.html">Polyhedron.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  139</span>                                                                  {</div>
+<div class="line"><span class="lineno">  140</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">face</a> : <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a3826d79c14352e73bd18840ed3783117">faces</a>) {</div>
+<div class="line"><span class="lineno">  141</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">face</a>.intersects(plane)) {</div>
+<div class="line"><span class="lineno">  142</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  143</span>        }</div>
+<div class="line"><span class="lineno">  144</span>    }</div>
+<div class="line"><span class="lineno">  145</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  146</span>}</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_polyhedron_8h_source.html#l00166">faces</a>, and <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
 
@@ -875,15 +875,15 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if the polyhedron intersects with the point, false otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_polyhedron_8cpp_source.html#l00139">139</a> of file <a class="el" href="_polyhedron_8cpp_source.html">Polyhedron.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  139</span>                                                                  {</div>
-<div class="line"><span class="lineno">  140</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">face</a> : <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a3826d79c14352e73bd18840ed3783117">faces</a>) {</div>
-<div class="line"><span class="lineno">  141</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">face</a>.intersects(point)) {</div>
-<div class="line"><span class="lineno">  142</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  143</span>        }</div>
-<div class="line"><span class="lineno">  144</span>    }</div>
-<div class="line"><span class="lineno">  145</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  146</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_polyhedron_8cpp_source.html#l00130">130</a> of file <a class="el" href="_polyhedron_8cpp_source.html">Polyhedron.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  130</span>                                                                  {</div>
+<div class="line"><span class="lineno">  131</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">face</a> : <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a3826d79c14352e73bd18840ed3783117">faces</a>) {</div>
+<div class="line"><span class="lineno">  132</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">face</a>.intersects(point)) {</div>
+<div class="line"><span class="lineno">  133</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  134</span>        }</div>
+<div class="line"><span class="lineno">  135</span>    }</div>
+<div class="line"><span class="lineno">  136</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  137</span>}</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_polyhedron_8h_source.html#l00166">faces</a>, and <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
 
@@ -914,18 +914,18 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if the polyhedron intersects with the other polyhedron, false otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_polyhedron_8cpp_source.html#l00087">87</a> of file <a class="el" href="_polyhedron_8cpp_source.html">Polyhedron.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   87</span>                                                                       {</div>
-<div class="line"><span class="lineno">   88</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">face</a> : <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a3826d79c14352e73bd18840ed3783117">faces</a>) {</div>
-<div class="line"><span class="lineno">   89</span>        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">otherFace</a> : <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">other</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a7945cab53ad039e1a9614723e8c1b2fc">getFaces</a>()) {</div>
-<div class="line"><span class="lineno">   90</span>            <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">face</a>.intersects(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">otherFace</a>)) {</div>
-<div class="line"><span class="lineno">   91</span>                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">   92</span>            }</div>
-<div class="line"><span class="lineno">   93</span>        }</div>
-<div class="line"><span class="lineno">   94</span>    }</div>
-<div class="line"><span class="lineno">   95</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">   96</span>}</div>
-<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_polyhedron_html_a7945cab53ad039e1a9614723e8c1b2fc"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a7945cab53ad039e1a9614723e8c1b2fc">GLESC::Math::Polyhedron::getFaces</a></div><div class="ttdeci">const std::vector&lt; PolyhedronFace &gt; &amp; getFaces() const</div><div class="ttdoc">Get the faces of the polyhedron.</div><div class="ttdef"><b>Definition</b> <a href="_polyhedron_8cpp_source.html#l00074">Polyhedron.cpp:74</a></div></div>
+<p class="definition">Definition at line <a class="el" href="_polyhedron_8cpp_source.html#l00078">78</a> of file <a class="el" href="_polyhedron_8cpp_source.html">Polyhedron.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   78</span>                                                                       {</div>
+<div class="line"><span class="lineno">   79</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">face</a> : <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a3826d79c14352e73bd18840ed3783117">faces</a>) {</div>
+<div class="line"><span class="lineno">   80</span>        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">otherFace</a> : <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">other</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a7945cab53ad039e1a9614723e8c1b2fc">getFaces</a>()) {</div>
+<div class="line"><span class="lineno">   81</span>            <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">face</a>.intersects(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">otherFace</a>)) {</div>
+<div class="line"><span class="lineno">   82</span>                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   83</span>            }</div>
+<div class="line"><span class="lineno">   84</span>        }</div>
+<div class="line"><span class="lineno">   85</span>    }</div>
+<div class="line"><span class="lineno">   86</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">   87</span>}</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_polyhedron_html_a7945cab53ad039e1a9614723e8c1b2fc"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a7945cab53ad039e1a9614723e8c1b2fc">GLESC::Math::Polyhedron::getFaces</a></div><div class="ttdeci">const std::vector&lt; PolyhedronFace &gt; &amp; getFaces() const</div><div class="ttdoc">Get the faces of the polyhedron.</div><div class="ttdef"><b>Definition</b> <a href="_polyhedron_8cpp_source.html#l00065">Polyhedron.cpp:65</a></div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_polyhedron_8h_source.html#l00166">faces</a>, and <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
 
@@ -964,15 +964,15 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if the face indices are out of bounds, false otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_polyhedron_8cpp_source.html#l00168">168</a> of file <a class="el" href="_polyhedron_8cpp_source.html">Polyhedron.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  168</span>                                                            {</div>
-<div class="line"><span class="lineno">  169</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">index</a> : <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">face</a>) {</div>
-<div class="line"><span class="lineno">  170</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">index</a> &gt;= <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a29346ea2c5eaf681b8526644204b0607">vertices</a>.size()) {</div>
-<div class="line"><span class="lineno">  171</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  172</span>        }</div>
-<div class="line"><span class="lineno">  173</span>    }</div>
-<div class="line"><span class="lineno">  174</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  175</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_polyhedron_8cpp_source.html#l00159">159</a> of file <a class="el" href="_polyhedron_8cpp_source.html">Polyhedron.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  159</span>                                                            {</div>
+<div class="line"><span class="lineno">  160</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">index</a> : <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">face</a>) {</div>
+<div class="line"><span class="lineno">  161</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">index</a> &gt;= <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a29346ea2c5eaf681b8526644204b0607">vertices</a>.size()) {</div>
+<div class="line"><span class="lineno">  162</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  163</span>        }</div>
+<div class="line"><span class="lineno">  164</span>    }</div>
+<div class="line"><span class="lineno">  165</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  166</span>}</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_polyhedron_8h_source.html#l00165">vertices</a>.</p>
 
@@ -1011,19 +1011,19 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if the face indices are out of bounds, false otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_polyhedron_8cpp_source.html#l00159">159</a> of file <a class="el" href="_polyhedron_8cpp_source.html">Polyhedron.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  159</span>                                                                        {</div>
-<div class="line"><span class="lineno">  160</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">face</a> : <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a3826d79c14352e73bd18840ed3783117">faces</a>) {</div>
-<div class="line"><span class="lineno">  161</span>        <span class="keywordflow">if</span> (<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#abcbb3db03df72c7e0a6af459c982e5ea">isOutOfBounds</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">face</a>)) {</div>
-<div class="line"><span class="lineno">  162</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  163</span>        }</div>
-<div class="line"><span class="lineno">  164</span>    }</div>
-<div class="line"><span class="lineno">  165</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  166</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_polyhedron_8cpp_source.html#l00150">150</a> of file <a class="el" href="_polyhedron_8cpp_source.html">Polyhedron.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  150</span>                                                                        {</div>
+<div class="line"><span class="lineno">  151</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">face</a> : <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#a3826d79c14352e73bd18840ed3783117">faces</a>) {</div>
+<div class="line"><span class="lineno">  152</span>        <span class="keywordflow">if</span> (<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_polyhedron.html#abcbb3db03df72c7e0a6af459c982e5ea">isOutOfBounds</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">face</a>)) {</div>
+<div class="line"><span class="lineno">  153</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  154</span>        }</div>
+<div class="line"><span class="lineno">  155</span>    }</div>
+<div class="line"><span class="lineno">  156</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  157</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_polyhedron_8h_source.html#l00166">faces</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_polyhedron_8cpp_source.html#l00159">isOutOfBounds()</a>.</p>
+<p class="reference">References <a class="el" href="_polyhedron_8h_source.html#l00166">faces</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_polyhedron_8cpp_source.html#l00150">isOutOfBounds()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_polyhedron_8cpp_source.html#l00033">addFace()</a>, and <a class="el" href="_polyhedron_8cpp_source.html#l00159">isOutOfBounds()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_polyhedron_8cpp_source.html#l00024">addFace()</a>, and <a class="el" href="_polyhedron_8cpp_source.html#l00150">isOutOfBounds()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1103,7 +1103,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="_polyhedron_8h_source.html#l00166">166</a> of file <a class="el" href="_polyhedron_8h_source.html">Polyhedron.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_polyhedron_8cpp_source.html#l00016">Polyhedron()</a>, <a class="el" href="_polyhedron_8cpp_source.html#l00033">addFace()</a>, <a class="el" href="_polyhedron_8cpp_source.html#l00027">clear()</a>, <a class="el" href="_polyhedron_8cpp_source.html#l00074">getFaces()</a>, <a class="el" href="_polyhedron_8cpp_source.html#l00130">intersects()</a>, <a class="el" href="_polyhedron_8cpp_source.html#l00148">intersects()</a>, <a class="el" href="_polyhedron_8cpp_source.html#l00139">intersects()</a>, <a class="el" href="_polyhedron_8cpp_source.html#l00087">intersects()</a>, and <a class="el" href="_polyhedron_8cpp_source.html#l00159">isOutOfBounds()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_polyhedron_8cpp_source.html#l00007">Polyhedron()</a>, <a class="el" href="_polyhedron_8cpp_source.html#l00024">addFace()</a>, <a class="el" href="_polyhedron_8cpp_source.html#l00018">clear()</a>, <a class="el" href="_polyhedron_8cpp_source.html#l00065">getFaces()</a>, <a class="el" href="_polyhedron_8cpp_source.html#l00121">intersects()</a>, <a class="el" href="_polyhedron_8cpp_source.html#l00139">intersects()</a>, <a class="el" href="_polyhedron_8cpp_source.html#l00130">intersects()</a>, <a class="el" href="_polyhedron_8cpp_source.html#l00078">intersects()</a>, and <a class="el" href="_polyhedron_8cpp_source.html#l00150">isOutOfBounds()</a>.</p>
 
 </div>
 </div>
@@ -1129,7 +1129,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="_polyhedron_8h_source.html#l00165">165</a> of file <a class="el" href="_polyhedron_8h_source.html">Polyhedron.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_polyhedron_8cpp_source.html#l00033">addFace()</a>, <a class="el" href="_polyhedron_8cpp_source.html#l00023">addVertex()</a>, <a class="el" href="_polyhedron_8cpp_source.html#l00027">clear()</a>, <a class="el" href="_polyhedron_8cpp_source.html#l00065">getCenter()</a>, <a class="el" href="_polyhedron_8cpp_source.html#l00079">getVertices()</a>, <a class="el" href="_polyhedron_8cpp_source.html#l00083">getVerticesMutable()</a>, <a class="el" href="_polyhedron_8cpp_source.html#l00168">isOutOfBounds()</a>, and <a class="el" href="_polyhedron_8h_source.html#l00145">operator=()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_polyhedron_8cpp_source.html#l00024">addFace()</a>, <a class="el" href="_polyhedron_8cpp_source.html#l00014">addVertex()</a>, <a class="el" href="_polyhedron_8cpp_source.html#l00018">clear()</a>, <a class="el" href="_polyhedron_8cpp_source.html#l00056">getCenter()</a>, <a class="el" href="_polyhedron_8cpp_source.html#l00070">getVertices()</a>, <a class="el" href="_polyhedron_8cpp_source.html#l00074">getVerticesMutable()</a>, <a class="el" href="_polyhedron_8cpp_source.html#l00159">isOutOfBounds()</a>, and <a class="el" href="_polyhedron_8h_source.html#l00145">operator=()</a>.</p>
 
 </div>
 </div>

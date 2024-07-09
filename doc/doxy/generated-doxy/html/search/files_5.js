@@ -15,6 +15,7 @@ var searchData=
   ['fpsaverager_2eh_12',['FPSAverager.h',['../_f_p_s_averager_8h.html',1,'']]],
   ['fpsmanager_2ecpp_13',['FPSManager.cpp',['../_f_p_s_manager_8cpp.html',1,'']]],
   ['fpsmanager_2eh_14',['FPSManager.h',['../_f_p_s_manager_8h.html',1,'']]],
-  ['frustum_2ecpp_15',['Frustum.cpp',['../_frustum_8cpp.html',1,'']]],
-  ['frustum_2eh_16',['Frustum.h',['../_frustum_8h.html',1,'']]]
+  ['fpstypes_2eh_15',['FpsTypes.h',['../_fps_types_8h.html',1,'']]],
+  ['frustum_2ecpp_16',['Frustum.cpp',['../_frustum_8cpp.html',1,'']]],
+  ['frustum_2eh_17',['Frustum.h',['../_frustum_8h.html',1,'']]]
 ];

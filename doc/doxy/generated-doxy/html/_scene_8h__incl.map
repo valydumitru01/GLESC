@@ -4,7 +4,7 @@
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="557,35,470,83,467,78,555,30"/>
 <area shape="rect" id="Node000003" href="$_scene_types_8h.html" title="@TODO Add description of this file if needed" alt="" coords="139,179,243,205"/>
 <area shape="poly" id="edge32_Node000001_Node000003" title=" " alt="" coords="544,26,393,45,316,62,285,71,263,82,243,100,226,122,203,165,198,163,222,119,239,96,260,78,283,66,314,56,392,40,544,20"/>
-<area shape="rect" id="Node000005" href="$_window_manager_8h.html" title="@TODO Add description of this file if needed" alt="" coords="261,459,396,501"/>
+<area shape="rect" id="Node000005" href="$_window_manager_8h.html" title="Manages the main application window and its properties." alt="" coords="261,459,396,501"/>
 <area shape="poly" id="edge85_Node000001_Node000005" title=" " alt="" coords="545,26,470,40,427,52,384,68,345,90,313,117,291,150,285,170,283,191,283,292,286,333,295,374,317,444,312,445,289,376,281,334,278,292,278,191,280,169,286,148,309,113,342,85,382,63,425,47,469,34,544,21"/>
 <area shape="rect" id="Node000044" href="$_entity_factory_8h.html" title=" " alt="" coords="2069,171,2220,213"/>
 <area shape="poly" id="edge86_Node000001_Node000044" title=" " alt="" coords="614,19,827,34,1180,63,1609,107,1833,136,2051,168,2054,168,2053,174,2051,173,1832,141,1609,113,1180,68,827,39,614,25"/>
@@ -27,7 +27,7 @@
 <area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="396,495,597,547,608,550,607,555,596,552,395,500"/>
 <area shape="rect" id="Node000008" href="$_vector_8h.html" title=" " alt="" coords="373,549,540,592"/>
 <area shape="poly" id="edge7_Node000005_Node000008" title=" " alt="" coords="360,500,416,538,413,543,357,504"/>
-<area shape="rect" id="Node000043" href="$_window_structs_8h.html" title="@TODO Add description of this file if needed" alt="" coords="228,557,349,584"/>
+<area shape="rect" id="Node000043" href="$_window_structs_8h.html" title="Defines structures related to window properties." alt="" coords="228,557,349,584"/>
 <area shape="poly" id="edge21_Node000005_Node000043" title=" " alt="" coords="322,503,303,544,298,542,317,501"/>
 <area shape="poly" id="edge10_Node000008_Node000006" title=" " alt="" coords="541,586,559,589,715,614,871,637,1004,659,1003,664,871,643,714,620,559,595,540,591"/>
 <area shape="rect" id="Node000009" title=" " alt="" coords="566,912,648,939"/>

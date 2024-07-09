@@ -1,11 +1,11 @@
 <map id="algebra" name="algebra">
 <area shape="rect" id="node2" href="dir_cde8b984bd20e759c1052d04133cdf41.html" title="matrix" alt="" coords="125,64,182,91"/>
 <area shape="rect" id="node4" href="dir_d44c64559bbebec7f509842c48db8b23.html" title="include" alt="" coords="162,139,225,165"/>
-<area shape="poly" id="edge1" href="dir_000089_000066.html" alt="" coords="163,90,181,124,177,126,158,93"/>
-<area shape="rect" id="edge1-headlabel" href="dir_000089_000066.html" title="2" alt="" coords="182,110,189,126"/>
+<area shape="poly" id="edge1" href="dir_000090_000066.html" alt="" coords="163,90,181,124,177,126,158,93"/>
+<area shape="rect" id="edge1-headlabel" href="dir_000090_000066.html" title="2" alt="" coords="182,110,189,126"/>
 <area shape="rect" id="node3" href="dir_2179280229301837a21927825fb06153.html" title="vector" alt="" coords="206,64,261,91"/>
-<area shape="poly" id="edge2" href="dir_000137_000066.html" alt="" coords="229,93,210,126,205,124,224,90"/>
-<area shape="rect" id="edge2-headlabel" href="dir_000137_000066.html" title="5" alt="" coords="213,119,220,135"/>
+<area shape="poly" id="edge2" href="dir_000138_000066.html" alt="" coords="229,93,210,126,205,124,224,90"/>
+<area shape="rect" id="edge2-headlabel" href="dir_000138_000066.html" title="5" alt="" coords="213,119,220,135"/>
 <area shape="rect" id="clust2" href="dir_1aed3f629e1c215e8dca1c9a0a97c63a.html" alt="" coords="27,53,272,101"/>
 <area shape="rect" id="clust1" href="dir_e134efd164ae47ff588654d4e88da55a.html" title="math" alt="" coords="16,16,283,112"/>
 </map>

@@ -2,7 +2,11 @@
  * @file   WindowManager.h
  * @author Valentin Dumitru
  * @date   2024-04-17
- * @brief  @TODO Add description of this file if needed
+ * @brief Manages the main application window and its properties.
+ * @details The WindowManager class provides methods to handle various window operations such as resizing, setting the
+ * title, changing position, and toggling fullscreen and borderless modes. It uses SDL2 for window management and
+ * ensures that the window is properly initialized, maintained, and destroyed.
+
  *
  * Copyright (c) 2024 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.

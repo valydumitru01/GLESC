@@ -57,7 +57,7 @@ var sectionId = 'dynsection-1';
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000001"><a xlink:title="Manages the main application window and its properties.">
 <polygon fill="#999999" stroke="#666666" points="336.12,-468 239.88,-468 239.88,-448 336.12,-448 336.12,-468"/>
 <text text-anchor="middle" x="288" y="-454.5" font-family="Helvetica,sans-Serif" font-size="10.00">WindowManager.h</text>
 </a>
@@ -291,7 +291,7 @@ var sectionId = 'dynsection-1';
 <!-- Node7 -->
 <g id="Node000007" class="node">
 <title>Node7</title>
-<g id="a_Node000007"><a xlink:href="_engine_camera_8cpp.html" target="_top" xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000007"><a xlink:href="_engine_camera_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="513.25,-188 414.75,-188 414.75,-168 513.25,-168 513.25,-188"/>
 <text text-anchor="middle" x="464" y="-174.5" font-family="Helvetica,sans-Serif" font-size="10.00">EngineCamera.cpp</text>
 </a>
@@ -363,7 +363,7 @@ var sectionId = 'dynsection-1';
 <!-- Node10 -->
 <g id="Node000010" class="node">
 <title>Node10</title>
-<g id="a_Node000010"><a xlink:href="_default_8cpp.html" target="_top" xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000010"><a xlink:href="_default_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="589.38,-76 524.62,-76 524.62,-56 589.38,-56 589.38,-76"/>
 <text text-anchor="middle" x="557" y="-62.5" font-family="Helvetica,sans-Serif" font-size="10.00">Default.cpp</text>
 </a>
@@ -624,7 +624,7 @@ var sectionId = 'dynsection-1';
 <!-- Node19 -->
 <g id="Node000019" class="node">
 <title>Node19</title>
-<g id="a_Node000019"><a xlink:href="_debug_info_system_8cpp.html" target="_top" xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000019"><a xlink:href="_debug_info_system_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="1385.62,-300 1274.38,-300 1274.38,-280 1385.62,-280 1385.62,-300"/>
 <text text-anchor="middle" x="1330" y="-286.5" font-family="Helvetica,sans-Serif" font-size="10.00">DebugInfoSystem.cpp</text>
 </a>
@@ -642,7 +642,7 @@ var sectionId = 'dynsection-1';
 <!-- Node21 -->
 <g id="Node000021" class="node">
 <title>Node21</title>
-<g id="a_Node000021"><a xlink:href="_debug_items_h_u_d_8cpp.html" target="_top" xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000021"><a xlink:href="_debug_items_h_u_d_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="654.38,-300 547.62,-300 547.62,-280 654.38,-280 654.38,-300"/>
 <text text-anchor="middle" x="601" y="-286.5" font-family="Helvetica,sans-Serif" font-size="10.00">DebugItemsHUD.cpp</text>
 </a>
@@ -687,7 +687,7 @@ var sectionId = 'dynsection-1';
 <!-- Node23 -->
 <g id="Node000023" class="node">
 <title>Node23</title>
-<g id="a_Node000023"><a xlink:href="_engine_h_u_d_manager_8cpp.html" target="_top" xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000023"><a xlink:href="_engine_h_u_d_manager_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="762.25,-244 639.75,-244 639.75,-224 762.25,-224 762.25,-244"/>
 <text text-anchor="middle" x="701" y="-230.5" font-family="Helvetica,sans-Serif" font-size="10.00">EngineHUDManager.cpp</text>
 </a>
@@ -714,7 +714,7 @@ var sectionId = 'dynsection-1';
 <!-- Node25 -->
 <g id="Node000025" class="node">
 <title>Node25</title>
-<g id="a_Node000025"><a xlink:href="_fog_system_8cpp.html" target="_top" xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000025"><a xlink:href="_fog_system_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="1565.5,-300 1480.5,-300 1480.5,-280 1565.5,-280 1565.5,-300"/>
 <text text-anchor="middle" x="1523" y="-286.5" font-family="Helvetica,sans-Serif" font-size="10.00">FogSystem.cpp</text>
 </a>
@@ -741,7 +741,7 @@ var sectionId = 'dynsection-1';
 <!-- Node27 -->
 <g id="Node000027" class="node">
 <title>Node27</title>
-<g id="a_Node000027"><a xlink:href="_light_system_8cpp.html" target="_top" xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000027"><a xlink:href="_light_system_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="761.75,-300 672.25,-300 672.25,-280 761.75,-280 761.75,-300"/>
 <text text-anchor="middle" x="717" y="-286.5" font-family="Helvetica,sans-Serif" font-size="10.00">LightSystem.cpp</text>
 </a>
@@ -795,7 +795,7 @@ var sectionId = 'dynsection-1';
 <!-- Node32 -->
 <g id="Node000032" class="node">
 <title>Node32</title>
-<g id="a_Node000032"><a xlink:href="_sun_system_8cpp.html" target="_top" xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000032"><a xlink:href="_sun_system_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="1059.88,-300 974.12,-300 974.12,-280 1059.88,-280 1059.88,-300"/>
 <text text-anchor="middle" x="1017" y="-286.5" font-family="Helvetica,sans-Serif" font-size="10.00">SunSystem.cpp</text>
 </a>

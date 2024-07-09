@@ -1,5 +1,5 @@
 <map id="TextureSurface.cpp" name="TextureSurface.cpp">
-<area shape="rect" id="Node000001" title="@TODO Add description of this file if needed" alt="" coords="2079,5,2212,32"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="2079,5,2212,32"/>
 <area shape="rect" id="Node000002" href="$_texture_surface_8h.html" title="@TODO Add description of this file if needed" alt="" coords="2376,731,2537,773"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="2213,30,2280,50,2315,65,2349,84,2379,106,2403,132,2419,163,2424,198,2424,572,2432,649,2448,715,2443,716,2427,650,2419,572,2419,199,2413,165,2398,135,2375,110,2346,88,2313,70,2278,55,2211,35"/>
 <area shape="rect" id="Node000010" href="$_texture_loader_8h.html" title="@TODO Add description of this file if needed" alt="" coords="1841,80,2002,123"/>

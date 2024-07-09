@@ -278,13 +278,13 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00020">20</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   20</span>                             {</div>
-<div class="line"><span class="lineno">   21</span>    <span class="comment">// Initialize the queue with all possible entity IDs</span></div>
-<div class="line"><span class="lineno">   22</span>    <span class="keywordflow">for</span> (<a class="code hl_typedef" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a> = <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#aa3141c2f66ee0d159de52510cc82af68">firstEntity</a>; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a> &lt; <a class="code hl_variable" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a1482c2d17768df66e086ec8d59038446">maxEntities</a> + <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#aa3141c2f66ee0d159de52510cc82af68">firstEntity</a>; ++<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>) {</div>
-<div class="line"><span class="lineno">   23</span>        <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#ac8d08fdeca6fa8048ae5b12004a7ccb3">availableEntities</a>.push(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>);</div>
-<div class="line"><span class="lineno">   24</span>    }</div>
-<div class="line"><span class="lineno">   25</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00011">11</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   11</span>                             {</div>
+<div class="line"><span class="lineno">   12</span>    <span class="comment">// Initialize the queue with all possible entity IDs</span></div>
+<div class="line"><span class="lineno">   13</span>    <span class="keywordflow">for</span> (<a class="code hl_typedef" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a> = <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#aa3141c2f66ee0d159de52510cc82af68">firstEntity</a>; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a> &lt; <a class="code hl_variable" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a1482c2d17768df66e086ec8d59038446">maxEntities</a> + <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#aa3141c2f66ee0d159de52510cc82af68">firstEntity</a>; ++<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>) {</div>
+<div class="line"><span class="lineno">   14</span>        <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#ac8d08fdeca6fa8048ae5b12004a7ccb3">availableEntities</a>.push(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>);</div>
+<div class="line"><span class="lineno">   15</span>    }</div>
+<div class="line"><span class="lineno">   16</span>}</div>
 <div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_html_aa3141c2f66ee0d159de52510cc82af68"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#aa3141c2f66ee0d159de52510cc82af68">GLESC::ECS::EntityManager::firstEntity</a></div><div class="ttdeci">static constexpr EntityID firstEntity</div><div class="ttdef"><b>Definition</b> <a href="_entity_manager_8h_source.html#l00036">EntityManager.h:36</a></div></div>
 <div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_html_ac8d08fdeca6fa8048ae5b12004a7ccb3"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#ac8d08fdeca6fa8048ae5b12004a7ccb3">GLESC::ECS::EntityManager::availableEntities</a></div><div class="ttdeci">std::queue&lt; EntityID &gt; availableEntities</div><div class="ttdoc">Queue of the available entities, used to avoid iterating over all the entities.</div><div class="ttdef"><b>Definition</b> <a href="_entity_manager_8h_source.html#l00182">EntityManager.h:182</a></div></div>
 <div class="ttc" id="anamespace_g_l_e_s_c_1_1_e_c_s_html_a1482c2d17768df66e086ec8d59038446"><div class="ttname"><a href="namespace_g_l_e_s_c_1_1_e_c_s.html#a1482c2d17768df66e086ec8d59038446">GLESC::ECS::maxEntities</a></div><div class="ttdeci">static const EntityID maxEntities</div><div class="ttdoc">Maximum amount of entities can there be at once.</div><div class="ttdef"><b>Definition</b> <a href="_e_c_s_types_8h_source.html#l00055">ECSTypes.h:55</a></div></div>
@@ -358,20 +358,20 @@ Friends</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00127">127</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  127</span>                                                                                 {</div>
-<div class="line"><span class="lineno">  128</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a5145504091eb26170aa219acb60aca71">doesEntityExist</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>), <span class="stringliteral">&quot;Entity must exist to add a component&quot;</span>);</div>
-<div class="line"><span class="lineno">  129</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a54e81951030afee74dd6ea3c4e2b74e5">isComponentInRange</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">componentID</a>), <span class="stringliteral">&quot;Component must be in range to be added&quot;</span>);</div>
-<div class="line"><span class="lineno">  130</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#aab28983bdd04e1acf2dd7d94dbe4639d">doesEntityHaveComponent</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">componentID</a>)) <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">  131</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a6737b1aa49a0374bf9c92fd0df3aae8c">signatures</a>[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>].set(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">componentID</a>);</div>
-<div class="line"><span class="lineno">  132</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00118">118</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  118</span>                                                                                 {</div>
+<div class="line"><span class="lineno">  119</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a5145504091eb26170aa219acb60aca71">doesEntityExist</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>), <span class="stringliteral">&quot;Entity must exist to add a component&quot;</span>);</div>
+<div class="line"><span class="lineno">  120</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a54e81951030afee74dd6ea3c4e2b74e5">isComponentInRange</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">componentID</a>), <span class="stringliteral">&quot;Component must be in range to be added&quot;</span>);</div>
+<div class="line"><span class="lineno">  121</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#aab28983bdd04e1acf2dd7d94dbe4639d">doesEntityHaveComponent</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">componentID</a>)) <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">  122</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a6737b1aa49a0374bf9c92fd0df3aae8c">signatures</a>[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>].set(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">componentID</a>);</div>
+<div class="line"><span class="lineno">  123</span>}</div>
 <div class="ttc" id="a_asserts_8h_html_a7c8157e57600c968442fc2ee80245d5a"><div class="ttname"><a href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a></div><div class="ttdeci">#define D_ASSERT_TRUE(condition, message)</div><div class="ttdef"><b>Definition</b> <a href="_asserts_8h_source.html#l00021">Asserts.h:21</a></div></div>
-<div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_html_a5145504091eb26170aa219acb60aca71"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a5145504091eb26170aa219acb60aca71">GLESC::ECS::EntityManager::doesEntityExist</a></div><div class="ttdeci">bool doesEntityExist(const EntityName &amp;name) const</div><div class="ttdoc">Check if the entity with the given name exists.</div><div class="ttdef"><b>Definition</b> <a href="_entity_manager_8cpp_source.html#l00134">EntityManager.cpp:134</a></div></div>
-<div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_html_a54e81951030afee74dd6ea3c4e2b74e5"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a54e81951030afee74dd6ea3c4e2b74e5">GLESC::ECS::EntityManager::isComponentInRange</a></div><div class="ttdeci">bool isComponentInRange(ComponentID componentID) const</div><div class="ttdoc">Check if the component ID is in the range of the signature.</div><div class="ttdef"><b>Definition</b> <a href="_entity_manager_8cpp_source.html#l00152">EntityManager.cpp:152</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_html_a5145504091eb26170aa219acb60aca71"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a5145504091eb26170aa219acb60aca71">GLESC::ECS::EntityManager::doesEntityExist</a></div><div class="ttdeci">bool doesEntityExist(const EntityName &amp;name) const</div><div class="ttdoc">Check if the entity with the given name exists.</div><div class="ttdef"><b>Definition</b> <a href="_entity_manager_8cpp_source.html#l00125">EntityManager.cpp:125</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_html_a54e81951030afee74dd6ea3c4e2b74e5"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a54e81951030afee74dd6ea3c4e2b74e5">GLESC::ECS::EntityManager::isComponentInRange</a></div><div class="ttdeci">bool isComponentInRange(ComponentID componentID) const</div><div class="ttdoc">Check if the component ID is in the range of the signature.</div><div class="ttdef"><b>Definition</b> <a href="_entity_manager_8cpp_source.html#l00143">EntityManager.cpp:143</a></div></div>
 <div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_html_a6737b1aa49a0374bf9c92fd0df3aae8c"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a6737b1aa49a0374bf9c92fd0df3aae8c">GLESC::ECS::EntityManager::signatures</a></div><div class="ttdeci">std::array&lt; Signature, maxEntities &gt; signatures</div><div class="ttdoc">Array of the signatures of the entities.</div><div class="ttdef"><b>Definition</b> <a href="_entity_manager_8h_source.html#l00188">EntityManager.h:188</a></div></div>
-<div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_html_aab28983bdd04e1acf2dd7d94dbe4639d"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#aab28983bdd04e1acf2dd7d94dbe4639d">GLESC::ECS::EntityManager::doesEntityHaveComponent</a></div><div class="ttdeci">bool doesEntityHaveComponent(EntityID entity, ComponentID componentID) const</div><div class="ttdoc">Check if the entity has the given component. The entity must exist and the component must be in the r...</div><div class="ttdef"><b>Definition</b> <a href="_entity_manager_8cpp_source.html#l00084">EntityManager.cpp:84</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_html_aab28983bdd04e1acf2dd7d94dbe4639d"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#aab28983bdd04e1acf2dd7d94dbe4639d">GLESC::ECS::EntityManager::doesEntityHaveComponent</a></div><div class="ttdeci">bool doesEntityHaveComponent(EntityID entity, ComponentID componentID) const</div><div class="ttdoc">Check if the entity has the given component. The entity must exist and the component must be in the r...</div><div class="ttdef"><b>Definition</b> <a href="_entity_manager_8cpp_source.html#l00075">EntityManager.cpp:75</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_asserts_8h_source.html#l00021">D_ASSERT_TRUE</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00134">doesEntityExist()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00084">doesEntityHaveComponent()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00152">isComponentInRange()</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_entity_manager_8h_source.html#l00188">signatures</a>.</p>
+<p class="reference">References <a class="el" href="_asserts_8h_source.html#l00021">D_ASSERT_TRUE</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00125">doesEntityExist()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00075">doesEntityHaveComponent()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00143">isComponentInRange()</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_entity_manager_8h_source.html#l00188">signatures</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="_e_c_s_8h_source.html#l00249">GLESC::ECS::ECSCoordinator::addComponent()</a>.</p>
 <div class="dynheader">
@@ -402,15 +402,15 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00162">162</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  162</span>                                                 {</div>
-<div class="line"><span class="lineno">  163</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#ab677fef21e85654397903405d5073b1d">livingEntityCount</a> &gt; 0;</div>
-<div class="line"><span class="lineno">  164</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00153">153</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  153</span>                                                 {</div>
+<div class="line"><span class="lineno">  154</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#ab677fef21e85654397903405d5073b1d">livingEntityCount</a> &gt; 0;</div>
+<div class="line"><span class="lineno">  155</span>}</div>
 <div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_html_ab677fef21e85654397903405d5073b1d"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#ab677fef21e85654397903405d5073b1d">GLESC::ECS::EntityManager::livingEntityCount</a></div><div class="ttdeci">EntityID livingEntityCount</div><div class="ttdoc">The number of living entities.</div><div class="ttdef"><b>Definition</b> <a href="_entity_manager_8h_source.html#l00200">EntityManager.h:200</a></div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_entity_manager_8h_source.html#l00200">livingEntityCount</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_entity_manager_8cpp_source.html#l00051">destroyEntity()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_entity_manager_8cpp_source.html#l00042">destroyEntity()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -444,17 +444,17 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if the entity can be created, false otherwise </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00156">156</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  156</span>                                                                   {</div>
-<div class="line"><span class="lineno">  157</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#ab677fef21e85654397903405d5073b1d">livingEntityCount</a> &lt; <a class="code hl_variable" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a1482c2d17768df66e086ec8d59038446">maxEntities</a></div>
-<div class="line"><span class="lineno">  158</span>        &amp;&amp; !<a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#ac8d08fdeca6fa8048ae5b12004a7ccb3">availableEntities</a>.empty()</div>
-<div class="line"><span class="lineno">  159</span>        &amp;&amp; <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#afd6cb3d534adf8b7c5e44315dfe703c0">entityNameToID</a>.find(name) == <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#afd6cb3d534adf8b7c5e44315dfe703c0">entityNameToID</a>.end();</div>
-<div class="line"><span class="lineno">  160</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00147">147</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  147</span>                                                                   {</div>
+<div class="line"><span class="lineno">  148</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#ab677fef21e85654397903405d5073b1d">livingEntityCount</a> &lt; <a class="code hl_variable" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a1482c2d17768df66e086ec8d59038446">maxEntities</a></div>
+<div class="line"><span class="lineno">  149</span>        &amp;&amp; !<a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#ac8d08fdeca6fa8048ae5b12004a7ccb3">availableEntities</a>.empty()</div>
+<div class="line"><span class="lineno">  150</span>        &amp;&amp; <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#afd6cb3d534adf8b7c5e44315dfe703c0">entityNameToID</a>.find(name) == <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#afd6cb3d534adf8b7c5e44315dfe703c0">entityNameToID</a>.end();</div>
+<div class="line"><span class="lineno">  151</span>}</div>
 <div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_html_afd6cb3d534adf8b7c5e44315dfe703c0"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#afd6cb3d534adf8b7c5e44315dfe703c0">GLESC::ECS::EntityManager::entityNameToID</a></div><div class="ttdeci">std::unordered_map&lt; EntityName, EntityID &gt; entityNameToID</div><div class="ttdef"><b>Definition</b> <a href="_entity_manager_8h_source.html#l00191">EntityManager.h:191</a></div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_entity_manager_8h_source.html#l00182">availableEntities</a>, <a class="el" href="_entity_manager_8h_source.html#l00191">entityNameToID</a>, <a class="el" href="_entity_manager_8h_source.html#l00200">livingEntityCount</a>, and <a class="el" href="_e_c_s_types_8h_source.html#l00055">GLESC::ECS::maxEntities</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_entity_manager_8cpp_source.html#l00027">createNextEntity()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_entity_manager_8cpp_source.html#l00018">createNextEntity()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -498,42 +498,42 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00027">27</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   27</span>                                                                                                    {</div>
-<div class="line"><span class="lineno">   28</span>    <a class="code hl_typedef" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a> <span class="keywordtype">id</span> = <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#ac8d08fdeca6fa8048ae5b12004a7ccb3">availableEntities</a>.front();</div>
-<div class="line"><span class="lineno">   29</span> </div>
-<div class="line"><span class="lineno">   30</span>    <a class="code hl_typedef" href="namespace_g_l_e_s_c_1_1_e_c_s.html#ac71e39014c5b48ffb131e0e4abbfe5ed">EntityName</a> name = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">nameParam</a>;</div>
-<div class="line"><span class="lineno">   31</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">metadata</a>.type == <a class="code hl_enumvalue" href="namespace_g_l_e_s_c.html#a4c76efb6a8bcb81fb17743d8315c596bad9a17c1c9e8ef6866e4dbeef41c741b2">EntityType::Instance</a>) {</div>
-<div class="line"><span class="lineno">   32</span>        <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#ae3ffd29531570890e8b32825a6964ce2">instancedEntities</a>[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">nameParam</a>].push_back(<span class="keywordtype">id</span>);</div>
-<div class="line"><span class="lineno">   33</span>        name.append(std::to_string(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a75d079eadd365ea965019b0d6ead410f">instancesNextID</a>[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">nameParam</a>]));</div>
-<div class="line"><span class="lineno">   34</span>        <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a75d079eadd365ea965019b0d6ead410f">instancesNextID</a>[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">nameParam</a>]++;</div>
-<div class="line"><span class="lineno">   35</span>    }</div>
-<div class="line"><span class="lineno">   36</span> </div>
+<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00018">18</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   18</span>                                                                                                    {</div>
+<div class="line"><span class="lineno">   19</span>    <a class="code hl_typedef" href="namespace_g_l_e_s_c_1_1_e_c_s.html#a7486db58d646954b2b475ff0af24a99b">EntityID</a> <span class="keywordtype">id</span> = <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#ac8d08fdeca6fa8048ae5b12004a7ccb3">availableEntities</a>.front();</div>
+<div class="line"><span class="lineno">   20</span> </div>
+<div class="line"><span class="lineno">   21</span>    <a class="code hl_typedef" href="namespace_g_l_e_s_c_1_1_e_c_s.html#ac71e39014c5b48ffb131e0e4abbfe5ed">EntityName</a> name = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">nameParam</a>;</div>
+<div class="line"><span class="lineno">   22</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">metadata</a>.type == <a class="code hl_enumvalue" href="namespace_g_l_e_s_c.html#a4c76efb6a8bcb81fb17743d8315c596bad9a17c1c9e8ef6866e4dbeef41c741b2">EntityType::Instance</a>) {</div>
+<div class="line"><span class="lineno">   23</span>        <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#ae3ffd29531570890e8b32825a6964ce2">instancedEntities</a>[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">nameParam</a>].push_back(<span class="keywordtype">id</span>);</div>
+<div class="line"><span class="lineno">   24</span>        name.append(std::to_string(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a75d079eadd365ea965019b0d6ead410f">instancesNextID</a>[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">nameParam</a>]));</div>
+<div class="line"><span class="lineno">   25</span>        <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a75d079eadd365ea965019b0d6ead410f">instancesNextID</a>[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">nameParam</a>]++;</div>
+<div class="line"><span class="lineno">   26</span>    }</div>
+<div class="line"><span class="lineno">   27</span> </div>
+<div class="line"><span class="lineno">   28</span> </div>
+<div class="line"><span class="lineno">   29</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#afa518a74c1ab88aef79bd5616999c9bb">canEntityBeCreated</a>(name), <span class="stringliteral">&quot;Entity must be able to be created&quot;</span>);</div>
+<div class="line"><span class="lineno">   30</span> </div>
+<div class="line"><span class="lineno">   31</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#ac8d08fdeca6fa8048ae5b12004a7ccb3">availableEntities</a>.pop();</div>
+<div class="line"><span class="lineno">   32</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a883968799cd2c8dc319c306b90f36b14">entityIDToName</a>.insert({<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">id</a>, name});</div>
+<div class="line"><span class="lineno">   33</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#afd6cb3d534adf8b7c5e44315dfe703c0">entityNameToID</a>.insert({name, <span class="keywordtype">id</span>});</div>
+<div class="line"><span class="lineno">   34</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a042e8bc861140ae483988a46ec0ad23b">entityMetadata</a>.insert({<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">id</a>, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">metadata</a>});</div>
+<div class="line"><span class="lineno">   35</span>    ++<a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#ab677fef21e85654397903405d5073b1d">livingEntityCount</a>;</div>
+<div class="line"><span class="lineno">   36</span>    ++<a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a277a3797edf7332f4f7e5588a92f851e">entityCounter</a>;</div>
 <div class="line"><span class="lineno">   37</span> </div>
-<div class="line"><span class="lineno">   38</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#afa518a74c1ab88aef79bd5616999c9bb">canEntityBeCreated</a>(name), <span class="stringliteral">&quot;Entity must be able to be created&quot;</span>);</div>
-<div class="line"><span class="lineno">   39</span> </div>
-<div class="line"><span class="lineno">   40</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#ac8d08fdeca6fa8048ae5b12004a7ccb3">availableEntities</a>.pop();</div>
-<div class="line"><span class="lineno">   41</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a883968799cd2c8dc319c306b90f36b14">entityIDToName</a>.insert({<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">id</a>, name});</div>
-<div class="line"><span class="lineno">   42</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#afd6cb3d534adf8b7c5e44315dfe703c0">entityNameToID</a>.insert({name, <span class="keywordtype">id</span>});</div>
-<div class="line"><span class="lineno">   43</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a042e8bc861140ae483988a46ec0ad23b">entityMetadata</a>.insert({<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">id</a>, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">metadata</a>});</div>
-<div class="line"><span class="lineno">   44</span>    ++<a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#ab677fef21e85654397903405d5073b1d">livingEntityCount</a>;</div>
-<div class="line"><span class="lineno">   45</span>    ++<a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a277a3797edf7332f4f7e5588a92f851e">entityCounter</a>;</div>
-<div class="line"><span class="lineno">   46</span> </div>
-<div class="line"><span class="lineno">   47</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a5145504091eb26170aa219acb60aca71">doesEntityExist</a>(<span class="keywordtype">id</span>), <span class="stringliteral">&quot;Entity must exist after creation&quot;</span>);</div>
-<div class="line"><span class="lineno">   48</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">id</a>;</div>
-<div class="line"><span class="lineno">   49</span>}</div>
+<div class="line"><span class="lineno">   38</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a5145504091eb26170aa219acb60aca71">doesEntityExist</a>(<span class="keywordtype">id</span>), <span class="stringliteral">&quot;Entity must exist after creation&quot;</span>);</div>
+<div class="line"><span class="lineno">   39</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">id</a>;</div>
+<div class="line"><span class="lineno">   40</span>}</div>
 <div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_html_a042e8bc861140ae483988a46ec0ad23b"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a042e8bc861140ae483988a46ec0ad23b">GLESC::ECS::EntityManager::entityMetadata</a></div><div class="ttdeci">std::unordered_map&lt; EntityID, EntityMetadata &gt; entityMetadata</div><div class="ttdef"><b>Definition</b> <a href="_entity_manager_8h_source.html#l00193">EntityManager.h:193</a></div></div>
 <div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_html_a277a3797edf7332f4f7e5588a92f851e"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a277a3797edf7332f4f7e5588a92f851e">GLESC::ECS::EntityManager::entityCounter</a></div><div class="ttdeci">unsigned long long entityCounter</div><div class="ttdoc">Counter that counts all the entities that have ever been created. It's useful to be able to create en...</div><div class="ttdef"><b>Definition</b> <a href="_entity_manager_8h_source.html#l00206">EntityManager.h:206</a></div></div>
 <div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_html_a75d079eadd365ea965019b0d6ead410f"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a75d079eadd365ea965019b0d6ead410f">GLESC::ECS::EntityManager::instancesNextID</a></div><div class="ttdeci">std::unordered_map&lt; EntityName, int &gt; instancesNextID</div><div class="ttdef"><b>Definition</b> <a href="_entity_manager_8h_source.html#l00195">EntityManager.h:195</a></div></div>
 <div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_html_a883968799cd2c8dc319c306b90f36b14"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a883968799cd2c8dc319c306b90f36b14">GLESC::ECS::EntityManager::entityIDToName</a></div><div class="ttdeci">std::unordered_map&lt; EntityID, EntityName &gt; entityIDToName</div><div class="ttdef"><b>Definition</b> <a href="_entity_manager_8h_source.html#l00192">EntityManager.h:192</a></div></div>
 <div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_html_ae3ffd29531570890e8b32825a6964ce2"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#ae3ffd29531570890e8b32825a6964ce2">GLESC::ECS::EntityManager::instancedEntities</a></div><div class="ttdeci">std::unordered_map&lt; EntityName, std::vector&lt; EntityID &gt; &gt; instancedEntities</div><div class="ttdef"><b>Definition</b> <a href="_entity_manager_8h_source.html#l00194">EntityManager.h:194</a></div></div>
-<div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_html_afa518a74c1ab88aef79bd5616999c9bb"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#afa518a74c1ab88aef79bd5616999c9bb">GLESC::ECS::EntityManager::canEntityBeCreated</a></div><div class="ttdeci">bool canEntityBeCreated(const EntityName &amp;name) const</div><div class="ttdoc">Check if the entity can be created with the given name and the current state of the entity manager.</div><div class="ttdef"><b>Definition</b> <a href="_entity_manager_8cpp_source.html#l00156">EntityManager.cpp:156</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_html_afa518a74c1ab88aef79bd5616999c9bb"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#afa518a74c1ab88aef79bd5616999c9bb">GLESC::ECS::EntityManager::canEntityBeCreated</a></div><div class="ttdeci">bool canEntityBeCreated(const EntityName &amp;name) const</div><div class="ttdoc">Check if the entity can be created with the given name and the current state of the entity manager.</div><div class="ttdef"><b>Definition</b> <a href="_entity_manager_8cpp_source.html#l00147">EntityManager.cpp:147</a></div></div>
 <div class="ttc" id="anamespace_g_l_e_s_c_1_1_e_c_s_html_ac71e39014c5b48ffb131e0e4abbfe5ed"><div class="ttname"><a href="namespace_g_l_e_s_c_1_1_e_c_s.html#ac71e39014c5b48ffb131e0e4abbfe5ed">GLESC::ECS::EntityName</a></div><div class="ttdeci">std::string EntityName</div><div class="ttdoc">Entity name.</div><div class="ttdef"><b>Definition</b> <a href="_e_c_s_types_8h_source.html#l00046">ECSTypes.h:46</a></div></div>
 <div class="ttc" id="anamespace_g_l_e_s_c_html_a4c76efb6a8bcb81fb17743d8315c596bad9a17c1c9e8ef6866e4dbeef41c741b2"><div class="ttname"><a href="namespace_g_l_e_s_c.html#a4c76efb6a8bcb81fb17743d8315c596bad9a17c1c9e8ef6866e4dbeef41c741b2">GLESC::EntityType::Instance</a></div><div class="ttdeci">@ Instance</div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_entity_manager_8h_source.html#l00182">availableEntities</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00156">canEntityBeCreated()</a>, <a class="el" href="_asserts_8h_source.html#l00021">D_ASSERT_TRUE</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00134">doesEntityExist()</a>, <a class="el" href="_entity_manager_8h_source.html#l00206">entityCounter</a>, <a class="el" href="_entity_manager_8h_source.html#l00192">entityIDToName</a>, <a class="el" href="_entity_manager_8h_source.html#l00193">entityMetadata</a>, <a class="el" href="_entity_manager_8h_source.html#l00191">entityNameToID</a>, <a class="el" href="namespace_g_l_e_s_c.html#a4c76efb6a8bcb81fb17743d8315c596bad9a17c1c9e8ef6866e4dbeef41c741b2">GLESC::Instance</a>, <a class="el" href="_entity_manager_8h_source.html#l00194">instancedEntities</a>, <a class="el" href="_entity_manager_8h_source.html#l00195">instancesNextID</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_entity_manager_8h_source.html#l00200">livingEntityCount</a>.</p>
+<p class="reference">References <a class="el" href="_entity_manager_8h_source.html#l00182">availableEntities</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00147">canEntityBeCreated()</a>, <a class="el" href="_asserts_8h_source.html#l00021">D_ASSERT_TRUE</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00125">doesEntityExist()</a>, <a class="el" href="_entity_manager_8h_source.html#l00206">entityCounter</a>, <a class="el" href="_entity_manager_8h_source.html#l00192">entityIDToName</a>, <a class="el" href="_entity_manager_8h_source.html#l00193">entityMetadata</a>, <a class="el" href="_entity_manager_8h_source.html#l00191">entityNameToID</a>, <a class="el" href="namespace_g_l_e_s_c.html#a4c76efb6a8bcb81fb17743d8315c596bad9a17c1c9e8ef6866e4dbeef41c741b2">GLESC::Instance</a>, <a class="el" href="_entity_manager_8h_source.html#l00194">instancedEntities</a>, <a class="el" href="_entity_manager_8h_source.html#l00195">instancesNextID</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_entity_manager_8h_source.html#l00200">livingEntityCount</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_e_c_s_8cpp_source.html#l00120">GLESC::ECS::ECSCoordinator::createEntity()</a>, and <a class="el" href="_e_c_s_8cpp_source.html#l00107">GLESC::ECS::ECSCoordinator::createEntity()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_e_c_s_8cpp_source.html#l00111">GLESC::ECS::ECSCoordinator::createEntity()</a>, and <a class="el" href="_e_c_s_8cpp_source.html#l00098">GLESC::ECS::ECSCoordinator::createEntity()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -571,44 +571,44 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00051">51</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   51</span>                                                 {</div>
-<div class="line"><span class="lineno">   52</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a1d64d3d7d14581391c821fc0aa8ff0a7">areThereLivingEntities</a>(), <span class="stringliteral">&quot;There must be living entities to destroy one&quot;</span>);</div>
-<div class="line"><span class="lineno">   53</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a5145504091eb26170aa219acb60aca71">doesEntityExist</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>), <span class="stringliteral">&quot;Entity must exist before destruction&quot;</span>);</div>
-<div class="line"><span class="lineno">   54</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>((<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a> != <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a7f8d3b9a15bdcf39c67c305ba8850b98">GLESC::ECS::EntityManager::nullEntity</a>), <span class="stringliteral">&quot;Entity must not be nullEntity&quot;</span>);</div>
+<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00042">42</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   42</span>                                                 {</div>
+<div class="line"><span class="lineno">   43</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a1d64d3d7d14581391c821fc0aa8ff0a7">areThereLivingEntities</a>(), <span class="stringliteral">&quot;There must be living entities to destroy one&quot;</span>);</div>
+<div class="line"><span class="lineno">   44</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a5145504091eb26170aa219acb60aca71">doesEntityExist</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>), <span class="stringliteral">&quot;Entity must exist before destruction&quot;</span>);</div>
+<div class="line"><span class="lineno">   45</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>((<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a> != <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a7f8d3b9a15bdcf39c67c305ba8850b98">GLESC::ECS::EntityManager::nullEntity</a>), <span class="stringliteral">&quot;Entity must not be nullEntity&quot;</span>);</div>
+<div class="line"><span class="lineno">   46</span> </div>
+<div class="line"><span class="lineno">   47</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#ab206bffe5c3daf3f62226e2f585cb32e">isEntityInstanced</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a883968799cd2c8dc319c306b90f36b14">entityIDToName</a>[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>])) {</div>
+<div class="line"><span class="lineno">   48</span>        <a class="code hl_typedef" href="namespace_g_l_e_s_c_1_1_e_c_s.html#ac71e39014c5b48ffb131e0e4abbfe5ed">EntityName</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">instanceName</a> = <a class="code hl_function" href="class_g_l_e_s_c_1_1_stringer.html#a664c9af6a77e075c21a6b0cff1329e4f">Stringer::strip</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a883968799cd2c8dc319c306b90f36b14">entityIDToName</a>[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>], <span class="stringliteral">&quot;1234567890&quot;</span>);</div>
+<div class="line"><span class="lineno">   49</span>        std::vector&lt;EntityID&gt;&amp; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">instancedList</a> = this-&gt;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#ae3ffd29531570890e8b32825a6964ce2">instancedEntities</a>[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">instanceName</a>];</div>
+<div class="line"><span class="lineno">   50</span> </div>
+<div class="line"><span class="lineno">   51</span>        <span class="keyword">auto</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">it</a> = std::find(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">instancedList</a>.begin(), <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">instancedList</a>.end(), <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>);</div>
+<div class="line"><span class="lineno">   52</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">it</a> != <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">instancedList</a>.end())</div>
+<div class="line"><span class="lineno">   53</span>            <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">instancedList</a>.erase(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">it</a>);</div>
+<div class="line"><span class="lineno">   54</span>    }</div>
 <div class="line"><span class="lineno">   55</span> </div>
-<div class="line"><span class="lineno">   56</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#ab206bffe5c3daf3f62226e2f585cb32e">isEntityInstanced</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a883968799cd2c8dc319c306b90f36b14">entityIDToName</a>[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>])) {</div>
-<div class="line"><span class="lineno">   57</span>        <a class="code hl_typedef" href="namespace_g_l_e_s_c_1_1_e_c_s.html#ac71e39014c5b48ffb131e0e4abbfe5ed">EntityName</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">instanceName</a> = <a class="code hl_function" href="class_g_l_e_s_c_1_1_stringer.html#a664c9af6a77e075c21a6b0cff1329e4f">Stringer::strip</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a883968799cd2c8dc319c306b90f36b14">entityIDToName</a>[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>], <span class="stringliteral">&quot;1234567890&quot;</span>);</div>
-<div class="line"><span class="lineno">   58</span>        std::vector&lt;EntityID&gt;&amp; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">instancedList</a> = this-&gt;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#ae3ffd29531570890e8b32825a6964ce2">instancedEntities</a>[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">instanceName</a>];</div>
-<div class="line"><span class="lineno">   59</span> </div>
-<div class="line"><span class="lineno">   60</span>        <span class="keyword">auto</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">it</a> = std::find(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">instancedList</a>.begin(), <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">instancedList</a>.end(), <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>);</div>
-<div class="line"><span class="lineno">   61</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">it</a> != <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">instancedList</a>.end())</div>
-<div class="line"><span class="lineno">   62</span>            <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">instancedList</a>.erase(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">it</a>);</div>
-<div class="line"><span class="lineno">   63</span>    }</div>
-<div class="line"><span class="lineno">   64</span> </div>
+<div class="line"><span class="lineno">   56</span> </div>
+<div class="line"><span class="lineno">   57</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a6737b1aa49a0374bf9c92fd0df3aae8c">signatures</a>[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>].reset();</div>
+<div class="line"><span class="lineno">   58</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#ac8d08fdeca6fa8048ae5b12004a7ccb3">availableEntities</a>.push(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>);</div>
+<div class="line"><span class="lineno">   59</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#afd6cb3d534adf8b7c5e44315dfe703c0">entityNameToID</a>.erase(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a883968799cd2c8dc319c306b90f36b14">entityIDToName</a>[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>]);</div>
+<div class="line"><span class="lineno">   60</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a883968799cd2c8dc319c306b90f36b14">entityIDToName</a>.erase(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>);</div>
+<div class="line"><span class="lineno">   61</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a042e8bc861140ae483988a46ec0ad23b">entityMetadata</a>.erase(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>);</div>
+<div class="line"><span class="lineno">   62</span> </div>
+<div class="line"><span class="lineno">   63</span> </div>
+<div class="line"><span class="lineno">   64</span>    --<a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#ab677fef21e85654397903405d5073b1d">livingEntityCount</a>;</div>
 <div class="line"><span class="lineno">   65</span> </div>
-<div class="line"><span class="lineno">   66</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a6737b1aa49a0374bf9c92fd0df3aae8c">signatures</a>[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>].reset();</div>
-<div class="line"><span class="lineno">   67</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#ac8d08fdeca6fa8048ae5b12004a7ccb3">availableEntities</a>.push(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>);</div>
-<div class="line"><span class="lineno">   68</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#afd6cb3d534adf8b7c5e44315dfe703c0">entityNameToID</a>.erase(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a883968799cd2c8dc319c306b90f36b14">entityIDToName</a>[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>]);</div>
-<div class="line"><span class="lineno">   69</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a883968799cd2c8dc319c306b90f36b14">entityIDToName</a>.erase(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>);</div>
-<div class="line"><span class="lineno">   70</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a042e8bc861140ae483988a46ec0ad23b">entityMetadata</a>.erase(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>);</div>
-<div class="line"><span class="lineno">   71</span> </div>
-<div class="line"><span class="lineno">   72</span> </div>
-<div class="line"><span class="lineno">   73</span>    --<a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#ab677fef21e85654397903405d5073b1d">livingEntityCount</a>;</div>
-<div class="line"><span class="lineno">   74</span> </div>
-<div class="line"><span class="lineno">   75</span>    <a class="code hl_define" href="_asserts_8h.html#abc189a68f629f827fca1b31a8449cfdb">D_ASSERT_FALSE</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a5145504091eb26170aa219acb60aca71">doesEntityExist</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>), <span class="stringliteral">&quot;Entity must not exist after destruction&quot;</span>);</div>
-<div class="line"><span class="lineno">   76</span>    <a class="code hl_define" href="_asserts_8h.html#abc189a68f629f827fca1b31a8449cfdb">D_ASSERT_FALSE</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#af174dceb6b3d4ec490f5812ba128dd51">isEntityAlive</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>), <span class="stringliteral">&quot;Entity must not be alive after destruction&quot;</span>);</div>
-<div class="line"><span class="lineno">   77</span>}</div>
+<div class="line"><span class="lineno">   66</span>    <a class="code hl_define" href="_asserts_8h.html#abc189a68f629f827fca1b31a8449cfdb">D_ASSERT_FALSE</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a5145504091eb26170aa219acb60aca71">doesEntityExist</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>), <span class="stringliteral">&quot;Entity must not exist after destruction&quot;</span>);</div>
+<div class="line"><span class="lineno">   67</span>    <a class="code hl_define" href="_asserts_8h.html#abc189a68f629f827fca1b31a8449cfdb">D_ASSERT_FALSE</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#af174dceb6b3d4ec490f5812ba128dd51">isEntityAlive</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>), <span class="stringliteral">&quot;Entity must not be alive after destruction&quot;</span>);</div>
+<div class="line"><span class="lineno">   68</span>}</div>
 <div class="ttc" id="a_asserts_8h_html_abc189a68f629f827fca1b31a8449cfdb"><div class="ttname"><a href="_asserts_8h.html#abc189a68f629f827fca1b31a8449cfdb">D_ASSERT_FALSE</a></div><div class="ttdeci">#define D_ASSERT_FALSE(condition, message)</div><div class="ttdef"><b>Definition</b> <a href="_asserts_8h_source.html#l00022">Asserts.h:22</a></div></div>
-<div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_html_a1d64d3d7d14581391c821fc0aa8ff0a7"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a1d64d3d7d14581391c821fc0aa8ff0a7">GLESC::ECS::EntityManager::areThereLivingEntities</a></div><div class="ttdeci">bool areThereLivingEntities() const</div><div class="ttdef"><b>Definition</b> <a href="_entity_manager_8cpp_source.html#l00162">EntityManager.cpp:162</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_html_a1d64d3d7d14581391c821fc0aa8ff0a7"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a1d64d3d7d14581391c821fc0aa8ff0a7">GLESC::ECS::EntityManager::areThereLivingEntities</a></div><div class="ttdeci">bool areThereLivingEntities() const</div><div class="ttdef"><b>Definition</b> <a href="_entity_manager_8cpp_source.html#l00153">EntityManager.cpp:153</a></div></div>
 <div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_html_a7f8d3b9a15bdcf39c67c305ba8850b98"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a7f8d3b9a15bdcf39c67c305ba8850b98">GLESC::ECS::EntityManager::nullEntity</a></div><div class="ttdeci">static constexpr EntityID nullEntity</div><div class="ttdoc">Null entity with ID 0. This is used to indicate that an entity does not exist.</div><div class="ttdef"><b>Definition</b> <a href="_entity_manager_8h_source.html#l00035">EntityManager.h:35</a></div></div>
-<div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_html_ab206bffe5c3daf3f62226e2f585cb32e"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#ab206bffe5c3daf3f62226e2f585cb32e">GLESC::ECS::EntityManager::isEntityInstanced</a></div><div class="ttdeci">bool isEntityInstanced(const EntityName &amp;name) const</div><div class="ttdef"><b>Definition</b> <a href="_entity_manager_8cpp_source.html#l00115">EntityManager.cpp:115</a></div></div>
-<div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_html_af174dceb6b3d4ec490f5812ba128dd51"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#af174dceb6b3d4ec490f5812ba128dd51">GLESC::ECS::EntityManager::isEntityAlive</a></div><div class="ttdeci">bool isEntityAlive(EntityID entity) const</div><div class="ttdoc">Check if the entity with the given ID is alive.</div><div class="ttdef"><b>Definition</b> <a href="_entity_manager_8cpp_source.html#l00142">EntityManager.cpp:142</a></div></div>
-<div class="ttc" id="aclass_g_l_e_s_c_1_1_stringer_html_a664c9af6a77e075c21a6b0cff1329e4f"><div class="ttname"><a href="class_g_l_e_s_c_1_1_stringer.html#a664c9af6a77e075c21a6b0cff1329e4f">GLESC::Stringer::strip</a></div><div class="ttdeci">static std::string strip(const std::string &amp;string, const std::string &amp;chars)</div><div class="ttdoc">Strips the string of the characters in the chars string.</div><div class="ttdef"><b>Definition</b> <a href="_stringer_8cpp_source.html#l00026">Stringer.cpp:26</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_html_ab206bffe5c3daf3f62226e2f585cb32e"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#ab206bffe5c3daf3f62226e2f585cb32e">GLESC::ECS::EntityManager::isEntityInstanced</a></div><div class="ttdeci">bool isEntityInstanced(const EntityName &amp;name) const</div><div class="ttdef"><b>Definition</b> <a href="_entity_manager_8cpp_source.html#l00106">EntityManager.cpp:106</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_html_af174dceb6b3d4ec490f5812ba128dd51"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#af174dceb6b3d4ec490f5812ba128dd51">GLESC::ECS::EntityManager::isEntityAlive</a></div><div class="ttdeci">bool isEntityAlive(EntityID entity) const</div><div class="ttdoc">Check if the entity with the given ID is alive.</div><div class="ttdef"><b>Definition</b> <a href="_entity_manager_8cpp_source.html#l00133">EntityManager.cpp:133</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_stringer_html_a664c9af6a77e075c21a6b0cff1329e4f"><div class="ttname"><a href="class_g_l_e_s_c_1_1_stringer.html#a664c9af6a77e075c21a6b0cff1329e4f">GLESC::Stringer::strip</a></div><div class="ttdeci">static std::string strip(const std::string &amp;string, const std::string &amp;chars)</div><div class="ttdoc">Strips the string of the characters in the chars string.</div><div class="ttdef"><b>Definition</b> <a href="_stringer_8cpp_source.html#l00017">Stringer.cpp:17</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_entity_manager_8cpp_source.html#l00162">areThereLivingEntities()</a>, <a class="el" href="_entity_manager_8h_source.html#l00182">availableEntities</a>, <a class="el" href="_asserts_8h_source.html#l00022">D_ASSERT_FALSE</a>, <a class="el" href="_asserts_8h_source.html#l00021">D_ASSERT_TRUE</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00134">doesEntityExist()</a>, <a class="el" href="_entity_manager_8h_source.html#l00192">entityIDToName</a>, <a class="el" href="_entity_manager_8h_source.html#l00193">entityMetadata</a>, <a class="el" href="_entity_manager_8h_source.html#l00191">entityNameToID</a>, <a class="el" href="_entity_manager_8h_source.html#l00194">instancedEntities</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00142">isEntityAlive()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00115">isEntityInstanced()</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, <a class="el" href="_entity_manager_8h_source.html#l00200">livingEntityCount</a>, <a class="el" href="_entity_manager_8h_source.html#l00035">nullEntity</a>, <a class="el" href="_entity_manager_8h_source.html#l00188">signatures</a>, and <a class="el" href="_stringer_8cpp_source.html#l00026">GLESC::Stringer::strip()</a>.</p>
+<p class="reference">References <a class="el" href="_entity_manager_8cpp_source.html#l00153">areThereLivingEntities()</a>, <a class="el" href="_entity_manager_8h_source.html#l00182">availableEntities</a>, <a class="el" href="_asserts_8h_source.html#l00022">D_ASSERT_FALSE</a>, <a class="el" href="_asserts_8h_source.html#l00021">D_ASSERT_TRUE</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00125">doesEntityExist()</a>, <a class="el" href="_entity_manager_8h_source.html#l00192">entityIDToName</a>, <a class="el" href="_entity_manager_8h_source.html#l00193">entityMetadata</a>, <a class="el" href="_entity_manager_8h_source.html#l00191">entityNameToID</a>, <a class="el" href="_entity_manager_8h_source.html#l00194">instancedEntities</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00133">isEntityAlive()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00106">isEntityInstanced()</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, <a class="el" href="_entity_manager_8h_source.html#l00200">livingEntityCount</a>, <a class="el" href="_entity_manager_8h_source.html#l00035">nullEntity</a>, <a class="el" href="_entity_manager_8h_source.html#l00188">signatures</a>, and <a class="el" href="_stringer_8cpp_source.html#l00017">GLESC::Stringer::strip()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_e_c_s_8cpp_source.html#l00144">GLESC::ECS::ECSCoordinator::destroyEntity()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_e_c_s_8cpp_source.html#l00135">GLESC::ECS::ECSCoordinator::destroyEntity()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -647,14 +647,14 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if the entity exists, false otherwise </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00134">134</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  134</span>                                                                {</div>
-<div class="line"><span class="lineno">  135</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#afd6cb3d534adf8b7c5e44315dfe703c0">entityNameToID</a>.find(name) != <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#afd6cb3d534adf8b7c5e44315dfe703c0">entityNameToID</a>.end();</div>
-<div class="line"><span class="lineno">  136</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00125">125</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  125</span>                                                                {</div>
+<div class="line"><span class="lineno">  126</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#afd6cb3d534adf8b7c5e44315dfe703c0">entityNameToID</a>.find(name) != <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#afd6cb3d534adf8b7c5e44315dfe703c0">entityNameToID</a>.end();</div>
+<div class="line"><span class="lineno">  127</span>}</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_entity_manager_8h_source.html#l00191">entityNameToID</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_entity_manager_8cpp_source.html#l00127">addComponentToEntity()</a>, <a class="el" href="_e_c_s_8cpp_source.html#l00120">GLESC::ECS::ECSCoordinator::createEntity()</a>, <a class="el" href="_e_c_s_8cpp_source.html#l00107">GLESC::ECS::ECSCoordinator::createEntity()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00027">createNextEntity()</a>, <a class="el" href="_e_c_s_8cpp_source.html#l00144">GLESC::ECS::ECSCoordinator::destroyEntity()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00051">destroyEntity()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00084">doesEntityHaveComponent()</a>, <a class="el" href="_e_c_s_8cpp_source.html#l00070">GLESC::ECS::ECSCoordinator::getAssociatedEntities()</a>, <a class="el" href="_e_c_s_8h_source.html#l00275">GLESC::ECS::ECSCoordinator::getComponent()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00100">getEntityID()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00095">getEntityMetadata()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00090">getEntityName()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00079">getSignature()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00142">isEntityAlive()</a>, and <a class="el" href="_entity_manager_8cpp_source.html#l00105">tryGetEntity()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_entity_manager_8cpp_source.html#l00118">addComponentToEntity()</a>, <a class="el" href="_e_c_s_8cpp_source.html#l00111">GLESC::ECS::ECSCoordinator::createEntity()</a>, <a class="el" href="_e_c_s_8cpp_source.html#l00098">GLESC::ECS::ECSCoordinator::createEntity()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00018">createNextEntity()</a>, <a class="el" href="_e_c_s_8cpp_source.html#l00135">GLESC::ECS::ECSCoordinator::destroyEntity()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00042">destroyEntity()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00075">doesEntityHaveComponent()</a>, <a class="el" href="_e_c_s_8cpp_source.html#l00061">GLESC::ECS::ECSCoordinator::getAssociatedEntities()</a>, <a class="el" href="_e_c_s_8h_source.html#l00275">GLESC::ECS::ECSCoordinator::getComponent()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00091">getEntityID()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00086">getEntityMetadata()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00081">getEntityName()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00070">getSignature()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00133">isEntityAlive()</a>, and <a class="el" href="_entity_manager_8cpp_source.html#l00096">tryGetEntity()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -688,10 +688,10 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if the entity exists, false otherwise </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00138">138</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  138</span>                                                         {</div>
-<div class="line"><span class="lineno">  139</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a883968799cd2c8dc319c306b90f36b14">entityIDToName</a>.find(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>) != <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a883968799cd2c8dc319c306b90f36b14">entityIDToName</a>.end();</div>
-<div class="line"><span class="lineno">  140</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00129">129</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  129</span>                                                         {</div>
+<div class="line"><span class="lineno">  130</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a883968799cd2c8dc319c306b90f36b14">entityIDToName</a>.find(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>) != <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a883968799cd2c8dc319c306b90f36b14">entityIDToName</a>.end();</div>
+<div class="line"><span class="lineno">  131</span>}</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_entity_manager_8h_source.html#l00192">entityIDToName</a>, and <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
 
@@ -733,16 +733,16 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00084">84</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   84</span>                                                                                          {</div>
-<div class="line"><span class="lineno">   85</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a5145504091eb26170aa219acb60aca71">doesEntityExist</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>), <span class="stringliteral">&quot;Entity must exist to check if it has a component&quot;</span>);</div>
-<div class="line"><span class="lineno">   86</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a54e81951030afee74dd6ea3c4e2b74e5">isComponentInRange</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">componentID</a>), <span class="stringliteral">&quot;Component must be in range to check if entity has it&quot;</span>);</div>
-<div class="line"><span class="lineno">   87</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a6737b1aa49a0374bf9c92fd0df3aae8c">signatures</a>[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>][<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">componentID</a>];</div>
-<div class="line"><span class="lineno">   88</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00075">75</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   75</span>                                                                                          {</div>
+<div class="line"><span class="lineno">   76</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a5145504091eb26170aa219acb60aca71">doesEntityExist</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>), <span class="stringliteral">&quot;Entity must exist to check if it has a component&quot;</span>);</div>
+<div class="line"><span class="lineno">   77</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a54e81951030afee74dd6ea3c4e2b74e5">isComponentInRange</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">componentID</a>), <span class="stringliteral">&quot;Component must be in range to check if entity has it&quot;</span>);</div>
+<div class="line"><span class="lineno">   78</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a6737b1aa49a0374bf9c92fd0df3aae8c">signatures</a>[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>][<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">componentID</a>];</div>
+<div class="line"><span class="lineno">   79</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_asserts_8h_source.html#l00021">D_ASSERT_TRUE</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00134">doesEntityExist()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00152">isComponentInRange()</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_entity_manager_8h_source.html#l00188">signatures</a>.</p>
+<p class="reference">References <a class="el" href="_asserts_8h_source.html#l00021">D_ASSERT_TRUE</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00125">doesEntityExist()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00143">isComponentInRange()</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_entity_manager_8h_source.html#l00188">signatures</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_entity_manager_8cpp_source.html#l00127">addComponentToEntity()</a>, <a class="el" href="_e_c_s_8h_source.html#l00301">GLESC::ECS::ECSCoordinator::hasComponent()</a>, <a class="el" href="_e_c_s_8cpp_source.html#l00055">GLESC::ECS::ECSCoordinator::printEntity()</a>, and <a class="el" href="_entity_manager_8cpp_source.html#l00120">removeComponentFromEntity()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_entity_manager_8cpp_source.html#l00118">addComponentToEntity()</a>, <a class="el" href="_e_c_s_8h_source.html#l00301">GLESC::ECS::ECSCoordinator::hasComponent()</a>, <a class="el" href="_e_c_s_8cpp_source.html#l00046">GLESC::ECS::ECSCoordinator::printEntity()</a>, and <a class="el" href="_entity_manager_8cpp_source.html#l00111">removeComponentFromEntity()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -814,7 +814,7 @@ Here is the caller graph for this function:</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_entity_manager_8h_source.html#l00206">entityCounter</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_e_c_s_8cpp_source.html#l00120">GLESC::ECS::ECSCoordinator::createEntity()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_e_c_s_8cpp_source.html#l00111">GLESC::ECS::ECSCoordinator::createEntity()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -848,15 +848,15 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The ID of the entity </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00100">100</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  100</span>                                                                {</div>
-<div class="line"><span class="lineno">  101</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a5145504091eb26170aa219acb60aca71">doesEntityExist</a>(name), <span class="stringliteral">&quot;Entity must exist to get its ID&quot;</span>);</div>
-<div class="line"><span class="lineno">  102</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#afd6cb3d534adf8b7c5e44315dfe703c0">entityNameToID</a>.at(name);</div>
-<div class="line"><span class="lineno">  103</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00091">91</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   91</span>                                                                {</div>
+<div class="line"><span class="lineno">   92</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a5145504091eb26170aa219acb60aca71">doesEntityExist</a>(name), <span class="stringliteral">&quot;Entity must exist to get its ID&quot;</span>);</div>
+<div class="line"><span class="lineno">   93</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#afd6cb3d534adf8b7c5e44315dfe703c0">entityNameToID</a>.at(name);</div>
+<div class="line"><span class="lineno">   94</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_asserts_8h_source.html#l00021">D_ASSERT_TRUE</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00134">doesEntityExist()</a>, and <a class="el" href="_entity_manager_8h_source.html#l00191">entityNameToID</a>.</p>
+<p class="reference">References <a class="el" href="_asserts_8h_source.html#l00021">D_ASSERT_TRUE</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00125">doesEntityExist()</a>, and <a class="el" href="_entity_manager_8h_source.html#l00191">entityNameToID</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_e_c_s_8cpp_source.html#l00155">GLESC::ECS::ECSCoordinator::getEntityID()</a>, and <a class="el" href="_entity_manager_8cpp_source.html#l00147">isEntityAlive()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_e_c_s_8cpp_source.html#l00146">GLESC::ECS::ECSCoordinator::getEntityID()</a>, and <a class="el" href="_entity_manager_8cpp_source.html#l00138">isEntityAlive()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -925,15 +925,15 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The metadata of the entity </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00095">95</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   95</span>                                                                            {</div>
-<div class="line"><span class="lineno">   96</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a5145504091eb26170aa219acb60aca71">doesEntityExist</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>), <span class="stringliteral">&quot;Entity must exist to get its metadata&quot;</span>);</div>
-<div class="line"><span class="lineno">   97</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a042e8bc861140ae483988a46ec0ad23b">entityMetadata</a>.at(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>);</div>
-<div class="line"><span class="lineno">   98</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00086">86</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   86</span>                                                                            {</div>
+<div class="line"><span class="lineno">   87</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a5145504091eb26170aa219acb60aca71">doesEntityExist</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>), <span class="stringliteral">&quot;Entity must exist to get its metadata&quot;</span>);</div>
+<div class="line"><span class="lineno">   88</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a042e8bc861140ae483988a46ec0ad23b">entityMetadata</a>.at(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>);</div>
+<div class="line"><span class="lineno">   89</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_asserts_8h_source.html#l00021">D_ASSERT_TRUE</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00134">doesEntityExist()</a>, <a class="el" href="_entity_manager_8h_source.html#l00193">entityMetadata</a>, and <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
+<p class="reference">References <a class="el" href="_asserts_8h_source.html#l00021">D_ASSERT_TRUE</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00125">doesEntityExist()</a>, <a class="el" href="_entity_manager_8h_source.html#l00193">entityMetadata</a>, and <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_e_c_s_8cpp_source.html#l00179">GLESC::ECS::ECSCoordinator::getEntityMetadata()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_e_c_s_8cpp_source.html#l00170">GLESC::ECS::ECSCoordinator::getEntityMetadata()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -972,15 +972,15 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The name of the entity </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00090">90</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   90</span>                                                                    {</div>
-<div class="line"><span class="lineno">   91</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a5145504091eb26170aa219acb60aca71">doesEntityExist</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>), <span class="stringliteral">&quot;Entity must exist to get its name&quot;</span>);</div>
-<div class="line"><span class="lineno">   92</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a883968799cd2c8dc319c306b90f36b14">entityIDToName</a>.at(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>);</div>
-<div class="line"><span class="lineno">   93</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00081">81</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   81</span>                                                                    {</div>
+<div class="line"><span class="lineno">   82</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a5145504091eb26170aa219acb60aca71">doesEntityExist</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>), <span class="stringliteral">&quot;Entity must exist to get its name&quot;</span>);</div>
+<div class="line"><span class="lineno">   83</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a883968799cd2c8dc319c306b90f36b14">entityIDToName</a>.at(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>);</div>
+<div class="line"><span class="lineno">   84</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_asserts_8h_source.html#l00021">D_ASSERT_TRUE</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00134">doesEntityExist()</a>, <a class="el" href="_entity_manager_8h_source.html#l00192">entityIDToName</a>, and <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
+<p class="reference">References <a class="el" href="_asserts_8h_source.html#l00021">D_ASSERT_TRUE</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00125">doesEntityExist()</a>, <a class="el" href="_entity_manager_8h_source.html#l00192">entityIDToName</a>, and <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_e_c_s_8cpp_source.html#l00159">GLESC::ECS::ECSCoordinator::getEntityName()</a>, and <a class="el" href="_e_c_s_8cpp_source.html#l00055">GLESC::ECS::ECSCoordinator::printEntity()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_e_c_s_8cpp_source.html#l00150">GLESC::ECS::ECSCoordinator::getEntityName()</a>, and <a class="el" href="_e_c_s_8cpp_source.html#l00046">GLESC::ECS::ECSCoordinator::printEntity()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1022,7 +1022,7 @@ Here is the caller graph for this function:</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_entity_manager_8h_source.html#l00191">entityNameToID</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_e_c_s_8cpp_source.html#l00084">GLESC::ECS::ECSCoordinator::getAllEntities()</a>, and <a class="el" href="_e_c_s_8cpp_source.html#l00021">GLESC::ECS::ECSCoordinator::printStatus()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_e_c_s_8cpp_source.html#l00075">GLESC::ECS::ECSCoordinator::getAllEntities()</a>, and <a class="el" href="_e_c_s_8cpp_source.html#l00012">GLESC::ECS::ECSCoordinator::printStatus()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1047,14 +1047,14 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00111">111</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  111</span>                                                                                           {</div>
-<div class="line"><span class="lineno">  112</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#ae3ffd29531570890e8b32825a6964ce2">instancedEntities</a>.at(name);</div>
-<div class="line"><span class="lineno">  113</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00102">102</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  102</span>                                                                                           {</div>
+<div class="line"><span class="lineno">  103</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#ae3ffd29531570890e8b32825a6964ce2">instancedEntities</a>.at(name);</div>
+<div class="line"><span class="lineno">  104</span>}</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_entity_manager_8h_source.html#l00194">instancedEntities</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_e_c_s_8cpp_source.html#l00175">GLESC::ECS::ECSCoordinator::getInstancedEntities()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_e_c_s_8cpp_source.html#l00166">GLESC::ECS::ECSCoordinator::getInstancedEntities()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1118,15 +1118,15 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Copy of the signature of the entity </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00079">79</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   79</span>                                                           {</div>
-<div class="line"><span class="lineno">   80</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a5145504091eb26170aa219acb60aca71">doesEntityExist</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>), <span class="stringliteral">&quot;Entity must exist to get its signature&quot;</span>);</div>
-<div class="line"><span class="lineno">   81</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a6737b1aa49a0374bf9c92fd0df3aae8c">signatures</a>[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>];</div>
-<div class="line"><span class="lineno">   82</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00070">70</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   70</span>                                                           {</div>
+<div class="line"><span class="lineno">   71</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a5145504091eb26170aa219acb60aca71">doesEntityExist</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>), <span class="stringliteral">&quot;Entity must exist to get its signature&quot;</span>);</div>
+<div class="line"><span class="lineno">   72</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a6737b1aa49a0374bf9c92fd0df3aae8c">signatures</a>[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>];</div>
+<div class="line"><span class="lineno">   73</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_asserts_8h_source.html#l00021">D_ASSERT_TRUE</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00134">doesEntityExist()</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_entity_manager_8h_source.html#l00188">signatures</a>.</p>
+<p class="reference">References <a class="el" href="_asserts_8h_source.html#l00021">D_ASSERT_TRUE</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00125">doesEntityExist()</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_entity_manager_8h_source.html#l00188">signatures</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_e_c_s_8h_source.html#l00249">GLESC::ECS::ECSCoordinator::addComponent()</a>, <a class="el" href="_e_c_s_8cpp_source.html#l00096">GLESC::ECS::ECSCoordinator::getComponents()</a>, <a class="el" href="_e_c_s_8cpp_source.html#l00055">GLESC::ECS::ECSCoordinator::printEntity()</a>, and <a class="el" href="_e_c_s_8h_source.html#l00262">GLESC::ECS::ECSCoordinator::removeComponent()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_e_c_s_8h_source.html#l00249">GLESC::ECS::ECSCoordinator::addComponent()</a>, <a class="el" href="_e_c_s_8cpp_source.html#l00087">GLESC::ECS::ECSCoordinator::getComponents()</a>, <a class="el" href="_e_c_s_8cpp_source.html#l00046">GLESC::ECS::ECSCoordinator::printEntity()</a>, and <a class="el" href="_e_c_s_8h_source.html#l00262">GLESC::ECS::ECSCoordinator::removeComponent()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1189,14 +1189,14 @@ Here is the caller graph for this function:</div>
 <p>Check if the component ID is in the range of the signature. </p>
 <dl class="section return"><dt>Returns</dt><dd>True if the component ID is in the range of the signature, false otherwise </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00152">152</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  152</span>                                                                                     {</div>
-<div class="line"><span class="lineno">  153</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">componentID</a> &lt; <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a6737b1aa49a0374bf9c92fd0df3aae8c">signatures</a>[0].size();</div>
-<div class="line"><span class="lineno">  154</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00143">143</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  143</span>                                                                                     {</div>
+<div class="line"><span class="lineno">  144</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">componentID</a> &lt; <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a6737b1aa49a0374bf9c92fd0df3aae8c">signatures</a>[0].size();</div>
+<div class="line"><span class="lineno">  145</span>}</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_entity_manager_8h_source.html#l00188">signatures</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_entity_manager_8cpp_source.html#l00127">addComponentToEntity()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00084">doesEntityHaveComponent()</a>, and <a class="el" href="_entity_manager_8cpp_source.html#l00120">removeComponentFromEntity()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_entity_manager_8cpp_source.html#l00118">addComponentToEntity()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00075">doesEntityHaveComponent()</a>, and <a class="el" href="_entity_manager_8cpp_source.html#l00111">removeComponentFromEntity()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1230,14 +1230,14 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if the entity is alive, false otherwise </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00147">147</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  147</span>                                                              {</div>
-<div class="line"><span class="lineno">  148</span>    <span class="comment">// Entity is alive if it has a signature that is not empty</span></div>
-<div class="line"><span class="lineno">  149</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#af174dceb6b3d4ec490f5812ba128dd51">isEntityAlive</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a331b9b5711f516647e4de67f9a256db3">getEntityID</a>(name));</div>
-<div class="line"><span class="lineno">  150</span>}</div>
-<div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_html_a331b9b5711f516647e4de67f9a256db3"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a331b9b5711f516647e4de67f9a256db3">GLESC::ECS::EntityManager::getEntityID</a></div><div class="ttdeci">EntityID getEntityID(const EntityName &amp;name) const</div><div class="ttdoc">Get the entity ID from the entity name.</div><div class="ttdef"><b>Definition</b> <a href="_entity_manager_8cpp_source.html#l00100">EntityManager.cpp:100</a></div></div>
+<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00138">138</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  138</span>                                                              {</div>
+<div class="line"><span class="lineno">  139</span>    <span class="comment">// Entity is alive if it has a signature that is not empty</span></div>
+<div class="line"><span class="lineno">  140</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#af174dceb6b3d4ec490f5812ba128dd51">isEntityAlive</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a331b9b5711f516647e4de67f9a256db3">getEntityID</a>(name));</div>
+<div class="line"><span class="lineno">  141</span>}</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager_html_a331b9b5711f516647e4de67f9a256db3"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a331b9b5711f516647e4de67f9a256db3">GLESC::ECS::EntityManager::getEntityID</a></div><div class="ttdeci">EntityID getEntityID(const EntityName &amp;name) const</div><div class="ttdoc">Get the entity ID from the entity name.</div><div class="ttdef"><b>Definition</b> <a href="_entity_manager_8cpp_source.html#l00091">EntityManager.cpp:91</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_entity_manager_8cpp_source.html#l00100">getEntityID()</a>, and <a class="el" href="_entity_manager_8cpp_source.html#l00142">isEntityAlive()</a>.</p>
+<p class="reference">References <a class="el" href="_entity_manager_8cpp_source.html#l00091">getEntityID()</a>, and <a class="el" href="_entity_manager_8cpp_source.html#l00133">isEntityAlive()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1271,15 +1271,15 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if the entity is alive, false otherwise </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00142">142</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  142</span>                                                       {</div>
-<div class="line"><span class="lineno">  143</span>    <span class="comment">// Entity is alive if it has a signature that is not empty</span></div>
-<div class="line"><span class="lineno">  144</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a5145504091eb26170aa219acb60aca71">doesEntityExist</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>) &amp;&amp; !<a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a6737b1aa49a0374bf9c92fd0df3aae8c">signatures</a>[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>].none();</div>
-<div class="line"><span class="lineno">  145</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00133">133</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  133</span>                                                       {</div>
+<div class="line"><span class="lineno">  134</span>    <span class="comment">// Entity is alive if it has a signature that is not empty</span></div>
+<div class="line"><span class="lineno">  135</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a5145504091eb26170aa219acb60aca71">doesEntityExist</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>) &amp;&amp; !<a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a6737b1aa49a0374bf9c92fd0df3aae8c">signatures</a>[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>].none();</div>
+<div class="line"><span class="lineno">  136</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_entity_manager_8cpp_source.html#l00134">doesEntityExist()</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_entity_manager_8h_source.html#l00188">signatures</a>.</p>
+<p class="reference">References <a class="el" href="_entity_manager_8cpp_source.html#l00125">doesEntityExist()</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_entity_manager_8h_source.html#l00188">signatures</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_entity_manager_8cpp_source.html#l00051">destroyEntity()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00147">isEntityAlive()</a>, <a class="el" href="_e_c_s_8cpp_source.html#l00163">GLESC::ECS::ECSCoordinator::isEntityAlive()</a>, and <a class="el" href="_entity_manager_8cpp_source.html#l00120">removeComponentFromEntity()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_entity_manager_8cpp_source.html#l00042">destroyEntity()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00138">isEntityAlive()</a>, <a class="el" href="_e_c_s_8cpp_source.html#l00154">GLESC::ECS::ECSCoordinator::isEntityAlive()</a>, and <a class="el" href="_entity_manager_8cpp_source.html#l00111">removeComponentFromEntity()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1309,15 +1309,15 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00115">115</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  115</span>                                                                  {</div>
-<div class="line"><span class="lineno">  116</span>    std::string <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">strippedName</a> = <a class="code hl_function" href="class_g_l_e_s_c_1_1_stringer.html#a664c9af6a77e075c21a6b0cff1329e4f">Stringer::strip</a>(name, <span class="stringliteral">&quot;1234567890&quot;</span>);</div>
-<div class="line"><span class="lineno">  117</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#ae3ffd29531570890e8b32825a6964ce2">instancedEntities</a>.find(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">strippedName</a>) != <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#ae3ffd29531570890e8b32825a6964ce2">instancedEntities</a>.end();</div>
-<div class="line"><span class="lineno">  118</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00106">106</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  106</span>                                                                  {</div>
+<div class="line"><span class="lineno">  107</span>    std::string <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">strippedName</a> = <a class="code hl_function" href="class_g_l_e_s_c_1_1_stringer.html#a664c9af6a77e075c21a6b0cff1329e4f">Stringer::strip</a>(name, <span class="stringliteral">&quot;1234567890&quot;</span>);</div>
+<div class="line"><span class="lineno">  108</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#ae3ffd29531570890e8b32825a6964ce2">instancedEntities</a>.find(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">strippedName</a>) != <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#ae3ffd29531570890e8b32825a6964ce2">instancedEntities</a>.end();</div>
+<div class="line"><span class="lineno">  109</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_entity_manager_8h_source.html#l00194">instancedEntities</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_stringer_8cpp_source.html#l00026">GLESC::Stringer::strip()</a>.</p>
+<p class="reference">References <a class="el" href="_entity_manager_8h_source.html#l00194">instancedEntities</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_stringer_8cpp_source.html#l00017">GLESC::Stringer::strip()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_entity_manager_8cpp_source.html#l00051">destroyEntity()</a>, and <a class="el" href="_e_c_s_8cpp_source.html#l00171">GLESC::ECS::ECSCoordinator::isEntityInstanced()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_entity_manager_8cpp_source.html#l00042">destroyEntity()</a>, and <a class="el" href="_e_c_s_8cpp_source.html#l00162">GLESC::ECS::ECSCoordinator::isEntityInstanced()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1366,15 +1366,15 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00120">120</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  120</span>                                                                                      {</div>
-<div class="line"><span class="lineno">  121</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#af174dceb6b3d4ec490f5812ba128dd51">isEntityAlive</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>), <span class="stringliteral">&quot;Entity must be alive to remove a component&quot;</span>);</div>
-<div class="line"><span class="lineno">  122</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a54e81951030afee74dd6ea3c4e2b74e5">isComponentInRange</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">componentID</a>), <span class="stringliteral">&quot;Component must be in range to be removed&quot;</span>);</div>
-<div class="line"><span class="lineno">  123</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#aab28983bdd04e1acf2dd7d94dbe4639d">doesEntityHaveComponent</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">componentID</a>), <span class="stringliteral">&quot;Entity must have the component to remove it&quot;</span>);</div>
-<div class="line"><span class="lineno">  124</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a6737b1aa49a0374bf9c92fd0df3aae8c">signatures</a>[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>].reset(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">componentID</a>);</div>
-<div class="line"><span class="lineno">  125</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00111">111</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  111</span>                                                                                      {</div>
+<div class="line"><span class="lineno">  112</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#af174dceb6b3d4ec490f5812ba128dd51">isEntityAlive</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>), <span class="stringliteral">&quot;Entity must be alive to remove a component&quot;</span>);</div>
+<div class="line"><span class="lineno">  113</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a54e81951030afee74dd6ea3c4e2b74e5">isComponentInRange</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">componentID</a>), <span class="stringliteral">&quot;Component must be in range to be removed&quot;</span>);</div>
+<div class="line"><span class="lineno">  114</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#aab28983bdd04e1acf2dd7d94dbe4639d">doesEntityHaveComponent</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">componentID</a>), <span class="stringliteral">&quot;Entity must have the component to remove it&quot;</span>);</div>
+<div class="line"><span class="lineno">  115</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a6737b1aa49a0374bf9c92fd0df3aae8c">signatures</a>[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>].reset(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">componentID</a>);</div>
+<div class="line"><span class="lineno">  116</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_asserts_8h_source.html#l00021">D_ASSERT_TRUE</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00084">doesEntityHaveComponent()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00152">isComponentInRange()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00142">isEntityAlive()</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_entity_manager_8h_source.html#l00188">signatures</a>.</p>
+<p class="reference">References <a class="el" href="_asserts_8h_source.html#l00021">D_ASSERT_TRUE</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00075">doesEntityHaveComponent()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00143">isComponentInRange()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00133">isEntityAlive()</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_entity_manager_8h_source.html#l00188">signatures</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="_e_c_s_8h_source.html#l00262">GLESC::ECS::ECSCoordinator::removeComponent()</a>.</p>
 <div class="dynheader">
@@ -1461,16 +1461,16 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The ID of the entity, or NULL_ENTITY if the entity does not exist </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00105">105</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  105</span>                                                                 {</div>
-<div class="line"><span class="lineno">  106</span>    <span class="keywordflow">if</span> (!<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a5145504091eb26170aa219acb60aca71">doesEntityExist</a>(name))</div>
-<div class="line"><span class="lineno">  107</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a7f8d3b9a15bdcf39c67c305ba8850b98">nullEntity</a>;</div>
-<div class="line"><span class="lineno">  108</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#afd6cb3d534adf8b7c5e44315dfe703c0">entityNameToID</a>.at(name);</div>
-<div class="line"><span class="lineno">  109</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_entity_manager_8cpp_source.html#l00096">96</a> of file <a class="el" href="_entity_manager_8cpp_source.html">EntityManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   96</span>                                                                 {</div>
+<div class="line"><span class="lineno">   97</span>    <span class="keywordflow">if</span> (!<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a5145504091eb26170aa219acb60aca71">doesEntityExist</a>(name))</div>
+<div class="line"><span class="lineno">   98</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#a7f8d3b9a15bdcf39c67c305ba8850b98">nullEntity</a>;</div>
+<div class="line"><span class="lineno">   99</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_entity_manager.html#afd6cb3d534adf8b7c5e44315dfe703c0">entityNameToID</a>.at(name);</div>
+<div class="line"><span class="lineno">  100</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_entity_manager_8cpp_source.html#l00134">doesEntityExist()</a>, <a class="el" href="_entity_manager_8h_source.html#l00191">entityNameToID</a>, and <a class="el" href="_entity_manager_8h_source.html#l00035">nullEntity</a>.</p>
+<p class="reference">References <a class="el" href="_entity_manager_8cpp_source.html#l00125">doesEntityExist()</a>, <a class="el" href="_entity_manager_8h_source.html#l00191">entityNameToID</a>, and <a class="el" href="_entity_manager_8h_source.html#l00035">nullEntity</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_e_c_s_8cpp_source.html#l00167">GLESC::ECS::ECSCoordinator::tryGetEntityID()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_e_c_s_8cpp_source.html#l00158">GLESC::ECS::ECSCoordinator::tryGetEntityID()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1534,7 +1534,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="_entity_manager_8h_source.html#l00182">182</a> of file <a class="el" href="_entity_manager_8h_source.html">EntityManager.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_entity_manager_8cpp_source.html#l00020">EntityManager()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00156">canEntityBeCreated()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00027">createNextEntity()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00051">destroyEntity()</a>, and <a class="el" href="_entity_manager_8h_source.html#l00051">getAvailableEntities()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_entity_manager_8cpp_source.html#l00011">EntityManager()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00147">canEntityBeCreated()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00018">createNextEntity()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00042">destroyEntity()</a>, and <a class="el" href="_entity_manager_8h_source.html#l00051">getAvailableEntities()</a>.</p>
 
 </div>
 </div>
@@ -1563,7 +1563,7 @@ Here is the caller graph for this function:</div>
 <p class="definition">Definition at line <a class="el" href="_entity_manager_8h_source.html#l00206">206</a> of file <a class="el" href="_entity_manager_8h_source.html">EntityManager.h</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  206</span>{};</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="_entity_manager_8cpp_source.html#l00027">createNextEntity()</a>, and <a class="el" href="_entity_manager_8h_source.html#l00054">getEntityCounter()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_entity_manager_8cpp_source.html#l00018">createNextEntity()</a>, and <a class="el" href="_entity_manager_8h_source.html#l00054">getEntityCounter()</a>.</p>
 
 </div>
 </div>
@@ -1589,7 +1589,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="_entity_manager_8h_source.html#l00192">192</a> of file <a class="el" href="_entity_manager_8h_source.html">EntityManager.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_entity_manager_8cpp_source.html#l00027">createNextEntity()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00051">destroyEntity()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00138">doesEntityExist()</a>, <a class="el" href="_entity_manager_8h_source.html#l00050">getEntityIDToName()</a>, and <a class="el" href="_entity_manager_8cpp_source.html#l00090">getEntityName()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_entity_manager_8cpp_source.html#l00018">createNextEntity()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00042">destroyEntity()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00129">doesEntityExist()</a>, <a class="el" href="_entity_manager_8h_source.html#l00050">getEntityIDToName()</a>, and <a class="el" href="_entity_manager_8cpp_source.html#l00081">getEntityName()</a>.</p>
 
 </div>
 </div>
@@ -1615,7 +1615,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="_entity_manager_8h_source.html#l00193">193</a> of file <a class="el" href="_entity_manager_8h_source.html">EntityManager.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_entity_manager_8cpp_source.html#l00027">createNextEntity()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00051">destroyEntity()</a>, and <a class="el" href="_entity_manager_8cpp_source.html#l00095">getEntityMetadata()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_entity_manager_8cpp_source.html#l00018">createNextEntity()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00042">destroyEntity()</a>, and <a class="el" href="_entity_manager_8cpp_source.html#l00086">getEntityMetadata()</a>.</p>
 
 </div>
 </div>
@@ -1641,7 +1641,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="_entity_manager_8h_source.html#l00191">191</a> of file <a class="el" href="_entity_manager_8h_source.html">EntityManager.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_entity_manager_8cpp_source.html#l00156">canEntityBeCreated()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00027">createNextEntity()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00051">destroyEntity()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00134">doesEntityExist()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00100">getEntityID()</a>, <a class="el" href="_entity_manager_8h_source.html#l00049">getEntityNameToID()</a>, and <a class="el" href="_entity_manager_8cpp_source.html#l00105">tryGetEntity()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_entity_manager_8cpp_source.html#l00147">canEntityBeCreated()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00018">createNextEntity()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00042">destroyEntity()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00125">doesEntityExist()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00091">getEntityID()</a>, <a class="el" href="_entity_manager_8h_source.html#l00049">getEntityNameToID()</a>, and <a class="el" href="_entity_manager_8cpp_source.html#l00096">tryGetEntity()</a>.</p>
 
 </div>
 </div>
@@ -1668,7 +1668,7 @@ Here is the caller graph for this function:</div>
 <p class="definition">Definition at line <a class="el" href="_entity_manager_8h_source.html#l00036">36</a> of file <a class="el" href="_entity_manager_8h_source.html">EntityManager.h</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   36</span>{0};</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="_entity_manager_8cpp_source.html#l00020">EntityManager()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_entity_manager_8cpp_source.html#l00011">EntityManager()</a>.</p>
 
 </div>
 </div>
@@ -1694,7 +1694,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="_entity_manager_8h_source.html#l00194">194</a> of file <a class="el" href="_entity_manager_8h_source.html">EntityManager.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_entity_manager_8cpp_source.html#l00027">createNextEntity()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00051">destroyEntity()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00111">getInstancedEntities()</a>, and <a class="el" href="_entity_manager_8cpp_source.html#l00115">isEntityInstanced()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_entity_manager_8cpp_source.html#l00018">createNextEntity()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00042">destroyEntity()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00102">getInstancedEntities()</a>, and <a class="el" href="_entity_manager_8cpp_source.html#l00106">isEntityInstanced()</a>.</p>
 
 </div>
 </div>
@@ -1720,7 +1720,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="_entity_manager_8h_source.html#l00195">195</a> of file <a class="el" href="_entity_manager_8h_source.html">EntityManager.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_entity_manager_8cpp_source.html#l00027">createNextEntity()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_entity_manager_8cpp_source.html#l00018">createNextEntity()</a>.</p>
 
 </div>
 </div>
@@ -1749,7 +1749,7 @@ Here is the caller graph for this function:</div>
 <p class="definition">Definition at line <a class="el" href="_entity_manager_8h_source.html#l00200">200</a> of file <a class="el" href="_entity_manager_8h_source.html">EntityManager.h</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  200</span>{};</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="_entity_manager_8cpp_source.html#l00162">areThereLivingEntities()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00156">canEntityBeCreated()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00027">createNextEntity()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00051">destroyEntity()</a>, and <a class="el" href="_entity_manager_8h_source.html#l00053">getLivingEntityCount()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_entity_manager_8cpp_source.html#l00153">areThereLivingEntities()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00147">canEntityBeCreated()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00018">createNextEntity()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00042">destroyEntity()</a>, and <a class="el" href="_entity_manager_8h_source.html#l00053">getLivingEntityCount()</a>.</p>
 
 </div>
 </div>
@@ -1778,7 +1778,7 @@ Here is the caller graph for this function:</div>
 <p class="definition">Definition at line <a class="el" href="_entity_manager_8h_source.html#l00035">35</a> of file <a class="el" href="_entity_manager_8h_source.html">EntityManager.h</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   35</span>{std::numeric_limits&lt;EntityID&gt;::max()};</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="_entity_manager_8cpp_source.html#l00051">destroyEntity()</a>, <a class="el" href="_entity_factory_8cpp_source.html#l00021">GLESC::ECS::EntityFactory::tryGetEntity()</a>, and <a class="el" href="_entity_manager_8cpp_source.html#l00105">tryGetEntity()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_entity_manager_8cpp_source.html#l00042">destroyEntity()</a>, <a class="el" href="_entity_factory_8cpp_source.html#l00021">GLESC::ECS::EntityFactory::tryGetEntity()</a>, and <a class="el" href="_entity_manager_8cpp_source.html#l00096">tryGetEntity()</a>.</p>
 
 </div>
 </div>
@@ -1825,7 +1825,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="_entity_manager_8h_source.html#l00188">188</a> of file <a class="el" href="_entity_manager_8h_source.html">EntityManager.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_entity_manager_8cpp_source.html#l00127">addComponentToEntity()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00051">destroyEntity()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00084">doesEntityHaveComponent()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00079">getSignature()</a>, <a class="el" href="_entity_manager_8h_source.html#l00052">getSignatures()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00152">isComponentInRange()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00142">isEntityAlive()</a>, and <a class="el" href="_entity_manager_8cpp_source.html#l00120">removeComponentFromEntity()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_entity_manager_8cpp_source.html#l00118">addComponentToEntity()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00042">destroyEntity()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00075">doesEntityHaveComponent()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00070">getSignature()</a>, <a class="el" href="_entity_manager_8h_source.html#l00052">getSignatures()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00143">isComponentInRange()</a>, <a class="el" href="_entity_manager_8cpp_source.html#l00133">isEntityAlive()</a>, and <a class="el" href="_entity_manager_8cpp_source.html#l00111">removeComponentFromEntity()</a>.</p>
 
 </div>
 </div>

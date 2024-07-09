@@ -1,5 +1,5 @@
 <map id="EngineHUDManager.cpp" name="EngineHUDManager.cpp">
-<area shape="rect" id="Node000001" title="@TODO Add description of this file if needed" alt="" coords="3148,5,3312,32"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="3148,5,3312,32"/>
 <area shape="rect" id="Node000002" href="$_engine_h_u_d_manager_8h.html" title="@TODO Add description of this file if needed" alt="" coords="3120,80,3340,123"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="3233,33,3233,65,3227,65,3227,33"/>
 <area shape="rect" id="Node000003" href="$_debug_items_h_u_d_8h.html" title="@TODO Add description of this file if needed" alt="" coords="706,187,834,213"/>
@@ -52,9 +52,9 @@
 <area shape="poly" id="edge19_Node000052_Node000018" title=" " alt="" coords="1950,305,1745,313,1496,327,1275,346,1197,357,1152,370,1127,387,1105,408,1068,458,1042,509,1026,551,1021,549,1037,506,1064,455,1101,405,1124,383,1150,366,1196,352,1275,340,1496,321,1744,308,1950,300"/>
 <area shape="rect" id="Node000053" href="$_counter_8h.html" title="Class to encapsulate the logic of counting." alt="" coords="1737,368,1872,411"/>
 <area shape="poly" id="edge20_Node000052_Node000053" title=" " alt="" coords="1988,323,1876,365,1874,360,1986,318"/>
-<area shape="rect" id="Node000054" href="$_shader_8h.html" title="Class for handling shaders." alt="" coords="556,459,728,501"/>
+<area shape="rect" id="Node000054" href="$_shader_8h.html" title="Class for managing and utilizing shader programs in the graphics pipeline." alt="" coords="556,459,728,501"/>
 <area shape="poly" id="edge21_Node000052_Node000054" title=" " alt="" coords="1950,304,1630,311,1214,324,846,344,724,356,687,363,669,370,656,385,648,404,642,443,637,443,643,402,652,382,666,366,686,358,724,351,846,338,1214,319,1630,306,1950,299"/>
-<area shape="rect" id="Node000063" href="$_window_manager_8h.html" title="@TODO Add description of this file if needed" alt="" coords="1163,368,1297,411"/>
+<area shape="rect" id="Node000063" href="$_window_manager_8h.html" title="Manages the main application window and its properties." alt="" coords="1163,368,1297,411"/>
 <area shape="poly" id="edge27_Node000052_Node000063" title=" " alt="" coords="1950,313,1313,382,1312,376,1950,307"/>
 <area shape="rect" id="Node000066" href="$_renderer_types_8h.html" title="@TODO Add description of this file if needed" alt="" coords="2611,557,2796,600"/>
 <area shape="poly" id="edge32_Node000052_Node000066" title=" " alt="" coords="2136,302,2430,319,2808,350,2990,371,3148,396,3265,424,3304,440,3328,457,3335,468,3338,480,3335,492,3328,503,3302,517,3256,530,3120,550,2958,565,2811,575,2811,569,2958,559,3119,544,3254,524,3300,512,3324,499,3330,490,3332,480,3330,470,3324,461,3302,444,3263,429,3147,401,2989,376,2807,355,2430,324,2136,307"/>
@@ -88,7 +88,7 @@
 <area shape="poly" id="edge30_Node000063_Node000020" title=" " alt="" coords="1180,413,1146,434,1116,460,1092,497,1082,530,1075,566,1059,609,1035,652,1030,650,1054,607,1070,565,1077,529,1087,495,1112,457,1143,429,1177,409"/>
 <area shape="rect" id="Node000064" title=" " alt="" coords="3389,467,3482,493"/>
 <area shape="poly" id="edge29_Node000063_Node000064" title=" " alt="" coords="1298,391,1725,408,1969,414,2175,416,2526,413,2696,414,2877,420,3083,433,3326,456,3373,463,3373,468,3326,461,3083,439,2877,426,2696,420,2526,419,2175,421,1969,420,1724,413,1297,396"/>
-<area shape="rect" id="Node000065" href="$_window_structs_8h.html" title="@TODO Add description of this file if needed" alt="" coords="1170,467,1290,493"/>
+<area shape="rect" id="Node000065" href="$_window_structs_8h.html" title="Defines structures related to window properties." alt="" coords="1170,467,1290,493"/>
 <area shape="poly" id="edge31_Node000063_Node000065" title=" " alt="" coords="1233,411,1233,451,1227,451,1227,411"/>
 <area shape="rect" id="Node000032" href="$_stringer_8h.html" title="A set of functions for converting objects to strings." alt="" coords="2540,664,2685,707"/>
 <area shape="poly" id="edge33_Node000066_Node000032" title=" " alt="" coords="2687,602,2642,654,2638,650,2683,599"/>

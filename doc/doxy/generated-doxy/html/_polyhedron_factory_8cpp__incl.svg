@@ -57,7 +57,7 @@ var sectionId = 'dynsection-0';
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000001"><a xlink:title=" ">
 <polygon fill="#999999" stroke="#666666" points="764.25,-1028 647.75,-1028 647.75,-1008 764.25,-1008 764.25,-1028"/>
 <text text-anchor="middle" x="706" y="-1014.5" font-family="Helvetica,sans-Serif" font-size="10.00">PolyhedronFactory.cpp</text>
 </a>

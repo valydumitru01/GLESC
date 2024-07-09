@@ -196,25 +196,25 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_hud_items_manager_8cpp_source.html#l00017">17</a> of file <a class="el" href="_hud_items_manager_8cpp_source.html">HudItemsManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   17</span>                                                                                           {</div>
-<div class="line"><span class="lineno">   18</span>    <a class="code hl_struct" href="_hud_items_manager_8h.html#struct_item">Item</a> item;</div>
-<div class="line"><span class="lineno">   19</span>    item.<a class="code hl_variable" href="_hud_items_manager_8h.html#a87a46974b5d51a5e743790ee0d25d3cb">worldPosition</a> = &amp;worldPosition;</div>
-<div class="line"><span class="lineno">   20</span>    item.<a class="code hl_variable" href="_hud_items_manager_8h.html#aa4c11cb437c2882d68f5b3a985071cfb">type</a> = type;</div>
-<div class="line"><span class="lineno">   21</span>    {</div>
-<div class="line"><span class="lineno">   22</span>        std::lock_guard lock(<a class="code hl_variable" href="class_hud_items_manager.html#a2cfe766c774e0144dbda60896e48ee74">itemsMutex</a>);</div>
-<div class="line"><span class="lineno">   23</span>        <a class="code hl_variable" href="class_hud_items_manager.html#a6616e7f421f82ddf4e93553c87daaf74">items</a>.push_back(item);</div>
-<div class="line"><span class="lineno">   24</span>    }</div>
-<div class="line"><span class="lineno">   25</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_hud_items_manager_8cpp_source.html#l00008">8</a> of file <a class="el" href="_hud_items_manager_8cpp_source.html">HudItemsManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">    8</span>                                                                                           {</div>
+<div class="line"><span class="lineno">    9</span>    <a class="code hl_struct" href="_hud_items_manager_8h.html#struct_item">Item</a> item;</div>
+<div class="line"><span class="lineno">   10</span>    item.<a class="code hl_variable" href="_hud_items_manager_8h.html#a87a46974b5d51a5e743790ee0d25d3cb">worldPosition</a> = &amp;worldPosition;</div>
+<div class="line"><span class="lineno">   11</span>    item.<a class="code hl_variable" href="_hud_items_manager_8h.html#aa4c11cb437c2882d68f5b3a985071cfb">type</a> = type;</div>
+<div class="line"><span class="lineno">   12</span>    {</div>
+<div class="line"><span class="lineno">   13</span>        std::lock_guard lock(<a class="code hl_variable" href="class_hud_items_manager.html#a2cfe766c774e0144dbda60896e48ee74">itemsMutex</a>);</div>
+<div class="line"><span class="lineno">   14</span>        <a class="code hl_variable" href="class_hud_items_manager.html#a6616e7f421f82ddf4e93553c87daaf74">items</a>.push_back(item);</div>
+<div class="line"><span class="lineno">   15</span>    }</div>
+<div class="line"><span class="lineno">   16</span>}</div>
 <div class="ttc" id="a_hud_items_manager_8h_html_a87a46974b5d51a5e743790ee0d25d3cb"><div class="ttname"><a href="_hud_items_manager_8h.html#a87a46974b5d51a5e743790ee0d25d3cb">Item::worldPosition</a></div><div class="ttdeci">const GLESC::Transform::Position * worldPosition</div><div class="ttdef"><b>Definition</b> <a href="_hud_items_manager_8h_source.html#l00039">HudItemsManager.h:39</a></div></div>
 <div class="ttc" id="a_hud_items_manager_8h_html_aa4c11cb437c2882d68f5b3a985071cfb"><div class="ttname"><a href="_hud_items_manager_8h.html#aa4c11cb437c2882d68f5b3a985071cfb">Item::type</a></div><div class="ttdeci">HudItemType type</div><div class="ttdef"><b>Definition</b> <a href="_hud_items_manager_8h_source.html#l00038">HudItemsManager.h:38</a></div></div>
 <div class="ttc" id="a_hud_items_manager_8h_html_struct_item"><div class="ttname"><a href="_hud_items_manager_8h.html#struct_item">Item</a></div><div class="ttdef"><b>Definition</b> <a href="_hud_items_manager_8h_source.html#l00037">HudItemsManager.h:37</a></div></div>
-<div class="ttc" id="aclass_hud_items_manager_html_a2cfe766c774e0144dbda60896e48ee74"><div class="ttname"><a href="class_hud_items_manager.html#a2cfe766c774e0144dbda60896e48ee74">HudItemsManager::itemsMutex</a></div><div class="ttdeci">static std::mutex itemsMutex</div><div class="ttdef"><b>Definition</b> <a href="_hud_items_manager_8h_source.html#l00014">HudItemsManager.h:14</a></div></div>
-<div class="ttc" id="aclass_hud_items_manager_html_a6616e7f421f82ddf4e93553c87daaf74"><div class="ttname"><a href="class_hud_items_manager.html#a6616e7f421f82ddf4e93553c87daaf74">HudItemsManager::items</a></div><div class="ttdeci">static std::vector&lt; Item &gt; items</div><div class="ttdef"><b>Definition</b> <a href="_hud_items_manager_8h_source.html#l00013">HudItemsManager.h:13</a></div></div>
+<div class="ttc" id="aclass_hud_items_manager_html_a2cfe766c774e0144dbda60896e48ee74"><div class="ttname"><a href="class_hud_items_manager.html#a2cfe766c774e0144dbda60896e48ee74">HudItemsManager::itemsMutex</a></div><div class="ttdeci">static std::mutex itemsMutex</div><div class="ttdef"><b>Definition</b> <a href="_hud_items_manager_8h_source.html#l00005">HudItemsManager.h:5</a></div></div>
+<div class="ttc" id="aclass_hud_items_manager_html_a6616e7f421f82ddf4e93553c87daaf74"><div class="ttname"><a href="class_hud_items_manager.html#a6616e7f421f82ddf4e93553c87daaf74">HudItemsManager::items</a></div><div class="ttdeci">static std::vector&lt; Item &gt; items</div><div class="ttdef"><b>Definition</b> <a href="_hud_items_manager_8h_source.html#l00004">HudItemsManager.h:4</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_hud_items_manager_8h_source.html#l00013">items</a>, <a class="el" href="_hud_items_manager_8h_source.html#l00014">itemsMutex</a>, <a class="el" href="_hud_items_manager_8h_source.html#l00038">Item::type</a>, and <a class="el" href="_hud_items_manager_8h_source.html#l00039">Item::worldPosition</a>.</p>
+<p class="reference">References <a class="el" href="_hud_items_manager_8h_source.html#l00004">items</a>, <a class="el" href="_hud_items_manager_8h_source.html#l00005">itemsMutex</a>, <a class="el" href="_hud_items_manager_8h_source.html#l00038">Item::type</a>, and <a class="el" href="_hud_items_manager_8h_source.html#l00039">Item::worldPosition</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_fog_system_8cpp_source.html#l00023">GLESC::ECS::FogSystem::update()</a>, <a class="el" href="_light_system_8cpp_source.html#l00023">GLESC::ECS::LightSystem::update()</a>, and <a class="el" href="_sun_system_8cpp_source.html#l00023">GLESC::ECS::SunSystem::update()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_fog_system_8cpp_source.html#l00014">GLESC::ECS::FogSystem::update()</a>, <a class="el" href="_light_system_8cpp_source.html#l00014">GLESC::ECS::LightSystem::update()</a>, and <a class="el" href="_sun_system_8cpp_source.html#l00014">GLESC::ECS::SunSystem::update()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -249,9 +249,9 @@ Here is the caller graph for this function:</div>
 <p class="definition">Definition at line <a class="el" href="_hud_items_manager_8h_source.html#l00052">52</a> of file <a class="el" href="_hud_items_manager_8h_source.html">HudItemsManager.h</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   52</span>{ <a class="code hl_variable" href="class_hud_items_manager.html#a6616e7f421f82ddf4e93553c87daaf74">items</a>.clear(); }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_hud_items_manager_8h_source.html#l00013">items</a>.</p>
+<p class="reference">References <a class="el" href="_hud_items_manager_8h_source.html#l00004">items</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_g_l_e_s_c_8cpp_source.html#l00079">GLESC::Engine::update()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_g_l_e_s_c_8cpp_source.html#l00070">GLESC::Engine::update()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -286,9 +286,9 @@ Here is the caller graph for this function:</div>
 <p class="definition">Definition at line <a class="el" href="_hud_items_manager_8h_source.html#l00051">51</a> of file <a class="el" href="_hud_items_manager_8h_source.html">HudItemsManager.h</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   51</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="class_hud_items_manager.html#a6616e7f421f82ddf4e93553c87daaf74">items</a>; }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_hud_items_manager_8h_source.html#l00013">items</a>.</p>
+<p class="reference">References <a class="el" href="_hud_items_manager_8h_source.html#l00004">items</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_debug_items_h_u_d_8cpp_source.html#l00044">GLESC::HUD::DebugItems::windowContent()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_debug_items_h_u_d_8cpp_source.html#l00035">GLESC::HUD::DebugItems::windowContent()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -318,9 +318,9 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_hud_items_manager_8h_source.html#l00013">13</a> of file <a class="el" href="_hud_items_manager_8h_source.html">HudItemsManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_hud_items_manager_8h_source.html#l00004">4</a> of file <a class="el" href="_hud_items_manager_8h_source.html">HudItemsManager.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_hud_items_manager_8cpp_source.html#l00017">addItem()</a>, <a class="el" href="_hud_items_manager_8h_source.html#l00052">clearItems()</a>, and <a class="el" href="_hud_items_manager_8h_source.html#l00051">getItems()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_hud_items_manager_8cpp_source.html#l00008">addItem()</a>, <a class="el" href="_hud_items_manager_8h_source.html#l00052">clearItems()</a>, and <a class="el" href="_hud_items_manager_8h_source.html#l00051">getItems()</a>.</p>
 
 </div>
 </div>
@@ -344,9 +344,9 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_hud_items_manager_8h_source.html#l00014">14</a> of file <a class="el" href="_hud_items_manager_8h_source.html">HudItemsManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_hud_items_manager_8h_source.html#l00005">5</a> of file <a class="el" href="_hud_items_manager_8h_source.html">HudItemsManager.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_hud_items_manager_8cpp_source.html#l00017">addItem()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_hud_items_manager_8cpp_source.html#l00008">addItem()</a>.</p>
 
 </div>
 </div>

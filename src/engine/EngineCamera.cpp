@@ -69,8 +69,6 @@ void EngineCamera::rotate(const MousePosition& deltaMouse) {
 }
 
 
-
-
 void EngineCamera::setupCamera() {
     camera.addComponent<ECS::CameraComponent>()
           .addComponent<ECS::TransformComponent>()
@@ -115,9 +113,11 @@ void EngineCamera::setupCamera() {
     camera.getComponent<ECS::InputComponent>().input.subscribeKey(
         {Input::Key::LEFT_ALT, Input::KeyAction::ONCE_RELEASED}, decelerateCommand);
     camera.getComponent<ECS::InputComponent>().input.subscribeKey(
-        {Input::Key::ONE, Input::KeyAction::ONCE_PRESSED}, {[&] {
-            inputManager.setMouseRelative(!inputManager.isMouseRelative());
-        }});
+        {Input::Key::ONE, Input::KeyAction::ONCE_PRESSED}, {
+            [&] {
+                inputManager.setMouseRelative(!inputManager.isMouseRelative());
+            }
+        });
     Input::KeyCommand toggleDebug = Input::KeyCommand([&] {
         D_ASSERT_NOT_NULLPTR(engineHuds, "Engine HUDs must not be null");
         debugHUDActive = !debugHUDActive;
@@ -125,8 +125,8 @@ void EngineCamera::setupCamera() {
 
         inputManager.setMouseRelative(debugHUDActive);
     });
+
     camera.getComponent<ECS::InputComponent>().input.subscribeKey(
         {Input::Key::LEFT_CTRL, Input::KeyAction::ONCE_PRESSED}, toggleDebug);
     camera.getComponent<ECS::InputComponent>().input.setMouseCommand(rotateCommand);
-
 }

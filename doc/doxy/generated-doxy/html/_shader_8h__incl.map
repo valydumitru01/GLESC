@@ -1,5 +1,5 @@
 <map id="Shader.h" name="Shader.h">
-<area shape="rect" id="Node000001" title="Class for handling shaders." alt="" coords="1087,5,1161,32"/>
+<area shape="rect" id="Node000001" title="Class for managing and utilizing shader programs in the graphics pipeline." alt="" coords="1087,5,1161,32"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="731,987,784,1013"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1087,25,836,43,660,59,474,79,297,105,148,135,89,152,45,169,17,188,10,197,8,207,8,844,10,865,16,881,25,893,38,903,71,920,112,936,163,952,234,965,407,983,583,992,715,996,715,1001,583,997,406,988,233,970,162,957,110,941,69,925,35,908,22,897,11,883,5,866,3,844,3,206,5,195,14,184,43,165,88,146,146,130,296,99,473,74,659,54,836,38,1087,20"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="1642,829,1697,856"/>

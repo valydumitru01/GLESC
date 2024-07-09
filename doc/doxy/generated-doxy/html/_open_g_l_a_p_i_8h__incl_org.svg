@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title="OpenGL API implementation.">
+<g id="a_Node000001"><a xlink:title="Implementation of the OpenGL graphics API.">
 <polygon fill="#999999" stroke="#666666" points="830.62,-872 754.62,-872 754.62,-852 830.62,-852 830.62,-872"/>
 <text text-anchor="middle" x="792.62" y="-858.5" font-family="Helvetica,sans-Serif" font-size="10.00">OpenGLAPI.h</text>
 </a>

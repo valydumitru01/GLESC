@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000001"><a xlink:title=" ">
 <polygon fill="#999999" stroke="#666666" points="235.38,-404 129.38,-404 129.38,-384 235.38,-384 235.38,-404"/>
 <text text-anchor="middle" x="182.38" y="-390.5" font-family="Helvetica,sans-Serif" font-size="10.00">DebugStatsHUD.cpp</text>
 </a>

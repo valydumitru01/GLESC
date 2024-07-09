@@ -20,7 +20,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="_polyhedron_8cpp.html" target="_top" xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000002"><a xlink:href="_polyhedron_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="98.75,-132 15.25,-132 15.25,-112 98.75,-112 98.75,-132"/>
 <text text-anchor="middle" x="57" y="-118.5" font-family="Helvetica,sans-Serif" font-size="10.00">Polyhedron.cpp</text>
 </a>
@@ -128,7 +128,7 @@
 <!-- Node57 -->
 <g id="Node000057" class="node">
 <title>Node57</title>
-<g id="a_Node000057"><a xlink:href="_debug_entity_data_h_u_d_8cpp.html" target="_top" xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000057"><a xlink:href="_debug_entity_data_h_u_d_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="1053.25,-356 924.75,-356 924.75,-336 1053.25,-336 1053.25,-356"/>
 <text text-anchor="middle" x="989" y="-342.5" font-family="Helvetica,sans-Serif" font-size="10.00">DebugEntityDataHUD.cpp</text>
 </a>
@@ -164,7 +164,7 @@
 <!-- Node61 -->
 <g id="Node000061" class="node">
 <title>Node61</title>
-<g id="a_Node000061"><a xlink:href="_open_g_l_a_p_i_8h.html" target="_top" xlink:title="OpenGL API implementation.">
+<g id="a_Node000061"><a xlink:href="_open_g_l_a_p_i_8h.html" target="_top" xlink:title="Implementation of the OpenGL graphics API.">
 <polygon fill="white" stroke="#666666" points="1561,-188 1485,-188 1485,-168 1561,-168 1561,-188"/>
 <text text-anchor="middle" x="1523" y="-174.5" font-family="Helvetica,sans-Serif" font-size="10.00">OpenGLAPI.h</text>
 </a>
@@ -380,7 +380,7 @@
 <!-- Node141 -->
 <g id="Node000141" class="node">
 <title>Node141</title>
-<g id="a_Node000141"><a xlink:href="_window_manager_8h.html" target="_top" xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000141"><a xlink:href="_window_manager_8h.html" target="_top" xlink:title="Manages the main application window and its properties.">
 <polygon fill="#fff0f0" stroke="red" points="1856.12,-412 1759.88,-412 1759.88,-392 1856.12,-392 1856.12,-412"/>
 <text text-anchor="middle" x="1808" y="-398.5" font-family="Helvetica,sans-Serif" font-size="10.00">WindowManager.h</text>
 </a>
@@ -398,7 +398,7 @@
 <!-- Node5 -->
 <g id="Node000005" class="node">
 <title>Node5</title>
-<g id="a_Node000005"><a xlink:href="_bounding_volume_8cpp.html" target="_top" xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000005"><a xlink:href="_bounding_volume_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="809.12,-244 700.88,-244 700.88,-224 809.12,-224 809.12,-244"/>
 <text text-anchor="middle" x="755" y="-230.5" font-family="Helvetica,sans-Serif" font-size="10.00">BoundingVolume.cpp</text>
 </a>
@@ -524,7 +524,7 @@
 <!-- Node11 -->
 <g id="Node000011" class="node">
 <title>Node11</title>
-<g id="a_Node000011"><a xlink:href="_collision_manager_8cpp.html" target="_top" xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000011"><a xlink:href="_collision_manager_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="652.5,-76 543.5,-76 543.5,-56 652.5,-56 652.5,-76"/>
 <text text-anchor="middle" x="598" y="-62.5" font-family="Helvetica,sans-Serif" font-size="10.00">CollisionManager.cpp</text>
 </a>
@@ -749,7 +749,7 @@
 <!-- Node66 -->
 <g id="Node000066" class="node">
 <title>Node66</title>
-<g id="a_Node000066"><a xlink:href="_shader_8h.html" target="_top" xlink:title="Class for handling shaders.">
+<g id="a_Node000066"><a xlink:href="_shader_8h.html" target="_top" xlink:title="Class for managing and utilizing shader programs in the graphics pipeline.">
 <polygon fill="#fff0f0" stroke="red" points="931.5,-300 876.5,-300 876.5,-280 931.5,-280 931.5,-300"/>
 <text text-anchor="middle" x="904" y="-286.5" font-family="Helvetica,sans-Serif" font-size="10.00">Shader.h</text>
 </a>
@@ -983,7 +983,7 @@
 <!-- Node103 -->
 <g id="Node000103" class="node">
 <title>Node103</title>
-<g id="a_Node000103"><a xlink:href="_line_8cpp.html" target="_top" xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000103"><a xlink:href="_line_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="156.38,-300 103.62,-300 103.62,-280 156.38,-280 156.38,-300"/>
 <text text-anchor="middle" x="130" y="-286.5" font-family="Helvetica,sans-Serif" font-size="10.00">Line.cpp</text>
 </a>

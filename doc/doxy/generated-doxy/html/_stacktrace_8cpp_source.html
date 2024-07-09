@@ -131,60 +131,60 @@ $(document).ready(function(){initNavTree('_stacktrace_8cpp_source.html',''); ini
 </div><!--header-->
 <div class="contents">
 <a href="_stacktrace_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="_stacktrace_8h.html">engine/core/debugger/Stacktrace.h</a>&quot;</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;sstream&gt;</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;array&gt;</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;boost/stacktrace.hpp&gt;</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="foldopen" id="foldopen00019" data-start="{" data-end="}">
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="namespace_g_l_e_s_c.html#a70928105022e5771539e4851612a30b3">   19</a></span>[[nodiscard]] std::string <a class="code hl_function" href="namespace_g_l_e_s_c.html#a70928105022e5771539e4851612a30b3">GLESC::addr2Line</a>(<span class="keyword">const</span> std::string &amp;addr,</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>                                           <span class="keyword">const</span> std::string &amp;exePath) {</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    std::ostringstream command;</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    command &lt;&lt; <span class="stringliteral">&quot;addr2line -f -C -e &quot;</span> &lt;&lt; exePath &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; addr;</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    std::array&lt;char, 128&gt; buffer{};</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    std::string result;</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    std::unique_ptr&lt;FILE, <span class="keyword">decltype</span>(&amp;pclose)&gt;</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>            pipe(popen(command.str().c_str(), <span class="stringliteral">&quot;r&quot;</span>), pclose);</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keywordflow">if</span> (!pipe) {</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        std::cerr &lt;&lt; <span class="stringliteral">&quot;popen() failed!&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        <span class="keywordflow">return</span> {};</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    }</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keywordflow">while</span> (fgets(buffer.data(), buffer.size(), pipe.get()) != <span class="keyword">nullptr</span>) {</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        result += buffer.data();</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    }</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordflow">return</span> result;</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>}</div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="_stacktrace_8h.html">engine/core/debugger/Stacktrace.h</a>&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;sstream&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;array&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;boost/stacktrace.hpp&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="foldopen" id="foldopen00010" data-start="{" data-end="}">
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="namespace_g_l_e_s_c.html#a70928105022e5771539e4851612a30b3">   10</a></span>[[nodiscard]] std::string <a class="code hl_function" href="namespace_g_l_e_s_c.html#a70928105022e5771539e4851612a30b3">GLESC::addr2Line</a>(<span class="keyword">const</span> std::string &amp;addr,</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>                                           <span class="keyword">const</span> std::string &amp;exePath) {</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    std::ostringstream command;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    command &lt;&lt; <span class="stringliteral">&quot;addr2line -f -C -e &quot;</span> &lt;&lt; exePath &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; addr;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    std::array&lt;char, 128&gt; buffer{};</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    std::string result;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    std::unique_ptr&lt;FILE, <span class="keyword">decltype</span>(&amp;pclose)&gt;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>            pipe(popen(command.str().c_str(), <span class="stringliteral">&quot;r&quot;</span>), pclose);</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keywordflow">if</span> (!pipe) {</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        std::cerr &lt;&lt; <span class="stringliteral">&quot;popen() failed!&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        <span class="keywordflow">return</span> {};</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    }</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordflow">while</span> (fgets(buffer.data(), buffer.size(), pipe.get()) != <span class="keyword">nullptr</span>) {</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        result += buffer.data();</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    }</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keywordflow">return</span> result;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>}</div>
 </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="foldopen" id="foldopen00038" data-start="{" data-end="}">
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="namespace_g_l_e_s_c.html#a8d9b5020e5eda5caa4a4fef6415bd1c7">   38</a></span>[[nodiscard]] std::string <a class="code hl_function" href="namespace_g_l_e_s_c.html#a8d9b5020e5eda5caa4a4fef6415bd1c7">GLESC::generateStackTrace</a>() {</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keyword">const</span> <span class="keyword">auto</span> exePath = PROJECT_BINARY_DIR + std::string(<span class="stringliteral">&quot;/&quot;</span>) +</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>                         std::string(PROJECT_NAME) + std::string(<span class="stringliteral">&quot;.exe&quot;</span>);</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    std::string stacktrace;</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keyword">const</span> <span class="keyword">auto</span> st = boost::stacktrace::stacktrace();</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;frame : st) {</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        std::stringstream ss;</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        ss &lt;&lt; std::hex &lt;&lt; frame.address();</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        std::string line = <a class="code hl_function" href="namespace_g_l_e_s_c.html#a70928105022e5771539e4851612a30b3">GLESC::addr2Line</a>(ss.str(), exePath);</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <span class="keywordflow">if</span> (line.find(<span class="stringliteral">&quot;??&quot;</span>) == std::string::npos) {</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>            stacktrace.append(line);</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>            stacktrace.append(<span class="stringliteral">&quot;Function not found: &quot;</span> + ss.str() + <span class="stringliteral">&quot;\n&quot;</span>);</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        }</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    }</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keywordflow">return</span> stacktrace;</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>}</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="foldopen" id="foldopen00029" data-start="{" data-end="}">
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="namespace_g_l_e_s_c.html#a8d9b5020e5eda5caa4a4fef6415bd1c7">   29</a></span>[[nodiscard]] std::string <a class="code hl_function" href="namespace_g_l_e_s_c.html#a8d9b5020e5eda5caa4a4fef6415bd1c7">GLESC::generateStackTrace</a>() {</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keyword">const</span> <span class="keyword">auto</span> exePath = PROJECT_BINARY_DIR + std::string(<span class="stringliteral">&quot;/&quot;</span>) +</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>                         std::string(PROJECT_NAME) + std::string(<span class="stringliteral">&quot;.exe&quot;</span>);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    std::string stacktrace;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keyword">const</span> <span class="keyword">auto</span> st = boost::stacktrace::stacktrace();</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;frame : st) {</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        std::stringstream ss;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        ss &lt;&lt; std::hex &lt;&lt; frame.address();</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        std::string line = <a class="code hl_function" href="namespace_g_l_e_s_c.html#a70928105022e5771539e4851612a30b3">GLESC::addr2Line</a>(ss.str(), exePath);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        <span class="keywordflow">if</span> (line.find(<span class="stringliteral">&quot;??&quot;</span>) == std::string::npos) {</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>            stacktrace.append(line);</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>            stacktrace.append(<span class="stringliteral">&quot;Function not found: &quot;</span> + ss.str() + <span class="stringliteral">&quot;\n&quot;</span>);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        }</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    }</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keywordflow">return</span> stacktrace;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>}</div>
 </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
 <div class="ttc" id="a_stacktrace_8h_html"><div class="ttname"><a href="_stacktrace_8h.html">Stacktrace.h</a></div><div class="ttdoc">A set of functions for generating and printing stack traces.</div></div>
-<div class="ttc" id="anamespace_g_l_e_s_c_html_a70928105022e5771539e4851612a30b3"><div class="ttname"><a href="namespace_g_l_e_s_c.html#a70928105022e5771539e4851612a30b3">GLESC::addr2Line</a></div><div class="ttdeci">std::string addr2Line(const std::string &amp;addr, const std::string &amp;exePath)</div><div class="ttdoc">Function to get the address of the function from the address of the function.</div><div class="ttdef"><b>Definition</b> <a href="_stacktrace_8cpp_source.html#l00019">Stacktrace.cpp:19</a></div></div>
-<div class="ttc" id="anamespace_g_l_e_s_c_html_a8d9b5020e5eda5caa4a4fef6415bd1c7"><div class="ttname"><a href="namespace_g_l_e_s_c.html#a8d9b5020e5eda5caa4a4fef6415bd1c7">GLESC::generateStackTrace</a></div><div class="ttdeci">std::string generateStackTrace()</div><div class="ttdoc">Function to generate a stack trace.</div><div class="ttdef"><b>Definition</b> <a href="_stacktrace_8cpp_source.html#l00038">Stacktrace.cpp:38</a></div></div>
+<div class="ttc" id="anamespace_g_l_e_s_c_html_a70928105022e5771539e4851612a30b3"><div class="ttname"><a href="namespace_g_l_e_s_c.html#a70928105022e5771539e4851612a30b3">GLESC::addr2Line</a></div><div class="ttdeci">std::string addr2Line(const std::string &amp;addr, const std::string &amp;exePath)</div><div class="ttdoc">Function to get the address of the function from the address of the function.</div><div class="ttdef"><b>Definition</b> <a href="_stacktrace_8cpp_source.html#l00010">Stacktrace.cpp:10</a></div></div>
+<div class="ttc" id="anamespace_g_l_e_s_c_html_a8d9b5020e5eda5caa4a4fef6415bd1c7"><div class="ttname"><a href="namespace_g_l_e_s_c.html#a8d9b5020e5eda5caa4a4fef6415bd1c7">GLESC::generateStackTrace</a></div><div class="ttdeci">std::string generateStackTrace()</div><div class="ttdoc">Function to generate a stack trace.</div><div class="ttdef"><b>Definition</b> <a href="_stacktrace_8cpp_source.html#l00029">Stacktrace.cpp:29</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

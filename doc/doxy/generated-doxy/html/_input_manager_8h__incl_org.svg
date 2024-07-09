@@ -56,7 +56,7 @@
 <!-- Node46 -->
 <g id="Node000046" class="node">
 <title>Node46</title>
-<g id="a_Node000046"><a xlink:href="_window_manager_8h.html" target="_top" xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000046"><a xlink:href="_window_manager_8h.html" target="_top" xlink:title="Manages the main application window and its properties.">
 <polygon fill="white" stroke="#666666" points="1389.62,-620 1288.88,-620 1288.88,-588 1389.62,-588 1389.62,-620"/>
 <text text-anchor="start" x="1296.88" y="-606.5" font-family="Helvetica,sans-Serif" font-size="10.00">engine/core/window</text>
 <text text-anchor="middle" x="1339.25" y="-594.5" font-family="Helvetica,sans-Serif" font-size="10.00">/WindowManager.h</text>
@@ -1078,7 +1078,7 @@
 <!-- Node48 -->
 <g id="Node000048" class="node">
 <title>Node48</title>
-<g id="a_Node000048"><a xlink:href="_window_structs_8h.html" target="_top" xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000048"><a xlink:href="_window_structs_8h.html" target="_top" xlink:title="Defines structures related to window properties.">
 <polygon fill="white" stroke="#666666" points="1457.38,-546 1367.12,-546 1367.12,-526 1457.38,-526 1457.38,-546"/>
 <text text-anchor="middle" x="1412.25" y="-532.5" font-family="Helvetica,sans-Serif" font-size="10.00">WindowStructs.h</text>
 </a>

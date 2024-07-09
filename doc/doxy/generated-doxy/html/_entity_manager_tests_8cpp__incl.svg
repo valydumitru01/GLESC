@@ -21,7 +21,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000001"><a xlink:title="Integration tests for the EntityManager class.">
 <polygon fill="#999999" stroke="#666666" points="121.75,-76 0,-76 0,-56 121.75,-56 121.75,-76"/>
 <text text-anchor="middle" x="60.88" y="-62.5" font-family="Helvetica,sans-Serif" font-size="10.00">EntityManagerTests.cpp</text>
 </a>

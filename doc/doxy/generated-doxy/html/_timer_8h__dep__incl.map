@@ -2,7 +2,7 @@
 <area shape="rect" id="Node000001" title="Classes to encapsulate the logic of measuring real time." alt="" coords="144,5,209,32"/>
 <area shape="rect" id="Node000002" href="$_scene_8h.html" title="@TODO Add description of this file if needed" alt="" coords="94,80,163,107"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="162,47,139,81,135,78,158,44"/>
-<area shape="rect" id="Node000009" href="$_timer_8cpp.html" title="@TODO Add description of this file if needed" alt="" coords="187,80,265,107"/>
+<area shape="rect" id="Node000009" href="$_timer_8cpp.html" title=" " alt="" coords="187,80,265,107"/>
 <area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="196,44,220,78,215,81,192,47"/>
 <area shape="rect" id="Node000003" href="$_default_8h.html" title="@TODO Add description of this file if needed" alt="" coords="16,155,89,181"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="106,119,67,156,64,152,103,116"/>
@@ -10,7 +10,7 @@
 <area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="131,122,131,304,126,304,126,122"/>
 <area shape="rect" id="Node000006" href="$_scene_container_8h.html" title="Class that stores and manages scenes." alt="" coords="166,155,291,181"/>
 <area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="160,114,213,152,209,156,157,118"/>
-<area shape="rect" id="Node000004" href="$_default_8cpp.html" title="@TODO Add description of this file if needed" alt="" coords="5,229,92,256"/>
+<area shape="rect" id="Node000004" href="$_default_8cpp.html" title=" " alt="" coords="5,229,92,256"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="54,197,52,229,47,229,48,197"/>
 <area shape="rect" id="Node000007" href="$_g_l_e_s_c_8h.html" title=" " alt="" coords="190,229,267,256"/>
 <area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="231,197,231,229,226,229,226,197"/>

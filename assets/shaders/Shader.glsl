@@ -132,11 +132,10 @@ vec3 calculateDiffuse(vec3 lightDir, vec3 norm, vec3 color, float intensity, flo
 }
 
 float calculateFogFactor(float distanceToPixel, float fogEnd, float density) {
-    float distRatio = 4.0f * distanceToPixel / fogEnd;
-    float fogFactor = exp(-distRatio * density * distRatio * density);
+    float distRatio = distanceToPixel / fogEnd;
+    float fogFactor = exp(-pow(distRatio * density, 2.0)); // Exponential decay based on distance
     return fogFactor;
 }
-
 void main() {
     vec3 viewDir = normalize(-FragPosViewSpace);
     vec3 norm = NormalViewSpace;
@@ -164,6 +163,9 @@ void main() {
     uMaterial.specularColor, uMaterial.specularIntensity, 1.0, sunIntensity);
 
 
+    vec3 emission = uMaterial.emissionColor * uMaterial.emissionIntensity;
+
+
     for (uint i = 0; i < uLights.count; ++i) {
         vec3 lightPosViewSpace =  uLights.posInViewSpace[i];
         float intensity = uLights.intensity[i];
@@ -180,16 +182,13 @@ void main() {
         float att = calculateAttenuation(distanceToFrag, radius);
 
         // Diffuse
-        totalDiffuse += calculateDiffuse(lightDirNormalized, norm, color, intensity, att);
+        totalDiffuse += calculateDiffuse(lightDirNormalized, norm, color, intensity, att) * uMaterial.diffuseIntensity;
 
         // Specular
         totalSpecular += calculateSpecular(lightDirNormalized, norm, viewDir, uMaterial.shininess,
         uMaterial.specularColor, uMaterial.specularIntensity, att, intensity);
-
-
     }
-
-    vec3 finalColor = (ambient + totalDiffuse + totalSpecular) * baseColor;
+    vec3 finalColor = (ambient + totalDiffuse + totalSpecular + emission) * baseColor;
 
     float fogFactor = calculateFogFactor(length(FragPosViewSpace), uFog.end, uFog.density);
     vec3 foggedColor = mix(uFog.color, finalColor, fogFactor);
@@ -242,6 +241,7 @@ out vec3 SunDirViewSpace;
 // ------------------------------------------
 uniform mat4 uMVP;
 uniform mat4 uMV;
+uniform mat4 uViewMat;
 uniform mat3 uNormalMat;
 uniform vec3 uSunDirection;
 // ==========================================
@@ -266,5 +266,5 @@ void main() {
     FragPosViewSpace = vec3(uMV * vec4(aPos, 1.0));
 
     // Transform sun direction to view space using the normal matrix
-    SunDirViewSpace = normalize(uNormalMat * uSunDirection);
+    SunDirViewSpace = normalize((uViewMat * vec4(uSunDirection, 0.0)).xyz);
 }

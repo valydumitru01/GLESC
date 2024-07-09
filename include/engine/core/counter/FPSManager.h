@@ -9,6 +9,7 @@
  ******************************************************************************/
 #pragma once
 
+#include "FpsTypes.h"
 #include "engine/core/counter/FPSAverager.h"
 #include "SDL2/SDL.h"
 
@@ -29,7 +30,6 @@ enum FpsRates {
 
 class FPSManager {
 public:
-    using Millis = float;
     explicit FPSManager(FpsRates renderFPS, FpsRates updateFPS = Fps60);
 
     /**
@@ -69,70 +69,72 @@ public:
      *
      * @return Uint32
      */
-    [[nodiscard]] Millis getUpdateTimeMillis() const;
+    [[nodiscard]] UIntMillis getUpdateTimeMillis() const;
 
     /**
      * @brief Get the time it took to render the frame
      *
      * @return Uint32
      */
-    [[nodiscard]] Millis getCurrentRenderTimeMillis() const;
+    [[nodiscard]] UIntMillis getCurrentRenderTimeMillis() const;
 
     /**
      * @brief Get the average time it took to render the frame
      *
      * @return Uint32
      */
-    [[nodiscard]] Millis getAverageRenderTimeMillis() const;
+    [[nodiscard]] FPSFloatingPoint getAverageRenderTimeMillis() const;
 
     /**
      * @brief Get the average fps of the last 60 frames
      *
      * @return float
      */
-    [[nodiscard]] float getRenderFPS() const;
+    [[nodiscard]] FPSFloatingPoint getRenderFPS() const;
 
     /**
      * @brief Get the fps of the update
      *
      * @return float
      */
-    [[nodiscard]] float getUpdateFPS() const;
+    [[nodiscard]] FPSFloatingPoint getUpdateFPS() const;
+
+    [[nodiscard]] UIntMillis getLag() const { return lag; }
 
 private:
     void delay() const;
-    static constexpr Millis msInASecond{1000};
+    static constexpr UIntMillis msInASecond{1000};
     /**
      * @brief The max time (milliseconds) can elapse between frames
      *
      */
-    double msPerRender;
+    const UIntMillis msPerRender;
     /**
      * @brief constant speed (in ms) in which our game updates
      *
      */
-    const Millis msPerUpdate;
+    const UIntMillis msPerUpdate;
 
     /**
      * @brief Time recorded at the beginning of the loop iteration
      *
      */
-    Millis current{};
+    UIntMillis current{};
     /**
      * @brief Time recorded at the end of the loop iteration
      *
      */
-    Millis previous{};
+    UIntMillis previous{};
     /**
      * @brief The actual time it elapses
      *
      */
-    Millis elapsed{};
+    UIntMillis elapsed{};
     /**
      * @brief Amount of time game time is behind real time
      *
      */
-    Millis lag{};
+    UIntMillis lag{};
 
     /**
      * @brief Threshold to check if the game is stuck in a loop-
@@ -148,7 +150,7 @@ private:
     /**
      * @brief List of the last 60 frames to calculate the average fps
      */
-    Millis fpsList[averageFpsListSize]{};
+    UIntMillis fpsList[averageFpsListSize]{};
     /**
      * @brief Index of the fpsList
      */
@@ -157,5 +159,5 @@ private:
     /**
      * @brief The averager to calculate the average fps
      */
-    FPSAverager fpsAverager;
+    FPSAverager renderFpsAverager;
 };

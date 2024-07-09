@@ -214,8 +214,8 @@ std::vector<EntityStatsManager::Value> Transform::getDebuggingValues() {
     scaleValue.type = EntityStatsManager::ValueType::VEC3F;
     scaleValue.isModifiable = true;
     scaleValue.usesSlider = true;
-    scaleValue.min = -10.0f;
-    scaleValue.max = 10.0f;
+    scaleValue.min = 0.1f; // Lower value crashes
+    scaleValue.max = 100.0f;
     values.push_back(scaleValue);
 
     return values;

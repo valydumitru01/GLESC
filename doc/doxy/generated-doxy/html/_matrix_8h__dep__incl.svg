@@ -66,7 +66,7 @@ var sectionId = 'dynsection-1';
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="_debug_entity_data_h_u_d_8cpp.html" target="_top" xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000002"><a xlink:href="_debug_entity_data_h_u_d_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="890.38,-648 761.88,-648 761.88,-628 890.38,-628 890.38,-648"/>
 <text text-anchor="middle" x="826.12" y="-634.5" font-family="Helvetica,sans-Serif" font-size="10.00">DebugEntityDataHUD.cpp</text>
 </a>
@@ -210,7 +210,7 @@ var sectionId = 'dynsection-1';
 <!-- Node56 -->
 <g id="Node000056" class="node">
 <title>Node56</title>
-<g id="a_Node000056"><a xlink:href="_shader_8h.html" target="_top" xlink:title="Class for handling shaders.">
+<g id="a_Node000056"><a xlink:href="_shader_8h.html" target="_top" xlink:title="Class for managing and utilizing shader programs in the graphics pipeline.">
 <polygon fill="white" stroke="#666666" points="499.62,-586 444.62,-586 444.62,-566 499.62,-566 499.62,-586"/>
 <text text-anchor="middle" x="472.12" y="-572.5" font-family="Helvetica,sans-Serif" font-size="10.00">Shader.h</text>
 </a>
@@ -309,7 +309,7 @@ var sectionId = 'dynsection-1';
 <!-- Node6 -->
 <g id="Node000006" class="node">
 <title>Node6</title>
-<g id="a_Node000006"><a xlink:href="_open_g_l_a_p_i_8h.html" target="_top" xlink:title="OpenGL API implementation.">
+<g id="a_Node000006"><a xlink:href="_open_g_l_a_p_i_8h.html" target="_top" xlink:title="Implementation of the OpenGL graphics API.">
 <polygon fill="white" stroke="#666666" points="893.12,-244 817.12,-244 817.12,-224 893.12,-224 893.12,-244"/>
 <text text-anchor="middle" x="855.12" y="-230.5" font-family="Helvetica,sans-Serif" font-size="10.00">OpenGLAPI.h</text>
 </a>
@@ -795,7 +795,7 @@ var sectionId = 'dynsection-1';
 <!-- Node57 -->
 <g id="Node000057" class="node">
 <title>Node57</title>
-<g id="a_Node000057"><a xlink:href="_shader_8cpp.html" target="_top" xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000057"><a xlink:href="_shader_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="409.88,-524 344.38,-524 344.38,-504 409.88,-504 409.88,-524"/>
 <text text-anchor="middle" x="377.12" y="-510.5" font-family="Helvetica,sans-Serif" font-size="10.00">Shader.cpp</text>
 </a>
@@ -840,7 +840,7 @@ var sectionId = 'dynsection-1';
 <!-- Node59 -->
 <g id="Node000059" class="node">
 <title>Node59</title>
-<g id="a_Node000059"><a xlink:href="_skybox_8cpp.html" target="_top" xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000059"><a xlink:href="_skybox_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="571,-356 503.25,-356 503.25,-336 571,-336 571,-356"/>
 <text text-anchor="middle" x="537.12" y="-342.5" font-family="Helvetica,sans-Serif" font-size="10.00">Skybox.cpp</text>
 </a>
@@ -867,7 +867,7 @@ var sectionId = 'dynsection-1';
 <!-- Node61 -->
 <g id="Node000061" class="node">
 <title>Node61</title>
-<g id="a_Node000061"><a xlink:href="_shader_loader_8cpp.html" target="_top" xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000061"><a xlink:href="_shader_loader_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="326.5,-524 231.75,-524 231.75,-504 326.5,-504 326.5,-524"/>
 <text text-anchor="middle" x="279.12" y="-510.5" font-family="Helvetica,sans-Serif" font-size="10.00">ShaderLoader.cpp</text>
 </a>
@@ -903,7 +903,7 @@ var sectionId = 'dynsection-1';
 <!-- Node64 -->
 <g id="Node000064" class="node">
 <title>Node64</title>
-<g id="a_Node000064"><a xlink:href="_texture_surface_8cpp.html" target="_top" xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000064"><a xlink:href="_texture_surface_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="214.12,-524 114.12,-524 114.12,-504 214.12,-504 214.12,-524"/>
 <text text-anchor="middle" x="164.12" y="-510.5" font-family="Helvetica,sans-Serif" font-size="10.00">TextureSurface.cpp</text>
 </a>
@@ -1074,7 +1074,7 @@ var sectionId = 'dynsection-1';
 <!-- Node89 -->
 <g id="Node000089" class="node">
 <title>Node89</title>
-<g id="a_Node000089"><a xlink:href="_vertex_instance_buffer_8cpp.html" target="_top" xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000089"><a xlink:href="_vertex_instance_buffer_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="881.5,-468 756.75,-468 756.75,-448 881.5,-448 881.5,-468"/>
 <text text-anchor="middle" x="819.12" y="-454.5" font-family="Helvetica,sans-Serif" font-size="10.00">VertexInstanceBuffer.cpp</text>
 </a>

@@ -1,5 +1,5 @@
 <map id="Default.cpp" name="Default.cpp">
-<area shape="rect" id="Node000001" title="@TODO Add description of this file if needed" alt="" coords="1830,5,1917,32"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="1830,5,1917,32"/>
 <area shape="rect" id="Node000002" href="$_default_8h.html" title="@TODO Add description of this file if needed" alt="" coords="1087,80,1228,123"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1830,28,1244,93,1243,88,1829,22"/>
 <area shape="rect" id="Node000129" href="$_light_component_8h.html" title="@TODO Add description of this file if needed" alt="" coords="1572,261,1770,304"/>
@@ -16,7 +16,7 @@
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="807,208,627,267,625,262,806,203"/>
 <area shape="rect" id="Node000005" href="$_scene_types_8h.html" title="@TODO Add description of this file if needed" alt="" coords="5,360,110,387"/>
 <area shape="poly" id="edge23_Node000003_Node000005" title=" " alt="" coords="777,209,501,264,314,307,129,355,116,358,115,353,127,349,313,302,500,259,776,203"/>
-<area shape="rect" id="Node000007" href="$_window_manager_8h.html" title="@TODO Add description of this file if needed" alt="" coords="557,451,691,493"/>
+<area shape="rect" id="Node000007" href="$_window_manager_8h.html" title="Manages the main application window and its properties." alt="" coords="557,451,691,493"/>
 <area shape="poly" id="edge42_Node000003_Node000007" title=" " alt="" coords="856,204,870,230,881,261,886,303,879,337,860,367,830,397,696,447,694,442,827,392,856,363,874,335,881,302,876,262,865,232,851,207"/>
 <area shape="rect" id="Node000046" href="$_entity_factory_8h.html" title=" " alt="" coords="941,352,1091,395"/>
 <area shape="poly" id="edge43_Node000003_Node000046" title=" " alt="" coords="863,204,925,259,993,338,989,342,921,263,859,208"/>
@@ -39,7 +39,7 @@
 <area shape="poly" id="edge8_Node000007_Node000009" title=" " alt="" coords="603,496,543,549,540,545,599,492"/>
 <area shape="rect" id="Node000010" href="$_vector_8h.html" title=" " alt="" coords="910,549,1077,592"/>
 <area shape="poly" id="edge9_Node000007_Node000010" title=" " alt="" coords="681,491,704,499,802,525,895,547,894,552,801,530,702,504,679,497"/>
-<area shape="rect" id="Node000045" href="$_window_structs_8h.html" title="@TODO Add description of this file if needed" alt="" coords="587,557,707,584"/>
+<area shape="rect" id="Node000045" href="$_window_structs_8h.html" title="Defines structures related to window properties." alt="" coords="587,557,707,584"/>
 <area shape="poly" id="edge11_Node000007_Node000045" title=" " alt="" coords="632,493,643,541,638,543,626,494"/>
 <area shape="poly" id="edge10_Node000010_Node000008" title=" " alt="" coords="1078,585,1431,650,1430,655,1077,590"/>
 <area shape="rect" id="Node000047" title=" " alt="" coords="715,459,781,485"/>

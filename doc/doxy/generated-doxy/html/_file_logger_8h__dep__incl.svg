@@ -48,7 +48,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="_logger_8cpp.html" target="_top" xlink:title="Logger implementation.">
+<g id="a_Node000003"><a xlink:href="_logger_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="161.88,-20 97.88,-20 97.88,0 161.88,0 161.88,-20"/>
 <text text-anchor="middle" x="129.88" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">Logger.cpp</text>
 </a>

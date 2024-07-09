@@ -9,7 +9,7 @@
  **************************************************************************************************/
 
 #include "TestsConfig.h"
-#if ECS_BACKEND_UNIT_TESTING
+#if ECS_BACKEND_INTEGRATION_TESTING
 #include <gtest/gtest.h>
 #include "engine/core/exceptions/core/AssertFailedException.h"
 #include "engine/ecs/backend/component/ComponentManager.h"

@@ -127,9 +127,6 @@ $(document).ready(function(){initNavTree('_shader_8cpp.html',''); initResizable(
   <div class="headertitle"><div class="title">Shader.cpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>@TODO Add description of this file if needed  
-<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="_gapi_8h_source.html">engine/core/low-level-renderer/graphic-api/Gapi.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_shader_8h_source.html">engine/core/low-level-renderer/shader/Shader.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_shader_loader_8h_source.html">engine/core/low-level-renderer/shader/ShaderLoader.h</a>&quot;</code><br />
@@ -146,14 +143,7 @@ Functions</h2></td></tr>
 <tr class="memitem:a0980af605c3037766c43242a50603cfb" id="r_a0980af605c3037766c43242a50603cfb"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_shader_8cpp.html#a0980af605c3037766c43242a50603cfb">macrosToString</a> (const std::vector&lt; <a class="el" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader.html#a79bf1dccb07ddb2a5e0996c30c4b638d">Shader::ShaderMacros</a> &gt; &amp;macros)</td></tr>
 <tr class="separator:a0980af605c3037766c43242a50603cfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>@TODO Add description of this file if needed </p>
-<dl class="section author"><dt>Author</dt><dd>Valentin Dumitru </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2023-11-07 </dd></dl>
-<p>Copyright (c) 2023 Valentin Dumitru. Licensed under the MIT License. See LICENSE.txt in the project root for license information. </p>
-
-<p class="definition">Definition in file <a class="el" href="_shader_8cpp_source.html">Shader.cpp</a>.</p>
-</div><h2 class="groupheader">Function Documentation</h2>
+<h2 class="groupheader">Function Documentation</h2>
 <a id="a0980af605c3037766c43242a50603cfb" name="a0980af605c3037766c43242a50603cfb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0980af605c3037766c43242a50603cfb">&#9670;&#160;</a></span>macrosToString()</h2>
 
@@ -178,25 +168,25 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_shader_8cpp_source.html#l00018">18</a> of file <a class="el" href="_shader_8cpp_source.html">Shader.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   18</span>                                                                                        {</div>
-<div class="line"><span class="lineno">   19</span>    std::vector&lt;std::string&gt; result;</div>
-<div class="line"><span class="lineno">   20</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> macro : macros) {</div>
-<div class="line"><span class="lineno">   21</span>        <span class="keywordflow">switch</span> (macro) {</div>
-<div class="line"><span class="lineno">   22</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader.html#a79bf1dccb07ddb2a5e0996c30c4b638dab997334afc81823a2e1631146e82a2c2">Shader::USE_COLOR</a>:</div>
-<div class="line"><span class="lineno">   23</span>            result.emplace_back(<span class="stringliteral">&quot;USE_COLOR&quot;</span>);</div>
-<div class="line"><span class="lineno">   24</span>            <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">   25</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader.html#a79bf1dccb07ddb2a5e0996c30c4b638dac5a89e0f09233d4b83b41c802ce5e463">Shader::USE_INSTANCE</a>:</div>
-<div class="line"><span class="lineno">   26</span>            result.emplace_back(<span class="stringliteral">&quot;USE_INSTANCE&quot;</span>);</div>
-<div class="line"><span class="lineno">   27</span>            <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">   28</span>        }</div>
-<div class="line"><span class="lineno">   29</span>    }</div>
-<div class="line"><span class="lineno">   30</span>    <span class="keywordflow">return</span> result;</div>
-<div class="line"><span class="lineno">   31</span>}</div>
-<div class="ttc" id="aclass_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_html_a79bf1dccb07ddb2a5e0996c30c4b638dab997334afc81823a2e1631146e82a2c2"><div class="ttname"><a href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader.html#a79bf1dccb07ddb2a5e0996c30c4b638dab997334afc81823a2e1631146e82a2c2">GLESC::GAPI::Shader::USE_COLOR</a></div><div class="ttdeci">@ USE_COLOR</div><div class="ttdef"><b>Definition</b> <a href="_shader_8h_source.html#l00021">Shader.h:21</a></div></div>
-<div class="ttc" id="aclass_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_html_a79bf1dccb07ddb2a5e0996c30c4b638dac5a89e0f09233d4b83b41c802ce5e463"><div class="ttname"><a href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader.html#a79bf1dccb07ddb2a5e0996c30c4b638dac5a89e0f09233d4b83b41c802ce5e463">GLESC::GAPI::Shader::USE_INSTANCE</a></div><div class="ttdeci">@ USE_INSTANCE</div><div class="ttdef"><b>Definition</b> <a href="_shader_8h_source.html#l00023">Shader.h:22</a></div></div>
+<p class="definition">Definition at line <a class="el" href="_shader_8cpp_source.html#l00009">9</a> of file <a class="el" href="_shader_8cpp_source.html">Shader.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">    9</span>                                                                                        {</div>
+<div class="line"><span class="lineno">   10</span>    std::vector&lt;std::string&gt; result;</div>
+<div class="line"><span class="lineno">   11</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> macro : macros) {</div>
+<div class="line"><span class="lineno">   12</span>        <span class="keywordflow">switch</span> (macro) {</div>
+<div class="line"><span class="lineno">   13</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader.html#a79bf1dccb07ddb2a5e0996c30c4b638dab997334afc81823a2e1631146e82a2c2">Shader::USE_COLOR</a>:</div>
+<div class="line"><span class="lineno">   14</span>            result.emplace_back(<span class="stringliteral">&quot;USE_COLOR&quot;</span>);</div>
+<div class="line"><span class="lineno">   15</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">   16</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader.html#a79bf1dccb07ddb2a5e0996c30c4b638dac5a89e0f09233d4b83b41c802ce5e463">Shader::USE_INSTANCE</a>:</div>
+<div class="line"><span class="lineno">   17</span>            result.emplace_back(<span class="stringliteral">&quot;USE_INSTANCE&quot;</span>);</div>
+<div class="line"><span class="lineno">   18</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">   19</span>        }</div>
+<div class="line"><span class="lineno">   20</span>    }</div>
+<div class="line"><span class="lineno">   21</span>    <span class="keywordflow">return</span> result;</div>
+<div class="line"><span class="lineno">   22</span>}</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_html_a79bf1dccb07ddb2a5e0996c30c4b638dab997334afc81823a2e1631146e82a2c2"><div class="ttname"><a href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader.html#a79bf1dccb07ddb2a5e0996c30c4b638dab997334afc81823a2e1631146e82a2c2">GLESC::GAPI::Shader::USE_COLOR</a></div><div class="ttdeci">@ USE_COLOR</div><div class="ttdef"><b>Definition</b> <a href="_shader_8h_source.html#l00023">Shader.h:23</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_html_a79bf1dccb07ddb2a5e0996c30c4b638dac5a89e0f09233d4b83b41c802ce5e463"><div class="ttname"><a href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader.html#a79bf1dccb07ddb2a5e0996c30c4b638dac5a89e0f09233d4b83b41c802ce5e463">GLESC::GAPI::Shader::USE_INSTANCE</a></div><div class="ttdeci">@ USE_INSTANCE</div><div class="ttdef"><b>Definition</b> <a href="_shader_8h_source.html#l00025">Shader.h:24</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_shader_8h_source.html#l00021">GLESC::GAPI::Shader::USE_COLOR</a>, and <a class="el" href="_shader_8h_source.html#l00022">GLESC::GAPI::Shader::USE_INSTANCE</a>.</p>
+<p class="reference">References <a class="el" href="_shader_8h_source.html#l00023">GLESC::GAPI::Shader::USE_COLOR</a>, and <a class="el" href="_shader_8h_source.html#l00024">GLESC::GAPI::Shader::USE_INSTANCE</a>.</p>
 
 </div>
 </div>

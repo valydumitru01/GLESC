@@ -7,13 +7,13 @@ int main(int argc, char* argv[]) {
 #ifndef NDEBUG_GLESC
     Logger::get().warning("DEBUG MODE IS ON");
 #endif
-    FPSManager fps(Fps60);
+    FPSManager fps(Unlimitted);
     GLESC::Engine glesc(fps);
 
     while (glesc.running) {
         fps.startFrame();
 
-        glesc.processInput();
+        glesc.processInput(fps.getTimeOfFrameAfterUpdate());
 
         while (fps.isUpdateLagged()) // Update executes in constant intervals no matter how much time it takes
         {

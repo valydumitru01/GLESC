@@ -1,5 +1,5 @@
 <map id="OpenGLAPI.h" name="OpenGLAPI.h">
-<area shape="rect" id="Node000001" title="OpenGL API implementation." alt="" coords="53,5,155,32"/>
+<area shape="rect" id="Node000001" title="Implementation of the OpenGL graphics API." alt="" coords="53,5,155,32"/>
 <area shape="rect" id="Node000002" href="$_g_l_e_s_c_8h.html" title=" " alt="" coords="66,80,142,107"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="107,48,107,80,101,80,101,48"/>
 <area shape="rect" id="Node000003" href="$_g_l_e_s_c_8cpp.html" title=" " alt="" coords="5,155,96,181"/>

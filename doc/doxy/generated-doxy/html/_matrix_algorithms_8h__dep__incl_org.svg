@@ -74,7 +74,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="_debug_entity_data_h_u_d_8cpp.html" target="_top" xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000003"><a xlink:href="_debug_entity_data_h_u_d_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="1366.25,-592 1237.75,-592 1237.75,-572 1366.25,-572 1366.25,-592"/>
 <text text-anchor="middle" x="1302" y="-578.5" font-family="Helvetica,sans-Serif" font-size="10.00">DebugEntityDataHUD.cpp</text>
 </a>
@@ -218,7 +218,7 @@
 <!-- Node57 -->
 <g id="Node000057" class="node">
 <title>Node57</title>
-<g id="a_Node000057"><a xlink:href="_shader_8h.html" target="_top" xlink:title="Class for handling shaders.">
+<g id="a_Node000057"><a xlink:href="_shader_8h.html" target="_top" xlink:title="Class for managing and utilizing shader programs in the graphics pipeline.">
 <polygon fill="white" stroke="#666666" points="1067.5,-530 1012.5,-530 1012.5,-510 1067.5,-510 1067.5,-530"/>
 <text text-anchor="middle" x="1040" y="-516.5" font-family="Helvetica,sans-Serif" font-size="10.00">Shader.h</text>
 </a>
@@ -317,7 +317,7 @@
 <!-- Node7 -->
 <g id="Node000007" class="node">
 <title>Node7</title>
-<g id="a_Node000007"><a xlink:href="_open_g_l_a_p_i_8h.html" target="_top" xlink:title="OpenGL API implementation.">
+<g id="a_Node000007"><a xlink:href="_open_g_l_a_p_i_8h.html" target="_top" xlink:title="Implementation of the OpenGL graphics API.">
 <polygon fill="white" stroke="#666666" points="350,-188 274,-188 274,-168 350,-168 350,-188"/>
 <text text-anchor="middle" x="312" y="-174.5" font-family="Helvetica,sans-Serif" font-size="10.00">OpenGLAPI.h</text>
 </a>
@@ -704,7 +704,7 @@
 <!-- Node58 -->
 <g id="Node000058" class="node">
 <title>Node58</title>
-<g id="a_Node000058"><a xlink:href="_shader_8cpp.html" target="_top" xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000058"><a xlink:href="_shader_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="1072.75,-468 1007.25,-468 1007.25,-448 1072.75,-448 1072.75,-468"/>
 <text text-anchor="middle" x="1040" y="-454.5" font-family="Helvetica,sans-Serif" font-size="10.00">Shader.cpp</text>
 </a>
@@ -749,7 +749,7 @@
 <!-- Node60 -->
 <g id="Node000060" class="node">
 <title>Node60</title>
-<g id="a_Node000060"><a xlink:href="_skybox_8cpp.html" target="_top" xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000060"><a xlink:href="_skybox_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="883.88,-300 816.12,-300 816.12,-280 883.88,-280 883.88,-300"/>
 <text text-anchor="middle" x="850" y="-286.5" font-family="Helvetica,sans-Serif" font-size="10.00">Skybox.cpp</text>
 </a>
@@ -776,7 +776,7 @@
 <!-- Node62 -->
 <g id="Node000062" class="node">
 <title>Node62</title>
-<g id="a_Node000062"><a xlink:href="_shader_loader_8cpp.html" target="_top" xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000062"><a xlink:href="_shader_loader_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="989.38,-468 894.62,-468 894.62,-448 989.38,-448 989.38,-468"/>
 <text text-anchor="middle" x="942" y="-454.5" font-family="Helvetica,sans-Serif" font-size="10.00">ShaderLoader.cpp</text>
 </a>
@@ -812,7 +812,7 @@
 <!-- Node65 -->
 <g id="Node000065" class="node">
 <title>Node65</title>
-<g id="a_Node000065"><a xlink:href="_texture_surface_8cpp.html" target="_top" xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000065"><a xlink:href="_texture_surface_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="100,-468 0,-468 0,-448 100,-448 100,-468"/>
 <text text-anchor="middle" x="50" y="-454.5" font-family="Helvetica,sans-Serif" font-size="10.00">TextureSurface.cpp</text>
 </a>
@@ -983,7 +983,7 @@
 <!-- Node90 -->
 <g id="Node000090" class="node">
 <title>Node90</title>
-<g id="a_Node000090"><a xlink:href="_vertex_instance_buffer_8cpp.html" target="_top" xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000090"><a xlink:href="_vertex_instance_buffer_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="510.38,-412 385.62,-412 385.62,-392 510.38,-392 510.38,-412"/>
 <text text-anchor="middle" x="448" y="-398.5" font-family="Helvetica,sans-Serif" font-size="10.00">VertexInstanceBuffer.cpp</text>
 </a>

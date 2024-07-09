@@ -147,24 +147,22 @@ void Renderer::applyFog(const FogData& fogParam, const Position& cameraPosition)
     if (fogParam.fog == nullptr) return;
     Shader::setUniform("uFog.color", fogParam.fog->getColor().getRGBVec3FNormalized());
     Shader::setUniform("uFog.density", fogParam.fog->getDensity());
-    Shader::setUniform("uFog.end", fogParam.fog->getEnd() + cameraPosition.length());
+    Shader::setUniform("uFog.end", fogParam.fog->getEnd());
 }
 
 void Renderer::applyMaterial(const Material& material) {
-    //Shader::setUniform("uMaterial.diffuseIntensity",material.getDiffuseIntensity());
-    //
+    Shader::setUniform("uMaterial.diffuseIntensity",material.getDiffuseIntensity());
     Shader::setUniform("uMaterial.specularColor", material.getSpecularColor().getRGBVec3FNormalized());
     Shader::setUniform("uMaterial.specularIntensity", material.getSpecularIntensity());
-    //
-    //Shader::setUniform("uMaterial.emissionColor",material.getEmissionColor());
-    //Shader::setUniform("uMaterial.emissionIntensity",material.getEmissionIntensity());
-    //
+    Shader::setUniform("uMaterial.emissionColor",material.getEmissionColor().getRGBVec3FNormalized());
+    Shader::setUniform("uMaterial.emissionIntensity",material.getEmissionIntensity());
     Shader::setUniform("uMaterial.shininess", material.getShininess());
 }
 
-void Renderer::applyTransform(const MV& MVMat, const MVP& MVPMat, const NormalMat& normalMat) {
+void Renderer::applyTransform(const MV& MVMat, const MVP& MVPMat, const NormalMat& normalMat, const View& view) {
     Shader::setUniform("uMVP", MVPMat);
     Shader::setUniform("uMV", MVMat);
+    Shader::setUniform("uViewMat", view);
     Shader::setUniform("uNormalMat", normalMat);
 }
 
@@ -177,7 +175,7 @@ void Renderer::render(double timeOfFrame) {
     frustum.update(viewProjMat);
 
     // TODO: Fix parallelization, it is not working, flickering is happening and meshes get swapped
-//#pragma omp parallel for default(shared) schedule(dynamic)
+    //#pragma omp parallel for default(shared) schedule(dynamic)
     for (int meshIndex = 0; meshIndex < meshesToRender.size(); meshIndex++) {
         const ColorMesh& mesh = *meshesToRender[meshIndex];
         const Transform::Transform& transform = *meshTransforms[meshIndex];
@@ -209,21 +207,22 @@ void Renderer::render(double timeOfFrame) {
             normalMats.push_back(normalMat);
         }
     }
+    renderLights(lights, lightTransforms, timeOfFrame);
+    applySun(sun);
+    applyFog(fog, camera.transform->getPosition());
 
     std::string renderedMeshesPtr;
     for (int i = 0; i < meshesToRender.size(); i++) {
         if (!isContainedInFrustum[i]) continue;
         const ColorMesh& mesh = *meshesToRender[i];
         const Material& material = *meshMaterials[i];
-        applyTransform(mvs[i], mvps[i], normalMats[i]);
+        applyTransform(mvs[i], mvps[i], normalMats[i], viewMat);
         applyMaterial(material);
         mesh.sendToGpuBuffers();
         renderMesh(mesh);
         renderedMeshesPtr += std::to_string(i) + " ";
     }
-    renderLights(lights, lightTransforms, timeOfFrame);
-    applySun(sun);
-    applyFog(fog, camera.transform->getPosition());
+
     applySkybox(skybox, viewMat, projMat);
     hasRenderBeenCalled = true;
 }

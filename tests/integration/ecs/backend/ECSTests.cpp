@@ -2,14 +2,17 @@
  * @file   ECSTests.cpp
  * @author Valentin Dumitru
  * @date   27/02/2024
- * @brief  @TODO Add description of this file if needed
+ * @brief Integration tests for the ECS (Entity Component System) framework.
+ * @details This file contains integration tests for the ECS framework using the Google Test framework.
+ * The tests cover scenarios such as creating and destroying entities, managing components,
+ * registering systems, and ensuring proper system behavior with component requirements and entity associations.
  *
  * Copyright (c) 2024 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
  **************************************************************************************************/
 
 #include "TestsConfig.h"
-#if ECS_BACKEND_UNIT_TESTING
+#if ECS_BACKEND_INTEGRATION_TESTING
 #include <gtest/gtest.h>
 #include "engine/ecs/backend/ECS.h"
 #include "unit/CustomTestingFramework.h"

@@ -84,7 +84,7 @@ var sectionId = 'dynsection-0';
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="_e_c_s_tests_8cpp.html" target="_top" xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000003"><a xlink:href="_e_c_s_tests_8cpp.html" target="_top" xlink:title="Integration tests for the ECS (Entity Component System) framework.">
 <polygon fill="white" stroke="#666666" points="242.38,-20 163.38,-20 163.38,0 242.38,0 242.38,-20"/>
 <text text-anchor="middle" x="202.88" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">ECSTests.cpp</text>
 </a>
@@ -102,7 +102,7 @@ var sectionId = 'dynsection-0';
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="_entity_manager_tests_8cpp.html" target="_top" xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000004"><a xlink:href="_entity_manager_tests_8cpp.html" target="_top" xlink:title="Integration tests for the EntityManager class.">
 <polygon fill="white" stroke="#666666" points="381.75,-20 260,-20 260,0 381.75,0 381.75,-20"/>
 <text text-anchor="middle" x="320.88" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">EntityManagerTests.cpp</text>
 </a>
@@ -246,7 +246,7 @@ var sectionId = 'dynsection-0';
 <!-- Node12 -->
 <g id="Node000012" class="node">
 <title>Node12</title>
-<g id="a_Node000012"><a xlink:href="_system_manager_tests_8cpp.html" target="_top" xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000012"><a xlink:href="_system_manager_tests_8cpp.html" target="_top" xlink:title="Integration tests for the SystemManager class.">
 <polygon fill="white" stroke="#666666" points="1402.88,-20 1272.88,-20 1272.88,0 1402.88,0 1402.88,-20"/>
 <text text-anchor="middle" x="1337.88" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">SystemManagerTests.cpp</text>
 </a>

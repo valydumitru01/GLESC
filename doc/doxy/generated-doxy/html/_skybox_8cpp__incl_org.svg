@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000001"><a xlink:title=" ">
 <polygon fill="#999999" stroke="#666666" points="674.5,-916 606.75,-916 606.75,-896 674.5,-896 674.5,-916"/>
 <text text-anchor="middle" x="640.62" y="-902.5" font-family="Helvetica,sans-Serif" font-size="10.00">Skybox.cpp</text>
 </a>
@@ -57,7 +57,7 @@
 <!-- Node56 -->
 <g id="Node000056" class="node">
 <title>Node56</title>
-<g id="a_Node000056"><a xlink:href="_shader_8h.html" target="_top" xlink:title="Class for handling shaders.">
+<g id="a_Node000056"><a xlink:href="_shader_8h.html" target="_top" xlink:title="Class for managing and utilizing shader programs in the graphics pipeline.">
 <polygon fill="white" stroke="#666666" points="733.88,-662 605.38,-662 605.38,-630 733.88,-630 733.88,-662"/>
 <text text-anchor="start" x="613.38" y="-648.5" font-family="Helvetica,sans-Serif" font-size="10.00">engine/core/low&#45;level</text>
 <text text-anchor="middle" x="669.62" y="-636.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;renderer/shader/Shader.h</text>

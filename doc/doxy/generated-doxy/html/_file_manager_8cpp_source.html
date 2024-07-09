@@ -131,41 +131,41 @@ $(document).ready(function(){initNavTree('_file_manager_8cpp_source.html',''); i
 </div><!--header-->
 <div class="contents">
 <a href="_file_manager_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;fstream&gt;</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;sstream&gt;</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="_file_manager_8h.html">engine/res-mng/files/FileManager.h</a>&quot;</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="_open_exception_8h.html">engine/core/exceptions/resources/OpenException.h</a>&quot;</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="foldopen" id="foldopen00016" data-start="{" data-end="}">
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="class_file_manager.html#a07e7d685fe7d75bb891b2c02baa9f964">   16</a></span>std::string <a class="code hl_function" href="class_file_manager.html#a07e7d685fe7d75bb891b2c02baa9f964">FileManager::readFile</a>(<span class="keyword">const</span> std::string &amp;path) {</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    std::ifstream inFile(path);</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keywordflow">if</span> (!inFile) {</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        <span class="keywordflow">throw</span> <a class="code hl_class" href="class_open_exception.html">OpenException</a>(<span class="stringliteral">&quot;Unable to open file for reading: &quot;</span> + path);</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    }</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    std::stringstream buffer;</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    buffer &lt;&lt; inFile.rdbuf();</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="comment">// No need to close the file - the destructor will do it automatically.</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keywordflow">return</span> buffer.str();</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>}</div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;fstream&gt;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;sstream&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="_file_manager_8h.html">engine/res-mng/files/FileManager.h</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="_open_exception_8h.html">engine/core/exceptions/resources/OpenException.h</a>&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="foldopen" id="foldopen00007" data-start="{" data-end="}">
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="class_file_manager.html#a07e7d685fe7d75bb891b2c02baa9f964">    7</a></span>std::string <a class="code hl_function" href="class_file_manager.html#a07e7d685fe7d75bb891b2c02baa9f964">FileManager::readFile</a>(<span class="keyword">const</span> std::string &amp;path) {</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    std::ifstream inFile(path);</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    <span class="keywordflow">if</span> (!inFile) {</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>        <span class="keywordflow">throw</span> <a class="code hl_class" href="class_open_exception.html">OpenException</a>(<span class="stringliteral">&quot;Unable to open file for reading: &quot;</span> + path);</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    }</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    std::stringstream buffer;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    buffer &lt;&lt; inFile.rdbuf();</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="comment">// No need to close the file - the destructor will do it automatically.</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keywordflow">return</span> buffer.str();</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>}</div>
 </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="foldopen" id="foldopen00029" data-start="{" data-end="}">
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="class_file_manager.html#a75c0eacd3c6b0e0e403ceb3aaa2abbaf">   29</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_file_manager.html#a75c0eacd3c6b0e0e403ceb3aaa2abbaf">FileManager::writeFile</a>(<span class="keyword">const</span> std::string &amp;path, <span class="keyword">const</span> std::string &amp;content) {</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    std::ofstream outFile(path);</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keywordflow">if</span> (!outFile) {</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <span class="keywordflow">throw</span> <a class="code hl_class" href="class_open_exception.html">OpenException</a>(<span class="stringliteral">&quot;Unable to open file for writing: &quot;</span> + path);</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    }</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="comment">// No need to close the file - the destructor will do it automatically.</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    outFile &lt;&lt; content;</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>}</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="foldopen" id="foldopen00020" data-start="{" data-end="}">
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="class_file_manager.html#a75c0eacd3c6b0e0e403ceb3aaa2abbaf">   20</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_file_manager.html#a75c0eacd3c6b0e0e403ceb3aaa2abbaf">FileManager::writeFile</a>(<span class="keyword">const</span> std::string &amp;path, <span class="keyword">const</span> std::string &amp;content) {</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    std::ofstream outFile(path);</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordflow">if</span> (!outFile) {</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        <span class="keywordflow">throw</span> <a class="code hl_class" href="class_open_exception.html">OpenException</a>(<span class="stringliteral">&quot;Unable to open file for writing: &quot;</span> + path);</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    }</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="comment">// No need to close the file - the destructor will do it automatically.</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    outFile &lt;&lt; content;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>}</div>
 </div>
 <div class="ttc" id="a_file_manager_8h_html"><div class="ttname"><a href="_file_manager_8h.html">FileManager.h</a></div><div class="ttdoc">@TODO Add description of this file if needed</div></div>
 <div class="ttc" id="a_open_exception_8h_html"><div class="ttname"><a href="_open_exception_8h.html">OpenException.h</a></div><div class="ttdoc">Exception class for when a resource cannot be opened.</div></div>
-<div class="ttc" id="aclass_file_manager_html_a07e7d685fe7d75bb891b2c02baa9f964"><div class="ttname"><a href="class_file_manager.html#a07e7d685fe7d75bb891b2c02baa9f964">FileManager::readFile</a></div><div class="ttdeci">static std::string readFile(const std::string &amp;path)</div><div class="ttdoc">Read a file from the disk.</div><div class="ttdef"><b>Definition</b> <a href="_file_manager_8cpp_source.html#l00016">FileManager.cpp:16</a></div></div>
-<div class="ttc" id="aclass_file_manager_html_a75c0eacd3c6b0e0e403ceb3aaa2abbaf"><div class="ttname"><a href="class_file_manager.html#a75c0eacd3c6b0e0e403ceb3aaa2abbaf">FileManager::writeFile</a></div><div class="ttdeci">static void writeFile(const std::string &amp;path, const std::string &amp;content)</div><div class="ttdoc">Write a file to the disk.</div><div class="ttdef"><b>Definition</b> <a href="_file_manager_8cpp_source.html#l00029">FileManager.cpp:29</a></div></div>
+<div class="ttc" id="aclass_file_manager_html_a07e7d685fe7d75bb891b2c02baa9f964"><div class="ttname"><a href="class_file_manager.html#a07e7d685fe7d75bb891b2c02baa9f964">FileManager::readFile</a></div><div class="ttdeci">static std::string readFile(const std::string &amp;path)</div><div class="ttdoc">Read a file from the disk.</div><div class="ttdef"><b>Definition</b> <a href="_file_manager_8cpp_source.html#l00007">FileManager.cpp:7</a></div></div>
+<div class="ttc" id="aclass_file_manager_html_a75c0eacd3c6b0e0e403ceb3aaa2abbaf"><div class="ttname"><a href="class_file_manager.html#a75c0eacd3c6b0e0e403ceb3aaa2abbaf">FileManager::writeFile</a></div><div class="ttdeci">static void writeFile(const std::string &amp;path, const std::string &amp;content)</div><div class="ttdoc">Write a file to the disk.</div><div class="ttdef"><b>Definition</b> <a href="_file_manager_8cpp_source.html#l00020">FileManager.cpp:20</a></div></div>
 <div class="ttc" id="aclass_open_exception_html"><div class="ttname"><a href="class_open_exception.html">OpenException</a></div><div class="ttdef"><b>Definition</b> <a href="_open_exception_8h_source.html#l00015">OpenException.h:15</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

@@ -1,5 +1,5 @@
 <map id="SunSystem.cpp" name="SunSystem.cpp">
-<area shape="rect" id="Node000001" title="@TODO Add description of this file if needed" alt="" coords="2512,5,2626,32"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="2512,5,2626,32"/>
 <area shape="rect" id="Node000002" href="$_sun_system_8h.html" title="System that updates the sun in the scene." alt="" coords="2352,80,2557,123"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="2552,35,2498,73,2495,69,2549,30"/>
 <area shape="rect" id="Node000102" href="$_transform_component_8h.html" title="@TODO Add description of this file if needed" alt="" coords="2571,171,2799,213"/>
@@ -37,9 +37,9 @@
 <area shape="poly" id="edge17_Node000045_Node000005" title=" " alt="" coords="2361,197,2100,201,1757,211,1419,231,1280,246,1175,264,1110,277,1058,288,1036,297,1014,310,993,328,971,354,960,375,954,398,952,443,947,443,948,397,955,373,967,350,989,324,1011,305,1033,292,1057,283,1109,271,1174,259,1279,240,1419,226,1756,206,2100,195,2361,191"/>
 <area shape="rect" id="Node000046" href="$_counter_8h.html" title="Class to encapsulate the logic of counting." alt="" coords="2081,261,2217,304"/>
 <area shape="poly" id="edge18_Node000045_Node000046" title=" " alt="" coords="2383,217,2232,260,2230,255,2382,211"/>
-<area shape="rect" id="Node000047" href="$_shader_8h.html" title="Class for handling shaders." alt="" coords="1791,352,1963,395"/>
+<area shape="rect" id="Node000047" href="$_shader_8h.html" title="Class for managing and utilizing shader programs in the graphics pipeline." alt="" coords="1791,352,1963,395"/>
 <area shape="poly" id="edge19_Node000045_Node000047" title=" " alt="" coords="2387,216,2334,237,2281,264,2266,275,2257,285,2246,296,2230,306,2164,331,2108,341,2051,345,1978,354,1977,349,2050,340,2108,335,2163,326,2228,302,2243,292,2253,282,2263,271,2278,259,2332,232,2385,211"/>
-<area shape="rect" id="Node000068" href="$_window_manager_8h.html" title="@TODO Add description of this file if needed" alt="" coords="3220,451,3355,493"/>
+<area shape="rect" id="Node000068" href="$_window_manager_8h.html" title="Manages the main application window and its properties." alt="" coords="3220,451,3355,493"/>
 <area shape="poly" id="edge26_Node000045_Node000068" title=" " alt="" coords="2547,209,2560,211,2720,225,2856,230,3088,225,3200,223,3320,225,3455,236,3615,259,3663,265,3707,267,3785,271,3820,278,3853,292,3885,315,3916,351,3926,373,3924,385,3916,397,3888,411,3837,424,3690,445,3519,460,3370,469,3370,464,3518,455,3689,440,3836,419,3886,406,3912,393,3919,383,3920,374,3912,353,3881,319,3850,296,3818,283,3784,276,3707,272,3663,270,3614,264,3455,241,3320,231,3200,228,3088,231,2856,235,2719,230,2559,216,2547,214"/>
 <area shape="rect" id="Node000071" href="$_renderer_types_8h.html" title="@TODO Add description of this file if needed" alt="" coords="2463,451,2648,493"/>
 <area shape="poly" id="edge31_Node000045_Node000071" title=" " alt="" coords="2473,213,2487,235,2498,261,2502,283,2498,305,2490,320,2481,330,2472,339,2465,353,2460,374,2465,394,2482,419,2506,440,2502,444,2478,422,2460,396,2454,374,2460,351,2467,336,2477,326,2486,317,2493,303,2497,283,2493,262,2482,237,2469,215"/>
@@ -78,7 +78,7 @@
 <area shape="poly" id="edge29_Node000068_Node000050" title=" " alt="" coords="3220,486,3069,504,2820,520,2626,525,2432,531,2184,552,2118,561,2117,556,2183,547,2432,526,2626,520,2820,515,3069,499,3219,481"/>
 <area shape="rect" id="Node000069" title=" " alt="" coords="3241,565,3334,592"/>
 <area shape="poly" id="edge28_Node000068_Node000069" title=" " alt="" coords="3290,494,3290,550,3285,550,3285,494"/>
-<area shape="rect" id="Node000070" href="$_window_structs_8h.html" title="@TODO Add description of this file if needed" alt="" coords="3358,565,3478,592"/>
+<area shape="rect" id="Node000070" href="$_window_structs_8h.html" title="Defines structures related to window properties." alt="" coords="3358,565,3478,592"/>
 <area shape="poly" id="edge30_Node000068_Node000070" title=" " alt="" coords="3315,492,3392,553,3389,558,3312,496"/>
 <area shape="rect" id="Node000028" href="$_stringer_8h.html" title="A set of functions for converting objects to strings." alt="" coords="2970,557,3115,600"/>
 <area shape="poly" id="edge32_Node000071_Node000028" title=" " alt="" coords="2649,491,2955,556,2954,561,2648,496"/>

@@ -176,11 +176,27 @@ file(COPY ${ASSETS_DEV_DIR} DESTINATION ${CMAKE_BINARY_DIR}${ASSETS_BIN_LOCATION
 success("Copied assets from ${ASSETS_DEV_DIR} to ${CMAKE_BINARY_DIR}${ASSETS_BIN_LOCATION}")
 
 
+# TODO: Fix all this mess
+# Get the directory part of the path
+get_filename_component(DIR ${CMAKE_BINARY_DIR} DIRECTORY)
+
+# Get the directory part of the path
+get_filename_component(FILE ${CMAKE_BINARY_DIR} NAME)
+set_new_dir(RELEASE_RELEASE_DIR ${DIR}/release-${FILE})
 important_info("Copying bins from ${BIN_DEV_DIR} to ${CMAKE_BINARY_DIR}${BIN_BIN_LOCATION}")
 file(GLOB_RECURSE BINS_TO_COPY ${BIN_DEV_DIR}/*)
 important_info("Copying files:")
 foreach (file ${BINS_TO_COPY})
     file(COPY ${file} DESTINATION ${CMAKE_BINARY_DIR}${BIN_BIN_LOCATION})
-    success("Copied ${file} to ${CMAKE_BINARY_DIR}${BIN_BIN_LOCATION}")
+    success("Copied ${file} to ${CMAKE_BINARY_DIR}/${BIN_BIN_LOCATION}")
+
+    success("Copied ${file} to ${RELEASE_RELEASE_DIR}")
+    file(COPY ${file} DESTINATION ${RELEASE_RELEASE_DIR})
 endforeach ()
 success("Copied bins from ${BIN_DEV_DIR} to ${CMAKE_BINARY_DIR}${BIN_BIN_LOCATION}")
+
+# Copy the executable and the assets to the release folders
+file(COPY ${CMAKE_BINARY_DIR}/${PROJECT_NAME}.exe DESTINATION ${RELEASE_RELEASE_DIR})
+success("Copied ${CMAKE_BINARY_DIR}/${PROJECT_NAME}.exe to ${RELEASE_RELEASE_DIR}")
+file(COPY ${CMAKE_BINARY_DIR}/assets DESTINATION ${RELEASE_RELEASE_DIR})
+success("Copied ${CMAKE_BINARY_DIR}/assets to ${RELEASE_RELEASE_DIR}")

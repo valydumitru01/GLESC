@@ -18,7 +18,7 @@
 #include "engine/subsystems/renderer/RendererTypes.h"
 #include "engine/subsystems/renderer/mesh/Mesh.h"
 #define CHUNK_SIZE 50
-#define MAP_SIZE_IN_CHUNKS 13
+#define MAP_SIZE_IN_CHUNKS 10
 #define CHUNK_HEIGHT 100
 #define DIRT_HEIGHT 3
 
@@ -37,7 +37,7 @@ enum class TileType {
 
 struct Tile {
     TileType type;
-    bool isEmpty() const { return type == TileType::AIR; }
+    [[nodiscard]] bool isEmpty() const { return type == TileType::AIR; }
 };
 
 using Chunk = std::array<std::array<std::array<Tile, CHUNK_HEIGHT>, CHUNK_SIZE>, CHUNK_SIZE>;

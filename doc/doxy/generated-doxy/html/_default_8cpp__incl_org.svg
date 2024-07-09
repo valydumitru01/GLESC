@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000001"><a xlink:title=" ">
 <polygon fill="#999999" stroke="#666666" points="1433.5,-656 1368.75,-656 1368.75,-636 1433.5,-636 1433.5,-656"/>
 <text text-anchor="middle" x="1401.12" y="-642.5" font-family="Helvetica,sans-Serif" font-size="10.00">Default.cpp</text>
 </a>
@@ -169,7 +169,7 @@
 <!-- Node7 -->
 <g id="Node000007" class="node">
 <title>Node7</title>
-<g id="a_Node000007"><a xlink:href="_window_manager_8h.html" target="_top" xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000007"><a xlink:href="_window_manager_8h.html" target="_top" xlink:title="Manages the main application window and its properties.">
 <polygon fill="white" stroke="#666666" points="514.5,-322 413.75,-322 413.75,-290 514.5,-290 514.5,-322"/>
 <text text-anchor="start" x="421.75" y="-308.5" font-family="Helvetica,sans-Serif" font-size="10.00">engine/core/window</text>
 <text text-anchor="middle" x="464.12" y="-296.5" font-family="Helvetica,sans-Serif" font-size="10.00">/WindowManager.h</text>
@@ -380,7 +380,7 @@
 <!-- Node45 -->
 <g id="Node000045" class="node">
 <title>Node45</title>
-<g id="a_Node000045"><a xlink:href="_window_structs_8h.html" target="_top" xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000045"><a xlink:href="_window_structs_8h.html" target="_top" xlink:title="Defines structures related to window properties.">
 <polygon fill="white" stroke="#666666" points="526.25,-242 436,-242 436,-222 526.25,-222 526.25,-242"/>
 <text text-anchor="middle" x="481.12" y="-228.5" font-family="Helvetica,sans-Serif" font-size="10.00">WindowStructs.h</text>
 </a>

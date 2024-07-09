@@ -245,42 +245,42 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_fog_8cpp_source.html#l00014">14</a> of file <a class="el" href="_fog_8cpp_source.html">Fog.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   14</span>                                                              {</div>
-<div class="line"><span class="lineno">   15</span> std::vector&lt;EntityStatsManager::Value&gt; values;</div>
-<div class="line"><span class="lineno">   16</span> <a class="code hl_struct" href="class_entity_stats_manager.html#struct_entity_stats_manager_1_1_value">EntityStatsManager::Value</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">densityValue</a>;</div>
-<div class="line"><span class="lineno">   17</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">densityValue</a>.<a class="code hl_variable" href="class_entity_stats_manager.html#a8c007fcaab6bce263fb0e0d80b8bbbb7">name</a> = <span class="stringliteral">&quot;Density&quot;</span>;</div>
-<div class="line"><span class="lineno">   18</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">densityValue</a>.data = <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(&amp;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_fog.html#ab9cb71aff851064ac5409bbd1022088e">density</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_render_1_1_intensity.html#af799c45917e2a7f03eff0c19ed68377f">getModifiable</a>());</div>
-<div class="line"><span class="lineno">   19</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">densityValue</a>.type = <a class="code hl_enumvalue" href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5ae738c26bf4ce1037fa81b039a915cbf6">EntityStatsManager::ValueType::FLOAT</a>;</div>
-<div class="line"><span class="lineno">   20</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">densityValue</a>.isModifiable = <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">   21</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">densityValue</a>.usesSlider = <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">   22</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">densityValue</a>.min = 0.0f;</div>
-<div class="line"><span class="lineno">   23</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">densityValue</a>.max = 1.0f;</div>
-<div class="line"><span class="lineno">   24</span> values.push_back(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">densityValue</a>);</div>
-<div class="line"><span class="lineno">   25</span> </div>
-<div class="line"><span class="lineno">   26</span> <a class="code hl_struct" href="class_entity_stats_manager.html#struct_entity_stats_manager_1_1_value">EntityStatsManager::Value</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">endValue</a>;</div>
-<div class="line"><span class="lineno">   27</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">endValue</a>.<a class="code hl_variable" href="class_entity_stats_manager.html#a8c007fcaab6bce263fb0e0d80b8bbbb7">name</a> = <span class="stringliteral">&quot;End&quot;</span>;</div>
-<div class="line"><span class="lineno">   28</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">endValue</a>.data = <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(&amp;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_fog.html#a0c436c2310bf4c2870630daf9d189b5b">end</a>);</div>
-<div class="line"><span class="lineno">   29</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">endValue</a>.type = <a class="code hl_enumvalue" href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5ae738c26bf4ce1037fa81b039a915cbf6">EntityStatsManager::ValueType::FLOAT</a>;</div>
-<div class="line"><span class="lineno">   30</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">endValue</a>.isModifiable = <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">   31</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">endValue</a>.usesSlider = <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">   32</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">endValue</a>.min = 0.0f;</div>
-<div class="line"><span class="lineno">   33</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">endValue</a>.max = 1000.0f;</div>
-<div class="line"><span class="lineno">   34</span> values.push_back(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">endValue</a>);</div>
-<div class="line"><span class="lineno">   35</span> </div>
-<div class="line"><span class="lineno">   36</span> <a class="code hl_struct" href="class_entity_stats_manager.html#struct_entity_stats_manager_1_1_value">EntityStatsManager::Value</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">colorValue</a>;</div>
-<div class="line"><span class="lineno">   37</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">colorValue</a>.<a class="code hl_variable" href="class_entity_stats_manager.html#a8c007fcaab6bce263fb0e0d80b8bbbb7">name</a> = <span class="stringliteral">&quot;Color&quot;</span>;</div>
-<div class="line"><span class="lineno">   38</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">colorValue</a>.data = <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(&amp;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_fog.html#a3856e04110584612e2e94325921ed9d8">color</a>);</div>
-<div class="line"><span class="lineno">   39</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">colorValue</a>.type = <a class="code hl_enumvalue" href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5a18814f886cf9f30ca199c1e81900fa03">EntityStatsManager::ValueType::VEC3F</a>;</div>
-<div class="line"><span class="lineno">   40</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">colorValue</a>.isModifiable = <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">   41</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">colorValue</a>.usesSlider = <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">   42</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">colorValue</a>.min = 0.0f;</div>
-<div class="line"><span class="lineno">   43</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">colorValue</a>.max = 255.0f;</div>
-<div class="line"><span class="lineno">   44</span> values.push_back(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">colorValue</a>);</div>
-<div class="line"><span class="lineno">   45</span> </div>
-<div class="line"><span class="lineno">   46</span> </div>
-<div class="line"><span class="lineno">   47</span> <span class="keywordflow">return</span> values;</div>
-<div class="line"><span class="lineno">   48</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_fog_8cpp_source.html#l00005">5</a> of file <a class="el" href="_fog_8cpp_source.html">Fog.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">    5</span>                                                              {</div>
+<div class="line"><span class="lineno">    6</span> std::vector&lt;EntityStatsManager::Value&gt; values;</div>
+<div class="line"><span class="lineno">    7</span> <a class="code hl_struct" href="class_entity_stats_manager.html#struct_entity_stats_manager_1_1_value">EntityStatsManager::Value</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">densityValue</a>;</div>
+<div class="line"><span class="lineno">    8</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">densityValue</a>.<a class="code hl_variable" href="class_entity_stats_manager.html#a8c007fcaab6bce263fb0e0d80b8bbbb7">name</a> = <span class="stringliteral">&quot;Density&quot;</span>;</div>
+<div class="line"><span class="lineno">    9</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">densityValue</a>.data = <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(&amp;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_fog.html#ab9cb71aff851064ac5409bbd1022088e">density</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_render_1_1_intensity.html#af799c45917e2a7f03eff0c19ed68377f">getModifiable</a>());</div>
+<div class="line"><span class="lineno">   10</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">densityValue</a>.type = <a class="code hl_enumvalue" href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5ae738c26bf4ce1037fa81b039a915cbf6">EntityStatsManager::ValueType::FLOAT</a>;</div>
+<div class="line"><span class="lineno">   11</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">densityValue</a>.isModifiable = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   12</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">densityValue</a>.usesSlider = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   13</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">densityValue</a>.min = 0.0f;</div>
+<div class="line"><span class="lineno">   14</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">densityValue</a>.max = 1.0f;</div>
+<div class="line"><span class="lineno">   15</span> values.push_back(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">densityValue</a>);</div>
+<div class="line"><span class="lineno">   16</span> </div>
+<div class="line"><span class="lineno">   17</span> <a class="code hl_struct" href="class_entity_stats_manager.html#struct_entity_stats_manager_1_1_value">EntityStatsManager::Value</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">endValue</a>;</div>
+<div class="line"><span class="lineno">   18</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">endValue</a>.<a class="code hl_variable" href="class_entity_stats_manager.html#a8c007fcaab6bce263fb0e0d80b8bbbb7">name</a> = <span class="stringliteral">&quot;End&quot;</span>;</div>
+<div class="line"><span class="lineno">   19</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">endValue</a>.data = <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(&amp;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_fog.html#a0c436c2310bf4c2870630daf9d189b5b">end</a>);</div>
+<div class="line"><span class="lineno">   20</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">endValue</a>.type = <a class="code hl_enumvalue" href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5ae738c26bf4ce1037fa81b039a915cbf6">EntityStatsManager::ValueType::FLOAT</a>;</div>
+<div class="line"><span class="lineno">   21</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">endValue</a>.isModifiable = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   22</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">endValue</a>.usesSlider = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   23</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">endValue</a>.min = 0.0f;</div>
+<div class="line"><span class="lineno">   24</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">endValue</a>.max = 1000.0f;</div>
+<div class="line"><span class="lineno">   25</span> values.push_back(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">endValue</a>);</div>
+<div class="line"><span class="lineno">   26</span> </div>
+<div class="line"><span class="lineno">   27</span> <a class="code hl_struct" href="class_entity_stats_manager.html#struct_entity_stats_manager_1_1_value">EntityStatsManager::Value</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">colorValue</a>;</div>
+<div class="line"><span class="lineno">   28</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">colorValue</a>.<a class="code hl_variable" href="class_entity_stats_manager.html#a8c007fcaab6bce263fb0e0d80b8bbbb7">name</a> = <span class="stringliteral">&quot;Color&quot;</span>;</div>
+<div class="line"><span class="lineno">   29</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">colorValue</a>.data = <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(&amp;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_fog.html#a3856e04110584612e2e94325921ed9d8">color</a>);</div>
+<div class="line"><span class="lineno">   30</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">colorValue</a>.type = <a class="code hl_enumvalue" href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5a18814f886cf9f30ca199c1e81900fa03">EntityStatsManager::ValueType::VEC3F</a>;</div>
+<div class="line"><span class="lineno">   31</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">colorValue</a>.isModifiable = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   32</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">colorValue</a>.usesSlider = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   33</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">colorValue</a>.min = 0.0f;</div>
+<div class="line"><span class="lineno">   34</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">colorValue</a>.max = 255.0f;</div>
+<div class="line"><span class="lineno">   35</span> values.push_back(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">colorValue</a>);</div>
+<div class="line"><span class="lineno">   36</span> </div>
+<div class="line"><span class="lineno">   37</span> </div>
+<div class="line"><span class="lineno">   38</span> <span class="keywordflow">return</span> values;</div>
+<div class="line"><span class="lineno">   39</span>}</div>
 <div class="ttc" id="aclass_entity_stats_manager_html_a8c007fcaab6bce263fb0e0d80b8bbbb7"><div class="ttname"><a href="class_entity_stats_manager.html#a8c007fcaab6bce263fb0e0d80b8bbbb7">EntityStatsManager::Value::name</a></div><div class="ttdeci">std::string name</div><div class="ttdef"><b>Definition</b> <a href="_entity_stats_manager_8h_source.html#l00045">EntityStatsManager.h:45</a></div></div>
 <div class="ttc" id="aclass_entity_stats_manager_html_a90c422bca5e42d1af36c4cc10d642ad5a18814f886cf9f30ca199c1e81900fa03"><div class="ttname"><a href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5a18814f886cf9f30ca199c1e81900fa03">EntityStatsManager::ValueType::VEC3F</a></div><div class="ttdeci">@ VEC3F</div></div>
 <div class="ttc" id="aclass_entity_stats_manager_html_a90c422bca5e42d1af36c4cc10d642ad5ae738c26bf4ce1037fa81b039a915cbf6"><div class="ttname"><a href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5ae738c26bf4ce1037fa81b039a915cbf6">EntityStatsManager::ValueType::FLOAT</a></div><div class="ttdeci">@ FLOAT</div></div>
@@ -491,13 +491,13 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_fog_8cpp_source.html#l00050">50</a> of file <a class="el" href="_fog_8cpp_source.html">Fog.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   50</span>                              {</div>
-<div class="line"><span class="lineno">   51</span>    std::string <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">str</a> = <span class="stringliteral">&quot;Density: &quot;</span> + std::to_string(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_fog.html#ab9cb71aff851064ac5409bbd1022088e">density</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_render_1_1_intensity.html#a53940c748518c99fc3f50b5fa2d7e31a">get</a>()) + <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><span class="lineno">   52</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">str</a> += <span class="stringliteral">&quot;Color: &quot;</span> + <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_fog.html#a3856e04110584612e2e94325921ed9d8">color</a>.<a class="code hl_function" href="struct_g_l_e_s_c_1_1_render_1_1_color_rgb.html#ad7eceb0ec3625b11d378ca2a474327b8">toString</a>() + <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><span class="lineno">   53</span> </div>
-<div class="line"><span class="lineno">   54</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">str</a>;</div>
-<div class="line"><span class="lineno">   55</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_fog_8cpp_source.html#l00041">41</a> of file <a class="el" href="_fog_8cpp_source.html">Fog.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   41</span>                              {</div>
+<div class="line"><span class="lineno">   42</span>    std::string <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">str</a> = <span class="stringliteral">&quot;Density: &quot;</span> + std::to_string(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_fog.html#ab9cb71aff851064ac5409bbd1022088e">density</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_render_1_1_intensity.html#a53940c748518c99fc3f50b5fa2d7e31a">get</a>()) + <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><span class="lineno">   43</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">str</a> += <span class="stringliteral">&quot;Color: &quot;</span> + <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_fog.html#a3856e04110584612e2e94325921ed9d8">color</a>.<a class="code hl_function" href="struct_g_l_e_s_c_1_1_render_1_1_color_rgb.html#ad7eceb0ec3625b11d378ca2a474327b8">toString</a>() + <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><span class="lineno">   44</span> </div>
+<div class="line"><span class="lineno">   45</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">str</a>;</div>
+<div class="line"><span class="lineno">   46</span>}</div>
 <div class="ttc" id="astruct_g_l_e_s_c_1_1_render_1_1_color_rgb_html_ad7eceb0ec3625b11d378ca2a474327b8"><div class="ttname"><a href="struct_g_l_e_s_c_1_1_render_1_1_color_rgb.html#ad7eceb0ec3625b11d378ca2a474327b8">GLESC::Render::ColorRgb::toString</a></div><div class="ttdeci">std::string toString() const</div><div class="ttdef"><b>Definition</b> <a href="_renderer_types_8h_source.html#l00301">RendererTypes.h:301</a></div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_fog_8h_source.html#l00057">color</a>, <a class="el" href="_fog_8h_source.html#l00055">density</a>, <a class="el" href="_renderer_types_8h_source.html#l00162">GLESC::Render::Intensity&lt; IntensityType &gt;::get()</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_renderer_types_8h_source.html#l00301">GLESC::Render::ColorRgb::toString()</a>.</p>
@@ -540,7 +540,7 @@ Here is the caller graph for this function:</div>
 <p class="definition">Definition at line <a class="el" href="_fog_8h_source.html#l00057">57</a> of file <a class="el" href="_fog_8h_source.html">Fog.h</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   57</span>{255.f, 255.f, 255.f};</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="_fog_8h_source.html#l00042">getColor()</a>, <a class="el" href="_fog_8cpp_source.html#l00014">getDebuggingValues()</a>, <a class="el" href="_fog_8h_source.html#l00025">setColor()</a>, and <a class="el" href="_fog_8cpp_source.html#l00050">toString()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_fog_8h_source.html#l00042">getColor()</a>, <a class="el" href="_fog_8cpp_source.html#l00005">getDebuggingValues()</a>, <a class="el" href="_fog_8h_source.html#l00025">setColor()</a>, and <a class="el" href="_fog_8cpp_source.html#l00041">toString()</a>.</p>
 
 </div>
 </div>
@@ -567,7 +567,7 @@ Here is the caller graph for this function:</div>
 <p class="definition">Definition at line <a class="el" href="_fog_8h_source.html#l00055">55</a> of file <a class="el" href="_fog_8h_source.html">Fog.h</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   55</span>{1.0f};</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="_fog_8cpp_source.html#l00014">getDebuggingValues()</a>, <a class="el" href="_fog_8h_source.html#l00033">getDensity()</a>, <a class="el" href="_fog_8h_source.html#l00021">setDensity()</a>, and <a class="el" href="_fog_8cpp_source.html#l00050">toString()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_fog_8cpp_source.html#l00005">getDebuggingValues()</a>, <a class="el" href="_fog_8h_source.html#l00033">getDensity()</a>, <a class="el" href="_fog_8h_source.html#l00021">setDensity()</a>, and <a class="el" href="_fog_8cpp_source.html#l00041">toString()</a>.</p>
 
 </div>
 </div>
@@ -593,7 +593,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="_fog_8h_source.html#l00056">56</a> of file <a class="el" href="_fog_8h_source.html">Fog.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_fog_8cpp_source.html#l00014">getDebuggingValues()</a>, <a class="el" href="_fog_8h_source.html#l00038">getEnd()</a>, and <a class="el" href="_fog_8h_source.html#l00029">setEnd()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_fog_8cpp_source.html#l00005">getDebuggingValues()</a>, <a class="el" href="_fog_8h_source.html#l00038">getEnd()</a>, and <a class="el" href="_fog_8h_source.html#l00029">setEnd()</a>.</p>
 
 </div>
 </div>

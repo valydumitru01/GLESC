@@ -194,35 +194,36 @@ Static Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_physics_manager_8cpp_source.html#l00014">14</a> of file <a class="el" href="_physics_manager_8cpp_source.html">PhysicsManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   14</span>                                                           {</div>
-<div class="line"><span class="lineno">   15</span>        <span class="keywordflow">if</span> (physics.isStatic()) {</div>
-<div class="line"><span class="lineno">   16</span>            physics.setVelocity({0, 0, 0});</div>
-<div class="line"><span class="lineno">   17</span>            physics.setAcceleration({0, 0, 0});</div>
-<div class="line"><span class="lineno">   18</span>            physics.setForce({0, 0, 0});</div>
-<div class="line"><span class="lineno">   19</span>            <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">   20</span>        }</div>
+<p class="definition">Definition at line <a class="el" href="_physics_manager_8cpp_source.html#l00005">5</a> of file <a class="el" href="_physics_manager_8cpp_source.html">PhysicsManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">    5</span>                                                           {</div>
+<div class="line"><span class="lineno">    6</span>        <span class="keywordflow">if</span> (physics.isStatic()) {</div>
+<div class="line"><span class="lineno">    7</span>            physics.setVelocity({0, 0, 0});</div>
+<div class="line"><span class="lineno">    8</span>            physics.setAcceleration({0, 0, 0});</div>
+<div class="line"><span class="lineno">    9</span>            physics.setForce({0, 0, 0});</div>
+<div class="line"><span class="lineno">   10</span>            <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">   11</span>        }</div>
+<div class="line"><span class="lineno">   12</span> </div>
+<div class="line"><span class="lineno">   13</span>        <span class="comment">// TODO: Remove magic numbers</span></div>
+<div class="line"><span class="lineno">   14</span>        <span class="comment">// Calculate acceleration</span></div>
+<div class="line"><span class="lineno">   15</span>        physics.addAcceleration(physics.getForce() * 10 / physics.getMass());</div>
+<div class="line"><span class="lineno">   16</span>        <span class="keywordflow">if</span> (physics.isAffectedByGravity())</div>
+<div class="line"><span class="lineno">   17</span>            physics.addAcceleration(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics_manager.html#a53b1a0f0ef9619abcaf6dd990cc178a7">gravity</a>);</div>
+<div class="line"><span class="lineno">   18</span> </div>
+<div class="line"><span class="lineno">   19</span>        <span class="comment">// Calculate velocity</span></div>
+<div class="line"><span class="lineno">   20</span>        physics.addVelocity(physics.getAcceleration());</div>
 <div class="line"><span class="lineno">   21</span> </div>
-<div class="line"><span class="lineno">   22</span>        <span class="comment">// Calculate acceleration</span></div>
-<div class="line"><span class="lineno">   23</span>        physics.addAcceleration(physics.getForce() * 10 / physics.getMass());</div>
-<div class="line"><span class="lineno">   24</span>        <span class="keywordflow">if</span> (physics.isAffectedByGravity())</div>
-<div class="line"><span class="lineno">   25</span>            physics.addAcceleration(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics_manager.html#a53b1a0f0ef9619abcaf6dd990cc178a7">gravity</a>);</div>
-<div class="line"><span class="lineno">   26</span> </div>
-<div class="line"><span class="lineno">   27</span>        <span class="comment">// Calculate velocity</span></div>
-<div class="line"><span class="lineno">   28</span>        physics.addVelocity(physics.getAcceleration());</div>
-<div class="line"><span class="lineno">   29</span> </div>
-<div class="line"><span class="lineno">   30</span>        <span class="comment">// Apply friction</span></div>
-<div class="line"><span class="lineno">   31</span>        <span class="keywordflow">if</span> (physics.getAirFriction() &lt; 0.0f)</div>
-<div class="line"><span class="lineno">   32</span>            physics.addVelocity(-physics.getVelocity() * <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics_manager.html#a7480c8e8592ca00f8ce7c8cf8b63bfc2">airFriction</a>);</div>
-<div class="line"><span class="lineno">   33</span>        <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">   34</span>            physics.addVelocity(-physics.getVelocity() * physics.getAirFriction());</div>
-<div class="line"><span class="lineno">   35</span> </div>
-<div class="line"><span class="lineno">   36</span>        <span class="comment">// Clear forces</span></div>
-<div class="line"><span class="lineno">   37</span>        physics.setForce(<a class="code hl_typedef" href="namespace_g_l_e_s_c_1_1_physics.html#a3aa7b2f3c9e74053989a1a5837a79ed7">Force</a>(0.0F, 0.0F, 0.0F));</div>
-<div class="line"><span class="lineno">   38</span> </div>
-<div class="line"><span class="lineno">   39</span>        <span class="comment">// Clear acceleration</span></div>
-<div class="line"><span class="lineno">   40</span>        physics.setAcceleration(<a class="code hl_typedef" href="namespace_g_l_e_s_c_1_1_physics.html#ae4fd353bd7c23d17d28bacc7b0f9ec65">Acceleration</a>(0.0F, 0.0F, 0.0F));</div>
-<div class="line"><span class="lineno">   41</span>    }</div>
+<div class="line"><span class="lineno">   22</span>        <span class="comment">// Apply friction</span></div>
+<div class="line"><span class="lineno">   23</span>        <span class="keywordflow">if</span> (physics.getAirFriction() &lt; 0.0f)</div>
+<div class="line"><span class="lineno">   24</span>            physics.addVelocity(-physics.getVelocity() * <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics_manager.html#a7480c8e8592ca00f8ce7c8cf8b63bfc2">airFriction</a>);</div>
+<div class="line"><span class="lineno">   25</span>        <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">   26</span>            physics.addVelocity(-physics.getVelocity() * physics.getAirFriction());</div>
+<div class="line"><span class="lineno">   27</span> </div>
+<div class="line"><span class="lineno">   28</span>        <span class="comment">// Clear forces</span></div>
+<div class="line"><span class="lineno">   29</span>        physics.setForce(<a class="code hl_typedef" href="namespace_g_l_e_s_c_1_1_physics.html#a3aa7b2f3c9e74053989a1a5837a79ed7">Force</a>(0.0F, 0.0F, 0.0F));</div>
+<div class="line"><span class="lineno">   30</span> </div>
+<div class="line"><span class="lineno">   31</span>        <span class="comment">// Clear acceleration</span></div>
+<div class="line"><span class="lineno">   32</span>        physics.setAcceleration(<a class="code hl_typedef" href="namespace_g_l_e_s_c_1_1_physics.html#ae4fd353bd7c23d17d28bacc7b0f9ec65">Acceleration</a>(0.0F, 0.0F, 0.0F));</div>
+<div class="line"><span class="lineno">   33</span>    }</div>
 <div class="ttc" id="aclass_g_l_e_s_c_1_1_physics_1_1_physics_manager_html_a53b1a0f0ef9619abcaf6dd990cc178a7"><div class="ttname"><a href="class_g_l_e_s_c_1_1_physics_1_1_physics_manager.html#a53b1a0f0ef9619abcaf6dd990cc178a7">GLESC::Physics::PhysicsManager::gravity</a></div><div class="ttdeci">Acceleration gravity</div><div class="ttdef"><b>Definition</b> <a href="_physics_manager_8h_source.html#l00028">PhysicsManager.h:28</a></div></div>
 <div class="ttc" id="aclass_g_l_e_s_c_1_1_physics_1_1_physics_manager_html_a7480c8e8592ca00f8ce7c8cf8b63bfc2"><div class="ttname"><a href="class_g_l_e_s_c_1_1_physics_1_1_physics_manager.html#a7480c8e8592ca00f8ce7c8cf8b63bfc2">GLESC::Physics::PhysicsManager::airFriction</a></div><div class="ttdeci">Friction airFriction</div><div class="ttdef"><b>Definition</b> <a href="_physics_manager_8h_source.html#l00029">PhysicsManager.h:29</a></div></div>
 <div class="ttc" id="anamespace_g_l_e_s_c_1_1_physics_html_a3aa7b2f3c9e74053989a1a5837a79ed7"><div class="ttname"><a href="namespace_g_l_e_s_c_1_1_physics.html#a3aa7b2f3c9e74053989a1a5837a79ed7">GLESC::Physics::Force</a></div><div class="ttdeci">Vec3F Force</div><div class="ttdef"><b>Definition</b> <a href="_physics_types_8h_source.html#l00016">PhysicsTypes.h:16</a></div></div>
@@ -230,7 +231,7 @@ Static Private Attributes</h2></td></tr>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_physics_8h_source.html#l00041">GLESC::Physics::Physics::addAcceleration()</a>, <a class="el" href="_physics_8h_source.html#l00034">GLESC::Physics::Physics::addVelocity()</a>, <a class="el" href="_physics_manager_8h_source.html#l00029">airFriction</a>, <a class="el" href="_physics_8h_source.html#l00063">GLESC::Physics::Physics::getAcceleration()</a>, <a class="el" href="_physics_8h_source.html#l00060">GLESC::Physics::Physics::getAirFriction()</a>, <a class="el" href="_physics_8h_source.html#l00062">GLESC::Physics::Physics::getForce()</a>, <a class="el" href="_physics_8h_source.html#l00058">GLESC::Physics::Physics::getMass()</a>, <a class="el" href="_physics_8h_source.html#l00061">GLESC::Physics::Physics::getVelocity()</a>, <a class="el" href="_physics_manager_8h_source.html#l00028">gravity</a>, <a class="el" href="_physics_8h_source.html#l00066">GLESC::Physics::Physics::isAffectedByGravity()</a>, <a class="el" href="_physics_8h_source.html#l00067">GLESC::Physics::Physics::isStatic()</a>, <a class="el" href="_physics_8h_source.html#l00042">GLESC::Physics::Physics::setAcceleration()</a>, <a class="el" href="_physics_8h_source.html#l00048">GLESC::Physics::Physics::setForce()</a>, and <a class="el" href="_physics_8h_source.html#l00035">GLESC::Physics::Physics::setVelocity()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_physics_system_8cpp_source.html#l00027">GLESC::ECS::PhysicsSystem::update()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_physics_system_8cpp_source.html#l00018">GLESC::ECS::PhysicsSystem::update()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -278,23 +279,23 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_physics_manager_8cpp_source.html#l00050">50</a> of file <a class="el" href="_physics_manager_8cpp_source.html">PhysicsManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   50</span>                                                                                              {</div>
-<div class="line"><span class="lineno">   51</span>        <span class="keywordflow">if</span> (collider.getGeneralCollisionCallback())</div>
-<div class="line"><span class="lineno">   52</span>            collider.getGeneralCollisionCallback()(*info.getCollidingWithColliders()[0]);</div>
-<div class="line"><span class="lineno">   53</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">otherCollider</a> : info.getCollidingWithColliders()) {</div>
-<div class="line"><span class="lineno">   54</span>            <span class="comment">// Check if there is a specific callback for this collider</span></div>
-<div class="line"><span class="lineno">   55</span>            <span class="keyword">auto</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">it</a> = collider.getSpecificCollisionCallbacks().find(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">otherCollider</a>);</div>
-<div class="line"><span class="lineno">   56</span>            <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">it</a> != collider.getSpecificCollisionCallbacks().end()) {</div>
-<div class="line"><span class="lineno">   57</span>                <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">it</a>-&gt;second(*<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">otherCollider</a>);</div>
-<div class="line"><span class="lineno">   58</span>            }</div>
-<div class="line"><span class="lineno">   59</span>        }</div>
-<div class="line"><span class="lineno">   60</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="_physics_manager_8cpp_source.html#l00042">42</a> of file <a class="el" href="_physics_manager_8cpp_source.html">PhysicsManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   42</span>                                                                                              {</div>
+<div class="line"><span class="lineno">   43</span>        <span class="keywordflow">if</span> (collider.getGeneralCollisionCallback())</div>
+<div class="line"><span class="lineno">   44</span>            collider.getGeneralCollisionCallback()(*info.getCollidingWithColliders()[0]);</div>
+<div class="line"><span class="lineno">   45</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">otherCollider</a> : info.getCollidingWithColliders()) {</div>
+<div class="line"><span class="lineno">   46</span>            <span class="comment">// Check if there is a specific callback for this collider</span></div>
+<div class="line"><span class="lineno">   47</span>            <span class="keyword">auto</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">it</a> = collider.getSpecificCollisionCallbacks().find(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">otherCollider</a>);</div>
+<div class="line"><span class="lineno">   48</span>            <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">it</a> != collider.getSpecificCollisionCallbacks().end()) {</div>
+<div class="line"><span class="lineno">   49</span>                <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">it</a>-&gt;second(*<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">otherCollider</a>);</div>
+<div class="line"><span class="lineno">   50</span>            }</div>
+<div class="line"><span class="lineno">   51</span>        }</div>
+<div class="line"><span class="lineno">   52</span>    }</div>
 <div class="ttc" id="anamespace_g_l_e_s_c_html_a7c64a4da2d1da1597f4ec563d00bb9f8"><div class="ttname"><a href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">GLESC::isIterable_v</a></div><div class="ttdeci">constexpr bool isIterable_v</div><div class="ttdef"><b>Definition</b> <a href="_stringer_8h_source.html#l00029">Stringer.h:29</a></div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_collision_information_8h_source.html#l00047">GLESC::Physics::CollisionInformation::getCollidingWithColliders()</a>, <a class="el" href="_collider_8h_source.html#l00047">GLESC::Physics::Collider::getGeneralCollisionCallback()</a>, <a class="el" href="_collider_8h_source.html#l00048">GLESC::Physics::Collider::getSpecificCollisionCallbacks()</a>, and <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_physics_manager_8cpp_source.html#l00115">handleCollisions()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_physics_manager_8cpp_source.html#l00107">handleCollisions()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -334,66 +335,66 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_physics_manager_8cpp_source.html#l00115">115</a> of file <a class="el" href="_physics_manager_8cpp_source.html">PhysicsManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  115</span>                                                                                    {</div>
-<div class="line"><span class="lineno">  116</span>        CollisionInformation&amp; info = collider.getCollisionInformation();</div>
-<div class="line"><span class="lineno">  117</span>        <a class="code hl_function" href="class_g_l_e_s_c_1_1_physics_1_1_physics_manager.html#a76b62615250f2bd64ceae361c0a08c8e">executeCallbacks</a>(collider, info);</div>
-<div class="line"><span class="lineno">  118</span> </div>
-<div class="line"><span class="lineno">  119</span>        <span class="comment">// If the object is static, no new velocity is needed, it will remain 0</span></div>
-<div class="line"><span class="lineno">  120</span>        <span class="keywordflow">if</span> (physics.isStatic()) <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">  121</span> </div>
-<div class="line"><span class="lineno">  122</span>        <span class="comment">// If the velocity is too small, we consider it as 0 so we don&#39;t have jittering</span></div>
-<div class="line"><span class="lineno">  123</span>        <span class="keywordtype">bool</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bouncingOccurs</a> = !info.wasOnGroundLastFrame() &amp;&amp;</div>
-<div class="line"><span class="lineno">  124</span>            physics.getVelocity().length() &gt; <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics_manager.html#a17babae6e6f55d1a8d0b45447722a7a8">bouncinessThreshold</a>;</div>
-<div class="line"><span class="lineno">  125</span> </div>
-<div class="line"><span class="lineno">  126</span>        <a class="code hl_typedef" href="namespace_g_l_e_s_c_1_1_physics.html#a88cd8369de6bf12d7bbe0f4614fed506">Velocity</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">finalVelocity</a>;</div>
-<div class="line"><span class="lineno">  127</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bouncingOccurs</a>) {</div>
-<div class="line"><span class="lineno">  128</span>            <span class="comment">// Calculate the collision normal to reflect the velocity</span></div>
-<div class="line"><span class="lineno">  129</span>            <a class="code hl_class" href="class_g_l_e_s_c_1_1_math_1_1_vector.html">Vec3F</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">collisionNormal</a> = {</div>
-<div class="line"><span class="lineno">  130</span>                info.getCollidingAxis().<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_vector.html#a2641be423d1cbbe4654f30ad8ac671a1">getX</a>(), info.getCollidingAxis().getY(), info.getCollidingAxis().getZ()</div>
-<div class="line"><span class="lineno">  131</span>            };</div>
-<div class="line"><span class="lineno">  132</span>            <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">finalVelocity</a> = <a class="code hl_function" href="namespace_g_l_e_s_c_1_1_physics.html#a8e38cace2434232da6df7a72ee13f497">getBouncingVelocity</a>(physics.getVelocity(), <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">collisionNormal</a>, <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics_manager.html#a057464bbedcef24388940b5ce0658041">bounciness</a>);</div>
-<div class="line"><span class="lineno">  133</span>        }</div>
-<div class="line"><span class="lineno">  134</span>        <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  135</span>            <a class="code hl_typedef" href="namespace_g_l_e_s_c_1_1_physics.html#a7060b9d539e99ebbfb7ab72528795846">AxisConstraints</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">freeAxis</a> = <a class="code hl_function" href="namespace_g_l_e_s_c_1_1_physics.html#a1621e2a03fff6c4be0436391e2bc6ef5">getAxisFree</a>(collider);</div>
-<div class="line"><span class="lineno">  136</span>            <span class="keywordtype">bool</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">frictionApplied</a> = <a class="code hl_function" href="namespace_g_l_e_s_c_1_1_physics.html#ad4c6faf429a6e9c953e8d207d9cb1dff">isFrictionApplied</a>(physics, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">freeAxis</a>);</div>
-<div class="line"><span class="lineno">  137</span> </div>
-<div class="line"><span class="lineno">  138</span>            <a class="code hl_class" href="class_g_l_e_s_c_1_1_math_1_1_vector.html">Vec3F</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">velocityWithFriction</a>;</div>
-<div class="line"><span class="lineno">  139</span>            <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">frictionApplied</a>)</div>
-<div class="line"><span class="lineno">  140</span>                <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">velocityWithFriction</a> = physics.getVelocity();</div>
-<div class="line"><span class="lineno">  141</span>            <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">  142</span>                <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">velocityWithFriction</a>= <a class="code hl_function" href="namespace_g_l_e_s_c_1_1_physics.html#acb1c3e1997fb7c70938d8eaf42d9bdfb">getVelocityWithFriction</a>(physics, info.getPhysicsOfCollided());</div>
-<div class="line"><span class="lineno">  143</span> </div>
-<div class="line"><span class="lineno">  144</span>            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">i</a> = 0; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">i</a> &lt; 3; ++<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">i</a>) {</div>
-<div class="line"><span class="lineno">  145</span>                <span class="keywordflow">if</span> (<a class="code hl_function" href="namespace_g_l_e_s_c_1_1_math.html#a10dbf93b680c41ae82ff63e1df6dc114">Math::gt</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">velocityWithFriction</a>[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">i</a>], 0.0f))</div>
-<div class="line"><span class="lineno">  146</span>                    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">velocityWithFriction</a>[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">i</a>] *= <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">freeAxis</a>[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">i</a>][0]);</div>
-<div class="line"><span class="lineno">  147</span>                <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">  148</span>                    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">velocityWithFriction</a>[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">i</a>] *= <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">freeAxis</a>[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">i</a>][1]);</div>
-<div class="line"><span class="lineno">  149</span>            }</div>
-<div class="line"><span class="lineno">  150</span>            <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">finalVelocity</a> = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">velocityWithFriction</a>;</div>
-<div class="line"><span class="lineno">  151</span>        }</div>
-<div class="line"><span class="lineno">  152</span> </div>
-<div class="line"><span class="lineno">  153</span> </div>
-<div class="line"><span class="lineno">  154</span>        physics.setVelocity(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">finalVelocity</a>);</div>
-<div class="line"><span class="lineno">  155</span> </div>
-<div class="line"><span class="lineno">  156</span>        <span class="comment">//Apply the new velocity to the component</span></div>
-<div class="line"><span class="lineno">  157</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="_physics_manager_8cpp_source.html#l00107">107</a> of file <a class="el" href="_physics_manager_8cpp_source.html">PhysicsManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  107</span>                                                                                    {</div>
+<div class="line"><span class="lineno">  108</span>        CollisionInformation&amp; info = collider.getCollisionInformation();</div>
+<div class="line"><span class="lineno">  109</span>        <a class="code hl_function" href="class_g_l_e_s_c_1_1_physics_1_1_physics_manager.html#a76b62615250f2bd64ceae361c0a08c8e">executeCallbacks</a>(collider, info);</div>
+<div class="line"><span class="lineno">  110</span> </div>
+<div class="line"><span class="lineno">  111</span>        <span class="comment">// If the object is static, no new velocity is needed, it will remain 0</span></div>
+<div class="line"><span class="lineno">  112</span>        <span class="keywordflow">if</span> (physics.isStatic()) <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">  113</span> </div>
+<div class="line"><span class="lineno">  114</span>        <span class="comment">// If the velocity is too small, we consider it as 0 so we don&#39;t have jittering</span></div>
+<div class="line"><span class="lineno">  115</span>        <span class="keywordtype">bool</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bouncingOccurs</a> = !info.wasOnGroundLastFrame() &amp;&amp;</div>
+<div class="line"><span class="lineno">  116</span>            physics.getVelocity().length() &gt; <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics_manager.html#a17babae6e6f55d1a8d0b45447722a7a8">bouncinessThreshold</a>;</div>
+<div class="line"><span class="lineno">  117</span> </div>
+<div class="line"><span class="lineno">  118</span>        <a class="code hl_typedef" href="namespace_g_l_e_s_c_1_1_physics.html#a88cd8369de6bf12d7bbe0f4614fed506">Velocity</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">finalVelocity</a>;</div>
+<div class="line"><span class="lineno">  119</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">bouncingOccurs</a>) {</div>
+<div class="line"><span class="lineno">  120</span>            <span class="comment">// Calculate the collision normal to reflect the velocity</span></div>
+<div class="line"><span class="lineno">  121</span>            <a class="code hl_class" href="class_g_l_e_s_c_1_1_math_1_1_vector.html">Vec3F</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">collisionNormal</a> = {</div>
+<div class="line"><span class="lineno">  122</span>                info.getCollidingAxis().<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_vector.html#a2641be423d1cbbe4654f30ad8ac671a1">getX</a>(), info.getCollidingAxis().getY(), info.getCollidingAxis().getZ()</div>
+<div class="line"><span class="lineno">  123</span>            };</div>
+<div class="line"><span class="lineno">  124</span>            <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">finalVelocity</a> = <a class="code hl_function" href="namespace_g_l_e_s_c_1_1_physics.html#a8e38cace2434232da6df7a72ee13f497">getBouncingVelocity</a>(physics.getVelocity(), <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">collisionNormal</a>, <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics_manager.html#a057464bbedcef24388940b5ce0658041">bounciness</a>);</div>
+<div class="line"><span class="lineno">  125</span>        }</div>
+<div class="line"><span class="lineno">  126</span>        <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  127</span>            <a class="code hl_typedef" href="namespace_g_l_e_s_c_1_1_physics.html#a7060b9d539e99ebbfb7ab72528795846">AxisConstraints</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">freeAxis</a> = <a class="code hl_function" href="namespace_g_l_e_s_c_1_1_physics.html#a1621e2a03fff6c4be0436391e2bc6ef5">getAxisFree</a>(collider);</div>
+<div class="line"><span class="lineno">  128</span>            <span class="keywordtype">bool</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">frictionApplied</a> = <a class="code hl_function" href="namespace_g_l_e_s_c_1_1_physics.html#ad4c6faf429a6e9c953e8d207d9cb1dff">isFrictionApplied</a>(physics, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">freeAxis</a>);</div>
+<div class="line"><span class="lineno">  129</span> </div>
+<div class="line"><span class="lineno">  130</span>            <a class="code hl_class" href="class_g_l_e_s_c_1_1_math_1_1_vector.html">Vec3F</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">velocityWithFriction</a>;</div>
+<div class="line"><span class="lineno">  131</span>            <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">frictionApplied</a>)</div>
+<div class="line"><span class="lineno">  132</span>                <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">velocityWithFriction</a> = physics.getVelocity();</div>
+<div class="line"><span class="lineno">  133</span>            <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  134</span>                <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">velocityWithFriction</a>= <a class="code hl_function" href="namespace_g_l_e_s_c_1_1_physics.html#acb1c3e1997fb7c70938d8eaf42d9bdfb">getVelocityWithFriction</a>(physics, info.getPhysicsOfCollided());</div>
+<div class="line"><span class="lineno">  135</span> </div>
+<div class="line"><span class="lineno">  136</span>            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">i</a> = 0; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">i</a> &lt; 3; ++<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">i</a>) {</div>
+<div class="line"><span class="lineno">  137</span>                <span class="keywordflow">if</span> (<a class="code hl_function" href="namespace_g_l_e_s_c_1_1_math.html#a10dbf93b680c41ae82ff63e1df6dc114">Math::gt</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">velocityWithFriction</a>[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">i</a>], 0.0f))</div>
+<div class="line"><span class="lineno">  138</span>                    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">velocityWithFriction</a>[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">i</a>] *= <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">freeAxis</a>[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">i</a>][0]);</div>
+<div class="line"><span class="lineno">  139</span>                <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  140</span>                    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">velocityWithFriction</a>[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">i</a>] *= <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">freeAxis</a>[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">i</a>][1]);</div>
+<div class="line"><span class="lineno">  141</span>            }</div>
+<div class="line"><span class="lineno">  142</span>            <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">finalVelocity</a> = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">velocityWithFriction</a>;</div>
+<div class="line"><span class="lineno">  143</span>        }</div>
+<div class="line"><span class="lineno">  144</span> </div>
+<div class="line"><span class="lineno">  145</span> </div>
+<div class="line"><span class="lineno">  146</span>        physics.setVelocity(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">finalVelocity</a>);</div>
+<div class="line"><span class="lineno">  147</span> </div>
+<div class="line"><span class="lineno">  148</span>        <span class="comment">//Apply the new velocity to the component</span></div>
+<div class="line"><span class="lineno">  149</span>    }</div>
 <div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_vector_html"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_vector.html">GLESC::Math::Vector</a></div><div class="ttdef"><b>Definition</b> <a href="_vector_8h_source.html#l00025">Vector.h:25</a></div></div>
 <div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_vector_html_a2641be423d1cbbe4654f30ad8ac671a1"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_vector.html#a2641be423d1cbbe4654f30ad8ac671a1">GLESC::Math::Vector::getX</a></div><div class="ttdeci">const Type &amp; getX() const</div><div class="ttdoc">Returns the x (first) value of the vector.</div><div class="ttdef"><b>Definition</b> <a href="_vector_8h_source.html#l00204">Vector.h:204</a></div></div>
 <div class="ttc" id="aclass_g_l_e_s_c_1_1_physics_1_1_physics_manager_html_a057464bbedcef24388940b5ce0658041"><div class="ttname"><a href="class_g_l_e_s_c_1_1_physics_1_1_physics_manager.html#a057464bbedcef24388940b5ce0658041">GLESC::Physics::PhysicsManager::bounciness</a></div><div class="ttdeci">Bounciness bounciness</div><div class="ttdef"><b>Definition</b> <a href="_physics_manager_8h_source.html#l00030">PhysicsManager.h:30</a></div></div>
 <div class="ttc" id="aclass_g_l_e_s_c_1_1_physics_1_1_physics_manager_html_a17babae6e6f55d1a8d0b45447722a7a8"><div class="ttname"><a href="class_g_l_e_s_c_1_1_physics_1_1_physics_manager.html#a17babae6e6f55d1a8d0b45447722a7a8">GLESC::Physics::PhysicsManager::bouncinessThreshold</a></div><div class="ttdeci">float bouncinessThreshold</div><div class="ttdef"><b>Definition</b> <a href="_physics_manager_8h_source.html#l00031">PhysicsManager.h:31</a></div></div>
-<div class="ttc" id="aclass_g_l_e_s_c_1_1_physics_1_1_physics_manager_html_a76b62615250f2bd64ceae361c0a08c8e"><div class="ttname"><a href="class_g_l_e_s_c_1_1_physics_1_1_physics_manager.html#a76b62615250f2bd64ceae361c0a08c8e">GLESC::Physics::PhysicsManager::executeCallbacks</a></div><div class="ttdeci">static void executeCallbacks(Collider &amp;collider, const CollisionInformation &amp;collisionInfo)</div><div class="ttdef"><b>Definition</b> <a href="_physics_manager_8cpp_source.html#l00050">PhysicsManager.cpp:50</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_physics_1_1_physics_manager_html_a76b62615250f2bd64ceae361c0a08c8e"><div class="ttname"><a href="class_g_l_e_s_c_1_1_physics_1_1_physics_manager.html#a76b62615250f2bd64ceae361c0a08c8e">GLESC::Physics::PhysicsManager::executeCallbacks</a></div><div class="ttdeci">static void executeCallbacks(Collider &amp;collider, const CollisionInformation &amp;collisionInfo)</div><div class="ttdef"><b>Definition</b> <a href="_physics_manager_8cpp_source.html#l00042">PhysicsManager.cpp:42</a></div></div>
 <div class="ttc" id="anamespace_g_l_e_s_c_1_1_math_html_a10dbf93b680c41ae82ff63e1df6dc114"><div class="ttname"><a href="namespace_g_l_e_s_c_1_1_math.html#a10dbf93b680c41ae82ff63e1df6dc114">GLESC::Math::gt</a></div><div class="ttdeci">constexpr bool gt(const LValueT &amp;left, const RValueT &amp;right, const double epsilon)</div><div class="ttdoc">Compares two values for greater than.</div><div class="ttdef"><b>Definition</b> <a href="_math_8h_source.html#l00315">Math.h:315</a></div></div>
-<div class="ttc" id="anamespace_g_l_e_s_c_1_1_physics_html_a1621e2a03fff6c4be0436391e2bc6ef5"><div class="ttname"><a href="namespace_g_l_e_s_c_1_1_physics.html#a1621e2a03fff6c4be0436391e2bc6ef5">GLESC::Physics::getAxisFree</a></div><div class="ttdeci">AxisConstraints getAxisFree(const Collider &amp;collider)</div><div class="ttdef"><b>Definition</b> <a href="_physics_manager_8cpp_source.html#l00071">PhysicsManager.cpp:71</a></div></div>
-<div class="ttc" id="anamespace_g_l_e_s_c_1_1_physics_html_a7060b9d539e99ebbfb7ab72528795846"><div class="ttname"><a href="namespace_g_l_e_s_c_1_1_physics.html#a7060b9d539e99ebbfb7ab72528795846">GLESC::Physics::AxisConstraints</a></div><div class="ttdeci">std::array&lt; std::array&lt; bool, 2 &gt;, 3 &gt; AxisConstraints</div><div class="ttdef"><b>Definition</b> <a href="_physics_manager_8cpp_source.html#l00069">PhysicsManager.cpp:69</a></div></div>
+<div class="ttc" id="anamespace_g_l_e_s_c_1_1_physics_html_a1621e2a03fff6c4be0436391e2bc6ef5"><div class="ttname"><a href="namespace_g_l_e_s_c_1_1_physics.html#a1621e2a03fff6c4be0436391e2bc6ef5">GLESC::Physics::getAxisFree</a></div><div class="ttdeci">AxisConstraints getAxisFree(const Collider &amp;collider)</div><div class="ttdef"><b>Definition</b> <a href="_physics_manager_8cpp_source.html#l00063">PhysicsManager.cpp:63</a></div></div>
+<div class="ttc" id="anamespace_g_l_e_s_c_1_1_physics_html_a7060b9d539e99ebbfb7ab72528795846"><div class="ttname"><a href="namespace_g_l_e_s_c_1_1_physics.html#a7060b9d539e99ebbfb7ab72528795846">GLESC::Physics::AxisConstraints</a></div><div class="ttdeci">std::array&lt; std::array&lt; bool, 2 &gt;, 3 &gt; AxisConstraints</div><div class="ttdef"><b>Definition</b> <a href="_physics_manager_8cpp_source.html#l00061">PhysicsManager.cpp:61</a></div></div>
 <div class="ttc" id="anamespace_g_l_e_s_c_1_1_physics_html_a88cd8369de6bf12d7bbe0f4614fed506"><div class="ttname"><a href="namespace_g_l_e_s_c_1_1_physics.html#a88cd8369de6bf12d7bbe0f4614fed506">GLESC::Physics::Velocity</a></div><div class="ttdeci">Vec3F Velocity</div><div class="ttdef"><b>Definition</b> <a href="_physics_types_8h_source.html#l00015">PhysicsTypes.h:15</a></div></div>
-<div class="ttc" id="anamespace_g_l_e_s_c_1_1_physics_html_a8e38cace2434232da6df7a72ee13f497"><div class="ttname"><a href="namespace_g_l_e_s_c_1_1_physics.html#a8e38cace2434232da6df7a72ee13f497">GLESC::Physics::getBouncingVelocity</a></div><div class="ttdeci">Velocity getBouncingVelocity(const Velocity &amp;velocity, const Vec3F &amp;collisionNormal, float bounciness)</div><div class="ttdef"><b>Definition</b> <a href="_physics_manager_8cpp_source.html#l00062">PhysicsManager.cpp:62</a></div></div>
-<div class="ttc" id="anamespace_g_l_e_s_c_1_1_physics_html_acb1c3e1997fb7c70938d8eaf42d9bdfb"><div class="ttname"><a href="namespace_g_l_e_s_c_1_1_physics.html#acb1c3e1997fb7c70938d8eaf42d9bdfb">GLESC::Physics::getVelocityWithFriction</a></div><div class="ttdeci">Velocity getVelocityWithFriction(const Physics &amp;physics, const std::vector&lt; Physics * &gt; &amp;physicsOfCollided)</div><div class="ttdef"><b>Definition</b> <a href="_physics_manager_8cpp_source.html#l00089">PhysicsManager.cpp:89</a></div></div>
-<div class="ttc" id="anamespace_g_l_e_s_c_1_1_physics_html_ad4c6faf429a6e9c953e8d207d9cb1dff"><div class="ttname"><a href="namespace_g_l_e_s_c_1_1_physics.html#ad4c6faf429a6e9c953e8d207d9cb1dff">GLESC::Physics::isFrictionApplied</a></div><div class="ttdeci">bool isFrictionApplied(const Physics &amp;physics, const AxisConstraints &amp;freeAxis)</div><div class="ttdef"><b>Definition</b> <a href="_physics_manager_8cpp_source.html#l00104">PhysicsManager.cpp:104</a></div></div>
+<div class="ttc" id="anamespace_g_l_e_s_c_1_1_physics_html_a8e38cace2434232da6df7a72ee13f497"><div class="ttname"><a href="namespace_g_l_e_s_c_1_1_physics.html#a8e38cace2434232da6df7a72ee13f497">GLESC::Physics::getBouncingVelocity</a></div><div class="ttdeci">Velocity getBouncingVelocity(const Velocity &amp;velocity, const Vec3F &amp;collisionNormal, float bounciness)</div><div class="ttdef"><b>Definition</b> <a href="_physics_manager_8cpp_source.html#l00054">PhysicsManager.cpp:54</a></div></div>
+<div class="ttc" id="anamespace_g_l_e_s_c_1_1_physics_html_acb1c3e1997fb7c70938d8eaf42d9bdfb"><div class="ttname"><a href="namespace_g_l_e_s_c_1_1_physics.html#acb1c3e1997fb7c70938d8eaf42d9bdfb">GLESC::Physics::getVelocityWithFriction</a></div><div class="ttdeci">Velocity getVelocityWithFriction(const Physics &amp;physics, const std::vector&lt; Physics * &gt; &amp;physicsOfCollided)</div><div class="ttdef"><b>Definition</b> <a href="_physics_manager_8cpp_source.html#l00081">PhysicsManager.cpp:81</a></div></div>
+<div class="ttc" id="anamespace_g_l_e_s_c_1_1_physics_html_ad4c6faf429a6e9c953e8d207d9cb1dff"><div class="ttname"><a href="namespace_g_l_e_s_c_1_1_physics.html#ad4c6faf429a6e9c953e8d207d9cb1dff">GLESC::Physics::isFrictionApplied</a></div><div class="ttdeci">bool isFrictionApplied(const Physics &amp;physics, const AxisConstraints &amp;freeAxis)</div><div class="ttdef"><b>Definition</b> <a href="_physics_manager_8cpp_source.html#l00096">PhysicsManager.cpp:96</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_physics_manager_8h_source.html#l00030">bounciness</a>, <a class="el" href="_physics_manager_8h_source.html#l00031">bouncinessThreshold</a>, <a class="el" href="_physics_manager_8cpp_source.html#l00050">executeCallbacks()</a>, <a class="el" href="_physics_manager_8cpp_source.html#l00071">GLESC::Physics::getAxisFree()</a>, <a class="el" href="_physics_manager_8cpp_source.html#l00062">GLESC::Physics::getBouncingVelocity()</a>, <a class="el" href="_collision_information_8h_source.html#l00039">GLESC::Physics::CollisionInformation::getCollidingAxis()</a>, <a class="el" href="_collider_8h_source.html#l00046">GLESC::Physics::Collider::getCollisionInformation()</a>, <a class="el" href="_collision_information_8h_source.html#l00051">GLESC::Physics::CollisionInformation::getPhysicsOfCollided()</a>, <a class="el" href="_physics_8h_source.html#l00061">GLESC::Physics::Physics::getVelocity()</a>, <a class="el" href="_physics_manager_8cpp_source.html#l00089">GLESC::Physics::getVelocityWithFriction()</a>, <a class="el" href="_vector_8h_source.html#l00204">GLESC::Math::Vector&lt; Type, N &gt;::getX()</a>, <a class="el" href="_vector_8h_source.html#l00245">GLESC::Math::Vector&lt; Type, N &gt;::getY()</a>, <a class="el" href="_vector_8h_source.html#l00286">GLESC::Math::Vector&lt; Type, N &gt;::getZ()</a>, <a class="el" href="_math_8h_source.html#l00315">GLESC::Math::gt()</a>, <a class="el" href="_physics_manager_8cpp_source.html#l00104">GLESC::Physics::isFrictionApplied()</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, <a class="el" href="_physics_8h_source.html#l00067">GLESC::Physics::Physics::isStatic()</a>, <a class="el" href="_vector_8h_source.html#l00837">GLESC::Math::Vector&lt; Type, N &gt;::length()</a>, <a class="el" href="_physics_8h_source.html#l00035">GLESC::Physics::Physics::setVelocity()</a>, and <a class="el" href="_collision_information_8h_source.html#l00087">GLESC::Physics::CollisionInformation::wasOnGroundLastFrame()</a>.</p>
+<p class="reference">References <a class="el" href="_physics_manager_8h_source.html#l00030">bounciness</a>, <a class="el" href="_physics_manager_8h_source.html#l00031">bouncinessThreshold</a>, <a class="el" href="_physics_manager_8cpp_source.html#l00042">executeCallbacks()</a>, <a class="el" href="_physics_manager_8cpp_source.html#l00063">GLESC::Physics::getAxisFree()</a>, <a class="el" href="_physics_manager_8cpp_source.html#l00054">GLESC::Physics::getBouncingVelocity()</a>, <a class="el" href="_collision_information_8h_source.html#l00039">GLESC::Physics::CollisionInformation::getCollidingAxis()</a>, <a class="el" href="_collider_8h_source.html#l00046">GLESC::Physics::Collider::getCollisionInformation()</a>, <a class="el" href="_collision_information_8h_source.html#l00051">GLESC::Physics::CollisionInformation::getPhysicsOfCollided()</a>, <a class="el" href="_physics_8h_source.html#l00061">GLESC::Physics::Physics::getVelocity()</a>, <a class="el" href="_physics_manager_8cpp_source.html#l00081">GLESC::Physics::getVelocityWithFriction()</a>, <a class="el" href="_vector_8h_source.html#l00204">GLESC::Math::Vector&lt; Type, N &gt;::getX()</a>, <a class="el" href="_vector_8h_source.html#l00245">GLESC::Math::Vector&lt; Type, N &gt;::getY()</a>, <a class="el" href="_vector_8h_source.html#l00286">GLESC::Math::Vector&lt; Type, N &gt;::getZ()</a>, <a class="el" href="_math_8h_source.html#l00315">GLESC::Math::gt()</a>, <a class="el" href="_physics_manager_8cpp_source.html#l00096">GLESC::Physics::isFrictionApplied()</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, <a class="el" href="_physics_8h_source.html#l00067">GLESC::Physics::Physics::isStatic()</a>, <a class="el" href="_vector_8h_source.html#l00837">GLESC::Math::Vector&lt; Type, N &gt;::length()</a>, <a class="el" href="_physics_8h_source.html#l00035">GLESC::Physics::Physics::setVelocity()</a>, and <a class="el" href="_collision_information_8h_source.html#l00087">GLESC::Physics::CollisionInformation::wasOnGroundLastFrame()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_physics_collision_system_8cpp_source.html#l00029">GLESC::ECS::PhysicsCollisionSystem::update()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_physics_collision_system_8cpp_source.html#l00020">GLESC::ECS::PhysicsCollisionSystem::update()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -441,17 +442,17 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_physics_manager_8cpp_source.html#l00044">44</a> of file <a class="el" href="_physics_manager_8cpp_source.html">PhysicsManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   44</span>                                                                                               {</div>
-<div class="line"><span class="lineno">   45</span>        Transform::Transform <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">newTransform</a> = transform;</div>
-<div class="line"><span class="lineno">   46</span>        <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">newTransform</a>.addPosition(physics.getVelocity() * <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics_manager.html#a50d2d8ce39d15c8c43a41bfe5bacaa1c">velocityScalar</a>);</div>
-<div class="line"><span class="lineno">   47</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">newTransform</a>;</div>
-<div class="line"><span class="lineno">   48</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="_physics_manager_8cpp_source.html#l00036">36</a> of file <a class="el" href="_physics_manager_8cpp_source.html">PhysicsManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   36</span>                                                                                               {</div>
+<div class="line"><span class="lineno">   37</span>        Transform::Transform <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">newTransform</a> = transform;</div>
+<div class="line"><span class="lineno">   38</span>        <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">newTransform</a>.addPosition(physics.getVelocity() * <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics_manager.html#a50d2d8ce39d15c8c43a41bfe5bacaa1c">velocityScalar</a>);</div>
+<div class="line"><span class="lineno">   39</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">newTransform</a>;</div>
+<div class="line"><span class="lineno">   40</span>    }</div>
 <div class="ttc" id="aclass_g_l_e_s_c_1_1_physics_1_1_physics_manager_html_a50d2d8ce39d15c8c43a41bfe5bacaa1c"><div class="ttname"><a href="class_g_l_e_s_c_1_1_physics_1_1_physics_manager.html#a50d2d8ce39d15c8c43a41bfe5bacaa1c">GLESC::Physics::PhysicsManager::velocityScalar</a></div><div class="ttdeci">static constexpr Scalar velocityScalar</div><div class="ttdoc">This scalar is used to scale the velocity of the object.</div><div class="ttdef"><b>Definition</b> <a href="_physics_manager_8h_source.html#l00038">PhysicsManager.h:38</a></div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_transform_8h_source.html#l00114">GLESC::Transform::Transform::addPosition()</a>, <a class="el" href="_physics_8h_source.html#l00061">GLESC::Physics::Physics::getVelocity()</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_physics_manager_8h_source.html#l00038">velocityScalar</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_physics_collision_system_8cpp_source.html#l00029">GLESC::ECS::PhysicsCollisionSystem::update()</a>, and <a class="el" href="_physics_system_8cpp_source.html#l00027">GLESC::ECS::PhysicsSystem::update()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_physics_collision_system_8cpp_source.html#l00020">GLESC::ECS::PhysicsCollisionSystem::update()</a>, and <a class="el" href="_physics_system_8cpp_source.html#l00018">GLESC::ECS::PhysicsSystem::update()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -489,7 +490,7 @@ Here is the caller graph for this function:</div>
 <p class="definition">Definition at line <a class="el" href="_physics_manager_8h_source.html#l00029">29</a> of file <a class="el" href="_physics_manager_8h_source.html">PhysicsManager.h</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   29</span>{0.01f};</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="_physics_manager_8cpp_source.html#l00014">applyForces()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_physics_manager_8cpp_source.html#l00005">applyForces()</a>.</p>
 
 </div>
 </div>
@@ -516,7 +517,7 @@ Here is the caller graph for this function:</div>
 <p class="definition">Definition at line <a class="el" href="_physics_manager_8h_source.html#l00030">30</a> of file <a class="el" href="_physics_manager_8h_source.html">PhysicsManager.h</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   30</span>{0.1f};</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="_physics_manager_8cpp_source.html#l00115">handleCollisions()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_physics_manager_8cpp_source.html#l00107">handleCollisions()</a>.</p>
 
 </div>
 </div>
@@ -543,7 +544,7 @@ Here is the caller graph for this function:</div>
 <p class="definition">Definition at line <a class="el" href="_physics_manager_8h_source.html#l00031">31</a> of file <a class="el" href="_physics_manager_8h_source.html">PhysicsManager.h</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   31</span>{50.f};</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="_physics_manager_8cpp_source.html#l00115">handleCollisions()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_physics_manager_8cpp_source.html#l00107">handleCollisions()</a>.</p>
 
 </div>
 </div>
@@ -570,7 +571,7 @@ Here is the caller graph for this function:</div>
 <p class="definition">Definition at line <a class="el" href="_physics_manager_8h_source.html#l00028">28</a> of file <a class="el" href="_physics_manager_8h_source.html">PhysicsManager.h</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   28</span>{0.f, -8.91f, 0.f};</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="_physics_manager_8cpp_source.html#l00014">applyForces()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_physics_manager_8cpp_source.html#l00005">applyForces()</a>.</p>
 
 </div>
 </div>
@@ -600,7 +601,7 @@ Here is the caller graph for this function:</div>
 <p class="definition">Definition at line <a class="el" href="_physics_manager_8h_source.html#l00038">38</a> of file <a class="el" href="_physics_manager_8h_source.html">PhysicsManager.h</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   38</span>{0.001f};</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="_physics_manager_8cpp_source.html#l00044">updateTransform()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_physics_manager_8cpp_source.html#l00036">updateTransform()</a>.</p>
 
 </div>
 </div>

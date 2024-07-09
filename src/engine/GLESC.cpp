@@ -52,7 +52,7 @@ Engine::~Engine() {
 }
 
 
-void Engine::processInput() {
+void Engine::processInput(float timeOfFrame) {
     Logger::get().importantInfoBlue("Engine processInput started");
     inputManager.update(running);
     Logger::get().importantInfoBlue("Engine processInput finished");
@@ -180,6 +180,15 @@ void Engine::registerStats() const {
         keys += "]";
         return keys;
     });
+
+    StatsManager::registerStatSource("Time of Frame after Update: ", [&]() -> std::string {
+        return Stringer::toString(fpsManager.getTimeOfFrameAfterUpdate());
+    });
+
+    StatsManager::registerStatSource("Lag: ", [&]() -> std::string {
+        return Stringer::toString(fpsManager.getLag());
+    });
+
 
     StatsManager::registerStatSource("Mouse Position: ", [&]() -> std::string {
         return inputManager.getMousePosition().toString();

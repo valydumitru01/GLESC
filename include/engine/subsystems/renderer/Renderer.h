@@ -175,7 +175,7 @@ namespace GLESC::Render {
          * @param MVPMat The model view projection matrix
          * @param normalMat The normal matrix
          */
-        static void applyTransform(const MV& MVMat, const MVP& MVPMat, const NormalMat& normalMat);
+        static void applyTransform(const MV& MVMat, const MVP& MVPMat, const NormalMat& normalMat, const View& view);
         /**
          * @brief This encapsulates the application of the ambient light
          * @param ambientLight The ambient light class

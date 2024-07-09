@@ -2,14 +2,17 @@
  * @file   EntityManagerTests.cpp
  * @author Valentin Dumitru
  * @date   29/02/2024
- * @brief  @TODO Add description of this file if needed
+ * @brief Integration tests for the EntityManager class.
+ * @details This file contains integration tests for the EntityManager class using the Google Test framework.
+ * The tests cover various scenarios such as creating and destroying entities, checking entity states,
+ * and managing components within entities.
  *
  * Copyright (c) 2024 Valentin Dumitru. Licensed under the MIT License.
  * See LICENSE.txt in the project root for license information.
  **************************************************************************************************/
 
 #include "TestsConfig.h"
-#if ECS_BACKEND_UNIT_TESTING
+#if ECS_BACKEND_INTEGRATION_TESTING
 #include <gtest/gtest.h>
 #include "engine/core/exceptions/core/AssertFailedException.h"
 #include "engine/ecs/backend/entity/EntityManager.h"

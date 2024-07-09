@@ -221,9 +221,9 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_sphere_8cpp_source.html#l00014">14</a> of file <a class="el" href="_sphere_8cpp_source.html">Sphere.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   14</span>                                                      :</div>
-<div class="line"><span class="lineno">   15</span>        <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_sphere.html#af99e0179207985dfda8f102561ab1b3a">center</a>(std::move(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">centerParam</a>)), <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_sphere.html#a9b2a77a0dafe536affd66fa771805823">radius</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">radiusParam</a>) {}</div>
+<p class="definition">Definition at line <a class="el" href="_sphere_8cpp_source.html#l00005">5</a> of file <a class="el" href="_sphere_8cpp_source.html">Sphere.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">    5</span>                                                      :</div>
+<div class="line"><span class="lineno">    6</span>        <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_sphere.html#af99e0179207985dfda8f102561ab1b3a">center</a>(std::move(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">centerParam</a>)), <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_sphere.html#a9b2a77a0dafe536affd66fa771805823">radius</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">radiusParam</a>) {}</div>
 <div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_sphere_html_a9b2a77a0dafe536affd66fa771805823"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_sphere.html#a9b2a77a0dafe536affd66fa771805823">GLESC::Math::Sphere::radius</a></div><div class="ttdeci">float radius</div><div class="ttdoc">The radius of the sphere.</div><div class="ttdef"><b>Definition</b> <a href="_sphere_8h_source.html#l00074">Sphere.h:74</a></div></div>
 <div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_sphere_html_af99e0179207985dfda8f102561ab1b3a"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_sphere.html#af99e0179207985dfda8f102561ab1b3a">GLESC::Math::Sphere::center</a></div><div class="ttdeci">Point center</div><div class="ttdoc">The center of the sphere.</div><div class="ttdef"><b>Definition</b> <a href="_sphere_8h_source.html#l00070">Sphere.h:70</a></div></div>
 <div class="ttc" id="anamespace_g_l_e_s_c_html_a7c64a4da2d1da1597f4ec563d00bb9f8"><div class="ttname"><a href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">GLESC::isIterable_v</a></div><div class="ttdeci">constexpr bool isIterable_v</div><div class="ttdef"><b>Definition</b> <a href="_stringer_8h_source.html#l00029">Stringer.h:29</a></div></div>
@@ -266,25 +266,25 @@ Private Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="class_g_l_e_s_c_1_1_math_1_1_figure.html#aeb370d6ca18202bdc03a95f9c6618dae">GLESC::Math::Figure</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_sphere_8cpp_source.html#l00046">46</a> of file <a class="el" href="_sphere_8cpp_source.html">Sphere.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   46</span>                                              {</div>
-<div class="line"><span class="lineno">   47</span>    <span class="comment">// Find the vector from the line&#39;s point to the sphere&#39;s center</span></div>
-<div class="line"><span class="lineno">   48</span>    <a class="code hl_class" href="class_g_l_e_s_c_1_1_math_1_1_vector.html">Point</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">centerToLine</a> = <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_sphere.html#af99e0179207985dfda8f102561ab1b3a">center</a> - <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">line</a>.getPoint();</div>
-<div class="line"><span class="lineno">   49</span>    </div>
-<div class="line"><span class="lineno">   50</span>    <span class="comment">// Project this vector onto the line&#39;s direction</span></div>
-<div class="line"><span class="lineno">   51</span>    <a class="code hl_class" href="class_g_l_e_s_c_1_1_math_1_1_vector.html">Direction</a> projection = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">centerToLine</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_vector.html#afe0496b857816e05a61744e6a8c852bb">project</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">line</a>.getDirection());</div>
-<div class="line"><span class="lineno">   52</span>    </div>
-<div class="line"><span class="lineno">   53</span>    <span class="comment">// Find the closest point on the line to the sphere&#39;s center</span></div>
-<div class="line"><span class="lineno">   54</span>    <a class="code hl_class" href="class_g_l_e_s_c_1_1_math_1_1_vector.html">Point</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">closestPoint</a> = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">line</a>.getPoint() + projection;</div>
-<div class="line"><span class="lineno">   55</span>    </div>
-<div class="line"><span class="lineno">   56</span>    <span class="comment">// Check if the closest point is inside the sphere</span></div>
-<div class="line"><span class="lineno">   57</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_sphere.html#ab7f7086acf1a0ec5c04f8010beaa8924">intersects</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">closestPoint</a>);</div>
-<div class="line"><span class="lineno">   58</span>}</div>
-<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_sphere_html_ab7f7086acf1a0ec5c04f8010beaa8924"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_sphere.html#ab7f7086acf1a0ec5c04f8010beaa8924">GLESC::Math::Sphere::intersects</a></div><div class="ttdeci">bool intersects(const Plane &amp;plane) const override</div><div class="ttdoc">Checks if the sphere intersects with the given plane.</div><div class="ttdef"><b>Definition</b> <a href="_sphere_8cpp_source.html#l00018">Sphere.cpp:18</a></div></div>
+<p class="definition">Definition at line <a class="el" href="_sphere_8cpp_source.html#l00037">37</a> of file <a class="el" href="_sphere_8cpp_source.html">Sphere.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   37</span>                                              {</div>
+<div class="line"><span class="lineno">   38</span>    <span class="comment">// Find the vector from the line&#39;s point to the sphere&#39;s center</span></div>
+<div class="line"><span class="lineno">   39</span>    <a class="code hl_class" href="class_g_l_e_s_c_1_1_math_1_1_vector.html">Point</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">centerToLine</a> = <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_sphere.html#af99e0179207985dfda8f102561ab1b3a">center</a> - <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">line</a>.getPoint();</div>
+<div class="line"><span class="lineno">   40</span>    </div>
+<div class="line"><span class="lineno">   41</span>    <span class="comment">// Project this vector onto the line&#39;s direction</span></div>
+<div class="line"><span class="lineno">   42</span>    <a class="code hl_class" href="class_g_l_e_s_c_1_1_math_1_1_vector.html">Direction</a> projection = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">centerToLine</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_vector.html#afe0496b857816e05a61744e6a8c852bb">project</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">line</a>.getDirection());</div>
+<div class="line"><span class="lineno">   43</span>    </div>
+<div class="line"><span class="lineno">   44</span>    <span class="comment">// Find the closest point on the line to the sphere&#39;s center</span></div>
+<div class="line"><span class="lineno">   45</span>    <a class="code hl_class" href="class_g_l_e_s_c_1_1_math_1_1_vector.html">Point</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">closestPoint</a> = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">line</a>.getPoint() + projection;</div>
+<div class="line"><span class="lineno">   46</span>    </div>
+<div class="line"><span class="lineno">   47</span>    <span class="comment">// Check if the closest point is inside the sphere</span></div>
+<div class="line"><span class="lineno">   48</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_sphere.html#ab7f7086acf1a0ec5c04f8010beaa8924">intersects</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">closestPoint</a>);</div>
+<div class="line"><span class="lineno">   49</span>}</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_sphere_html_ab7f7086acf1a0ec5c04f8010beaa8924"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_sphere.html#ab7f7086acf1a0ec5c04f8010beaa8924">GLESC::Math::Sphere::intersects</a></div><div class="ttdeci">bool intersects(const Plane &amp;plane) const override</div><div class="ttdoc">Checks if the sphere intersects with the given plane.</div><div class="ttdef"><b>Definition</b> <a href="_sphere_8cpp_source.html#l00009">Sphere.cpp:9</a></div></div>
 <div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_vector_html"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_vector.html">GLESC::Math::Vector</a></div><div class="ttdef"><b>Definition</b> <a href="_vector_8h_source.html#l00025">Vector.h:25</a></div></div>
 <div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_vector_html_afe0496b857816e05a61744e6a8c852bb"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_vector.html#afe0496b857816e05a61744e6a8c852bb">GLESC::Math::Vector::project</a></div><div class="ttdeci">Vector project(const Vector &amp;other) const</div><div class="ttdoc">Projects the vector onto another vector.</div><div class="ttdef"><b>Definition</b> <a href="_vector_8h_source.html#l00932">Vector.h:932</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_sphere_8h_source.html#l00070">center</a>, <a class="el" href="_sphere_8cpp_source.html#l00018">intersects()</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_vector_8h_source.html#l00932">GLESC::Math::Vector&lt; Type, N &gt;::project()</a>.</p>
+<p class="reference">References <a class="el" href="_sphere_8h_source.html#l00070">center</a>, <a class="el" href="_sphere_8cpp_source.html#l00009">intersects()</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_vector_8h_source.html#l00932">GLESC::Math::Vector&lt; Type, N &gt;::project()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -328,15 +328,15 @@ Here is the call graph for this function:</div>
 
 <p>Implements <a class="el" href="class_g_l_e_s_c_1_1_math_1_1_figure.html#a454cc74078162e741e71ad5f5cc442b8">GLESC::Math::Figure</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_sphere_8cpp_source.html#l00018">18</a> of file <a class="el" href="_sphere_8cpp_source.html">Sphere.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   18</span>                                                {</div>
-<div class="line"><span class="lineno">   19</span>    <span class="keywordflow">return</span> plane.<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_plane.html#a11df2e06eb0ee48a7bb905050744bd45">distanceToPoint</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_sphere.html#af99e0179207985dfda8f102561ab1b3a">center</a>) &lt;= <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_sphere.html#a9b2a77a0dafe536affd66fa771805823">radius</a>;</div>
-<div class="line"><span class="lineno">   20</span>}</div>
-<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_plane_html_a11df2e06eb0ee48a7bb905050744bd45"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_plane.html#a11df2e06eb0ee48a7bb905050744bd45">GLESC::Math::Plane::distanceToPoint</a></div><div class="ttdeci">Distance distanceToPoint(const Point &amp;point) const</div><div class="ttdoc">Calculate the distance from the plane to a point.</div><div class="ttdef"><b>Definition</b> <a href="_plane_8cpp_source.html#l00076">Plane.cpp:76</a></div></div>
+<p class="definition">Definition at line <a class="el" href="_sphere_8cpp_source.html#l00009">9</a> of file <a class="el" href="_sphere_8cpp_source.html">Sphere.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">    9</span>                                                {</div>
+<div class="line"><span class="lineno">   10</span>    <span class="keywordflow">return</span> plane.<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_plane.html#a11df2e06eb0ee48a7bb905050744bd45">distanceToPoint</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_sphere.html#af99e0179207985dfda8f102561ab1b3a">center</a>) &lt;= <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_sphere.html#a9b2a77a0dafe536affd66fa771805823">radius</a>;</div>
+<div class="line"><span class="lineno">   11</span>}</div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_plane_html_a11df2e06eb0ee48a7bb905050744bd45"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_plane.html#a11df2e06eb0ee48a7bb905050744bd45">GLESC::Math::Plane::distanceToPoint</a></div><div class="ttdeci">Distance distanceToPoint(const Point &amp;point) const</div><div class="ttdoc">Calculate the distance from the plane to a point.</div><div class="ttdef"><b>Definition</b> <a href="_plane_8cpp_source.html#l00067">Plane.cpp:67</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_sphere_8h_source.html#l00070">center</a>, <a class="el" href="_plane_8cpp_source.html#l00076">GLESC::Math::Plane::distanceToPoint()</a>, and <a class="el" href="_sphere_8h_source.html#l00074">radius</a>.</p>
+<p class="reference">References <a class="el" href="_sphere_8h_source.html#l00070">center</a>, <a class="el" href="_plane_8cpp_source.html#l00067">GLESC::Math::Plane::distanceToPoint()</a>, and <a class="el" href="_sphere_8h_source.html#l00074">radius</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_sphere_8cpp_source.html#l00046">intersects()</a>, <a class="el" href="_sphere_8cpp_source.html#l00060">intersects()</a>, and <a class="el" href="_sphere_8cpp_source.html#l00023">intersects()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_sphere_8cpp_source.html#l00037">intersects()</a>, <a class="el" href="_sphere_8cpp_source.html#l00051">intersects()</a>, and <a class="el" href="_sphere_8cpp_source.html#l00014">intersects()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -385,10 +385,10 @@ Here is the caller graph for this function:</div>
 
 <p>Implements <a class="el" href="class_g_l_e_s_c_1_1_math_1_1_figure.html#a34011ed389e2d40211863e6d04dd4938">GLESC::Math::Figure</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_sphere_8cpp_source.html#l00070">70</a> of file <a class="el" href="_sphere_8cpp_source.html">Sphere.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   70</span>                                                {</div>
-<div class="line"><span class="lineno">   71</span>    <span class="keywordflow">return</span> (point - <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_sphere.html#af99e0179207985dfda8f102561ab1b3a">center</a>).length() &lt;= <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_sphere.html#a9b2a77a0dafe536affd66fa771805823">radius</a>;</div>
-<div class="line"><span class="lineno">   72</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_sphere_8cpp_source.html#l00061">61</a> of file <a class="el" href="_sphere_8cpp_source.html">Sphere.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   61</span>                                                {</div>
+<div class="line"><span class="lineno">   62</span>    <span class="keywordflow">return</span> (point - <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_sphere.html#af99e0179207985dfda8f102561ab1b3a">center</a>).length() &lt;= <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_sphere.html#a9b2a77a0dafe536affd66fa771805823">radius</a>;</div>
+<div class="line"><span class="lineno">   63</span>}</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_sphere_8h_source.html#l00070">center</a>, and <a class="el" href="_sphere_8h_source.html#l00074">radius</a>.</p>
 
@@ -438,17 +438,17 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if the sphere intersects with the edge, false otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_sphere_8cpp_source.html#l00075">75</a> of file <a class="el" href="_sphere_8cpp_source.html">Sphere.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   75</span>                                                                            {</div>
-<div class="line"><span class="lineno">   76</span>    <a class="code hl_class" href="class_g_l_e_s_c_1_1_math_1_1_vector.html">Direction</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">edge</a> = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">endPoint</a> - <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">startPoint</a>;</div>
-<div class="line"><span class="lineno">   77</span>    <a class="code hl_class" href="class_g_l_e_s_c_1_1_math_1_1_vector.html">Direction</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">startToCenter</a> = <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_sphere.html#af99e0179207985dfda8f102561ab1b3a">center</a> - <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">startPoint</a>;</div>
-<div class="line"><span class="lineno">   78</span>    <a class="code hl_typedef" href="namespace_g_l_e_s_c_1_1_math.html#a41c67586ad532e578bb839ad5067d3ac">Distance</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">edgeLengthSquared</a> = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">edge</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_vector.html#ac66836b89bb27dc02a9fd0f43b019740">lengthSquared</a>();</div>
-<div class="line"><span class="lineno">   79</span>    <a class="code hl_typedef" href="namespace_g_l_e_s_c_1_1_math.html#a41c67586ad532e578bb839ad5067d3ac">Distance</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">t</a> = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">startToCenter</a>.dot(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">edge</a>) / <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">edgeLengthSquared</a>;</div>
-<div class="line"><span class="lineno">   80</span>    <span class="comment">// Clamping t to be within [0, 1]</span></div>
-<div class="line"><span class="lineno">   81</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">t</a> = <a class="code hl_function" href="namespace_g_l_e_s_c_1_1_math.html#ae9816249dbbdbb7c7affd0c3be77b8e2">clamp</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">t</a>, 0, 1);</div>
-<div class="line"><span class="lineno">   82</span>    <a class="code hl_class" href="class_g_l_e_s_c_1_1_math_1_1_vector.html">Point</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">closestPoint</a> = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">startPoint</a> + <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">edge</a> * <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">t</a>;</div>
-<div class="line"><span class="lineno">   83</span>    <span class="keywordflow">return</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">closestPoint</a> - <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_sphere.html#af99e0179207985dfda8f102561ab1b3a">center</a>).<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_vector.html#ac66836b89bb27dc02a9fd0f43b019740">lengthSquared</a>() &lt;= <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_sphere.html#a9b2a77a0dafe536affd66fa771805823">radius</a> * <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_sphere.html#a9b2a77a0dafe536affd66fa771805823">radius</a>;</div>
-<div class="line"><span class="lineno">   84</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_sphere_8cpp_source.html#l00066">66</a> of file <a class="el" href="_sphere_8cpp_source.html">Sphere.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   66</span>                                                                            {</div>
+<div class="line"><span class="lineno">   67</span>    <a class="code hl_class" href="class_g_l_e_s_c_1_1_math_1_1_vector.html">Direction</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">edge</a> = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">endPoint</a> - <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">startPoint</a>;</div>
+<div class="line"><span class="lineno">   68</span>    <a class="code hl_class" href="class_g_l_e_s_c_1_1_math_1_1_vector.html">Direction</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">startToCenter</a> = <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_sphere.html#af99e0179207985dfda8f102561ab1b3a">center</a> - <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">startPoint</a>;</div>
+<div class="line"><span class="lineno">   69</span>    <a class="code hl_typedef" href="namespace_g_l_e_s_c_1_1_math.html#a41c67586ad532e578bb839ad5067d3ac">Distance</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">edgeLengthSquared</a> = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">edge</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_vector.html#ac66836b89bb27dc02a9fd0f43b019740">lengthSquared</a>();</div>
+<div class="line"><span class="lineno">   70</span>    <a class="code hl_typedef" href="namespace_g_l_e_s_c_1_1_math.html#a41c67586ad532e578bb839ad5067d3ac">Distance</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">t</a> = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">startToCenter</a>.dot(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">edge</a>) / <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">edgeLengthSquared</a>;</div>
+<div class="line"><span class="lineno">   71</span>    <span class="comment">// Clamping t to be within [0, 1]</span></div>
+<div class="line"><span class="lineno">   72</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">t</a> = <a class="code hl_function" href="namespace_g_l_e_s_c_1_1_math.html#ae9816249dbbdbb7c7affd0c3be77b8e2">clamp</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">t</a>, 0, 1);</div>
+<div class="line"><span class="lineno">   73</span>    <a class="code hl_class" href="class_g_l_e_s_c_1_1_math_1_1_vector.html">Point</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">closestPoint</a> = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">startPoint</a> + <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">edge</a> * <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">t</a>;</div>
+<div class="line"><span class="lineno">   74</span>    <span class="keywordflow">return</span> (<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">closestPoint</a> - <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_sphere.html#af99e0179207985dfda8f102561ab1b3a">center</a>).<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_vector.html#ac66836b89bb27dc02a9fd0f43b019740">lengthSquared</a>() &lt;= <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_sphere.html#a9b2a77a0dafe536affd66fa771805823">radius</a> * <a class="code hl_variable" href="class_g_l_e_s_c_1_1_math_1_1_sphere.html#a9b2a77a0dafe536affd66fa771805823">radius</a>;</div>
+<div class="line"><span class="lineno">   75</span>}</div>
 <div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_vector_html_ac66836b89bb27dc02a9fd0f43b019740"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_vector.html#ac66836b89bb27dc02a9fd0f43b019740">GLESC::Math::Vector::lengthSquared</a></div><div class="ttdeci">Type lengthSquared() const</div><div class="ttdoc">Returns the squared length of the vector.</div><div class="ttdef"><b>Definition</b> <a href="_vector_8h_source.html#l00888">Vector.h:888</a></div></div>
 <div class="ttc" id="anamespace_g_l_e_s_c_1_1_math_html_a41c67586ad532e578bb839ad5067d3ac"><div class="ttname"><a href="namespace_g_l_e_s_c_1_1_math.html#a41c67586ad532e578bb839ad5067d3ac">GLESC::Math::Distance</a></div><div class="ttdeci">float Distance</div><div class="ttdoc">Alias for the distance type.</div><div class="ttdef"><b>Definition</b> <a href="_geometry_types_8h_source.html#l00034">GeometryTypes.h:34</a></div></div>
 <div class="ttc" id="anamespace_g_l_e_s_c_1_1_math_html_ae9816249dbbdbb7c7affd0c3be77b8e2"><div class="ttname"><a href="namespace_g_l_e_s_c_1_1_math.html#ae9816249dbbdbb7c7affd0c3be77b8e2">GLESC::Math::clamp</a></div><div class="ttdeci">constexpr Type1 clamp(const Type1 &amp;value, const Type2 &amp;min, const Type3 &amp;max)</div><div class="ttdoc">Clamps a value between a minimum and maximum value.</div><div class="ttdef"><b>Definition</b> <a href="_math_8h_source.html#l00198">Math.h:198</a></div></div>
@@ -497,17 +497,17 @@ Here is the call graph for this function:</div>
 
 <p>Implements <a class="el" href="class_g_l_e_s_c_1_1_math_1_1_figure.html#a0b33a44c8f5f9f137e6306f4ffc0674a">GLESC::Math::Figure</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_sphere_8cpp_source.html#l00060">60</a> of file <a class="el" href="_sphere_8cpp_source.html">Sphere.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   60</span>                                                          {</div>
-<div class="line"><span class="lineno">   61</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">face</a> : <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">polyhedron</a>.getFaces()) {</div>
-<div class="line"><span class="lineno">   62</span>        <span class="keywordflow">if</span> (<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_sphere.html#ab7f7086acf1a0ec5c04f8010beaa8924">intersects</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">face</a>)) {</div>
-<div class="line"><span class="lineno">   63</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">   64</span>        }</div>
-<div class="line"><span class="lineno">   65</span>    }</div>
-<div class="line"><span class="lineno">   66</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">   67</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_sphere_8cpp_source.html#l00051">51</a> of file <a class="el" href="_sphere_8cpp_source.html">Sphere.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   51</span>                                                          {</div>
+<div class="line"><span class="lineno">   52</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">face</a> : <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">polyhedron</a>.getFaces()) {</div>
+<div class="line"><span class="lineno">   53</span>        <span class="keywordflow">if</span> (<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_sphere.html#ab7f7086acf1a0ec5c04f8010beaa8924">intersects</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">face</a>)) {</div>
+<div class="line"><span class="lineno">   54</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   55</span>        }</div>
+<div class="line"><span class="lineno">   56</span>    }</div>
+<div class="line"><span class="lineno">   57</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">   58</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_sphere_8cpp_source.html#l00018">intersects()</a>, and <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
+<p class="reference">References <a class="el" href="_sphere_8cpp_source.html#l00009">intersects()</a>, and <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -551,31 +551,31 @@ Here is the call graph for this function:</div>
 
 <p>Implements <a class="el" href="class_g_l_e_s_c_1_1_math_1_1_figure.html#afae26c7242b1ea0ad2a18771387cd32e">GLESC::Math::Figure</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_sphere_8cpp_source.html#l00023">23</a> of file <a class="el" href="_sphere_8cpp_source.html">Sphere.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   23</span>                                                        {</div>
-<div class="line"><span class="lineno">   24</span>    std::vector&lt;Point&gt; vertices = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">face</a>.getPolyhedronVertices();</div>
-<div class="line"><span class="lineno">   25</span>    </div>
-<div class="line"><span class="lineno">   26</span>    <span class="comment">// Check if any vertex of the face is inside the sphere.</span></div>
-<div class="line"><span class="lineno">   27</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">index</a> : <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">face</a>.getVertexIndices()) {</div>
-<div class="line"><span class="lineno">   28</span>        <span class="keywordflow">if</span> (this-&gt;<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_sphere.html#ab7f7086acf1a0ec5c04f8010beaa8924">intersects</a>(vertices[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">index</a>])) {</div>
-<div class="line"><span class="lineno">   29</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">   30</span>        }</div>
-<div class="line"><span class="lineno">   31</span>    }</div>
-<div class="line"><span class="lineno">   32</span>    </div>
-<div class="line"><span class="lineno">   33</span>    <span class="comment">// Check for edge-sphere intersection.</span></div>
-<div class="line"><span class="lineno">   34</span>    <span class="keyword">const</span> <span class="keyword">auto</span> &amp;indices = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">face</a>.getVertexIndices();</div>
-<div class="line"><span class="lineno">   35</span>    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">i</a> = 0; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">i</a> &lt; indices.size(); ++<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">i</a>) {</div>
-<div class="line"><span class="lineno">   36</span>        <span class="keyword">const</span> <a class="code hl_class" href="class_g_l_e_s_c_1_1_math_1_1_vector.html">Point</a> &amp;<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">startPoint</a> = vertices[indices[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">i</a>]];</div>
-<div class="line"><span class="lineno">   37</span>        <span class="keyword">const</span> <a class="code hl_class" href="class_g_l_e_s_c_1_1_math_1_1_vector.html">Point</a> &amp;<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">endPoint</a> = vertices[indices[(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">i</a> + 1) % indices.size()]];</div>
-<div class="line"><span class="lineno">   38</span>        <span class="keywordflow">if</span> (<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_sphere.html#ab7f7086acf1a0ec5c04f8010beaa8924">intersects</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">startPoint</a>, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">endPoint</a>)) {</div>
-<div class="line"><span class="lineno">   39</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">   40</span>        }</div>
-<div class="line"><span class="lineno">   41</span>    }</div>
-<div class="line"><span class="lineno">   42</span>    </div>
-<div class="line"><span class="lineno">   43</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">   44</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_sphere_8cpp_source.html#l00014">14</a> of file <a class="el" href="_sphere_8cpp_source.html">Sphere.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   14</span>                                                        {</div>
+<div class="line"><span class="lineno">   15</span>    std::vector&lt;Point&gt; vertices = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">face</a>.getPolyhedronVertices();</div>
+<div class="line"><span class="lineno">   16</span>    </div>
+<div class="line"><span class="lineno">   17</span>    <span class="comment">// Check if any vertex of the face is inside the sphere.</span></div>
+<div class="line"><span class="lineno">   18</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">index</a> : <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">face</a>.getVertexIndices()) {</div>
+<div class="line"><span class="lineno">   19</span>        <span class="keywordflow">if</span> (this-&gt;<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_sphere.html#ab7f7086acf1a0ec5c04f8010beaa8924">intersects</a>(vertices[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">index</a>])) {</div>
+<div class="line"><span class="lineno">   20</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   21</span>        }</div>
+<div class="line"><span class="lineno">   22</span>    }</div>
+<div class="line"><span class="lineno">   23</span>    </div>
+<div class="line"><span class="lineno">   24</span>    <span class="comment">// Check for edge-sphere intersection.</span></div>
+<div class="line"><span class="lineno">   25</span>    <span class="keyword">const</span> <span class="keyword">auto</span> &amp;indices = <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">face</a>.getVertexIndices();</div>
+<div class="line"><span class="lineno">   26</span>    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">i</a> = 0; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">i</a> &lt; indices.size(); ++<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">i</a>) {</div>
+<div class="line"><span class="lineno">   27</span>        <span class="keyword">const</span> <a class="code hl_class" href="class_g_l_e_s_c_1_1_math_1_1_vector.html">Point</a> &amp;<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">startPoint</a> = vertices[indices[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">i</a>]];</div>
+<div class="line"><span class="lineno">   28</span>        <span class="keyword">const</span> <a class="code hl_class" href="class_g_l_e_s_c_1_1_math_1_1_vector.html">Point</a> &amp;<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">endPoint</a> = vertices[indices[(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">i</a> + 1) % indices.size()]];</div>
+<div class="line"><span class="lineno">   29</span>        <span class="keywordflow">if</span> (<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_sphere.html#ab7f7086acf1a0ec5c04f8010beaa8924">intersects</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">startPoint</a>, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">endPoint</a>)) {</div>
+<div class="line"><span class="lineno">   30</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   31</span>        }</div>
+<div class="line"><span class="lineno">   32</span>    }</div>
+<div class="line"><span class="lineno">   33</span>    </div>
+<div class="line"><span class="lineno">   34</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">   35</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_sphere_8cpp_source.html#l00018">intersects()</a>, and <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
+<p class="reference">References <a class="el" href="_sphere_8cpp_source.html#l00009">intersects()</a>, and <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -609,7 +609,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="_sphere_8h_source.html#l00070">70</a> of file <a class="el" href="_sphere_8h_source.html">Sphere.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_sphere_8cpp_source.html#l00046">intersects()</a>, <a class="el" href="_sphere_8cpp_source.html#l00018">intersects()</a>, <a class="el" href="_sphere_8cpp_source.html#l00070">intersects()</a>, and <a class="el" href="_sphere_8cpp_source.html#l00075">intersects()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_sphere_8cpp_source.html#l00037">intersects()</a>, <a class="el" href="_sphere_8cpp_source.html#l00009">intersects()</a>, <a class="el" href="_sphere_8cpp_source.html#l00061">intersects()</a>, and <a class="el" href="_sphere_8cpp_source.html#l00066">intersects()</a>.</p>
 
 </div>
 </div>
@@ -637,7 +637,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="_sphere_8h_source.html#l00074">74</a> of file <a class="el" href="_sphere_8h_source.html">Sphere.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_sphere_8cpp_source.html#l00018">intersects()</a>, <a class="el" href="_sphere_8cpp_source.html#l00070">intersects()</a>, and <a class="el" href="_sphere_8cpp_source.html#l00075">intersects()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_sphere_8cpp_source.html#l00009">intersects()</a>, <a class="el" href="_sphere_8cpp_source.html#l00061">intersects()</a>, and <a class="el" href="_sphere_8cpp_source.html#l00066">intersects()</a>.</p>
 
 </div>
 </div>

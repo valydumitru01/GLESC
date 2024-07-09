@@ -2,7 +2,7 @@ var searchData=
 [
   ['b_0',['b',['../struct_g_l_e_s_c_1_1_g_a_p_i_1_1_r_g_b_a_color.html#ab73d6ad862acb59df20f66b1b22b7bdf',1,'GLESC::GAPI::RGBAColor::b'],['../struct_g_l_e_s_c_1_1_g_a_p_i_1_1_r_g_b_a_color_normalized.html#ae043c59319a217241868dfaef0ea6c96',1,'GLESC::GAPI::RGBAColorNormalized::b'],['../struct_pixel.html#a23e597a81eb1adfa1409388c1a233ab2',1,'Pixel::b']]],
   ['bitdepth_1',['bitDepth',['../struct_format.html#a0c0237d04aa3a766e9ccc2ee7aadc952',1,'Format']]],
-  ['black_2',['black',['../struct_g_l_e_s_c_1_1_render_1_1_color_rgb.html#ab5e81569d8db677bdf7c3aeedd8196f3',1,'GLESC::Render::ColorRgb::Black'],['../class_hud_look_and_feel.html#aeeb9c7200095726bea7057fa54829712',1,'HudLookAndFeel::black']]],
+  ['black_2',['black',['../class_hud_look_and_feel.html#aeeb9c7200095726bea7057fa54829712',1,'HudLookAndFeel::black'],['../struct_g_l_e_s_c_1_1_render_1_1_color_rgb.html#ab5e81569d8db677bdf7c3aeedd8196f3',1,'GLESC::Render::ColorRgb::Black']]],
   ['bloss_3',['bLoss',['../struct_format.html#a5b9a14ad8e3b4dc10e9b49ca21cc188d',1,'Format']]],
   ['blue_4',['Blue',['../struct_g_l_e_s_c_1_1_render_1_1_color_rgb.html#a0e050a6ec7a18ff3ad52761c1e469f33',1,'GLESC::Render::ColorRgb']]],
   ['bmask_5',['bMask',['../struct_format.html#a605d8cda6b8fdf9223924d67dad0aeb4',1,'Format']]],

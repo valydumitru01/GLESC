@@ -277,21 +277,21 @@ Friends</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_system_manager_8cpp_source.html#l00060">60</a> of file <a class="el" href="_system_manager_8cpp_source.html">SystemManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   61</span>                                                                             {</div>
-<div class="line"><span class="lineno">   62</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#a32f415d7a7e0cefc9e1b5c71a4dc1be4">isSystemRegistered</a>(name), <span class="stringliteral">&quot;System must be registered before adding component requirement&quot;</span>);</div>
-<div class="line"><span class="lineno">   63</span>    <a class="code hl_define" href="_asserts_8h.html#abc189a68f629f827fca1b31a8449cfdb">D_ASSERT_FALSE</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#ab3cf02a92c58027d95c678b108bb1e0d">isComponentRequiredBySystem</a>(name, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">componentID</a>), <span class="stringliteral">&quot;Component must not be required by system already&quot;</span>);</div>
-<div class="line"><span class="lineno">   64</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#a1818245b9b530ec1d031f15327b13b37">systemSignatures</a>.find(name)-&gt;second.set(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">componentID</a>);</div>
-<div class="line"><span class="lineno">   65</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#ab3cf02a92c58027d95c678b108bb1e0d">isComponentRequiredBySystem</a>(name, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">componentID</a>), <span class="stringliteral">&quot;Component must be required by system&quot;</span>);</div>
-<div class="line"><span class="lineno">   66</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_system_manager_8cpp_source.html#l00051">51</a> of file <a class="el" href="_system_manager_8cpp_source.html">SystemManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   52</span>                                                                             {</div>
+<div class="line"><span class="lineno">   53</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#a32f415d7a7e0cefc9e1b5c71a4dc1be4">isSystemRegistered</a>(name), <span class="stringliteral">&quot;System must be registered before adding component requirement&quot;</span>);</div>
+<div class="line"><span class="lineno">   54</span>    <a class="code hl_define" href="_asserts_8h.html#abc189a68f629f827fca1b31a8449cfdb">D_ASSERT_FALSE</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#ab3cf02a92c58027d95c678b108bb1e0d">isComponentRequiredBySystem</a>(name, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">componentID</a>), <span class="stringliteral">&quot;Component must not be required by system already&quot;</span>);</div>
+<div class="line"><span class="lineno">   55</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#a1818245b9b530ec1d031f15327b13b37">systemSignatures</a>.find(name)-&gt;second.set(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">componentID</a>);</div>
+<div class="line"><span class="lineno">   56</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#ab3cf02a92c58027d95c678b108bb1e0d">isComponentRequiredBySystem</a>(name, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">componentID</a>), <span class="stringliteral">&quot;Component must be required by system&quot;</span>);</div>
+<div class="line"><span class="lineno">   57</span>}</div>
 <div class="ttc" id="a_asserts_8h_html_a7c8157e57600c968442fc2ee80245d5a"><div class="ttname"><a href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a></div><div class="ttdeci">#define D_ASSERT_TRUE(condition, message)</div><div class="ttdef"><b>Definition</b> <a href="_asserts_8h_source.html#l00021">Asserts.h:21</a></div></div>
 <div class="ttc" id="a_asserts_8h_html_abc189a68f629f827fca1b31a8449cfdb"><div class="ttname"><a href="_asserts_8h.html#abc189a68f629f827fca1b31a8449cfdb">D_ASSERT_FALSE</a></div><div class="ttdeci">#define D_ASSERT_FALSE(condition, message)</div><div class="ttdef"><b>Definition</b> <a href="_asserts_8h_source.html#l00022">Asserts.h:22</a></div></div>
 <div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_system_manager_html_a1818245b9b530ec1d031f15327b13b37"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#a1818245b9b530ec1d031f15327b13b37">GLESC::ECS::SystemManager::systemSignatures</a></div><div class="ttdeci">std::unordered_map&lt; SystemName, Signature &gt; systemSignatures</div><div class="ttdoc">A map of the names of the systems and their signatures.</div><div class="ttdef"><b>Definition</b> <a href="_system_manager_8h_source.html#l00111">SystemManager.h:111</a></div></div>
-<div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_system_manager_html_a32f415d7a7e0cefc9e1b5c71a4dc1be4"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#a32f415d7a7e0cefc9e1b5c71a4dc1be4">GLESC::ECS::SystemManager::isSystemRegistered</a></div><div class="ttdeci">bool isSystemRegistered(const SystemName &amp;name) const</div><div class="ttdoc">Checks if a system is registered.</div><div class="ttdef"><b>Definition</b> <a href="_system_manager_8cpp_source.html#l00055">SystemManager.cpp:55</a></div></div>
-<div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_system_manager_html_ab3cf02a92c58027d95c678b108bb1e0d"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#ab3cf02a92c58027d95c678b108bb1e0d">GLESC::ECS::SystemManager::isComponentRequiredBySystem</a></div><div class="ttdeci">bool isComponentRequiredBySystem(const SystemName &amp;system, ComponentID component) const</div><div class="ttdoc">Checks if a component is required by a system.</div><div class="ttdef"><b>Definition</b> <a href="_system_manager_8cpp_source.html#l00074">SystemManager.cpp:74</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_system_manager_html_a32f415d7a7e0cefc9e1b5c71a4dc1be4"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#a32f415d7a7e0cefc9e1b5c71a4dc1be4">GLESC::ECS::SystemManager::isSystemRegistered</a></div><div class="ttdeci">bool isSystemRegistered(const SystemName &amp;name) const</div><div class="ttdoc">Checks if a system is registered.</div><div class="ttdef"><b>Definition</b> <a href="_system_manager_8cpp_source.html#l00046">SystemManager.cpp:46</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_system_manager_html_ab3cf02a92c58027d95c678b108bb1e0d"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#ab3cf02a92c58027d95c678b108bb1e0d">GLESC::ECS::SystemManager::isComponentRequiredBySystem</a></div><div class="ttdeci">bool isComponentRequiredBySystem(const SystemName &amp;system, ComponentID component) const</div><div class="ttdoc">Checks if a component is required by a system.</div><div class="ttdef"><b>Definition</b> <a href="_system_manager_8cpp_source.html#l00065">SystemManager.cpp:65</a></div></div>
 <div class="ttc" id="anamespace_g_l_e_s_c_html_a7c64a4da2d1da1597f4ec563d00bb9f8"><div class="ttname"><a href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">GLESC::isIterable_v</a></div><div class="ttdeci">constexpr bool isIterable_v</div><div class="ttdef"><b>Definition</b> <a href="_stringer_8h_source.html#l00029">Stringer.h:29</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_asserts_8h_source.html#l00022">D_ASSERT_FALSE</a>, <a class="el" href="_asserts_8h_source.html#l00021">D_ASSERT_TRUE</a>, <a class="el" href="_system_manager_8cpp_source.html#l00074">isComponentRequiredBySystem()</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, <a class="el" href="_system_manager_8cpp_source.html#l00055">isSystemRegistered()</a>, and <a class="el" href="_system_manager_8h_source.html#l00111">systemSignatures</a>.</p>
+<p class="reference">References <a class="el" href="_asserts_8h_source.html#l00022">D_ASSERT_FALSE</a>, <a class="el" href="_asserts_8h_source.html#l00021">D_ASSERT_TRUE</a>, <a class="el" href="_system_manager_8cpp_source.html#l00065">isComponentRequiredBySystem()</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, <a class="el" href="_system_manager_8cpp_source.html#l00046">isSystemRegistered()</a>, and <a class="el" href="_system_manager_8h_source.html#l00111">systemSignatures</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="_e_c_s_8h_source.html#l00286">GLESC::ECS::ECSCoordinator::addComponentRequirementToSystem()</a>.</p>
 <div class="dynheader">
@@ -331,20 +331,20 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_system_manager_8cpp_source.html#l00047">47</a> of file <a class="el" href="_system_manager_8cpp_source.html">SystemManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   47</span>                                                   {</div>
-<div class="line"><span class="lineno">   48</span>    <span class="comment">// Erase a destroyed entity from all system lists</span></div>
-<div class="line"><span class="lineno">   49</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; [name, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entitySet</a>] : <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#a25db5c8035d9394923f6bd00d86946a3">associatedEntities</a>) {</div>
-<div class="line"><span class="lineno">   50</span>        <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entitySet</a>.erase(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>);</div>
-<div class="line"><span class="lineno">   51</span>        <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(!<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#abe8641c2514be36e652e7f77d0ed87a5">isEntityAssociatedWithSystem</a>(name, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>), <span class="stringliteral">&quot;Entity must not be associated with system&quot;</span>);</div>
-<div class="line"><span class="lineno">   52</span>    }</div>
-<div class="line"><span class="lineno">   53</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_system_manager_8cpp_source.html#l00038">38</a> of file <a class="el" href="_system_manager_8cpp_source.html">SystemManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   38</span>                                                   {</div>
+<div class="line"><span class="lineno">   39</span>    <span class="comment">// Erase a destroyed entity from all system lists</span></div>
+<div class="line"><span class="lineno">   40</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; [name, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entitySet</a>] : <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#a25db5c8035d9394923f6bd00d86946a3">associatedEntities</a>) {</div>
+<div class="line"><span class="lineno">   41</span>        <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entitySet</a>.erase(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>);</div>
+<div class="line"><span class="lineno">   42</span>        <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(!<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#abe8641c2514be36e652e7f77d0ed87a5">isEntityAssociatedWithSystem</a>(name, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>), <span class="stringliteral">&quot;Entity must not be associated with system&quot;</span>);</div>
+<div class="line"><span class="lineno">   43</span>    }</div>
+<div class="line"><span class="lineno">   44</span>}</div>
 <div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_system_manager_html_a25db5c8035d9394923f6bd00d86946a3"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#a25db5c8035d9394923f6bd00d86946a3">GLESC::ECS::SystemManager::associatedEntities</a></div><div class="ttdeci">std::unordered_map&lt; SystemName, std::set&lt; EntityID &gt; &gt; associatedEntities</div><div class="ttdoc">A map of the names of the systems and their associated entities.</div><div class="ttdef"><b>Definition</b> <a href="_system_manager_8h_source.html#l00107">SystemManager.h:107</a></div></div>
-<div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_system_manager_html_abe8641c2514be36e652e7f77d0ed87a5"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#abe8641c2514be36e652e7f77d0ed87a5">GLESC::ECS::SystemManager::isEntityAssociatedWithSystem</a></div><div class="ttdeci">bool isEntityAssociatedWithSystem(const SystemName &amp;name, EntityID entity) const</div><div class="ttdoc">Checks if an entity is associated with a system.</div><div class="ttdef"><b>Definition</b> <a href="_system_manager_8cpp_source.html#l00068">SystemManager.cpp:68</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_e_c_s_1_1_system_manager_html_abe8641c2514be36e652e7f77d0ed87a5"><div class="ttname"><a href="class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#abe8641c2514be36e652e7f77d0ed87a5">GLESC::ECS::SystemManager::isEntityAssociatedWithSystem</a></div><div class="ttdeci">bool isEntityAssociatedWithSystem(const SystemName &amp;name, EntityID entity) const</div><div class="ttdoc">Checks if an entity is associated with a system.</div><div class="ttdef"><b>Definition</b> <a href="_system_manager_8cpp_source.html#l00059">SystemManager.cpp:59</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_system_manager_8h_source.html#l00107">associatedEntities</a>, <a class="el" href="_asserts_8h_source.html#l00021">D_ASSERT_TRUE</a>, <a class="el" href="_system_manager_8cpp_source.html#l00068">isEntityAssociatedWithSystem()</a>, and <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
+<p class="reference">References <a class="el" href="_system_manager_8h_source.html#l00107">associatedEntities</a>, <a class="el" href="_asserts_8h_source.html#l00021">D_ASSERT_TRUE</a>, <a class="el" href="_system_manager_8cpp_source.html#l00059">isEntityAssociatedWithSystem()</a>, and <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_e_c_s_8cpp_source.html#l00144">GLESC::ECS::ECSCoordinator::destroyEntity()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_e_c_s_8cpp_source.html#l00135">GLESC::ECS::ECSCoordinator::destroyEntity()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -393,21 +393,21 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_system_manager_8cpp_source.html#l00032">32</a> of file <a class="el" href="_system_manager_8cpp_source.html">SystemManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   32</span>                                                                                     {</div>
-<div class="line"><span class="lineno">   33</span>    <a class="code hl_define" href="_asserts_8h.html#abc189a68f629f827fca1b31a8449cfdb">D_ASSERT_FALSE</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#a1818245b9b530ec1d031f15327b13b37">systemSignatures</a>.empty(),</div>
-<div class="line"><span class="lineno">   34</span>                   <span class="stringliteral">&quot;All systems must be registered before entities can be associated with them&quot;</span>);</div>
-<div class="line"><span class="lineno">   35</span>    <span class="comment">// Notify each system that an entity&#39;s signature changed</span></div>
-<div class="line"><span class="lineno">   36</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; [name, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entitySet</a>] : <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#a25db5c8035d9394923f6bd00d86946a3">associatedEntities</a>) {</div>
-<div class="line"><span class="lineno">   37</span>        <span class="keywordflow">if</span> ((<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entitySignature</a> &amp; <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#a1818245b9b530ec1d031f15327b13b37">systemSignatures</a>[name]) == <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#a1818245b9b530ec1d031f15327b13b37">systemSignatures</a>[name]) {</div>
-<div class="line"><span class="lineno">   38</span>            <span class="comment">// If the systemSignature of the entity matches the systemSignature of the system, insert it into the set</span></div>
-<div class="line"><span class="lineno">   39</span>            <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entitySet</a>.insert(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>);</div>
-<div class="line"><span class="lineno">   40</span>        }</div>
-<div class="line"><span class="lineno">   41</span>        <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">   42</span>            <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entitySet</a>.erase(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>);</div>
-<div class="line"><span class="lineno">   43</span>        }</div>
-<div class="line"><span class="lineno">   44</span>    }</div>
-<div class="line"><span class="lineno">   45</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_system_manager_8cpp_source.html#l00023">23</a> of file <a class="el" href="_system_manager_8cpp_source.html">SystemManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   23</span>                                                                                     {</div>
+<div class="line"><span class="lineno">   24</span>    <a class="code hl_define" href="_asserts_8h.html#abc189a68f629f827fca1b31a8449cfdb">D_ASSERT_FALSE</a>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#a1818245b9b530ec1d031f15327b13b37">systemSignatures</a>.empty(),</div>
+<div class="line"><span class="lineno">   25</span>                   <span class="stringliteral">&quot;All systems must be registered before entities can be associated with them&quot;</span>);</div>
+<div class="line"><span class="lineno">   26</span>    <span class="comment">// Notify each system that an entity&#39;s signature changed</span></div>
+<div class="line"><span class="lineno">   27</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; [name, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entitySet</a>] : <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#a25db5c8035d9394923f6bd00d86946a3">associatedEntities</a>) {</div>
+<div class="line"><span class="lineno">   28</span>        <span class="keywordflow">if</span> ((<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entitySignature</a> &amp; <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#a1818245b9b530ec1d031f15327b13b37">systemSignatures</a>[name]) == <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#a1818245b9b530ec1d031f15327b13b37">systemSignatures</a>[name]) {</div>
+<div class="line"><span class="lineno">   29</span>            <span class="comment">// If the systemSignature of the entity matches the systemSignature of the system, insert it into the set</span></div>
+<div class="line"><span class="lineno">   30</span>            <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entitySet</a>.insert(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>);</div>
+<div class="line"><span class="lineno">   31</span>        }</div>
+<div class="line"><span class="lineno">   32</span>        <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">   33</span>            <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entitySet</a>.erase(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>);</div>
+<div class="line"><span class="lineno">   34</span>        }</div>
+<div class="line"><span class="lineno">   35</span>    }</div>
+<div class="line"><span class="lineno">   36</span>}</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_system_manager_8h_source.html#l00107">associatedEntities</a>, <a class="el" href="_asserts_8h_source.html#l00022">D_ASSERT_FALSE</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_system_manager_8h_source.html#l00111">systemSignatures</a>.</p>
 
@@ -477,15 +477,15 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A set of entities associated with the system </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_system_manager_8cpp_source.html#l00020">20</a> of file <a class="el" href="_system_manager_8cpp_source.html">SystemManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   20</span>                                                                         {</div>
-<div class="line"><span class="lineno">   21</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#a32f415d7a7e0cefc9e1b5c71a4dc1be4">isSystemRegistered</a>(name), <span class="stringliteral">&quot;System must be registered before getting associated entities&quot;</span>);</div>
-<div class="line"><span class="lineno">   22</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#a25db5c8035d9394923f6bd00d86946a3">associatedEntities</a>.at(name);</div>
-<div class="line"><span class="lineno">   23</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_system_manager_8cpp_source.html#l00011">11</a> of file <a class="el" href="_system_manager_8cpp_source.html">SystemManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   11</span>                                                                         {</div>
+<div class="line"><span class="lineno">   12</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#a32f415d7a7e0cefc9e1b5c71a4dc1be4">isSystemRegistered</a>(name), <span class="stringliteral">&quot;System must be registered before getting associated entities&quot;</span>);</div>
+<div class="line"><span class="lineno">   13</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#a25db5c8035d9394923f6bd00d86946a3">associatedEntities</a>.at(name);</div>
+<div class="line"><span class="lineno">   14</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_system_manager_8h_source.html#l00107">associatedEntities</a>, <a class="el" href="_asserts_8h_source.html#l00021">D_ASSERT_TRUE</a>, and <a class="el" href="_system_manager_8cpp_source.html#l00055">isSystemRegistered()</a>.</p>
+<p class="reference">References <a class="el" href="_system_manager_8h_source.html#l00107">associatedEntities</a>, <a class="el" href="_asserts_8h_source.html#l00021">D_ASSERT_TRUE</a>, and <a class="el" href="_system_manager_8cpp_source.html#l00046">isSystemRegistered()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_e_c_s_8cpp_source.html#l00070">GLESC::ECS::ECSCoordinator::getAssociatedEntities()</a>, and <a class="el" href="_e_c_s_8cpp_source.html#l00021">GLESC::ECS::ECSCoordinator::printStatus()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_e_c_s_8cpp_source.html#l00061">GLESC::ECS::ECSCoordinator::getAssociatedEntities()</a>, and <a class="el" href="_e_c_s_8cpp_source.html#l00012">GLESC::ECS::ECSCoordinator::printStatus()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -529,7 +529,7 @@ Here is the caller graph for this function:</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_system_manager_8h_source.html#l00111">systemSignatures</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_e_c_s_8cpp_source.html#l00021">GLESC::ECS::ECSCoordinator::printStatus()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_e_c_s_8cpp_source.html#l00012">GLESC::ECS::ECSCoordinator::printStatus()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -574,14 +574,14 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if the component is required by the system, false otherwise </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_system_manager_8cpp_source.html#l00074">74</a> of file <a class="el" href="_system_manager_8cpp_source.html">SystemManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   74</span>                                                                                                {</div>
-<div class="line"><span class="lineno">   75</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#a1818245b9b530ec1d031f15327b13b37">systemSignatures</a>.find(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">system</a>)-&gt;second.test(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">component</a>);</div>
-<div class="line"><span class="lineno">   76</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_system_manager_8cpp_source.html#l00065">65</a> of file <a class="el" href="_system_manager_8cpp_source.html">SystemManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   65</span>                                                                                                {</div>
+<div class="line"><span class="lineno">   66</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#a1818245b9b530ec1d031f15327b13b37">systemSignatures</a>.find(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">system</a>)-&gt;second.test(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">component</a>);</div>
+<div class="line"><span class="lineno">   67</span>}</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, and <a class="el" href="_system_manager_8h_source.html#l00111">systemSignatures</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_system_manager_8cpp_source.html#l00060">addComponentRequirementToSystem()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_system_manager_8cpp_source.html#l00051">addComponentRequirementToSystem()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -626,15 +626,15 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if the entity is associated with the system, false otherwise </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_system_manager_8cpp_source.html#l00068">68</a> of file <a class="el" href="_system_manager_8cpp_source.html">SystemManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   68</span>                                                                                                               {</div>
-<div class="line"><span class="lineno">   69</span>    <span class="keyword">auto</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">it</a> = <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#a25db5c8035d9394923f6bd00d86946a3">associatedEntities</a>.find(name);</div>
-<div class="line"><span class="lineno">   70</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">it</a> != <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#a25db5c8035d9394923f6bd00d86946a3">associatedEntities</a>.end() &amp;&amp; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">it</a>-&gt;second.find(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>) != <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">it</a>-&gt;second.end();</div>
-<div class="line"><span class="lineno">   71</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_system_manager_8cpp_source.html#l00059">59</a> of file <a class="el" href="_system_manager_8cpp_source.html">SystemManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   59</span>                                                                                                               {</div>
+<div class="line"><span class="lineno">   60</span>    <span class="keyword">auto</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">it</a> = <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#a25db5c8035d9394923f6bd00d86946a3">associatedEntities</a>.find(name);</div>
+<div class="line"><span class="lineno">   61</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">it</a> != <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#a25db5c8035d9394923f6bd00d86946a3">associatedEntities</a>.end() &amp;&amp; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">it</a>-&gt;second.find(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">entity</a>) != <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">it</a>-&gt;second.end();</div>
+<div class="line"><span class="lineno">   62</span>}</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_system_manager_8h_source.html#l00107">associatedEntities</a>, and <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_system_manager_8cpp_source.html#l00047">entityDestroyed()</a>, and <a class="el" href="_e_c_s_8cpp_source.html#l00070">GLESC::ECS::ECSCoordinator::getAssociatedEntities()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_system_manager_8cpp_source.html#l00038">entityDestroyed()</a>, and <a class="el" href="_e_c_s_8cpp_source.html#l00061">GLESC::ECS::ECSCoordinator::getAssociatedEntities()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -668,15 +668,15 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if the system is registered, false otherwise </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_system_manager_8cpp_source.html#l00055">55</a> of file <a class="el" href="_system_manager_8cpp_source.html">SystemManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   55</span>                                                                   {</div>
-<div class="line"><span class="lineno">   56</span>    <span class="comment">// Check if name is contained in systems</span></div>
-<div class="line"><span class="lineno">   57</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#a1818245b9b530ec1d031f15327b13b37">systemSignatures</a>.find(name) != <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#a1818245b9b530ec1d031f15327b13b37">systemSignatures</a>.end();</div>
-<div class="line"><span class="lineno">   58</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_system_manager_8cpp_source.html#l00046">46</a> of file <a class="el" href="_system_manager_8cpp_source.html">SystemManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   46</span>                                                                   {</div>
+<div class="line"><span class="lineno">   47</span>    <span class="comment">// Check if name is contained in systems</span></div>
+<div class="line"><span class="lineno">   48</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#a1818245b9b530ec1d031f15327b13b37">systemSignatures</a>.find(name) != <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#a1818245b9b530ec1d031f15327b13b37">systemSignatures</a>.end();</div>
+<div class="line"><span class="lineno">   49</span>}</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_system_manager_8h_source.html#l00111">systemSignatures</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_e_c_s_8h_source.html#l00286">GLESC::ECS::ECSCoordinator::addComponentRequirementToSystem()</a>, <a class="el" href="_system_manager_8cpp_source.html#l00060">addComponentRequirementToSystem()</a>, <a class="el" href="_e_c_s_8cpp_source.html#l00070">GLESC::ECS::ECSCoordinator::getAssociatedEntities()</a>, <a class="el" href="_system_manager_8cpp_source.html#l00020">getAssociatedEntitiesOfSystem()</a>, <a class="el" href="_e_c_s_8cpp_source.html#l00088">GLESC::ECS::ECSCoordinator::registerSystem()</a>, and <a class="el" href="_system_manager_8cpp_source.html#l00025">registerSystem()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_e_c_s_8h_source.html#l00286">GLESC::ECS::ECSCoordinator::addComponentRequirementToSystem()</a>, <a class="el" href="_system_manager_8cpp_source.html#l00051">addComponentRequirementToSystem()</a>, <a class="el" href="_e_c_s_8cpp_source.html#l00061">GLESC::ECS::ECSCoordinator::getAssociatedEntities()</a>, <a class="el" href="_system_manager_8cpp_source.html#l00011">getAssociatedEntitiesOfSystem()</a>, <a class="el" href="_e_c_s_8cpp_source.html#l00079">GLESC::ECS::ECSCoordinator::registerSystem()</a>, and <a class="el" href="_system_manager_8cpp_source.html#l00016">registerSystem()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -709,18 +709,18 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_system_manager_8cpp_source.html#l00025">25</a> of file <a class="el" href="_system_manager_8cpp_source.html">SystemManager.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   25</span>                                                         {</div>
-<div class="line"><span class="lineno">   26</span>    <a class="code hl_define" href="_asserts_8h.html#abc189a68f629f827fca1b31a8449cfdb">D_ASSERT_FALSE</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#a32f415d7a7e0cefc9e1b5c71a4dc1be4">isSystemRegistered</a>(name), <span class="stringliteral">&quot;System must not be registered&quot;</span>);</div>
-<div class="line"><span class="lineno">   27</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#a1818245b9b530ec1d031f15327b13b37">systemSignatures</a>.try_emplace(name, <a class="code hl_typedef" href="namespace_g_l_e_s_c_1_1_e_c_s.html#aa6f8561a93cc99836c4eb4f422330fb4">Signature</a>{});</div>
-<div class="line"><span class="lineno">   28</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#a25db5c8035d9394923f6bd00d86946a3">associatedEntities</a>.try_emplace(name);</div>
-<div class="line"><span class="lineno">   29</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#a32f415d7a7e0cefc9e1b5c71a4dc1be4">isSystemRegistered</a>(name), <span class="stringliteral">&quot;System must be registered after calling registerSystem&quot;</span>);</div>
-<div class="line"><span class="lineno">   30</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_system_manager_8cpp_source.html#l00016">16</a> of file <a class="el" href="_system_manager_8cpp_source.html">SystemManager.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   16</span>                                                         {</div>
+<div class="line"><span class="lineno">   17</span>    <a class="code hl_define" href="_asserts_8h.html#abc189a68f629f827fca1b31a8449cfdb">D_ASSERT_FALSE</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#a32f415d7a7e0cefc9e1b5c71a4dc1be4">isSystemRegistered</a>(name), <span class="stringliteral">&quot;System must not be registered&quot;</span>);</div>
+<div class="line"><span class="lineno">   18</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#a1818245b9b530ec1d031f15327b13b37">systemSignatures</a>.try_emplace(name, <a class="code hl_typedef" href="namespace_g_l_e_s_c_1_1_e_c_s.html#aa6f8561a93cc99836c4eb4f422330fb4">Signature</a>{});</div>
+<div class="line"><span class="lineno">   19</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#a25db5c8035d9394923f6bd00d86946a3">associatedEntities</a>.try_emplace(name);</div>
+<div class="line"><span class="lineno">   20</span>    <a class="code hl_define" href="_asserts_8h.html#a7c8157e57600c968442fc2ee80245d5a">D_ASSERT_TRUE</a>(<a class="code hl_function" href="class_g_l_e_s_c_1_1_e_c_s_1_1_system_manager.html#a32f415d7a7e0cefc9e1b5c71a4dc1be4">isSystemRegistered</a>(name), <span class="stringliteral">&quot;System must be registered after calling registerSystem&quot;</span>);</div>
+<div class="line"><span class="lineno">   21</span>}</div>
 <div class="ttc" id="anamespace_g_l_e_s_c_1_1_e_c_s_html_aa6f8561a93cc99836c4eb4f422330fb4"><div class="ttname"><a href="namespace_g_l_e_s_c_1_1_e_c_s.html#aa6f8561a93cc99836c4eb4f422330fb4">GLESC::ECS::Signature</a></div><div class="ttdeci">std::bitset&lt; maxComponents &gt; Signature</div><div class="ttdoc">type of the signature of each entity. I.e. if Transform has type 0, RigidBody has type 1,...</div><div class="ttdef"><b>Definition</b> <a href="_e_c_s_types_8h_source.html#l00067">ECSTypes.h:67</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_system_manager_8h_source.html#l00107">associatedEntities</a>, <a class="el" href="_asserts_8h_source.html#l00022">D_ASSERT_FALSE</a>, <a class="el" href="_asserts_8h_source.html#l00021">D_ASSERT_TRUE</a>, <a class="el" href="_system_manager_8cpp_source.html#l00055">isSystemRegistered()</a>, and <a class="el" href="_system_manager_8h_source.html#l00111">systemSignatures</a>.</p>
+<p class="reference">References <a class="el" href="_system_manager_8h_source.html#l00107">associatedEntities</a>, <a class="el" href="_asserts_8h_source.html#l00022">D_ASSERT_FALSE</a>, <a class="el" href="_asserts_8h_source.html#l00021">D_ASSERT_TRUE</a>, <a class="el" href="_system_manager_8cpp_source.html#l00046">isSystemRegistered()</a>, and <a class="el" href="_system_manager_8h_source.html#l00111">systemSignatures</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_e_c_s_8cpp_source.html#l00088">GLESC::ECS::ECSCoordinator::registerSystem()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_e_c_s_8cpp_source.html#l00079">GLESC::ECS::ECSCoordinator::registerSystem()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -785,7 +785,7 @@ Here is the caller graph for this function:</div>
 <p class="definition">Definition at line <a class="el" href="_system_manager_8h_source.html#l00107">107</a> of file <a class="el" href="_system_manager_8h_source.html">SystemManager.h</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  107</span>{};</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="_system_manager_8cpp_source.html#l00047">entityDestroyed()</a>, <a class="el" href="_system_manager_8cpp_source.html#l00032">entitySignatureChanged()</a>, <a class="el" href="_system_manager_8h_source.html#l00026">getAllAssociatedEntities()</a>, <a class="el" href="_system_manager_8cpp_source.html#l00020">getAssociatedEntitiesOfSystem()</a>, <a class="el" href="_system_manager_8cpp_source.html#l00068">isEntityAssociatedWithSystem()</a>, and <a class="el" href="_system_manager_8cpp_source.html#l00025">registerSystem()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_system_manager_8cpp_source.html#l00038">entityDestroyed()</a>, <a class="el" href="_system_manager_8cpp_source.html#l00023">entitySignatureChanged()</a>, <a class="el" href="_system_manager_8h_source.html#l00026">getAllAssociatedEntities()</a>, <a class="el" href="_system_manager_8cpp_source.html#l00011">getAssociatedEntitiesOfSystem()</a>, <a class="el" href="_system_manager_8cpp_source.html#l00059">isEntityAssociatedWithSystem()</a>, and <a class="el" href="_system_manager_8cpp_source.html#l00016">registerSystem()</a>.</p>
 
 </div>
 </div>
@@ -814,7 +814,7 @@ Here is the caller graph for this function:</div>
 <p class="definition">Definition at line <a class="el" href="_system_manager_8h_source.html#l00111">111</a> of file <a class="el" href="_system_manager_8h_source.html">SystemManager.h</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  111</span>{};</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="_system_manager_8cpp_source.html#l00060">addComponentRequirementToSystem()</a>, <a class="el" href="_system_manager_8cpp_source.html#l00032">entitySignatureChanged()</a>, <a class="el" href="_system_manager_8h_source.html#l00030">getSystemSignatures()</a>, <a class="el" href="_system_manager_8cpp_source.html#l00074">isComponentRequiredBySystem()</a>, <a class="el" href="_system_manager_8cpp_source.html#l00055">isSystemRegistered()</a>, and <a class="el" href="_system_manager_8cpp_source.html#l00025">registerSystem()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_system_manager_8cpp_source.html#l00051">addComponentRequirementToSystem()</a>, <a class="el" href="_system_manager_8cpp_source.html#l00023">entitySignatureChanged()</a>, <a class="el" href="_system_manager_8h_source.html#l00030">getSystemSignatures()</a>, <a class="el" href="_system_manager_8cpp_source.html#l00065">isComponentRequiredBySystem()</a>, <a class="el" href="_system_manager_8cpp_source.html#l00046">isSystemRegistered()</a>, and <a class="el" href="_system_manager_8cpp_source.html#l00016">registerSystem()</a>.</p>
 
 </div>
 </div>

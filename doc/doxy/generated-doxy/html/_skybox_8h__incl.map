@@ -2,7 +2,7 @@
 <area shape="rect" id="Node000001" title="@TODO Add description of this file if needed" alt="" coords="2041,5,2117,32"/>
 <area shape="rect" id="Node000002" href="$_renderer_types_8h.html" title="@TODO Add description of this file if needed" alt="" coords="1878,80,1997,107"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="2055,35,1977,75,1975,70,2053,30"/>
-<area shape="rect" id="Node000055" href="$_shader_8h.html" title="Class for handling shaders." alt="" coords="1607,253,1778,296"/>
+<area shape="rect" id="Node000055" href="$_shader_8h.html" title="Class for managing and utilizing shader programs in the graphics pipeline." alt="" coords="1607,253,1778,296"/>
 <area shape="poly" id="edge84_Node000001_Node000055" title=" " alt="" coords="2080,33,2074,67,2061,112,2039,159,2023,181,2005,199,1977,219,1952,230,1928,236,1904,238,1852,239,1790,248,1777,251,1775,246,1789,243,1852,234,1903,233,1927,231,1950,225,1975,214,2001,195,2019,177,2034,156,2056,110,2069,65,2075,32"/>
 <area shape="rect" id="Node000056" href="$_cubemap_8h.html" title="@TODO Add description of this file if needed" alt="" coords="2116,163,2247,189"/>
 <area shape="poly" id="edge89_Node000001_Node000056" title=" " alt="" coords="2089,31,2167,148,2163,151,2085,34"/>

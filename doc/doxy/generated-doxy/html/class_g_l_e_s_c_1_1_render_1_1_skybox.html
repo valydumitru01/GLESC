@@ -206,87 +206,87 @@ Private Attributes</h2></td></tr>
 
 <p>Sybox constructor. Is in charge of loading the cubemap, creating the textures, loading the buffers and loading the shaders. </p>
 
-<p class="definition">Definition at line <a class="el" href="_skybox_8cpp_source.html#l00013">13</a> of file <a class="el" href="_skybox_8cpp_source.html">Skybox.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   14</span>    : <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_skybox.html#a8460232ea39ff80abf6bc6f6ebaa92c9">skyboxCubemap</a>(<a class="code hl_class" href="class_cubemap.html">Cubemap</a>(std::array&lt;std::string, 6&gt;{</div>
-<div class="line"><span class="lineno">   15</span>          <span class="stringliteral">&quot;skyboxes/&quot;</span> + <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">folderName</a> + <span class="stringliteral">&quot;/&quot;</span> + std::string(<span class="stringliteral">&quot;right.png&quot;</span>),</div>
-<div class="line"><span class="lineno">   16</span>          <span class="stringliteral">&quot;skyboxes/&quot;</span> + <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">folderName</a> + <span class="stringliteral">&quot;/&quot;</span> + std::string(<span class="stringliteral">&quot;left.png&quot;</span>),</div>
-<div class="line"><span class="lineno">   17</span>          <span class="stringliteral">&quot;skyboxes/&quot;</span> + <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">folderName</a> + <span class="stringliteral">&quot;/&quot;</span> + std::string(<span class="stringliteral">&quot;top.png&quot;</span>),</div>
-<div class="line"><span class="lineno">   18</span>          <span class="stringliteral">&quot;skyboxes/&quot;</span> + <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">folderName</a> + <span class="stringliteral">&quot;/&quot;</span> + std::string(<span class="stringliteral">&quot;bottom.png&quot;</span>),</div>
-<div class="line"><span class="lineno">   19</span>          <span class="stringliteral">&quot;skyboxes/&quot;</span> + <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">folderName</a> + <span class="stringliteral">&quot;/&quot;</span> + std::string(<span class="stringliteral">&quot;front.png&quot;</span>),</div>
-<div class="line"><span class="lineno">   20</span>          <span class="stringliteral">&quot;skyboxes/&quot;</span> + <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">folderName</a> + <span class="stringliteral">&quot;/&quot;</span> + std::string(<span class="stringliteral">&quot;back.png&quot;</span>)</div>
-<div class="line"><span class="lineno">   21</span>      })), <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_skybox.html#a78e9b247e8e7ae6c42f8a452bebcb334">skyboxShader</a>(<span class="stringliteral">&quot;SkyboxShader.glsl&quot;</span>),</div>
-<div class="line"><span class="lineno">   22</span>      <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_skybox.html#a084fa6f4bf72a16e7aafda06d92e8cef">skyboxVAOID</a>{0}, <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_skybox.html#a0b987a7542e57bac8f692144a23919ce">skyboxVBOID</a>{0},</div>
-<div class="line"><span class="lineno">   23</span>      <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_skybox.html#ac3d04ccb08ce41b0070916ebb43cd619">skyboxVertices</a>{</div>
-<div class="line"><span class="lineno">   24</span>          <span class="comment">// positions</span></div>
+<p class="definition">Definition at line <a class="el" href="_skybox_8cpp_source.html#l00004">4</a> of file <a class="el" href="_skybox_8cpp_source.html">Skybox.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">    5</span>    : <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_skybox.html#a8460232ea39ff80abf6bc6f6ebaa92c9">skyboxCubemap</a>(<a class="code hl_class" href="class_cubemap.html">Cubemap</a>(std::array&lt;std::string, 6&gt;{</div>
+<div class="line"><span class="lineno">    6</span>          <span class="stringliteral">&quot;skyboxes/&quot;</span> + <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">folderName</a> + <span class="stringliteral">&quot;/&quot;</span> + std::string(<span class="stringliteral">&quot;right.png&quot;</span>),</div>
+<div class="line"><span class="lineno">    7</span>          <span class="stringliteral">&quot;skyboxes/&quot;</span> + <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">folderName</a> + <span class="stringliteral">&quot;/&quot;</span> + std::string(<span class="stringliteral">&quot;left.png&quot;</span>),</div>
+<div class="line"><span class="lineno">    8</span>          <span class="stringliteral">&quot;skyboxes/&quot;</span> + <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">folderName</a> + <span class="stringliteral">&quot;/&quot;</span> + std::string(<span class="stringliteral">&quot;top.png&quot;</span>),</div>
+<div class="line"><span class="lineno">    9</span>          <span class="stringliteral">&quot;skyboxes/&quot;</span> + <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">folderName</a> + <span class="stringliteral">&quot;/&quot;</span> + std::string(<span class="stringliteral">&quot;bottom.png&quot;</span>),</div>
+<div class="line"><span class="lineno">   10</span>          <span class="stringliteral">&quot;skyboxes/&quot;</span> + <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">folderName</a> + <span class="stringliteral">&quot;/&quot;</span> + std::string(<span class="stringliteral">&quot;front.png&quot;</span>),</div>
+<div class="line"><span class="lineno">   11</span>          <span class="stringliteral">&quot;skyboxes/&quot;</span> + <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">folderName</a> + <span class="stringliteral">&quot;/&quot;</span> + std::string(<span class="stringliteral">&quot;back.png&quot;</span>)</div>
+<div class="line"><span class="lineno">   12</span>      })), <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_skybox.html#a78e9b247e8e7ae6c42f8a452bebcb334">skyboxShader</a>(<span class="stringliteral">&quot;SkyboxShader.glsl&quot;</span>),</div>
+<div class="line"><span class="lineno">   13</span>      <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_skybox.html#a084fa6f4bf72a16e7aafda06d92e8cef">skyboxVAOID</a>{0}, <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_skybox.html#a0b987a7542e57bac8f692144a23919ce">skyboxVBOID</a>{0},</div>
+<div class="line"><span class="lineno">   14</span>      <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_skybox.html#ac3d04ccb08ce41b0070916ebb43cd619">skyboxVertices</a>{</div>
+<div class="line"><span class="lineno">   15</span>          <span class="comment">// positions</span></div>
+<div class="line"><span class="lineno">   16</span>          -1.0f, 1.0f, -1.0f,</div>
+<div class="line"><span class="lineno">   17</span>          -1.0f, -1.0f, -1.0f,</div>
+<div class="line"><span class="lineno">   18</span>          1.0f, -1.0f, -1.0f,</div>
+<div class="line"><span class="lineno">   19</span>          1.0f, -1.0f, -1.0f,</div>
+<div class="line"><span class="lineno">   20</span>          1.0f, 1.0f, -1.0f,</div>
+<div class="line"><span class="lineno">   21</span>          -1.0f, 1.0f, -1.0f,</div>
+<div class="line"><span class="lineno">   22</span> </div>
+<div class="line"><span class="lineno">   23</span>          -1.0f, -1.0f, 1.0f,</div>
+<div class="line"><span class="lineno">   24</span>          -1.0f, -1.0f, -1.0f,</div>
 <div class="line"><span class="lineno">   25</span>          -1.0f, 1.0f, -1.0f,</div>
-<div class="line"><span class="lineno">   26</span>          -1.0f, -1.0f, -1.0f,</div>
-<div class="line"><span class="lineno">   27</span>          1.0f, -1.0f, -1.0f,</div>
-<div class="line"><span class="lineno">   28</span>          1.0f, -1.0f, -1.0f,</div>
-<div class="line"><span class="lineno">   29</span>          1.0f, 1.0f, -1.0f,</div>
-<div class="line"><span class="lineno">   30</span>          -1.0f, 1.0f, -1.0f,</div>
-<div class="line"><span class="lineno">   31</span> </div>
-<div class="line"><span class="lineno">   32</span>          -1.0f, -1.0f, 1.0f,</div>
-<div class="line"><span class="lineno">   33</span>          -1.0f, -1.0f, -1.0f,</div>
-<div class="line"><span class="lineno">   34</span>          -1.0f, 1.0f, -1.0f,</div>
-<div class="line"><span class="lineno">   35</span>          -1.0f, 1.0f, -1.0f,</div>
-<div class="line"><span class="lineno">   36</span>          -1.0f, 1.0f, 1.0f,</div>
+<div class="line"><span class="lineno">   26</span>          -1.0f, 1.0f, -1.0f,</div>
+<div class="line"><span class="lineno">   27</span>          -1.0f, 1.0f, 1.0f,</div>
+<div class="line"><span class="lineno">   28</span>          -1.0f, -1.0f, 1.0f,</div>
+<div class="line"><span class="lineno">   29</span> </div>
+<div class="line"><span class="lineno">   30</span>          1.0f, -1.0f, -1.0f,</div>
+<div class="line"><span class="lineno">   31</span>          1.0f, -1.0f, 1.0f,</div>
+<div class="line"><span class="lineno">   32</span>          1.0f, 1.0f, 1.0f,</div>
+<div class="line"><span class="lineno">   33</span>          1.0f, 1.0f, 1.0f,</div>
+<div class="line"><span class="lineno">   34</span>          1.0f, 1.0f, -1.0f,</div>
+<div class="line"><span class="lineno">   35</span>          1.0f, -1.0f, -1.0f,</div>
+<div class="line"><span class="lineno">   36</span> </div>
 <div class="line"><span class="lineno">   37</span>          -1.0f, -1.0f, 1.0f,</div>
-<div class="line"><span class="lineno">   38</span> </div>
-<div class="line"><span class="lineno">   39</span>          1.0f, -1.0f, -1.0f,</div>
-<div class="line"><span class="lineno">   40</span>          1.0f, -1.0f, 1.0f,</div>
-<div class="line"><span class="lineno">   41</span>          1.0f, 1.0f, 1.0f,</div>
-<div class="line"><span class="lineno">   42</span>          1.0f, 1.0f, 1.0f,</div>
-<div class="line"><span class="lineno">   43</span>          1.0f, 1.0f, -1.0f,</div>
-<div class="line"><span class="lineno">   44</span>          1.0f, -1.0f, -1.0f,</div>
-<div class="line"><span class="lineno">   45</span> </div>
-<div class="line"><span class="lineno">   46</span>          -1.0f, -1.0f, 1.0f,</div>
-<div class="line"><span class="lineno">   47</span>          -1.0f, 1.0f, 1.0f,</div>
-<div class="line"><span class="lineno">   48</span>          1.0f, 1.0f, 1.0f,</div>
-<div class="line"><span class="lineno">   49</span>          1.0f, 1.0f, 1.0f,</div>
-<div class="line"><span class="lineno">   50</span>          1.0f, -1.0f, 1.0f,</div>
-<div class="line"><span class="lineno">   51</span>          -1.0f, -1.0f, 1.0f,</div>
-<div class="line"><span class="lineno">   52</span> </div>
-<div class="line"><span class="lineno">   53</span>          -1.0f, 1.0f, -1.0f,</div>
-<div class="line"><span class="lineno">   54</span>          1.0f, 1.0f, -1.0f,</div>
-<div class="line"><span class="lineno">   55</span>          1.0f, 1.0f, 1.0f,</div>
-<div class="line"><span class="lineno">   56</span>          1.0f, 1.0f, 1.0f,</div>
-<div class="line"><span class="lineno">   57</span>          -1.0f, 1.0f, 1.0f,</div>
-<div class="line"><span class="lineno">   58</span>          -1.0f, 1.0f, -1.0f,</div>
-<div class="line"><span class="lineno">   59</span> </div>
-<div class="line"><span class="lineno">   60</span>          -1.0f, -1.0f, -1.0f,</div>
-<div class="line"><span class="lineno">   61</span>          -1.0f, -1.0f, 1.0f,</div>
-<div class="line"><span class="lineno">   62</span>          1.0f, -1.0f, -1.0f,</div>
-<div class="line"><span class="lineno">   63</span>          1.0f, -1.0f, -1.0f,</div>
-<div class="line"><span class="lineno">   64</span>          -1.0f, -1.0f, 1.0f,</div>
-<div class="line"><span class="lineno">   65</span>          1.0f, -1.0f, 1.0f</div>
-<div class="line"><span class="lineno">   66</span>      } {</div>
-<div class="line"><span class="lineno">   67</span>    <span class="keywordtype">size_t</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">skyboxVerticesCount</a> = <span class="keyword">sizeof</span>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_skybox.html#ac3d04ccb08ce41b0070916ebb43cd619">skyboxVertices</a>) / <span class="keyword">sizeof</span>(<span class="keywordtype">float</span>);</div>
-<div class="line"><span class="lineno">   68</span>    <span class="keywordtype">size_t</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">skyboxVerticesSize</a> = <span class="keyword">sizeof</span>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">float</a>);</div>
-<div class="line"><span class="lineno">   69</span>    <a class="code hl_function" href="class_g_l_e_s_c_1_1_render_1_1_skybox.html#ad9f7695fdc637e79ea1ae7cd5ecb5f5b">calculateAverageColor</a>();</div>
-<div class="line"><span class="lineno">   70</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_skybox.html#a8460232ea39ff80abf6bc6f6ebaa92c9">skyboxCubemap</a>.<a class="code hl_function" href="class_cubemap.html#a5392d14270b7ca22d64626cf4886e969">release</a>();</div>
-<div class="line"><span class="lineno">   71</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_skybox.html#a3f6c4f80dc198ce43587d7540d353333">skyboxVAO</a> = std::make_unique&lt;VertexArray&gt;();</div>
-<div class="line"><span class="lineno">   72</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_skybox.html#a3f6c4f80dc198ce43587d7540d353333">skyboxVAO</a>-&gt;bind();</div>
-<div class="line"><span class="lineno">   73</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_skybox.html#aece7ad0474ff8bfa169885909fcc6185">skyboxVBO</a> = std::make_unique&lt;VertexBuffer&gt;(</div>
-<div class="line"><span class="lineno">   74</span>        &amp;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_skybox.html#ac3d04ccb08ce41b0070916ebb43cd619">skyboxVertices</a>,</div>
-<div class="line"><span class="lineno">   75</span>        <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">skyboxVerticesCount</a>,</div>
-<div class="line"><span class="lineno">   76</span>        <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">skyboxVerticesSize</a>,</div>
-<div class="line"><span class="lineno">   77</span>        Enums::BufferUsages::StaticDraw);</div>
-<div class="line"><span class="lineno">   78</span> </div>
-<div class="line"><span class="lineno">   79</span>    <a class="code hl_class" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_vertex_buffer_layout.html">VertexBufferLayout</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">skyboxLayout</a>;</div>
-<div class="line"><span class="lineno">   80</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">skyboxLayout</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_vertex_buffer_layout.html#a768342e4b77057309288e192fce23031">push</a>(Enums::Types::Vec3F);</div>
-<div class="line"><span class="lineno">   81</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_skybox.html#a3f6c4f80dc198ce43587d7540d353333">skyboxVAO</a>-&gt;addBuffer(*<a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_skybox.html#aece7ad0474ff8bfa169885909fcc6185">skyboxVBO</a>, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">skyboxLayout</a>);</div>
-<div class="line"><span class="lineno">   82</span>}</div>
+<div class="line"><span class="lineno">   38</span>          -1.0f, 1.0f, 1.0f,</div>
+<div class="line"><span class="lineno">   39</span>          1.0f, 1.0f, 1.0f,</div>
+<div class="line"><span class="lineno">   40</span>          1.0f, 1.0f, 1.0f,</div>
+<div class="line"><span class="lineno">   41</span>          1.0f, -1.0f, 1.0f,</div>
+<div class="line"><span class="lineno">   42</span>          -1.0f, -1.0f, 1.0f,</div>
+<div class="line"><span class="lineno">   43</span> </div>
+<div class="line"><span class="lineno">   44</span>          -1.0f, 1.0f, -1.0f,</div>
+<div class="line"><span class="lineno">   45</span>          1.0f, 1.0f, -1.0f,</div>
+<div class="line"><span class="lineno">   46</span>          1.0f, 1.0f, 1.0f,</div>
+<div class="line"><span class="lineno">   47</span>          1.0f, 1.0f, 1.0f,</div>
+<div class="line"><span class="lineno">   48</span>          -1.0f, 1.0f, 1.0f,</div>
+<div class="line"><span class="lineno">   49</span>          -1.0f, 1.0f, -1.0f,</div>
+<div class="line"><span class="lineno">   50</span> </div>
+<div class="line"><span class="lineno">   51</span>          -1.0f, -1.0f, -1.0f,</div>
+<div class="line"><span class="lineno">   52</span>          -1.0f, -1.0f, 1.0f,</div>
+<div class="line"><span class="lineno">   53</span>          1.0f, -1.0f, -1.0f,</div>
+<div class="line"><span class="lineno">   54</span>          1.0f, -1.0f, -1.0f,</div>
+<div class="line"><span class="lineno">   55</span>          -1.0f, -1.0f, 1.0f,</div>
+<div class="line"><span class="lineno">   56</span>          1.0f, -1.0f, 1.0f</div>
+<div class="line"><span class="lineno">   57</span>      } {</div>
+<div class="line"><span class="lineno">   58</span>    <span class="keywordtype">size_t</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">skyboxVerticesCount</a> = <span class="keyword">sizeof</span>(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_skybox.html#ac3d04ccb08ce41b0070916ebb43cd619">skyboxVertices</a>) / <span class="keyword">sizeof</span>(<span class="keywordtype">float</span>);</div>
+<div class="line"><span class="lineno">   59</span>    <span class="keywordtype">size_t</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">skyboxVerticesSize</a> = <span class="keyword">sizeof</span>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">float</a>);</div>
+<div class="line"><span class="lineno">   60</span>    <a class="code hl_function" href="class_g_l_e_s_c_1_1_render_1_1_skybox.html#ad9f7695fdc637e79ea1ae7cd5ecb5f5b">calculateAverageColor</a>();</div>
+<div class="line"><span class="lineno">   61</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_skybox.html#a8460232ea39ff80abf6bc6f6ebaa92c9">skyboxCubemap</a>.<a class="code hl_function" href="class_cubemap.html#a5392d14270b7ca22d64626cf4886e969">release</a>();</div>
+<div class="line"><span class="lineno">   62</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_skybox.html#a3f6c4f80dc198ce43587d7540d353333">skyboxVAO</a> = std::make_unique&lt;VertexArray&gt;();</div>
+<div class="line"><span class="lineno">   63</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_skybox.html#a3f6c4f80dc198ce43587d7540d353333">skyboxVAO</a>-&gt;bind();</div>
+<div class="line"><span class="lineno">   64</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_skybox.html#aece7ad0474ff8bfa169885909fcc6185">skyboxVBO</a> = std::make_unique&lt;VertexBuffer&gt;(</div>
+<div class="line"><span class="lineno">   65</span>        &amp;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_skybox.html#ac3d04ccb08ce41b0070916ebb43cd619">skyboxVertices</a>,</div>
+<div class="line"><span class="lineno">   66</span>        <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">skyboxVerticesCount</a>,</div>
+<div class="line"><span class="lineno">   67</span>        <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">skyboxVerticesSize</a>,</div>
+<div class="line"><span class="lineno">   68</span>        Enums::BufferUsages::StaticDraw);</div>
+<div class="line"><span class="lineno">   69</span> </div>
+<div class="line"><span class="lineno">   70</span>    <a class="code hl_class" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_vertex_buffer_layout.html">VertexBufferLayout</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">skyboxLayout</a>;</div>
+<div class="line"><span class="lineno">   71</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">skyboxLayout</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_vertex_buffer_layout.html#a768342e4b77057309288e192fce23031">push</a>(Enums::Types::Vec3F);</div>
+<div class="line"><span class="lineno">   72</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_skybox.html#a3f6c4f80dc198ce43587d7540d353333">skyboxVAO</a>-&gt;addBuffer(*<a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_skybox.html#aece7ad0474ff8bfa169885909fcc6185">skyboxVBO</a>, <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">skyboxLayout</a>);</div>
+<div class="line"><span class="lineno">   73</span>}</div>
 <div class="ttc" id="aclass_cubemap_html"><div class="ttname"><a href="class_cubemap.html">Cubemap</a></div><div class="ttdoc">Class representing a cubemap texture. It abstract away the creating and handling of cubemaps.</div><div class="ttdef"><b>Definition</b> <a href="_cubemap_8h_source.html#l00022">Cubemap.h:22</a></div></div>
-<div class="ttc" id="aclass_cubemap_html_a5392d14270b7ca22d64626cf4886e969"><div class="ttname"><a href="class_cubemap.html#a5392d14270b7ca22d64626cf4886e969">Cubemap::release</a></div><div class="ttdeci">void release()</div><div class="ttdef"><b>Definition</b> <a href="_cubemap_8cpp_source.html#l00055">Cubemap.cpp:55</a></div></div>
+<div class="ttc" id="aclass_cubemap_html_a5392d14270b7ca22d64626cf4886e969"><div class="ttname"><a href="class_cubemap.html#a5392d14270b7ca22d64626cf4886e969">Cubemap::release</a></div><div class="ttdeci">void release()</div><div class="ttdef"><b>Definition</b> <a href="_cubemap_8cpp_source.html#l00046">Cubemap.cpp:46</a></div></div>
 <div class="ttc" id="aclass_g_l_e_s_c_1_1_g_a_p_i_1_1_vertex_buffer_layout_html"><div class="ttname"><a href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_vertex_buffer_layout.html">GLESC::GAPI::VertexBufferLayout</a></div><div class="ttdef"><b>Definition</b> <a href="_vertex_buffer_layout_8h_source.html#l00020">VertexBufferLayout.h:20</a></div></div>
-<div class="ttc" id="aclass_g_l_e_s_c_1_1_g_a_p_i_1_1_vertex_buffer_layout_html_a768342e4b77057309288e192fce23031"><div class="ttname"><a href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_vertex_buffer_layout.html#a768342e4b77057309288e192fce23031">GLESC::GAPI::VertexBufferLayout::push</a></div><div class="ttdeci">void push(Enums::Types type, Bool normalized=Bool::False)</div><div class="ttdef"><b>Definition</b> <a href="_vertex_buffer_layout_8cpp_source.html#l00015">VertexBufferLayout.cpp:15</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_g_a_p_i_1_1_vertex_buffer_layout_html_a768342e4b77057309288e192fce23031"><div class="ttname"><a href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_vertex_buffer_layout.html#a768342e4b77057309288e192fce23031">GLESC::GAPI::VertexBufferLayout::push</a></div><div class="ttdeci">void push(Enums::Types type, Bool normalized=Bool::False)</div><div class="ttdef"><b>Definition</b> <a href="_vertex_buffer_layout_8cpp_source.html#l00006">VertexBufferLayout.cpp:6</a></div></div>
 <div class="ttc" id="aclass_g_l_e_s_c_1_1_render_1_1_skybox_html_a084fa6f4bf72a16e7aafda06d92e8cef"><div class="ttname"><a href="class_g_l_e_s_c_1_1_render_1_1_skybox.html#a084fa6f4bf72a16e7aafda06d92e8cef">GLESC::Render::Skybox::skyboxVAOID</a></div><div class="ttdeci">UInt skyboxVAOID</div><div class="ttdef"><b>Definition</b> <a href="_skybox_8h_source.html#l00055">Skybox.h:55</a></div></div>
 <div class="ttc" id="aclass_g_l_e_s_c_1_1_render_1_1_skybox_html_a0b987a7542e57bac8f692144a23919ce"><div class="ttname"><a href="class_g_l_e_s_c_1_1_render_1_1_skybox.html#a0b987a7542e57bac8f692144a23919ce">GLESC::Render::Skybox::skyboxVBOID</a></div><div class="ttdeci">UInt skyboxVBOID</div><div class="ttdef"><b>Definition</b> <a href="_skybox_8h_source.html#l00056">Skybox.h:56</a></div></div>
 <div class="ttc" id="aclass_g_l_e_s_c_1_1_render_1_1_skybox_html_a3f6c4f80dc198ce43587d7540d353333"><div class="ttname"><a href="class_g_l_e_s_c_1_1_render_1_1_skybox.html#a3f6c4f80dc198ce43587d7540d353333">GLESC::Render::Skybox::skyboxVAO</a></div><div class="ttdeci">std::unique_ptr&lt; VertexArray &gt; skyboxVAO</div><div class="ttdef"><b>Definition</b> <a href="_skybox_8h_source.html#l00060">Skybox.h:60</a></div></div>
 <div class="ttc" id="aclass_g_l_e_s_c_1_1_render_1_1_skybox_html_a78e9b247e8e7ae6c42f8a452bebcb334"><div class="ttname"><a href="class_g_l_e_s_c_1_1_render_1_1_skybox.html#a78e9b247e8e7ae6c42f8a452bebcb334">GLESC::Render::Skybox::skyboxShader</a></div><div class="ttdeci">Shader skyboxShader</div><div class="ttdef"><b>Definition</b> <a href="_skybox_8h_source.html#l00057">Skybox.h:57</a></div></div>
 <div class="ttc" id="aclass_g_l_e_s_c_1_1_render_1_1_skybox_html_a8460232ea39ff80abf6bc6f6ebaa92c9"><div class="ttname"><a href="class_g_l_e_s_c_1_1_render_1_1_skybox.html#a8460232ea39ff80abf6bc6f6ebaa92c9">GLESC::Render::Skybox::skyboxCubemap</a></div><div class="ttdeci">Cubemap skyboxCubemap</div><div class="ttdef"><b>Definition</b> <a href="_skybox_8h_source.html#l00058">Skybox.h:58</a></div></div>
 <div class="ttc" id="aclass_g_l_e_s_c_1_1_render_1_1_skybox_html_ac3d04ccb08ce41b0070916ebb43cd619"><div class="ttname"><a href="class_g_l_e_s_c_1_1_render_1_1_skybox.html#ac3d04ccb08ce41b0070916ebb43cd619">GLESC::Render::Skybox::skyboxVertices</a></div><div class="ttdeci">float skyboxVertices[108]</div><div class="ttdef"><b>Definition</b> <a href="_skybox_8h_source.html#l00062">Skybox.h:62</a></div></div>
-<div class="ttc" id="aclass_g_l_e_s_c_1_1_render_1_1_skybox_html_ad9f7695fdc637e79ea1ae7cd5ecb5f5b"><div class="ttname"><a href="class_g_l_e_s_c_1_1_render_1_1_skybox.html#ad9f7695fdc637e79ea1ae7cd5ecb5f5b">GLESC::Render::Skybox::calculateAverageColor</a></div><div class="ttdeci">void calculateAverageColor()</div><div class="ttdoc">Calculates the average color of the skybox.</div><div class="ttdef"><b>Definition</b> <a href="_skybox_8cpp_source.html#l00087">Skybox.cpp:87</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_render_1_1_skybox_html_ad9f7695fdc637e79ea1ae7cd5ecb5f5b"><div class="ttname"><a href="class_g_l_e_s_c_1_1_render_1_1_skybox.html#ad9f7695fdc637e79ea1ae7cd5ecb5f5b">GLESC::Render::Skybox::calculateAverageColor</a></div><div class="ttdeci">void calculateAverageColor()</div><div class="ttdoc">Calculates the average color of the skybox.</div><div class="ttdef"><b>Definition</b> <a href="_skybox_8cpp_source.html#l00078">Skybox.cpp:78</a></div></div>
 <div class="ttc" id="aclass_g_l_e_s_c_1_1_render_1_1_skybox_html_aece7ad0474ff8bfa169885909fcc6185"><div class="ttname"><a href="class_g_l_e_s_c_1_1_render_1_1_skybox.html#aece7ad0474ff8bfa169885909fcc6185">GLESC::Render::Skybox::skyboxVBO</a></div><div class="ttdeci">std::unique_ptr&lt; VertexBuffer &gt; skyboxVBO</div><div class="ttdef"><b>Definition</b> <a href="_skybox_8h_source.html#l00061">Skybox.h:61</a></div></div>
 <div class="ttc" id="anamespace_g_l_e_s_c_html_a7c64a4da2d1da1597f4ec563d00bb9f8"><div class="ttname"><a href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">GLESC::isIterable_v</a></div><div class="ttdeci">constexpr bool isIterable_v</div><div class="ttdef"><b>Definition</b> <a href="_stringer_8h_source.html#l00029">Stringer.h:29</a></div></div>
 </div><!-- fragment -->
@@ -313,36 +313,36 @@ Private Attributes</h2></td></tr>
 <p>Calculates the average color of the skybox. </p>
 <p>Takes a set of random pixles and calculates the average color between them. For now it is not used. </p>
 
-<p class="definition">Definition at line <a class="el" href="_skybox_8cpp_source.html#l00087">87</a> of file <a class="el" href="_skybox_8cpp_source.html">Skybox.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   87</span>                                   {</div>
-<div class="line"><span class="lineno">   88</span>    <span class="comment">// To calculate the average color of the skybox we&#39;ll get 20 pixels at random</span></div>
-<div class="line"><span class="lineno">   89</span>    <span class="comment">// and calculate the average color of those pixels</span></div>
-<div class="line"><span class="lineno">   90</span>    <span class="comment">// (technicall its gonna be 120 as we get 6 pixels per sample)</span></div>
-<div class="line"><span class="lineno">   91</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">i</a> = 0; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">i</a> &lt; <a class="code hl_define" href="_skybox_8cpp.html#a06e27fef719d6ef8b27b12f97ded26a2">PIXEL_SAMPLE_COUNT</a>; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">i</a>++) {</div>
-<div class="line"><span class="lineno">   92</span>        <span class="comment">// Its a cube, with the width is enough, no need more checking</span></div>
-<div class="line"><span class="lineno">   93</span>        Size <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">pixelWidth</a> = <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_skybox.html#a8460232ea39ff80abf6bc6f6ebaa92c9">skyboxCubemap</a>.<a class="code hl_function" href="class_cubemap.html#af14d93fbc6a2d37256be6c8830ce0248">getCubemapTextures</a>()[0].getWidth();</div>
-<div class="line"><span class="lineno">   94</span>        Size x = <a class="code hl_function" href="namespace_g_l_e_s_c_1_1_math.html#ab5f35aa0b91ea10181a5536a1d326e58">Math::generateRandomNumber</a>(<span class="keyword">static_cast&lt;</span>Size<span class="keyword">&gt;</span>(0), <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">pixelWidth</a> - 1);</div>
-<div class="line"><span class="lineno">   95</span>        Size y = <a class="code hl_function" href="namespace_g_l_e_s_c_1_1_math.html#ab5f35aa0b91ea10181a5536a1d326e58">Math::generateRandomNumber</a>(<span class="keyword">static_cast&lt;</span>Size<span class="keyword">&gt;</span>(0), <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">pixelWidth</a> - 1);</div>
-<div class="line"><span class="lineno">   96</span>        std::array&lt;Pixel, 6&gt; pixels = <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_skybox.html#a8460232ea39ff80abf6bc6f6ebaa92c9">skyboxCubemap</a>.<a class="code hl_function" href="class_cubemap.html#abe9e8e8a199c09323c4ab9b0550b68d2">getPixelsAtCoords</a>(x, y);</div>
-<div class="line"><span class="lineno">   97</span>        <a class="code hl_struct" href="struct_g_l_e_s_c_1_1_render_1_1_color_rgb.html">ColorRgb</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">finalColor</a>;</div>
-<div class="line"><span class="lineno">   98</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">pix</a> = 0; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">pix</a> &lt; 6; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">pix</a>++) {</div>
-<div class="line"><span class="lineno">   99</span>            <a class="code hl_struct" href="struct_g_l_e_s_c_1_1_render_1_1_color_rgb.html">ColorRgb</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">pixColor</a> =</div>
-<div class="line"><span class="lineno">  100</span>                <a class="code hl_struct" href="struct_g_l_e_s_c_1_1_render_1_1_color_rgb.html">ColorRgb</a>(pixels[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">pix</a>].r, pixels[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">pix</a>].g, pixels[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">pix</a>].b);</div>
-<div class="line"><span class="lineno">  101</span>            <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">finalColor</a> += <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">pixColor</a>;</div>
-<div class="line"><span class="lineno">  102</span>        }</div>
-<div class="line"><span class="lineno">  103</span>        <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">finalColor</a> /= pixels.size();</div>
-<div class="line"><span class="lineno">  104</span>        <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_skybox.html#a7b7e9b6787cc4accacae8e3dfeb95f4c">averageColor</a> += <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">finalColor</a>;</div>
-<div class="line"><span class="lineno">  105</span>    }</div>
-<div class="line"><span class="lineno">  106</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_skybox.html#a7b7e9b6787cc4accacae8e3dfeb95f4c">averageColor</a> /= <a class="code hl_define" href="_skybox_8cpp.html#a06e27fef719d6ef8b27b12f97ded26a2">PIXEL_SAMPLE_COUNT</a>;</div>
-<div class="line"><span class="lineno">  107</span>}</div>
-<div class="ttc" id="a_skybox_8cpp_html_a06e27fef719d6ef8b27b12f97ded26a2"><div class="ttname"><a href="_skybox_8cpp.html#a06e27fef719d6ef8b27b12f97ded26a2">PIXEL_SAMPLE_COUNT</a></div><div class="ttdeci">#define PIXEL_SAMPLE_COUNT</div><div class="ttdef"><b>Definition</b> <a href="_skybox_8cpp_source.html#l00085">Skybox.cpp:85</a></div></div>
-<div class="ttc" id="aclass_cubemap_html_abe9e8e8a199c09323c4ab9b0550b68d2"><div class="ttname"><a href="class_cubemap.html#abe9e8e8a199c09323c4ab9b0550b68d2">Cubemap::getPixelsAtCoords</a></div><div class="ttdeci">std::array&lt; Pixel, 6 &gt; getPixelsAtCoords(int x, int y) const</div><div class="ttdef"><b>Definition</b> <a href="_cubemap_8cpp_source.html#l00047">Cubemap.cpp:47</a></div></div>
+<p class="definition">Definition at line <a class="el" href="_skybox_8cpp_source.html#l00078">78</a> of file <a class="el" href="_skybox_8cpp_source.html">Skybox.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   78</span>                                   {</div>
+<div class="line"><span class="lineno">   79</span>    <span class="comment">// To calculate the average color of the skybox we&#39;ll get 20 pixels at random</span></div>
+<div class="line"><span class="lineno">   80</span>    <span class="comment">// and calculate the average color of those pixels</span></div>
+<div class="line"><span class="lineno">   81</span>    <span class="comment">// (technicall its gonna be 120 as we get 6 pixels per sample)</span></div>
+<div class="line"><span class="lineno">   82</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">i</a> = 0; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">i</a> &lt; <a class="code hl_define" href="_skybox_8cpp.html#a06e27fef719d6ef8b27b12f97ded26a2">PIXEL_SAMPLE_COUNT</a>; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">i</a>++) {</div>
+<div class="line"><span class="lineno">   83</span>        <span class="comment">// Its a cube, with the width is enough, no need more checking</span></div>
+<div class="line"><span class="lineno">   84</span>        Size <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">pixelWidth</a> = <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_skybox.html#a8460232ea39ff80abf6bc6f6ebaa92c9">skyboxCubemap</a>.<a class="code hl_function" href="class_cubemap.html#af14d93fbc6a2d37256be6c8830ce0248">getCubemapTextures</a>()[0].getWidth();</div>
+<div class="line"><span class="lineno">   85</span>        Size x = <a class="code hl_function" href="namespace_g_l_e_s_c_1_1_math.html#ab5f35aa0b91ea10181a5536a1d326e58">Math::generateRandomNumber</a>(<span class="keyword">static_cast&lt;</span>Size<span class="keyword">&gt;</span>(0), <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">pixelWidth</a> - 1);</div>
+<div class="line"><span class="lineno">   86</span>        Size y = <a class="code hl_function" href="namespace_g_l_e_s_c_1_1_math.html#ab5f35aa0b91ea10181a5536a1d326e58">Math::generateRandomNumber</a>(<span class="keyword">static_cast&lt;</span>Size<span class="keyword">&gt;</span>(0), <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">pixelWidth</a> - 1);</div>
+<div class="line"><span class="lineno">   87</span>        std::array&lt;Pixel, 6&gt; pixels = <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_skybox.html#a8460232ea39ff80abf6bc6f6ebaa92c9">skyboxCubemap</a>.<a class="code hl_function" href="class_cubemap.html#abe9e8e8a199c09323c4ab9b0550b68d2">getPixelsAtCoords</a>(x, y);</div>
+<div class="line"><span class="lineno">   88</span>        <a class="code hl_struct" href="struct_g_l_e_s_c_1_1_render_1_1_color_rgb.html">ColorRgb</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">finalColor</a>;</div>
+<div class="line"><span class="lineno">   89</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">pix</a> = 0; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">pix</a> &lt; 6; <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">pix</a>++) {</div>
+<div class="line"><span class="lineno">   90</span>            <a class="code hl_struct" href="struct_g_l_e_s_c_1_1_render_1_1_color_rgb.html">ColorRgb</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">pixColor</a> =</div>
+<div class="line"><span class="lineno">   91</span>                <a class="code hl_struct" href="struct_g_l_e_s_c_1_1_render_1_1_color_rgb.html">ColorRgb</a>(pixels[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">pix</a>].r, pixels[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">pix</a>].g, pixels[<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">pix</a>].b);</div>
+<div class="line"><span class="lineno">   92</span>            <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">finalColor</a> += <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">pixColor</a>;</div>
+<div class="line"><span class="lineno">   93</span>        }</div>
+<div class="line"><span class="lineno">   94</span>        <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">finalColor</a> /= pixels.size();</div>
+<div class="line"><span class="lineno">   95</span>        <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_skybox.html#a7b7e9b6787cc4accacae8e3dfeb95f4c">averageColor</a> += <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">finalColor</a>;</div>
+<div class="line"><span class="lineno">   96</span>    }</div>
+<div class="line"><span class="lineno">   97</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_skybox.html#a7b7e9b6787cc4accacae8e3dfeb95f4c">averageColor</a> /= <a class="code hl_define" href="_skybox_8cpp.html#a06e27fef719d6ef8b27b12f97ded26a2">PIXEL_SAMPLE_COUNT</a>;</div>
+<div class="line"><span class="lineno">   98</span>}</div>
+<div class="ttc" id="a_skybox_8cpp_html_a06e27fef719d6ef8b27b12f97ded26a2"><div class="ttname"><a href="_skybox_8cpp.html#a06e27fef719d6ef8b27b12f97ded26a2">PIXEL_SAMPLE_COUNT</a></div><div class="ttdeci">#define PIXEL_SAMPLE_COUNT</div><div class="ttdef"><b>Definition</b> <a href="_skybox_8cpp_source.html#l00076">Skybox.cpp:76</a></div></div>
+<div class="ttc" id="aclass_cubemap_html_abe9e8e8a199c09323c4ab9b0550b68d2"><div class="ttname"><a href="class_cubemap.html#abe9e8e8a199c09323c4ab9b0550b68d2">Cubemap::getPixelsAtCoords</a></div><div class="ttdeci">std::array&lt; Pixel, 6 &gt; getPixelsAtCoords(int x, int y) const</div><div class="ttdef"><b>Definition</b> <a href="_cubemap_8cpp_source.html#l00038">Cubemap.cpp:38</a></div></div>
 <div class="ttc" id="aclass_cubemap_html_af14d93fbc6a2d37256be6c8830ce0248"><div class="ttname"><a href="class_cubemap.html#af14d93fbc6a2d37256be6c8830ce0248">Cubemap::getCubemapTextures</a></div><div class="ttdeci">const std::array&lt; GLESC::ResMng::Texture::TextureSurface, 6 &gt; &amp; getCubemapTextures() const</div><div class="ttdef"><b>Definition</b> <a href="_cubemap_8h_source.html#l00029">Cubemap.h:29</a></div></div>
 <div class="ttc" id="aclass_g_l_e_s_c_1_1_render_1_1_skybox_html_a7b7e9b6787cc4accacae8e3dfeb95f4c"><div class="ttname"><a href="class_g_l_e_s_c_1_1_render_1_1_skybox.html#a7b7e9b6787cc4accacae8e3dfeb95f4c">GLESC::Render::Skybox::averageColor</a></div><div class="ttdeci">ColorRgb averageColor</div><div class="ttdef"><b>Definition</b> <a href="_skybox_8h_source.html#l00054">Skybox.h:54</a></div></div>
 <div class="ttc" id="anamespace_g_l_e_s_c_1_1_math_html_ab5f35aa0b91ea10181a5536a1d326e58"><div class="ttname"><a href="namespace_g_l_e_s_c_1_1_math.html#ab5f35aa0b91ea10181a5536a1d326e58">GLESC::Math::generateRandomNumber</a></div><div class="ttdeci">Type generateRandomNumber()</div><div class="ttdoc">Generates a random number with the widest range possible for the type.</div><div class="ttdef"><b>Definition</b> <a href="_math_8h_source.html#l00749">Math.h:749</a></div></div>
 <div class="ttc" id="astruct_g_l_e_s_c_1_1_render_1_1_color_rgb_html"><div class="ttname"><a href="struct_g_l_e_s_c_1_1_render_1_1_color_rgb.html">GLESC::Render::ColorRgb</a></div><div class="ttdoc">Color in RGB values.</div><div class="ttdef"><b>Definition</b> <a href="_renderer_types_8h_source.html#l00214">RendererTypes.h:214</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_skybox_8h_source.html#l00054">averageColor</a>, <a class="el" href="_math_8h_source.html#l00749">GLESC::Math::generateRandomNumber()</a>, <a class="el" href="_cubemap_8h_source.html#l00029">Cubemap::getCubemapTextures()</a>, <a class="el" href="_cubemap_8cpp_source.html#l00047">Cubemap::getPixelsAtCoords()</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, <a class="el" href="_skybox_8cpp_source.html#l00085">PIXEL_SAMPLE_COUNT</a>, and <a class="el" href="_skybox_8h_source.html#l00058">skyboxCubemap</a>.</p>
+<p class="reference">References <a class="el" href="_skybox_8h_source.html#l00054">averageColor</a>, <a class="el" href="_math_8h_source.html#l00749">GLESC::Math::generateRandomNumber()</a>, <a class="el" href="_cubemap_8h_source.html#l00029">Cubemap::getCubemapTextures()</a>, <a class="el" href="_cubemap_8cpp_source.html#l00038">Cubemap::getPixelsAtCoords()</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, <a class="el" href="_skybox_8cpp_source.html#l00076">PIXEL_SAMPLE_COUNT</a>, and <a class="el" href="_skybox_8h_source.html#l00058">skyboxCubemap</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -386,27 +386,27 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_skybox_8cpp_source.html#l00109">109</a> of file <a class="el" href="_skybox_8cpp_source.html">Skybox.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  109</span>                                                                      {</div>
-<div class="line"><span class="lineno">  110</span>    <a class="code hl_class" href="class_g_l_e_s_c_1_1_math_1_1_matrix.html">Mat3F</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">resizedView</a>(view);</div>
-<div class="line"><span class="lineno">  111</span>    <a class="code hl_class" href="class_g_l_e_s_c_1_1_math_1_1_matrix.html">VP</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">viewTranslationless</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">resizedView</a>);</div>
-<div class="line"><span class="lineno">  112</span> </div>
-<div class="line"><span class="lineno">  113</span>    <span class="comment">// change depth function so depth test passes when values are equal to depth buffer&#39;s content</span></div>
-<div class="line"><span class="lineno">  114</span>    <a class="code hl_function" href="_gapi_8h.html#ab7514d88e65656ffa15ca33256518fe5">getGAPI</a>().setDepthFunction(Enums::DepthFuncs::LessEqual);</div>
-<div class="line"><span class="lineno">  115</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_skybox.html#a78e9b247e8e7ae6c42f8a452bebcb334">skyboxShader</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader.html#aadbc0ca0d899238d547f87f19461dfeb">bind</a>();</div>
-<div class="line"><span class="lineno">  116</span>    <a class="code hl_function" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader.html#a2af6148a4a3aca3519a20fdd877f6016">Shader::setUniform</a>(<span class="stringliteral">&quot;uVPTranslationless&quot;</span>, projection * <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">viewTranslationless</a>);</div>
-<div class="line"><span class="lineno">  117</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_skybox.html#a3f6c4f80dc198ce43587d7540d353333">skyboxVAO</a>-&gt;bind();</div>
-<div class="line"><span class="lineno">  118</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_skybox.html#a8460232ea39ff80abf6bc6f6ebaa92c9">skyboxCubemap</a>.<a class="code hl_function" href="class_cubemap.html#ac9943df0cdf3a03e6e9c71b97b8d7830">bind</a>();</div>
-<div class="line"><span class="lineno">  119</span>    <a class="code hl_function" href="_gapi_8h.html#ab7514d88e65656ffa15ca33256518fe5">getGAPI</a>().drawTriangles(0, 36);</div>
-<div class="line"><span class="lineno">  120</span>    <a class="code hl_function" href="_gapi_8h.html#ab7514d88e65656ffa15ca33256518fe5">getGAPI</a>().setDepthFunction(Enums::DepthFuncs::Less);</div>
-<div class="line"><span class="lineno">  121</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_skybox_8cpp_source.html#l00100">100</a> of file <a class="el" href="_skybox_8cpp_source.html">Skybox.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  100</span>                                                                      {</div>
+<div class="line"><span class="lineno">  101</span>    <a class="code hl_class" href="class_g_l_e_s_c_1_1_math_1_1_matrix.html">Mat3F</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">resizedView</a>(view);</div>
+<div class="line"><span class="lineno">  102</span>    <a class="code hl_class" href="class_g_l_e_s_c_1_1_math_1_1_matrix.html">VP</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">viewTranslationless</a>(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">resizedView</a>);</div>
+<div class="line"><span class="lineno">  103</span> </div>
+<div class="line"><span class="lineno">  104</span>    <span class="comment">// change depth function so depth test passes when values are equal to depth buffer&#39;s content</span></div>
+<div class="line"><span class="lineno">  105</span>    <a class="code hl_function" href="_gapi_8h.html#ab7514d88e65656ffa15ca33256518fe5">getGAPI</a>().setDepthFunction(Enums::DepthFuncs::LessEqual);</div>
+<div class="line"><span class="lineno">  106</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_skybox.html#a78e9b247e8e7ae6c42f8a452bebcb334">skyboxShader</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader.html#aadbc0ca0d899238d547f87f19461dfeb">bind</a>();</div>
+<div class="line"><span class="lineno">  107</span>    <a class="code hl_function" href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader.html#a2af6148a4a3aca3519a20fdd877f6016">Shader::setUniform</a>(<span class="stringliteral">&quot;uVPTranslationless&quot;</span>, projection * <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">viewTranslationless</a>);</div>
+<div class="line"><span class="lineno">  108</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_skybox.html#a3f6c4f80dc198ce43587d7540d353333">skyboxVAO</a>-&gt;bind();</div>
+<div class="line"><span class="lineno">  109</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_render_1_1_skybox.html#a8460232ea39ff80abf6bc6f6ebaa92c9">skyboxCubemap</a>.<a class="code hl_function" href="class_cubemap.html#ac9943df0cdf3a03e6e9c71b97b8d7830">bind</a>();</div>
+<div class="line"><span class="lineno">  110</span>    <a class="code hl_function" href="_gapi_8h.html#ab7514d88e65656ffa15ca33256518fe5">getGAPI</a>().drawTriangles(0, 36);</div>
+<div class="line"><span class="lineno">  111</span>    <a class="code hl_function" href="_gapi_8h.html#ab7514d88e65656ffa15ca33256518fe5">getGAPI</a>().setDepthFunction(Enums::DepthFuncs::Less);</div>
+<div class="line"><span class="lineno">  112</span>}</div>
 <div class="ttc" id="a_gapi_8h_html_ab7514d88e65656ffa15ca33256518fe5"><div class="ttname"><a href="_gapi_8h.html#ab7514d88e65656ffa15ca33256518fe5">getGAPI</a></div><div class="ttdeci">auto &amp; getGAPI()</div><div class="ttdoc">Returns the graphic API used by the engine.</div><div class="ttdef"><b>Definition</b> <a href="_gapi_8h_source.html#l00028">Gapi.h:28</a></div></div>
-<div class="ttc" id="aclass_cubemap_html_ac9943df0cdf3a03e6e9c71b97b8d7830"><div class="ttname"><a href="class_cubemap.html#ac9943df0cdf3a03e6e9c71b97b8d7830">Cubemap::bind</a></div><div class="ttdeci">void bind() const</div><div class="ttdef"><b>Definition</b> <a href="_cubemap_8cpp_source.html#l00063">Cubemap.cpp:63</a></div></div>
-<div class="ttc" id="aclass_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_html_a2af6148a4a3aca3519a20fdd877f6016"><div class="ttname"><a href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader.html#a2af6148a4a3aca3519a20fdd877f6016">GLESC::GAPI::Shader::setUniform</a></div><div class="ttdeci">static void setUniform(const std::string &amp;name, const Type &amp;value)</div><div class="ttdoc">Sets a uniform value in the shader.</div><div class="ttdef"><b>Definition</b> <a href="_shader_8h_source.html#l00060">Shader.h:60</a></div></div>
-<div class="ttc" id="aclass_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_html_aadbc0ca0d899238d547f87f19461dfeb"><div class="ttname"><a href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader.html#aadbc0ca0d899238d547f87f19461dfeb">GLESC::GAPI::Shader::bind</a></div><div class="ttdeci">void bind() const</div><div class="ttdoc">Binds the shader program of the object.</div><div class="ttdef"><b>Definition</b> <a href="_shader_8cpp_source.html#l00048">Shader.cpp:48</a></div></div>
+<div class="ttc" id="aclass_cubemap_html_ac9943df0cdf3a03e6e9c71b97b8d7830"><div class="ttname"><a href="class_cubemap.html#ac9943df0cdf3a03e6e9c71b97b8d7830">Cubemap::bind</a></div><div class="ttdeci">void bind() const</div><div class="ttdef"><b>Definition</b> <a href="_cubemap_8cpp_source.html#l00054">Cubemap.cpp:54</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_html_a2af6148a4a3aca3519a20fdd877f6016"><div class="ttname"><a href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader.html#a2af6148a4a3aca3519a20fdd877f6016">GLESC::GAPI::Shader::setUniform</a></div><div class="ttdeci">static void setUniform(const std::string &amp;name, const Type &amp;value)</div><div class="ttdoc">Sets a uniform value in the shader.</div><div class="ttdef"><b>Definition</b> <a href="_shader_8h_source.html#l00062">Shader.h:62</a></div></div>
+<div class="ttc" id="aclass_g_l_e_s_c_1_1_g_a_p_i_1_1_shader_html_aadbc0ca0d899238d547f87f19461dfeb"><div class="ttname"><a href="class_g_l_e_s_c_1_1_g_a_p_i_1_1_shader.html#aadbc0ca0d899238d547f87f19461dfeb">GLESC::GAPI::Shader::bind</a></div><div class="ttdeci">void bind() const</div><div class="ttdoc">Binds the shader program of the object.</div><div class="ttdef"><b>Definition</b> <a href="_shader_8cpp_source.html#l00039">Shader.cpp:39</a></div></div>
 <div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_matrix_html"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_matrix.html">GLESC::Math::Matrix</a></div><div class="ttdoc">Matrix class. Represents a matrix of N rows and M columns.</div><div class="ttdef"><b>Definition</b> <a href="_matrix_8h_source.html#l00030">Matrix.h:30</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_shader_8cpp_source.html#l00048">GLESC::GAPI::Shader::bind()</a>, <a class="el" href="_cubemap_8cpp_source.html#l00063">Cubemap::bind()</a>, <a class="el" href="_gapi_8h_source.html#l00028">getGAPI()</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, <a class="el" href="_shader_8h_source.html#l00060">GLESC::GAPI::Shader::setUniform()</a>, <a class="el" href="_skybox_8h_source.html#l00058">skyboxCubemap</a>, <a class="el" href="_skybox_8h_source.html#l00057">skyboxShader</a>, and <a class="el" href="_skybox_8h_source.html#l00060">skyboxVAO</a>.</p>
+<p class="reference">References <a class="el" href="_shader_8cpp_source.html#l00039">GLESC::GAPI::Shader::bind()</a>, <a class="el" href="_cubemap_8cpp_source.html#l00054">Cubemap::bind()</a>, <a class="el" href="_gapi_8h_source.html#l00028">getGAPI()</a>, <a class="el" href="_stringer_8h_source.html#l00029">GLESC::isIterable_v</a>, <a class="el" href="_shader_8h_source.html#l00062">GLESC::GAPI::Shader::setUniform()</a>, <a class="el" href="_skybox_8h_source.html#l00058">skyboxCubemap</a>, <a class="el" href="_skybox_8h_source.html#l00057">skyboxShader</a>, and <a class="el" href="_skybox_8h_source.html#l00060">skyboxVAO</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -471,7 +471,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="_skybox_8h_source.html#l00054">54</a> of file <a class="el" href="_skybox_8h_source.html">Skybox.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_skybox_8cpp_source.html#l00087">calculateAverageColor()</a>, and <a class="el" href="_skybox_8h_source.html#l00035">getAverageColor()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_skybox_8cpp_source.html#l00078">calculateAverageColor()</a>, and <a class="el" href="_skybox_8h_source.html#l00035">getAverageColor()</a>.</p>
 
 </div>
 </div>
@@ -497,7 +497,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="_skybox_8h_source.html#l00058">58</a> of file <a class="el" href="_skybox_8h_source.html">Skybox.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_skybox_8cpp_source.html#l00087">calculateAverageColor()</a>, and <a class="el" href="_skybox_8cpp_source.html#l00109">draw()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_skybox_8cpp_source.html#l00078">calculateAverageColor()</a>, and <a class="el" href="_skybox_8cpp_source.html#l00100">draw()</a>.</p>
 
 </div>
 </div>
@@ -523,7 +523,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="_skybox_8h_source.html#l00057">57</a> of file <a class="el" href="_skybox_8h_source.html">Skybox.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_skybox_8cpp_source.html#l00109">draw()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_skybox_8cpp_source.html#l00100">draw()</a>.</p>
 
 </div>
 </div>
@@ -549,7 +549,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="_skybox_8h_source.html#l00060">60</a> of file <a class="el" href="_skybox_8h_source.html">Skybox.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_skybox_8cpp_source.html#l00109">draw()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_skybox_8cpp_source.html#l00100">draw()</a>.</p>
 
 </div>
 </div>

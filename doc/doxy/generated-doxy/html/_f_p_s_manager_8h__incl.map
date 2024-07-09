@@ -1,9 +1,14 @@
 <map id="FPSManager.h" name="FPSManager.h">
-<area shape="rect" id="Node000001" title="Class that encapsulates the logic of managing the frames and the loop." alt="" coords="88,5,197,32"/>
-<area shape="rect" id="Node000002" href="$_f_p_s_averager_8h.html" title="Class to encapsulate the logic of averaging the FPS." alt="" coords="5,80,141,123"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="134,34,102,70,98,67,129,31"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="165,88,258,115"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="155,31,193,75,189,78,151,34"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="45,171,101,197"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="76,123,76,155,70,155,70,123"/>
+<area shape="rect" id="Node000001" title="Class that encapsulates the logic of managing the frames and the loop." alt="" coords="97,5,206,32"/>
+<area shape="rect" id="Node000002" href="$_fps_types_8h.html" title="Add description of this file if needed @TODO." alt="" coords="5,171,95,197"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="128,35,99,54,74,81,59,119,53,156,48,155,53,117,69,79,95,50,125,30"/>
+<area shape="rect" id="Node000004" href="$_f_p_s_averager_8h.html" title="Class to encapsulate the logic of averaging the FPS." alt="" coords="84,80,219,123"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="154,33,154,65,149,65,149,33"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="243,88,337,115"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="174,30,257,78,254,82,172,35"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="20,245,80,272"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="53,198,53,230,47,230,47,198"/>
+<area shape="poly" id="edge5_Node000004_Node000002" title=" " alt="" coords="127,125,80,163,76,159,124,121"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="123,171,180,197"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="154,123,154,155,149,155,149,123"/>
 </map>

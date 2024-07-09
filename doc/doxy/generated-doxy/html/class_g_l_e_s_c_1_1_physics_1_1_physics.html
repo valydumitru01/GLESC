@@ -323,7 +323,7 @@ Private Attributes</h2></td></tr>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_physics_8h_source.html#l00086">acceleration</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_physics_manager_8cpp_source.html#l00014">GLESC::Physics::PhysicsManager::applyForces()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_physics_manager_8cpp_source.html#l00005">GLESC::Physics::PhysicsManager::applyForces()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -678,7 +678,7 @@ Here is the caller graph for this function:</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_physics_8h_source.html#l00085">velocity</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_physics_manager_8cpp_source.html#l00014">GLESC::Physics::PhysicsManager::applyForces()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_physics_manager_8cpp_source.html#l00005">GLESC::Physics::PhysicsManager::applyForces()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -715,7 +715,7 @@ Here is the caller graph for this function:</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_physics_8h_source.html#l00086">acceleration</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_physics_manager_8cpp_source.html#l00014">GLESC::Physics::PhysicsManager::applyForces()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_physics_manager_8cpp_source.html#l00005">GLESC::Physics::PhysicsManager::applyForces()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -752,7 +752,7 @@ Here is the caller graph for this function:</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_physics_8h_source.html#l00084">airFriction</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_physics_manager_8cpp_source.html#l00014">GLESC::Physics::PhysicsManager::applyForces()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_physics_manager_8cpp_source.html#l00005">GLESC::Physics::PhysicsManager::applyForces()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -880,68 +880,68 @@ Here is the caller graph for this function:</div>
 
 <p>Reimplemented from <a class="el" href="class_engine_component.html#af72d5975c473b7f638e068e824dc94cb">EngineComponent</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_physics_8cpp_source.html#l00023">23</a> of file <a class="el" href="_physics_8cpp_source.html">Physics.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   23</span>                                                                             {</div>
-<div class="line"><span class="lineno">   24</span>    std::vector&lt;EntityStatsManager::Value&gt; values;</div>
-<div class="line"><span class="lineno">   25</span>    <a class="code hl_struct" href="class_entity_stats_manager.html#struct_entity_stats_manager_1_1_value">EntityStatsManager::Value</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">massValue</a>;</div>
-<div class="line"><span class="lineno">   26</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">massValue</a>.<a class="code hl_variable" href="class_entity_stats_manager.html#a8c007fcaab6bce263fb0e0d80b8bbbb7">name</a> = <span class="stringliteral">&quot;Mass&quot;</span>;</div>
-<div class="line"><span class="lineno">   27</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">massValue</a>.data = <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(&amp;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#af2d98d3c198d277541867567ffbd03d9">mass</a>);</div>
-<div class="line"><span class="lineno">   28</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">massValue</a>.type = <a class="code hl_enumvalue" href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5ae738c26bf4ce1037fa81b039a915cbf6">EntityStatsManager::ValueType::FLOAT</a>;</div>
-<div class="line"><span class="lineno">   29</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">massValue</a>.isModifiable = <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">   30</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">massValue</a>.usesSlider = <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">   31</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">massValue</a>.min = 0.0F;</div>
-<div class="line"><span class="lineno">   32</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">massValue</a>.max = 10000.0F;</div>
-<div class="line"><span class="lineno">   33</span>    values.push_back(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">massValue</a>);</div>
-<div class="line"><span class="lineno">   34</span> </div>
-<div class="line"><span class="lineno">   35</span>    <a class="code hl_struct" href="class_entity_stats_manager.html#struct_entity_stats_manager_1_1_value">EntityStatsManager::Value</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">velocityValue</a>;</div>
-<div class="line"><span class="lineno">   36</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">velocityValue</a>.<a class="code hl_variable" href="class_entity_stats_manager.html#a8c007fcaab6bce263fb0e0d80b8bbbb7">name</a> = <span class="stringliteral">&quot;Velocity&quot;</span>;</div>
-<div class="line"><span class="lineno">   37</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">velocityValue</a>.data = <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(&amp;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a331cbe367fa86bf1e3b5ee8b98d3acdd">velocity</a>);</div>
-<div class="line"><span class="lineno">   38</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">velocityValue</a>.type = <a class="code hl_enumvalue" href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5a18814f886cf9f30ca199c1e81900fa03">EntityStatsManager::ValueType::VEC3F</a>;</div>
-<div class="line"><span class="lineno">   39</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">velocityValue</a>.isModifiable = <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">   40</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">velocityValue</a>.usesSlider = <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">   41</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">velocityValue</a>.min = -1000.0F;</div>
-<div class="line"><span class="lineno">   42</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">velocityValue</a>.max = 1000.0F;</div>
-<div class="line"><span class="lineno">   43</span>    values.push_back(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">velocityValue</a>);</div>
-<div class="line"><span class="lineno">   44</span> </div>
-<div class="line"><span class="lineno">   45</span>    <a class="code hl_struct" href="class_entity_stats_manager.html#struct_entity_stats_manager_1_1_value">EntityStatsManager::Value</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">forceValue</a>;</div>
-<div class="line"><span class="lineno">   46</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">forceValue</a>.<a class="code hl_variable" href="class_entity_stats_manager.html#a8c007fcaab6bce263fb0e0d80b8bbbb7">name</a> = <span class="stringliteral">&quot;Force&quot;</span>;</div>
-<div class="line"><span class="lineno">   47</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">forceValue</a>.data = <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(&amp;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#afb23bf989920f5a2e07726c07b4b3ab1">force</a>);</div>
-<div class="line"><span class="lineno">   48</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">forceValue</a>.type = <a class="code hl_enumvalue" href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5a18814f886cf9f30ca199c1e81900fa03">EntityStatsManager::ValueType::VEC3F</a>;</div>
-<div class="line"><span class="lineno">   49</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">forceValue</a>.isModifiable = <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">   50</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">forceValue</a>.usesSlider = <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">   51</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">forceValue</a>.min = -1000.0F;</div>
-<div class="line"><span class="lineno">   52</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">forceValue</a>.max = 1000.0F;</div>
-<div class="line"><span class="lineno">   53</span>    values.push_back(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">forceValue</a>);</div>
-<div class="line"><span class="lineno">   54</span> </div>
-<div class="line"><span class="lineno">   55</span>    <a class="code hl_struct" href="class_entity_stats_manager.html#struct_entity_stats_manager_1_1_value">EntityStatsManager::Value</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">accelerationValue</a>;</div>
-<div class="line"><span class="lineno">   56</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">accelerationValue</a>.<a class="code hl_variable" href="class_entity_stats_manager.html#a8c007fcaab6bce263fb0e0d80b8bbbb7">name</a> = <span class="stringliteral">&quot;Acceleration&quot;</span>;</div>
-<div class="line"><span class="lineno">   57</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">accelerationValue</a>.data = <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(&amp;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#afb69d407abd506bbc7d855a73d43065c">acceleration</a>);</div>
-<div class="line"><span class="lineno">   58</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">accelerationValue</a>.type = <a class="code hl_enumvalue" href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5a18814f886cf9f30ca199c1e81900fa03">EntityStatsManager::ValueType::VEC3F</a>;</div>
-<div class="line"><span class="lineno">   59</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">accelerationValue</a>.isModifiable = <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">   60</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">accelerationValue</a>.usesSlider = <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">   61</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">accelerationValue</a>.min = -1000.0F;</div>
-<div class="line"><span class="lineno">   62</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">accelerationValue</a>.max = 1000.0F;</div>
-<div class="line"><span class="lineno">   63</span>    values.push_back(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">accelerationValue</a>);</div>
-<div class="line"><span class="lineno">   64</span> </div>
-<div class="line"><span class="lineno">   65</span>    <a class="code hl_struct" href="class_entity_stats_manager.html#struct_entity_stats_manager_1_1_value">EntityStatsManager::Value</a> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a660f04e1dd0ebc055f58b8aad7484140">affectedByGravity</a>;</div>
-<div class="line"><span class="lineno">   66</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a660f04e1dd0ebc055f58b8aad7484140">affectedByGravity</a>.<a class="code hl_variable" href="class_entity_stats_manager.html#a8c007fcaab6bce263fb0e0d80b8bbbb7">name</a> = <span class="stringliteral">&quot;Affected by gravity&quot;</span>;</div>
-<div class="line"><span class="lineno">   67</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a660f04e1dd0ebc055f58b8aad7484140">affectedByGravity</a>.data = <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(&amp;this-&gt;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a660f04e1dd0ebc055f58b8aad7484140">affectedByGravity</a>);</div>
-<div class="line"><span class="lineno">   68</span>    affectedByGravity.<a class="code hl_variable" href="class_entity_stats_manager.html#ae1ad6da826ba52258dab33baf40a5525">type</a> = <a class="code hl_enumvalue" href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5aa97b2c144243b2b9d2c593ec268b62f5">EntityStatsManager::ValueType::BOOL</a>;</div>
-<div class="line"><span class="lineno">   69</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a660f04e1dd0ebc055f58b8aad7484140">affectedByGravity</a>.isModifiable = <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">   70</span>    values.push_back(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a660f04e1dd0ebc055f58b8aad7484140">affectedByGravity</a>);</div>
-<div class="line"><span class="lineno">   71</span> </div>
-<div class="line"><span class="lineno">   72</span>    <a class="code hl_struct" href="class_entity_stats_manager.html#struct_entity_stats_manager_1_1_value">EntityStatsManager::Value</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">frictionValue</a>;</div>
-<div class="line"><span class="lineno">   73</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">frictionValue</a>.<a class="code hl_variable" href="class_entity_stats_manager.html#a8c007fcaab6bce263fb0e0d80b8bbbb7">name</a> = <span class="stringliteral">&quot;Friction&quot;</span>;</div>
-<div class="line"><span class="lineno">   74</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">frictionValue</a>.data = <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(&amp;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#afb8a0b6dd8eae927d2f23ac6e61c05d9">friction</a>);</div>
-<div class="line"><span class="lineno">   75</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">frictionValue</a>.type = <a class="code hl_enumvalue" href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5ae738c26bf4ce1037fa81b039a915cbf6">EntityStatsManager::ValueType::FLOAT</a>;</div>
-<div class="line"><span class="lineno">   76</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">frictionValue</a>.isModifiable = <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">   77</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">frictionValue</a>.usesSlider = <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">   78</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">frictionValue</a>.min = 0.0F;</div>
-<div class="line"><span class="lineno">   79</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">frictionValue</a>.max = 1.0F;</div>
-<div class="line"><span class="lineno">   80</span>    values.push_back(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">frictionValue</a>);</div>
-<div class="line"><span class="lineno">   81</span> </div>
-<div class="line"><span class="lineno">   82</span>    <span class="keywordflow">return</span> values;</div>
-<div class="line"><span class="lineno">   83</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_physics_8cpp_source.html#l00014">14</a> of file <a class="el" href="_physics_8cpp_source.html">Physics.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   14</span>                                                                             {</div>
+<div class="line"><span class="lineno">   15</span>    std::vector&lt;EntityStatsManager::Value&gt; values;</div>
+<div class="line"><span class="lineno">   16</span>    <a class="code hl_struct" href="class_entity_stats_manager.html#struct_entity_stats_manager_1_1_value">EntityStatsManager::Value</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">massValue</a>;</div>
+<div class="line"><span class="lineno">   17</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">massValue</a>.<a class="code hl_variable" href="class_entity_stats_manager.html#a8c007fcaab6bce263fb0e0d80b8bbbb7">name</a> = <span class="stringliteral">&quot;Mass&quot;</span>;</div>
+<div class="line"><span class="lineno">   18</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">massValue</a>.data = <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(&amp;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#af2d98d3c198d277541867567ffbd03d9">mass</a>);</div>
+<div class="line"><span class="lineno">   19</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">massValue</a>.type = <a class="code hl_enumvalue" href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5ae738c26bf4ce1037fa81b039a915cbf6">EntityStatsManager::ValueType::FLOAT</a>;</div>
+<div class="line"><span class="lineno">   20</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">massValue</a>.isModifiable = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   21</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">massValue</a>.usesSlider = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   22</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">massValue</a>.min = 0.1F; <span class="comment">// Lower value crashes &lt;= 0</span></div>
+<div class="line"><span class="lineno">   23</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">massValue</a>.max = 10000.0F;</div>
+<div class="line"><span class="lineno">   24</span>    values.push_back(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">massValue</a>);</div>
+<div class="line"><span class="lineno">   25</span> </div>
+<div class="line"><span class="lineno">   26</span>    <a class="code hl_struct" href="class_entity_stats_manager.html#struct_entity_stats_manager_1_1_value">EntityStatsManager::Value</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">velocityValue</a>;</div>
+<div class="line"><span class="lineno">   27</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">velocityValue</a>.<a class="code hl_variable" href="class_entity_stats_manager.html#a8c007fcaab6bce263fb0e0d80b8bbbb7">name</a> = <span class="stringliteral">&quot;Velocity&quot;</span>;</div>
+<div class="line"><span class="lineno">   28</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">velocityValue</a>.data = <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(&amp;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a331cbe367fa86bf1e3b5ee8b98d3acdd">velocity</a>);</div>
+<div class="line"><span class="lineno">   29</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">velocityValue</a>.type = <a class="code hl_enumvalue" href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5a18814f886cf9f30ca199c1e81900fa03">EntityStatsManager::ValueType::VEC3F</a>;</div>
+<div class="line"><span class="lineno">   30</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">velocityValue</a>.isModifiable = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   31</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">velocityValue</a>.usesSlider = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   32</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">velocityValue</a>.min = -1000.0F;</div>
+<div class="line"><span class="lineno">   33</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">velocityValue</a>.max = 1000.0F;</div>
+<div class="line"><span class="lineno">   34</span>    values.push_back(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">velocityValue</a>);</div>
+<div class="line"><span class="lineno">   35</span> </div>
+<div class="line"><span class="lineno">   36</span>    <a class="code hl_struct" href="class_entity_stats_manager.html#struct_entity_stats_manager_1_1_value">EntityStatsManager::Value</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">forceValue</a>;</div>
+<div class="line"><span class="lineno">   37</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">forceValue</a>.<a class="code hl_variable" href="class_entity_stats_manager.html#a8c007fcaab6bce263fb0e0d80b8bbbb7">name</a> = <span class="stringliteral">&quot;Force&quot;</span>;</div>
+<div class="line"><span class="lineno">   38</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">forceValue</a>.data = <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(&amp;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#afb23bf989920f5a2e07726c07b4b3ab1">force</a>);</div>
+<div class="line"><span class="lineno">   39</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">forceValue</a>.type = <a class="code hl_enumvalue" href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5a18814f886cf9f30ca199c1e81900fa03">EntityStatsManager::ValueType::VEC3F</a>;</div>
+<div class="line"><span class="lineno">   40</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">forceValue</a>.isModifiable = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   41</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">forceValue</a>.usesSlider = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   42</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">forceValue</a>.min = -1000.0F;</div>
+<div class="line"><span class="lineno">   43</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">forceValue</a>.max = 1000.0F;</div>
+<div class="line"><span class="lineno">   44</span>    values.push_back(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">forceValue</a>);</div>
+<div class="line"><span class="lineno">   45</span> </div>
+<div class="line"><span class="lineno">   46</span>    <a class="code hl_struct" href="class_entity_stats_manager.html#struct_entity_stats_manager_1_1_value">EntityStatsManager::Value</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">accelerationValue</a>;</div>
+<div class="line"><span class="lineno">   47</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">accelerationValue</a>.<a class="code hl_variable" href="class_entity_stats_manager.html#a8c007fcaab6bce263fb0e0d80b8bbbb7">name</a> = <span class="stringliteral">&quot;Acceleration&quot;</span>;</div>
+<div class="line"><span class="lineno">   48</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">accelerationValue</a>.data = <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(&amp;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#afb69d407abd506bbc7d855a73d43065c">acceleration</a>);</div>
+<div class="line"><span class="lineno">   49</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">accelerationValue</a>.type = <a class="code hl_enumvalue" href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5a18814f886cf9f30ca199c1e81900fa03">EntityStatsManager::ValueType::VEC3F</a>;</div>
+<div class="line"><span class="lineno">   50</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">accelerationValue</a>.isModifiable = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   51</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">accelerationValue</a>.usesSlider = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   52</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">accelerationValue</a>.min = -1000.0F;</div>
+<div class="line"><span class="lineno">   53</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">accelerationValue</a>.max = 1000.0F;</div>
+<div class="line"><span class="lineno">   54</span>    values.push_back(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">accelerationValue</a>);</div>
+<div class="line"><span class="lineno">   55</span> </div>
+<div class="line"><span class="lineno">   56</span>    <a class="code hl_struct" href="class_entity_stats_manager.html#struct_entity_stats_manager_1_1_value">EntityStatsManager::Value</a> <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a660f04e1dd0ebc055f58b8aad7484140">affectedByGravity</a>;</div>
+<div class="line"><span class="lineno">   57</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a660f04e1dd0ebc055f58b8aad7484140">affectedByGravity</a>.<a class="code hl_variable" href="class_entity_stats_manager.html#a8c007fcaab6bce263fb0e0d80b8bbbb7">name</a> = <span class="stringliteral">&quot;Affected by gravity&quot;</span>;</div>
+<div class="line"><span class="lineno">   58</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a660f04e1dd0ebc055f58b8aad7484140">affectedByGravity</a>.data = <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(&amp;this-&gt;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a660f04e1dd0ebc055f58b8aad7484140">affectedByGravity</a>);</div>
+<div class="line"><span class="lineno">   59</span>    affectedByGravity.<a class="code hl_variable" href="class_entity_stats_manager.html#ae1ad6da826ba52258dab33baf40a5525">type</a> = <a class="code hl_enumvalue" href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5aa97b2c144243b2b9d2c593ec268b62f5">EntityStatsManager::ValueType::BOOL</a>;</div>
+<div class="line"><span class="lineno">   60</span>    <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a660f04e1dd0ebc055f58b8aad7484140">affectedByGravity</a>.isModifiable = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   61</span>    values.push_back(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a660f04e1dd0ebc055f58b8aad7484140">affectedByGravity</a>);</div>
+<div class="line"><span class="lineno">   62</span> </div>
+<div class="line"><span class="lineno">   63</span>    <a class="code hl_struct" href="class_entity_stats_manager.html#struct_entity_stats_manager_1_1_value">EntityStatsManager::Value</a> <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">frictionValue</a>;</div>
+<div class="line"><span class="lineno">   64</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">frictionValue</a>.<a class="code hl_variable" href="class_entity_stats_manager.html#a8c007fcaab6bce263fb0e0d80b8bbbb7">name</a> = <span class="stringliteral">&quot;Friction&quot;</span>;</div>
+<div class="line"><span class="lineno">   65</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">frictionValue</a>.data = <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(&amp;<a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#afb8a0b6dd8eae927d2f23ac6e61c05d9">friction</a>);</div>
+<div class="line"><span class="lineno">   66</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">frictionValue</a>.type = <a class="code hl_enumvalue" href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5ae738c26bf4ce1037fa81b039a915cbf6">EntityStatsManager::ValueType::FLOAT</a>;</div>
+<div class="line"><span class="lineno">   67</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">frictionValue</a>.isModifiable = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   68</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">frictionValue</a>.usesSlider = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   69</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">frictionValue</a>.min = 0.0F;</div>
+<div class="line"><span class="lineno">   70</span>    <a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">frictionValue</a>.max = 1.0F;</div>
+<div class="line"><span class="lineno">   71</span>    values.push_back(<a class="code hl_variable" href="namespace_g_l_e_s_c.html#a7c64a4da2d1da1597f4ec563d00bb9f8">frictionValue</a>);</div>
+<div class="line"><span class="lineno">   72</span> </div>
+<div class="line"><span class="lineno">   73</span>    <span class="keywordflow">return</span> values;</div>
+<div class="line"><span class="lineno">   74</span>}</div>
 <div class="ttc" id="aclass_entity_stats_manager_html_a8c007fcaab6bce263fb0e0d80b8bbbb7"><div class="ttname"><a href="class_entity_stats_manager.html#a8c007fcaab6bce263fb0e0d80b8bbbb7">EntityStatsManager::Value::name</a></div><div class="ttdeci">std::string name</div><div class="ttdef"><b>Definition</b> <a href="_entity_stats_manager_8h_source.html#l00045">EntityStatsManager.h:45</a></div></div>
 <div class="ttc" id="aclass_entity_stats_manager_html_a90c422bca5e42d1af36c4cc10d642ad5a18814f886cf9f30ca199c1e81900fa03"><div class="ttname"><a href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5a18814f886cf9f30ca199c1e81900fa03">EntityStatsManager::ValueType::VEC3F</a></div><div class="ttdeci">@ VEC3F</div></div>
 <div class="ttc" id="aclass_entity_stats_manager_html_a90c422bca5e42d1af36c4cc10d642ad5aa97b2c144243b2b9d2c593ec268b62f5"><div class="ttname"><a href="class_entity_stats_manager.html#a90c422bca5e42d1af36c4cc10d642ad5aa97b2c144243b2b9d2c593ec268b62f5">EntityStatsManager::ValueType::BOOL</a></div><div class="ttdeci">@ BOOL</div></div>
@@ -989,7 +989,7 @@ Here is the caller graph for this function:</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_physics_8h_source.html#l00087">force</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_physics_manager_8cpp_source.html#l00014">GLESC::Physics::PhysicsManager::applyForces()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_physics_manager_8cpp_source.html#l00005">GLESC::Physics::PhysicsManager::applyForces()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1026,7 +1026,7 @@ Here is the caller graph for this function:</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_physics_8h_source.html#l00080">friction</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_physics_manager_8cpp_source.html#l00089">GLESC::Physics::getVelocityWithFriction()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_physics_manager_8cpp_source.html#l00081">GLESC::Physics::getVelocityWithFriction()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1063,7 +1063,7 @@ Here is the caller graph for this function:</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_physics_8h_source.html#l00079">mass</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_physics_manager_8cpp_source.html#l00014">GLESC::Physics::PhysicsManager::applyForces()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_physics_manager_8cpp_source.html#l00005">GLESC::Physics::PhysicsManager::applyForces()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1100,7 +1100,7 @@ Here is the caller graph for this function:</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_physics_8h_source.html#l00085">velocity</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_physics_manager_8cpp_source.html#l00014">GLESC::Physics::PhysicsManager::applyForces()</a>, <a class="el" href="_physics_manager_8cpp_source.html#l00089">GLESC::Physics::getVelocityWithFriction()</a>, <a class="el" href="_physics_manager_8cpp_source.html#l00115">GLESC::Physics::PhysicsManager::handleCollisions()</a>, <a class="el" href="_physics_manager_8cpp_source.html#l00104">GLESC::Physics::isFrictionApplied()</a>, and <a class="el" href="_physics_manager_8cpp_source.html#l00044">GLESC::Physics::PhysicsManager::updateTransform()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_physics_manager_8cpp_source.html#l00005">GLESC::Physics::PhysicsManager::applyForces()</a>, <a class="el" href="_physics_manager_8cpp_source.html#l00081">GLESC::Physics::getVelocityWithFriction()</a>, <a class="el" href="_physics_manager_8cpp_source.html#l00107">GLESC::Physics::PhysicsManager::handleCollisions()</a>, <a class="el" href="_physics_manager_8cpp_source.html#l00096">GLESC::Physics::isFrictionApplied()</a>, and <a class="el" href="_physics_manager_8cpp_source.html#l00036">GLESC::Physics::PhysicsManager::updateTransform()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1168,7 +1168,7 @@ Here is the caller graph for this function:</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_physics_8h_source.html#l00094">affectedByGravity</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_physics_manager_8cpp_source.html#l00014">GLESC::Physics::PhysicsManager::applyForces()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_physics_manager_8cpp_source.html#l00005">GLESC::Physics::PhysicsManager::applyForces()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1206,7 +1206,7 @@ Here is the caller graph for this function:</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_physics_8h_source.html#l00093">staticObj</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_physics_manager_8cpp_source.html#l00014">GLESC::Physics::PhysicsManager::applyForces()</a>, <a class="el" href="_physics_manager_8cpp_source.html#l00115">GLESC::Physics::PhysicsManager::handleCollisions()</a>, and <a class="el" href="_physics_8h_source.html#l00055">setStatic()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_physics_manager_8cpp_source.html#l00005">GLESC::Physics::PhysicsManager::applyForces()</a>, <a class="el" href="_physics_manager_8cpp_source.html#l00107">GLESC::Physics::PhysicsManager::handleCollisions()</a>, and <a class="el" href="_physics_8h_source.html#l00055">setStatic()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1244,7 +1244,7 @@ Here is the caller graph for this function:</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_physics_8h_source.html#l00086">acceleration</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_physics_manager_8cpp_source.html#l00014">GLESC::Physics::PhysicsManager::applyForces()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_physics_manager_8cpp_source.html#l00005">GLESC::Physics::PhysicsManager::applyForces()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1529,7 +1529,7 @@ Here is the caller graph for this function:</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_physics_8h_source.html#l00087">force</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_physics_manager_8cpp_source.html#l00014">GLESC::Physics::PhysicsManager::applyForces()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_physics_manager_8cpp_source.html#l00005">GLESC::Physics::PhysicsManager::applyForces()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1701,7 +1701,7 @@ Here is the call graph for this function:</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_physics_8h_source.html#l00085">velocity</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_physics_manager_8cpp_source.html#l00014">GLESC::Physics::PhysicsManager::applyForces()</a>, and <a class="el" href="_physics_manager_8cpp_source.html#l00115">GLESC::Physics::PhysicsManager::handleCollisions()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_physics_manager_8cpp_source.html#l00005">GLESC::Physics::PhysicsManager::applyForces()</a>, and <a class="el" href="_physics_manager_8cpp_source.html#l00107">GLESC::Physics::PhysicsManager::handleCollisions()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1735,15 +1735,15 @@ Here is the caller graph for this function:</div>
 
 <p>Implements <a class="el" href="class_engine_component.html#a5c270b03e00b65e00739a4a3d01c0829">EngineComponent</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_physics_8cpp_source.html#l00014">14</a> of file <a class="el" href="_physics_8cpp_source.html">Physics.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   14</span>                                                {</div>
-<div class="line"><span class="lineno">   15</span>    <span class="keywordflow">return</span> <span class="stringliteral">&quot;Physics: &quot;</span> +</div>
-<div class="line"><span class="lineno">   16</span>        std::to_string(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#af2d98d3c198d277541867567ffbd03d9">mass</a>) + <span class="stringliteral">&quot; &quot;</span> +</div>
-<div class="line"><span class="lineno">   17</span>        <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a331cbe367fa86bf1e3b5ee8b98d3acdd">velocity</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_vector.html#a6a6098658d8dbebb1e3e73cd649074cc">toString</a>() + <span class="stringliteral">&quot; &quot;</span> +</div>
-<div class="line"><span class="lineno">   18</span>        <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#afb69d407abd506bbc7d855a73d43065c">acceleration</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_vector.html#a6a6098658d8dbebb1e3e73cd649074cc">toString</a>() + <span class="stringliteral">&quot; &quot;</span> +</div>
-<div class="line"><span class="lineno">   19</span>        <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#afb23bf989920f5a2e07726c07b4b3ab1">force</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_vector.html#a6a6098658d8dbebb1e3e73cd649074cc">toString</a>() + <span class="stringliteral">&quot; &quot;</span> +</div>
-<div class="line"><span class="lineno">   20</span>        std::to_string(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a660f04e1dd0ebc055f58b8aad7484140">affectedByGravity</a>);</div>
-<div class="line"><span class="lineno">   21</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_physics_8cpp_source.html#l00005">5</a> of file <a class="el" href="_physics_8cpp_source.html">Physics.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">    5</span>                                                {</div>
+<div class="line"><span class="lineno">    6</span>    <span class="keywordflow">return</span> <span class="stringliteral">&quot;Physics: &quot;</span> +</div>
+<div class="line"><span class="lineno">    7</span>        std::to_string(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#af2d98d3c198d277541867567ffbd03d9">mass</a>) + <span class="stringliteral">&quot; &quot;</span> +</div>
+<div class="line"><span class="lineno">    8</span>        <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a331cbe367fa86bf1e3b5ee8b98d3acdd">velocity</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_vector.html#a6a6098658d8dbebb1e3e73cd649074cc">toString</a>() + <span class="stringliteral">&quot; &quot;</span> +</div>
+<div class="line"><span class="lineno">    9</span>        <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#afb69d407abd506bbc7d855a73d43065c">acceleration</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_vector.html#a6a6098658d8dbebb1e3e73cd649074cc">toString</a>() + <span class="stringliteral">&quot; &quot;</span> +</div>
+<div class="line"><span class="lineno">   10</span>        <a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#afb23bf989920f5a2e07726c07b4b3ab1">force</a>.<a class="code hl_function" href="class_g_l_e_s_c_1_1_math_1_1_vector.html#a6a6098658d8dbebb1e3e73cd649074cc">toString</a>() + <span class="stringliteral">&quot; &quot;</span> +</div>
+<div class="line"><span class="lineno">   11</span>        std::to_string(<a class="code hl_variable" href="class_g_l_e_s_c_1_1_physics_1_1_physics.html#a660f04e1dd0ebc055f58b8aad7484140">affectedByGravity</a>);</div>
+<div class="line"><span class="lineno">   12</span>}</div>
 <div class="ttc" id="aclass_g_l_e_s_c_1_1_math_1_1_vector_html_a6a6098658d8dbebb1e3e73cd649074cc"><div class="ttname"><a href="class_g_l_e_s_c_1_1_math_1_1_vector.html#a6a6098658d8dbebb1e3e73cd649074cc">GLESC::Math::Vector::toString</a></div><div class="ttdeci">std::string toString() const</div><div class="ttdoc">Converts the vector to string.</div><div class="ttdef"><b>Definition</b> <a href="_vector_8h_source.html#l01136">Vector.h:1136</a></div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_physics_8h_source.html#l00086">acceleration</a>, <a class="el" href="_physics_8h_source.html#l00094">affectedByGravity</a>, <a class="el" href="_physics_8h_source.html#l00087">force</a>, <a class="el" href="_physics_8h_source.html#l00079">mass</a>, <a class="el" href="_vector_8h_source.html#l01136">GLESC::Math::Vector&lt; Type, N &gt;::toString()</a>, and <a class="el" href="_physics_8h_source.html#l00085">velocity</a>.</p>
@@ -1786,7 +1786,7 @@ Here is the caller graph for this function:</div>
 <p class="definition">Definition at line <a class="el" href="_physics_8h_source.html#l00086">86</a> of file <a class="el" href="_physics_8h_source.html">Physics.h</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   86</span>{0, 0, 0};</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="_physics_8h_source.html#l00041">addAcceleration()</a>, <a class="el" href="_physics_8h_source.html#l00043">addDirectionalAcceleration()</a>, <a class="el" href="_physics_8h_source.html#l00063">getAcceleration()</a>, <a class="el" href="_physics_8cpp_source.html#l00023">getDebuggingValues()</a>, <a class="el" href="_physics_8h_source.html#l00042">setAcceleration()</a>, <a class="el" href="_physics_8h_source.html#l00044">setDirectionalAcceleration()</a>, and <a class="el" href="_physics_8cpp_source.html#l00014">toString()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_physics_8h_source.html#l00041">addAcceleration()</a>, <a class="el" href="_physics_8h_source.html#l00043">addDirectionalAcceleration()</a>, <a class="el" href="_physics_8h_source.html#l00063">getAcceleration()</a>, <a class="el" href="_physics_8cpp_source.html#l00014">getDebuggingValues()</a>, <a class="el" href="_physics_8h_source.html#l00042">setAcceleration()</a>, <a class="el" href="_physics_8h_source.html#l00044">setDirectionalAcceleration()</a>, and <a class="el" href="_physics_8cpp_source.html#l00005">toString()</a>.</p>
 
 </div>
 </div>
@@ -1813,7 +1813,7 @@ Here is the caller graph for this function:</div>
 <p class="definition">Definition at line <a class="el" href="_physics_8h_source.html#l00094">94</a> of file <a class="el" href="_physics_8h_source.html">Physics.h</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   94</span>{<span class="keyword">true</span>};</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="_physics_8cpp_source.html#l00023">getDebuggingValues()</a>, <a class="el" href="_physics_8h_source.html#l00066">isAffectedByGravity()</a>, <a class="el" href="_physics_8h_source.html#l00054">setAffectedByGravity()</a>, and <a class="el" href="_physics_8cpp_source.html#l00014">toString()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_physics_8cpp_source.html#l00014">getDebuggingValues()</a>, <a class="el" href="_physics_8h_source.html#l00066">isAffectedByGravity()</a>, <a class="el" href="_physics_8h_source.html#l00054">setAffectedByGravity()</a>, and <a class="el" href="_physics_8cpp_source.html#l00005">toString()</a>.</p>
 
 </div>
 </div>
@@ -1949,7 +1949,7 @@ Here is the caller graph for this function:</div>
 <p class="definition">Definition at line <a class="el" href="_physics_8h_source.html#l00087">87</a> of file <a class="el" href="_physics_8h_source.html">Physics.h</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   87</span>{0, 0, 0};</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="_physics_8h_source.html#l00051">addDirectionalForce()</a>, <a class="el" href="_physics_8h_source.html#l00049">addForce()</a>, <a class="el" href="_physics_8cpp_source.html#l00023">getDebuggingValues()</a>, <a class="el" href="_physics_8h_source.html#l00062">getForce()</a>, <a class="el" href="_physics_8h_source.html#l00050">setDirectionalForce()</a>, <a class="el" href="_physics_8h_source.html#l00048">setForce()</a>, and <a class="el" href="_physics_8cpp_source.html#l00014">toString()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_physics_8h_source.html#l00051">addDirectionalForce()</a>, <a class="el" href="_physics_8h_source.html#l00049">addForce()</a>, <a class="el" href="_physics_8cpp_source.html#l00014">getDebuggingValues()</a>, <a class="el" href="_physics_8h_source.html#l00062">getForce()</a>, <a class="el" href="_physics_8h_source.html#l00050">setDirectionalForce()</a>, <a class="el" href="_physics_8h_source.html#l00048">setForce()</a>, and <a class="el" href="_physics_8cpp_source.html#l00005">toString()</a>.</p>
 
 </div>
 </div>
@@ -1976,7 +1976,7 @@ Here is the caller graph for this function:</div>
 <p class="definition">Definition at line <a class="el" href="_physics_8h_source.html#l00080">80</a> of file <a class="el" href="_physics_8h_source.html">Physics.h</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   80</span>{0.01f};</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="_physics_8h_source.html#l00031">addFriciton()</a>, <a class="el" href="_physics_8cpp_source.html#l00023">getDebuggingValues()</a>, <a class="el" href="_physics_8h_source.html#l00059">getFriction()</a>, and <a class="el" href="_physics_8h_source.html#l00030">setFriction()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_physics_8h_source.html#l00031">addFriciton()</a>, <a class="el" href="_physics_8cpp_source.html#l00014">getDebuggingValues()</a>, <a class="el" href="_physics_8h_source.html#l00059">getFriction()</a>, and <a class="el" href="_physics_8h_source.html#l00030">setFriction()</a>.</p>
 
 </div>
 </div>
@@ -2003,7 +2003,7 @@ Here is the caller graph for this function:</div>
 <p class="definition">Definition at line <a class="el" href="_physics_8h_source.html#l00079">79</a> of file <a class="el" href="_physics_8h_source.html">Physics.h</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   79</span>{1.0F};</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="_physics_8h_source.html#l00026">addMass()</a>, <a class="el" href="_physics_8cpp_source.html#l00023">getDebuggingValues()</a>, <a class="el" href="_physics_8h_source.html#l00058">getMass()</a>, <a class="el" href="_physics_8h_source.html#l00021">setMass()</a>, <a class="el" href="_physics_8h_source.html#l00027">setMass()</a>, and <a class="el" href="_physics_8cpp_source.html#l00014">toString()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_physics_8h_source.html#l00026">addMass()</a>, <a class="el" href="_physics_8cpp_source.html#l00014">getDebuggingValues()</a>, <a class="el" href="_physics_8h_source.html#l00058">getMass()</a>, <a class="el" href="_physics_8h_source.html#l00021">setMass()</a>, <a class="el" href="_physics_8h_source.html#l00027">setMass()</a>, and <a class="el" href="_physics_8cpp_source.html#l00005">toString()</a>.</p>
 
 </div>
 </div>
@@ -2057,7 +2057,7 @@ Here is the caller graph for this function:</div>
 <p class="definition">Definition at line <a class="el" href="_physics_8h_source.html#l00085">85</a> of file <a class="el" href="_physics_8h_source.html">Physics.h</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   85</span>{0, 0, 0};</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="_physics_8h_source.html#l00037">addDirectionalVelocity()</a>, <a class="el" href="_physics_8h_source.html#l00034">addVelocity()</a>, <a class="el" href="_physics_8cpp_source.html#l00023">getDebuggingValues()</a>, <a class="el" href="_physics_8h_source.html#l00061">getVelocity()</a>, <a class="el" href="_physics_8h_source.html#l00036">setDirectionalVelocity()</a>, <a class="el" href="_physics_8h_source.html#l00035">setVelocity()</a>, and <a class="el" href="_physics_8cpp_source.html#l00014">toString()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_physics_8h_source.html#l00037">addDirectionalVelocity()</a>, <a class="el" href="_physics_8h_source.html#l00034">addVelocity()</a>, <a class="el" href="_physics_8cpp_source.html#l00014">getDebuggingValues()</a>, <a class="el" href="_physics_8h_source.html#l00061">getVelocity()</a>, <a class="el" href="_physics_8h_source.html#l00036">setDirectionalVelocity()</a>, <a class="el" href="_physics_8h_source.html#l00035">setVelocity()</a>, and <a class="el" href="_physics_8cpp_source.html#l00005">toString()</a>.</p>
 
 </div>
 </div>

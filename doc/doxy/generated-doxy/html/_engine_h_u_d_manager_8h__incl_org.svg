@@ -487,7 +487,7 @@
 <!-- Node53 -->
 <g id="Node000053" class="node">
 <title>Node53</title>
-<g id="a_Node000053"><a xlink:href="_shader_8h.html" target="_top" xlink:title="Class for handling shaders.">
+<g id="a_Node000053"><a xlink:href="_shader_8h.html" target="_top" xlink:title="Class for managing and utilizing shader programs in the graphics pipeline.">
 <polygon fill="white" stroke="#666666" points="2313.14,-248 2184.64,-248 2184.64,-216 2313.14,-216 2313.14,-248"/>
 <text text-anchor="start" x="2192.64" y="-234.5" font-family="Helvetica,sans-Serif" font-size="10.00">engine/core/low&#45;level</text>
 <text text-anchor="middle" x="2248.89" y="-222.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;renderer/shader/Shader.h</text>
@@ -506,7 +506,7 @@
 <!-- Node62 -->
 <g id="Node000062" class="node">
 <title>Node62</title>
-<g id="a_Node000062"><a xlink:href="_window_manager_8h.html" target="_top" xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000062"><a xlink:href="_window_manager_8h.html" target="_top" xlink:title="Manages the main application window and its properties.">
 <polygon fill="white" stroke="#666666" points="2004.26,-316 1903.51,-316 1903.51,-284 2004.26,-284 2004.26,-316"/>
 <text text-anchor="start" x="1911.51" y="-302.5" font-family="Helvetica,sans-Serif" font-size="10.00">engine/core/window</text>
 <text text-anchor="middle" x="1953.89" y="-290.5" font-family="Helvetica,sans-Serif" font-size="10.00">/WindowManager.h</text>
@@ -826,7 +826,7 @@
 <!-- Node64 -->
 <g id="Node000064" class="node">
 <title>Node64</title>
-<g id="a_Node000064"><a xlink:href="_window_structs_8h.html" target="_top" xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000064"><a xlink:href="_window_structs_8h.html" target="_top" xlink:title="Defines structures related to window properties.">
 <polygon fill="white" stroke="#666666" points="1903.01,-242 1812.76,-242 1812.76,-222 1903.01,-222 1903.01,-242"/>
 <text text-anchor="middle" x="1857.89" y="-228.5" font-family="Helvetica,sans-Serif" font-size="10.00">WindowStructs.h</text>
 </a>

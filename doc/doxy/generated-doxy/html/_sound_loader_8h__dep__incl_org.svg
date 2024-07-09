@@ -20,7 +20,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="_sound_loader_8cpp.html" target="_top" xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000002"><a xlink:href="_sound_loader_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="91.75,-76 0,-76 0,-56 91.75,-56 91.75,-76"/>
 <text text-anchor="middle" x="45.88" y="-62.5" font-family="Helvetica,sans-Serif" font-size="10.00">SoundLoader.cpp</text>
 </a>
@@ -38,7 +38,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="_sound_player_8cpp.html" target="_top" xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000003"><a xlink:href="_sound_player_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="165,-20 74.75,-20 74.75,0 165,0 165,-20"/>
 <text text-anchor="middle" x="119.88" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">SoundPlayer.cpp</text>
 </a>

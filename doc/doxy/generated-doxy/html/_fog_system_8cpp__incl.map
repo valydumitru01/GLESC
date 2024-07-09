@@ -1,5 +1,5 @@
 <map id="FogSystem.cpp" name="FogSystem.cpp">
-<area shape="rect" id="Node000001" title="@TODO Add description of this file if needed" alt="" coords="1331,5,1445,32"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="1331,5,1445,32"/>
 <area shape="rect" id="Node000002" href="$_fog_system_8h.html" title="System that updates the fog in the scene." alt="" coords="1433,80,1637,123"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1412,30,1485,70,1482,75,1410,35"/>
 <area shape="rect" id="Node000102" href="$_fog_component_8h.html" title="@TODO Add description of this file if needed" alt="" coords="887,80,1079,123"/>
@@ -37,9 +37,9 @@
 <area shape="poly" id="edge17_Node000045_Node000005" title=" " alt="" coords="1628,193,1832,201,2089,214,2337,233,2439,245,2516,259,2587,272,2643,283,2669,292,2694,305,2719,324,2746,350,2761,372,2771,396,2781,442,2776,444,2766,398,2756,374,2742,354,2716,328,2691,310,2666,297,2641,288,2586,277,2516,264,2438,251,2336,239,2088,220,1832,207,1628,199"/>
 <area shape="rect" id="Node000046" href="$_counter_8h.html" title="Class to encapsulate the logic of counting." alt="" coords="1362,261,1497,304"/>
 <area shape="poly" id="edge18_Node000045_Node000046" title=" " alt="" coords="1512,216,1467,253,1464,249,1509,212"/>
-<area shape="rect" id="Node000047" href="$_shader_8h.html" title="Class for handling shaders." alt="" coords="2356,352,2527,395"/>
+<area shape="rect" id="Node000047" href="$_shader_8h.html" title="Class for managing and utilizing shader programs in the graphics pipeline." alt="" coords="2356,352,2527,395"/>
 <area shape="poly" id="edge19_Node000045_Node000047" title=" " alt="" coords="1628,200,1816,223,2033,259,2210,301,2362,344,2360,350,2209,306,2031,264,1815,228,1628,205"/>
-<area shape="rect" id="Node000068" href="$_window_manager_8h.html" title="@TODO Add description of this file if needed" alt="" coords="2492,451,2626,493"/>
+<area shape="rect" id="Node000068" href="$_window_manager_8h.html" title="Manages the main application window and its properties." alt="" coords="2492,451,2626,493"/>
 <area shape="poly" id="edge26_Node000045_Node000068" title=" " alt="" coords="1628,193,1845,200,2109,212,2346,232,2430,244,2479,259,2500,275,2517,295,2541,342,2554,392,2560,435,2555,436,2549,393,2536,344,2513,298,2496,279,2476,264,2429,249,2345,237,2109,218,1845,205,1628,198"/>
 <area shape="rect" id="Node000071" href="$_renderer_types_8h.html" title="@TODO Add description of this file if needed" alt="" coords="999,451,1185,493"/>
 <area shape="poly" id="edge31_Node000045_Node000071" title=" " alt="" coords="1442,207,1255,234,1177,249,1135,264,1118,280,1106,300,1091,346,1087,394,1089,435,1084,436,1082,393,1086,345,1101,298,1114,277,1132,259,1175,244,1254,228,1441,202"/>
@@ -78,7 +78,7 @@
 <area shape="poly" id="edge29_Node000068_Node000050" title=" " alt="" coords="2492,490,2173,559,2172,554,2491,485"/>
 <area shape="rect" id="Node000069" title=" " alt="" coords="2585,565,2679,592"/>
 <area shape="poly" id="edge28_Node000068_Node000069" title=" " alt="" coords="2575,492,2617,551,2612,554,2571,495"/>
-<area shape="rect" id="Node000070" href="$_window_structs_8h.html" title="@TODO Add description of this file if needed" alt="" coords="2441,565,2562,592"/>
+<area shape="rect" id="Node000070" href="$_window_structs_8h.html" title="Defines structures related to window properties." alt="" coords="2441,565,2562,592"/>
 <area shape="poly" id="edge30_Node000068_Node000070" title=" " alt="" coords="2550,495,2518,553,2513,550,2545,493"/>
 <area shape="rect" id="Node000028" href="$_stringer_8h.html" title="A set of functions for converting objects to strings." alt="" coords="842,557,987,600"/>
 <area shape="poly" id="edge32_Node000071_Node000028" title=" " alt="" coords="1058,496,964,551,961,547,1056,492"/>

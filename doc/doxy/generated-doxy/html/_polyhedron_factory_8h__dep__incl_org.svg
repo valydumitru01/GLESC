@@ -20,7 +20,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="_polyhedron_factory_8cpp.html" target="_top" xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000002"><a xlink:href="_polyhedron_factory_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="116.5,-20 0,-20 0,0 116.5,0 116.5,-20"/>
 <text text-anchor="middle" x="58.25" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">PolyhedronFactory.cpp</text>
 </a>

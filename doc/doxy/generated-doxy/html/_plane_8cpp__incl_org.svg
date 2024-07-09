@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000001"><a xlink:title=" ">
 <polygon fill="#999999" stroke="#666666" points="626.75,-812 567.25,-812 567.25,-792 626.75,-792 626.75,-812"/>
 <text text-anchor="middle" x="597" y="-798.5" font-family="Helvetica,sans-Serif" font-size="10.00">Plane.cpp</text>
 </a>

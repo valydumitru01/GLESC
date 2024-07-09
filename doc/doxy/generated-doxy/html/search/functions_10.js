@@ -123,7 +123,7 @@ var searchData=
   ['size_120',['size',['../class_g_l_e_s_c_1_1_math_1_1_vector.html#aa87b548618694d0aba0e74b43a2b805a',1,'GLESC::Math::Vector']]],
   ['skybox_121',['Skybox',['../class_g_l_e_s_c_1_1_render_1_1_skybox.html#ae4aedb73fb9a7df258e9076f6f49767c',1,'GLESC::Render::Skybox']]],
   ['slider_122',['slider',['../_debug_entity_data_h_u_d_8cpp.html#ac4999e7aaab8901e534b6d784db62ebe',1,'DebugEntityDataHUD.cpp']]],
-  ['sphere_123',['sphere',['../class_g_l_e_s_c_1_1_math_1_1_sphere.html#a60a90d68ee87eb4e1f7ad432f55600c9',1,'GLESC::Math::Sphere::Sphere()'],['../class_g_l_e_s_c_1_1_render_1_1_mesh_factory.html#ac34bbd39823c1d507524e1395305e310',1,'GLESC::Render::MeshFactory::sphere()']]],
+  ['sphere_123',['sphere',['../class_g_l_e_s_c_1_1_render_1_1_mesh_factory.html#ac34bbd39823c1d507524e1395305e310',1,'GLESC::Render::MeshFactory::sphere()'],['../class_g_l_e_s_c_1_1_math_1_1_sphere.html#a60a90d68ee87eb4e1f7ad432f55600c9',1,'GLESC::Math::Sphere::Sphere()']]],
   ['sqrt_124',['sqrt',['../namespace_g_l_e_s_c_1_1_math.html#ab2316a2512c43c18e29709201adf3fe5',1,'GLESC::Math']]],
   ['start_125',['start',['../class_g_l_e_s_c_1_1_render_1_1_renderer.html#a0f562e14a9fb4e13e03bc108b5dd1111',1,'GLESC::Render::Renderer::start()'],['../class_g_l_e_s_c_1_1_timer.html#a913b672f2b07620d01f46b05d8e40832',1,'GLESC::Timer::start()']]],
   ['startbuilding_126',['startBuilding',['../class_g_l_e_s_c_1_1_render_1_1_mesh.html#a9d11210ab41990859c0885c1e47603d9',1,'GLESC::Render::Mesh']]],

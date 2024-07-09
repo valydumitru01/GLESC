@@ -57,7 +57,7 @@ var sectionId = 'dynsection-0';
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000001"><a xlink:title=" ">
 <polygon fill="#999999" stroke="#666666" points="231.54,-756 118.04,-756 118.04,-736 231.54,-736 231.54,-756"/>
 <text text-anchor="middle" x="174.79" y="-742.5" font-family="Helvetica,sans-Serif" font-size="10.00">HudItemsManager.cpp</text>
 </a>

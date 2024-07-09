@@ -170,17 +170,17 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_bin_path_8cpp_source.html#l00045">45</a> of file <a class="el" href="_bin_path_8cpp_source.html">BinPath.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   45</span>                                          {</div>
-<div class="line"><span class="lineno">   46</span>    std::string execPath = <a class="code hl_function" href="class_bin_path.html#afc63e7a8201f134535b3531659dd97a3">getExecutablePath</a>();</div>
-<div class="line"><span class="lineno">   47</span>    <span class="keywordtype">size_t</span> lastSlash = execPath.find_last_of(<span class="stringliteral">&quot;/\\&quot;</span>);</div>
-<div class="line"><span class="lineno">   48</span>    <span class="keywordflow">return</span> execPath.substr(0, lastSlash);</div>
-<div class="line"><span class="lineno">   49</span>}</div>
-<div class="ttc" id="aclass_bin_path_html_afc63e7a8201f134535b3531659dd97a3"><div class="ttname"><a href="class_bin_path.html#afc63e7a8201f134535b3531659dd97a3">BinPath::getExecutablePath</a></div><div class="ttdeci">static std::string getExecutablePath()</div><div class="ttdef"><b>Definition</b> <a href="_bin_path_8cpp_source.html#l00021">BinPath.cpp:21</a></div></div>
+<p class="definition">Definition at line <a class="el" href="_bin_path_8cpp_source.html#l00036">36</a> of file <a class="el" href="_bin_path_8cpp_source.html">BinPath.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   36</span>                                          {</div>
+<div class="line"><span class="lineno">   37</span>    std::string execPath = <a class="code hl_function" href="class_bin_path.html#afc63e7a8201f134535b3531659dd97a3">getExecutablePath</a>();</div>
+<div class="line"><span class="lineno">   38</span>    <span class="keywordtype">size_t</span> lastSlash = execPath.find_last_of(<span class="stringliteral">&quot;/\\&quot;</span>);</div>
+<div class="line"><span class="lineno">   39</span>    <span class="keywordflow">return</span> execPath.substr(0, lastSlash);</div>
+<div class="line"><span class="lineno">   40</span>}</div>
+<div class="ttc" id="aclass_bin_path_html_afc63e7a8201f134535b3531659dd97a3"><div class="ttname"><a href="class_bin_path.html#afc63e7a8201f134535b3531659dd97a3">BinPath::getExecutablePath</a></div><div class="ttdeci">static std::string getExecutablePath()</div><div class="ttdef"><b>Definition</b> <a href="_bin_path_8cpp_source.html#l00012">BinPath.cpp:12</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_bin_path_8cpp_source.html#l00021">getExecutablePath()</a>.</p>
+<p class="reference">References <a class="el" href="_bin_path_8cpp_source.html#l00012">getExecutablePath()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_h_u_d_look_and_feel_8cpp_source.html#l00021">HudLookAndFeel::addFont()</a>, <a class="el" href="_texture_loader_8cpp_source.html#l00018">GLESC::TextureLoader::createSurface()</a>, <a class="el" href="_sound_loader_8cpp_source.html#l00052">GLESC::SoundLoader::loadMusic()</a>, <a class="el" href="_shader_loader_8cpp_source.html#l00019">GLESC::GAPI::ShaderLoader::loadShader()</a>, <a class="el" href="_sound_loader_8cpp_source.html#l00043">GLESC::SoundLoader::loadSound()</a>, and <a class="el" href="_window_manager_8cpp_source.html#l00105">GLESC::WindowManager::setIcon()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_h_u_d_look_and_feel_8cpp_source.html#l00012">HudLookAndFeel::addFont()</a>, <a class="el" href="_texture_loader_8cpp_source.html#l00009">GLESC::TextureLoader::createSurface()</a>, <a class="el" href="_sound_loader_8cpp_source.html#l00043">GLESC::SoundLoader::loadMusic()</a>, <a class="el" href="_shader_loader_8cpp_source.html#l00010">GLESC::GAPI::ShaderLoader::loadShader()</a>, <a class="el" href="_sound_loader_8cpp_source.html#l00034">GLESC::SoundLoader::loadSound()</a>, and <a class="el" href="_window_manager_8cpp_source.html#l00096">GLESC::WindowManager::setIcon()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -217,32 +217,32 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_bin_path_8cpp_source.html#l00021">21</a> of file <a class="el" href="_bin_path_8cpp_source.html">BinPath.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   21</span>                                     {</div>
-<div class="line"><span class="lineno">   22</span>    <span class="keywordtype">char</span> buffer[1024];</div>
-<div class="line"><span class="lineno">   23</span><span class="preprocessor">#ifdef _WIN32</span></div>
-<div class="line"><span class="lineno">   24</span>    DWORD size = GetModuleFileName(<span class="keyword">nullptr</span>, buffer, <span class="keyword">sizeof</span>(buffer));</div>
-<div class="line"><span class="lineno">   25</span>    <span class="keywordflow">if</span> (size == 0 || size == <span class="keyword">sizeof</span>(buffer)) {</div>
-<div class="line"><span class="lineno">   26</span>        <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;Unable to get executable path on Windows.&quot;</span>);</div>
-<div class="line"><span class="lineno">   27</span>    }</div>
-<div class="line"><span class="lineno">   28</span><span class="preprocessor">#elif __APPLE__</span></div>
-<div class="line"><span class="lineno">   29</span>     uint32_t size = <span class="keyword">sizeof</span>(buffer);</div>
-<div class="line"><span class="lineno">   30</span>     <span class="keywordflow">if</span> (_NSGetExecutablePath(buffer, &amp;size) != 0) {</div>
-<div class="line"><span class="lineno">   31</span>      <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;Unable to get executable path on macOS.&quot;</span>);</div>
-<div class="line"><span class="lineno">   32</span>     }</div>
-<div class="line"><span class="lineno">   33</span><span class="preprocessor">#elif __linux__</span></div>
-<div class="line"><span class="lineno">   34</span>     ssize_t size = readlink(<span class="stringliteral">&quot;/proc/self/exe&quot;</span>, buffer, <span class="keyword">sizeof</span>(buffer));</div>
-<div class="line"><span class="lineno">   35</span>     <span class="keywordflow">if</span> (size == -1 || size == <span class="keyword">sizeof</span>(buffer)) {</div>
-<div class="line"><span class="lineno">   36</span>      <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;Unable to get executable path on Linux.&quot;</span>);</div>
-<div class="line"><span class="lineno">   37</span>     }</div>
-<div class="line"><span class="lineno">   38</span><span class="preprocessor">#else</span></div>
-<div class="line"><span class="lineno">   39</span>    <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;Unsupported platform.&quot;</span>);</div>
-<div class="line"><span class="lineno">   40</span><span class="preprocessor">#endif</span></div>
-<div class="line"><span class="lineno">   41</span> </div>
-<div class="line"><span class="lineno">   42</span>    <span class="keywordflow">return</span> {buffer, size};</div>
-<div class="line"><span class="lineno">   43</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_bin_path_8cpp_source.html#l00012">12</a> of file <a class="el" href="_bin_path_8cpp_source.html">BinPath.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   12</span>                                     {</div>
+<div class="line"><span class="lineno">   13</span>    <span class="keywordtype">char</span> buffer[1024];</div>
+<div class="line"><span class="lineno">   14</span><span class="preprocessor">#ifdef _WIN32</span></div>
+<div class="line"><span class="lineno">   15</span>    DWORD size = GetModuleFileName(<span class="keyword">nullptr</span>, buffer, <span class="keyword">sizeof</span>(buffer));</div>
+<div class="line"><span class="lineno">   16</span>    <span class="keywordflow">if</span> (size == 0 || size == <span class="keyword">sizeof</span>(buffer)) {</div>
+<div class="line"><span class="lineno">   17</span>        <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;Unable to get executable path on Windows.&quot;</span>);</div>
+<div class="line"><span class="lineno">   18</span>    }</div>
+<div class="line"><span class="lineno">   19</span><span class="preprocessor">#elif __APPLE__</span></div>
+<div class="line"><span class="lineno">   20</span>     uint32_t size = <span class="keyword">sizeof</span>(buffer);</div>
+<div class="line"><span class="lineno">   21</span>     <span class="keywordflow">if</span> (_NSGetExecutablePath(buffer, &amp;size) != 0) {</div>
+<div class="line"><span class="lineno">   22</span>      <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;Unable to get executable path on macOS.&quot;</span>);</div>
+<div class="line"><span class="lineno">   23</span>     }</div>
+<div class="line"><span class="lineno">   24</span><span class="preprocessor">#elif __linux__</span></div>
+<div class="line"><span class="lineno">   25</span>     ssize_t size = readlink(<span class="stringliteral">&quot;/proc/self/exe&quot;</span>, buffer, <span class="keyword">sizeof</span>(buffer));</div>
+<div class="line"><span class="lineno">   26</span>     <span class="keywordflow">if</span> (size == -1 || size == <span class="keyword">sizeof</span>(buffer)) {</div>
+<div class="line"><span class="lineno">   27</span>      <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;Unable to get executable path on Linux.&quot;</span>);</div>
+<div class="line"><span class="lineno">   28</span>     }</div>
+<div class="line"><span class="lineno">   29</span><span class="preprocessor">#else</span></div>
+<div class="line"><span class="lineno">   30</span>    <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;Unsupported platform.&quot;</span>);</div>
+<div class="line"><span class="lineno">   31</span><span class="preprocessor">#endif</span></div>
+<div class="line"><span class="lineno">   32</span> </div>
+<div class="line"><span class="lineno">   33</span>    <span class="keywordflow">return</span> {buffer, size};</div>
+<div class="line"><span class="lineno">   34</span>}</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="_bin_path_8cpp_source.html#l00045">getExecutableDirectory()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_bin_path_8cpp_source.html#l00036">getExecutableDirectory()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">

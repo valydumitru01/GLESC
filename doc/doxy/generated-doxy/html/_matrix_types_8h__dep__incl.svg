@@ -165,7 +165,7 @@ var sectionId = 'dynsection-1';
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="_debug_entity_data_h_u_d_8cpp.html" target="_top" xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000004"><a xlink:href="_debug_entity_data_h_u_d_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="1074.12,-256 945.62,-256 945.62,-236 1074.12,-236 1074.12,-256"/>
 <text text-anchor="middle" x="1009.88" y="-242.5" font-family="Helvetica,sans-Serif" font-size="10.00">DebugEntityDataHUD.cpp</text>
 </a>
@@ -309,7 +309,7 @@ var sectionId = 'dynsection-1';
 <!-- Node58 -->
 <g id="Node000058" class="node">
 <title>Node58</title>
-<g id="a_Node000058"><a xlink:href="_shader_8h.html" target="_top" xlink:title="Class for handling shaders.">
+<g id="a_Node000058"><a xlink:href="_shader_8h.html" target="_top" xlink:title="Class for managing and utilizing shader programs in the graphics pipeline.">
 <polygon fill="#fff0f0" stroke="red" points="735.38,-194 680.38,-194 680.38,-174 735.38,-174 735.38,-194"/>
 <text text-anchor="middle" x="707.88" y="-180.5" font-family="Helvetica,sans-Serif" font-size="10.00">Shader.h</text>
 </a>
@@ -390,7 +390,7 @@ var sectionId = 'dynsection-1';
 <!-- Node8 -->
 <g id="Node000008" class="node">
 <title>Node8</title>
-<g id="a_Node000008"><a xlink:href="_open_g_l_a_p_i_8h.html" target="_top" xlink:title="OpenGL API implementation.">
+<g id="a_Node000008"><a xlink:href="_open_g_l_a_p_i_8h.html" target="_top" xlink:title="Implementation of the OpenGL graphics API.">
 <polygon fill="white" stroke="#666666" points="1139.88,-76 1063.88,-76 1063.88,-56 1139.88,-56 1139.88,-76"/>
 <text text-anchor="middle" x="1101.88" y="-62.5" font-family="Helvetica,sans-Serif" font-size="10.00">OpenGLAPI.h</text>
 </a>
@@ -562,7 +562,7 @@ var sectionId = 'dynsection-1';
 <!-- Node101 -->
 <g id="Node000101" class="node">
 <title>Node101</title>
-<g id="a_Node000101"><a xlink:href="_polyhedron_8cpp.html" target="_top" xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000101"><a xlink:href="_polyhedron_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="1686.62,-368 1603.12,-368 1603.12,-348 1686.62,-348 1686.62,-368"/>
 <text text-anchor="middle" x="1644.88" y="-354.5" font-family="Helvetica,sans-Serif" font-size="10.00">Polyhedron.cpp</text>
 </a>
@@ -868,7 +868,7 @@ var sectionId = 'dynsection-1';
 <!-- Node144 -->
 <g id="Node000144" class="node">
 <title>Node144</title>
-<g id="a_Node000144"><a xlink:href="_window_manager_8h.html" target="_top" xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000144"><a xlink:href="_window_manager_8h.html" target="_top" xlink:title="Manages the main application window and its properties.">
 <polygon fill="#fff0f0" stroke="red" points="2223,-312 2126.75,-312 2126.75,-292 2223,-292 2223,-312"/>
 <text text-anchor="middle" x="2174.88" y="-298.5" font-family="Helvetica,sans-Serif" font-size="10.00">WindowManager.h</text>
 </a>
@@ -895,7 +895,7 @@ var sectionId = 'dynsection-1';
 <!-- Node104 -->
 <g id="Node000104" class="node">
 <title>Node104</title>
-<g id="a_Node000104"><a xlink:href="_bounding_volume_8cpp.html" target="_top" xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000104"><a xlink:href="_bounding_volume_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="1276,-256 1167.75,-256 1167.75,-236 1276,-236 1276,-256"/>
 <text text-anchor="middle" x="1221.88" y="-242.5" font-family="Helvetica,sans-Serif" font-size="10.00">BoundingVolume.cpp</text>
 </a>
@@ -994,7 +994,7 @@ var sectionId = 'dynsection-1';
 <!-- Node43 -->
 <g id="Node000043" class="node">
 <title>Node43</title>
-<g id="a_Node000043"><a xlink:href="_collision_manager_8cpp.html" target="_top" xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000043"><a xlink:href="_collision_manager_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="1472.38,-132 1363.38,-132 1363.38,-112 1472.38,-112 1472.38,-132"/>
 <text text-anchor="middle" x="1417.88" y="-118.5" font-family="Helvetica,sans-Serif" font-size="10.00">CollisionManager.cpp</text>
 </a>

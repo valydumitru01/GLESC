@@ -30,7 +30,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="_base_exception_8cpp.html" target="_top" xlink:title="The base exception that all other exceptions inherit from.">
+<g id="a_Node000002"><a xlink:href="_base_exception_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="100.75,-20 0,-20 0,0 100.75,0 100.75,-20"/>
 <text text-anchor="middle" x="50.38" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">BaseException.cpp</text>
 </a>
@@ -48,7 +48,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="_stacktrace_8cpp.html" target="_top" xlink:title="@TODO Add description of this file if needed">
+<g id="a_Node000003"><a xlink:href="_stacktrace_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="200.38,-20 118.38,-20 118.38,0 200.38,0 200.38,-20"/>
 <text text-anchor="middle" x="159.38" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">Stacktrace.cpp</text>
 </a>

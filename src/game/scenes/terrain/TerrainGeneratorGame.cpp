@@ -1,6 +1,9 @@
 
 #include "game/scenes/terrain/TerrainGeneratorGame.h"
 
+#include "engine/ecs/frontend/component/FogComponent.h"
+#include "engine/ecs/frontend/component/SunComponent.h"
+
 void TerrainGeneratorGame::generateEntitiesForMap(GLESC::ECS::EntityFactory& entityFactory) {
     TerrainGenerator terrainGenerator;
     auto map = terrainGenerator.generateMap();
@@ -34,6 +37,14 @@ void TerrainGeneratorGame::generateEntitiesForMap(GLESC::ECS::EntityFactory& ent
 
 void TerrainGeneratorGame::init() {
     getCamera().setForce(5);
+    getEntity("fog").getComponent<GLESC::ECS::FogComponent>().fog.setDensity(0.2);
+    getEntity("fog").getComponent<GLESC::ECS::FogComponent>().fog.setColor({200, 200, 170});
+    getEntity("fog").getComponent<GLESC::ECS::FogComponent>().fog.setEnd(60);
+    getEntity("sun").getComponent<GLESC::ECS::SunComponent>().sun.setIntensity(0.4f);
+    getEntity("sun").getComponent<GLESC::ECS::SunComponent>().sun.setColor({255, 255, 200});
+    getEntity("sun").getComponent<GLESC::ECS::SunComponent>().sun.setDirection({-0.5, -1, -0.5});
+    getEntity("sun").getComponent<GLESC::ECS::SunComponent>().globalAmbientLight.setIntensity(0.5);
+    getEntity("sun").getComponent<GLESC::ECS::SunComponent>().globalAmbientLight.setColor({255, 180, 165});
     generateEntitiesForMap(entityFactory);
 }
 

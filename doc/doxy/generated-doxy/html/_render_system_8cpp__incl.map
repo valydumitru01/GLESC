@@ -120,9 +120,9 @@
 <area shape="poly" id="edge110_Node000084_Node000080" title=" " alt="" coords="2644,211,2794,254,2793,259,2643,217"/>
 <area shape="rect" id="Node000085" href="$_counter_8h.html" title="Class to encapsulate the logic of counting." alt="" coords="3743,261,3879,304"/>
 <area shape="poly" id="edge76_Node000084_Node000085" title=" " alt="" coords="2664,209,2676,211,2835,226,2970,232,3201,231,3312,230,3431,232,3566,241,3725,259,3729,259,3728,265,3724,264,3565,246,3431,237,3312,235,3201,237,2970,237,2835,231,2676,216,2663,214"/>
-<area shape="rect" id="Node000086" href="$_shader_8h.html" title="Class for handling shaders." alt="" coords="3133,533,3305,576"/>
+<area shape="rect" id="Node000086" href="$_shader_8h.html" title="Class for managing and utilizing shader programs in the graphics pipeline." alt="" coords="3133,533,3305,576"/>
 <area shape="poly" id="edge77_Node000084_Node000086" title=" " alt="" coords="2664,209,2677,211,2773,221,2856,225,2997,226,3138,231,3219,241,3315,259,3397,273,3471,281,3539,287,3600,296,3658,311,3712,338,3765,380,3816,441,3825,464,3823,476,3815,487,3791,501,3746,512,3615,530,3461,543,3320,552,3320,546,3460,538,3615,525,3745,507,3789,496,3812,483,3818,474,3820,465,3811,444,3761,383,3710,342,3656,316,3599,301,3538,292,3471,286,3397,278,3314,264,3219,246,3137,236,2997,232,2856,231,2773,226,2676,216,2663,214"/>
-<area shape="rect" id="Node000087" href="$_window_manager_8h.html" title="@TODO Add description of this file if needed" alt="" coords="3902,261,4037,304"/>
+<area shape="rect" id="Node000087" href="$_window_manager_8h.html" title="Manages the main application window and its properties." alt="" coords="3902,261,4037,304"/>
 <area shape="poly" id="edge80_Node000084_Node000087" title=" " alt="" coords="2664,209,2676,211,2859,227,3015,233,3152,232,3281,229,3410,226,3548,228,3704,237,3887,258,3887,264,3703,242,3547,233,3410,231,3281,234,3152,238,3015,238,2859,232,2676,216,2663,214"/>
 <area shape="rect" id="Node000090" href="$_skybox_8h.html" title="@TODO Add description of this file if needed" alt="" coords="2486,443,2672,485"/>
 <area shape="poly" id="edge83_Node000084_Node000090" title=" " alt="" coords="2574,213,2580,427,2575,427,2569,214"/>
