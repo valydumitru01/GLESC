@@ -1,0 +1,108 @@
+Hitos->Documentación
+Hitos->Sistema
+Hitos->Pruebas
+Hitos->Videojuegos
+Hitos->Doxygen
+Documentación->Introducción
+Documentación->Aspectos teóricos
+Documentación->Planificación y presupuesto del proyecto
+Documentación->Análisis del sistema
+Documentación->Diseño del sistema
+Documentación->Descripción de la implementación del sistema
+Documentación->Desarrollo de pruebas
+Documentación->Manual del sistema
+Documentación->Conclusiones y ampliaciones
+Documentación->Referencias
+Documentación->Anexos
+Introducción->Justificación del proyecto
+Introducción->Objetivos del proyecto
+Introducción->Estudio de la situación actual
+Estudio de la situación actual->Estudio de alternativas
+Estudio de la situación actual->Evaluación de alternativas de desarrollo
+Aspectos teóricos->Conceptos
+Aspectos teóricos->Tecnologías
+Planificación y presupuesto del proyecto->Planificación
+Planificación y presupuesto del proyecto->Resumen del presupuesto
+Planificación y presupuesto del proyecto->Detalles del presupuesto
+Planificación y presupuesto del proyecto->Resumen de costes
+Planificación y presupuesto del proyecto->Presupuesto del cliente
+Planificación->Arranque del proyecto
+Planificación->Seguimiento del proyecto
+Planificación->Cierre del proyecto
+Resumen del presupuesto->Presupuesto costes
+Resumen del presupuesto->Presupuesto cliente
+Detalles del presupuesto->Detalles del presupuesto - Presupuesto costes
+Presupuesto costes->Presupuesto costes - Arranque del proyecto
+Presupuesto costes->Desarrollo software
+Presupuesto costes->Presupuesto costes - Documentación
+Presupuesto costes->Otros costes
+Análisis del sistema->Requisitos del sistema
+Análisis del sistema->Especificación de plan de pruebas
+Requisitos del sistema->Identificación de actores del sistema
+Requisitos del sistema->Obtención de requisitos del sistema
+Requisitos del sistema->Descripción de la arquitectura
+Requisitos del sistema->Diagrama de clases y descripción preliminar
+Requisitos del sistema->Descripción de las clases
+Obtención de requisitos del sistema->Requisitos funcionales
+Obtención de requisitos del sistema->Requisitos no funcionales
+Especificación de plan de pruebas->Pruebas unitarias
+Diseño del sistema->Arquitectura del sistema
+Diseño del sistema->Diagrama de componentes
+Diseño del sistema->Diseño de clases
+Diseño del sistema->Diseño de código
+Diseño del sistema->Diagrama de interacción
+Diseño del sistema->Especificación del plan de pruebas
+Especificación del plan de pruebas->Especificación del plan de pruebas - Pruebas unitarias
+Descripción de la implementación del sistema->Lenguajes de programación
+Descripción de la implementación del sistema->Bibliotecas
+Descripción de la implementación del sistema->Herramientas y programas usados
+Descripción de la implementación del sistema->Ciclo del uso de las herramientas
+Descripción de la implementación del sistema->Detallar la creación del sistema
+Ciclo del uso de las herramientas->Ciclo del uso de las herramientas - Arranque del proyecto
+Ciclo del uso de las herramientas->Descripción del desarrollo software
+Descripción del desarrollo software->Fase de análisis
+Descripción del desarrollo software->Fase de diseño
+Descripción del desarrollo software->Fase de implementación
+Detallar la creación del sistema->Problemas encontrados
+Detallar la creación del sistema->Detallar la creación del sistema - Descripción de las clases
+Desarrollo de pruebas->Desarrollo de pruebas - Pruebas unitarias
+Sistema->Constructor del sistema (CMake)
+Sistema->Motor del videojuego
+Constructor del sistema (CMake)->Constructor de Release
+Constructor del sistema (CMake)->Constructor de Debug
+Motor del videojuego->Núcleo
+Motor del videojuego->ECS
+Motor del videojuego->Subsistemas
+Núcleo->Asertos
+Núcleo->Contador
+Núcleo->Debugger
+Núcleo->Excepciones
+Núcleo->Renderizado de bajo nivel
+Núcleo->Logger
+Núcleo->Gestor de Ventana
+ECS->Backend
+ECS->Frontend
+Backend->Estructura de datos de entidades
+Backend->Estructura de datos de componentes
+Frontend->Entidad
+Frontend->Componentes
+Frontend->Sistemas
+Componentes->Componente de Renderizado
+Componentes->Componente de Inputs
+Componentes->Componente de Camara
+Componentes->Componente de Físicas
+Sistemas->Sistema de inputs
+Sistemas->Sistema de renderizado
+Sistemas->Sistema de cámaras
+Sistemas->Sistema de físicas
+Subsistemas->Motor de renderizado
+Subsistemas->Motor de físicas
+Subsistemas->Motor de inputs
+Subsistemas->In-game Debugger
+Pruebas->Pruebas de unitarias
+Pruebas de unitarias->Pruebas para ECS
+Pruebas de unitarias->Pruebas para los subsistemas
+Pruebas de unitarias->Pruebas para el núcelo
+Videojuegos->Generación de terreno
+Videojuegos->Shoot the Chicken
+Videojuegos->Juego por defecto

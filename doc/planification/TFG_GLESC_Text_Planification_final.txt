@@ -1,0 +1,109 @@
+1	Hitos
+1.1	Documentación
+1.1.1	Introducción
+1.1.1.1	Justificación del proyecto
+1.1.1.2	Objetivos del proyecto
+1.1.1.3	Estudio de la situación actual
+1.1.1.3.1	Estudio de alternativas
+1.1.1.3.2	Evaluación de alternativas de desarrollo
+1.1.2	Aspectos teóricos
+1.1.2.1	Conceptos
+1.1.2.2	Tecnologías
+1.1.3	Planificación y presupuesto del proyecto
+1.1.3.1	Planificación
+1.1.3.1.1	Arranque del proyecto
+1.1.3.1.2	Seguimiento del proyecto
+1.1.3.1.3	Cierre del proyecto
+1.1.3.2	Resumen del presupuesto
+1.1.3.2.1	Presupuesto costes
+1.1.3.2.2	Presupuesto cliente
+1.1.3.3	Detalles del presupuesto
+1.1.3.3.1	Presupuesto costes
+1.1.3.3.1.1	Arranque del proyecto
+1.1.3.3.1.2	Desarrollo software
+1.1.3.3.1.3	Documentación
+1.1.3.3.1.4	Otros costes
+1.1.3.4	Resumen de costes
+1.1.3.5	Presupuesto del cliente
+1.1.4	Análisis del sistema
+1.1.4.1	Requisitos del sistema
+1.1.4.1.1	Identificación de actores del sistema
+1.1.4.1.2	Obtención de requisitos del sistema
+1.1.4.1.2.1	Requisitos funcionales
+1.1.4.1.2.2	Requisitos no funcionales
+1.1.4.1.3	Descripción de la arquitectura
+1.1.4.1.4	Diagrama de clases y descripción preliminar
+1.1.4.1.5	Descripción de las clases
+1.1.4.2	Especificación de plan de pruebas
+1.1.4.2.1	Pruebas unitarias
+1.1.5	Diseño del sistema
+1.1.5.1	Arquitectura del sistema
+1.1.5.2	Diagrama de componentes
+1.1.5.3	Diseño de clases
+1.1.5.4	Diseño de código
+1.1.5.5	Diagrama de interacción
+1.1.5.6	Especificación del plan de pruebas
+1.1.5.6.1	Pruebas unitarias
+1.1.6	Descripción de la implementación del sistema
+1.1.6.1	Lenguajes de programación
+1.1.6.2	Bibliotecas
+1.1.6.3	Herramientas y programas usados
+1.1.6.4	Ciclo del uso de las herramientas
+1.1.6.4.1	Arranque del proyecto
+1.1.6.4.2	Descripción del desarrollo software
+1.1.6.4.2.1	Fase de análisis
+1.1.6.4.2.2	Fase de diseño
+1.1.6.4.2.3	Fase de implementación
+1.1.6.5	Detallar la creación del sistema
+1.1.6.5.1	Problemas encontrados
+1.1.6.5.2	Descripción de las clases
+1.1.7	Desarrollo de pruebas
+1.1.7.1	Pruebas unitarias
+1.1.8	Manual del sistema
+1.1.9	Conclusiones y ampliaciones
+1.1.10	Referencias
+1.1.11	Anexos
+1.2	Sistema
+1.2.1	Constructor del sistema (CMake)
+1.2.1.1	Constructor de Release
+1.2.1.2	Constructor de Debug
+1.2.2	Motor del videojuego
+1.2.2.1	Núcleo
+1.2.2.1.1	Asertos
+1.2.2.1.2	Contador
+1.2.2.1.3	Debugger
+1.2.2.1.4	Excepciones
+1.2.2.1.5	Renderizado de bajo nivel
+1.2.2.1.6	Logger
+1.2.2.1.7	Gestor de Ventana
+1.2.2.2	ECS
+1.2.2.2.1	Backend
+1.2.2.2.1.1	Estructura de datos de entidades
+1.2.2.2.1.2	Estructura de datos de componentes
+1.2.2.2.2	Frontend
+1.2.2.2.2.1	Entidad
+1.2.2.2.2.2	Componentes
+1.2.2.2.2.2.1	Componente de Renderizado
+1.2.2.2.2.2.2	Componente de Inputs
+1.2.2.2.2.2.3	Componente de Camara
+1.2.2.2.2.2.4	Componente de Físicas
+1.2.2.2.2.3	Sistemas
+1.2.2.2.2.3.1	Sistema de inputs
+1.2.2.2.2.3.2	Sistema de renderizado
+1.2.2.2.2.3.3	Sistema de cámaras
+1.2.2.2.2.3.4	Sistema de físicas
+1.2.2.3	Subsistemas
+1.2.2.3.1	Motor de renderizado
+1.2.2.3.2	Motor de físicas
+1.2.2.3.3	Motor de inputs
+1.2.2.3.4	In-game Debugger
+1.3	Pruebas
+1.3.1	Pruebas de unitarias
+1.3.1.1	Pruebas para ECS
+1.3.1.2	Pruebas para los subsistemas
+1.3.1.3	Pruebas para el núcelo
+1.4	Videojuegos
+1.4.1	Generación de terreno
+1.4.2	Shoot the Chicken
+1.4.3	Juego por defecto
+1.5	Doxygen

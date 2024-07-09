@@ -1,0 +1,86 @@
+<mxfile host="Electron" modified="2024-07-05T13:57:51.361Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.5.3 Chrome/124.0.6367.207 Electron/30.0.6 Safari/537.36" etag="u7Q-8lOPzlW_LTXCQVRN" version="24.5.3" type="device">
+  <diagram name="Página-1" id="MV_1cnhowhzpQIG3qcF5">
+    <mxGraphModel dx="1185" dy="713" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="wnWUSgTwv3WRuYT6JC_C-12" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry y="400" width="840" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="wnWUSgTwv3WRuYT6JC_C-11" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry y="600" width="840" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="wnWUSgTwv3WRuYT6JC_C-1" value="ECS Component" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fad7ac;strokeColor=#b46504;" vertex="1" parent="1">
+          <mxGeometry x="360" y="440" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="wnWUSgTwv3WRuYT6JC_C-2" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Engine Component&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="200" y="640" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="wnWUSgTwv3WRuYT6JC_C-3" value="Engine Component" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="360" y="640" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="wnWUSgTwv3WRuYT6JC_C-4" value="Engine Component" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="520" y="640" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="wnWUSgTwv3WRuYT6JC_C-5" value="Engine Component" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d0cee2;strokeColor=#56517e;" vertex="1" parent="1">
+          <mxGeometry x="40" y="640" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="wnWUSgTwv3WRuYT6JC_C-6" value="Engine Component" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="680" y="640" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="wnWUSgTwv3WRuYT6JC_C-7" value="ECS Component" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fad7ac;strokeColor=#b46504;" vertex="1" parent="1">
+          <mxGeometry x="200" y="440" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="wnWUSgTwv3WRuYT6JC_C-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;shape=flexArrow;fillColor=#fad7ac;strokeColor=#b46504;" edge="1" parent="1" source="wnWUSgTwv3WRuYT6JC_C-8" target="wnWUSgTwv3WRuYT6JC_C-11">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="580" y="580" />
+              <mxPoint x="580" y="580" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wnWUSgTwv3WRuYT6JC_C-16" value="Contains 1 - N&lt;div&gt;Components&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBorderColor=default;labelBackgroundColor=#FFCC99;" vertex="1" connectable="0" parent="wnWUSgTwv3WRuYT6JC_C-15">
+          <mxGeometry x="0.2452" y="2" relative="1" as="geometry">
+            <mxPoint x="-2" y="-20" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wnWUSgTwv3WRuYT6JC_C-8" value="ECS Component" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fad7ac;strokeColor=#b46504;" vertex="1" parent="1">
+          <mxGeometry x="520" y="440" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="wnWUSgTwv3WRuYT6JC_C-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;shape=flexArrow;fillColor=#fad7ac;strokeColor=#b46504;" edge="1" parent="1" source="wnWUSgTwv3WRuYT6JC_C-1" target="wnWUSgTwv3WRuYT6JC_C-11">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="419.52" y="520" as="sourcePoint" />
+            <mxPoint x="419.52" y="600" as="targetPoint" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wnWUSgTwv3WRuYT6JC_C-22" value="Contains 1 - N&lt;div&gt;Components&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBorderColor=default;labelBackgroundColor=#FFCC99;" vertex="1" connectable="0" parent="wnWUSgTwv3WRuYT6JC_C-21">
+          <mxGeometry x="0.2452" y="2" relative="1" as="geometry">
+            <mxPoint x="-2" y="-20" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wnWUSgTwv3WRuYT6JC_C-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;shape=flexArrow;fillColor=#fad7ac;strokeColor=#b46504;" edge="1" parent="1" source="wnWUSgTwv3WRuYT6JC_C-7" target="wnWUSgTwv3WRuYT6JC_C-11">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="259.76" y="520" as="sourcePoint" />
+            <mxPoint x="259.76" y="600" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="260" y="580" />
+              <mxPoint x="260" y="580" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wnWUSgTwv3WRuYT6JC_C-24" value="Contains 1 - N&lt;div&gt;Components&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBorderColor=default;labelBackgroundColor=#FFCC99;" vertex="1" connectable="0" parent="wnWUSgTwv3WRuYT6JC_C-23">
+          <mxGeometry x="0.2452" y="2" relative="1" as="geometry">
+            <mxPoint x="-2" y="-20" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wnWUSgTwv3WRuYT6JC_C-25" value="ECS Frontend" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry y="400" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="wnWUSgTwv3WRuYT6JC_C-26" value="Subsystems" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry y="600" width="110" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

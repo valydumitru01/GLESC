@@ -1,0 +1,12 @@
+<map id="FPSAverager::getAverage" name="FPSAverager::getAverage">
+<area shape="rect" id="Node000001" title="Get the average FPS." alt="" coords="955,31,1124,57"/>
+<area shape="rect" id="Node000002" href="$class_f_p_s_manager.html#a077e9af0c7088d2342543e911dd4db77" title="Get the average time it took to render the frame." alt="" coords="696,23,907,65"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="939,47,907,47,907,41,939,41"/>
+<area shape="rect" id="Node000003" href="$class_f_p_s_manager.html#a10a823489eaab74f86ca368def7a9631" title="Get the average fps of the last 60 frames." alt="" coords="458,5,648,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="681,34,648,31,649,26,681,29"/>
+<area shape="rect" id="Node000004" href="$class_g_l_e_s_c_1_1_engine.html#a3bc0e4b7fb38c3d5f3c6241e2be66d63" title=" " alt="" coords="215,31,410,57"/>
+<area shape="poly" id="edge5_Node000002_Node000004" title=" " alt="" coords="681,47,410,47,410,41,681,41"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="443,33,411,36,410,31,442,28"/>
+<area shape="rect" id="Node000005" href="$class_g_l_e_s_c_1_1_engine.html#a93e1621f9daf326a7c45d3b2a4c826c1" title="The constructor is private, the engine can only be created by the main function." alt="" coords="5,31,167,57"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="199,47,167,47,167,41,199,41"/>
+</map>

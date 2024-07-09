@@ -1,0 +1,7 @@
+<map id="FPSManager::getRenderFPS" name="FPSManager::getRenderFPS">
+<area shape="rect" id="Node000001" title="Get the average fps of the last 60 frames." alt="" coords="5,13,196,40"/>
+<area shape="rect" id="Node000002" href="$class_f_p_s_manager.html#a077e9af0c7088d2342543e911dd4db77" title="Get the average time it took to render the frame." alt="" coords="244,5,454,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="196,24,228,24,228,29,196,29"/>
+<area shape="rect" id="Node000003" href="$class_f_p_s_averager.html#a906f4025a5574d736084133f3d9b1edb" title="Get the average FPS." alt="" coords="502,13,671,40"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="454,24,486,24,486,29,454,29"/>
+</map>
