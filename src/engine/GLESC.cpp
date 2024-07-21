@@ -38,6 +38,7 @@ Engine::Engine(FPSManager& fpsManager) :
     engineCamera(entityFactory, inputManager, windowManager),
     sceneManager(entityFactory, windowManager),
     sceneContainer(windowManager, entityFactory, inputManager, sceneManager, hudManager, engineCamera),
+    physicsManager(fpsManager),
     game(sceneManager, sceneContainer) {
     engineCamera.setupCamera();
     engineCamera.setEngineHuds(&engineHuds);
@@ -122,7 +123,7 @@ std::vector<std::unique_ptr<ECS::System>> Engine::createSystems() {
     systems.push_back(std::make_unique<ECS::SunSystem>(ecs, renderer));
     systems.push_back(std::make_unique<ECS::FogSystem>(renderer, ecs));
 #ifndef NDEBUG_GLESC
-  systems.push_back(std::make_unique<ECS::DebugInfoSystem>(ecs, renderer));
+    systems.push_back(std::make_unique<ECS::DebugInfoSystem>(ecs, renderer));
 #endif
     return systems;
 }
@@ -203,4 +204,3 @@ void Engine::registerStats() const {
         return renderer.getView().toString();
     });
 }
-

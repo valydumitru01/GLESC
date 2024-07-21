@@ -136,6 +136,7 @@ namespace GLESC::Scene {
          * @return The created entity.
          */
         ECS::Entity createEntity(const std::string& entityName, const ECS::EntityMetadata& metadata = {}) {
+            // TODO: Check if an entity that is an instace shaderes name with another entity that is not an instance
             ECS::Entity entity = entityFactory.createEntity(entityName, metadata);
             sceneEntities.push_back(entity.getID());
             return entityFactory.getEntity(sceneEntities.back());

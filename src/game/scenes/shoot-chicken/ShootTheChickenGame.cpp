@@ -272,6 +272,8 @@ void ShootTheChickenGame::createTreeEntities() {
 
 void ShootTheChickenGame::generateChickenEntities() {
     int numChickens = 10;
+    float chickenMass = 5;
+    float chickenSpawnHeight = 100;
     chickens.clear();
     for (int i = 0; i < numChickens; i++) {
         Transform::Position position = generateChickenPosition();
@@ -286,8 +288,8 @@ void ShootTheChickenGame::generateChickenEntities() {
         chicken.getComponent<ECS::CollisionComponent>().collider.setBoundingVolume(
             chicken.getComponent<ECS::RenderComponent>().getMesh().getBoundingVolume());
         chicken.getComponent<ECS::PhysicsComponent>().physics.setAffectedByGravity(true);
-        transform.setPosition({transform.getPosition().getX(), 100, transform.getPosition().getZ()});
-        chicken.getComponent<ECS::PhysicsComponent>().physics.setMass(5);
+        transform.setPosition({transform.getPosition().getX(), chickenSpawnHeight, transform.getPosition().getZ()});
+        chicken.getComponent<ECS::PhysicsComponent>().physics.setMass(chickenMass);
         chickens.push_back(chicken.getID());
     }
 }
@@ -331,7 +333,6 @@ void ShootTheChickenGame::collisionCallback(ECS::EntityID chicken, Physics::Coll
         getEntity(chickenID).getComponent<ECS::TransformComponent>().transform.setPosition(generateChickenPosition());
         getWindow<ShootTheChickenHUD>(statsWindow).addChickenKill();
         chickens.erase(it);
-        Console::log("Collide with" + getEntity(chickenID).getName());
     }
 
     // Destroy the bullet entity
@@ -366,7 +367,6 @@ void ShootTheChickenGame::shootBulletActionFunc() {
             collisionCallback(bulletID, otherCollider);
         });
 
-    Console::log("Shooting" + getEntity(bulletID).getName());
     SoundPlayer::playSound("shoot");
     auto oldPitch = getCamera().getEntity().getComponent<ECS::TransformComponent>().transform.getRotation().getX();
     getCamera().getEntity().getComponent<ECS::TransformComponent>().transform.setRotation(
@@ -459,6 +459,7 @@ void ShootTheChickenGame::init() {
 
     SoundPlayer::setMusic("main_song");
     SoundPlayer::playMusic();
+    SoundPlayer::setMusicVolume(10);
     getWindow<ShootTheChickenHUD>(statsWindow).setVisible(true);
     getWindow<ShootTheChickenHUD>(statsWindow).setAmmunition(10);
     getWindow<ShootTheChickenHUD>(statsWindow).resetChickenKillCount();

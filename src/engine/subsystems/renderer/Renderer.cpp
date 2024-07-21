@@ -19,6 +19,7 @@ Renderer::Renderer(WindowManager& windowManager) :
     projection(createProjectionMatrix(CameraPerspective())),
     view(createViewMatrix(Transform::Transform())),
     viewProjection(projection * view),
+    //skybox("sea-day", "jpg"),
     frustum(viewProjection) {
     camera.camera = &defaultCameraPerspective;
     camera.transform = &defaultCameraTransform;

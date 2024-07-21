@@ -1,6 +1,5 @@
-
 #include "engine/core/counter/FPSManager.h"
-
+using namespace GLESC;
 FPSManager::FPSManager(FpsRates renderFPS, FpsRates updateFPS)
     : msPerRender(renderFPS == Unlimitted ? 0 : msInASecond / static_cast<UIntMillis>(renderFPS)),
       msPerUpdate(msInASecond / static_cast<UIntMillis>(updateFPS)) {
@@ -42,7 +41,7 @@ FPSFloatingPoint FPSManager::getAverageRenderTimeMillis() const {
 }
 
 FPSFloatingPoint FPSManager::getUpdateFPS() const {
-    return static_cast<FPSFloatingPoint>(msInASecond / getUpdateTimeMillis());
+    return static_cast<FPSFloatingPoint>(msInASecond) / getUpdateTimeMillis();
 }
 
 FPSFloatingPoint FPSManager::getRenderFPS() const {

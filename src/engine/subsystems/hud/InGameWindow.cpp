@@ -169,9 +169,6 @@ void InGameWindow::render(float timeOfFrame) {
     ImGui::SetNextWindowPos(position, ImGuiCond_Always);
     ImGui::SetNextWindowSize(size, ImGuiCond_Always);
 
-    // Debugging output
-    Console::log(title + " window Position: (" + std::to_string(position.x) + ", " + std::to_string(position.y) + ")");
-    Console::log(title + " window Size: (" + std::to_string(size.x) + ", " + std::to_string(size.y) + ")");
 
     if (ImGui::Begin(title.c_str(), &isVisible, getFlags())) {
         windowContent(timeOfFrame);

@@ -17,8 +17,8 @@
 #include "engine/core/math/algebra/vector/Vector.h"
 #include "engine/subsystems/renderer/RendererTypes.h"
 #include "engine/subsystems/renderer/mesh/Mesh.h"
-#define CHUNK_SIZE 50
-#define MAP_SIZE_IN_CHUNKS 10
+#define CHUNK_SIZE 500
+#define MAP_SIZE_IN_CHUNKS 1
 #define CHUNK_HEIGHT 100
 #define DIRT_HEIGHT 3
 
@@ -40,7 +40,7 @@ struct Tile {
     [[nodiscard]] bool isEmpty() const { return type == TileType::AIR; }
 };
 
-using Chunk = std::array<std::array<std::array<Tile, CHUNK_HEIGHT>, CHUNK_SIZE>, CHUNK_SIZE>;
+using Chunk = std::vector<std::vector<std::vector<Tile>>>;
 using Map = std::unordered_map<Vec2I, Chunk>;
 
 class TerrainGenerator {
@@ -75,7 +75,7 @@ private:
     }
 
     Chunk generateChunk(const Vec2I& chunkPosition) {
-        Chunk chunk;
+        Chunk chunk(CHUNK_SIZE, std::vector<std::vector<Tile>>(CHUNK_SIZE, std::vector<Tile>(CHUNK_HEIGHT)));
         int chunkX = chunkPosition.getX() * CHUNK_SIZE;
         int chunkZ = chunkPosition.getY() * CHUNK_SIZE;
         for (int x = 0; x < CHUNK_SIZE; x++) {

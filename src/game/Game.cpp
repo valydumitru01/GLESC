@@ -13,7 +13,7 @@ void Game::init() {
     registerScene<Default>(Default::getSceneName());
     registerScene<TerrainGeneratorGame>(TerrainGeneratorGame::getSceneName());
     registerScene<ShootTheChickenGame>(ShootTheChickenGame::getSceneName());
-    sceneManager.switchScene(ShootTheChickenGame::getSceneName());
+    sceneManager.switchScene(TerrainGeneratorGame::getSceneName());
 }
 
 void Game::update() {

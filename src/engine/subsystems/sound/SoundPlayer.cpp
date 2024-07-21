@@ -26,9 +26,12 @@ void SoundPlayer::loadSound(const std::string& filePath, const std::string& name
 
 
 SoundPlayer::Channel SoundPlayer::playSound(const std::string& name, Volume volume, Loops loops) {
-    setMusicVolume(volume);
     Mix_Chunk& sound = soundLoader.getSound(name);
-    return Mix_PlayChannel(-1, &sound, loops); // Play on the first free channel
+    Channel channel = Mix_PlayChannel(-1, &sound, loops); // Play on the first free channel
+    if (channel != -1) {
+        Mix_Volume(channel, volume); // Set the volume for the specific channel
+    }
+    return channel;
 }
 
 

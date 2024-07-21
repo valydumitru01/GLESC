@@ -13,10 +13,10 @@ SDL_SurfacePtr TextureLoader::createSurface(const std::string &filePath) {
     // Load the image
     SDL_SurfacePtr surfacePtr(IMG_Load(fullImagePath.c_str()), &SDL_FreeSurface);
     //postSDLCall
-    SDL_ClearError();
     // Check if the image was loaded
     D_ASSERT_NOT_NULLPTR(surfacePtr, "Image couldn't be loaded. Image path: " + fullImagePath +
                                      ", SDL error: " + SDL_GetError());
+    SDL_ClearError();
     Logger::get().success("Image loaded successfully: " + filePath);
     return surfacePtr;
 }

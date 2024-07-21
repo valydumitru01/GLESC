@@ -116,7 +116,7 @@ ColorMesh MeshFactory::pyramid(const double width, const double height, const do
 
     double w = width / 2.0, h = height, d = depth / 2.0;
 
-    // Base
+    // Base - keep as is since it should be visible from above (counter-clockwise)
     mesh.addQuad(
         {Position(-w, 0, -d), color},
         {Position(w, 0, -d), color},
@@ -124,7 +124,7 @@ ColorMesh MeshFactory::pyramid(const double width, const double height, const do
         {Position(-w, 0, d), color}
     );
 
-    // Sides
+    // Sides - reverse vertex order for correct external visibility
     Position top(0, h, 0);
     Position corners[4] = {
         Position(-w, 0, -d),
@@ -136,14 +136,13 @@ ColorMesh MeshFactory::pyramid(const double width, const double height, const do
     for (int i = 0; i < 4; ++i) {
         mesh.addTris(
             {top, color},
-            {corners[i], color},
-            {corners[(i + 1) % 4], color}
+            {corners[(i + 1) % 4], color},
+            {corners[i], color}
         );
     }
     mesh.finishBuilding();
     return mesh;
 }
-
 
 ColorMesh MeshFactory::tris(const ColorRgba& color) {
     ColorMesh mesh;

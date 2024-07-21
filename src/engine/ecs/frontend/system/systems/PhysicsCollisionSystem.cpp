@@ -38,8 +38,7 @@ void PhysicsCollisionSystem::update() {
                                                  transform.transform);
         if (collision.collider.getCollisionInformation().isColliding()) {
             physicsManager.handleCollisions(collision.collider, physics.physics);
-            transform.transform = GLESC::Physics::PhysicsManager::updateTransform(physics.oldTransform,
-                physics.physics);
+            transform.transform = physicsManager.updateTransform(physics.oldTransform, physics.physics);
         }
     }
     collisionManager.clearColliders();

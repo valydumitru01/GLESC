@@ -9,18 +9,20 @@
  **************************************************************************************************/
 
 #pragma once
+#include "CollisionInformation.h"
 #include "Physics.h"
 #include "PhysicsTypes.h"
-#include "Collider.h"
-#include "CollisionInformation.h"
+#include "engine/core/counter/FPSManager.h"
 #include "engine/subsystems/transform/Transform.h"
+#include "engine/subsystems/physics/Collider.h"
 
 namespace GLESC::Physics {
     class PhysicsManager {
     public:
+        explicit PhysicsManager(const GLESC::FPSManager& fpsManager);
         void applyForces(Physics& physics) const;
         void handleCollisions(Collider& collider, Physics& physics) const;
-        static Transform::Transform updateTransform(const Transform::Transform& transform, const Physics& physics);
+        Transform::Transform updateTransform(const Transform::Transform& transform, const Physics& physics) const;
 
     private:
         static void executeCallbacks(Collider& collider, const CollisionInformation& collisionInfo);
@@ -30,11 +32,9 @@ namespace GLESC::Physics {
         Bounciness bounciness{0.1f};
         float bouncinessThreshold{50.f};
         /**
-         * @brief This scalar is used to scale the velocity of the object
-         * @details We need this because using fixed update time steps makes normal values too bit,
-         * and the object would move too fast. Using a scalar makes the used be able to handle
-         * more realistic numbers.
+         * @brief This is the timestep for calculating the physics
+         * @details Must be defined from the update FPS
          */
-        static constexpr Scalar velocityScalar{0.001f};
+        Scalar timestep{-1};
     };
 } // namespace GLESC

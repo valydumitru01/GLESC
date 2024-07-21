@@ -22,8 +22,7 @@ void PhysicsSystem::update() {
         auto& transform = getComponent<TransformComponent>(entity);
         physics.oldTransform = transform.transform;
         physicsManager.applyForces(physics.physics);
-        transform.transform =
-            GLESC::Physics::PhysicsManager::updateTransform(transform.transform, physics.physics);
+        transform.transform = physicsManager.updateTransform(transform.transform, physics.physics);
 
     }
 

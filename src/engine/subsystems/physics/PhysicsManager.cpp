@@ -2,6 +2,10 @@
 
 
 namespace GLESC::Physics {
+    PhysicsManager::PhysicsManager(const GLESC::FPSManager& fpsManager) {
+        timestep = static_cast<float>(1.0l / fpsManager.getUpdateFPS());
+    }
+
     void PhysicsManager::applyForces(Physics& physics) const {
         if (physics.isStatic()) {
             physics.setVelocity({0, 0, 0});
@@ -10,14 +14,19 @@ namespace GLESC::Physics {
             return;
         }
 
-        // TODO: Remove magic numbers
+
+        // Clear acceleration
+        physics.setAcceleration(Acceleration(0.0F, 0.0F, 0.0F));
+
+        // TODO: Remove magic numbers (for some reason physics are not realistic even with realistic values)
+        // Maybe due to size of objects
         // Calculate acceleration
-        physics.addAcceleration(physics.getForce() * 10 / physics.getMass());
+        physics.addAcceleration(physics.getForce() * 35 / physics.getMass());
         if (physics.isAffectedByGravity())
-            physics.addAcceleration(gravity);
+            physics.addAcceleration(gravity  * 3);
 
         // Calculate velocity
-        physics.addVelocity(physics.getAcceleration());
+        physics.addVelocity(physics.getAcceleration() * timestep);
 
         // Apply friction
         if (physics.getAirFriction() < 0.0f)
@@ -27,15 +36,12 @@ namespace GLESC::Physics {
 
         // Clear forces
         physics.setForce(Force(0.0F, 0.0F, 0.0F));
-
-        // Clear acceleration
-        physics.setAcceleration(Acceleration(0.0F, 0.0F, 0.0F));
     }
 
     Transform::Transform
-    PhysicsManager::updateTransform(const Transform::Transform& transform, const Physics& physics) {
+    PhysicsManager::updateTransform(const Transform::Transform& transform, const Physics& physics) const {
         Transform::Transform newTransform = transform;
-        newTransform.addPosition(physics.getVelocity() * velocityScalar);
+        newTransform.addPosition(physics.getVelocity() * timestep);
         return newTransform;
     }
 
@@ -61,12 +67,14 @@ namespace GLESC::Physics {
     using AxisConstraints = std::array<std::array<bool, 2>, 3>;
 
     AxisConstraints getAxisFree(const Collider& collider) {
-        AxisConstraints isAxisFree = {{
-            //   +     -    // Axis
-            {true, true}, // X
-            {true, true}, // Y
-            {true, true} // Z
-        }};
+        AxisConstraints isAxisFree = {
+            {
+                //   +     -    // Axis
+                {true, true}, // X
+                {true, true}, // Y
+                {true, true} // Z
+            }
+        };
 
         for (const Vec3F& collisionDepth : collider.getCollisionInformation().getCollisionDepthForAxis()) {
             for (int i = 0; i < 3; ++i) {
@@ -85,10 +93,10 @@ namespace GLESC::Physics {
             float frictionCoefficient = otherPhysics->getFriction() + physics.getFriction();
 
             // Calculate the friction force based on the velocity and friction coefficient
-            Vec3F frictionForce = physics.getVelocity() * frictionCoefficient;
+            Vec3F frictionVelReduction = physics.getVelocity() * frictionCoefficient;
 
             // Apply the friction force to the total velocity
-            velocityWithFriction -= frictionForce;
+            velocityWithFriction -= frictionVelReduction;
         }
         return velocityWithFriction;
     }
@@ -131,7 +139,7 @@ namespace GLESC::Physics {
             if (frictionApplied)
                 velocityWithFriction = physics.getVelocity();
             else
-                velocityWithFriction= getVelocityWithFriction(physics, info.getPhysicsOfCollided());
+                velocityWithFriction = getVelocityWithFriction(physics, info.getPhysicsOfCollided());
 
             for (int i = 0; i < 3; ++i) {
                 if (Math::gt(velocityWithFriction[i], 0.0f))

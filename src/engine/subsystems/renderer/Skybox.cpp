@@ -1,14 +1,14 @@
 #include "engine/subsystems/renderer/Skybox.h"
 using namespace GLESC::Render;
 
-Skybox::Skybox(const std::string& folderName)
+Skybox::Skybox(const std::string& folderName, const std::string& extension)
     : skyboxCubemap(Cubemap(std::array<std::string, 6>{
-          "skyboxes/" + folderName + "/" + std::string("right.png"),
-          "skyboxes/" + folderName + "/" + std::string("left.png"),
-          "skyboxes/" + folderName + "/" + std::string("top.png"),
-          "skyboxes/" + folderName + "/" + std::string("bottom.png"),
-          "skyboxes/" + folderName + "/" + std::string("front.png"),
-          "skyboxes/" + folderName + "/" + std::string("back.png")
+          "skyboxes/" + folderName + "/" + std::string("right.") + extension,
+          "skyboxes/" + folderName + "/" + std::string("left.") + extension,
+          "skyboxes/" + folderName + "/" + std::string("top.") + extension,
+          "skyboxes/" + folderName + "/" + std::string("bottom.") + extension,
+          "skyboxes/" + folderName + "/" + std::string("front.") + extension,
+          "skyboxes/" + folderName + "/" + std::string("back.") + extension
       })), skyboxShader("SkyboxShader.glsl"),
       skyboxVAOID{0}, skyboxVBOID{0},
       skyboxVertices{
