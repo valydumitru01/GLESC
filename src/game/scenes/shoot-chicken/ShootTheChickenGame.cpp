@@ -222,8 +222,15 @@ void ShootTheChickenGame::createGrassEntity() {
 
 
 void ShootTheChickenGame::createBulletMesh() {
-    bulletMesh = Render::MeshFactory::cuboid(0.15f, 0.15f, 0.5, Render::ColorRgb::Yellow);
+    Render::ColorMesh bullet1 = Render::MeshFactory::cuboid(0.15f, 0.15f, 0.5, Render::ColorRgb::Purple);
+    Transform::Transformer::translateMesh(bullet1, {0.25, 0, 0});
+    Render::ColorMesh bullet2 = Render::MeshFactory::cuboid(0.15f, 0.15f, 0.5, Render::ColorRgb::Purple);
+    Transform::Transformer::translateMesh(bullet2, {-0.25, 0, 0});
+    bulletMesh.startBuilding();
+    bulletMesh.attatchMesh(bullet2);
+    bulletMesh.finishBuilding();
 }
+
 
 void ShootTheChickenGame::createFloorEntity() {
     // Create a floor
@@ -353,7 +360,7 @@ void ShootTheChickenGame::shootBulletActionFunc() {
     bullet.addComponent<ECS::PhysicsComponent>();
     bullet.addComponent<ECS::CollisionComponent>();
     bullet.addComponent<ECS::LightComponent>();
-    bullet.getComponent<ECS::LightComponent>().light.setColor(Render::ColorRgb::Yellow);
+    bullet.getComponent<ECS::LightComponent>().light.setColor(Render::ColorRgb::Purple);
     bullet.getComponent<ECS::TransformComponent>().transform.setPosition(
         cameraTransformCopy.transform.getPosition() - cameraTransformCopy.transform.forward() * 2.f);
     bullet.getComponent<ECS::TransformComponent>().transform.setRotation(
@@ -379,7 +386,7 @@ void ShootTheChickenGame::shootBulletActionFunc() {
         getCamera().getEntity().getComponent<ECS::PhysicsComponent>().physics.getVelocity());
     getCamera().getEntity().getComponent<ECS::PhysicsComponent>().physics.addForce(
         getCamera().getEntity().getComponent<ECS::TransformComponent>().transform.forward() * 300);
-    bullet.getComponent<ECS::PhysicsComponent>().physics.setAffectedByGravity(false);
+    bullet.getComponent<ECS::PhysicsComponent>().physics.setAffectedByGravity(true);
     if (getWindow<ShootTheChickenHUD>(statsWindow).getAmmunition() == 0) {
         inputManager.setMouseRelative(false);
         getWindow<STCGameOverHUD>(gameOverWindow).setVisible(true);
@@ -405,7 +412,7 @@ void ShootTheChickenGame::createPlayerEntity() {
     getCamera().getEntity().getComponent<ECS::PhysicsComponent>().physics.setAirFriction(0.01f);
     getCamera().getEntity().getComponent<ECS::PhysicsComponent>().physics.setAffectedByGravity(true);
     getCamera().getEntity().getComponent<ECS::CollisionComponent>().collider.setSolid(true);
-    getCamera().getEntity().getComponent<ECS::PhysicsComponent>().physics.setMass(90);
+    getCamera().getEntity().getComponent<ECS::PhysicsComponent>().physics.setMass(50);
     getCamera().getEntity().getComponent<ECS::PhysicsComponent>().physics.setFriction(0.1);
     getCamera().getEntity().getComponent<ECS::CollisionComponent>().collider.setBoundingVolume(
         Math::BoundingVolume::createFromVulume(1, 5, 1));
