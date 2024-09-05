@@ -116,14 +116,15 @@ float calculateAttenuation(float distance, float radius) {
 }
 
 vec3 calculateSpecular(vec3 lightDir, vec3 norm, vec3 viewDir, float shininess,
-vec3 specularColor, float materialSpecularIntensity, float att, float intensity) {
+vec3 lightColor, vec3 materialSpecularColor, float materialSpecularIntensity,
+float att, float lightIntensity) {
     if (shininess < 0.01) {
-        return vec3(0.0);// No specular highlight if shininess is close to zero
+        return vec3(0.0); // No specular highlight if shininess is close to zero
     }
     float materialShininessMapped = shininess * 256.0f;
     vec3 reflectDir = reflect(-lightDir, norm);
     float spec = pow(max(dot(viewDir, reflectDir), 0.0), materialShininessMapped);
-    return intensity * spec * specularColor * materialSpecularIntensity;
+    return lightIntensity * spec * lightColor * materialSpecularColor * materialSpecularIntensity * att;
 }
 
 vec3 calculateDiffuse(vec3 lightDir, vec3 norm, vec3 color, float intensity, float att) {
@@ -159,8 +160,8 @@ void main() {
     totalDiffuse += calculateDiffuse(sunDir, norm, sunColor, sunIntensity, 1.0);
 
     // Specular
-    totalSpecular += 0.1 * calculateSpecular(sunDir, norm, viewDir, uMaterial.shininess,
-    uMaterial.specularColor, uMaterial.specularIntensity, 1.0, sunIntensity);
+    totalSpecular += calculateSpecular(sunDir, norm, viewDir, uMaterial.shininess,
+    sunColor, uMaterial.specularColor, uMaterial.specularIntensity, 1.0, sunIntensity);
 
 
     vec3 emission = uMaterial.emissionColor * uMaterial.emissionIntensity;
@@ -186,7 +187,7 @@ void main() {
 
         // Specular
         totalSpecular += calculateSpecular(lightDirNormalized, norm, viewDir, uMaterial.shininess,
-        uMaterial.specularColor, uMaterial.specularIntensity, att, intensity);
+            color, uMaterial.specularColor, uMaterial.specularIntensity, att, intensity);
     }
     vec3 finalColor = (ambient + totalDiffuse + totalSpecular + emission) * baseColor;
 
