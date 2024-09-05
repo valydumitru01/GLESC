@@ -9,7 +9,7 @@ Logger::Logger() : done_(false), worker_(&Logger::processQueue, this) {
 #ifndef NLOGGING
     addLogger(std::make_unique<TerminalLogger>());
 #endif
-    addLogger(std::make_unique<FileLogger>());
+    //addLogger(std::make_unique<FileLogger>());
 }
 
 Logger::~Logger() {
@@ -30,12 +30,14 @@ void Logger::addLogger(std::unique_ptr<ILogger> loggerParam) {
 }
 
 void Logger::executeOnAllInputs(void (ILogger::*func)(const std::string&), const std::string& text) {
+    /*
     queue_.push([this, func, text] {
         std::lock_guard<std::mutex> lock(mutex_);
         for (auto& logger : loggers) {
             (logger.get()->*func)(text);
         }
     });
+    */
 }
 
 void Logger::log(const std::string& text) {

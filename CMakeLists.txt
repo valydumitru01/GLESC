@@ -195,8 +195,18 @@ foreach (file ${BINS_TO_COPY})
 endforeach ()
 success("Copied bins from ${BIN_DEV_DIR} to ${CMAKE_BINARY_DIR}${BIN_BIN_LOCATION}")
 
-# Copy the executable and the assets to the release folders
-file(COPY ${CMAKE_BINARY_DIR}/${PROJECT_NAME}.exe DESTINATION ${RELEASE_RELEASE_DIR})
-success("Copied ${CMAKE_BINARY_DIR}/${PROJECT_NAME}.exe to ${RELEASE_RELEASE_DIR}")
-file(COPY ${CMAKE_BINARY_DIR}/assets DESTINATION ${RELEASE_RELEASE_DIR})
-success("Copied ${CMAKE_BINARY_DIR}/assets to ${RELEASE_RELEASE_DIR}")
+# Copy the executable to the release folder if it exists
+if(EXISTS ${CMAKE_BINARY_DIR}/${PROJECT_NAME}.exe)
+    file(COPY ${CMAKE_BINARY_DIR}/${PROJECT_NAME}.exe DESTINATION ${RELEASE_RELEASE_DIR})
+    success("Copied ${CMAKE_BINARY_DIR}/${PROJECT_NAME}.exe to ${RELEASE_RELEASE_DIR}")
+else()
+    message(WARNING "Executable ${CMAKE_BINARY_DIR}/${PROJECT_NAME}.exe does not exist and will not be copied.")
+endif()
+
+# Copy the assets directory to the release folder if it exists
+if(EXISTS ${CMAKE_BINARY_DIR}/assets)
+    file(COPY ${CMAKE_BINARY_DIR}/assets DESTINATION ${RELEASE_RELEASE_DIR})
+    success("Copied ${CMAKE_BINARY_DIR}/assets to ${RELEASE_RELEASE_DIR}")
+else()
+    message(WARNING "Assets directory ${CMAKE_BINARY_DIR}/assets does not exist and will not be copied.")
+endif()
