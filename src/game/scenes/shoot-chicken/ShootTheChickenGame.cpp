@@ -43,7 +43,6 @@ void ShootTheChickenGame::createChickenMesh() {
     Render::ColorMesh chickenFoot2 = Render::MeshFactory::cuboid(0.2f, 0.1f, 0.2f, Render::ColorRgb::Yellow);
     Transform::Transformer::translateMesh(chickenFoot2, {-0.25, -1, 0.1f});
 
-
     chickenMesh.startBuilding();
     chickenMesh.attatchMesh(chickenHead);
     chickenMesh.attatchMesh(chickenBody);
